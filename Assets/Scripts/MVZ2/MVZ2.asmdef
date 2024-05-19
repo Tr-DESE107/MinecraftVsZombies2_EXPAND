@@ -1,0 +1,17 @@
+{
+    "name": "MVZ2",
+    "rootNamespace": "MVZ2",
+    "references": [
+        "GUID:bb0e45f4ddb54a84dab05f6352bb916c",
+        "GUID:5fde897b5e6f58943b173e1c033b7b41"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

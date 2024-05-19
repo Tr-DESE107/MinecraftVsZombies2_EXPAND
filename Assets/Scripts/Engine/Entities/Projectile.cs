@@ -114,7 +114,7 @@ namespace PVZEngine
             if (!Detection.IsZCoincide(Pos.z, GetScaledSize().z, other.Pos.z, other.GetScaledSize().z))
                 return;
 
-            other.TakeDamage(GetDamage(), new DamageEffects(), new EntityReference(this));
+            other.TakeDamage(GetDamage(), new DamageEffectList(), new EntityReference(this));
 
             collided.Add(new EntityReference(other));
             if (!CanPierce(other))

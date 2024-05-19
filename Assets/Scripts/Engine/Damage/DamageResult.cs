@@ -8,19 +8,19 @@ namespace PVZEngine
         public Entity Entity { get; set; }
         public float OriginalDamage { get; set; }
         public float UsedDamage { get; set; }
-        public DamageEffects Effects { get; set; }
+        public DamageEffectList Effects { get; set; }
         public bool OnArmor { get; set; }
     }
-    public class DamageEffects
+    public class DamageEffectList
     {
-        public DamageEffects(params string[] effects)
+        public DamageEffectList(params NamespaceID[] effects)
         {
             this.effects = effects;
         }
-        public bool HasEffect(string effect)
+        public bool HasEffect(NamespaceID effect)
         {
             return effects.Contains(effect);
         }
-        private string[] effects;
+        private NamespaceID[] effects;
     }
 }

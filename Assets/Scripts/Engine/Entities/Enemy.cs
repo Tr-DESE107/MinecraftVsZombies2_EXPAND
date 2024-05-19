@@ -71,7 +71,7 @@ namespace PVZEngine
         {
             if (target == null)
                 return;
-            target.TakeDamage(GetDamage() * GetAttackSpeed() / Game.Option.TPS, new DamageEffects(), new EntityReference(this));
+            target.TakeDamage(GetDamage() * GetAttackSpeed() / Game.Option.TPS, new DamageEffectList(), new EntityReference(this));
         }
 
         #endregion

@@ -26,7 +26,7 @@ namespace PVZEngine
                     foreach (Entity entity in Game.GetEntities().Where(e => CanCrush(e)))
                     {
                         // 碰到小车的僵尸受到伤害。
-                        entity.TakeDamage(58115310, new DamageEffects(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY), new EntityReference(this));
+                        entity.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY), new EntityReference(this));
                     }
 
                     // 如果超出屏幕，消失。

@@ -158,7 +158,7 @@ namespace PVZEngine
         {
             return entities.Where(predicate).ToArray();
         }
-        public void Explode(Vector3 center, float radius, int faction, float amount, DamageEffects effects, EntityReference source)
+        public void Explode(Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReference source)
         {
             foreach (Entity entity in GetEntities())
             {

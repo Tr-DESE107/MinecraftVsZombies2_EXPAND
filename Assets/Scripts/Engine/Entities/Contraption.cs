@@ -43,7 +43,7 @@ namespace PVZEngine
         #endregion
         public void DigUp()
         {
-            Die(new DamageEffects());
+            Die(new DamageEffectList());
         }
         #endregion
 

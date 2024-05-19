@@ -278,7 +278,7 @@ namespace PVZEngine
                 UsedDamage = info.GetUsedDamage()
             };
         }
-        public DamageResult[] TakeDamage(float amount, DamageEffects effects, EntityReference source)
+        public DamageResult[] TakeDamage(float amount, DamageEffectList effects, EntityReference source)
         {
             return TakeDamage(new DamageInfo(amount, effects, this, source));
         }
@@ -304,7 +304,7 @@ namespace PVZEngine
         }
 
 
-        public void Die(DamageEffects effects = null)
+        public void Die(DamageEffectList effects = null)
         {
             IsDead = true;
         }
@@ -421,7 +421,7 @@ namespace PVZEngine
             float fallDamage = Mathf.Pow(fallHeight, 2);
             if (fallDamage > 0)
             {
-                var effects = new DamageEffects(DamageFlags.IGNORE_ARMOR, DamageFlags.FALL_DAMAGE);
+                var effects = new DamageEffectList(DamageFlags.IGNORE_ARMOR, DamageFlags.FALL_DAMAGE);
                 TakeDamage(fallDamage, effects, new EntityReference(null));
             }
         }

@@ -6,12 +6,12 @@ namespace PVZEngine
     {
         public float OriginalDamage { get; private set; }
         public float Amount { get; private set; }
-        public DamageEffects Effects { get; private set; }
+        public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; set; }
         public EntityReference Source { get; set; }
         private float usedDamage;
 
-        public DamageInfo(float amount, DamageEffects effects, Entity entity, EntityReference source)
+        public DamageInfo(float amount, DamageEffectList effects, Entity entity, EntityReference source)
         {
             OriginalDamage = amount;
             Amount = amount;
