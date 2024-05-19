@@ -5,11 +5,10 @@ namespace PVZEngine
 {
     public class AreaDefinition : Definition
     {
-        public GridDefinition[] GetGrids()
+        public NamespaceID[] GetGridDefintionsID()
         {
-            return grids.Select(i => gridDefinitions[i]).ToArray();
+            return grids.ToArray();
         }
-        private List<int> grids = new List<int>();
-        private List<GridDefinition> gridDefinitions = new List<GridDefinition>();
+        protected List<NamespaceID> grids = new List<NamespaceID>();
     }
 }

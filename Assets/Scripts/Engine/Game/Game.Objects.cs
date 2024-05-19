@@ -13,18 +13,6 @@ namespace PVZEngine
         {
             entities.Remove(entity);
         }
-        public EntityDefinition GetEntityDefinition(NamespaceID entityRef)
-        {
-            return entityDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
-        }
-        public T GetEntityDefinition<T>() where T : EntityDefinition
-        {
-            return entityDefinitions.OfType<T>().FirstOrDefault();
-        }
-        public ShellDefinition GetShellDefinition(NamespaceID entityRef)
-        {
-            return shellDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
-        }
 
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
         {
@@ -57,6 +45,7 @@ namespace PVZEngine
                     spawned = new Effect(this, id, effectRandom.Next());
                     break;
             }
+            spawned.Definition = entityDef;
             spawned.Pos = pos;
             entities.Add(spawned);
             spawned.Init(spawner);
@@ -68,7 +57,7 @@ namespace PVZEngine
             return Spawn(entityDef, pos, spawner);
         }
 
-        public void CreatePreviewEnemies(IList<NamespaceID> validEnemies)
+        public void CreatePreviewEnemies(IList<NamespaceID> validEnemies, Rect region)
         {
             List<Enemy> createdEnemies = new List<Enemy>();
 
@@ -87,7 +76,7 @@ namespace PVZEngine
                         Vector3 pos;
                         do
                         {
-                            pos = new Vector3(miscRandom.Next(MIN_PREVIEW_X, MAX_PREVIEW_X), 0, miscRandom.Next(MIN_PREVIEW_Y, MAX_PREVIEW_Y));
+                            pos = new Vector3(miscRandom.Next(region.xMin, region.xMax), 0, miscRandom.Next(region.yMin, region.yMax));
 
                             around = false;
                             for (int e = 0; e < createdEnemies.Count; e++)
@@ -121,22 +110,7 @@ namespace PVZEngine
                 }
             }
         }
-        public float GetUnitLaneZ(int row)
-        {
-            return GetRowZ(row, 0.16f);
-        }
-        public float GetColumnX(int column)
-        {
-            return LEFT_BORDER + column * GRID_SIZE;
-        }
-
-        public float GetRowZ(int row, float zOffset)
-        {
-            float centerZ = (SCREEN_HEIGHT - GetTopZOffset()) * 0.5f;
-            float extent = GetMaxLaneCount() * GRID_SIZE * 0.5f;
-            return centerZ + extent - row * GRID_SIZE + zOffset;
-        }
-        public void SpawnCarts()
+        public void SpawnCarts(float x)
         {
             var cartRef = AreaDefinition.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
 
@@ -145,7 +119,7 @@ namespace PVZEngine
             {
                 if (carts.Any(c => c.GetLane() == i && c.State != CartStates.TRIGGERED))
                     continue;
-                Cart cart = Spawn(cartRef, new Vector3(CART_START_X - i * 10, 0, GetUnitLaneZ(i)), null) as Cart;
+                Cart cart = Spawn(cartRef, new Vector3(x - i * 10, 0, GetUnitLaneZ(i)), null) as Cart;
             }
         }
         public Entity[] GetEntities(params int[] filterTypes)
@@ -168,27 +142,6 @@ namespace PVZEngine
                 }
             }
         }
-
-        public float GetBorderX(bool right)
-        {
-            return right ? RIGHT_BORDER : LEFT_BORDER;
-        }
-        public float GetAttackBorderX(bool right)
-        {
-            return right ? ATTACK_RIGHT_BORDER : ATTACK_LEFT_BORDER;
-        }
-        public float GetPickupBorderX(bool right)
-        {
-            return right ? PICKUP_RIGHT_BORDER : PICKUP_LEFT_BORDER;
-        }
-        public float GetScreenHeight()
-        {
-            return SCREEN_HEIGHT;
-        }
-        public float GetEnemyRightBorderX()
-        {
-            return ENEMY_RIGHT_BORDER;
-        }
         private int AllocEntityID()
         {
             int id = currentEntityID;
@@ -196,25 +149,5 @@ namespace PVZEngine
             return id;
         }
         private int currentEntityID = 1;
-        private const float CART_START_X = 150;
-        private const float TOP_Z_OFFSET = 80;
-        private const float SCREEN_WIDTH = 800;
-        private const float SCREEN_HEIGHT = 600;
-        private const float LEFT_BORDER = 220;
-        private const float RIGHT_BORDER = LEFT_BORDER + SCREEN_WIDTH;
-        private const float MIN_PREVIEW_X = 1080;
-        private const float MAX_PREVIEW_X = 1300;
-        private const float MIN_PREVIEW_Y = 50;
-        private const float MAX_PREVIEW_Y = 450;
-        private const float GRID_SIZE = 80;
-        private const float LAWN_HEIGHT = 600;
-        private const float LEVEL_WIDTH = 1400;
-        private const float PICKUP_LEFT_BORDER = LEFT_BORDER + 50;
-        private const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
-        private const float ATTACK_LEFT_BORDER = LEFT_BORDER;
-        private const float ATTACK_RIGHT_BORDER = RIGHT_BORDER;
-        private const float ENEMY_RIGHT_BORDER = RIGHT_BORDER + 60;
-        private List<EntityDefinition> entityDefinitions = new List<EntityDefinition>();
-        private List<ShellDefinition> shellDefinitions = new List<ShellDefinition>();
     }
 }

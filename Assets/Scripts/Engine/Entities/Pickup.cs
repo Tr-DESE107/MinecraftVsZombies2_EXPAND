@@ -18,7 +18,6 @@ namespace PVZEngine
             base.OnUpdate();
             if (!IsCollected)
             {
-                LimitPosition();
                 if (!IsImportant())
                 {
                     Timeout--;
@@ -40,15 +39,6 @@ namespace PVZEngine
         public bool IsImportant()
         {
             return GetProperty<bool>(PickupProperties.IMPORTANT);
-        }
-        #endregion
-
-        #region Ë½ÓÐ·½·¨
-        private void LimitPosition()
-        {
-            Vector3 pos = Pos;
-            pos.x = Mathf.Clamp(pos.x, Game.GetPickupBorderX(false), Game.GetPickupBorderX(true));
-            Pos = pos;
         }
         #endregion
 

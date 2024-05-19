@@ -36,9 +36,6 @@ namespace PVZEngine
         protected override void OnUpdate()
         {
             base.OnUpdate();
-            Vector3 pos = Pos;
-            pos.x = Mathf.Min(pos.x, Game.GetEnemyRightBorderX());
-            Pos = pos;
 
             var velocity = Velocity;
             var speed = GetSpeed();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PVZEngine
@@ -7,31 +8,18 @@ namespace PVZEngine
     public partial class Game
     {
         #region 公有方法
-        public Game(AreaDefinition area, StageDefinition stage)
+        public Game(params Mod[] mods)
         {
-            AreaDefinition = area;
-            StageDefinition = stage;
-
-            // Initalize current stage info.
-            var maxLane = GetMaxLaneCount();
-            int maxColumn = GetMaxColumnCount();
-
-            grids = new Grid[maxColumn * maxLane];
-
-            var gridDefinitions = AreaDefinition.GetGrids();
-            for (int i = 0; i < gridDefinitions.Length; i++)
+            foreach (var mod in mods)
             {
-                var definition = gridDefinitions[i];
-                int lane = Mathf.FloorToInt(i / maxColumn);
-                int column = i % maxColumn;
-                var grid = new Grid(this, definition, lane, column);
+                AddMod(mod);
             }
         }
 
         #region 生命周期
-        public void Init(int difficulty, GameOption option)
+        public void Init(int difficulty, NamespaceID areaId, NamespaceID stageId, GameOption option, int seed = 0)
         {
-            Seed = Guid.NewGuid().GetHashCode();
+            Seed = seed == 0 ? Guid.NewGuid().GetHashCode() : seed;
 
             Option = option;
 
@@ -49,6 +37,31 @@ namespace PVZEngine
 
             Difficulty = difficulty;
             Energy = option.StartEnergy;
+
+
+            AreaDefinition = GetAreaDefinition(areaId);
+            StageDefinition = GetStageDefinition(stageId);
+
+            gridSize = AreaDefinition.GetProperty<float>(AreaProperties.GRID_SIZE);
+            gridLeftX = AreaDefinition.GetProperty<float>(AreaProperties.GRID_LEFT_X);
+            gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
+            maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
+            maxColumnCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
+
+            // Initalize current stage info.
+            var maxLane = GetMaxLaneCount();
+            int maxColumn = GetMaxColumnCount();
+
+            grids = new Grid[maxColumn * maxLane];
+
+            var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => GetGridDefinition(i)).ToArray();
+            for (int i = 0; i < gridDefinitions.Length; i++)
+            {
+                var definition = gridDefinitions[i];
+                int lane = Mathf.FloorToInt(i / maxColumn);
+                int column = i % maxColumn;
+                var grid = new Grid(this, definition, lane, column);
+            }
         }
         public void Update()
         {
@@ -96,17 +109,33 @@ namespace PVZEngine
         #endregion
 
         #region 坐标相关方法
-        public float GetTopZOffset()
+        public float GetGridSize()
         {
-            return TOP_Z_OFFSET + AreaDefinition.GetProperty<float>(AreaProperties.TOP_Z_OFFSET);
+            return gridSize;
+        }
+        public float GetGridRightX()
+        {
+            return GetGridLeftX() + GetMaxColumnCount() * GetGridSize();
+        }
+        public float GetGridLeftX()
+        {
+            return gridLeftX;
+        }
+        public float GetGridTopZ()
+        {
+            return GetGridBottomZ() + GetMaxLaneCount() * GetGridSize();
+        }
+        public float GetGridBottomZ()
+        {
+            return gridBottomZ;
         }
         public int GetMaxLaneCount()
         {
-            return AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
+            return maxLaneCount;
         }
         public int GetMaxColumnCount()
         {
-            return AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
+            return maxColumnCount;
         }
         public int GetLane(float z)
         {
@@ -115,7 +144,7 @@ namespace PVZEngine
             //2.4 - 3.2 : 2
             //1.6 - 2.4 : 3
             //0.8 - 1.6 : 4
-            return Mathf.FloorToInt((SCREEN_HEIGHT - GetTopZOffset() - z) / GRID_SIZE);
+            return Mathf.FloorToInt((GetGridTopZ() - z) / GetGridSize());
         }
         public int GetColumn(float x)
         {
@@ -123,7 +152,20 @@ namespace PVZEngine
             //3.2 - 4.0 : 1
             //4.0 - 4.8 : 2
             //5.6 - 6.2 : 3
-            return Mathf.FloorToInt((x - GRID_SIZE * 0.5f - LEFT_BORDER) / GRID_SIZE);
+            return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridSize());
+        }
+        public float GetUnitLaneZ(int row)
+        {
+            return GetLaneZ(row, 0.16f);
+        }
+        public float GetColumnX(int column)
+        {
+            return GetGridLeftX() + +column * GetGridSize();
+        }
+        public float GetLaneZ(int lane, float zOffset = 0)
+        {
+            float laneZ = GetGridTopZ() - (lane + 1) * GetGridSize();
+            return laneZ + zOffset;
         }
         public float GetGroundHeight(Vector3 pos)
         {
@@ -203,6 +245,11 @@ namespace PVZEngine
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
         private Grid[] grids;
 
+        private float gridSize;
+        private float gridLeftX;
+        private float gridBottomZ;
+        private int maxLaneCount;
+        private int maxColumnCount;
         #endregion 保存属性
     }
 }

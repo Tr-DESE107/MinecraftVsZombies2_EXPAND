@@ -13,10 +13,13 @@
         }
         public EntityReference(Entity entity)
         {
-            ID = entity.ID;
             Entity = entity;
-            Definition = entity.Definition;
-            SpawnerReference = entity.SpawnerReference;
+            if (entity != null)
+            {
+                ID = entity.ID;
+                Definition = entity.Definition;
+                SpawnerReference = entity.SpawnerReference;
+            }
         }
         public override bool Equals(object obj)
         {

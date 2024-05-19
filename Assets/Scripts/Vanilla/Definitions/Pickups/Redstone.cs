@@ -71,7 +71,7 @@ namespace MVZ2.GameContent
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
             var game = entity.Game;
-            Vector3 slotPosition = game.GetEnergySlotEntityPosition();
+            Vector3 slotPosition = MVZ2Game.GetEnergySlotEntityPosition();
             return new Vector3(slotPosition.x, slotPosition.z - COLLECTED_Z, COLLECTED_Z);
         }
         public static void Disappear(Pickup pickup)

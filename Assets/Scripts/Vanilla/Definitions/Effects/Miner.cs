@@ -58,11 +58,11 @@ namespace MVZ2.GameContent
 
             var level = entity.Game;
             var rng = entity.RNG;
-            if (position.x <= level.GetBorderX(false) + 150)
+            if (position.x <= MVZ2Game.GetBorderX(false) + 150)
             {
                 xSpeed = rng.Next(0, maxSpeed);
             }
-            else if (position.x >= level.GetBorderX(true) - 150)
+            else if (position.x >= MVZ2Game.GetBorderX(true) - 150)
             {
                 xSpeed = rng.Next(-maxSpeed, 0);
             }

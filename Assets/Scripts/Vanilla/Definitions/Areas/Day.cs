@@ -1,0 +1,19 @@
+﻿using PVZEngine;
+
+namespace MVZ2.GameContent.Areas
+{
+    public class Day : AreaDefinition
+    {
+        public Day()
+        {
+            propertyDict.SetProperty(AreaProperties.GRID_LEFT_X, 240);
+            propertyDict.SetProperty(AreaProperties.GRID_BOTTOM_Z, 80);
+            propertyDict.SetProperty(AreaProperties.MAX_LANE_COUNT, 5);
+            propertyDict.SetProperty(AreaProperties.MAX_COLUMN_COUNT, 9);
+            for (int i = 0; i < 45; i++)
+            {
+                grids.Add(GridID.grass);
+            }
+        }
+    }
+}

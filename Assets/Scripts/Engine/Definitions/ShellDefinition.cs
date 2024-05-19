@@ -12,5 +12,6 @@ namespace PVZEngine
             }
         }
         private List<IDamageOperator> operators = new List<IDamageOperator>();
+
     }
 }

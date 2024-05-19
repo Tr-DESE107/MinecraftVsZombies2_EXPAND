@@ -72,6 +72,10 @@ namespace PVZEngine
         {
             return this as Enemy;
         }
+        public Cart ToCart()
+        {
+            return this as Cart;
+        }
         public Effect ToEffect()
         {
             return this as Effect;

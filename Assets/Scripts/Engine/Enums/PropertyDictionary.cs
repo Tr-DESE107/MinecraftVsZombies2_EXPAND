@@ -4,6 +4,10 @@ namespace PVZEngine
 {
     public class PropertyDictionary
     {
+        public void SetProperty(string name, object value)
+        {
+            propertyDict[name] = value;
+        }
         public object GetProperty(string name)
         {
             if (propertyDict.TryGetValue(name, out var prop))

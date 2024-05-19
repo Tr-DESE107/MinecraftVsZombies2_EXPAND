@@ -2,9 +2,11 @@
 {
     public static class AreaProperties
     {
-        public const string TOP_Z_OFFSET = "topZOffset";
-        public const string MAX_LANE_COUNT = "maxLaneCount";
-        public const string MAX_COLUMN_COUNT = "maxColumnCount";
+        public const string GRID_SIZE = "GridSize";
+        public const string GRID_LEFT_X = "GridLeftX";
+        public const string GRID_BOTTOM_Z = "GridBottomZ";
+        public const string MAX_LANE_COUNT = "MaxLaneCount";
+        public const string MAX_COLUMN_COUNT = "MaxColumnCount";
         public const string CART_REFERENCE = "cartReference";
     }
 }

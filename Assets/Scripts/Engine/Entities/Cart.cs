@@ -28,12 +28,6 @@ namespace PVZEngine
                         // 碰到小车的僵尸受到伤害。
                         entity.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY), new EntityReference(this));
                     }
-
-                    // 如果超出屏幕，消失。
-                    if (Pos.x - 0.28f >= Game.GetBorderX(true))
-                    {
-                        Remove();
-                    }
                     break;
             }
         }
@@ -76,7 +70,7 @@ namespace PVZEngine
 
         public override int Type => EntityTypes.CART;
         public int State { get; set; }
-        private const float TRIGGER_DISTANCE = 0.28f;
+        private const float TRIGGER_DISTANCE = 28;
     }
 
     public static class CartStates

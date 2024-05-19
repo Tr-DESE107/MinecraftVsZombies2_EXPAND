@@ -12,6 +12,6 @@
         }
         public string Namespace { get; set; }
         public string Name { get; set; }
-        private PropertyDictionary propertyDict = new PropertyDictionary();
+        protected PropertyDictionary propertyDict = new PropertyDictionary();
     }
 }

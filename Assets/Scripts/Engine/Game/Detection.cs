@@ -36,11 +36,6 @@ namespace PVZEngine
         }
 
         #region X related
-        public static bool IsInsideLawn(Entity target)
-        {
-            return target.Pos.x < target.Game.GetAttackBorderX(true);
-        }
-
         public static bool IsInFrontOf(Entity self, Entity other, float rangeStart, float rangeLength)
         {
             float nearRange = rangeStart;

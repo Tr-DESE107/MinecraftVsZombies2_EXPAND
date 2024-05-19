@@ -25,8 +25,8 @@
         }
         public static bool operator ==(NamespaceID lhs, NamespaceID rhs)
         {
-            if (lhs == null)
-                return rhs == null;
+            if (lhs is null)
+                return rhs is null;
             return lhs.Equals(rhs);
         }
         public static bool operator !=(NamespaceID lhs, NamespaceID rhs)
