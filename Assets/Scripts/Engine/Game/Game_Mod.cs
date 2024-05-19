@@ -29,6 +29,10 @@ namespace PVZEngine
         {
             return gridDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
         }
+        public BuffDefinition GetBuffDefinition(NamespaceID entityRef)
+        {
+            return buffDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+        }
         private void AddMod(Mod mod)
         {
             entityDefinitions.AddRange(mod.GetEntityDefinitions());
@@ -36,11 +40,13 @@ namespace PVZEngine
             areaDefinitions.AddRange(mod.GetAreaDefinitions());
             stageDefinitions.AddRange(mod.GetStageDefinitions());
             gridDefinitions.AddRange(mod.GetGridDefinitions());
+            buffDefinitions.AddRange(mod.GetBuffDefinitions());
         }
         private List<EntityDefinition> entityDefinitions = new List<EntityDefinition>();
         private List<ShellDefinition> shellDefinitions = new List<ShellDefinition>();
         private List<AreaDefinition> areaDefinitions = new List<AreaDefinition>();
         private List<StageDefinition> stageDefinitions = new List<StageDefinition>();
         private List<GridDefinition> gridDefinitions = new List<GridDefinition>();
+        private List<BuffDefinition> buffDefinitions = new List<BuffDefinition>();
     }
 }

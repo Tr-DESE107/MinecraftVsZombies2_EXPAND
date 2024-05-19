@@ -7,17 +7,20 @@ namespace MVZ2.Vanilla
     {
         public override bool IsInRange(Entity self, Entity target)
         {
-            float enemyHeight = target.Size.y;
+            var targetSize = target.GetSize();
+            float enemyHeight = targetSize.y;
 
+            var projectileDef = self.Game.GetEntityDefinition(projectileID);
+            var projectileSize = projectileDef.GetSize();
             if (TargetInLawn(target) &&
                 TargetInFront(self, target) &&
-                Detection.IsZCoincide(self.Pos.z, projectileSizeZ, target.Pos.z, target.Size.z))
+                Detection.IsZCoincide(self.Pos.z, projectileSize.z, target.Pos.z, targetSize.z))
             {
                 if (ignoreHighEnemy)
                 {
                     if (ignoreLowEnemy)
                     {
-                        return Detection.IsYCoincide(self.Pos.y + shootOffset.y, projectileSizeY, target.Pos.y, enemyHeight);
+                        return Detection.IsYCoincide(self.Pos.y + shootOffset.y, projectileSize.y, target.Pos.y, enemyHeight);
                     }
                     else
                     {
@@ -43,8 +46,7 @@ namespace MVZ2.Vanilla
         {
             return range < 0 ? Detection.IsInFrontOf(self, target, shootOffset.x) : Detection.IsInFrontOf(self, target, shootOffset.x, range);
         }
-        public float projectileSizeY;
-        public float projectileSizeZ;
+        public NamespaceID projectileID;
         public float range;
         public bool ignoreLowEnemy;
         public bool ignoreHighEnemy;

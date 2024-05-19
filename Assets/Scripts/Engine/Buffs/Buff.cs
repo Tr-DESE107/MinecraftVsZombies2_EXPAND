@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PVZEngine
+﻿namespace PVZEngine
 {
     public class Buff
     {
@@ -12,15 +6,15 @@ namespace PVZEngine
         {
             Definition = definition;
         }
-        public object ModifyProperty(object property)
+        public T GetProperty<T>(string name)
         {
-            foreach (var modi in GetModifiers())
-            {
-                property = modi.CalculateProperty(Entity, this, property);
-            }
-            return property;
+            return propertyDict.GetProperty<T>(name);
         }
-        public Modifier[] GetModifiers()
+        public void SetProperty(string name, object value)
+        {
+            propertyDict.SetProperty(name, value);
+        }
+        public PropertyModifier[] GetModifiers()
         {
             return Definition.GetModifiers();
         }
@@ -46,5 +40,6 @@ namespace PVZEngine
         }
         public BuffDefinition Definition { get; }
         public Entity Entity { get; private set; }
+        private PropertyDictionary propertyDict = new PropertyDictionary();
     }
 }

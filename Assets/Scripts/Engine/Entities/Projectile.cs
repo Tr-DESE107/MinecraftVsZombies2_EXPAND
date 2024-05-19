@@ -11,7 +11,11 @@ namespace PVZEngine
         #region ¹¹ÔìÆ÷
         public Projectile(Game level, int id, int seed) : base(level, id, seed)
         {
-
+            CollisionMask = EntityCollision.MASK_CONTRAPTION
+                | EntityCollision.MASK_ENEMY
+                | EntityCollision.MASK_OBSTACLE
+                | EntityCollision.MASK_BOSS
+                | EntityCollision.MASK_HOSTILE;
         }
         #endregion
 
@@ -27,11 +31,6 @@ namespace PVZEngine
         {
             base.OnUpdate();
             Timeout--;
-            if (WillDestroyOutsideLawn() && IsOutsideView())
-            {
-                Remove();
-                return;
-            }
             if (Timeout <= 0)
             {
                 Remove();
@@ -39,22 +38,19 @@ namespace PVZEngine
             }
         }
 
-        public override void OnEntityCollisionEnter(Entity other, bool actively)
+        protected override void OnCollision(Entity other, int state)
         {
-            UnitCollide(other);
-        }
-
-        public override void OnEntityCollisionStay(Entity other, bool actively)
-        {
-            UnitCollide(other);
-        }
-
-        public override void OnEntityCollisionExit(Entity other, bool actively)
-        {
-            UnitExit(other);
-            if (other == SpawnerReference.Entity)
+            if (state != EntityCollision.STATE_EXIT)
             {
-                canHitSpawner = true;
+                UnitCollide(other);
+            }
+            else
+            {
+                UnitExit(other);
+                if (other == SpawnerReference.Entity)
+                {
+                    canHitSpawner = true;
+                }
             }
         }
         #endregion
@@ -64,27 +60,11 @@ namespace PVZEngine
         {
             return GetProperty<int>(ProjectileProperties.MAX_TIMEOUT);
         }
-        public bool WillDestroyOutsideLawn()
-        {
-            return !GetProperty<bool>(ProjectileProperties.NO_DESTROY_OUTSIDE_LAWN);
-        }
         public bool IsPiercing()
         {
             return GetProperty<bool>(ProjectileProperties.PIERCING);
         }
         #endregion
-
-        public virtual bool IsOutsideView()
-        {
-            var bounds = GetBounds();
-            return
-                Pos.x < 180 - bounds.extents.x ||
-                Pos.x > 1100 + bounds.extents.x ||
-                Pos.z > 550 ||
-                Pos.z < -50 ||
-                Pos.y > 1000 ||
-                Pos.y < -1000;
-        }
 
         public override void StopWarpingLane()
         {
@@ -108,7 +88,7 @@ namespace PVZEngine
             if (SpawnerReference != null && other == SpawnerReference.Entity && !canHitSpawner)
                 return;
 
-            if (WaitingDestroy || !IsEnemy(other) || collided.Any(c => c.ID == other.ID))
+            if (Removed || !IsEnemy(other) || collided.Any(c => c.ID == other.ID))
                 return;
 
             if (!Detection.IsZCoincide(Pos.z, GetScaledSize().z, other.Pos.z, other.GetScaledSize().z))

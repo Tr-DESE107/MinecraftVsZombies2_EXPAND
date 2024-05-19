@@ -5,10 +5,7 @@ namespace PVZEngine
         public Obstacle(Game level, int id, int seed) : base(level, id, seed)
         {
             SetFaction(Game.Option.RightFaction);
-        }
-        protected override void OnInit(Entity spawner)
-        {
-            base.OnInit(spawner);
+            SetFriction(0.2f);
             SetFallDamage(22.5f);
         }
         public override bool IsFacingLeft()

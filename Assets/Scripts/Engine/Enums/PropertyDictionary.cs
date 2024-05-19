@@ -16,8 +16,17 @@ namespace PVZEngine
         }
         public T GetProperty<T>(string name)
         {
-            var prop = GetProperty(name);
-            if (prop is T tProp)
+            return ToGeneric<T>(GetProperty(name));
+        }
+        public static T ToGeneric<T>(object value)
+        {
+            if (value is int intValue && typeof(T) == typeof(float))
+            {
+                var floatValue = (float)intValue;
+                if (floatValue is T floatResult)
+                    return floatResult;
+            }
+            if (value is T tProp)
             {
                 return tProp;
             }

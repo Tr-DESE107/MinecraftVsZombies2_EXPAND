@@ -1,3 +1,5 @@
+using MVZ2.GameContent;
+using MVZ2.Vanilla.Buffs;
 using PVZEngine;
 using UnityEngine;
 
@@ -5,6 +7,31 @@ namespace MVZ2.Vanilla
 {
     public abstract class VanillaEnemy : EntityDefinition
     {
+        public VanillaEnemy()
+        {
+            SetProperty(EnemyProps.SPEED, 0.5f);
+            SetProperty(EntityProperties.ATTACK_SPEED, 1f);
+            SetProperty(EntityProperties.DAMAGE, 100f);
+            SetProperty(EntityProperties.MAX_HEALTH, 200f);
+            SetProperty(EntityProperties.FALL_DAMAGE, 22.5f);
+            SetProperty(EntityProperties.FRICTION, 0.15f);
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+
+            var buff = entity.Game.CreateBuff(BuffID.randomEnemySpeed);
+            buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, entity.RNG.Next(1, 1.33333f));
+            entity.AddBuff(buff);
+
+            entity.SetFaction(entity.Game.Option.RightFaction);
+
+            entity.CollisionMask = EntityCollision.MASK_CONTRAPTION
+                | EntityCollision.MASK_ENEMY
+                | EntityCollision.MASK_OBSTACLE
+                | EntityCollision.MASK_BOSS
+                | EntityCollision.MASK_HOSTILE;
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
@@ -12,31 +39,15 @@ namespace MVZ2.Vanilla
             pos.x = Mathf.Min(pos.x, MVZ2Game.GetEnemyRightBorderX());
             entity.Pos = pos;
         }
-        public override void PostEntityCollisionStay(Entity entity, Entity other, bool actively)
-        {
-            if (!actively)
-                return;
-            var enemy = entity.ToEnemy();
-            MeleeCollision(enemy, other);
-        }
-
-        public override void PostEntityCollisionExit(Entity entity, Entity other, bool actively)
-        {
-            if (!actively)
-                return;
-            var enemy = entity.ToEnemy();
-            CancelMeleeAttack(enemy, other);
-        }
         protected void MeleeCollision(Enemy enemy, Entity other)
         {
-            if (ValidateAttackTarget(enemy, enemy.AttackTarget))
+            if (ValidateMeleeTarget(enemy, enemy.AttackTarget))
                 return;
-            if (ValidateAttackTarget(enemy, other))
+            if (ValidateMeleeTarget(enemy, other))
             {
                 enemy.AttackTarget = other;
             }
         }
-
         protected void CancelMeleeAttack(Enemy enemy, Entity other)
         {
             if (enemy.AttackTarget == other)
@@ -44,8 +55,10 @@ namespace MVZ2.Vanilla
                 enemy.AttackTarget = null;
             }
         }
-        protected virtual bool ValidateAttackTarget(Enemy enemy, Entity target)
+        protected virtual bool ValidateMeleeTarget(Enemy enemy, Entity target)
         {
+            if (target == null || !target.Exists() || target.IsDead)
+                return false;
             if (!enemy.IsEnemy(target))
                 return false;
             if (!Detection.IsInSameRow(enemy, target))
@@ -59,6 +72,129 @@ namespace MVZ2.Vanilla
             return true;
         }
         public override int Type => EntityTypes.ENEMY;
+    }
+    public abstract class MeleeEnemy : VanillaEnemy
+    {
+        public override void Update(Entity entity)
+        {
+            base.Update(entity);
+            var enemy = entity.ToEnemy();
+            if (!ValidateMeleeTarget(enemy, enemy.AttackTarget))
+                enemy.AttackTarget = null;
+            enemy.ActionState = GetActionState(enemy);
+            UpdateActionState(enemy, enemy.ActionState);
+
+        }
+        public override void PostCollision(Entity entity, Entity other, int state)
+        {
+            var enemy = entity.ToEnemy();
+            if (state != EntityCollision.STATE_EXIT)
+            {
+                MeleeCollision(enemy, other);
+            }
+            else
+            {
+                CancelMeleeAttack(enemy, other);
+            }
+        }
+        public override void PostDeath(Entity entity, DamageEffectList effects, EntityReference source)
+        {
+            base.PostDeath(entity, effects, source);
+            SetDeathTimer(entity, new FrameTimer(30));
+        }
+        public static FrameTimer GetDeathTimer(Entity entity)
+        {
+            return entity.GetProperty<FrameTimer>("DeathTimer");
+        }
+        public static void SetDeathTimer(Entity entity, FrameTimer frameTimer)
+        {
+            entity.SetProperty("DeathTimer", frameTimer);
+        }
+        protected virtual int GetActionState(Enemy enemy)
+        {
+            if (enemy.IsDead)
+            {
+                return EnemyStates.DEAD;
+            }
+            else if (enemy.IsPreview)
+            {
+                return EnemyStates.IDLE;
+            }
+            else if (enemy.AttackTarget != null)
+            {
+                return EnemyStates.ATTACK;
+            }
+            else
+            {
+                return EnemyStates.WALK;
+            }
+        }
+        protected virtual void UpdateActionState(Enemy enemy, int state)
+        {
+            enemy.SetAnimationInt("State", state);
+            switch (state)
+            {
+                case EnemyStates.WALK:
+                    UpdateStateWalk(enemy);
+                    break;
+                case EnemyStates.ATTACK:
+                    UpdateStateAttack(enemy);
+                    break;
+                case EnemyStates.DEAD:
+                    UpdateStateDead(enemy);
+                    break;
+                case EnemyStates.CAST:
+                    UpdateStateCast(enemy);
+                    break;
+                case EnemyStates.IDLE:
+                    UpdateStateIdle(enemy);
+                    break;
+            }
+        }
+        protected virtual void UpdateStateWalk(Enemy enemy)
+        {
+            var velocity = enemy.Velocity;
+            var speed = enemy.GetSpeed();
+            if (Mathf.Abs(velocity.x) < speed)
+            {
+                float min = Mathf.Min(speed, -speed);
+                float max = Mathf.Max(speed, -speed);
+                float direciton = enemy.IsFacingLeft() ? -1 : 1;
+                velocity.x += speed * direciton;
+                velocity.x = Mathf.Clamp(velocity.x, min, max);
+            }
+            enemy.Velocity = velocity;
+        }
+        protected virtual void UpdateStateAttack(Enemy enemy)
+        {
+            MeleeAttack(enemy, enemy.AttackTarget);
+        }
+        protected virtual void UpdateStateDead(Enemy enemy)
+        {
+            var deathTimer = GetDeathTimer(enemy);
+            if (deathTimer == null)
+            {
+                deathTimer = new FrameTimer(30);
+                SetDeathTimer(enemy, deathTimer);
+            }
+            deathTimer.Run();
+            if (deathTimer.Expired)
+            {
+                enemy.Remove();
+            }
+        }
+        protected virtual void UpdateStateCast(Enemy enemy)
+        {
+        }
+        protected virtual void UpdateStateIdle(Enemy enemy)
+        {
+        }
+        protected void MeleeAttack(Enemy enemy, Entity target)
+        {
+            if (target == null)
+                return;
+            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(), new EntityReference(enemy));
+        }
     }
 
 }

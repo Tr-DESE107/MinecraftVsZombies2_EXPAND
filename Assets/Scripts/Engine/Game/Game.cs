@@ -66,9 +66,11 @@ namespace PVZEngine
         public void Update()
         {
             UpdateSeedRecharges();
-            foreach (var entity in GetEntities())
+            var entities = GetEntities();
+            foreach (var entity in entities)
             {
                 entity.Update();
+                CollisionUpdate(entity, entities);
             }
         }
         #endregion
@@ -102,9 +104,7 @@ namespace PVZEngine
         }
         public T GetProperty<T>(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
         {
-            if (GetProperty(name, ignoreStageDefinition, ignoreAreaDefinition) is T tProp)
-                return tProp;
-            return default;
+            return PropertyDictionary.ToGeneric<T>(GetProperty(name, ignoreStageDefinition, ignoreAreaDefinition));
         }
         #endregion
 
@@ -208,6 +208,14 @@ namespace PVZEngine
             return Mathf.CeilToInt(second * TPS);
         }
         #endregion
+
+        public Buff CreateBuff(NamespaceID id)
+        {
+            var buffDefinition = GetBuffDefinition(id);
+            if (buffDefinition == null)
+                return null;
+            return new Buff(buffDefinition);
+        }
 
         #endregion
 

@@ -18,7 +18,7 @@ namespace PVZEngine
             Effects = effects;
             Entity = entity;
             Source = source;
-            usedDamage = Entity.GetHealth();
+            usedDamage = Entity.Health;
         }
         public void Add(float value)
         {

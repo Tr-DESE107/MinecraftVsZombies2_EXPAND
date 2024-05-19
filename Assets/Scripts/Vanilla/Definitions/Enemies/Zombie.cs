@@ -1,13 +1,14 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    public class Zombie : VanillaEnemy
+    public class Zombie : MeleeEnemy
     {
-        protected override bool ValidateAttackTarget(Enemy enemy, Entity other)
+        public Zombie()
         {
-            return false;
+            SetProperty(EntityProperties.SIZE, new Vector3(32, 86, 32));
         }
     }
 }

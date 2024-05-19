@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.GameContent;
 using PVZEngine;
 using UnityEngine;
@@ -25,10 +26,11 @@ namespace MVZ2
             };
             level = new Game(vanilla);
             level.OnEntitySpawn += OnEntitySpawnCallback;
+            level.OnEntityRemove += OnEntityRemoveCallback;
             level.Init(0, AreaID.day, StageID.prologue, option);
 
             level.Spawn(ContraptionID.dispenser, new Vector3(300, 0, 300), null);
-            level.Spawn(EnemyID.zombie, new Vector3(500, 0, 300), null);
+            level.Spawn(EnemyID.zombie, new Vector3(400, 0, 300), null);
             isGameStarted = true;
         }
         private void OnEntitySpawnCallback(Entity entity)
@@ -37,6 +39,15 @@ namespace MVZ2
             var modelPrefab = main.ResourceManager.GetModel(entity.Definition.GetReference());
             entityController.Init(this, entity, modelPrefab);
             entities.Add(entityController);
+        }
+        private void OnEntityRemoveCallback(Entity entity)
+        {
+            var entityController = entities.FirstOrDefault(e => e.Entity == entity);
+            if (entityController)
+            {
+                Destroy(entityController.gameObject);
+                entities.Remove(entityController);
+            }
         }
         private void Update()
         {

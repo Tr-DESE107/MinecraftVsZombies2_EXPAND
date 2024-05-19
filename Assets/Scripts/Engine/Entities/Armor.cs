@@ -35,11 +35,7 @@ namespace PVZEngine
         }
         public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
-            if (GetProperty(name, ignoreDefinition, ignoreBuffs) is T tProp)
-            {
-                return tProp;
-            }
-            return default;
+            return PropertyDictionary.ToGeneric<T>(GetProperty(name, ignoreDefinition, ignoreBuffs));
         }
         public void SetProperty(string name, object value)
         {

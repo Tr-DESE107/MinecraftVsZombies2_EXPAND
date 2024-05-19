@@ -12,8 +12,22 @@ namespace PVZEngine
         internal void RemoveEntity(Entity entity)
         {
             entities.Remove(entity);
+            OnEntityRemove?.Invoke(entity);
         }
-
+        public void CollisionUpdate(Entity ent1, Entity[] entities)
+        {
+            foreach (var ent2 in entities)
+            {
+                if (ent1 == ent2)
+                    continue;
+                if (!EntityCollision.CanCollide(ent1, ent2))
+                    continue;
+                if (!ent1.GetBounds().Intersects(ent2.GetBounds()))
+                    continue;
+                ent1.Collide(ent2);
+            }
+            ent1.ClearCollision();
+        }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
         {
             Entity spawned;
@@ -153,6 +167,7 @@ namespace PVZEngine
         }
         #region 事件
         public Action<Entity> OnEntitySpawn;
+        public Action<Entity> OnEntityRemove;
         #endregion
         private int currentEntityID = 1;
     }

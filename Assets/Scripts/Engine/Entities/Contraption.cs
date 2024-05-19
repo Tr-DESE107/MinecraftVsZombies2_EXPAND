@@ -6,7 +6,6 @@ namespace PVZEngine
         #region 构造方法
         public Contraption(Game level, int id, int seed) : base(level, id, seed)
         {
-            SetFaction(Game.Option.LeftFaction);
         }
         #endregion
 
@@ -19,7 +18,7 @@ namespace PVZEngine
         protected override void OnUpdate()
         {
             base.OnUpdate();
-            if (GetRelativeY() > leaveGridHeight || WaitingDestroy)
+            if (GetRelativeY() > leaveGridHeight || Removed)
             {
                 ReleaseGrids();
             }
@@ -43,7 +42,7 @@ namespace PVZEngine
         #endregion
         public void DigUp()
         {
-            Die(new DamageEffectList());
+            Die();
         }
         #endregion
 

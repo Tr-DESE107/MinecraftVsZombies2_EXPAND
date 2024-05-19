@@ -25,6 +25,17 @@ namespace PVZEngine
         {
             return gridDefinitions.Values.ToArray();
         }
+        public BuffDefinition[] GetBuffDefinitions()
+        {
+            return buffDefinitions.Values.ToArray();
+        }
+
+        protected void AddDefinition<T>(Dictionary<string, T> list, string name, T definition) where T : Definition
+        {
+            definition.Namespace = Namespace;
+            definition.Name = name;
+            list.Add(name, definition);
+        }
         public Mod(string nsp)
         {
             Namespace = nsp;
@@ -35,5 +46,6 @@ namespace PVZEngine
         protected Dictionary<string, AreaDefinition> areaDefinitions = new Dictionary<string, AreaDefinition>();
         protected Dictionary<string, StageDefinition> stageDefinitions = new Dictionary<string, StageDefinition>();
         protected Dictionary<string, GridDefinition> gridDefinitions = new Dictionary<string, GridDefinition>();
+        protected Dictionary<string, BuffDefinition> buffDefinitions = new Dictionary<string, BuffDefinition>();
     }
 }

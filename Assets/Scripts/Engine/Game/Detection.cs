@@ -20,14 +20,14 @@ namespace PVZEngine
         {
             return IsInFrontOf(self, target) &&
                 IsBelowOf(self, target, heightOffset) &&
-                IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.Size.z);
+                IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.GetSize().z);
         }
 
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset, float frontRange)
         {
             return IsInFrontOf(self, target, 0, frontRange) &&
                 IsBelowOf(self, target, heightOffset) &&
-                IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.Size.z);
+                IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.GetSize().z);
         }
 
         public static bool CanDetect(Entity entity)

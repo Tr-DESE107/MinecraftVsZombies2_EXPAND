@@ -6,8 +6,8 @@
         public virtual void Update(Entity entity) { }
         public virtual void PostContactGround(Entity entity) { }
         public virtual void PostLeaveGround(Entity entity) { }
-        public virtual void PostEntityCollisionStay(Entity entity, Entity other, bool actively) { }
-        public virtual void PostEntityCollisionExit(Entity entity, Entity other, bool actively) { }
+        public virtual void PostCollision(Entity entity, Entity other, int state) { }
+        public virtual void PostDeath(Entity entity, DamageEffectList effects, EntityReference source) { }
         public abstract int Type { get; }
     }
 }

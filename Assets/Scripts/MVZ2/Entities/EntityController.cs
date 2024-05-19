@@ -1,8 +1,6 @@
-using System;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 namespace MVZ2
 {
@@ -12,8 +10,11 @@ namespace MVZ2
         public void Init(LevelController level, Entity entity, Model modelTemplate)
         {
             this.level = level;
-            this.entity = entity;
+            this.Entity = entity;
             entity.OnTriggerAnimation += (name) => { if (Model) Model.TriggerAnimator(name); };
+            entity.OnSetAnimationBool += (name, value) => { if (Model) Model.SetAnimatorBool(name, value); };
+            entity.OnSetAnimationInt += (name, value) => { if (Model) Model.SetAnimatorInt(name, value); };
+            entity.OnSetAnimationFloat += (name, value) => { if (Model) Model.SetAnimatorFloat(name, value); };
 
             var model = Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
             SetModel(model);
@@ -25,11 +26,12 @@ namespace MVZ2
         }
         public void UpdateView(float deltaTime)
         {
-            var nextPos = entity.LawnRigid.GetNextPosition();
-            var pos = entity.Pos;
-            transform.position += (nextPos.LawnToTrans() - pos.LawnToTrans()) * deltaTime / Time.fixedDeltaTime;
+            var nextPos = Entity.GetNextPosition();
+            var pos = Entity.Pos;
+            var posOffset = (nextPos.LawnToTrans() - pos.LawnToTrans()) * deltaTime / Time.fixedDeltaTime;
+            transform.position += posOffset;
 
-            UpdateShadow();
+            UpdateShadow(posOffset);
             if (Model)
                 Model.UpdateView(deltaTime);
         }
@@ -45,13 +47,18 @@ namespace MVZ2
         #region 生命周期
         private void OnDrawGizmos()
         {
-            Vector3 size = entity.GetScaledSize();
-            var boundsOffset = entity.GetScaledBoundsOffset();
+            float pixelUnit = PositionHelper.LAWN_TO_TRANS_SCALE;
+            Vector3 size = Entity.GetScaledSize() * pixelUnit;
+            var scaledBoundsOffset = Entity.GetScaledBoundsOffset();
             float
-                x = entity.Pos.x + boundsOffset.x,
-                y = entity.Pos.y + boundsOffset.y,
-                z = entity.Pos.z + boundsOffset.z;
-            for (int i = 0; i < 16; i++)
+                startX = (Entity.Pos.x + scaledBoundsOffset.x) * pixelUnit,
+                startY = (Entity.Pos.y + scaledBoundsOffset.y) * pixelUnit,
+                startZ = (Entity.Pos.z + scaledBoundsOffset.z) * pixelUnit;
+            Gizmos.color = new Color(
+                ((Entity.CollisionMask >> 0) & 15) / 15f,
+                ((Entity.CollisionMask >> 4) & 15) / 15f,
+                ((Entity.CollisionMask >> 8) & 3) / 3f, 1);
+            for (int i = 0; i < 12; i++)
             {
                 int axe = i >> 2;
                 bool bit1 = (i & 1) != 0;
@@ -60,8 +67,8 @@ namespace MVZ2
                 float offset2 = bit2 ? 0.5f : -0.5f;
                 Vector3 dir = Vector3.right;
 
+                float x = startX, y = startY, z = startZ;
 
-                Gizmos.color = Color.green;
                 switch (axe)
                 {
                     case 0:
@@ -82,31 +89,27 @@ namespace MVZ2
                         z += -size.z * 0.5f;
                         dir = new Vector3(0, 0, size.z);
                         break;
-                    case 3:
-                        Gizmos.color = Color.cyan;
-                        x += size.x * offset1;
-                        y += size.y * (offset2 + 0.5f);
-                        z += 0;
-                        if (bit1)
-                        {
-                            if (bit2)
-                                dir = new Vector3(0, -size.y, 0);
-                            else
-                                dir = new Vector3(-size.x, 0, 0);
-                        }
-                        else
-                        {
-                            if (bit2)
-                                dir = new Vector3(size.x, 0, 0);
-                            else
-                                dir = new Vector3(0, size.y, 0);
-                        }
-                        break;
                 }
                 Vector3 start = new Vector3(x, z, y);
                 Vector3 end = start + new Vector3(dir.x, dir.z, dir.y);
                 Gizmos.DrawLine(start, end);
             }
+
+            // Render Center.
+            Vector3 centerStart;
+            Vector3 centerEnd;
+            float centerLength = 0.05f;
+            centerStart = new Vector3(startX - centerLength, startZ, startY);
+            centerEnd = new Vector3(startX + centerLength, startZ, startY);
+            Gizmos.DrawLine(centerStart, centerEnd);
+
+            centerStart = new Vector3(startX, startZ - centerLength, startY);
+            centerEnd = new Vector3(startX, startZ + centerLength, startY);
+            Gizmos.DrawLine(centerStart, centerEnd);
+
+            centerStart = new Vector3(startX, startZ, startY - centerLength);
+            centerEnd = new Vector3(startX, startZ, startY + centerLength);
+            Gizmos.DrawLine(centerStart, centerEnd);
         }
         #endregion
 
@@ -121,18 +124,18 @@ namespace MVZ2
         }
         #endregion
 
-        protected void UpdateShadow()
+        protected void UpdateShadow(Vector3 posOffset)
         {
-            var shadowPos = entity.Pos;
-            shadowPos.y = entity.GetGroundHeight();
-            shadowPos += entity.ShadowOffset;
-            Shadow.transform.position = shadowPos.LawnToTrans();
-            float relativeHeight = entity.GetRelativeY();
+            var shadowPos = Entity.Pos;
+            shadowPos.y = Entity.GetGroundHeight();
+            shadowPos += Entity.ShadowOffset;
+            Shadow.transform.position = shadowPos.LawnToTrans() + posOffset;
+            float relativeHeight = Entity.GetRelativeY();
             float scale = 1 + relativeHeight / 300;
             float alpha = 1 - relativeHeight / 300;
-            Shadow.transform.localScale = entity.ShadowScale * scale;
-            Shadow.gameObject.SetActive(entity.ShadowVisible);
-            Shadow.SetAlpha(entity.ShadowAlpha * alpha);
+            Shadow.transform.localScale = Entity.ShadowScale * scale;
+            Shadow.gameObject.SetActive(Entity.ShadowVisible);
+            Shadow.SetAlpha(Entity.ShadowAlpha * alpha);
         }
         #endregion
 
@@ -162,7 +165,7 @@ namespace MVZ2
         #region 属性字段
         public Model Model { get; private set; }
         public ShadowController Shadow => shadow;
-        protected Entity entity;
+        public Entity Entity { get; protected set; }
         protected LevelController level;
         [SerializeField]
         private ShadowController shadow;

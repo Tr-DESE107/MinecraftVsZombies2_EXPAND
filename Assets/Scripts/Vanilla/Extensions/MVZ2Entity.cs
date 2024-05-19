@@ -1,10 +1,15 @@
-﻿using MVZ2.GameContent;
+﻿using UnityEngine;
+using MVZ2.GameContent;
 using PVZEngine;
 
 namespace MVZ2.Vanilla
 {
     public static class MVZ2Entity
     {
+        public static Vector3 GetSize(this EntityDefinition definition)
+        {
+            return definition.GetProperty<Vector3>(EntityProperties.SIZE);
+        }
         public static void PlayHitSound(this Entity entity, float damageAmount, DamageEffectList damageEffects, ShellDefinition shell)
         {
             var level = entity.Game;

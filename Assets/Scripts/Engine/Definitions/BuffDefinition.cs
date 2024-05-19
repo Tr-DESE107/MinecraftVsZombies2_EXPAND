@@ -4,10 +4,14 @@ namespace PVZEngine
 {
     public abstract class BuffDefinition : Definition
     {
-        public Modifier[] GetModifiers()
+        public PropertyModifier[] GetModifiers()
         {
             return modifiers.ToArray();
         }
-        private List<Modifier> modifiers;
+        protected void AddModifier(PropertyModifier modifier)
+        {
+            modifiers.Add(modifier);
+        }
+        private List<PropertyModifier> modifiers = new List<PropertyModifier>();
     }
 }

@@ -19,6 +19,7 @@
         public const string FRICTION = "friction";
         public const string GRAVITY = "gravity";
         public const string FACTION = "faction";
+        public const string SIZE = "size";
         public const string TINT = "tint";
     }
 }

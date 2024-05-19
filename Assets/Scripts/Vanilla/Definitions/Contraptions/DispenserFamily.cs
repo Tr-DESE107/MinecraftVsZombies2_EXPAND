@@ -6,32 +6,22 @@ namespace MVZ2.GameContent.Contraptions
 {
     public abstract class DispenserFamily : VanillaContraption
     {
-        protected virtual Vector3 ProjectileOffset => projectileOffset;
-        protected virtual Vector3 ProjectileVelocity => projectileVelocity;
-        protected virtual float ProjectileSizeY => 0.02f;
-        protected virtual float ProjectileSizeZ => 0.02f;
-        protected virtual float Range => -1;
-        protected virtual NamespaceID ShootSound => SoundID.shot;
-        protected virtual NamespaceID Projectile => ProjectileID.arrow;
-        private Vector3 projectileOffset = new Vector3(25, 30, 0);
-        private Vector3 projectileVelocity = new Vector3(10, 0, 0);
-        private Detector detector;
-
         public DispenserFamily()
         {
-             detector = new DispenserDetector()
-             {
-                 ignoreHighEnemy = true,
-                 range = Range,
-                 shootOffset = ProjectileOffset,
-                 projectileSizeY = ProjectileSizeY,
-                 projectileSizeZ = ProjectileSizeZ
-             };
+            SetProperty(EntityProperties.DAMAGE, 20);
+            detector = new DispenserDetector()
+            {
+                ignoreHighEnemy = true,
+                range = Range,
+                shootOffset = ProjectileOffset,
+                projectileID = Projectile,
+            };
+            SetProperty(EntityProperties.SIZE, new Vector3(32, 48, 32));
         }
 
         public void InitShootTimer(Entity entity)
         {
-            var shootTimer = new FrameTimer(entity.RNG.Next(40, 45));
+            var shootTimer = new FrameTimer(GetTimerTime(entity));
             SetShootTimer(entity, shootTimer);
         }
 
@@ -46,7 +36,7 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     Shoot(entity);
                 }
-                shootTimer.MaxFrame = entity.RNG.Next(40, 45);
+                shootTimer.MaxFrame = GetTimerTime(entity);
                 shootTimer.Reset();
             }
         }
@@ -65,6 +55,7 @@ namespace MVZ2.GameContent.Contraptions
                 velocity.x *= -1;
             }
             var projectile = game.Spawn(Projectile, entity.Pos + offset, entity).ToProjectile();
+            projectile.SetDamage(entity.GetDamage());
             projectile.Velocity = velocity;
             projectile.SetFaction(entity.GetFaction());
             return projectile;
@@ -77,5 +68,18 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetProperty("ShootTimer", timer);
         }
+        protected virtual int GetTimerTime(Entity entity)
+        {
+            return Mathf.FloorToInt(entity.RNG.Next(40, 45) * entity.GetAttackSpeed());
+        }
+        protected virtual Vector3 ProjectileOffset => projectileOffset;
+        protected virtual Vector3 ProjectileVelocity => projectileVelocity;
+        protected virtual float Range => -1;
+        protected virtual NamespaceID ShootSound => SoundID.shot;
+        protected virtual NamespaceID Projectile => ProjectileID.arrow;
+        private Vector3 projectileOffset = new Vector3(25, 30, 0);
+        private Vector3 projectileVelocity = new Vector3(10, 0, 0);
+        private Detector detector;
+
     }
 }
