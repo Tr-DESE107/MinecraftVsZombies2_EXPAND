@@ -49,11 +49,14 @@ namespace PVZEngine
             spawned.Pos = pos;
             entities.Add(spawned);
             spawned.Init(spawner);
+            OnEntitySpawn?.Invoke(spawned);
             return spawned;
         }
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner)
         {
             var entityDef = GetEntityDefinition(entityRef);
+            if (entityDef == null)
+                return null;
             return Spawn(entityDef, pos, spawner);
         }
 
@@ -148,6 +151,9 @@ namespace PVZEngine
             currentEntityID++;
             return id;
         }
+        #region 事件
+        public Action<Entity> OnEntitySpawn;
+        #endregion
         private int currentEntityID = 1;
     }
 }

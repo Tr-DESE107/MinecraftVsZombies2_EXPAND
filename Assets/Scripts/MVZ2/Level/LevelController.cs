@@ -7,15 +7,11 @@ namespace MVZ2
 {
     public class LevelController : MonoBehaviour
     {
-        public EntityController Spawn(NamespaceID id, Vector3 position, Entity spawner)
+        public void SetMainManager(MainManager main)
         {
-            var ent = level.Spawn(id, position, spawner);
-            var entityController = Instantiate(entityTemplate.gameObject, position.LawnToTrans(), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
-            entityController.Init(this, ent, modelPrefab);
-            entities.Add(entityController);
-            return entityController;
+            this.main = main;
         }
-        private void Awake()
+        public void StartGame()
         {
             var vanilla = new Vanilla.Vanilla();
             var option = new GameOption()
@@ -28,13 +24,23 @@ namespace MVZ2
                 TPS = 30
             };
             level = new Game(vanilla);
+            level.OnEntitySpawn += OnEntitySpawnCallback;
             level.Init(0, AreaID.day, StageID.prologue, option);
 
-            Spawn(ContraptionID.dispenser, new Vector3(400, 300), null);
+            level.Spawn(ContraptionID.dispenser, new Vector3(300, 0, 300), null);
+            level.Spawn(EnemyID.zombie, new Vector3(500, 0, 300), null);
+            isGameStarted = true;
+        }
+        private void OnEntitySpawnCallback(Entity entity)
+        {
+            var entityController = Instantiate(entityTemplate.gameObject, entity.Pos.LawnToTrans(), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
+            var modelPrefab = main.ResourceManager.GetModel(entity.Definition.GetReference());
+            entityController.Init(this, entity, modelPrefab);
+            entities.Add(entityController);
         }
         private void Update()
         {
-            if (!isPaused)
+            if (isGameStarted && !isPaused)
             {
                 foreach (var entity in entities)
                 {
@@ -44,10 +50,10 @@ namespace MVZ2
         }
         private void FixedUpdate()
         {
-            if (!isPaused)
+            if (isGameStarted && !isPaused)
             {
                 level.Update();
-                foreach (var entity in entities)
+                foreach (var entity in entities.ToArray())
                 {
                     entity.UpdateLogic();
                 }
@@ -56,10 +62,10 @@ namespace MVZ2
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
         private Game level;
+        private MainManager main;
+        private bool isGameStarted;
         [SerializeField]
         private EntityController entityTemplate;
-        [SerializeField]
-        private Model modelPrefab;
         [SerializeField]
         private Transform entitiesRoot;
     }

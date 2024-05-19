@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public override void Update(Entity entity)
         {
+            base.Update(entity);
             var contraption = entity.ToContraption();
             if (!contraption.IsEvoked())
             {

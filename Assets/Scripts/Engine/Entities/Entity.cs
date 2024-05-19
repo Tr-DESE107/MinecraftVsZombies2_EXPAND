@@ -514,7 +514,7 @@ namespace PVZEngine
         public Vector3 Size { get => LawnRigid.Size; set => LawnRigid.Size = value; }
         public Vector3 Scale { get => LawnRigid.Scale; set => LawnRigid.Scale = value; }
         public Vector3 RenderScale { get; set; }
-        public bool FlipX => Scale.x >= 0;
+        public bool FlipX => Scale.x < 0;
         public bool CanUnderGround { get => LawnRigid.CanUnderGround; set => LawnRigid.CanUnderGround = value; }
         #region Warp Lane
         public bool IsWarpingLane { get; private set; }
@@ -524,9 +524,9 @@ namespace PVZEngine
         #endregion
 
         #region 影子
-        public bool ShadowVisible { get; set; }
-        public float ShadowAlpha { get; set; }
-        public Vector3 ShadowScale { get; set; }
+        public bool ShadowVisible { get; set; } = true;
+        public float ShadowAlpha { get; set; } = 1;
+        public Vector3 ShadowScale { get; set; } = Vector3.one;
         public Vector3 ShadowOffset { get; set; }
         #endregion
         public bool IsDead { get; set; }

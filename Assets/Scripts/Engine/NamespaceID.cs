@@ -1,27 +1,30 @@
-﻿namespace PVZEngine
+﻿using System;
+
+namespace PVZEngine
 {
+    [Serializable]
     public class NamespaceID
     {
         public NamespaceID(string nsp, string name)
         {
-            Namespace = nsp;
-            Name = name;
+            spacename = nsp;
+            this.name = name;
         }
         public override int GetHashCode()
         {
-            return Namespace.GetHashCode() * 31 + Name.GetHashCode();
+            return spacename.GetHashCode() * 31 + name.GetHashCode();
         }
         public override bool Equals(object obj)
         {
             if (obj is NamespaceID otherRef)
             {
-                return Namespace == otherRef.Namespace && Name == otherRef.Name;
+                return spacename == otherRef.spacename && name == otherRef.name;
             }
             return base.Equals(obj);
         }
         public override string ToString()
         {
-            return $"{Namespace}:{Name}";
+            return $"{spacename}:{name}";
         }
         public static bool operator ==(NamespaceID lhs, NamespaceID rhs)
         {
@@ -33,8 +36,8 @@
         {
             return !(lhs == rhs);
         }
-        public string Namespace { get; set; }
-        public string Name { get; set; }
+        public string spacename;
+        public string name;
 
     }
 }

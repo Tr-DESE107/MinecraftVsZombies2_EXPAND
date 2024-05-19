@@ -66,7 +66,7 @@ namespace PVZEngine
         }
         public bool WillDestroyOutsideLawn()
         {
-            return GetProperty<bool>(ProjectileProperties.DESTROY_OUTSIDE_LAWN);
+            return !GetProperty<bool>(ProjectileProperties.NO_DESTROY_OUTSIDE_LAWN);
         }
         public bool IsPiercing()
         {

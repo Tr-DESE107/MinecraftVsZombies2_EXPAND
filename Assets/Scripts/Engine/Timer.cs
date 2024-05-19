@@ -2,7 +2,7 @@
 {
     public abstract class Timer
     {
-        public bool Expired { get; protected set; }
+        public abstract bool Expired { get; }
         /// <summary>
         /// 运行帧计时器。
         /// </summary>

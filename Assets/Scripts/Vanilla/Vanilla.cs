@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Projectiles;
 using PVZEngine;
 
 namespace MVZ2.Vanilla
@@ -9,26 +11,20 @@ namespace MVZ2.Vanilla
     {
         public Vanilla() : base("mvz2")
         {
-            var dayDefinition = new Day()
-            {
-                Namespace = Namespace,
-                Name = "day"
-            };
-            areaDefinitions.Add("day", dayDefinition);
+            AddDefinition(areaDefinitions,"day", new Day());
+            AddDefinition(stageDefinitions, "prologue", new StageDefinition());
 
-            var stageDefinition = new StageDefinition()
-            {
-                Namespace = Namespace,
-                Name = "prologue"
-            };
-            stageDefinitions.Add("prologue", stageDefinition);
+            AddDefinition(entityDefinitions, "dispenser", new Dispenser());
+            AddDefinition(entityDefinitions, "zombie", new Zombie());
+            AddDefinition(entityDefinitions, "arrow", new Arrow());
+        }
 
-            var dispenser = new Dispenser()
-            {
-                Namespace = Namespace,
-                Name = "dispenser"
-            };
-            entityDefinitions.Add("dispenser", dispenser);
+        protected void AddDefinition<T>(Dictionary<string, T> list, string name, T definition) 
+            where T: Definition
+        {
+            definition.Namespace = Namespace;
+            definition.Name = name;
+            list.Add(name, definition);
         }
     }
 }

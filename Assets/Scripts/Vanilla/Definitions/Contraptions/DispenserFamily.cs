@@ -46,12 +46,13 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     Shoot(entity);
                 }
-                shootTimer.Frame = entity.RNG.Next(40, 45);
+                shootTimer.MaxFrame = entity.RNG.Next(40, 45);
+                shootTimer.Reset();
             }
         }
         public virtual Projectile Shoot(Entity entity)
         {
-            entity.TriggerAnimation("Attack");
+            entity.TriggerAnimation("Shoot");
 
             var game = entity.Game;
             game.PlaySound(ShootSound, entity.Pos);

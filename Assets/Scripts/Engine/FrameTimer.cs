@@ -4,10 +4,9 @@ namespace PVZEngine
 {
     public class FrameTimer : Timer
     {
-        public int Frame { get; set; }
-        public int FrameModular { get; set; }
         public FrameTimer(int time)
         {
+            MaxFrame = time;
             Frame = time;
             FrameModular = 0;
         }
@@ -29,10 +28,6 @@ namespace PVZEngine
                     Frame--;
                 }
             }
-            if (Frame <= 0)
-            {
-                Expired = true;
-            }
         }
         public void Stop()
         {
@@ -41,7 +36,12 @@ namespace PVZEngine
         }
         public void Reset()
         {
+            Frame = MaxFrame;
             FrameModular = 0;
         }
+        public override bool Expired => Frame <= 0;
+        public int MaxFrame { get; set; }
+        public int Frame { get; set; }
+        public int FrameModular { get; set; }
     }
 }

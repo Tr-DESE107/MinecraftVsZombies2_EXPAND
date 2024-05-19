@@ -29,12 +29,12 @@ namespace MVZ2
             var pos = entity.Pos;
             transform.position += (nextPos.LawnToTrans() - pos.LawnToTrans()) * deltaTime / Time.fixedDeltaTime;
 
+            UpdateShadow();
             if (Model)
                 Model.UpdateView(deltaTime);
         }
         public void UpdateLogic()
         {
-            entity.Update();
             if (Model)
                 Model.UpdateLogic();
         }
@@ -128,9 +128,10 @@ namespace MVZ2
             shadowPos += entity.ShadowOffset;
             Shadow.transform.position = shadowPos.LawnToTrans();
             float relativeHeight = entity.GetRelativeY();
-            float scale = 1 + relativeHeight / 3;
-            float alpha = 1 - relativeHeight / 3;
+            float scale = 1 + relativeHeight / 300;
+            float alpha = 1 - relativeHeight / 300;
             Shadow.transform.localScale = entity.ShadowScale * scale;
+            Shadow.gameObject.SetActive(entity.ShadowVisible);
             Shadow.SetAlpha(entity.ShadowAlpha * alpha);
         }
         #endregion

@@ -44,7 +44,20 @@ namespace MVZ2.Vanilla
                 enemy.AttackTarget = null;
             }
         }
-        protected abstract bool ValidateAttackTarget(Enemy enemy, Entity other);
+        protected virtual bool ValidateAttackTarget(Enemy enemy, Entity target)
+        {
+            if (!enemy.IsEnemy(target))
+                return false;
+            if (!Detection.IsInSameRow(enemy, target))
+                return false;
+            if (!Detection.CanDetect(target))
+                return false;
+            if (target is Contraption contrap && contrap.IsFloor())
+                return false;
+            if (target.Pos.y > enemy.Pos.y + enemy.GetMaxAttackHeight())
+                return false;
+            return true;
+        }
         public override int Type => EntityTypes.ENEMY;
     }
 

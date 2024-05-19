@@ -26,7 +26,8 @@ namespace MVZ2.GameContent
                 if (timer.Expired)
                 {
                     Produce(entity);
-                    timer.Frame = PRODUCE_TIME;
+                    timer.MaxFrame = PRODUCE_TIME;
+                    timer.Reset();
                 }
             }
         }
