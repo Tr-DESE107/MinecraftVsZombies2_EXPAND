@@ -1,0 +1,16 @@
+{
+    "name": "Vanilla",
+    "rootNamespace": "MVZ2.Vanilla",
+    "references": [
+        "GUID:bb0e45f4ddb54a84dab05f6352bb916c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

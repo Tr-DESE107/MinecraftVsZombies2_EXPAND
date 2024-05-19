@@ -1,0 +1,10 @@
+namespace PVZEngine
+{
+    public partial class Game
+    {
+        /// <summary>
+        /// 本关是否需要卡牌。
+        /// </summary>
+        public bool RequireCards { get; private set; }
+    }
+}
