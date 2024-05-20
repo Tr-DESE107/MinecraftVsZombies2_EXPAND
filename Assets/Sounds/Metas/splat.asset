@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4e39af8682f7b48aad2c312a882f8d, type: 3}
+  m_Name: splat
+  m_EditorClassIdentifier: 
+  id:
+    spacename: mvz2
+    name: splat
+  clips:
+  - {fileID: 8300000, guid: 3d0542bb098c3e349aa0c45ba985c766, type: 3}
+  - {fileID: 8300000, guid: deeb13e67aa912f44b29bd07001f719c, type: 3}
+  - {fileID: 8300000, guid: 3e1edcf7a9565ee499ab80e9958f04f2, type: 3}
+  priority: 0
+  maxCount: 0

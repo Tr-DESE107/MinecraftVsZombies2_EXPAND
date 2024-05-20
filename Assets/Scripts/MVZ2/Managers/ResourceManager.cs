@@ -13,19 +13,41 @@ namespace MVZ2
             var resource = models.FirstOrDefault(m => m.id == id);
             if (resource == null)
                 return null;
-            return resource.model;
+            return resource.resource;
+        }
+        public AudioResource GetAudioResource(NamespaceID id)
+        {
+            return audios.FirstOrDefault(m => m.id == id);
+        }
+        public void SetModelResources(ModelResource[] items)
+        {
+            models.Clear();
+            models.AddRange(items);
+        }
+        public void SetAudioResources(AudioResource[] items)
+        {
+            audios.Clear();
+            audios.AddRange(items);
         }
         public MainManager Main => main;
+        public string EditorSoundDirectory => editorSoundDirectory;
+        public string EditorModelDirectory => editorModelDirectory;
         [SerializeField]
         private MainManager main;
         [SerializeField]
-        private List<ModelResource> models = new List<ModelResource>();
+        private string editorSoundDirectory;
+        [SerializeField]
+        private string editorModelDirectory;
+        [SerializeField]
+        private List<AudioResource> audios;
+        [SerializeField]
+        private List<ModelResource> models;
     }
 
     [Serializable]
     public class ModelResource
     {
         public NamespaceID id;
-        public Model model;
+        public Model resource;
     }
 }

@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PVZEngine
 {
-    public class Armor
+    public class Armor : IBuffTarget
     {
         public Armor(Entity owner)
         {
@@ -29,7 +31,15 @@ namespace PVZEngine
 
             if (!ignoreBuffs)
             {
-
+                foreach (var buff in buffs)
+                {
+                    foreach (var modi in buff.GetModifiers())
+                    {
+                        if (modi.PropertyName != name)
+                            continue;
+                        result = modi.CalculateProperty(buff, result);
+                    }
+                }
             }
             return result;
         }
@@ -43,6 +53,49 @@ namespace PVZEngine
         }
         #endregion
 
+        #region 原版属性
+        public NamespaceID GetShellID(bool ignoreBuffs = false)
+        {
+            return GetProperty<NamespaceID>(EntityProperties.SHELL, ignoreBuffs: ignoreBuffs);
+        }
+        public void SetShellID(NamespaceID value)
+        {
+            SetProperty(EntityProperties.SHELL, value);
+        }
+        #endregion
+        #region 增益
+        public void AddBuff(Buff buff)
+        {
+            if (buff == null)
+                return;
+            buffs.Add(buff);
+            buff.AddToTarget(this);
+        }
+        public bool RemoveBuff(Buff buff)
+        {
+            if (buff == null)
+                return false;
+            if (buffs.Remove(buff))
+            {
+                buff.RemoveFromTarget();
+                return true;
+            }
+            return false;
+        }
+        public bool HasBuff(Buff buff)
+        {
+            return buffs.Contains(buff);
+        }
+        public Buff[] GetBuffs<T>() where T : BuffDefinition
+        {
+            return buffs.Where(b => b.Definition is T).ToArray();
+        }
+        public Buff[] GetAllBuffs()
+        {
+            return buffs.ToArray();
+        }
+        #endregion
+
         public bool Exists()
         {
             return Owner != null && Definition != null && Health > 0;
@@ -52,6 +105,7 @@ namespace PVZEngine
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
         public float MaxHealth { get; private set; }
+        private List<Buff> buffs = new List<Buff>();
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
         #endregion
     }

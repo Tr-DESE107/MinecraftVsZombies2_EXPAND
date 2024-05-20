@@ -2,6 +2,7 @@ using MVZ2.GameContent;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla
 {
@@ -10,17 +11,19 @@ namespace MVZ2.Vanilla
         public VanillaEnemy()
         {
             SetProperty(EnemyProps.SPEED, 0.5f);
+            SetProperty(EntityProperties.SHELL, ShellID.flesh);
             SetProperty(EntityProperties.ATTACK_SPEED, 1f);
             SetProperty(EntityProperties.DAMAGE, 100f);
             SetProperty(EntityProperties.MAX_HEALTH, 200f);
             SetProperty(EntityProperties.FALL_DAMAGE, 22.5f);
             SetProperty(EntityProperties.FRICTION, 0.15f);
+            SetProperty(EntityProps.DEATH_SOUND, SoundID.zombieDeath);
         }
         public override void Init(Entity entity)
         {
             base.Init(entity);
 
-            var buff = entity.Game.CreateBuff(BuffID.randomEnemySpeed);
+            var buff = entity.Game.CreateBuff<RandomEnemySpeedBuff>();
             buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, entity.RNG.Next(1, 1.33333f));
             entity.AddBuff(buff);
 
@@ -38,6 +41,25 @@ namespace MVZ2.Vanilla
             Vector3 pos = entity.Pos;
             pos.x = Mathf.Min(pos.x, MVZ2Game.GetEnemyRightBorderX());
             entity.Pos = pos;
+
+            foreach (var buff in entity.GetBuffs<DamageColorBuff>())
+            {
+                entity.RemoveBuff(buff);
+            }
+        }
+        public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        {
+            base.PostTakeDamage(bodyResult, armorResult);
+            if (bodyResult != null)
+            {
+                var entity = bodyResult.Entity;
+                entity.AddBuff(entity.Game.CreateBuff<DamageColorBuff>());
+            }
+        }
+        public override void PostDeath(Entity entity, DamageInfo damageInfo)
+        {
+            base.PostDeath(entity, damageInfo);
+            entity.Game.PlaySound(entity.GetDeathSound(), entity.Pos);
         }
         protected void MeleeCollision(Enemy enemy, Entity other)
         {
@@ -97,9 +119,9 @@ namespace MVZ2.Vanilla
                 CancelMeleeAttack(enemy, other);
             }
         }
-        public override void PostDeath(Entity entity, DamageEffectList effects, EntityReference source)
+        public override void PostDeath(Entity entity, DamageInfo info)
         {
-            base.PostDeath(entity, effects, source);
+            base.PostDeath(entity, info);
             SetDeathTimer(entity, new FrameTimer(30));
         }
         public static FrameTimer GetDeathTimer(Entity entity)
@@ -193,7 +215,7 @@ namespace MVZ2.Vanilla
         {
             if (target == null)
                 return;
-            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(), new EntityReference(enemy));
+            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(DamageEffects.MUTE), new EntityReference(enemy));
         }
     }
 

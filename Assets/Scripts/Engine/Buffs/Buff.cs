@@ -18,28 +18,28 @@
         {
             return Definition.GetModifiers();
         }
-        public void AddToEntity(Entity entity)
+        public void AddToTarget(IBuffTarget target)
         {
-            if (Entity != null)
+            if (Target != null)
                 return;
-            Entity = entity;
+            Target = target;
             foreach (var modifier in GetModifiers())
             {
-                modifier.PostAdd(entity, this);
+                modifier.PostAdd(this);
             }
         }
-        public void RemoveFromEntity()
+        public void RemoveFromTarget()
         {
-            if (Entity == null)
+            if (Target == null)
                 return;
             foreach (var modifier in GetModifiers())
             {
-                modifier.PostRemove(Entity, this);
+                modifier.PostRemove(this);
             }
-            Entity = null;
+            Target = null;
         }
         public BuffDefinition Definition { get; }
-        public Entity Entity { get; private set; }
+        public IBuffTarget Target { get; private set; }
         private PropertyDictionary propertyDict = new PropertyDictionary();
     }
 }

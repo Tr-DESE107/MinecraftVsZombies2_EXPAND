@@ -5,16 +5,9 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
 
-		[Header(Colored)]
+		[Header(Color Offset)]
 		[Space(10)]
-		[Toggle(COLORED_ON)]
-		_Colored("Colored", Int) = 0
-		_WhiteAlpha("White Alpha", Range(0, 1)) = 0
-		_BlackAlpha("Black Alpha", Range(0, 1)) = 0
-		_GreenAlpha("Starshard Alpha", Range(0, 1)) = 0
-		_MagentaAlpha("Charm Alpha", Range(0, 1)) = 0
-		_RedAlpha("Red Alpha", Range(0, 1)) = 0
-		
+		_ColorOffset("Color Offset", Color) = (0,0,0,0)
 		
 		/*[KeywordEnum(Disabled, Never, Less, Equal, LessEqual, Greater, NotEqual, GreaterEqual, Always)]
 		_ZTest("ZTest", Range(1, 8)) = 8

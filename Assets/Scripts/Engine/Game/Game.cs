@@ -209,6 +209,13 @@ namespace PVZEngine
         }
         #endregion
 
+        public Buff CreateBuff<T>() where T :BuffDefinition
+        {
+            var buffDefinition = GetBuffDefinition<T>();
+            if (buffDefinition == null)
+                return null;
+            return new Buff(buffDefinition);
+        }
         public Buff CreateBuff(NamespaceID id)
         {
             var buffDefinition = GetBuffDefinition(id);

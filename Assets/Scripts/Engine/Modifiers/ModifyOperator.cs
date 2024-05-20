@@ -10,6 +10,7 @@ namespace PVZEngine
     {
         Add,
         Multiply,
-        Set
+        Set,
+        Average,
     }
 }

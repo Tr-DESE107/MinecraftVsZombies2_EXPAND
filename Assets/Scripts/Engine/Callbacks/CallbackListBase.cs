@@ -8,7 +8,7 @@ namespace PVZEngine
         where TDelegate : Delegate
         where TEntry : CallbackActionBase<TDelegate>, new() 
     {
-        public void Add(TDelegate action, int priority, object filter)
+        public void Add(TDelegate action, int priority = 0, object filter = null)
         {
             var callback = new TEntry();
             callback.action = action;

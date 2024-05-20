@@ -6,7 +6,8 @@
         public readonly static CallbackActionList<Entity> PostEntityUpdate = new();
         public readonly static CallbackActionList<Entity> PostEntityContactGround = new();
         public readonly static CallbackActionList<Entity> PostEntityLeaveGround = new();
+        public readonly static CallbackActionList<DamageResult, DamageResult> PostEntityTakeDamage = new();
         public readonly static CallbackActionList<Entity, Entity, int> PostEntityCollision = new();
-        public readonly static CallbackActionList<Entity, DamageEffectList, EntityReference> PostEntityDeath = new();
+        public readonly static CallbackActionList<Entity, DamageInfo> PostEntityDeath = new();
     }
 }

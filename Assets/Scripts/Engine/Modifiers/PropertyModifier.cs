@@ -14,11 +14,11 @@
             Operator = op;
             UsingBuffPropertyName = buffPropertyName;
         }
-        public virtual void PostAdd(Entity entity, Buff buff)
+        public virtual void PostAdd(Buff buff)
         {
 
         }
-        public virtual void PostRemove(Entity entity, Buff buff)
+        public virtual void PostRemove(Buff buff)
         {
 
         }
@@ -33,10 +33,36 @@
                 return ConstValue;
             }
         }
-        public abstract object CalculateProperty(Entity entity, Buff buff, object value);
+        public abstract object CalculateProperty(Buff buff, object value);
         public string PropertyName { get; set; }
         public object ConstValue { get; set; }
         public string UsingBuffPropertyName { get; set; }
         public ModifyOperator Operator { get; set; }
+    }
+    public abstract class PropertyModifier<T> : PropertyModifier
+    {
+        protected PropertyModifier(string propertyName, ModifyOperator op, T valueConst) : base(propertyName, op, valueConst)
+        {
+        }
+
+        protected PropertyModifier(string propertyName, ModifyOperator op, string buffPropertyName) : base(propertyName, op, buffPropertyName)
+        {
+        }
+
+        public override sealed object CalculateProperty(Buff buff, object value)
+        {
+            if (value == null)
+                value = default(T);
+            if (value is T tValue)
+                return CalculatePropertyGeneric(buff, tValue);
+            return value;
+        }
+        public T GetValueGeneric(Buff buff)
+        {
+            if (GetValue(buff) is T tValue)
+                return tValue;
+            return default;
+        }
+        public abstract T CalculatePropertyGeneric(Buff buff, T value);
     }
 }

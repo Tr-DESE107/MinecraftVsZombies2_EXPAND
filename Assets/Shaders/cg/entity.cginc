@@ -85,36 +85,6 @@ fixed4 CircleTile(fixed4 col, float2 uv)
 }
 #endif
 
-#if COLORED_ON
-fixed _WhiteAlpha;
-fixed _GreenAlpha;
-fixed _MagentaAlpha;
-fixed _BlackAlpha;
-fixed _RedAlpha;
-
-fixed4 Overlay(fixed4 src, fixed4 dest)
-{
-    fixed dest_blend = 1.0 - src.a;
-    fixed3 rgb = src.rgb * src.a + dest.rgb * dest_blend;
-    fixed a = dest.a;
-    return fixed4(rgb, a);
-}
-
-
-fixed4 ColorOverlay(fixed4 color)
-{
-    fixed4 col = color;
-
-    col = Overlay(fixed4(0, 1.0, 0, _GreenAlpha), col);
-    col = Overlay(fixed4(1.0, 0, 1.0, _MagentaAlpha), col);
-    col = Overlay(fixed4(1.0, 0, 0, _RedAlpha), col);
-    col = Overlay(fixed4(0, 0, 0, _BlackAlpha), col);
-    col = Overlay(fixed4(1.0, 1.0, 1.0, _WhiteAlpha), col);
-
-    return col;
-}
-#endif
-
 v2f EntityVert(a2v v)
 {
     v2f o;
@@ -128,13 +98,12 @@ v2f EntityVert(a2v v)
     return o;
 }
 
+fixed4 _ColorOffset;
 fixed4 EntityFrag(v2f i) :SV_Target
 {
     fixed4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
 
-    #if COLORED_ON
-    col = ColorOverlay(col);
-    #endif
+    col = col + _ColorOffset;
 
     #if CIRCLETILED_ON
     col = CircleTile(col, i.uv);

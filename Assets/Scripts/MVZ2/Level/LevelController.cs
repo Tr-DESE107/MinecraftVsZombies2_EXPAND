@@ -27,10 +27,11 @@ namespace MVZ2
             level = new Game(vanilla);
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
+            level.OnPlaySound += OnPlaySoundCallback;
             level.Init(0, AreaID.day, StageID.prologue, option);
 
             level.Spawn(ContraptionID.dispenser, new Vector3(300, 0, 300), null);
-            level.Spawn(EnemyID.zombie, new Vector3(400, 0, 300), null);
+            level.Spawn(EnemyID.zombie, new Vector3(500, 0, 300), null);
             isGameStarted = true;
         }
         private void OnEntitySpawnCallback(Entity entity)
@@ -48,6 +49,10 @@ namespace MVZ2
                 Destroy(entityController.gameObject);
                 entities.Remove(entityController);
             }
+        }
+        private void OnPlaySoundCallback(NamespaceID soundID, Vector3 lawnPos)
+        {
+            main.SoundManager.Play(soundID, lawnPos.LawnToTrans());
         }
         private void Update()
         {

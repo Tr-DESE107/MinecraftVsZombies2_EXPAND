@@ -11,7 +11,6 @@
         public const string SHELL = "shell";
         public const string TAGS = "tags";
         public const string CAN_DISABLE = "canDisable";
-        public const string BLOCKS_FIRE = "blocksFire";
         public const string INVINCIBLE = "invincible";
         public const string INVISIBLE = "invisible";
         public const string START_RECHARGE_TIME = "startRechargeTime";
@@ -21,5 +20,6 @@
         public const string FACTION = "faction";
         public const string SIZE = "size";
         public const string TINT = "tint";
+        public const string COLOR_OFFSET = "colorOffset";
     }
 }

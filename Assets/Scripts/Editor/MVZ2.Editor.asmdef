@@ -1,0 +1,18 @@
+{
+    "name": "MVZ2.Editor",
+    "rootNamespace": "MVZ2.Editor",
+    "references": [
+        "GUID:860571ac0336a8545a10447b51db7410",
+        "GUID:5fde897b5e6f58943b173e1c033b7b41",
+        "GUID:bb0e45f4ddb54a84dab05f6352bb916c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

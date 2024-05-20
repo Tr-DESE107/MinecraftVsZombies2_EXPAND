@@ -2,6 +2,9 @@
 {
     public static class ShellProps
     {
-        public const string SLICE_CRITICAL = "SliceCritical";
+        public const string SLICE_CRITICAL = "sliceCritical";
+        public const string SLICE_BLOOD = "sliceBlood";
+        public const string BLOCKS_FIRE = "blocksFire";
+        public const string HIT_SOUND = "hitSound";
     }
 }

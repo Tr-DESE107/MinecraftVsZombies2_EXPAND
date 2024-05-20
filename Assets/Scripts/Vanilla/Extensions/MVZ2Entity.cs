@@ -10,11 +10,17 @@ namespace MVZ2.Vanilla
         {
             return definition.GetProperty<Vector3>(EntityProperties.SIZE);
         }
-        public static void PlayHitSound(this Entity entity, float damageAmount, DamageEffectList damageEffects, ShellDefinition shell)
+        public static NamespaceID GetDeathSound(this Entity entity)
         {
+            return entity.GetProperty<NamespaceID>(EntityProps.DEATH_SOUND);
+        }
+        public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
+        {
+            if (entity == null || shell == null)
+                return;
             var level = entity.Game;
-            bool blocksFire = entity.GetProperty<bool>(EntityProperties.BLOCKS_FIRE);
-            NamespaceID hitSound = entity.GetProperty<NamespaceID>(EntityProps.HIT_SOUND);
+            var blocksFire = shell.GetProperty<bool>(ShellProps.BLOCKS_FIRE);
+            var hitSound = shell.GetProperty<NamespaceID>(ShellProps.HIT_SOUND);
             if (damageEffects.HasEffect(DamageEffects.FIRE) && !blocksFire)
             {
                 level.PlaySound(SoundID.fire, entity.Pos);

@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace PVZEngine
 {
-    public abstract class Entity
+    public abstract class Entity : IBuffTarget
     {
         #region 公有方法
         public Entity(Game level, int id, int seed)
@@ -15,6 +16,7 @@ namespace PVZEngine
 
             RNG = new RandomGenerator(seed);
             EquipedArmor = new Armor(this);
+            SetTint(Color.white);
         }
         public void Init(Entity spawner)
         {
@@ -194,6 +196,14 @@ namespace PVZEngine
         {
             SetProperty(EntityProperties.TINT, value);
         }
+        public Color GetColorOffset(bool ignoreBuffs = false)
+        {
+            return GetProperty<Color>(EntityProperties.COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
+        }
+        public void SetColorOffset(Color value)
+        {
+            SetProperty(EntityProperties.COLOR_OFFSET, value);
+        }
         public int GetFaction(bool ignoreBuffs = false)
         {
             return GetProperty<int>(EntityProperties.FACTION, ignoreBuffs: ignoreBuffs);
@@ -218,6 +228,14 @@ namespace PVZEngine
         {
             SetProperty(EntityProperties.MAX_HEALTH, value);
         }
+        public NamespaceID GetShellID(bool ignoreBuffs = false)
+        {
+            return GetProperty<NamespaceID>(EntityProperties.SHELL, ignoreBuffs: ignoreBuffs);
+        }
+        public void SetShellID(NamespaceID value)
+        {
+            SetProperty(EntityProperties.SHELL, value);
+        }
         #endregion
 
         #region 伤害
@@ -225,6 +243,8 @@ namespace PVZEngine
         {
             var entity = info.Entity;
             var armor = entity.EquipedArmor;
+            if (!armor.Exists())
+                return null;
             var shellRef = armor.GetProperty<NamespaceID>(ArmorProperties.SHELL);
             var shell = entity.Game.GetShellDefinition(shellRef);
             if (shell != null)
@@ -232,6 +252,7 @@ namespace PVZEngine
                 shell.EvaluateDamage(info);
             }
             // Apply Damage
+            float hpBefore = armor.Health;
             if (info.Amount > 0)
             {
                 armor.Health -= info.Amount;
@@ -242,26 +263,25 @@ namespace PVZEngine
                 Source = info.Source,
                 OriginalDamage = info.OriginalDamage,
                 Effects = info.Effects,
-                OnArmor = true
+                OnArmor = true,
+                Fatal = hpBefore > 0 && armor.Health <= 0
             };
         }
-        private static DamageResult[] ArmoringTakeDamage(DamageInfo info)
+        private static DamageResult ArmoringTakeDamage(DamageInfo info, out DamageResult armorResult)
         {
-            List<DamageResult> damageResults = new List<DamageResult>();
             var entity = info.Entity;
-            var armorResult = ArmorTakeDamage(info);
-            damageResults.Add(armorResult);
+            armorResult = ArmorTakeDamage(info);
             if (info.Effects.HasEffect(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY))
             {
-                damageResults.Add(BodyTakeDamage(info));
+                return BodyTakeDamage(info);
             }
             else if (info.Effects.HasEffect(DamageFlags.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !entity.EquipedArmor.Exists())
             {
                 float overkillDamage = armorResult.OriginalDamage - armorResult.UsedDamage;
                 var overkillInfo = new DamageInfo(overkillDamage, info.Effects, entity, info.Source);
-                damageResults.Add(BodyTakeDamage(overkillInfo));
+                return BodyTakeDamage(overkillInfo);
             }
-            return damageResults.ToArray();
+            return null;
         }
         private static DamageResult BodyTakeDamage(DamageInfo info)
         {
@@ -278,11 +298,11 @@ namespace PVZEngine
             float usedDamage = info.GetUsedDamage();
 
             // Apply Damage.
+            float hpBefore = entity.Health;
             entity.Health -= info.Amount;
-
             if (entity.Health <= 0)
             {
-                entity.Die(info.Effects, info.Source);
+                entity.Die(info);
             }
 
             return new DamageResult()
@@ -291,42 +311,51 @@ namespace PVZEngine
                 Effects = info.Effects,
                 Source = info.Source,
                 Entity = entity,
-                UsedDamage = info.GetUsedDamage()
+                UsedDamage = info.GetUsedDamage(),
+                Fatal = hpBefore > 0 && entity.Health <= 0
             };
         }
-        public DamageResult[] TakeDamage(float amount, DamageEffectList effects, EntityReference source)
+        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source)
         {
-            return TakeDamage(new DamageInfo(amount, effects, this, source));
+            return TakeDamage(amount, effects, source, out _);
         }
-        public DamageResult[] TakeDamage(DamageInfo info)
+        public DamageResult TakeDamage(DamageInfo info)
         {
+            return TakeDamage(info, out _);
+        }
+        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source, out DamageResult armorResult)
+        {
+            return TakeDamage(new DamageInfo(amount, effects, this, source), out armorResult);
+        }
+        public DamageResult TakeDamage(DamageInfo info, out DamageResult armorResult)
+        {
+            armorResult = null;
             if (IsInvincible() || IsDead)
                 return null;
             if (!PreTakeDamage(info))
                 return null;
             if (info.Amount <= 0)
                 return null;
-            DamageResult[] results;
+            DamageResult bodyResult;
             if (EquipedArmor.Exists() && !info.Effects.HasEffect(DamageFlags.IGNORE_ARMOR))
             {
-                results = ArmoringTakeDamage(info);
+                bodyResult = ArmoringTakeDamage(info, out armorResult);
             }
             else
             {
-                results = new DamageResult[] { BodyTakeDamage(info) };
+                bodyResult = BodyTakeDamage(info);
             }
-            PostTakeDamage(info);
-            return results;
+            PostTakeDamage(bodyResult, armorResult);
+            return bodyResult;
         }
 
 
-        public void Die(DamageEffectList effects = null, EntityReference source = null)
+        public void Die(DamageInfo info = null)
         {
-            effects = effects ?? new DamageEffectList();
-            source = source ?? new EntityReference();
+            info = info ?? new DamageInfo(0, new DamageEffectList(), this, new EntityReference(null));
             IsDead = true;
-            Definition.PostDeath(this, effects, source);
-            Callbacks.PostEntityDeath.Run(this, effects, source);
+            Definition.PostDeath(this, info);
+            Callbacks.PostEntityDeath.Run(this, info);
         }
         #endregion
 
@@ -366,7 +395,7 @@ namespace PVZEngine
                     {
                         if (modi.PropertyName != name)
                             continue;
-                        result = modi.CalculateProperty(this, buff, result);
+                        result = modi.CalculateProperty(buff, result);
                     }
                 }
             }
@@ -385,14 +414,18 @@ namespace PVZEngine
         #region 增益
         public void AddBuff(Buff buff)
         {
+            if (buff == null)
+                return;
             buffs.Add(buff);
-            buff.AddToEntity(this);
+            buff.AddToTarget(this);
         }
         public bool RemoveBuff(Buff buff)
         {
+            if (buff == null)
+                return false;
             if (buffs.Remove(buff))
             {
-                buff.RemoveFromEntity();
+                buff.RemoveFromTarget();
                 return true;
             }
             return false;
@@ -400,6 +433,10 @@ namespace PVZEngine
         public bool HasBuff(Buff buff)
         {
             return buffs.Contains(buff);
+        }
+        public Buff[] GetBuffs<T>() where T: BuffDefinition
+        {
+            return buffs.Where(b => b.Definition is T).ToArray();
         }
         public Buff[] GetAllBuffs()
         {
@@ -615,8 +652,10 @@ namespace PVZEngine
         {
             return true;
         }
-        private void PostTakeDamage(DamageInfo damageInfo)
+        private void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
+            Definition.PostTakeDamage(bodyResult, armorResult);
+            Callbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
         }
 
         #endregion

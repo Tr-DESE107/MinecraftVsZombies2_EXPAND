@@ -5,33 +5,37 @@ namespace PVZEngine
 {
     public partial class Game
     {
-        public EntityDefinition GetEntityDefinition(NamespaceID entityRef)
+        public EntityDefinition GetEntityDefinition(NamespaceID defRef)
         {
-            return entityDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+            return entityDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
         }
         public T GetEntityDefinition<T>() where T : EntityDefinition
         {
             return entityDefinitions.OfType<T>().FirstOrDefault();
         }
-        public ShellDefinition GetShellDefinition(NamespaceID entityRef)
+        public ShellDefinition GetShellDefinition(NamespaceID defRef)
         {
-            return shellDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+            return shellDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
         }
-        public AreaDefinition GetAreaDefinition(NamespaceID entityRef)
+        public AreaDefinition GetAreaDefinition(NamespaceID defRef)
         {
-            return areaDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+            return areaDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
         }
-        public StageDefinition GetStageDefinition(NamespaceID entityRef)
+        public StageDefinition GetStageDefinition(NamespaceID defRef)
         {
-            return stageDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+            return stageDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
         }
-        public GridDefinition GetGridDefinition(NamespaceID entityRef)
+        public GridDefinition GetGridDefinition(NamespaceID defRef)
         {
-            return gridDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+            return gridDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
         }
-        public BuffDefinition GetBuffDefinition(NamespaceID entityRef)
+        public BuffDefinition GetBuffDefinition(NamespaceID defRef)
         {
-            return buffDefinitions.FirstOrDefault(d => d.GetReference() == entityRef);
+            return buffDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+        }
+        public T GetBuffDefinition<T>() where T : BuffDefinition
+        {
+            return buffDefinitions.OfType<T>().FirstOrDefault();
         }
         private void AddMod(Mod mod)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace PVZEngine
 {
@@ -21,6 +22,23 @@ namespace PVZEngine
                 return spacename == otherRef.spacename && name == otherRef.name;
             }
             return base.Equals(obj);
+        }
+        public static string ConvertName(string text)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < text.Length; i++)
+            {
+                char chr = text[i];
+                if (!char.IsDigit(chr) && !char.IsLetter(chr))
+                    sb.Append('_');
+                else
+                {
+                    if (char.IsUpper(chr) && i > 0)
+                        sb.Append('_');
+                    sb.Append(char.ToLower(chr));
+                }
+            }
+            return sb.ToString();
         }
         public override string ToString()
         {

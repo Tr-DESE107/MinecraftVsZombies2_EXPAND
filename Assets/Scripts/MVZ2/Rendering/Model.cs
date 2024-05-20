@@ -9,7 +9,7 @@ namespace MVZ2
     public sealed class Model : MonoBehaviour
     {
         #region 公有方法
-        public void UpdateView(float deltaTime)
+        public void UpdateModel(float deltaTime)
         {
             Animator.enabled = false;
             Animator.Update(deltaTime);

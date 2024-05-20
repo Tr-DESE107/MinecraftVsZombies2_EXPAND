@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PVZEngine;
+﻿using PVZEngine;
 
 namespace MVZ2.GameContent
 {
     public static class SoundID
     {
-        public readonly static NamespaceID points = new NamespaceID("mvz2", "points");
-        public readonly static NamespaceID shot = new NamespaceID("mvz2", "shot");
-        public readonly static NamespaceID throwSound = new NamespaceID("mvz2", "throw");
-        public readonly static NamespaceID fire = new NamespaceID("mvz2", "fire");
-        public readonly static NamespaceID slice = new NamespaceID("mvz2", "slice");
+        public readonly static NamespaceID points = Get("points");
+        public readonly static NamespaceID shot = Get("shot");
+        public readonly static NamespaceID throwSound = Get("throw");
+        public readonly static NamespaceID fire = Get("fire");
+        public readonly static NamespaceID slice = Get("slice");
+        public readonly static NamespaceID splat = Get("splat");
+        public readonly static NamespaceID stone = Get("stone");
+        public readonly static NamespaceID zombieDeath = Get("zombie_death");
+        private static NamespaceID Get(string name)
+        {
+            return new NamespaceID("mvz2", name);
+        }
     }
 }

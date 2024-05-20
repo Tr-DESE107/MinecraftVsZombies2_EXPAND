@@ -35,9 +35,13 @@ namespace Rendering
                 SetRendererColor(renderer, name, color);
             }
         }
-        public void SetColor(Color color)
+        public void SetTint(Color color)
         {
             SetPropertyColor("_Color", color);
+        }
+        public void SetColorOffset(Color color)
+        {
+            SetPropertyColor("_ColorOffset", color);
         }
 
         private void SetRendererFloat(Renderer renderer, string name, float alpha)

@@ -10,6 +10,7 @@ namespace PVZEngine
         public float UsedDamage { get; set; }
         public DamageEffectList Effects { get; set; }
         public bool OnArmor { get; set; }
+        public bool Fatal { get; set; }
     }
     public class DamageEffectList
     {

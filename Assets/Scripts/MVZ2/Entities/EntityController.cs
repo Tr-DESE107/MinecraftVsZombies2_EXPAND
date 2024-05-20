@@ -23,6 +23,7 @@ namespace MVZ2
         {
             Model = model;
             Model.RendererGroup.SortingLayerID = SortingLayers.entities;
+            UpdateEntityModelData();
         }
         public void UpdateView(float deltaTime)
         {
@@ -32,8 +33,9 @@ namespace MVZ2
             transform.position += posOffset;
 
             UpdateShadow(posOffset);
+            UpdateEntityModelData();
             if (Model)
-                Model.UpdateView(deltaTime);
+                Model.UpdateModel(deltaTime);
         }
         public void UpdateLogic()
         {
@@ -136,6 +138,11 @@ namespace MVZ2
             Shadow.transform.localScale = Entity.ShadowScale * scale;
             Shadow.gameObject.SetActive(Entity.ShadowVisible);
             Shadow.SetAlpha(Entity.ShadowAlpha * alpha);
+        }
+        private void UpdateEntityModelData()
+        {
+            Model.RendererGroup.SetTint(Entity.GetTint());
+            Model.RendererGroup.SetColorOffset(Entity.GetColorOffset());
         }
         #endregion
 

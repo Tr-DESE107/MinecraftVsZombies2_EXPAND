@@ -7,7 +7,7 @@ namespace PVZEngine
         public float OriginalDamage { get; private set; }
         public float Amount { get; private set; }
         public DamageEffectList Effects { get; private set; }
-        public Entity Entity { get; set; }
+        public Entity Entity { get; private set; }
         public EntityReference Source { get; set; }
         private float usedDamage;
 
