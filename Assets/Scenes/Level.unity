@@ -168,16 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 1694740220}
-  editorSoundDirectory: Assets/Sounds/Metas
   editorModelDirectory: Assets/Prefabs/Models
-  audios:
-  - {fileID: 11400000, guid: a4221fa4ea27cc144b689e1b422496a1, type: 2}
-  - {fileID: 11400000, guid: 5f4dbd5a4066d5e4da721b8c57a3481a, type: 2}
-  - {fileID: 11400000, guid: fb67f2dd2b756f0439ecefefb40947ff, type: 2}
-  - {fileID: 11400000, guid: 480806869238d1f498f070245f09358f, type: 2}
-  - {fileID: 11400000, guid: 11220175d3eaed545935c1e4d3dfa70e, type: 2}
-  - {fileID: 11400000, guid: 8c94c778ed374b741bf2ea39486f7f0f, type: 2}
-  - {fileID: 11400000, guid: 43acabd0707148b4d87d559dc88061ac, type: 2}
   models:
   - id:
       spacename: mvz2
@@ -615,6 +606,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 325594758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1221512224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1221512226}
+  - component: {fileID: 1221512225}
+  m_Layer: 0
+  m_Name: ModManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1221512225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221512224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fac6b3fcdbc32429344df3df088ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main: {fileID: 1694740220}
+--- !u!4 &1221512226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221512224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1694740221}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694740219
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,9 +680,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e60cd1c47fafd94387cdd64b4f80a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  builtinNamespace: mvz2
   resource: {fileID: 70516768}
   sound: {fileID: 1008470526}
   level: {fileID: 617620439}
+  mod: {fileID: 1221512225}
 --- !u!4 &1694740221
 Transform:
   m_ObjectHideFlags: 0
@@ -661,6 +699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 70516767}
+  - {fileID: 1221512226}
   - {fileID: 1008470525}
   - {fileID: 617620438}
   m_Father: {fileID: 0}

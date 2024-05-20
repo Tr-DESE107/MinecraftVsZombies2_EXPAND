@@ -430,6 +430,10 @@ namespace PVZEngine
             }
             return false;
         }
+        public bool HasBuff<T>() where T : BuffDefinition
+        {
+            return buffs.Any(b => b.Definition is T);
+        }
         public bool HasBuff(Buff buff)
         {
             return buffs.Contains(buff);

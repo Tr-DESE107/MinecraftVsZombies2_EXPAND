@@ -42,9 +42,12 @@ namespace MVZ2.Vanilla
             pos.x = Mathf.Min(pos.x, MVZ2Game.GetEnemyRightBorderX());
             entity.Pos = pos;
 
-            foreach (var buff in entity.GetBuffs<DamageColorBuff>())
+            if (!entity.IsDead)
             {
-                entity.RemoveBuff(buff);
+                foreach (var buff in entity.GetBuffs<DamageColorBuff>())
+                {
+                    entity.RemoveBuff(buff);
+                }
             }
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
@@ -53,7 +56,8 @@ namespace MVZ2.Vanilla
             if (bodyResult != null)
             {
                 var entity = bodyResult.Entity;
-                entity.AddBuff(entity.Game.CreateBuff<DamageColorBuff>());
+                if (!entity.HasBuff<DamageColorBuff>())
+                    entity.AddBuff(entity.Game.CreateBuff<DamageColorBuff>());
             }
         }
         public override void PostDeath(Entity entity, DamageInfo damageInfo)

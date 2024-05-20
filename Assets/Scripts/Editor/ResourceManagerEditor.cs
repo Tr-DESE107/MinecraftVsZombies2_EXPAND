@@ -21,14 +21,9 @@ namespace MVZ2.Editor
             {
                 GenerateModelReferences();
             }
-            if (GUILayout.Button("Generate Sound References"))
-            {
-                GenerateSoundReferences();
-            }
             if (GUILayout.Button("Generate All References"))
             {
                 GenerateModelReferences();
-                GenerateSoundReferences();
             }
         }
         private void GenerateModelReferences()
@@ -55,25 +50,6 @@ namespace MVZ2.Editor
                 };
             }).Where(i => i != null);
             resourceManager.SetModelResources(audioItems.ToArray());
-        }
-        private void GenerateSoundReferences()
-        {
-            var directory = resourceManager.EditorSoundDirectory;
-            var assets = AssetDatabase.FindAssets("t:AudioResource", new string[] { directory });
-            var audioItems = assets.Select(hash =>
-            {
-                var path = AssetDatabase.GUIDToAssetPath(hash);
-                if (path.Replace('\\', '/').Contains("/__"))
-                    return null;
-                var res = AssetDatabase.LoadAssetAtPath<AudioResource>(path);
-                if (res == null)
-                    return null;
-                var nsp = "mvz2";
-                var name = NamespaceID.ConvertName(Path.GetFileNameWithoutExtension(path));
-                res.id = new NamespaceID(nsp, name);
-                return res;
-            }).Where(i => i != null);
-            resourceManager.SetAudioResources(audioItems.ToArray());
         }
     }
 }

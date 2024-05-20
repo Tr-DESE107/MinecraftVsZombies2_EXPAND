@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using PVZEngine;
 using UnityEngine;
 
@@ -8,22 +9,26 @@ namespace MVZ2
     {
         public AudioSource Play(NamespaceID id, Vector3 pos)
         {
-            var res = main.ResourceManager.GetAudioResource(id);
-            if (res == null)
+            var soundsMeta = main.ResourceManager.GetSoundsMeta(id.spacename);
+            var res = main.ResourceManager.GetSoundResource(id);
+            if (soundsMeta == null || res == null)
                 return null;
-            return Play(res, pos);
+            var sample = res.GetRandomSample();
+            if (sample == null)
+                return null;
+            var path = Path.Combine(soundsMeta.root, sample.path).Replace("\\", "/");
+            var clip = main.ResourceManager.GetAudioClip(id.spacename, path);
+            return Play(clip, pos, res.priority);
         }
-        public AudioSource Play(AudioResource resource, Vector3 pos, float pitch = 1, float spatialBlend = 1)
+        public AudioSource Play(AudioClip clip, Vector3 pos, int priority, float pitch = 1, float spatialBlend = 1)
         {
-            if (resource == null)
+            if (!clip)
                 return null;
             var source = Instantiate(soundTemplate, pos, Quaternion.identity, soundSourceRoot);
-            var index = UnityEngine.Random.Range(0, resource.clips.Length);
-            var clip = resource.clips[index];
             source.clip = clip;
             source.pitch = pitch;
             source.spatialBlend = spatialBlend;
-            source.priority = resource.priority;
+            source.priority = priority;
             soundSources.Add(source);
             source.gameObject.SetActive(true);
             return source;

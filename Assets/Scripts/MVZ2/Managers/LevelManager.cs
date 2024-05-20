@@ -4,10 +4,6 @@ namespace MVZ2
 {
     public class LevelManager : MonoBehaviour
     {
-        private void Start()
-        {
-            StartLevel();
-        }
         public void StartLevel()
         {
             controller.SetMainManager(main);

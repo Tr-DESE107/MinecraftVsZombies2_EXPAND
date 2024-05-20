@@ -1,53 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using PVZEngine;
+using System.Threading.Tasks;
+using System.Xml;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2
 {
-    public class ResourceManager : MonoBehaviour
+    public partial class ResourceManager : MonoBehaviour
     {
-        public Model GetModel(NamespaceID id)
+        public ModResource GetModResource(string spaceName)
         {
-            var resource = models.FirstOrDefault(m => m.id == id);
-            if (resource == null)
-                return null;
-            return resource.resource;
+            return modResources.FirstOrDefault(m => m.Namespace == spaceName);
         }
-        public AudioResource GetAudioResource(NamespaceID id)
+        public async Task LoadAllModResources()
         {
-            return audios.FirstOrDefault(m => m.id == id);
+            foreach (var mod in main.ModManager.GetAllModInfos())
+            {
+                modResources.Add(await LoadModResources(mod));
+            }
         }
-        public void SetModelResources(ModelResource[] items)
+        private async Task<ModResource> LoadModResources(ModInfo mod)
         {
-            models.Clear();
-            models.AddRange(items);
+            var nsp = mod.Namespace;
+            var modResource = new ModResource(nsp);
+            var soundResources = await LoadSoundMeta(nsp, mod.ResourceLocator);
+            modResource.SoundMeta = soundResources;
+            modResource.AudioClips = await LoadAudioClips(nsp, mod.ResourceLocator, soundResources);
+            return modResource;
         }
-        public void SetAudioResources(AudioResource[] items)
+        public string GetNamespaceDirectory(string nsp)
         {
-            audios.Clear();
-            audios.AddRange(items);
+            if (nsp == main.BuiltinNamespace)
+            {
+                return Path.Combine(Application.dataPath, "GameContent");
+            }
+            return Path.Combine(Application.streamingAssetsPath, "Mods", nsp);
+        }
+        public string GetContentDirectory(string nsp)
+        {
+            return Path.Combine(GetNamespaceDirectory(nsp), "Content");
+        }
+        public string GetResourcesDirectory(string nsp)
+        {
+            return Path.Combine(GetNamespaceDirectory(nsp), "Res");
+        }
+        private async Task<T> LoadAddressableResource<T>(IResourceLocator locator, string key)
+        {
+            if (!locator.Locate(key, typeof(T), out var locs))
+                return default;
+            var loc = locs.FirstOrDefault();
+            if (loc == null)
+                return default;
+            return await Addressables.LoadAssetAsync<T>(loc).Task;
+        }
+        private static XmlDocument LoadXmlDocument(Stream stream)
+        {
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;
+            using var xmlReader = XmlReader.Create(stream, settings);
+            var document = new XmlDocument();
+            document.Load(xmlReader);
+            return document;
         }
         public MainManager Main => main;
-        public string EditorSoundDirectory => editorSoundDirectory;
-        public string EditorModelDirectory => editorModelDirectory;
         [SerializeField]
         private MainManager main;
-        [SerializeField]
-        private string editorSoundDirectory;
-        [SerializeField]
-        private string editorModelDirectory;
-        [SerializeField]
-        private List<AudioResource> audios;
-        [SerializeField]
-        private List<ModelResource> models;
-    }
-
-    [Serializable]
-    public class ModelResource
-    {
-        public NamespaceID id;
-        public Model resource;
+        private List<ModResource> modResources = new List<ModResource>();
     }
 }
