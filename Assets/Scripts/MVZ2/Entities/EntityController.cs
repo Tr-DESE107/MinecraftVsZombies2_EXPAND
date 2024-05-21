@@ -92,8 +92,8 @@ namespace MVZ2
                         dir = new Vector3(0, 0, size.z);
                         break;
                 }
-                Vector3 start = new Vector3(x, z, y);
-                Vector3 end = start + new Vector3(dir.x, dir.z, dir.y);
+                Vector3 start = new Vector3(x, z, -y);
+                Vector3 end = start + new Vector3(dir.x, dir.z, -dir.y);
                 Gizmos.DrawLine(start, end);
             }
 

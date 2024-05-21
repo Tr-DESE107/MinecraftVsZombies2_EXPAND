@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2304071787110179174}
   - component: {fileID: 6219793651102708534}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ArrowHorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6734644775018784275}
   - component: {fileID: 6530628370194607465}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ArrowVertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: m_Name
-      value: Arrow Variant
+      value: Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Grid
+  - Shadow
   - 
   - 
   - 
@@ -38,12 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background
+    uniqueID: 2237204161
+    locked: 0
+  - name: Grid
+    uniqueID: 2302159725
     locked: 0
   - name: Shadow
     uniqueID: 2786581321
     locked: 0
   - name: Entities
     uniqueID: 4028947305
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

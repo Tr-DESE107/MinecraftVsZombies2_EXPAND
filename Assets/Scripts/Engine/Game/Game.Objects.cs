@@ -136,7 +136,7 @@ namespace PVZEngine
             {
                 if (carts.Any(c => c.GetLane() == i && c.State != CartStates.TRIGGERED))
                     continue;
-                Cart cart = Spawn(cartRef, new Vector3(x - i * 10, 0, GetUnitLaneZ(i)), null) as Cart;
+                Cart cart = Spawn(cartRef, new Vector3(x - i * 10, 0, GetEntityLaneZ(i)), null) as Cart;
             }
         }
         public Entity[] GetEntities(params int[] filterTypes)

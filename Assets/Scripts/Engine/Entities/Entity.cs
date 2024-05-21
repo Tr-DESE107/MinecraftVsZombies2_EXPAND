@@ -612,7 +612,7 @@ namespace PVZEngine
             if (!IsWarpingLane)
                 return;
 
-            float targetZ = Game.GetUnitLaneZ(WarpTargetLane);
+            float targetZ = Game.GetEntityLaneZ(WarpTargetLane);
             bool passed;
             // Warp upwards.
             if (WarpFromLane > WarpTargetLane)

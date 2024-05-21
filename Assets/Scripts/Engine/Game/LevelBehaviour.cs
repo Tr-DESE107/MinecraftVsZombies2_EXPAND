@@ -14,7 +14,7 @@ namespace PVZEngine
         }
         protected virtual Enemy SpawnEnemy(NamespaceID defRef, int row, bool hasShard = false, float x = 1080)
         {
-            Entity entity = Level.Spawn(defRef, new Vector3(x, 0, Level.GetUnitLaneZ(row)), null);
+            Entity entity = Level.Spawn(defRef, new Vector3(x, 0, Level.GetEntityLaneZ(row)), null);
             var enemy = entity as Enemy;
             enemy.HasStarshard = hasShard;
             return enemy;

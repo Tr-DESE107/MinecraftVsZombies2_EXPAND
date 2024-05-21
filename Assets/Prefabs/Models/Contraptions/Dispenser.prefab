@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534586902165037194}
   - component: {fileID: 7331202230353699986}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8706503471715863083}
   - component: {fileID: 6095126361630674286}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2501897603669383788}
   - component: {fileID: 3254427704007600389}
   - component: {fileID: 7708696244850598765}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ParticleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

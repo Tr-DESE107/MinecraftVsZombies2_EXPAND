@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1769270375021608237}
   - component: {fileID: 6735453676292339929}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5795746347716959356}
   - component: {fileID: 7172769817493710939}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1886740466088343195}
   - component: {fileID: 5118901920180593601}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: OuterArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473751300865179989}
   - component: {fileID: 4082094317340779113}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: InnerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975968261337520644}
   - component: {fileID: 7481614087377547034}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: OuterLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6006165982465009648}
   - component: {fileID: 4992381592330928408}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: WaterMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7654075668692556825}
   - component: {fileID: 7835400697556474647}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: InnerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7800611666529223268}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6114132798279822428}
   - component: {fileID: 4424032078652646507}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

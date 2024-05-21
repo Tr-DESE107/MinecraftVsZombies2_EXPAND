@@ -109,6 +109,10 @@ namespace PVZEngine
         #endregion
 
         #region 坐标相关方法
+        public float GetGridIndex(int column, int lane)
+        {
+            return column + lane * GetMaxColumnCount();
+        }
         public float GetGridSize()
         {
             return gridSize;
@@ -154,18 +158,21 @@ namespace PVZEngine
             //5.6 - 6.2 : 3
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridSize());
         }
-        public float GetUnitLaneZ(int row)
+        public float GetEntityLaneZ(int row)
         {
-            return GetLaneZ(row, 0.16f);
+            return GetLaneZ(row) + 16;
+        }
+        public float GetEntityColumnX(int column)
+        {
+            return GetColumnX(column) + GetGridSize() * 0.5f;
         }
         public float GetColumnX(int column)
         {
-            return GetGridLeftX() + +column * GetGridSize();
+            return GetGridLeftX() + column * GetGridSize();
         }
-        public float GetLaneZ(int lane, float zOffset = 0)
+        public float GetLaneZ(int lane)
         {
-            float laneZ = GetGridTopZ() - (lane + 1) * GetGridSize();
-            return laneZ + zOffset;
+            return GetGridTopZ() - (lane + 1) * GetGridSize();
         }
         public float GetGroundHeight(Vector3 pos)
         {
