@@ -9,6 +9,10 @@ namespace PVZEngine
         {
             return entityDefinitions.Values.ToArray();
         }
+        public SeedDefinition[] GetSeedDefinitions()
+        {
+            return seedDefinitions.Values.ToArray();
+        }
         public ShellDefinition[] GetShellDefinitions()
         {
             return shellDefinitions.Values.ToArray();
@@ -42,6 +46,7 @@ namespace PVZEngine
         }
         public string Namespace { get; }
         protected Dictionary<string, EntityDefinition> entityDefinitions = new Dictionary<string, EntityDefinition>();
+        protected Dictionary<string, SeedDefinition> seedDefinitions = new Dictionary<string, SeedDefinition>();
         protected Dictionary<string, ShellDefinition> shellDefinitions = new Dictionary<string, ShellDefinition>();
         protected Dictionary<string, AreaDefinition> areaDefinitions = new Dictionary<string, AreaDefinition>();
         protected Dictionary<string, StageDefinition> stageDefinitions = new Dictionary<string, StageDefinition>();

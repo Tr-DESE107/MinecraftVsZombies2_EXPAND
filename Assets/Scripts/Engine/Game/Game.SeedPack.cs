@@ -8,6 +8,30 @@ namespace PVZEngine
     public partial class Game
     {
         #region 公有方法
+        public void SetSeedPacks(NamespaceID[] seedIDs)
+        {
+            var seeds = seedIDs.Select(i => {
+                var seedDef = GetSeedDefinition(i);
+                var cost = seedDef.GetProperty<int>(SeedProperties.COST);
+                var maxRecharge = seedDef.GetProperty<int>(SeedProperties.START_RECHARGE_TIME);
+                return new SeedPack(i)
+                {
+                    Cost = cost,
+                    Recharge = 0,
+                    MaxRecharge = maxRecharge
+                };
+            }).ToArray();
+            SetSeedPacks(seeds);
+        }
+        public void SetSeedPacks(SeedPack[] seeds)
+        {
+            seedPacks.Clear();
+            seedPacks.AddRange(seeds);
+        }
+        public SeedPack[] GetAllSeedPacks()
+        {
+            return seedPacks.ToArray();
+        }
         public SeedPack GetSeedPackAt(int index)
         {
             return seedPacks[index];
@@ -23,7 +47,7 @@ namespace PVZEngine
         public void SetRechargeTimeToStart(SeedPack seedPack)
         {
             var seedDefinition = GetSeedDefinition(seedPack.SeedReference);
-            float time = seedDefinition.GetProperty<int>(EntityProperties.START_RECHARGE_TIME) * RechargeTimeMultiplier;
+            float time = seedDefinition.GetProperty<int>(SeedProperties.START_RECHARGE_TIME) * RechargeTimeMultiplier;
             seedPack.MaxRecharge = time;
         }
 
@@ -34,7 +58,7 @@ namespace PVZEngine
         public void SetRechargeTimeToUsed(SeedPack seedPack)
         {
             var seedDefinition = GetSeedDefinition(seedPack.SeedReference);
-            float time = seedDefinition.GetProperty<int>(EntityProperties.RECHARGE_TIME) * RechargeTimeMultiplier;
+            float time = seedDefinition.GetProperty<int>(SeedProperties.RECHARGE_TIME) * RechargeTimeMultiplier;
             seedPack.MaxRecharge = time;
         }
 
@@ -47,10 +71,6 @@ namespace PVZEngine
             {
                 SetRechargeTimeToStart(seedPack);
             }
-        }
-        public SeedDefinition GetSeedDefinition(NamespaceID seedRef)
-        {
-            return seedDefinitions.FirstOrDefault(d => d.GetReference() == seedRef);
         }
         #endregion
 
@@ -67,7 +87,7 @@ namespace PVZEngine
         private SeedPack CreateSeedPack(NamespaceID seedRef)
         {
             SeedDefinition seedDefinition = GetSeedDefinition(seedRef);
-            float time = seedDefinition.GetProperty<int>(EntityProperties.START_RECHARGE_TIME) * RechargeTimeMultiplier;
+            float time = seedDefinition.GetProperty<int>(SeedProperties.START_RECHARGE_TIME) * RechargeTimeMultiplier;
             float progress = CurrentFlag <= 0 ? 0 : time;
 
             return new SeedPack(seedRef)
@@ -83,7 +103,6 @@ namespace PVZEngine
         public float RechargeSpeed { get; set; }
         public float RechargeTimeMultiplier { get; set; }
         private List<SeedPack> seedPacks = new List<SeedPack>();
-        private List<SeedDefinition> seedDefinitions = new List<SeedDefinition>();
         #endregion
     }
 }

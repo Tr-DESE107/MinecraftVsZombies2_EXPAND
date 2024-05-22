@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Grid
   - Shadow
-  - 
+  - ModelShot
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - name: Grid
     uniqueID: 2302159725
     locked: 0
+  - name: BackUI
+    uniqueID: 2202724129
+    locked: 0
   - name: Shadow
     uniqueID: 2786581321
     locked: 0
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FrontUI
+    uniqueID: 4110715849
     locked: 0

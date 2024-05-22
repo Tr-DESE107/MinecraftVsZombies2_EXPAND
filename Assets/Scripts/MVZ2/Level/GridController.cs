@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2
+namespace MVZ2.Level
 {
     public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {

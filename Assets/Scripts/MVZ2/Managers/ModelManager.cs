@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace MVZ2
+{
+    public class ModelManager : MonoBehaviour
+    {
+        public Sprite ShotIcon(Model model, int width, int height, Vector2 modelOffset, string name = null)
+        {
+            var pictureName = name ?? "ModelIcon";
+            //激活摄像机与灯光
+            modelShotRoot.gameObject.SetActive(true);
+
+            //设置模型
+            var modelInstance = Instantiate(model, modelShotPositionTransform);
+            modelInstance.transform.localPosition = Vector3.zero;
+
+            //创建一个用于渲染图片的RenderTexture
+            RenderTexture renderTexture = new RenderTexture(width, height, 32);
+            renderTexture.antiAliasing = 2;
+            modelShotCamera.targetTexture = renderTexture;
+            modelShotCamera.enabled = false;
+
+            // 相机渲染。
+            modelShotCamera.orthographicSize = height * 0.005f;
+            var localPos = modelShotPositionTransform.localPosition;
+            localPos.x = modelOffset.x * 0.01f;
+            localPos.y = -modelShotCamera.orthographicSize + modelOffset.y * 0.01f;
+            modelShotPositionTransform.localPosition = localPos;
+            modelShotCamera.Render();
+
+            // 从Render Texture读取像素并保存为图片
+            Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            RenderTexture.active = renderTexture;
+            texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            texture.Apply();
+            texture.name = pictureName;
+            RenderTexture.active = null; // 重置活动的Render Texture
+            modelShotCamera.targetTexture = null;
+            renderTexture.Release();
+            Destroy(modelInstance.gameObject);
+
+            // 创建Sprite。
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f);
+            sprite.name = pictureName;
+
+            return sprite;
+        }
+        public MainManager Main => main;
+        [SerializeField]
+        private MainManager main;
+        [SerializeField]
+        private Transform modelShotRoot;
+        [SerializeField]
+        private Transform modelShotPositionTransform;
+        [SerializeField]
+        private Camera modelShotCamera;
+    }
+}

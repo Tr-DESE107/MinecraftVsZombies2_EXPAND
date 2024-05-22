@@ -4,6 +4,7 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine;
 using UnityEditor;
@@ -24,11 +25,18 @@ namespace MVZ2.Vanilla
             AddDefinition(shellDefinitions, ShellID.flesh.name, new FleshShell());
             AddDefinition(shellDefinitions, ShellID.stone.name, new StoneShell());
 
-            AddDefinition(entityDefinitions, ContraptionID.dispenser.name, new Dispenser());
+            AddContraption(ContraptionID.dispenser.name, new Dispenser(), 100, 0, 225);
+
             AddDefinition(entityDefinitions, EnemyID.zombie.name, new Zombie());
             AddDefinition(entityDefinitions, ProjectileID.arrow.name, new Arrow());
 
             Callbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
+        }
+
+        private void AddContraption(string name, EntityDefinition entityDef, int cost, int startRecharge, int maxRecharge, bool triggerActive = false, int triggerCost = 0)
+        {
+            AddDefinition(entityDefinitions, name, entityDef);
+            AddDefinition(seedDefinitions, name, new EntitySeed(new NamespaceID(Namespace, name), cost, startRecharge, maxRecharge, triggerActive, triggerCost));
         }
 
         private void PostEntityTakeDamage(DamageResult bodyResult, DamageResult armorResult)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,9 +27,17 @@ namespace MVZ2
         {
             var nsp = mod.Namespace;
             var modResource = new ModResource(nsp);
-            var soundResources = await LoadSoundMeta(nsp, mod.ResourceLocator);
-            modResource.SoundMeta = soundResources;
-            modResource.AudioClips = await LoadAudioClips(nsp, mod.ResourceLocator, soundResources);
+
+            var soundMeta = await LoadSoundMeta(nsp, mod.ResourceLocator);
+            modResource.SoundMeta = soundMeta;
+            modResource.AudioClips = await LoadAudioClips(nsp, mod.ResourceLocator, soundMeta);
+
+            var modelMeta = await LoadModelMeta(nsp, mod.ResourceLocator);
+            modResource.ModelMeta = modelMeta;
+            modResource.Models = await LoadModels(nsp, mod.ResourceLocator, modelMeta);
+
+            modResource.ModelIcons = ShotModelIcons(nsp, modelMeta, modResource.Models);
+
             return modResource;
         }
         public string GetNamespaceDirectory(string nsp)
@@ -46,6 +55,36 @@ namespace MVZ2
         public string GetResourcesDirectory(string nsp)
         {
             return Path.Combine(GetNamespaceDirectory(nsp), "Res");
+        }
+        public static string CombinePath(params string[] paths)
+        {
+            return Path.Combine(paths).Replace("\\", "/");
+        }
+        private async Task<Dictionary<string, T>> LoadResourceGroup<T>(string nsp, IResourceLocator locator, string root, string[] paths) where T : UnityEngine.Object
+        {
+            var dict = new Dictionary<string, T>();
+
+            var tasks = new Dictionary<string, Task<T>>();
+            foreach (var relativePath in paths)
+            {
+                var key = CombinePath(root, relativePath);
+                tasks.Add(key, LoadAddressableResource<T>(locator, key));
+            }
+            foreach (var pair in tasks)
+            {
+                var relativePath = pair.Key;
+                try
+                {
+                    var clip = await pair.Value;
+                    clip.name = $"{nsp}:{relativePath}";
+                    dict.Add(relativePath, clip);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"资源（{typeof(T).Name}）{nsp}:{relativePath}加载失败：{e}");
+                }
+            }
+            return dict;
         }
         private async Task<T> LoadAddressableResource<T>(IResourceLocator locator, string key)
         {

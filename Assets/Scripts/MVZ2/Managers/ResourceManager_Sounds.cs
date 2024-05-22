@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,33 +33,10 @@ namespace MVZ2
                 return clip;
             return null;
         }
-        private async Task<Dictionary<string, AudioClip>> LoadAudioClips(string nsp, IResourceLocator locator, SoundsMeta meta)
+        private Task<Dictionary<string, AudioClip>> LoadAudioClips(string nsp, IResourceLocator locator, SoundsMeta meta)
         {
-            var directory = GetResourcesDirectory(nsp);
             var paths = meta.resources.SelectMany(r => r.samples).Select(s => s.path).Distinct();
-            var clipDict = new Dictionary<string, AudioClip>();
-
-            var tasks = new Dictionary<string, Task<AudioClip>>();
-            foreach (var relativePath in paths)
-            {
-                var key = Path.Combine(meta.root, relativePath).Replace("\\", "/");
-                tasks.Add(key, LoadAddressableResource<AudioClip>(locator, key));
-            }
-            foreach (var pair in tasks)
-            {
-                var relativePath = pair.Key;
-                try
-                {
-                    var clip = await pair.Value;
-                    clip.name = $"{nsp}:{relativePath}";
-                    clipDict.Add(relativePath, clip);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"音频{nsp}:{relativePath}加载失败：{e}");
-                }
-            }
-            return clipDict;
+            return LoadResourceGroup<AudioClip>(nsp, locator, meta.root, paths.ToArray());
         }
         private async Task<SoundsMeta> LoadSoundMeta(string nsp, IResourceLocator locator)
         {

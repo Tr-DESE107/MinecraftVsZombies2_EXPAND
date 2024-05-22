@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2
+namespace MVZ2.Level
 {
     public class LaneController : MonoBehaviour
     {

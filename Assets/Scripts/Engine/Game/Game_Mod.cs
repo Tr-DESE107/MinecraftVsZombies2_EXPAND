@@ -13,6 +13,10 @@ namespace PVZEngine
         {
             return entityDefinitions.OfType<T>().FirstOrDefault();
         }
+        public SeedDefinition GetSeedDefinition(NamespaceID seedRef)
+        {
+            return seedDefinitions.FirstOrDefault(d => d.GetReference() == seedRef);
+        }
         public ShellDefinition GetShellDefinition(NamespaceID defRef)
         {
             return shellDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
@@ -40,6 +44,7 @@ namespace PVZEngine
         private void AddMod(Mod mod)
         {
             entityDefinitions.AddRange(mod.GetEntityDefinitions());
+            seedDefinitions.AddRange(mod.GetSeedDefinitions());
             shellDefinitions.AddRange(mod.GetShellDefinitions());
             areaDefinitions.AddRange(mod.GetAreaDefinitions());
             stageDefinitions.AddRange(mod.GetStageDefinitions());
@@ -47,6 +52,7 @@ namespace PVZEngine
             buffDefinitions.AddRange(mod.GetBuffDefinitions());
         }
         private List<EntityDefinition> entityDefinitions = new List<EntityDefinition>();
+        private List<SeedDefinition> seedDefinitions = new List<SeedDefinition>();
         private List<ShellDefinition> shellDefinitions = new List<ShellDefinition>();
         private List<AreaDefinition> areaDefinitions = new List<AreaDefinition>();
         private List<StageDefinition> stageDefinitions = new List<StageDefinition>();

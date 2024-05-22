@@ -25,5 +25,14 @@ namespace MVZ2
                 return null;
             return value;
         }
+        public static float? GetAttributeFloat(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!float.TryParse(attr.Value, out var value))
+                return null;
+            return value;
+        }
     }
 }

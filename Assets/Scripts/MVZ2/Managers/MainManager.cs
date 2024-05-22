@@ -12,6 +12,7 @@ namespace MVZ2
         }
         public string BuiltinNamespace => builtinNamespace;
         public ResourceManager ResourceManager => resource;
+        public ModelManager ModelManager => model;
         public SoundManager SoundManager => sound;
         public LevelManager LevelManager => level;
         public ModManager ModManager => mod;
@@ -19,6 +20,8 @@ namespace MVZ2
         private string builtinNamespace = "mvz2";
         [SerializeField]
         private ResourceManager resource;
+        [SerializeField]
+        private ModelManager model;
         [SerializeField]
         private SoundManager sound;
         [SerializeField]

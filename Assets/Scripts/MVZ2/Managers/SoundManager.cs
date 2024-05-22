@@ -16,7 +16,7 @@ namespace MVZ2
             var sample = res.GetRandomSample();
             if (sample == null)
                 return null;
-            var path = Path.Combine(soundsMeta.root, sample.path).Replace("\\", "/");
+            var path = ResourceManager.CombinePath(soundsMeta.root, sample.path);
             var clip = main.ResourceManager.GetAudioClip(id.spacename, path);
             return Play(clip, pos, res.priority);
         }

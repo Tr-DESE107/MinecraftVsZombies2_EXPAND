@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2
+namespace MVZ2.Level
 {
     public class GridLayoutController : MonoBehaviour
     {

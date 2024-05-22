@@ -1,0 +1,26 @@
+﻿using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace MVZ2.Level.UI
+{
+    public class PickaxeSlot : MonoBehaviour, IPointerDownHandler
+    {
+        public void SetPickaxeVisible(bool visible)
+        {
+            image.enabled = visible;
+        }
+        private void Awake()
+        {
+            
+        }
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            OnPointerDown?.Invoke();
+        }
+        public event Action OnPointerDown;
+        [SerializeField]
+        private Image image;
+    }
+}

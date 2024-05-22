@@ -13,8 +13,6 @@
         public const string CAN_DISABLE = "canDisable";
         public const string INVINCIBLE = "invincible";
         public const string INVISIBLE = "invisible";
-        public const string START_RECHARGE_TIME = "startRechargeTime";
-        public const string RECHARGE_TIME = "rechargeTime";
         public const string FRICTION = "friction";
         public const string GRAVITY = "gravity";
         public const string FACTION = "faction";

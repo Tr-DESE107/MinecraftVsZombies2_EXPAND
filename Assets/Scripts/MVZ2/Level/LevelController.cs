@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent;
+using MVZ2.Level.UI;
+using MVZ2.UI;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2
+namespace MVZ2.Level
 {
     public class LevelController : MonoBehaviour
     {
@@ -29,7 +32,10 @@ namespace MVZ2
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySound += OnPlaySoundCallback;
+            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser });
             level.Init(0, AreaID.day, StageID.prologue, option);
+
+            UpdateBlueprints();
 
             isGameStarted = true;
         }
@@ -40,6 +46,9 @@ namespace MVZ2
             gridLayout.OnPointerClick += OnGridClickCallback;
 
             HideGridSprites();
+            var levelUI = GetLevelUI();
+            standaloneUI.SetActive(standaloneUI == levelUI);
+            mobileUI.SetActive(mobileUI == levelUI);
         }
         private void Update()
         {
@@ -112,6 +121,41 @@ namespace MVZ2
         }
         #endregion
 
+        private void UpdateBlueprints()
+        {
+            var levelUI = GetLevelUI();
+            var seeds = level.GetAllSeedPacks();
+            var viewDatas = new BlueprintViewData[seeds.Length];
+            for (int i = 0; i < viewDatas.Length; i++)
+            {
+                var seed = seeds[i];
+                var seedDef = level.GetSeedDefinition(seed.SeedReference);
+
+                Sprite sprite = null;
+                if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+                {
+                    sprite = main.ResourceManager.GetModelIcon(seedDef.GetSeedEntityID());
+                }
+
+                var viewData = new BlueprintViewData()
+                {
+                    icon = sprite,
+                    cost = seed.Cost.ToString(),
+                    triggerActive = seedDef.IsTriggerActive(),
+                    triggerCost = seedDef.GetTriggerCost().ToString(),
+                };
+                viewDatas[i] = viewData;
+            }
+            levelUI.SetBlueprints(viewDatas);
+        }
+        private LevelUI GetLevelUI()
+        {
+#if UNITY_ANDROID || UNITY_IOS
+            return mobileUI;
+#else
+            return standaloneUI;
+#endif
+        }
         private void HideGridSprites()
         {
             foreach (var grid in gridLayout.GetGrids())
@@ -130,5 +174,9 @@ namespace MVZ2
         private Transform entitiesRoot;
         [SerializeField]
         private GridLayoutController gridLayout;
+        [SerializeField]
+        private LevelUI standaloneUI;
+        [SerializeField]
+        private LevelUI mobileUI;
     }
 }
