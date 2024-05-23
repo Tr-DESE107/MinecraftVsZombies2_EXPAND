@@ -35,9 +35,9 @@ namespace MVZ2.UI
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            OnPointerDown?.Invoke(this);
+            OnPointerDown?.Invoke(this, eventData);
         }
-        public event Action<Blueprint> OnPointerDown;
+        public event Action<Blueprint, PointerEventData> OnPointerDown;
         [SerializeField]
         private Image iconImage;
         [SerializeField]

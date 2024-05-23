@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
+    [Definition(ProjectileNames.arrow)]
     public class Arrow : VanillaProjectile
     {
         public Arrow() : base()

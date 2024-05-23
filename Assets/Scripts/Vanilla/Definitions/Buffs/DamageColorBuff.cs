@@ -1,9 +1,11 @@
-﻿using MVZ2.Vanilla.Modifiers;
+﻿using MVZ2.GameContent;
+using MVZ2.Vanilla.Modifiers;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Buffs
 {
+    [Definition(BuffNames.damageColor)]
     public class DamageColorBuff : BuffDefinition
     {
         public DamageColorBuff()

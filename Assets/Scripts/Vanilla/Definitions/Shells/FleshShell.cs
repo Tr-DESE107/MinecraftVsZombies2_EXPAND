@@ -3,6 +3,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla.Buffs
 {
+    [Definition(ShellNames.flesh)]
     public class FleshShell : ShellDefinition
     {
         public FleshShell()

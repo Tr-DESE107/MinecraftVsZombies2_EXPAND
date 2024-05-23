@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent
 {
+    [Definition(PickupNames.redstone)]
     public class Redstone : VanillaPickup
     {
         public override void Update(Entity entity)

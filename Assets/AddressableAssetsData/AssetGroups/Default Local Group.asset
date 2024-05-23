@@ -1028,6 +1028,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Res
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3048f7f20bb9bd54fb32018bcd4af2b0
+    m_Address: Models/Contraptions/Obsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 459a462a45f46064f872c2bf09247529
     m_Address: Models/Contraptions/Furnace
     m_ReadOnly: 0

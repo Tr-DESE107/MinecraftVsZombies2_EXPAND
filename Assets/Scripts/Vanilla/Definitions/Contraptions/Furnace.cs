@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
+    [Definition(ContraptionNames.furnace)]
+    [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.shortTime)]
     public class Furnace : VanillaContraption
     {
         public Furnace() : base()

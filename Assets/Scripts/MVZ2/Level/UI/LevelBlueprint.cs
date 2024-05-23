@@ -10,9 +10,9 @@ namespace MVZ2.Level.UI
     {
         private void Awake()
         {
-            blueprint.OnPointerDown += (b) => OnPointerDown?.Invoke(this);
+            blueprint.OnPointerDown += (b, data) => OnPointerDown?.Invoke(this, data);
         }
-        public event Action<LevelBlueprint> OnPointerDown;
+        public event Action<LevelBlueprint, PointerEventData> OnPointerDown;
         public Blueprint Blueprint => blueprint;
         [SerializeField]
         private Blueprint blueprint;

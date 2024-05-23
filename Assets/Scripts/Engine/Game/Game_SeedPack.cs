@@ -10,17 +10,7 @@ namespace PVZEngine
         #region 公有方法
         public void SetSeedPacks(NamespaceID[] seedIDs)
         {
-            var seeds = seedIDs.Select(i => {
-                var seedDef = GetSeedDefinition(i);
-                var cost = seedDef.GetProperty<int>(SeedProperties.COST);
-                var maxRecharge = seedDef.GetProperty<int>(SeedProperties.START_RECHARGE_TIME);
-                return new SeedPack(i)
-                {
-                    Cost = cost,
-                    Recharge = 0,
-                    MaxRecharge = maxRecharge
-                };
-            }).ToArray();
+            var seeds = seedIDs.Select(i => CreateSeedPack(i)).ToArray();
             SetSeedPacks(seeds);
         }
         public void SetSeedPacks(SeedPack[] seeds)
@@ -47,7 +37,10 @@ namespace PVZEngine
         public void SetRechargeTimeToStart(SeedPack seedPack)
         {
             var seedDefinition = GetSeedDefinition(seedPack.SeedReference);
-            float time = seedDefinition.GetProperty<int>(SeedProperties.START_RECHARGE_TIME) * RechargeTimeMultiplier;
+            var rechargeID = seedDefinition.GetRechargeID();
+            var rechargeDef = GetRechargeDefinition(rechargeID);
+            var maxRecharge = rechargeDef.GetStartMaxRecharge();
+            float time = maxRecharge * RechargeTimeMultiplier;
             seedPack.MaxRecharge = time;
         }
 
@@ -58,7 +51,10 @@ namespace PVZEngine
         public void SetRechargeTimeToUsed(SeedPack seedPack)
         {
             var seedDefinition = GetSeedDefinition(seedPack.SeedReference);
-            float time = seedDefinition.GetProperty<int>(SeedProperties.RECHARGE_TIME) * RechargeTimeMultiplier;
+            var rechargeID = seedDefinition.GetRechargeID();
+            var rechargeDef = GetRechargeDefinition(rechargeID);
+            var maxRecharge = rechargeDef.GetMaxRecharge();
+            float time = maxRecharge * RechargeTimeMultiplier;
             seedPack.MaxRecharge = time;
         }
 
@@ -87,11 +83,15 @@ namespace PVZEngine
         private SeedPack CreateSeedPack(NamespaceID seedRef)
         {
             SeedDefinition seedDefinition = GetSeedDefinition(seedRef);
-            float time = seedDefinition.GetProperty<int>(SeedProperties.START_RECHARGE_TIME) * RechargeTimeMultiplier;
+            var rechargeID = seedDefinition.GetRechargeID();
+            var rechargeDef = GetRechargeDefinition(rechargeID);
+            var maxRecharge = rechargeDef.GetStartMaxRecharge();
+            float time = maxRecharge * RechargeTimeMultiplier;
             float progress = CurrentFlag <= 0 ? 0 : time;
 
             return new SeedPack(seedRef)
             {
+                Cost = seedDefinition.GetCost(),
                 MaxRecharge = time,
                 Recharge = progress
             };

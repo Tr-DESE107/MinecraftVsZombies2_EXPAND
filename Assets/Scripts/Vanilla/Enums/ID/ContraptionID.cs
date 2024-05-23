@@ -1,15 +1,25 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla;
+using PVZEngine;
 
 namespace MVZ2.GameContent
 {
+    public static class ContraptionNames
+    {
+        public const string dispenser = "dispenser";
+        public const string furnace = "furnace";
+        public const string obsidian = "obsidian";
+        public const string lilyPad = "lily_pad";
+    }
     public static class ContraptionID
     {
-        public static readonly NamespaceID dispenser = Get("dispenser");
-        public static readonly NamespaceID furnace = Get("furnace");
-        public static readonly NamespaceID lilyPad = Get("lily_pad");
+        public static readonly NamespaceID dispenser = Get(ContraptionNames.dispenser);
+        public static readonly NamespaceID furnace = Get(ContraptionNames.furnace);
+        public static readonly NamespaceID obsidian = Get(ContraptionNames.obsidian);
+
+        public static readonly NamespaceID lilyPad = Get(ContraptionNames.lilyPad);
         private static NamespaceID Get(string name)
         {
-            return new NamespaceID("mvz2", name);
+            return new NamespaceID(VanillaMod.spaceName, name);
         }
     }
 }

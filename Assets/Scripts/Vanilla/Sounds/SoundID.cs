@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla;
+using PVZEngine;
 
 namespace MVZ2.GameContent
 {
@@ -19,7 +20,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID zombieDeath = Get("zombie_death");
         private static NamespaceID Get(string name)
         {
-            return new NamespaceID("mvz2", name);
+            return new NamespaceID(VanillaMod.spaceName, name);
         }
     }
 }

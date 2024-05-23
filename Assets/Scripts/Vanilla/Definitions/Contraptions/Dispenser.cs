@@ -3,6 +3,8 @@ using PVZEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
+    [Definition(ContraptionNames.dispenser)]
+    [EntitySeedDefinition(100, VanillaMod.spaceName, RechargeNames.shortTime)]
     public class Dispenser : DispenserFamily
     {
         public override void Init(Entity entity)

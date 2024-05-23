@@ -22,9 +22,9 @@ namespace MVZ2.Level.UI
         }
         private void Awake()
         {
-            icon.OnPointerDown += () => OnPointerDown?.Invoke();
+            icon.OnPointerDown += (data) => OnPointerDown?.Invoke(data);
         }
-        public event Action OnPointerDown;
+        public event Action<PointerEventData> OnPointerDown;
         [SerializeField]
         private StarshardPanelIcon icon;
         [SerializeField]

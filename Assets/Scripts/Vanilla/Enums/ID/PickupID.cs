@@ -1,13 +1,18 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla;
+using PVZEngine;
 
 namespace MVZ2.GameContent
 {
-    public static class AreaID
+    public static class PickupNames
     {
-        public static readonly NamespaceID day = Get("day");
+        public const string redstone = "redstone";
+    }
+    public static class PickupID
+    {
+        public static readonly NamespaceID redstone = Get(PickupNames.redstone);
         private static NamespaceID Get(string name)
         {
-            return new NamespaceID("mvz2", name);
+            return new NamespaceID(VanillaMod.spaceName, name);
         }
     }
 }

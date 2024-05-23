@@ -8,7 +8,7 @@
         public readonly static NamespaceID FALL_DAMAGE = Get("fallDamage");
         public static NamespaceID Get(string name)
         {
-            return new NamespaceID("mvz2", name);
+            return new NamespaceID("core", name);
         }
     }
 }

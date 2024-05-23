@@ -2,6 +2,7 @@ using System;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
@@ -127,26 +128,26 @@ namespace MVZ2.Level.UI
         #region 私有方法
         private void Awake()
         {
-            _sideReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side);
-            _lawnReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn);
-            _bottomReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom);
-            _pickaxeSlot.OnPointerDown += () => OnPickaxePointerDown?.Invoke();
-            _starshardPanel.OnPointerDown += () => OnStarshardPointerDown?.Invoke();
+            _sideReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side);
+            _lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn);
+            _bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom);
+            _pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
+            _starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
             _menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
         }
         #region 事件回调
-        private void OnBlueprintPointerDownCallback(Blueprint blueprint)
+        private void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData data)
         {
-            OnBlueprintPointerDown?.Invoke(_blueprints.indexOf(blueprint));
+            OnBlueprintPointerDown?.Invoke(_blueprints.indexOf(blueprint), data);
         }
         #endregion
 
         #endregion
         public event Action<Receiver
             > OnRaycastReceiverPointerDown;
-        public event Action<int> OnBlueprintPointerDown;
-        public event Action OnPickaxePointerDown;
-        public event Action OnStarshardPointerDown;
+        public event Action<int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<PointerEventData> OnPickaxePointerDown;
+        public event Action<PointerEventData> OnStarshardPointerDown;
         public event Action OnMenuButtonClick;
 
         [Header("General")]

@@ -1,10 +1,9 @@
 using MVZ2.Vanilla;
 using PVZEngine;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
-using UnityEngine;
 
 namespace MVZ2.GameContent
 {
+    [Definition(EffectNames.miner)]
     public class Miner : VanillaEffect
     {
         #region 公有方法

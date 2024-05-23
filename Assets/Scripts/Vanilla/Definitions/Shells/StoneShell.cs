@@ -3,6 +3,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla.Buffs
 {
+    [Definition(ShellNames.stone)]
     public class StoneShell : ShellDefinition
     {
         public StoneShell()

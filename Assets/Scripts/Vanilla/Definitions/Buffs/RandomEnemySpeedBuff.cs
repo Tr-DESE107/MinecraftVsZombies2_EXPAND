@@ -1,8 +1,10 @@
-﻿using MVZ2.Vanilla.Modifiers;
+﻿using MVZ2.GameContent;
+using MVZ2.Vanilla.Modifiers;
 using PVZEngine;
 
 namespace MVZ2.Vanilla.Buffs
 {
+    [Definition(BuffNames.randomEnemySpeed)]
     public class RandomEnemySpeedBuff : BuffDefinition
     {
         public RandomEnemySpeedBuff()

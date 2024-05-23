@@ -17,9 +17,9 @@ namespace MVZ2.Level.UI
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            OnPointerDown?.Invoke();
+            OnPointerDown?.Invoke(eventData);
         }
-        public event Action OnPointerDown;
+        public event Action<PointerEventData> OnPointerDown;
         [SerializeField]
         private Image image;
     }

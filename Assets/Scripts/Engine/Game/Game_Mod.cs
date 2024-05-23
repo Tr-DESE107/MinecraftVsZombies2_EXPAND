@@ -17,6 +17,10 @@ namespace PVZEngine
         {
             return seedDefinitions.FirstOrDefault(d => d.GetReference() == seedRef);
         }
+        public RechargeDefinition GetRechargeDefinition(NamespaceID seedRef)
+        {
+            return rechargeDefinitions.FirstOrDefault(d => d.GetReference() == seedRef);
+        }
         public ShellDefinition GetShellDefinition(NamespaceID defRef)
         {
             return shellDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
@@ -45,6 +49,7 @@ namespace PVZEngine
         {
             entityDefinitions.AddRange(mod.GetEntityDefinitions());
             seedDefinitions.AddRange(mod.GetSeedDefinitions());
+            rechargeDefinitions.AddRange(mod.GetRechargeDefinitions());
             shellDefinitions.AddRange(mod.GetShellDefinitions());
             areaDefinitions.AddRange(mod.GetAreaDefinitions());
             stageDefinitions.AddRange(mod.GetStageDefinitions());
@@ -53,6 +58,7 @@ namespace PVZEngine
         }
         private List<EntityDefinition> entityDefinitions = new List<EntityDefinition>();
         private List<SeedDefinition> seedDefinitions = new List<SeedDefinition>();
+        private List<RechargeDefinition> rechargeDefinitions = new List<RechargeDefinition>();
         private List<ShellDefinition> shellDefinitions = new List<ShellDefinition>();
         private List<AreaDefinition> areaDefinitions = new List<AreaDefinition>();
         private List<StageDefinition> stageDefinitions = new List<StageDefinition>();

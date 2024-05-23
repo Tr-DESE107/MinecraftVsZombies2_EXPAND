@@ -8,8 +8,8 @@ namespace MVZ2.UI
     {
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            OnPointerDown?.Invoke();
+            OnPointerDown?.Invoke(eventData);
         }
-        public event Action OnPointerDown;
+        public event Action<PointerEventData> OnPointerDown;
     }
 }

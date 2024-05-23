@@ -1,7 +1,9 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla;
+using PVZEngine;
 
 namespace MVZ2.GameContent.Areas
 {
+    [Definition(AreaNames.day)]
     public class Day : AreaDefinition
     {
         public Day()

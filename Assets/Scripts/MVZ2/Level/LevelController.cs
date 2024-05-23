@@ -7,6 +7,7 @@ using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 using Grid = PVZEngine.Grid;
 
 namespace MVZ2.Level
@@ -20,7 +21,7 @@ namespace MVZ2.Level
         }
         public void StartGame()
         {
-            var vanilla = new Vanilla.Vanilla();
+            var vanilla = new Vanilla.VanillaMod();
             var option = new GameOption()
             {
                 CardSlotCount = 10,
@@ -38,7 +39,7 @@ namespace MVZ2.Level
             level.OnPlaySound += OnPlaySoundCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnHeldItemReset += OnHeldItemResetCallback;
-            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser, ContraptionID.furnace });
+            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser, ContraptionID.furnace, ContraptionID.obsidian, EnemyID.zombie });
             level.Init(GameDifficulty.Normal, AreaID.day, StageID.prologue, option);
             level.SetEnergy(9990);
             level.ResetHeldItem();
@@ -207,6 +208,8 @@ namespace MVZ2.Level
         }
         private void OnGridPointerDownCallback(int lane, int column, PointerEventData data)
         {
+            if (data.button != (int)MouseButton.LeftMouse)
+                return;
             if (!CanPlaceOnGrid(heldItemType, heldItemID, level.GetGrid(column, lane)))
                 return;
             switch (heldItemType)
@@ -232,8 +235,10 @@ namespace MVZ2.Level
                     break;
             }
         }
-        private void OnBlueprintPointerDownCallback(int index)
+        private void OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
         {
+            if (eventData.button != (int)MouseButton.LeftMouse)
+                return;
             if (heldItemType > 0)
             {
                 if (CancelHeldItem())
@@ -279,8 +284,10 @@ namespace MVZ2.Level
                     break;
             }
         }
-        private void OnPickaxePointerDownCallback()
+        private void OnPickaxePointerDownCallback(PointerEventData eventData)
         {
+            if (eventData.button != (int)MouseButton.LeftMouse)
+                return;
             if (heldItemType > 0)
             {
                 if (CancelHeldItem())
