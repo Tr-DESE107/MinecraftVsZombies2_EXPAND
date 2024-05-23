@@ -10,6 +10,10 @@ namespace MVZ2.Vanilla
         {
             return definition.GetProperty<Vector3>(EntityProperties.SIZE);
         }
+        public static NamespaceID GetPlaceSound(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(EntityProps.PLACE_SOUND);
+        }
         public static NamespaceID GetDeathSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(EntityProps.DEATH_SOUND);

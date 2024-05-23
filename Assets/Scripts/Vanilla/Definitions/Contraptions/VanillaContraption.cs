@@ -3,7 +3,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaContraption : EntityDefinition, IEvokableContraption
+    public abstract class VanillaContraption : VanillaEntity, IEvokableContraption
     {
         public VanillaContraption()
         {

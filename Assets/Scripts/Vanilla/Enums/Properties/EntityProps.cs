@@ -4,5 +4,6 @@
     {
         public const string HIT_SOUND = "hitSound";
         public const string DEATH_SOUND = "deathSound";
+        public const string PLACE_SOUND = "placeSound";
     }
 }

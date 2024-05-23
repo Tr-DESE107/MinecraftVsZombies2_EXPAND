@@ -22,12 +22,12 @@ namespace MVZ2.Level
                 int index = i;
                 grids[i].OnPointerEnter += d => OnPointerEnter?.Invoke(index, d);
                 grids[i].OnPointerExit += d => OnPointerExit?.Invoke(index, d);
-                grids[i].OnPointerClick += d => OnPointerClick?.Invoke(index, d);
+                grids[i].OnPointerDown += d => OnPointerDown?.Invoke(index, d);
             }
         }
         public event Action<int, PointerEventData> OnPointerEnter;
         public event Action<int, PointerEventData> OnPointerExit;
-        public event Action<int, PointerEventData> OnPointerClick;
+        public event Action<int, PointerEventData> OnPointerDown;
         [SerializeField]
         private List<GridController> grids;
     }

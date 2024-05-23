@@ -100,8 +100,8 @@ namespace PVZEngine
         #endregion
 
         #region 属性字段
-        public float RechargeSpeed { get; set; }
-        public float RechargeTimeMultiplier { get; set; }
+        public float RechargeSpeed { get; set; } = 1;
+        public float RechargeTimeMultiplier { get; set; } = 1;
         private List<SeedPack> seedPacks = new List<SeedPack>();
         #endregion
     }

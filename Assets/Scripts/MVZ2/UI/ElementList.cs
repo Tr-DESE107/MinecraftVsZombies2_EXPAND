@@ -17,7 +17,7 @@ namespace MVZ2.UI
             bool dontDestroy = false,
             bool rebuild = false)
         {
-            if (_template.transform.parent == transform)
+            if (_template.transform.parent == _listRoot)
             {
                 _template.gameObject.SetActive(false);
             }

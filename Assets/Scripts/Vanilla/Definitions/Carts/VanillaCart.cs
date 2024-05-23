@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaCart : EntityDefinition
+    public abstract class VanillaCart : VanillaEntity
     {
         public override void Update(Entity entity)
         {

@@ -8,5 +8,6 @@
         public int CardSlotCount { get; set; }
         public int StarshardSlotCount { get; set; }
         public float StartEnergy { get; set; }
+        public float MaxEnergy { get; set; }
     }
 }

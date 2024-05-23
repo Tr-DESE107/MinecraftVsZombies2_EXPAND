@@ -2,11 +2,10 @@ using MVZ2.GameContent;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaEnemy : EntityDefinition
+    public abstract class VanillaEnemy : VanillaEntity
     {
         public VanillaEnemy()
         {

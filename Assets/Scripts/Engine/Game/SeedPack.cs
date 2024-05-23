@@ -12,6 +12,10 @@ namespace PVZEngine
         {
             Recharge = MaxRecharge;
         }
+        public bool IsCharged()
+        {
+            return Recharge >= MaxRecharge;
+        }
         public void ResetRecharge()
         {
             Recharge = 0;

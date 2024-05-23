@@ -2,7 +2,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaProjectile : EntityDefinition
+    public abstract class VanillaProjectile : VanillaEntity
     {
         public VanillaProjectile()
         {

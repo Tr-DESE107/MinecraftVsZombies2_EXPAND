@@ -16,9 +16,16 @@ namespace MVZ2.Level.UI
         {
             _energyText.text = value;
         }
+        public void SetRaycasterMask(LayerMask mask)
+        {
+            foreach (var raycaster in _raycasters)
+            {
+                raycaster.blockingMask = mask;
+            }
+        }
         public void SetBlueprints(BlueprintViewData[] blueprints)
         {
-            _blueprints.updateList(blueprints.Length, ((i, rect) =>
+            _blueprints.updateList(blueprints.Length, (i, rect) =>
             {
                 var blueprint = rect.GetComponent<Blueprint>();
                 var viewData = blueprints[i];
@@ -26,11 +33,41 @@ namespace MVZ2.Level.UI
                 blueprint.SetIcon(viewData.icon);
                 blueprint.SetTriggerActive(viewData.triggerActive);
                 blueprint.SetTriggerCost(viewData.triggerCost);
-            }));
+            },
+            rect =>
+            {
+                var blueprint = rect.GetComponent<Blueprint>();
+                blueprint.OnPointerDown += OnBlueprintPointerDownCallback;
+            },
+            rect =>
+            {
+                var blueprint = rect.GetComponent<Blueprint>();
+                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+            });
+        }
+        public void SetBlueprintRecharges(float[] recharges)
+        {
+            for (int i = 0; i < _blueprints.count; i++)
+            {
+                var recharge = recharges[i];
+                _blueprints.getElement<Blueprint>(i).SetRecharge(1 - recharge);
+            }
+        }
+        public void SetBlueprintDisabled(bool[] disabledValues)
+        {
+            for (int i = 0; i < _blueprints.count; i++)
+            {
+                var disabled = disabledValues[i];
+                _blueprints.getElement<Blueprint>(i).SetDisabled(disabled);
+            }
         }
         public void SetPickaxeVisible(bool visible)
         {
             _pickaxeSlot.SetPickaxeVisible(visible);
+        }
+        public void SetHeldItemPosition(Vector2 worldPos)
+        {
+            _heldItem.transform.position = worldPos;
         }
         public void SetHeldItemIcon(Sprite sprite)
         {
@@ -87,23 +124,41 @@ namespace MVZ2.Level.UI
                 rectTrans.anchoredPosition = Vector2.zero;
             }
         }
+        #region 私有方法
         private void Awake()
         {
+            _sideReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke();
             _pickaxeSlot.OnPointerDown += () => OnPickaxePointerDown?.Invoke();
             _starshardPanel.OnPointerDown += () => OnStarshardPointerDown?.Invoke();
             _menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
         }
+        #region 事件回调
+        private void OnBlueprintPointerDownCallback(Blueprint blueprint)
+        {
+            OnBlueprintPointerDown?.Invoke(_blueprints.indexOf(blueprint));
+        }
+        #endregion
+
+        #endregion
+        public event Action OnRaycastReceiverPointerDown;
+        public event Action<int> OnBlueprintPointerDown;
         public event Action OnPickaxePointerDown;
         public event Action OnStarshardPointerDown;
         public event Action OnMenuButtonClick;
 
         [Header("General")]
         [SerializeField]
+        GraphicRaycaster[] _raycasters;
+        [SerializeField]
         TextMeshProUGUI _energyText;
         [SerializeField]
         ElementList _blueprints;
         [SerializeField]
         PickaxeSlot _pickaxeSlot;
+
+        [Header("Raycast Receivers")]
+        [SerializeField]
+        RaycastReciver _sideReceiver;
 
         [Header("CameraLimit")]
         [SerializeField]

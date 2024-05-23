@@ -7,7 +7,7 @@ namespace MVZ2
 {
     public class SoundManager : MonoBehaviour
     {
-        public AudioSource Play(NamespaceID id, Vector3 pos)
+        public AudioSource Play(NamespaceID id, Vector3 pos, float pitch = 1, float spatialBlend = 1)
         {
             var soundsMeta = main.ResourceManager.GetSoundsMeta(id.spacename);
             var res = main.ResourceManager.GetSoundResource(id);
@@ -18,7 +18,7 @@ namespace MVZ2
                 return null;
             var path = ResourceManager.CombinePath(soundsMeta.root, sample.path);
             var clip = main.ResourceManager.GetAudioClip(id.spacename, path);
-            return Play(clip, pos, res.priority);
+            return Play(clip, pos, res.priority, pitch, spatialBlend);
         }
         public AudioSource Play(AudioClip clip, Vector3 pos, int priority, float pitch = 1, float spatialBlend = 1)
         {

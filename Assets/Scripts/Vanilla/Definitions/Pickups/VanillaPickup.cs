@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaPickup : EntityDefinition, ICollectiblePickup
+    public abstract class VanillaPickup : VanillaEntity, ICollectiblePickup
     {
         public override void Update(Entity entity)
         {

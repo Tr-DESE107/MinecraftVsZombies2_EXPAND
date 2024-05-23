@@ -2,8 +2,8 @@
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaEffect : EntityDefinition
+    public abstract class VanillaEffect : VanillaEntity
     {
-        public override int Type => EntityTypes.PICKUP;
+        public override int Type => EntityTypes.EFFECT;
     }
 }

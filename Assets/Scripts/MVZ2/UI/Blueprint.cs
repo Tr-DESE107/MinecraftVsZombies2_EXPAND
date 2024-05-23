@@ -25,15 +25,27 @@ namespace MVZ2.UI
         {
             triggerCostText.text = cost;
         }
+        public void SetRecharge(float charge)
+        {
+            rechargeImage.fillAmount = charge;
+        }
+        public void SetDisabled(bool disabled)
+        {
+            disabledObject.SetActive(disabled);
+        }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            OnPointerDown?.Invoke();
+            OnPointerDown?.Invoke(this);
         }
-        public event Action OnPointerDown;
+        public event Action<Blueprint> OnPointerDown;
         [SerializeField]
         private Image iconImage;
         [SerializeField]
         private TextMeshProUGUI costText;
+        [SerializeField]
+        private Image rechargeImage;
+        [SerializeField]
+        private GameObject disabledObject;
         [SerializeField]
         private GameObject triggerCostObject;
         [SerializeField]

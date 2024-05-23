@@ -27,7 +27,7 @@ namespace MVZ2.GameContent
                 {
                     if (pickup.CollectedTime == moveTime)
                     {
-                        level.RemoveEnergyDelayEntity(pickup);
+                        level.RemoveEnergyDelayedEntity(pickup);
                     }
 
                     var vanishLerp = (pickup.CollectedTime - moveTime) / (float)(vanishTime - moveTime);
@@ -63,8 +63,7 @@ namespace MVZ2.GameContent
             {
                 value += 25;
             }
-            game.AddEnergy(value);
-            game.AddEnergyDelayEntity(pickup, value);
+            game.AddEnergyDelayed(pickup, value);
 
             game.PlaySound(SoundID.points, pickup.Pos);
         }

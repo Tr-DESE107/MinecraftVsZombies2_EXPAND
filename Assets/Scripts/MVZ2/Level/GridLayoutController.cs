@@ -31,12 +31,12 @@ namespace MVZ2.Level
                 int index = i;
                 lanes[i].OnPointerEnter += (c, d) => OnPointerEnter?.Invoke(index, c, d);
                 lanes[i].OnPointerExit += (c, d) => OnPointerExit?.Invoke(index, c, d);
-                lanes[i].OnPointerClick += (c, d) => OnPointerClick?.Invoke(index, c, d);
+                lanes[i].OnPointerDown += (c, d) => OnPointerDown?.Invoke(index, c, d);
             }
         }
         public event Action<int, int, PointerEventData> OnPointerEnter;
         public event Action<int, int, PointerEventData> OnPointerExit;
-        public event Action<int, int, PointerEventData> OnPointerClick;
+        public event Action<int, int, PointerEventData> OnPointerDown;
         [SerializeField]
         private List<LaneController> lanes;
     }
