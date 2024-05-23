@@ -5153,22 +5153,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2501897603669383788}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3034615701977725972, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1320115861314447802, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 871557703050630943}
+      addedObject: {fileID: 8270377987332140804}
   m_SourcePrefab: {fileID: 100100000, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
---- !u!1 &4330624703864885518 stripped
+--- !u!1 &312323698152440992 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3034615701977725972, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1320115861314447802, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
   m_PrefabInstance: {fileID: 1586506072868367642}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &871557703050630943
+--- !u!61 &8270377987332140804
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4330624703864885518}
+  m_GameObject: {fileID: 312323698152440992}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

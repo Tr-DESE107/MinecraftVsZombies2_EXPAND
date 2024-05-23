@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
 using MVZ2.UI;
@@ -9,7 +7,6 @@ using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.EventSystems.EventTrigger;
 using Grid = PVZEngine.Grid;
 
 namespace MVZ2.Level
@@ -41,10 +38,11 @@ namespace MVZ2.Level
             level.OnPlaySound += OnPlaySoundCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnHeldItemReset += OnHeldItemResetCallback;
-            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser });
-            level.Init(0, AreaID.day, StageID.prologue, option);
+            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser, ContraptionID.furnace });
+            level.Init(GameDifficulty.Normal, AreaID.day, StageID.prologue, option);
             level.SetEnergy(9990);
             level.ResetHeldItem();
+            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
 
             UpdateBlueprints();
 
@@ -157,9 +155,15 @@ namespace MVZ2.Level
         #region UI方
         private void OnEntityPointerEnterCallback(EntityController entity)
         {
-            if (!CanUseHeldItemOnEntity(entity.Entity))
-                return;
-            entity.SetHovered(true);
+            switch (entity.Entity.Type)
+            {
+                case EntityTypes.PLANT:
+                    if (heldItemType == HeldTypes.PICKAXE && CanDigContraption(entity.Entity))
+                    {
+                        entity.SetHovered(true);
+                    }
+                    break;
+            }
         }
         private void OnEntityPointerExitCallback(EntityController entity)
         {
@@ -167,13 +171,22 @@ namespace MVZ2.Level
         }
         private void OnEntityPointerDownCallback(EntityController entity)
         {
-            if (!CanUseHeldItemOnEntity(entity.Entity))
-                return;
-            switch (heldItemType)
+            switch (entity.Entity.Type)
             {
-                case HeldTypes.PICKAXE:
-                    entity.Entity.Die();
-                    level.ResetHeldItem();
+                case EntityTypes.PLANT:
+                    if (heldItemType == HeldTypes.PICKAXE && CanDigContraption(entity.Entity))
+                    {
+                        entity.Entity.Die();
+                        level.ResetHeldItem();
+                    }
+                    break;
+                case EntityTypes.PICKUP:
+                    if (heldItemType == HeldTypes.NONE)
+                    {
+                        var pickup = entity.Entity.ToPickup();
+                        if (!pickup.IsCollected)
+                            pickup.Collect();
+                    }
                     break;
             }
         }
@@ -291,7 +304,7 @@ namespace MVZ2.Level
 
             var ui = GetLevelUI();
             Sprite icon = null;
-            LayerMask layerMask = Layers.GetMask(Layers.DEFAULT);
+            LayerMask layerMask = Layers.GetMask(Layers.DEFAULT, Layers.PICKUP);
             switch (heldType)
             {
                 case HeldTypes.BLUEPRINT:
@@ -314,18 +327,9 @@ namespace MVZ2.Level
             level.ResetHeldItem();
             return true;
         }
-        private bool CanUseHeldItemOnEntity(Entity entity)
+        private bool CanDigContraption(Entity entity)
         {
-            switch (heldItemType)
-            {
-                case HeldTypes.PICKAXE:
-                    if (entity.Type == EntityTypes.PLANT && entity.GetFaction() == SelfFaction)
-                    {
-                        return true;
-                    }
-                    break;
-            }
-            return false;
+             return entity.GetFaction() == SelfFaction;
         }
         private bool IsHoldingPickaxe()
         {

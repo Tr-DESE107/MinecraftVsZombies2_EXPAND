@@ -142,7 +142,8 @@ namespace MVZ2.Level.UI
         #endregion
 
         #endregion
-        public event Action<Receiver> OnRaycastReceiverPointerDown;
+        public event Action<Receiver
+            > OnRaycastReceiverPointerDown;
         public event Action<int> OnBlueprintPointerDown;
         public event Action OnPickaxePointerDown;
         public event Action OnStarshardPointerDown;

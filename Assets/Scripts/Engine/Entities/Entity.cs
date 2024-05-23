@@ -495,7 +495,12 @@ namespace PVZEngine
         public Vector3 GetNextPosition(float simulationSpeed = 1)
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
-            return Pos + velocity * simulationSpeed;
+            var nextPos = Pos + velocity * simulationSpeed;
+            if (!CanUnderGround)
+            {
+                nextPos.y = Mathf.Max(GetGroundHeight(), nextPos.y);
+            }
+            return nextPos;
         }
 
 
@@ -538,16 +543,6 @@ namespace PVZEngine
                     OnContactGround();
                     isOnGround = true;
                 }
-            }
-            if (!CanUnderGround)
-            {
-                var pos = Pos;
-                pos.y = Mathf.Max(GetGroundHeight(), pos.y);
-                Pos = pos;
-
-                var vel = Velocity;
-                vel.y = Mathf.Max(0, vel.y);
-                Velocity = vel;
             }
         }
         #endregion
@@ -714,7 +709,7 @@ namespace PVZEngine
         public Vector3 Velocity { get; set; }
         public Vector3 Scale { get; set; } = Vector3.one;
         public int CollisionMask { get; set; }
-        public Vector3 RenderScale { get; set; }
+        public Vector3 RenderScale { get; set; } = Vector3.one;
         public bool FlipX => Scale.x < 0;
         public bool CanUnderGround { get; set; }
         public Vector3 BoundsOffset { get; set; }

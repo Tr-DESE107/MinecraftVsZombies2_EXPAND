@@ -1,5 +1,6 @@
 using MVZ2.Vanilla;
 using PVZEngine;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 
 namespace MVZ2.GameContent
@@ -11,33 +12,26 @@ namespace MVZ2.GameContent
         {
             var timer = new FrameTimer(START_TIME);
             SetProductTimer(entity, timer);
+            entity.ShadowVisible = true;
         }
         public override void Update(Entity entity)
         {
-            if (entity.Game.IsNoProduction())
-            {
-                SetOpen(entity, false);
-            }
-
-            if (IsOpen(entity))
+            if (!entity.Game.IsNoProduction())
             {
                 var timer = GetProductTimer(entity);
                 timer.Run();
                 if (timer.Expired)
                 {
-                    Produce(entity);
+                    entity.Produce<Redstone>();
                     timer.MaxFrame = PRODUCE_TIME;
                     timer.Reset();
                 }
+                entity.SetAnimationBool("Open", true);
             }
-        }
-        public static bool IsOpen(Entity entity)
-        {
-            return entity.GetProperty<bool>(PROP_IS_OPEN);
-        }
-        public static void SetOpen(Entity entity, bool value)
-        {
-            entity.SetProperty(PROP_IS_OPEN, value);
+            else
+            {
+                entity.SetAnimationBool("Open", false);
+            }
         }
         public static FrameTimer GetProductTimer(Entity entity)
         {
@@ -46,37 +40,6 @@ namespace MVZ2.GameContent
         public static void SetProductTimer(Entity entity, FrameTimer value)
         {
             entity.SetProperty(PROP_PRODUCE_TIMER, value);
-        }
-        #endregion
-
-        #region Ë½ÓÐ·½·¨
-        private static void Produce(Entity entity)
-        {
-            float xSpeed;
-            float maxSpeed = 1.6f;
-            Vector3 position = entity.Pos;
-            position = new Vector3(position.x, 0, position.y - 16);
-
-            var level = entity.Game;
-            var rng = entity.RNG;
-            if (position.x <= MVZ2Game.GetBorderX(false) + 150)
-            {
-                xSpeed = rng.Next(0, maxSpeed);
-            }
-            else if (position.x >= MVZ2Game.GetBorderX(true) - 150)
-            {
-                xSpeed = rng.Next(-maxSpeed, 0);
-            }
-            else
-            {
-                xSpeed = rng.Next(-maxSpeed, maxSpeed);
-            }
-            Vector3 dropVelocity = new Vector3(xSpeed, 7, 0);
-            var redstoneDef = level.GetEntityDefinition<Redstone>();
-            var redstone = level.Spawn(redstoneDef, position, entity);
-            redstone.Velocity = dropVelocity;
-
-            level.PlaySound(SoundID.throwSound, entity.Pos);
         }
         #endregion
 

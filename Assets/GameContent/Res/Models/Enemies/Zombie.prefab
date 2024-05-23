@@ -171,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6594585948907878605}
   - component: {fileID: 354903587122995452}
+  - component: {fileID: 668645415287718729}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -245,6 +246,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &668645415287718729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937826066836800300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 1
 --- !u!1 &5049712521669318218
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7194259374102431182}
   - component: {fileID: 8213183816813859649}
+  - component: {fileID: 748649440388650771}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -748,6 +763,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &748649440388650771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054858631265554861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 1
 --- !u!1 &8205057946845843601
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,22 +1005,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5605978735337598566}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3152729976638313519, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1408606006542680449, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6455918241694069260}
+      addedObject: {fileID: 4177988592965763333}
   m_SourcePrefab: {fileID: 100100000, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
---- !u!1 &3138126465319318176 stripped
+--- !u!1 &1423205524658841358 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3152729976638313519, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1408606006542680449, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
   m_PrefabInstance: {fileID: 21500200205723279}
   m_PrefabAsset: {fileID: 0}
---- !u!60 &6455918241694069260
+--- !u!60 &4177988592965763333
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3138126465319318176}
+  m_GameObject: {fileID: 1423205524658841358}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

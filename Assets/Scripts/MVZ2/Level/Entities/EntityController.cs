@@ -31,7 +31,7 @@ namespace MVZ2.Level
             var nextPos = Entity.GetNextPosition();
             var pos = Entity.Pos;
             var posOffset = (nextPos.LawnToTrans() - pos.LawnToTrans()) * deltaTime / Time.fixedDeltaTime;
-            transform.position += posOffset;
+            transform.position = pos.LawnToTrans() + posOffset;
 
             UpdateShadow(posOffset);
             UpdateEntityModelData();
@@ -152,6 +152,7 @@ namespace MVZ2.Level
         {
             Model.RendererGroup.SetTint(Entity.GetTint());
             Model.RendererGroup.SetColorOffset(GetColorOffset());
+            Model.transform.localScale = Entity.RenderScale;
         }
         private Color GetColorOffset()
         {

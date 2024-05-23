@@ -42,7 +42,7 @@ namespace MVZ2
             RenderTexture.active = null; // 重置活动的Render Texture
             modelShotCamera.targetTexture = null;
             renderTexture.Release();
-            Destroy(modelInstance.gameObject);
+            DestroyImmediate(modelInstance.gameObject);
 
             // 创建Sprite。
             Sprite sprite = Sprite.Create(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f);

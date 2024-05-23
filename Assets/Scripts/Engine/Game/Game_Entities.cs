@@ -73,6 +73,13 @@ namespace PVZEngine
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
+        public Entity Spawn<T>(Vector3 pos, Entity spawner) where T: EntityDefinition
+        {
+            var entityDef = GetEntityDefinition<T>();
+            if (entityDef == null)
+                return null;
+            return Spawn(entityDef, pos, spawner);
+        }
 
         public void CreatePreviewEnemies(IList<NamespaceID> validEnemies, Rect region)
         {

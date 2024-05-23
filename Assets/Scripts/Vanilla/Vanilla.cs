@@ -21,14 +21,18 @@ namespace MVZ2.Vanilla
 
             AddDefinition(buffDefinitions, BuffID.randomEnemySpeed.name, new RandomEnemySpeedBuff());
             AddDefinition(buffDefinitions, BuffID.damageColor.name, new DamageColorBuff());
+            AddDefinition(buffDefinitions, BuffID.productionColor.name, new ProductionColorBuff());
 
             AddDefinition(shellDefinitions, ShellID.flesh.name, new FleshShell());
             AddDefinition(shellDefinitions, ShellID.stone.name, new StoneShell());
 
             AddContraption(ContraptionID.dispenser.name, new Dispenser(), 100, 0, 225);
+            AddContraption(ContraptionID.furnace.name, new Furnace(), 50, 0, 225);
 
             AddDefinition(entityDefinitions, EnemyID.zombie.name, new Zombie());
             AddDefinition(entityDefinitions, ProjectileID.arrow.name, new Arrow());
+            AddDefinition(entityDefinitions, PickupID.redstone.name, new Redstone());
+            AddDefinition(entityDefinitions, EffectID.miner.name, new Miner());
 
             Callbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
         }

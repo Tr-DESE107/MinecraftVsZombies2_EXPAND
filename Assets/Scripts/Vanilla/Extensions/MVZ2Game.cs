@@ -66,7 +66,7 @@ namespace MVZ2.Vanilla
         {
             return ENEMY_RIGHT_BORDER;
         }
-        public const float ENERGY_SLOT_WIDTH = 0.24f;
+        public const float ENERGY_SLOT_WIDTH = 48;
         public const float MIN_PREVIEW_X = 1080;
         public const float MAX_PREVIEW_X = 1300;
         public const float MIN_PREVIEW_Y = 50;

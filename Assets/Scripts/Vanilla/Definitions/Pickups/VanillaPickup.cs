@@ -5,6 +5,13 @@ namespace MVZ2.Vanilla
 {
     public abstract class VanillaPickup : VanillaEntity, ICollectiblePickup
     {
+        public VanillaPickup() : base()
+        {
+            SetProperty(EntityProperties.GRAVITY, 1f);
+            SetProperty(EntityProperties.FRICTION, 0.15f);
+            SetProperty(EntityProperties.SIZE, new Vector3(32, 32, 32));
+            SetProperty(PickupProperties.MAX_TIMEOUT, 300);
+        }
         public override void Update(Entity entity)
         {
             var pickup = entity.ToPickup();

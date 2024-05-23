@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Rendering
+namespace MVZ2.Rendering
 {
     [RequireComponent(typeof(SortingGroup))]
     public class MultipleRendererGroup : MonoBehaviour
@@ -12,6 +12,20 @@ namespace Rendering
             propertyBlock = new MaterialPropertyBlock();
         }
 
+        private void OnEnable()
+        {
+            renderers.Clear();
+            foreach (var renderer in GetComponentsInChildren<Renderer>())
+            {
+                var element = renderer.GetComponent<RendererElement>();
+                if (element)
+                {
+                    if (element.ExcludedInGroup)
+                        continue;
+                }
+                renderers.Add(renderer);
+            }
+        }
         public void SetPropertyInt(string name, int value)
         {
             foreach (Renderer renderer in renderers)
@@ -78,7 +92,6 @@ namespace Rendering
         {
             get => renderers[index];
         }
-        [SerializeField]
         private List<Renderer> renderers = new List<Renderer>();
         [SerializeField]
         private SortingGroup sortingGroup;

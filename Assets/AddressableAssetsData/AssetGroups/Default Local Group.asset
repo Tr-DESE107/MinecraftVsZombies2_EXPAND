@@ -17,13 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
-  - m_GUID: 3225cf10a7527224a8a7cedc03206148
-    m_Address: Sounds/talk/villager/villager_short3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Res
-    - Audio
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
     m_Address: Sounds/talk/villager/villager_short2
     m_ReadOnly: 0
@@ -1017,8 +1010,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Res
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ff5950a87d45c2428b59b7e2132c2b7
+    m_Address: Models/Pickups/Redstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
     m_Address: Models/Enemies/Zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf35e37b41a96884bbac2da2ee062a64
+    m_Address: Models/Effects/Miner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 459a462a45f46064f872c2bf09247529
+    m_Address: Models/Contraptions/Furnace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
@@ -1802,6 +1813,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3225cf10a7527224a8a7cedc03206148
+    m_Address: Sounds/talk/villager/villager_short3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
