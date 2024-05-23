@@ -9,6 +9,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID grass = Get("grass");
         public readonly static NamespaceID points = Get("points");
         public readonly static NamespaceID pick = Get("pick");
+        public readonly static NamespaceID pickaxe = Get("pickaxe");
         public readonly static NamespaceID shot = Get("shot");
         public readonly static NamespaceID slice = Get("slice");
         public readonly static NamespaceID splat = Get("splat");

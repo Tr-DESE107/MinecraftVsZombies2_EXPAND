@@ -8,7 +8,7 @@ namespace PVZEngine
 {
     public static class EntityTypes
     {
-        public const int CONTRAPTION = 1;
+        public const int PLANT = 1;
         public const int ENEMY = 2;
         public const int OBSTACLE = 3;
         public const int BOSS = 4;

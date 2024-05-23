@@ -132,6 +132,8 @@ namespace PVZEngine
             {
                 Removed = true;
                 Game.RemoveEntity(this);
+                Definition.PostRemove(this);
+                Callbacks.PostEntityRemove.Run(this);
             }
         }
         public int GetColumn()
@@ -549,6 +551,46 @@ namespace PVZEngine
             }
         }
         #endregion
+
+        #region 网格
+        public void TakeGrid(int index)
+        {
+            takenGrids.Add(index);
+            var grid = Game.GetGrid(index);
+            grid.AddEntity(this);
+        }
+        public bool ReleaseGrid(int index)
+        {
+            if (takenGrids.Remove(index))
+            {
+                var grid = Game.GetGrid(index);
+                grid.RemoveEntity(this);
+                return true;
+            }
+            return false;
+        }
+        public void ClearTakenGrids()
+        {
+            foreach (var gridIndex in takenGrids)
+            {
+                var grid = Game.GetGrid(gridIndex);
+                grid.RemoveEntity(this);
+            }
+            takenGrids.Clear();
+        }
+        public int[] GetTakenGrids()
+        {
+            return takenGrids.ToArray();
+        }
+        public int GetGridIndex()
+        {
+            return Game.GetGridIndex(GetColumn(), GetLane());
+        }
+        public Grid GetGrid()
+        {
+            return Game.GetGrid(GetColumn(), GetLane());
+        }
+        #endregion
         public virtual bool IsFacingLeft() => FlipX;
 
         #endregion
@@ -561,7 +603,6 @@ namespace PVZEngine
         }
         protected virtual void OnUpdate()
         {
-            UpdateGridBelow();
             UpdatePhysics(1);
             WarpLanesUpdate();
         }
@@ -597,16 +638,6 @@ namespace PVZEngine
             Callbacks.PostEntityCollision.Run(this, other, state);
         }
 
-        private void UpdateGridBelow()
-        {
-            // Update grid below
-            Grid grid = Game.GetGrid(GetColumn(), GetLane());
-            if (GridBelow != grid)
-            {
-                Grid before = GridBelow;
-                GridBelow = grid;
-            }
-        }
         private void WarpLanesUpdate()
         {
             if (!IsWarpingLane)
@@ -678,7 +709,6 @@ namespace PVZEngine
         public EntityDefinition Definition { get; set; }
         public EntityReference SpawnerReference { get; private set; }
         public Game Game { get; private set; }
-        public Grid GridBelow { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Pos { get; set; }
         public Vector3 Velocity { get; set; }
@@ -688,6 +718,7 @@ namespace PVZEngine
         public bool FlipX => Scale.x < 0;
         public bool CanUnderGround { get; set; }
         public Vector3 BoundsOffset { get; set; }
+        public int PoolCount { get; set; }
         #region Warp Lane
         public bool IsWarpingLane { get; private set; }
         public int WarpTargetLane { get; private set; }
@@ -711,6 +742,7 @@ namespace PVZEngine
         private List<Buff> buffs = new List<Buff>();
         private List<EntityReference> collisionThisTick = new List<EntityReference>();
         private List<EntityReference> collisionList = new List<EntityReference>();
+        private List<int> takenGrids = new List<int>();
         #endregion
     }
 }

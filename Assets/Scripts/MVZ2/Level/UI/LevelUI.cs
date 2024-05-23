@@ -127,7 +127,9 @@ namespace MVZ2.Level.UI
         #region Ë½ÓÐ·½·¨
         private void Awake()
         {
-            _sideReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke();
+            _sideReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side);
+            _lawnReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn);
+            _bottomReceiver.OnPointerDown += () => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom);
             _pickaxeSlot.OnPointerDown += () => OnPickaxePointerDown?.Invoke();
             _starshardPanel.OnPointerDown += () => OnStarshardPointerDown?.Invoke();
             _menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
@@ -140,7 +142,7 @@ namespace MVZ2.Level.UI
         #endregion
 
         #endregion
-        public event Action OnRaycastReceiverPointerDown;
+        public event Action<Receiver> OnRaycastReceiverPointerDown;
         public event Action<int> OnBlueprintPointerDown;
         public event Action OnPickaxePointerDown;
         public event Action OnStarshardPointerDown;
@@ -159,6 +161,10 @@ namespace MVZ2.Level.UI
         [Header("Raycast Receivers")]
         [SerializeField]
         RaycastReciver _sideReceiver;
+        [SerializeField]
+        RaycastReciver _lawnReceiver;
+        [SerializeField]
+        RaycastReciver _bottomReceiver;
 
         [Header("CameraLimit")]
         [SerializeField]
@@ -187,5 +193,12 @@ namespace MVZ2.Level.UI
         Button _menuButton;
         [SerializeField]
         TextMeshProUGUI _difficultyText;
+
+        public enum Receiver
+        {
+            Side,
+            Lawn,
+            Bottom
+        }
     }
 }

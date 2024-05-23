@@ -33,7 +33,7 @@
             int typeMask = 0;
             switch (other.Type)
             {
-                case EntityTypes.CONTRAPTION:
+                case EntityTypes.PLANT:
                     typeMask = MASK_CONTRAPTION;
                     break;
                 case EntityTypes.ENEMY:

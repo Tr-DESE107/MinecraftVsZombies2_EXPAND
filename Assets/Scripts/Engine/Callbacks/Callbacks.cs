@@ -9,5 +9,6 @@
         public readonly static CallbackActionList<DamageResult, DamageResult> PostEntityTakeDamage = new();
         public readonly static CallbackActionList<Entity, Entity, int> PostEntityCollision = new();
         public readonly static CallbackActionList<Entity, DamageInfo> PostEntityDeath = new();
+        public readonly static CallbackActionList<Entity> PostEntityRemove = new();
     }
 }

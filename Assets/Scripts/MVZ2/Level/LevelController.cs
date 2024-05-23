@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Codice.CM.Common;
+using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
 using MVZ2.UI;
@@ -8,6 +9,8 @@ using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.EventSystems.EventTrigger;
+using Grid = PVZEngine.Grid;
 
 namespace MVZ2.Level
 {
@@ -25,8 +28,8 @@ namespace MVZ2.Level
             {
                 CardSlotCount = 10,
                 StarshardSlotCount = 10,
-                LeftFaction = 0,
-                RightFaction = 1,
+                LeftFaction = SelfFaction,
+                RightFaction = EnemyFaction,
                 StartEnergy = 50,
                 MaxEnergy = 9990,
                 TPS = 30
@@ -57,7 +60,7 @@ namespace MVZ2.Level
             gridLayout.OnPointerEnter += OnGridEnterCallback;
             gridLayout.OnPointerExit += OnGridExitCallback;
             gridLayout.OnPointerDown += OnGridPointerDownCallback;
-            
+
 
             HideGridSprites();
             var levelUI = GetLevelUI();
@@ -66,6 +69,7 @@ namespace MVZ2.Level
 
             levelUI.OnBlueprintPointerDown += OnBlueprintPointerDownCallback;
             levelUI.OnRaycastReceiverPointerDown += OnRaycastReceiverPointerDownCallback;
+            levelUI.OnPickaxePointerDown += OnPickaxePointerDownCallback;
             levelUI.SetHeldItemIcon(null);
         }
         private void Update()
@@ -78,11 +82,15 @@ namespace MVZ2.Level
                 }
                 if (Input.GetMouseButtonDown(1))
                 {
-                    CancelHeldItem();
+                    if (CancelHeldItem())
+                    {
+                        level.PlaySound(SoundID.tap);
+                    }
                 }
                 var ui = GetLevelUI();
                 ui.SetHeldItemPosition(levelCamera.ScreenToWorldPoint(Input.mousePosition));
                 ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
+                ui.SetPickaxeVisible(!IsHoldingPickaxe());
                 UpdateBlueprintRecharges();
                 UpdateBlueprintDisabled();
 
@@ -109,6 +117,9 @@ namespace MVZ2.Level
             var entityController = Instantiate(entityTemplate.gameObject, entity.Pos.LawnToTrans(), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
             var modelPrefab = main.ResourceManager.GetModel(entity.Definition.GetReference());
             entityController.Init(this, entity, modelPrefab);
+            entityController.OnPointerEnter += OnEntityPointerEnterCallback;
+            entityController.OnPointerExit += OnEntityPointerExitCallback;
+            entityController.OnPointerDown += OnEntityPointerDownCallback;
             entities.Add(entityController);
         }
         private void OnEntityRemoveCallback(Entity entity)
@@ -116,6 +127,9 @@ namespace MVZ2.Level
             var entityController = entities.FirstOrDefault(e => e.Entity == entity);
             if (entityController)
             {
+                entityController.OnPointerEnter -= OnEntityPointerEnterCallback;
+                entityController.OnPointerExit -= OnEntityPointerExitCallback;
+                entityController.OnPointerDown -= OnEntityPointerDownCallback;
                 Destroy(entityController.gameObject);
                 entities.Remove(entityController);
             }
@@ -141,10 +155,37 @@ namespace MVZ2.Level
         #endregion
 
         #region UI方
+        private void OnEntityPointerEnterCallback(EntityController entity)
+        {
+            if (!CanUseHeldItemOnEntity(entity.Entity))
+                return;
+            entity.SetHovered(true);
+        }
+        private void OnEntityPointerExitCallback(EntityController entity)
+        {
+            entity.SetHovered(false);
+        }
+        private void OnEntityPointerDownCallback(EntityController entity)
+        {
+            if (!CanUseHeldItemOnEntity(entity.Entity))
+                return;
+            switch (heldItemType)
+            {
+                case HeldTypes.PICKAXE:
+                    entity.Entity.Die();
+                    level.ResetHeldItem();
+                    break;
+            }
+        }
         private void OnGridEnterCallback(int lane, int column, PointerEventData data)
         {
             var grid = gridLayout.GetGrid(lane, column);
-            grid.SetColor(Color.green);
+            var color = Color.clear;
+            if (heldItemType > 0)
+            {
+                color = CanPlaceOnGrid(heldItemType, heldItemID, level.GetGrid(column, lane)) ? Color.green : Color.red;
+            }
+            grid.SetColor(color);
         }
         private void OnGridExitCallback(int lane, int column, PointerEventData data)
         {
@@ -153,6 +194,8 @@ namespace MVZ2.Level
         }
         private void OnGridPointerDownCallback(int lane, int column, PointerEventData data)
         {
+            if (!CanPlaceOnGrid(heldItemType, heldItemID, level.GetGrid(column, lane)))
+                return;
             switch (heldItemType)
             {
                 case HeldTypes.BLUEPRINT:
@@ -178,9 +221,12 @@ namespace MVZ2.Level
         }
         private void OnBlueprintPointerDownCallback(int index)
         {
-            if (heldItemType == HeldTypes.BLUEPRINT)
+            if (heldItemType > 0)
             {
-                CancelHeldItem();
+                if (CancelHeldItem())
+                {
+                    level.PlaySound(SoundID.tap);
+                }
                 return;
             }
             if (!CanPickBlueprint(level.GetSeedPackAt(index)))
@@ -191,14 +237,47 @@ namespace MVZ2.Level
             level.PlaySound(SoundID.pick);
             SelectBlueprint(index);
         }
-        private void OnRaycastReceiverPointerDownCallback()
+        private void OnRaycastReceiverPointerDownCallback(LevelUI.Receiver receiver)
         {
-            switch (heldItemType)
+            switch (receiver)
             {
-                case HeldTypes.BLUEPRINT:
-                    CancelHeldItem();
+                case LevelUI.Receiver.Side:
+                    switch (heldItemType)
+                    {
+                        case HeldTypes.BLUEPRINT:
+                        case HeldTypes.PICKAXE:
+                        case HeldTypes.STARSHARD:
+                            if (CancelHeldItem())
+                            {
+                                level.PlaySound(SoundID.tap);
+                            }
+                            break;
+                    }
+                    break;
+                case LevelUI.Receiver.Lawn:
+                case LevelUI.Receiver.Bottom:
+                    switch (heldItemType)
+                    {
+                        case HeldTypes.PICKAXE:
+                        case HeldTypes.STARSHARD:
+                            CancelHeldItem();
+                            break;
+                    }
                     break;
             }
+        }
+        private void OnPickaxePointerDownCallback()
+        {
+            if (heldItemType > 0)
+            {
+                if (CancelHeldItem())
+                {
+                    level.PlaySound(SoundID.tap);
+                }
+                return;
+            }
+            level.PlaySound(SoundID.pickaxe);
+            level.SetHeldItem(HeldTypes.PICKAXE, 0, 0);
         }
         #endregion
 
@@ -219,18 +298,41 @@ namespace MVZ2.Level
                     icon = GetBlueprintIcon(id);
                     layerMask = Layers.GetMask(Layers.GRID, Layers.RAYCAST_RECEIVER);
                     break;
+                case HeldTypes.PICKAXE:
+                    icon = main.ResourceManager.GetSprite(main.BuiltinNamespace, SpritePaths.pickaxe);
+                    layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
+                    break;
             }
             ui.SetHeldItemIcon(icon);
             ui.SetRaycasterMask(layerMask);
             raycaster.eventMask = layerMask;
         }
-        private void CancelHeldItem()
+        private bool CancelHeldItem()
         {
             if (heldItemType <= 0 || heldItemNoCancel)
-                return;
+                return false;
             level.ResetHeldItem();
-            level.PlaySound(SoundID.tap);
+            return true;
         }
+        private bool CanUseHeldItemOnEntity(Entity entity)
+        {
+            switch (heldItemType)
+            {
+                case HeldTypes.PICKAXE:
+                    if (entity.Type == EntityTypes.PLANT && entity.GetFaction() == SelfFaction)
+                    {
+                        return true;
+                    }
+                    break;
+            }
+            return false;
+        }
+        private bool IsHoldingPickaxe()
+        {
+            return heldItemType == HeldTypes.PICKAXE;
+        }
+
+        #region 蓝图
         private void UpdateBlueprints()
         {
             var levelUI = GetLevelUI();
@@ -308,6 +410,33 @@ namespace MVZ2.Level
             }
             return sprite;
         }
+        private void SelectBlueprint(int index)
+        {
+            level.SetHeldItem(HeldTypes.BLUEPRINT, index, 0);
+        }
+        #endregion
+
+        private bool CanPlaceOnGrid(int heldType, int heldId, Grid grid)
+        {
+            switch (heldType)
+            {
+                case HeldTypes.BLUEPRINT:
+                    var seed = level.GetSeedPackAt(heldId);
+                    var seedDef = level.GetSeedDefinition(seed.SeedReference);
+                    if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+                    {
+                        var entityID = seedDef.GetSeedEntityID();
+                        var entityDef = level.GetEntityDefinition(entityID);
+                        if (entityDef.Type == EntityTypes.PLANT)
+                        {
+                            if (grid.GetTakenEntities().Length > 0)
+                                return false;
+                        }
+                    }
+                    break;
+            }
+            return true;
+        }
         private LevelUI GetLevelUI()
         {
 #if UNITY_ANDROID || UNITY_IOS
@@ -323,13 +452,11 @@ namespace MVZ2.Level
                 grid.SetColor(Color.clear);
             }
         }
-        private void SelectBlueprint(int index)
-        {
-            level.SetHeldItem(HeldTypes.BLUEPRINT, index, 0);
-        }
         #endregion
 
         #region 属性字段
+        public const int SelfFaction = 0;
+        public const int EnemyFaction = 1;
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
         private Game level;

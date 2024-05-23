@@ -60,7 +60,7 @@ namespace PVZEngine
                 var definition = gridDefinitions[i];
                 int lane = Mathf.FloorToInt(i / maxColumn);
                 int column = i % maxColumn;
-                var grid = new Grid(this, definition, lane, column);
+                grids[i] = new Grid(this, definition, lane, column);
             }
         }
         public void Update()
@@ -109,7 +109,7 @@ namespace PVZEngine
         #endregion
 
         #region 坐标相关方法
-        public float GetGridIndex(int column, int lane)
+        public int GetGridIndex(int column, int lane)
         {
             return column + lane * GetMaxColumnCount();
         }
@@ -182,16 +182,18 @@ namespace PVZEngine
         {
             return 0;
         }
+        public Grid GetGrid(int index)
+        {
+            if (index < 0 || index >= GetMaxColumnCount() * GetMaxLaneCount())
+                return null;
+            return grids[index];
+        }
+
         public Grid GetGrid(int column, int lane)
         {
-            if (column < 0 || column >= GetMaxColumnCount() || lane < 0 || lane > GetMaxLaneCount())
-            {
+            if (column < 0 || column >= GetMaxColumnCount() || lane < 0 || lane >= GetMaxLaneCount())
                 return null;
-            }
-            else
-            {
-                return grids[lane * GetMaxColumnCount() + column];
-            }
+            return GetGrid(lane * GetMaxColumnCount() + column);
         }
 
         public Grid GetGrid(Vector2Int pos)

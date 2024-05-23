@@ -23,19 +23,23 @@ namespace MVZ2.Vanilla
         {
             contraption.SetProperty("Evoked", value);
         }
+        public static bool IsFloor(this Contraption contraption)
+        {
+            return contraption.GetProperty<bool>(ContraptionProps.IS_FLOOR);
+        }
         public static void FallIntoWater(this Contraption contraption)
         {
-            var grid = contraption.GridBelow;
+            var grid = contraption.GetGrid();
             if (grid.GetTakenEntities().Any(e => e.Definition.GetReference() == ContraptionID.lilyPad))
             {
-                if (!contraption.GetProperty<bool>(ContraptionProps.PlaceOnLily) && contraption.Definition.GetReference() != ContraptionID.lilyPad)
+                if (!contraption.GetProperty<bool>(ContraptionProps.PLACE_ON_LILY) && contraption.Definition.GetReference() != ContraptionID.lilyPad)
                 {
                     contraption.Die();
                 }
             }
             else
             {
-                if (!contraption.GetProperty<bool>(ContraptionProps.PlaceOnWater))
+                if (!contraption.GetProperty<bool>(ContraptionProps.PLACE_ON_WATER))
                 {
                     contraption.Remove();
                 }

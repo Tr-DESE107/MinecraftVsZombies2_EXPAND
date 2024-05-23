@@ -7,6 +7,7 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace MVZ2
 {
@@ -38,6 +39,9 @@ namespace MVZ2
 
             modResource.ModelIcons = ShotModelIcons(nsp, modelMeta, modResource.Models);
 
+            modResource.SpriteSheets = await LoadSpriteSheets(nsp, mod.ResourceLocator);
+            modResource.Sprites = await LoadSprites(nsp, mod.ResourceLocator);
+
             return modResource;
         }
         public string GetNamespaceDirectory(string nsp)
@@ -60,7 +64,7 @@ namespace MVZ2
         {
             return Path.Combine(paths).Replace("\\", "/");
         }
-        private async Task<Dictionary<string, T>> LoadResourceGroup<T>(string nsp, IResourceLocator locator, string root, string[] paths) where T : UnityEngine.Object
+        private async Task<Dictionary<string, T>> LoadResourceGroup<T>(string nsp, IResourceLocator locator, string root, string[] paths)
         {
             var dict = new Dictionary<string, T>();
 
@@ -75,13 +79,42 @@ namespace MVZ2
                 var relativePath = pair.Key;
                 try
                 {
-                    var clip = await pair.Value;
-                    clip.name = $"{nsp}:{relativePath}";
-                    dict.Add(relativePath, clip);
+                    var res = await pair.Value;
+                    if (res is UnityEngine.Object obj)
+                    {
+                        obj.name = $"{nsp}:{relativePath}";
+                    }
+                    dict.Add(relativePath, res);
                 }
                 catch (Exception e)
                 {
                     Debug.LogError($"资源（{typeof(T).Name}）{nsp}:{relativePath}加载失败：{e}");
+                }
+            }
+            return dict;
+        }
+        private async Task<Dictionary<string, T>> LoadLabeledResources<T>(string nsp, IResourceLocator locator, string label)
+        {
+            var dict = new Dictionary<string, T>();
+            if (!locator.Locate(label, typeof(T), out var locs))
+                return default;
+
+            var tasks = new Dictionary<IResourceLocation, Task<T>>();
+            foreach (var loc in locs)
+            {
+                tasks.Add(loc, Addressables.LoadAssetAsync<T>(loc).Task);
+            }
+            foreach (var pair in tasks)
+            {
+                var relativePath = pair.Key.PrimaryKey;
+                try
+                {
+                    var res = await pair.Value;
+                    dict.Add(relativePath, res);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"资源（{typeof(T[]).Name}）{nsp}:{relativePath}加载失败：{e}");
                 }
             }
             return dict;

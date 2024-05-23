@@ -34,7 +34,7 @@ namespace PVZEngine
             int id = AllocEntityID();
             switch (entityDef.Type)
             {
-                case EntityTypes.CONTRAPTION:
+                case EntityTypes.PLANT:
                     spawned = new Contraption(this, id, entityRandom.Next());
                     break;
                 case EntityTypes.ENEMY:

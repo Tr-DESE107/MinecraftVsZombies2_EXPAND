@@ -9,6 +9,7 @@
         public virtual void PostLeaveGround(Entity entity) { }
         public virtual void PostCollision(Entity entity, Entity other, int state) { }
         public virtual void PostDeath(Entity entity, DamageInfo damageInfo) { }
+        public virtual void PostRemove(Entity entity) { }
         public abstract int Type { get; }
     }
 }

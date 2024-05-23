@@ -1,10 +1,11 @@
+using System;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
-    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         #region 公有方法
         public void Init(LevelController level, Entity entity, Model modelTemplate)
@@ -41,6 +42,10 @@ namespace MVZ2.Level
         {
             if (Model)
                 Model.UpdateLogic();
+        }
+        public void SetHovered(bool hovered)
+        {
+            isHovered = hovered;
         }
         #endregion
 
@@ -118,11 +123,15 @@ namespace MVZ2.Level
         #region 接口实现
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
-
+            OnPointerEnter?.Invoke(this);
         }
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
-
+            OnPointerExit?.Invoke(this);
+        }
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            OnPointerDown?.Invoke(this);
         }
         #endregion
 
@@ -142,7 +151,16 @@ namespace MVZ2.Level
         private void UpdateEntityModelData()
         {
             Model.RendererGroup.SetTint(Entity.GetTint());
-            Model.RendererGroup.SetColorOffset(Entity.GetColorOffset());
+            Model.RendererGroup.SetColorOffset(GetColorOffset());
+        }
+        private Color GetColorOffset()
+        {
+            var color = Entity.GetColorOffset();
+            if (isHovered)
+            {
+                color += new Color(0.5f, 0.5f, 0.5f);
+            }
+            return color;
         }
         #endregion
 
@@ -169,6 +187,12 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 事件
+        public event Action<EntityController> OnPointerEnter;
+        public event Action<EntityController> OnPointerExit;
+        public event Action<EntityController> OnPointerDown;
+        #endregion
+
         #region 属性字段
         public Model Model { get; private set; }
         public ShadowController Shadow => shadow;
@@ -176,6 +200,7 @@ namespace MVZ2.Level
         protected LevelController level;
         [SerializeField]
         private ShadowController shadow;
+        private bool isHovered;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
         #endregion shader相关属性

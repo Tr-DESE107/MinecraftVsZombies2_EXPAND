@@ -86,6 +86,21 @@ namespace MVZ2.Editor
             {
                 entry.SetLabel(root, true);
             }
+            if (entry.MainAssetType == typeof(Texture2D))
+            {
+                if (entry.SubAssets != null && entry.SubAssets.Count > 0)
+                {
+                    entry.SetLabel("Spritesheet", true);
+                }
+                else
+                {
+                    entry.SetLabel("Sprite", true);
+                }
+            }
+            else if (entry.MainAssetType == typeof(AudioClip))
+            {
+                entry.SetLabel("Audio", true);
+            }
             return true;
         }
     }

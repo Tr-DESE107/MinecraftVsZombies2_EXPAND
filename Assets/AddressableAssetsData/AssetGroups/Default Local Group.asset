@@ -17,839 +17,999 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
+  - m_GUID: 3225cf10a7527224a8a7cedc03206148
+    m_Address: Sounds/talk/villager/villager_short3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Audio
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
+    m_Address: Sounds/talk/villager/villager_short2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Audio
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
+    m_Address: Sounds/talk/villager/villager_short1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Audio
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
     m_Address: Sounds/talk/villager/villager_scream2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: Sounds/talk/villager/villager_scream1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 901de8865eb390d449fbb737be0c7d44
     m_Address: Sounds/talk/villager/villager_long3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 691131bb6028ac44c8e585797df31cec
     m_Address: Sounds/talk/villager/villager_long2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e76fd1251c333743bf3c70a8fb12362
     m_Address: Sounds/talk/villager/villager_long1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c83904aa459b69644bb8f7e0a0e03da6
     m_Address: Sounds/talk/villager/villager_idle3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c355acd9020355f408f0556a3f1b21d0
     m_Address: Sounds/talk/villager/villager_idle2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d562f410f9a62746a0886fc28b6fcc4
     m_Address: Sounds/talk/villager/villager_idle1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d3cf3664e1b8304f90a615e9b1e27af
     m_Address: Sounds/talk/villager/villager_extra_long3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4733fb55accce48499a5e6432fba9112
     m_Address: Sounds/talk/villager/villager_extra_long2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92e64a282d43f9e48be1005158f128eb
     m_Address: Sounds/talk/villager/villager_extra_long1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33be9ddfa854a7f4bb06b09b59441cf1
     m_Address: Sounds/talk/villager/villager_crazy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: Sounds/random/crystal/crystal_place4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 924887d4b0c49ca4a95e462a77626841
     m_Address: Sounds/random/crystal/crystal_place3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
     m_Address: Sounds/random/crystal/crystal_place2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f85791f4565cdd48b780ea2b27b64f5
     m_Address: Sounds/random/crystal/crystal_place1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d01a2a78c4760e3408aba65d73824db6
     m_Address: Sounds/random/crystal/crystal_break4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9db1c252e2a4b0944a7655f2fb93b494
     m_Address: Sounds/random/crystal/crystal_break3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df0e5b44567880844996ecebf00d7d8c
     m_Address: Sounds/random/crystal/crystal_break2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cecfb1a9efb49964e86f4d6237e7efde
     m_Address: Sounds/random/crystal/crystal_break1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09abce2230dfb324ea662a24b97c0318
     m_Address: Sounds/random/crystal/crystal4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
     m_Address: Sounds/random/crystal/crystal3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f225f0cc6c7994baa6e1a69bc2bbab
     m_Address: Sounds/random/crystal/crystal2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 772451afbb93e0949906b761c0971acc
     m_Address: Sounds/random/crystal/crystal1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db3c78d339728b54896ae08ad492515f
     m_Address: Sounds/entity/zombie/zombie_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a0fde321529b3e40b8d4d5b2a12ae4e
     m_Address: Sounds/entity/zombie/zombie_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: Sounds/entity/zombie/zombie_cry2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45bd5e18c8a90ab47ab4eb0c7f131186
     m_Address: Sounds/entity/zombie/zombie_cry1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de7d04056f4aa6e4d98327f8408d3857
     m_Address: Sounds/entity/totenser/stone_hatch
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e0d511055abdf94593c9141ee15a16a
     m_Address: Sounds/entity/totenser/fling
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90cdf51226cc1614bbad8b8d4c8c8b6c
     m_Address: Sounds/entity/terror/terror_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ca362fac41be824dbf32d58fb7bb26c
     m_Address: Sounds/entity/terror/terror_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60dc5506a0c15d74d86a0c2fce225f25
     m_Address: Sounds/entity/terror/terror_cry2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e81c449d2edbc5046ad8a2889e216bf3
     m_Address: Sounds/entity/terror/terror_cry1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37066da4adbd0ff4d9bc87bae8deb150
     m_Address: Sounds/entity/terror/parasitize
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc09db85945506f47b82fc12a96e8f46
     m_Address: Sounds/entity/skeleton/skeleton_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e24ce64aa375814381a78f43c3e8689
     m_Address: Sounds/entity/skeleton/skeleton_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5cf4594f2cb97244d93f7156e58e8702
     m_Address: Sounds/entity/skeleton/skeleton_cry2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da1e5b86ca4e6f14b951c51dbab910f5
     m_Address: Sounds/entity/skeleton/skeleton_cry1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c4b18e07cdf9ff46ba22b0fc3eca9ef
     m_Address: Sounds/entity/pot/pot_break5
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c4432515b7c03f4c975a42ad7bb46f4
     m_Address: Sounds/entity/pot/pot_break4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1312a61c0a9bde744a712f12713c64e4
     m_Address: Sounds/entity/pot/pot_break3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebbf0fdbf2e815f4883c15ed0e03288d
     m_Address: Sounds/entity/pot/pot_break2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e1fb23c573bc08a4bbdc50771db3851b
     m_Address: Sounds/entity/pot/pot_break1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f77a9e013938e4fadaf0ff33fde362
     m_Address: Sounds/entity/orga/orga_hurt
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f9cd60261a3ec8499e7a0f7addb0f40
     m_Address: Sounds/entity/orga/orga_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 490d738e7849e7746abd77f3b012c173
     m_Address: Sounds/entity/orga/orga_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d247f38c2f6f8e6439fb6cca4783414c
     m_Address: Sounds/entity/orga/orga_cry2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 390776215e4a57747a8775f12122b573
     m_Address: Sounds/entity/orga/orga_cry1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 450e6aea7722acc4191546342ffd43e8
     m_Address: Sounds/entity/nightmareaper/wheel_of_death_start
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1132a67883efb442a49359b288bea2a
     m_Address: Sounds/entity/nightmareaper/wheel_of_death_loop
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 260130923ac844f49944f60222d0780e
     m_Address: Sounds/entity/nightmareaper/nightmareaper_rage
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e28f6f11981c0d47bc43226ab27f46e
     m_Address: Sounds/entity/nightmareaper/nightmareaper_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d43314d709d29c443ba83fc45b0067b0
     m_Address: Sounds/entity/mummy/mummy_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb82960c34438084dbe2e212ab303367
     m_Address: Sounds/entity/mummy/mummy3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 367ccdc45819b674ea5f55cb43176a32
     m_Address: Sounds/entity/mummy/mummy2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9d037378a4bffb4e9772a7d9d70af30
     m_Address: Sounds/entity/mummy/mummy1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86404160298e3d54eab908648dabf568
     m_Address: Sounds/entity/infectenser/parabot_tick
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f645825912b9d5248a6ed2242f3169da
     m_Address: Sounds/entity/ghost/ghost_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d3add995d27b534e84eb4b0f2655c5c
     m_Address: Sounds/entity/ghost/ghost_cry4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ca1d7816d59cbe48bf40c774794bc5e
     m_Address: Sounds/entity/ghost/ghost_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20958533b91069a45b0be07ee94c9c4a
     m_Address: Sounds/entity/ghost/ghost_cry2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bf81dfa34c6eaa4a980ccb398aac439
     m_Address: Sounds/entity/ghost/ghost_cry1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: Sounds/entity/ghast/ghast_fire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d55b7a649c53f34c914877ea928893e
     m_Address: Sounds/entity/ghast/ghast_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0571c53f81473914a89f98936a068616
     m_Address: Sounds/entity/ghast/ghast7
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f685daf19b1faeb4dbcba727a304e6d4
     m_Address: Sounds/entity/ghast/ghast6
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58cd365da4a132942b0437a7a378f1a1
     m_Address: Sounds/entity/ghast/ghast5
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a41b4d634f77024a814fc19e9f04b89
     m_Address: Sounds/entity/ghast/ghast4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd8c6ce9188411b4fb4dd3430ef1cb94
     m_Address: Sounds/entity/ghast/ghast3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f2ed556ba69d2214f8d509c40f0f125d
     m_Address: Sounds/entity/ghast/ghast2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3219e491a699c5242b26850cfa79da4c
     m_Address: Sounds/entity/ghast/ghast1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7688971d75bbf484e9d029945a5b0a38
     m_Address: Sounds/entity/gargoyle/gargoyle_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 109bbe10639cfd04b967c66c8a134e43
     m_Address: Sounds/entity/gargoyle/gargoyle4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e13d63a63bce9fe45a5c703980ec6d6d
     m_Address: Sounds/entity/gargoyle/gargoyle3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4781b74fdd3fe8144a08c50167b00e4f
     m_Address: Sounds/entity/gargoyle/gargoyle2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c9f7602979795d4da2daa0e5dc2429b
     m_Address: Sounds/entity/gargoyle/gargoyle1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8892fceedbfb39743831de52620fa5af
     m_Address: Sounds/entity/force_pad/magnetic
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06bd83f6d02e8394fab6740abdfe9321
     m_Address: Sounds/entity/bone_wall/bone_wall_destroyed
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e7c3fe785fc77648b8a02074a0fccc8
     m_Address: Sounds/entity/bone_wall/bone_wall_build3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ef3a090bd393154ca009d99322b04ee
     m_Address: Sounds/entity/bone_wall/bone_wall_build2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bb86b91796b5f549a71ac04353eafbb
     m_Address: Sounds/entity/bone_wall/bone_wall_build1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e1edcf7a9565ee499ab80e9958f04f2
     m_Address: Sounds/damage/splat/splat3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: deeb13e67aa912f44b29bd07001f719c
     m_Address: Sounds/damage/splat/splat2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d0542bb098c3e349aa0c45ba985c766
     m_Address: Sounds/damage/splat/splat1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc31d7ec879cbfb46b0c94dba87b9a4a
     m_Address: Sounds/damage/slice/slice2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e10d04c0c4472b34aa0a58c97d380cfa
     m_Address: Sounds/damage/slice/slice1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 739f986fceaca924fb0d75cce588e6b8
     m_Address: Sounds/damage/shield/shield_hit2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18bdc9c8c3fe2c548bee01dd98e6d9df
     m_Address: Sounds/damage/shield/shield_hit1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b2c5d742582d354f84ae6febc08158a
     m_Address: Sounds/damage/leather/leather_hit2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8537348cff248540b14cd2db910003e
     m_Address: Sounds/damage/leather/leather_hit1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33d140b9942701745a921a9fc102ca79
     m_Address: Sounds/damage/fall/fall_small
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f88b2909373d744ea8462efaa895bee
     m_Address: Sounds/damage/fall/fall_big
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b48163b914c295c449eef84576c35aaa
     m_Address: Sounds/damage/bone/bone_hit3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0deb751d188532a459548c9e64ada4b5
     m_Address: Sounds/damage/bone/bone_hit2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04449195224ad4244a17407dc21b85f1
     m_Address: Sounds/damage/bone/bone_hit1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d28e63ecd71367a4e8507400e2ed6c6c
     m_Address: Sounds/talk/dialog_wipe
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3abb2eb473d06b4dab0a2d3da4c76d0
     m_Address: Sounds/talk/dialog_weird
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb62f8c3ae2709d4889b0322abb7a98b
     m_Address: Sounds/talk/dialog_surprised
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53bc7c4fb282ec44bb3535d6e51e8234
     m_Address: Sounds/talk/dialog_judge
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f997f16a236d16f44a380a07a0235df6
     m_Address: Sounds/talk/dialog_flashback
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e331ed1f540bbb04db318b073f0720ac
     m_Address: Sounds/talk/dialog_faint
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2171d910922ad824c87a850943cb1986
     m_Address: Sounds/talk/dialog_explosive
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2144539b9ee0718458cb1aa68cdfd6a0
     m_Address: Sounds/talk/dialog_cut
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bbc1de7456497846a75c87114c4c797
     m_Address: Sounds/talk/dialog_beat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2aeb2a3155f07e428c69e806e0e4b32
     m_Address: Sounds/talk/dialog_bang
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9d9e0468df93c84ea575c28aa3d81ac
     m_Address: Sounds/random/wood4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227276bdfee6c7545b14314ef224f18b
     m_Address: Sounds/random/wood3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 252362d9526afa14281b2009197a4acd
     m_Address: Sounds/random/wood2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24726ce5c72dcbd438448a515a9a5d2a
     m_Address: Sounds/random/wood1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ed4d1d0bb2c08d439179e17cd198127
     m_Address: Sounds/random/thunder3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a70f4f9f4fc407b4d973ede9ec07aa19
     m_Address: Sounds/random/thunder2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ebbb9151abeb7e4abcdbbb6f4d9f936
     m_Address: Sounds/random/thunder1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3db0a973aafd3c49b0bcb73e3353e59
     m_Address: Sounds/random/stone4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12cbaf6f50f3ec04284b9664ae78b84c
     m_Address: Sounds/random/stone3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e689d40c111a5a947896c19800f0978e
     m_Address: Sounds/random/stone2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e9c31adececf9d4ba3918d8941732d7
     m_Address: Sounds/random/stone1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39e80b9d7a6471b47b3b875b2ef87a5e
     m_Address: Sounds/random/grass3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0f372846ca34a64fa85f299b0504928
     m_Address: Sounds/random/grass2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 929188726a89307428375033add05e0d
     m_Address: Sounds/random/grass1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8af4d1f8c03b81d4e924779483536618
     m_Address: Sounds/random/glass_break3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16432db882004f24084a9ab5a4c88143
     m_Address: Sounds/random/glass_break2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eba6568c11b0b664d96dddfe63601f32
     m_Address: Sounds/random/glass_break1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5bc5811d26ffec49b34716d93cce727
     m_Address: Sounds/random/glass6
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 914f50fbb1e39a2489d87071c979c50c
     m_Address: Sounds/random/glass5
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77c4b1d0633cdab47b26889dfcd8d4dd
     m_Address: Sounds/random/glass4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bd6aa9fcaba0594388f9760fec17286
     m_Address: Sounds/random/glass3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 510e419d98670f449b06d2dd4bab9b7c
     m_Address: Sounds/random/glass2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67570966ddb5b0d4688ecc6f6b0d3508
     m_Address: Sounds/random/glass1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 861bfcbe28c1a214c8577fcdc3cc4d09
     m_Address: Sounds/random/explosion4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3354af0ce02a784fb4f5f4c5262d43c
     m_Address: Sounds/random/explosion3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a6dd592d75f77949b5f1183e7c15b3c
     m_Address: Sounds/random/explosion2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 221ecc0d54c14864d870eadda055f6f4
     m_Address: Sounds/random/explosion1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d4fb10897c35604091f5eba0e397a41
     m_Address: Sounds/entity/wakeup
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5542bf1d4e16b84aa2d03a3ee272d56
     m_Address: Sounds/entity/slenderman_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0660abadcafe994c8f35a29d7a5e0fa
     m_Address: Sounds/entity/dream_alarm
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13b6d5b3963809543b2c3ae66757af81
     m_Address: Sounds/damage/hit3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e989be43af16c4447a2b43a6424f968e
     m_Address: Sounds/damage/hit2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9665e7bba6c3e9849887c079a9f4c3cd
     m_Address: Sounds/damage/hit1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f05b495221b92af4fa139f81ee8873f3
     m_Address: Models/Projectiles/Arrow
@@ -869,647 +1029,761 @@ MonoBehaviour:
     m_SerializedLabels:
     - Res
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c98850842ba8ff14f919f63ce5114326
+    m_Address: Textures/pickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f64dc978ad07e748b9a8a4f54a4215a
     m_Address: Sounds/win_music
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b77173cc372d294799227cf43061173
     m_Address: Sounds/water
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9e41baad400019469f7019b99199145
     m_Address: Sounds/vortex
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac23f927050170d419427bf1e53befa8
     m_Address: Sounds/travel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8d2ca1628141dd41a3f97fef74d2241
     m_Address: Sounds/thump
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 379066792c259bc4395550f6e7dec161
     m_Address: Sounds/throw
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 114ce1ebae93833479298364ca7af9c2
     m_Address: Sounds/tesla_power
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6598510d1ea3de4aac158689e0dd22d
     m_Address: Sounds/tesla_attack
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bb178ba4eb3df242b3c6663a7c840fc
     m_Address: Sounds/tap
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14f0b44ea30c9d44b9f8321e5e2d63f8
     m_Address: Sounds/talk
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cbfddf7de992bf2408c0ae677f970d12
     m_Address: Sounds/swing
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15cffa14a87e80e4f9bba2a9e9ab1ec9
     m_Address: Sounds/stunned
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf47d35dbe85ad449b1e674c2e6c2bf9
     m_Address: Sounds/starshard_use
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0f0436e148be3b43995b8ca69c828be
     m_Address: Sounds/starshard_appear
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e21870de979598469cc44bab589d524
     m_Address: Sounds/spring
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f173973887b669a4f94c0bca7a3f56e6
     m_Address: Sounds/splash_big
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d9cc3cbf5c7d5a4f9187cca6ead0f39
     m_Address: Sounds/splash
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46439a16cb17e7a44bdc1fe397877f2b
     m_Address: Sounds/spider_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45c6024ec77337a4d87fcbd40bb13c42
     m_Address: Sounds/spider_cry4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59cb47d1535f5964b8f9d2b91beb5175
     m_Address: Sounds/spider_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e3cd9bca2bf19f41a4dabfa8af2d5ae
     m_Address: Sounds/spider_cry2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61ca227b36b8e184cbc60d52d7e3d01c
     m_Address: Sounds/spider_cry1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3384110aaaae15847b5653001ee976b2
     m_Address: Sounds/spell_card
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc200d816fa6d8447b3ddfd39a4445ac
     m_Address: Sounds/sparkle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2706efed3170484cb03bec469ea14aa
     m_Address: Sounds/smash
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e0d71e6c2e48c849bcc74bc255e073e
     m_Address: Sounds/small_explosion
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7a8f6567388ead408d2056f92912c2d
     m_Address: Sounds/siren
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e87fd2f3c48d5ca44964d2ec18597fab
     m_Address: Sounds/shot
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31d9bab9e0866384faddc3f3fd0790a6
     m_Address: Sounds/shock
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c7d89ca7b88d6b4c807b37cb536d48b
     m_Address: Sounds/shell_case_drop
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bf42fc5212331940ab9616c1c85e98e
     m_Address: Sounds/screw
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37b10c6539de7154c9191c1b5ec7a53f
     m_Address: Sounds/scream
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c2a63853e3c0a44ca7d42827e94eb10
     m_Address: Sounds/revive_cast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3afaf2b4c67113848b1fff109e80f52d
     m_Address: Sounds/revived
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c893ca796c4f7544192d6b1f24edd0f8
     m_Address: Sounds/reverse_vampire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5273a92516b5e4c48a56829a8147d595
     m_Address: Sounds/refuel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13f6471543c524e498c1b3c2aaa1c3c3
     m_Address: Sounds/reflection
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c741c6820125ed34ca7e37760936d074
     m_Address: Sounds/ready_set_build
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c36d7fac13418ce41a6a7609394c2500
     m_Address: Sounds/rain
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92c4dbf29f435db47a77583bbca3cfd6
     m_Address: Sounds/punch
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6095a96fe9b0021419be1746f4e90d1d
     m_Address: Sounds/power_on
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cec68aaec72d1942a14678191bfb6fb
     m_Address: Sounds/power_off
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8f4a6b3cd57abf46957b6d03b776127
     m_Address: Sounds/potion
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8232e349821c7af46bf3bb99ffabf9d9
     m_Address: Sounds/pop
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0da0947a4bc75b141addb08ebc69c8aa
     m_Address: Sounds/poison_gas
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d57efe1c2239b6748bd289baef3bab74
     m_Address: Sounds/poison_cast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ba7c61782ebbf647b2d8b1a7f6b78b4
     m_Address: Sounds/points
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77a624db6fcfb1240a49f8d8130aedbe
     m_Address: Sounds/piston_out
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b5a67edc6a78c340b26aac6c7756229
     m_Address: Sounds/piston_in
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb1bd0411514e1b44930fce30cfcd8c5
     m_Address: Sounds/pickaxe
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: Sounds/pick
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aad8863f9a9370d468fb96a9d2b171a5
     m_Address: Sounds/pearl_touch
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9323eece77c5c3a4a8a55697061be8e2
     m_Address: Sounds/pause
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b51cc39a60d7e948b8c2211fa2ff426
     m_Address: Sounds/paper
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1d1945e536a2ce4eab1c36ba71a36c2
     m_Address: Sounds/odd
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da042fd22453dc3448fbd6c90ba148fb
     m_Address: Sounds/nyaightmare_scream
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce109489a825acd458d21b37f6b8e3ab
     m_Address: Sounds/nightmare_portal
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b5807cbe5906d74389da8dcb37a214c
     m_Address: Sounds/money_fall
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa76cf42a679f124aa9398ad07610f68
     m_Address: Sounds/missile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d825d80ad8de344597c020d95cae1f2
     m_Address: Sounds/mine_explode
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a7b351dedef3c548b696052b9d7a1ea
     m_Address: Sounds/minecart
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d1960b4f109a9a45a8ad3bcaa290cc2
     m_Address: Sounds/meow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e040a7ca0ea87148a69fcf7c9a900a3
     m_Address: Sounds/mechanism
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ecb4310632e871498f4080fd3788db3
     m_Address: Sounds/magical
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5cc09e7435a58d6458298fce306f144c
     m_Address: Sounds/lurker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b7ddde9b7a3533498e973193163290c
     m_Address: Sounds/lose_music
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a375b3420dd9da54b8197294f005405b
     m_Address: Sounds/huge_wave
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09351709b15db8e4ba5f671be2d087d7
     m_Address: Sounds/horse_angry
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb843392916225841887629da91a91fa
     m_Address: Sounds/gun_shot
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c4b858eb377d544fbccf330a51c4388
     m_Address: Sounds/gun_reload
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 364cbf731035032499adb5896b6b058e
     m_Address: Sounds/grind2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0143cb0af20efc499da5943439d6197
     m_Address: Sounds/grind1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06dcaddfa4e9dc141aa55d92f5dda56c
     m_Address: Sounds/glowstone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efa2647b249636d48bf202bfc200258a
     m_Address: Sounds/glass_break_big
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae760a3d6ee757e4e90c0f9da62cee9a
     m_Address: Sounds/giant_spike
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 793025c0a89f00444afda2a67f717ebf
     m_Address: Sounds/gem
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 733266dbebe372949b508891f27eed17
     m_Address: Sounds/fuse
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4acf5b93dbb101c4eac524bde4307b84
     m_Address: Sounds/frankenstein_steel_laugh
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 102e865101898c94197e21c6db1c812e
     m_Address: Sounds/frankenstein_laugh
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f5e236374b253e42aef461b398f82a2
     m_Address: Sounds/fire_charge
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9370137725df0d549b800a28d0ad4f6e
     m_Address: Sounds/fire_breath
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1743bdeeec6c4c8499f9e6ae65ff400d
     m_Address: Sounds/fire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf17da5ebe2d2a4eb8257f66201b808
     m_Address: Sounds/final_wave
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 031db6b738540f14aae3f26d4d1daff6
     m_Address: Sounds/final_item
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9f740f9b1248114bbb7d3e4726e5922
     m_Address: Sounds/evocation
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da10074436391804eb73a11907dfa83c
     m_Address: Sounds/electric_spark
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35fd6562d8d55e844bb4890023b8cd31
     m_Address: Sounds/dirt_rise
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5a8678da695d194583b685cf37473e1
     m_Address: Sounds/diamond
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1546c0185bf83ea42991ba610bc03cd9
     m_Address: Sounds/decrepify
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26b4acbc0788c724181e0e5c991a5c3e
     m_Address: Sounds/dark_skies_impact
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 388a6266b2292d34ea34eb9864284d7b
     m_Address: Sounds/dark_skies_cast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5ddba030c35ac041b45c907c676ab67
     m_Address: Sounds/confuse
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 557650a8124565f438c2ed2e391e0a0b
     m_Address: Sounds/coin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4df3315370b3ba445855264afd0238ac
     m_Address: Sounds/click
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff57a0ead1bc10f4fb8737e77bd61164
     m_Address: Sounds/chime
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 877e2289face1f741ba64c6e5bb9651e
     m_Address: Sounds/chest_open
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fb72eb4c6c7c2e4dae8be0c2e9e203f
     m_Address: Sounds/chest_close
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0c451f64229d1d4da4b4c9d3f02cff9
     m_Address: Sounds/buzzer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90e0bafc1bfaa944e927f5dc979efe41
     m_Address: Sounds/bow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93c5b317cb00bed43987f7d53dbc1dd6
     m_Address: Sounds/bonk
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c233136c5560f5449a13dba7f064c27
     m_Address: Sounds/bloody
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4a1d26f9f14ed04b8415f2d7eb0069a
     m_Address: Sounds/biohazard
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44e37404bb36ebe4f82cd83676899ff5
     m_Address: Sounds/awooga
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc28217bbc020624b90730f4a06493aa
     m_Address: Sounds/armor_up
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 906ce113fd4d66149af2e0d8c40a4299
     m_Address: Sounds/anvil
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80f626c9425eb4a4cbe0f89f42f25cf0
     m_Address: Sounds/agnoy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae7d25745345fe44cb494b3c3f9c12a7
     m_Address: Sounds/achievement
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9c39bb1453520844927684f519182e9
     m_Address: sounds
@@ -1528,24 +1802,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Content
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
-    m_Address: Sounds/talk/villager/villager_short1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Res
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
-    m_Address: Sounds/talk/villager/villager_short2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Res
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3225cf10a7527224a8a7cedc03206148
-    m_Address: Sounds/talk/villager/villager_short3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Res
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
