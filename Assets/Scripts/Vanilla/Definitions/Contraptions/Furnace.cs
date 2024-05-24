@@ -18,8 +18,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
 
-            var buff = entity.Game.CreateBuff<ProductionColorBuff>();
-            entity.AddBuff(buff);
+            entity.AddBuff<ProductionColorBuff>();
 
             var productionTimer = new FrameTimer(entity.RNG.Next(90, 375));
             SetProductionTimer(entity, productionTimer);

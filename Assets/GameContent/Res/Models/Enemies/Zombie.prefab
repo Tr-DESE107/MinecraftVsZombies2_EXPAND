@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 1
+  lockToGround: 0
 --- !u!1 &5049712521669318218
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 1
+  lockToGround: 0
 --- !u!1 &8205057946845843601
 GameObject:
   m_ObjectHideFlags: 0

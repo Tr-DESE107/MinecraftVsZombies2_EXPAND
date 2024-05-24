@@ -56,12 +56,17 @@ namespace MVZ2.Vanilla
             {
                 var entity = bodyResult.Entity;
                 if (!entity.HasBuff<DamageColorBuff>())
-                    entity.AddBuff(entity.Game.CreateBuff<DamageColorBuff>());
+                    entity.AddBuff<DamageColorBuff>();
             }
         }
         public override void PostDeath(Entity entity, DamageInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
+            if (damageInfo.Effects.HasEffect(DamageEffects.REMOVE_ON_DEATH))
+            {
+                entity.Remove();
+                return;
+            }
             entity.Game.PlaySound(entity.GetDeathSound(), entity.Pos);
         }
         protected void MeleeCollision(Enemy enemy, Entity other)

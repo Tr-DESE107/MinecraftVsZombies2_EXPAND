@@ -17,7 +17,7 @@ namespace PVZEngine
         }
 
         #region 生命周期
-        public void Init(int difficulty, NamespaceID areaId, NamespaceID stageId, GameOption option, int seed = 0)
+        public void Init(NamespaceID areaId, NamespaceID stageId, GameOption option, int seed = 0)
         {
             Seed = seed == 0 ? Guid.NewGuid().GetHashCode() : seed;
 
@@ -35,7 +35,6 @@ namespace PVZEngine
             debugRandom = new RandomGenerator(levelRandom.Next());
 #endif
 
-            Difficulty = difficulty;
             Energy = option.StartEnergy;
 
 
@@ -62,6 +61,10 @@ namespace PVZEngine
                 int column = i % maxColumn;
                 grids[i] = new Grid(this, definition, lane, column);
             }
+        }
+        public void Start(int difficulty)
+        {
+            Difficulty = difficulty;
         }
         public void Update()
         {

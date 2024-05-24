@@ -152,6 +152,9 @@ namespace MVZ2.Level
         {
             Model.RendererGroup.SetTint(Entity.GetTint());
             Model.RendererGroup.SetColorOffset(GetColorOffset());
+            var groundPos = Entity.Pos;
+            groundPos.y = Entity.GetGroundHeight();
+            Model.RendererGroup.SetGroundPosition(groundPos.LawnToTrans());
             Model.transform.localScale = Entity.RenderScale;
         }
         private Color GetColorOffset()

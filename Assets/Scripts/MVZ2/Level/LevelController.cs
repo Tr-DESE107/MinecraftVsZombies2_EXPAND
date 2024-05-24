@@ -37,13 +37,18 @@ namespace MVZ2.Level
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
             level.OnPlaySound += OnPlaySoundCallback;
+            level.OnShakeScreen += OnShakeScreenCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnHeldItemReset += OnHeldItemResetCallback;
-            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser, ContraptionID.furnace, ContraptionID.obsidian, EnemyID.zombie });
-            level.Init(GameDifficulty.Normal, AreaID.day, StageID.prologue, option);
-            level.SetEnergy(9990);
-            level.ResetHeldItem();
+            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser, ContraptionID.furnace, ContraptionID.obsidian, ContraptionID.mineTNT, EnemyID.zombie });
+            level.Init(AreaID.day, StageID.prologue, option);
+
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
+            level.ResetHeldItem();
+            level.Start(GameDifficulty.Normal);
+
+            level.SetEnergy(9990);
+            level.RechargeSpeed = 99;
 
             UpdateBlueprints();
 
@@ -93,6 +98,12 @@ namespace MVZ2.Level
                 UpdateBlueprintRecharges();
                 UpdateBlueprintDisabled();
 
+                var cameraOffset = Vector3.zero;
+                foreach (var shake in cameraShakes)
+                {
+                    cameraOffset += (Vector3)shake.GetShake2D();
+                }
+                cameraRoot.transform.position = cameraPosition + cameraOffset;
             }
         }
         private void FixedUpdate()
@@ -104,6 +115,11 @@ namespace MVZ2.Level
                 {
                     entity.UpdateLogic();
                 }
+                foreach (var shake in cameraShakes)
+                {
+                    shake.timeout--;
+                }
+                cameraShakes.RemoveAll(s => s.timeout <= 0);
             }
         }
         #endregion
@@ -140,6 +156,10 @@ namespace MVZ2.Level
         private void OnPlaySoundCallback(NamespaceID soundID, float pitch)
         {
             main.SoundManager.Play(soundID, Vector3.zero, pitch, 0);
+        }
+        private void OnShakeScreenCallback(float startAmplitude, float endAmplitude, int time)
+        {
+            cameraShakes.Add(new Shake(startAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, endAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, time));
         }
         private void OnHeldItemChangedCallback(int heldType, int id, int priority, bool noCancel)
         {
@@ -477,7 +497,12 @@ namespace MVZ2.Level
         private int heldItemID;
         private int heldItemPriority;
         private bool heldItemNoCancel;
+        private List<Shake> cameraShakes = new List<Shake>();
 
+        [SerializeField]
+        private Vector3 cameraPosition;
+        [SerializeField]
+        private Transform cameraRoot;
         [SerializeField]
         private Camera levelCamera;
         [SerializeField]

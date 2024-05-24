@@ -44,7 +44,6 @@ namespace PVZEngine
 
         #region ÊôÐÔ×Ö¶Î
         public override int Type => EntityTypes.PICKUP;
-        public int Timeout { get; set; }
         public int CollectedTime { get; set; }
         public bool IsCollected { get; set; }
         #endregion

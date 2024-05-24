@@ -3,10 +3,12 @@
     <model name="dispenser" path="Contraptions/Dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="furnace" path="Contraptions/Furnace" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="obsidian" path="Contraptions/Obsidian" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="mine_tnt" path="Contraptions/MineTNT" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <model name="redstone" path="Pickups/Redstone" width="64" height="64" xOffset="0" yOffset="4"/>
     
     <model name="miner" path="Effects/Miner" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="mine_debris" path="Effects/MineDebris" width="150" height="100" xOffset="0" yOffset="30"/>
     
     <model name="zombie" path="Enemies/Zombie" width="64" height="96" xOffset="10" yOffset="8"/>
     <model name="arrow" path="Projectiles/Arrow" width="32" height="32" xOffset="0" yOffset="0"/>

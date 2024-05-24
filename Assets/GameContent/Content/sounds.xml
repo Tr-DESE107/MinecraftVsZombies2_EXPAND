@@ -40,6 +40,9 @@
         <sample path="random/crystal/crystal_place3" weight="1" />
         <sample path="random/crystal/crystal_place4" weight="1" />
     </sound>
+    <sound name="dirt_rise">
+        <sample path="dirt_rise" weight="1" />
+    </sound>
     <sound name="explosion" priority="64">
         <sample path="random/explosion1" weight="1" />
         <sample path="random/explosion2" weight="1" />
@@ -123,6 +126,9 @@
     </sound>
     <sound name="lose_music" priority="0">
         <sample path="lose_music" weight="1" />
+    </sound>
+    <sound name="mine_explode">
+        <sample path="mine_explode" weight="1" />
     </sound>
     <sound name="minecart" priority="64">
         <sample path="minecart" weight="1" />

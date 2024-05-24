@@ -110,7 +110,6 @@ namespace PVZEngine
         }
         #endregion
         public override int Type => EntityTypes.PROJECTILE;
-        public int Timeout { get; set; }
         private List<EntityReference> collided = new List<EntityReference>();
         private bool canHitSpawner;
 

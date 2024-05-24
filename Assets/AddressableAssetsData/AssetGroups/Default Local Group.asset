@@ -1028,8 +1028,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Res
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7bda5fabb0661c49a162fd25d0bb0f5
+    m_Address: Models/Effects/MineDebris
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3048f7f20bb9bd54fb32018bcd4af2b0
     m_Address: Models/Contraptions/Obsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63a05174c3979bc4997142266dc829d8
+    m_Address: Models/Contraptions/MineTNT
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res

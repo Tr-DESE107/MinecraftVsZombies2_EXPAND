@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -20,15 +21,25 @@ namespace MVZ2.Rendering
                 var element = renderer.GetComponent<RendererElement>();
                 if (element)
                 {
-                    if (element.ExcludedInGroup)
-                        continue;
+                    elements.Add(renderer, element);
                 }
                 renderers.Add(renderer);
             }
         }
+        public void SetGroundPosition(Vector3 position)
+        {
+            foreach (var pair in elements)
+            {
+                var element = pair.Value;
+                if (!element.LockToGround)
+                    continue;
+                var trans = element.transform;
+                trans.position = position;
+            }
+        }
         public void SetPropertyInt(string name, int value)
         {
-            foreach (Renderer renderer in renderers)
+            foreach (Renderer renderer in GetAllRenderers())
             {
                 SetRendererInt(renderer, name, value);
             }
@@ -36,7 +47,7 @@ namespace MVZ2.Rendering
 
         public void SetPropertyFloat(string name, float alpha)
         {
-            foreach (Renderer renderer in renderers)
+            foreach (Renderer renderer in GetAllRenderers())
             {
                 SetRendererFloat(renderer, name, alpha);
             }
@@ -44,7 +55,7 @@ namespace MVZ2.Rendering
 
         public void SetPropertyColor(string name, Color color)
         {
-            foreach (Renderer renderer in renderers)
+            foreach (Renderer renderer in GetAllRenderers())
             {
                 SetRendererColor(renderer, name, color);
             }
@@ -81,18 +92,20 @@ namespace MVZ2.Rendering
             propertyBlock.SetInt(name, value);
             renderer.SetPropertyBlock(propertyBlock);
         }
+        private Renderer[] GetAllRenderers(bool includeExcluded = false)
+        {
+            if (includeExcluded)
+                return renderers.ToArray();
+            return renderers.Where(r => !elements.TryGetValue(r, out var e) || !e.ExcludedInGroup).ToArray();
+        }
         public int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
 
         public string SortingLayerName { get => sortingGroup.sortingLayerName; set => sortingGroup.sortingLayerName = value; }
 
         public int SortingOrder { get => sortingGroup.sortingOrder; set => sortingGroup.sortingOrder = value; }
-
-
-        public Renderer this[int index]
-        {
-            get => renderers[index];
-        }
+        
         private List<Renderer> renderers = new List<Renderer>();
+        private Dictionary<Renderer, RendererElement> elements = new Dictionary<Renderer, RendererElement>();
         [SerializeField]
         private SortingGroup sortingGroup;
         private MaterialPropertyBlock propertyBlock;

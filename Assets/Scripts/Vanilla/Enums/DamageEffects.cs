@@ -8,6 +8,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID SLICE = Get("slice");
         public static readonly NamespaceID PUNCH = Get("punch");
         public static readonly NamespaceID MUTE = Get("mute");
+        public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
 
         public static NamespaceID Get(string name)
         {

@@ -421,6 +421,10 @@ namespace PVZEngine
             buffs.Add(buff);
             buff.AddToTarget(this);
         }
+        public void AddBuff<T>() where T: BuffDefinition
+        {
+            AddBuff(Game.CreateBuff<T>());
+        }
         public bool RemoveBuff(Buff buff)
         {
             if (buff == null)
@@ -431,6 +435,17 @@ namespace PVZEngine
                 return true;
             }
             return false;
+        }
+        public int RemoveBuffs(IEnumerable<Buff> buffs)
+        {
+            if (buffs == null)
+                return 0;
+            int count = 0;
+            foreach (var buff in buffs)
+            {
+                count += RemoveBuff(buff) ? 1 : 0;
+            }
+            return count;
         }
         public bool HasBuff<T>() where T : BuffDefinition
         {
@@ -714,6 +729,7 @@ namespace PVZEngine
         public bool CanUnderGround { get; set; }
         public Vector3 BoundsOffset { get; set; }
         public int PoolCount { get; set; }
+        public int Timeout { get; set; }
         #region Warp Lane
         public bool IsWarpingLane { get; private set; }
         public int WarpTargetLane { get; private set; }
