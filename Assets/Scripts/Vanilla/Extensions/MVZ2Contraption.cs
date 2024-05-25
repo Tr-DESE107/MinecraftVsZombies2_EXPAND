@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent;
+using MVZ2.GameContent.Contraptions;
 using PVZEngine;
-using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
@@ -30,9 +30,9 @@ namespace MVZ2.Vanilla
         public static void FallIntoWater(this Contraption contraption)
         {
             var grid = contraption.GetGrid();
-            if (grid.GetTakenEntities().Any(e => e.Definition.GetReference() == ContraptionID.lilyPad))
+            if (grid.GetTakenEntities().Any(e => e.Definition.GetID() == ContraptionID.lilyPad))
             {
-                if (!contraption.GetProperty<bool>(ContraptionProps.PLACE_ON_LILY) && contraption.Definition.GetReference() != ContraptionID.lilyPad)
+                if (!contraption.GetProperty<bool>(ContraptionProps.PLACE_ON_LILY) && contraption.Definition.GetID() != ContraptionID.lilyPad)
                 {
                     contraption.Die();
                 }

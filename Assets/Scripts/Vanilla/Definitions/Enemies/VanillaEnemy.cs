@@ -1,9 +1,9 @@
-using MVZ2.GameContent;
-using MVZ2.Vanilla.Buffs;
+using MVZ2.GameContent.Buffs;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Vanilla
+namespace MVZ2.GameContent.Enemies
 {
     public abstract class VanillaEnemy : VanillaEntity
     {
@@ -43,10 +43,7 @@ namespace MVZ2.Vanilla
 
             if (!entity.IsDead)
             {
-                foreach (var buff in entity.GetBuffs<DamageColorBuff>())
-                {
-                    entity.RemoveBuff(buff);
-                }
+                entity.RemoveBuffs(entity.GetBuffs<DamageColorBuff>());
             }
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)

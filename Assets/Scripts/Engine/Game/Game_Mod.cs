@@ -7,7 +7,7 @@ namespace PVZEngine
     {
         public EntityDefinition GetEntityDefinition(NamespaceID defRef)
         {
-            return entityDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+            return entityDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
         public T GetEntityDefinition<T>() where T : EntityDefinition
         {
@@ -15,35 +15,43 @@ namespace PVZEngine
         }
         public SeedDefinition GetSeedDefinition(NamespaceID seedRef)
         {
-            return seedDefinitions.FirstOrDefault(d => d.GetReference() == seedRef);
+            return seedDefinitions.FirstOrDefault(d => d.GetID() == seedRef);
         }
         public RechargeDefinition GetRechargeDefinition(NamespaceID seedRef)
         {
-            return rechargeDefinitions.FirstOrDefault(d => d.GetReference() == seedRef);
+            return rechargeDefinitions.FirstOrDefault(d => d.GetID() == seedRef);
         }
         public ShellDefinition GetShellDefinition(NamespaceID defRef)
         {
-            return shellDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+            return shellDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
         public AreaDefinition GetAreaDefinition(NamespaceID defRef)
         {
-            return areaDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+            return areaDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
         public StageDefinition GetStageDefinition(NamespaceID defRef)
         {
-            return stageDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+            return stageDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
         public GridDefinition GetGridDefinition(NamespaceID defRef)
         {
-            return gridDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+            return gridDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
         public BuffDefinition GetBuffDefinition(NamespaceID defRef)
         {
-            return buffDefinitions.FirstOrDefault(d => d.GetReference() == defRef);
+            return buffDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
         public T GetBuffDefinition<T>() where T : BuffDefinition
         {
             return buffDefinitions.OfType<T>().FirstOrDefault();
+        }
+        public ArmorDefinition GetArmorDefinition(NamespaceID defRef)
+        {
+            return armorDefinitions.FirstOrDefault(d => d.GetID() == defRef);
+        }
+        public T GetArmorDefinition<T>() where T : ArmorDefinition
+        {
+            return armorDefinitions.OfType<T>().FirstOrDefault();
         }
         private void AddMod(Mod mod)
         {
@@ -55,6 +63,7 @@ namespace PVZEngine
             stageDefinitions.AddRange(mod.GetStageDefinitions());
             gridDefinitions.AddRange(mod.GetGridDefinitions());
             buffDefinitions.AddRange(mod.GetBuffDefinitions());
+            armorDefinitions.AddRange(mod.GetArmorDefinitions());
         }
         private List<EntityDefinition> entityDefinitions = new List<EntityDefinition>();
         private List<SeedDefinition> seedDefinitions = new List<SeedDefinition>();
@@ -64,5 +73,6 @@ namespace PVZEngine
         private List<StageDefinition> stageDefinitions = new List<StageDefinition>();
         private List<GridDefinition> gridDefinitions = new List<GridDefinition>();
         private List<BuffDefinition> buffDefinitions = new List<BuffDefinition>();
+        private List<ArmorDefinition> armorDefinitions = new List<ArmorDefinition>();
     }
 }

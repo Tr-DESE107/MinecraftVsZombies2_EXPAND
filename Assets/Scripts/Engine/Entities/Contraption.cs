@@ -4,7 +4,7 @@ namespace PVZEngine
     {
         #region 公有方法
         #region 构造方法
-        public Contraption(Game level, int id, int seed) : base(level, id, seed)
+        public Contraption(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
         }
         #endregion

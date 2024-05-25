@@ -10,5 +10,8 @@
         public readonly static CallbackActionList<Entity, Entity, int> PostEntityCollision = new();
         public readonly static CallbackActionList<Entity, DamageInfo> PostEntityDeath = new();
         public readonly static CallbackActionList<Entity> PostEntityRemove = new();
+        public readonly static CallbackActionList<Entity, Armor> PostEquipArmor = new();
+        public readonly static CallbackActionList<Entity, Armor, DamageResult> PostDestroyArmor = new();
+        public readonly static CallbackActionList<Entity, Armor> PostRemoveArmor = new();
     }
 }

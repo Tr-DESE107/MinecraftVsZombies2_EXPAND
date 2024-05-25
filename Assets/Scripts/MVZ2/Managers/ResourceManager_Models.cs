@@ -10,6 +10,7 @@ namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
+        #region 元数据
         public ModelsMeta GetModelsMeta(string nsp)
         {
             var modResource = GetModResource(nsp);
@@ -17,13 +18,26 @@ namespace MVZ2
                 return null;
             return modResource.ModelMeta;
         }
-        public ModelResource GetModelResource(NamespaceID id)
+        private async Task<ModelsMeta> LoadModelMeta(string nsp, IResourceLocator locator)
+        {
+            var textAsset = await LoadAddressableResource<TextAsset>(locator, "models");
+            using var memoryStream = new MemoryStream(textAsset.bytes);
+            var document = LoadXmlDocument(memoryStream);
+            return ModelsMeta.FromXmlNode(nsp, document["models"]);
+        }
+        #endregion
+
+        #region 模型资源
+        public ModelResource GetModelResource(NamespaceID id, string type)
         {
             var meta = GetModelsMeta(id.spacename);
             if (meta == null)
                 return null;
-            return meta.resources.FirstOrDefault(m => m.id == id);
+            return meta.resources.FirstOrDefault(m => m.id == id && m.type == type);
         }
+        #endregion
+
+        #region 模型
         public Model GetModel(NamespaceID id)
         {
             var meta = GetModelsMeta(id.spacename);
@@ -43,6 +57,15 @@ namespace MVZ2
                 return model;
             return null;
         }
+        private async Task<Dictionary<string, Model>> LoadModels(string nsp, IResourceLocator locator, ModelsMeta meta)
+        {
+            var paths = meta.resources.Select(r => r.path).Distinct();
+            var objects = await LoadResourceGroup<GameObject>(nsp, locator, meta.root, paths.ToArray());
+            return objects.ToDictionary(p => p.Key, p => p.Value.GetComponent<Model>());
+        }
+        #endregion
+
+        #region 模型图标
         public Sprite GetModelIcon(NamespaceID id)
         {
             var modResource = GetModResource(id.spacename);
@@ -51,19 +74,6 @@ namespace MVZ2
             if (modResource.ModelIcons.TryGetValue(id.name, out var model))
                 return model;
             return null;
-        }
-        private async Task<Dictionary<string, Model>> LoadModels(string nsp, IResourceLocator locator, ModelsMeta meta)
-        {
-            var paths = meta.resources.Select(r => r.path).Distinct();
-            var objects = await LoadResourceGroup<GameObject>(nsp, locator, meta.root, paths.ToArray());
-            return objects.ToDictionary(p => p.Key, p => p.Value.GetComponent<Model>());
-        }
-        private async Task<ModelsMeta> LoadModelMeta(string nsp, IResourceLocator locator)
-        {
-            var textAsset = await LoadAddressableResource<TextAsset>(locator, "models");
-            using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = LoadXmlDocument(memoryStream);
-            return ModelsMeta.FromXmlNode(nsp, document["models"]);
         }
         private Dictionary<string, Sprite> ShotModelIcons(string nsp, ModelsMeta meta, Dictionary<string, Model> models)
         {
@@ -77,5 +87,6 @@ namespace MVZ2
             }
             return dict;
         }
+        #endregion
     }
 }

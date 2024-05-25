@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2.GameContent.Enemies;
+using PVZEngine;
 
 namespace MVZ2.Vanilla
 {

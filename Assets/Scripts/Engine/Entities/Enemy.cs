@@ -6,7 +6,7 @@ namespace PVZEngine
     {
         #region 公有方法
         #region 构造方法
-        public Enemy(Game level, int id, int seed) : base(level, id, seed)
+        public Enemy(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             dropRNG = new RandomGenerator(RNG.Next());
         }

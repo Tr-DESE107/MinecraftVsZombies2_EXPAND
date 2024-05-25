@@ -5,7 +5,7 @@ namespace PVZEngine
 {
     public sealed class Cart : Entity
     {
-        public Cart(Game level, int id, int seed) : base(level, id, seed)
+        public Cart(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             SetFaction(Game.Option.LeftFaction);
         }

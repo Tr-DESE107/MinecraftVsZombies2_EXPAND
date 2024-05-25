@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,33 +9,51 @@ namespace MVZ2.Level
     public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         #region 公有方法
-        public void Init(LevelController level, Entity entity, Model modelTemplate)
+        public void Init(LevelController level, Entity entity)
         {
             this.level = level;
             this.Entity = entity;
-            entity.OnTriggerAnimation += (name) => { if (Model) Model.TriggerAnimator(name); };
-            entity.OnSetAnimationBool += (name, value) => { if (Model) Model.SetAnimatorBool(name, value); };
-            entity.OnSetAnimationInt += (name, value) => { if (Model) Model.SetAnimatorInt(name, value); };
-            entity.OnSetAnimationFloat += (name, value) => { if (Model) Model.SetAnimatorFloat(name, value); };
+            entity.PostInit += PostInitCallback;
+            entity.OnTriggerAnimation += OnTriggerAnimationCallback;
+            entity.OnSetAnimationBool += OnSetAnimationBoolCallback;
+            entity.OnSetAnimationInt += OnSetAnimationIntCallback;
+            entity.OnSetAnimationFloat += OnSetAnimationFloatCallback;
 
-            var model = Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
-            SetModel(model);
+            entity.OnEquipArmor += OnArmorEquipCallback;
+            entity.OnDestroyArmor += OnArmorDestroyCallback;
+            entity.OnRemoveArmor += OnArmorRemoveCallback;
+
+            entity.OnModelChanged += OnModelChangedCallback;
+            SetModel(Entity.ModelID);
+        }
+        public void SetModel(NamespaceID modelId)
+        {
+            SetModel(CreateModel(modelId));
         }
         public void SetModel(Model model)
         {
             Model = model;
+            if (!Model)
+                return;
             Model.RendererGroup.SortingLayerID = SortingLayers.entities;
-            UpdateEntityModelData();
+            UpdateEntityModel();
+            UpdateArmorModel();
         }
         public void UpdateView(float deltaTime)
         {
             var nextPos = Entity.GetNextPosition();
             var pos = Entity.Pos;
             var posOffset = (nextPos.LawnToTrans() - pos.LawnToTrans()) * deltaTime / Time.fixedDeltaTime;
-            transform.position = pos.LawnToTrans() + posOffset;
+            float zOffset = 0;
+            if (zOffsetDict.TryGetValue(Entity.Type, out float offset))
+            {
+                zOffset = offset * PositionHelper.LAWN_TO_TRANS_SCALE;
+            }
+            transform.position = pos.LawnToTrans() + posOffset + Vector3.back * zOffset;
 
             UpdateShadow(posOffset);
-            UpdateEntityModelData();
+            UpdateEntityModel();
+            UpdateArmorModel();
             if (Model)
                 Model.UpdateModel(deltaTime);
         }
@@ -120,6 +139,55 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 事件回调
+        private void PostInitCallback()
+        {
+        }
+        private void OnTriggerAnimationCallback(string name, EntityAnimationTarget target)
+        {
+            var targetModel = GetAnimationTargetModel(target);
+            if (!targetModel)
+                return;
+            targetModel.TriggerAnimator(name);
+        }
+        private void OnSetAnimationBoolCallback(string name, EntityAnimationTarget target, bool value)
+        {
+            var targetModel = GetAnimationTargetModel(target);
+            if (!targetModel)
+                return;
+            targetModel.SetAnimatorBool(name, value);
+        }
+        private void OnSetAnimationIntCallback(string name, EntityAnimationTarget target, int value)
+        {
+            var targetModel = GetAnimationTargetModel(target);
+            if (!targetModel)
+                return;
+            targetModel.SetAnimatorInt(name, value);
+        }
+        private void OnSetAnimationFloatCallback(string name, EntityAnimationTarget target, float value)
+        {
+            var targetModel = GetAnimationTargetModel(target);
+            if (!targetModel)
+                return;
+            targetModel.SetAnimatorFloat(name, value);
+        }
+        private void OnArmorEquipCallback(Armor armor)
+        {
+            CreateArmorModel(armor);
+        }
+        private void OnArmorDestroyCallback(Armor armor, DamageResult result)
+        {
+        }
+        private void OnArmorRemoveCallback(Armor armor)
+        {
+            RemoveArmorModel();
+        }
+        private void OnModelChangedCallback(NamespaceID modelID)
+        {
+            SetModel(modelID);
+        }
+        #endregion
+
         #region 接口实现
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
@@ -148,13 +216,67 @@ namespace MVZ2.Level
             Shadow.gameObject.SetActive(Entity.ShadowVisible);
             Shadow.SetAlpha(Entity.ShadowAlpha * alpha);
         }
-        private void UpdateEntityModelData()
+        private Model CreateModel(NamespaceID id)
         {
+            var res = level.MainManager.ResourceManager;
+            var modelTemplate = res.GetModel(id);
+            if (modelTemplate == null)
+                return null;
+            return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
+        }
+        #region 护甲
+        private void CreateArmorModel(Armor armor)
+        {
+            if (!Model)
+                return;
+            Model.SetArmor(CreateModel(armor.Definition.GetModelID()));
+        }
+        private void RemoveArmorModel()
+        {
+            if (!Model)
+                return;
+            Model.RemoveArmor();
+        }
+        private void UpdateArmorModel()
+        {
+            if (Entity.EquipedArmor == null)
+            {
+                RemoveArmorModel();
+                return;
+            }
+            if (!Model.ArmorModel)
+            {
+                CreateArmorModel(Entity.EquipedArmor);
+            }
+            UpdateArmorModelProperties(Entity.EquipedArmor);
+        }
+        private void UpdateArmorModelProperties(Armor armor)
+        {
+            Model.ArmorModel.RendererGroup.SetTint(armor.GetTint());
+            Model.ArmorModel.RendererGroup.SetColorOffset(armor.GetColorOffset());
+        }
+        #endregion
+        private Model GetAnimationTargetModel(EntityAnimationTarget target)
+        {
+            switch (target)
+            {
+                case EntityAnimationTarget.Entity:
+                    return Model;
+                case EntityAnimationTarget.Armor:
+                    return Model.ArmorModel;
+            }
+            return null;
+        }
+        private void UpdateEntityModel()
+        {
+            if (!Model)
+                return;
             Model.RendererGroup.SetTint(Entity.GetTint());
             Model.RendererGroup.SetColorOffset(GetColorOffset());
             var groundPos = Entity.Pos;
             groundPos.y = Entity.GetGroundHeight();
             Model.RendererGroup.SetGroundPosition(groundPos.LawnToTrans());
+            Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.RenderScale;
         }
         private Color GetColorOffset()
@@ -198,6 +320,17 @@ namespace MVZ2.Level
         #endregion
 
         #region 属性字段
+        public static readonly Dictionary<int, float> zOffsetDict = new Dictionary<int, float>()
+        {
+            { EntityTypes.PLANT, 0 },
+            { EntityTypes.OBSTACLE, 1 },
+            { EntityTypes.BOSS, 2 },
+            { EntityTypes.ENEMY, 3 },
+            { EntityTypes.PROJECTILE, 4 },
+            { EntityTypes.CART, 5 },
+            { EntityTypes.EFFECT, 6 },
+            { EntityTypes.PICKUP, 7 },
+        };
         public Model Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; protected set; }

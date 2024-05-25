@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Level.UI;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -40,7 +42,16 @@ namespace MVZ2.Level
             level.OnShakeScreen += OnShakeScreenCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnHeldItemReset += OnHeldItemResetCallback;
-            level.SetSeedPacks(new NamespaceID[] { ContraptionID.dispenser, ContraptionID.furnace, ContraptionID.obsidian, ContraptionID.mineTNT, EnemyID.zombie });
+            level.SetSeedPacks(new NamespaceID[]
+            {
+                ContraptionID.dispenser,
+                ContraptionID.furnace,
+                ContraptionID.obsidian,
+                ContraptionID.mineTNT,
+                EnemyID.zombie,
+                EnemyID.leatherCappedZombie,
+                EnemyID.ironHelmettedZombie
+            });
             level.Init(AreaID.day, StageID.prologue, option);
 
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
@@ -130,8 +141,7 @@ namespace MVZ2.Level
         private void OnEntitySpawnCallback(Entity entity)
         {
             var entityController = Instantiate(entityTemplate.gameObject, entity.Pos.LawnToTrans(), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
-            var modelPrefab = main.ResourceManager.GetModel(entity.Definition.GetReference());
-            entityController.Init(this, entity, modelPrefab);
+            entityController.Init(this, entity);
             entityController.OnPointerEnter += OnEntityPointerEnterCallback;
             entityController.OnPointerExit += OnEntityPointerExitCallback;
             entityController.OnPointerDown += OnEntityPointerDownCallback;
@@ -437,7 +447,8 @@ namespace MVZ2.Level
             Sprite sprite = null;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
-                sprite = main.ResourceManager.GetModelIcon(seedDef.GetSeedEntityID());
+                var modelID = seedDef.GetSeedEntityID().ToModelID(ModelID.TYPE_ENTITY);
+                sprite = main.ResourceManager.GetModelIcon(modelID);
             }
             return sprite;
         }
@@ -488,6 +499,7 @@ namespace MVZ2.Level
         #region 属性字段
         public const int SelfFaction = 0;
         public const int EnemyFaction = 1;
+        public MainManager MainManager => main;
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
         private Game level;

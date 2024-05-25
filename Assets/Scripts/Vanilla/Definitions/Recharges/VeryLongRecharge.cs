@@ -1,7 +1,7 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine;
 
-namespace MVZ2.GameContent.Seeds
+namespace MVZ2.GameContent.Recharges
 {
     [Definition(RechargeNames.veryLongTime)]
     public class VeryLongRecharge : RechargeDefinition

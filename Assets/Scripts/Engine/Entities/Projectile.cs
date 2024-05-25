@@ -9,7 +9,7 @@ namespace PVZEngine
         #region 公有方法
 
         #region 构造器
-        public Projectile(Game level, int id, int seed) : base(level, id, seed)
+        public Projectile(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             CollisionMask = EntityCollision.MASK_CONTRAPTION
                 | EntityCollision.MASK_ENEMY
@@ -76,7 +76,7 @@ namespace PVZEngine
 
         public bool CanPierce(Entity other)
         {
-            bool ethereal = other.EquipedArmor.Exists() ? false : other.IsEthereal();
+            bool ethereal = Armor.Exists(other.EquipedArmor) ? false : other.IsEthereal();
             return ethereal || IsPiercing();
         }
         #endregion
@@ -88,7 +88,7 @@ namespace PVZEngine
             if (SpawnerReference != null && other == SpawnerReference.Entity && !canHitSpawner)
                 return;
 
-            if (Removed || !IsEnemy(other) || collided.Any(c => c.ID == other.ID))
+            if (Removed || !IsEnemy(other) || collided.Any(c => c.ID == other.ID) || other.IsDead)
                 return;
 
             if (!Detection.IsZCoincide(Pos.z, GetScaledSize().z, other.Pos.z, other.GetScaledSize().z))

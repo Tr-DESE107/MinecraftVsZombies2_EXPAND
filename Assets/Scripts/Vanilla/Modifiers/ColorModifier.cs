@@ -1,7 +1,7 @@
 ﻿using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Vanilla.Modifiers
+namespace MVZ2.GameContent.Modifiers
 {
     public class ColorModifier : PropertyModifier<Color>
     {

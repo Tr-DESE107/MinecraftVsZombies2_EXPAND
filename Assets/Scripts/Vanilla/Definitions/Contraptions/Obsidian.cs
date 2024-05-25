@@ -22,25 +22,25 @@ namespace MVZ2.GameContent.Contraptions
             switch (entity.Health)
             {
                 case > armoredHP * 2 / 3f + maxHP:
-                    state = 3;
+                    state = 5;
                     break;
                 case > armoredHP / 3f + maxHP:
                     state = 4;
                     break;
                 case > maxHP:
-                    state = 5;
+                    state = 3;
                     break;
                 case > maxHP * 2 / 3f:
-                    state = 0;
+                    state = 2;
                     break;
                 case > maxHP / 3f:
                     state = 1;
                     break;
                 default:
-                    state = 2;
+                    state = 0;
                     break;
             }
-            contraption.SetAnimationInt("State", state);
+            contraption.SetAnimationInt("HealthState", state);
         }
 
         public override void Evoke(Contraption contraption)

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
+using UnityEngine.Rendering;
 
 namespace MVZ2
 {
@@ -31,12 +33,13 @@ namespace MVZ2
             localPos.x = modelOffset.x * 0.01f;
             localPos.y = -modelShotCamera.orthographicSize + modelOffset.y * 0.01f;
             modelShotPositionTransform.localPosition = localPos;
+            SortingGroup.UpdateAllSortingGroups();
             modelShotCamera.Render();
 
             // 从Render Texture读取像素并保存为图片
             Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
             RenderTexture.active = renderTexture;
-            texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            texture.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
             texture.Apply();
             texture.name = pictureName;
             RenderTexture.active = null; // 重置活动的Render Texture

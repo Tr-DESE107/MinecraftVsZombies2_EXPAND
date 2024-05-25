@@ -1,7 +1,7 @@
 using MVZ2.Vanilla;
 using PVZEngine;
 
-namespace MVZ2.GameContent
+namespace MVZ2.GameContent.Effects
 {
     [Definition(EffectNames.mineDebris)]
     public class MineDebris : VanillaEffect

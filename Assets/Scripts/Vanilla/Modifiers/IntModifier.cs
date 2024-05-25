@@ -1,6 +1,6 @@
 ﻿using PVZEngine;
 
-namespace MVZ2.Vanilla.Modifiers
+namespace MVZ2.GameContent.Modifiers
 {
     public class IntModifier : PropertyModifier<int>
     {

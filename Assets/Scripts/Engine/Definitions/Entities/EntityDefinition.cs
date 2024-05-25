@@ -10,6 +10,13 @@
         public virtual void PostCollision(Entity entity, Entity other, int state) { }
         public virtual void PostDeath(Entity entity, DamageInfo damageInfo) { }
         public virtual void PostRemove(Entity entity) { }
+        public virtual void PostEquipArmor(Entity entity, Armor slot) { }
+        public virtual void PostDestroyArmor(Entity entity, Armor slot, DamageResult damage) { }
+        public virtual void PostRemoveArmor(Entity entity, Armor slot) { }
+        public NamespaceID GetModelID()
+        {
+            return GetID().ToModelID("entity");
+        }
         public abstract int Type { get; }
     }
 }

@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
 using MVZ2.GameContent;
-using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.Buffs;
 using PVZEngine;
-using UnityEditor;
 
 namespace MVZ2.Vanilla
 {
@@ -56,15 +49,13 @@ namespace MVZ2.Vanilla
             if (armorResult != null && !armorResult.Effects.HasEffect(DamageEffects.MUTE))
             {
                 var entity = armorResult.Entity;
-                var shellId = entity.EquipedArmor.GetShellID();
-                var shellDefinition = entity.Game.GetShellDefinition(shellId);
+                var shellDefinition = armorResult.ShellDefinition;
                 entity.PlayHitSound(armorResult.Effects, shellDefinition);
             }
             if (bodyResult != null && !bodyResult.Effects.HasEffect(DamageEffects.MUTE))
             {
                 var entity = bodyResult.Entity;
-                var shellId = entity.GetShellID();
-                var shellDefinition = entity.Game.GetShellDefinition(shellId);
+                var shellDefinition = bodyResult.ShellDefinition;
                 entity.PlayHitSound(bodyResult.Effects, shellDefinition);
             }
         }

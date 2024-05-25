@@ -35,35 +35,34 @@ namespace PVZEngine
             switch (entityDef.Type)
             {
                 case EntityTypes.PLANT:
-                    spawned = new Contraption(this, id, entityRandom.Next());
+                    spawned = new Contraption(this, id, entityDef, entityRandom.Next());
                     break;
                 case EntityTypes.ENEMY:
-                    spawned = new Enemy(this, id, entityRandom.Next());
+                    spawned = new Enemy(this, id, entityDef, entityRandom.Next());
                     break;
                 case EntityTypes.OBSTACLE:
-                    spawned = new Obstacle(this, id, entityRandom.Next());
+                    spawned = new Obstacle(this, id, entityDef, entityRandom.Next());
                     break;
                 case EntityTypes.BOSS:
-                    spawned = new Boss(this, id, entityRandom.Next());
+                    spawned = new Boss(this, id, entityDef, entityRandom.Next());
                     break;
                 case EntityTypes.CART:
-                    spawned = new Cart(this, id, entityRandom.Next());
+                    spawned = new Cart(this, id, entityDef, entityRandom.Next());
                     break;
                 case EntityTypes.PICKUP:
-                    spawned = new Pickup(this, id, entityRandom.Next());
+                    spawned = new Pickup(this, id, entityDef, entityRandom.Next());
                     break;
                 case EntityTypes.PROJECTILE:
-                    spawned = new Projectile(this, id, entityRandom.Next());
+                    spawned = new Projectile(this, id, entityDef, entityRandom.Next());
                     break;
                 default:
-                    spawned = new Effect(this, id, effectRandom.Next());
+                    spawned = new Effect(this, id, entityDef, effectRandom.Next());
                     break;
             }
-            spawned.Definition = entityDef;
             spawned.Pos = pos;
             entities.Add(spawned);
-            spawned.Init(spawner);
             OnEntitySpawn?.Invoke(spawned);
+            spawned.Init(spawner);
             return spawned;
         }
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner)

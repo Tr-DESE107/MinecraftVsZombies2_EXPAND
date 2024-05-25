@@ -1,23 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace PVZEngine
 {
     public class Armor : IBuffTarget
     {
-        public Armor(Entity owner)
+        public Armor(Entity owner, ArmorDefinition definition)
         {
             Owner = owner;
-        }
-        public void SetDefinition(ArmorDefinition definition)
-        {
             Definition = definition;
+            Health = GetMaxHealth();
+
+            SetProperty(ArmorProperties.TINT, Color.white);
         }
-        public void Reset()
+        public void Update()
         {
-            MaxHealth = GetProperty<float>(ArmorProperties.MAX_HEALTH);
-            Health = MaxHealth;
+            if (Definition != null)
+                Definition.PostUpdate(this);
+        }
+        public void Destroy(DamageResult result)
+        {
+            Owner.DestroyArmor(this, result);
         }
 
         #region 属性
@@ -26,7 +31,7 @@ namespace PVZEngine
             object result = null;
             if (propertyDict.TryGetValue(name, out var prop))
                 result = prop;
-            else if (!ignoreDefinition)
+            else if (!ignoreDefinition && Definition != null)
                 result = Definition.GetProperty<object>(name);
 
             if (!ignoreBuffs)
@@ -62,7 +67,32 @@ namespace PVZEngine
         {
             SetProperty(EntityProperties.SHELL, value);
         }
+        public Color GetTint(bool ignoreBuffs = false)
+        {
+            return GetProperty<Color>(ArmorProperties.TINT, ignoreBuffs: ignoreBuffs);
+        }
+        public void SetTint(Color value)
+        {
+            SetProperty(ArmorProperties.TINT, value);
+        }
+        public Color GetColorOffset(bool ignoreBuffs = false)
+        {
+            return GetProperty<Color>(ArmorProperties.COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
+        }
+        public void SetColorOffset(Color value)
+        {
+            SetProperty(ArmorProperties.COLOR_OFFSET, value);
+        }
+        public float GetMaxHealth(bool ignoreBuffs = false)
+        {
+            return GetProperty<float>(EntityProperties.MAX_HEALTH, ignoreBuffs: ignoreBuffs);
+        }
+        public void SetMaxHealth(float value)
+        {
+            SetProperty(EntityProperties.MAX_HEALTH, value);
+        }
         #endregion
+
         #region 增益
         public void AddBuff(Buff buff)
         {
@@ -70,6 +100,10 @@ namespace PVZEngine
                 return;
             buffs.Add(buff);
             buff.AddToTarget(this);
+        }
+        public void AddBuff<T>() where T : BuffDefinition
+        {
+            AddBuff(Owner.Game.CreateBuff<T>());
         }
         public bool RemoveBuff(Buff buff)
         {
@@ -81,6 +115,21 @@ namespace PVZEngine
                 return true;
             }
             return false;
+        }
+        public int RemoveBuffs(IEnumerable<Buff> buffs)
+        {
+            if (buffs == null)
+                return 0;
+            int count = 0;
+            foreach (var buff in buffs)
+            {
+                count += RemoveBuff(buff) ? 1 : 0;
+            }
+            return count;
+        }
+        public bool HasBuff<T>() where T : BuffDefinition
+        {
+            return buffs.Any(b => b.Definition is T);
         }
         public bool HasBuff(Buff buff)
         {
@@ -95,16 +144,54 @@ namespace PVZEngine
             return buffs.ToArray();
         }
         #endregion
-
-        public bool Exists()
+        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source)
         {
-            return Owner != null && Definition != null && Health > 0;
+            return TakeDamage(new DamageInfo(amount, effects, Owner, source));
         }
+        public static DamageResult TakeDamage(DamageInfo info)
+        {
+            var entity = info.Entity;
+            var armor = entity.EquipedArmor;
+            if (!Exists(armor))
+                return null;
+            var shellRef = armor.GetProperty<NamespaceID>(ArmorProperties.SHELL);
+            var shell = entity.Game.GetShellDefinition(shellRef);
+            if (shell != null)
+            {
+                shell.EvaluateDamage(info);
+            }
+            // Apply Damage
+            float hpBefore = armor.Health;
+            if (info.Amount > 0)
+            {
+                armor.Health -= info.Amount;
+            }
+            bool fatal = hpBefore > 0 && armor.Health <= 0;
+            var damageResult = new DamageResult()
+            {
+                Entity = entity,
+                Source = info.Source,
+                OriginalDamage = info.OriginalDamage,
+                Effects = info.Effects,
+                Armor = armor,
+                ShellDefinition = shell,
+                Fatal = fatal
+            };
+            if (fatal)
+            {
+                armor.Destroy(damageResult);
+            }
+            return damageResult;
+        }
+        public static bool Exists(Armor armor)
+        {
+            return armor != null && armor.Owner != null && armor.Definition != null && armor.Health > 0;
+        }
+
         #region 属性字段
         public Entity Owner { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
-        public float MaxHealth { get; private set; }
         private List<Buff> buffs = new List<Buff>();
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
         #endregion

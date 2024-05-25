@@ -1,5 +1,5 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Buffs;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 

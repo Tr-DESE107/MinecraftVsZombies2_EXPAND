@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using MVZ2.GameContent;
+﻿using MVZ2.GameContent.Seeds;
 using PVZEngine;
 
 namespace MVZ2.Vanilla

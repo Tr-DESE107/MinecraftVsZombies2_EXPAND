@@ -41,6 +41,10 @@ namespace PVZEngine
         {
             return buffDefinitions.Values.ToArray();
         }
+        public ArmorDefinition[] GetArmorDefinitions()
+        {
+            return armorDefinitions.Values.ToArray();
+        }
         protected void AddDefinition<T>(Dictionary<string, T> list, string name, T definition) where T : Definition
         {
             definition.Namespace = Namespace;
@@ -75,6 +79,9 @@ namespace PVZEngine
                 case BuffDefinition buffDef:
                     AddDefinition(buffDefinitions, name, buffDef);
                     break;
+                case ArmorDefinition armorDef:
+                    AddDefinition(armorDefinitions, name, armorDef);
+                    break;
             }
         }
         public string Namespace { get; }
@@ -86,5 +93,6 @@ namespace PVZEngine
         protected Dictionary<string, StageDefinition> stageDefinitions = new Dictionary<string, StageDefinition>();
         protected Dictionary<string, GridDefinition> gridDefinitions = new Dictionary<string, GridDefinition>();
         protected Dictionary<string, BuffDefinition> buffDefinitions = new Dictionary<string, BuffDefinition>();
+        protected Dictionary<string, ArmorDefinition> armorDefinitions = new Dictionary<string, ArmorDefinition>();
     }
 }

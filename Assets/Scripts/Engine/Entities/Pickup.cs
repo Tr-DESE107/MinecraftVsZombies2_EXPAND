@@ -1,12 +1,9 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
-
 namespace PVZEngine
 {
     public class Pickup : Entity
     {
         #region 公有方法
-        public Pickup(Game level, int id, int seed) : base(level, id, seed)
+        public Pickup(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
         }
         protected override void OnInit(Entity spawner)

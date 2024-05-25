@@ -1,8 +1,8 @@
-﻿using MVZ2.GameContent;
-using MVZ2.Vanilla.Modifiers;
+﻿using MVZ2.GameContent.Modifiers;
+using MVZ2.Vanilla;
 using PVZEngine;
 
-namespace MVZ2.Vanilla.Buffs
+namespace MVZ2.GameContent.Buffs
 {
     [Definition(BuffNames.productionColor)]
     public class ProductionColorBuff : BuffDefinition

@@ -1,6 +1,7 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla;
+using PVZEngine;
 
-namespace MVZ2.Vanilla
+namespace MVZ2.GameContent
 {
     public static class DamageEffects
     {

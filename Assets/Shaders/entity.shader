@@ -53,7 +53,7 @@
 
 		Pass
 		{
-			Blend SrcAlpha OneMinusSrcAlpha
+			Blend SrcAlpha OneMinusSrcAlpha, One One
 			ZWrite Off
 			Cull Off
 			/*Stencil {

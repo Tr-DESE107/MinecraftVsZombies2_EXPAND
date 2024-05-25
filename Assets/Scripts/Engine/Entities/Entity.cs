@@ -9,13 +9,14 @@ namespace PVZEngine
     public abstract class Entity : IBuffTarget
     {
         #region 公有方法
-        public Entity(Game level, int id, int seed)
+        public Entity(Game level, int id, EntityDefinition definition, int seed)
         {
             Game = level;
             ID = id;
 
+            Definition = definition;
+            ModelID = definition.GetModelID();
             RNG = new RandomGenerator(seed);
-            EquipedArmor = new Armor(this);
             SetTint(Color.white);
         }
         public void Init(Entity spawner)
@@ -23,11 +24,14 @@ namespace PVZEngine
             OnInit(spawner);
             Definition.Init(this);
             Callbacks.PostEntityInit.RunFiltered(Type, this);
+            PostInit?.Invoke();
         }
         public void Update()
         {
             OnUpdate();
             Definition.Update(this);
+            if (EquipedArmor != null)
+                EquipedArmor.Update();
             Callbacks.PostEntityUpdate.RunFiltered(Type, this);
         }
         public void Collide(Entity other)
@@ -44,16 +48,19 @@ namespace PVZEngine
             }
             collisionThisTick.Add(reference);
         }
-        public void ClearCollision()
+
+        public bool Exists()
         {
-            var notCollided = collisionList.Except(collisionThisTick).ToArray();
-            foreach (var entRef in notCollided)
+            return !Removed;
+        }
+        public virtual void Remove()
+        {
+            if (!Removed)
             {
-                if (entRef.Entity != null)
-                {
-                    TriggerCollision(entRef.Entity, EntityCollision.STATE_EXIT);
-                }
-                collisionList.Remove(entRef);
+                Removed = true;
+                Game.RemoveEntity(this);
+                Definition.PostRemove(this);
+                Callbacks.PostEntityRemove.Run(this);
             }
         }
 
@@ -104,46 +111,23 @@ namespace PVZEngine
         #endregion
 
         #region 动画
-        public void TriggerAnimation(string name)
+        public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
         {
-            OnTriggerAnimation?.Invoke(name);
+            OnTriggerAnimation?.Invoke(name, target);
         }
-        public void SetAnimationBool(string name, bool value)
+        public void SetAnimationBool(string name, bool value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
         {
-            OnSetAnimationBool?.Invoke(name, value);
+            OnSetAnimationBool?.Invoke(name, target, value);
         }
-        public void SetAnimationInt(string name, int value)
+        public void SetAnimationInt(string name, int value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
         {
-            OnSetAnimationInt?.Invoke(name, value);
+            OnSetAnimationInt?.Invoke(name, target, value);
         }
-        public void SetAnimationFloat(string name, float value)
+        public void SetAnimationFloat(string name, float value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
         {
-            OnSetAnimationFloat?.Invoke(name, value);
+            OnSetAnimationFloat?.Invoke(name, target, value);
         }
         #endregion
-
-        public bool Exists()
-        {
-            return !Removed;
-        }
-        public virtual void Remove()
-        {
-            if (!Removed)
-            {
-                Removed = true;
-                Game.RemoveEntity(this);
-                Definition.PostRemove(this);
-                Callbacks.PostEntityRemove.Run(this);
-            }
-        }
-        public int GetColumn()
-        {
-            return Game.GetColumn(Pos.x);
-        }
-        public int GetLane()
-        {
-            return Game.GetLane(Pos.z);
-        }
 
         #region 原版属性
         public bool IsInvincible()
@@ -241,47 +225,22 @@ namespace PVZEngine
         #endregion
 
         #region 伤害
-        private static DamageResult ArmorTakeDamage(DamageInfo info)
+        private static DamageResult ArmoredTakeDamage(DamageInfo info, out DamageResult armorResult)
         {
             var entity = info.Entity;
-            var armor = entity.EquipedArmor;
-            if (!armor.Exists())
-                return null;
-            var shellRef = armor.GetProperty<NamespaceID>(ArmorProperties.SHELL);
-            var shell = entity.Game.GetShellDefinition(shellRef);
-            if (shell != null)
-            {
-                shell.EvaluateDamage(info);
-            }
-            // Apply Damage
-            float hpBefore = armor.Health;
-            if (info.Amount > 0)
-            {
-                armor.Health -= info.Amount;
-            }
-            return new DamageResult()
-            {
-                Entity = entity,
-                Source = info.Source,
-                OriginalDamage = info.OriginalDamage,
-                Effects = info.Effects,
-                OnArmor = true,
-                Fatal = hpBefore > 0 && armor.Health <= 0
-            };
-        }
-        private static DamageResult ArmoringTakeDamage(DamageInfo info, out DamageResult armorResult)
-        {
-            var entity = info.Entity;
-            armorResult = ArmorTakeDamage(info);
+            armorResult = Armor.TakeDamage(info);
             if (info.Effects.HasEffect(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY))
             {
                 return BodyTakeDamage(info);
             }
-            else if (info.Effects.HasEffect(DamageFlags.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !entity.EquipedArmor.Exists())
+            else if (info.Effects.HasEffect(DamageFlags.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
             {
-                float overkillDamage = armorResult.OriginalDamage - armorResult.UsedDamage;
-                var overkillInfo = new DamageInfo(overkillDamage, info.Effects, entity, info.Source);
-                return BodyTakeDamage(overkillInfo);
+                float overkillDamage = armorResult != null ? info.Amount - armorResult.UsedDamage : info.Amount;
+                if (overkillDamage > 0)
+                {
+                    var overkillInfo = new DamageInfo(overkillDamage, info.Effects, entity, info.Source);
+                    return BodyTakeDamage(overkillInfo);
+                }
             }
             return null;
         }
@@ -314,6 +273,7 @@ namespace PVZEngine
                 Source = info.Source,
                 Entity = entity,
                 UsedDamage = info.GetUsedDamage(),
+                ShellDefinition = shell,
                 Fatal = hpBefore > 0 && entity.Health <= 0
             };
         }
@@ -339,9 +299,9 @@ namespace PVZEngine
             if (info.Amount <= 0)
                 return null;
             DamageResult bodyResult;
-            if (EquipedArmor.Exists() && !info.Effects.HasEffect(DamageFlags.IGNORE_ARMOR))
+            if (Armor.Exists(EquipedArmor) && !info.Effects.HasEffect(DamageFlags.IGNORE_ARMOR))
             {
-                bodyResult = ArmoringTakeDamage(info, out armorResult);
+                bodyResult = ArmoredTakeDamage(info, out armorResult);
             }
             else
             {
@@ -563,6 +523,14 @@ namespace PVZEngine
         #endregion
 
         #region 网格
+        public int GetColumn()
+        {
+            return Game.GetColumn(Pos.x);
+        }
+        public int GetLane()
+        {
+            return Game.GetLane(Pos.z);
+        }
         public void TakeGrid(int index)
         {
             takenGrids.Add(index);
@@ -601,7 +569,69 @@ namespace PVZEngine
             return Game.GetGrid(GetColumn(), GetLane());
         }
         #endregion
+
+        #region 碰撞
+        public void ClearCollision()
+        {
+            var notCollided = collisionList.Except(collisionThisTick).ToArray();
+            foreach (var entRef in notCollided)
+            {
+                if (entRef.Entity != null)
+                {
+                    TriggerCollision(entRef.Entity, EntityCollision.STATE_EXIT);
+                }
+                collisionList.Remove(entRef);
+            }
+        }
+        #endregion
+
+        #region 护甲
+        public void EquipArmor<T>() where T : ArmorDefinition
+        {
+            EquipArmor(new Armor(this, Game.GetArmorDefinition<T>()));
+        }
+        public void EquipArmor(ArmorDefinition definition)
+        {
+            if (definition == null)
+                return;
+            EquipArmor(new Armor(this, definition));
+        }
+        public void EquipArmor(Armor armor)
+        {
+            if (armor == null)
+                return;
+            if (EquipedArmor != null)
+                EquipedArmor.Destroy(null);
+            EquipedArmor = armor;
+
+            Definition.PostEquipArmor(this, armor);
+            Callbacks.PostEquipArmor.Run(this, armor);
+            OnEquipArmor?.Invoke(armor);
+        }
+        public void DestroyArmor(Armor armor, DamageResult result)
+        {
+            Definition.PostDestroyArmor(this, armor, result);
+            Callbacks.PostDestroyArmor.Run(this, armor, result);
+            OnDestroyArmor?.Invoke(armor, result);
+        }
+        public void RemoveArmor()
+        {
+            var armor = EquipedArmor;
+            if (armor == null)
+                return;
+            EquipedArmor = null;
+            Definition.PostRemoveArmor(this, armor);
+            Callbacks.PostRemoveArmor.Run(this, armor);
+            OnRemoveArmor?.Invoke(armor);
+        }
+        #endregion
         public virtual bool IsFacingLeft() => FlipX;
+
+        public void ChangeModel(NamespaceID id)
+        {
+            ModelID = id;
+            OnModelChanged?.Invoke(id);
+        }
 
         #endregion
 
@@ -633,6 +663,8 @@ namespace PVZEngine
         }
         protected void HitGround(Vector3 velocity)
         {
+            if (!EntityTypes.IsDamagable(Type))
+                return;
             float fallHeight = Mathf.Max(0, GetFallDamage() - velocity.y * 5);
             float fallDamage = Mathf.Pow(fallHeight, 2);
             if (fallDamage > 0)
@@ -706,17 +738,26 @@ namespace PVZEngine
         #endregion
 
         #region 事件
-        public event Action<string> OnTriggerAnimation;
-        public event Action<string, bool> OnSetAnimationBool;
-        public event Action<string, int> OnSetAnimationInt;
-        public event Action<string, float> OnSetAnimationFloat;
+        public event Action PostInit;
+
+        public event Action<string, EntityAnimationTarget> OnTriggerAnimation;
+        public event Action<string, EntityAnimationTarget, bool> OnSetAnimationBool;
+        public event Action<string, EntityAnimationTarget, int> OnSetAnimationInt;
+        public event Action<string, EntityAnimationTarget, float> OnSetAnimationFloat;
+
+        public event Action<Armor> OnEquipArmor;
+        public event Action<Armor, DamageResult> OnDestroyArmor;
+        public event Action<Armor> OnRemoveArmor;
+
+        public event Action<NamespaceID> OnModelChanged;
         #endregion
 
         #region 属性字段
         public int ID { get; private set; }
         public RandomGenerator RNG { get; private set; }
         public bool Removed { get; private set; }
-        public EntityDefinition Definition { get; set; }
+        public EntityDefinition Definition { get; private set; }
+        public NamespaceID ModelID { get; private set; }
         public EntityReference SpawnerReference { get; private set; }
         public Game Game { get; private set; }
         public Armor EquipedArmor { get; private set; }
@@ -724,6 +765,7 @@ namespace PVZEngine
         public Vector3 Velocity { get; set; }
         public Vector3 Scale { get; set; } = Vector3.one;
         public int CollisionMask { get; set; }
+        public Vector3 RenderRotation { get; set; } = Vector3.zero;
         public Vector3 RenderScale { get; set; } = Vector3.one;
         public bool FlipX => Scale.x < 0;
         public bool CanUnderGround { get; set; }
@@ -755,5 +797,10 @@ namespace PVZEngine
         private List<EntityReference> collisionList = new List<EntityReference>();
         private List<int> takenGrids = new List<int>();
         #endregion
+    }
+    public enum EntityAnimationTarget
+    {
+        Entity,
+        Armor
     }
 }

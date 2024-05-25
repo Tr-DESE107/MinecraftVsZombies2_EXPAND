@@ -1,4 +1,4 @@
-﻿namespace MVZ2.Vanilla
+﻿namespace MVZ2.GameContent.Seeds
 {
     public static class SeedTypes
     {

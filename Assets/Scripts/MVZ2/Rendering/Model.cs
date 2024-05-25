@@ -43,6 +43,30 @@ namespace MVZ2
         {
             return triggeredEvents.Contains(name);
         }
+        #region 护甲
+        public void SetArmor(Model model)
+        {
+            if (ArmorModel)
+            {
+                RemoveArmor();
+            }
+            if (!model)
+                return;
+            if (!armorTransform)
+                return;
+            model.transform.parent = armorTransform;
+            model.transform.localPosition = Vector3.zero;
+            armorModel = model;
+        }
+        public void RemoveArmor()
+        {
+            if (!armorModel)
+                return;
+            Destroy(armorModel.gameObject);
+            armorModel = null;
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -58,6 +82,8 @@ namespace MVZ2
         public MultipleRendererGroup RendererGroup => rendererGroup;
         public Animator Animator => animator;
         public Transform RootTransform => rootTransform;
+        public Transform CenterTransform => centerTransform;
+        public Model ArmorModel => armorModel;
         public float AnimationSpeed { get; set; }
         [SerializeField]
         private MultipleRendererGroup rendererGroup;
@@ -67,6 +93,10 @@ namespace MVZ2
         private Transform rootTransform;
         [SerializeField]
         private Transform centerTransform;
+        [SerializeField]
+        private Transform armorTransform;
+        [SerializeField]
+        private Model armorModel;
         private List<string> triggeringEvents = new List<string>();
         private List<string> triggeredEvents = new List<string>();
         #endregion

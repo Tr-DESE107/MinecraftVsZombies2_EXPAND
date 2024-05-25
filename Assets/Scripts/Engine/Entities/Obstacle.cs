@@ -2,7 +2,7 @@ namespace PVZEngine
 {
     public sealed class Obstacle : Entity
     {
-        public Obstacle(Game level, int id, int seed) : base(level, id, seed)
+        public Obstacle(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             SetFaction(Game.Option.RightFaction);
             SetFriction(0.2f);

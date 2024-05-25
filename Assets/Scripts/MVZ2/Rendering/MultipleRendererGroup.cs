@@ -8,29 +8,28 @@ namespace MVZ2.Rendering
     [RequireComponent(typeof(SortingGroup))]
     public class MultipleRendererGroup : MonoBehaviour
     {
-        private void Awake()
+        #region 公有方法
+        public void UpdateRendererElements()
         {
-            propertyBlock = new MaterialPropertyBlock();
-        }
-
-        private void OnEnable()
-        {
-            renderers.Clear();
-            foreach (var renderer in GetComponentsInChildren<Renderer>())
+            elements.Clear();
+            foreach (var renderer in GetComponentsInChildren<Renderer>(true))
             {
+                if (!IsChildOfGroup(renderer.transform, this))
+                    continue;
+                if (renderer is SpriteMask)
+                    continue;
                 var element = renderer.GetComponent<RendererElement>();
-                if (element)
+                if (!element)
                 {
-                    elements.Add(renderer, element);
+                    element = renderer.gameObject.AddComponent<RendererElement>();
                 }
-                renderers.Add(renderer);
+                elements.Add(element);
             }
         }
         public void SetGroundPosition(Vector3 position)
         {
-            foreach (var pair in elements)
+            foreach (var element in elements)
             {
-                var element = pair.Value;
                 if (!element.LockToGround)
                     continue;
                 var trans = element.transform;
@@ -68,7 +67,17 @@ namespace MVZ2.Rendering
         {
             SetPropertyColor("_ColorOffset", color);
         }
+        #endregion
 
+        #region 私有方法
+        private void Awake()
+        {
+            propertyBlock = new MaterialPropertyBlock();
+        }
+        private bool IsChildOfGroup(Transform child, MultipleRendererGroup group)
+        {
+            return child.GetComponentInParent<MultipleRendererGroup>() == group;
+        }
         private void SetRendererFloat(Renderer renderer, string name, float alpha)
         {
             propertyBlock.Clear();
@@ -95,17 +104,18 @@ namespace MVZ2.Rendering
         private Renderer[] GetAllRenderers(bool includeExcluded = false)
         {
             if (includeExcluded)
-                return renderers.ToArray();
-            return renderers.Where(r => !elements.TryGetValue(r, out var e) || !e.ExcludedInGroup).ToArray();
+                return elements.Select(e => e.Renderer).ToArray();
+            return elements.Where(e => !e.ExcludedInGroup).Select(e => e.Renderer).ToArray();
         }
+        #endregion
         public int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
 
         public string SortingLayerName { get => sortingGroup.sortingLayerName; set => sortingGroup.sortingLayerName = value; }
 
         public int SortingOrder { get => sortingGroup.sortingOrder; set => sortingGroup.sortingOrder = value; }
-        
-        private List<Renderer> renderers = new List<Renderer>();
-        private Dictionary<Renderer, RendererElement> elements = new Dictionary<Renderer, RendererElement>();
+
+        [SerializeField]
+        private List<RendererElement> elements = new List<RendererElement>();
         [SerializeField]
         private SortingGroup sortingGroup;
         private MaterialPropertyBlock propertyBlock;

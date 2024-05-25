@@ -1,0 +1,17 @@
+﻿using MVZ2.GameContent.Armors;
+using MVZ2.Vanilla;
+using PVZEngine;
+
+namespace MVZ2.GameContent.Enemies
+{
+    [Definition(EnemyNames.leatherCappedZombie)]
+    [EntitySeedDefinition(75, VanillaMod.spaceName, RechargeNames.none)]
+    public class LeatherCappedZombie : Zombie
+    {
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.EquipArmor<LeatherCap>();
+        }
+    }
+}

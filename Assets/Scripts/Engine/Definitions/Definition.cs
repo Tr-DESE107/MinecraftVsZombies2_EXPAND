@@ -6,7 +6,7 @@
         {
             return propertyDict.GetProperty<T>(name);
         }
-        public NamespaceID GetReference()
+        public NamespaceID GetID()
         {
             return new NamespaceID(Namespace, Name);
         }

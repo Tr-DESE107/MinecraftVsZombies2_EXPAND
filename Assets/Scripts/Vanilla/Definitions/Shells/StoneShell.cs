@@ -1,7 +1,8 @@
 ﻿using MVZ2.GameContent;
+using MVZ2.Vanilla;
 using PVZEngine;
 
-namespace MVZ2.Vanilla.Buffs
+namespace MVZ2.GameContent.Shells
 {
     [Definition(ShellNames.stone)]
     public class StoneShell : ShellDefinition
