@@ -2,6 +2,11 @@
 {
     public abstract class Definition
     {
+        public Definition(string nsp, string name)
+        {
+            Namespace = nsp;
+            Name = name;
+        }
         public T GetProperty<T>(string name)
         {
             return propertyDict.GetProperty<T>(name);

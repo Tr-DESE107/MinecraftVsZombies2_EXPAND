@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Contraptions
     [EntitySeedDefinition(25, VanillaMod.spaceName, RechargeNames.longTime)]
     public class MineTNT : VanillaContraption
     {
-        public MineTNT() : base()
+        public MineTNT(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.SHELL, ShellID.grass);
             SetProperty(EntityProps.PLACE_SOUND, SoundID.grass);

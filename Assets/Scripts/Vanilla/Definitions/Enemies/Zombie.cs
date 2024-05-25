@@ -8,7 +8,7 @@ namespace MVZ2.GameContent.Enemies
     [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
     public class Zombie : MeleeEnemy
     {
-        public Zombie()
+        public Zombie(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.SIZE, new Vector3(32, 86, 32));
         }

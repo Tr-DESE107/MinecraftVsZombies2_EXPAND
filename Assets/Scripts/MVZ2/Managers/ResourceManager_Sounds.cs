@@ -22,7 +22,7 @@ namespace MVZ2
             var soundMeta = GetSoundsMeta(id.spacename);
             if (soundMeta == null)
                 return null;
-            return soundMeta.resources.FirstOrDefault(m => m.id == id);
+            return soundMeta.resources.FirstOrDefault(m => m.name == id.name);
         }
         public AudioClip GetAudioClip(string nsp, string path)
         {
@@ -38,12 +38,12 @@ namespace MVZ2
             var paths = meta.resources.SelectMany(r => r.samples).Select(s => s.path).Distinct();
             return LoadResourceGroup<AudioClip>(nsp, locator, meta.root, paths.ToArray());
         }
-        private async Task<SoundsMeta> LoadSoundMeta(string nsp, IResourceLocator locator)
+        private async Task<SoundsMeta> LoadSoundMeta(IResourceLocator locator)
         {
             var textAsset = await LoadAddressableResource<TextAsset>(locator, "sounds");
             using var memoryStream = new MemoryStream(textAsset.bytes);
             var document = LoadXmlDocument(memoryStream);
-            return SoundsMeta.FromXmlNode(nsp, document["sounds"]);
+            return SoundsMeta.FromXmlNode(document["sounds"]);
         }
     }
 }

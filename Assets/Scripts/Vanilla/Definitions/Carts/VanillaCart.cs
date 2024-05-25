@@ -5,6 +5,10 @@ namespace MVZ2.Vanilla
 {
     public abstract class VanillaCart : VanillaEntity
     {
+        protected VanillaCart(string nsp, string name) : base(nsp, name)
+        {
+        }
+
         public override void Update(Entity entity)
         {
             base.Update(entity);

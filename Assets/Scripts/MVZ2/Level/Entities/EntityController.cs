@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using MVZ2.GameContent;
+using MVZ2.GameContent.Contraptions;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +15,7 @@ namespace MVZ2.Level
         {
             this.level = level;
             this.Entity = entity;
+            gameObject.name = entity.Definition.GetID().ToString();
             entity.PostInit += PostInitCallback;
             entity.OnTriggerAnimation += OnTriggerAnimationCallback;
             entity.OnSetAnimationBool += OnSetAnimationBoolCallback;
@@ -24,6 +27,7 @@ namespace MVZ2.Level
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
             entity.OnModelChanged += OnModelChangedCallback;
+            entity.OnSetModelProperty += OnSetModelPropertyCallback;
             SetModel(Entity.ModelID);
         }
         public void SetModel(NamespaceID modelId)
@@ -186,20 +190,26 @@ namespace MVZ2.Level
         {
             SetModel(modelID);
         }
+        private void OnSetModelPropertyCallback(string name, object value)
+        {
+            if (!Model)
+                return;
+            Model.SetProperty(name, value);
+        }
         #endregion
 
         #region 接口实现
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
-            OnPointerEnter?.Invoke(this);
+            OnPointerEnter?.Invoke(this, eventData);
         }
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
-            OnPointerExit?.Invoke(this);
+            OnPointerExit?.Invoke(this, eventData);
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            OnPointerDown?.Invoke(this);
+            OnPointerDown?.Invoke(this, eventData);
         }
         #endregion
 
@@ -314,9 +324,9 @@ namespace MVZ2.Level
         #endregion
 
         #region 事件
-        public event Action<EntityController> OnPointerEnter;
-        public event Action<EntityController> OnPointerExit;
-        public event Action<EntityController> OnPointerDown;
+        public event Action<EntityController, PointerEventData> OnPointerEnter;
+        public event Action<EntityController, PointerEventData> OnPointerExit;
+        public event Action<EntityController, PointerEventData> OnPointerDown;
         #endregion
 
         #region 属性字段

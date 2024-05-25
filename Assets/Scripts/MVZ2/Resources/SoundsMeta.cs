@@ -8,12 +8,12 @@ namespace MVZ2
     {
         public string root;
         public SoundResource[] resources;
-        public static SoundsMeta FromXmlNode(string nsp, XmlNode node)
+        public static SoundsMeta FromXmlNode(XmlNode node)
         {
             var sounds = new SoundResource[node.ChildNodes.Count];
             for (int i = 0; i < sounds.Length; i++)
             {
-                sounds[i] = SoundResource.FromXmlNode(nsp, node.ChildNodes[i]);
+                sounds[i] = SoundResource.FromXmlNode(node.ChildNodes[i]);
             }
             return new SoundsMeta()
             {

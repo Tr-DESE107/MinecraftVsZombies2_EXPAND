@@ -29,11 +29,11 @@ namespace MVZ2
             var nsp = mod.Namespace;
             var modResource = new ModResource(nsp);
 
-            var soundMeta = await LoadSoundMeta(nsp, mod.ResourceLocator);
+            var soundMeta = await LoadSoundMeta(mod.ResourceLocator);
             modResource.SoundMeta = soundMeta;
             modResource.AudioClips = await LoadAudioClips(nsp, mod.ResourceLocator, soundMeta);
 
-            var modelMeta = await LoadModelMeta(nsp, mod.ResourceLocator);
+            var modelMeta = await LoadModelMeta(mod.ResourceLocator);
             modResource.ModelMeta = modelMeta;
             modResource.Models = await LoadModels(nsp, mod.ResourceLocator, modelMeta);
 
@@ -41,6 +41,8 @@ namespace MVZ2
 
             modResource.SpriteSheets = await LoadSpriteSheets(nsp, mod.ResourceLocator);
             modResource.Sprites = await LoadSprites(nsp, mod.ResourceLocator);
+
+            modResource.FragmentsMeta = await LoadFragmentsMeta(mod.ResourceLocator);
 
             return modResource;
         }

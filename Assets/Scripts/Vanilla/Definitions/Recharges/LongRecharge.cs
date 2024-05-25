@@ -6,7 +6,7 @@ namespace MVZ2.GameContent.Recharges
     [Definition(RechargeNames.longTime)]
     public class LongRecharge : RechargeDefinition
     {
-        public LongRecharge() : base()
+        public LongRecharge(string nsp, string name) : base(nsp, name)
         {
             SetProperty(RechargeProperties.START_MAX_RECHARGE, 600);
             SetProperty(RechargeProperties.MAX_RECHARGE, 900);

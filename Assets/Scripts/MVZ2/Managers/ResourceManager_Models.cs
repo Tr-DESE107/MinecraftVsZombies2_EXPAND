@@ -18,22 +18,22 @@ namespace MVZ2
                 return null;
             return modResource.ModelMeta;
         }
-        private async Task<ModelsMeta> LoadModelMeta(string nsp, IResourceLocator locator)
+        private async Task<ModelsMeta> LoadModelMeta(IResourceLocator locator)
         {
             var textAsset = await LoadAddressableResource<TextAsset>(locator, "models");
             using var memoryStream = new MemoryStream(textAsset.bytes);
             var document = LoadXmlDocument(memoryStream);
-            return ModelsMeta.FromXmlNode(nsp, document["models"]);
+            return ModelsMeta.FromXmlNode(document["models"]);
         }
         #endregion
 
         #region 模型资源
-        public ModelResource GetModelResource(NamespaceID id, string type)
+        public ModelResource GetModelResource(NamespaceID id)
         {
             var meta = GetModelsMeta(id.spacename);
             if (meta == null)
                 return null;
-            return meta.resources.FirstOrDefault(m => m.id == id && m.type == type);
+            return meta.resources.FirstOrDefault(m => ModelID.ConcatName(m.type, m.name) == id.name);
         }
         #endregion
 
@@ -43,7 +43,7 @@ namespace MVZ2
             var meta = GetModelsMeta(id.spacename);
             if (meta == null)
                 return null;
-            var resource = meta.resources.FirstOrDefault(m => m.id == id);
+            var resource = meta.resources.FirstOrDefault(m => ModelID.ConcatName(m.type, m.name) == id.name);
             if (resource == null)
                 return null;
             return GetModel(id.spacename, CombinePath(meta.root, resource.path));
@@ -82,8 +82,9 @@ namespace MVZ2
             {
                 var path = Path.Combine(meta.root, resource.path).Replace('\\', '/');
                 var model = models[path];
-                var sprite = main.ModelManager.ShotIcon(model, resource.width, resource.height, new Vector2(resource.xOffset, resource.yOffset), resource.id.ToString());
-                dict.Add(resource.id.name, sprite);
+                var name = $"{nsp}:{resource.type}.{resource.name}";
+                var sprite = main.ModelManager.ShotIcon(model, resource.width, resource.height, new Vector2(resource.xOffset, resource.yOffset), name);
+                dict.Add(ModelID.ConcatName(resource.type, resource.name), sprite);
             }
             return dict;
         }

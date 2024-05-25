@@ -4,6 +4,9 @@ namespace PVZEngine
 {
     public abstract class BuffDefinition : Definition
     {
+        public BuffDefinition(string nsp, string name) : base(nsp, name)
+        {
+        }
         public PropertyModifier[] GetModifiers()
         {
             return modifiers.ToArray();

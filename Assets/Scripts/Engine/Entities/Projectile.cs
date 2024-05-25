@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine
 {
@@ -47,7 +48,8 @@ namespace PVZEngine
             else
             {
                 UnitExit(other);
-                if (other == SpawnerReference.Entity)
+                var spawner = SpawnerReference?.GetEntity(Game);
+                if (other == spawner)
                 {
                     canHitSpawner = true;
                 }
@@ -85,7 +87,8 @@ namespace PVZEngine
         private void UnitCollide(Entity other)
         {
             // 是否可以击中发射者。
-            if (SpawnerReference != null && other == SpawnerReference.Entity && !canHitSpawner)
+            var spawner = SpawnerReference?.GetEntity(Game);
+            if (other == spawner && !canHitSpawner)
                 return;
 
             if (Removed || !IsEnemy(other) || collided.Any(c => c.ID == other.ID) || other.IsDead)

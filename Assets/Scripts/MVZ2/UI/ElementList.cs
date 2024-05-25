@@ -11,7 +11,7 @@ namespace MVZ2.UI
     {
         public void updateList(
             int count,
-            Action<int, RectTransform> onUpdate,
+            Action<int, RectTransform> onUpdate = null,
             Action<RectTransform> onCreateOrEnable = null,
             Action<RectTransform> onDestroyOrDisable = null,
             bool dontDestroy = false,

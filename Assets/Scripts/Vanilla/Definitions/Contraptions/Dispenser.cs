@@ -1,5 +1,6 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -7,6 +8,10 @@ namespace MVZ2.GameContent.Contraptions
     [EntitySeedDefinition(100, VanillaMod.spaceName, RechargeNames.shortTime)]
     public class Dispenser : DispenserFamily
     {
+        public Dispenser(string nsp, string name) : base(nsp, name)
+        {
+        }
+
         public override void Init(Entity entity)
         {
             base.Init(entity);

@@ -169,9 +169,11 @@ namespace PVZEngine
             bool fatal = hpBefore > 0 && armor.Health <= 0;
             var damageResult = new DamageResult()
             {
+                OriginalDamage = info.OriginalDamage,
+                Amount = info.Amount,
+                UsedDamage = info.GetUsedDamage(),
                 Entity = entity,
                 Source = info.Source,
-                OriginalDamage = info.OriginalDamage,
                 Effects = info.Effects,
                 Armor = armor,
                 ShellDefinition = shell,

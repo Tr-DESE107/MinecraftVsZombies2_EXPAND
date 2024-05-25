@@ -7,7 +7,7 @@ namespace MVZ2.GameContent.Projectiles
     [Definition(ProjectileNames.arrow)]
     public class Arrow : VanillaProjectile
     {
-        public Arrow() : base()
+        public Arrow(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ProjectileProperties.POINT_TO_DIRECTION, true);
             SetProperty(EntityProperties.SIZE, new Vector3(32, 2, 2));

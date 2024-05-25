@@ -6,7 +6,7 @@ namespace MVZ2.GameContent.Armors
     [Definition(ArmorNames.ironHelmet)]
     public class IronHelmet : ArmorDefinition
     {
-        public IronHelmet()
+        public IronHelmet(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ArmorProperties.SHELL, ShellID.metal);
             SetProperty(ArmorProperties.MAX_HEALTH, MAX_HEALTH);

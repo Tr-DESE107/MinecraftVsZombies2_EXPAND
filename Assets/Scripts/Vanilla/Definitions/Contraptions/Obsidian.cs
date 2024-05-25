@@ -8,7 +8,7 @@ namespace MVZ2.GameContent.Contraptions
     [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.longTime)]
     public class Obsidian : VanillaContraption
     {
-        public Obsidian() : base()
+        public Obsidian(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProps.PLACE_SOUND, SoundID.stone);
             SetProperty(EntityProperties.SIZE, new Vector3(48, 48, 48));

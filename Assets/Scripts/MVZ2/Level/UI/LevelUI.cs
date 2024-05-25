@@ -62,6 +62,10 @@ namespace MVZ2.Level.UI
                 _blueprints.getElement<Blueprint>(i).SetDisabled(disabled);
             }
         }
+        public void SetBlueprintCount(int count)
+        {
+            _blueprintPlaceholders.updateList(count);
+        }
         public void SetPickaxeVisible(bool visible)
         {
             _pickaxeSlot.SetPickaxeVisible(visible);
@@ -157,6 +161,8 @@ namespace MVZ2.Level.UI
         TextMeshProUGUI _energyText;
         [SerializeField]
         ElementList _blueprints;
+        [SerializeField]
+        ElementList _blueprintPlaceholders;
         [SerializeField]
         PickaxeSlot _pickaxeSlot;
 

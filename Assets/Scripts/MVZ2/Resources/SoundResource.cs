@@ -6,7 +6,7 @@ namespace MVZ2
 {
     public class SoundResource
     {
-        public NamespaceID id;
+        public string name;
         public AudioSample[] samples;
         public int priority;
         public int maxCount;
@@ -15,7 +15,7 @@ namespace MVZ2
         {
             return samples[Random.Range(0, samples.Length)];
         }
-        public static SoundResource FromXmlNode(string nsp, XmlNode node)
+        public static SoundResource FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
             var priority = node.GetAttributeInt("priority") ?? 0;
@@ -27,7 +27,7 @@ namespace MVZ2
             }
             return new SoundResource()
             {
-                id = new NamespaceID(nsp, name),
+                name = name,
                 priority = priority,
                 maxCount = maxCount,
                 samples = samples

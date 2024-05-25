@@ -7,7 +7,7 @@ namespace MVZ2.GameContent.Shells
     [Definition(ShellNames.flesh)]
     public class FleshShell : ShellDefinition
     {
-        public FleshShell()
+        public FleshShell(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ShellProps.SLICE_CRITICAL, true);
             SetProperty(ShellProps.SLICE_BLOOD, true);

@@ -63,6 +63,9 @@ namespace MVZ2.Level
             level.SetEnergy(9990);
             level.RechargeSpeed = 99;
 
+            var levelUI = GetLevelUI();
+            levelUI.SetBlueprintCount(level.GetAllSeedPacks().Length);
+
             UpdateBlueprints();
 
             isGameStarted = true;
@@ -199,16 +202,18 @@ namespace MVZ2.Level
         #endregion
 
         #region UI方
-        private void OnEntityPointerEnterCallback(EntityController entity)
+        private void OnEntityPointerEnterCallback(EntityController entity, PointerEventData eventData)
         {
             entity.SetHovered(true);
         }
-        private void OnEntityPointerExitCallback(EntityController entity)
+        private void OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
         {
             entity.SetHovered(false);
         }
-        private void OnEntityPointerDownCallback(EntityController entity)
+        private void OnEntityPointerDownCallback(EntityController entity, PointerEventData eventData)
         {
+            if (eventData.button != (int)MouseButton.LeftMouse)
+                return;
             switch (entity.Entity.Type)
             {
                 case EntityTypes.PLANT:

@@ -8,7 +8,7 @@ namespace MVZ2.GameContent.Effects
     public class BrokenArmor : VanillaEffect
     {
         #region 公有方法
-        public BrokenArmor()
+        public BrokenArmor(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.GRAVITY, 1);
             SetProperty(EntityProperties.FRICTION, 0.1f);

@@ -18,6 +18,7 @@
     <!-- Effects -->
     <model name="miner" type="entity" path="Effects/Miner" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mine_debris" type="entity" path="Effects/MineDebris" width="150" height="100" xOffset="0" yOffset="30"/>
+    <model name="fragment" type="entity" path="Effects/Fragment" width="160" height="160" xOffset="0" yOffset="30"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="Projectiles/Arrow" width="32" height="10" xOffset="0" yOffset="5"/>

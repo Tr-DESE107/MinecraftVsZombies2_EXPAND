@@ -15,6 +15,7 @@ namespace MVZ2
         public Dictionary<string, Sprite> ModelIcons { get; set; }
         public Dictionary<string, Sprite[]> SpriteSheets { get; set; }
         public Dictionary<string, Sprite> Sprites { get; set; }
+        public FragmentsMeta FragmentsMeta { get; set; }
         public ModResource(string spaceName)
         {
             Namespace = spaceName;

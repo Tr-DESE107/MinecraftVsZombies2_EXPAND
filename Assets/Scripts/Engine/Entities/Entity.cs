@@ -34,21 +34,27 @@ namespace PVZEngine
                 EquipedArmor.Update();
             Callbacks.PostEntityUpdate.RunFiltered(Type, this);
         }
-        public void Collide(Entity other)
+        public void SetParent(Entity parent)
         {
-            var reference = new EntityReference(other);
-            if (collisionList.Contains(reference))
+            var oldParent = Parent?.GetEntity(Game);
+            if (oldParent != null)
             {
-                TriggerCollision(other, EntityCollision.STATE_ENTER);
+                oldParent.children.RemoveAll(r => r.ID == ID);
+            }
+            if (parent == null)
+            {
+                Parent = new EntityReference(null);
             }
             else
             {
-                TriggerCollision(other, EntityCollision.STATE_STAY);
-                collisionList.Add(reference);
+                Parent = new EntityReference(parent);
+                parent.children.Add(new EntityReference(this));
             }
-            collisionThisTick.Add(reference);
         }
-
+        public Entity[] GetChildren()
+        {
+            return children.Select(c => c.GetEntity(Game)).ToArray();
+        }
         public bool Exists()
         {
             return !Removed;
@@ -269,10 +275,11 @@ namespace PVZEngine
             return new DamageResult()
             {
                 OriginalDamage = info.OriginalDamage,
+                Amount = info.Amount,
+                UsedDamage = info.GetUsedDamage(),
+                Entity = entity,
                 Effects = info.Effects,
                 Source = info.Source,
-                Entity = entity,
-                UsedDamage = info.GetUsedDamage(),
                 ShellDefinition = shell,
                 Fatal = hpBefore > 0 && entity.Health <= 0
             };
@@ -281,25 +288,25 @@ namespace PVZEngine
         {
             return TakeDamage(amount, effects, source, out _);
         }
-        public DamageResult TakeDamage(DamageInfo info)
-        {
-            return TakeDamage(info, out _);
-        }
         public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source, out DamageResult armorResult)
         {
             return TakeDamage(new DamageInfo(amount, effects, this, source), out armorResult);
         }
-        public DamageResult TakeDamage(DamageInfo info, out DamageResult armorResult)
+        public static DamageResult TakeDamage(DamageInfo info)
+        {
+            return TakeDamage(info, out _);
+        }
+        public static DamageResult TakeDamage(DamageInfo info, out DamageResult armorResult)
         {
             armorResult = null;
-            if (IsInvincible() || IsDead)
+            if (info.Entity.IsInvincible() || info.Entity.IsDead)
                 return null;
-            if (!PreTakeDamage(info))
+            if (!info.Entity.PreTakeDamage(info))
                 return null;
             if (info.Amount <= 0)
                 return null;
             DamageResult bodyResult;
-            if (Armor.Exists(EquipedArmor) && !info.Effects.HasEffect(DamageFlags.IGNORE_ARMOR))
+            if (Armor.Exists(info.Entity.EquipedArmor) && !info.Effects.HasEffect(DamageFlags.IGNORE_ARMOR))
             {
                 bodyResult = ArmoredTakeDamage(info, out armorResult);
             }
@@ -307,7 +314,7 @@ namespace PVZEngine
             {
                 bodyResult = BodyTakeDamage(info);
             }
-            PostTakeDamage(bodyResult, armorResult);
+            info.Entity.PostTakeDamage(bodyResult, armorResult);
             return bodyResult;
         }
 
@@ -571,14 +578,29 @@ namespace PVZEngine
         #endregion
 
         #region 碰撞
+        public void Collide(Entity other)
+        {
+            var reference = new EntityReference(other);
+            if (collisionList.Contains(reference))
+            {
+                TriggerCollision(other, EntityCollision.STATE_ENTER);
+            }
+            else
+            {
+                TriggerCollision(other, EntityCollision.STATE_STAY);
+                collisionList.Add(reference);
+            }
+            collisionThisTick.Add(reference);
+        }
         public void ClearCollision()
         {
             var notCollided = collisionList.Except(collisionThisTick).ToArray();
             foreach (var entRef in notCollided)
             {
-                if (entRef.Entity != null)
+                var ent = entRef?.GetEntity(Game);
+                if (ent != null)
                 {
-                    TriggerCollision(entRef.Entity, EntityCollision.STATE_EXIT);
+                    TriggerCollision(ent, EntityCollision.STATE_EXIT);
                 }
                 collisionList.Remove(entRef);
             }
@@ -631,6 +653,10 @@ namespace PVZEngine
         {
             ModelID = id;
             OnModelChanged?.Invoke(id);
+        }
+        public void SetModelProperty(string name, object value)
+        {
+            OnSetModelProperty?.Invoke(name, value);
         }
 
         #endregion
@@ -750,6 +776,7 @@ namespace PVZEngine
         public event Action<Armor> OnRemoveArmor;
 
         public event Action<NamespaceID> OnModelChanged;
+        public event Action<string, object> OnSetModelProperty;
         #endregion
 
         #region 属性字段
@@ -759,6 +786,7 @@ namespace PVZEngine
         public EntityDefinition Definition { get; private set; }
         public NamespaceID ModelID { get; private set; }
         public EntityReference SpawnerReference { get; private set; }
+        public EntityReference Parent { get; private set; }
         public Game Game { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Pos { get; set; }
@@ -796,6 +824,7 @@ namespace PVZEngine
         private List<EntityReference> collisionThisTick = new List<EntityReference>();
         private List<EntityReference> collisionList = new List<EntityReference>();
         private List<int> takenGrids = new List<int>();
+        private List<EntityReference> children = new List<EntityReference>();
         #endregion
     }
     public enum EntityAnimationTarget

@@ -2,6 +2,9 @@
 {
     public abstract class EntityDefinition : Definition
     {
+        public EntityDefinition(string nsp, string name) : base(nsp, name)
+        {
+        }
         public virtual void Init(Entity entity) { }
         public virtual void Update(Entity entity) { }
         public virtual void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult) { }

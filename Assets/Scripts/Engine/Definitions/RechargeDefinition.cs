@@ -2,6 +2,9 @@
 {
     public class RechargeDefinition : Definition
     {
+        public RechargeDefinition(string nsp, string name) : base(nsp, name)
+        {
+        }
         public int GetStartMaxRecharge()
         {
             return GetProperty<int>(RechargeProperties.START_MAX_RECHARGE);

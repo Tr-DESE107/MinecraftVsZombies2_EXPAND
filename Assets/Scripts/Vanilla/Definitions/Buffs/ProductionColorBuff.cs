@@ -7,7 +7,7 @@ namespace MVZ2.GameContent.Buffs
     [Definition(BuffNames.productionColor)]
     public class ProductionColorBuff : BuffDefinition
     {
-        public ProductionColorBuff()
+        public ProductionColorBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EntityProperties.COLOR_OFFSET, ModifyOperator.Average, PROP_COLOR));
         }

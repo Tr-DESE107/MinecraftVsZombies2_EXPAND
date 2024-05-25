@@ -4,7 +4,7 @@ namespace MVZ2.Vanilla
 {
     public abstract class VanillaProjectile : VanillaEntity
     {
-        public VanillaProjectile()
+        protected VanillaProjectile(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ProjectileProperties.MAX_TIMEOUT, 1800);
         }

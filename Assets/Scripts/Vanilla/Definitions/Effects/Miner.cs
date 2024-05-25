@@ -7,6 +7,10 @@ namespace MVZ2.GameContent.Effects
     public class Miner : VanillaEffect
     {
         #region 公有方法
+        public Miner(string nsp, string name) : base(nsp, name)
+        {
+
+        }
         public override void Init(Entity entity)
         {
             var timer = new FrameTimer(START_TIME);

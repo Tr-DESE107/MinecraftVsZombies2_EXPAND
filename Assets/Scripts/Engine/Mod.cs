@@ -47,8 +47,6 @@ namespace PVZEngine
         }
         protected void AddDefinition<T>(Dictionary<string, T> list, string name, T definition) where T : Definition
         {
-            definition.Namespace = Namespace;
-            definition.Name = name;
             list.Add(name, definition);
         }
         protected void AddDefinitionByObject(object obj, string name)

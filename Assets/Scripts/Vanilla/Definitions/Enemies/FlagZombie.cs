@@ -8,6 +8,10 @@ namespace MVZ2.GameContent.Enemies
     [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
     public class FlagZombie : Zombie
     {
+        public FlagZombie(string nsp, string name) : base(nsp, name)
+        {
+        }
+
         public override void Init(Entity entity)
         {
             base.Init(entity);

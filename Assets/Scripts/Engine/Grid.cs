@@ -40,7 +40,7 @@ namespace PVZEngine
         }
         public Entity[] GetTakenEntities()
         {
-            return takenEntities.Select(e => e.Entity).ToArray();
+            return takenEntities.Select(e => e.GetEntity(Level)).ToArray();
         }
         #endregion ·½·¨
 

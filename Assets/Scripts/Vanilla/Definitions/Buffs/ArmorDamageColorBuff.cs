@@ -8,7 +8,7 @@ namespace MVZ2.GameContent.Buffs
     [Definition(BuffNames.armorDamageColor)]
     public class ArmorDamageColorBuff : BuffDefinition
     {
-        public ArmorDamageColorBuff()
+        public ArmorDamageColorBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(ArmorProperties.COLOR_OFFSET, ModifyOperator.Average, new Color(1, 0, 0, 0)));
         }

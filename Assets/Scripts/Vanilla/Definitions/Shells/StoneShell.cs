@@ -7,7 +7,7 @@ namespace MVZ2.GameContent.Shells
     [Definition(ShellNames.stone)]
     public class StoneShell : ShellDefinition
     {
-        public StoneShell()
+        public StoneShell(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ShellProps.HIT_SOUND, SoundID.stone);
         }

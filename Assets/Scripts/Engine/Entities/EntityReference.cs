@@ -3,8 +3,7 @@
     public class EntityReference
     {
         public EntityReference SpawnerReference { get; private set; }
-        public Entity Entity { get; private set; }
-        public EntityDefinition Definition { get; private set; }
+        public NamespaceID DefinitionID { get; private set; }
         public int ID { get; private set; }
 
         public EntityReference()
@@ -13,13 +12,16 @@
         }
         public EntityReference(Entity entity)
         {
-            Entity = entity;
             if (entity != null)
             {
                 ID = entity.ID;
-                Definition = entity.Definition;
+                DefinitionID = entity.Definition.GetID();
                 SpawnerReference = entity.SpawnerReference;
             }
+        }
+        public Entity GetEntity(Game game)
+        {
+            return game.FindEntityByID(ID);
         }
         public override bool Equals(object obj)
         {

@@ -9,7 +9,7 @@ namespace MVZ2.Vanilla
 {
     public abstract class VanillaEntity : EntityDefinition
     {
-        protected VanillaEntity() : base()
+        protected VanillaEntity(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProps.PLACE_SOUND, SoundID.grass);
         }
@@ -34,7 +34,7 @@ namespace MVZ2.Vanilla
             base.PostDestroyArmor(entity, armor, damage);
             entity.RemoveArmor();
             var effect = entity.Game.Spawn<BrokenArmor>(GetArmorPosition(entity), entity);
-            var sourcePosition = damage?.Source?.Entity?.Pos;
+            var sourcePosition = damage?.Source?.GetEntity(entity.Game)?.Pos;
             var moveDirection = entity.IsFacingLeft() ? Vector3.right : Vector3.left;
             if (sourcePosition.HasValue)
             {

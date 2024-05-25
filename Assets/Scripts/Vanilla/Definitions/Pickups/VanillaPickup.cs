@@ -5,7 +5,7 @@ namespace MVZ2.Vanilla
 {
     public abstract class VanillaPickup : VanillaEntity, ICollectiblePickup
     {
-        public VanillaPickup() : base()
+        public VanillaPickup(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.GRAVITY, 1f);
             SetProperty(EntityProperties.FRICTION, 0.15f);

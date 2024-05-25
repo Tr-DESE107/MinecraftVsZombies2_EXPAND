@@ -6,7 +6,7 @@ namespace MVZ2.GameContent.Areas
     [Definition(AreaNames.day)]
     public class Day : AreaDefinition
     {
-        public Day()
+        public Day(string nsp, string name) : base(nsp, name)
         {
             SetProperty(AreaProperties.GRID_SIZE, 80);
             SetProperty(AreaProperties.GRID_LEFT_X, 260);

@@ -1052,6 +1052,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Res
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdd0e6446538d484b9e6fb81268f0a8a
+    m_Address: Models/Effects/Fragment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3048f7f20bb9bd54fb32018bcd4af2b0
     m_Address: Models/Contraptions/Obsidian
     m_ReadOnly: 0
@@ -1858,6 +1864,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 522e593347dae8448904f02eff69933e
     m_Address: models
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40c5d6493088d5344a631523effc16e7
+    m_Address: fragments
     m_ReadOnly: 0
     m_SerializedLabels:
     - Content

@@ -9,6 +9,10 @@ namespace MVZ2.GameContent.Enemies
     [EntitySeedDefinition(125, VanillaMod.spaceName, RechargeNames.none)]
     public class IronHelmettedZombie : Zombie
     {
+        public IronHelmettedZombie(string nsp, string name) : base(nsp, name)
+        {
+        }
+
         public override void Init(Entity entity)
         {
             base.Init(entity);

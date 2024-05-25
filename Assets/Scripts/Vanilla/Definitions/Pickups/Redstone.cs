@@ -7,6 +7,9 @@ namespace MVZ2.GameContent
     [Definition(PickupNames.redstone)]
     public class Redstone : VanillaPickup
     {
+        public Redstone(string nsp, string name) : base(nsp, name)
+        {
+        }
         public override void Update(Entity entity)
         {
             var pickup = entity.ToPickup();

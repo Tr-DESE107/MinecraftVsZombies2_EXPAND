@@ -145,6 +145,10 @@ namespace PVZEngine
                 Cart cart = Spawn(cartRef, new Vector3(x - i * 10, 0, GetEntityLaneZ(i)), null) as Cart;
             }
         }
+        public Entity FindEntityByID(int id)
+        {
+            return entities.FirstOrDefault(e => e.ID == id);
+        }
         public Entity[] GetEntities(params int[] filterTypes)
         {
             if (filterTypes == null || filterTypes.Length <= 0)

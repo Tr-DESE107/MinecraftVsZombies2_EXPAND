@@ -7,7 +7,7 @@ namespace MVZ2.GameContent.Enemies
 {
     public abstract class VanillaEnemy : VanillaEntity
     {
-        public VanillaEnemy()
+        public VanillaEnemy(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EnemyProps.SPEED, 0.5f);
             SetProperty(EntityProperties.SHELL, ShellID.flesh);
@@ -110,6 +110,10 @@ namespace MVZ2.GameContent.Enemies
     }
     public abstract class MeleeEnemy : VanillaEnemy
     {
+        protected MeleeEnemy(string nsp, string name) : base(nsp, name)
+        {
+        }
+
         public override void Update(Entity entity)
         {
             base.Update(entity);

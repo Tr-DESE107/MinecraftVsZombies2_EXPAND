@@ -7,7 +7,7 @@ namespace MVZ2.GameContent.Shells
     [Definition(ShellNames.leather)]
     public class LeatherShell : ShellDefinition
     {
-        public LeatherShell()
+        public LeatherShell(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ShellProps.HIT_SOUND, SoundID.leatherHit);
         }

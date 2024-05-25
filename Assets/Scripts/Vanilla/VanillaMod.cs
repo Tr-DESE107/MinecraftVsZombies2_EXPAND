@@ -10,7 +10,7 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod() : base(spaceName)
         {
-            AddDefinition(stageDefinitions, StageID.prologue.name, new StageDefinition());
+            AddDefinition(stageDefinitions, StageID.prologue.name, new StageDefinition(spaceName, StageID.prologue.name));
 
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
@@ -25,14 +25,16 @@ namespace MVZ2.Vanilla
                     var definitionAttr = type.GetCustomAttribute<DefinitionAttribute>();
                     if (definitionAttr != null && !type.IsAbstract)
                     {
-                        var definition = Activator.CreateInstance(type);
                         var name = definitionAttr.Name;
+                        var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
+                        var definition = constructor?.Invoke(new object[] { Namespace, name });
                         AddDefinitionByObject(definition, name);
                         var seedEntityAttr = type.GetCustomAttribute<EntitySeedDefinitionAttribute>();
                         if (seedEntityAttr != null)
                         {
                             var seedDef = new EntitySeed(
-                                new NamespaceID(Namespace, name),
+                                Namespace,
+                                name,
                                 seedEntityAttr.Cost,
                                 seedEntityAttr.RechargeID,
                                 seedEntityAttr.TriggerActive,

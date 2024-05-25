@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MVZ2.Rendering;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2
@@ -67,6 +68,17 @@ namespace MVZ2
         }
         #endregion
 
+        #region 属性
+        public T GetProperty<T>(string name)
+        {
+            return propertyDict.GetProperty<T>(name);
+        }
+        public void SetProperty(string name, object value)
+        {
+            propertyDict.SetProperty(name, value);
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -99,6 +111,7 @@ namespace MVZ2
         private Model armorModel;
         private List<string> triggeringEvents = new List<string>();
         private List<string> triggeredEvents = new List<string>();
+        private PropertyDictionary propertyDict = new PropertyDictionary();
         #endregion
     }
 }

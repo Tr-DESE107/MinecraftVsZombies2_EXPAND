@@ -6,14 +6,14 @@ namespace MVZ2
 {
     public class ModelResource
     {
-        public NamespaceID id;
+        public string name;
         public string type;
         public string path;
         public int width;
         public int height;
         public float xOffset;
         public float yOffset;
-        public static ModelResource FromXmlNode(string nsp, XmlNode node)
+        public static ModelResource FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
             var type = node.GetAttribute("type");
@@ -24,7 +24,7 @@ namespace MVZ2
             var yOffset = node.GetAttributeFloat("yOffset") ?? 0;
             return new ModelResource()
             {
-                id = new NamespaceID(nsp, ModelID.ConcatName(type, name)),
+                name = name,
                 type = type,
                 path = path,
                 width = width,
@@ -35,7 +35,7 @@ namespace MVZ2
         }
         public override string ToString()
         {
-            return id.ToString();
+            return name;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     public abstract class DispenserFamily : VanillaContraption
     {
-        public DispenserFamily()
+        public DispenserFamily(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.DAMAGE, 20);
             SetProperty(EntityProps.PLACE_SOUND, SoundID.stone);

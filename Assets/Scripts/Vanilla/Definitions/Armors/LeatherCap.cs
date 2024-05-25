@@ -6,7 +6,7 @@ namespace MVZ2.GameContent.Armors
     [Definition(ArmorNames.leatherCap)]
     public class LeatherCap : ArmorDefinition
     {
-        public LeatherCap()
+        public LeatherCap(string nsp, string name) : base(nsp, name)
         {
             SetProperty(ArmorProperties.SHELL, ShellID.leather);
             SetProperty(ArmorProperties.MAX_HEALTH, MAX_HEALTH);
