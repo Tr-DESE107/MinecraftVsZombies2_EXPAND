@@ -10,6 +10,7 @@ using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEngine.EventSystems.EventTrigger;
 using Grid = PVZEngine.Grid;
 
 namespace MVZ2.Level
@@ -50,7 +51,8 @@ namespace MVZ2.Level
                 ContraptionID.mineTNT,
                 EnemyID.zombie,
                 EnemyID.leatherCappedZombie,
-                EnemyID.ironHelmettedZombie
+                EnemyID.ironHelmettedZombie,
+                EnemyID.flagZombie
             });
             level.Init(AreaID.day, StageID.prologue, option);
 
@@ -64,6 +66,19 @@ namespace MVZ2.Level
             UpdateBlueprints();
 
             isGameStarted = true;
+        }
+        public bool IsEntityValidForHeldItem(Entity entity)
+        {
+            switch (entity.Type)
+            {
+                case EntityTypes.PLANT:
+                    if (heldItemType == HeldTypes.PICKAXE && CanDigContraption(entity))
+                    {
+                        return true;
+                    }
+                    break;
+            }
+            return false;
         }
         #endregion
 
@@ -186,15 +201,7 @@ namespace MVZ2.Level
         #region UI方
         private void OnEntityPointerEnterCallback(EntityController entity)
         {
-            switch (entity.Entity.Type)
-            {
-                case EntityTypes.PLANT:
-                    if (heldItemType == HeldTypes.PICKAXE && CanDigContraption(entity.Entity))
-                    {
-                        entity.SetHovered(true);
-                    }
-                    break;
-            }
+            entity.SetHovered(true);
         }
         private void OnEntityPointerExitCallback(EntityController entity)
         {

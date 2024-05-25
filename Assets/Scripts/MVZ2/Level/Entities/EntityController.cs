@@ -282,9 +282,9 @@ namespace MVZ2.Level
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
-            if (isHovered)
+            if (isHovered && level.IsEntityValidForHeldItem(Entity))
             {
-                color += new Color(0.5f, 0.5f, 0.5f);
+                color += new Color(0.5f, 0.5f, 0.5f, 0);
             }
             return color;
         }

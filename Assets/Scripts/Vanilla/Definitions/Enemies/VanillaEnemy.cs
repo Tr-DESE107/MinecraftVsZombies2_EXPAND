@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
 
             var buff = entity.Game.CreateBuff<RandomEnemySpeedBuff>();
-            buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, entity.RNG.Next(1, 1.33333f));
+            buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, GetRandomSpeedMultiplier(entity));
             entity.AddBuff(buff);
 
             entity.SetFaction(entity.Game.Option.RightFaction);
@@ -41,6 +41,10 @@ namespace MVZ2.GameContent.Enemies
             pos.x = Mathf.Min(pos.x, MVZ2Game.GetEnemyRightBorderX());
             entity.Pos = pos;
 
+            var enemy = entity.ToEnemy();
+
+            entity.SetAnimationFloat("AttackSpeed", entity.GetAttackSpeed());
+            entity.SetAnimationFloat("MoveSpeed", enemy.GetSpeed() * 2);
             if (!entity.IsDead)
             {
                 entity.RemoveBuffs(entity.GetBuffs<DamageColorBuff>());
@@ -97,6 +101,10 @@ namespace MVZ2.GameContent.Enemies
             if (target.Pos.y > enemy.Pos.y + enemy.GetMaxAttackHeight())
                 return false;
             return true;
+        }
+        protected virtual float GetRandomSpeedMultiplier(Entity entity)
+        {
+            return entity.RNG.Next(1, 1.33333f);
         }
         public override int Type => EntityTypes.ENEMY;
     }

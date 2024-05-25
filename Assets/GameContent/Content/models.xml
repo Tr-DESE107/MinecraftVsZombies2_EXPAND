@@ -10,6 +10,7 @@
     <model name="zombie" type="entity" path="Enemies/Zombie" width="64" height="96" xOffset="10" yOffset="8"/>
     <model name="leather_capped_zombie" type="entity" path="Enemies/LeatherCappedZombie" width="64" height="96" xOffset="10" yOffset="8"/>
     <model name="iron_helmetted_zombie" type="entity" path="Enemies/IronHelmettedZombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="flag_zombie" type="entity" path="Enemies/FlagZombie" width="64" height="96" xOffset="10" yOffset="8"/>
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="Pickups/Redstone" width="64" height="64" xOffset="0" yOffset="4"/>
