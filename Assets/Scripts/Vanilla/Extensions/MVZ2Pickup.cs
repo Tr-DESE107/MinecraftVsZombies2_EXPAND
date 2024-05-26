@@ -36,7 +36,7 @@ namespace MVZ2.Vanilla
             {
                 xSpeed = rng.Next(-maxSpeed, maxSpeed);
             }
-            Vector3 dropVelocity = new Vector3(xSpeed, 7, 0);
+            Vector3 dropVelocity = new Vector3(xSpeed, 14, 0);
             var redstone = level.Spawn<T>(position, entity);
             redstone.Velocity = dropVelocity;
 

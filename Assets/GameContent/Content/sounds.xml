@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sounds root="Sounds">
+    <sound name="awooga">
+        <sample path="awooga" weight="1" />
+    </sound>
     <sound name="bone_hit">
         <sample path="damage/bone/bone_hit1" weight="1" />
         <sample path="damage/bone/bone_hit2" weight="1" />
@@ -229,6 +232,9 @@
         <sample path="entity/terror/terror_cry1" weight="1" />
         <sample path="entity/terror/terror_cry2" weight="1" />
         <sample path="entity/terror/terror_cry3" weight="1" />
+    </sound>
+    <sound name="throw">
+        <sample path="throw" weight="1" />
     </sound>
     <sound name="thunder" priority="64">
         <sample path="random/thunder1" weight="1" />

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.UI
 {
-    public class RaycastReciver : MonoBehaviour, IPointerDownHandler
+    public class RaycastReceiver : MonoBehaviour, IPointerDownHandler
     {
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {

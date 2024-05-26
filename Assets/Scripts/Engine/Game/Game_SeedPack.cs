@@ -18,8 +18,10 @@ namespace PVZEngine
             seedPacks.Clear();
             seedPacks.AddRange(seeds);
         }
-        public SeedPack[] GetAllSeedPacks()
+        public SeedPack[] GetAllSeedPacks(bool ignoreEmpty = false)
         {
+            if (ignoreEmpty)
+                return seedPacks.Where(s => s != null).ToArray();
             return seedPacks.ToArray();
         }
         public SeedPack GetSeedPackAt(int index)
@@ -28,7 +30,7 @@ namespace PVZEngine
         }
         public SeedPack GetSeedPack(NamespaceID seedRef)
         {
-            return seedPacks.FirstOrDefault(r => r.SeedReference == seedRef);
+            return seedPacks.FirstOrDefault(r => r != null && r.SeedReference == seedRef);
         }
         /// <summary>
         /// 将卡牌的重装载时间设置为初始。
@@ -36,6 +38,8 @@ namespace PVZEngine
         /// <param name="id">要重置的卡牌ID。</param>
         public void SetRechargeTimeToStart(SeedPack seedPack)
         {
+            if (seedPack == null)
+                return;
             var seedDefinition = GetSeedDefinition(seedPack.SeedReference);
             var rechargeID = seedDefinition.GetRechargeID();
             var rechargeDef = GetRechargeDefinition(rechargeID);
@@ -50,6 +54,8 @@ namespace PVZEngine
         /// <param name="id">要重置的卡牌ID。</param>
         public void SetRechargeTimeToUsed(SeedPack seedPack)
         {
+            if (seedPack == null)
+                return;
             var seedDefinition = GetSeedDefinition(seedPack.SeedReference);
             var rechargeID = seedDefinition.GetRechargeID();
             var rechargeDef = GetRechargeDefinition(rechargeID);
@@ -74,15 +80,21 @@ namespace PVZEngine
         #region 私有方法
         private void UpdateSeedRecharges()
         {
-            foreach (var recharge in seedPacks)
+            foreach (var seedPack in seedPacks)
             {
-                recharge.UpdateRecharge(RechargeSpeed);
+                if (seedPack == null)
+                    continue;
+                seedPack.UpdateRecharge(RechargeSpeed);
             }
         }
 
         private SeedPack CreateSeedPack(NamespaceID seedRef)
         {
+            if (seedRef == null)
+                return null;
             SeedDefinition seedDefinition = GetSeedDefinition(seedRef);
+            if (seedDefinition == null)
+                return null;
             var rechargeID = seedDefinition.GetRechargeID();
             var rechargeDef = GetRechargeDefinition(rechargeID);
             var maxRecharge = rechargeDef.GetStartMaxRecharge();

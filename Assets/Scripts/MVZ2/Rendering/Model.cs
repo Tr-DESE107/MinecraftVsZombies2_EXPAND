@@ -10,13 +10,11 @@ namespace MVZ2
     public sealed class Model : MonoBehaviour
     {
         #region 公有方法
-        public void UpdateModel(float deltaTime)
+        public void UpdateModel(float deltaTime, float simulationSpeed)
         {
             Animator.enabled = false;
             Animator.Update(deltaTime);
-        }
-        public void UpdateLogic()
-        {
+            RendererGroup.SetSimulationSpeed(simulationSpeed);
             triggeringEvents.Clear();
         }
         public void TriggerAnimator(string name)

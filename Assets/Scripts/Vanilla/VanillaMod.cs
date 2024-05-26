@@ -2,6 +2,7 @@
 using System.Reflection;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
+using MVZ2.GameContent.Stages;
 using PVZEngine;
 
 namespace MVZ2.Vanilla
@@ -10,7 +11,11 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod() : base(spaceName)
         {
-            AddDefinition(stageDefinitions, StageID.prologue.name, new StageDefinition(spaceName, StageID.prologue.name));
+            AddClassicStage(StageNames.prologue, 1,
+                new EnemySpawnEntry(EnemyID.zombie),
+                new EnemySpawnEntry(EnemyID.leatherCappedZombie),
+                new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
+            );
 
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
@@ -41,11 +46,21 @@ namespace MVZ2.Vanilla
                                 seedEntityAttr.TriggerCost);
                             AddDefinition(seedDefinitions, name, seedDef);
                         }
+                        var spawnDefAttr = type.GetCustomAttribute<SpawnDefinitionAttribute>();
+                        if (spawnDefAttr != null)
+                        {
+                            var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
+                            AddDefinition(spawnDefinitions, name, spawnDef);
+                        }
                     }
                 }
             }
         }
 
+        private void AddClassicStage(string name, int totalFlags, params EnemySpawnEntry[] enemySpawnEntries)
+        {
+            AddDefinition(stageDefinitions, name, new ClassicStage(Namespace, name, totalFlags, enemySpawnEntries));
+        }
         private void PostEntityTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
             if (armorResult != null && !armorResult.Effects.HasEffect(DamageEffects.MUTE))

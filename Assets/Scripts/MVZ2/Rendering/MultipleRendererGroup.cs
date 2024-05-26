@@ -9,6 +9,14 @@ namespace MVZ2.Rendering
     public class MultipleRendererGroup : MonoBehaviour
     {
         #region 公有方法
+        public void SetSimulationSpeed(float speed)
+        {
+            foreach (var particle in particles)
+            {
+                var main = particle.main;
+                main.simulationSpeed = speed;
+            }
+        }
         public void UpdateRendererElements()
         {
             elements.Clear();
@@ -24,6 +32,14 @@ namespace MVZ2.Rendering
                     element = renderer.gameObject.AddComponent<RendererElement>();
                 }
                 elements.Add(element);
+            }
+
+            particles.Clear();
+            foreach (var ps in GetComponentsInChildren<ParticleSystem>(true))
+            {
+                if (!IsParticleChildOfGroup(ps.transform, this))
+                    continue;
+                particles.Add(ps);
             }
         }
         public void SetGroundPosition(Vector3 position)
@@ -74,9 +90,13 @@ namespace MVZ2.Rendering
         {
             propertyBlock = new MaterialPropertyBlock();
         }
-        private bool IsChildOfGroup(Transform child, MultipleRendererGroup group)
+        private static bool IsChildOfGroup(Transform child, MultipleRendererGroup group)
         {
             return child.GetComponentInParent<MultipleRendererGroup>() == group;
+        }
+        private static bool IsParticleChildOfGroup(Transform child, MultipleRendererGroup group)
+        {
+            return !child.parent.GetComponentInParent<ParticleSystem>() && IsChildOfGroup(child, group);
         }
         private void SetRendererFloat(Renderer renderer, string name, float alpha)
         {
@@ -116,6 +136,8 @@ namespace MVZ2.Rendering
 
         [SerializeField]
         private List<RendererElement> elements = new List<RendererElement>();
+        [SerializeField]
+        private List<ParticleSystem> particles = new List<ParticleSystem>();
         [SerializeField]
         private SortingGroup sortingGroup;
         private MaterialPropertyBlock propertyBlock;

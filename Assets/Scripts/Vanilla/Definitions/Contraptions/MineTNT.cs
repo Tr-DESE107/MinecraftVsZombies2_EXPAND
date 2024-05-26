@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Contraptions
 
             if (riseTimer.Frame == 30)
             {
-                contraption.Game.PlaySound(SoundID.dirtRise);
+                contraption.Game.PlaySound(SoundID.dirtRise, contraption.Pos);
             }
             if (riseTimer.Frame < 30)
             {
@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.Game.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReference(entity));
             entity.Game.Spawn<MineDebris>(entity.Pos, entity);
             entity.Remove();
-            entity.Game.PlaySound(SoundID.mineExplode);
+            entity.Game.PlaySound(SoundID.mineExplode, entity.Pos);
             entity.Game.ShakeScreen(10, 0, 15);
         }
         public const float EXPLOSION_RADIUS = 40;

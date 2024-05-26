@@ -25,8 +25,6 @@ namespace PVZEngine
         public override int Type => EntityTypes.ENEMY;
         public int ActionState { get; set; }
         public Entity AttackTarget { get; set; }
-        public bool HasStarshard { get; set; }
-        public bool HasRedstone { get; set; }
         public bool IsPreview { get; private set; }
         protected bool isEnteredHouse;
         private RandomGenerator dropRNG;

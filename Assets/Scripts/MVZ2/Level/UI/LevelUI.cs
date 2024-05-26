@@ -98,6 +98,10 @@ namespace MVZ2.Level.UI
         {
             _levelNameText.text = name;
         }
+        public void SetProgressVisible(bool visible)
+        {
+            progressBar.gameObject.SetActive(visible);
+        }
         public void SetProgress(float progress)
         {
             progressBar.SetProgress(progress);
@@ -109,6 +113,11 @@ namespace MVZ2.Level.UI
         public void SetDifficulty(string difficulty)
         {
             _difficultyText.text = difficulty;
+        }
+        public void SetSpeedUp(bool speedUp)
+        {
+            _speedUpObject.SetActive(speedUp);
+            _speedNormalObject.SetActive(!speedUp);
         }
         public void SetCameraLerp(float lerp)
         {
@@ -138,6 +147,7 @@ namespace MVZ2.Level.UI
             _pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
             _starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
             _menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
+            _speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
         }
         #region 事件回调
         private void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData data)
@@ -147,12 +157,12 @@ namespace MVZ2.Level.UI
         #endregion
 
         #endregion
-        public event Action<Receiver
-            > OnRaycastReceiverPointerDown;
+        public event Action<Receiver> OnRaycastReceiverPointerDown;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
         public event Action<PointerEventData> OnPickaxePointerDown;
         public event Action<PointerEventData> OnStarshardPointerDown;
         public event Action OnMenuButtonClick;
+        public event Action OnSpeedUpButtonClick;
 
         [Header("General")]
         [SerializeField]
@@ -168,11 +178,11 @@ namespace MVZ2.Level.UI
 
         [Header("Raycast Receivers")]
         [SerializeField]
-        RaycastReciver _sideReceiver;
+        RaycastReceiver _sideReceiver;
         [SerializeField]
-        RaycastReciver _lawnReceiver;
+        RaycastReceiver _lawnReceiver;
         [SerializeField]
-        RaycastReciver _bottomReceiver;
+        RaycastReceiver _bottomReceiver;
 
         [Header("CameraLimit")]
         [SerializeField]
@@ -197,6 +207,12 @@ namespace MVZ2.Level.UI
         ProgressBar progressBar;
 
         [Header("Right Top")]
+        [SerializeField]
+        Button _speedUpButton;
+        [SerializeField]
+        GameObject _speedUpObject;
+        [SerializeField]
+        GameObject _speedNormalObject;
         [SerializeField]
         Button _menuButton;
         [SerializeField]

@@ -5,6 +5,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(EnemyNames.zombie)]
+    [SpawnDefinition(1)]
     [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
     public class Zombie : MeleeEnemy
     {

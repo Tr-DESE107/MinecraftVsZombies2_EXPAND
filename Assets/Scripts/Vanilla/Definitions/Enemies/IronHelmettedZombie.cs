@@ -6,6 +6,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(EnemyNames.ironHelmettedZombie)]
+    [SpawnDefinition(5)]
     [EntitySeedDefinition(125, VanillaMod.spaceName, RechargeNames.none)]
     public class IronHelmettedZombie : Zombie
     {

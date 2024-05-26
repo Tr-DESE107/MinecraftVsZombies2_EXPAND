@@ -45,6 +45,10 @@ namespace PVZEngine
         {
             return armorDefinitions.Values.ToArray();
         }
+        public SpawnDefinition[] GetSpawnDefintions()
+        {
+            return spawnDefinitions.Values.ToArray();
+        }
         protected void AddDefinition<T>(Dictionary<string, T> list, string name, T definition) where T : Definition
         {
             list.Add(name, definition);
@@ -80,6 +84,9 @@ namespace PVZEngine
                 case ArmorDefinition armorDef:
                     AddDefinition(armorDefinitions, name, armorDef);
                     break;
+                case SpawnDefinition spawnDef:
+                    AddDefinition(spawnDefinitions, name, spawnDef);
+                    break;
             }
         }
         public string Namespace { get; }
@@ -92,5 +99,6 @@ namespace PVZEngine
         protected Dictionary<string, GridDefinition> gridDefinitions = new Dictionary<string, GridDefinition>();
         protected Dictionary<string, BuffDefinition> buffDefinitions = new Dictionary<string, BuffDefinition>();
         protected Dictionary<string, ArmorDefinition> armorDefinitions = new Dictionary<string, ArmorDefinition>();
+        protected Dictionary<string, SpawnDefinition> spawnDefinitions = new Dictionary<string, SpawnDefinition>();
     }
 }

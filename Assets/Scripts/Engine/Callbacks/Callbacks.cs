@@ -13,5 +13,13 @@
         public readonly static CallbackActionList<Entity, Armor> PostEquipArmor = new();
         public readonly static CallbackActionList<Entity, Armor, DamageResult> PostDestroyArmor = new();
         public readonly static CallbackActionList<Entity, Armor> PostRemoveArmor = new();
+
+
+        public readonly static CallbackActionList<Game> PostLevelStart = new();
+        public readonly static CallbackActionList<Game> PostLevelUpdate = new();
+        public readonly static CallbackActionList<Game, int> PostWave = new();
+        public readonly static CallbackActionList<Game> PostHugeWave = new();
+        public readonly static CallbackActionList<Game> PostFinalWave = new();
+        public readonly static CallbackActionList<Entity> PostEnemySpawned = new();
     }
 }

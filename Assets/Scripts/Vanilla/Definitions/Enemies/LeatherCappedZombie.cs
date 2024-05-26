@@ -5,6 +5,7 @@ using PVZEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(EnemyNames.leatherCappedZombie)]
+    [SpawnDefinition(2)]
     [EntitySeedDefinition(75, VanillaMod.spaceName, RechargeNames.none)]
     public class LeatherCappedZombie : Zombie
     {

@@ -7,6 +7,10 @@
             Namespace = nsp;
             Name = name;
         }
+        public bool TryGetProperty<T>(string name, out T value)
+        {
+            return propertyDict.TryGetProperty<T>(name, out value);
+        }
         public T GetProperty<T>(string name)
         {
             return propertyDict.GetProperty<T>(name);

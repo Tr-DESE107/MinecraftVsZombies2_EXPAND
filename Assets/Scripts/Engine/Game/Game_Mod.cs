@@ -53,6 +53,10 @@ namespace PVZEngine
         {
             return armorDefinitions.OfType<T>().FirstOrDefault();
         }
+        public SpawnDefinition GetSpawnDefinition(NamespaceID defRef)
+        {
+            return spawnDefinitions.FirstOrDefault(d => d.GetID() == defRef);
+        }
         private void AddMod(Mod mod)
         {
             entityDefinitions.AddRange(mod.GetEntityDefinitions());
@@ -64,6 +68,7 @@ namespace PVZEngine
             gridDefinitions.AddRange(mod.GetGridDefinitions());
             buffDefinitions.AddRange(mod.GetBuffDefinitions());
             armorDefinitions.AddRange(mod.GetArmorDefinitions());
+            spawnDefinitions.AddRange(mod.GetSpawnDefintions());
         }
         private List<EntityDefinition> entityDefinitions = new List<EntityDefinition>();
         private List<SeedDefinition> seedDefinitions = new List<SeedDefinition>();
@@ -74,5 +79,6 @@ namespace PVZEngine
         private List<GridDefinition> gridDefinitions = new List<GridDefinition>();
         private List<BuffDefinition> buffDefinitions = new List<BuffDefinition>();
         private List<ArmorDefinition> armorDefinitions = new List<ArmorDefinition>();
+        private List<SpawnDefinition> spawnDefinitions = new List<SpawnDefinition>();
     }
 }

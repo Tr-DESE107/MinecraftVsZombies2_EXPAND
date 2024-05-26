@@ -65,6 +65,8 @@ namespace PVZEngine
         public void Start(int difficulty)
         {
             Difficulty = difficulty;
+            StageDefinition.Start(this);
+            Callbacks.PostLevelStart.Run(this);
         }
         public void Update()
         {
@@ -75,6 +77,8 @@ namespace PVZEngine
                 entity.Update();
                 CollisionUpdate(entity, entities);
             }
+            StageDefinition.Update(this);
+            Callbacks.PostLevelUpdate.Run(this);
         }
         #endregion
 
@@ -90,7 +94,7 @@ namespace PVZEngine
         #endregion
 
         #region 属性
-        public void SetProperty(string name, bool value)
+        public void SetProperty(string name, object value)
         {
             propertyDict[name] = value;
         }
@@ -99,10 +103,10 @@ namespace PVZEngine
             object result = null;
             if (propertyDict.TryGetValue(name, out var value))
                 result = value;
-            else if (!ignoreStageDefinition)
-                result = StageDefinition.GetProperty<object>(name);
-            else if (!ignoreAreaDefinition)
-                result = AreaDefinition.GetProperty<object>(name);
+            else if (!ignoreStageDefinition && StageDefinition.TryGetProperty<object>(name, out var stageProp))
+                result = stageProp;
+            else if (!ignoreAreaDefinition && AreaDefinition.TryGetProperty<object>(name, out var areaProp))
+                result = areaProp;
             return result;
         }
         public T GetProperty<T>(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)

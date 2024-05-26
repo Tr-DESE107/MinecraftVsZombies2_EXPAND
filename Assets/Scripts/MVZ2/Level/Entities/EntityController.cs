@@ -56,15 +56,15 @@ namespace MVZ2.Level
             transform.position = pos.LawnToTrans() + posOffset + Vector3.back * zOffset;
 
             UpdateShadow(posOffset);
-            UpdateEntityModel();
-            UpdateArmorModel();
-            if (Model)
-                Model.UpdateModel(deltaTime);
         }
-        public void UpdateLogic()
+        public void UpdateLogic(float deltaTime, float simulationSpeed)
         {
             if (Model)
-                Model.UpdateLogic();
+            {
+                UpdateEntityModel();
+                UpdateArmorModel();
+                Model.UpdateModel(deltaTime, simulationSpeed);
+            }
         }
         public void SetHovered(bool hovered)
         {

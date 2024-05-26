@@ -8,5 +8,6 @@
         public const string MAX_LANE_COUNT = "MaxLaneCount";
         public const string MAX_COLUMN_COUNT = "MaxColumnCount";
         public const string CART_REFERENCE = "cartReference";
+        public const string ENEMY_SPAWN_X = "enemySpawnX";
     }
 }

@@ -10,27 +10,57 @@ namespace PVZEngine
         }
         public object GetProperty(string name)
         {
-            if (propertyDict.TryGetValue(name, out var prop))
+            if (TryGetProperty(name, out var prop))
                 return prop;
             return null;
         }
+        public bool TryGetProperty(string name, out object value)
+        {
+            return propertyDict.TryGetValue(name, out value);
+        }
         public T GetProperty<T>(string name)
         {
-            return ToGeneric<T>(GetProperty(name));
+            if (TryGetProperty<T>(name, out var value))
+                return value;
+            return default;
+        }
+        public bool TryGetProperty<T>(string name, out T value)
+        {
+            if (TryGetProperty(name, out object prop))
+            {
+                if (TryToGeneric<T>(prop, out var result))
+                {
+                    value = ToGeneric<T>(prop);
+                    return true;
+                }
+            }
+            value = default;
+            return false;
         }
         public static T ToGeneric<T>(object value)
+        {
+            if (TryToGeneric<T>(value, out var result))
+                return result;
+            return default;
+        }
+        public static bool TryToGeneric<T>(object value, out T result)
         {
             if (value is int intValue && typeof(T) == typeof(float))
             {
                 var floatValue = (float)intValue;
                 if (floatValue is T floatResult)
-                    return floatResult;
+                {
+                    result = floatResult;
+                    return true;
+                }
             }
             if (value is T tProp)
             {
-                return tProp;
+                result = tProp;
+                return true;
             }
-            return default;
+            result = default;
+            return false;
         }
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
     }
