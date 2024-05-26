@@ -13,5 +13,13 @@ namespace MVZ2.Vanilla
         {
             return enemy.GetProperty<float>(EnemyProps.MAX_ATTACK_HEIGHT);
         }
+        public static bool IsPreviewEnemy(this Enemy enemy)
+        {
+            return enemy.GetProperty<bool>(EnemyProps.PREVIEW_ENEMY);
+        }
+        public static void SetPreviewEnemy(this Enemy enemy, bool value)
+        {
+            enemy.SetProperty(EnemyProps.PREVIEW_ENEMY, value);
+        }
     }
 }

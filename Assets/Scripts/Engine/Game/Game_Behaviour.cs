@@ -91,7 +91,7 @@ namespace PVZEngine
         }
         public IEnumerable<IEnemySpawnEntry> GetEnemyPool()
         {
-            return GetProperty<IEnumerable<IEnemySpawnEntry>>(StageProperties.ENEMY_SPAWN_POOL);
+            return StageDefinition.GetEnemyPool();
         }
         public bool WillEnemySpawn(NamespaceID spawnRef)
         {

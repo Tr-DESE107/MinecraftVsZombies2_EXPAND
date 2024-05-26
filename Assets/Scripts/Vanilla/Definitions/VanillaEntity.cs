@@ -62,9 +62,9 @@ namespace MVZ2.Vanilla
                 }
             }
         }
-        protected virtual IEnumerable<int> GetGridsToTake(Entity entity)
+        protected virtual IEnumerable<LawnGrid> GetGridsToTake(Entity entity)
         {
-            yield return entity.Game.GetGridIndex(entity.GetColumn(), entity.GetLane());
+            yield return entity.Game.GetGrid(entity.GetColumn(), entity.GetLane());
         }
         private const float leaveGridHeight = 64;
     }

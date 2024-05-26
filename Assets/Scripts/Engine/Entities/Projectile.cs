@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Serialization;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine
 {
@@ -10,6 +10,9 @@ namespace PVZEngine
         #region 公有方法
 
         #region 构造器
+        internal Projectile(Game level) : base(level)
+        {
+        }
         public Projectile(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             CollisionMask = EntityCollision.MASK_CONTRAPTION
@@ -84,6 +87,21 @@ namespace PVZEngine
         #endregion
 
         #region 私有方法
+        protected override SerializableEntity CreateSerializableEntity() => new SerializableProjectile();
+        protected override void ApplySerialize(SerializableEntity seri)
+        {
+            base.ApplySerialize(seri);
+            var seriProj = seri as SerializableProjectile;
+            seriProj.canHitSpawner = canHitSpawner;
+            seriProj.collided = collided.ConvertAll(c => c.ID);
+        }
+        public override void ApplyDeserialize(SerializableEntity seri)
+        {
+            base.ApplyDeserialize(seri);
+            var seriProj = seri as SerializableProjectile;
+            canHitSpawner = seriProj.canHitSpawner;
+            collided = seriProj.collided.ConvertAll(c => Game.FindEntityByID(c));
+        }
         private void UnitCollide(Entity other)
         {
             // 是否可以击中发射者。
@@ -99,7 +117,7 @@ namespace PVZEngine
 
             other.TakeDamage(GetDamage(), new DamageEffectList(), new EntityReference(this));
 
-            collided.Add(new EntityReference(other));
+            collided.Add(other);
             if (!CanPierce(other))
             {
                 Remove();
@@ -109,12 +127,11 @@ namespace PVZEngine
 
         private void UnitExit(Entity other)
         {
-            collided.RemoveAll(c => c.ID == other.ID);
+            collided.Remove(other);
         }
         #endregion
         public override int Type => EntityTypes.PROJECTILE;
-        private List<EntityReference> collided = new List<EntityReference>();
+        private List<Entity> collided = new List<Entity>();
         private bool canHitSpawner;
-
     }
 }

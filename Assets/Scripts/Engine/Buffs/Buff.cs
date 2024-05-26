@@ -1,4 +1,8 @@
-﻿namespace PVZEngine
+﻿using System;
+using Newtonsoft.Json;
+using PVZEngine.Serialization;
+
+namespace PVZEngine
 {
     public class Buff
     {
@@ -37,6 +41,23 @@
                 modifier.PostRemove(this);
             }
             Target = null;
+        }
+        public SerializableBuff Serialize()
+        {
+            return new SerializableBuff()
+            {
+                definitionID = Definition.GetID(),
+                target = Target.SerializeBuffTarget(),
+                propertyDict = propertyDict.Serialize()
+            };
+        }
+        public static Buff Deserialize(SerializableBuff seri, Game level)
+        {
+            var definition = level.GetBuffDefinition(seri.definitionID);
+            var buff = new Buff(definition);
+            buff.Target = seri.target.DeserializeBuffTarget(level);
+            buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, level);
+            return buff;
         }
         public BuffDefinition Definition { get; }
         public IBuffTarget Target { get; private set; }

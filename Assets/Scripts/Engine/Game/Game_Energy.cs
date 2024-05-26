@@ -20,20 +20,17 @@ namespace PVZEngine
             var before = Energy;
             AddEnergy(value);
             var added = Energy - before;
-            delayedEnergyEntities.Add(new EntityReference(source), added);
+            delayedEnergyEntities.Add(source, added);
         }
         public bool RemoveEnergyDelayedEntity(Entity entity)
         {
-            var key = delayedEnergyEntities.Keys.FirstOrDefault(k => k.ID == entity.ID);
-            if (key == null)
-                return false;
-            return delayedEnergyEntities.Remove(key);
+            return delayedEnergyEntities.Remove(entity);
         }
         public float GetDelayedEnergy()
         {
             return delayedEnergyEntities.Values.Sum();
         }
         public float Energy { get; private set; }
-        private Dictionary<EntityReference, float> delayedEnergyEntities = new Dictionary<EntityReference, float>();
+        private Dictionary<Entity, float> delayedEnergyEntities = new Dictionary<Entity, float>();
     }
 }

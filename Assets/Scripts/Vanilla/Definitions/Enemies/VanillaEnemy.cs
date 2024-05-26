@@ -72,18 +72,18 @@ namespace MVZ2.GameContent.Enemies
         }
         protected void MeleeCollision(Enemy enemy, Entity other)
         {
-            if (ValidateMeleeTarget(enemy, enemy.AttackTarget))
+            if (ValidateMeleeTarget(enemy, enemy.Target))
                 return;
             if (ValidateMeleeTarget(enemy, other))
             {
-                enemy.AttackTarget = other;
+                enemy.Target = other;
             }
         }
         protected void CancelMeleeAttack(Enemy enemy, Entity other)
         {
-            if (enemy.AttackTarget == other)
+            if (enemy.Target == other)
             {
-                enemy.AttackTarget = null;
+                enemy.Target = null;
             }
         }
         protected virtual bool ValidateMeleeTarget(Enemy enemy, Entity target)
@@ -118,10 +118,10 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Update(entity);
             var enemy = entity.ToEnemy();
-            if (!ValidateMeleeTarget(enemy, enemy.AttackTarget))
-                enemy.AttackTarget = null;
-            enemy.ActionState = GetActionState(enemy);
-            UpdateActionState(enemy, enemy.ActionState);
+            if (!ValidateMeleeTarget(enemy, enemy.Target))
+                enemy.Target = null;
+            enemy.State = GetActionState(enemy);
+            UpdateActionState(enemy, enemy.State);
 
         }
         public override void PostCollision(Entity entity, Entity other, int state)
@@ -153,19 +153,19 @@ namespace MVZ2.GameContent.Enemies
         {
             if (enemy.IsDead)
             {
-                return EnemyStates.DEAD;
+                return EntityStates.DEAD;
             }
-            else if (enemy.IsPreview)
+            else if (enemy.IsPreviewEnemy())
             {
-                return EnemyStates.IDLE;
+                return EntityStates.IDLE;
             }
-            else if (enemy.AttackTarget != null)
+            else if (enemy.Target != null)
             {
-                return EnemyStates.ATTACK;
+                return EntityStates.ATTACK;
             }
             else
             {
-                return EnemyStates.WALK;
+                return EntityStates.WALK;
             }
         }
         protected virtual void UpdateActionState(Enemy enemy, int state)
@@ -173,19 +173,19 @@ namespace MVZ2.GameContent.Enemies
             enemy.SetAnimationInt("State", state);
             switch (state)
             {
-                case EnemyStates.WALK:
+                case EntityStates.WALK:
                     UpdateStateWalk(enemy);
                     break;
-                case EnemyStates.ATTACK:
+                case EntityStates.ATTACK:
                     UpdateStateAttack(enemy);
                     break;
-                case EnemyStates.DEAD:
+                case EntityStates.DEAD:
                     UpdateStateDead(enemy);
                     break;
-                case EnemyStates.CAST:
+                case EntityStates.CAST:
                     UpdateStateCast(enemy);
                     break;
-                case EnemyStates.IDLE:
+                case EntityStates.IDLE:
                     UpdateStateIdle(enemy);
                     break;
             }
@@ -206,7 +206,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected virtual void UpdateStateAttack(Enemy enemy)
         {
-            MeleeAttack(enemy, enemy.AttackTarget);
+            MeleeAttack(enemy, enemy.Target);
         }
         protected virtual void UpdateStateDead(Enemy enemy)
         {

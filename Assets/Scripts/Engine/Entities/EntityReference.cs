@@ -1,11 +1,9 @@
-﻿namespace PVZEngine
+﻿using Newtonsoft.Json;
+
+namespace PVZEngine
 {
     public class EntityReference
     {
-        public EntityReference SpawnerReference { get; private set; }
-        public NamespaceID DefinitionID { get; private set; }
-        public int ID { get; private set; }
-
         public EntityReference()
         {
 
@@ -14,10 +12,19 @@
         {
             if (entity != null)
             {
-                ID = entity.ID;
-                DefinitionID = entity.Definition.GetID();
-                SpawnerReference = entity.SpawnerReference;
+                id = entity.ID;
+                definitionID = entity.Definition.GetID();
+                spawnerReference = entity.SpawnerReference?.Clone();
             }
+        }
+        public EntityReference Clone()
+        {
+            return new EntityReference
+            {
+                id = ID,
+                definitionID = DefinitionID,
+                spawnerReference = SpawnerReference?.Clone()
+            };
         }
         public Entity GetEntity(Game game)
         {
@@ -43,5 +50,14 @@
         {
             return !(lhs == rhs);
         }
+        public EntityReference SpawnerReference => spawnerReference;
+        public NamespaceID DefinitionID => definitionID;
+        public int ID => id;
+        [JsonProperty]
+        private EntityReference spawnerReference;
+        [JsonProperty]
+        private NamespaceID definitionID;
+        [JsonProperty]
+        private int id;
     }
 }

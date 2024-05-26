@@ -1,4 +1,6 @@
-﻿using PVZEngine;
+﻿using System.Threading;
+using MVZ2.GameContent.Pickups;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -10,18 +12,35 @@ namespace MVZ2.Vanilla
             SetProperty(EntityProperties.GRAVITY, 1f);
             SetProperty(EntityProperties.FRICTION, 0.15f);
             SetProperty(EntityProperties.SIZE, new Vector3(32, 32, 32));
-            SetProperty(PickupProperties.MAX_TIMEOUT, 300);
+            SetProperty(PickupProps.MAX_TIMEOUT, 300);
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.Timeout = MVZ2Pickup.GetMaxTimeout(entity);
         }
         public override void Update(Entity entity)
         {
             var pickup = entity.ToPickup();
-            if (!pickup.IsCollected)
+            if (!pickup.IsCollected())
             {
                 LimitPosition(entity);
-                if (pickup.Game.IsAutoCollect() && pickup.CanAutoCollect() && !pickup.IsCollected && pickup.GetRelativeY() <= 0)
+                if (pickup.Game.IsAutoCollect() && pickup.CanAutoCollect() && pickup.GetRelativeY() <= 0)
                 {
                     pickup.Collect();
                 }
+                if (!MVZ2Pickup.IsImportant(pickup))
+                {
+                    pickup.Timeout--;
+                    if (pickup.Timeout <= 0)
+                    {
+                        pickup.Remove();
+                    }
+                }
+            }
+            else
+            {
+                MVZ2Pickup.AddCollectedTime(pickup, 1);
             }
         }
         private void LimitPosition(Entity entity)

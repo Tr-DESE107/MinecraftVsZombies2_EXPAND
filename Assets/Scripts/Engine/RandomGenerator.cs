@@ -1,4 +1,5 @@
 ﻿using System;
+using PVZEngine.Serialization;
 
 namespace PVZEngine
 {
@@ -9,6 +10,17 @@ namespace PVZEngine
             generator = new Random(seed);
             Seed = seed;
         }
+        public RandomGenerator(int seed, int times)
+        {
+            generator = new Random(seed);
+            Seed = seed;
+            Times = times;
+            for (int i = 0; i < times; i++)
+            {
+                generator.Next();
+            }
+        }
+
 
         public int Next()
         {
@@ -43,6 +55,18 @@ namespace PVZEngine
                 }
             }
             return -1;
+        }
+        public SerializableRNG Serialize()
+        {
+            return new SerializableRNG()
+            {
+                times = Times,
+                seed = Seed
+            };
+        }
+        public static RandomGenerator Deserialize(SerializableRNG seri)
+        {
+            return new RandomGenerator(seri.seed, seri.times);
         }
         public int Times { get; set; }
         public int Seed { get; set; }

@@ -1,10 +1,14 @@
 using System.Linq;
+using PVZEngine.Serialization;
 using UnityEngine;
 
 namespace PVZEngine
 {
     public sealed class Cart : Entity
     {
+        internal Cart(Game level) : base(level)
+        {
+        }
         public Cart(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             SetFaction(Game.Option.LeftFaction);
@@ -61,6 +65,7 @@ namespace PVZEngine
             entity.Pos.x >= bouns.min.x &&
             entity.Pos.x <= bouns.max.x;
         }
+        protected override SerializableEntity CreateSerializableEntity() => new SerializableEntity();
 
         private void StartEngine()
         {
@@ -69,7 +74,6 @@ namespace PVZEngine
         }
 
         public override int Type => EntityTypes.CART;
-        public int State { get; set; }
         private const float TRIGGER_DISTANCE = 28;
     }
 

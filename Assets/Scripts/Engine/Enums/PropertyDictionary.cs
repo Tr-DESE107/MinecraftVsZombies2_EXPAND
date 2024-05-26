@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using PVZEngine.Serialization;
 
 namespace PVZEngine
 {
@@ -61,6 +63,20 @@ namespace PVZEngine
             }
             result = default;
             return false;
+        }
+        public SerializablePropertyDictionary Serialize()
+        {
+            return new SerializablePropertyDictionary()
+            {
+                propertyDict = propertyDict.ToDictionary(p => p.Key, p => p.Value)
+            };
+        }
+        public static PropertyDictionary Deserialize(SerializablePropertyDictionary seri, Game level)
+        {
+            return new PropertyDictionary()
+            {
+                propertyDict = seri.propertyDict.ToDictionary(p => p.Key, p => p.Value)
+            };
         }
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
     }

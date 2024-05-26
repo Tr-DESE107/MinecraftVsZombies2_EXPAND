@@ -10,7 +10,7 @@ using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-using Grid = PVZEngine.Grid;
+using LawnGrid = PVZEngine.LawnGrid;
 
 namespace MVZ2.Level
 {
@@ -223,7 +223,7 @@ namespace MVZ2.Level
                     if (heldItemType == HeldTypes.NONE && Input.GetMouseButton((int)MouseButton.LeftMouse))
                     {
                         var pickup = entity.Entity.ToPickup();
-                        if (!pickup.IsCollected)
+                        if (!pickup.IsCollected())
                             pickup.Collect();
                     }
                     break;
@@ -250,7 +250,7 @@ namespace MVZ2.Level
                     if (heldItemType == HeldTypes.NONE)
                     {
                         var pickup = entity.Entity.ToPickup();
-                        if (!pickup.IsCollected)
+                        if (!pickup.IsCollected())
                             pickup.Collect();
                     }
                     break;
@@ -512,7 +512,7 @@ namespace MVZ2.Level
         }
         #endregion
 
-        private bool CanPlaceOnGrid(int heldType, int heldId, Grid grid)
+        private bool CanPlaceOnGrid(int heldType, int heldId, LawnGrid grid)
         {
             switch (heldType)
             {

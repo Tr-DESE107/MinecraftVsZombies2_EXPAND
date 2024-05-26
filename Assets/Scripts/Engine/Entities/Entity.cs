@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.PackageManager;
+using log4net.Core;
+using PVZEngine.Serialization;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine
 {
     public abstract class Entity : IBuffTarget
     {
         #region 公有方法
+        internal Entity(Game level) { Game = level; }
         public Entity(Game level, int id, EntityDefinition definition, int seed)
         {
             Game = level;
@@ -36,24 +39,20 @@ namespace PVZEngine
         }
         public void SetParent(Entity parent)
         {
-            var oldParent = Parent?.GetEntity(Game);
+            var oldParent = Parent;
             if (oldParent != null)
             {
                 oldParent.children.RemoveAll(r => r.ID == ID);
             }
-            if (parent == null)
+            Parent = parent;
+            if (parent != null)
             {
-                Parent = new EntityReference(null);
-            }
-            else
-            {
-                Parent = new EntityReference(parent);
-                parent.children.Add(new EntityReference(this));
+                parent.children.Add(this);
             }
         }
         public Entity[] GetChildren()
         {
-            return children.Select(c => c.GetEntity(Game)).ToArray();
+            return children.ToArray();
         }
         public bool Exists()
         {
@@ -68,6 +67,10 @@ namespace PVZEngine
                 Definition.PostRemove(this);
                 Callbacks.PostEntityRemove.Run(this);
             }
+        }
+        public EntityReference GetReference()
+        {
+            return new EntityReference(this);
         }
 
         #region Warp Lane
@@ -162,7 +165,7 @@ namespace PVZEngine
         }
         public float GetDamage(bool ignoreBuffs = false)
         {
-            return GetProperty<float>(EntityProperties.DAMAGE, ignoreBuffs : ignoreBuffs);
+            return GetProperty<float>(EntityProperties.DAMAGE, ignoreBuffs: ignoreBuffs);
         }
         public void SetDamage(float value)
         {
@@ -351,7 +354,7 @@ namespace PVZEngine
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
             object result = null;
-            if (propertyDict.TryGetValue(name, out var prop))
+            if (propertyDict.TryGetProperty(name, out var prop))
                 result = prop;
             else if (!ignoreDefinition)
                 result = Definition.GetProperty<object>(name);
@@ -376,7 +379,7 @@ namespace PVZEngine
         }
         public void SetProperty(string name, object value)
         {
-            propertyDict[name] = value;
+            propertyDict.SetProperty(name, value);
         }
         #endregion
 
@@ -388,7 +391,7 @@ namespace PVZEngine
             buffs.Add(buff);
             buff.AddToTarget(this);
         }
-        public void AddBuff<T>() where T: BuffDefinition
+        public void AddBuff<T>() where T : BuffDefinition
         {
             AddBuff(Game.CreateBuff<T>());
         }
@@ -422,7 +425,7 @@ namespace PVZEngine
         {
             return buffs.Contains(buff);
         }
-        public Buff[] GetBuffs<T>() where T: BuffDefinition
+        public Buff[] GetBuffs<T>() where T : BuffDefinition
         {
             return buffs.Where(b => b.Definition is T).ToArray();
         }
@@ -538,17 +541,15 @@ namespace PVZEngine
         {
             return Game.GetLane(Pos.z);
         }
-        public void TakeGrid(int index)
+        public void TakeGrid(LawnGrid grid)
         {
-            takenGrids.Add(index);
-            var grid = Game.GetGrid(index);
+            takenGrids.Add(grid);
             grid.AddEntity(this);
         }
-        public bool ReleaseGrid(int index)
+        public bool ReleaseGrid(LawnGrid grid)
         {
-            if (takenGrids.Remove(index))
+            if (takenGrids.Remove(grid))
             {
-                var grid = Game.GetGrid(index);
                 grid.RemoveEntity(this);
                 return true;
             }
@@ -556,14 +557,13 @@ namespace PVZEngine
         }
         public void ClearTakenGrids()
         {
-            foreach (var gridIndex in takenGrids)
+            foreach (var grid in takenGrids)
             {
-                var grid = Game.GetGrid(gridIndex);
                 grid.RemoveEntity(this);
             }
             takenGrids.Clear();
         }
-        public int[] GetTakenGrids()
+        public LawnGrid[] GetTakenGrids()
         {
             return takenGrids.ToArray();
         }
@@ -571,7 +571,7 @@ namespace PVZEngine
         {
             return Game.GetGridIndex(GetColumn(), GetLane());
         }
-        public Grid GetGrid()
+        public LawnGrid GetGrid()
         {
             return Game.GetGrid(GetColumn(), GetLane());
         }
@@ -580,29 +580,27 @@ namespace PVZEngine
         #region 碰撞
         public void Collide(Entity other)
         {
-            var reference = new EntityReference(other);
-            if (collisionList.Contains(reference))
+            if (collisionList.Contains(other))
             {
                 TriggerCollision(other, EntityCollision.STATE_ENTER);
             }
             else
             {
                 TriggerCollision(other, EntityCollision.STATE_STAY);
-                collisionList.Add(reference);
+                collisionList.Add(other);
             }
-            collisionThisTick.Add(reference);
+            collisionThisTick.Add(other);
         }
         public void ClearCollision()
         {
             var notCollided = collisionList.Except(collisionThisTick).ToArray();
-            foreach (var entRef in notCollided)
+            foreach (var ent in notCollided)
             {
-                var ent = entRef?.GetEntity(Game);
                 if (ent != null)
                 {
                     TriggerCollision(ent, EntityCollision.STATE_EXIT);
                 }
-                collisionList.Remove(entRef);
+                collisionList.Remove(ent);
             }
         }
         #endregion
@@ -658,7 +656,140 @@ namespace PVZEngine
         {
             OnSetModelProperty?.Invoke(name, value);
         }
+        public SerializableEntity Serialize()
+        {
+            var seri = CreateSerializableEntity();
+            ApplySerialize(seri);
+            return seri;
+        }
+        protected abstract SerializableEntity CreateSerializableEntity();
+        protected virtual void ApplySerialize(SerializableEntity seri)
+        {
+            seri.id = ID;
+            seri.spawnerReference = SpawnerReference;
+            seri.type = Type;
+            seri.state = State;
+            seri.rng = RNG.Serialize();
+            seri.target = Target?.ID ?? 0;
 
+            seri.definitionID = Definition.GetID();
+            seri.modelID = ModelID;
+            seri.parent = Parent?.ID ?? 0;
+            seri.EquipedArmor = EquipedArmor?.Serialize();
+            seri.position = Pos;
+            seri.velocity = Velocity;
+            seri.scale = Scale;
+            seri.collisionMask = CollisionMask;
+            seri.renderRotation = RenderRotation;
+            seri.renderScale = RenderScale;
+            seri.canUnderGround = CanUnderGround;
+            seri.boundsOffset = BoundsOffset;
+            seri.poolCount = PoolCount;
+            seri.timeout = Timeout;
+
+            seri.isWarpingLane = IsWarpingLane;
+            seri.warpTargetLane = WarpTargetLane;
+            seri.warpFromLane = WarpFromLane;
+            seri.warpLaneSpeed = WarpLaneSpeed;
+
+            seri.shadowVisible = ShadowVisible;
+            seri.shadowAlpha = ShadowAlpha;
+            seri.shadowScale = ShadowScale;
+            seri.shadowOffset = ShadowOffset;
+
+            seri.isDead = IsDead;
+            seri.health = Health;
+            seri.isOnGround = isOnGround;
+            seri.propertyDict = propertyDict.Serialize();
+            seri.buffs = buffs.ConvertAll(b => b.Serialize());
+            seri.collisionThisTick = collisionThisTick.ConvertAll(e => e?.ID ?? 0);
+            seri.collisionList = collisionList.ConvertAll(e => e?.ID ?? 0);
+            seri.children = children.ConvertAll(e => e?.ID ?? 0);
+            seri.takenGrids = takenGrids.ConvertAll(g => g.GetIndex());
+        }
+        public static Entity Deserialize(SerializableEntity seri, Game level)
+        {
+            Entity entity = CreateDeserializingEntity(seri, level);
+            entity.ApplyDeserialize(seri);
+            return entity;
+        }
+        public virtual void ApplyDeserialize(SerializableEntity seri)
+        {
+            RNG = RandomGenerator.Deserialize(seri.rng);
+            State = seri.state;
+            Target = Game.FindEntityByID(seri.target);
+
+            Definition = Game.GetEntityDefinition(seri.definitionID);
+            ModelID = seri.modelID;
+            Parent = Game.FindEntityByID(seri.parent);
+            EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
+            Pos = seri.position;
+            Velocity = seri.velocity;
+            Scale = seri.scale;
+            CollisionMask = seri.collisionMask;
+            RenderRotation = seri.renderRotation;
+            RenderScale = seri.renderScale;
+            CanUnderGround = seri.canUnderGround;
+            BoundsOffset = seri.boundsOffset;
+            PoolCount = seri.poolCount;
+            Timeout = seri.timeout;
+
+            IsWarpingLane = seri.isWarpingLane;
+            WarpTargetLane = seri.warpTargetLane;
+            WarpFromLane = seri.warpFromLane;
+            WarpLaneSpeed = seri.warpLaneSpeed;
+
+            ShadowVisible = seri.shadowVisible;
+            ShadowAlpha = seri.shadowAlpha;
+            ShadowScale = seri.shadowScale;
+            ShadowOffset = seri.shadowOffset;
+
+            IsDead = seri.isDead;
+            Health = seri.health;
+            isOnGround = seri.isOnGround;
+            propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, Game);
+            buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, Game));
+            collisionThisTick = seri.collisionThisTick.ConvertAll(e => Game.FindEntityByID(e));
+            collisionList = seri.collisionList.ConvertAll(e => Game.FindEntityByID(e));
+            children = seri.children.ConvertAll(e => Game.FindEntityByID(e));
+            takenGrids = seri.takenGrids.ConvertAll(g => Game.GetGrid(g));
+        }
+        public static Entity CreateDeserializingEntity(SerializableEntity seri, Game level)
+        {
+            Entity entity;
+            switch (seri.type)
+            {
+                case EntityTypes.PLANT:
+                    entity = new Contraption(level);
+                    break;
+                case EntityTypes.ENEMY:
+                    entity = new Enemy(level);
+                    break;
+                case EntityTypes.OBSTACLE:
+                    entity = new Obstacle(level);
+                    break;
+                case EntityTypes.BOSS:
+                    entity = new Boss(level);
+                    break;
+                case EntityTypes.CART:
+                    entity = new Cart(level);
+                    break;
+                case EntityTypes.PICKUP:
+                    entity = new Pickup(level);
+                    break;
+                case EntityTypes.PROJECTILE:
+                    entity = new Projectile(level);
+                    break;
+                case EntityTypes.EFFECT:
+                    entity = new Effect(level);
+                    break;
+                default:
+                    return null;
+            }
+            entity.ID = seri.id;
+            entity.SpawnerReference = seri.spawnerReference;
+            return entity;
+        }
         #endregion
 
         #region 私有方法
@@ -761,6 +892,14 @@ namespace PVZEngine
             Callbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
         }
 
+
+        #region 接口实现
+        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
+        {
+            return new SerializableBuffTarget(this);
+        }
+        #endregion
+
         #endregion
 
         #region 事件
@@ -786,7 +925,7 @@ namespace PVZEngine
         public EntityDefinition Definition { get; private set; }
         public NamespaceID ModelID { get; private set; }
         public EntityReference SpawnerReference { get; private set; }
-        public EntityReference Parent { get; private set; }
+        public Entity Parent { get; private set; }
         public Game Game { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Pos { get; set; }
@@ -816,15 +955,17 @@ namespace PVZEngine
         public bool IsDead { get; set; }
         public float Health { get; set; }
         public abstract int Type { get; }
+        public int State { get; set; }
+        public Entity Target { get; set; }
 
-        private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
+        private PropertyDictionary propertyDict = new PropertyDictionary();
 
         private bool isOnGround = true;
         private List<Buff> buffs = new List<Buff>();
-        private List<EntityReference> collisionThisTick = new List<EntityReference>();
-        private List<EntityReference> collisionList = new List<EntityReference>();
-        private List<int> takenGrids = new List<int>();
-        private List<EntityReference> children = new List<EntityReference>();
+        private List<Entity> collisionThisTick = new List<Entity>();
+        private List<Entity> collisionList = new List<Entity>();
+        private List<LawnGrid> takenGrids = new List<LawnGrid>();
+        private List<Entity> children = new List<Entity>();
         #endregion
     }
     public enum EntityAnimationTarget

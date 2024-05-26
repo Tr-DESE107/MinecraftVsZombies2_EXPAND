@@ -1,12 +1,16 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Serialization;
 using UnityEngine;
 
 namespace PVZEngine
 {
     public class Armor : IBuffTarget
     {
+        private Armor()
+        {
+
+        }
         public Armor(Entity owner, ArmorDefinition definition)
         {
             Owner = owner;
@@ -29,7 +33,7 @@ namespace PVZEngine
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
             object result = null;
-            if (propertyDict.TryGetValue(name, out var prop))
+            if (propertyDict.TryGetProperty(name, out var prop))
                 result = prop;
             else if (!ignoreDefinition && Definition != null)
                 result = Definition.GetProperty<object>(name);
@@ -54,7 +58,7 @@ namespace PVZEngine
         }
         public void SetProperty(string name, object value)
         {
-            propertyDict[name] = value;
+            propertyDict.SetProperty(name, value);
         }
         #endregion
 
@@ -189,13 +193,41 @@ namespace PVZEngine
         {
             return armor != null && armor.Owner != null && armor.Definition != null && armor.Health > 0;
         }
+        public SerializableArmor Serialize()
+        {
+            return new SerializableArmor()
+            {
+                health = Health,
+                definitionID = Definition.GetID(),
+                buffs = buffs.ConvertAll(b => b.Serialize()),
+                propertyDict = propertyDict.Serialize()
+            };
+        }
+        public static Armor Deserialize(SerializableArmor seri, Entity owner)
+        {
+            var definition = owner.Game.GetArmorDefinition(seri.definitionID);
+            var armor = new Armor();
+            armor.Owner = owner;
+            armor.Definition = definition;
+            armor.Health = seri.health;
+            armor.buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, owner.Game));
+            armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, owner.Game);
+            return armor;
+        }
+
+        #region 私有方法
+        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
+        {
+            return new SerializableBuffTarget(this);
+        }
+        #endregion
 
         #region 属性字段
         public Entity Owner { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
         private List<Buff> buffs = new List<Buff>();
-        private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
+        private PropertyDictionary propertyDict = new PropertyDictionary();
         #endregion
     }
 }

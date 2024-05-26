@@ -1,7 +1,12 @@
+using PVZEngine.Serialization;
+
 namespace PVZEngine
 {
     public sealed class Obstacle : Entity
     {
+        internal Obstacle(Game level) : base(level)
+        {
+        }
         public Obstacle(Game level, int id, EntityDefinition definition, int seed) : base(level, id, definition, seed)
         {
             SetFaction(Game.Option.RightFaction);
@@ -12,13 +17,7 @@ namespace PVZEngine
         {
             return !FlipX;
         }
-
-        public override void Remove()
-        {
-            base.Remove();
-            TakenGrid = null;
-        }
         public override int Type => EntityTypes.OBSTACLE;
-        public Grid TakenGrid { get; set; }
+        protected override SerializableEntity CreateSerializableEntity() => new SerializableEntity();
     }
 }

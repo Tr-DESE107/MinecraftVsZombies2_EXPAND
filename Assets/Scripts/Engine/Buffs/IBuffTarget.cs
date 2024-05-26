@@ -8,5 +8,10 @@ namespace PVZEngine
 {
     public interface IBuffTarget
     {
+        ISerializeBuffTarget SerializeBuffTarget();
+    }
+    public interface ISerializeBuffTarget
+    {
+        IBuffTarget DeserializeBuffTarget(Game level);
     }
 }

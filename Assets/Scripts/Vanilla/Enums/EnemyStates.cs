@@ -1,11 +1,13 @@
-﻿namespace MVZ2.GameContent.Enemies
+﻿namespace MVZ2.GameContent
 {
-    public static class EnemyStates
+    public static class EntityStates
     {
         public const int IDLE = 0;
         public const int WALK = 1;
         public const int ATTACK = 2;
         public const int DEAD = 3;
         public const int CAST = 4;
+
+        public const int COLLECTED = 600;
     }
 }

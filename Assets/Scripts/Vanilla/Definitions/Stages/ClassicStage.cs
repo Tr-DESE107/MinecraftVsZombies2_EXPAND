@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using log4net.Core;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -14,7 +17,7 @@ namespace MVZ2.GameContent.Stages
             SetProperty(StageProps.WAVE_ADVANCE_TIME, 300);
             SetProperty(StageProps.WAVE_ADVANCE_HEALTH_PERCENT, 0.6f);
             SetProperty(StageProperties.TOTAL_FLAGS, totalFlags);
-            SetProperty(StageProperties.ENEMY_SPAWN_POOL, spawnEntries);
+            this.spawnEntries = spawnEntries;
         }
         public override void Start(Game level)
         {
@@ -55,6 +58,63 @@ namespace MVZ2.GameContent.Stages
             var enemies = level.FindEntities(e => IsAliveEnemy(e));
             var health = enemies.Sum(e => e.Health + (e.EquipedArmor?.Health ?? 0));
             return health <= GetWaveAdvanceHealthPercent(level) * GetWaveMaxHealth(level);
+        }
+        public void CreatePreviewEnemies(Game level, IList<NamespaceID> validEnemies, Rect region)
+        {
+            List<Enemy> createdEnemies = new List<Enemy>();
+
+            int loopTimes = 0;
+
+            while (true)
+            {
+                for (int i = 0; i < validEnemies.Count; i++)
+                {
+                    var entityRef = validEnemies[i];
+
+                    int times = 1;
+                    for (int time = 0; time < times; time++)
+                    {
+                        bool around;
+                        Vector3 pos;
+                        do
+                        {
+                            pos = new Vector3(UnityEngine.Random.Range(region.xMin, region.xMax), 0, UnityEngine.Random.Range(region.yMin, region.yMax));
+
+                            around = false;
+                            for (int e = 0; e < createdEnemies.Count; e++)
+                            {
+                                Vector3 createdPos = createdEnemies[e].Pos;
+                                if (Vector3.Distance(createdPos, pos) < 80)
+                                {
+                                    around = true;
+                                    break;
+                                }
+                            }
+                        }
+                        while (around);
+
+                        Enemy enm = level.Spawn(entityRef, pos, null) as Enemy;
+                        enm.SetPreviewEnemy(true);
+                        createdEnemies.Add(enm);
+
+                        if (createdEnemies.Count >= Mathf.Max(6, validEnemies.Count + 3))
+                        {
+                            return;
+                        }
+                    }
+                }
+
+                loopTimes++;
+                if (loopTimes > 1024)
+                {
+                    Debug.Log("次数超过上限，跳出循环。");
+                    return;
+                }
+            }
+        }
+        public override IEnumerable<IEnemySpawnEntry> GetEnemyPool()
+        {
+            return spawnEntries;
         }
         public FrameTimer GetWaveTimer(Game level) => level.GetProperty<FrameTimer>("WaveTimer");
         public void SetWaveTimer(Game level, FrameTimer value) => level.SetProperty("WaveTimer", value);
@@ -145,6 +205,7 @@ namespace MVZ2.GameContent.Stages
         public const int STATE_STARTED = 1;
         public const int STATE_HUGE_WAVE_APPROACHING = 2;
         private EnemySpawnEntry[] spawnEntries;
+
     }
     [Serializable]
     public class EnemySpawnEntry : IEnemySpawnEntry

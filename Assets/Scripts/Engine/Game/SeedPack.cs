@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PVZEngine.Serialization;
+using UnityEngine;
 
 namespace PVZEngine
 {
@@ -26,6 +27,25 @@ namespace PVZEngine
                 return;
             Recharge += rechargeSpeed;
             Recharge = Mathf.Min(MaxRecharge, Recharge);
+        }
+        public SerializableSeedPack Serialize()
+        {
+            return new SerializableSeedPack()
+            {
+                seedID = SeedReference,
+                cost = Cost,
+                recharge = Recharge,
+                maxRecharge = MaxRecharge,
+            };
+        }
+        public static SeedPack Deserialize(SerializableSeedPack seri)
+        {
+            return new SeedPack(seri.seedID)
+            {
+                Cost = seri.cost,
+                Recharge = seri.recharge,
+                MaxRecharge = seri.maxRecharge
+            };
         }
         public NamespaceID SeedReference { get; set; }
         public int Cost { get; set; }

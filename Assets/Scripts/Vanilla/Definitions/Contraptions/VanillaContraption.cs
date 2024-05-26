@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla
             base.Init(entity);
             entity.SetFaction(entity.Game.Option.LeftFaction);
             var fragment = CreateFragment(entity);
-            var fragmentRef = new EntityReference(fragment);
+            var fragmentRef = fragment.GetReference();
             SetFragment(entity, fragmentRef);
         }
         public override void Update(Entity entity)
@@ -95,7 +95,7 @@ namespace MVZ2.Vanilla
             if (fragment == null || !fragment.Exists())
             {
                 fragment = CreateFragment(entity);
-                fragmentRef = new EntityReference(fragment);
+                fragmentRef = fragment.GetReference();
                 SetFragment(entity, fragmentRef);
             }
             return fragment;

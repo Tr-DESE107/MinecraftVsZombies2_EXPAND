@@ -1,19 +1,24 @@
 {
     "name": "MVZ2.Tests",
-    "rootNamespace": "MVZ2.Tests",
+    "rootNamespace": "",
     "references": [
-        "GUID:860571ac0336a8545a10447b51db7410",
-        "GUID:5fde897b5e6f58943b173e1c033b7b41",
-        "GUID:bb0e45f4ddb54a84dab05f6352bb916c"
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "MVZ2",
+        "MVZ2.Vanilla",
+        "PVZEngine"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": true,
     "defineConstraints": [
-        "UNITY_EDITOR"
+        "UNITY_INCLUDE_TESTS"
     ],
     "versionDefines": [],
     "noEngineReferences": false

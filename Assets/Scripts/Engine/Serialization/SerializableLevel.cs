@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PVZEngine.Serialization
+{
+    public class SerializableLevel
+    {
+        private Enemy killerEnemy;
+        private bool isRerun;
+        private string deathMessage;
+        private float gridSize;
+        private float gridLeftX;
+        private float gridBottomZ;
+        private int maxLaneCount;
+        private int maxColumnCount;
+
+
+        public int seed;
+        public bool isCleared;
+        public NamespaceID stageDefinitionID;
+        public NamespaceID areaDefinitionID;
+        public bool isEndless;
+        public int difficulty;
+        public SerializableGameOption Option;
+        public SerializableRNG levelRandom;
+        public SerializableRNG entityRandom;
+        public SerializableRNG effectRandom;
+        public SerializableRNG roundRandom;
+        public SerializableRNG spawnRandom;
+        public SerializableRNG conveyorRandom;
+        public SerializableRNG debugRandom;
+        public SerializableRNG miscRandom;
+        public SerializablePropertyDictionary propertyDict;
+        public SerializableGrid[] grids;
+        public float rechargeSpeed;
+        public float rechargeTimeMultiplier;
+        public List<SerializableSeedPack> seedPacks;
+        public bool requireCards;
+        public int currentEntityID = 1;
+        public List<SerializableEntity> entities;
+        public float energy;
+        public Dictionary<int, float> delayedEnergyEntities;
+        public int currentWave;
+        public int currentFlag;
+        public int waveState;
+        public bool levelProgressVisible;
+        public List<int> spawnedLanes;
+        public List<NamespaceID> spawnedID;
+    }
+}

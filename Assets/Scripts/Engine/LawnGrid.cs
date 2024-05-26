@@ -1,18 +1,22 @@
 using System.Collections.Generic;
-using System.Linq;
+using PVZEngine.Serialization;
 using UnityEngine;
 
 namespace PVZEngine
 {
-    public class Grid
+    public class LawnGrid
     {
         #region 公有事件
-        public Grid(Game level, GridDefinition definition, int lane, int column)
+        public LawnGrid(Game level, GridDefinition definition, int lane, int column)
         {
             Level = level;
             Lane = lane;
             Column = column;
             Definition = definition;
+        }
+        public int GetIndex()
+        {
+            return Level.GetGridIndex(Column, Lane);
         }
         public Vector3 GetPosition()
         {
@@ -29,18 +33,34 @@ namespace PVZEngine
         }
         public void AddEntity(Entity entity)
         {
-            if (!takenEntities.Any(e => e.ID == entity.ID))
+            if (!takenEntities.Contains(entity))
             {
-                takenEntities.Add(new EntityReference(entity));
+                takenEntities.Add(entity);
             }
         }
-        public void RemoveEntity(Entity entity)
+        public bool RemoveEntity(Entity entity)
         {
-            takenEntities.RemoveAll(e => e.ID == entity.ID);
+            return takenEntities.Remove(entity);
         }
         public Entity[] GetTakenEntities()
         {
-            return takenEntities.Select(e => e.GetEntity(Level)).ToArray();
+            return takenEntities.ToArray();
+        }
+        public SerializableGrid Serialize()
+        {
+            return new SerializableGrid()
+            {
+                lane = Lane,
+                column = Column,
+                definitionID = Definition.GetID(),
+                takenEntities = takenEntities.ConvertAll(e => e.ID)
+            };
+        }
+        public static LawnGrid Deserialize(SerializableGrid seri, Game level)
+        {
+            var definition = level.GetGridDefinition(seri.definitionID);
+            var grid = new LawnGrid(level, definition, seri.lane, seri.column);
+            return grid;
         }
         #endregion 方法
 
@@ -49,7 +69,7 @@ namespace PVZEngine
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }
-        private List<EntityReference> takenEntities = new List<EntityReference>();
+        private List<Entity> takenEntities = new List<Entity>();
         #endregion 属性
     }
     public enum PlaceType

@@ -16,35 +16,36 @@ namespace MVZ2.GameContent
             var level = pickup.Game;
             float alpha = 1;
             float shadowAlpha = 1;
-            if (pickup.IsCollected)
+            if (pickup.IsCollected())
             {
+                var collectedTime = MVZ2Pickup.GetCollectedTime(pickup);
                 var moveTime = level.GetSecondTicks(1);
                 var vanishTime = level.GetSecondTicks(1.5f);
-                if (pickup.CollectedTime < moveTime)
+                if (collectedTime < moveTime)
                 {
-                    float timePercent = pickup.CollectedTime / (float)moveTime;
+                    float timePercent = collectedTime / (float)moveTime;
                     var targetPos = GetMoveTargetPosition(pickup);
                     pickup.Velocity = (targetPos - pickup.Pos) * 0.2f;
                     alpha = 1;
                 }
                 else
                 {
-                    if (pickup.CollectedTime == moveTime)
+                    if (collectedTime == moveTime)
                     {
                         level.RemoveEnergyDelayedEntity(pickup);
                     }
 
-                    var vanishLerp = (pickup.CollectedTime - moveTime) / (float)(vanishTime - moveTime);
+                    var vanishLerp = (collectedTime - moveTime) / (float)(vanishTime - moveTime);
                     pickup.RenderScale = Vector3.Lerp(Vector3.one, Vector3.one * 0.5f, vanishLerp);
                     alpha = Mathf.Lerp(1, 0, vanishLerp);
-                    if (pickup.CollectedTime == vanishTime)
+                    if (collectedTime == vanishTime)
                     {
                         pickup.Remove();
                     }
                 }
                 shadowAlpha = 0;
             }
-            else if (!pickup.IsImportant() && pickup.Timeout < 15)
+            else if (!MVZ2Pickup.IsImportant(pickup) && pickup.Timeout < 15)
             {
                 pickup.Velocity = Vector3.zero;
                 alpha = pickup.Timeout / 15f;

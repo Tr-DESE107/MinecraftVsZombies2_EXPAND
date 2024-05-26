@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Serialization;
 using UnityEngine;
 
 namespace PVZEngine
@@ -51,7 +52,7 @@ namespace PVZEngine
             var maxLane = GetMaxLaneCount();
             int maxColumn = GetMaxColumnCount();
 
-            grids = new Grid[maxColumn * maxLane];
+            grids = new LawnGrid[maxColumn * maxLane];
 
             var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => GetGridDefinition(i)).ToArray();
             for (int i = 0; i < gridDefinitions.Length; i++)
@@ -59,7 +60,7 @@ namespace PVZEngine
                 var definition = gridDefinitions[i];
                 int lane = Mathf.FloorToInt(i / maxColumn);
                 int column = i % maxColumn;
-                grids[i] = new Grid(this, definition, lane, column);
+                grids[i] = new LawnGrid(this, definition, lane, column);
             }
         }
         public void Start(int difficulty)
@@ -96,12 +97,12 @@ namespace PVZEngine
         #region 属性
         public void SetProperty(string name, object value)
         {
-            propertyDict[name] = value;
+            propertyDict.SetProperty(name, value);
         }
         public object GetProperty(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
         {
             object result = null;
-            if (propertyDict.TryGetValue(name, out var value))
+            if (propertyDict.TryGetProperty(name, out var value))
                 result = value;
             else if (!ignoreStageDefinition && StageDefinition.TryGetProperty<object>(name, out var stageProp))
                 result = stageProp;
@@ -189,21 +190,21 @@ namespace PVZEngine
         {
             return 0;
         }
-        public Grid GetGrid(int index)
+        public LawnGrid GetGrid(int index)
         {
             if (index < 0 || index >= GetMaxColumnCount() * GetMaxLaneCount())
                 return null;
             return grids[index];
         }
 
-        public Grid GetGrid(int column, int lane)
+        public LawnGrid GetGrid(int column, int lane)
         {
             if (column < 0 || column >= GetMaxColumnCount() || lane < 0 || lane >= GetMaxLaneCount())
                 return null;
             return GetGrid(lane * GetMaxColumnCount() + column);
         }
 
-        public Grid GetGrid(Vector2Int pos)
+        public LawnGrid GetGrid(Vector2Int pos)
         {
             return GetGrid(pos.x, pos.y);
         }
@@ -240,6 +241,95 @@ namespace PVZEngine
             return new Buff(buffDefinition);
         }
 
+        public SerializableLevel Serialize()
+        {
+            return new SerializableLevel()
+            {
+                seed = Seed,
+                isCleared = IsCleared,
+                stageDefinitionID = StageDefinition.GetID(),
+                areaDefinitionID = AreaDefinition.GetID(),
+                isEndless = IsEndless,
+                difficulty = Difficulty,
+                Option = Option.Serialize(),
+
+                levelRandom = levelRandom.Serialize(),
+                entityRandom = entityRandom.Serialize(),
+                effectRandom = effectRandom.Serialize(),
+                roundRandom = roundRandom.Serialize(),
+                spawnRandom = spawnRandom.Serialize(),
+                conveyorRandom = conveyorRandom.Serialize(),
+                debugRandom = debugRandom.Serialize(),
+                miscRandom = miscRandom.Serialize(),
+
+                propertyDict = propertyDict.Serialize(),
+                grids = grids.Select(g => g.Serialize()).ToArray(),
+                rechargeSpeed = RechargeSpeed,
+                rechargeTimeMultiplier = RechargeTimeMultiplier,
+                seedPacks = seedPacks.ConvertAll(g => g.Serialize()),
+                requireCards = RequireCards,
+
+                currentEntityID = 1,
+                entities = entities.ConvertAll(e => e.Serialize()),
+
+                energy = Energy,
+                delayedEnergyEntities = delayedEnergyEntities.ToDictionary(d => d.Key.ID, d => d.Value),
+
+                currentWave = CurrentWave,
+                currentFlag = CurrentFlag,
+                waveState = WaveState,
+                levelProgressVisible = LevelProgressVisible,
+                spawnedLanes = spawnedLanes,
+                spawnedID = spawnedID,
+            };
+        }
+        public static Game Deserialize(SerializableLevel seri, Mod[] mods)
+        {
+            var game = new Game(mods);
+            game.Seed = seri.seed;
+            game.IsCleared = seri.isCleared;
+            game.StageDefinition = game.GetStageDefinition(seri.stageDefinitionID);
+            game.AreaDefinition = game.GetAreaDefinition(seri.areaDefinitionID);
+            game.IsEndless = seri.isEndless;
+            game.Difficulty = seri.difficulty;
+            game.Option = GameOption.Deserialize(seri.Option);
+            game.entities = seri.entities.ConvertAll(e => Entity.CreateDeserializingEntity(e, game));
+            for (int i = 0; i < game.entities.Count; i++)
+            {
+                game.entities[i].ApplyDeserialize(seri.entities[i]);
+            }
+
+            game.levelRandom = RandomGenerator.Deserialize(seri.levelRandom);
+            game.entityRandom = RandomGenerator.Deserialize(seri.entityRandom);
+            game.effectRandom = RandomGenerator.Deserialize(seri.effectRandom);
+            game.roundRandom = RandomGenerator.Deserialize(seri.roundRandom);
+            game.spawnRandom = RandomGenerator.Deserialize(seri.spawnRandom);
+            game.conveyorRandom = RandomGenerator.Deserialize(seri.conveyorRandom);
+            game.debugRandom = RandomGenerator.Deserialize(seri.debugRandom);
+            game.miscRandom = RandomGenerator.Deserialize(seri.miscRandom);
+
+            game.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, game);
+            game.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, game)).ToArray();
+
+            game.RechargeSpeed = seri.rechargeSpeed;
+            game.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
+            game.seedPacks = seri.seedPacks.ConvertAll(g => SeedPack.Deserialize(g));
+            game.RequireCards = seri.requireCards;
+
+            game.currentEntityID = seri.currentEntityID;
+
+            game.Energy = seri.energy;
+            game.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => game.FindEntityByID(d.Key), d => d.Value);
+
+            game.CurrentWave = seri.currentWave;
+            game.CurrentFlag = seri.currentFlag;
+            game.WaveState = seri.waveState;
+            game.LevelProgressVisible = seri.levelProgressVisible;
+            game.spawnedLanes = seri.spawnedLanes;
+            game.spawnedID = seri.spawnedID;
+            return game;
+        }
+
         #endregion
 
         #region 属性字段
@@ -273,8 +363,8 @@ namespace PVZEngine
 
         private string deathMessage;
 
-        private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
-        private Grid[] grids;
+        private PropertyDictionary propertyDict = new PropertyDictionary();
+        private LawnGrid[] grids;
 
         private float gridSize;
         private float gridLeftX;

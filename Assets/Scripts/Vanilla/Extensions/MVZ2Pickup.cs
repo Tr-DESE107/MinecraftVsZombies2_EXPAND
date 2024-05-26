@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent;
+using MVZ2.GameContent.Pickups;
 using PVZEngine;
 using UnityEngine;
 
@@ -6,13 +7,13 @@ namespace MVZ2.Vanilla
 {
     public static class MVZ2Pickup
     {
-        public static bool CanAutoCollect(this Pickup pickup)
+        public static bool IsCollected(this Entity entity)
         {
-            return !pickup.GetProperty<bool>(PickupProperties.NO_AUTO_COLLECT);
+            return entity.State == EntityStates.COLLECTED;
         }
         public static void Collect(this Pickup pickup)
         {
-            pickup.IsCollected = true;
+            pickup.State = EntityStates.COLLECTED;
             if (pickup.Definition is ICollectiblePickup collectible)
                 collectible.PostCollect(pickup);
         }
@@ -41,6 +42,30 @@ namespace MVZ2.Vanilla
             redstone.Velocity = dropVelocity;
 
             level.PlaySound(SoundID.throwSound, entity.Pos);
+        }
+        public static int GetMaxTimeout(Entity entity)
+        {
+            return entity.GetProperty<int>(PickupProps.MAX_TIMEOUT);
+        }
+        public static bool IsImportant(Entity entity)
+        {
+            return entity.GetProperty<bool>(PickupProps.IMPORTANT);
+        }
+        public static int GetCollectedTime(Entity entity)
+        {
+            return entity.GetProperty<int>(PickupProps.COLLECTED_TIME);
+        }
+        public static void SetCollectedTime(Entity entity, int value)
+        {
+            entity.SetProperty(PickupProps.COLLECTED_TIME, value);
+        }
+        public static void AddCollectedTime(Entity entity, int value)
+        {
+            SetCollectedTime(entity, GetCollectedTime(entity) + value);
+        }
+        public static bool CanAutoCollect(this Pickup pickup)
+        {
+            return !pickup.GetProperty<bool>(PickupProps.NO_AUTO_COLLECT);
         }
     }
 }

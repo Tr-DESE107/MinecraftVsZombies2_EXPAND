@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Effects
         }
         public override void Update(Entity entity)
         {
-            var parent = entity.Parent?.GetEntity(entity.Game);
+            var parent = entity.Parent;
             if (parent == null || !parent.Exists())
             {
                 entity.Timeout--;
