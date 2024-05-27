@@ -10,9 +10,9 @@ namespace MVZ2.GameContent
         public Redstone(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Update(Entity entity)
+        public override void Update(Entity pickup)
         {
-            var pickup = entity.ToPickup();
+            base.Update(pickup);
             var level = pickup.Game;
             float alpha = 1;
             float shadowAlpha = 1;
@@ -45,22 +45,22 @@ namespace MVZ2.GameContent
                 }
                 shadowAlpha = 0;
             }
-            else if (!MVZ2Pickup.IsImportant(pickup) && pickup.Timeout < 15)
+            else if (!pickup.IsImportantPickup() && pickup.Timeout < 15)
             {
                 pickup.Velocity = Vector3.zero;
                 alpha = pickup.Timeout / 15f;
                 shadowAlpha = alpha;
             }
-            var color = entity.GetTint(true);
+            var color = pickup.GetTint(true);
             color.a = alpha;
-            entity.SetTint(color);
-            pickup.ShadowAlpha = shadowAlpha;
+            pickup.SetTint(color);
+            pickup.SetShadowAlpha(shadowAlpha);
         }
         public override void PostContactGround(Entity entity)
         {
             entity.Velocity = Vector3.zero;
         }
-        public override void PostCollect(Pickup pickup)
+        public override void PostCollect(Entity pickup)
         {
             pickup.Velocity = Vector3.zero;
             float value = ENERGY_VALUE;
@@ -81,7 +81,7 @@ namespace MVZ2.GameContent
             Vector3 slotPosition = MVZ2Game.GetEnergySlotEntityPosition();
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
-        public static void Disappear(Pickup pickup)
+        public static void Disappear(Entity pickup)
         {
             pickup.Timeout = 15;
         }

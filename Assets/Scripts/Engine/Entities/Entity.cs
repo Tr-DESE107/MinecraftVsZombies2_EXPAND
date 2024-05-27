@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using log4net.Core;
 using PVZEngine.Serialization;
+using Unity.VisualScripting.YamlDotNet.Core;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine
 {
-    public abstract class Entity : IBuffTarget
+    public sealed class Entity : IBuffTarget
     {
         #region 公有方法
-        internal Entity(Game level) { Game = level; }
-        public Entity(Game level, int id, EntityDefinition definition, int seed)
-        {
+        internal Entity(Game level, int type, int id, EntityReferenceChain spawnerReference) 
+        { 
             Game = level;
+            Type = type;
             ID = id;
-
+            SpawnerReference = spawnerReference;
+        }
+        public Entity(Game level, int id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
+        {
             Definition = definition;
             ModelID = definition.GetModelID();
             RNG = new RandomGenerator(seed);
@@ -58,7 +60,7 @@ namespace PVZEngine
         {
             return !Removed;
         }
-        public virtual void Remove()
+        public void Remove()
         {
             if (!Removed)
             {
@@ -68,56 +70,10 @@ namespace PVZEngine
                 Callbacks.PostEntityRemove.Run(this);
             }
         }
-        public EntityReference GetReference()
+        public EntityReferenceChain GetReference()
         {
-            return new EntityReference(this);
+            return new EntityReferenceChain(this);
         }
-
-        #region Warp Lane
-        public void StartWarpingLane(int target)
-        {
-            if (target < 1 || target > Game.GetMaxLaneCount())
-                return;
-            IsWarpingLane = true;
-            WarpTargetLane = target;
-            WarpFromLane = GetLane();
-        }
-        public virtual void StopWarpingLane()
-        {
-            if (!IsWarpingLane)
-                return;
-            IsWarpingLane = false;
-            WarpTargetLane = GetLane();
-            WarpFromLane = GetLane();
-        }
-        #endregion Warp Lane
-
-        #region 子类转换
-        public Contraption ToContraption()
-        {
-            return this as Contraption;
-        }
-        public Enemy ToEnemy()
-        {
-            return this as Enemy;
-        }
-        public Cart ToCart()
-        {
-            return this as Cart;
-        }
-        public Effect ToEffect()
-        {
-            return this as Effect;
-        }
-        public Pickup ToPickup()
-        {
-            return this as Pickup;
-        }
-        public Projectile ToProjectile()
-        {
-            return this as Projectile;
-        }
-        #endregion
 
         #region 动画
         public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
@@ -287,11 +243,11 @@ namespace PVZEngine
                 Fatal = hpBefore > 0 && entity.Health <= 0
             };
         }
-        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source)
+        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
         {
             return TakeDamage(amount, effects, source, out _);
         }
-        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source, out DamageResult armorResult)
+        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source, out DamageResult armorResult)
         {
             return TakeDamage(new DamageInfo(amount, effects, this, source), out armorResult);
         }
@@ -324,7 +280,7 @@ namespace PVZEngine
 
         public void Die(DamageInfo info = null)
         {
-            info = info ?? new DamageInfo(0, new DamageEffectList(), this, new EntityReference(null));
+            info = info ?? new DamageInfo(0, new DamageEffectList(), this, new EntityReferenceChain(null));
             IsDead = true;
             Definition.PostDeath(this, info);
             Callbacks.PostEntityDeath.Run(this, info);
@@ -582,11 +538,11 @@ namespace PVZEngine
         {
             if (collisionList.Contains(other))
             {
-                TriggerCollision(other, EntityCollision.STATE_ENTER);
+                PostCollision(other, EntityCollision.STATE_ENTER);
             }
             else
             {
-                TriggerCollision(other, EntityCollision.STATE_STAY);
+                PostCollision(other, EntityCollision.STATE_STAY);
                 collisionList.Add(other);
             }
             collisionThisTick.Add(other);
@@ -598,7 +554,7 @@ namespace PVZEngine
             {
                 if (ent != null)
                 {
-                    TriggerCollision(ent, EntityCollision.STATE_EXIT);
+                    PostCollision(ent, EntityCollision.STATE_EXIT);
                 }
                 collisionList.Remove(ent);
             }
@@ -645,7 +601,7 @@ namespace PVZEngine
             OnRemoveArmor?.Invoke(armor);
         }
         #endregion
-        public virtual bool IsFacingLeft() => FlipX;
+        public bool IsFacingLeft() => GetProperty<bool>(EntityProperties.FACE_LEFT_AT_DEFAULT) != FlipX;
 
         public void ChangeModel(NamespaceID id)
         {
@@ -658,13 +614,7 @@ namespace PVZEngine
         }
         public SerializableEntity Serialize()
         {
-            var seri = CreateSerializableEntity();
-            ApplySerialize(seri);
-            return seri;
-        }
-        protected abstract SerializableEntity CreateSerializableEntity();
-        protected virtual void ApplySerialize(SerializableEntity seri)
-        {
+            var seri = new SerializableEntity();
             seri.id = ID;
             seri.spawnerReference = SpawnerReference;
             seri.type = Type;
@@ -687,16 +637,6 @@ namespace PVZEngine
             seri.poolCount = PoolCount;
             seri.timeout = Timeout;
 
-            seri.isWarpingLane = IsWarpingLane;
-            seri.warpTargetLane = WarpTargetLane;
-            seri.warpFromLane = WarpFromLane;
-            seri.warpLaneSpeed = WarpLaneSpeed;
-
-            seri.shadowVisible = ShadowVisible;
-            seri.shadowAlpha = ShadowAlpha;
-            seri.shadowScale = ShadowScale;
-            seri.shadowOffset = ShadowOffset;
-
             seri.isDead = IsDead;
             seri.health = Health;
             seri.isOnGround = isOnGround;
@@ -706,6 +646,7 @@ namespace PVZEngine
             seri.collisionList = collisionList.ConvertAll(e => e?.ID ?? 0);
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
             seri.takenGrids = takenGrids.ConvertAll(g => g.GetIndex());
+            return seri;
         }
         public static Entity Deserialize(SerializableEntity seri, Game level)
         {
@@ -713,7 +654,7 @@ namespace PVZEngine
             entity.ApplyDeserialize(seri);
             return entity;
         }
-        public virtual void ApplyDeserialize(SerializableEntity seri)
+        public void ApplyDeserialize(SerializableEntity seri)
         {
             RNG = RandomGenerator.Deserialize(seri.rng);
             State = seri.state;
@@ -734,16 +675,6 @@ namespace PVZEngine
             PoolCount = seri.poolCount;
             Timeout = seri.timeout;
 
-            IsWarpingLane = seri.isWarpingLane;
-            WarpTargetLane = seri.warpTargetLane;
-            WarpFromLane = seri.warpFromLane;
-            WarpLaneSpeed = seri.warpLaneSpeed;
-
-            ShadowVisible = seri.shadowVisible;
-            ShadowAlpha = seri.shadowAlpha;
-            ShadowScale = seri.shadowScale;
-            ShadowOffset = seri.shadowOffset;
-
             IsDead = seri.isDead;
             Health = seri.health;
             isOnGround = seri.isOnGround;
@@ -756,56 +687,18 @@ namespace PVZEngine
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, Game level)
         {
-            Entity entity;
-            switch (seri.type)
-            {
-                case EntityTypes.PLANT:
-                    entity = new Contraption(level);
-                    break;
-                case EntityTypes.ENEMY:
-                    entity = new Enemy(level);
-                    break;
-                case EntityTypes.OBSTACLE:
-                    entity = new Obstacle(level);
-                    break;
-                case EntityTypes.BOSS:
-                    entity = new Boss(level);
-                    break;
-                case EntityTypes.CART:
-                    entity = new Cart(level);
-                    break;
-                case EntityTypes.PICKUP:
-                    entity = new Pickup(level);
-                    break;
-                case EntityTypes.PROJECTILE:
-                    entity = new Projectile(level);
-                    break;
-                case EntityTypes.EFFECT:
-                    entity = new Effect(level);
-                    break;
-                default:
-                    return null;
-            }
-            entity.ID = seri.id;
-            entity.SpawnerReference = seri.spawnerReference;
-            return entity;
+            return new Entity(level, seri.type, seri.id, seri.spawnerReference);
         }
         #endregion
 
         #region 私有方法
-        protected virtual void OnInit(Entity spawner)
+        private void OnInit(Entity spawner)
         {
-            SpawnerReference = new EntityReference(spawner);
             Health = GetMaxHealth();
         }
-        protected virtual void OnUpdate()
+        private void OnUpdate()
         {
             UpdatePhysics(1);
-            WarpLanesUpdate();
-        }
-        protected virtual void OnCollision(Entity other, int state)
-        {
-
         }
         private void OnContactGround()
         {
@@ -818,7 +711,7 @@ namespace PVZEngine
             Definition.PostLeaveGround(this);
             Callbacks.PostEntityLeaveGround.Run(this);
         }
-        protected void HitGround(Vector3 velocity)
+        private void HitGround(Vector3 velocity)
         {
             if (!EntityTypes.IsDamagable(Type))
                 return;
@@ -827,60 +720,13 @@ namespace PVZEngine
             if (fallDamage > 0)
             {
                 var effects = new DamageEffectList(DamageFlags.IGNORE_ARMOR, DamageFlags.FALL_DAMAGE);
-                TakeDamage(fallDamage, effects, new EntityReference(null));
+                TakeDamage(fallDamage, effects, new EntityReferenceChain(null));
             }
         }
-        protected void TriggerCollision(Entity other, int state)
+        private void PostCollision(Entity other, int state)
         {
-            OnCollision(other, state);
             Definition.PostCollision(this, other, state);
             Callbacks.PostEntityCollision.Run(this, other, state);
-        }
-
-        private void WarpLanesUpdate()
-        {
-            if (!IsWarpingLane)
-                return;
-
-            float targetZ = Game.GetEntityLaneZ(WarpTargetLane);
-            bool passed;
-            // Warp upwards.
-            if (WarpFromLane > WarpTargetLane)
-            {
-                passed = Pos.z >= targetZ - 0.03f;
-            }
-            // Warp downwards.
-            else
-            {
-                passed = Pos.z <= targetZ + 0.03f;
-            }
-
-            if (passed)
-            {
-                if (Mathf.Abs(Pos.z - targetZ) <= 0.05f)
-                {
-                    var pos = Pos;
-                    pos.z = targetZ;
-                    Pos = pos;
-                }
-                StopWarpingLane();
-                return;
-            }
-
-            Vector3 velocity = Velocity;
-            float warpSpeed = WarpLaneSpeed;
-
-            // Warp upwards.
-            if (WarpFromLane > WarpTargetLane)
-            {
-                velocity.z = Mathf.Max(warpSpeed, Velocity.z);
-            }
-            // Warp downwards.
-            else
-            {
-                velocity.z = Mathf.Min(-warpSpeed, Velocity.z);
-            }
-            Velocity = velocity;
         }
         private bool PreTakeDamage(DamageInfo damageInfo)
         {
@@ -919,12 +765,12 @@ namespace PVZEngine
         #endregion
 
         #region 属性字段
-        public int ID { get; private set; }
+        public int ID { get; }
         public RandomGenerator RNG { get; private set; }
         public bool Removed { get; private set; }
         public EntityDefinition Definition { get; private set; }
         public NamespaceID ModelID { get; private set; }
-        public EntityReference SpawnerReference { get; private set; }
+        public EntityReferenceChain SpawnerReference { get; private set; }
         public Entity Parent { get; private set; }
         public Game Game { get; private set; }
         public Armor EquipedArmor { get; private set; }
@@ -939,22 +785,9 @@ namespace PVZEngine
         public Vector3 BoundsOffset { get; set; }
         public int PoolCount { get; set; }
         public int Timeout { get; set; }
-        #region Warp Lane
-        public bool IsWarpingLane { get; private set; }
-        public int WarpTargetLane { get; private set; }
-        public int WarpFromLane { get; private set; }
-        public float WarpLaneSpeed { get; set; } = 2.5f;
-        #endregion
-
-        #region 影子
-        public bool ShadowVisible { get; set; } = true;
-        public float ShadowAlpha { get; set; } = 1;
-        public Vector3 ShadowScale { get; set; } = Vector3.one;
-        public Vector3 ShadowOffset { get; set; }
-        #endregion
         public bool IsDead { get; set; }
         public float Health { get; set; }
-        public abstract int Type { get; }
+        public int Type { get; }
         public int State { get; set; }
         public Entity Target { get; set; }
 

@@ -30,35 +30,8 @@ namespace PVZEngine
         }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
         {
-            Entity spawned;
             int id = AllocEntityID();
-            switch (entityDef.Type)
-            {
-                case EntityTypes.PLANT:
-                    spawned = new Contraption(this, id, entityDef, entityRandom.Next());
-                    break;
-                case EntityTypes.ENEMY:
-                    spawned = new Enemy(this, id, entityDef, entityRandom.Next());
-                    break;
-                case EntityTypes.OBSTACLE:
-                    spawned = new Obstacle(this, id, entityDef, entityRandom.Next());
-                    break;
-                case EntityTypes.BOSS:
-                    spawned = new Boss(this, id, entityDef, entityRandom.Next());
-                    break;
-                case EntityTypes.CART:
-                    spawned = new Cart(this, id, entityDef, entityRandom.Next());
-                    break;
-                case EntityTypes.PICKUP:
-                    spawned = new Pickup(this, id, entityDef, entityRandom.Next());
-                    break;
-                case EntityTypes.PROJECTILE:
-                    spawned = new Projectile(this, id, entityDef, entityRandom.Next());
-                    break;
-                default:
-                    spawned = new Effect(this, id, entityDef, effectRandom.Next());
-                    break;
-            }
+            var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, entityRandom.Next());
             spawned.Pos = pos;
             entities.Add(spawned);
             OnEntitySpawn?.Invoke(spawned);
@@ -79,18 +52,6 @@ namespace PVZEngine
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
-        public void SpawnCarts(float x)
-        {
-            var cartRef = AreaDefinition.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
-
-            var carts = GetEntities().OfType<Cart>();
-            for (int i = 0; i < GetMaxLaneCount(); i++)
-            {
-                if (carts.Any(c => c.GetLane() == i && c.State != CartStates.TRIGGERED))
-                    continue;
-                Cart cart = Spawn(cartRef, new Vector3(x - i * 10, 0, GetEntityLaneZ(i)), null) as Cart;
-            }
-        }
         public Entity FindEntityByID(int id)
         {
             return entities.FirstOrDefault(e => e.ID == id);
@@ -105,7 +66,7 @@ namespace PVZEngine
         {
             return entities.Where(predicate).ToArray();
         }
-        public void Explode(Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReference source)
+        public void Explode(Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
             foreach (Entity entity in GetEntities())
             {

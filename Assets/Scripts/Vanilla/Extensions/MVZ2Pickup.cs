@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
         {
             return entity.State == EntityStates.COLLECTED;
         }
-        public static void Collect(this Pickup pickup)
+        public static void Collect(this Entity pickup)
         {
             pickup.State = EntityStates.COLLECTED;
             if (pickup.Definition is ICollectiblePickup collectible)
@@ -43,27 +43,23 @@ namespace MVZ2.Vanilla
 
             level.PlaySound(SoundID.throwSound, entity.Pos);
         }
-        public static int GetMaxTimeout(Entity entity)
-        {
-            return entity.GetProperty<int>(PickupProps.MAX_TIMEOUT);
-        }
-        public static bool IsImportant(Entity entity)
+        public static bool IsImportantPickup(this Entity entity)
         {
             return entity.GetProperty<bool>(PickupProps.IMPORTANT);
         }
-        public static int GetCollectedTime(Entity entity)
+        public static int GetCollectedTime(this Entity entity)
         {
             return entity.GetProperty<int>(PickupProps.COLLECTED_TIME);
         }
-        public static void SetCollectedTime(Entity entity, int value)
+        public static void SetCollectedTime(this Entity entity, int value)
         {
             entity.SetProperty(PickupProps.COLLECTED_TIME, value);
         }
-        public static void AddCollectedTime(Entity entity, int value)
+        public static void AddPickupCollectedTime(this Entity entity, int value)
         {
-            SetCollectedTime(entity, GetCollectedTime(entity) + value);
+            entity.SetCollectedTime(entity.GetCollectedTime() + value);
         }
-        public static bool CanAutoCollect(this Pickup pickup)
+        public static bool CanAutoCollect(this Entity pickup)
         {
             return !pickup.GetProperty<bool>(PickupProps.NO_AUTO_COLLECT);
         }

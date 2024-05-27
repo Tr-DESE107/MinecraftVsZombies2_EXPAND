@@ -22,22 +22,21 @@ namespace MVZ2.GameContent.Contraptions
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var contraption = entity.ToContraption();
-            if (!contraption.IsEvoked())
+            if (!entity.IsEvoked())
             {
                 ShootTick(entity);
                 return;
             }
 
-            EvokedUpdate(contraption);
+            EvokedUpdate(entity);
         }
 
-        public override void Evoke(Contraption contraption)
+        public override void Evoke(Entity entity)
         {
-            base.Evoke(contraption);
-            var evocationTimer = GetEvocationTimer(contraption);
+            base.Evoke(entity);
+            var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Reset();
-            contraption.SetEvoked(true);
+            entity.SetEvoked(true);
         }
         public static FrameTimer GetEvocationTimer(Entity entity)
         {
@@ -47,19 +46,19 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetProperty("EvocationTimer", timer);
         }
-        private void EvokedUpdate(Contraption contraption)
+        private void EvokedUpdate(Entity entity)
         {
-            var evocationTimer = GetEvocationTimer(contraption);
+            var evocationTimer = GetEvocationTimer(entity);
             if (evocationTimer.Frame % 2 == 0)
             {
-                var projectile = Shoot(contraption);
+                var projectile = Shoot(entity);
                 projectile.Velocity *= 2;
             }
             evocationTimer.Run();
             if (evocationTimer.Expired)
             {
-                contraption.SetEvoked(false);
-                var shootTimer = GetShootTimer(contraption);
+                entity.SetEvoked(false);
+                var shootTimer = GetShootTimer(entity);
                 shootTimer.Reset();
             }
         }

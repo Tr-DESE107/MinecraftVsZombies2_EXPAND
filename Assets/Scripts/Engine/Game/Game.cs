@@ -42,11 +42,7 @@ namespace PVZEngine
             AreaDefinition = GetAreaDefinition(areaId);
             StageDefinition = GetStageDefinition(stageId);
 
-            gridSize = AreaDefinition.GetProperty<float>(AreaProperties.GRID_SIZE);
-            gridLeftX = AreaDefinition.GetProperty<float>(AreaProperties.GRID_LEFT_X);
-            gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
-            maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
-            maxColumnCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
+            InitAreaProperties();
 
             // Initalize current stage info.
             var maxLane = GetMaxLaneCount();
@@ -290,6 +286,8 @@ namespace PVZEngine
             game.IsCleared = seri.isCleared;
             game.StageDefinition = game.GetStageDefinition(seri.stageDefinitionID);
             game.AreaDefinition = game.GetAreaDefinition(seri.areaDefinitionID);
+            game.InitAreaProperties();
+
             game.IsEndless = seri.isEndless;
             game.Difficulty = seri.difficulty;
             game.Option = GameOption.Deserialize(seri.Option);
@@ -332,6 +330,17 @@ namespace PVZEngine
 
         #endregion
 
+        #region 私有方法
+        public void InitAreaProperties()
+        {
+            gridSize = AreaDefinition.GetProperty<float>(AreaProperties.GRID_SIZE);
+            gridLeftX = AreaDefinition.GetProperty<float>(AreaProperties.GRID_LEFT_X);
+            gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
+            maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
+            maxColumnCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
+        }
+        #endregion
+
         #region 属性字段
         public int Seed { get; private set; }
         public bool IsCleared { get; private set; }
@@ -340,7 +349,7 @@ namespace PVZEngine
         /// <summary>
         /// 进屋的僵尸。
         /// </summary>
-        public Enemy KillerEnemy { get; private set; }
+        public Entity KillerEnemy { get; private set; }
         public bool IsEndless { get; set; }
         /// <summary>
         /// 游戏是否已经通关过一次。

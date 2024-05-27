@@ -9,7 +9,7 @@ namespace MVZ2.GameContent.Projectiles
     {
         public Arrow(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ProjectileProperties.POINT_TO_DIRECTION, true);
+            SetProperty(ProjectileProps.POINT_TO_DIRECTION, true);
             SetProperty(EntityProperties.SIZE, new Vector3(32, 2, 2));
         }
     }

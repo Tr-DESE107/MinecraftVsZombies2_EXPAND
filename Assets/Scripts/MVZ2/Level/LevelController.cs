@@ -222,7 +222,7 @@ namespace MVZ2.Level
                 case EntityTypes.PICKUP:
                     if (heldItemType == HeldTypes.NONE && Input.GetMouseButton((int)MouseButton.LeftMouse))
                     {
-                        var pickup = entity.Entity.ToPickup();
+                        var pickup = entity.Entity;
                         if (!pickup.IsCollected())
                             pickup.Collect();
                     }
@@ -249,7 +249,7 @@ namespace MVZ2.Level
                 case EntityTypes.PICKUP:
                     if (heldItemType == HeldTypes.NONE)
                     {
-                        var pickup = entity.Entity.ToPickup();
+                        var pickup = entity.Entity;
                         if (!pickup.IsCollected())
                             pickup.Collect();
                     }

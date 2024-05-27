@@ -7,11 +7,15 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
-    public abstract class VanillaEntity : EntityDefinition
+    public abstract class VanillaEntity : EntityDefinition, IChangeLaneEntity
     {
+        #region 公有方法
         protected VanillaEntity(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProps.PLACE_SOUND, SoundID.grass);
+            SetProperty(EntityProps.CHANGE_LANE_SPEED, 2.5f);
+            SetProperty(EntityProps.SHADOW_ALPHA, 1f);
+            SetProperty(EntityProps.SHADOW_SCALE, Vector3.one);
         }
         public override void Update(Entity entity)
         {
@@ -43,6 +47,38 @@ namespace MVZ2.Vanilla
             effect.Velocity = moveDirection * 10;
             effect.ChangeModel(armor.Definition.GetModelID());
         }
+        #endregion
+
+        #region 私有方法
+
+        #region 换行
+        public int GetChangeLaneTarget(Entity entity)
+        {
+            return entity.GetProperty<int>(EntityProps.CHANGE_LANE_TARGET);
+        }
+        public void SetChangeLaneTarget(Entity entity, int value)
+        {
+            entity.SetProperty(EntityProps.CHANGE_LANE_TARGET, value);
+        }
+        public int GetChangeLaneSource(Entity entity)
+        {
+            return entity.GetProperty<int>(EntityProps.CHANGE_LANE_SOURCE);
+        }
+        public void SetChangeLaneSource(Entity entity, int value)
+        {
+            entity.SetProperty(EntityProps.CHANGE_LANE_SOURCE, value);
+        }
+        public float GetChangeLaneSpeed(Entity entity)
+        {
+            return entity.GetProperty<float>(EntityProps.CHANGE_LANE_SPEED);
+        }
+        public virtual void PostStartChangingLane(Entity entity, int target)
+        {
+        }
+        public virtual void PostStopChangingLane(Entity entity)
+        {
+        }
+        #endregion
         protected virtual Vector3 GetArmorPosition(Entity entity)
         {
             var bounds = entity.GetBounds();
@@ -66,6 +102,18 @@ namespace MVZ2.Vanilla
         {
             yield return entity.Game.GetGrid(entity.GetColumn(), entity.GetLane());
         }
+        #endregion
+
         private const float leaveGridHeight = 64;
+    }
+    public interface IChangeLaneEntity
+    {
+        int GetChangeLaneTarget(Entity entity);
+        int GetChangeLaneSource(Entity entity);
+        void SetChangeLaneTarget(Entity entity, int value);
+        void SetChangeLaneSource(Entity entity, int value);
+        float GetChangeLaneSpeed(Entity entity);
+        void PostStartChangingLane(Entity entity, int target);
+        void PostStopChangingLane(Entity entity);
     }
 }

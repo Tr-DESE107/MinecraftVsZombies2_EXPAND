@@ -12,7 +12,7 @@ namespace PVZEngine.Serialization
         public SerializableRNG rng;
         public NamespaceID definitionID;
         public NamespaceID modelID;
-        public EntityReference spawnerReference;
+        public EntityReferenceChain spawnerReference;
         public int parent;
         public SerializableArmor EquipedArmor;
         public Vector3 position;
@@ -25,13 +25,6 @@ namespace PVZEngine.Serialization
         public Vector3 boundsOffset;
         public int poolCount;
         public int timeout;
-
-        #region Warp Lane
-        public bool isWarpingLane;
-        public int warpTargetLane;
-        public int warpFromLane;
-        public float warpLaneSpeed;
-        #endregion
 
         #region 影子
         public bool shadowVisible;

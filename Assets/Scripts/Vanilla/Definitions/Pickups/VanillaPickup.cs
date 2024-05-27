@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using MVZ2.GameContent.Pickups;
+﻿using MVZ2.GameContent;
 using PVZEngine;
 using UnityEngine;
 
@@ -12,24 +11,23 @@ namespace MVZ2.Vanilla
             SetProperty(EntityProperties.GRAVITY, 1f);
             SetProperty(EntityProperties.FRICTION, 0.15f);
             SetProperty(EntityProperties.SIZE, new Vector3(32, 32, 32));
-            SetProperty(PickupProps.MAX_TIMEOUT, 300);
+            SetProperty(EntityProps.MAX_TIMEOUT, 300);
         }
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.Timeout = MVZ2Pickup.GetMaxTimeout(entity);
+            entity.Timeout = entity.GetMaxTimeout();
         }
-        public override void Update(Entity entity)
+        public override void Update(Entity pickup)
         {
-            var pickup = entity.ToPickup();
             if (!pickup.IsCollected())
             {
-                LimitPosition(entity);
+                LimitPosition(pickup);
                 if (pickup.Game.IsAutoCollect() && pickup.CanAutoCollect() && pickup.GetRelativeY() <= 0)
                 {
                     pickup.Collect();
                 }
-                if (!MVZ2Pickup.IsImportant(pickup))
+                if (!pickup.IsImportantPickup())
                 {
                     pickup.Timeout--;
                     if (pickup.Timeout <= 0)
@@ -40,7 +38,7 @@ namespace MVZ2.Vanilla
             }
             else
             {
-                MVZ2Pickup.AddCollectedTime(pickup, 1);
+                pickup.AddPickupCollectedTime(1);
             }
         }
         private void LimitPosition(Entity entity)
@@ -49,13 +47,13 @@ namespace MVZ2.Vanilla
             pos.x = Mathf.Clamp(pos.x, MVZ2Game.GetPickupBorderX(false), MVZ2Game.GetPickupBorderX(true));
             entity.Pos = pos;
         }
-        public virtual void PostCollect(Pickup pickup)
+        public virtual void PostCollect(Entity pickup)
         {
         }
         public override int Type => EntityTypes.PICKUP;
     }
     public interface ICollectiblePickup
     {
-        void PostCollect(Pickup pickup);
+        void PostCollect(Entity pickup);
     }
 }

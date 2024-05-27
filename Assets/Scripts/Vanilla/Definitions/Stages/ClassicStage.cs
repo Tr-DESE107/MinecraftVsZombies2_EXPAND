@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Stages
         }
         public void CreatePreviewEnemies(Game level, IList<NamespaceID> validEnemies, Rect region)
         {
-            List<Enemy> createdEnemies = new List<Enemy>();
+            List<Entity> createdEnemies = new List<Entity>();
 
             int loopTimes = 0;
 
@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Stages
                         }
                         while (around);
 
-                        Enemy enm = level.Spawn(entityRef, pos, null) as Enemy;
+                        Entity enm = level.Spawn(entityRef, pos, null);
                         enm.SetPreviewEnemy(true);
                         createdEnemies.Add(enm);
 

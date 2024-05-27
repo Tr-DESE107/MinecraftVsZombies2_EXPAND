@@ -29,23 +29,22 @@ namespace MVZ2.GameContent.Contraptions
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var contraption = entity.ToContraption();
-            if (contraption.IsEvoked())
+            if (entity.IsEvoked())
             {
-                EvokedUpdate(contraption);
+                EvokedUpdate(entity);
             }
             else
             {
-                ProductionUpdate(contraption);
+                ProductionUpdate(entity);
             }
         }
 
-        public override void Evoke(Contraption contraption)
+        public override void Evoke(Entity entity)
         {
-            base.Evoke(contraption);
-            var evocationTimer = GetEvocationTimer(contraption);
+            base.Evoke(entity);
+            var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Reset();
-            contraption.SetEvoked(true);
+            entity.SetEvoked(true);
         }
         public static FrameTimer GetProductionTimer(Entity entity)
         {
@@ -63,12 +62,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetProperty("EvocationTimer", timer);
         }
-        private void ProductionUpdate(Contraption contraption)
+        private void ProductionUpdate(Entity entity)
         {
-            var productionTimer = GetProductionTimer(contraption);
-            productionTimer.Run(contraption.GetAttackSpeed());
+            var productionTimer = GetProductionTimer(entity);
+            productionTimer.Run(entity.GetAttackSpeed());
 
-            var buffs = contraption.GetBuffs<ProductionColorBuff>();
+            var buffs = entity.GetBuffs<ProductionColorBuff>();
             foreach (var buff in buffs)
             {
                 var color = buff.GetProperty<Color>(ProductionColorBuff.PROP_COLOR);
@@ -88,22 +87,22 @@ namespace MVZ2.GameContent.Contraptions
             }
             if (productionTimer.Expired)
             {
-                contraption.Produce<Redstone>();
+                entity.Produce<Redstone>();
                 productionTimer.MaxFrame = 720;
                 productionTimer.Reset();
             }
         }
-        private void EvokedUpdate(Contraption contraption)
+        private void EvokedUpdate(Entity entity)
         {
-            var evocationTimer = GetEvocationTimer(contraption);
+            var evocationTimer = GetEvocationTimer(entity);
             if (evocationTimer.Frame % 5 == 0)
             {
-                contraption.Produce<Redstone>();
+                entity.Produce<Redstone>();
             }
             evocationTimer.Run();
             if (evocationTimer.Expired)
             {
-                contraption.SetEvoked(false);
+                entity.SetEvoked(false);
             }
         }
         private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);

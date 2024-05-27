@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2.GameContent;
+using PVZEngine;
 
 namespace MVZ2.Vanilla
 {
@@ -6,8 +7,8 @@ namespace MVZ2.Vanilla
     {
         protected VanillaEffect(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(EntityProps.SHADOW_HIDDEN, true);
         }
-
         public override int Type => EntityTypes.EFFECT;
     }
 }

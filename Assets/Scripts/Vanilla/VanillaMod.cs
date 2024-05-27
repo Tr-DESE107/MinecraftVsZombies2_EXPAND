@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
@@ -20,6 +22,7 @@ namespace MVZ2.Vanilla
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
             Callbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
+            Callbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
         }
         protected void LoadFromAssemblies(Assembly[] assemblies)
         {
@@ -74,6 +77,56 @@ namespace MVZ2.Vanilla
                 var entity = bodyResult.Entity;
                 var shellDefinition = bodyResult.ShellDefinition;
                 entity.PlayHitSound(bodyResult.Effects, shellDefinition);
+            }
+        }
+        private void ChangeLaneUpdate(Entity entity)
+        {
+            if (entity.Definition is not IChangeLaneEntity changeLane)
+                return;
+            var targetLane = changeLane.GetChangeLaneTarget(entity);
+            if (targetLane < 0 || targetLane > entity.Game.GetMaxLaneCount())
+                return;
+            var sourceLane = changeLane.GetChangeLaneSource(entity);
+
+            float targetZ = entity.Game.GetEntityLaneZ(targetLane);
+            bool passed;
+            // Warp upwards.
+            if (sourceLane > targetLane)
+            {
+                passed = entity.Pos.z >= targetZ - 0.03f;
+            }
+            // Warp downwards.
+            else
+            {
+                passed = entity.Pos.z <= targetZ + 0.03f;
+            }
+
+            if (!passed)
+            {
+                Vector3 velocity = entity.Velocity;
+                float warpSpeed = changeLane.GetChangeLaneSpeed(entity);
+
+                // Warp upwards.
+                if (sourceLane > targetLane)
+                {
+                    velocity.z = Mathf.Max(warpSpeed, entity.Velocity.z);
+                }
+                // Warp downwards.
+                else
+                {
+                    velocity.z = Mathf.Min(-warpSpeed, entity.Velocity.z);
+                }
+                entity.Velocity = velocity;
+            }
+            else
+            {
+                if (Mathf.Abs(entity.Pos.z - targetZ) <= 0.05f)
+                {
+                    var pos = entity.Pos;
+                    pos.z = targetZ;
+                    entity.Pos = pos;
+                }
+                entity.StopChangingLane();
             }
         }
         public const string spaceName = "mvz2";

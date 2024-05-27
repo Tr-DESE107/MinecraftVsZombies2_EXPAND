@@ -22,7 +22,7 @@ namespace MVZ2.Tests
 
             var converters = new JsonConverter[] { };
             var json = JsonConvert.SerializeObject(VanillaContraption.GetFragment(entity), converters);
-            var dese = JsonConvert.DeserializeObject<EntityReference>(json, converters);
+            var dese = JsonConvert.DeserializeObject<EntityReferenceChain>(json, converters);
             var json2 = JsonConvert.SerializeObject(dese, converters);
             Assert.AreEqual(json, json2);
         }

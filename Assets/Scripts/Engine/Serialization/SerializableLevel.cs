@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PVZEngine.Serialization
 {
     public class SerializableLevel
     {
-        private Enemy killerEnemy;
-        private bool isRerun;
+        private Entity killerEnemy;
         private string deathMessage;
+
+        private bool isRerun;
+
         private float gridSize;
         private float gridLeftX;
         private float gridBottomZ;

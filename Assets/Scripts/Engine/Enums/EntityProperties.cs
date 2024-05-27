@@ -19,5 +19,6 @@
         public const string SIZE = "size";
         public const string TINT = "tint";
         public const string COLOR_OFFSET = "colorOffset";
+        public const string FACE_LEFT_AT_DEFAULT = "faceLeftAtDefault";
     }
 }

@@ -4,7 +4,7 @@ namespace PVZEngine
 {
     public class DamageResult
     {
-        public EntityReference Source { get; set; }
+        public EntityReferenceChain Source { get; set; }
         public Entity Entity { get; set; }
         public float OriginalDamage { get; set; }
         public float Amount { get; set; }

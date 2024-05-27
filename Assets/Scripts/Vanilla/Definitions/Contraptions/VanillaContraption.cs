@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla
             base.Init(entity);
             entity.SetFaction(entity.Game.Option.LeftFaction);
             var fragment = CreateFragment(entity);
-            var fragmentRef = fragment.GetReference();
+            var fragmentRef = new EntityID(fragment);
             SetFragment(entity, fragmentRef);
         }
         public override void Update(Entity entity)
@@ -59,14 +59,14 @@ namespace MVZ2.Vanilla
                 AddTickDamage(bodyResult.Entity, bodyResult.Amount);
             }
         }
-        public virtual void Evoke(Contraption contraption)
+        public virtual void Evoke(Entity Entity)
         {
         }
-        public static EntityReference GetFragment(Entity entity)
+        public static EntityID GetFragment(Entity entity)
         {
-            return entity.GetProperty<EntityReference>("Fragment");
+            return entity.GetProperty<EntityID>("Fragment");
         }
-        public static void SetFragment(Entity entity, EntityReference value)
+        public static void SetFragment(Entity entity, EntityID value)
         {
             entity.SetProperty("Fragment", value);
         }
@@ -95,7 +95,7 @@ namespace MVZ2.Vanilla
             if (fragment == null || !fragment.Exists())
             {
                 fragment = CreateFragment(entity);
-                fragmentRef = fragment.GetReference();
+                fragmentRef = new EntityID(fragment);
                 SetFragment(entity, fragmentRef);
             }
             return fragment;
@@ -105,7 +105,7 @@ namespace MVZ2.Vanilla
     }
     public interface IEvokableContraption
     {
-        void Evoke(Contraption contraption);
+        void Evoke(Entity contraption);
     }
     public class GradientInfo
     {

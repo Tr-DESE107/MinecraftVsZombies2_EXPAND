@@ -148,7 +148,7 @@ namespace PVZEngine
             return buffs.ToArray();
         }
         #endregion
-        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReference source)
+        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
         {
             return TakeDamage(new DamageInfo(amount, effects, Owner, source));
         }

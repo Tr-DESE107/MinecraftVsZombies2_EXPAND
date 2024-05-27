@@ -13,12 +13,14 @@ namespace MVZ2.GameContent.Effects
         }
         public override void Init(Entity entity)
         {
+            base.Init(entity);
             var timer = new FrameTimer(START_TIME);
             SetProductTimer(entity, timer);
-            entity.ShadowVisible = true;
+            entity.SetShadowHidden(false);
         }
         public override void Update(Entity entity)
         {
+            base.Update(entity);
             if (!entity.Game.IsNoProduction())
             {
                 var timer = GetProductTimer(entity);

@@ -8,6 +8,7 @@
         public const int DEAD = 3;
         public const int CAST = 4;
 
+        public const int CART_TRIGGERED = 500;
         public const int COLLECTED = 600;
     }
 }

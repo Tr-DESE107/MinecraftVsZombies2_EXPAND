@@ -1,5 +1,11 @@
 using System.Collections.Generic;
+using System.Threading;
+using MVZ2.GameContent;
 using PVZEngine;
+using UnityEngine;
+using static UnityEditor.PlayerSettings;
+using UnityEngine.tvOS;
+using System.Linq;
 
 namespace MVZ2.Vanilla
 {
@@ -7,20 +13,63 @@ namespace MVZ2.Vanilla
     {
         protected VanillaProjectile(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ProjectileProperties.MAX_TIMEOUT, 1800);
+            SetProperty(EntityProps.MAX_TIMEOUT, 1800);
+            SetProperty(EntityProps.CHANGE_LANE_SPEED, 10f);
         }
 
-        public override void Update(Entity entity)
+        public override void Init(Entity entity)
         {
-            base.Update(entity);
-            var projectile = entity.ToProjectile();
+            base.Init(entity);
+            entity.SetShadowScale(new Vector3(0.5f, 0.5f, 1));
+            entity.Timeout = entity.GetMaxTimeout();
+            entity.CollisionMask = EntityCollision.MASK_CONTRAPTION
+                | EntityCollision.MASK_ENEMY
+                | EntityCollision.MASK_OBSTACLE
+                | EntityCollision.MASK_BOSS
+                | EntityCollision.MASK_HOSTILE;
+        }
+
+        public override void Update(Entity projectile)
+        {
+            base.Update(projectile);
+            projectile.Timeout--;
+            if (projectile.Timeout <= 0)
+            {
+                projectile.Remove();
+                return;
+            }
             if (projectile.WillDestroyOutsideLawn() && IsOutsideView(projectile))
             {
-                entity.Remove();
+                projectile.Remove();
                 return;
             }
         }
-        public virtual bool IsOutsideView(Projectile proj)
+        public override void PostCollision(Entity entity, Entity other, int state)
+        {
+            base.PostCollision(entity, other, state);
+            if (state != EntityCollision.STATE_EXIT)
+            {
+                UnitCollide(entity, other);
+            }
+            else
+            {
+                UnitExit(entity, other);
+                var spawner = entity.SpawnerReference?.GetEntity(entity.Game);
+                if (other == spawner)
+                {
+                    entity.SetCanHitSpawner(true);
+                }
+            }
+        }
+
+        public override void PostStopChangingLane(Entity entity)
+        {
+            base.PostStopChangingLane(entity);
+            var vel = entity.Velocity;
+            vel.z = 0;
+            entity.Velocity = vel;
+        }
+        public virtual bool IsOutsideView(Entity proj)
         {
             var bounds = proj.GetBounds();
             var position = proj.Pos;
@@ -30,6 +79,33 @@ namespace MVZ2.Vanilla
                 position.z < -50 ||
                 position.y > 1000 ||
                 position.y < -1000;
+        }
+        private void UnitCollide(Entity entity, Entity other)
+        {
+            // 是否可以击中发射者。
+            var spawner = entity.SpawnerReference?.GetEntity(entity.Game);
+            if (other == spawner && !entity.CanHitSpawner())
+                return;
+
+            var collided = entity.GetProjectileCollidingEntities();
+            if (entity.Removed || !entity.IsEnemy(other) || (collided != null && collided.Any(c => c.ID == other.ID)) || other.IsDead)
+                return;
+
+            if (!Detection.IsZCoincide(entity.Pos.z, entity.GetScaledSize().z, other.Pos.z, other.GetScaledSize().z))
+                return;
+
+            other.TakeDamage(entity.GetDamage(), new DamageEffectList(), new EntityReferenceChain(entity));
+
+            entity.AddProjectileCollidingEntity(other);
+            if (!entity.CanPierce(other))
+            {
+                entity.Remove();
+                return;
+            }
+        }
+        private void UnitExit(Entity entity, Entity other)
+        {
+            entity.RemoveProjectileCollidingEntity(other);
         }
         public override int Type => EntityTypes.PROJECTILE;
     }

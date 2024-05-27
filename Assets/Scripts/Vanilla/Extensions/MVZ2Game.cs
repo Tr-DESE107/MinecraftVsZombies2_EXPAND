@@ -1,4 +1,6 @@
-﻿using PVZEngine;
+﻿using System.Linq;
+using MVZ2.GameContent;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -18,6 +20,18 @@ namespace MVZ2.Vanilla
         public static float GetBorderX(bool right)
         {
             return right ? RIGHT_BORDER : LEFT_BORDER;
+        }
+        public static void SpawnCarts(this Game game, float x)
+        {
+            var cartRef = game.AreaDefinition.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
+
+            var carts = game.GetEntities(EntityTypes.CART);
+            for (int i = 0; i < game.GetMaxLaneCount(); i++)
+            {
+                if (carts.Any(c => c.GetLane() == i && c.State != EntityStates.CART_TRIGGERED))
+                    continue;
+                Entity cart = game.Spawn(cartRef, new Vector3(x - i * 10, 0, game.GetEntityLaneZ(i)), null);
+            }
         }
         private static float GetHalloweenGroundHeight(float x)
         {

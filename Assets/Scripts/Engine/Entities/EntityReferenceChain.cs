@@ -2,13 +2,13 @@
 
 namespace PVZEngine
 {
-    public class EntityReference
+    public class EntityReferenceChain
     {
-        public EntityReference()
+        public EntityReferenceChain()
         {
 
         }
-        public EntityReference(Entity entity)
+        public EntityReferenceChain(Entity entity)
         {
             if (entity != null)
             {
@@ -17,9 +17,9 @@ namespace PVZEngine
                 spawnerReference = entity.SpawnerReference?.Clone();
             }
         }
-        public EntityReference Clone()
+        public EntityReferenceChain Clone()
         {
-            return new EntityReference
+            return new EntityReferenceChain
             {
                 id = ID,
                 definitionID = DefinitionID,
@@ -32,7 +32,7 @@ namespace PVZEngine
         }
         public override bool Equals(object obj)
         {
-            if (obj is EntityReference entityRef)
+            if (obj is EntityReferenceChain entityRef)
             {
                 return ID == entityRef.ID;
             }
@@ -42,19 +42,19 @@ namespace PVZEngine
         {
             return ID.GetHashCode();
         }
-        public static bool operator ==(EntityReference lhs, EntityReference rhs)
+        public static bool operator ==(EntityReferenceChain lhs, EntityReferenceChain rhs)
         {
             return lhs.Equals(rhs);
         }
-        public static bool operator !=(EntityReference lhs, EntityReference rhs)
+        public static bool operator !=(EntityReferenceChain lhs, EntityReferenceChain rhs)
         {
             return !(lhs == rhs);
         }
-        public EntityReference SpawnerReference => spawnerReference;
+        public EntityReferenceChain SpawnerReference => spawnerReference;
         public NamespaceID DefinitionID => definitionID;
         public int ID => id;
         [JsonProperty]
-        private EntityReference spawnerReference;
+        private EntityReferenceChain spawnerReference;
         [JsonProperty]
         private NamespaceID definitionID;
         [JsonProperty]

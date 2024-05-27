@@ -29,13 +29,12 @@ namespace MVZ2.GameContent.Contraptions
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var contraption = entity.ToContraption();
-            RiseUpdate(contraption);
+            RiseUpdate(entity);
         }
 
-        public override void Evoke(Contraption contraption)
+        public override void Evoke(Entity entity)
         {
-            base.Evoke(contraption);
+            base.Evoke(entity);
         }
         public static FrameTimer GetRiseTimer(Entity entity)
         {
@@ -45,28 +44,28 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetProperty("RiseTimer", timer);
         }
-        private void RiseUpdate(Contraption contraption)
+        private void RiseUpdate(Entity entity)
         {
-            var riseTimer = GetRiseTimer(contraption);
-            riseTimer.Run(contraption.GetAttackSpeed());
+            var riseTimer = GetRiseTimer(entity);
+            riseTimer.Run(entity.GetAttackSpeed());
 
             if (riseTimer.Frame == 30)
             {
-                contraption.Game.PlaySound(SoundID.dirtRise, contraption.Pos);
+                entity.Game.PlaySound(SoundID.dirtRise, entity.Pos);
             }
             if (riseTimer.Frame < 30)
             {
-                contraption.SetAnimationBool("Ready", true);
+                entity.SetAnimationBool("Ready", true);
             }
             if (riseTimer.Frame < 30 && !riseTimer.Expired)
             {
-                if (!contraption.HasBuff<MineTNTInvincibleBuff>())
-                    contraption.AddBuff<MineTNTInvincibleBuff>();
+                if (!entity.HasBuff<MineTNTInvincibleBuff>())
+                    entity.AddBuff<MineTNTInvincibleBuff>();
             }
             else
             {
-                if (contraption.HasBuff<MineTNTInvincibleBuff>())
-                    contraption.RemoveBuffs(contraption.GetBuffs<MineTNTInvincibleBuff>());
+                if (entity.HasBuff<MineTNTInvincibleBuff>())
+                    entity.RemoveBuffs(entity.GetBuffs<MineTNTInvincibleBuff>());
             }
         }
         public override void PostCollision(Entity entity, Entity other, int state)
@@ -81,7 +80,7 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = GetRiseTimer(entity);
             if (riseTimer == null || !riseTimer.Expired)
                 return;
-            entity.Game.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReference(entity));
+            entity.Game.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
             entity.Game.Spawn<MineDebris>(entity.Pos, entity);
             entity.Remove();
             entity.Game.PlaySound(SoundID.mineExplode, entity.Pos);

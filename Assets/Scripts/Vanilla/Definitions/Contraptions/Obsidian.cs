@@ -14,12 +14,11 @@ namespace MVZ2.GameContent.Contraptions
             SetProperty(EntityProperties.SIZE, new Vector3(48, 48, 48));
             SetProperty(EntityProperties.MAX_HEALTH, maxHP);
         }
-        public override void Update(Entity entity)
+        public override void Update(Entity contraption)
         {
-            base.Update(entity);
-            var contraption = entity.ToContraption();
+            base.Update(contraption);
             var state = 0;
-            switch (entity.Health)
+            switch (contraption.Health)
             {
                 case > armoredHP * 2 / 3f + maxHP:
                     state = 5;
@@ -43,7 +42,7 @@ namespace MVZ2.GameContent.Contraptions
             contraption.SetAnimationInt("HealthState", state);
         }
 
-        public override void Evoke(Contraption contraption)
+        public override void Evoke(Entity contraption)
         {
             base.Evoke(contraption);
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -217,14 +218,14 @@ namespace MVZ2.Level
         {
             var shadowPos = Entity.Pos;
             shadowPos.y = Entity.GetGroundHeight();
-            shadowPos += Entity.ShadowOffset;
+            shadowPos += Entity.GetShadowOffset();
             Shadow.transform.position = shadowPos.LawnToTrans() + posOffset;
             float relativeHeight = Entity.GetRelativeY();
             float scale = 1 + relativeHeight / 300;
             float alpha = 1 - relativeHeight / 300;
-            Shadow.transform.localScale = Entity.ShadowScale * scale;
-            Shadow.gameObject.SetActive(Entity.ShadowVisible);
-            Shadow.SetAlpha(Entity.ShadowAlpha * alpha);
+            Shadow.transform.localScale = Entity.GetShadowScale() * scale;
+            Shadow.gameObject.SetActive(!Entity.IsShadowHidden());
+            Shadow.SetAlpha(Entity.GetShadowAlpha() * alpha);
         }
         private Model CreateModel(NamespaceID id)
         {
