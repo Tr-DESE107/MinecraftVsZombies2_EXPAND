@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Contraptions
 
             if (riseTimer.Frame == 30)
             {
-                entity.Game.PlaySound(SoundID.dirtRise, entity.Pos);
+                entity.Level.PlaySound(SoundID.dirtRise, entity.Pos);
             }
             if (riseTimer.Frame < 30)
             {
@@ -80,11 +80,11 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = GetRiseTimer(entity);
             if (riseTimer == null || !riseTimer.Expired)
                 return;
-            entity.Game.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
-            entity.Game.Spawn<MineDebris>(entity.Pos, entity);
+            entity.Level.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
+            entity.Level.Spawn<MineDebris>(entity.Pos, entity);
             entity.Remove();
-            entity.Game.PlaySound(SoundID.mineExplode, entity.Pos);
-            entity.Game.ShakeScreen(10, 0, 15);
+            entity.Level.PlaySound(SoundID.mineExplode, entity.Pos);
+            entity.Level.ShakeScreen(10, 0, 15);
         }
         public const float EXPLOSION_RADIUS = 40;
         public const float EXPLOSION_DAMAGE = 1800;

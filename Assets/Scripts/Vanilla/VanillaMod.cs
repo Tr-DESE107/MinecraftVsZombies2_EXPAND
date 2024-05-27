@@ -84,11 +84,11 @@ namespace MVZ2.Vanilla
             if (entity.Definition is not IChangeLaneEntity changeLane)
                 return;
             var targetLane = changeLane.GetChangeLaneTarget(entity);
-            if (targetLane < 0 || targetLane > entity.Game.GetMaxLaneCount())
+            if (targetLane < 0 || targetLane > entity.Level.GetMaxLaneCount())
                 return;
             var sourceLane = changeLane.GetChangeLaneSource(entity);
 
-            float targetZ = entity.Game.GetEntityLaneZ(targetLane);
+            float targetZ = entity.Level.GetEntityLaneZ(targetLane);
             bool passed;
             // Warp upwards.
             if (sourceLane > targetLane)

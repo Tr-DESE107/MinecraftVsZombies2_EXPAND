@@ -23,13 +23,13 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
 
-            var buff = entity.Game.CreateBuff<RandomEnemySpeedBuff>();
+            var buff = entity.Level.CreateBuff<RandomEnemySpeedBuff>();
             buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, GetRandomSpeedMultiplier(entity));
             entity.AddBuff(buff);
 
-            entity.SetFaction(entity.Game.Option.RightFaction);
+            entity.SetFaction(entity.Level.Option.RightFaction);
 
-            entity.CollisionMask = EntityCollision.MASK_CONTRAPTION
+            entity.CollisionMask = EntityCollision.MASK_PLANT
                 | EntityCollision.MASK_ENEMY
                 | EntityCollision.MASK_OBSTACLE
                 | EntityCollision.MASK_BOSS
@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Update(enemy);
             Vector3 pos = enemy.Pos;
-            pos.x = Mathf.Min(pos.x, MVZ2Game.GetEnemyRightBorderX());
+            pos.x = Mathf.Min(pos.x, MVZ2Level.GetEnemyRightBorderX());
             enemy.Pos = pos;
 
             enemy.SetAnimationFloat("AttackSpeed", enemy.GetAttackSpeed());
@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.Remove();
                 return;
             }
-            entity.Game.PlaySound(entity.GetDeathSound(), entity.Pos);
+            entity.Level.PlaySound(entity.GetDeathSound(), entity.Pos);
         }
         protected void MeleeCollision(Entity enemy, Entity other)
         {

@@ -23,13 +23,13 @@ namespace MVZ2.Vanilla
             float maxSpeed = 1.6f;
             Vector3 position = entity.Pos;
 
-            var level = entity.Game;
+            var level = entity.Level;
             var rng = entity.RNG;
-            if (position.x <= MVZ2Game.GetBorderX(false) + 150)
+            if (position.x <= MVZ2Level.GetBorderX(false) + 150)
             {
                 xSpeed = rng.Next(0, maxSpeed);
             }
-            else if (position.x >= MVZ2Game.GetBorderX(true) - 150)
+            else if (position.x >= MVZ2Level.GetBorderX(true) - 150)
             {
                 xSpeed = rng.Next(-maxSpeed, 0);
             }

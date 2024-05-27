@@ -44,8 +44,8 @@ namespace MVZ2.Tests
         public static void LevelSerializationTest()
         {
             var mod = new VanillaMod();
-            var level = new Game(mod);
-            level.Init(AreaID.day, StageID.prologue, new GameOption()
+            var level = new PVZEngine.Level(mod);
+            level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,
                 LeftFaction = 0,
@@ -61,18 +61,18 @@ namespace MVZ2.Tests
             var converters = new JsonConverter[] { new Vector3Converter(), new Vector2Converter(), new ColorConverter() };
             var json = JsonConvert.SerializeObject(level.Serialize(), converters);
             var dese = JsonConvert.DeserializeObject<SerializableLevel>(json, converters);
-            var level2 = Game.Deserialize(dese, new Mod[] { mod });
+            var level2 = PVZEngine.Level.Deserialize(dese, new Mod[] { mod });
             var json2 = JsonConvert.SerializeObject(level2.Serialize(), converters);
             Debug.Log(json);
             Debug.Log(json2);
             Assert.AreEqual(json, json2);
         }
 
-        private static Game CreateLevel()
+        private static PVZEngine.Level CreateLevel()
         {
             var mod = new VanillaMod();
-            var level = new Game(mod);
-            level.Init(AreaID.day, StageID.prologue, new GameOption()
+            var level = new PVZEngine.Level(mod);
+            level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,
                 LeftFaction = 0,

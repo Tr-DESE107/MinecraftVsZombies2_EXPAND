@@ -15,7 +15,7 @@ namespace PVZEngine
         public EntityID(Entity entity) : this(entity?.ID ?? 0)
         {
         }
-        public Entity GetEntity(Game game)
+        public Entity GetEntity(Level game)
         {
             return game.FindEntityByID(ID);
         }

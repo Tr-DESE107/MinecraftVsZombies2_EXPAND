@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.TriggerAnimation("Shoot");
 
-            var game = entity.Game;
+            var game = entity.Level;
             game.PlaySound(ShootSound, entity.Pos);
 
             Vector3 offset = ProjectileOffset;

@@ -10,14 +10,14 @@ namespace PVZEngine
     public sealed class Entity : IBuffTarget
     {
         #region 公有方法
-        internal Entity(Game level, int type, int id, EntityReferenceChain spawnerReference) 
+        internal Entity(Level level, int type, int id, EntityReferenceChain spawnerReference) 
         { 
-            Game = level;
+            Level = level;
             Type = type;
             ID = id;
             SpawnerReference = spawnerReference;
         }
-        public Entity(Game level, int id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
+        public Entity(Level level, int id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
         {
             Definition = definition;
             ModelID = definition.GetModelID();
@@ -65,7 +65,7 @@ namespace PVZEngine
             if (!Removed)
             {
                 Removed = true;
-                Game.RemoveEntity(this);
+                Level.RemoveEntity(this);
                 Definition.PostRemove(this);
                 Callbacks.PostEntityRemove.Run(this);
             }
@@ -213,7 +213,7 @@ namespace PVZEngine
         {
             var entity = info.Entity;
             var shellRef = entity.GetProperty<NamespaceID>(EntityProperties.SHELL);
-            var shell = entity.Game.GetShellDefinition(shellRef);
+            var shell = entity.Level.GetShellDefinition(shellRef);
             if (shell != null)
             {
                 shell.EvaluateDamage(info);
@@ -349,7 +349,7 @@ namespace PVZEngine
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(Game.CreateBuff<T>());
+            AddBuff(Level.CreateBuff<T>());
         }
         public bool RemoveBuff(Buff buff)
         {
@@ -419,7 +419,7 @@ namespace PVZEngine
         #region 相对高度
         public float GetGroundHeight()
         {
-            return Game.GetGroundHeight(Pos.x, Pos.z);
+            return Level.GetGroundHeight(Pos.x, Pos.z);
         }
         public float GetRelativeY()
         {
@@ -491,11 +491,11 @@ namespace PVZEngine
         #region 网格
         public int GetColumn()
         {
-            return Game.GetColumn(Pos.x);
+            return Level.GetColumn(Pos.x);
         }
         public int GetLane()
         {
-            return Game.GetLane(Pos.z);
+            return Level.GetLane(Pos.z);
         }
         public void TakeGrid(LawnGrid grid)
         {
@@ -525,11 +525,11 @@ namespace PVZEngine
         }
         public int GetGridIndex()
         {
-            return Game.GetGridIndex(GetColumn(), GetLane());
+            return Level.GetGridIndex(GetColumn(), GetLane());
         }
         public LawnGrid GetGrid()
         {
-            return Game.GetGrid(GetColumn(), GetLane());
+            return Level.GetGrid(GetColumn(), GetLane());
         }
         #endregion
 
@@ -564,7 +564,7 @@ namespace PVZEngine
         #region 护甲
         public void EquipArmor<T>() where T : ArmorDefinition
         {
-            EquipArmor(new Armor(this, Game.GetArmorDefinition<T>()));
+            EquipArmor(new Armor(this, Level.GetArmorDefinition<T>()));
         }
         public void EquipArmor(ArmorDefinition definition)
         {
@@ -648,7 +648,7 @@ namespace PVZEngine
             seri.takenGrids = takenGrids.ConvertAll(g => g.GetIndex());
             return seri;
         }
-        public static Entity Deserialize(SerializableEntity seri, Game level)
+        public static Entity Deserialize(SerializableEntity seri, Level level)
         {
             Entity entity = CreateDeserializingEntity(seri, level);
             entity.ApplyDeserialize(seri);
@@ -658,11 +658,11 @@ namespace PVZEngine
         {
             RNG = RandomGenerator.Deserialize(seri.rng);
             State = seri.state;
-            Target = Game.FindEntityByID(seri.target);
+            Target = Level.FindEntityByID(seri.target);
 
-            Definition = Game.GetEntityDefinition(seri.definitionID);
+            Definition = Level.GetEntityDefinition(seri.definitionID);
             ModelID = seri.modelID;
-            Parent = Game.FindEntityByID(seri.parent);
+            Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
             Pos = seri.position;
             Velocity = seri.velocity;
@@ -678,14 +678,14 @@ namespace PVZEngine
             IsDead = seri.isDead;
             Health = seri.health;
             isOnGround = seri.isOnGround;
-            propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, Game);
-            buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, Game));
-            collisionThisTick = seri.collisionThisTick.ConvertAll(e => Game.FindEntityByID(e));
-            collisionList = seri.collisionList.ConvertAll(e => Game.FindEntityByID(e));
-            children = seri.children.ConvertAll(e => Game.FindEntityByID(e));
-            takenGrids = seri.takenGrids.ConvertAll(g => Game.GetGrid(g));
+            propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, Level);
+            buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, Level));
+            collisionThisTick = seri.collisionThisTick.ConvertAll(e => Level.FindEntityByID(e));
+            collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
+            children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
+            takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
         }
-        public static Entity CreateDeserializingEntity(SerializableEntity seri, Game level)
+        public static Entity CreateDeserializingEntity(SerializableEntity seri, Level level)
         {
             return new Entity(level, seri.type, seri.id, seri.spawnerReference);
         }
@@ -772,7 +772,7 @@ namespace PVZEngine
         public NamespaceID ModelID { get; private set; }
         public EntityReferenceChain SpawnerReference { get; private set; }
         public Entity Parent { get; private set; }
-        public Game Game { get; private set; }
+        public Level Level { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Pos { get; set; }
         public Vector3 Velocity { get; set; }

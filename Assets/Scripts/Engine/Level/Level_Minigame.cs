@@ -1,6 +1,6 @@
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         /// <summary>
         /// 本关是否需要卡牌。

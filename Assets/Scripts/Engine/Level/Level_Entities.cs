@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         internal void RemoveEntity(Entity entity)
         {

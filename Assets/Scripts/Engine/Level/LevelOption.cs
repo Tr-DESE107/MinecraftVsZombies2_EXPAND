@@ -2,7 +2,7 @@
 
 namespace PVZEngine
 {
-    public class GameOption
+    public class LevelOption
     {
         public int LeftFaction { get; set; }
         public int RightFaction { get; set; }
@@ -11,9 +11,9 @@ namespace PVZEngine
         public int StarshardSlotCount { get; set; }
         public float StartEnergy { get; set; }
         public float MaxEnergy { get; set; }
-        public SerializableGameOption Serialize()
+        public SerializableLevelOption Serialize()
         {
-            return new SerializableGameOption()
+            return new SerializableLevelOption()
             {
                 leftFaction = LeftFaction,
                 rightFaction = RightFaction,
@@ -24,9 +24,9 @@ namespace PVZEngine
                 maxEnergy = MaxEnergy,
             };
         }
-        public static GameOption Deserialize(SerializableGameOption seri)
+        public static LevelOption Deserialize(SerializableLevelOption seri)
         {
-            return new GameOption()
+            return new LevelOption()
             {
                 LeftFaction = seri.leftFaction,
                 RightFaction = seri.rightFaction,

@@ -15,7 +15,7 @@ namespace MVZ2.Vanilla
         }
         public Entity[] DetectMutiple(Entity self)
         {
-            return self.Game.FindEntities(e => Validate(self, e));
+            return self.Level.FindEntities(e => Validate(self, e));
         }
         public bool Validate(Entity self, Entity target)
         {
@@ -32,7 +32,7 @@ namespace MVZ2.Vanilla
         public abstract bool IsInRange(Entity self, Entity target);
         protected bool TargetInLawn(Entity target)
         {
-            return target.Pos.x > MVZ2Game.GetAttackBorderX(false) && target.Pos.x < MVZ2Game.GetAttackBorderX(true);
+            return target.Pos.x > MVZ2Level.GetAttackBorderX(false) && target.Pos.x < MVZ2Level.GetAttackBorderX(true);
         }
         public bool canDetectInvisible;
         public bool ignoreBoss;

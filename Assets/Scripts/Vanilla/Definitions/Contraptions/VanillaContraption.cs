@@ -23,7 +23,7 @@ namespace MVZ2.Vanilla
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetFaction(entity.Game.Option.LeftFaction);
+            entity.SetFaction(entity.Level.Option.LeftFaction);
             var fragment = CreateFragment(entity);
             var fragmentRef = new EntityID(fragment);
             SetFragment(entity, fragmentRef);
@@ -48,7 +48,7 @@ namespace MVZ2.Vanilla
             var fragment = GetOrCreateFragment(entity);
             Fragment.AddEmitSpeed(fragment, 50);
 
-            entity.Game.PlaySound(entity.GetDeathSound(), entity.Pos);
+            entity.Level.PlaySound(entity.GetDeathSound(), entity.Pos);
             entity.Remove();
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
@@ -84,14 +84,14 @@ namespace MVZ2.Vanilla
         }
         private Entity CreateFragment(Entity entity)
         {
-            var fragment = entity.Game.Spawn<Fragment>(entity.Pos, entity);
+            var fragment = entity.Level.Spawn<Fragment>(entity.Pos, entity);
             fragment.SetParent(entity);
             return fragment;
         }
         private Entity GetOrCreateFragment(Entity entity)
         {
             var fragmentRef = GetFragment(entity);
-            var fragment = fragmentRef?.GetEntity(entity.Game);
+            var fragment = fragmentRef?.GetEntity(entity.Level);
             if (fragment == null || !fragment.Exists())
             {
                 fragment = CreateFragment(entity);

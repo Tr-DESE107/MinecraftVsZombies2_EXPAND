@@ -15,7 +15,7 @@ namespace PVZEngine.Serialization
             entityID = armor.Owner.ID;
             isArmor = true;
         }
-        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(Game level)
+        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(Level level)
         {
             var entity = level.FindEntityByID(entityID);
             if (isArmor)

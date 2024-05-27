@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         public void ShakeScreen(float startAmplitude, float endAmplitude, int time)
         {

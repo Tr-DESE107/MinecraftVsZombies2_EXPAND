@@ -12,6 +12,6 @@ namespace PVZEngine
     }
     public interface ISerializeBuffTarget
     {
-        IBuffTarget DeserializeBuffTarget(Game level);
+        IBuffTarget DeserializeBuffTarget(Level level);
     }
 }

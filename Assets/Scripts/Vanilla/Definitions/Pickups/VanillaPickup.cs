@@ -23,7 +23,7 @@ namespace MVZ2.Vanilla
             if (!pickup.IsCollected())
             {
                 LimitPosition(pickup);
-                if (pickup.Game.IsAutoCollect() && pickup.CanAutoCollect() && pickup.GetRelativeY() <= 0)
+                if (pickup.Level.IsAutoCollect() && pickup.CanAutoCollect() && pickup.GetRelativeY() <= 0)
                 {
                     pickup.Collect();
                 }
@@ -44,7 +44,7 @@ namespace MVZ2.Vanilla
         private void LimitPosition(Entity entity)
         {
             Vector3 pos = entity.Pos;
-            pos.x = Mathf.Clamp(pos.x, MVZ2Game.GetPickupBorderX(false), MVZ2Game.GetPickupBorderX(true));
+            pos.x = Mathf.Clamp(pos.x, MVZ2Level.GetPickupBorderX(false), MVZ2Level.GetPickupBorderX(true));
             entity.Pos = pos;
         }
         public virtual void PostCollect(Entity pickup)

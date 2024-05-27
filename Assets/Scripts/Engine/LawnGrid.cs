@@ -7,7 +7,7 @@ namespace PVZEngine
     public class LawnGrid
     {
         #region 公有事件
-        public LawnGrid(Game level, GridDefinition definition, int lane, int column)
+        public LawnGrid(Level level, GridDefinition definition, int lane, int column)
         {
             Level = level;
             Lane = lane;
@@ -56,7 +56,7 @@ namespace PVZEngine
                 takenEntities = takenEntities.ConvertAll(e => e.ID)
             };
         }
-        public static LawnGrid Deserialize(SerializableGrid seri, Game level)
+        public static LawnGrid Deserialize(SerializableGrid seri, Level level)
         {
             var definition = level.GetGridDefinition(seri.definitionID);
             var grid = new LawnGrid(level, definition, seri.lane, seri.column);
@@ -65,7 +65,7 @@ namespace PVZEngine
         #endregion 方法
 
         #region 属性
-        public Game Level { get; private set; }
+        public Level Level { get; private set; }
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }

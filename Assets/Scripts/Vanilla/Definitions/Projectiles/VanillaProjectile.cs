@@ -22,7 +22,7 @@ namespace MVZ2.Vanilla
             base.Init(entity);
             entity.SetShadowScale(new Vector3(0.5f, 0.5f, 1));
             entity.Timeout = entity.GetMaxTimeout();
-            entity.CollisionMask = EntityCollision.MASK_CONTRAPTION
+            entity.CollisionMask = EntityCollision.MASK_PLANT
                 | EntityCollision.MASK_ENEMY
                 | EntityCollision.MASK_OBSTACLE
                 | EntityCollision.MASK_BOSS
@@ -54,7 +54,7 @@ namespace MVZ2.Vanilla
             else
             {
                 UnitExit(entity, other);
-                var spawner = entity.SpawnerReference?.GetEntity(entity.Game);
+                var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
                 if (other == spawner)
                 {
                     entity.SetCanHitSpawner(true);
@@ -83,7 +83,7 @@ namespace MVZ2.Vanilla
         private void UnitCollide(Entity entity, Entity other)
         {
             // 是否可以击中发射者。
-            var spawner = entity.SpawnerReference?.GetEntity(entity.Game);
+            var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
             if (other == spawner && !entity.CanHitSpawner())
                 return;
 

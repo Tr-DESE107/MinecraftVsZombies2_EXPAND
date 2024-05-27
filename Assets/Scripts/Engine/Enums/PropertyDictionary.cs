@@ -71,7 +71,7 @@ namespace PVZEngine
                 propertyDict = propertyDict.ToDictionary(p => p.Key, p => p.Value)
             };
         }
-        public static PropertyDictionary Deserialize(SerializablePropertyDictionary seri, Game level)
+        public static PropertyDictionary Deserialize(SerializablePropertyDictionary seri, Level level)
         {
             return new PropertyDictionary()
             {

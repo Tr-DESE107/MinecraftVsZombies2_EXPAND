@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using log4net.Core;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using PVZEngine;
@@ -19,16 +18,14 @@ namespace MVZ2.GameContent.Stages
             SetProperty(StageProperties.TOTAL_FLAGS, totalFlags);
             this.spawnEntries = spawnEntries;
         }
-        public override void Start(Game level)
+        public override void Start(Level level)
         {
             var time = level.CurrentFlag > 0 ? level.GetContinutedFirstWaveTime() : level.GetFirstWaveTime();
             var waveTimer = new FrameTimer(time);
             SetWaveTimer(level, waveTimer);
         }
-        public override void Update(Game level)
+        public override void Update(Level level)
         {
-            if (level.CurrentWave >= level.GetTotalWaveCount())
-                return;
             switch (level.WaveState)
             {
                 case STATE_NOT_STARTED:
@@ -40,26 +37,29 @@ namespace MVZ2.GameContent.Stages
                 case STATE_HUGE_WAVE_APPROACHING:
                     HugeWaveApproachingUpdate(level);
                     break;
+                case STATE_FINAL_WAVE:
+                    FinalWaveUpdate(level);
+                    break;
             }
         }
 
         public override void PostEnemySpawned(Entity entity)
         {
             base.PostEnemySpawned(entity);
-            AddWaveMaxHealth(entity.Game, entity.GetMaxHealth() + (entity.EquipedArmor?.GetMaxHealth() ?? 0));
+            AddWaveMaxHealth(entity.Level, entity.GetMaxHealth() + (entity.EquipedArmor?.GetMaxHealth() ?? 0));
         }
 
-        public float CountAliveEnemies(Game level)
+        public float CountAliveEnemies(Level level)
         {
             return level.FindEntities(e => IsAliveEnemy(e)).Length;
         }
-        public bool CheckEnemiesRemainedHealth(Game level)
+        public bool CheckEnemiesRemainedHealth(Level level)
         {
             var enemies = level.FindEntities(e => IsAliveEnemy(e));
             var health = enemies.Sum(e => e.Health + (e.EquipedArmor?.Health ?? 0));
             return health <= GetWaveAdvanceHealthPercent(level) * GetWaveMaxHealth(level);
         }
-        public void CreatePreviewEnemies(Game level, IList<NamespaceID> validEnemies, Rect region)
+        public void CreatePreviewEnemies(Level level, IList<NamespaceID> validEnemies, Rect region)
         {
             List<Entity> createdEnemies = new List<Entity>();
 
@@ -116,16 +116,16 @@ namespace MVZ2.GameContent.Stages
         {
             return spawnEntries;
         }
-        public FrameTimer GetWaveTimer(Game level) => level.GetProperty<FrameTimer>("WaveTimer");
-        public void SetWaveTimer(Game level, FrameTimer value) => level.SetProperty("WaveTimer", value);
-        public int GetWaveMaxTime(Game level) => level.GetProperty<int>(StageProps.WAVE_MAX_TIME);
-        public int GetWaveAdvanceTime(Game level) => level.GetProperty<int>(StageProps.WAVE_ADVANCE_TIME);
+        public FrameTimer GetWaveTimer(Level level) => level.GetProperty<FrameTimer>("WaveTimer");
+        public void SetWaveTimer(Level level, FrameTimer value) => level.SetProperty("WaveTimer", value);
+        public int GetWaveMaxTime(Level level) => level.GetProperty<int>(StageProps.WAVE_MAX_TIME);
+        public int GetWaveAdvanceTime(Level level) => level.GetProperty<int>(StageProps.WAVE_ADVANCE_TIME);
 
-        public float GetWaveMaxHealth(Game level) => level.GetProperty<float>("WaveMaxHealth");
-        public void SetWaveMaxHealth(Game level, float value) => level.SetProperty("WaveMaxHealth", value);
-        public void AddWaveMaxHealth(Game level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
-        public float GetWaveAdvanceHealthPercent(Game level) => level.GetProperty<float>(StageProps.WAVE_ADVANCE_HEALTH_PERCENT);
-        protected virtual void NotStartedUpdate(Game level)
+        public float GetWaveMaxHealth(Level level) => level.GetProperty<float>("WaveMaxHealth");
+        public void SetWaveMaxHealth(Level level, float value) => level.SetProperty("WaveMaxHealth", value);
+        public void AddWaveMaxHealth(Level level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
+        public float GetWaveAdvanceHealthPercent(Level level) => level.GetProperty<float>(StageProps.WAVE_ADVANCE_HEALTH_PERCENT);
+        protected virtual void NotStartedUpdate(Level level)
         {
             var waveTimer = GetWaveTimer(level);
             waveTimer.Run();
@@ -137,7 +137,7 @@ namespace MVZ2.GameContent.Stages
                 NextWaveOrHugeWave(level);
             }
         }
-        protected virtual void StartedUpdate(Game level)
+        protected virtual void StartedUpdate(Level level)
         {
             var waveTimer = GetWaveTimer(level);
             waveTimer.Run();
@@ -156,7 +156,7 @@ namespace MVZ2.GameContent.Stages
                 NextWaveOrHugeWave(level);
             }
         }
-        protected virtual void HugeWaveApproachingUpdate(Game level)
+        protected virtual void HugeWaveApproachingUpdate(Level level)
         {
             var waveTimer = GetWaveTimer(level);
             waveTimer.Run();
@@ -168,11 +168,44 @@ namespace MVZ2.GameContent.Stages
                 level.RunHugeWaveEvent();
             }
         }
+        protected virtual void FinalWaveUpdate(Level level)
+        {
+            var waveTimer = GetWaveTimer(level);
+            waveTimer.Run();
+            if (waveTimer.Expired)
+            {
+                level.SetNoProduction(true);
+            }
+
+            var lastEnemy = level.FindEntities(e => IsAliveEnemy(e)).FirstOrDefault();
+            if (lastEnemy != null)
+            {
+                level.SetLastEnemy(new EntityID(lastEnemy));
+            }
+            else
+            {
+                level.SetNoProduction(true);
+                var recorded = level.GetLastEnemy();
+                var enemy = recorded?.GetEntity(level);
+                Vector3 position;
+                if (enemy == null)
+                {
+                    var x = level.GetProperty<float>(AreaProperties.ENEMY_SPAWN_X);
+                    var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
+                    var y = level.GetGroundHeight(x, z);
+                    position = new Vector3(x, y, z);
+                }
+                else
+                {
+                    position = enemy.Pos;
+                }
+            }
+        }
         private bool IsAliveEnemy(Entity entity)
         {
-            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(EnemyProps.HARMLESS) && entity.IsEnemy(entity.Game.Option.LeftFaction);
+            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(EnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
         }
-        private void NextWaveOrHugeWave(Game level)
+        private void NextWaveOrHugeWave(Level level)
         {
             if (level.IsHugeWave(level.CurrentWave + 1))
             {
@@ -181,7 +214,7 @@ namespace MVZ2.GameContent.Stages
             }
             NextWave(level);
         }
-        private void TriggerHugeWaveApproaching(Game level)
+        private void TriggerHugeWaveApproaching(Level level)
         {
             level.WaveState = STATE_HUGE_WAVE_APPROACHING;
             var waveTimer = GetWaveTimer(level);
@@ -189,7 +222,7 @@ namespace MVZ2.GameContent.Stages
             waveTimer.Reset();
             level.PlaySound(SoundID.hugeWave);
         }
-        private void NextWave(Game level)
+        private void NextWave(Level level)
         {
             var waveTimer = GetWaveTimer(level);
             SetWaveMaxHealth(level, 0);
@@ -199,11 +232,13 @@ namespace MVZ2.GameContent.Stages
             if (level.IsFinalWave(level.CurrentWave))
             {
                 level.PlaySound(SoundID.finalWave);
+                level.WaveState = STATE_FINAL_WAVE;
             }
         }
         public const int STATE_NOT_STARTED = 0;
         public const int STATE_STARTED = 1;
         public const int STATE_HUGE_WAVE_APPROACHING = 2;
+        public const int STATE_FINAL_WAVE = 3;
         private EnemySpawnEntry[] spawnEntries;
 
     }
@@ -218,12 +253,12 @@ namespace MVZ2.GameContent.Stages
             this.earliestFlag = earliestFlag;
         }
 
-        public bool CanSpawn(Game game)
+        public bool CanSpawn(Level game)
         {
             return game.CurrentFlag >= earliestFlag;
         }
 
-        public SpawnDefinition GetSpawnDefinition(Game game)
+        public SpawnDefinition GetSpawnDefinition(Level game)
         {
             return game.GetSpawnDefinition(spawnRef);
         }

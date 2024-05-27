@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1)
         {

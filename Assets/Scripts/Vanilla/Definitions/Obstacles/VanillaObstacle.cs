@@ -13,7 +13,7 @@ namespace MVZ2.Vanilla
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetFaction(entity.Game.Option.RightFaction);
+            entity.SetFaction(entity.Level.Option.RightFaction);
         }
         public override int Type => EntityTypes.OBSTACLE;
     }

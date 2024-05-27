@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         #region 公有方法
         public void SetSeedPacks(NamespaceID[] seedIDs)

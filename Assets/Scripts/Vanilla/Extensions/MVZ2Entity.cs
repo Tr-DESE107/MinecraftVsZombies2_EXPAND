@@ -39,7 +39,7 @@ namespace MVZ2.Vanilla
         {
             if (entity.Definition is not IChangeLaneEntity changeLane)
                 return;
-            if (target < 0 || target >= entity.Game.GetMaxLaneCount())
+            if (target < 0 || target >= entity.Level.GetMaxLaneCount())
                 return;
             changeLane.SetChangeLaneTarget(entity, target);
             changeLane.SetChangeLaneSource(entity, entity.GetLane());
@@ -59,7 +59,7 @@ namespace MVZ2.Vanilla
         {
             if (entity == null || shell == null)
                 return;
-            var level = entity.Game;
+            var level = entity.Level;
             var blocksFire = shell.GetProperty<bool>(ShellProps.BLOCKS_FIRE);
             var hitSound = shell.GetProperty<NamespaceID>(ShellProps.HIT_SOUND);
             if (damageEffects.HasEffect(DamageEffects.FIRE) && !blocksFire)

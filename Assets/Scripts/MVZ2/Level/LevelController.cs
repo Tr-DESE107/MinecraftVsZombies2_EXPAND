@@ -24,7 +24,7 @@ namespace MVZ2.Level
         public void StartGame()
         {
             var vanilla = new Vanilla.VanillaMod();
-            var option = new GameOption()
+            var option = new LevelOption()
             {
                 CardSlotCount = 10,
                 StarshardSlotCount = 10,
@@ -34,7 +34,7 @@ namespace MVZ2.Level
                 MaxEnergy = 9990,
                 TPS = 30
             };
-            level = new Game(vanilla);
+            level = new PVZEngine.Level(vanilla);
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
@@ -55,7 +55,7 @@ namespace MVZ2.Level
 
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
             level.ResetHeldItem();
-            level.Start(GameDifficulty.Normal);
+            level.Start(LevelDifficulty.Normal);
 
             bannerProgresses = new float[level.GetTotalFlags()];
 
@@ -579,6 +579,15 @@ namespace MVZ2.Level
         }
         private void InputUpdate()
         {
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(SelfFaction) && !e.IsDead))
+                {
+                    enemy.Die();
+                }
+            }
+#endif
             if (Input.GetMouseButtonDown(1))
             {
                 if (CancelHeldItem())
@@ -611,7 +620,7 @@ namespace MVZ2.Level
         public MainManager MainManager => main;
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
-        private Game level;
+        private PVZEngine.Level level;
         private MainManager main;
         private bool isGameStarted;
         private int heldItemType;

@@ -107,7 +107,7 @@ namespace PVZEngine
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(Owner.Game.CreateBuff<T>());
+            AddBuff(Owner.Level.CreateBuff<T>());
         }
         public bool RemoveBuff(Buff buff)
         {
@@ -159,7 +159,7 @@ namespace PVZEngine
             if (!Exists(armor))
                 return null;
             var shellRef = armor.GetProperty<NamespaceID>(ArmorProperties.SHELL);
-            var shell = entity.Game.GetShellDefinition(shellRef);
+            var shell = entity.Level.GetShellDefinition(shellRef);
             if (shell != null)
             {
                 shell.EvaluateDamage(info);
@@ -205,13 +205,13 @@ namespace PVZEngine
         }
         public static Armor Deserialize(SerializableArmor seri, Entity owner)
         {
-            var definition = owner.Game.GetArmorDefinition(seri.definitionID);
+            var definition = owner.Level.GetArmorDefinition(seri.definitionID);
             var armor = new Armor();
             armor.Owner = owner;
             armor.Definition = definition;
             armor.Health = seri.health;
-            armor.buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, owner.Game));
-            armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, owner.Game);
+            armor.buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, owner.Level));
+            armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict, owner.Level);
             return armor;
         }
 

@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using MVZ2.GameContent;
+using MVZ2.GameContent.Stages;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
-    public static class MVZ2Game
+    public static class MVZ2Level
     {
         public static Vector2 GetEnergySlotEntityPosition()
         {
@@ -21,7 +22,7 @@ namespace MVZ2.Vanilla
         {
             return right ? RIGHT_BORDER : LEFT_BORDER;
         }
-        public static void SpawnCarts(this Game game, float x)
+        public static void SpawnCarts(this Level game, float x)
         {
             var cartRef = game.AreaDefinition.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
 
@@ -32,6 +33,26 @@ namespace MVZ2.Vanilla
                     continue;
                 Entity cart = game.Spawn(cartRef, new Vector3(x - i * 10, 0, game.GetEntityLaneZ(i)), null);
             }
+        }
+        public static bool IsAutoCollect(this Level game)
+        {
+            return game.GetProperty<bool>(StageProps.AUTO_COLLECT);
+        }
+        public static bool IsNoProduction(this Level game)
+        {
+            return game.GetProperty<bool>(StageProps.NO_PRODUCTION);
+        }
+        public static void SetNoProduction(this Level game, bool value)
+        {
+            game.SetProperty(StageProps.NO_PRODUCTION, value);
+        }
+        public static EntityID GetLastEnemy(this Level game)
+        {
+            return game.GetProperty<EntityID>(LevelProps.LAST_ENEMY);
+        }
+        public static void SetLastEnemy(this Level game, EntityID value)
+        {
+            game.SetProperty(LevelProps.LAST_ENEMY, value);
         }
         private static float GetHalloweenGroundHeight(float x)
         {

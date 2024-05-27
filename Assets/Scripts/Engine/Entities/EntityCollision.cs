@@ -2,7 +2,7 @@
 {
     public static class EntityCollision
     {
-        public const int MASK_CONTRAPTION = 1 << 0;
+        public const int MASK_PLANT = 1 << 0;
         public const int MASK_ENEMY = 1 << 1;
         public const int MASK_OBSTACLE = 1 << 2;
         public const int MASK_BOSS = 1 << 3;
@@ -34,7 +34,7 @@
             switch (other.Type)
             {
                 case EntityTypes.PLANT:
-                    typeMask = MASK_CONTRAPTION;
+                    typeMask = MASK_PLANT;
                     break;
                 case EntityTypes.ENEMY:
                     typeMask = MASK_ENEMY;

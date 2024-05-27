@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Carts
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetFaction(entity.Game.Option.LeftFaction);
+            entity.SetFaction(entity.Level.Option.LeftFaction);
         }
 
         public override void Update(Entity entity)
@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Carts
             switch (entity.State)
             {
                 default:
-                    bool triggered = entity.Game.GetEntities(EntityTypes.ENEMY)
+                    bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
                         .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Pos.x <= entity.Pos.x + TRIGGER_DISTANCE);
                     if (triggered)
                     {
@@ -30,13 +30,13 @@ namespace MVZ2.GameContent.Carts
                     break;
                 case EntityStates.CART_TRIGGERED:
                     // 获取所有接触到的僵尸。
-                    foreach (Entity ent in entity.Game.GetEntities().Where(e => entity.CanCartCrush(e)))
+                    foreach (Entity ent in entity.Level.GetEntities().Where(e => entity.CanCartCrush(e)))
                     {
                         // 碰到小车的僵尸受到伤害。
                         ent.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY), new EntityReferenceChain(entity));
                     }
                     // 如果超出屏幕，消失。
-                    if (entity.GetBounds().min.x >= MVZ2Game.GetBorderX(true))
+                    if (entity.GetBounds().min.x >= MVZ2Level.GetBorderX(true))
                     {
                         entity.Remove();
                     }

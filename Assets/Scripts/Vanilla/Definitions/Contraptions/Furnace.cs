@@ -66,6 +66,10 @@ namespace MVZ2.GameContent.Contraptions
         {
             var productionTimer = GetProductionTimer(entity);
             productionTimer.Run(entity.GetAttackSpeed());
+            if (entity.Level.IsNoProduction())
+            {
+                productionTimer.Frame = productionTimer.MaxFrame;
+            }
 
             var buffs = entity.GetBuffs<ProductionColorBuff>();
             foreach (var buff in buffs)

@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         #region 公有方法
-        public Game(params Mod[] mods)
+        public Level(params Mod[] mods)
         {
             foreach (var mod in mods)
             {
@@ -18,7 +18,7 @@ namespace PVZEngine
         }
 
         #region 生命周期
-        public void Init(NamespaceID areaId, NamespaceID stageId, GameOption option, int seed = 0)
+        public void Init(NamespaceID areaId, NamespaceID stageId, LevelOption option, int seed = 0)
         {
             Seed = seed == 0 ? Guid.NewGuid().GetHashCode() : seed;
 
@@ -76,17 +76,6 @@ namespace PVZEngine
             }
             StageDefinition.Update(this);
             Callbacks.PostLevelUpdate.Run(this);
-        }
-        #endregion
-
-        #region 原版属性
-        public bool IsAutoCollect()
-        {
-            return GetProperty<bool>(GameProperties.AUTO_COLLECT);
-        }
-        public bool IsNoProduction()
-        {
-            return GetProperty<bool>(GameProperties.NO_PRODUCTION);
         }
         #endregion
 
@@ -279,9 +268,9 @@ namespace PVZEngine
                 spawnedID = spawnedID,
             };
         }
-        public static Game Deserialize(SerializableLevel seri, Mod[] mods)
+        public static Level Deserialize(SerializableLevel seri, Mod[] mods)
         {
-            var game = new Game(mods);
+            var game = new Level(mods);
             game.Seed = seri.seed;
             game.IsCleared = seri.isCleared;
             game.StageDefinition = game.GetStageDefinition(seri.stageDefinitionID);
@@ -290,7 +279,7 @@ namespace PVZEngine
 
             game.IsEndless = seri.isEndless;
             game.Difficulty = seri.difficulty;
-            game.Option = GameOption.Deserialize(seri.Option);
+            game.Option = LevelOption.Deserialize(seri.Option);
             game.entities = seri.entities.ConvertAll(e => Entity.CreateDeserializingEntity(e, game));
             for (int i = 0; i < game.entities.Count; i++)
             {
@@ -357,7 +346,7 @@ namespace PVZEngine
         public bool IsRerun { get; set; }
         public int Difficulty { get; set; }
         public int TPS => Option.TPS;
-        public GameOption Option { get; private set; }
+        public LevelOption Option { get; private set; }
         private RandomGenerator levelRandom;
 
         private RandomGenerator entityRandom;

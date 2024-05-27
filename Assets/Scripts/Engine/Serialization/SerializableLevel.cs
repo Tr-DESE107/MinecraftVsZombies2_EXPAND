@@ -22,7 +22,7 @@ namespace PVZEngine.Serialization
         public NamespaceID areaDefinitionID;
         public bool isEndless;
         public int difficulty;
-        public SerializableGameOption Option;
+        public SerializableLevelOption Option;
         public SerializableRNG levelRandom;
         public SerializableRNG entityRandom;
         public SerializableRNG effectRandom;

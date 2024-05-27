@@ -1,6 +1,6 @@
 ﻿namespace PVZEngine.Serialization
 {
-    public class SerializableGameOption
+    public class SerializableLevelOption
     {
         public int leftFaction;
         public int rightFaction;

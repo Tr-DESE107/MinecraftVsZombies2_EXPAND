@@ -26,7 +26,7 @@ namespace PVZEngine
                 spawnerReference = SpawnerReference?.Clone()
             };
         }
-        public Entity GetEntity(Game game)
+        public Entity GetEntity(Level game)
         {
             return game.FindEntityByID(ID);
         }

@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (!entity.Game.IsNoProduction())
+            if (!entity.Level.IsNoProduction())
             {
                 var timer = GetProductTimer(entity);
                 timer.Run();

@@ -51,7 +51,7 @@ namespace PVZEngine
                 propertyDict = propertyDict.Serialize()
             };
         }
-        public static Buff Deserialize(SerializableBuff seri, Game level)
+        public static Buff Deserialize(SerializableBuff seri, Level level)
         {
             var definition = level.GetBuffDefinition(seri.definitionID);
             var buff = new Buff(definition);

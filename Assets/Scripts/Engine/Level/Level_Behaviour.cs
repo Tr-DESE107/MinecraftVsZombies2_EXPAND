@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         public void NextWave()
         {
@@ -152,7 +152,7 @@ namespace PVZEngine
     }
     public interface IEnemySpawnEntry
     {
-        bool CanSpawn(Game game);
-        SpawnDefinition GetSpawnDefinition(Game game);
+        bool CanSpawn(Level game);
+        SpawnDefinition GetSpawnDefinition(Level game);
     }
 }

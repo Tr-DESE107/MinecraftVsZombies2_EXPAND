@@ -37,8 +37,8 @@ namespace MVZ2.Vanilla
         {
             base.PostDestroyArmor(entity, armor, damage);
             entity.RemoveArmor();
-            var effect = entity.Game.Spawn<BrokenArmor>(GetArmorPosition(entity), entity);
-            var sourcePosition = damage?.Source?.GetEntity(entity.Game)?.Pos;
+            var effect = entity.Level.Spawn<BrokenArmor>(GetArmorPosition(entity), entity);
+            var sourcePosition = damage?.Source?.GetEntity(entity.Level)?.Pos;
             var moveDirection = entity.IsFacingLeft() ? Vector3.right : Vector3.left;
             if (sourcePosition.HasValue)
             {
@@ -100,7 +100,7 @@ namespace MVZ2.Vanilla
         }
         protected virtual IEnumerable<LawnGrid> GetGridsToTake(Entity entity)
         {
-            yield return entity.Game.GetGrid(entity.GetColumn(), entity.GetLane());
+            yield return entity.Level.GetGrid(entity.GetColumn(), entity.GetLane());
         }
         #endregion
 

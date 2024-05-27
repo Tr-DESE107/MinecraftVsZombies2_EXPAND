@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         public void SetEnergy(float value)
         {

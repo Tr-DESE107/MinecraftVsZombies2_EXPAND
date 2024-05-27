@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PVZEngine
 {
-    public partial class Game
+    public partial class Level
     {
         public EntityDefinition GetEntityDefinition(NamespaceID defRef)
         {

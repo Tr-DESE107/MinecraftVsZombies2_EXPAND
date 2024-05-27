@@ -13,7 +13,7 @@ namespace MVZ2.GameContent
         public override void Update(Entity pickup)
         {
             base.Update(pickup);
-            var level = pickup.Game;
+            var level = pickup.Level;
             float alpha = 1;
             float shadowAlpha = 1;
             if (pickup.IsCollected())
@@ -65,8 +65,8 @@ namespace MVZ2.GameContent
             pickup.Velocity = Vector3.zero;
             float value = ENERGY_VALUE;
 
-            var game = pickup.Game;
-            if (game.Difficulty == GameDifficulty.Easy)
+            var game = pickup.Level;
+            if (game.Difficulty == LevelDifficulty.Easy)
             {
                 value += 25;
             }
@@ -77,8 +77,8 @@ namespace MVZ2.GameContent
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
-            var game = entity.Game;
-            Vector3 slotPosition = MVZ2Game.GetEnergySlotEntityPosition();
+            var game = entity.Level;
+            Vector3 slotPosition = MVZ2Level.GetEnergySlotEntityPosition();
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
         public static void Disappear(Entity pickup)
