@@ -61,7 +61,7 @@ namespace MVZ2
         {
             var paths = meta.resources.Select(r => r.path).Distinct();
             var objects = await LoadResourceGroup<GameObject>(nsp, locator, meta.root, paths.ToArray());
-            return objects.ToDictionary(p => p.Key, p => p.Value.GetComponent<Model>());
+            return objects.ToDictionary(p => p.Key, p => p.Value ? p.Value.GetComponent<Model>() : null);
         }
         #endregion
 

@@ -53,6 +53,8 @@ namespace MVZ2.Level
             });
             level.Init(AreaID.day, StageID.prologue, option);
 
+            var cartRef = level.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
+            level.SpawnCarts(cartRef, MVZ2Level.CART_START_X, 20);
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
             level.ResetHeldItem();
             level.Start(LevelDifficulty.Normal);
@@ -139,7 +141,13 @@ namespace MVZ2.Level
         private void FixedUpdate()
         {
             if (!isGameStarted || isPaused)
+            {
+                foreach (var entity in entities.Where(e => e.Entity.Type == EntityTypes.CART && e.Entity.State == EntityStates.IDLE).ToArray())
+                {
+                    entity.UpdateLogic(Time.fixedDeltaTime, 1);
+                }
                 return;
+            }
 
             var gameSpeed = GetGameSpeed();
             var times = (int)gameSpeed;

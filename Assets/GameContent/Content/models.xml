@@ -12,6 +12,9 @@
     <model name="iron_helmetted_zombie" type="entity" path="Enemies/IronHelmettedZombie" width="64" height="96" xOffset="10" yOffset="8"/>
     <model name="flag_zombie" type="entity" path="Enemies/FlagZombie" width="64" height="96" xOffset="10" yOffset="8"/>
 
+    <!-- Carts -->
+    <model name="minecart" type="entity" path="Carts/Minecart" width="64" height="64" xOffset="0" yOffset="4"/>
+
     <!-- Pickups -->
     <model name="redstone" type="entity" path="Pickups/Redstone" width="64" height="64" xOffset="0" yOffset="4"/>
     

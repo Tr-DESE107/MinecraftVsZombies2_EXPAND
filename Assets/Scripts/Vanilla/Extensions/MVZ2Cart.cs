@@ -23,23 +23,27 @@ namespace MVZ2.Vanilla
 
         //    Remove();
         //}
-
-        public static bool CanCartCrush(this Entity entity, Entity target)
+        public static NamespaceID GetCartTriggerSound(this Entity entity)
         {
-            if (entity == null)
+            return entity.GetProperty<NamespaceID>(CartProps.CART_TRIGGER_SOUND);
+        }
+        public static bool CanCartCrush(this Entity cart, Entity target)
+        {
+            if (cart == null)
                 return false;
-            var bounds = entity.GetBounds();
+            var bounds = cart.GetBounds();
             return target.Type != EntityTypes.BOSS &&
-                entity.IsEnemy(target) &&
+                cart.IsEnemy(target) &&
                 target.IsActiveEntity() &&
-                entity.GetLane() == target.GetLane() &&
+                cart.GetLane() == target.GetLane() &&
                 target.Pos.x >= bounds.min.x &&
                 target.Pos.x <= bounds.max.x;
         }
         public static void TriggerCart(this Entity entity)
         {
             entity.State = EntityStates.CART_TRIGGERED;
-            entity.Velocity = Vector3.right * 2;
+            entity.Velocity = Vector3.right * 10;
+            entity.Level.PlaySound(entity.GetCartTriggerSound(), entity.Pos);
         }
     }
 }

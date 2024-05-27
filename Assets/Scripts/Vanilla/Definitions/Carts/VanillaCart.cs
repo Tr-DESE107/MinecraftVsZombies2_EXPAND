@@ -1,6 +1,7 @@
 using System.Linq;
 using MVZ2.Vanilla;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Carts
 {
@@ -8,6 +9,8 @@ namespace MVZ2.GameContent.Carts
     {
         protected VanillaCart(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(CartProps.CART_TRIGGER_SOUND, SoundID.minecart);
+            SetProperty(EntityProperties.SIZE, new Vector3(56, 32, 56));
         }
         public override void Init(Entity entity)
         {
@@ -21,6 +24,21 @@ namespace MVZ2.GameContent.Carts
             switch (entity.State)
             {
                 default:
+                    if (entity.Pos.x < MVZ2Level.CART_TARGET_X)
+                    {
+                        var alpha = Mathf.Lerp(0, 1, (entity.Pos.x - MVZ2Level.CART_START_X) / (MVZ2Level.CART_TARGET_X - MVZ2Level.CART_START_X));
+                        var tint = entity.GetTint();
+                        tint = new Color(1, 1, 1, alpha);
+                        entity.SetTint(tint);
+                        entity.Velocity = Vector3.right * 10;
+                    }
+                    else
+                    {
+                        var pos = entity.Pos;
+                        pos.x = MVZ2Level.CART_TARGET_X;
+                        entity.Pos = pos;
+                        entity.Velocity = Vector3.zero;
+                    }
                     bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
                         .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Pos.x <= entity.Pos.x + TRIGGER_DISTANCE);
                     if (triggered)
@@ -29,11 +47,12 @@ namespace MVZ2.GameContent.Carts
                     }
                     break;
                 case EntityStates.CART_TRIGGERED:
+                    entity.Velocity = Vector3.right * 10;
                     // 获取所有接触到的僵尸。
-                    foreach (Entity ent in entity.Level.GetEntities().Where(e => entity.CanCartCrush(e)))
+                    foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
                     {
                         // 碰到小车的僵尸受到伤害。
-                        ent.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY), new EntityReferenceChain(entity));
+                        ent.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY, DamageEffects.MUTE), new EntityReferenceChain(entity));
                     }
                     // 如果超出屏幕，消失。
                     if (entity.GetBounds().min.x >= MVZ2Level.GetBorderX(true))

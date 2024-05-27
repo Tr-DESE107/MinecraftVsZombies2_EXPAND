@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Areas
             SetProperty(AreaProperties.GRID_BOTTOM_Z, 80);
             SetProperty(AreaProperties.MAX_LANE_COUNT, 5);
             SetProperty(AreaProperties.MAX_COLUMN_COUNT, 9);
+            SetProperty(AreaProperties.CART_REFERENCE, CartID.minecart);
             for (int i = 0; i < 45; i++)
             {
                 grids.Add(GridID.grass);

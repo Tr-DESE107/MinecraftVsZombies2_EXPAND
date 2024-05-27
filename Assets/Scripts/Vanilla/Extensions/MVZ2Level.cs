@@ -22,16 +22,14 @@ namespace MVZ2.Vanilla
         {
             return right ? RIGHT_BORDER : LEFT_BORDER;
         }
-        public static void SpawnCarts(this Level game, float x)
+        public static void SpawnCarts(this Level game, NamespaceID cartRef, float x, float xInterval)
         {
-            var cartRef = game.AreaDefinition.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
-
             var carts = game.GetEntities(EntityTypes.CART);
             for (int i = 0; i < game.GetMaxLaneCount(); i++)
             {
-                if (carts.Any(c => c.GetLane() == i && c.State != EntityStates.CART_TRIGGERED))
+                if (carts.Any(c => c.GetLane() == i && c.State == EntityStates.IDLE))
                     continue;
-                Entity cart = game.Spawn(cartRef, new Vector3(x - i * 10, 0, game.GetEntityLaneZ(i)), null);
+                Entity cart = game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }
         }
         public static bool IsAutoCollect(this Level game)
@@ -110,6 +108,7 @@ namespace MVZ2.Vanilla
         public const float LAWN_HEIGHT = 600;
         public const float LEVEL_WIDTH = 1400;
         public const float CART_START_X = 150;
+        public const float CART_TARGET_X = LEFT_BORDER;
         public const float SCREEN_WIDTH = 800;
         public const float SCREEN_HEIGHT = 600;
         public const float LEFT_BORDER = 220;
