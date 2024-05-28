@@ -6,6 +6,7 @@
         public const string PLACE_SOUND = "placeSound";
         public const string MAX_TIMEOUT = "maxTimeout";
 
+        public const string CHANGING_LANE = "isChangingLane";
         public const string CHANGE_LANE_SPEED = "changeLaneSpeed";
         public const string CHANGE_LANE_TARGET = "changeLaneTarget";
         public const string CHANGE_LANE_SOURCE = "changeLaneSource";

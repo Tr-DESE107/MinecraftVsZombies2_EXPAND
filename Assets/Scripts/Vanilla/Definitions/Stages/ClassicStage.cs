@@ -192,7 +192,7 @@ namespace MVZ2.GameContent.Stages
                 {
                     var x = level.GetProperty<float>(AreaProperties.ENEMY_SPAWN_X);
                     var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
-                    var y = level.GetGroundHeight(x, z);
+                    var y = level.GetGroundY(x, z);
                     position = new Vector3(x, y, z);
                 }
                 else

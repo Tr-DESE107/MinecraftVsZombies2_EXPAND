@@ -97,7 +97,7 @@ namespace PVZEngine
         }
         public T GetProperty<T>(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
         {
-            return PropertyDictionary.ToGeneric<T>(GetProperty(name, ignoreStageDefinition, ignoreAreaDefinition));
+            return GetProperty(name, ignoreStageDefinition, ignoreAreaDefinition).ToGeneric<T>();
         }
         #endregion
 
@@ -106,13 +106,17 @@ namespace PVZEngine
         {
             return column + lane * GetMaxColumnCount();
         }
-        public float GetGridSize()
+        public float GetGridWidth()
         {
-            return gridSize;
+            return gridWidth;
+        }
+        public float GetGridHeight()
+        {
+            return gridHeight;
         }
         public float GetGridRightX()
         {
-            return GetGridLeftX() + GetMaxColumnCount() * GetGridSize();
+            return GetGridLeftX() + GetMaxColumnCount() * GetGridWidth();
         }
         public float GetGridLeftX()
         {
@@ -120,7 +124,7 @@ namespace PVZEngine
         }
         public float GetGridTopZ()
         {
-            return GetGridBottomZ() + GetMaxLaneCount() * GetGridSize();
+            return GetGridBottomZ() + GetMaxLaneCount() * GetGridHeight();
         }
         public float GetGridBottomZ()
         {
@@ -141,7 +145,7 @@ namespace PVZEngine
             //2.4 - 3.2 : 2
             //1.6 - 2.4 : 3
             //0.8 - 1.6 : 4
-            return Mathf.FloorToInt((GetGridTopZ() - z) / GetGridSize());
+            return Mathf.FloorToInt((GetGridTopZ() - z) / GetGridHeight());
         }
         public int GetColumn(float x)
         {
@@ -149,7 +153,7 @@ namespace PVZEngine
             //3.2 - 4.0 : 1
             //4.0 - 4.8 : 2
             //5.6 - 6.2 : 3
-            return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridSize());
+            return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
         public float GetEntityLaneZ(int row)
         {
@@ -157,21 +161,21 @@ namespace PVZEngine
         }
         public float GetEntityColumnX(int column)
         {
-            return GetColumnX(column) + GetGridSize() * 0.5f;
+            return GetColumnX(column) + GetGridWidth() * 0.5f;
         }
         public float GetColumnX(int column)
         {
-            return GetGridLeftX() + column * GetGridSize();
+            return GetGridLeftX() + column * GetGridWidth();
         }
         public float GetLaneZ(int lane)
         {
-            return GetGridTopZ() - (lane + 1) * GetGridSize();
+            return GetGridTopZ() - (lane + 1) * GetGridHeight();
         }
         public float GetGroundHeight(Vector3 pos)
         {
-            return GetGroundHeight(pos.x, pos.z);
+            return GetGroundY(pos.x, pos.z);
         }
-        public float GetGroundHeight(float x, float z)
+        public float GetGroundY(float x, float z)
         {
             return 0;
         }
@@ -194,15 +198,6 @@ namespace PVZEngine
             return GetGrid(pos.x, pos.y);
         }
         #endregion 坐标相关方法
-
-        #region 随机数
-        public int GetSpawnRandomRange(int min, int max) => spawnRandom.Next(min, max);
-        public int GetRoundEnemyRandom() => roundRandom.Next();
-        public int GetRandomLane()
-        {
-            return GetSpawnRandomRange(1, GetMaxLaneCount() + 1);
-        }
-        #endregion
 
         #region 时间
         public int GetSecondTicks(float second)
@@ -322,7 +317,8 @@ namespace PVZEngine
         #region 私有方法
         public void InitAreaProperties()
         {
-            gridSize = AreaDefinition.GetProperty<float>(AreaProperties.GRID_SIZE);
+            gridWidth = AreaDefinition.GetProperty<float>(AreaProperties.GRID_WIDTH);
+            gridHeight = AreaDefinition.GetProperty<float>(AreaProperties.GRID_HEIGHT);
             gridLeftX = AreaDefinition.GetProperty<float>(AreaProperties.GRID_LEFT_X);
             gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
             maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
@@ -364,7 +360,8 @@ namespace PVZEngine
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private LawnGrid[] grids;
 
-        private float gridSize;
+        private float gridWidth;
+        private float gridHeight;
         private float gridLeftX;
         private float gridBottomZ;
         private int maxLaneCount;

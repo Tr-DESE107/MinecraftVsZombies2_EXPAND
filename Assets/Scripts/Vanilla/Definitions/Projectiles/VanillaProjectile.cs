@@ -1,11 +1,8 @@
-using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
 using MVZ2.GameContent;
+using MVZ2.GameContent.Projectiles;
 using PVZEngine;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-using UnityEngine.tvOS;
-using System.Linq;
 
 namespace MVZ2.Vanilla
 {
@@ -47,6 +44,8 @@ namespace MVZ2.Vanilla
         public override void PostCollision(Entity entity, Entity other, int state)
         {
             base.PostCollision(entity, other, state);
+            if (entity.GetProperty<bool>(ProjectileProps.NO_HIT_ENTITIES))
+                return;
             if (state != EntityCollision.STATE_EXIT)
             {
                 UnitCollide(entity, other);

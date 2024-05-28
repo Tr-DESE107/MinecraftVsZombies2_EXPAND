@@ -59,7 +59,11 @@ namespace MVZ2.Vanilla
                 AddTickDamage(bodyResult.Entity, bodyResult.Amount);
             }
         }
-        public virtual void Evoke(Entity Entity)
+        public virtual bool CanEvoke(Entity entity)
+        {
+            return !entity.IsEvoked();
+        }
+        public virtual void Evoke(Entity entity)
         {
         }
         public static EntityID GetFragment(Entity entity)
@@ -105,6 +109,7 @@ namespace MVZ2.Vanilla
     }
     public interface IEvokableContraption
     {
+        bool CanEvoke(Entity contraption);
         void Evoke(Entity contraption);
     }
     public class GradientInfo

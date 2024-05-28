@@ -44,6 +44,18 @@ namespace MVZ2.Vanilla
         {
             game.SetProperty(StageProps.NO_PRODUCTION, value);
         }
+        public static int GetStarshardCount(this Level game)
+        {
+            return game.GetProperty<int>(LevelProps.STARSHARD_COUNT);
+        }
+        public static void SetStarshardCount(this Level game, int value)
+        {
+            game.SetProperty(LevelProps.STARSHARD_COUNT, value);
+        }
+        public static void AddStarshardCount(this Level game, int value)
+        {
+            game.SetStarshardCount(GetStarshardCount(game) + value);
+        }
         public static EntityID GetLastEnemy(this Level game)
         {
             return game.GetProperty<EntityID>(LevelProps.LAST_ENEMY);

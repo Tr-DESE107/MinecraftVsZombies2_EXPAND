@@ -331,7 +331,7 @@ namespace PVZEngine
         }
         public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
-            return PropertyDictionary.ToGeneric<T>(GetProperty(name, ignoreDefinition, ignoreBuffs));
+            return GetProperty(name, ignoreDefinition, ignoreBuffs).ToGeneric<T>();
         }
         public void SetProperty(string name, object value)
         {
@@ -419,7 +419,7 @@ namespace PVZEngine
         #region 相对高度
         public float GetGroundHeight()
         {
-            return Level.GetGroundHeight(Pos.x, Pos.z);
+            return Level.GetGroundY(Pos.x, Pos.z);
         }
         public float GetRelativeY()
         {

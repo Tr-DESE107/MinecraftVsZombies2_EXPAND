@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 
@@ -18,33 +19,60 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Update(contraption);
             var state = 0;
-            switch (contraption.Health)
+            if (contraption.HasBuff<ObsidianArmorBuff>())
             {
-                case > armoredHP * 2 / 3f + maxHP:
-                    state = 5;
-                    break;
-                case > armoredHP / 3f + maxHP:
-                    state = 4;
-                    break;
-                case > maxHP:
-                    state = 3;
-                    break;
-                case > maxHP * 2 / 3f:
-                    state = 2;
-                    break;
-                case > maxHP / 3f:
-                    state = 1;
-                    break;
-                default:
-                    state = 0;
-                    break;
+                state = GetArmoredHealthState(contraption);
+                if (contraption.Health <= maxHP)
+                {
+                    contraption.RemoveBuffs(contraption.GetBuffs<ObsidianArmorBuff>());
+                }
+            }
+            else
+            {
+                state = GetHealthState(contraption);
             }
             contraption.SetAnimationInt("HealthState", state);
+        }
+
+        public override bool CanEvoke(Entity entity)
+        {
+            if (entity.HasBuff<ObsidianArmorBuff>())
+                return false;
+            return base.CanEvoke(entity);
         }
 
         public override void Evoke(Entity contraption)
         {
             base.Evoke(contraption);
+            contraption.AddBuff<ObsidianArmorBuff>();
+            contraption.Health = contraption.GetMaxHealth();
+            contraption.Level.PlaySound(SoundID.armorUp);
+        }
+        private int GetArmoredHealthState(Entity contraption)
+        {
+            switch (contraption.Health)
+            {
+                case > armoredHP * 2 / 3f + maxHP:
+                    return 5;
+                case > armoredHP / 3f + maxHP:
+                    return 4;
+                case > maxHP:
+                    return 3;
+                default:
+                    return GetHealthState(contraption);
+            }
+        }
+        private int GetHealthState(Entity contraption)
+        {
+            switch (contraption.Health)
+            {
+                case > maxHP * 2 / 3f:
+                    return 2;
+                case > maxHP / 3f:
+                    return 1;
+                default:
+                    return 0;
+            }
         }
         private const float maxHP = 4000;
         private const float armoredHP = 6000;

@@ -18,7 +18,7 @@
             <color hex="#101010" time="1"/>
         </colorKeys>
     </fragment>
-    <fragment name="obsidian_armored" blend="true">
+    <fragment name="obsidian_armor" blend="true">
         <colorKeys>
             <color hex="#5A555A" time="0"/>
             <color hex="#312829" time="1"/>

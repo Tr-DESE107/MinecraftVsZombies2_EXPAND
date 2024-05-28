@@ -30,38 +30,13 @@ namespace PVZEngine
         {
             if (TryGetProperty(name, out object prop))
             {
-                if (TryToGeneric<T>(prop, out var result))
+                if (prop.TryToGeneric<T>(out var result))
                 {
-                    value = ToGeneric<T>(prop);
+                    value = result;
                     return true;
                 }
             }
             value = default;
-            return false;
-        }
-        public static T ToGeneric<T>(object value)
-        {
-            if (TryToGeneric<T>(value, out var result))
-                return result;
-            return default;
-        }
-        public static bool TryToGeneric<T>(object value, out T result)
-        {
-            if (value is int intValue && typeof(T) == typeof(float))
-            {
-                var floatValue = (float)intValue;
-                if (floatValue is T floatResult)
-                {
-                    result = floatResult;
-                    return true;
-                }
-            }
-            if (value is T tProp)
-            {
-                result = tProp;
-                return true;
-            }
-            result = default;
             return false;
         }
         public SerializablePropertyDictionary Serialize()

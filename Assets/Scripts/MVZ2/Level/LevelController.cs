@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
@@ -59,6 +60,7 @@ namespace MVZ2.Level
             level.ResetHeldItem();
             level.Start(LevelDifficulty.Normal);
 
+            levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
 
             //level.SetEnergy(9990);
@@ -76,9 +78,12 @@ namespace MVZ2.Level
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    if (heldItemType == HeldTypes.PICKAXE && CanDigContraption(entity))
+                    switch (heldItemType)
                     {
-                        return true;
+                        case HeldTypes.PICKAXE:
+                            return CanDigContraption(entity);
+                        case HeldTypes.STARSHARD:
+                            return entity.CanEvoke();
                     }
                     break;
             }
@@ -110,6 +115,7 @@ namespace MVZ2.Level
             levelUI.OnPickaxePointerDown += OnPickaxePointerDownCallback;
             levelUI.OnMenuButtonClick += OnMenuButtonClickCallback;
             levelUI.OnSpeedUpButtonClick += OnSpeedUpButtonClickCallback;
+            levelUI.OnStarshardPointerDown += OnStarshardPointerDownCallback;
             levelUI.SetHeldItemIcon(null);
         }
         private void Update()
@@ -130,6 +136,7 @@ namespace MVZ2.Level
             UpdateLevelProgress();
             UpdateBlueprintRecharges();
             UpdateBlueprintDisabled();
+            UpdateStarshards();
 
             var cameraOffset = Vector3.zero;
             foreach (var shake in cameraShakes)
@@ -248,10 +255,22 @@ namespace MVZ2.Level
             switch (entity.Entity.Type)
             {
                 case EntityTypes.PLANT:
-                    if (heldItemType == HeldTypes.PICKAXE && CanDigContraption(entity.Entity))
+                    switch (heldItemType)
                     {
-                        entity.Entity.Die();
-                        level.ResetHeldItem();
+                        case HeldTypes.PICKAXE:
+                            if (CanDigContraption(entity.Entity))
+                            {
+                                entity.Entity.Die();
+                                level.ResetHeldItem();
+                            }
+                            break;
+                        case HeldTypes.STARSHARD:
+                            if (entity.Entity.CanEvoke())
+                            {
+                                entity.Entity.Evoke();
+                                level.ResetHeldItem();
+                            }
+                            break;
                     }
                     break;
                 case EntityTypes.PICKUP:
@@ -296,7 +315,7 @@ namespace MVZ2.Level
                     {
                         var x = level.GetEntityColumnX(column);
                         var z = level.GetEntityLaneZ(lane);
-                        var y = level.GetGroundHeight(x, z);
+                        var y = level.GetGroundY(x, z);
                         var position = new Vector3(x, y, z);
                         var entityID = seedDef.GetSeedEntityID();
                         var entityDef = level.GetEntityDefinition(entityID);
@@ -358,6 +377,12 @@ namespace MVZ2.Level
         {
             SwitchSpeedUp();
         }
+        private void OnStarshardPointerDownCallback(PointerEventData eventData)
+        {
+            if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+            ClickStarshard();
+        }
         #endregion
 
         #endregion
@@ -378,7 +403,11 @@ namespace MVZ2.Level
                     layerMask = Layers.GetMask(Layers.GRID, Layers.RAYCAST_RECEIVER);
                     break;
                 case HeldTypes.PICKAXE:
-                    icon = main.ResourceManager.GetSprite(main.BuiltinNamespace, SpritePaths.pickaxe);
+                    icon = main.ResourceManager.GetSprite(SpritePaths.pickaxe);
+                    layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
+                    break;
+                case HeldTypes.STARSHARD:
+                    icon = main.ResourceManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
                     layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
                     break;
             }
@@ -401,6 +430,10 @@ namespace MVZ2.Level
         {
             return heldItemType == HeldTypes.PICKAXE;
         }
+        private bool IsHoldingStarshard()
+        {
+            return heldItemType == HeldTypes.STARSHARD;
+        }
         private void ClickPickaxe()
         {
             if (heldItemType > 0)
@@ -413,6 +446,23 @@ namespace MVZ2.Level
             }
             level.PlaySound(SoundID.pickaxe);
             level.SetHeldItem(HeldTypes.PICKAXE, 0, 0);
+        }
+        private void ClickStarshard()
+        {
+            if (heldItemType > 0)
+            {
+                if (CancelHeldItem())
+                {
+                    level.PlaySound(SoundID.tap);
+                }
+                return;
+            }
+            if (level.GetStarshardCount() <= 0)
+            {
+                level.PlaySound(SoundID.buzzer);
+                //return;
+            }
+            level.SetHeldItem(HeldTypes.STARSHARD, 0, 0);
         }
 
         #region 蓝图
@@ -460,6 +510,11 @@ namespace MVZ2.Level
                 disabled[i] = IsHoldingBlueprint(i) || !CanPickBlueprint(seed);
             }
             levelUI.SetBlueprintDisabled(disabled);
+        }
+        private void UpdateStarshards()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
         }
         private bool IsHoldingBlueprint(int i)
         {
@@ -535,7 +590,7 @@ namespace MVZ2.Level
                         var entityDef = level.GetEntityDefinition(entityID);
                         if (entityDef.Type == EntityTypes.PLANT)
                         {
-                            if (grid.GetTakenEntities().Length > 0)
+                            if (!grid.CanPlace(entityDef))
                                 return false;
                         }
                     }
@@ -576,8 +631,19 @@ namespace MVZ2.Level
             {
                 bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + level.CurrentWave >= i * level.GetWavesPerFlag() ? deltaTime : -deltaTime);
             }
+            float targetProgress = level.CurrentWave / (float)level.GetTotalWaveCount();
+            int progressDirection = Math.Sign(targetProgress - levelProgress);
+            if (progressDirection != 0)
+            {
+                levelProgress += Time.deltaTime * 0.1f * progressDirection;
+                var newDirection = Mathf.Sign(targetProgress - levelProgress);
+                if (progressDirection != newDirection)
+                {
+                    levelProgress = targetProgress;
+                }
+            }
             ui.SetProgressVisible(level.LevelProgressVisible);
-            ui.SetProgress(level.CurrentWave / (float)level.GetTotalWaveCount());
+            ui.SetProgress(levelProgress);
             ui.SetBannerProgresses(bannerProgresses);
         }
         private void SwitchSpeedUp()
@@ -615,6 +681,10 @@ namespace MVZ2.Level
             {
                 ClickPickaxe();
             }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ClickStarshard();
+            }
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SwitchSpeedUp();
@@ -636,9 +706,12 @@ namespace MVZ2.Level
         private int heldItemPriority;
         private bool heldItemNoCancel;
         private List<Shake> cameraShakes = new List<Shake>();
-        private float[] bannerProgresses;
         private bool speedUp;
         private float gameRunTimeModular;
+
+
+        private float levelProgress;
+        private float[] bannerProgresses;
 
         [SerializeField]
         private Vector3 cameraPosition;

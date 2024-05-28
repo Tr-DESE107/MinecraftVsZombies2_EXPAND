@@ -83,6 +83,8 @@ namespace MVZ2.Vanilla
         {
             if (entity.Definition is not IChangeLaneEntity changeLane)
                 return;
+            if (!changeLane.IsChangingLane(entity))
+                return;
             var targetLane = changeLane.GetChangeLaneTarget(entity);
             if (targetLane < 0 || targetLane > entity.Level.GetMaxLaneCount())
                 return;

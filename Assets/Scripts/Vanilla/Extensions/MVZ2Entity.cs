@@ -41,6 +41,7 @@ namespace MVZ2.Vanilla
                 return;
             if (target < 0 || target >= entity.Level.GetMaxLaneCount())
                 return;
+            changeLane.SetChangingLane(entity, true);
             changeLane.SetChangeLaneTarget(entity, target);
             changeLane.SetChangeLaneSource(entity, entity.GetLane());
             changeLane.PostStartChangingLane(entity, target);
@@ -49,10 +50,11 @@ namespace MVZ2.Vanilla
         {
             if (entity.Definition is not IChangeLaneEntity changeLane)
                 return;
-            if (changeLane.GetChangeLaneTarget(entity) < 0)
+            if (!changeLane.IsChangingLane(entity))
                 return;
-            changeLane.SetChangeLaneTarget(entity, -1);
-            changeLane.SetChangeLaneSource(entity, -1);
+            changeLane.SetChangingLane(entity, false);
+            changeLane.SetChangeLaneTarget(entity, 0);
+            changeLane.SetChangeLaneSource(entity, 0);
             changeLane.PostStopChangingLane(entity);
         }
         public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)

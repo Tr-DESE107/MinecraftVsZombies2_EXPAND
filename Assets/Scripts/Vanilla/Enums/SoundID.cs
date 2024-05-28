@@ -5,6 +5,7 @@ namespace MVZ2.GameContent
 {
     public static class SoundID
     {
+        public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");

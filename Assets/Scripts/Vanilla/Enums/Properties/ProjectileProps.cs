@@ -7,5 +7,6 @@
         public const string NO_DESTROY_OUTSIDE_LAWN = "noDestroyOutsideLawn";
         public const string CAN_HIT_SPAWNER = "canHitSpawner";
         public const string COLLIDING_ENTITIES = "collidingEntities";
+        public const string NO_HIT_ENTITIES = "noHitEntities";
     }
 }

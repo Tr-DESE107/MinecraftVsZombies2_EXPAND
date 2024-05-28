@@ -22,14 +22,14 @@ namespace PVZEngine
         {
             var x = Level.GetColumnX(Column);
             var z = Level.GetEntityLaneZ(Lane);
-            var y = Level.GetGroundHeight(x, z);
+            var y = Level.GetGroundY(x, z);
             return new Vector3(x, y, z);
         }
         public float GetGroundHeight()
         {
             var x = Level.GetColumnX(Column);
             var z = Level.GetEntityLaneZ(Lane);
-            return Level.GetGroundHeight(x, z);
+            return Level.GetGroundY(x, z);
         }
         public void AddEntity(Entity entity)
         {

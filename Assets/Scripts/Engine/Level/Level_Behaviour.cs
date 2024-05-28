@@ -31,8 +31,7 @@ namespace PVZEngine
                 var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost <= totalEnergy);
                 if (validSpawnDefs.Count() <= 0)
                     break;
-                var index = GetSpawnRandomRange(0, validSpawnDefs.Count());
-                var spawnDef = validSpawnDefs.ElementAtOrDefault(index);
+                var spawnDef = validSpawnDefs.Random(spawnRandom);
                 SpawnEnemy(spawnDef);
                 totalEnergy -= spawnDef.SpawnCost;
             }
@@ -125,8 +124,7 @@ namespace PVZEngine
                     continue;
                 pool.Add(i);
             }
-            var index = GetSpawnRandomRange(0, pool.Count);
-            int row = pool[index];
+            int row = pool.Random(spawnRandom);
 
             spawnedLanes.Add(row);
             return row;
@@ -136,7 +134,7 @@ namespace PVZEngine
             var lane = GetRandomEnemySpawnLane();
             var x = GetEnemySpawnX();
             var z = GetEntityLaneZ(lane);
-            var y = GetGroundHeight(x, z);
+            var y = GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
             var enemy = Spawn(spawnDef.EntityID, pos, null);
             spawnedID.Add(spawnDef.GetID());

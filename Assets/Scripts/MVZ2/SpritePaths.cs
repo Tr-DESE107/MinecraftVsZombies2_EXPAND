@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MVZ2.Vanilla;
+using PVZEngine;
 
 namespace MVZ2
 {
     public static class SpritePaths
     {
-        public const string pickaxe = "Textures/pickaxe";
+        public static readonly NamespaceID pickaxe = Get("pickaxe");
+
+        public static NamespaceID Get(string name)
+        {
+            return new NamespaceID(VanillaMod.spaceName, $"Textures/{name}");
+        }
+        public static NamespaceID GetStarshardIcon(NamespaceID areaID)
+        {
+            return new NamespaceID(areaID.spacename, $"Textures/starshard.{areaID.name}");
+        }
     }
 }

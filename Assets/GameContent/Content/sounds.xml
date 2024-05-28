@@ -3,6 +3,9 @@
     <sound name="awooga">
         <sample path="awooga" weight="1" />
     </sound>
+    <sound name="armor_up">
+        <sample path="armor_up" weight="1" />
+    </sound>
     <sound name="bone_hit">
         <sample path="damage/bone/bone_hit1" weight="1" />
         <sample path="damage/bone/bone_hit2" weight="1" />

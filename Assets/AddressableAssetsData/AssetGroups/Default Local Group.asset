@@ -17,13 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
-  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
-    m_Address: Sounds/talk/villager/villager_short2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Res
-    - Audio
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
     m_Address: Sounds/talk/villager/villager_short1
     m_ReadOnly: 0
@@ -1004,6 +997,12 @@ MonoBehaviour:
     - Res
     - Audio
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c0296d1bdf087b44b8393dd14f667bf
+    m_Address: Models/Projectiles/MineTNTSeed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f05b495221b92af4fa139f81ee8873f3
     m_Address: Models/Projectiles/Arrow
     m_ReadOnly: 0
@@ -1082,6 +1081,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Res
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27e82ff068e4b8a439d196de3631d525
+    m_Address: Models/Carts/Minecart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6f6e44ab2a3c4b4e82764fd5c5a2cdc
     m_Address: Models/Armors/LeatherCap
     m_ReadOnly: 0
@@ -1093,6 +1098,20 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Res
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b71a3502ba3935b49a514559f8734478
+    m_Address: Textures/starshard_ring.day
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ead2b534e897e48469cac6037a937e50
+    m_Address: Textures/starshard.day
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c98850842ba8ff14f919f63ce5114326
     m_Address: Textures/pickaxe
@@ -1873,6 +1892,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
+    m_Address: Sounds/talk/villager/villager_short2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Res
+    - Audio
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3225cf10a7527224a8a7cedc03206148
     m_Address: Sounds/talk/villager/villager_short3

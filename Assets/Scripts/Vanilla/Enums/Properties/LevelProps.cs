@@ -3,5 +3,6 @@
     public static class LevelProps
     {
         public const string LAST_ENEMY = "lastEnemy";
+        public const string STARSHARD_COUNT = "starshardCount";
     }
 }

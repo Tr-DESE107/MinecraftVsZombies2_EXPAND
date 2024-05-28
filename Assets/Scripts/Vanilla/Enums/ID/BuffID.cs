@@ -10,6 +10,7 @@ namespace MVZ2.GameContent
         public const string damageColor = "damage_color";
         public const string productionColor = "production_color";
         public const string mineTNTInvincible = "mine_tnt_invincible";
+        public const string obsidianArmor = "obsidianArmor";
     }
     public static class BuffID
     {
@@ -18,6 +19,7 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID damageColor = Get(BuffNames.damageColor);
         public static readonly NamespaceID productionColor = Get(BuffNames.productionColor);
         public static readonly NamespaceID mineTNTInvincible = Get(BuffNames.mineTNTInvincible);
+        public static readonly NamespaceID obsidianArmor = Get(BuffNames.obsidianArmor);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

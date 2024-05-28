@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets.ResourceLocators;
 
@@ -7,21 +8,21 @@ namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        public Sprite GetSprite(string nsp, string path)
+        public Sprite GetSprite(NamespaceID id)
         {
-            var modResource = GetModResource(nsp);
+            var modResource = GetModResource(id.spacename);
             if (modResource == null)
                 return null;
-            if (!modResource.Sprites.TryGetValue(path, out var sprite))
+            if (!modResource.Sprites.TryGetValue(id.name, out var sprite))
                 return null;
             return sprite;
         }
-        public Sprite[] GetSpriteSheet(string nsp, string path)
+        public Sprite[] GetSpriteSheet(NamespaceID id)
         {
-            var modResource = GetModResource(nsp);
+            var modResource = GetModResource(id.spacename);
             if (modResource == null)
                 return null;
-            if (!modResource.SpriteSheets.TryGetValue(path, out var spritesheet))
+            if (!modResource.SpriteSheets.TryGetValue(id.name, out var spritesheet))
                 return null;
             return spritesheet;
         }

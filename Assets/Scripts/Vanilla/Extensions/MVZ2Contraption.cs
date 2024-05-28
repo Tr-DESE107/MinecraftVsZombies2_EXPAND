@@ -7,6 +7,14 @@ namespace MVZ2.Vanilla
 {
     public static class MVZ2Contraption
     {
+        public static bool CanEvoke(this Entity contraption)
+        {
+            if (contraption.Definition is IEvokableContraption evokable)
+            {
+                return evokable.CanEvoke(contraption);
+            }
+            return false;
+        }
         public static void Evoke(this Entity contraption)
         {
             if (contraption.Definition is IEvokableContraption evokable)

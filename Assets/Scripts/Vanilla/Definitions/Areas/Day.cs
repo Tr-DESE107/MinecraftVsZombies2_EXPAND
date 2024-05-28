@@ -8,7 +8,8 @@ namespace MVZ2.GameContent.Areas
     {
         public Day(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(AreaProperties.GRID_SIZE, 80);
+            SetProperty(AreaProperties.GRID_WIDTH, 80);
+            SetProperty(AreaProperties.GRID_HEIGHT, 80);
             SetProperty(AreaProperties.GRID_LEFT_X, 260);
             SetProperty(AreaProperties.GRID_BOTTOM_Z, 80);
             SetProperty(AreaProperties.MAX_LANE_COUNT, 5);

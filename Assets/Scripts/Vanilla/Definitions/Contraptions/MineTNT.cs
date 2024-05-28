@@ -1,5 +1,8 @@
-﻿using MVZ2.GameContent.Buffs;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
@@ -35,6 +38,29 @@ namespace MVZ2.GameContent.Contraptions
         public override void Evoke(Entity entity)
         {
             base.Evoke(entity);
+            var riseTimer = GetRiseTimer(entity);
+            if (riseTimer.Frame > 30)
+            {
+                riseTimer.Frame = 30;
+            }
+            List<LawnGrid> grids = new List<LawnGrid>();
+            for (int x = 0; x < entity.Level.GetMaxColumnCount(); x++)
+            {
+                for (int y = 0; y < entity.Level.GetMaxLaneCount(); y++)
+                {
+                    var grid = entity.Level.GetGrid(x, y);
+                    if (grid.CanPlace(ContraptionID.mineTNT))
+                    {
+                        grids.Add(grid);
+                    }
+                }
+            }
+            var groups = grids.GroupBy(g => g.Column).OrderByDescending(g => g.Key).Take(2);
+            var selectedGrids = groups.SelectMany(g => g.Shuffle(entity.RNG)).Take(2);
+            foreach (var grid in selectedGrids)
+            {
+                FireSeed(entity, grid);
+            }
         }
         public static FrameTimer GetRiseTimer(Entity entity)
         {
@@ -85,6 +111,21 @@ namespace MVZ2.GameContent.Contraptions
             entity.Remove();
             entity.Level.PlaySound(SoundID.mineExplode, entity.Pos);
             entity.Level.ShakeScreen(10, 0, 15);
+        }
+        private static Entity FireSeed(Entity contraption, LawnGrid grid)
+        {
+            var level = contraption.Level;
+
+            var seed = level.Spawn<MineTNTSeed>(contraption.Pos, contraption);
+
+            var x = level.GetEntityColumnX(grid.Column);
+            var z = level.GetEntityLaneZ(grid.Lane);
+            var y = level.GetGroundY(x, z);
+            var target = new Vector3(x, y, z);
+            var maxY = Mathf.Max(contraption.Pos.y, y) + 32;
+            seed.Velocity = MVZ2Projectile.GetLobVelocity(contraption.Pos, target, maxY, seed.GetGravity());
+
+            return seed;
         }
         public const float EXPLOSION_RADIUS = 40;
         public const float EXPLOSION_DAMAGE = 1800;

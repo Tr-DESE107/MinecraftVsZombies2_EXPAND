@@ -52,6 +52,14 @@ namespace MVZ2.Vanilla
         #region 私有方法
 
         #region 换行
+        public bool IsChangingLane(Entity entity)
+        {
+            return entity.GetProperty<bool>(EntityProps.CHANGING_LANE);
+        }
+        public void SetChangingLane(Entity entity, bool value)
+        {
+            entity.SetProperty(EntityProps.CHANGING_LANE, value);
+        }
         public int GetChangeLaneTarget(Entity entity)
         {
             return entity.GetProperty<int>(EntityProps.CHANGE_LANE_TARGET);
@@ -108,6 +116,8 @@ namespace MVZ2.Vanilla
     }
     public interface IChangeLaneEntity
     {
+        bool IsChangingLane(Entity entity);
+        void SetChangingLane(Entity entity, bool value);
         int GetChangeLaneTarget(Entity entity);
         int GetChangeLaneSource(Entity entity);
         void SetChangeLaneTarget(Entity entity, int value);

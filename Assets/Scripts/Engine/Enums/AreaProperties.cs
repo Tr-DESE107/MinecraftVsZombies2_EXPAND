@@ -2,7 +2,8 @@
 {
     public static class AreaProperties
     {
-        public const string GRID_SIZE = "GridSize";
+        public const string GRID_WIDTH = "GridWidth";
+        public const string GRID_HEIGHT = "GridHeight";
         public const string GRID_LEFT_X = "GridLeftX";
         public const string GRID_BOTTOM_Z = "GridBottomZ";
         public const string MAX_LANE_COUNT = "MaxLaneCount";

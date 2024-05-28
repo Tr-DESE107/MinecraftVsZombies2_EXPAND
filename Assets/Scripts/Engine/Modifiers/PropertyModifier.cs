@@ -53,7 +53,7 @@
         {
             if (value == null)
                 value = default(T);
-            if (value is T tValue)
+            if (value.TryToGeneric<T>(out var tValue))
                 return CalculatePropertyGeneric(buff, tValue);
             return value;
         }
