@@ -10,12 +10,12 @@ namespace MVZ2
         public string Namespace { get; set; }
         public SoundMetaList SoundMetaList { get; set; }
         public ModelMetaList ModelMetaList { get; set; }
-        public FragmentMetaList FragmentsMetaList { get; set; }
-        public Dictionary<string, AudioClip> Sounds = new();
-        public Dictionary<string, Model> Models = new();
-        public Dictionary<string, Sprite> ModelIcons = new();
-        public Dictionary<string, Sprite[]> SpriteSheets = new();
-        public Dictionary<string, Sprite> Sprites = new();
+        public FragmentMetaList FragmentMetaList { get; set; }
+        public Dictionary<NamespaceID, AudioClip> Sounds = new();
+        public Dictionary<NamespaceID, Model> Models = new();
+        public Dictionary<NamespaceID, Sprite> ModelIcons = new();
+        public Dictionary<NamespaceID, Sprite[]> SpriteSheets = new();
+        public Dictionary<NamespaceID, Sprite> Sprites = new();
         public ModResource(string spaceName)
         {
             Namespace = spaceName;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using PVZEngine;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
@@ -89,31 +90,34 @@ namespace MVZ2.Editor
             if (splitedPaths.Length >= 2)
             {
                 string keyRoot = splitedPaths[0];
-                if (splitedPaths.Length >= 3 && splitedPaths[0] == "Assets")
+                string nsp = null;
+                if (splitedPaths.Length >= 4 && splitedPaths[0].ToLower() == "assets")
                 {
-                    switch (splitedPaths[1])
+                    nsp = splitedPaths[1];
+                    var type = splitedPaths[2];
+                    switch (type.ToLower())
                     {
-                        case "Metas":
+                        case "metas":
                             labels.Add("Meta");
                             break;
-                        case "Sounds":
+                        case "sounds":
                             labels.Add("Sound");
                             break;
-                        case "Models":
+                        case "models":
                             labels.Add("Model");
                             break;
-                        case "Textures":
+                        case "textures":
                             if (entry.SubAssets != null && entry.SubAssets.Count > 0)
                                 labels.Add("Spritesheet");
                             else
                                 labels.Add("Sprite");
                             break;
                     }
-                    keyRoot = Path.Combine(splitedPaths[0], splitedPaths[1]);
+                    keyRoot = Path.Combine(splitedPaths[0], nsp, type);
                 }
                 var keyPath = Path.GetRelativePath(keyRoot, relativePath).Replace("\\", "/");
-                var key = Path.ChangeExtension(keyPath, "").TrimEnd('.');
-                entry.address = key;
+                var idPath = Path.ChangeExtension(keyPath, "").TrimEnd('.');
+                entry.address = new NamespaceID(nsp, idPath).ToString();
             }
 
             foreach (var label in labels)

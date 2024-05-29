@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using PVZEngine;
@@ -31,43 +33,26 @@ namespace MVZ2
         #region 模型
         public Model GetModel(string nsp, string path)
         {
-            var modResource = GetModResource(nsp);
-            if (modResource == null)
-                return null;
-            return modResource.Models.TryGetValue(path, out var res) ? res : null;
+            return GetModel(new NamespaceID(nsp, path));
         }
         public Model GetModel(NamespaceID id)
         {
-            if (id == null)
-                return null;
-            return GetModel(id.spacename, id.path);
+            return FindInMods(id, mod => mod.Models);
         }
         #endregion
 
         #region 模型图标
         public Sprite GetModelIcon(string nsp, string path)
         {
-            var modResource = GetModResource(nsp);
-            if (modResource == null)
-                return null;
-            return modResource.ModelIcons.TryGetValue(path, out var res) ? res : null;
+            return GetModelIcon(new NamespaceID(nsp, path));
         }
         public Sprite GetModelIcon(NamespaceID id)
         {
-            if (id == null)
-                return null;
-            return GetModelIcon(id.spacename, id.path);
+            return FindInMods(id, mod => mod.ModelIcons);
         }
         #endregion
 
         #region 私有方法
-        private async Task<ModelMetaList> LoadModelMetaList(string nsp)
-        {
-            var textAsset = await LoadModResource<TextAsset>(nsp, "models", ResourceType.Meta);
-            using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = memoryStream.ReadXmlDocument();
-            return ModelMetaList.FromXmlNode(document["models"]);
-        }
         private async Task LoadModModels(string nsp)
         {
             var modResource = GetModResource(nsp);
@@ -80,18 +65,18 @@ namespace MVZ2
                 modResource.Models.Add(path, model);
             }
         }
-        private void ShotModelIcons(string nsp, ModelMetaList metaList)
+        private void ShotModelIcons(string modNamespace, string metaNamespace, ModelMetaList metaList)
         {
-            var modResource = GetModResource(nsp);
+            var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
             foreach (var meta in metaList.metas)
             {
                 var model = GetModel(meta.path);
                 var metaPath = ModelID.ConcatName(meta.type, meta.name);
-                var metaID = new NamespaceID(nsp, metaPath);
+                var metaID = new NamespaceID(metaNamespace, metaPath);
                 var sprite = main.ModelManager.ShotIcon(model, meta.width, meta.height, new Vector2(meta.xOffset, meta.yOffset), metaID.ToString());
-                modResource.ModelIcons.Add(metaPath, sprite);
+                modResource.ModelIcons.Add(metaID, sprite);
             }
         }
         #endregion

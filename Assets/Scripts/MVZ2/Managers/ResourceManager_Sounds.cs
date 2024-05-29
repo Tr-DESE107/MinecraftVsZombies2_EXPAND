@@ -32,29 +32,15 @@ namespace MVZ2
         #region 音频片段
         public AudioClip GetSoundClip(string nsp, string path)
         {
-            var modResource = GetModResource(nsp);
-            if (modResource == null)
-                return null;
-            if (modResource.Sounds.TryGetValue(path, out var res))
-                return res;
-            return null;
+            return GetSoundClip(new NamespaceID(nsp, path));
         }
         public AudioClip GetSoundClip(NamespaceID id)
         {
-            if (id == null)
-                return null;
-            return GetSoundClip(id.spacename, id.path);
+            return FindInMods(id, mod => mod.Sounds);
         }
         #endregion
 
         #region 私有方法
-        private async Task<SoundMetaList> LoadSoundMetaList(string nsp)
-        {
-            var textAsset = await LoadModResource<TextAsset>(nsp, "sounds", ResourceType.Meta);
-            using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = memoryStream.ReadXmlDocument();
-            return SoundMetaList.FromXmlNode(document["sounds"]);
-        }
         private async Task LoadModSoundClips(string nsp)
         {
             var modResource = GetModResource(nsp);

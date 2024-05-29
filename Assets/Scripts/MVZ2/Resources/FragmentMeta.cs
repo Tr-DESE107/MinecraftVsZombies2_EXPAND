@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class FragmentResource
+    public class FragmentMeta
     {
         public string name;
         public Gradient gradient;
-        public static FragmentResource FromXmlNode(XmlNode node)
+        public static FragmentMeta FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
-            return new FragmentResource()
+            return new FragmentMeta()
             {
                 name = name,
                 gradient = node.ToGradient()

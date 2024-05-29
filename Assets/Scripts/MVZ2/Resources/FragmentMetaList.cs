@@ -6,17 +6,17 @@ namespace MVZ2
 {
     public class FragmentMetaList
     {
-        public FragmentResource[] resources;
+        public FragmentMeta[] metas;
         public static FragmentMetaList FromXmlNode(XmlNode node)
         {
-            var resources = new FragmentResource[node.ChildNodes.Count];
+            var resources = new FragmentMeta[node.ChildNodes.Count];
             for (int i = 0; i < resources.Length; i++)
             {
-                resources[i] = FragmentResource.FromXmlNode(node.ChildNodes[i]);
+                resources[i] = FragmentMeta.FromXmlNode(node.ChildNodes[i]);
             }
             return new FragmentMetaList()
             {
-                resources = resources,
+                metas = resources,
             };
         }
     }

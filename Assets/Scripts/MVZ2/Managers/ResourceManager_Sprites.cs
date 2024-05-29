@@ -9,47 +9,37 @@ namespace MVZ2
     {
         public Sprite GetSprite(string nsp, string path)
         {
-            var modResource = GetModResource(nsp);
-            if (modResource == null)
-                return null;
-            return modResource.Sprites.TryGetValue(path, out var res) ? res : null;
+            return GetSprite(nsp, path);
         }
         public Sprite GetSprite(NamespaceID id)
         {
-            if (id == null)
-                return null;
-            return GetSprite(id.spacename, id.path);
+            return FindInMods(id, mod => mod.Sprites);
         }
         public Sprite[] GetSpriteSheet(string nsp, string path)
         {
-            var modResource = GetModResource(nsp);
-            if (modResource == null)
-                return null;
-            return modResource.SpriteSheets.TryGetValue(path, out var res) ? res : null;
+            return GetSpriteSheet(nsp, path);
         }
         public Sprite[] GetSpriteSheet(NamespaceID id)
         {
-            if (id == null)
-                return null;
-            return GetSpriteSheet(id.spacename, id.path);
+            return FindInMods(id, mod => mod.SpriteSheets);
         }
-        private async Task LoadSpriteSheets(string nsp)
+        private async Task LoadSpriteSheets(string modNamespace)
         {
-            var modResource = GetModResource(nsp);
+            var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<Sprite[]>(nsp, "Spritesheet");
+            var resources = await LoadLabeledResources<Sprite[]>(modNamespace, "Spritesheet");
             foreach (var (path, res) in resources)
             {
                 modResource.SpriteSheets.Add(path, res);
             }
         }
-        private async Task LoadSprites(string nsp)
+        private async Task LoadSprites(string modNamespace)
         {
-            var modResource = GetModResource(nsp);
+            var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<Sprite>(nsp, "Sprite");
+            var resources = await LoadLabeledResources<Sprite>(modNamespace, "Sprite");
             foreach (var (path, res) in resources)
             {
                 modResource.Sprites.Add(path, res);

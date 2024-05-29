@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
@@ -64,47 +63,69 @@ namespace MVZ2
         #region 私有方法
         private async Task<ModResource> LoadModResources(ModInfo mod)
         {
-            var nsp = mod.Namespace;
-            var modResource = new ModResource(nsp);
+            var modNamespace = mod.Namespace;
+            var modResource = new ModResource(modNamespace);
             modResources.Add(modResource);
 
-            modResource.SoundMetaList = await LoadSoundMetaList(nsp);
-            modResource.ModelMetaList = await LoadModelMetaList(nsp);
-            modResource.FragmentsMetaList = await LoadFragmentMetaList(nsp);
+            await LoadMetaLists(modNamespace);
+            await LoadModSoundClips(modNamespace);
+            await LoadModModels(modNamespace);
+            await LoadSpriteSheets(modNamespace);
+            await LoadSprites(modNamespace);
 
-            await LoadModSoundClips(nsp);
-            await LoadModModels(nsp);
-            ShotModelIcons(nsp, modResource.ModelMetaList);
-            await LoadSpriteSheets(nsp);
-            await LoadSprites(nsp);
+            ShotModelIcons(modNamespace, modNamespace, modResource.ModelMetaList);
 
             return modResource;
         }
-        private IList<IResourceLocation> GetLabeledResourceLocations<T>(string nsp, string label)
+        private async Task LoadMetaLists(string modNamespace)
         {
-            var locator = Main.ModManager.GetModInfo(nsp).ResourceLocator;
+            var modResource = GetModResource(modNamespace);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<TextAsset>(modNamespace, "Meta");
+            foreach (var (resID, resource) in resources)
+            {
+                using var memoryStream = new MemoryStream(resource.bytes);
+                var document = memoryStream.ReadXmlDocument();
+                switch (resID.path)
+                {
+                    case "sounds":
+                        modResource.SoundMetaList = SoundMetaList.FromXmlNode(document["sounds"]);
+                        break;
+                    case "models":
+                        modResource.ModelMetaList = ModelMetaList.FromXmlNode(document["models"]);
+                        break;
+                    case "fragments":
+                        modResource.FragmentMetaList = FragmentMetaList.FromXmlNode(document["fragments"]);
+                        break;
+                }
+            }
+        }
+        private IList<IResourceLocation> GetLabeledResourceLocations<T>(string modNamespace, string label)
+        {
+            var locator = Main.ModManager.GetModInfo(modNamespace).ResourceLocator;
             if (!locator.Locate(label, typeof(T), out var locs))
                 return null;
             return locs;
         }
-        private async Task<(string key, T resource)[]> LoadResourcesByLocations<T>(string nsp, IList<IResourceLocation> locations)
+        private async Task<(NamespaceID key, T resource)[]> LoadResourcesByLocations<T>(IList<IResourceLocation> locations)
         {
-            List<(string key, T resource)> loaded = new List<(string key, T resource)>();
+            List<(NamespaceID key, T resource)> loaded = new List<(NamespaceID key, T resource)>();
             List<Task> tasks = new List<Task>();
             foreach (var loc in locations)
             {
                 var op = Addressables.LoadAssetAsync<T>(loc);
                 op.Completed += (handle) =>
                 {
-                    var relativePath = loc.PrimaryKey;
+                    var resID = ParseNamespaceID(loc.PrimaryKey);
                     try
                     {
                         var res = handle.Result;
-                        loaded.Add((relativePath, res));
+                        loaded.Add((resID, res));
                     }
                     catch (Exception e)
                     {
-                        Debug.LogError($"资源（{typeof(T[]).Name}）{nsp}:{relativePath}加载失败：{e}");
+                        Debug.LogError($"资源（{typeof(T[]).Name}）{resID}加载失败：{e}");
                     }
                 };
                 tasks.Add(op.Task);
@@ -112,12 +133,12 @@ namespace MVZ2
             await Task.WhenAll(tasks);
             return loaded.ToArray();
         }
-        private async Task<(string key, T resource)[]> LoadLabeledResources<T>(string nsp, string label)
+        private async Task<(NamespaceID key, T resource)[]> LoadLabeledResources<T>(string modNamespace, string label)
         {
-            var locs = GetLabeledResourceLocations<T>(nsp, label);
+            var locs = GetLabeledResourceLocations<T>(modNamespace, label);
             if (locs == null)
-                return Array.Empty<(string key, T resource)>();
-            return await LoadResourcesByLocations<T>(nsp, locs);
+                return Array.Empty<(NamespaceID key, T resource)>();
+            return await LoadResourcesByLocations<T>(locs);
         }
         private async Task<T> LoadModResource<T>(NamespaceID id, ResourceType resourceType)
         {
@@ -130,6 +151,20 @@ namespace MVZ2
             var modResource = GetModResource(nsp);
             var locator = Main.ModManager.GetModInfo(nsp).ResourceLocator;
             return await LoadAddressableResource<T>(locator, path);
+        }
+        private T FindInMods<T>(NamespaceID id, Func<ModResource, Dictionary<NamespaceID, T>> dictionaryGetter)
+        {
+            if (id == null)
+                return default;
+            foreach (var mod in modResources)
+            {
+                var dict = dictionaryGetter(mod);
+                if (dict.TryGetValue(id, out var resource))
+                {
+                    return resource;
+                }
+            }
+            return default;
         }
         private async Task<T> LoadAddressableResource<T>(IResourceLocator locator, string key)
         {

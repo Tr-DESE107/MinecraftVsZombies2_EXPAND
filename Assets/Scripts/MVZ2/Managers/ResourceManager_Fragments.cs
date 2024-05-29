@@ -14,7 +14,7 @@ namespace MVZ2
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            return modResource.FragmentsMetaList;
+            return modResource.FragmentMetaList;
         }
         #endregion
 
@@ -24,17 +24,7 @@ namespace MVZ2
             var meta = GetFragmentMetaList(id.spacename);
             if (meta == null)
                 return null;
-            return meta.resources.FirstOrDefault(m => m.name == id.path)?.gradient;
-        }
-        #endregion
-
-        #region 私有方法
-        private async Task<FragmentMetaList> LoadFragmentMetaList(string nsp)
-        {
-            var textAsset = await LoadModResource<TextAsset>(nsp, "fragments", ResourceType.Meta);
-            using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = memoryStream.ReadXmlDocument();
-            return FragmentMetaList.FromXmlNode(document["fragments"]);
+            return meta.metas.FirstOrDefault(m => m.name == id.path)?.gradient;
         }
         #endregion
     }

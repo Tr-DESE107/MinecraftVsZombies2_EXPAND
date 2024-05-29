@@ -9,14 +9,14 @@ namespace MVZ2
         public ModelMeta[] metas;
         public static ModelMetaList FromXmlNode(XmlNode node)
         {
-            var sounds = new ModelMeta[node.ChildNodes.Count];
-            for (int i = 0; i < sounds.Length; i++)
+            var metas = new ModelMeta[node.ChildNodes.Count];
+            for (int i = 0; i < metas.Length; i++)
             {
-                sounds[i] = ModelMeta.FromXmlNode(node.ChildNodes[i]);
+                metas[i] = ModelMeta.FromXmlNode(node.ChildNodes[i]);
             }
             return new ModelMetaList()
             {
-                metas = sounds,
+                metas = metas,
             };
         }
     }

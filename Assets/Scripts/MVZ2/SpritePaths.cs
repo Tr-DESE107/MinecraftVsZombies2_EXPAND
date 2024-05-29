@@ -9,11 +9,11 @@ namespace MVZ2
 
         public static NamespaceID Get(string name)
         {
-            return new NamespaceID(VanillaMod.spaceName, $"Textures/{name}");
+            return new NamespaceID(VanillaMod.spaceName, $"{name}");
         }
         public static NamespaceID GetStarshardIcon(NamespaceID areaID)
         {
-            return new NamespaceID(areaID.spacename, $"Textures/starshard.{areaID.path}");
+            return new NamespaceID(areaID.spacename, $"starshard.{areaID.path}");
         }
     }
 }
