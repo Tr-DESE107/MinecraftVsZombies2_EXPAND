@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class SoundResource
+    public class SoundMeta
     {
         public string name;
         public AudioSample[] samples;
@@ -15,7 +15,7 @@ namespace MVZ2
         {
             return samples[Random.Range(0, samples.Length)];
         }
-        public static SoundResource FromXmlNode(XmlNode node)
+        public static SoundMeta FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
             var priority = node.GetAttributeInt("priority") ?? 0;
@@ -25,7 +25,7 @@ namespace MVZ2
             {
                 samples[i] = AudioSample.FromXmlNode(node.ChildNodes[i]);
             }
-            return new SoundResource()
+            return new SoundMeta()
             {
                 name = name,
                 priority = priority,

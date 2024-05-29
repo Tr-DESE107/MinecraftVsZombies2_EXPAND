@@ -9,15 +9,14 @@ namespace MVZ2
     {
         public AudioSource Play(NamespaceID id, Vector3 pos, float pitch = 1, float spatialBlend = 1)
         {
-            var soundsMeta = main.ResourceManager.GetSoundsMeta(id.spacename);
-            var res = main.ResourceManager.GetSoundResource(id);
+            var soundsMeta = main.ResourceManager.GetSoundMetaList(id.spacename);
+            var res = main.ResourceManager.GetSoundMeta(id);
             if (soundsMeta == null || res == null)
                 return null;
             var sample = res.GetRandomSample();
             if (sample == null)
                 return null;
-            var path = ResourceManager.CombinePath(soundsMeta.root, sample.path);
-            var clip = main.ResourceManager.GetAudioClip(id.spacename, path);
+            var clip = main.ResourceManager.GetSoundClip(sample.path);
             return Play(clip, pos, res.priority, pitch, spatialBlend);
         }
         public AudioSource Play(AudioClip clip, Vector3 pos, int priority, float pitch = 1, float spatialBlend = 1)

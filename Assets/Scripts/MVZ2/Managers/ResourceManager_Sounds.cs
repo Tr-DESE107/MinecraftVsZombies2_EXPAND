@@ -1,49 +1,71 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.GameContent;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        public SoundsMeta GetSoundsMeta(string nsp)
+        #region 元数据列表
+        public SoundMetaList GetSoundMetaList(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            return modResource.SoundMeta;
+            return modResource.SoundMetaList;
         }
-        public SoundResource GetSoundResource(NamespaceID id)
+        #endregion
+
+        #region 元数据
+        public SoundMeta GetSoundMeta(NamespaceID id)
         {
-            var soundMeta = GetSoundsMeta(id.spacename);
+            var soundMeta = GetSoundMetaList(id.spacename);
             if (soundMeta == null)
                 return null;
-            return soundMeta.resources.FirstOrDefault(m => m.name == id.name);
+            return soundMeta.metas.FirstOrDefault(m => m.name == id.path);
         }
-        public AudioClip GetAudioClip(string nsp, string path)
+        #endregion
+
+        #region 音频片段
+        public AudioClip GetSoundClip(string nsp, string path)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            if (modResource.AudioClips.TryGetValue(path, out var clip))
-                return clip;
+            if (modResource.Sounds.TryGetValue(path, out var res))
+                return res;
             return null;
         }
-        private Task<Dictionary<string, AudioClip>> LoadAudioClips(string nsp, IResourceLocator locator, SoundsMeta meta)
+        public AudioClip GetSoundClip(NamespaceID id)
         {
-            var paths = meta.resources.SelectMany(r => r.samples).Select(s => s.path).Distinct();
-            return LoadResourceGroup<AudioClip>(nsp, locator, meta.root, paths.ToArray());
+            if (id == null)
+                return null;
+            return GetSoundClip(id.spacename, id.path);
         }
-        private async Task<SoundsMeta> LoadSoundMeta(IResourceLocator locator)
+        #endregion
+
+        #region 私有方法
+        private async Task<SoundMetaList> LoadSoundMetaList(string nsp)
         {
-            var textAsset = await LoadAddressableResource<TextAsset>(locator, "sounds");
+            var textAsset = await LoadModResource<TextAsset>(nsp, "sounds", ResourceType.Meta);
             using var memoryStream = new MemoryStream(textAsset.bytes);
             var document = LoadXmlDocument(memoryStream);
-            return SoundsMeta.FromXmlNode(document["sounds"]);
+            return SoundMetaList.FromXmlNode(document["sounds"]);
         }
+        private async Task LoadModSoundClips(string nsp)
+        {
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<AudioClip>(nsp, "Sound");
+            foreach (var (path, res) in resources)
+            {
+                modResource.Sounds.Add(path, res);
+            }
+        }
+        #endregion
     }
 }

@@ -9,17 +9,17 @@ namespace PVZEngine
         public NamespaceID(string nsp, string name)
         {
             spacename = nsp;
-            this.name = name;
+            this.path = name;
         }
         public override int GetHashCode()
         {
-            return spacename.GetHashCode() * 31 + name.GetHashCode();
+            return spacename.GetHashCode() * 31 + path.GetHashCode();
         }
         public override bool Equals(object obj)
         {
             if (obj is NamespaceID otherRef)
             {
-                return spacename == otherRef.spacename && name == otherRef.name;
+                return spacename == otherRef.spacename && path == otherRef.path;
             }
             return base.Equals(obj);
         }
@@ -40,9 +40,55 @@ namespace PVZEngine
             }
             return sb.ToString();
         }
+        public static bool TryParse(string str, string defaultNsp, out NamespaceID parsed)
+        {
+            var colonIndex = str.IndexOf(':');
+            string nsp;
+            string path;
+            parsed = null;
+            if (colonIndex < 0)
+            {
+                // 没有冒号，使用默认命名空间。
+                nsp = defaultNsp;
+                path = str;
+            }
+            else if (colonIndex == 0)
+            {
+                // 冒号前没有内容，错误。
+                return false;
+            }
+            else
+            {
+                // 冒号前有内容，获取命名空间和路径。
+                nsp = str.Substring(0, colonIndex);
+                path = str.Substring(colonIndex + 1);
+            }
+            if (!ValidateNamespace(nsp))
+                return false;
+            if (!ValidatePath(path))
+                return false;
+            parsed = new NamespaceID(nsp, path);
+            return true;
+        }
+        public static NamespaceID Parse(string str, string defaultNsp)
+        {
+            if (TryParse(str, defaultNsp, out var parsed))
+            {
+                return parsed;
+            }
+            throw new FormatException($"Invalid NamespaceID {str}.");
+        }
+        public static bool ValidateNamespace(string nsp)
+        {
+            return !nsp.Contains(':') && !nsp.Contains('/');
+        }
+        public static bool ValidatePath(string path)
+        {
+            return !path.Contains(':');
+        }
         public override string ToString()
         {
-            return $"{spacename}:{name}";
+            return $"{spacename}:{path}";
         }
         public static bool operator ==(NamespaceID lhs, NamespaceID rhs)
         {
@@ -55,7 +101,7 @@ namespace PVZEngine
             return !(lhs == rhs);
         }
         public string spacename;
-        public string name;
+        public string path;
 
     }
 }

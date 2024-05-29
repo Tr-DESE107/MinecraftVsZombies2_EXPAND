@@ -28,6 +28,7 @@ namespace MVZ2
         public ModelManager ModelManager => model;
         public SoundManager SoundManager => sound;
         public LevelManager LevelManager => level;
+        public LanguageManager LanguageManager => lang;
         public ModManager ModManager => mod;
         [SerializeField]
         private string builtinNamespace = "mvz2";
@@ -39,6 +40,8 @@ namespace MVZ2
         private SoundManager sound;
         [SerializeField]
         private LevelManager level;
+        [SerializeField]
+        private LanguageManager lang;
         [SerializeField]
         private ModManager mod;
     }

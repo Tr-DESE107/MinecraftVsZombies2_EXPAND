@@ -1,92 +1,98 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        #region 元数据
-        public ModelsMeta GetModelsMeta(string nsp)
+        #region 元数据列表
+        public ModelMetaList GetModelMetaList(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            return modResource.ModelMeta;
-        }
-        private async Task<ModelsMeta> LoadModelMeta(IResourceLocator locator)
-        {
-            var textAsset = await LoadAddressableResource<TextAsset>(locator, "models");
-            using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = LoadXmlDocument(memoryStream);
-            return ModelsMeta.FromXmlNode(document["models"]);
+            return modResource.ModelMetaList;
         }
         #endregion
 
-        #region 模型资源
-        public ModelResource GetModelResource(NamespaceID id)
+        #region 元数据
+        public ModelMeta GetModelMeta(NamespaceID id)
         {
-            var meta = GetModelsMeta(id.spacename);
+            var meta = GetModelMetaList(id.spacename);
             if (meta == null)
                 return null;
-            return meta.resources.FirstOrDefault(m => ModelID.ConcatName(m.type, m.name) == id.name);
+            return meta.metas.FirstOrDefault(m => ModelID.ConcatName(m.type, m.name) == id.path);
         }
         #endregion
 
         #region 模型
-        public Model GetModel(NamespaceID id)
-        {
-            var meta = GetModelsMeta(id.spacename);
-            if (meta == null)
-                return null;
-            var resource = meta.resources.FirstOrDefault(m => ModelID.ConcatName(m.type, m.name) == id.name);
-            if (resource == null)
-                return null;
-            return GetModel(id.spacename, CombinePath(meta.root, resource.path));
-        }
         public Model GetModel(string nsp, string path)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            if (modResource.Models.TryGetValue(path, out var model))
-                return model;
-            return null;
+            return modResource.Models.TryGetValue(path, out var res) ? res : null;
         }
-        private async Task<Dictionary<string, Model>> LoadModels(string nsp, IResourceLocator locator, ModelsMeta meta)
+        public Model GetModel(NamespaceID id)
         {
-            var paths = meta.resources.Select(r => r.path).Distinct();
-            var objects = await LoadResourceGroup<GameObject>(nsp, locator, meta.root, paths.ToArray());
-            return objects.ToDictionary(p => p.Key, p => p.Value ? p.Value.GetComponent<Model>() : null);
+            if (id == null)
+                return null;
+            return GetModel(id.spacename, id.path);
         }
         #endregion
 
         #region 模型图标
-        public Sprite GetModelIcon(NamespaceID id)
+        public Sprite GetModelIcon(string nsp, string path)
         {
-            var modResource = GetModResource(id.spacename);
+            var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            if (modResource.ModelIcons.TryGetValue(id.name, out var model))
-                return model;
-            return null;
+            return modResource.ModelIcons.TryGetValue(path, out var res) ? res : null;
         }
-        private Dictionary<string, Sprite> ShotModelIcons(string nsp, ModelsMeta meta, Dictionary<string, Model> models)
+        public Sprite GetModelIcon(NamespaceID id)
         {
-            var dict = new Dictionary<string, Sprite>();
-            foreach (var resource in meta.resources)
+            if (id == null)
+                return null;
+            return GetModelIcon(id.spacename, id.path);
+        }
+        #endregion
+
+        #region 私有方法
+        private async Task<ModelMetaList> LoadModelMetaList(string nsp)
+        {
+            var textAsset = await LoadModResource<TextAsset>(nsp, "models", ResourceType.Meta);
+            using var memoryStream = new MemoryStream(textAsset.bytes);
+            var document = LoadXmlDocument(memoryStream);
+            return ModelMetaList.FromXmlNode(document["models"]);
+        }
+        private async Task LoadModModels(string nsp)
+        {
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<GameObject>(nsp, "Model");
+            foreach (var (path, res) in resources)
             {
-                var path = Path.Combine(meta.root, resource.path).Replace('\\', '/');
-                var model = models[path];
-                var name = $"{nsp}:{resource.type}.{resource.name}";
-                var sprite = main.ModelManager.ShotIcon(model, resource.width, resource.height, new Vector2(resource.xOffset, resource.yOffset), name);
-                dict.Add(ModelID.ConcatName(resource.type, resource.name), sprite);
+                var model = res.GetComponent<Model>();
+                modResource.Models.Add(path, model);
             }
-            return dict;
+        }
+        private void ShotModelIcons(string nsp, ModelMetaList metaList)
+        {
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            foreach (var meta in metaList.metas)
+            {
+                var model = GetModel(meta.path);
+                var metaPath = ModelID.ConcatName(meta.type, meta.name);
+                var metaID = new NamespaceID(nsp, metaPath);
+                var sprite = main.ModelManager.ShotIcon(model, meta.width, meta.height, new Vector2(meta.xOffset, meta.yOffset), metaID.ToString());
+                modResource.ModelIcons.Add(metaPath, sprite);
+            }
         }
         #endregion
     }

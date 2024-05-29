@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class FragmentsMeta
+    public class FragmentMetaList
     {
         public FragmentResource[] resources;
-        public static FragmentsMeta FromXmlNode(XmlNode node)
+        public static FragmentMetaList FromXmlNode(XmlNode node)
         {
             var resources = new FragmentResource[node.ChildNodes.Count];
             for (int i = 0; i < resources.Length; i++)
             {
                 resources[i] = FragmentResource.FromXmlNode(node.ChildNodes[i]);
             }
-            return new FragmentsMeta()
+            return new FragmentMetaList()
             {
                 resources = resources,
             };

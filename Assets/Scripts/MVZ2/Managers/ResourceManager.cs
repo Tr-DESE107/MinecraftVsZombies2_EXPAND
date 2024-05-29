@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
+using MVZ2.Vanilla;
+using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -13,39 +15,23 @@ namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        public ModResource GetModResource(string spaceName)
-        {
-            return modResources.FirstOrDefault(m => m.Namespace == spaceName);
-        }
+        #region 公有方法
+
+        #region Mod资源
         public async Task LoadAllModResources()
         {
             foreach (var mod in main.ModManager.GetAllModInfos())
             {
-                modResources.Add(await LoadModResources(mod));
+                await LoadModResources(mod);
             }
         }
-        private async Task<ModResource> LoadModResources(ModInfo mod)
+        public ModResource GetModResource(string spaceName)
         {
-            var nsp = mod.Namespace;
-            var modResource = new ModResource(nsp);
-
-            var soundMeta = await LoadSoundMeta(mod.ResourceLocator);
-            modResource.SoundMeta = soundMeta;
-            modResource.AudioClips = await LoadAudioClips(nsp, mod.ResourceLocator, soundMeta);
-
-            var modelMeta = await LoadModelMeta(mod.ResourceLocator);
-            modResource.ModelMeta = modelMeta;
-            modResource.Models = await LoadModels(nsp, mod.ResourceLocator, modelMeta);
-
-            modResource.ModelIcons = ShotModelIcons(nsp, modelMeta, modResource.Models);
-
-            modResource.SpriteSheets = await LoadSpriteSheets(nsp, mod.ResourceLocator);
-            modResource.Sprites = await LoadSprites(nsp, mod.ResourceLocator);
-
-            modResource.FragmentsMeta = await LoadFragmentsMeta(mod.ResourceLocator);
-
-            return modResource;
+            return modResources.FirstOrDefault(m => m.Namespace == spaceName);
         }
+        #endregion
+
+        #region 路径
         public string GetNamespaceDirectory(string nsp)
         {
             if (nsp == main.BuiltinNamespace)
@@ -66,60 +52,84 @@ namespace MVZ2
         {
             return Path.Combine(paths).Replace("\\", "/");
         }
-        private async Task<Dictionary<string, T>> LoadResourceGroup<T>(string nsp, IResourceLocator locator, string root, string[] paths)
-        {
-            var dict = new Dictionary<string, T>();
+        #endregion
 
-            var tasks = new Dictionary<string, Task<T>>();
-            foreach (var relativePath in paths)
-            {
-                var key = CombinePath(root, relativePath);
-                tasks.Add(key, LoadAddressableResource<T>(locator, key));
-            }
-            foreach (var pair in tasks)
-            {
-                var relativePath = pair.Key;
-                try
-                {
-                    var res = await pair.Value;
-                    if (res is UnityEngine.Object obj)
-                    {
-                        obj.name = $"{nsp}:{relativePath}";
-                    }
-                    dict.Add(relativePath, res);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"资源（{typeof(T).Name}）{nsp}:{relativePath}加载失败：{e}");
-                }
-            }
-            return dict;
+        public static NamespaceID ParseNamespaceID(string str)
+        {
+            return NamespaceID.Parse(str, VanillaMod.spaceName);
         }
-        private async Task<Dictionary<string, T>> LoadLabeledResources<T>(string nsp, IResourceLocator locator, string label)
-        {
-            var dict = new Dictionary<string, T>();
-            if (!locator.Locate(label, typeof(T), out var locs))
-                return default;
 
-            var tasks = new Dictionary<IResourceLocation, Task<T>>();
-            foreach (var loc in locs)
+        #endregion
+
+        #region 私有方法
+        private async Task<ModResource> LoadModResources(ModInfo mod)
+        {
+            var nsp = mod.Namespace;
+            var modResource = new ModResource(nsp);
+            modResources.Add(modResource);
+
+            modResource.SoundMetaList = await LoadSoundMetaList(nsp);
+            modResource.ModelMetaList = await LoadModelMetaList(nsp);
+            modResource.FragmentsMetaList = await LoadFragmentMetaList(nsp);
+
+            await LoadModSoundClips(nsp);
+            await LoadModModels(nsp);
+            ShotModelIcons(nsp, modResource.ModelMetaList);
+            await LoadSpriteSheets(nsp);
+            await LoadSprites(nsp);
+
+            return modResource;
+        }
+        private IList<IResourceLocation> GetLabeledResourceLocations<T>(string nsp, string label)
+        {
+            var locator = Main.ModManager.GetModInfo(nsp).ResourceLocator;
+            if (!locator.Locate(label, typeof(T), out var locs))
+                return null;
+            return locs;
+        }
+        private async Task<(string key, T resource)[]> LoadResourcesByLocations<T>(string nsp, IList<IResourceLocation> locations)
+        {
+            List<(string key, T resource)> loaded = new List<(string key, T resource)>();
+            List<Task> tasks = new List<Task>();
+            foreach (var loc in locations)
             {
-                tasks.Add(loc, Addressables.LoadAssetAsync<T>(loc).Task);
-            }
-            foreach (var pair in tasks)
-            {
-                var relativePath = pair.Key.PrimaryKey;
-                try
+                var op = Addressables.LoadAssetAsync<T>(loc);
+                op.Completed += (handle) =>
                 {
-                    var res = await pair.Value;
-                    dict.Add(relativePath, res);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"资源（{typeof(T[]).Name}）{nsp}:{relativePath}加载失败：{e}");
-                }
+                    var relativePath = loc.PrimaryKey;
+                    try
+                    {
+                        var res = handle.Result;
+                        loaded.Add((relativePath, res));
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError($"资源（{typeof(T[]).Name}）{nsp}:{relativePath}加载失败：{e}");
+                    }
+                };
+                tasks.Add(op.Task);
             }
-            return dict;
+            await Task.WhenAll(tasks);
+            return loaded.ToArray();
+        }
+        private async Task<(string key, T resource)[]> LoadLabeledResources<T>(string nsp, string label)
+        {
+            var locs = GetLabeledResourceLocations<T>(nsp, label);
+            if (locs == null)
+                return null;
+            return await LoadResourcesByLocations<T>(nsp, locs);
+        }
+        private async Task<T> LoadModResource<T>(NamespaceID id, ResourceType resourceType)
+        {
+            if (id == null)
+                return default;
+            return await LoadModResource<T>(id.spacename, id.path, resourceType);
+        }
+        private async Task<T> LoadModResource<T>(string nsp, string path, ResourceType resourceType)
+        {
+            var modResource = GetModResource(nsp);
+            var locator = Main.ModManager.GetModInfo(nsp).ResourceLocator;
+            return await LoadAddressableResource<T>(locator, path);
         }
         private async Task<T> LoadAddressableResource<T>(IResourceLocator locator, string key)
         {
@@ -130,6 +140,8 @@ namespace MVZ2
                 return default;
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
+        #endregion
+
         private static XmlDocument LoadXmlDocument(Stream stream)
         {
             XmlReaderSettings settings = new XmlReaderSettings();

@@ -8,14 +8,14 @@ namespace MVZ2
     public class ModResource
     {
         public string Namespace { get; set; }
-        public SoundsMeta SoundMeta { get; set; }
-        public Dictionary<string, AudioClip> AudioClips { get; set; }
-        public ModelsMeta ModelMeta { get; set; }
-        public Dictionary<string, Model> Models { get; set; }
-        public Dictionary<string, Sprite> ModelIcons { get; set; }
-        public Dictionary<string, Sprite[]> SpriteSheets { get; set; }
-        public Dictionary<string, Sprite> Sprites { get; set; }
-        public FragmentsMeta FragmentsMeta { get; set; }
+        public SoundMetaList SoundMetaList { get; set; }
+        public ModelMetaList ModelMetaList { get; set; }
+        public FragmentMetaList FragmentsMetaList { get; set; }
+        public Dictionary<string, AudioClip> Sounds = new();
+        public Dictionary<string, Model> Models = new();
+        public Dictionary<string, Sprite> ModelIcons = new();
+        public Dictionary<string, Sprite[]> SpriteSheets = new();
+        public Dictionary<string, Sprite> Sprites = new();
         public ModResource(string spaceName)
         {
             Namespace = spaceName;

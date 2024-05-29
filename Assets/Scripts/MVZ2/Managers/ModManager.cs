@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -18,6 +19,10 @@ namespace MVZ2
                 IsBuiltin = true,
                 ResourceLocator = locator
             });
+        }
+        public ModInfo GetModInfo(string nsp)
+        {
+            return modInfos.FirstOrDefault(m => m.Namespace == nsp);
         }
         public ModInfo[] GetAllModInfos()
         {

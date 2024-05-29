@@ -1,10 +1,11 @@
 ﻿using System.Xml;
+using PVZEngine;
 
 namespace MVZ2
 {
     public class AudioSample
     {
-        public string path;
+        public NamespaceID path;
         public float weight;
 
         public static AudioSample FromXmlNode(XmlNode node)
@@ -20,7 +21,7 @@ namespace MVZ2
             }
             return new AudioSample()
             {
-                path = node.Attributes["path"].Value,
+                path = ResourceManager.ParseNamespaceID(node.Attributes["path"].Value),
                 weight = weight,
             };
         }

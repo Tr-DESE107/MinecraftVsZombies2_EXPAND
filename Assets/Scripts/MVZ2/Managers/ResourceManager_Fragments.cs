@@ -3,36 +3,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据
-        public FragmentsMeta GetFragmentsMeta(string nsp)
+        public FragmentMetaList GetFragmentMetaList(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            return modResource.FragmentsMeta;
-        }
-        private async Task<FragmentsMeta> LoadFragmentsMeta(IResourceLocator locator)
-        {
-            var textAsset = await LoadAddressableResource<TextAsset>(locator, "fragments");
-            using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = LoadXmlDocument(memoryStream);
-            return FragmentsMeta.FromXmlNode(document["fragments"]);
+            return modResource.FragmentsMetaList;
         }
         #endregion
 
         #region 碎片渐变
         public Gradient GetFragmentGradient(NamespaceID id)
         {
-            var meta = GetFragmentsMeta(id.spacename);
+            var meta = GetFragmentMetaList(id.spacename);
             if (meta == null)
                 return null;
-            return meta.resources.FirstOrDefault(m => m.name == id.name)?.gradient;
+            return meta.resources.FirstOrDefault(m => m.name == id.path)?.gradient;
+        }
+        #endregion
+
+        #region 私有方法
+        private async Task<FragmentMetaList> LoadFragmentMetaList(string nsp)
+        {
+            var textAsset = await LoadModResource<TextAsset>(nsp, "fragments", ResourceType.Meta);
+            using var memoryStream = new MemoryStream(textAsset.bytes);
+            var document = LoadXmlDocument(memoryStream);
+            return FragmentMetaList.FromXmlNode(document["fragments"]);
         }
         #endregion
     }

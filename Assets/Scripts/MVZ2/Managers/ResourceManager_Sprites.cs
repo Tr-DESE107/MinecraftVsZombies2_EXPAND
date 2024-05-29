@@ -1,38 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        public Sprite GetSprite(NamespaceID id)
+        public Sprite GetSprite(string nsp, string path)
         {
-            var modResource = GetModResource(id.spacename);
+            var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            if (!modResource.Sprites.TryGetValue(id.name, out var sprite))
+            return modResource.Sprites.TryGetValue(path, out var res) ? res : null;
+        }
+        public Sprite GetSprite(NamespaceID id)
+        {
+            if (id == null)
                 return null;
-            return sprite;
+            return GetSprite(id.spacename, id.path);
+        }
+        public Sprite[] GetSpriteSheet(string nsp, string path)
+        {
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return null;
+            return modResource.SpriteSheets.TryGetValue(path, out var res) ? res : null;
         }
         public Sprite[] GetSpriteSheet(NamespaceID id)
         {
-            var modResource = GetModResource(id.spacename);
-            if (modResource == null)
+            if (id == null)
                 return null;
-            if (!modResource.SpriteSheets.TryGetValue(id.name, out var spritesheet))
-                return null;
-            return spritesheet;
+            return GetSpriteSheet(id.spacename, id.path);
         }
-        private Task<Dictionary<string, Sprite[]>> LoadSpriteSheets(string nsp, IResourceLocator locator)
+        private Task LoadSpriteSheets(string nsp)
         {
-            return LoadLabeledResources<Sprite[]>(nsp, locator, "Spritesheet");
+            return LoadLabeledResources<Sprite[]>(nsp, "Spritesheet");
         }
-        private Task<Dictionary<string, Sprite>> LoadSprites(string nsp, IResourceLocator locator)
+        private Task LoadSprites(string nsp)
         {
-            return LoadLabeledResources<Sprite>(nsp, locator, "Sprite");
+            return LoadLabeledResources<Sprite>(nsp, "Sprite");
         }
     }
 }

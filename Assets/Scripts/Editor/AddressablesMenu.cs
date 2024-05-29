@@ -79,29 +79,48 @@ namespace MVZ2.Editor
                 entry = settings.CreateOrMoveEntry(guid, group);
             }
             var relativePath = Path.GetRelativePath(rootDirectory, filePath);
-            var root = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar).FirstOrDefault();
-            var key = Path.ChangeExtension(Path.GetRelativePath(root, relativePath), "").TrimEnd('.').Replace("\\", "/");
-            entry.address = key;
-            if (!string.IsNullOrEmpty(root))
-            {
-                entry.SetLabel(root, true);
-            }
-            if (entry.MainAssetType == typeof(Texture2D))
-            {
-                if (entry.SubAssets != null && entry.SubAssets.Count > 0)
-                {
-                    entry.SetLabel("Spritesheet", true);
-                }
-                else
-                {
-                    entry.SetLabel("Sprite", true);
-                }
-            }
-            else if (entry.MainAssetType == typeof(AudioClip))
-            {
-                entry.SetLabel("Audio", true);
-            }
+            SetEntryAddressAndLabels(entry, relativePath);
             return true;
+        }
+        private static void SetEntryAddressAndLabels(AddressableAssetEntry entry, string relativePath)
+        {
+            var splitedPaths = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            var labels = new List<string>();
+            if (splitedPaths.Length >= 2)
+            {
+                string keyRoot = splitedPaths[0];
+                if (splitedPaths.Length >= 3 && splitedPaths[0] == "Assets")
+                {
+                    switch (splitedPaths[1])
+                    {
+                        case "Metas":
+                            labels.Add("Meta");
+                            break;
+                        case "Sounds":
+                            labels.Add("Sound");
+                            break;
+                        case "Models":
+                            labels.Add("Model");
+                            break;
+                        case "Textures":
+                            if (entry.SubAssets != null && entry.SubAssets.Count > 0)
+                                labels.Add("Spritesheet");
+                            else
+                                labels.Add("Sprite");
+                            break;
+                    }
+                    keyRoot = Path.Combine(splitedPaths[0], splitedPaths[1]);
+                }
+                var keyPath = Path.GetRelativePath(keyRoot, relativePath).Replace("\\", "/");
+                var key = Path.ChangeExtension(keyPath, "").TrimEnd('.');
+                entry.address = key;
+            }
+
+            foreach (var label in labels)
+            {
+                entry.SetLabel(label, true);
+            }
+
         }
     }
 }

@@ -230,7 +230,8 @@ namespace MVZ2.Level
         private Model CreateModel(NamespaceID id)
         {
             var res = level.MainManager.ResourceManager;
-            var modelTemplate = res.GetModel(id);
+            var modelMeta = res.GetModelMeta(id);
+            var modelTemplate = res.GetModel(modelMeta.path);
             if (modelTemplate == null)
                 return null;
             return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();

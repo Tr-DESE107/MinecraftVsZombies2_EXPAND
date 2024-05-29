@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class ModelResource
+    public class ModelMeta
     {
         public string name;
         public string type;
-        public string path;
+        public NamespaceID path;
         public int width;
         public int height;
         public float xOffset;
         public float yOffset;
-        public static ModelResource FromXmlNode(XmlNode node)
+        public static ModelMeta FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
             var type = node.GetAttribute("type");
@@ -22,11 +22,11 @@ namespace MVZ2
             var height = node.GetAttributeInt("height") ?? 64;
             var xOffset = node.GetAttributeFloat("xOffset") ?? 0;
             var yOffset = node.GetAttributeFloat("yOffset") ?? 0;
-            return new ModelResource()
+            return new ModelMeta()
             {
                 name = name,
                 type = type,
-                path = path,
+                path = ResourceManager.ParseNamespaceID(path),
                 width = width,
                 height = height,
                 xOffset = xOffset,
