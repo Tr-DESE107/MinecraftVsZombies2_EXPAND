@@ -17,6 +17,34 @@ namespace MVZ2.Localization
         private List<LanguageAssets> assets = new List<LanguageAssets>();
         public const string metadataName = "pack.json";
 
+        public bool TryGetString(string language, string text, out string result)
+        {
+            result = null;
+            var asset = assets.FirstOrDefault(a => a.language == language);
+            if (asset == null)
+                return false;
+            var catalog = asset.catalog;
+            if (catalog.IsTranslationExist(text))
+            {
+                result = catalog.GetString(text);
+                return true;
+            }
+            return false;
+        }
+        public bool TryGetStringParticular(string language, string context, string text, out string result)
+        {
+            result = null;
+            var asset = assets.FirstOrDefault(a => a.language == language);
+            if (asset == null)
+                return false;
+            var catalog = asset.catalog;
+            if (catalog.IsTranslationExist(context + "\u0004" + text))
+            {
+                result = catalog.GetParticularString(context, text);
+                return true;
+            }
+            return false;
+        }
         public bool TryGetSprite(string language, NamespaceID id, out Sprite spr)
         {
             spr = null;
@@ -67,24 +95,25 @@ namespace MVZ2.Localization
                     if (splitedPaths.Length >= 2)
                     {
                         var nsp = splitedPaths[1];
-                        if (splitedPaths.Length >= 3)
-                        {
-                            var typeLang = splitedPaths[2];
-                            SplitTypeLang(typeLang, out var type, out var lang);
-
-                            var asset = GetOrCreateLanguageAsset(assets, lang);
-                            var entryName = Path.ChangeExtension(entry.Name, string.Empty).TrimEnd('.');
-                            asset.AddAsset(type, new NamespaceID(nsp, entryName), entry);
-                        }
-                        else
+                        if (splitedPaths.Length == 3)
                         {
                             var fileName = splitedPaths[2];
                             if (Path.GetExtension(fileName) == ".mo")
                             {
-                                var lang = Path.GetFileNameWithoutExtension(fileName);
+                                var lang = Path.GetFileNameWithoutExtension(fileName).Replace('_', '-');
                                 var asset = GetOrCreateLanguageAsset(assets, lang);
                                 asset.AddCatalog(entry);
                             }
+                        }
+                        else if (splitedPaths.Length >= 4)
+                        {
+                            var typeLang = splitedPaths[2];
+                            SplitTypeLang(typeLang, out var type, out var lang);
+                            lang = lang.Replace('_', '-');
+
+                            var asset = GetOrCreateLanguageAsset(assets, lang);
+                            var entryName = Path.ChangeExtension(entry.Name, string.Empty).TrimEnd('.');
+                            asset.AddAsset(type, new NamespaceID(nsp, entryName), entry);
                         }
                     }
                 }
@@ -140,7 +169,10 @@ namespace MVZ2.Localization
         public void AddCatalog(ZipArchiveEntry entry)
         {
             using var stream = entry.Open();
-            catalog = new Catalog(stream, new CultureInfo(language));
+            using var memory = new MemoryStream();
+            stream.CopyTo(memory);
+            memory.Seek(0, SeekOrigin.Begin);
+            catalog = new Catalog(memory, new CultureInfo(language));
         }
         public void AddAsset(string type, NamespaceID id, ZipArchiveEntry entry)
         {

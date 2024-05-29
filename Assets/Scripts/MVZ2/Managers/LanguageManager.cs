@@ -38,6 +38,38 @@ namespace MVZ2
             }
             return Path.Combine(Application.streamingAssetsPath, "languages");
         }
+        public string _(string text)
+        {
+            return GetLocalizedString(text, GetCurrentLanguage());
+        }
+        public string _p(string context, string text)
+        {
+            return GetLocalizedStringParticular(context, text, GetCurrentLanguage());
+        }
+        public string GetLocalizedString(string text, string language)
+        {
+            var languagePacks = GetAllLanguagePacks();
+            foreach (var languagePack in languagePacks)
+            {
+                if (languagePack == null)
+                    continue;
+                if (languagePack.TryGetString(language, text, out var result))
+                    return result;
+            }
+            return text;
+        }
+        public string GetLocalizedStringParticular(string context, string text, string language)
+        {
+            var languagePacks = GetAllLanguagePacks();
+            foreach (var languagePack in languagePacks)
+            {
+                if (languagePack == null)
+                    continue;
+                if (languagePack.TryGetStringParticular(language, context, text, out var result))
+                    return result;
+            }
+            return text;
+        }
         public Sprite GetLocalizedSprite(NamespaceID spriteID, string language)
         {
             var languagePacks = GetAllLanguagePacks();

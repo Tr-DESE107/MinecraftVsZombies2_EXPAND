@@ -67,9 +67,13 @@ namespace MVZ2.Level
             //level.RechargeSpeed = 99;
 
             var levelUI = GetLevelUI();
+            standaloneUI.SetActive(standaloneUI == levelUI);
+            mobileUI.SetActive(mobileUI == levelUI);
             levelUI.SetBlueprintCount(level.GetAllSeedPacks().Length);
 
             UpdateBlueprints();
+            UpdateLevelName();
+            UpdateDifficultyName();
 
             isGameStarted = true;
         }
@@ -107,9 +111,6 @@ namespace MVZ2.Level
 
             HideGridSprites();
             var levelUI = GetLevelUI();
-            standaloneUI.SetActive(standaloneUI == levelUI);
-            mobileUI.SetActive(mobileUI == levelUI);
-
             levelUI.OnBlueprintPointerDown += OnBlueprintPointerDownCallback;
             levelUI.OnRaycastReceiverPointerDown += OnRaycastReceiverPointerDownCallback;
             levelUI.OnPickaxePointerDown += OnPickaxePointerDownCallback;
@@ -646,6 +647,26 @@ namespace MVZ2.Level
             ui.SetProgress(levelProgress);
             ui.SetBannerProgresses(bannerProgresses);
         }
+        private void UpdateLevelName()
+        {
+            var levelUI = GetLevelUI();
+            if (!levelNames.TryGetValue(level.StageDefinition.GetID(), out var name))
+            {
+                name = StringTable.LEVEL_NAME_UNKNOWN;
+            }
+            var levelName = main.LanguageManager._p(StringTable.CONTEXT_LEVEL_NAME, name);
+            levelUI.SetLevelName(levelName);
+        }
+        private void UpdateDifficultyName()
+        {
+            var levelUI = GetLevelUI();
+            if (!difficultyNames.TryGetValue(level.Difficulty, out var name))
+            {
+                name = StringTable.DIFFICULTY_UNKNOWN;
+            }
+            var difficultyName = main.LanguageManager._p(StringTable.CONTEXT_DIFFICULTY, name);
+            levelUI.SetDifficulty(difficultyName);
+        }
         private void SwitchSpeedUp()
         {
             speedUp = !speedUp;
@@ -695,6 +716,16 @@ namespace MVZ2.Level
         #region 属性字段
         public const int SelfFaction = 0;
         public const int EnemyFaction = 1;
+        public static Dictionary<NamespaceID, string> levelNames = new Dictionary<NamespaceID, string>()
+        {
+            { StageID.prologue, StringTable.LEVEL_NAME_PROLOGUE }
+        };
+        public static Dictionary<int, string> difficultyNames = new Dictionary<int, string>()
+        {
+            { LevelDifficulty.Easy, StringTable.DIFFICULTY_EASY },
+            { LevelDifficulty.Normal, StringTable.DIFFICULTY_NORMAL },
+            { LevelDifficulty.Hard, StringTable.DIFFICULTY_HARD },
+        };
         public MainManager MainManager => main;
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
