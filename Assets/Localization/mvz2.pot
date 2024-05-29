@@ -1,0 +1,12 @@
+#, fuzzy
+msgid ""
+msgstr ""
+
+"Project-Id-Version: MinecraftVSZombies2\n"
+"POT-Creation-Date: 2024-05-29 01:42+0800\n"
+"Language-Team: Cuerzor\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"

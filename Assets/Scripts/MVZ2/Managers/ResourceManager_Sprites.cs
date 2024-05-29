@@ -33,13 +33,27 @@ namespace MVZ2
                 return null;
             return GetSpriteSheet(id.spacename, id.path);
         }
-        private Task LoadSpriteSheets(string nsp)
+        private async Task LoadSpriteSheets(string nsp)
         {
-            return LoadLabeledResources<Sprite[]>(nsp, "Spritesheet");
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<Sprite[]>(nsp, "Spritesheet");
+            foreach (var (path, res) in resources)
+            {
+                modResource.SpriteSheets.Add(path, res);
+            }
         }
-        private Task LoadSprites(string nsp)
+        private async Task LoadSprites(string nsp)
         {
-            return LoadLabeledResources<Sprite>(nsp, "Sprite");
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<Sprite>(nsp, "Sprite");
+            foreach (var (path, res) in resources)
+            {
+                modResource.Sprites.Add(path, res);
+            }
         }
     }
 }

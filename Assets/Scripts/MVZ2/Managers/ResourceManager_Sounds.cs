@@ -52,7 +52,7 @@ namespace MVZ2
         {
             var textAsset = await LoadModResource<TextAsset>(nsp, "sounds", ResourceType.Meta);
             using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = LoadXmlDocument(memoryStream);
+            var document = memoryStream.ReadXmlDocument();
             return SoundMetaList.FromXmlNode(document["sounds"]);
         }
         private async Task LoadModSoundClips(string nsp)

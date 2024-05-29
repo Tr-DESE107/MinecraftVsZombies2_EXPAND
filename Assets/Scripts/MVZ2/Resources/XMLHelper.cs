@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,23 @@ namespace MVZ2
 {
     public static class XMLHelper
     {
+        public static XmlDocument ReadXmlDocument(this string str)
+        {
+            using var memory = new MemoryStream();
+            using var textWriter = new StreamWriter(memory);
+            textWriter.Write(str);
+            memory.Seek(0, SeekOrigin.Begin);
+            return memory.ReadXmlDocument();
+        }
+        public static XmlDocument ReadXmlDocument(this Stream stream)
+        {
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;
+            using var xmlReader = XmlReader.Create(stream, settings);
+            var document = new XmlDocument();
+            document.Load(xmlReader);
+            return document;
+        }
         public static string GetAttribute(this XmlNode node, string name)
         {
             var attr = node.Attributes[name];

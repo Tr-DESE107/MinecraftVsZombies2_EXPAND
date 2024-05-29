@@ -26,10 +26,6 @@ namespace MVZ2.GameContent.Carts
                 default:
                     if (entity.Pos.x < MVZ2Level.CART_TARGET_X)
                     {
-                        var alpha = Mathf.Lerp(0, 1, (entity.Pos.x - MVZ2Level.CART_START_X) / (MVZ2Level.CART_TARGET_X - MVZ2Level.CART_START_X));
-                        var tint = entity.GetTint();
-                        tint = new Color(1, 1, 1, alpha);
-                        entity.SetTint(tint);
                         entity.Velocity = Vector3.right * 10;
                     }
                     else
@@ -39,6 +35,13 @@ namespace MVZ2.GameContent.Carts
                         entity.Pos = pos;
                         entity.Velocity = Vector3.zero;
                     }
+
+                    var alpha = Mathf.Lerp(0, 1, (entity.Pos.x - MVZ2Level.CART_START_X) / (MVZ2Level.CART_TARGET_X - MVZ2Level.CART_START_X));
+                    var tint = entity.GetTint();
+                    tint = new Color(1, 1, 1, alpha);
+                    entity.SetTint(tint);
+
+
                     bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
                         .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Pos.x <= entity.Pos.x + TRIGGER_DISTANCE);
                     if (triggered)

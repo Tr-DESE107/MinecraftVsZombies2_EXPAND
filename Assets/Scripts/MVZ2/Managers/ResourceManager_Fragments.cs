@@ -33,7 +33,7 @@ namespace MVZ2
         {
             var textAsset = await LoadModResource<TextAsset>(nsp, "fragments", ResourceType.Meta);
             using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = LoadXmlDocument(memoryStream);
+            var document = memoryStream.ReadXmlDocument();
             return FragmentMetaList.FromXmlNode(document["fragments"]);
         }
         #endregion

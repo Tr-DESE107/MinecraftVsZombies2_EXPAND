@@ -116,7 +116,7 @@ namespace MVZ2
         {
             var locs = GetLabeledResourceLocations<T>(nsp, label);
             if (locs == null)
-                return null;
+                return Array.Empty<(string key, T resource)>();
             return await LoadResourcesByLocations<T>(nsp, locs);
         }
         private async Task<T> LoadModResource<T>(NamespaceID id, ResourceType resourceType)
@@ -141,16 +141,6 @@ namespace MVZ2
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
         #endregion
-
-        private static XmlDocument LoadXmlDocument(Stream stream)
-        {
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreComments = true;
-            using var xmlReader = XmlReader.Create(stream, settings);
-            var document = new XmlDocument();
-            document.Load(xmlReader);
-            return document;
-        }
         public MainManager Main => main;
         [SerializeField]
         private MainManager main;

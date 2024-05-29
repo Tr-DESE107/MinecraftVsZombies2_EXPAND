@@ -65,7 +65,7 @@ namespace MVZ2
         {
             var textAsset = await LoadModResource<TextAsset>(nsp, "models", ResourceType.Meta);
             using var memoryStream = new MemoryStream(textAsset.bytes);
-            var document = LoadXmlDocument(memoryStream);
+            var document = memoryStream.ReadXmlDocument();
             return ModelMetaList.FromXmlNode(document["models"]);
         }
         private async Task LoadModModels(string nsp)

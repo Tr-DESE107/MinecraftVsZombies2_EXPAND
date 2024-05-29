@@ -20,6 +20,7 @@ namespace MVZ2
         {
             await ModManager.LoadMods();
             await ResourceManager.LoadAllModResources();
+            LanguageManager.LoadAllLanguagePacks();
             LevelManager.StartLevel();
         }
         public static MainManager Instance { get; private set; }
