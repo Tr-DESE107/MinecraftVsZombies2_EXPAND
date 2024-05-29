@@ -231,6 +231,8 @@ namespace MVZ2.Level
         {
             var res = level.MainManager.ResourceManager;
             var modelMeta = res.GetModelMeta(id);
+            if (modelMeta == null)
+                return null;
             var modelTemplate = res.GetModel(modelMeta.path);
             if (modelTemplate == null)
                 return null;

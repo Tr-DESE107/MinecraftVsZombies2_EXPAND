@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-05-29 05:25+0800\n"
+"POT-Creation-Date: 2024-05-30 01:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
 
 #. 按钮文本
-#: /Level/UI/Standalone/FrontCanvas/MenuButton/Text
+#: /Level/UI/Standalone/Canvas/CameraLimit/Front/TopRight/MenuButton/Text
 msgid "菜单"
 msgstr ""
 

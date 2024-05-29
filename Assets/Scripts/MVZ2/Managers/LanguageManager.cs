@@ -7,37 +7,8 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class LanguageManager : MonoBehaviour
+    public partial class LanguageManager : MonoBehaviour
     {
-        public void LoadAllLanguagePacks()
-        {
-            var directory = GetLanguagePackDirectory();
-            var packs = Directory.GetFiles(directory, "*.pack", SearchOption.AllDirectories);
-            foreach (var pack in packs)
-            {
-                var loaded = LanguagePack.Read(pack);
-                if (loaded == null)
-                    continue;
-                languagePacks.Add(loaded);
-                foreach (var lang in loaded.GetLanguages())
-                {
-                    if (!allLanguages.Contains(lang))
-                    {
-                        allLanguages.Add(lang);
-                    }
-                }
-            }
-        }
-        public static string GetLanguagePackDirectory()
-        {
-            if (Application.isEditor)
-            {
-                var path = Application.dataPath;
-                path = Path.GetDirectoryName(path);
-                return Path.Combine(path, "ExternalData", "languages");
-            }
-            return Path.Combine(Application.streamingAssetsPath, "languages");
-        }
         public string _(string text)
         {
             return GetLocalizedString(text, GetCurrentLanguage());
@@ -82,9 +53,17 @@ namespace MVZ2
             }
             return null;
         }
-        public LanguagePack[] GetAllLanguagePacks()
+        public Sprite[] GetLocalizedSpriteSheet(NamespaceID spriteID, string language)
         {
-            return languagePacks.ToArray();
+            var languagePacks = GetAllLanguagePacks();
+            foreach (var languagePack in languagePacks)
+            {
+                if (languagePack == null)
+                    continue;
+                if (languagePack.TryGetSpriteSheet(language, spriteID, out var localizedSpr))
+                    return localizedSpr;
+            }
+            return null;
         }
         public string GetCurrentLanguage()
         {
@@ -98,10 +77,10 @@ namespace MVZ2
         public MainManager Main => main;
         public const string CN = "zh-Hans";
         public const string EN = "en-US";
-        private string currentLanaguge = CN;
         private List<string> allLanguages = new List<string>() { CN };
-        private List<LanguagePack> languagePacks = new List<LanguagePack>();
         [SerializeField]
         private MainManager main;
+        [SerializeField]
+        private string currentLanaguge = CN;
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4963565440749614640}
   - component: {fileID: 4376855381498896059}
   m_Layer: 0
-  m_Name: ActiveImage
+  m_Name: EnabledImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,9 +191,13 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 4024766092621902735, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_Name
+      value: DisabledImage
+      objectReference: {fileID: 0}
     - target: {fileID: 8659590377320195274, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
       propertyPath: m_Name
-      value: SpeedUpButton Variant
+      value: SpeedUpButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

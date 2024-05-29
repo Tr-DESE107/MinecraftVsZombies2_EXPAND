@@ -141,16 +141,7 @@ namespace MVZ2.GameContent.Stages
         {
             var waveTimer = GetWaveTimer(level);
             waveTimer.Run();
-            if (!level.IsHugeWave(level.CurrentWave + 1) && waveTimer.Frame % 30 == 0 && !waveTimer.Expired)
-            {
-                if (waveTimer.Frame < waveTimer.MaxFrame - GetWaveAdvanceTime(level) || CountAliveEnemies(level) <= 0)
-                {
-                    if (CheckEnemiesRemainedHealth(level))
-                    {
-                        waveTimer.Frame = 29;
-                    }
-                }
-            }
+            CheckWaveAdvancement(level);
             if (waveTimer.Expired)
             {
                 NextWaveOrHugeWave(level);
@@ -201,6 +192,35 @@ namespace MVZ2.GameContent.Stages
                 }
             }
         }
+        private void CheckWaveAdvancement(Level level)
+        {
+            var waveTimer = GetWaveTimer(level);
+            // 每15帧检测一次，还剩一秒钟结束则不检测。
+            if (waveTimer.Frame % 15 != 0 || waveTimer.Frame <= 30)
+                return;
+
+            // 已经不存在存活的敌人了，直接加速。
+            if (CountAliveEnemies(level) <= 0)
+            {
+                waveTimer.Frame = 30;
+                return;
+            }
+
+            // 下一波是一大波，除非已经没有存活的敌人了，否则不会加速。
+            if (level.IsHugeWave(level.CurrentWave + 1))
+                return;
+
+            // 还没到加速时间。
+            if (waveTimer.Frame >= waveTimer.MaxFrame - GetWaveAdvanceTime(level))
+                return;
+
+            // 敌人的血量没有低于阈值，不加速。
+            if (!CheckEnemiesRemainedHealth(level))
+                return;
+
+            // 加速。
+            waveTimer.Frame = 30;
+        }
         private bool IsAliveEnemy(Entity entity)
         {
             return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(EnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
@@ -218,9 +238,9 @@ namespace MVZ2.GameContent.Stages
         {
             level.WaveState = STATE_HUGE_WAVE_APPROACHING;
             var waveTimer = GetWaveTimer(level);
-            waveTimer.MaxFrame = 300;
+            waveTimer.MaxFrame = 180;
             waveTimer.Reset();
-            level.PlaySound(SoundID.hugeWave);
+            VanillaCallbacks.PostHugeWaveApproach.Run(level);
         }
         private void NextWave(Level level)
         {
@@ -231,7 +251,7 @@ namespace MVZ2.GameContent.Stages
             waveTimer.Reset();
             if (level.IsFinalWave(level.CurrentWave))
             {
-                level.PlaySound(SoundID.finalWave);
+                VanillaCallbacks.PostFinalWave.Run(level);
                 level.WaveState = STATE_FINAL_WAVE;
             }
         }

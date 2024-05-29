@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
-    public class StarshardPanel : MonoBehaviour
+    public class StarshardPanel : LevelUIUnit
     {
         public void SetIconSprite(Sprite sprite)
         {

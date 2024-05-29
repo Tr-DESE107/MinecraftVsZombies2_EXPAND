@@ -13,6 +13,10 @@ namespace MVZ2.UI
         {
             willFade = fade;
         }
+        public void Hide()
+        {
+            fadeTimeout = 0;
+        }
         public void ResetTimeout()
         {
             fadeTimeout = maxFadeTimeout;

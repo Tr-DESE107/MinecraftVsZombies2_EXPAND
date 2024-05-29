@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -15,6 +16,7 @@ using LawnGrid = PVZEngine.LawnGrid;
 
 namespace MVZ2.Level
 {
+    using Level = PVZEngine.Level;
     public class LevelController : MonoBehaviour
     {
         #region 公有方法
@@ -22,7 +24,7 @@ namespace MVZ2.Level
         {
             this.main = main;
         }
-        public void StartGame()
+        public void InitGame()
         {
             var vanilla = new Vanilla.VanillaMod();
             var option = new LevelOption()
@@ -35,7 +37,7 @@ namespace MVZ2.Level
                 MaxEnergy = 9990,
                 TPS = 30
             };
-            level = new PVZEngine.Level(vanilla);
+            level = new Level(vanilla);
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
@@ -43,6 +45,9 @@ namespace MVZ2.Level
             level.OnShakeScreen += OnShakeScreenCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnHeldItemReset += OnHeldItemResetCallback;
+            VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
+            VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
+
             level.SetSeedPacks(new NamespaceID[]
             {
                 ContraptionID.dispenser,
@@ -53,7 +58,16 @@ namespace MVZ2.Level
                 null
             });
             level.Init(AreaID.day, StageID.prologue, option);
-
+        }
+        public void PlayReadySetBuild()
+        {
+            var ui = GetLevelUI();
+            ui.SetReadySetBuildVisible(true);
+        }
+        public void StartGame()
+        {
+            if (isGameStarted)
+                return;
             var cartRef = level.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
             level.SpawnCarts(cartRef, MVZ2Level.CART_START_X, 20);
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
@@ -67,8 +81,7 @@ namespace MVZ2.Level
             //level.RechargeSpeed = 99;
 
             var levelUI = GetLevelUI();
-            standaloneUI.SetActive(standaloneUI == levelUI);
-            mobileUI.SetActive(mobileUI == levelUI);
+            SetUIVisibleState(VisibleState.InLevel);
             levelUI.SetBlueprintCount(level.GetAllSeedPacks().Length);
 
             UpdateBlueprints();
@@ -111,20 +124,31 @@ namespace MVZ2.Level
 
             HideGridSprites();
             var levelUI = GetLevelUI();
+            standaloneUI.SetActive(standaloneUI == levelUI);
+            mobileUI.SetActive(mobileUI == levelUI);
+
             levelUI.OnBlueprintPointerDown += OnBlueprintPointerDownCallback;
             levelUI.OnRaycastReceiverPointerDown += OnRaycastReceiverPointerDownCallback;
             levelUI.OnPickaxePointerDown += OnPickaxePointerDownCallback;
             levelUI.OnMenuButtonClick += OnMenuButtonClickCallback;
             levelUI.OnSpeedUpButtonClick += OnSpeedUpButtonClickCallback;
             levelUI.OnStarshardPointerDown += OnStarshardPointerDownCallback;
+            levelUI.OnStartGameCalled += StartGame;
             levelUI.SetHeldItemIcon(null);
+            levelUI.HideMoney();
+            levelUI.SetProgressVisible(false);
+            levelUI.SetHugeWaveTextVisible(false);
+            levelUI.SetFinalWaveTextVisible(false);
+            levelUI.SetReadySetBuildVisible(false);
+            SetUIVisibleState(VisibleState.Nothing);
         }
         private void Update()
         {
             if (!isGameStarted || isPaused)
                 return;
 
-            var deltaTime = Time.deltaTime * GetGameSpeed();
+            var gameSpeed = GetGameSpeed();
+            var deltaTime = Time.deltaTime * gameSpeed;
             foreach (var entity in entities)
             {
                 entity.UpdateView(deltaTime);
@@ -134,6 +158,7 @@ namespace MVZ2.Level
             ui.SetHeldItemPosition(levelCamera.ScreenToWorldPoint(Input.mousePosition));
             ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
             ui.SetPickaxeVisible(!IsHoldingPickaxe());
+            ui.SetLevelTextAnimationSpeed(gameSpeed);
             UpdateLevelProgress();
             UpdateBlueprintRecharges();
             UpdateBlueprintDisabled();
@@ -226,6 +251,16 @@ namespace MVZ2.Level
         private void OnHeldItemResetCallback()
         {
             SetHeldItem(0, 0, 0, false);
+        }
+        private void PostHugeWaveApproachCallback(Level level)
+        {
+            var ui = GetLevelUI();
+            ui.SetHugeWaveTextVisible(true);
+        }
+        private void PostFinalWaveCallback(Level level)
+        {
+            var ui = GetLevelUI();
+            ui.SetFinalWaveTextVisible(true);
         }
         #endregion
 
@@ -711,6 +746,20 @@ namespace MVZ2.Level
                 SwitchSpeedUp();
             }
         }
+        private void SetUIVisibleState(VisibleState state)
+        {
+            var levelUI = GetLevelUI();
+            var toolsVisible = state == VisibleState.InLevel || state == VisibleState.ChoosingBlueprints;
+            levelUI.SetEnergyVisible(toolsVisible);
+            levelUI.SetBlueprintsVisible(toolsVisible);
+            levelUI.SetPickaxeSlotVisible(toolsVisible);
+            levelUI.SetTopRightVisible(toolsVisible);
+
+            var inlevelVisible = state == VisibleState.InLevel;
+            levelUI.SetStarshardVisible(inlevelVisible);
+            levelUI.SetSpeedUpVisible(inlevelVisible);
+            levelUI.SetLevelNameVisible(inlevelVisible);
+        }
         #endregion
 
         #region 属性字段
@@ -762,6 +811,15 @@ namespace MVZ2.Level
         private LevelUI standaloneUI;
         [SerializeField]
         private LevelUI mobileUI;
+        #endregion
+
+        #region 内嵌类
+        public enum VisibleState
+        {
+            Nothing,
+            ChoosingBlueprints,
+            InLevel,
+        }
         #endregion
     }
 }

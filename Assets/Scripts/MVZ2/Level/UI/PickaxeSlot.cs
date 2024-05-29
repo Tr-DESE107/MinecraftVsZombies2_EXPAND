@@ -1,11 +1,12 @@
 ﻿using System;
+using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
-    public class PickaxeSlot : MonoBehaviour, IPointerDownHandler
+    public class PickaxeSlot : LevelUIUnit, IPointerDownHandler
     {
         public void SetPickaxeVisible(bool visible)
         {

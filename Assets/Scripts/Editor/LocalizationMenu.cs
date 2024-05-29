@@ -49,7 +49,7 @@ namespace MVZ2.Editor
             var path = LanguageManager.GetLanguagePackDirectory();
             var dirPath = Path.Combine(path, "builtin");
             var destPath = Path.Combine(path, "builtin.pack");
-            LanguagePack.Compress(dirPath, destPath);
+            LanguageManager.CompressLanguagePack(dirPath, destPath);
             Debug.Log("Langauge Pack Compressed.");
         }
         static void SearchObject(Transform tr, MukioPotGenerator pot)

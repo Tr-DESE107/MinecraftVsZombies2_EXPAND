@@ -104,7 +104,12 @@ namespace MVZ2
         private IList<IResourceLocation> GetLabeledResourceLocations<T>(string modNamespace, string label)
         {
             var locator = Main.ModManager.GetModInfo(modNamespace).ResourceLocator;
-            if (!locator.Locate(label, typeof(T), out var locs))
+            var t = typeof(T);
+            if (t.IsArray)
+                t = t.GetElementType();
+            else if (t.IsGenericType && typeof(IList<>) == t.GetGenericTypeDefinition())
+                t = t.GetGenericArguments()[0];
+            if (!locator.Locate(label, t, out var locs))
                 return null;
             return locs;
         }

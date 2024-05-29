@@ -106,11 +106,11 @@ namespace MVZ2.Editor
                         case "models":
                             labels.Add("Model");
                             break;
-                        case "textures":
-                            if (entry.SubAssets != null && entry.SubAssets.Count > 0)
-                                labels.Add("Spritesheet");
-                            else
-                                labels.Add("Sprite");
+                        case "sprites":
+                            labels.Add("Sprite");
+                            break;
+                        case "spritesheets":
+                            labels.Add("Spritesheet");
                             break;
                     }
                     keyRoot = Path.Combine(splitedPaths[0], nsp, type);

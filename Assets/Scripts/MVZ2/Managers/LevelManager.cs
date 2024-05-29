@@ -1,5 +1,7 @@
-﻿using MVZ2.Level;
+﻿using System.Threading.Tasks;
+using MVZ2.Level;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MVZ2
 {
@@ -8,12 +10,31 @@ namespace MVZ2
         public void StartLevel()
         {
             controller.SetMainManager(main);
-            controller.StartGame();
+            controller.InitGame();
+            controller.PlayReadySetBuild();
+        }
+        public async Task GotoLevelScene()
+        {
+            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
+            var op = SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive);
+            op.completed += (op) => tcs.SetResult(op);
+
+            await tcs.Task;
+
+            var scene = SceneManager.GetSceneByName("Level");
+            foreach (var go in scene.GetRootGameObjects())
+            {
+                var ctrl = go.GetComponent<LevelController>();
+                if (ctrl)
+                {
+                    controller = ctrl;
+                    break;
+                }
+            }
         }
         public MainManager Main => main;
         [SerializeField]
         private MainManager main;
-        [SerializeField]
         private LevelController controller;
     }
 }
