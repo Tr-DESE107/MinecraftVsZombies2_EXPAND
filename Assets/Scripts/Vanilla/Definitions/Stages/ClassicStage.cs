@@ -156,6 +156,7 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(SoundID.siren);
                 level.WaveState = STATE_STARTED;
                 NextWave(level);
+                level.SpawnEnemy(level.GetSpawnDefinition(EnemyID.flagZombie));
                 level.RunHugeWaveEvent();
             }
         }

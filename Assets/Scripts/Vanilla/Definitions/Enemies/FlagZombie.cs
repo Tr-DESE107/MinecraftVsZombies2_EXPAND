@@ -5,6 +5,7 @@ using PVZEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(EnemyNames.flagZombie)]
+    [SpawnDefinition(0)]
     [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
     public class FlagZombie : Zombie
     {

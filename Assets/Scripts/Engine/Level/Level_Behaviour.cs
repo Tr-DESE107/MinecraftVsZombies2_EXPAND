@@ -28,7 +28,7 @@ namespace PVZEngine
             var spawnDefs = pool.Where(e => e.CanSpawn(this)).Select(e => e.GetSpawnDefinition(this));
             while (totalEnergy > 0)
             {
-                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost <= totalEnergy);
+                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalEnergy);
                 if (validSpawnDefs.Count() <= 0)
                     break;
                 var spawnDef = validSpawnDefs.Random(spawnRandom);
@@ -99,6 +99,20 @@ namespace PVZEngine
                 return false;
             return pool.Any(e => e.GetSpawnDefinition(this).GetID() == spawnRef);
         }
+        public Entity SpawnEnemy(SpawnDefinition spawnDef)
+        {
+            if (spawnDef == null)
+                return null;
+            var lane = GetRandomEnemySpawnLane();
+            var x = GetEnemySpawnX();
+            var z = GetEntityLaneZ(lane);
+            var y = GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            var enemy = Spawn(spawnDef.EntityID, pos, null);
+            spawnedID.Add(spawnDef.GetID());
+            PostEnemySpawned(enemy);
+            return enemy;
+        }
         private void PostWave(int wave)
         {
             StageDefinition.PostWave(this, wave);
@@ -128,18 +142,6 @@ namespace PVZEngine
 
             spawnedLanes.Add(row);
             return row;
-        }
-        private Entity SpawnEnemy(SpawnDefinition spawnDef)
-        {
-            var lane = GetRandomEnemySpawnLane();
-            var x = GetEnemySpawnX();
-            var z = GetEntityLaneZ(lane);
-            var y = GetGroundY(x, z);
-            var pos = new Vector3(x, y, z);
-            var enemy = Spawn(spawnDef.EntityID, pos, null);
-            spawnedID.Add(spawnDef.GetID());
-            PostEnemySpawned(enemy);
-            return enemy;
         }
         public int CurrentWave { get; set; }
         public int CurrentFlag { get; set; }
