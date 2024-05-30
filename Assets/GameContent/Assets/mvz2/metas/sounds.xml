@@ -61,6 +61,9 @@
     <sound name="fall_small" maxCount="1" priority="64">
         <sample path="mvz2:damage/fall/fall_small" weight="1" />
     </sound>
+    <sound name="fast_forward" priority="64">
+        <sample path="mvz2:fast_forward" weight="1" />
+    </sound>
     <sound name="final_wave" maxCount="1" priority="64">
         <sample path="mvz2:final_wave" weight="1" />
     </sound>
@@ -207,6 +210,9 @@
     <sound name="slice">
         <sample path="mvz2:damage/slice/slice1" weight="1" />
         <sample path="mvz2:damage/slice/slice2" weight="1" />
+    </sound>
+    <sound name="slow_down" priority="64">
+        <sample path="mvz2:slow_down" weight="1" />
     </sound>
     <sound name="spider_cry">
         <sample path="mvz2:spider_cry1" weight="1" />

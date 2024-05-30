@@ -706,6 +706,7 @@ namespace MVZ2.Level
         {
             speedUp = !speedUp;
             GetLevelUI().SetSpeedUp(speedUp);
+            level.PlaySound(speedUp ? SoundID.fastForward : SoundID.slowDown);
         }
         private void InputUpdate()
         {

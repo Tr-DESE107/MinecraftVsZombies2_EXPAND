@@ -9,6 +9,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID awooga = Get("awooga");
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
+        public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID finalWave = Get("final_wave");
         public readonly static NamespaceID grass = Get("grass");
@@ -23,6 +24,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID siren = Get("siren");
         public readonly static NamespaceID slice = Get("slice");
         public readonly static NamespaceID shieldHit = Get("shield_hit");
+        public readonly static NamespaceID slowDown = Get("slow_down");
         public readonly static NamespaceID splat = Get("splat");
         public readonly static NamespaceID stone = Get("stone");
         public readonly static NamespaceID tap = Get("tap");
