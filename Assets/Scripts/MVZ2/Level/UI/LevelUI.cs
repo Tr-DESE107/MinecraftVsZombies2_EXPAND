@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using MVZ2.GameContent;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
@@ -24,28 +21,6 @@ namespace MVZ2.Level.UI
             foreach (var raycaster in raycasters)
             {
                 raycaster.blockingMask = mask;
-            }
-        }
-        #endregion
-
-        #region 摄像机
-        public void SetCameraLerp(float lerp)
-        {
-            foreach (var rectTrans in limitRectTransforms)
-            {
-                if (!rectTrans)
-                    return;
-                var anchorX = Mathf.Lerp(cameraLimitMinAnchorX, cameraLimitMaxAnchorX, lerp);
-                var anchorMin = rectTrans.anchorMin;
-                var anchorMax = rectTrans.anchorMax;
-                var pivot = rectTrans.pivot;
-                anchorMin.x = anchorX;
-                anchorMax.x = anchorX;
-                pivot.x = anchorX;
-                rectTrans.anchorMin = anchorMin;
-                rectTrans.anchorMax = anchorMax;
-                rectTrans.pivot = pivot;
-                rectTrans.anchoredPosition = Vector2.zero;
             }
         }
         #endregion
@@ -238,7 +213,38 @@ namespace MVZ2.Level.UI
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
             readyText.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
         }
+        private void Update()
+        {
+            UpdateCameraLimit();
+        }
+        #region 摄像机
+        private void UpdateCameraLimit()
+        {
+            foreach (var rectTrans in limitRectTransforms)
+            {
+                if (!rectTrans)
+                    continue;
+                var parentTrans = rectTrans.parent as RectTransform;
+                if (!parentTrans)
+                    continue;
+                var localToWorldMatrix = parentTrans.localToWorldMatrix;
+                var worldToLocalMatrix = parentTrans.worldToLocalMatrix;
 
+                var parentRect = parentTrans.rect;
+                var lastLocalMinPos = parentRect.min;
+
+                var worldMinPos = localToWorldMatrix.MultiplyPoint(lastLocalMinPos);
+                worldMinPos.x = Mathf.Max(cameraLimitMinX, worldMinPos.x);
+                var localMinPos = worldToLocalMatrix.MultiplyPoint(worldMinPos);
+
+                rectTrans.anchorMin = Vector2.zero;
+                rectTrans.anchorMax = Vector2.one;
+
+                rectTrans.sizeDelta = new Vector2(lastLocalMinPos.x - localMinPos.x, 0);
+                rectTrans.anchoredPosition = new Vector2(rectTrans.sizeDelta.x * -0.5f, 0);
+            }
+        }
+        #endregion
         #endregion
 
         #region 事件
@@ -282,9 +288,7 @@ namespace MVZ2.Level.UI
         [SerializeField]
         RectTransform[] limitRectTransforms;
         [SerializeField]
-        float cameraLimitMinAnchorX;
-        [SerializeField]
-        float cameraLimitMaxAnchorX;
+        float cameraLimitMinX = 2.2f;
 
         [Header("HeldItem")]
         [SerializeField]

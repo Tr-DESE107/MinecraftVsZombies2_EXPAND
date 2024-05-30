@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using PVZEngine;
@@ -43,6 +44,16 @@ namespace MVZ2.GameContent.Stages
             }
         }
 
+        public override void PrepareForBattle(Level level)
+        {
+            base.PrepareForBattle(level);
+            level.AreaDefinition.PrepareForBattle(level);
+            if (level.Difficulty != LevelDifficulty.Hard)
+            {
+                var cartRef = level.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
+                level.SpawnCarts(cartRef, MVZ2Level.CART_START_X, 20);
+            }
+        }
         public override void PostEnemySpawned(Entity entity)
         {
             base.PostEnemySpawned(entity);

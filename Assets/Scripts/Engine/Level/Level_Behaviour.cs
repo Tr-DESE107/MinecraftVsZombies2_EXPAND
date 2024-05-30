@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net.Core;
 using UnityEngine;
 
 namespace PVZEngine
@@ -16,6 +17,11 @@ namespace PVZEngine
             CurrentWave++;
             SpawnWaveEnemies(CurrentWave);
             PostWave(CurrentWave);
+        }
+        public void PrepareForBattle()
+        {
+            StageDefinition.PrepareForBattle(this);
+            Callbacks.PostPrepareForBattle.Run(this);
         }
         public void SpawnWaveEnemies(int wave)
         {

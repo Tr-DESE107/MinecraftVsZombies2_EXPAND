@@ -2,6 +2,7 @@ using System.Linq;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Carts
 {
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent.Carts
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.LeftFaction);
+            UpdateCartTint(entity);
         }
 
         public override void Update(Entity entity)
@@ -35,12 +37,7 @@ namespace MVZ2.GameContent.Carts
                         entity.Pos = pos;
                         entity.Velocity = Vector3.zero;
                     }
-
-                    var alpha = Mathf.Lerp(0, 1, (entity.Pos.x - MVZ2Level.CART_START_X) / (MVZ2Level.CART_TARGET_X - MVZ2Level.CART_START_X));
-                    var tint = entity.GetTint();
-                    tint = new Color(1, 1, 1, alpha);
-                    entity.SetTint(tint);
-
+                    UpdateCartTint(entity);
 
                     bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
                         .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Pos.x <= entity.Pos.x + TRIGGER_DISTANCE);
@@ -64,6 +61,14 @@ namespace MVZ2.GameContent.Carts
                     }
                     break;
             }
+        }
+        private void UpdateCartTint(Entity cart)
+        {
+            var alpha = Mathf.Lerp(0, 1, (cart.Pos.x - MVZ2Level.CART_START_X) / (MVZ2Level.CART_TARGET_X - MVZ2Level.CART_START_X));
+            var tint = cart.GetTint();
+            tint = new Color(1, 1, 1, alpha);
+            cart.SetTint(tint);
+            cart.SetShadowAlpha(alpha);
         }
         public override int Type => EntityTypes.CART;
         public const float TRIGGER_DISTANCE = 28;

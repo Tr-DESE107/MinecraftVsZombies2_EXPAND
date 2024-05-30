@@ -11,7 +11,6 @@ namespace MVZ2
         {
             controller.SetMainManager(main);
             controller.InitGame();
-            controller.PlayReadySetBuild();
         }
         public async Task GotoLevelScene()
         {

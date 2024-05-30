@@ -1181,6 +1181,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 544a0e954e368bd47922b782463ea965
+    m_Address: mvz2:slow_down
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7a8f6567388ead408d2056f92912c2d
     m_Address: mvz2:siren
     m_ReadOnly: 0
@@ -1525,6 +1531,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 031db6b738540f14aae3f26d4d1daff6
     m_Address: mvz2:final_item
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e983145be5a3f945aa631115eee93d4
+    m_Address: mvz2:fast_forward
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound

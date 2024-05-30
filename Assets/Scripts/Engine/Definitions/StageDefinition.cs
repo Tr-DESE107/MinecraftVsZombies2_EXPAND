@@ -11,6 +11,7 @@ namespace PVZEngine
         }
         public virtual void Start(Level level) { }
         public virtual void Update(Level level) { }
+        public virtual void PrepareForBattle(Level level) { }
         public virtual void PostWave(Level level, int wave) { }
         public virtual void PostHugeWave(Level level) { }
         public virtual void PostFinalWave(Level level) { }

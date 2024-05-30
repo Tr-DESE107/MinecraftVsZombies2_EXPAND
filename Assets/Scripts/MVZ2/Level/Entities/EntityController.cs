@@ -147,6 +147,9 @@ namespace MVZ2.Level
         #region 事件回调
         private void PostInitCallback()
         {
+            UpdateEntityModel();
+            UpdateArmorModel();
+            UpdateShadow(Vector3.zero);
         }
         private void OnTriggerAnimationCallback(string name, EntityAnimationTarget target)
         {

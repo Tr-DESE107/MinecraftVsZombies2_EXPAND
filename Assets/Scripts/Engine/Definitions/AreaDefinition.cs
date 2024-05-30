@@ -13,6 +13,7 @@ namespace PVZEngine
         {
             return grids.ToArray();
         }
+        public virtual void PrepareForBattle(Level level) { }
         protected List<NamespaceID> grids = new List<NamespaceID>();
     }
 }

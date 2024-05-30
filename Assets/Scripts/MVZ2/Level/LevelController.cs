@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using log4net.Core;
@@ -58,6 +59,10 @@ namespace MVZ2.Level
                 null
             });
             level.Init(AreaID.day, StageID.prologue, option);
+
+            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
+
+            StartCoroutine(GameStartTransition());
         }
         public void PlayReadySetBuild()
         {
@@ -68,9 +73,6 @@ namespace MVZ2.Level
         {
             if (isGameStarted)
                 return;
-            var cartRef = level.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
-            level.SpawnCarts(cartRef, MVZ2Level.CART_START_X, 20);
-            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
             level.ResetHeldItem();
             level.Start(LevelDifficulty.Normal);
 
@@ -122,6 +124,8 @@ namespace MVZ2.Level
             gridLayout.OnPointerDown += OnGridPointerDownCallback;
 
 
+            levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
+
             HideGridSprites();
             var levelUI = GetLevelUI();
             standaloneUI.SetActive(standaloneUI == levelUI);
@@ -144,39 +148,16 @@ namespace MVZ2.Level
         }
         private void Update()
         {
-            if (!isGameStarted || isPaused)
-                return;
+            UpdateGame();
 
-            var gameSpeed = GetGameSpeed();
-            var deltaTime = Time.deltaTime * gameSpeed;
-            foreach (var entity in entities)
-            {
-                entity.UpdateView(deltaTime);
-            }
-            InputUpdate();
-            var ui = GetLevelUI();
-            ui.SetHeldItemPosition(levelCamera.ScreenToWorldPoint(Input.mousePosition));
-            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
-            ui.SetPickaxeVisible(!IsHoldingPickaxe());
-            ui.SetLevelTextAnimationSpeed(gameSpeed);
-            UpdateLevelProgress();
-            UpdateBlueprintRecharges();
-            UpdateBlueprintDisabled();
-            UpdateStarshards();
-
-            var cameraOffset = Vector3.zero;
-            foreach (var shake in cameraShakes)
-            {
-                cameraOffset += (Vector3)shake.GetShake2D();
-            }
-            cameraRoot.transform.position = cameraPosition + cameraOffset;
         }
         private void FixedUpdate()
         {
             if (!isGameStarted || isPaused)
             {
-                foreach (var entity in entities.Where(e => e.Entity.Type == EntityTypes.CART && e.Entity.State == EntityStates.IDLE).ToArray())
+                foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
                 {
+                    entity.Entity.Update();
                     entity.UpdateLogic(Time.fixedDeltaTime, 1);
                 }
                 return;
@@ -761,6 +742,85 @@ namespace MVZ2.Level
             levelUI.SetSpeedUpVisible(inlevelVisible);
             levelUI.SetLevelNameVisible(inlevelVisible);
         }
+        private void UpdateGame()
+        {
+            if (!isGameStarted || isPaused)
+            {
+                foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
+                {
+                    entity.UpdateView(Time.deltaTime);
+                }
+                return;
+            }
+
+            var gameSpeed = GetGameSpeed();
+            var deltaTime = Time.deltaTime * gameSpeed;
+            foreach (var entity in entities)
+            {
+                entity.UpdateView(deltaTime);
+            }
+            InputUpdate();
+            var ui = GetLevelUI();
+            ui.SetHeldItemPosition(levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
+            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
+            ui.SetPickaxeVisible(!IsHoldingPickaxe());
+            ui.SetLevelTextAnimationSpeed(gameSpeed);
+            UpdateLevelProgress();
+            UpdateBlueprintRecharges();
+            UpdateBlueprintDisabled();
+            UpdateStarshards();
+
+            var cameraShakeOffset = Vector3.zero;
+            foreach (var shake in cameraShakes)
+            {
+                cameraShakeOffset += (Vector3)shake.GetShake2D();
+            }
+            levelCamera.ShakeOffset = cameraShakeOffset;
+        }
+        private bool CanUpdateBeforeGameStart(Entity entity)
+        {
+            return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
+        }
+        #region 场景过渡
+        private IEnumerator MoveCameraLawn(Vector3 target, Vector2 targetAnchor, float maxTime)
+        {
+            float time = 0;
+            Vector3 start = levelCamera.CameraPosition;
+            Vector2 startAnchor = levelCamera.CameraAnchor;
+            while (time < maxTime)
+            {
+                time = Mathf.Clamp(time + Time.deltaTime, 0, maxTime);
+                var lerp = cameraMoveCurve.Evaluate(time / maxTime);
+                var pos = Vector3.Lerp(start, target, lerp);
+                var anchor = Vector2.Lerp(startAnchor, targetAnchor, lerp);
+                levelCamera.SetPosition(pos, anchor);
+                yield return null;
+            }
+        }
+        private IEnumerator MoveCameraToHouse()
+        {
+            return MoveCameraLawn(cameraHousePosition, cameraHouseAnchor, 1f);
+        }
+        private IEnumerator MoveCameraToLawn()
+        {
+            return MoveCameraLawn(cameraLawnPosition, cameraLawnAnchor, 1f);
+        }
+        private IEnumerator MoveCameraToChoose()
+        {
+            return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
+        }
+        private IEnumerator GameStartTransition()
+        {
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToChoose();
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToLawn();
+            level.PrepareForBattle();
+            yield return new WaitForSeconds(0.5f);
+            PlayReadySetBuild();
+        }
+        #endregion
+
         #endregion
 
         #region 属性字段
@@ -794,12 +854,25 @@ namespace MVZ2.Level
         private float levelProgress;
         private float[] bannerProgresses;
 
+        [Header("Cameras")]
         [SerializeField]
-        private Vector3 cameraPosition;
+        private LevelCamera levelCamera;
         [SerializeField]
-        private Transform cameraRoot;
+        private AnimationCurve cameraMoveCurve;
         [SerializeField]
-        private Camera levelCamera;
+        private Vector3 cameraHousePosition = new Vector3(0, 3, -10);
+        [SerializeField]
+        private Vector2 cameraHouseAnchor = new Vector2(0, 0.5f);
+        [SerializeField]
+        private Vector3 cameraLawnPosition = new Vector3(10.2f, 3, -10);
+        [SerializeField]
+        private Vector2 cameraLawnAnchor = new Vector2(1, 0.5f);
+        [SerializeField]
+        private Vector3 cameraChoosePosition = new Vector3(14, 3, -10);
+        [SerializeField]
+        private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
+
+
         [SerializeField]
         private Physics2DRaycaster raycaster;
         [SerializeField]
@@ -820,6 +893,12 @@ namespace MVZ2.Level
             Nothing,
             ChoosingBlueprints,
             InLevel,
+        }
+        public enum CameraPosition
+        {
+            House,
+            Lawn,
+            Choose,
         }
         #endregion
     }
