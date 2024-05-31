@@ -32,6 +32,7 @@ namespace MVZ2
         public LevelManager LevelManager => level;
         public LanguageManager LanguageManager => lang;
         public ModManager ModManager => mod;
+        public CursorManager CursorManager => cursor;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]
@@ -46,6 +47,8 @@ namespace MVZ2
         private LanguageManager lang;
         [SerializeField]
         private ModManager mod;
+        [SerializeField]
+        private CursorManager cursor;
     }
     public class DuplicateInstanceException : Exception
     {

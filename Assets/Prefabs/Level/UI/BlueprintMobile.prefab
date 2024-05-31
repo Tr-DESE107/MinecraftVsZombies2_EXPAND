@@ -806,6 +806,7 @@ GameObject:
   - component: {fileID: 1056501050438266100}
   - component: {fileID: 3651694785271475521}
   - component: {fileID: 4169481690948507537}
+  - component: {fileID: 5733812740472352846}
   m_Layer: 0
   m_Name: BlueprintMobile
   m_TagString: Untagged
@@ -877,3 +878,16 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5733812740472352846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766828071715088786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9792724dfb2274bb43590372e056b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 1

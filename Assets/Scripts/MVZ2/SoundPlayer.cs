@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class LevelSoundPlayer : MonoBehaviour
+    public class SoundPlayer : MonoBehaviour
     {
         public void Play2D()
         {

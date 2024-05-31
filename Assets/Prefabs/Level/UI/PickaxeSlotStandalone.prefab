@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1881300844789744973}
   - component: {fileID: 1708850345675257184}
   - component: {fileID: 6673061259195245295}
+  - component: {fileID: 6098024505037315300}
   m_Layer: 0
   m_Name: PickaxeSlotStandalone
   m_TagString: Untagged
@@ -95,6 +96,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6098024505037315300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849907924920646456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9792724dfb2274bb43590372e056b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 1
 --- !u!1 &4394773466280662562
 GameObject:
   m_ObjectHideFlags: 0

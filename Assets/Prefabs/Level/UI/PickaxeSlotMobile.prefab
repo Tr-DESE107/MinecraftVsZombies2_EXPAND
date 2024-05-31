@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3819648580199021119}
   - component: {fileID: 6395664641256175597}
+  - component: {fileID: 3032903214186562567}
   m_Layer: 0
   m_Name: PickaxeSlotMobile
   m_TagString: Untagged
@@ -125,7 +126,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f237f8dd88bea8743bfcaec3b9163f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiAnimator: {fileID: 0}
   image: {fileID: 6841598518491289067}
+--- !u!114 &3032903214186562567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409849591881615265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9792724dfb2274bb43590372e056b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 1
 --- !u!1 &7670794426026156315
 GameObject:
   m_ObjectHideFlags: 0

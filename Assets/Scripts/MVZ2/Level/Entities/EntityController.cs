@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace MVZ2.Level
         #region 公有方法
         public void Init(LevelController level, Entity entity)
         {
-            this.level = level;
+            this.Level = level;
             this.Entity = entity;
             gameObject.name = entity.Definition.GetID().ToString();
             entity.PostInit += PostInitCallback;
@@ -76,6 +77,26 @@ namespace MVZ2.Level
         #region 私有方法
 
         #region 生命周期
+        private void Update()
+        {
+            bool cursorValid = isHovered && Level.HeldItemType == HeldTypes.NONE && Level.IsEntityValidForHeldItem(Entity);
+            if (cursorValid)
+            {
+                if (_cursorSource == null)
+                {
+                    _cursorSource = new EntityCursorSource(this, CursorType.Point);
+                    CursorManager.AddSource(_cursorSource);
+                }
+            }
+            else
+            {
+                if (_cursorSource != null)
+                {
+                    CursorManager.RemoveSource(_cursorSource);
+                    _cursorSource = null;
+                }
+            }
+        }
         private void OnDrawGizmos()
         {
             float pixelUnit = PositionHelper.LAWN_TO_TRANS_SCALE;
@@ -232,7 +253,7 @@ namespace MVZ2.Level
         }
         private Model CreateModel(NamespaceID id)
         {
-            var res = level.MainManager.ResourceManager;
+            var res = Level.MainManager.ResourceManager;
             var modelMeta = res.GetModelMeta(id);
             if (modelMeta == null)
                 return null;
@@ -299,7 +320,7 @@ namespace MVZ2.Level
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
-            if (isHovered && level.IsEntityValidForHeldItem(Entity))
+            if (isHovered && Level.HeldItemType != HeldTypes.NONE && Level.IsEntityValidForHeldItem(Entity))
             {
                 color += new Color(0.5f, 0.5f, 0.5f, 0);
             }
@@ -350,15 +371,36 @@ namespace MVZ2.Level
         };
         public Model Model { get; private set; }
         public ShadowController Shadow => shadow;
-        public Entity Entity { get; protected set; }
-        protected LevelController level;
+        public Entity Entity { get; private set; }
+        public LevelController Level { get; private set; }
         [SerializeField]
         private ShadowController shadow;
         private bool isHovered;
+        private EntityCursorSource _cursorSource;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
         #endregion shader相关属性
 
         #endregion
+    }
+    public class EntityCursorSource : ICursorSource
+    {
+        public EntityCursorSource(EntityController target, CursorType type, int priority = 0)
+        {
+            this.target = target;
+            this.type = type;
+            this.priority = priority;
+        }
+
+        public bool IsValid()
+        {
+            return target;
+        }
+
+        public EntityController target;
+        private int priority;
+        public int Priority => priority;
+        private CursorType type;
+        public CursorType CursorType => type;
     }
 }

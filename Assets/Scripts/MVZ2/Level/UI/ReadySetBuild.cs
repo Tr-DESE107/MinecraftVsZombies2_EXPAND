@@ -1,7 +1,6 @@
 using System;
-using MVZ2.UI;
 
-namespace MVZ2
+namespace MVZ2.Level.UI
 {
     public class ReadySetBuild : LevelHintText
     {

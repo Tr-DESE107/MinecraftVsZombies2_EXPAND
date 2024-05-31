@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.UI
+namespace MVZ2.Level.UI
 {
     public class EnergyPanel : LevelUIUnit
     {

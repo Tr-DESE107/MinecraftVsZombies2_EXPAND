@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 8854949109821583914}
   - component: {fileID: 947863326007147069}
   - component: {fileID: 4887036204728430330}
+  - component: {fileID: 3934885239199676105}
   m_Layer: 0
   m_Name: BlueprintStandalone
   m_TagString: Untagged
@@ -440,6 +441,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!114 &3934885239199676105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838990478890576226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9792724dfb2274bb43590372e056b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 1
 --- !u!1 &6030979519249969651
 GameObject:
   m_ObjectHideFlags: 0

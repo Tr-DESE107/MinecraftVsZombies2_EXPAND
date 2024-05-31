@@ -105,6 +105,13 @@ namespace MVZ2.Level
                             return entity.CanEvoke();
                     }
                     break;
+                case EntityTypes.PICKUP:
+                    switch (heldItemType)
+                    {
+                        case HeldTypes.NONE:
+                            return !entity.IsCollected();
+                    }
+                    break;
             }
             return false;
         }
@@ -265,37 +272,34 @@ namespace MVZ2.Level
         {
             entity.SetHovered(false);
         }
-        private void OnEntityPointerDownCallback(EntityController entity, PointerEventData eventData)
+        private void OnEntityPointerDownCallback(EntityController entityCtrl, PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
-            switch (entity.Entity.Type)
+
+            var entity = entityCtrl.Entity;
+            if (!IsEntityValidForHeldItem(entity))
+                return;
+
+            switch (entity.Type)
             {
                 case EntityTypes.PLANT:
                     switch (heldItemType)
                     {
                         case HeldTypes.PICKAXE:
-                            if (CanDigContraption(entity.Entity))
-                            {
-                                entity.Entity.Die();
-                                level.ResetHeldItem();
-                            }
+                            entity.Die();
+                            level.ResetHeldItem();
                             break;
                         case HeldTypes.STARSHARD:
-                            if (entity.Entity.CanEvoke())
-                            {
-                                entity.Entity.Evoke();
-                                level.ResetHeldItem();
-                            }
+                            entity.Evoke();
+                            level.ResetHeldItem();
                             break;
                     }
                     break;
                 case EntityTypes.PICKUP:
                     if (heldItemType == HeldTypes.NONE)
                     {
-                        var pickup = entity.Entity;
-                        if (!pickup.IsCollected())
-                            pickup.Collect();
+                        entity.Collect();
                     }
                     break;
             }
@@ -837,6 +841,8 @@ namespace MVZ2.Level
             { LevelDifficulty.Hard, StringTable.DIFFICULTY_HARD },
         };
         public MainManager MainManager => main;
+        public int HeldItemType => heldItemType;
+        public int HeldItemID => heldItemID;
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
         private PVZEngine.Level level;

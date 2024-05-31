@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.UI
+namespace MVZ2.Level.UI
 {
     public class BlueprintList : LevelUIUnit
     {

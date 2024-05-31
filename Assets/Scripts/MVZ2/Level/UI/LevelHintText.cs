@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MVZ2.UI
+namespace MVZ2.Level.UI
 {
     public class LevelHintText : MonoBehaviour
     {
