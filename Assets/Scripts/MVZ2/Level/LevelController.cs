@@ -117,12 +117,23 @@ namespace MVZ2.Level
                             return !entity.IsCollected();
                     }
                     break;
+                case EntityTypes.CART:
+                    switch (heldItemType)
+                    {
+                        case HeldTypes.NONE:
+                            return !entity.IsCartTriggered();
+                    }
+                    break;
             }
             return false;
         }
         public float GetGameSpeed()
         {
             return speedUp ? 2 : 1;
+        }
+        public bool IsGameRunning()
+        {
+            return isGameStarted && !isPaused;
         }
         #endregion
 
@@ -165,7 +176,7 @@ namespace MVZ2.Level
         }
         private void FixedUpdate()
         {
-            if (!isGameStarted || isPaused)
+            if (!IsGameRunning())
             {
                 foreach (var entity in entities.ToArray())
                 {
@@ -270,6 +281,8 @@ namespace MVZ2.Level
         private void OnEntityPointerEnterCallback(EntityController entity, PointerEventData eventData)
         {
             entity.SetHovered(true);
+            if (!IsGameRunning())
+                return;
             switch (entity.Entity.Type)
             {
                 case EntityTypes.PICKUP:
@@ -289,6 +302,9 @@ namespace MVZ2.Level
         private void OnEntityPointerDownCallback(EntityController entityCtrl, PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+
+            if (!IsGameRunning())
                 return;
 
             var entity = entityCtrl.Entity;
@@ -314,6 +330,12 @@ namespace MVZ2.Level
                     if (heldItemType == HeldTypes.NONE)
                     {
                         entity.Collect();
+                    }
+                    break;
+                case EntityTypes.CART:
+                    if (heldItemType == HeldTypes.NONE)
+                    {
+                        entity.TriggerCart();
                     }
                     break;
             }
@@ -762,7 +784,7 @@ namespace MVZ2.Level
         }
         private void UpdateGame()
         {
-            if (!isGameStarted || isPaused)
+            if (!IsGameRunning())
             {
                 foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
                 {

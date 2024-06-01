@@ -79,7 +79,7 @@ namespace MVZ2.Level
         #region ÉúÃüÖÜÆÚ
         private void Update()
         {
-            bool cursorValid = isHovered && Level.HeldItemType == HeldTypes.NONE && Level.IsEntityValidForHeldItem(Entity);
+            bool cursorValid = isHovered && Level.IsGameRunning() && Level.HeldItemType == HeldTypes.NONE && Level.IsEntityValidForHeldItem(Entity);
             if (cursorValid)
             {
                 if (_cursorSource == null)

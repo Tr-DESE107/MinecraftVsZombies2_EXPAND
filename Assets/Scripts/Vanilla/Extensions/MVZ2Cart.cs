@@ -39,6 +39,10 @@ namespace MVZ2.Vanilla
                 target.Pos.x >= bounds.min.x &&
                 target.Pos.x <= bounds.max.x;
         }
+        public static bool IsCartTriggered(this Entity entity)
+        {
+            return entity.State == EntityStates.CART_TRIGGERED;
+        }
         public static void TriggerCart(this Entity entity)
         {
             entity.State = EntityStates.CART_TRIGGERED;
