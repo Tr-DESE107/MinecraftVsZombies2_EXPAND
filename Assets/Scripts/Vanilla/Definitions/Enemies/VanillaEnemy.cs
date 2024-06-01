@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Enemies
         public VanillaEnemy(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EnemyProps.SPEED, 0.5f);
+            SetProperty(EnemyProps.CRY_SOUND, SoundID.zombieCry);
             SetProperty(EntityProperties.SHELL, ShellID.flesh);
             SetProperty(EntityProperties.ATTACK_SPEED, 1f);
             SetProperty(EntityProperties.DAMAGE, 100f);

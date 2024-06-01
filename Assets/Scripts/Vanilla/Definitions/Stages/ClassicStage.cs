@@ -213,7 +213,7 @@ namespace MVZ2.GameContent.Stages
         {
             var waveTimer = GetWaveTimer(level);
             // 每15帧检测一次，还剩一秒钟结束则不检测。
-            if (waveTimer.Frame % 15 != 0 || waveTimer.Frame <= 30)
+            if (!waveTimer.PassedInterval(15) || waveTimer.Frame <= 30)
                 return;
 
             // 已经不存在存活的敌人了，直接加速。

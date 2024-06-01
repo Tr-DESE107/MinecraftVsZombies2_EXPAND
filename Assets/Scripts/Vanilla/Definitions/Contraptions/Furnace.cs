@@ -99,11 +99,12 @@ namespace MVZ2.GameContent.Contraptions
         private void EvokedUpdate(Entity entity)
         {
             var evocationTimer = GetEvocationTimer(entity);
-            if (evocationTimer.Frame % 5 == 0)
+            evocationTimer.Run();
+            if (evocationTimer.PassedInterval(5))
             {
+                entity.Level.PlaySound(SoundID.potion, entity.Pos);
                 entity.Produce<Redstone>();
             }
-            evocationTimer.Run();
             if (evocationTimer.Expired)
             {
                 entity.SetEvoked(false);

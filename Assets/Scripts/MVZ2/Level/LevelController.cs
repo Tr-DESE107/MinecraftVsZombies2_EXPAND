@@ -202,6 +202,8 @@ namespace MVZ2.Level
                     shake.timeout--;
                 }
                 cameraShakes.RemoveAll(s => s.timeout <= 0);
+
+                UpdateEnemyCry();
             }
         }
         #endregion
@@ -793,6 +795,38 @@ namespace MVZ2.Level
             }
             levelCamera.ShakeOffset = cameraShakeOffset;
         }
+        private void UpdateEnemyCry()
+        {
+            cryTimeCheckTimer.Run();
+            if (cryTimeCheckTimer.Expired)
+            {
+                cryTimeCheckTimer.Reset();
+
+                var crySoundEnemies = GetCrySoundEnemies();
+                var enemyCount = crySoundEnemies.Count();
+                float t = Mathf.Clamp01((float)(enemyCount - MinEnemyCryCount) / (MaxEnemyCryCount - MinEnemyCryCount));
+                maxCryTime = (int)Mathf.Lerp(MaxCryInterval, MinCryInterval, t);
+            }
+            cryTimer.Run();
+            if (cryTimer.MaxFrame - cryTimer.Frame >= maxCryTime)
+            {
+                cryTimer.Reset();
+
+                var crySoundEnemies = GetCrySoundEnemies();
+                var enemyCount = crySoundEnemies.Count();
+                if (enemyCount <= 0)
+                    return;
+                var crySoundEnemy = crySoundEnemies.Random(uiRandom);
+                level.PlaySound(crySoundEnemy.GetCrySound(), crySoundEnemy.Pos);
+            }
+        }
+        private IEnumerable<Entity> GetCrySoundEnemies()
+        {
+            var enemies = level.GetEntities(EntityTypes.ENEMY);
+            if (enemies.Length <= 0)
+                return Enumerable.Empty<Entity>();
+            return enemies.Where(e => e.GetCrySound() != null);
+        }
         private bool CanUpdateBeforeGameStart(Entity entity)
         {
             return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
@@ -846,6 +880,10 @@ namespace MVZ2.Level
         #region 属性字段
         public const int SelfFaction = 0;
         public const int EnemyFaction = 1;
+        public const int MinEnemyCryCount = 1;
+        public const int MaxEnemyCryCount = 20;
+        public const int MinCryInterval = 60;
+        public const int MaxCryInterval = 300;
         public static Dictionary<NamespaceID, string> levelNames = new Dictionary<NamespaceID, string>()
         {
             { StageID.prologue, StringTable.LEVEL_NAME_PROLOGUE }
@@ -871,6 +909,10 @@ namespace MVZ2.Level
         private List<Shake> cameraShakes = new List<Shake>();
         private bool speedUp;
         private float gameRunTimeModular;
+        private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
+        private FrameTimer cryTimeCheckTimer = new FrameTimer(7);
+        private int maxCryTime = MaxCryInterval;
+        private RandomGenerator uiRandom = new RandomGenerator(Guid.NewGuid().GetHashCode());
 
 
         private float levelProgress;

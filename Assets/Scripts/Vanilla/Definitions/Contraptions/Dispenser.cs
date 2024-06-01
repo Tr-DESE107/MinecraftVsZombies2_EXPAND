@@ -49,12 +49,12 @@ namespace MVZ2.GameContent.Contraptions
         private void EvokedUpdate(Entity entity)
         {
             var evocationTimer = GetEvocationTimer(entity);
-            if (evocationTimer.Frame % 2 == 0)
+            evocationTimer.Run();
+            if (evocationTimer.PassedInterval(2))
             {
                 var projectile = Shoot(entity);
                 projectile.Velocity *= 2;
             }
-            evocationTimer.Run();
             if (evocationTimer.Expired)
             {
                 entity.SetEvoked(false);

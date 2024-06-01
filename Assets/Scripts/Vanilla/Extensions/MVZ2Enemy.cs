@@ -13,6 +13,10 @@ namespace MVZ2.Vanilla
         {
             return enemy.GetProperty<float>(EnemyProps.MAX_ATTACK_HEIGHT);
         }
+        public static NamespaceID GetCrySound(this Entity enemy)
+        {
+            return enemy.GetProperty<NamespaceID>(EnemyProps.CRY_SOUND);
+        }
         public static bool IsPreviewEnemy(this Entity enemy)
         {
             return enemy.GetProperty<bool>(EnemyProps.PREVIEW_ENEMY);
