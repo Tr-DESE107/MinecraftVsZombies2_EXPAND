@@ -45,7 +45,7 @@ namespace MVZ2.Level
             UpdateEntityModel();
             UpdateArmorModel();
         }
-        public void UpdateView(float deltaTime)
+        public void UpdateMovement(float deltaTime)
         {
             var nextPos = Entity.GetNextPosition();
             var pos = Entity.Pos;
@@ -59,7 +59,7 @@ namespace MVZ2.Level
 
             UpdateShadow(posOffset);
         }
-        public void UpdateLogic(float deltaTime, float simulationSpeed)
+        public void UpdateModel(float deltaTime, float simulationSpeed)
         {
             if (Model)
             {

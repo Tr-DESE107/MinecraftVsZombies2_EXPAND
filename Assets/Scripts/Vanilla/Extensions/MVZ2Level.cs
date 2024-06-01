@@ -14,6 +14,10 @@ namespace MVZ2.Vanilla
             var y = GetScreenHeight() - ENERGY_SLOT_WIDTH * 0.5f;
             return new Vector2(x, y);
         }
+        public static Rect GetEnemySpawnRect()
+        {
+            return new Rect(MIN_PREVIEW_X, MIN_PREVIEW_Y, MAX_PREVIEW_X - MIN_PREVIEW_X, MAX_PREVIEW_Y - MIN_PREVIEW_Y);
+        }
         public static float GetScreenHeight()
         {
             return SCREEN_HEIGHT;

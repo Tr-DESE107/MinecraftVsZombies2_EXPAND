@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    public class ClassicStage : StageDefinition
+    public class ClassicStage : StageDefinition, IPreviewStage
     {
         public ClassicStage(string nsp, string name, int totalFlags, EnemySpawnEntry[] spawnEntries) : base(nsp, name)
         {
@@ -70,57 +70,58 @@ namespace MVZ2.GameContent.Stages
             var health = enemies.Sum(e => e.Health + (e.EquipedArmor?.Health ?? 0));
             return health <= GetWaveAdvanceHealthPercent(level) * GetWaveMaxHealth(level);
         }
-        public void CreatePreviewEnemies(Level level, IList<NamespaceID> validEnemies, Rect region)
+        public void CreatePreviewEnemies(Level level, Rect region)
         {
-            List<Entity> createdEnemies = new List<Entity>();
-
-            int loopTimes = 0;
-
-            while (true)
+            var pool = GetEnemyPool();
+            var validEnemies = pool.Select(e => e.GetSpawnDefinition(level)?.EntityID);
+            CreatePreviewEnemies(level, validEnemies, region);
+        }
+        public static void CreatePreviewEnemies(Level level, IEnumerable<NamespaceID> validEnemies, Rect region)
+        {
+            List<NamespaceID> enemyIDToCreate = new List<NamespaceID>();
+            foreach (var id in validEnemies)
             {
-                for (int i = 0; i < validEnemies.Count; i++)
+                int count = 1;
+                if (id == EnemyID.zombie)
+                    count = 3;
+                else if (id == EnemyID.leatherCappedZombie)
+                    count = 2;
+
+                for ( int i = 0; i < count; i++)
                 {
-                    var entityRef = validEnemies[i];
-
-                    int times = 1;
-                    for (int time = 0; time < times; time++)
-                    {
-                        bool around;
-                        Vector3 pos;
-                        do
-                        {
-                            pos = new Vector3(UnityEngine.Random.Range(region.xMin, region.xMax), 0, UnityEngine.Random.Range(region.yMin, region.yMax));
-
-                            around = false;
-                            for (int e = 0; e < createdEnemies.Count; e++)
-                            {
-                                Vector3 createdPos = createdEnemies[e].Pos;
-                                if (Vector3.Distance(createdPos, pos) < 80)
-                                {
-                                    around = true;
-                                    break;
-                                }
-                            }
-                        }
-                        while (around);
-
-                        Entity enm = level.Spawn(entityRef, pos, null);
-                        enm.SetPreviewEnemy(true);
-                        createdEnemies.Add(enm);
-
-                        if (createdEnemies.Count >= Mathf.Max(6, validEnemies.Count + 3))
-                        {
-                            return;
-                        }
-                    }
+                    enemyIDToCreate.Add(id);
                 }
+            }
 
-                loopTimes++;
-                if (loopTimes > 1024)
+            List<Entity> createdEnemies = new List<Entity>();
+            float radius = 80;
+            while (enemyIDToCreate.Count > 0)
+            {
+                var creatingEnemyId = enemyIDToCreate.ToArray();
+                foreach (var id in creatingEnemyId)
                 {
-                    Debug.Log("次数超过上限，跳出循环。");
-                    return;
+                    var x = UnityEngine.Random.Range(region.xMin, region.xMax);
+                    var z = UnityEngine.Random.Range(region.yMin, region.yMax);
+                    var y = level.GetGroundY(x, z);
+                    Vector3 pos = new Vector3(x, y, z);
+
+                    if (radius > 0 && createdEnemies.Any(e => Vector3.Distance(e.Pos, pos) < radius))
+                        continue;
+
+                    Entity enm = level.Spawn(id, pos, null);
+                    enm.SetPreviewEnemy(true);
+                    createdEnemies.Add(enm);
+
+                    enemyIDToCreate.Remove(id);
                 }
+                radius--;
+            }
+        }
+        public static void RemovePreviewEnemies(Level level)
+        {
+            foreach (var enemy in level.FindEntities(e => e.IsPreviewEnemy()))
+            {
+                enemy.Remove();
             }
         }
         public override IEnumerable<IEnemySpawnEntry> GetEnemyPool()
@@ -204,6 +205,10 @@ namespace MVZ2.GameContent.Stages
                 }
             }
         }
+        void IPreviewStage.RemovePreviewEnemies(Level level)
+        {
+            RemovePreviewEnemies(level);
+        }
         private void CheckWaveAdvancement(Level level)
         {
             var waveTimer = GetWaveTimer(level);
@@ -273,6 +278,11 @@ namespace MVZ2.GameContent.Stages
         public const int STATE_FINAL_WAVE = 3;
         private EnemySpawnEntry[] spawnEntries;
 
+    }
+    public interface IPreviewStage
+    {
+        void CreatePreviewEnemies(Level level, Rect rect);
+        void RemovePreviewEnemies(Level level);
     }
     [Serializable]
     public class EnemySpawnEntry : IEnemySpawnEntry

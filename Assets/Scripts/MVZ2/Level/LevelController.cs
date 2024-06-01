@@ -6,6 +6,7 @@ using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
+using MVZ2.GameContent.Stages;
 using MVZ2.Level.UI;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -74,6 +75,10 @@ namespace MVZ2.Level
             if (isGameStarted)
                 return;
             level.ResetHeldItem();
+            if (level.StageDefinition is IPreviewStage preview)
+            {
+                preview.RemovePreviewEnemies(level);
+            }
             level.Start(LevelDifficulty.Normal);
 
             levelProgress = 0;
@@ -162,10 +167,17 @@ namespace MVZ2.Level
         {
             if (!isGameStarted || isPaused)
             {
-                foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
+                foreach (var entity in entities.ToArray())
                 {
-                    entity.Entity.Update();
-                    entity.UpdateLogic(Time.fixedDeltaTime, 1);
+                    if (CanUpdateBeforeGameStart(entity.Entity))
+                    {
+                        entity.Entity.Update();
+                        entity.UpdateModel(Time.fixedDeltaTime, 1);
+                    }
+                    else if (entity.Entity.IsPreviewEnemy())
+                    {
+                        entity.UpdateModel(Time.fixedDeltaTime, 1);
+                    }
                 }
                 return;
             }
@@ -183,7 +195,7 @@ namespace MVZ2.Level
                 level.Update();
                 foreach (var entity in entities.ToArray())
                 {
-                    entity.UpdateLogic(Time.fixedDeltaTime, gameSpeed);
+                    entity.UpdateModel(Time.fixedDeltaTime, gameSpeed);
                 }
                 foreach (var shake in cameraShakes)
                 {
@@ -752,7 +764,7 @@ namespace MVZ2.Level
             {
                 foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
                 {
-                    entity.UpdateView(Time.deltaTime);
+                    entity.UpdateMovement(Time.deltaTime);
                 }
                 return;
             }
@@ -761,7 +773,7 @@ namespace MVZ2.Level
             var deltaTime = Time.deltaTime * gameSpeed;
             foreach (var entity in entities)
             {
-                entity.UpdateView(deltaTime);
+                entity.UpdateMovement(deltaTime);
             }
             InputUpdate();
             var ui = GetLevelUI();
@@ -815,6 +827,10 @@ namespace MVZ2.Level
         }
         private IEnumerator GameStartTransition()
         {
+            if (level.StageDefinition is IPreviewStage preview)
+            {
+                preview.CreatePreviewEnemies(level, MVZ2Level.GetEnemySpawnRect());
+            }
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
             yield return new WaitForSeconds(1);
