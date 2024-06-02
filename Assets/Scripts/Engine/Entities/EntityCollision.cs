@@ -1,4 +1,6 @@
-﻿namespace PVZEngine
+﻿using System.Collections.Generic;
+
+namespace PVZEngine
 {
     public static class EntityCollision
     {
@@ -10,57 +12,37 @@
         public const int MASK_PICKUP = 1 << 5;
         public const int MASK_PROJECTILE = 1 << 6;
         public const int MASK_EFFECT = 1 << 7;
-        public const int MASK_FRIENDLY = 1 << 8;
-        public const int MASK_HOSTILE = 1 << 9;
-        public const int MASK_ANY_FACTION = MASK_FRIENDLY | MASK_HOSTILE;
 
         public const int STATE_ENTER = 0;
         public const int STATE_STAY = 1;
         public const int STATE_EXIT = 2;
-        public static bool CanCollide(Entity self, Entity other)
+        public static bool CanCollide(int mask, Entity other)
         {
-            var mask = self.CollisionMask;
-            if (self.IsEnemy(other))
-            {
-                if ((mask & MASK_HOSTILE) <= 0)
-                    return false;
-            }
-            else
-            {
-                if ((mask & MASK_FRIENDLY) <= 0)
-                    return false;
-            }
-            int typeMask = 0;
-            switch (other.Type)
+            int typeMask = GetTypeMask(other.Type);
+            return (mask & typeMask) > 0;
+        }
+        private static int GetTypeMask(int type)
+        {
+            switch (type)
             {
                 case EntityTypes.PLANT:
-                    typeMask = MASK_PLANT;
-                    break;
+                    return MASK_PLANT;
                 case EntityTypes.ENEMY:
-                    typeMask = MASK_ENEMY;
-                    break;
+                    return MASK_ENEMY;
                 case EntityTypes.OBSTACLE:
-                    typeMask = MASK_OBSTACLE;
-                    break;
+                    return MASK_OBSTACLE;
                 case EntityTypes.BOSS:
-                    typeMask = MASK_BOSS;
-                    break;
+                    return MASK_BOSS;
                 case EntityTypes.CART:
-                    typeMask = MASK_CART;
-                    break;
+                    return MASK_CART;
                 case EntityTypes.PICKUP:
-                    typeMask = MASK_PICKUP;
-                    break;
+                    return MASK_PICKUP;
                 case EntityTypes.PROJECTILE:
-                    typeMask = MASK_PROJECTILE;
-                    break;
+                    return MASK_PROJECTILE;
                 case EntityTypes.EFFECT:
-                    typeMask = MASK_EFFECT;
-                    break;
+                    return MASK_EFFECT;
             }
-            if ((mask & typeMask) <= 0)
-                return false;
-            return true;
+            return 0;
         }
     }
 }

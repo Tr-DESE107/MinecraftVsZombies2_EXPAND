@@ -64,6 +64,10 @@ namespace MVZ2.Vanilla
         {
             return game.GetProperty<EntityID>(LevelProps.LAST_ENEMY);
         }
+        public static NamespaceID GetMusicID(this Level game)
+        {
+            return game.GetProperty<NamespaceID>(LevelProps.MUSIC_ID);
+        }
         public static void SetLastEnemy(this Level game, EntityID value)
         {
             game.SetProperty(LevelProps.LAST_ENEMY, value);

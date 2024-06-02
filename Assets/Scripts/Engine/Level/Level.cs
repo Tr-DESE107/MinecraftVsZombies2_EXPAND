@@ -68,11 +68,12 @@ namespace PVZEngine
         public void Update()
         {
             UpdateSeedRecharges();
+            collisionCachedBounds.Clear();
             var entities = GetEntities();
             foreach (var entity in entities)
             {
                 entity.Update();
-                CollisionUpdate(entity, entities);
+                CollisionUpdate(entity, entity.CollisionMask, entities);
             }
             StageDefinition.Update(this);
             Callbacks.PostLevelUpdate.Run(this);

@@ -29,6 +29,7 @@ namespace MVZ2
         public ResourceManager ResourceManager => resource;
         public ModelManager ModelManager => model;
         public SoundManager SoundManager => sound;
+        public MusicManager MusicManager => music;
         public LevelManager LevelManager => level;
         public LanguageManager LanguageManager => lang;
         public ModManager ModManager => mod;
@@ -41,6 +42,8 @@ namespace MVZ2
         private ModelManager model;
         [SerializeField]
         private SoundManager sound;
+        [SerializeField]
+        private MusicManager music;
         [SerializeField]
         private LevelManager level;
         [SerializeField]

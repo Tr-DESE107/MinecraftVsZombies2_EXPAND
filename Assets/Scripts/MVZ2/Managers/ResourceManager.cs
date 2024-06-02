@@ -68,6 +68,7 @@ namespace MVZ2
             modResources.Add(modResource);
 
             await LoadMetaLists(modNamespace);
+            await LoadModMusicClips(modNamespace);
             await LoadModSoundClips(modNamespace);
             await LoadModModels(modNamespace);
             await LoadSpriteSheets(modNamespace);

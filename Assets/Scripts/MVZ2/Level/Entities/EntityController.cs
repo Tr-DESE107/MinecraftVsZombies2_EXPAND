@@ -47,15 +47,17 @@ namespace MVZ2.Level
         }
         public void UpdateMovement(float deltaTime)
         {
+            movementTransitionFrame++;
             var nextPos = Entity.GetNextPosition();
             var pos = Entity.Pos;
-            var posOffset = (nextPos.LawnToTrans() - pos.LawnToTrans()) * deltaTime / Time.fixedDeltaTime;
+            var transPos = pos.LawnToTrans();
+            var posOffset = (nextPos.LawnToTrans() - transPos) * (1 - 1 / movementTransitionFrame);
             float zOffset = 0;
             if (zOffsetDict.TryGetValue(Entity.Type, out float offset))
             {
                 zOffset = offset * PositionHelper.LAWN_TO_TRANS_SCALE;
             }
-            transform.position = pos.LawnToTrans() + posOffset + Vector3.back * zOffset;
+            transform.position = transPos + posOffset + Vector3.back * zOffset;
 
             UpdateShadow(posOffset);
         }
@@ -67,6 +69,7 @@ namespace MVZ2.Level
                 UpdateArmorModel();
                 Model.UpdateModel(deltaTime, simulationSpeed);
             }
+            movementTransitionFrame = 0;
         }
         public void SetHovered(bool hovered)
         {
@@ -107,9 +110,9 @@ namespace MVZ2.Level
                 startY = (Entity.Pos.y + scaledBoundsOffset.y) * pixelUnit,
                 startZ = (Entity.Pos.z + scaledBoundsOffset.z) * pixelUnit;
             Gizmos.color = new Color(
-                ((Entity.CollisionMask >> 0) & 15) / 15f,
-                ((Entity.CollisionMask >> 4) & 15) / 15f,
-                ((Entity.CollisionMask >> 8) & 3) / 3f, 1);
+                ((Entity.CollisionMask >> 0) & 7) / 7f,
+                ((Entity.CollisionMask >> 3) & 7) / 7f,
+                ((Entity.CollisionMask >> 6) & 3) / 3f, 1);
             for (int i = 0; i < 12; i++)
             {
                 int axe = i >> 2;
@@ -377,6 +380,7 @@ namespace MVZ2.Level
         private ShadowController shadow;
         private bool isHovered;
         private EntityCursorSource _cursorSource;
+        private int movementTransitionFrame;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
         #endregion shader相关属性

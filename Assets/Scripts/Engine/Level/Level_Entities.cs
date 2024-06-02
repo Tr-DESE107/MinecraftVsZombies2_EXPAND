@@ -14,15 +14,16 @@ namespace PVZEngine
             entities.Remove(entity);
             OnEntityRemove?.Invoke(entity);
         }
-        public void CollisionUpdate(Entity ent1, Entity[] entities)
+        public void CollisionUpdate(Entity ent1, int mask, Entity[] entities)
         {
+            var bounds = GetCachedBounds(ent1);
             foreach (var ent2 in entities)
             {
                 if (ent1 == ent2)
                     continue;
-                if (!EntityCollision.CanCollide(ent1, ent2))
+                if (!EntityCollision.CanCollide(mask, ent2))
                     continue;
-                if (!ent1.GetBounds().Intersects(ent2.GetBounds()))
+                if (!bounds.Intersects(GetCachedBounds(ent2)))
                     continue;
                 ent1.Collide(ent2);
             }
@@ -76,6 +77,15 @@ namespace PVZEngine
                 }
             }
         }
+        private Bounds GetCachedBounds(Entity entity)
+        {
+            if (!collisionCachedBounds.TryGetValue(entity.ID, out var bounds))
+            {
+                bounds = entity.GetBounds();
+                collisionCachedBounds.Add(entity.ID, bounds);
+            }
+            return bounds;
+        }
         private int AllocEntityID()
         {
             int id = currentEntityID;
@@ -88,5 +98,16 @@ namespace PVZEngine
         #endregion
         private int currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
+        private Dictionary<int, Bounds> collisionCachedBounds = new Dictionary<int, Bounds>();
+    }
+    public struct ColliderInfo
+    {
+        public ColliderInfo(Entity entity)
+        {
+            this.entity = entity;
+            mask = entity.CollisionMask;
+        }
+        public Entity entity;
+        public int mask;
     }
 }

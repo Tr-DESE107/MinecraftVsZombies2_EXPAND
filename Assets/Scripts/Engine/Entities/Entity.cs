@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Serialization;
-using Unity.VisualScripting.YamlDotNet.Core;
 using UnityEngine;
 
 namespace PVZEngine
@@ -399,6 +398,10 @@ namespace PVZEngine
             return Pos + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
         }
         public Bounds GetBounds()
+        {
+            return new Bounds(GetBoundsCenter(), GetSize());
+        }
+        public Bounds GetCachedBounds()
         {
             return new Bounds(GetBoundsCenter(), GetSize());
         }

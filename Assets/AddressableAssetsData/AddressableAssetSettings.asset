@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: fbabeea97c99f8143b5d1b05494f46e9
   m_currentHash:
     serializedVersion: 2
-    Hash: e2eee3748b2914afa3ed52a2b87f2d47
+    Hash: afa2b7182dc0fdb9f88442a5535463dc
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
     - Sprite
     - Sound
     - Spritesheet
+    - Music
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb40291d9b81e0644b9d330887b30a0e, type: 2}

@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = new FrameTimer(450);
             SetRiseTimer(entity, riseTimer);
 
-            entity.CollisionMask |= EntityCollision.MASK_ENEMY | EntityCollision.MASK_HOSTILE;
+            entity.CollisionMask |= EntityCollision.MASK_ENEMY;
         }
         public override void Update(Entity entity)
         {

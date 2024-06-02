@@ -4,5 +4,6 @@
     {
         public const string LAST_ENEMY = "lastEnemy";
         public const string STARSHARD_COUNT = "starshardCount";
+        public const string MUSIC_ID = "musicID";
     }
 }

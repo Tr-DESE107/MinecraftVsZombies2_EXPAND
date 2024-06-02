@@ -100,6 +100,9 @@ namespace MVZ2.Editor
                         case "metas":
                             labels.Add("Meta");
                             break;
+                        case "music":
+                            labels.Add("Music");
+                            break;
                         case "sounds":
                             labels.Add("Sound");
                             break;

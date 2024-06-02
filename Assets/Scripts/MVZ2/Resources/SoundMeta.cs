@@ -18,7 +18,7 @@ namespace MVZ2
         public static SoundMeta FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
-            var priority = node.GetAttributeInt("priority") ?? 0;
+            var priority = node.GetAttributeInt("priority") ?? 128;
             var maxCount = node.GetAttributeInt("maxCount") ?? 0;
             var samples = new AudioSample[node.ChildNodes.Count];
             for (int i = 0; i < samples.Length; i++)

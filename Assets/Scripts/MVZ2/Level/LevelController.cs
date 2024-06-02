@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -15,7 +14,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-using LawnGrid = PVZEngine.LawnGrid;
 
 namespace MVZ2.Level
 {
@@ -81,6 +79,8 @@ namespace MVZ2.Level
                 preview.RemovePreviewEnemies(level);
             }
             level.Start(LevelDifficulty.Normal);
+
+            main.MusicManager.Play(level.GetMusicID());
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
@@ -684,6 +684,11 @@ namespace MVZ2.Level
                 level.PlaySound(SoundID.pause);
                 var spriteReference = pauseImages.Random(uiRandom);
                 levelUI.SetPauseDialogImage(main.ResourceManager.GetSprite(spriteReference));
+                main.MusicManager.Pause();
+            }
+            else
+            {
+                main.MusicManager.Resume();
             }
             levelUI.SetPauseDialogActive(isPaused);
             levelUI.ResetPauseDialogPosition();
@@ -913,6 +918,7 @@ namespace MVZ2.Level
         }
         private IEnumerator GameStartTransition()
         {
+            main.MusicManager.Play(MusicID.choosing);
             if (level.StageDefinition is IPreviewStage preview)
             {
                 preview.CreatePreviewEnemies(level, MVZ2Level.GetEnemySpawnRect());
@@ -949,9 +955,14 @@ namespace MVZ2.Level
         public MainManager MainManager => main;
         public int HeldItemType => heldItemType;
         public int HeldItemID => heldItemID;
+        public float MusicTime 
+        {
+            get => main.MusicManager.Time;
+            set => main.MusicManager.Time = value;
+        }
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
-        private PVZEngine.Level level;
+        private Level level;
         private MainManager main;
         private bool isGameStarted;
         private int heldItemType;

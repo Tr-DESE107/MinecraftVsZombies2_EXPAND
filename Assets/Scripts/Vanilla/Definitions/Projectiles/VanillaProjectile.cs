@@ -22,8 +22,7 @@ namespace MVZ2.Vanilla
             entity.CollisionMask = EntityCollision.MASK_PLANT
                 | EntityCollision.MASK_ENEMY
                 | EntityCollision.MASK_OBSTACLE
-                | EntityCollision.MASK_BOSS
-                | EntityCollision.MASK_HOSTILE;
+                | EntityCollision.MASK_BOSS;
         }
 
         public override void Update(Entity projectile)
