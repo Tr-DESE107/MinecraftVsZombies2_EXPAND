@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 8385873611783202406}
   - component: {fileID: 5806779297039110912}
   - component: {fileID: 7665045004980552651}
+  - component: {fileID: 1611438425587823477}
   m_Layer: 0
   m_Name: ImageButton
   m_TagString: Untagged
@@ -210,6 +211,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1611438425587823477}
+        m_TargetAssemblyTypeName: MVZ2.UI.Deselector, MVZ2
+        m_MethodName: Deselect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5806779297039110912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +252,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 1
+--- !u!114 &1611438425587823477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659590377320195274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f37128752e1854f8ac709a03e35b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

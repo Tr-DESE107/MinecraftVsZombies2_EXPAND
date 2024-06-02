@@ -12,6 +12,7 @@ using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using LawnGrid = PVZEngine.LawnGrid;
@@ -161,18 +162,51 @@ namespace MVZ2.Level
             levelUI.OnSpeedUpButtonClick += OnSpeedUpButtonClickCallback;
             levelUI.OnStarshardPointerDown += OnStarshardPointerDownCallback;
             levelUI.OnStartGameCalled += StartGame;
+            levelUI.OnPauseDialogResumeClicked += OnPauseDialogResumeClickedCallback;
             levelUI.SetHeldItemIcon(null);
             levelUI.HideMoney();
             levelUI.SetProgressVisible(false);
             levelUI.SetHugeWaveTextVisible(false);
             levelUI.SetFinalWaveTextVisible(false);
             levelUI.SetReadySetBuildVisible(false);
+            levelUI.SetPauseDialogActive(false);
             SetUIVisibleState(VisibleState.Nothing);
         }
         private void Update()
         {
-            UpdateGame();
+            if (!IsGameRunning())
+            {
+                foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
+                {
+                    entity.UpdateMovement(Time.deltaTime);
+                }
+            }
+            else
+            {
+                var gameSpeed = GetGameSpeed();
+                var deltaTime = Time.deltaTime * gameSpeed;
+                foreach (var entity in entities)
+                {
+                    entity.UpdateMovement(deltaTime);
+                }
+                var ui = GetLevelUI();
+                ui.SetHeldItemPosition(levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
+                ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
+                ui.SetPickaxeVisible(!IsHoldingPickaxe());
+                ui.SetLevelTextAnimationSpeed(gameSpeed);
+                UpdateLevelProgress();
+                UpdateBlueprintRecharges();
+                UpdateBlueprintDisabled();
+                UpdateStarshards();
 
+                var cameraShakeOffset = Vector3.zero;
+                foreach (var shake in cameraShakes)
+                {
+                    cameraShakeOffset += (Vector3)shake.GetShake2D();
+                }
+                levelCamera.ShakeOffset = cameraShakeOffset;
+            }
+            UpdateInput();
         }
         private void FixedUpdate()
         {
@@ -440,6 +474,10 @@ namespace MVZ2.Level
                 return;
             ClickStarshard();
         }
+        private void OnPauseDialogResumeClickedCallback()
+        {
+            SetGamePaused(false);
+        }
         #endregion
 
         #endregion
@@ -632,6 +670,26 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 暂停
+        public void SwitchPauseGame()
+        {
+            SetGamePaused(!isPaused);
+        }
+        public void SetGamePaused(bool paused)
+        {
+            isPaused = paused;
+            var levelUI = GetLevelUI();
+            if (paused)
+            {
+                level.PlaySound(SoundID.pause);
+                var spriteReference = pauseImages.Random(uiRandom);
+                levelUI.SetPauseDialogImage(main.ResourceManager.GetSprite(spriteReference));
+            }
+            levelUI.SetPauseDialogActive(isPaused);
+            levelUI.ResetPauseDialogPosition();
+        }
+        #endregion
+
         private bool CanPlaceOnGrid(int heldType, int heldId, LawnGrid grid)
         {
             switch (heldType)
@@ -729,45 +787,6 @@ namespace MVZ2.Level
             GetLevelUI().SetSpeedUp(speedUp);
             level.PlaySound(speedUp ? SoundID.fastForward : SoundID.slowDown);
         }
-        private void InputUpdate()
-        {
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(SelfFaction) && !e.IsDead))
-                {
-                    enemy.Die();
-                }
-            }
-#endif
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (CancelHeldItem())
-                {
-                    level.PlaySound(SoundID.tap);
-                }
-            }
-            for (int i = 0; i < 10 ; i++)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha0 + i))
-                {
-                    var index = i == 0 ? 9 : i - 1;
-                    ClickBlueprint(index);
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                ClickPickaxe();
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                ClickStarshard();
-            }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                SwitchSpeedUp();
-            }
-        }
         private void SetUIVisibleState(VisibleState state)
         {
             var levelUI = GetLevelUI();
@@ -782,40 +801,51 @@ namespace MVZ2.Level
             levelUI.SetSpeedUpVisible(inlevelVisible);
             levelUI.SetLevelNameVisible(inlevelVisible);
         }
-        private void UpdateGame()
+        private void UpdateInput()
         {
-            if (!IsGameRunning())
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.F1))
             {
-                foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
+                foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(SelfFaction) && !e.IsDead))
                 {
-                    entity.UpdateMovement(Time.deltaTime);
+                    enemy.Die();
                 }
-                return;
             }
-
-            var gameSpeed = GetGameSpeed();
-            var deltaTime = Time.deltaTime * gameSpeed;
-            foreach (var entity in entities)
+#endif
+            if (isGameStarted && Input.GetKeyDown(KeyCode.Space))
             {
-                entity.UpdateMovement(deltaTime);
+                SwitchPauseGame();
             }
-            InputUpdate();
-            var ui = GetLevelUI();
-            ui.SetHeldItemPosition(levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
-            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
-            ui.SetPickaxeVisible(!IsHoldingPickaxe());
-            ui.SetLevelTextAnimationSpeed(gameSpeed);
-            UpdateLevelProgress();
-            UpdateBlueprintRecharges();
-            UpdateBlueprintDisabled();
-            UpdateStarshards();
-
-            var cameraShakeOffset = Vector3.zero;
-            foreach (var shake in cameraShakes)
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                cameraShakeOffset += (Vector3)shake.GetShake2D();
+                SwitchSpeedUp();
             }
-            levelCamera.ShakeOffset = cameraShakeOffset;
+            if (IsGameRunning())
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (CancelHeldItem())
+                    {
+                        level.PlaySound(SoundID.tap);
+                    }
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+                    {
+                        var index = i == 0 ? 9 : i - 1;
+                        ClickBlueprint(index);
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    ClickPickaxe();
+                }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    ClickStarshard();
+                }
+            }
         }
         private void UpdateEnemyCry()
         {
@@ -971,6 +1001,8 @@ namespace MVZ2.Level
         private LevelUI standaloneUI;
         [SerializeField]
         private LevelUI mobileUI;
+        [SerializeField]
+        private List<SpriteReference> pauseImages = new List<SpriteReference>();
         #endregion
 
         #region 内嵌类

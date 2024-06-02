@@ -197,6 +197,22 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region 暂停对话框
+        public void SetPauseDialogActive(bool active)
+        {
+            pauseDialogObj.SetActive(active);
+        }
+        public void ResetPauseDialogPosition()
+        {
+            var rectTrans = pauseDialogObj.transform as RectTransform;
+            rectTrans.anchoredPosition = Vector3.zero;
+        }
+        public void SetPauseDialogImage(Sprite sprite)
+        {
+            pauseDialog.SetPausedImage(sprite);
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -212,6 +228,7 @@ namespace MVZ2.Level.UI
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
             readyText.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
+            pauseDialog.OnResumeClicked += () => OnPauseDialogResumeClicked?.Invoke();
         }
         private void Update()
         {
@@ -255,6 +272,7 @@ namespace MVZ2.Level.UI
         public event Action OnMenuButtonClick;
         public event Action OnSpeedUpButtonClick;
         public event Action OnStartGameCalled;
+        public event Action OnPauseDialogResumeClicked;
         #endregion
 
         #region 属性字段
@@ -273,6 +291,12 @@ namespace MVZ2.Level.UI
         LevelHintText finalWaveText;
         [SerializeField]
         ReadySetBuild readyText;
+
+        [Header("Pause Dialog")]
+        [SerializeField]
+        GameObject pauseDialogObj;
+        [SerializeField]
+        PauseDialog pauseDialog;
 
         [Header("Raycast Receivers")]
         [SerializeField]

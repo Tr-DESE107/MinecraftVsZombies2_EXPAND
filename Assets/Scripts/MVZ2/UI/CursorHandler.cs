@@ -30,7 +30,7 @@ namespace MVZ2.UI
 
         public bool IsValid()
         {
-            return target;
+            return target && target.activeInHierarchy;
         }
 
         public GameObject target;

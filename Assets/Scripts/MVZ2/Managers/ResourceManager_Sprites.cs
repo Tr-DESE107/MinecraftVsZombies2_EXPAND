@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace MVZ2
 {
@@ -14,6 +15,20 @@ namespace MVZ2
         public Sprite GetSprite(NamespaceID id)
         {
             return FindInMods(id, mod => mod.Sprites);
+        }
+        public Sprite GetSprite(SpriteReference spriteRef)
+        {
+            if (spriteRef.isSheet)
+            {
+                var sheet = GetSpriteSheet(spriteRef.id);
+                if (sheet == null)
+                    return null;
+                return sheet[spriteRef.index];
+            }
+            else
+            {
+                return GetSprite(spriteRef.id);
+            }
         }
         public Sprite[] GetSpriteSheet(string nsp, string path)
         {

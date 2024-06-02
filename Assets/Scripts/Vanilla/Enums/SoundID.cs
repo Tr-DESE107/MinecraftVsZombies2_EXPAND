@@ -17,6 +17,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID leatherHit = Get("leather_hit");
         public readonly static NamespaceID mineExplode = Get("mine_explode");
         public readonly static NamespaceID minecart = Get("minecart");
+        public readonly static NamespaceID pause = Get("pause");
         public readonly static NamespaceID points = Get("points");
         public readonly static NamespaceID pick = Get("pick");
         public readonly static NamespaceID pickaxe = Get("pickaxe");
