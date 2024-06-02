@@ -32,6 +32,7 @@ namespace MVZ2
         public MusicManager MusicManager => music;
         public LevelManager LevelManager => level;
         public LanguageManager LanguageManager => lang;
+        public SaveManager SaveManager => save;
         public ModManager ModManager => mod;
         public CursorManager CursorManager => cursor;
         [SerializeField]
@@ -48,6 +49,8 @@ namespace MVZ2
         private LevelManager level;
         [SerializeField]
         private LanguageManager lang;
+        [SerializeField]
+        private SaveManager save;
         [SerializeField]
         private ModManager mod;
         [SerializeField]

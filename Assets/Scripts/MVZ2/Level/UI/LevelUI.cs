@@ -195,6 +195,10 @@ namespace MVZ2.Level.UI
             hugeWaveText.TextAnimator.speed = speed;
             finalWaveText.TextAnimator.speed = speed;
         }
+        public void SetYouDiedVisible(bool visible)
+        {
+            youDiedText.SetActive(visible);
+        }
         #endregion
 
         #region 暂停对话框
@@ -210,6 +214,21 @@ namespace MVZ2.Level.UI
         public void SetPauseDialogImage(Sprite sprite)
         {
             pauseDialog.SetPausedImage(sprite);
+        }
+        #endregion
+
+        #region 游戏结束对话框
+        public void SetGameOverDialogActive(bool active)
+        {
+            gameOverDialogObj.SetActive(active);
+        }
+        public void SetGameOverDialogMessage(string text)
+        {
+            gameOverDialog.SetMessage(text);
+        }
+        public void SetGameOverDialogInteractable(bool interactable)
+        {
+            gameOverDialog.SetInteractable(interactable);
         }
         #endregion
 
@@ -229,6 +248,9 @@ namespace MVZ2.Level.UI
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
             readyText.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
             pauseDialog.OnResumeClicked += () => OnPauseDialogResumeClicked?.Invoke();
+
+            gameOverDialog.OnRetryButtonClicked += () => OnGameOverRetryButtonClicked?.Invoke();
+            gameOverDialog.OnBackButtonClicked += () => OnGameOverBackButtonClicked?.Invoke();
         }
         private void Update()
         {
@@ -273,6 +295,8 @@ namespace MVZ2.Level.UI
         public event Action OnSpeedUpButtonClick;
         public event Action OnStartGameCalled;
         public event Action OnPauseDialogResumeClicked;
+        public event Action OnGameOverRetryButtonClicked;
+        public event Action OnGameOverBackButtonClicked;
         #endregion
 
         #region 属性字段
@@ -290,6 +314,8 @@ namespace MVZ2.Level.UI
         [SerializeField]
         LevelHintText finalWaveText;
         [SerializeField]
+        LevelHintText youDiedText;
+        [SerializeField]
         ReadySetBuild readyText;
 
         [Header("Pause Dialog")]
@@ -297,6 +323,12 @@ namespace MVZ2.Level.UI
         GameObject pauseDialogObj;
         [SerializeField]
         PauseDialog pauseDialog;
+
+        [Header("Game Over Dialog")]
+        [SerializeField]
+        GameObject gameOverDialogObj;
+        [SerializeField]
+        GameOverDialog gameOverDialog;
 
         [Header("Raycast Receivers")]
         [SerializeField]

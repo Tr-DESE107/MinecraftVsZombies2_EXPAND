@@ -26,6 +26,11 @@ namespace MVZ2
             IsPaused = false;
             musicSource.UnPause();
         }
+        public void Stop()
+        {
+            IsPaused = false;
+            musicSource.Stop();
+        }
         public void Play(AudioClip clip)
         {
             if (!clip)

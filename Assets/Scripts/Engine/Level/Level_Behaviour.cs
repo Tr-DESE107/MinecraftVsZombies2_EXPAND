@@ -118,6 +118,10 @@ namespace PVZEngine
             PostEnemySpawned(enemy);
             return enemy;
         }
+        public void GameOver(int type, Entity killer, string message)
+        {
+            OnGameOver?.Invoke(type, killer, message);
+        }
         private void PostWave(int wave)
         {
             StageDefinition.PostWave(this, wave);
@@ -148,6 +152,7 @@ namespace PVZEngine
             spawnedLanes.Add(row);
             return row;
         }
+        public event Action<int, Entity, string> OnGameOver;
         public int CurrentWave { get; set; }
         public int CurrentFlag { get; set; }
         public int WaveState { get; set; }

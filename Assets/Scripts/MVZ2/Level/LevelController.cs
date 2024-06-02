@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -17,6 +18,7 @@ using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
+    using static UnityEngine.EventSystems.EventTrigger;
     using Level = PVZEngine.Level;
     public class LevelController : MonoBehaviour
     {
@@ -46,6 +48,7 @@ namespace MVZ2.Level
             level.OnShakeScreen += OnShakeScreenCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnHeldItemReset += OnHeldItemResetCallback;
+            level.OnGameOver += OnGameOverCallback;
             VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
             VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
 
@@ -55,7 +58,7 @@ namespace MVZ2.Level
                 ContraptionID.furnace,
                 ContraptionID.obsidian,
                 ContraptionID.mineTNT,
-                null,
+                EnemyID.zombie,
                 null
             });
             level.Init(AreaID.day, StageID.prologue, option);
@@ -134,7 +137,30 @@ namespace MVZ2.Level
         }
         public bool IsGameRunning()
         {
-            return isGameStarted && !isPaused;
+            return isGameStarted && !isPaused && !isGameOver;
+        }
+        public bool IsGameOver()
+        {
+            return isGameOver;
+        }
+        public void GameOver(Entity killer)
+        {
+            killerID = killer.Definition.GetID();
+            killerEntity = entities.FirstOrDefault(e => e.Entity == killer);
+            SetGameOver();
+            StartCoroutine(GameOverByEnemyTransition());
+        }
+        public void GameOver(string deathMessage)
+        {
+            this.deathMessage = deathMessage;
+            SetGameOver();
+            StartCoroutine(GameOverNoEnemyTransition());
+        }
+        public void GameOverInstantly(string deathMessage)
+        {
+            this.deathMessage = deathMessage;
+            SetGameOver();
+            ShowGameOverDialog();
         }
         #endregion
 
@@ -163,6 +189,10 @@ namespace MVZ2.Level
             levelUI.OnStarshardPointerDown += OnStarshardPointerDownCallback;
             levelUI.OnStartGameCalled += StartGame;
             levelUI.OnPauseDialogResumeClicked += OnPauseDialogResumeClickedCallback;
+
+            levelUI.OnGameOverRetryButtonClicked += OnGameOverRetryButtonClickedCallback;
+            levelUI.OnGameOverBackButtonClicked += OnGameOverBackButtonClickedCallback;
+
             levelUI.SetHeldItemIcon(null);
             levelUI.HideMoney();
             levelUI.SetProgressVisible(false);
@@ -170,11 +200,20 @@ namespace MVZ2.Level
             levelUI.SetFinalWaveTextVisible(false);
             levelUI.SetReadySetBuildVisible(false);
             levelUI.SetPauseDialogActive(false);
+            levelUI.SetGameOverDialogActive(false);
+            levelUI.SetYouDiedVisible(false);
             SetUIVisibleState(VisibleState.Nothing);
         }
         private void Update()
         {
-            if (!IsGameRunning())
+            if (isGameOver)
+            {
+                if (killerEntity)
+                {
+                    killerEntity.UpdateMovement(Time.deltaTime);
+                }
+            }
+            else if (!IsGameRunning())
             {
                 foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
                 {
@@ -210,7 +249,20 @@ namespace MVZ2.Level
         }
         private void FixedUpdate()
         {
-            if (!IsGameRunning())
+            if (isGameOver)
+            {
+                if (killerEntity)
+                {
+                    var pos = killerEntity.Entity.Pos;
+                    pos.x -= 1;
+                    pos.z = pos.z * 0.5f + level.GetDoorZ() * 0.5f;
+                    pos.y = pos.y * 0.5f + level.GetGroundY(pos.x, pos.z) * 0.5f;
+                    killerEntity.Entity.Pos = pos;
+                    killerEntity.UpdateModel(Time.fixedDeltaTime, 1);
+                }
+                return;
+            }
+            else if (!IsGameRunning())
             {
                 foreach (var entity in entities.ToArray())
                 {
@@ -298,6 +350,21 @@ namespace MVZ2.Level
         private void OnHeldItemResetCallback()
         {
             SetHeldItem(0, 0, 0, false);
+        }
+        private void OnGameOverCallback(int type, Entity killer, string message)
+        {
+            switch (type)
+            {
+                case GameOverTypes.ENEMY:
+                    GameOver(killer);
+                    break;
+                case GameOverTypes.NO_ENEMY:
+                    GameOver(message);
+                    break;
+                case GameOverTypes.INSTANT:
+                    GameOverInstantly(message);
+                    break;
+            }
         }
         private void PostHugeWaveApproachCallback(Level level)
         {
@@ -478,6 +545,21 @@ namespace MVZ2.Level
         {
             SetGamePaused(false);
         }
+        #region 游戏结束
+        private async void OnGameOverRetryButtonClickedCallback()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetGameOverDialogInteractable(false);
+            await main.LevelManager.Retry();
+        }
+        private async void OnGameOverBackButtonClickedCallback()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetGameOverDialogInteractable(false);
+            await main.LevelManager.Retry();
+        }
+        #endregion
+
         #endregion
 
         #endregion
@@ -817,14 +899,19 @@ namespace MVZ2.Level
                 }
             }
 #endif
-            if (isGameStarted && Input.GetKeyDown(KeyCode.Space))
+            if (!isGameOver)
             {
-                SwitchPauseGame();
+                if (isGameStarted && Input.GetKeyDown(KeyCode.Space))
+                {
+                    SwitchPauseGame();
+                }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    SwitchSpeedUp();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                SwitchSpeedUp();
-            }
+
+
             if (IsGameRunning())
             {
                 if (Input.GetMouseButtonDown(1))
@@ -888,6 +975,24 @@ namespace MVZ2.Level
         {
             return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
         }
+
+        #region 游戏结束
+        private void ShowGameOverDialog()
+        {
+            var message = killerID != null ? DeathMessages.GetByEntityID(killerID) : deathMessage;
+            var levelUI = GetLevelUI();
+            levelUI.SetGameOverDialogActive(true);
+            levelUI.SetGameOverDialogMessage(main.LanguageManager._p(DeathMessages.CONTEXT, message));
+        }
+        private void SetGameOver()
+        {
+            isGameOver = true;
+            level.PlaySound(SoundID.loseMusic);
+            view.SetDoorVisible(false);
+            SetUIVisibleState(VisibleState.Nothing);
+        }
+        #endregion
+
         #region 场景过渡
         private IEnumerator MoveCameraLawn(Vector3 target, Vector2 targetAnchor, float maxTime)
         {
@@ -931,6 +1036,33 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(0.5f);
             PlayReadySetBuild();
         }
+        private IEnumerator GameOverByEnemyTransition()
+        {
+            main.MusicManager.Stop();
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToHouse();
+            yield return new WaitForSeconds(3);
+            level.PlaySound(SoundID.hit);
+            yield return new WaitForSeconds(0.5f);
+            level.PlaySound(SoundID.hit);
+            yield return new WaitForSeconds(0.5f);
+            level.PlaySound(SoundID.hit);
+            yield return new WaitForSeconds(0.5f);
+            level.PlaySound(SoundID.scream);
+            var levelUI = GetLevelUI();
+            levelUI.SetYouDiedVisible(true);
+            yield return new WaitForSeconds(4);
+            ShowGameOverDialog();
+        }
+        private IEnumerator GameOverNoEnemyTransition()
+        {
+            main.MusicManager.Stop();
+            level.PlaySound(SoundID.scream);
+            var levelUI = GetLevelUI();
+            levelUI.SetYouDiedVisible(true);
+            yield return new WaitForSeconds(4);
+            ShowGameOverDialog();
+        }
         #endregion
 
         #endregion
@@ -965,6 +1097,7 @@ namespace MVZ2.Level
         private Level level;
         private MainManager main;
         private bool isGameStarted;
+        private bool isGameOver;
         private int heldItemType;
         private int heldItemID;
         private int heldItemPriority;
@@ -976,10 +1109,16 @@ namespace MVZ2.Level
         private FrameTimer cryTimeCheckTimer = new FrameTimer(7);
         private int maxCryTime = MaxCryInterval;
         private RandomGenerator uiRandom = new RandomGenerator(Guid.NewGuid().GetHashCode());
+        private NamespaceID killerID;
+        private EntityController killerEntity;
+        private string deathMessage;
 
 
         private float levelProgress;
         private float[] bannerProgresses;
+
+        [SerializeField]
+        private LevelView view;
 
         [Header("Cameras")]
         [SerializeField]

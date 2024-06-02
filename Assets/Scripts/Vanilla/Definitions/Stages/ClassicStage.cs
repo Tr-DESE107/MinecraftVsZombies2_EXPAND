@@ -42,6 +42,11 @@ namespace MVZ2.GameContent.Stages
                     FinalWaveUpdate(level);
                     break;
             }
+            var gameOverEnemies = level.FindEntities(e => e.Pos.x < MVZ2Level.GetBorderX(false) && IsAliveEnemy(e));
+            if (gameOverEnemies.Length > 0)
+            {
+                level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
+            }
         }
 
         public override void PrepareForBattle(Level level)

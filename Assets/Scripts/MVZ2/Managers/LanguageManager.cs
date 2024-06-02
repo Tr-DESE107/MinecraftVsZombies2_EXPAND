@@ -9,34 +9,34 @@ namespace MVZ2
 {
     public partial class LanguageManager : MonoBehaviour
     {
-        public string _(string text)
+        public string _(string text, params string[] args)
         {
-            return GetLocalizedString(text, GetCurrentLanguage());
+            return GetLocalizedString(text, GetCurrentLanguage(), args);
         }
-        public string _p(string context, string text)
+        public string _p(string context, string text, params string[] args)
         {
-            return GetLocalizedStringParticular(context, text, GetCurrentLanguage());
+            return GetLocalizedStringParticular(context, text, GetCurrentLanguage(), args);
         }
-        public string GetLocalizedString(string text, string language)
+        public string GetLocalizedString(string text, string language, params string[] args)
         {
             var languagePacks = GetAllLanguagePacks();
             foreach (var languagePack in languagePacks)
             {
                 if (languagePack == null)
                     continue;
-                if (languagePack.TryGetString(language, text, out var result))
+                if (languagePack.TryGetString(language, text, out var result, args))
                     return result;
             }
             return text;
         }
-        public string GetLocalizedStringParticular(string context, string text, string language)
+        public string GetLocalizedStringParticular(string context, string text, string language, params string[] args)
         {
             var languagePacks = GetAllLanguagePacks();
             foreach (var languagePack in languagePacks)
             {
                 if (languagePack == null)
                     continue;
-                if (languagePack.TryGetStringParticular(language, context, text, out var result))
+                if (languagePack.TryGetStringParticular(language, context, text, out var result, args))
                     return result;
             }
             return text;

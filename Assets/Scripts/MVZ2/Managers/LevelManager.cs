@@ -16,13 +16,14 @@ namespace MVZ2
         }
         public async Task GotoLevelScene()
         {
-            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
-            var op = SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive);
-            op.completed += (op) => tcs.SetResult(op);
+            var sceneName = "Level";
+            if (IsSceneLoaded(sceneName))
+            {
+                await UnloadSceneAsync(sceneName);
+            }
+            await LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-            await tcs.Task;
-
-            var scene = SceneManager.GetSceneByName("Level");
+            var scene = SceneManager.GetSceneByName(sceneName);
             foreach (var go in scene.GetRootGameObjects())
             {
                 var ctrl = go.GetComponent<LevelController>();
@@ -32,6 +33,32 @@ namespace MVZ2
                     break;
                 }
             }
+        }
+        public async Task Retry()
+        {
+            await GotoLevelScene();
+            StartLevel();
+        }
+        private bool IsSceneLoaded(string name)
+        {
+            var scene = SceneManager.GetSceneByName(name);
+            return scene.IsValid();
+        }
+        private Task LoadSceneAsync(string name, LoadSceneMode mode)
+        {
+            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
+            var op = SceneManager.LoadSceneAsync(name, mode);
+            op.completed += (op) => tcs.SetResult(op);
+
+            return tcs.Task;
+        }
+        private Task UnloadSceneAsync(string name)
+        {
+            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
+            var op = SceneManager.UnloadSceneAsync(name);
+            op.completed += (op) => tcs.SetResult(op);
+
+            return tcs.Task;
         }
         public MainManager Main => main;
         [SerializeField]

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.GameContent;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
 using UnityEngine;
@@ -59,6 +60,10 @@ namespace MVZ2.Vanilla
         public static void AddStarshardCount(this Level game, int value)
         {
             game.SetStarshardCount(GetStarshardCount(game) + value);
+        }
+        public static float GetDoorZ(this Level game)
+        {
+            return game.GetProperty<float>(AreaProps.DOOR_Z);
         }
         public static EntityID GetLastEnemy(this Level game)
         {

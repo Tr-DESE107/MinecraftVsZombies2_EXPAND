@@ -312,6 +312,11 @@ namespace MVZ2.Level
         {
             if (!Model)
                 return;
+
+            if (Level.IsGameOver() && (Entity.Type == EntityTypes.ENEMY || Entity.Type == EntityTypes.BOSS))
+            {
+                Model.SetAnimatorInt("State", EntityStates.WALK);
+            }
             Model.RendererGroup.SetTint(Entity.GetTint());
             Model.RendererGroup.SetColorOffset(GetColorOffset());
             var groundPos = Entity.Pos;

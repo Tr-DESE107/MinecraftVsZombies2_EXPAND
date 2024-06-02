@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-05-30 01:53+0800\n"
+"POT-Creation-Date: 2024-06-02 08:00+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Cuerzor\n"
@@ -20,6 +20,32 @@ msgstr ""
 #: /Level/UI/Standalone/Canvas/CameraLimit/Front/TopRight/MenuButton/Text
 msgid "菜单"
 msgstr "Menu"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
+msgstr "Paused"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "继续游戏"
+msgstr "Resume"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
+msgstr "Game Over"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/RetryButton/Text
+msgid "重试"
+msgstr "Try again"
+
+# 按钮文本
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/BackButton/Text
+msgid "返回"
+msgstr "Back"
 
 # 关卡难度
 #: E:\MinecraftVSZombies2\Assets\Scripts\MVZ2\StringTable.cs:8
@@ -62,3 +88,25 @@ msgstr "Prologue"
 msgctxt "关卡名称"
 msgid "万圣夜"
 msgstr "Halloween"
+
+# 按钮文本
+#: E:\MinecraftVSZombies2\Assets\Scripts\MVZ2\StringTable.cs:25
+msgid "返回地图"
+msgstr "Back to the map"
+
+# 按钮文本
+#: E:\MinecraftVSZombies2\Assets\Scripts\MVZ2\StringTable.cs:27
+msgid "返回主界面"
+msgstr "Back to the mainmenu"
+
+# 死亡信息-未知
+#: E:\MinecraftVSZombies2\Assets\Scripts\MVZ2\Level\DeathMessages.cs:11
+msgctxt "死亡信息"
+msgid "你死了！"
+msgstr "You Died!"
+
+# 死亡信息-僵尸
+#: E:\MinecraftVSZombies2\Assets\Scripts\MVZ2\Level\DeathMessages.cs:13
+msgctxt "死亡信息"
+msgid "脑子是好的，可惜不是每个人都有。"
+msgstr "I'm gonna eat your brains. We're the undead!"

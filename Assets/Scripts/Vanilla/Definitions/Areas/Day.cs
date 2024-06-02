@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Areas
     {
         public Day(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(AreaProps.DOOR_Z, 240f);
             SetProperty(AreaProperties.GRID_WIDTH, 80);
             SetProperty(AreaProperties.GRID_HEIGHT, 80);
             SetProperty(AreaProperties.GRID_LEFT_X, 260);

@@ -13,7 +13,7 @@ namespace MVZ2.Localization
             Metadata = metadata;
             this.assets.AddRange(assets);
         }
-        public bool TryGetString(string language, string text, out string result)
+        public bool TryGetString(string language, string text, out string result, params string[] args)
         {
             result = null;
             var asset = assets.FirstOrDefault(a => a.language == language);
@@ -22,12 +22,12 @@ namespace MVZ2.Localization
             var catalog = asset.catalog;
             if (catalog.IsTranslationExist(text))
             {
-                result = catalog.GetString(text);
+                result = catalog.GetString(text, args);
                 return true;
             }
             return false;
         }
-        public bool TryGetStringParticular(string language, string context, string text, out string result)
+        public bool TryGetStringParticular(string language, string context, string text, out string result, params string[] args)
         {
             result = null;
             var asset = assets.FirstOrDefault(a => a.language == language);
@@ -36,7 +36,7 @@ namespace MVZ2.Localization
             var catalog = asset.catalog;
             if (catalog.IsTranslationExist(context + "\u0004" + text))
             {
-                result = catalog.GetParticularString(context, text);
+                result = catalog.GetParticularString(context, text, args);
                 return true;
             }
             return false;
