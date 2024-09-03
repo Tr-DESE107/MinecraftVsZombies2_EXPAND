@@ -1,0 +1,16 @@
+{
+    "name": "PVZEngine.Base",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6ed5dbd086df79a4e99899b2ad0cc5aa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

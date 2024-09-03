@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
-using PVZEngine;
+using PVZEngine.LevelManaging;
 
 namespace MVZ2.Vanilla
 {

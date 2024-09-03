@@ -2,24 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Level.UI;
+using MVZ2.Talk;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
+using PVZEngine.Base;
+using PVZEngine.Definitions;
+using PVZEngine.Game;
+using PVZEngine.LevelManaging;
+using Tools;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
-    using static UnityEngine.EventSystems.EventTrigger;
-    using Level = PVZEngine.Level;
+    using Level = PVZEngine.LevelManaging.Level;
     public class LevelController : MonoBehaviour
     {
         #region 公有方法
@@ -27,9 +30,27 @@ namespace MVZ2.Level
         {
             this.main = main;
         }
-        public void InitGame()
+        public void InitGame(Game game)
         {
             var vanilla = new Vanilla.VanillaMod();
+            level = new Level(game);
+            level.OnEntitySpawn += OnEntitySpawnCallback;
+            level.OnEntityRemove += OnEntityRemoveCallback;
+            level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
+            level.OnPlaySound += OnPlaySoundCallback;
+            level.OnShakeScreen += OnShakeScreenCallback;
+            level.OnHeldItemChanged += OnHeldItemChangedCallback;
+            level.OnHeldItemReset += OnHeldItemResetCallback;
+            level.OnGameOver += OnGameOverCallback;
+
+            level.OnShowDialog += Logic_OnShowDialogCallback;
+            level.OnShowMoney += Logic_OnShowMoneyCallback;
+            level.OnBeginLevel += Logic_OnBeginLevelCallback;
+            game.SetLevel(level);
+
+            VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
+            VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
+
             var option = new LevelOption()
             {
                 CardSlotCount = 10,
@@ -40,17 +61,19 @@ namespace MVZ2.Level
                 MaxEnergy = 9990,
                 TPS = 30
             };
-            level = new Level(vanilla);
-            level.OnEntitySpawn += OnEntitySpawnCallback;
-            level.OnEntityRemove += OnEntityRemoveCallback;
-            level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
-            level.OnPlaySound += OnPlaySoundCallback;
-            level.OnShakeScreen += OnShakeScreenCallback;
-            level.OnHeldItemChanged += OnHeldItemChangedCallback;
-            level.OnHeldItemReset += OnHeldItemResetCallback;
-            level.OnGameOver += OnGameOverCallback;
-            VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
-            VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
+            level.Init(AreaID.day, StageID.prologue, option);
+
+            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
+
+            //var startTalk = level.GetStartTalk();
+            //if (startTalk != null)
+            //{
+            //    talkController.StartTalk(startTalk, 0, 2);
+            //}
+            //else
+            //{
+                BeginLevel();
+            //}
 
             level.SetSeedPacks(new NamespaceID[]
             {
@@ -61,11 +84,7 @@ namespace MVZ2.Level
                 EnemyID.zombie,
                 null
             });
-            level.Init(AreaID.day, StageID.prologue, option);
 
-            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
-
-            StartCoroutine(GameStartTransition());
         }
         public void PlayReadySetBuild()
         {
@@ -173,6 +192,8 @@ namespace MVZ2.Level
             gridLayout.OnPointerExit += OnGridExitCallback;
             gridLayout.OnPointerDown += OnGridPointerDownCallback;
 
+            talkController.OnTalkAction += OnTalkActionCallback;
+            talkController.OnTalkEnd += OnTalkEndCallback;
 
             levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
 
@@ -238,12 +259,7 @@ namespace MVZ2.Level
                 UpdateBlueprintDisabled();
                 UpdateStarshards();
 
-                var cameraShakeOffset = Vector3.zero;
-                foreach (var shake in cameraShakes)
-                {
-                    cameraShakeOffset += (Vector3)shake.GetShake2D();
-                }
-                levelCamera.ShakeOffset = cameraShakeOffset;
+                levelCamera.ShakeOffset = (Vector3)main.ShakeManager.GetShake2D();
             }
             UpdateInput();
         }
@@ -294,12 +310,6 @@ namespace MVZ2.Level
                 {
                     entity.UpdateModel(Time.fixedDeltaTime, gameSpeed);
                 }
-                foreach (var shake in cameraShakes)
-                {
-                    shake.timeout--;
-                }
-                cameraShakes.RemoveAll(s => s.timeout <= 0);
-
                 UpdateEnemyCry();
             }
         }
@@ -339,7 +349,7 @@ namespace MVZ2.Level
         }
         private void OnShakeScreenCallback(float startAmplitude, float endAmplitude, int time)
         {
-            cameraShakes.Add(new Shake(startAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, endAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, time));
+            main.ShakeManager.AddShake(startAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, endAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, time / (float)level.TPS);
         }
         private void OnHeldItemChangedCallback(int heldType, int id, int priority, bool noCancel)
         {
@@ -365,6 +375,19 @@ namespace MVZ2.Level
                     GameOverInstantly(message);
                     break;
             }
+        }
+        private void Logic_OnShowDialogCallback(string title, string desc, string[] options, Action<int> onSelect)
+        {
+            main.Scene.ShowDialog(title, desc, options, onSelect);
+        }
+        private void Logic_OnShowMoneyCallback()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.ResetMoneyFadeTime();
+        }
+        private void Logic_OnBeginLevelCallback(string transition)
+        {
+            BeginLevel(transition);
         }
         private void PostHugeWaveApproachCallback(Level level)
         {
@@ -468,7 +491,7 @@ namespace MVZ2.Level
                     var seed = level.GetSeedPackAt(heldItemID);
                     if (seed == null)
                         break;
-                    var seedDef = level.GetSeedDefinition(seed.SeedReference);
+                    var seedDef = Game.GetSeedDefinition(seed.SeedReference);
                     if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                     {
                         var x = level.GetEntityColumnX(column);
@@ -476,13 +499,46 @@ namespace MVZ2.Level
                         var y = level.GetGroundY(x, z);
                         var position = new Vector3(x, y, z);
                         var entityID = seedDef.GetSeedEntityID();
-                        var entityDef = level.GetEntityDefinition(entityID);
+                        var entityDef = Game.GetEntityDefinition(entityID);
                         level.Spawn(entityID, position, null);
                         level.AddEnergy(-seedDef.GetCost());
                         level.SetRechargeTimeToUsed(seed);
                         seed.ResetRecharge();
                         level.ResetHeldItem();
                         level.PlaySound(entityDef.GetPlaceSound(), position);
+                    }
+                    break;
+            }
+        }
+        private void OnTalkActionCallback(string cmd, string[] parameters)
+        {
+            GameCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
+        }
+        private void OnTalkEndCallback(string mode)
+        {
+            switch (mode)
+            {
+                case "start_tutorial":
+                    level.ChangeStage(StageID.tutorial);
+                    level.BeginLevel(LevelTransitions.TO_LAWN);
+                    break;
+                case "start_starshard_tutorial":
+                    level.ChangeStage(StageID.starshard_tutorial);
+                    level.BeginLevel(LevelTransitions.TO_LAWN);
+                    break;
+                case "start_trigger_tutorial":
+                    level.ChangeStage(StageID.trigger_tutorial);
+                    level.BeginLevel(LevelTransitions.TO_LAWN);
+                    break;
+
+                default:
+                    if (level.IsCleared)
+                    {
+                        ExitLevel();
+                    }
+                    else
+                    {
+                        level.BeginLevel(LevelTransitions.DEFAULT);
                     }
                     break;
             }
@@ -651,7 +707,7 @@ namespace MVZ2.Level
             for (int i = 0; i < viewDatas.Length; i++)
             {
                 var seed = seeds[i];
-                var seedDef = level.GetSeedDefinition(seed.SeedReference);
+                var seedDef = Game.GetSeedDefinition(seed.SeedReference);
                 var sprite = GetBlueprintIcon(seedDef);
                 var viewData = new BlueprintViewData()
                 {
@@ -713,7 +769,7 @@ namespace MVZ2.Level
         {
             if (seed == null)
                 return null;
-            var seedDef = level.GetSeedDefinition(seed.SeedReference);
+            var seedDef = Game.GetSeedDefinition(seed.SeedReference);
             return GetBlueprintIcon(seedDef);
         }
         private Sprite GetBlueprintIcon(SeedDefinition seedDef)
@@ -785,11 +841,11 @@ namespace MVZ2.Level
                     var seed = level.GetSeedPackAt(heldId);
                     if (seed == null)
                         break;
-                    var seedDef = level.GetSeedDefinition(seed.SeedReference);
+                    var seedDef = Game.GetSeedDefinition(seed.SeedReference);
                     if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                     {
                         var entityID = seedDef.GetSeedEntityID();
-                        var entityDef = level.GetEntityDefinition(entityID);
+                        var entityDef = Game.GetEntityDefinition(entityID);
                         if (entityDef.Type == EntityTypes.PLANT)
                         {
                             if (!grid.CanPlace(entityDef))
@@ -975,6 +1031,25 @@ namespace MVZ2.Level
         {
             return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
         }
+        private void BeginLevel()
+        {
+            BeginLevel(LevelTransitions.DEFAULT);
+        }
+        private void BeginLevel(string transition)
+        {
+            if (transition == LevelTransitions.TO_LAWN)
+            {
+                StartCoroutine(GameStartToLawnTransition());
+            }
+            else
+            {
+                StartCoroutine(GameStartTransition());
+            }
+        }
+        private void ExitLevel()
+        {
+            // TODO
+        }
 
         #region 游戏结束
         private void ShowGameOverDialog()
@@ -1020,6 +1095,14 @@ namespace MVZ2.Level
         private IEnumerator MoveCameraToChoose()
         {
             return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
+        }
+        private IEnumerator GameStartToLawnTransition()
+        {
+            main.MusicManager.Play(MusicID.choosing);
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToLawn();
+            yield return new WaitForSeconds(0.5f);
+            StartGame();
         }
         private IEnumerator GameStartTransition()
         {
@@ -1087,7 +1170,8 @@ namespace MVZ2.Level
         public MainManager MainManager => main;
         public int HeldItemType => heldItemType;
         public int HeldItemID => heldItemID;
-        public float MusicTime 
+        public IGame Game => level.Game;
+        public float MusicTime
         {
             get => main.MusicManager.Time;
             set => main.MusicManager.Time = value;
@@ -1102,7 +1186,6 @@ namespace MVZ2.Level
         private int heldItemID;
         private int heldItemPriority;
         private bool heldItemNoCancel;
-        private List<Shake> cameraShakes = new List<Shake>();
         private bool speedUp;
         private float gameRunTimeModular;
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
@@ -1153,6 +1236,8 @@ namespace MVZ2.Level
         private LevelUI mobileUI;
         [SerializeField]
         private List<SpriteReference> pauseImages = new List<SpriteReference>();
+        [SerializeField]
+        private TalkController talkController;
         #endregion
 
         #region 内嵌类

@@ -1,4 +1,6 @@
 ﻿using System;
+using MVZ2.Vanilla;
+using PVZEngine.Game;
 using UnityEngine;
 
 namespace MVZ2
@@ -21,10 +23,14 @@ namespace MVZ2
             await ModManager.LoadMods();
             await ResourceManager.LoadAllModResources();
             LanguageManager.LoadAllLanguagePacks();
+
+            Game = new Game(new Mod[] { new VanillaMod() });
+
             await LevelManager.GotoLevelScene();
             LevelManager.StartLevel();
         }
         public static MainManager Instance { get; private set; }
+        public Game Game { get; private set; }
         public string BuiltinNamespace => builtinNamespace;
         public ResourceManager ResourceManager => resource;
         public ModelManager ModelManager => model;
@@ -35,6 +41,9 @@ namespace MVZ2
         public SaveManager SaveManager => save;
         public ModManager ModManager => mod;
         public CursorManager CursorManager => cursor;
+        public ShakeManager ShakeManager => shake;
+        public TalkManager TalkManager => talk;
+        public MainSceneController Scene => scene;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]
@@ -55,6 +64,12 @@ namespace MVZ2
         private ModManager mod;
         [SerializeField]
         private CursorManager cursor;
+        [SerializeField]
+        private ShakeManager shake;
+        [SerializeField]
+        private TalkManager talk;
+        [SerializeField]
+        private MainSceneController scene;
     }
     public class DuplicateInstanceException : Exception
     {

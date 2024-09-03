@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using PVZEngine;
 using UnityEngine;
 
@@ -7,6 +6,10 @@ namespace MVZ2
 {
     public class SoundManager : MonoBehaviour
     {
+        public AudioSource Play2D(NamespaceID id, float pitch = 1)
+        {
+            return Play(id, Vector3.zero, pitch, 0);
+        }
         public AudioSource Play(NamespaceID id, Vector3 pos, float pitch = 1, float spatialBlend = 1)
         {
             var soundsMeta = main.ResourceManager.GetSoundMetaList(id.spacename);

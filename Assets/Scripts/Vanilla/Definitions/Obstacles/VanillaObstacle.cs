@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
 
 namespace MVZ2.Vanilla
 {

@@ -1,0 +1,18 @@
+using System;
+
+namespace PVZEngine.LevelManaging
+{
+    public partial class Level
+    {
+        public void SetHeldItem(int type, int id, int priority, bool noCancel = false)
+        {
+            OnHeldItemChanged?.Invoke(type, id, priority, noCancel);
+        }
+        public void ResetHeldItem()
+        {
+            OnHeldItemReset?.Invoke();
+        }
+        public event Action<int, int, int, bool> OnHeldItemChanged;
+        public event Action OnHeldItemReset;
+    }
+}

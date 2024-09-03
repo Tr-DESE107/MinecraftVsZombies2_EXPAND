@@ -1,0 +1,17 @@
+{
+    "name": "PVZEngine.LevelManaging",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6ed5dbd086df79a4e99899b2ad0cc5aa",
+        "GUID:22176648926941143911458f1e23c75d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,5 +1,5 @@
 ﻿using MVZ2.Vanilla;
-using PVZEngine;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles

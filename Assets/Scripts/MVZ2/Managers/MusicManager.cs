@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using MVZ2.UI;
 using PVZEngine;
 using UnityEngine;
 
@@ -39,8 +38,20 @@ namespace MVZ2
             IsPaused = false;
             musicSource.Play();
         }
+        public void StartFade(float target, float duration)
+        {
+            volumeFader.StartFade(target, duration);
+        }
+        public void SetVolume(float volume)
+        {
+            musicSource.volume = volume;
+        }
+        private void Awake()
+        {
+            volumeFader.OnValueChanged += value => SetVolume(value);
+        }
         public MainManager Main => main;
-        public float Time 
+        public float Time
         {
             get => musicSource.time;
             set => musicSource.time = value;
@@ -50,5 +61,7 @@ namespace MVZ2
         private MainManager main;
         [SerializeField]
         private AudioSource musicSource;
+        [SerializeField]
+        private FloatFader volumeFader;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Seeds;
 using PVZEngine;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Vanilla
 {

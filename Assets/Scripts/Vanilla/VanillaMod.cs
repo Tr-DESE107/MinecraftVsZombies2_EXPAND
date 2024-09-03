@@ -1,10 +1,13 @@
 ﻿using System;
-using System.Linq;
 using System.Reflection;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
+using PVZEngine.Base;
+using PVZEngine.Definitions;
+using PVZEngine.Game;
+using PVZEngine.LevelManaging;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -13,16 +16,22 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod() : base(spaceName)
         {
-            AddClassicStage(StageNames.prologue, 1,
-                new EnemySpawnEntry(EnemyID.zombie),
-                new EnemySpawnEntry(EnemyID.leatherCappedZombie),
-                new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
+            var classicStage = new ClassicStage(spaceName, StageNames.prologue, 1,
+                new EnemySpawnEntry[]
+                {
+                    new EnemySpawnEntry(EnemyID.zombie),
+                    new EnemySpawnEntry(EnemyID.leatherCappedZombie),
+                    new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
+                }
             );
+            classicStage.SetProperty(StageProps.START_TALK, TalkID.tutorial);
+            AddStage(classicStage);
 
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
-            Callbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
-            Callbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
+            LevelCallbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
+            LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
+            GameCallbacks.TalkAction.Add(TalkAction);
         }
         protected void LoadFromAssemblies(Assembly[] assemblies)
         {
@@ -62,7 +71,11 @@ namespace MVZ2.Vanilla
 
         private void AddClassicStage(string name, int totalFlags, params EnemySpawnEntry[] enemySpawnEntries)
         {
-            AddDefinition(stageDefinitions, name, new ClassicStage(Namespace, name, totalFlags, enemySpawnEntries));
+            AddStage(new ClassicStage(Namespace, name, totalFlags, enemySpawnEntries));
+        }
+        private void AddStage(StageDefinition definition)
+        {
+            AddDefinition(stageDefinitions, definition.Name, definition);
         }
         private void PostEntityTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
@@ -129,6 +142,116 @@ namespace MVZ2.Vanilla
                     entity.Pos = pos;
                 }
                 entity.StopChangingLane();
+            }
+        }
+        private void TalkAction(ITalkSystem system, string cmd, string[] parameters)
+        {
+            var game = Game;
+            if (!game.IsInLevel())
+            {
+                return;
+            }
+            Level level = game.GetLevel();
+            switch (cmd)
+            {
+                case "create_seventh_slot_form":
+                    ShowSeventhSlotDialog(system);
+                    break;
+                case "create_tutorial_form":
+                    ShowTutorialDialog(system);
+                    break;
+                case "try_buy_seventh_slot":
+                    TryBuySeventhSlot(system);
+                    break;
+            }
+        }
+        private void ShowSeventhSlotDialog(ITalkSystem system)
+        {
+            var game = Game;
+            if (!game.IsInLevel())
+            {
+                return;
+            }
+            Level level = game.GetLevel();
+            if (level.StageID != StageID.halloween7)
+            {
+                Debug.LogError("尝试在非万圣夜场景创建第七卡槽对话框。");
+                return;
+            }
+
+            var title = Game.GetText(TextID.UI.purchase);
+            var desc = Game.GetText(TextID.UI.confirmPurchaseSeventhSlot);
+            var options = new string[]
+            {
+                Game.GetText(TextID.UI.yes),
+                Game.GetText(TextID.UI.no)
+            };
+            level.ShowDialog(title, desc, options, (index) =>
+            {
+                switch (index)
+                {
+                    case 0:
+                        Game.AddMoney(-750);
+                        level.SetSeedPackCount(7);
+                        Game.SetBlueprintSlots(7);
+                        system.StartSection(3);
+                        break;
+                    case 1:
+                        system.StartSection(4);
+                        break;
+                }
+            });
+        }
+        private void ShowTutorialDialog(ITalkSystem system)
+        {
+            var game = Game;
+            if (!game.IsInLevel())
+            {
+                return;
+            }
+            Level level = game.GetLevel();
+            if (level.StageID != StageID.prologue)
+            {
+                Debug.LogError("尝试在非教程场景创建教程对话框。");
+                return;
+            }
+
+            var title = Game.GetText(TextID.UI.tutorial);
+            var desc = Game.GetText(TextID.UI.confirmTutorial);
+            var options = new string[]
+            {
+                Game.GetText(TextID.UI.yes),
+                Game.GetText(TextID.UI.no)
+            };
+            level.ShowDialog(title, desc, options, (index) =>
+            {
+                switch (index)
+                {
+                    case 0:
+                        system.StartSection(1);
+                        break;
+                    case 1:
+                        system.StartSection(2);
+                        break;
+                }
+            });
+        }
+        private void TryBuySeventhSlot(ITalkSystem system)
+        {
+            var game = Game;
+            if (!game.IsInLevel())
+            {
+                return;
+            }
+            Level level = game.GetLevel();
+            level.ShowMoney();
+            if (Game.GetMoney() >= 750)
+            {
+                system.StartSection(1);
+            }
+            else
+            {
+                system.StartSection(2);
             }
         }
         public const string spaceName = "mvz2";

@@ -1,6 +1,5 @@
 ﻿using MVZ2.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {

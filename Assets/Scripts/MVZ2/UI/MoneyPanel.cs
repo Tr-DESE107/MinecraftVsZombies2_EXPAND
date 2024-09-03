@@ -26,7 +26,7 @@ namespace MVZ2.UI
             if (willFade)
             {
                 fadeTimeout -= Time.deltaTime;
-                if (fadeTimeout <= 0) 
+                if (fadeTimeout <= 0)
                 {
                     fadeTimeout = 0;
                 }

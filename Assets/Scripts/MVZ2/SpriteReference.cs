@@ -1,6 +1,5 @@
 ﻿using System;
 using PVZEngine;
-using UnityEngine.AddressableAssets;
 
 namespace MVZ2
 {
@@ -16,6 +15,46 @@ namespace MVZ2
             this.id = id;
             isSheet = true;
             this.index = index;
+        }
+        public static bool TryParse(string str, string defaultNsp, out SpriteReference parsed)
+        {
+            parsed = null;
+            var leftBracketIndex = str.LastIndexOf('[');
+            var rightBracketIndex = str.LastIndexOf(']');
+            if (leftBracketIndex < 0)
+            {
+                if (!NamespaceID.TryParse(str, defaultNsp, out var id))
+                    return false;
+                else
+                {
+                    parsed = new SpriteReference(id);
+                    return true;
+                }
+            }
+            else
+            {
+                if (leftBracketIndex >= rightBracketIndex)
+                    return false;
+
+                var bracketContent = str.Substring(leftBracketIndex + 1, rightBracketIndex - leftBracketIndex - 1);
+                if (!int.TryParse(bracketContent, out var index))
+                    return false;
+
+                var idStr = str.Substring(0, leftBracketIndex);
+                if (!NamespaceID.TryParse(str, defaultNsp, out var id))
+                    return false;
+
+                parsed = new SpriteReference(id, index);
+                return true;
+            }
+        }
+        public static SpriteReference Parse(string str, string defaultNsp)
+        {
+            if (TryParse(str, defaultNsp, out var parsed))
+            {
+                return parsed;
+            }
+            throw new FormatException($"Invalid SpriteReference {str}.");
         }
         public override int GetHashCode()
         {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -37,7 +33,7 @@ namespace MVZ2.Level.UI
         {
             for (int i = 0; i < blueprints.count; i++)
             {
-                var recharge = recharges[i]; 
+                var recharge = recharges[i];
                 var blueprint = blueprints.getElement<Blueprint>(i);
                 if (!blueprint)
                     continue;

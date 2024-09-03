@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MVZ2.Level;
-using PVZEngine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +10,7 @@ namespace MVZ2
         public void StartLevel()
         {
             controller.SetMainManager(main);
-            controller.InitGame();
+            controller.InitGame(Main.Game);
         }
         public async Task GotoLevelScene()
         {

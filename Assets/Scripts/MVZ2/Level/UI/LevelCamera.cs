@@ -32,7 +32,7 @@ namespace MVZ2.Level.UI
         public Vector3 CameraPosition
         {
             get => cameraPosition;
-            set 
+            set
             {
                 cameraPosition = value;
                 UpdatePosition();

@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
-using PVZEngine;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Areas
 {

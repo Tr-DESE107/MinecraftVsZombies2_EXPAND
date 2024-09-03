@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.Talk;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
@@ -78,17 +79,22 @@ namespace MVZ2
 
             return modResource;
         }
-        private async Task LoadMetaLists(string modNamespace)
+        private void LoadSingleMetaList(ModResource modResource, NamespaceID resID, TextAsset resource)
         {
-            var modResource = GetModResource(modNamespace);
-            if (modResource == null)
-                return;
-            var resources = await LoadLabeledResources<TextAsset>(modNamespace, "Meta");
-            foreach (var (resID, resource) in resources)
+            const string talksDirectory = "talks/";
+
+            using var memoryStream = new MemoryStream(resource.bytes);
+            var document = memoryStream.ReadXmlDocument();
+            var metaPath = resID.path.Replace("\\", "/");
+            if (metaPath.StartsWith(talksDirectory))
             {
-                using var memoryStream = new MemoryStream(resource.bytes);
-                var document = memoryStream.ReadXmlDocument();
-                switch (resID.path)
+                var talkRelativePath = metaPath.Substring(talksDirectory.Length);
+                var meta = TalkMeta.FromXmlDocument(document, main.BuiltinNamespace);
+                modResource.TalkMetas.Add(new NamespaceID(resID.spacename, talkRelativePath), meta);
+            }
+            else
+            {
+                switch (metaPath)
                 {
                     case "sounds":
                         modResource.SoundMetaList = SoundMetaList.FromXmlNode(document["sounds"]);
@@ -100,6 +106,17 @@ namespace MVZ2
                         modResource.FragmentMetaList = FragmentMetaList.FromXmlNode(document["fragments"]);
                         break;
                 }
+            }
+        }
+        private async Task LoadMetaLists(string modNamespace)
+        {
+            var modResource = GetModResource(modNamespace);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<TextAsset>(modNamespace, "Meta");
+            foreach (var (resID, resource) in resources)
+            {
+                LoadSingleMetaList(modResource, resID, resource);
             }
         }
         private IList<IResourceLocation> GetLabeledResourceLocations<T>(string modNamespace, string label)

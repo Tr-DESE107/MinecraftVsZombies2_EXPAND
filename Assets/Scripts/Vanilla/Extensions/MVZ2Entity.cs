@@ -1,8 +1,9 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.GameContent.Shells;
 using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla
 {
@@ -27,7 +28,7 @@ namespace MVZ2.Vanilla
         public static float GetShadowAlpha(this Entity entity) => entity.GetProperty<float>(EntityProps.SHADOW_ALPHA);
         public static void SetShadowAlpha(this Entity entity, float value) => entity.SetProperty(EntityProps.SHADOW_ALPHA, value);
         public static Vector3 GetShadowScale(this Entity entity) => entity.GetProperty<Vector3>(EntityProps.SHADOW_SCALE);
-        public static void SetShadowScale(this Entity entity, Vector3 value)  => entity.SetProperty(EntityProps.SHADOW_SCALE, value);
+        public static void SetShadowScale(this Entity entity, Vector3 value) => entity.SetProperty(EntityProps.SHADOW_SCALE, value);
         public static Vector3 GetShadowOffset(this Entity entity) => entity.GetProperty<Vector3>(EntityProps.SHADOW_OFFSET);
         public static void SetShadowOffset(this Entity entity, Vector3 value) => entity.SetProperty(EntityProps.SHADOW_OFFSET, value);
         #endregion

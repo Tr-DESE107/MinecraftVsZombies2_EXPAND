@@ -1,14 +1,14 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
 using PVZEngine;
-using UnityEngine;
+using PVZEngine.LevelManaging;
 
 namespace MVZ2.GameContent.Effects
 {
     [Definition(EffectNames.fragment)]
     public class Fragment : VanillaEffect
     {
-        
+
         #region 公有方法
         public Fragment(string nsp, string name) : base(nsp, name)
         {
@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Effects
             {
                 entity.Remove();
             }
-                
+
         }
         public static float GetEmitSpeed(Entity entity)
         {

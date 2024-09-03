@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.GameContent.Pickups;
-using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

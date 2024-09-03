@@ -17,18 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
-  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
-    m_Address: mvz2:talk/villager/villager_short1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
-    m_Address: mvz2:talk/villager/villager_scream2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: mvz2:talk/villager/villager_scream1
     m_ReadOnly: 0
@@ -959,6 +947,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 979b0f01b79ee2e44b3c30b91c0df16e
+    m_Address: mvz2:talks/prologue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58fbcb3821cd5a9479b981dd389eaa93
+    m_Address: mvz2:talks/halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6c3bff2554b63442a1f25c7c9dac764
+    m_Address: mvz2:talks/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 164c517f4b3a40f49a48c0f998d7fd7e
     m_Address: mvz2:ready_set_build
     m_ReadOnly: 0
@@ -1756,6 +1762,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aece0077117af704fae4bf9a55d0dee3
+    m_Address: mvz2:characters
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
+    m_Address: mvz2:talk/villager/villager_scream2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
+    m_Address: mvz2:talk/villager/villager_short1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
     m_Address: mvz2:talk/villager/villager_short2

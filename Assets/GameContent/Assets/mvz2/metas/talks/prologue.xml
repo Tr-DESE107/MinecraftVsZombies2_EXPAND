@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<talks>
+  <group name="tutorial" background="mvz2:steves_house" music="mvz2:mainmenu" tags="mvz2:archive.tag.prologue">
+    <section nameID="mvz2:archive.start_section" onSkip="sentence 3;action create_tutorial_form">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action create_tutorial_form" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.take_tutorial" onSkip="end start_tutorial">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_tutorial" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.skip_tutorial" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.after_tutorial" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="section 4" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.start_prologue" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="note_prologue" background="mvz2:archive.note_prologue" tags="mvz2:archive.tag.prologue">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+</talks>

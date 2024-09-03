@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2
 {
     public static class XMLHelper
     {
+        public static XmlAttribute CreateAttribute(this XmlNode node, string name, string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+            var attr = node.OwnerDocument.CreateAttribute(name);
+            attr.Value = value;
+            node.Attributes.Append(attr);
+            return attr;
+        }
         public static XmlDocument ReadXmlDocument(this string str)
         {
             using var memory = new MemoryStream();
@@ -59,6 +64,24 @@ namespace MVZ2
             if (attr == null)
                 return null;
             if (!float.TryParse(attr.Value, out var value))
+                return null;
+            return value;
+        }
+        public static NamespaceID GetAttributeNamespaceID(this XmlNode node, string name, string defaultNsp)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!NamespaceID.TryParse(attr.Value, defaultNsp, out var value))
+                return null;
+            return value;
+        }
+        public static SpriteReference GetAttributeSpriteReference(this XmlNode node, string name, string defaultNsp)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!SpriteReference.TryParse(attr.Value, defaultNsp, out var value))
                 return null;
             return value;
         }

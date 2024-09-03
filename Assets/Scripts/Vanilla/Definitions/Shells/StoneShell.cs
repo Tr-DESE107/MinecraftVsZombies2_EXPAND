@@ -1,6 +1,6 @@
-﻿using MVZ2.GameContent;
-using MVZ2.Vanilla;
-using PVZEngine;
+﻿using MVZ2.Vanilla;
+using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
 
 namespace MVZ2.GameContent.Shells
 {

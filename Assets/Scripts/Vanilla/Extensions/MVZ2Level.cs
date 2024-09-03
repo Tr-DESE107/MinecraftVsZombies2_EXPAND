@@ -3,6 +3,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
+using PVZEngine.LevelManaging;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -48,6 +49,10 @@ namespace MVZ2.Vanilla
         public static void SetNoProduction(this Level game, bool value)
         {
             game.SetProperty(StageProps.NO_PRODUCTION, value);
+        }
+        public static NamespaceID GetStartTalk(this Level game)
+        {
+            return game.GetProperty<NamespaceID>(StageProps.START_TALK);
         }
         public static int GetStarshardCount(this Level game)
         {

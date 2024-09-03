@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<talks>
+  <group name="dream.1" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.1" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;createcharacter mvz2:doremy right;delay 0.5;next" />
+        <sentence speaker="mvz2:doremy" description="mvz2:archive.doremy_appears" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" variant="mvz2:open_mouth" sounds="mvz2:talk;mvz2:dialog_cut" onStart="shake 0.1 0.5" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.1" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" variant="mvz2:confused" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_mouth" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:confused" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.2" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.2" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.2" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="music volume 1;end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_weird" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile" onClick="next" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_explosive" onStart="variant mvz2:doremy mvz2:open_mouth;shake;music volume 0" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:dialog_weird" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake;variant mvz2:doremy mvz2:normal" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.3" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.3" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.3" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.4" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.4" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:doremy" variant="mvz2:read_smile" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_surprised" variant="mvz2:open_book" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird" />
+        <sentence speaker="mvz2:doremy" variant="mvz2:open_mouth" sounds="mvz2:dialog_cut" onStart="shake" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:taunt" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:sad" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.5" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.5" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="music volume 1;end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" variant="mvz2:open_mouth" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2;mvz2:dialog_surprised" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_cut" variant="mvz2:nervous" onStart="shake;music fade 0" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1;music play mvz2:suspension" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_beat" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_flashback" onStart="shake;leave mvz2:doremy;music fade 0" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" onClick="music play mvz2:dream_map;music fade 1;end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.6" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.6" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.6" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end;music volume 1;screen black set 1;screen black fade -1;action show_nightmare;music play mvz2:nightmare_map">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" variant="mvz2:suffering" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" description="mvz2:archive.doremy_suffering" sounds="mvz2:dialog_cut" onStart="shake;music fade 0 0.5" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1;music play mvz2:suspension" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;music fade 0 0.5;faint mvz2:doremy 0.5;delay 0.5;shake;playsound mvz2:dialog_faint;delay 1;next" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_judge" description="mvz2:archive.doremy_faint" onStart="shake" onClick="bubble hide;music play mvz2:suspension;music fade 1;screen black fade 0.5;delay 3;next" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="bubble hide;music fade 0 0.5;playsound mvz2:dialog_flashback;action show_nightmare;screen white fade 2;delay 1;screen black set 0;screen white set 0;shake;playsound mvz2:dialog_bang;music fade 0;music volume 1;music play mvz2:nightmare_map;delay 1;next" />
+        <sentence speaker="mvz2:self" description="mvz2:archive.nightmare_show" sounds="mvz2:dialog_cut" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_bang" onStart="shake" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.7" background="mvz2:nightmare" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.7" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.7" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end;foreground alpha 0;music fade 0;music volume 1">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" variant="mvz2:cursed_close_eyes" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" description="mvz2:archive.doremy_open_eyes" variant="mvz2:cursed" sounds="mvz2:dialog_weird" onStart="music fade 0 0.5;screen white set 1;delay 0.1;screen white set 0" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_surprised" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="music fade 1 0.5" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed_close_eyes" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:nightmare_appear;foreground fade 2;delay 1;next" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" onClick="bubble hide;foreground fade -1;delay 1;next" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.8" background="mvz2:nightmare" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" variant="mvz2:cursed_close_eyes" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.8" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.8" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end;music fade 1 0">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" variant="mvz2:cursed_close_eyes" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" onStart="music fade -1" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_surprised" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk;mvz2:dialog_surprised" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_beat" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_cut" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake;music fade 0;music volume 1;music play mvz2:nightmare_map" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed_close_eyes" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_explosive" onStart="shake" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.9" background="mvz2:nightmare" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.9" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.9" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_weird" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="note_dream" background="mvz2:archive.note_dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.10" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream.11" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_over.11" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;createcharacter mvz2:doremy right mvz2:cured;delay 0.5;next" />
+        <sentence speaker="mvz2:doremy" description="mvz2:archive.doremy_appears" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:final_item" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="dream_map.11" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+    <section onSkip="end;music fade 1 0;screen black fade -1">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:doremy" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:slightly_close_eyes" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" variant="mvz2:open_mouth" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3;mvz2:dialog_surprised" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_surprised" onStart="screen white set 1;screen white fade -100;music volume 0" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake" onClick="bubble hide;screen black fade 1;delay 1;next" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake;screen black set 0;screen black fade 0" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:sad" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="variant mvz2:doremy mvz2:normal" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="music fade 1" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+</talks>

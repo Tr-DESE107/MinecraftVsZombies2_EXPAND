@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<talks>
+  <group name="halloween.1" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.1" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;createcharacter mvz2:orant right;delay 0.5;next" />
+        <sentence speaker="mvz2:orant" description="mvz2:archive.orant_appears" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.1" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="starshard_tutorial" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section nameID="mvz2:archive.start_section" onSkip="end start_starshard_tutorial">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_starshard_tutorial" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.after_tutorial" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.2" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.2" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween.3" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.3" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.3" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween.4" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:normal" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.4" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.4" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.5" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.5" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk;mvz2:dialog_weird" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween.6" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.6" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.6" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="trigger_tutorial" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end start_trigger_tutorial">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_trigger_tutorial" />
+      </sentences>
+    </section>
+  </group>
+  <group name="seventh_slot" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section nameID="mvz2:archive.start_section" onSkip="action try_buy_seventh_slot">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action try_buy_seventh_slot" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.money_sufficent" onSkip="action create_seventh_slot_form">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="action create_seventh_slot_form" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.money_insufficent" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.accept_deal" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+    <section nameID="mvz2:archive.refuse_deal" onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.7" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.7" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween.8" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.8" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween.9" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:orant" variant="mvz2:warning" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.9" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="note_halloween" background="mvz2:archive.note_halloween" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween.11" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:orant" variant="mvz2:warning" side="right" />
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_over.11" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" variant="mvz2:warning" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_map.11" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:warning" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:normal" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" onClick="end" />
+      </sentences>
+    </section>
+  </group>
+  <group name="halloween_final" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
+    <section onSkip="end;action goto_dream">
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;leave mvz2:crazy_villager;action warp;delay 5;next" />
+        <sentence speaker="mvz2:orant" description="mvz2:archive.goto_dream" sounds="mvz2:talk" />
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end;action goto_dream" />
+      </sentences>
+    </section>
+  </group>
+</talks>

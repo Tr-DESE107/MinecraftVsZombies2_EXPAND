@@ -1,5 +1,4 @@
 ﻿using System;
-using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,7 +13,7 @@ namespace MVZ2.Level.UI
         }
         private void Awake()
         {
-            
+
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {

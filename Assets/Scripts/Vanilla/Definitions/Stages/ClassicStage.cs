@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using PVZEngine;
+using PVZEngine.Base;
+using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -78,7 +81,7 @@ namespace MVZ2.GameContent.Stages
         public void CreatePreviewEnemies(Level level, Rect region)
         {
             var pool = GetEnemyPool();
-            var validEnemies = pool.Select(e => e.GetSpawnDefinition(level)?.EntityID);
+            var validEnemies = pool.Select(e => e.GetSpawnDefinition(level.Game)?.EntityID);
             CreatePreviewEnemies(level, validEnemies, region);
         }
         public static void CreatePreviewEnemies(Level level, IEnumerable<NamespaceID> validEnemies, Rect region)
@@ -92,7 +95,7 @@ namespace MVZ2.GameContent.Stages
                 else if (id == EnemyID.leatherCappedZombie)
                     count = 2;
 
-                for ( int i = 0; i < count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     enemyIDToCreate.Add(id);
                 }
@@ -173,7 +176,7 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(SoundID.siren);
                 level.WaveState = STATE_STARTED;
                 NextWave(level);
-                level.SpawnEnemy(level.GetSpawnDefinition(EnemyID.flagZombie));
+                level.SpawnEnemy(level.Game.GetSpawnDefinition(EnemyID.flagZombie));
                 level.RunHugeWaveEvent();
             }
         }
@@ -305,7 +308,7 @@ namespace MVZ2.GameContent.Stages
             return game.CurrentFlag >= earliestFlag;
         }
 
-        public SpawnDefinition GetSpawnDefinition(Level game)
+        public SpawnDefinition GetSpawnDefinition(IGame game)
         {
             return game.GetSpawnDefinition(spawnRef);
         }

@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using MVZ2.GameContent;
+﻿using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using PVZEngine;
+using PVZEngine.Game;
+using PVZEngine.LevelManaging;
 using PVZEngine.Serialization;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Tests
 {
+    using Level = PVZEngine.LevelManaging.Level;
     public class SerializationTests
     {
         [Test]
         public static void EntityReferenceTest()
         {
-            var level = CreateLevel();
-            var definition = level.GetEntityDefinition<Dispenser>();
+            var game = CreateGame();
+            var level = CreateLevel(game);
+            var definition = game.GetEntityDefinition<Dispenser>();
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
             var converters = new JsonConverter[] { };
@@ -29,11 +31,12 @@ namespace MVZ2.Tests
         [Test]
         public static void EntitySerializationTest()
         {
-            var level = CreateLevel();
-            var definition = level.GetEntityDefinition<Dispenser>();
+            var game = CreateGame();
+            var level = CreateLevel(game);
+            var definition = game.GetEntityDefinition<Dispenser>();
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
-            var converters = new JsonConverter[] { new Vector3Converter(), new Vector2Converter(), new ColorConverter() }; 
+            var converters = new JsonConverter[] { new Vector3Converter(), new Vector2Converter(), new ColorConverter() };
             var json = JsonConvert.SerializeObject(entity.Serialize(), converters);
             var dese = JsonConvert.DeserializeObject<SerializableEntity>(json, converters);
             var entity2 = Entity.Deserialize(dese, level);
@@ -43,8 +46,8 @@ namespace MVZ2.Tests
         [Test]
         public static void LevelSerializationTest()
         {
-            var mod = new VanillaMod();
-            var level = new PVZEngine.Level(mod);
+            var game = CreateGame();
+            var level = new Level(game);
             level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,
@@ -55,23 +58,32 @@ namespace MVZ2.Tests
                 TPS = 30,
                 StarshardSlotCount = 3
             });
-            var definition = level.GetEntityDefinition<Dispenser>();
+            game.SetLevel(level);
+
+            var definition = game.GetEntityDefinition<Dispenser>();
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
             var converters = new JsonConverter[] { new Vector3Converter(), new Vector2Converter(), new ColorConverter() };
             var json = JsonConvert.SerializeObject(level.Serialize(), converters);
             var dese = JsonConvert.DeserializeObject<SerializableLevel>(json, converters);
-            var level2 = PVZEngine.Level.Deserialize(dese, new Mod[] { mod });
+            var level2 = Level.Deserialize(dese, game);
+            game.SetLevel(level2);
             var json2 = JsonConvert.SerializeObject(level2.Serialize(), converters);
             Debug.Log(json);
             Debug.Log(json2);
             Assert.AreEqual(json, json2);
         }
 
-        private static PVZEngine.Level CreateLevel()
+        private static Game CreateGame()
         {
             var mod = new VanillaMod();
-            var level = new PVZEngine.Level(mod);
+            var game = new Game(mod);
+            return game;
+        }
+        private static Level CreateLevel(Game game)
+        {
+            var level = new Level(game);
+            game.SetLevel(level);
             level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,

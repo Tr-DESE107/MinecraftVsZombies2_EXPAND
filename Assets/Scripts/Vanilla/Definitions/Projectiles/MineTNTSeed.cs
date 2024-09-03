@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
-using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles

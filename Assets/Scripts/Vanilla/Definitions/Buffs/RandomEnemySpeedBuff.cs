@@ -1,7 +1,8 @@
 ﻿using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Modifiers;
 using MVZ2.Vanilla;
-using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.LevelManaging;
 
 namespace MVZ2.GameContent.Buffs
 {

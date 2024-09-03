@@ -1,12 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.IO;
 using MukioI18n;
-using MVZ2.Localization;
 using UnityEditor;
-using UnityEditor.Compilation;
-using UnityEditor.Experimental.GraphView;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,11 +17,11 @@ namespace MVZ2.Editor
 
             foreach (var scene in EditorBuildSettings.scenes)
             {
-                if (!scene.enabled) 
+                if (!scene.enabled)
                     continue;
 
                 var sc = EditorSceneManager.OpenScene(scene.path);
-                if (sc == null) 
+                if (sc == null)
                     continue;
 
                 var objects = sc.GetRootGameObjects();

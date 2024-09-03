@@ -7,5 +7,7 @@
         public const string WAVE_ADVANCE_HEALTH_PERCENT = "waveAdvanceHealthPercent";
         public const string NO_PRODUCTION = "noProduction";
         public const string AUTO_COLLECT = "autoCollect";
+
+        public const string START_TALK = "startTalk";
     }
 }
