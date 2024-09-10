@@ -443,8 +443,9 @@ namespace MVZ2.Talk
                 bubbleDirection = chr.IsLeft() ? SpeechBubbleDirection.Left : SpeechBubbleDirection.Right;
             }
 
-            var textKey = GetCurrentTextID();
-            speechBubble.SetText(Main.TalkManager.TranslateText(textKey));
+            var context = GetCurrentTextContext();
+            var textKey = sentence.text;
+            speechBubble.SetText(Main.LanguageManager._p(context, textKey));
             speechBubble.UpdateBubble(bubbleDirection);
             speechBubble.SetShowing(true);
             speechBubble.ForceReshow();
@@ -481,9 +482,9 @@ namespace MVZ2.Talk
             }
             dialogCharacters.Clear();
         }
-        private NamespaceID GetCurrentTextID()
+        private string GetCurrentTextContext()
         {
-            return new NamespaceID(groupID.spacename, $"{groupID.path}.{sectionIndex}.{sentenceIndex}");
+            return $"talk-{groupID.spacename}:{groupID.path}";
         }
         #endregion
 

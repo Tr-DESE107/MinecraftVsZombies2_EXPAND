@@ -79,37 +79,39 @@ namespace MVZ2
                     if (splitedPaths.Length >= 2)
                     {
                         var nsp = splitedPaths[1];
-                        if (splitedPaths.Length == 3)
+                        if (splitedPaths.Length >= 3)
                         {
-                            var fileName = splitedPaths[2];
-                            if (Path.GetExtension(fileName) == ".mo")
+                            var lang = splitedPaths[2].Replace('_', '-');
+                            if (splitedPaths.Length == 4)
                             {
-                                var lang = Path.GetFileNameWithoutExtension(fileName).Replace('_', '-');
-                                var asset = GetOrCreateLanguageAsset(assets, lang);
-                                var catalog = entry.ReadCatalog(lang);
-                                asset.catalog = catalog;
+                                string filename = splitedPaths[3];
+                                if (Path.GetExtension(filename) == ".mo")
+                                {
+                                    var filenameWithoutExt = Path.GetFileNameWithoutExtension(filename);
+                                    var asset = GetOrCreateLanguageAsset(assets, lang);
+                                    var catalog = entry.ReadCatalog(lang);
+                                    asset.catalogs.Add(filenameWithoutExt, catalog);
+                                }
                             }
-                        }
-                        else if (splitedPaths.Length >= 4)
-                        {
-                            var typeLang = splitedPaths[2];
-                            SplitTypeLang(typeLang, out var type, out var lang);
-                            lang = lang.Replace('_', '-');
-
-                            var asset = GetOrCreateLanguageAsset(assets, lang);
-                            var entryName = Path.ChangeExtension(entry.Name, string.Empty).TrimEnd('.');
-
-                            var resID = new NamespaceID(nsp, entryName);
-                            switch (type)
+                            else if (splitedPaths.Length >= 5)
                             {
-                                case "sprites":
-                                    var sprite = ReadEntryToSprite(resID, entry);
-                                    asset.Sprites.Add(resID, sprite);
-                                    break;
-                                case "spritesheets":
-                                    var spritesheet = ReadEntryToSpriteSheet(resID, entry);
-                                    asset.SpriteSheets.Add(resID, spritesheet);
-                                    break;
+                                string type = splitedPaths[3];
+
+                                var asset = GetOrCreateLanguageAsset(assets, lang);
+                                var entryName = Path.ChangeExtension(entry.Name, string.Empty).TrimEnd('.');
+
+                                var resID = new NamespaceID(nsp, entryName);
+                                switch (type)
+                                {
+                                    case "sprites":
+                                        var sprite = ReadEntryToSprite(resID, entry);
+                                        asset.Sprites.Add(resID, sprite);
+                                        break;
+                                    case "spritesheets":
+                                        var spritesheet = ReadEntryToSpriteSheet(resID, entry);
+                                        asset.SpriteSheets.Add(resID, spritesheet);
+                                        break;
+                                }
                             }
                         }
                     }

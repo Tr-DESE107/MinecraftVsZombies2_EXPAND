@@ -6,10 +6,10 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action create_tutorial_form" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，邻居，好久不见啊！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">上次见到你，已经是好久以前了啊！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">现在掌握器械的经验怎么样了？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action create_tutorial_form">差不多快忘了吧？要不要复习一下呢？</sentence>
       </sentences>
     </section>
     <section nameID="mvz2:archive.take_tutorial" onSkip="end start_tutorial">
@@ -17,7 +17,7 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_tutorial" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_tutorial">好了，现在开始吧！</sentence>
       </sentences>
     </section>
     <section nameID="mvz2:archive.skip_tutorial">
@@ -25,7 +25,7 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4">记性不错嘛！朋友！</sentence>
       </sentences>
     </section>
     <section nameID="mvz2:archive.after_tutorial">
@@ -33,8 +33,8 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="section 4" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">嘿！朋友！你看起来真的掌握了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="section 4">以至于我还什么都没说，你就已经完成教程了！</sentence>
       </sentences>
     </section>
     <section nameID="mvz2:archive.start_prologue">
@@ -42,8 +42,8 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">啊！正说着呢，那些僵尸就又来开始进攻你了。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">那么，朋友，用你的经验把他们干掉吧！</sentence>
       </sentences>
     </section>
   </group>
@@ -53,12 +53,12 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" />
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这看起来像是一个藏宝图啊！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">你觉得这个藏宝图的终点会有着什么呢？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">也许……这玩意会把我们带到什么神奇的地方！！！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">甚至有可能是我天天跟你说的那个幻想乡！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">你知道的，那是个人类和妖怪共存的地方！还有好多神话传说中神奇力量！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！</sentence>
       </sentences>
     </section>
   </group>

@@ -182,12 +182,12 @@ namespace MVZ2.Vanilla
                 return;
             }
 
-            var title = Game.GetText(TextID.UI.purchase);
-            var desc = Game.GetText(TextID.UI.confirmPurchaseSeventhSlot);
+            var title = Game.GetText(TextID.UI_PURCHASE);
+            var desc = Game.GetText(TextID.UI_CONFIRM_BUY_7TH_SLOT);
             var options = new string[]
             {
-                Game.GetText(TextID.UI.yes),
-                Game.GetText(TextID.UI.no)
+                Game.GetText(TextID.UI_YES),
+                Game.GetText(TextID.UI_NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {
@@ -219,12 +219,12 @@ namespace MVZ2.Vanilla
                 return;
             }
 
-            var title = Game.GetText(TextID.UI.tutorial);
-            var desc = Game.GetText(TextID.UI.confirmTutorial);
+            var title = Game.GetText(TextID.UI_TUTORIAL);
+            var desc = Game.GetText(TextID.UI_CONFIRM_TUTORIAL);
             var options = new string[]
             {
-                Game.GetText(TextID.UI.yes),
-                Game.GetText(TextID.UI.no)
+                Game.GetText(TextID.UI_YES),
+                Game.GetText(TextID.UI_NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {

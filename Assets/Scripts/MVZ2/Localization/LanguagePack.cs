@@ -19,11 +19,13 @@ namespace MVZ2.Localization
             var asset = assets.FirstOrDefault(a => a.language == language);
             if (asset == null)
                 return false;
-            var catalog = asset.catalog;
-            if (catalog.IsTranslationExist(text))
+            foreach (var catalog in asset.catalogs.Values)
             {
-                result = catalog.GetString(text, args);
-                return true;
+                if (catalog.IsTranslationExist(text))
+                {
+                    result = catalog.GetString(text, args);
+                    return true;
+                }
             }
             return false;
         }
@@ -33,11 +35,13 @@ namespace MVZ2.Localization
             var asset = assets.FirstOrDefault(a => a.language == language);
             if (asset == null)
                 return false;
-            var catalog = asset.catalog;
-            if (catalog.IsTranslationExist(context + "\u0004" + text))
+            foreach (var catalog in asset.catalogs.Values)
             {
-                result = catalog.GetParticularString(context, text, args);
-                return true;
+                if (catalog.IsTranslationExist(context + "\u0004" + text))
+                {
+                    result = catalog.GetParticularString(context, text, args);
+                    return true;
+                }
             }
             return false;
         }
@@ -79,7 +83,7 @@ namespace MVZ2.Localization
     public class LanguageAssets
     {
         public string language;
-        public Catalog catalog;
+        public Dictionary<string, Catalog> catalogs = new Dictionary<string, Catalog>();
         public Dictionary<NamespaceID, Sprite> Sprites = new Dictionary<NamespaceID, Sprite>();
         public Dictionary<NamespaceID, Sprite[]> SpriteSheets = new Dictionary<NamespaceID, Sprite[]>();
         public LanguageAssets(string lang)

@@ -1,0 +1,1072 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-10 13:07+0200\n"
+"PO-Revision-Date: 2024-09-10 20:50+0800\n"
+"Last-Translator: \n"
+"Language-Team: English (United States) <https://hosted.weblate.org/projects/"
+"mvz2/general/en_US/>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.5\n"
+
+msgctxt "error"
+msgid "<color=red>错误：未知文本</color>"
+msgstr "<color=red>Error:Unknown Text</color>"
+
+msgctxt "error"
+msgid ""
+"<color=red>错误：</color>\n"
+"发现了重复的物体引用！\n"
+"请将你的日志文件发送给作者。"
+msgstr ""
+"<color=red>Error:</color>\n"
+"Duplicate object reference found!\n"
+"Please send your log files to the creator."
+
+msgctxt "error"
+msgid ""
+"<color=red>错误：</color>\n"
+"加载用户存档文件失败。\n"
+"用户存档可能已损坏。"
+msgstr ""
+"<color=red>Error:</color>\n"
+"Failed to load user data file.\n"
+"User data is probably corruputed."
+
+msgctxt "error"
+msgid ""
+"<color=red>错误：</color>\n"
+"打开用户存档文件失败。\n"
+"请确认没有其他正在使用该文件的应用程序，然后重新启动游戏。"
+msgstr ""
+"<color=red>Error:</color>\n"
+"Failed to open user data file.\n"
+"Please ensure there are no other applications using these files, then "
+"restart the game."
+
+msgctxt "error"
+msgid "读取关卡错误"
+msgstr "Failed to load"
+
+msgctxt "error"
+msgid ""
+"加载关卡时出现了错误。\n"
+"请向作者报告本问题。"
+msgstr ""
+"An error happened while loading the level.\n"
+"Please submit the bug report to the author."
+
+msgctxt "error"
+msgid ""
+"关卡存档版本未知。\n"
+"请重新开始关卡。"
+msgstr ""
+"The version of save data is unknown.\n"
+"Please restart the level."
+
+msgctxt "error"
+msgid ""
+"存档版本和游戏版本不相同。\n"
+"存档版本：{0}\n"
+"游戏版本： {1}"
+msgstr ""
+"Save data version does not match with the game version.\n"
+"Save Data Version: {0}\n"
+"Game Version: {1}"
+
+msgctxt "error"
+msgid "？？？"
+msgstr "???"
+
+msgid "加载中……"
+msgstr "Loading…"
+
+msgid "选择您的偏好语言"
+msgstr "Select your preferred language"
+
+msgid "点击以开始！"
+msgstr "Click to start!"
+
+msgid "触摸以开始！"
+msgstr "Touch to start!"
+
+msgid "确定"
+msgstr "Accept"
+
+msgid "返回"
+msgstr "Back"
+
+msgid "返回列表"
+msgstr "Back to list"
+
+msgid "返回主菜单"
+msgstr "Back to main menu"
+
+msgid "返回地图"
+msgstr "Back to map"
+
+msgid "血与碎块"
+msgstr "Blood and Gore"
+
+msgid "取消"
+msgstr "Cancel"
+
+msgid "第一次游戏必须输入用户名"
+msgstr "Username must be set when starting the game for the first time"
+
+msgid ""
+"您通关了这一章节。\n"
+"下一章节目前还在进行新版本的开发。\n"
+"或许……您可以试试无尽模式？"
+msgstr ""
+"You cleared this chapter.\n"
+"The next chapter is in development and will be released soon.\n"
+"Or...You may try the Endless Mode!"
+
+msgid ""
+"确认删除用户吗？\n"
+"该用户所有的数据都将被删除！"
+msgstr ""
+"Delete User?\n"
+"This user's data will be all deleted!"
+
+msgid "选择你的蓝图"
+msgstr "Choose your blueprints"
+
+msgid ""
+"确认要返回吗？\n"
+"你的进度会被保存。"
+msgstr ""
+"Are you sure to quit?\n"
+"Your progress will be saved."
+
+msgid "购买第七个器械槽位？"
+msgstr "Buy the 7th contraption slot?"
+
+msgid ""
+"确认要退出吗？\n"
+"我才不会想你呢！"
+msgstr ""
+"Quit?\n"
+"I won't miss you! Really!"
+
+msgid ""
+"确认要退出吗？\n"
+"并安装720流氓卫士以威胁您的电脑。"
+msgstr ""
+"Quit?\n"
+"Only 1% can actually quit the game!"
+
+msgid ""
+"确认要退出吗？\n"
+"旅店永远都会关门！"
+msgstr ""
+"Quit?\n"
+"The inn will always be closed!"
+
+msgid ""
+"确认要退出吗？\n"
+"硕士，还不可以休息哦。"
+msgstr ""
+"Quit?\n"
+"Dokutah, it's not the time to rest."
+
+msgid ""
+"确认要退出吗？\n"
+"打得好，我认输。"
+msgstr ""
+"Quit?\n"
+"Well fought, I concede."
+
+msgid ""
+"确认要退出吗？\n"
+"请问您是否并不是不要否认您不想不去不卸载720流氓卫士？"
+msgstr ""
+"Quit?\n"
+"And donate to Reimu so she can achieve the EPIC YOKI GENOCIDE."
+
+msgid ""
+"确认要退出吗？\n"
+"退出会导致游戏停止！"
+msgstr ""
+"Quit?\n"
+"Exiting will cause the game to stop!"
+
+msgid "是否进行新手教程？"
+msgstr "Do you want to have a tutorial?"
+
+msgid "恭喜！"
+msgstr "Congratulations!"
+
+msgid "继续"
+msgstr "Continue"
+
+msgid "是否继续上一次的进度？"
+msgstr "Do you want to continue with the latest progress?"
+
+msgid "（新建用户）"
+msgstr "(New User)"
+
+msgid "自定义"
+msgstr "Custom"
+
+msgid "删除"
+msgstr "Delete"
+
+msgid "已经存在该用户名"
+msgstr "The username already exists, Reno is green."
+
+msgid "进入商店"
+msgstr "Enter Store"
+
+msgid "删除用户"
+msgstr "Delete User"
+
+msgid "难度"
+msgstr "Difficulty"
+
+msgid "正在进入关卡……"
+msgstr "Entering Level…"
+
+msgid "尸潮"
+msgstr "Biohazard"
+
+msgid "黑太阳"
+msgstr "The Black Sun"
+
+msgid "成真"
+msgstr "Come True"
+
+msgid "衰老"
+msgstr "Decrepify"
+
+msgid "疯狂"
+msgstr "Insanity"
+
+msgid "潘多拉的魔盒"
+msgstr "Pandora's Box"
+
+msgid "深潜者"
+msgstr "The Lurker"
+
+msgid "选吧。"
+msgstr "Choose."
+
+msgid "选择你的命运"
+msgstr "Choose your fate"
+
+msgid "轮数"
+msgstr "Flags"
+
+msgid "高"
+msgstr "Height"
+
+msgid "全屏"
+msgstr "Fullscreen"
+
+msgid "游戏结束"
+msgstr "Game Over"
+
+msgid "输入……"
+msgstr "Input…"
+
+msgid "请输入用户名"
+msgstr "Please input your name"
+
+msgid "语言"
+msgstr "Language"
+
+msgid "一起摇滚吧！"
+msgstr "Let's rock!"
+
+msgid ""
+"当前关卡正在开发！\n"
+"请在以后的版本中游玩。"
+msgstr ""
+"Current level is being developed!\n"
+"Please play in the later versions."
+
+msgid ""
+"按住右键拖动以移动视图\n"
+"滚轮以缩放视图"
+msgstr ""
+"Hold right mouse and drag to move the view\n"
+"Scroll to scale the view"
+
+msgid ""
+"单指拖动以移动视图\n"
+"双指触摸以缩放视图"
+msgstr ""
+"Drag with one finger to move the view\n"
+"Touch with two fingers to scale the view"
+
+msgid "菜单"
+msgstr "Menu"
+
+msgid "更多选项"
+msgstr "More Options"
+
+msgid "音乐"
+msgstr "Music"
+
+msgid "否"
+msgstr "No"
+
+msgid "用户名不能为空"
+msgstr "Username cannot be empty"
+
+msgid "不建议在这关使用"
+msgstr "Not recommended for level"
+
+msgid "夜用型 - 白天失效"
+msgstr "Nocturnal - disabled during the day"
+
+msgid "关"
+msgstr "OFF"
+
+msgid "游戏暂停"
+msgstr "Paused"
+
+msgid "播放"
+msgstr "Play"
+
+msgid "好"
+msgstr "OK"
+
+msgid "开"
+msgstr "ON"
+
+msgid "粒子数量"
+msgstr "Particle Count"
+
+msgid "购买"
+msgstr "Purchase"
+
+msgid "退出"
+msgstr "Quit"
+
+msgid "列"
+msgstr "Rank"
+
+msgid "重命名"
+msgstr "Rename"
+
+msgid "分辨率"
+msgstr "Resolution"
+
+msgid "重新开始"
+msgstr "Restart"
+
+msgid ""
+"确认要重新开始关卡吗？\n"
+"本关的进度都将丢失。"
+msgstr ""
+"Restart level?\n"
+"The progress of this level will be lost."
+
+msgid "返回游戏"
+msgstr "Resume"
+
+msgid "再试一次"
+msgstr "Retry"
+
+msgid "行"
+msgstr "Row"
+
+msgid "屏幕震动"
+msgstr "Screen Shake"
+
+msgid "音效"
+msgstr "Sound FX"
+
+msgid "交换触发"
+msgstr "Swap Trigger"
+
+msgid "新手教程"
+msgstr "Tutorial"
+
+msgid "你无法删除唯一一个用户"
+msgstr "You can't delete the only user"
+
+msgid "震动"
+msgstr "Vibration"
+
+msgid "查看草坪"
+msgstr "View Lawn"
+
+msgid "查看图鉴"
+msgstr "View in Almanac"
+
+msgid "我是谁？"
+msgstr "Who am I?"
+
+msgid "是"
+msgstr "Yes"
+
+msgctxt "achievement"
+msgid "解锁成就！"
+msgstr "Achievement Unlocked!"
+
+msgctxt "achievement"
+msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
+msgstr "Push an enemy using a Punchton to the front of another Punchton."
+
+msgctxt "achievement"
+msgid "活塞递推"
+msgstr "Double Trouble"
+
+msgctxt "achievement"
+msgid "已解锁！"
+msgstr "Unlocked!"
+
+msgctxt "achievement"
+msgid "在不照亮任何一次的情况下消灭一个幽灵。"
+msgstr "Defeat a ghost without illuminating it at all."
+
+msgctxt "achievement"
+msgid "捉鬼敢死队"
+msgstr "Ghost Buster"
+
+msgctxt "achievement"
+msgid "用一个火焰弹消灭一只恶魂。"
+msgstr "Defeat a ghast using a fireball."
+
+msgctxt "achievement"
+msgid "见鬼去吧"
+msgstr "Return to Sender"
+
+msgctxt "achievement"
+msgid "让一个没有船的僵尸走进水上并沉没。"
+msgstr "Make a zombie without boat walk into water and sink."
+
+msgctxt "achievement"
+msgid "永远不会让你Swim"
+msgstr "Never gonna let you drown"
+
+msgctxt "archive"
+msgid "如果成交"
+msgstr "If accepted"
+
+msgctxt "archive"
+msgid "教程完成后"
+msgstr "After tutorial"
+
+msgctxt "archive"
+msgid "背景"
+msgstr "Background"
+
+msgctxt "archive"
+msgid "（哆来咪出现）"
+msgstr "(Doremy appears)"
+
+msgctxt "archive"
+msgid "（哆来咪倒地）"
+msgstr "(Doremy faints)"
+
+msgctxt "archive"
+msgid "（哆来咪睁开了她失明的双眼）"
+msgstr "(Doremy opens her blind eyes)"
+
+msgctxt "archive"
+msgid "（哆来咪双手抱头痛苦不堪）"
+msgstr "(Doremy holds her head with her hands in agony)"
+
+msgctxt "archive"
+msgid "筛选"
+msgstr "Filter"
+
+msgctxt "archive"
+msgid "（史蒂夫和村民前往了梦境世界。）"
+msgstr "(Steve and Villager went to the Dream World.)"
+
+msgctxt "archive"
+msgid "是否有足够的金钱？"
+msgstr "Do you have enough money to buy this?"
+
+msgctxt "archive"
+msgid "如果金钱不够"
+msgstr "If you don't have enough money"
+
+msgctxt "archive"
+msgid "如果金钱足够"
+msgstr "If you have enough money"
+
+msgctxt "archive"
+msgid "音乐"
+msgstr "Music"
+
+msgctxt "archive"
+msgid "（噩梦世界展现了出来）"
+msgstr "(Nightmare World reveals itself)"
+
+msgctxt "archive"
+msgid "（欧兰特出现）"
+msgstr "(Orant appears)"
+
+msgctxt "archive"
+msgid "剧情分支"
+msgstr "Plot Branch"
+
+msgctxt "archive"
+msgid "如果拒绝"
+msgstr "If refuse"
+
+msgctxt "archive"
+msgid "播放结束"
+msgstr "Replay Ended"
+
+msgctxt "archive"
+msgid "是否再次播放？"
+msgstr "Play again?"
+
+msgctxt "archive"
+msgid "搜索"
+msgstr "Search"
+
+msgctxt "archive"
+msgid "段落{0}"
+msgstr "Section {0}"
+
+msgctxt "archive"
+msgid "段落"
+msgstr "Sections"
+
+msgctxt "archive"
+msgid "片段"
+msgstr "Segments"
+
+msgctxt "archive"
+msgid "如果不进行教程"
+msgstr "If no"
+
+msgctxt "archive"
+msgid "开始序章"
+msgstr "At the start of Prologue"
+
+msgctxt "archive"
+msgid "开始段落"
+msgstr "Start section"
+
+msgctxt "archive"
+msgid "梦境世界"
+msgstr "Dream World"
+
+msgctxt "archive"
+msgid "万圣夜"
+msgstr "Halloween"
+
+msgctxt "archive"
+msgid "序章"
+msgstr "Prologue"
+
+msgctxt "archive"
+msgid "标签"
+msgstr "Tags"
+
+msgctxt "archive"
+msgid "如果进行教程"
+msgstr "If yes"
+
+msgid "成就"
+msgstr "Achievements"
+
+msgid "对话档案"
+msgstr "Archives"
+
+msgid "冒险模式"
+msgstr "Adventure"
+
+msgid "你的名字是： "
+msgstr "Your Name: "
+
+msgctxt "music"
+msgid "选择你的种子"
+msgstr "Choose Your Seeds"
+
+msgctxt "music"
+msgid "草地行走"
+msgstr "Grasswalk"
+
+msgctxt "music"
+msgid "破碎的童话-关卡"
+msgstr "Fractured Fairytales Level"
+
+msgctxt "music"
+msgid "破碎的童话-地图"
+msgstr "Fractured Fairytales Map"
+
+msgctxt "music"
+msgid "莱克死灵之书-关卡"
+msgstr "Lexonomicon Level"
+
+msgctxt "music"
+msgid "莱克死灵之书-首领"
+msgstr "Lexonomicon Boss"
+
+msgctxt "music"
+msgid "莱克死灵之书-地图"
+msgstr "Lexonomicon Map"
+
+msgctxt "music"
+msgid "疯狂戴夫"
+msgstr "Crazy Dave"
+
+msgctxt "music"
+msgid "狂人的愉悦"
+msgstr "Loon Boon"
+
+msgctxt "music"
+msgid "猩红之地"
+msgstr "Crimson"
+
+msgctxt "music"
+msgid "终极之战"
+msgstr "Ultimate Battle"
+
+msgctxt "music"
+msgid "无"
+msgstr "None"
+
+msgid "商店"
+msgstr "Store"
+
+msgid "{0} 槽"
+msgstr "{0} Slots"
+
+msgid "确定以${0:N0}的价格买下这个物品？"
+msgstr "Are you sure you want to purchase this for ${0:N0}?"
+
+msgid "我吃地上的东西！"
+msgstr "I eat things off the floor!"
+
+msgid "Whaddaya Buyin'?"
+msgstr "Whaddaya Buyin'?"
+
+msgid "倒吊人今天会带给你好运！"
+msgstr "A hanged man brings you luck today!"
+
+msgid "你根本不知道在海的这边泥土有多值钱！"
+msgstr "You have no idea how much Dirt Blocks sell on this side of the sea!"
+
+msgid "哼！我是说——哼！"
+msgstr "Hmm! I mean, hmm!"
+
+msgid "一次购买多张蓝图会发生可怕的事情！我骗你的！"
+msgstr ""
+"Buying multiple blueprints at once will cause something terrible! I'm lying!"
+
+msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
+msgstr ""
+"Extra blueprint slot! Allowing you to carry one more contraption to battle!"
+
+msgid "把传动力板放在重力板上，让它能够操纵上方子弹和敌人的位置！"
+msgstr ""
+"Place Force Pads on your Gravity Pads. They can control the motion of "
+"objects over them!"
+
+msgid "把传染发射器放在小型发射器上，让它发射的子弹能够在敌人之间传播！"
+msgstr ""
+"Place Infectensers on your Small Dispensers. Projectiles shot by them can "
+"spread between enemies!"
+
+msgid "更多的碎片槽！让你的器械爆发吧！"
+msgstr "More Starshard slots! Let your contraptions evoke more!"
+
+msgid "你没有足够的金钱！"
+msgstr ""
+"You don't have enough money! Come back when you're a little mmmm... richer!"
+
+msgid "页面{0}/{1}"
+msgstr "Page {0}/{1}"
+
+msgid "售罄"
+msgstr "Sold Out"
+
+msgctxt "levelname"
+msgid "测试关"
+msgstr "Test Level"
+
+msgctxt "levelname"
+msgid "{0} - 第{1}天"
+msgstr "{0} - Day {1}"
+
+msgctxt "levelname"
+msgid "梦境世界"
+msgstr "Dream World"
+
+msgctxt "levelname"
+msgid "{0}(无尽版)"
+msgstr "{0}(Endless)"
+
+msgctxt "levelname"
+msgid "{0} - 第{1}轮"
+msgstr "{0} - Flag {1}"
+
+msgctxt "levelname"
+msgid "万圣夜"
+msgstr "Halloween"
+
+msgctxt "levelname"
+msgid "序章"
+msgstr "Prologue"
+
+msgctxt "levelname"
+msgid "教程关"
+msgstr "Tutorial"
+
+msgctxt "levelname"
+msgid "未知关卡"
+msgstr "Unknown Level"
+
+msgctxt "advice.click_to_continue_mobile"
+msgid "触摸以继续"
+msgstr "Touch to continue"
+
+msgctxt "advice.click_to_continue"
+msgid "点击以继续"
+msgstr "Click to continue"
+
+msgctxt "advice.collect_money.0"
+msgid "点击收集宝石！"
+msgstr "Click to collect the gem!"
+
+msgctxt "advice.collect_money.1"
+msgid "收集宝石来获得更酷的道具吧！"
+msgstr "Collect gems to purchase COOL stuff!"
+
+msgctxt "advice.collect_money.0_mobile"
+msgid "触摸收集宝石！"
+msgstr "Touch to collect the gem!"
+
+msgctxt "advice.more_enemies"
+msgid "更多的敌人要来了！"
+msgstr "More enemies approaching!"
+
+msgctxt "advice.place_lily_pad_first"
+msgid "请先放睡莲"
+msgstr "Place Lily Pad first"
+
+msgctxt "advice.place_on_statue"
+msgid "你不能在雕像上放置器械"
+msgstr "You cannot place contraptions on statues"
+
+msgctxt "advice.random_china.ace_of_diamonds"
+msgid "方片A"
+msgstr "Ace of Diamonds"
+
+msgctxt "advice.random_china.china_town"
+msgid "瓷器小镇"
+msgstr "China Town"
+
+msgctxt "advice.random_china.gauntlet_snap"
+msgid "手套响指"
+msgstr "Gauntlet Snap"
+
+msgctxt "advice.random_china.hell_metal"
+msgid "地狱金属"
+msgstr "Hell Metal"
+
+msgctxt "advice.random_china.obsidian_prisons"
+msgid "黑曜石囚牢"
+msgstr "Obsidian Prisons"
+
+msgctxt "advice.random_china.redstone_ready"
+msgid "红石俱备"
+msgstr "Redstone Ready"
+
+msgctxt "advice.random_china.tower"
+msgid "塔 - XVI"
+msgstr "The Tower - XVI"
+
+msgctxt "advice.starshard_tutorial.0"
+msgid "左键点击星之碎片槽选中星之碎片！"
+msgstr "Click the Starshard to select it!"
+
+msgctxt "advice.starshard_tutorial.1"
+msgid "点击发射器！"
+msgstr "Click the Dispenser!"
+
+msgctxt "advice.starshard_tutorial.2"
+msgid "干得漂亮！"
+msgstr "Well done!"
+
+msgctxt "advice.starshard_tutorial.3"
+msgid "绿色的怪物会携带星之碎片！"
+msgstr "Green enemies carry Starshards!"
+
+msgctxt "advice.starshard_tutorial.4"
+msgid "点击收集星之碎片！"
+msgstr "Click to collect Starshards!"
+
+msgctxt "advice.starshard_tutorial.5"
+msgid "现在干掉铁盔僵尸！"
+msgstr "Now defeat the Iron Helmet Zombie!"
+
+msgctxt "advice.starshard_tutorial.0_mobile"
+msgid "触摸星之碎片槽选中星之碎片！"
+msgstr "Touch the Star Shard to select it!"
+
+msgctxt "advice.starshard_tutorial.1_mobile"
+msgid "触摸发射器！"
+msgstr "Touch the Dispenser!"
+
+msgctxt "advice.starshard_tutorial.4_mobile"
+msgid "触摸收集星之碎片！"
+msgstr "Touch to collect Star Shards!"
+
+msgctxt "advice.trigger_tutorial.0"
+msgid "点击并放置TNT！"
+msgstr "Click and place TNT!"
+
+msgctxt "advice.trigger_tutorial.1"
+msgid "左键点击机械能面板选中触发器！"
+msgstr "Click the ME Panel to select Trigger!"
+
+msgctxt "advice.trigger_tutorial.10"
+msgid "祝你好运！"
+msgstr "Good luck!"
+
+msgctxt "advice.trigger_tutorial.2"
+msgid "点击以触发TNT！"
+msgstr "Click to trigger the TNT!"
+
+msgctxt "advice.trigger_tutorial.3"
+msgid "干得漂亮！"
+msgstr "Nicely done!"
+
+msgctxt "advice.trigger_tutorial.4"
+msgid "选中触发器！"
+msgstr "Select the Trigger!"
+
+msgctxt "advice.trigger_tutorial.5"
+msgid "点击TNT蓝图！"
+msgstr "Click the TNT blueprint!"
+
+msgctxt "advice.trigger_tutorial.6"
+msgid "放置TNT，它会立即被触发！"
+msgstr "Place TNT, then it will be instantly triggered!"
+
+msgctxt "advice.trigger_tutorial.7"
+msgid "干得好！"
+msgstr "Good job!"
+
+msgctxt "advice.trigger_tutorial.8"
+msgid "立即触发只限于一次性消耗类型的器械。"
+msgstr "Instant triggering can only be used on single-use contraptions."
+
+msgctxt "advice.trigger_tutorial.9"
+msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
+msgstr "You can swap these two actions in Settings."
+
+msgctxt "advice.trigger_tutorial.0_mobile"
+msgid "触摸并放置TNT！"
+msgstr "Touch and place TNT!"
+
+msgctxt "advice.trigger_tutorial.1_mobile"
+msgid "触摸机械能面板选中触发器！"
+msgstr "Touch the ME Panel to select Trigger!"
+
+msgctxt "advice.trigger_tutorial.2_mobile"
+msgid "触摸以触发TNT！"
+msgstr "Touch to trigger TNT!"
+
+msgctxt "advice.trigger_tutorial.5_mobile"
+msgid "触摸TNT蓝图！"
+msgstr "Touch the TNT Blueprint!"
+
+msgctxt "advice.tutorial.0"
+msgid "左键点击器械卡牌选中器械！"
+msgstr "Click a blueprint to choose a contraption!"
+
+msgctxt "advice.tutorial.1"
+msgid "点击草坪放置器械！"
+msgstr "Click the lawn to place a contraption!"
+
+msgctxt "advice.tutorial.2"
+msgid "干得漂亮！"
+msgstr "Nicely done!"
+
+msgctxt "advice.tutorial.3"
+msgid "点击红石收集机械能！"
+msgstr "Click redstone to collect ME (Mechanical Energy)!"
+
+msgctxt "advice.tutorial.4"
+msgid "收集足够的机械能来放置器械！"
+msgstr "Collect enough ME to place contraptions!"
+
+msgctxt "advice.tutorial.5"
+msgid "用发射器干掉僵尸！"
+msgstr "Defeat the zombie with your Dispenser!"
+
+msgctxt "advice.tutorial.6"
+msgid "干得漂亮！"
+msgstr "Well done!"
+
+msgctxt "advice.tutorial.7"
+msgid "选择熔炉并放置！"
+msgstr "Select Furnace and place it!"
+
+msgctxt "advice.tutorial.8"
+msgid "熔炉能为你提供额外的红石！"
+msgstr "Furnaces can provide you additional redstone!"
+
+msgctxt "advice.tutorial.9"
+msgid "熔炉越多，你放器械的速度就越快！"
+msgstr "The more Furnaces you have, the faster you can build!"
+
+msgctxt "advice.tutorial.12"
+msgid "干得漂亮！"
+msgstr "Good job!"
+
+msgctxt "advice.tutorial.10"
+msgid "请至少放下三个熔炉！"
+msgstr "Place at least three Furnaces!"
+
+msgctxt "advice.tutorial.11"
+msgid "用黑曜石来挡住僵尸的进攻！"
+msgstr "Block the zombie with Obsidian!"
+
+msgctxt "advice.tutorial.13"
+msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
+msgstr "Mine TNTs can blow up enemies after arming itself!"
+
+msgctxt "advice.tutorial.14"
+msgid "用地雷TNT炸死铁盔僵尸！"
+msgstr "Blow up the Iron Helmet Zombie with Mine TNT!"
+
+msgctxt "advice.tutorial.15"
+msgid "干得漂亮！"
+msgstr "Excellent job!"
+
+msgctxt "advice.tutorial.16"
+msgid "最后，镐子能够挖掉你所放下的器械！"
+msgstr "Finally, the pickaxe can dig out placed contraptions!"
+
+msgctxt "advice.tutorial.17"
+msgid "试着挖掉所有器械！"
+msgstr "Try to dig out all contraptions!"
+
+msgctxt "advice.tutorial.0_mobile"
+msgid "触摸器械卡牌选中器械！"
+msgstr "Touch a blueprint to choose a contraption!"
+
+msgctxt "advice.tutorial.1_mobile"
+msgid "触摸草坪放置器械！"
+msgstr "Touch the lawn to place a contraption!"
+
+msgctxt "advice.tutorial.3_mobile"
+msgid "触摸红石收集机械能！"
+msgstr "Touch redstone to collect energy!"
+
+msgctxt "death_message"
+msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
+msgstr "Here comes the itsy bitsy spider!"
+
+msgctxt "death_message"
+msgid "<color=red>来 到 我 们 之 中 吧</color>"
+msgstr "<color=red>C O M E   T O   U S</color>"
+
+msgctxt "death_message"
+msgid "亲爱的日记：今天我死了。"
+msgstr "Job's done, back to vibing as a statue."
+
+msgctxt "death_message"
+msgid "快拿出棒球棍！"
+msgstr "Burn Baby Burn"
+
+msgctxt "death_message"
+msgid "我们现在，都是幽灵了。"
+msgstr "Boo."
+
+msgctxt "death_message"
+msgid "你去告诉作者，说他忘了设置死亡信息了。"
+msgstr "You tell the creator, he forgot to set the death message."
+
+msgctxt "death_message"
+msgid "隔离！"
+msgstr "Baby delivery!"
+
+msgctxt "death_message"
+msgid "没有坟墓能束缚我！没有坟墓能束缚我！"
+msgstr "Are you winning, son? - ur mum"
+
+msgctxt "death_message"
+msgid ""
+"你挂了\n"
+"死亡带走了12450金币和经验值"
+msgstr ""
+"You Died\n"
+" Death took 42690 gold and some XP away"
+
+msgctxt "death_message"
+msgid "恐怖寄生虫 已消灭世界上的所有……"
+msgstr "There are no healthy people left in the world…"
+
+msgctxt "death_message"
+msgid "被射成刺猬了！"
+msgstr "What a spooky scary skeleton!"
+
+msgctxt "death_message"
+msgid "我的蜘蛛感应又有反应了。"
+msgstr "My spider-sense is tingling."
+
+msgctxt "death_message"
+msgid "脑子是好的，但不是每个人都有"
+msgstr "I'm gonna eat your brains. We're the undead!"
+
+msgctxt "difficulty"
+msgid "简单"
+msgstr "EASY"
+
+msgctxt "difficulty"
+msgid "困难"
+msgstr "HARD"
+
+msgctxt "difficulty"
+msgid "普通"
+msgstr "NORMAL"
+
+msgctxt "difficulty"
+msgid "未知难度"
+msgstr "Unknown"
+
+msgid "挖掉器械"
+msgstr "Dig a contraption"
+
+msgid "无法使用"
+msgstr "Cannot be used"
+
+msgid "已锁定"
+msgstr "Locked"
+
+msgid "机械能不足"
+msgstr "Not enough ME"
+
+msgid "触发器械"
+msgstr "Trigger a contraption"
+
+msgid "重新充能中…"
+msgstr "Recharging…"
+
+msgctxt "blueprint"
+msgid "增加弹珠"
+msgstr "Add Ball"
+
+msgctxt "blueprint"
+msgid "增长挡板"
+msgstr "Lengthen Board"
+
+msgctxt "blueprint"
+msgid "返回弹珠"
+msgstr "Return Ball"
+
+msgid "点击继续"
+msgstr "Click to continue"
+
+msgid "跳过"
+msgstr "Skip"

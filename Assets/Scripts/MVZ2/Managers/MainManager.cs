@@ -17,6 +17,8 @@ namespace MVZ2
             Game = new Game();
             var mod = new VanillaMod(Game);
             Game.AddMod(mod);
+            Game.OnGetString += OnGetStringCallback;
+            Game.OnGetStringParticular += OnGetStringParticularCallback;
         }
         private void Awake()
         {
@@ -28,6 +30,14 @@ namespace MVZ2
             {
                 throw new DuplicateInstanceException(name);
             }
+        }
+        private string OnGetStringCallback(string textKey)
+        {
+            return LanguageManager._(textKey);
+        }
+        private string OnGetStringParticularCallback(string textKey, string context)
+        {
+            return LanguageManager._p(context, textKey);
         }
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }
