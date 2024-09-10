@@ -14,8 +14,11 @@ namespace MVZ2.Vanilla
 {
     public class VanillaMod : Mod
     {
-        public VanillaMod() : base(spaceName)
+        public VanillaMod(Game game) : base(game, spaceName)
         {
+            var tutorialStage = new TutorialStage(spaceName, StageNames.tutorial);
+            AddStage(tutorialStage);
+
             var classicStage = new ClassicStage(spaceName, StageNames.prologue, 1,
                 new EnemySpawnEntry[]
                 {

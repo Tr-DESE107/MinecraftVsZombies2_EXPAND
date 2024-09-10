@@ -5,12 +5,8 @@ namespace PVZEngine.Game
 {
     public partial class Game : IGame
     {
-        public Game(params Mod[] mods)
+        public Game()
         {
-            foreach (var mod in mods)
-            {
-                AddMod(mod);
-            }
         }
         public bool IsInLevel()
         {
@@ -35,6 +31,6 @@ namespace PVZEngine.Game
             return key.ToString();
         }
         private Level level;
-        private PropertyDictionary propertyDict;
+        private PropertyDictionary propertyDict = new PropertyDictionary();
     }
 }

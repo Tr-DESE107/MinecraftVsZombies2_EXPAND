@@ -74,6 +74,7 @@ namespace MVZ2
             await LoadModModels(modNamespace);
             await LoadSpriteSheets(modNamespace);
             await LoadSprites(modNamespace);
+            LoadCharacterVariantSprites(modNamespace);
 
             ShotModelIcons(modNamespace, modNamespace, modResource.ModelMetaList);
 
@@ -86,16 +87,20 @@ namespace MVZ2
             using var memoryStream = new MemoryStream(resource.bytes);
             var document = memoryStream.ReadXmlDocument();
             var metaPath = resID.path.Replace("\\", "/");
+            var defaultNsp = main.BuiltinNamespace;
             if (metaPath.StartsWith(talksDirectory))
             {
                 var talkRelativePath = metaPath.Substring(talksDirectory.Length);
-                var meta = TalkMeta.FromXmlDocument(document, main.BuiltinNamespace);
+                var meta = TalkMeta.FromXmlDocument(document, defaultNsp);
                 modResource.TalkMetas.Add(new NamespaceID(resID.spacename, talkRelativePath), meta);
             }
             else
             {
                 switch (metaPath)
                 {
+                    case "talkcharacters":
+                        modResource.TalkCharacterMetaList = TalkCharacterMetaList.FromXmlNode(document["characters"], defaultNsp);
+                        break;
                     case "sounds":
                         modResource.SoundMetaList = SoundMetaList.FromXmlNode(document["sounds"]);
                         break;

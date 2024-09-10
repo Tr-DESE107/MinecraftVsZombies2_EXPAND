@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.Editor
 {
-    public class AddressablesMenu
+    public class AddressablesMenu : MonoBehaviour
     {
         [MenuItem("Custom/Addressables/Update Addressables")]
         public static void UpdateAddressables()
@@ -37,6 +37,7 @@ namespace MVZ2.Editor
                 $"{(markedList.Count < filePaths.Count ? $"\nNot updated: \n{string.Join("\n", filePaths.Except(markedList))}" : string.Empty)}");
 
             EditorUtility.ClearProgressBar();
+            EditorUtility.RequestScriptReload();
         }
         private static void SearchFilesForUpdate(string folder, List<string> pathList)
         {
@@ -63,9 +64,10 @@ namespace MVZ2.Editor
         {
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             AddressableAssetGroup group = settings.DefaultGroup;
-            foreach (var asset in group.entries.ToArray())
+            var entries = group.entries.ToArray();
+            foreach (var asset in entries)
             {
-                group.RemoveAssetEntry(asset);
+                group.RemoveAssetEntry(asset, postEvent: false);
             }
         }
         private static bool MarkResource(string rootDirectory, string filePath)
@@ -77,7 +79,7 @@ namespace MVZ2.Editor
             if (entry == null)
             {
                 AddressableAssetGroup group = settings.DefaultGroup;
-                entry = settings.CreateOrMoveEntry(guid, group);
+                entry = settings.CreateOrMoveEntry(guid, group, postEvent: false);
             }
             var relativePath = Path.GetRelativePath(rootDirectory, filePath);
             SetEntryAddressAndLabels(entry, relativePath);
@@ -100,6 +102,9 @@ namespace MVZ2.Editor
                         case "metas":
                             labels.Add("Meta");
                             break;
+                        case "lang":
+                            labels.Add("Language");
+                            break;
                         case "music":
                             labels.Add("Music");
                             break;
@@ -120,12 +125,12 @@ namespace MVZ2.Editor
                 }
                 var keyPath = Path.GetRelativePath(keyRoot, relativePath).Replace("\\", "/");
                 var idPath = Path.ChangeExtension(keyPath, "").TrimEnd('.');
-                entry.address = new NamespaceID(nsp, idPath).ToString();
+                entry.SetAddress(new NamespaceID(nsp, idPath).ToString(), postEvent: false);
             }
 
             foreach (var label in labels)
             {
-                entry.SetLabel(label, true);
+                entry.SetLabel(label, true, postEvent: false);
             }
 
         }

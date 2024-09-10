@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: fbabeea97c99f8143b5d1b05494f46e9
   m_currentHash:
     serializedVersion: 2
-    Hash: afa2b7182dc0fdb9f88442a5535463dc
+    Hash: 37f9791f2685a7c79d2373ca869e69c0
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
     - Sound
     - Spritesheet
     - Music
+    - Language
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb40291d9b81e0644b9d330887b30a0e, type: 2}

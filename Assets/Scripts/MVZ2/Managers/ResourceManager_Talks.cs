@@ -9,7 +9,7 @@ namespace MVZ2
     {
         public TalkGroup GetTalkGroup(NamespaceID groupID)
         {
-            var modResource = main.ResourceManager.GetModResource(groupID.spacename);
+            var modResource = GetModResource(groupID.spacename);
             if (modResource == null)
                 return null;
             foreach (var meta in modResource.TalkMetas.Values)

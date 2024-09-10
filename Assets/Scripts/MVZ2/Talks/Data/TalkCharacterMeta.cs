@@ -50,10 +50,10 @@ namespace MVZ2.Talk
     public class TalkCharacterVariant
     {
         public NamespaceID id;
-        public int width;
-        public int height;
-        public float pivotX;
-        public float pivotY;
+        public int? width;
+        public int? height;
+        public float? pivotX;
+        public float? pivotY;
         public NamespaceID parent;
         public List<TalkCharacterLayer> layers = new List<TalkCharacterLayer>();
 
@@ -61,17 +61,17 @@ namespace MVZ2.Talk
         {
             var variant = new TalkCharacterVariant();
             variant.id = node.GetAttributeNamespaceID("id", defaultNsp);
-            variant.width = node.GetAttributeInt("width") ?? 0;
-            variant.height = node.GetAttributeInt("height") ?? 0;
-            variant.pivotX = node.GetAttributeFloat("pivotX") ?? 0.5f;
-            variant.pivotY = node.GetAttributeFloat("pivotY") ?? 0.5f;
+            variant.width = node.GetAttributeInt("width");
+            variant.height = node.GetAttributeInt("height");
+            variant.pivotX = node.GetAttributeFloat("pivotX");
+            variant.pivotY = node.GetAttributeFloat("pivotY");
             variant.parent = node.GetAttributeNamespaceID("parent", defaultNsp);
 
             var variantChildNodes = node.ChildNodes;
             for (int i = 0; i < variantChildNodes.Count; i++)
             {
                 var child = variantChildNodes[i];
-                variant.layers.Add(TalkCharacterLayer.FromXmlNode(node, defaultNsp));
+                variant.layers.Add(TalkCharacterLayer.FromXmlNode(child, defaultNsp));
             }
             return variant;
         }

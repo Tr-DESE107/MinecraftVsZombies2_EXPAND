@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks>
   <group name="halloween.1" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -19,7 +19,7 @@
     </section>
   </group>
   <group name="halloween_over.1" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -33,7 +33,7 @@
     </section>
   </group>
   <group name="halloween_map.1" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -62,7 +62,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_starshard_tutorial" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.after_tutorial" onSkip="end">
+    <section nameID="mvz2:archive.after_tutorial">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -74,7 +74,7 @@
     </section>
   </group>
   <group name="halloween_over.2" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -86,7 +86,7 @@
     </section>
   </group>
   <group name="halloween_map.2" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -106,7 +106,7 @@
     </section>
   </group>
   <group name="halloween.3" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -122,7 +122,7 @@
     </section>
   </group>
   <group name="halloween_over.3" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -134,7 +134,7 @@
     </section>
   </group>
   <group name="halloween_map.3" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -149,7 +149,7 @@
     </section>
   </group>
   <group name="halloween.4" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -166,7 +166,7 @@
     </section>
   </group>
   <group name="halloween_over.4" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -179,7 +179,7 @@
     </section>
   </group>
   <group name="halloween_map.4" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -196,7 +196,7 @@
     </section>
   </group>
   <group name="halloween_over.5" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -214,7 +214,7 @@
     </section>
   </group>
   <group name="halloween_map.5" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -236,7 +236,7 @@
     </section>
   </group>
   <group name="halloween.6" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -251,7 +251,7 @@
     </section>
   </group>
   <group name="halloween_over.6" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -264,7 +264,7 @@
     </section>
   </group>
   <group name="halloween_map.6" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -308,7 +308,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="action create_seventh_slot_form" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.money_insufficent" onSkip="end">
+    <section nameID="mvz2:archive.money_insufficent">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -317,7 +317,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.accept_deal" onSkip="end">
+    <section nameID="mvz2:archive.accept_deal">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -325,7 +325,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.refuse_deal" onSkip="end">
+    <section nameID="mvz2:archive.refuse_deal">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -335,7 +335,7 @@
     </section>
   </group>
   <group name="halloween_over.7" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -348,7 +348,7 @@
     </section>
   </group>
   <group name="halloween_map.7" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -364,7 +364,7 @@
     </section>
   </group>
   <group name="halloween.8" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -376,7 +376,7 @@
     </section>
   </group>
   <group name="halloween_over.8" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -388,7 +388,7 @@
     </section>
   </group>
   <group name="halloween.9" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:orant" variant="mvz2:warning" side="right" />
       </characters>
@@ -401,7 +401,7 @@
     </section>
   </group>
   <group name="halloween_over.9" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -413,7 +413,7 @@
     </section>
   </group>
   <group name="note_halloween" background="mvz2:archive.note_halloween" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />
@@ -428,7 +428,7 @@
     </section>
   </group>
   <group name="halloween.11" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:orant" variant="mvz2:warning" side="right" />
         <character id="mvz2:crazy_villager" />
@@ -444,7 +444,7 @@
     </section>
   </group>
   <group name="halloween_over.11" background="mvz2:eternal_night_swamp" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" variant="mvz2:warning" side="right" />
@@ -458,7 +458,7 @@
     </section>
   </group>
   <group name="halloween_map.11" background="mvz2:eternal_night_swamp" music="mvz2:halloween_map" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:orant" side="right" />

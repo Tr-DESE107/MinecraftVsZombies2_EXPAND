@@ -86,6 +86,16 @@ namespace PVZEngine
         {
             return !path.Contains(':');
         }
+        public static bool IsValid(NamespaceID id)
+        {
+            if (id == null)
+                return false;
+            if (string.IsNullOrEmpty(id.spacename) || string.IsNullOrEmpty(id.path))
+                return false;
+            if (!ValidateNamespace(id.spacename) || !ValidatePath(id.path))
+                return false;
+            return true;
+        }
         public override string ToString()
         {
             return $"{spacename}:{path}";

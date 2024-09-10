@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -26,13 +27,9 @@ namespace MVZ2.Level
     public class LevelController : MonoBehaviour
     {
         #region 公有方法
-        public void SetMainManager(MainManager main)
-        {
-            this.main = main;
-        }
         public void InitGame(Game game)
         {
-            var vanilla = new Vanilla.VanillaMod();
+            var vanilla = new Vanilla.VanillaMod(game);
             level = new Level(game);
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
@@ -65,15 +62,15 @@ namespace MVZ2.Level
 
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
 
-            //var startTalk = level.GetStartTalk();
-            //if (startTalk != null)
-            //{
-            //    talkController.StartTalk(startTalk, 0, 2);
-            //}
-            //else
-            //{
+            var startTalk = level.GetStartTalk();
+            if (startTalk != null)
+            {
+                talkController.StartTalk(startTalk, 0, 2);
+            }
+            else
+            {
                 BeginLevel();
-            //}
+            }
 
             level.SetSeedPacks(new NamespaceID[]
             {
@@ -604,15 +601,11 @@ namespace MVZ2.Level
         #region 游戏结束
         private async void OnGameOverRetryButtonClickedCallback()
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetGameOverDialogInteractable(false);
-            await main.LevelManager.Retry();
+            await Retry();
         }
         private async void OnGameOverBackButtonClickedCallback()
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetGameOverDialogInteractable(false);
-            await main.LevelManager.Retry();
+            await Retry();
         }
         #endregion
 
@@ -889,7 +882,8 @@ namespace MVZ2.Level
             {
                 bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + level.CurrentWave >= i * level.GetWavesPerFlag() ? deltaTime : -deltaTime);
             }
-            float targetProgress = level.CurrentWave / (float)level.GetTotalWaveCount();
+            int totalWaveCount = level.GetTotalWaveCount();
+            float targetProgress = totalWaveCount <= 0 ? 0 : level.CurrentWave / (float)totalWaveCount;
             int progressDirection = Math.Sign(targetProgress - levelProgress);
             if (progressDirection != 0)
             {
@@ -1050,6 +1044,13 @@ namespace MVZ2.Level
         {
             // TODO
         }
+        private async Task Retry()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetGameOverDialogInteractable(false);
+            await main.LevelManager.GotoLevelScene();
+            main.LevelManager.StartLevel();
+        }
 
         #region 游戏结束
         private void ShowGameOverDialog()
@@ -1179,7 +1180,7 @@ namespace MVZ2.Level
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
         private Level level;
-        private MainManager main;
+        private MainManager main => MainManager.Instance;
         private bool isGameStarted;
         private bool isGameOver;
         private int heldItemType;

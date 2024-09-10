@@ -1,31 +1,7 @@
 fileFormatVersion: 2
-guid: 403593c82a7adb74b8cc7ce5e0a7e925
+guid: c321612661c274844b82586aba232f9f
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: orant_0
-  - first:
-      213: 21300002
-    second: orant_1
-  - first:
-      213: -8790997297214412796
-    second: orant_0
-  - first:
-      213: 3024353898917797550
-    second: orant_1
-  - first:
-      213: -6315324016660247411
-    second: orant_2
-  - first:
-      213: -4301141960525120990
-    second: character.orant_0
-  - first:
-      213: -9001998254539367339
-    second: character.orant_1
-  - first:
-      213: 3531380952668401483
-    second: character.orant_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -45,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -67,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +79,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -116,7 +92,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
@@ -129,73 +105,10 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: character.orant_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 524
-        height: 1280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22a7f52ec264f44c0800000000000000
-      internalID: -4301141960525120990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character.orant_1
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 1192
-        width: 130
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55c9e79384a721380800000000000000
-      internalID: -9001998254539367339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character.orant_2
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 1103
-        width: 130
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4f6162344cf10130800000000000000
-      internalID: 3531380952668401483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -206,10 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      character.orant_0: -4301141960525120990
-      character.orant_1: -9001998254539367339
-      character.orant_2: 3531380952668401483
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -17,6 +17,30 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
+  - m_GUID: 3225cf10a7527224a8a7cedc03206148
+    m_Address: mvz2:talk/villager/villager_short3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
+    m_Address: mvz2:talk/villager/villager_short2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
+    m_Address: mvz2:talk/villager/villager_short1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
+    m_Address: mvz2:talk/villager/villager_scream2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: mvz2:talk/villager/villager_scream1
     m_ReadOnly: 0
@@ -587,6 +611,36 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 403593c82a7adb74b8cc7ce5e0a7e925
+    m_Address: mvz2:characters/orant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bf781a25449e494cb164af741da24e7
+    m_Address: mvz2:characters/doremy_suffering
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66d6b2cec1b5a03498ee84ec03d69134
+    m_Address: mvz2:characters/doremy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ab4a75a9055bfe45b77160fc117ae13
+    m_Address: mvz2:characters/dim_vision
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c321612661c274844b82586aba232f9f
+    m_Address: mvz2:characters/crazy_villager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d28e63ecd71367a4e8507400e2ed6c6c
     m_Address: mvz2:talk/dialog_wipe
     m_ReadOnly: 0
@@ -965,6 +1019,42 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62ff205b86d24b04f990bc4811d266ad
+    m_Address: mvz2:zh_hans/talk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Language
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18f8419a333958a4f9e0b42a7bbdf8b0
+    m_Address: mvz2:zh_hans/general
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Language
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7e5a74e481a91a4daa2a145b7cdf50c
+    m_Address: mvz2:zh_hans/almanac
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Language
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35158245da5d8a747bde02341b6b6bbe
+    m_Address: mvz2:en_us/talk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Language
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94fea040886646944ba16a0a2d2f51af
+    m_Address: mvz2:en_us/general
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Language
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82e162ff0edf93e43add6d2cf7574c0f
+    m_Address: mvz2:en_us/almanac
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Language
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 164c517f4b3a40f49a48c0f998d7fd7e
     m_Address: mvz2:ready_set_build
     m_ReadOnly: 0
@@ -979,6 +1069,24 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ead2b534e897e48469cac6037a937e50
     m_Address: mvz2:starshard.day
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a4746211870c7249adf3104c2ebdac4
+    m_Address: mvz2:speech_bubble_no_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6a955717c4507e4aa60b1e721268640
+    m_Address: mvz2:speech_bubble_center
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da0c5367a9a28744296833a41ea6087a
+    m_Address: mvz2:speech_bubble
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1739,6 +1847,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aece0077117af704fae4bf9a55d0dee3
+    m_Address: mvz2:talkcharacters
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9c39bb1453520844927684f519182e9
     m_Address: mvz2:sounds
     m_ReadOnly: 0
@@ -1762,36 +1876,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: aece0077117af704fae4bf9a55d0dee3
-    m_Address: mvz2:characters
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Meta
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
-    m_Address: mvz2:talk/villager/villager_scream2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
-    m_Address: mvz2:talk/villager/villager_short1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
-    m_Address: mvz2:talk/villager/villager_short2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3225cf10a7527224a8a7cedc03206148
-    m_Address: mvz2:talk/villager/villager_short3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

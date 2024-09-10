@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MVZ2.Vanilla;
 using PVZEngine.Game;
 using UnityEngine;
@@ -7,6 +8,16 @@ namespace MVZ2
 {
     public class MainManager : MonoBehaviour
     {
+        public async Task Initialize()
+        {
+            await ModManager.LoadMods();
+            await ResourceManager.LoadAllModResources();
+            LanguageManager.LoadAllLanguagePacks();
+
+            Game = new Game();
+            var mod = new VanillaMod(Game);
+            Game.AddMod(mod);
+        }
         private void Awake()
         {
             if (!Instance)
@@ -17,17 +28,6 @@ namespace MVZ2
             {
                 throw new DuplicateInstanceException(name);
             }
-        }
-        private async void Start()
-        {
-            await ModManager.LoadMods();
-            await ResourceManager.LoadAllModResources();
-            LanguageManager.LoadAllLanguagePacks();
-
-            Game = new Game(new Mod[] { new VanillaMod() });
-
-            await LevelManager.GotoLevelScene();
-            LevelManager.StartLevel();
         }
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }

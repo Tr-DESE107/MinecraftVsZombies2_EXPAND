@@ -20,7 +20,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_tutorial" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.skip_tutorial" onSkip="end">
+    <section nameID="mvz2:archive.skip_tutorial">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -28,7 +28,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.after_tutorial" onSkip="end">
+    <section nameID="mvz2:archive.after_tutorial">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -37,7 +37,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="section 4" />
       </sentences>
     </section>
-    <section nameID="mvz2:archive.start_prologue" onSkip="end">
+    <section nameID="mvz2:archive.start_prologue">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -48,7 +48,7 @@
     </section>
   </group>
   <group name="note_prologue" background="mvz2:archive.note_prologue" tags="mvz2:archive.tag.prologue">
-    <section onSkip="end">
+    <section>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>

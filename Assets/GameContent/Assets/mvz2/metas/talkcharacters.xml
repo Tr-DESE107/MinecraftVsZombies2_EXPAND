@@ -1,0 +1,72 @@
+<characters>
+    <character name="crazy_villager" unlock="mvz2:always">
+        <variant id="mvz2:normal" width="488" height="1000" pivotX="0.5" pivotY="0.4">
+            <layer sprite="mvz2:characters/crazy_villager[0]" />
+        </variant>
+    </character>
+    <character name="orant" unlock="mvz2:halloween.1">
+        <variant id="mvz2:normal" width="524" height="1280" pivotX="0.5" pivotY="0.5">
+            <layer sprite="mvz2:characters/orant[0]" />
+        </variant>
+        <variant id="mvz2:close_eye" parent="normal">
+            <layer sprite="mvz2:characters/orant[1]" positionX="137" positionY="213" />
+        </variant>
+        <variant id="mvz2:warning" parent="normal">
+            <layer sprite="mvz2:characters/orant[2]" positionX="137" positionY="213" />
+        </variant>
+    </character>
+    <character name="doremy" unlock="mvz2:dream.1">
+        <variant id="mvz2:normal" width="641" height="1280" pivotX="0.5" pivotY="0.5">
+            <layer sprite="mvz2:characters/doremy[0]" />
+        </variant>
+        <variant id="mvz2:open_mouth" parent="normal">
+            <layer sprite="mvz2:characters/doremy[10]" positionX="347" positionY="223" />
+        </variant>
+        <variant id="mvz2:sad" parent="normal">
+            <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
+            <layer sprite="mvz2:characters/doremy[10]" positionX="347" positionY="223" />
+        </variant>
+        <variant id="mvz2:taunt" parent="normal">
+            <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
+            <layer sprite="mvz2:characters/doremy[11]" positionX="339" positionY="218" />
+        </variant>
+        <variant id="mvz2:confused" parent="sad">
+            <layer sprite="mvz2:characters/doremy[5]" positionX="127" positionY="6" />
+        </variant>
+        <variant id="mvz2:open_book" parent="normal">
+            <layer sprite="mvz2:characters/doremy[1]" positionX="117" positionY="234" />
+        </variant>
+        <variant id="mvz2:read_smile" parent="open_book">
+            <layer sprite="mvz2:characters/doremy[1]" positionX="117" positionY="234" />
+            <layer sprite="mvz2:characters/doremy[9]" positionX="227" positionY="98" />
+        </variant>
+        <variant id="mvz2:read" parent="read_smile">
+            <layer sprite="mvz2:characters/doremy[10]" positionX="347" positionY="223" />
+        </variant>
+        <variant id="mvz2:nervous" parent="normal">
+            <layer sprite="mvz2:characters/doremy[7]" positionX="277" positionY="98" />
+            <layer sprite="mvz2:characters/doremy[12]" positionX="341" positionY="220" />
+            <layer sprite="mvz2:characters/doremy[2]" positionX="117" positionY="234" />
+        </variant>
+        <variant id="mvz2:suffering" width="857" height="1365" pivotX="0.25" pivotY="0.4">
+            <layer sprite="mvz2:characters/doremy_suffering[0]" positionX="0" positionY="259" />
+            <layer sprite="mvz2:characters/doremy[12]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:cursed" width="641" height="1513" pivotX="0.5" pivotY="0.45">
+            <layer sprite="mvz2:characters/doremy[0]" positionX="0" positionY="233" />
+            <layer sprite="mvz2:characters/doremy[3]" positionX="117" positionY="467" />
+            <layer sprite="mvz2:characters/doremy[4]" positionX="277" positionY="331" />
+            <layer sprite="mvz2:characters/doremy[10]" positionX="347" positionY="456" />
+            <layer sprite="mvz2:characters/dim_vision[0]" positionX="233" positionY="0" />
+        </variant>
+        <variant id="mvz2:cursed_close_eyes" parent="cursed">
+            <layer sprite="mvz2:characters/doremy[13]" positionX="277" positionY="331" />
+        </variant>
+        <variant id="mvz2:cured" parent="open_mouth">
+            <layer sprite="mvz2:characters/doremy[3]" positionX="117" positionY="234" />
+        </variant>
+        <variant id="mvz2:slightly_close_eyes" parent="normal">
+            <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
+        </variant>
+    </character>
+</characters>

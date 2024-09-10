@@ -41,7 +41,7 @@ namespace MVZ2
                     return false;
 
                 var idStr = str.Substring(0, leftBracketIndex);
-                if (!NamespaceID.TryParse(str, defaultNsp, out var id))
+                if (!NamespaceID.TryParse(idStr, defaultNsp, out var id))
                     return false;
 
                 parsed = new SpriteReference(id, index);

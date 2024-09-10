@@ -7,9 +7,12 @@ namespace MVZ2
 {
     public class LevelManager : MonoBehaviour
     {
+        public LevelController GetLevel()
+        {
+            return controller;
+        }
         public void StartLevel()
         {
-            controller.SetMainManager(main);
             controller.InitGame(Main.Game);
         }
         public async Task GotoLevelScene()
@@ -31,11 +34,6 @@ namespace MVZ2
                     break;
                 }
             }
-        }
-        public async Task Retry()
-        {
-            await GotoLevelScene();
-            StartLevel();
         }
         private bool IsSceneLoaded(string name)
         {

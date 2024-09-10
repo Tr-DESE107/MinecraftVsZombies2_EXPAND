@@ -6,8 +6,9 @@ namespace PVZEngine.Game
 {
     public class Mod
     {
-        public Mod(string nsp)
+        public Mod(Game game, string nsp)
         {
+            Game = game;
             Namespace = nsp;
         }
         public EntityDefinition[] GetEntityDefinitions()

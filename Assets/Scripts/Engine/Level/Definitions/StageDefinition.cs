@@ -17,6 +17,9 @@ namespace PVZEngine.Definitions
         public virtual void PostHugeWave(Level level) { }
         public virtual void PostFinalWave(Level level) { }
         public virtual void PostEnemySpawned(Entity entity) { }
-        public abstract IEnumerable<IEnemySpawnEntry> GetEnemyPool();
+        public virtual IEnumerable<IEnemySpawnEntry> GetEnemyPool()
+        {
+            yield break;
+        }
     }
 }

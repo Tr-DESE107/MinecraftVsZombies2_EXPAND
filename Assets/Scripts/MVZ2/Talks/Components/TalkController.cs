@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using MVZ2.UI;
 using PVZEngine;
 using PVZEngine.Base;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Collections.Specialized.BitVector32;
 
 namespace MVZ2.Talk
 {
@@ -28,9 +30,10 @@ namespace MVZ2.Talk
             sectionIndex = section;
             sentenceIndex = 0;
 
+            speechBubble.SetShowing(false);
             blockerObject.SetActive(true);
             raycastReceiver.gameObject.SetActive(true);
-            dialogCharacters.Clear();
+            ClearCharacters();
 
             StartCoroutine(DelayedStart(delay));
         }
@@ -41,60 +44,22 @@ namespace MVZ2.Talk
             var scale = new Vector3(xScale, 1, 1);
             chr.SetScale(scale);
 
-            var sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
+            Sprite sprite;
+            if (!NamespaceID.IsValid(variant))
+            {
+                sprite = Main.ResourceManager.GetCharacterSprite(characterId);
+            }
+            else
+            {
+                sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
+            }
             chr.SetCharacter(sprite);
+            chr.gameObject.SetActive(true);
             dialogCharacters.Add(characterId, chr);
-
             return chr;
         }
 
 
-        #region 气泡
-        public Vector2 GetBubblePosition(SpeechBubblePosition position)
-        {
-            switch (position)
-            {
-                case SpeechBubblePosition.Left:
-                    return new Vector2(-400, 0);
-                case SpeechBubblePosition.Right:
-                    return new Vector2(400, 0);
-                case SpeechBubblePosition.Self:
-                    return new Vector2(0, -450);
-                case SpeechBubblePosition.Bottom:
-                    return new Vector2(0, -300);
-            }
-            return Vector2.zero;
-        }
-        public Vector2 GetBubblePivot(SpeechBubblePosition position)
-        {
-            switch (position)
-            {
-                default:
-                    return Vector2.one * 0.5f;
-                case SpeechBubblePosition.Left:
-                    return Vector2.zero;
-                case SpeechBubblePosition.Right:
-                    return Vector2.right;
-                case SpeechBubblePosition.Self:
-                    return new Vector2(0.5f, 0);
-            }
-        }
-        public SpeechBubbleDirection GetBubbleDirection(SpeechBubblePosition position)
-        {
-            switch (position)
-            {
-                default:
-                    return SpeechBubbleDirection.None;
-                case SpeechBubblePosition.Left:
-                    return SpeechBubbleDirection.Left;
-                case SpeechBubblePosition.Right:
-                    return SpeechBubbleDirection.Right;
-                case SpeechBubblePosition.Self:
-                    return SpeechBubbleDirection.Down;
-            }
-        }
-
-        #endregion 气泡
         #endregion
 
         #region 私有方法
@@ -102,6 +67,7 @@ namespace MVZ2.Talk
         #region 生命周期
         private void Awake()
         {
+            characterTemplate.gameObject.SetActive(false);
             skipButton.gameObject.SetActive(false);
 
             skipButton.onClick.AddListener(OnSkipClicked);
@@ -115,7 +81,8 @@ namespace MVZ2.Talk
         private void OnClick(PointerEventData eventData)
         {
             var sentence = GetTalkSentence();
-            StartCoroutine(ExecuteScripts(sentence.clickScripts));
+            IEnumerable<TalkScript> scripts = sentence.clickScripts != null ? sentence.clickScripts : defaultClickScripts;
+            StartCoroutine(ExecuteScripts(scripts));
         }
         private void OnForegroundAlphaChanged(float value)
         {
@@ -132,7 +99,8 @@ namespace MVZ2.Talk
         private void OnSkipClicked()
         {
             var section = GetTalkSection();
-            StartCoroutine(ExecuteScripts(section.skipScripts));
+            IEnumerable<TalkScript> scripts = section.skipScripts != null ? section.skipScripts : defaultSkipScripts;
+            StartCoroutine(ExecuteScripts(scripts));
         }
         #endregion
 
@@ -163,7 +131,7 @@ namespace MVZ2.Talk
         }
         private CharacterSide ParseCharacterSide(string side)
         {
-            return side == "left" ? CharacterSide.Left : CharacterSide.Right;
+            return side == "right" ? CharacterSide.Right : CharacterSide.Left;
         }
 
         /// <summary>
@@ -179,7 +147,7 @@ namespace MVZ2.Talk
                     break;
 
                 case "bubble":
-                    speechBubble.SetActive(script.arguments[0] != "hide");
+                    speechBubble.SetShowing(script.arguments[0] != "hide");
                     break;
 
                 case "changecharacter":
@@ -388,6 +356,7 @@ namespace MVZ2.Talk
 
             yield return new WaitForSeconds(0.5f);
 
+            blockerObject.SetActive(false);
             SetSkipButtonActive(true);
             StartSentence();
         }
@@ -448,10 +417,15 @@ namespace MVZ2.Talk
         {
             // 获取脚本组。
             var sentence = GetTalkSentence();
-            var scrs = sentence.startScripts;
 
+            foreach (var sound in sentence.sounds)
+            {
+                Main.SoundManager.Play2D(sound);
+            }
+
+            IEnumerable<TalkScript> scripts = sentence.startScripts != null ? sentence.startScripts : defaultStartScripts;
             // 执行脚本组。
-            StartCoroutine(ExecuteScripts(scrs));
+            StartCoroutine(ExecuteScripts(scripts));
 
             NamespaceID speakerID = sentence.speaker;
             foreach (NamespaceID charId in dialogCharacters.Keys)
@@ -459,24 +433,21 @@ namespace MVZ2.Talk
                 var character = dialogCharacters[charId];
                 character.SetSpeaking(speakerID == charId);
             }
-            SpeechBubblePosition bubblePos = SpeechBubblePosition.Top;
-            if (positionDictionary.TryGetValue(speakerID, out var p))
+            SpeechBubbleDirection bubbleDirection = SpeechBubbleDirection.Up;
+            if (speechBubbleDirDict.TryGetValue(speakerID, out var p))
             {
-                bubblePos = p;
+                bubbleDirection = p;
             }
             else if (dialogCharacters.TryGetValue(speakerID, out var chr))
             {
-                bubblePos = chr.IsLeft() ? SpeechBubblePosition.Left : SpeechBubblePosition.Right;
+                bubbleDirection = chr.IsLeft() ? SpeechBubbleDirection.Left : SpeechBubbleDirection.Right;
             }
 
-            var textKey = sentence.text;
-            var pos = GetBubblePosition(bubblePos);
-            var pivot = GetBubblePivot(bubblePos);
-            var arrowDirection = GetBubbleDirection(bubblePos);
+            var textKey = GetCurrentTextID();
             speechBubble.SetText(Main.TalkManager.TranslateText(textKey));
-            speechBubble.UpdateBubble(pos, pivot, arrowDirection);
-            speechBubble.ResetScale();
-            speechBubble.SetActive(true);
+            speechBubble.UpdateBubble(bubbleDirection);
+            speechBubble.SetShowing(true);
+            speechBubble.ForceReshow();
         }
 
         private void EndTalk(string mode)
@@ -487,8 +458,7 @@ namespace MVZ2.Talk
 
             IsTalking = false;
 
-            speechBubble.ResetScale();
-            speechBubble.SetActive(false);
+            speechBubble.SetShowing(false);
 
             SetSkipButtonActive(false);
 
@@ -502,6 +472,19 @@ namespace MVZ2.Talk
             raycastReceiver.gameObject.SetActive(false);
             OnTalkEnd?.Invoke(mode);
         }
+        private void ClearCharacters()
+        {
+            foreach (var pair in dialogCharacters)
+            {
+                var character = pair.Value;
+                Destroy(character.gameObject);
+            }
+            dialogCharacters.Clear();
+        }
+        private NamespaceID GetCurrentTextID()
+        {
+            return new NamespaceID(groupID.spacename, $"{groupID.path}.{sectionIndex}.{sentenceIndex}");
+        }
         #endregion
 
         #region 事件
@@ -513,11 +496,24 @@ namespace MVZ2.Talk
         public bool IsRunningScripts { get; private set; }
         public bool IsTalking { get; private set; }
         public readonly static NamespaceID DEFAULT_VARIANT_ID = new NamespaceID("mvz2", "normal");
-        private readonly static Dictionary<NamespaceID, SpeechBubblePosition> positionDictionary = new Dictionary<NamespaceID, SpeechBubblePosition>()
+        private readonly static Dictionary<NamespaceID, SpeechBubbleDirection> speechBubbleDirDict = new Dictionary<NamespaceID, SpeechBubbleDirection>()
         {
-            { new NamespaceID("mvz2", "top"), SpeechBubblePosition.Top },
-            { new NamespaceID("mvz2", "bottom"), SpeechBubblePosition.Bottom },
-            { new NamespaceID("mvz2", "self"), SpeechBubblePosition.Self },
+            { new NamespaceID("mvz2", "self"), SpeechBubbleDirection.Down },
+        };
+        private readonly static TalkScript[] defaultStartScripts = new TalkScript[0];
+        private readonly static TalkScript[] defaultClickScripts = new TalkScript[]
+        {
+            new TalkScript()
+            {
+                function = "next"
+            }
+        };
+        private readonly static TalkScript[] defaultSkipScripts = new TalkScript[]
+        {
+            new TalkScript()
+            {
+                function = "end"
+            }
         };
         private MainManager Main => MainManager.Instance;
         [SerializeField]

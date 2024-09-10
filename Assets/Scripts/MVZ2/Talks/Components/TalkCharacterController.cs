@@ -1,3 +1,4 @@
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,17 +34,54 @@ namespace MVZ2.Talk
         public void SetCharacter(Sprite spr)
         {
             image.sprite = spr;
-            image.SetNativeSize();
-            (transform as RectTransform).pivot = spr.pivot;
+            //image.SetNativeSize();
+            //(transform as RectTransform).pivot = spr.pivot;
+        }
+        public void SetStartPosition(Position position)
+        {
+            positionTransition.setStartTransform(GetTransformByPosition(position));
+        }
+        public void SetTargetPosition(Position position)
+        {
+            positionTransition.setTargetTransform(GetTransformByPosition(position));
         }
         #endregion
+        private Transform GetTransformByPosition(Position position)
+        {
+            switch (position)
+            {
+                case Position.Start:
+                    return startTransform;
+                case Position.Idle:
+                    return idleTransform;
+                case Position.Speak:
+                    return speakTransform;
+            }
+            return null;
+        }
 
         #region 属性字段
         [SerializeField]
         private Animator _animator;
         [SerializeField]
         private Image image;
+
+        [Header("Animator")]
+        [SerializeField]
+        private PositionTransition positionTransition;
+        [SerializeField]
+        private Transform startTransform;
+        [SerializeField]
+        private Transform idleTransform;
+        [SerializeField]
+        private Transform speakTransform;
         #endregion
+        public enum Position
+        {
+            Start,
+            Idle,
+            Speak
+        }
 
     }
 

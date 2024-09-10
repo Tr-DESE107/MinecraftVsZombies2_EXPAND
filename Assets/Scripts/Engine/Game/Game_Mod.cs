@@ -58,7 +58,7 @@ namespace PVZEngine.Game
         {
             return spawnDefinitions.FirstOrDefault(d => d.GetID() == defRef);
         }
-        private void AddMod(Mod mod)
+        public void AddMod(Mod mod)
         {
             entityDefinitions.AddRange(mod.GetEntityDefinitions());
             seedDefinitions.AddRange(mod.GetSeedDefinitions());

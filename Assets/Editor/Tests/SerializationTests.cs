@@ -76,8 +76,9 @@ namespace MVZ2.Tests
 
         private static Game CreateGame()
         {
-            var mod = new VanillaMod();
-            var game = new Game(mod);
+            var game = new Game();
+            var mod = new VanillaMod(game);
+            game.AddMod(mod);
             return game;
         }
         private static Level CreateLevel(Game game)

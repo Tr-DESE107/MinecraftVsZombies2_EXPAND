@@ -7,7 +7,6 @@ namespace MVZ2.Talk
 {
     public class TalkSentence
     {
-        public string text;
         public NamespaceID speaker;
         public NamespaceID descriptionId;
         public List<NamespaceID> sounds;
@@ -17,8 +16,6 @@ namespace MVZ2.Talk
         public XmlNode ToXmlNode(XmlDocument document)
         {
             XmlNode node = document.CreateElement("sentence");
-            var textNode = document.CreateTextNode(text);
-            node.AppendChild(textNode);
             node.CreateAttribute("speaker", speaker?.ToString());
             node.CreateAttribute("description", descriptionId?.ToString());
             node.CreateAttribute("sounds", sounds != null ? string.Join(";", sounds.Select(s => s.ToString())) : null);
@@ -42,7 +39,6 @@ namespace MVZ2.Talk
                 descriptionId = description,
                 sounds = sounds,
                 variant = variant,
-                text = text,
                 startScripts = startScripts,
                 clickScripts = clickScripts,
             };
