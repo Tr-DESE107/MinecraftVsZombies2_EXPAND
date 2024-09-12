@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -73,7 +74,12 @@ namespace MVZ2
             List<LanguageAssets> assets = new();
             foreach (var entry in archive.Entries)
             {
-                var splitedPaths = entry.FullName.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                if (string.IsNullOrEmpty(entry.Name))
+                {
+                    continue;
+                }
+                var fullPath = entry.FullName.Replace("\\", "/");
+                var splitedPaths = fullPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
                 if (splitedPaths.Length >= 1 && splitedPaths[0] == "assets")
                 {
                     if (splitedPaths.Length >= 2)
@@ -96,9 +102,10 @@ namespace MVZ2
                             else if (splitedPaths.Length >= 5)
                             {
                                 string type = splitedPaths[3];
-
                                 var asset = GetOrCreateLanguageAsset(assets, lang);
-                                var entryName = Path.ChangeExtension(entry.Name, string.Empty).TrimEnd('.');
+                                var rootPath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], splitedPaths[3]);
+                                var relativePath = Path.GetRelativePath(rootPath, fullPath);
+                                var entryName = Path.ChangeExtension(relativePath, string.Empty).TrimEnd('.').Replace("\\", "/");
 
                                 var resID = new NamespaceID(nsp, entryName);
                                 switch (type)
@@ -162,7 +169,12 @@ namespace MVZ2
             for (int i = 0; i < sprites.Length; i++)
             {
                 var info = spriteInfos[i];
-                sprites[i] = Sprite.Create(texture2D, info.rect, info.pivot);
+                var rect = info.rect;
+                rect.width = Math.Min(rect.width, texture2D.width);
+                rect.height = Math.Min(rect.height, texture2D.height);
+                var spr = Sprite.Create(texture2D, rect, info.pivot / rect.size);
+                spr.name = spriteId.ToString();
+                sprites[i] = spr;
             }
             return sprites;
         }

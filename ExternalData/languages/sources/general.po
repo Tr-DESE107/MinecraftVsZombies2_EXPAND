@@ -581,8 +581,8 @@ msgstr "Archives"
 msgid "冒险模式"
 msgstr "Adventure"
 
-msgid "你的名字是： "
-msgstr "Your Name: "
+msgid "你的名字是："
+msgstr "Your Name:"
 
 msgctxt "music"
 msgid "选择你的种子"

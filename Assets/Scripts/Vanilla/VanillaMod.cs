@@ -16,20 +16,7 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod(Game game) : base(game, spaceName)
         {
-            var tutorialStage = new TutorialStage(spaceName, StageNames.tutorial);
-            AddStage(tutorialStage);
-
-            var classicStage = new ClassicStage(spaceName, StageNames.prologue, 1,
-                new EnemySpawnEntry[]
-                {
-                    new EnemySpawnEntry(EnemyID.zombie),
-                    new EnemySpawnEntry(EnemyID.leatherCappedZombie),
-                    new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
-                }
-            );
-            classicStage.SetProperty(StageProps.START_TALK, TalkID.tutorial);
-            AddStage(classicStage);
-
+            LoadStages();
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
             LevelCallbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
@@ -72,6 +59,22 @@ namespace MVZ2.Vanilla
             }
         }
 
+        private void LoadStages()
+        {
+            var tutorialStage = new TutorialStage(spaceName, StageNames.tutorial);
+            AddStage(tutorialStage);
+
+            var classicStage = new ClassicStage(spaceName, StageNames.prologue, 1,
+                new EnemySpawnEntry[]
+                {
+                    new EnemySpawnEntry(EnemyID.zombie),
+                    new EnemySpawnEntry(EnemyID.leatherCappedZombie),
+                    new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
+                }
+            );
+            classicStage.SetProperty(StageProps.START_TALK, TalkID.tutorial);
+            AddStage(classicStage);
+        }
         private void AddClassicStage(string name, int totalFlags, params EnemySpawnEntry[] enemySpawnEntries)
         {
             AddStage(new ClassicStage(Namespace, name, totalFlags, enemySpawnEntries));

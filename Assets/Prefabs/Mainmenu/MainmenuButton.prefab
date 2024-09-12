@@ -93,6 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8165627588496604918}
+  - component: {fileID: 1512078254831172713}
+  - component: {fileID: 3383399647440908231}
   - component: {fileID: 933871143794288847}
   m_Layer: 0
   m_Name: MainmenuButton
@@ -117,6 +119,36 @@ Transform:
   - {fileID: 6226617942729633562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1512078254831172713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742125469936148500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f76fc21abb7e24381fcdfb962d85a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: 1
+  spriteRenderer: {fileID: 6593236132113763212}
+  normalSprite: {fileID: 0}
+  hoveredSprite: {fileID: 0}
+  disabledSprite: {fileID: 0}
+--- !u!114 &3383399647440908231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742125469936148500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9792724dfb2274bb43590372e056b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 1
 --- !u!60 &933871143794288847
 PolygonCollider2D:
   m_ObjectHideFlags: 0

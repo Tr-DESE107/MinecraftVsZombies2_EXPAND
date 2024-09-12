@@ -7,16 +7,60 @@ namespace MVZ2.UI
     {
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
-            _cursorSource = new HandlerCursorSource(gameObject, cursorType);
-            CursorManager.AddSource(_cursorSource);
+            if (Interactable)
+            {
+                isHovered = true;
+                UpdateCursor();
+            }
         }
 
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
-            CursorManager.RemoveSource(_cursorSource);
-            _cursorSource = null;
+            if (isHovered)
+            {
+                isHovered = false;
+                UpdateCursor();
+            }
+        }
+        private void Enter()
+        {
+            if (_cursorSource == null)
+            {
+                _cursorSource = new HandlerCursorSource(gameObject, cursorType);
+                CursorManager.AddSource(_cursorSource);
+            }
+        }
+        private void Exit()
+        {
+            if (_cursorSource != null)
+            {
+                CursorManager.RemoveSource(_cursorSource);
+                _cursorSource = null;
+            }
+        }
+        private void UpdateCursor()
+        {
+            if (isHovered && Interactable)
+            {
+                Enter();
+            }
+            else
+            {
+                Exit();
+            }
+        }
+        public bool Interactable
+        {
+            get => interactable;
+            set
+            {
+                interactable = value;
+                UpdateCursor();
+            }
         }
         public CursorType cursorType = CursorType.Point;
+        private bool isHovered;
+        private bool interactable = true;
         private HandlerCursorSource _cursorSource;
     }
     public class HandlerCursorSource : ICursorSource

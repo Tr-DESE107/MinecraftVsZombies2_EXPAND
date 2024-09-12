@@ -40,6 +40,32 @@ namespace MVZ2
             }
             return text;
         }
+        public Sprite GetSprite(Sprite sprite)
+        {
+            return GetLocalizedSprite(sprite, GetCurrentLanguage());
+        }
+        public Sprite GetSprite(SpriteReference spriteRef)
+        {
+            return GetLocalizedSprite(spriteRef.id, GetCurrentLanguage());
+        }
+        public Sprite GetLocalizedSprite(Sprite sprite, string language)
+        {
+            var spriteID = main.ResourceManager.GetSpriteReference(sprite);
+            return GetLocalizedSprite(spriteID, language) ?? sprite;
+        }
+        public Sprite GetLocalizedSprite(SpriteReference spriteRef, string language)
+        {
+            if (spriteRef == null)
+                return null;
+            if (spriteRef.isSheet)
+            {
+                var sheet = GetLocalizedSpriteSheet(spriteRef.id, language);
+                if (sheet == null || spriteRef.index < 0 || spriteRef.index >= sheet.Length)
+                    return null;
+                return sheet[spriteRef.index];
+            }
+            return GetLocalizedSprite(spriteRef.id, language);
+        }
         public Sprite GetLocalizedSprite(NamespaceID spriteID, string language)
         {
             var languagePacks = GetAllLanguagePacks();

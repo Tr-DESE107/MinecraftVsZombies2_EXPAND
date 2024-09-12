@@ -178,6 +178,20 @@ namespace MVZ2.Level
             SetGameOver();
             ShowGameOverDialog();
         }
+        public Vector3 LawnToTrans(Vector3 pos)
+        {
+            pos *= LawnToTransScale;
+            Vector3 vector = new Vector3(pos.x, pos.z + pos.y, pos.z);
+            vector += transform.position;
+            return vector;
+        }
+        public Vector3 TransToLawn(Vector3 pos)
+        {
+            pos -= transform.position;
+            Vector3 vector = new Vector3(pos.x, pos.y - pos.z, pos.z);
+            vector *= TransToLawnScale;
+            return vector;
+        }
         #endregion
 
         #region 私有方法
@@ -317,7 +331,7 @@ namespace MVZ2.Level
         #region 逻辑方
         private void OnEntitySpawnCallback(Entity entity)
         {
-            var entityController = Instantiate(entityTemplate.gameObject, entity.Pos.LawnToTrans(), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
+            var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Pos), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
             entityController.Init(this, entity);
             entityController.OnPointerEnter += OnEntityPointerEnterCallback;
             entityController.OnPointerExit += OnEntityPointerExitCallback;
@@ -338,7 +352,7 @@ namespace MVZ2.Level
         }
         private void OnPlaySoundPositionCallback(NamespaceID soundID, Vector3 lawnPos, float pitch)
         {
-            main.SoundManager.Play(soundID, lawnPos.LawnToTrans(), pitch, 1);
+            main.SoundManager.Play(soundID, LawnToTrans(lawnPos), pitch, 1);
         }
         private void OnPlaySoundCallback(NamespaceID soundID, float pitch)
         {
@@ -346,7 +360,7 @@ namespace MVZ2.Level
         }
         private void OnShakeScreenCallback(float startAmplitude, float endAmplitude, int time)
         {
-            main.ShakeManager.AddShake(startAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, endAmplitude * PositionHelper.LAWN_TO_TRANS_SCALE, time / (float)level.TPS);
+            main.ShakeManager.AddShake(startAmplitude * LawnToTransScale, endAmplitude * LawnToTransScale, time / (float)level.TPS);
         }
         private void OnHeldItemChangedCallback(int heldType, int id, int priority, bool noCancel)
         {
@@ -1168,6 +1182,8 @@ namespace MVZ2.Level
             { LevelDifficulty.Normal, StringTable.DIFFICULTY_NORMAL },
             { LevelDifficulty.Hard, StringTable.DIFFICULTY_HARD },
         };
+        public float LawnToTransScale => 1 / transToLawnScale;
+        public float TransToLawnScale => transToLawnScale;
         public MainManager MainManager => main;
         public int HeldItemType => heldItemType;
         public int HeldItemID => heldItemID;
@@ -1203,6 +1219,8 @@ namespace MVZ2.Level
 
         [SerializeField]
         private LevelView view;
+        [SerializeField]
+        private float transToLawnScale = 100;
 
         [Header("Cameras")]
         [SerializeField]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MVZ2.Mainmenu;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine.Game;
@@ -17,14 +18,12 @@ namespace MVZ2
         {
             await main.Initialize();
 
-            mainmenu.SetActive(false);
-            await main.LevelManager.GotoLevelScene();
-            main.LevelManager.StartLevel();
+            mainmenu.Display();
         }
         private MainManager main => MainManager.Instance;
         [SerializeField]
         private MainSceneUI ui;
         [SerializeField]
-        private GameObject mainmenu;
+        private MainmenuController mainmenu;
     }
 }

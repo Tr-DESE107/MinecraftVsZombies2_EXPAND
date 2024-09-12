@@ -53,6 +53,7 @@ namespace MVZ2
 
                     Texture2D texture = new Texture2D(2, 2);
                     texture.LoadImage(memory.ToArray());
+                    texture.FixTransparency();
 
                     return texture;
                 }

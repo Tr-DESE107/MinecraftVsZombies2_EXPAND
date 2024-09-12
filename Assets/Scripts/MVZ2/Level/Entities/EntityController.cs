@@ -49,12 +49,12 @@ namespace MVZ2.Level
             movementTransitionFrame++;
             var nextPos = Entity.GetNextPosition();
             var pos = Entity.Pos;
-            var transPos = pos.LawnToTrans();
-            var posOffset = (nextPos.LawnToTrans() - transPos) * (1 - 1 / movementTransitionFrame);
+            var transPos = Level.LawnToTrans(pos);
+            var posOffset = (Level.LawnToTrans(nextPos) - transPos) * (1 - 1 / movementTransitionFrame);
             float zOffset = 0;
             if (zOffsetDict.TryGetValue(Entity.Type, out float offset))
             {
-                zOffset = offset * PositionHelper.LAWN_TO_TRANS_SCALE;
+                zOffset = offset * Level.LawnToTransScale;
             }
             transform.position = transPos + posOffset + Vector3.back * zOffset;
 
@@ -101,7 +101,7 @@ namespace MVZ2.Level
         }
         private void OnDrawGizmos()
         {
-            float pixelUnit = PositionHelper.LAWN_TO_TRANS_SCALE;
+            float pixelUnit = Level?.LawnToTransScale ?? 0.01f;
             Vector3 size = Entity.GetScaledSize() * pixelUnit;
             var scaledBoundsOffset = Entity.GetScaledBoundsOffset();
             float
@@ -245,7 +245,7 @@ namespace MVZ2.Level
             var shadowPos = Entity.Pos;
             shadowPos.y = Entity.GetGroundHeight();
             shadowPos += Entity.GetShadowOffset();
-            Shadow.transform.position = shadowPos.LawnToTrans() + posOffset;
+            Shadow.transform.position = Level.LawnToTrans(shadowPos) + posOffset;
             float relativeHeight = Entity.GetRelativeY();
             float scale = 1 + relativeHeight / 300;
             float alpha = 1 - relativeHeight / 300;
@@ -320,7 +320,7 @@ namespace MVZ2.Level
             Model.RendererGroup.SetColorOffset(GetColorOffset());
             var groundPos = Entity.Pos;
             groundPos.y = Entity.GetGroundHeight();
-            Model.RendererGroup.SetGroundPosition(groundPos.LawnToTrans());
+            Model.RendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.RenderScale;
         }
