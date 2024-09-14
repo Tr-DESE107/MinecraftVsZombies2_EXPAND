@@ -4,14 +4,14 @@ using MVZ2.Vanilla;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using PVZEngine.Game;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.Tests
 {
-    using Level = PVZEngine.LevelManagement.Level;
+    using LevelEngine = PVZEngine.Level.LevelEngine;
     public class SerializationTests
     {
         [Test]
@@ -47,7 +47,7 @@ namespace MVZ2.Tests
         public static void LevelSerializationTest()
         {
             var game = CreateGame();
-            var level = new Level(game);
+            var level = new LevelEngine(game);
             level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,
@@ -66,7 +66,7 @@ namespace MVZ2.Tests
             var converters = new JsonConverter[] { new Vector3Converter(), new Vector2Converter(), new ColorConverter() };
             var json = JsonConvert.SerializeObject(level.Serialize(), converters);
             var dese = JsonConvert.DeserializeObject<SerializableLevel>(json, converters);
-            var level2 = Level.Deserialize(dese, game);
+            var level2 = LevelEngine.Deserialize(dese, game);
             game.SetLevel(level2);
             var json2 = JsonConvert.SerializeObject(level2.Serialize(), converters);
             Debug.Log(json);
@@ -81,9 +81,9 @@ namespace MVZ2.Tests
             game.AddMod(mod);
             return game;
         }
-        private static Level CreateLevel(Game game)
+        private static LevelEngine CreateLevel(Game game)
         {
-            var level = new Level(game);
+            var level = new LevelEngine(game);
             game.SetLevel(level);
             level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {

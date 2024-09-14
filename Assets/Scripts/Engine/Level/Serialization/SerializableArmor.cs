@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace PVZEngine.Serialization
+﻿namespace PVZEngine.Serialization
 {
     public class SerializableArmor
     {

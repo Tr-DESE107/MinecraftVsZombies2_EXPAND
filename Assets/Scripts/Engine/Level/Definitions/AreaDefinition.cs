@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.LevelManagement;
+using PVZEngine.Base;
+using PVZEngine.Level;
 
 namespace PVZEngine.Definitions
 {
@@ -13,7 +14,7 @@ namespace PVZEngine.Definitions
         {
             return grids.ToArray();
         }
-        public virtual void PrepareForBattle(Level level) { }
+        public virtual void PrepareForBattle(LevelEngine level) { }
         protected List<NamespaceID> grids = new List<NamespaceID>();
     }
 }

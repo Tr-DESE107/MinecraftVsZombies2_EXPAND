@@ -1,7 +1,7 @@
 ﻿using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public static class Detection
     {

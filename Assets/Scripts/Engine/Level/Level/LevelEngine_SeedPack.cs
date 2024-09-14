@@ -2,9 +2,9 @@
 using System.Linq;
 using PVZEngine.Definitions;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
-    public partial class Level
+    public partial class LevelEngine
     {
         #region 公有方法
         public int GetSeedPackCount(bool ignoreEmpty = false)
@@ -83,7 +83,6 @@ namespace PVZEngine.LevelManagement
         }
         #endregion
 
-
         #region 私有方法
         private void UpdateSeedRecharges()
         {
@@ -99,11 +98,11 @@ namespace PVZEngine.LevelManagement
         {
             if (seedRef == null)
                 return null;
-            SeedDefinition seedDefinition = Game.GetSeedDefinition(seedRef);
+            SeedDefinition seedDefinition = ContentProvider.GetSeedDefinition(seedRef);
             if (seedDefinition == null)
                 return null;
             var rechargeID = seedDefinition.GetRechargeID();
-            var rechargeDef = Game.GetRechargeDefinition(rechargeID);
+            var rechargeDef = ContentProvider.GetRechargeDefinition(rechargeID);
             var maxRecharge = rechargeDef.GetStartMaxRecharge();
             float time = maxRecharge * RechargeTimeMultiplier;
             float progress = CurrentFlag <= 0 ? 0 : time;

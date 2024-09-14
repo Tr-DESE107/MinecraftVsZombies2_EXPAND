@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
-    public partial class Level
+    public partial class LevelEngine
     {
         public void ShowAdvice(string text, int priority, int timeout)
         {
@@ -18,7 +18,7 @@ namespace PVZEngine.LevelManagement
             AdviceTimeout = 0;
             OnHideAdvice?.Invoke();
         }
-        private void AdviceUpdate()
+        private void UpdateAdvice()
         {
             if (AdviceTimeout <= 0)
                 return;

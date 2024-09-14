@@ -1,6 +1,6 @@
 ﻿using PVZEngine.Callbacks;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public static class LevelCallbacks
     {
@@ -17,12 +17,12 @@ namespace PVZEngine.LevelManagement
         public readonly static CallbackActionList<Entity, Armor> PostRemoveArmor = new();
 
 
-        public readonly static CallbackActionList<Level> PostLevelStart = new();
-        public readonly static CallbackActionList<Level> PostLevelUpdate = new();
-        public readonly static CallbackActionList<Level> PostPrepareForBattle = new();
-        public readonly static CallbackActionList<Level, int> PostWave = new();
-        public readonly static CallbackActionList<Level> PostHugeWave = new();
-        public readonly static CallbackActionList<Level> PostFinalWave = new();
+        public readonly static CallbackActionList<LevelEngine> PostLevelStart = new();
+        public readonly static CallbackActionList<LevelEngine> PostLevelUpdate = new();
+        public readonly static CallbackActionList<LevelEngine> PostPrepareForBattle = new();
+        public readonly static CallbackActionList<LevelEngine, int> PostWave = new();
+        public readonly static CallbackActionList<LevelEngine> PostHugeWave = new();
+        public readonly static CallbackActionList<LevelEngine> PostFinalWave = new();
 
         public readonly static CallbackActionList<Entity> PostEnemySpawned = new();
     }

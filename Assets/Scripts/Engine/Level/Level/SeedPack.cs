@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class SeedPack : IBuffTarget
     {
-        public SeedPack(Level level, SeedDefinition definition)
+        public SeedPack(LevelEngine level, SeedDefinition definition)
         {
             Level = level;
             Definition = definition;
@@ -92,7 +91,7 @@ namespace PVZEngine.LevelManagement
             var rechargeID = GetRechargeID();
             if (rechargeID == null)
                 return null;
-            return game.GetRechargeDefinition(rechargeID);
+            return Level.ContentProvider.GetRechargeDefinition(rechargeID);
         }
         public int GetMaxRecharge()
         {
@@ -167,9 +166,9 @@ namespace PVZEngine.LevelManagement
                 buffs = buffs.ToSerializable()
             };
         }
-        public static SeedPack Deserialize(SerializableSeedPack seri, Level level)
+        public static SeedPack Deserialize(SerializableSeedPack seri, LevelEngine level)
         {
-            var definition = level.Game.GetSeedDefinition(seri.seedID);
+            var definition = level.ContentProvider.GetSeedDefinition(seri.seedID);
             return new SeedPack(level, definition)
             {
                 propertyDict = PropertyDictionary.Deserialize(seri.propertyDict),
@@ -183,9 +182,8 @@ namespace PVZEngine.LevelManagement
         #endregion
 
         #region 属性字段
-        public Level Level { get; private set; }
+        public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
-        private IGame game => Level.Game;
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private BuffList buffs = new BuffList();
         #endregion

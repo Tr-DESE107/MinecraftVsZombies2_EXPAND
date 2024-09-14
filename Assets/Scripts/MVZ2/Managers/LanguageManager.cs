@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using MVZ2.Localization;
 using PVZEngine;
 using UnityEngine;
 

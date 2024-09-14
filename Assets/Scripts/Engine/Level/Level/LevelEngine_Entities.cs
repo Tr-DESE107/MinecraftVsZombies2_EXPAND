@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Codice.Client.BaseCommands;
-using Codice.CM.Common;
 using PVZEngine.Definitions;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
-    public partial class Level
+    public partial class LevelEngine
     {
         internal void RemoveEntity(Entity entity)
         {
@@ -42,14 +40,14 @@ namespace PVZEngine.LevelManagement
         }
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner)
         {
-            var entityDef = Game.GetEntityDefinition(entityRef);
+            var entityDef = ContentProvider.GetEntityDefinition(entityRef);
             if (entityDef == null)
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
         public Entity Spawn<T>(Vector3 pos, Entity spawner) where T : EntityDefinition
         {
-            var entityDef = Game.GetEntityDefinition<T>();
+            var entityDef = ContentProvider.GetEntityDefinition<T>();
             if (entityDef == null)
                 return null;
             return Spawn(entityDef, pos, spawner);
@@ -124,15 +122,5 @@ namespace PVZEngine.LevelManagement
         private int currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
         private Dictionary<int, Bounds> collisionCachedBounds = new Dictionary<int, Bounds>();
-    }
-    public struct ColliderInfo
-    {
-        public ColliderInfo(Entity entity)
-        {
-            this.entity = entity;
-            mask = entity.CollisionMask;
-        }
-        public Entity entity;
-        public int mask;
     }
 }

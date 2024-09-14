@@ -1,8 +1,8 @@
 using PVZEngine.Definitions;
 
-namespace PVZEngine.Base
+namespace PVZEngine.Level
 {
-    public interface IGame
+    public interface IContentProvider
     {
         EntityDefinition GetEntityDefinition(NamespaceID defRef);
         T GetEntityDefinition<T>() where T : EntityDefinition;

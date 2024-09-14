@@ -1,6 +1,4 @@
 ﻿using MukioI18n;
-using MVZ2.Vanilla;
-using PVZEngine;
 
 namespace MVZ2.GameContent
 {

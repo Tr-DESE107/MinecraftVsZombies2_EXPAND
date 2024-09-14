@@ -1,5 +1,5 @@
 ﻿using PVZEngine;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
             var targetSize = target.GetSize();
             float enemyHeight = targetSize.y;
 
-            var projectileDef = self.Game.GetEntityDefinition(projectileID);
+            var projectileDef = self.Level.ContentProvider.GetEntityDefinition(projectileID);
             var projectileSize = projectileDef.GetSize();
             if (TargetInLawn(target) &&
                 TargetInFront(self, target) &&

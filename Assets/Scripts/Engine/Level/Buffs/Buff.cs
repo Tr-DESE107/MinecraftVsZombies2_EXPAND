@@ -2,7 +2,7 @@
 using PVZEngine.Modifiers;
 using PVZEngine.Serialization;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class Buff
     {
@@ -53,9 +53,9 @@ namespace PVZEngine.LevelManagement
                 propertyDict = propertyDict.Serialize()
             };
         }
-        public static Buff Deserialize(SerializableBuff seri, Level level)
+        public static Buff Deserialize(SerializableBuff seri, LevelEngine level)
         {
-            var definition = level.Game.GetBuffDefinition(seri.definitionID);
+            var definition = level.ContentProvider.GetBuffDefinition(seri.definitionID);
             var buff = new Buff(definition);
             buff.Target = seri.target.DeserializeBuffTarget(level);
             buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);

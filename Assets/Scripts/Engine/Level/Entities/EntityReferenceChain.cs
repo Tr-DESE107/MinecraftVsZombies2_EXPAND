@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class EntityReferenceChain
     {
@@ -26,7 +26,7 @@ namespace PVZEngine.LevelManagement
                 spawnerReference = SpawnerReference?.Clone()
             };
         }
-        public Entity GetEntity(Level game)
+        public Entity GetEntity(LevelEngine game)
         {
             return game.FindEntityByID(ID);
         }

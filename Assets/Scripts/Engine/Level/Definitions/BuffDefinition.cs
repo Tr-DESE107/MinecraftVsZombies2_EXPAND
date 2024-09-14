@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.LevelManagement;
+using PVZEngine.Base;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace PVZEngine.Definitions

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 
 namespace PVZEngine.Game

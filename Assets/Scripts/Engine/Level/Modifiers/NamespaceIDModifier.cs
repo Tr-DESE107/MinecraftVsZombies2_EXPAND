@@ -1,5 +1,4 @@
-﻿using PVZEngine;
-using PVZEngine.LevelManagement;
+﻿using PVZEngine.Level;
 
 namespace PVZEngine.Modifiers
 {

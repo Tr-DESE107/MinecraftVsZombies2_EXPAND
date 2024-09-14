@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class EntityID
     {
@@ -15,7 +15,7 @@ namespace PVZEngine.LevelManagement
         public EntityID(Entity entity) : this(entity?.ID ?? 0)
         {
         }
-        public Entity GetEntity(Level game)
+        public Entity GetEntity(LevelEngine game)
         {
             return game.FindEntityByID(ID);
         }

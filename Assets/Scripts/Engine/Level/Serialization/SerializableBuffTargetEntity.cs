@@ -1,4 +1,4 @@
-﻿using PVZEngine.LevelManagement;
+﻿using PVZEngine.Level;
 
 namespace PVZEngine.Serialization
 {
@@ -14,7 +14,7 @@ namespace PVZEngine.Serialization
             entityID = armor.Owner.ID;
             isArmor = true;
         }
-        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(Level level)
+        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(LevelEngine level)
         {
             var entity = level.FindEntityByID(entityID);
             if (isArmor)
@@ -30,7 +30,7 @@ namespace PVZEngine.Serialization
         {
             index = seedPack.GetIndex();
         }
-        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(Level level)
+        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(LevelEngine level)
         {
             return level.GetSeedPackAt(index);
         }
@@ -38,10 +38,10 @@ namespace PVZEngine.Serialization
     }
     public class SerializableBuffTargetLevel : ISerializeBuffTarget
     {
-        public SerializableBuffTargetLevel(Level level)
+        public SerializableBuffTargetLevel(LevelEngine level)
         {
         }
-        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(Level level)
+        IBuffTarget ISerializeBuffTarget.DeserializeBuffTarget(LevelEngine level)
         {
             return level;
         }

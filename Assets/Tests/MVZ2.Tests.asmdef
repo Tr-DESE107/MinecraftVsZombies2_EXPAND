@@ -6,7 +6,7 @@
         "UnityEditor.TestRunner",
         "MVZ2",
         "MVZ2.Vanilla",
-        "PVZEngine"
+        "PVZEngine.Level"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

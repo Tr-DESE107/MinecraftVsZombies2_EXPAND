@@ -1,25 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public sealed class Entity : IBuffTarget
     {
         #region 公有方法
-        internal Entity(Level level, int type, int id, EntityReferenceChain spawnerReference)
+        internal Entity(LevelEngine level, int type, int id, EntityReferenceChain spawnerReference)
         {
             Level = level;
             Type = type;
             ID = id;
             SpawnerReference = spawnerReference;
         }
-        public Entity(Level level, int id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
+        public Entity(LevelEngine level, int id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
         {
             Definition = definition;
             ModelID = definition.GetModelID();
@@ -219,7 +218,7 @@ namespace PVZEngine.LevelManagement
         {
             var entity = info.Entity;
             var shellRef = entity.GetProperty<NamespaceID>(EntityProperties.SHELL);
-            var shell = entity.Game.GetShellDefinition(shellRef);
+            var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
             if (shell != null)
             {
                 shell.EvaluateDamage(info);
@@ -536,7 +535,7 @@ namespace PVZEngine.LevelManagement
         #region 护甲
         public void EquipArmor<T>() where T : ArmorDefinition
         {
-            EquipArmor(new Armor(this, Game.GetArmorDefinition<T>()));
+            EquipArmor(new Armor(this, Level.ContentProvider.GetArmorDefinition<T>()));
         }
         public void EquipArmor(ArmorDefinition definition)
         {
@@ -620,7 +619,7 @@ namespace PVZEngine.LevelManagement
             seri.takenGrids = takenGrids.ConvertAll(g => g.GetIndex());
             return seri;
         }
-        public static Entity Deserialize(SerializableEntity seri, Level level)
+        public static Entity Deserialize(SerializableEntity seri, LevelEngine level)
         {
             Entity entity = CreateDeserializingEntity(seri, level);
             entity.ApplyDeserialize(seri);
@@ -632,7 +631,7 @@ namespace PVZEngine.LevelManagement
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 
-            Definition = Game.GetEntityDefinition(seri.definitionID);
+            Definition = Level.ContentProvider.GetEntityDefinition(seri.definitionID);
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
@@ -657,7 +656,7 @@ namespace PVZEngine.LevelManagement
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
         }
-        public static Entity CreateDeserializingEntity(SerializableEntity seri, Level level)
+        public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
             return new Entity(level, seri.type, seri.id, seri.spawnerReference);
         }
@@ -744,8 +743,7 @@ namespace PVZEngine.LevelManagement
         public NamespaceID ModelID { get; private set; }
         public EntityReferenceChain SpawnerReference { get; private set; }
         public Entity Parent { get; private set; }
-        public Level Level { get; private set; }
-        public IGame Game => Level.Game;
+        public LevelEngine Level { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Pos { get; set; }
         public Vector3 Velocity { get; set; }

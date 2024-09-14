@@ -1,15 +1,14 @@
 using System.Collections.Generic;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class LawnGrid
     {
         #region 公有事件
-        public LawnGrid(Level level, GridDefinition definition, int lane, int column)
+        public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
         {
             Level = level;
             Lane = lane;
@@ -58,17 +57,16 @@ namespace PVZEngine.LevelManagement
                 takenEntities = takenEntities.ConvertAll(e => e.ID)
             };
         }
-        public static LawnGrid Deserialize(SerializableGrid seri, Level level)
+        public static LawnGrid Deserialize(SerializableGrid seri, LevelEngine level)
         {
-            var definition = level.Game.GetGridDefinition(seri.definitionID);
+            var definition = level.ContentProvider.GetGridDefinition(seri.definitionID);
             var grid = new LawnGrid(level, definition, seri.lane, seri.column);
             return grid;
         }
         #endregion 方法
 
         #region 属性
-        public IGame Game => Level.Game;
-        public Level Level { get; private set; }
+        public LevelEngine Level { get; private set; }
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }

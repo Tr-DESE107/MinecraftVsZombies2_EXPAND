@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -13,10 +12,9 @@ using MVZ2.Talk;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Game;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,14 +22,14 @@ using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
-    using Level = PVZEngine.LevelManagement.Level;
+    using LevelEngine = PVZEngine.Level.LevelEngine;
     public class LevelController : MonoBehaviour
     {
         #region 公有方法
         public void InitGame(Game game)
         {
             var vanilla = new Vanilla.VanillaMod(game);
-            level = new Level(game);
+            level = new LevelEngine(game);
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
@@ -407,12 +405,12 @@ namespace MVZ2.Level
             var ui = GetLevelUI();
             ui.HideAdvice();
         }
-        private void PostHugeWaveApproachCallback(Level level)
+        private void PostHugeWaveApproachCallback(LevelEngine level)
         {
             var ui = GetLevelUI();
             ui.SetHugeWaveTextVisible(true);
         }
-        private void PostFinalWaveCallback(Level level)
+        private void PostFinalWaveCallback(LevelEngine level)
         {
             var ui = GetLevelUI();
             ui.SetFinalWaveTextVisible(true);
@@ -1190,7 +1188,7 @@ namespace MVZ2.Level
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;
         public MainManager MainManager => main;
-        public IGame Game => level.Game;
+        public Game Game => MainManager.Game;
         public float MusicTime
         {
             get => main.MusicManager.Time;
@@ -1198,7 +1196,7 @@ namespace MVZ2.Level
         }
         private bool isPaused = false;
         private List<EntityController> entities = new List<EntityController>();
-        private Level level;
+        private LevelEngine level;
         private MainManager main => MainManager.Instance;
         private bool isGameStarted;
         private bool isGameOver;

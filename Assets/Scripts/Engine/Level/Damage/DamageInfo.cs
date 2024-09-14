@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class DamageInfo
     {

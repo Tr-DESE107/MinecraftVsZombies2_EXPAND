@@ -1,5 +1,4 @@
 ﻿using MukioI18n;
-using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
 using PVZEngine.Modifiers;

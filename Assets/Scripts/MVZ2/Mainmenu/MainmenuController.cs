@@ -50,7 +50,7 @@ namespace MVZ2.Mainmenu
         public void OnOptionsButtonClickCallback() { }
         public void OnHelpButtonClickCallback() { }
         public void OnUserManageButtonClickCallback() { }
-        public void OnQuitButtonClickCallback() 
+        public void OnQuitButtonClickCallback()
         {
             Application.Quit();
         }

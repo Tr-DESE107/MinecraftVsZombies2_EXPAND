@@ -2,12 +2,9 @@
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Buffs.SeedPack;
-using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
-using PVZEngine.Game;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Stages
@@ -17,25 +14,25 @@ namespace MVZ2.GameContent.Stages
         public TutorialStage(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Start(Level level)
+        public override void Start(LevelEngine level)
         {
             base.Start(level);
             level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
             level.SetProperty(PROP_TUTORIAL_RNG, new RandomGenerator(level.Seed));
             StartState(level, STATE_CLICK_DISPENSER);
         }
-        public override void Update(Level level)
+        public override void Update(LevelEngine level)
         {
             base.Update(level);
             UpdateState(level);
         }
-        private void StartTimer(Level level, int timeout)
+        private void StartTimer(LevelEngine level, int timeout)
         {
             var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
             timer.MaxFrame = timeout;
             timer.Reset();
         }
-        private void RunTimer(Level level)
+        private void RunTimer(LevelEngine level)
         {
             var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
             timer.Run();
@@ -44,7 +41,7 @@ namespace MVZ2.GameContent.Stages
                 OnTimerStop(level);
             }
         }
-        private int GetLaneWithoutDispensers(Level level)
+        private int GetLaneWithoutDispensers(LevelEngine level)
         {
             var dispensers = level.FindEntities(ContraptionID.dispenser);
             var lanes = new List<int>();
@@ -68,12 +65,12 @@ namespace MVZ2.GameContent.Stages
             }
             return lane;
         }
-        private void StartState(Level level, int state)
+        private void StartState(LevelEngine level, int state)
         {
             SetState(level, state);
             var textKey = tutorialStrings[state];
             var context = string.Format(CONTEXT_STATE, state);
-            var advice = level.Game.GetTextParticular(textKey, context);
+            var advice = level.ContentProvider.GetTextParticular(textKey, context);
             level.ShowAdvice(advice, 1000, -1);
             switch (state)
             {
@@ -89,7 +86,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_PLACE_DISPENSER_TO_KILL_ZOMBIE:
                     {
-                        var spawnDef = level.Game.GetSpawnDefinition(EnemyID.zombie);
+                        var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.zombie);
                         var lane = GetLaneWithoutDispensers(level);
                         level.SpawnEnemy(spawnDef, lane);
                     }
@@ -119,7 +116,7 @@ namespace MVZ2.GameContent.Stages
                         }
 
                         int maxLane = level.GetMaxLaneCount();
-                        var spawnDef = level.Game.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
+                        var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
                         var dispensers = level.FindEntities(ContraptionID.dispenser);
                         int lane;
                         if (dispensers.Count() <= 0)
@@ -151,7 +148,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_BLOWS_UP_HELMET_ZOMBIE:
                     {
-                        var spawnDef = level.Game.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
+                        var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
                         var lane = GetLaneWithoutDispensers(level);
                         level.SpawnEnemy(spawnDef, lane);
                     }
@@ -164,7 +161,7 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        private void UpdateState(Level level)
+        private void UpdateState(LevelEngine level)
         {
             var state = GetState(level);
             switch (state)
@@ -266,7 +263,7 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        private void OnTimerStop(Level level)
+        private void OnTimerStop(LevelEngine level)
         {
             var state = GetState(level);
             switch (state)
@@ -288,11 +285,11 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        public void SetState(Level level, int value)
+        public void SetState(LevelEngine level, int value)
         {
             level.SetProperty(PROP_STATE, value);
         }
-        public int GetState(Level level)
+        public int GetState(LevelEngine level)
         {
             return level.GetProperty<int>(PROP_STATE);
         }

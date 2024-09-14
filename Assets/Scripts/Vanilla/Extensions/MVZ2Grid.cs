@@ -1,6 +1,6 @@
 ﻿using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 
 namespace MVZ2.Vanilla
 {
@@ -8,7 +8,7 @@ namespace MVZ2.Vanilla
     {
         public static bool CanPlace(this LawnGrid grid, NamespaceID entityID)
         {
-            return grid.CanPlace(grid.Game.GetEntityDefinition(entityID));
+            return grid.CanPlace(grid.Level.ContentProvider.GetEntityDefinition(entityID));
         }
         public static bool CanPlace(this LawnGrid grid, EntityDefinition definition)
         {

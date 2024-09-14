@@ -3,7 +3,7 @@ using System.Linq;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class BuffList
     {
@@ -72,7 +72,7 @@ namespace PVZEngine.LevelManagement
                 buffs = buffs.ConvertAll(b => b.Serialize())
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList buffList, Level level)
+        public static BuffList FromSerializable(SerializableBuffList buffList, LevelEngine level)
         {
             return new BuffList()
             {

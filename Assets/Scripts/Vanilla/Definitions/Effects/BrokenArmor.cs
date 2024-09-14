@@ -1,6 +1,6 @@
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects

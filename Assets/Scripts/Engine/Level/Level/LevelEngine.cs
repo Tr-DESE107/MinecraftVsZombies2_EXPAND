@@ -1,20 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
-    public partial class Level : IBuffTarget
+    public partial class LevelEngine : IBuffTarget
     {
         #region 公有方法
-        public Level(IGame game)
+        public LevelEngine(IContentProvider contentProvider)
         {
-            Game = game;
+            ContentProvider = contentProvider;
         }
 
         #region 生命周期
@@ -39,7 +38,7 @@ namespace PVZEngine.LevelManagement
             Energy = option.StartEnergy;
 
 
-            AreaDefinition = Game.GetAreaDefinition(areaId);
+            AreaDefinition = ContentProvider.GetAreaDefinition(areaId);
             ChangeStage(stageId);
 
             InitAreaProperties();
@@ -50,7 +49,7 @@ namespace PVZEngine.LevelManagement
 
             grids = new LawnGrid[maxColumn * maxLane];
 
-            var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => Game.GetGridDefinition(i)).ToArray();
+            var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => ContentProvider.GetGridDefinition(i)).ToArray();
             for (int i = 0; i < gridDefinitions.Length; i++)
             {
                 var definition = gridDefinitions[i];
@@ -68,11 +67,12 @@ namespace PVZEngine.LevelManagement
         public void ChangeStage(NamespaceID stageId)
         {
             StageID = stageId;
-            StageDefinition = Game.GetStageDefinition(stageId);
+            StageDefinition = ContentProvider.GetStageDefinition(stageId);
         }
         public void Update()
         {
             UpdateSeedRecharges();
+            UpdateAdvice();
             collisionCachedBounds.Clear();
             var entities = GetEntities();
             foreach (var entity in entities)
@@ -241,14 +241,14 @@ namespace PVZEngine.LevelManagement
 
         public Buff CreateBuff<T>() where T : BuffDefinition
         {
-            var buffDefinition = Game.GetBuffDefinition<T>();
+            var buffDefinition = ContentProvider.GetBuffDefinition<T>();
             if (buffDefinition == null)
                 return null;
             return new Buff(buffDefinition);
         }
         public Buff CreateBuff(NamespaceID id)
         {
-            var buffDefinition = Game.GetBuffDefinition(id);
+            var buffDefinition = ContentProvider.GetBuffDefinition(id);
             if (buffDefinition == null)
                 return null;
             return new Buff(buffDefinition);
@@ -280,7 +280,6 @@ namespace PVZEngine.LevelManagement
                 rechargeSpeed = RechargeSpeed,
                 rechargeTimeMultiplier = RechargeTimeMultiplier,
                 seedPacks = seedPacks.ConvertAll(g => g.Serialize()),
-                requireCards = RequireCards,
 
                 currentEntityID = 1,
                 entities = entities.ConvertAll(e => e.Serialize()),
@@ -298,13 +297,13 @@ namespace PVZEngine.LevelManagement
                 buffs = buffs.ToSerializable(),
             };
         }
-        public static Level Deserialize(SerializableLevel seri, IGame game)
+        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider)
         {
-            var level = new Level(game);
+            var level = new LevelEngine(provider);
             level.Seed = seri.seed;
             level.IsCleared = seri.isCleared;
-            level.StageDefinition = game.GetStageDefinition(seri.stageDefinitionID);
-            level.AreaDefinition = game.GetAreaDefinition(seri.areaDefinitionID);
+            level.StageDefinition = provider.GetStageDefinition(seri.stageDefinitionID);
+            level.AreaDefinition = provider.GetAreaDefinition(seri.areaDefinitionID);
             level.InitAreaProperties();
 
             level.IsEndless = seri.isEndless;
@@ -331,7 +330,6 @@ namespace PVZEngine.LevelManagement
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
             level.seedPacks = seri.seedPacks.ConvertAll(g => SeedPack.Deserialize(g, level));
-            level.RequireCards = seri.requireCards;
 
             level.currentEntityID = seri.currentEntityID;
 
@@ -371,7 +369,7 @@ namespace PVZEngine.LevelManagement
         #endregion
 
         #region 属性字段
-        public IGame Game { get; private set; }
+        public IContentProvider ContentProvider { get; private set; }
         public int Seed { get; private set; }
         public bool IsCleared { get; private set; }
         public NamespaceID StageID { get; private set; }

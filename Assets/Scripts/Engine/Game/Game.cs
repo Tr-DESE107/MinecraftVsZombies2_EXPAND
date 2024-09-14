@@ -1,10 +1,9 @@
 ﻿using System;
-using PVZEngine.Base;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 
 namespace PVZEngine.Game
 {
-    public partial class Game : IGame
+    public partial class Game : IContentProvider
     {
         public Game()
         {
@@ -13,11 +12,11 @@ namespace PVZEngine.Game
         {
             return GetLevel() != null;
         }
-        public Level GetLevel()
+        public LevelEngine GetLevel()
         {
             return level;
         }
-        public void SetLevel(Level value)
+        public void SetLevel(LevelEngine value)
         {
             level = value;
         }
@@ -37,7 +36,7 @@ namespace PVZEngine.Game
         }
         public event Func<string, string> OnGetString;
         public event Func<string, string, string> OnGetStringParticular;
-        private Level level;
+        private LevelEngine level;
         private PropertyDictionary propertyDict = new PropertyDictionary();
     }
 }

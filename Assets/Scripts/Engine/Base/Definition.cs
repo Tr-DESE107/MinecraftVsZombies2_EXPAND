@@ -1,4 +1,4 @@
-﻿namespace PVZEngine.Definitions
+﻿namespace PVZEngine.Base
 {
     public abstract class Definition
     {

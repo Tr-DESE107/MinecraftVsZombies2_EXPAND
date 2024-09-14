@@ -4,7 +4,7 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -29,7 +29,7 @@ namespace MVZ2.Vanilla
         {
             return right ? RIGHT_BORDER : LEFT_BORDER;
         }
-        public static void SpawnCarts(this Level game, NamespaceID cartRef, float x, float xInterval)
+        public static void SpawnCarts(this LevelEngine game, NamespaceID cartRef, float x, float xInterval)
         {
             var carts = game.GetEntities(EntityTypes.CART);
             for (int i = 0; i < game.GetMaxLaneCount(); i++)
@@ -39,51 +39,51 @@ namespace MVZ2.Vanilla
                 Entity cart = game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }
         }
-        public static bool IsAutoCollect(this Level game)
+        public static bool IsAutoCollect(this LevelEngine game)
         {
             return game.GetProperty<bool>(StageProps.AUTO_COLLECT);
         }
-        public static bool IsNoProduction(this Level game)
+        public static bool IsNoProduction(this LevelEngine game)
         {
             return game.GetProperty<bool>(StageProps.NO_PRODUCTION);
         }
-        public static void SetNoProduction(this Level game, bool value)
+        public static void SetNoProduction(this LevelEngine game, bool value)
         {
             game.SetProperty(StageProps.NO_PRODUCTION, value);
         }
-        public static NamespaceID GetStartTalk(this Level game)
+        public static NamespaceID GetStartTalk(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID>(StageProps.START_TALK);
         }
-        public static int GetStarshardCount(this Level game)
+        public static int GetStarshardCount(this LevelEngine game)
         {
             return game.GetProperty<int>(LevelProps.STARSHARD_COUNT);
         }
-        public static void SetStarshardCount(this Level game, int value)
+        public static void SetStarshardCount(this LevelEngine game, int value)
         {
             game.SetProperty(LevelProps.STARSHARD_COUNT, value);
         }
-        public static void AddStarshardCount(this Level game, int value)
+        public static void AddStarshardCount(this LevelEngine game, int value)
         {
             game.SetStarshardCount(GetStarshardCount(game) + value);
         }
-        public static bool IsPickaxeDisabled(this Level level)
+        public static bool IsPickaxeDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(LevelProps.PICKAXE_DISABLED);
         }
-        public static float GetDoorZ(this Level game)
+        public static float GetDoorZ(this LevelEngine game)
         {
             return game.GetProperty<float>(AreaProps.DOOR_Z);
         }
-        public static EntityID GetLastEnemy(this Level game)
+        public static EntityID GetLastEnemy(this LevelEngine game)
         {
             return game.GetProperty<EntityID>(LevelProps.LAST_ENEMY);
         }
-        public static NamespaceID GetMusicID(this Level game)
+        public static NamespaceID GetMusicID(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID>(LevelProps.MUSIC_ID);
         }
-        public static void SetLastEnemy(this Level game, EntityID value)
+        public static void SetLastEnemy(this LevelEngine game, EntityID value)
         {
             game.SetProperty(LevelProps.LAST_ENEMY, value);
         }
@@ -134,7 +134,7 @@ namespace MVZ2.Vanilla
         {
             return ENEMY_RIGHT_BORDER;
         }
-        public static NamespaceID GetHeldEntityID(this Level level)
+        public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
             if (level.HeldItemType != HeldTypes.ENTITY)
                 return null;

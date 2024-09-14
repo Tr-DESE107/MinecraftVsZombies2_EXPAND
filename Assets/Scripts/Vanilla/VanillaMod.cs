@@ -4,10 +4,9 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Game;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -157,7 +156,7 @@ namespace MVZ2.Vanilla
             {
                 return;
             }
-            Level level = game.GetLevel();
+            LevelEngine level = game.GetLevel();
             switch (cmd)
             {
                 case "create_seventh_slot_form":
@@ -178,7 +177,7 @@ namespace MVZ2.Vanilla
             {
                 return;
             }
-            Level level = game.GetLevel();
+            LevelEngine level = game.GetLevel();
             if (level.StageID != StageID.halloween7)
             {
                 Debug.LogError("尝试在非万圣夜场景创建第七卡槽对话框。");
@@ -215,7 +214,7 @@ namespace MVZ2.Vanilla
             {
                 return;
             }
-            Level level = game.GetLevel();
+            LevelEngine level = game.GetLevel();
             if (level.StageID != StageID.prologue)
             {
                 Debug.LogError("尝试在非教程场景创建教程对话框。");
@@ -249,7 +248,7 @@ namespace MVZ2.Vanilla
             {
                 return;
             }
-            Level level = game.GetLevel();
+            LevelEngine level = game.GetLevel();
             level.ShowMoney();
             if (Game.GetMoney() >= 750)
             {

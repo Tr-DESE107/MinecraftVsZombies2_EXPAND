@@ -1,4 +1,6 @@
-﻿namespace PVZEngine.Definitions
+﻿using PVZEngine.Base;
+
+namespace PVZEngine.Definitions
 {
     public class SpawnDefinition : Definition
     {

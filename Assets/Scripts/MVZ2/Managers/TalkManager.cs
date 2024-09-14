@@ -1,6 +1,4 @@
-﻿using MVZ2.Localization;
-using PVZEngine;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MVZ2
 {

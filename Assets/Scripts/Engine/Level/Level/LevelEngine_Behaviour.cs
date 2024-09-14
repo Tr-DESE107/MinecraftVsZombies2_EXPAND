@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
-    public partial class Level
+    public partial class LevelEngine
     {
         public void NextWave()
         {
@@ -33,7 +32,7 @@ namespace PVZEngine.LevelManagement
                 totalEnergy *= 2.5f;
             }
             var pool = GetEnemyPool();
-            var spawnDefs = pool.Where(e => e.CanSpawn(this)).Select(e => e.GetSpawnDefinition(Game));
+            var spawnDefs = pool.Where(e => e.CanSpawn(this)).Select(e => e.GetSpawnDefinition(ContentProvider));
             while (totalEnergy > 0)
             {
                 var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalEnergy);
@@ -46,7 +45,7 @@ namespace PVZEngine.LevelManagement
 
             if (IsFinalWave(wave))
             {
-                var poolSpawnDefs = pool.Select(e => e.GetSpawnDefinition(Game));
+                var poolSpawnDefs = pool.Select(e => e.GetSpawnDefinition(ContentProvider));
                 var notSpawnedDefs = poolSpawnDefs.Where(def => !spawnedID.Contains(def.GetID()));
                 foreach (var notSpawnedDef in notSpawnedDefs)
                 {
@@ -105,7 +104,7 @@ namespace PVZEngine.LevelManagement
             var pool = GetEnemyPool();
             if (pool == null)
                 return false;
-            return pool.Any(e => e.GetSpawnDefinition(Game).GetID() == spawnRef);
+            return pool.Any(e => e.GetSpawnDefinition(ContentProvider).GetID() == spawnRef);
         }
         public Entity SpawnEnemyAtRandomLane(SpawnDefinition spawnDef)
         {
@@ -171,7 +170,7 @@ namespace PVZEngine.LevelManagement
     }
     public interface IEnemySpawnEntry
     {
-        bool CanSpawn(Level game);
-        SpawnDefinition GetSpawnDefinition(IGame game);
+        bool CanSpawn(LevelEngine game);
+        SpawnDefinition GetSpawnDefinition(IContentProvider game);
     }
 }

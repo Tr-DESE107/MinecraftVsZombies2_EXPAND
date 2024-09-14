@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using PVZEngine.Definitions;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class DamageResult
     {

@@ -1,4 +1,4 @@
-﻿namespace PVZEngine.Base
+﻿namespace MVZ2.Vanilla
 {
     public interface ITalkSystem
     {

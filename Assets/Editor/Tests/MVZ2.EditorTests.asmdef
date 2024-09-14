@@ -8,8 +8,8 @@
         "MVZ2.Vanilla",
         "PVZEngine.Game",
         "PVZEngine.Base",
-        "PVZEngine.LevelManaging",
-        "Tools"
+        "Tools",
+        "PVZEngine.Level"
     ],
     "includePlatforms": [
         "Editor"

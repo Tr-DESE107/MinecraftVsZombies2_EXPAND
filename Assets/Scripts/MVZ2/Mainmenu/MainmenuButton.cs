@@ -58,7 +58,7 @@ namespace MVZ2.Mainmenu
         public bool Interactable
         {
             get => interactable;
-            set  
+            set
             {
                 interactable = value;
                 cursorHandler.Interactable = value;

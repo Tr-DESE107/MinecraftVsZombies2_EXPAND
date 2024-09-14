@@ -4,7 +4,7 @@ using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManagement
+namespace PVZEngine.Level
 {
     public class Armor : IBuffTarget
     {
@@ -122,7 +122,7 @@ namespace PVZEngine.LevelManagement
             if (!Exists(armor))
                 return null;
             var shellRef = armor.GetProperty<NamespaceID>(ArmorProperties.SHELL);
-            var shell = entity.Game.GetShellDefinition(shellRef);
+            var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
             if (shell != null)
             {
                 shell.EvaluateDamage(info);
@@ -168,7 +168,7 @@ namespace PVZEngine.LevelManagement
         }
         public static Armor Deserialize(SerializableArmor seri, Entity owner)
         {
-            var definition = owner.Game.GetArmorDefinition(seri.definitionID);
+            var definition = owner.Level.ContentProvider.GetArmorDefinition(seri.definitionID);
             var armor = new Armor();
             armor.Owner = owner;
             armor.Definition = definition;

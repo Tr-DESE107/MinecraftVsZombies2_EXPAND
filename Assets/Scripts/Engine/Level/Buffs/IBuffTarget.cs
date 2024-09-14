@@ -1,4 +1,4 @@
-﻿namespace PVZEngine.LevelManagement
+﻿namespace PVZEngine.Level
 {
     public interface IBuffTarget
     {
@@ -6,6 +6,6 @@
     }
     public interface ISerializeBuffTarget
     {
-        IBuffTarget DeserializeBuffTarget(Level level);
+        IBuffTarget DeserializeBuffTarget(LevelEngine level);
     }
 }

@@ -3,7 +3,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManagement;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

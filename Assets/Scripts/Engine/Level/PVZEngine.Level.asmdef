@@ -1,5 +1,5 @@
 {
-    "name": "PVZEngine.LevelManaging",
+    "name": "PVZEngine.Level",
     "rootNamespace": "",
     "references": [
         "GUID:6ed5dbd086df79a4e99899b2ad0cc5aa",

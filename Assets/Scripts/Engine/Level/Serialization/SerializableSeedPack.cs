@@ -1,6 +1,4 @@
-﻿using PVZEngine.LevelManagement;
-
-namespace PVZEngine.Serialization
+﻿namespace PVZEngine.Serialization
 {
     public class SerializableSeedPack
     {
