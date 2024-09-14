@@ -6,7 +6,7 @@ using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using Tools;
 using UnityEngine;
 
@@ -176,7 +176,7 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(SoundID.siren);
                 level.WaveState = STATE_STARTED;
                 NextWave(level);
-                level.SpawnEnemy(level.Game.GetSpawnDefinition(EnemyID.flagZombie));
+                level.SpawnEnemyAtRandomLane(level.Game.GetSpawnDefinition(EnemyID.flagZombie));
                 level.RunHugeWaveEvent();
             }
         }

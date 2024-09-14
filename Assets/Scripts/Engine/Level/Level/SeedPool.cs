@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public abstract class SeedPool
     {

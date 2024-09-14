@@ -723,10 +723,6 @@ msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-msgctxt "advice.click_to_continue_mobile"
-msgid "触摸以继续"
-msgstr "Touch to continue"
-
 msgctxt "advice.click_to_continue"
 msgid "点击以继续"
 msgstr "Click to continue"
@@ -738,10 +734,6 @@ msgstr "Click to collect the gem!"
 msgctxt "advice.collect_money.1"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
-
-msgctxt "advice.collect_money.0_mobile"
-msgid "触摸收集宝石！"
-msgstr "Touch to collect the gem!"
 
 msgctxt "advice.more_enemies"
 msgid "更多的敌人要来了！"
@@ -807,18 +799,6 @@ msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr "Now defeat the Iron Helmet Zombie!"
 
-msgctxt "advice.starshard_tutorial.0_mobile"
-msgid "触摸星之碎片槽选中星之碎片！"
-msgstr "Touch the Star Shard to select it!"
-
-msgctxt "advice.starshard_tutorial.1_mobile"
-msgid "触摸发射器！"
-msgstr "Touch the Dispenser!"
-
-msgctxt "advice.starshard_tutorial.4_mobile"
-msgid "触摸收集星之碎片！"
-msgstr "Touch to collect Star Shards!"
-
 msgctxt "advice.trigger_tutorial.0"
 msgid "点击并放置TNT！"
 msgstr "Click and place TNT!"
@@ -862,22 +842,6 @@ msgstr "Instant triggering can only be used on single-use contraptions."
 msgctxt "advice.trigger_tutorial.9"
 msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
 msgstr "You can swap these two actions in Settings."
-
-msgctxt "advice.trigger_tutorial.0_mobile"
-msgid "触摸并放置TNT！"
-msgstr "Touch and place TNT!"
-
-msgctxt "advice.trigger_tutorial.1_mobile"
-msgid "触摸机械能面板选中触发器！"
-msgstr "Touch the ME Panel to select Trigger!"
-
-msgctxt "advice.trigger_tutorial.2_mobile"
-msgid "触摸以触发TNT！"
-msgstr "Touch to trigger TNT!"
-
-msgctxt "advice.trigger_tutorial.5_mobile"
-msgid "触摸TNT蓝图！"
-msgstr "Touch the TNT Blueprint!"
 
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
@@ -950,18 +914,6 @@ msgstr "Finally, the pickaxe can dig out placed contraptions!"
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
-
-msgctxt "advice.tutorial.0_mobile"
-msgid "触摸器械卡牌选中器械！"
-msgstr "Touch a blueprint to choose a contraption!"
-
-msgctxt "advice.tutorial.1_mobile"
-msgid "触摸草坪放置器械！"
-msgstr "Touch the lawn to place a contraption!"
-
-msgctxt "advice.tutorial.3_mobile"
-msgid "触摸红石收集机械能！"
-msgstr "Touch redstone to collect energy!"
 
 msgctxt "death_message"
 msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"

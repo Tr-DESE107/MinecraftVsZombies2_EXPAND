@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using Tools;
 using UnityEngine;
 
@@ -39,7 +39,7 @@ namespace PVZEngine.Serialization
         public float health;
         public bool isOnGround;
         public SerializablePropertyDictionary propertyDict;
-        public List<SerializableBuff> buffs;
+        public SerializableBuffList buffs;
         public List<int> collisionThisTick;
         public List<int> collisionList;
         public List<int> children;

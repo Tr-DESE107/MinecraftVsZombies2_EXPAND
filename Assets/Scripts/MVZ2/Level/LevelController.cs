@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -15,7 +16,7 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Game;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,7 +24,7 @@ using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
-    using Level = PVZEngine.LevelManaging.Level;
+    using Level = PVZEngine.LevelManagement.Level;
     public class LevelController : MonoBehaviour
     {
         #region 公有方法
@@ -37,12 +38,14 @@ namespace MVZ2.Level
             level.OnPlaySound += OnPlaySoundCallback;
             level.OnShakeScreen += OnShakeScreenCallback;
             level.OnHeldItemChanged += OnHeldItemChangedCallback;
-            level.OnHeldItemReset += OnHeldItemResetCallback;
             level.OnGameOver += OnGameOverCallback;
 
             level.OnShowDialog += Logic_OnShowDialogCallback;
             level.OnShowMoney += Logic_OnShowMoneyCallback;
             level.OnBeginLevel += Logic_OnBeginLevelCallback;
+
+            level.OnShowAdvice += Logic_OnShowAdviceCallback;
+            level.OnHideAdvice += Logic_OnHideAdviceCallback;
             game.SetLevel(level);
 
             VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
@@ -122,7 +125,7 @@ namespace MVZ2.Level
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    switch (heldItemType)
+                    switch (level.HeldItemType)
                     {
                         case HeldTypes.PICKAXE:
                             return CanDigContraption(entity);
@@ -131,14 +134,14 @@ namespace MVZ2.Level
                     }
                     break;
                 case EntityTypes.PICKUP:
-                    switch (heldItemType)
+                    switch (level.HeldItemType)
                     {
                         case HeldTypes.NONE:
                             return !entity.IsCollected();
                     }
                     break;
                 case EntityTypes.CART:
-                    switch (heldItemType)
+                    switch (level.HeldItemType)
                     {
                         case HeldTypes.NONE:
                             return !entity.IsCartTriggered();
@@ -364,13 +367,7 @@ namespace MVZ2.Level
         }
         private void OnHeldItemChangedCallback(int heldType, int id, int priority, bool noCancel)
         {
-            if (heldItemType > 0 && heldItemPriority > priority)
-                return;
-            SetHeldItem(heldType, id, priority, noCancel);
-        }
-        private void OnHeldItemResetCallback()
-        {
-            SetHeldItem(0, 0, 0, false);
+            SetHeldItemUI(heldType, id, priority, noCancel);
         }
         private void OnGameOverCallback(int type, Entity killer, string message)
         {
@@ -400,6 +397,16 @@ namespace MVZ2.Level
         {
             BeginLevel(transition);
         }
+        private void Logic_OnShowAdviceCallback(string advice)
+        {
+            var ui = GetLevelUI();
+            ui.ShowAdvice(advice);
+        }
+        private void Logic_OnHideAdviceCallback()
+        {
+            var ui = GetLevelUI();
+            ui.HideAdvice();
+        }
         private void PostHugeWaveApproachCallback(Level level)
         {
             var ui = GetLevelUI();
@@ -421,7 +428,7 @@ namespace MVZ2.Level
             switch (entity.Entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    if (heldItemType == HeldTypes.NONE && Input.GetMouseButton((int)MouseButton.LeftMouse))
+                    if (level.HeldItemType == HeldTypes.NONE && Input.GetMouseButton((int)MouseButton.LeftMouse))
                     {
                         var pickup = entity.Entity;
                         if (!pickup.IsCollected())
@@ -449,7 +456,7 @@ namespace MVZ2.Level
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    switch (heldItemType)
+                    switch (level.HeldItemType)
                     {
                         case HeldTypes.PICKAXE:
                             entity.Die();
@@ -462,13 +469,13 @@ namespace MVZ2.Level
                     }
                     break;
                 case EntityTypes.PICKUP:
-                    if (heldItemType == HeldTypes.NONE)
+                    if (level.HeldItemType == HeldTypes.NONE)
                     {
                         entity.Collect();
                     }
                     break;
                 case EntityTypes.CART:
-                    if (heldItemType == HeldTypes.NONE)
+                    if (level.HeldItemType == HeldTypes.NONE)
                     {
                         entity.TriggerCart();
                     }
@@ -479,9 +486,9 @@ namespace MVZ2.Level
         {
             var grid = gridLayout.GetGrid(lane, column);
             var color = Color.clear;
-            if (heldItemType > 0)
+            if (level.HeldItemType > 0)
             {
-                color = CanPlaceOnGrid(heldItemType, heldItemID, level.GetGrid(column, lane)) ? Color.green : Color.red;
+                color = CanPlaceOnGrid(level.HeldItemType, level.HeldItemID, level.GetGrid(column, lane)) ? Color.green : Color.red;
             }
             grid.SetColor(color);
         }
@@ -494,15 +501,15 @@ namespace MVZ2.Level
         {
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            if (!CanPlaceOnGrid(heldItemType, heldItemID, level.GetGrid(column, lane)))
+            if (!CanPlaceOnGrid(level.HeldItemType, level.HeldItemID, level.GetGrid(column, lane)))
                 return;
-            switch (heldItemType)
+            switch (level.HeldItemType)
             {
                 case HeldTypes.BLUEPRINT:
-                    var seed = level.GetSeedPackAt(heldItemID);
+                    var seed = level.GetSeedPackAt(level.HeldItemID);
                     if (seed == null)
                         break;
-                    var seedDef = Game.GetSeedDefinition(seed.SeedReference);
+                    var seedDef = seed.Definition;
                     if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                     {
                         var x = level.GetEntityColumnX(column);
@@ -523,7 +530,7 @@ namespace MVZ2.Level
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            GameCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
+            VanillaCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
         }
         private void OnTalkEndCallback(string mode)
         {
@@ -565,7 +572,7 @@ namespace MVZ2.Level
             switch (receiver)
             {
                 case LevelUI.Receiver.Side:
-                    switch (heldItemType)
+                    switch (level.HeldItemType)
                     {
                         case HeldTypes.BLUEPRINT:
                         case HeldTypes.PICKAXE:
@@ -579,7 +586,7 @@ namespace MVZ2.Level
                     break;
                 case LevelUI.Receiver.Lawn:
                 case LevelUI.Receiver.Bottom:
-                    switch (heldItemType)
+                    switch (level.HeldItemType)
                     {
                         case HeldTypes.PICKAXE:
                         case HeldTypes.STARSHARD:
@@ -592,6 +599,8 @@ namespace MVZ2.Level
         private void OnPickaxePointerDownCallback(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+            if (level.IsPickaxeDisabled())
                 return;
             ClickPickaxe();
         }
@@ -626,13 +635,8 @@ namespace MVZ2.Level
         #endregion
 
         #endregion
-        private void SetHeldItem(int heldType, int id, int priority, bool noCancel)
+        private void SetHeldItemUI(int heldType, int id, int priority, bool noCancel)
         {
-            heldItemType = heldType;
-            heldItemID = id;
-            heldItemPriority = priority;
-            heldItemNoCancel = noCancel;
-
             var ui = GetLevelUI();
             Sprite icon = null;
             LayerMask layerMask = Layers.GetMask(Layers.DEFAULT, Layers.PICKUP);
@@ -657,7 +661,7 @@ namespace MVZ2.Level
         }
         private bool CancelHeldItem()
         {
-            if (heldItemType <= 0 || heldItemNoCancel)
+            if (level.HeldItemType <= 0 || level.HeldItemNoCancel)
                 return false;
             level.ResetHeldItem();
             return true;
@@ -668,15 +672,15 @@ namespace MVZ2.Level
         }
         private bool IsHoldingPickaxe()
         {
-            return heldItemType == HeldTypes.PICKAXE;
+            return level.HeldItemType == HeldTypes.PICKAXE;
         }
         private bool IsHoldingStarshard()
         {
-            return heldItemType == HeldTypes.STARSHARD;
+            return level.HeldItemType == HeldTypes.STARSHARD;
         }
         private void ClickPickaxe()
         {
-            if (heldItemType > 0)
+            if (level.HeldItemType > 0)
             {
                 if (CancelHeldItem())
                 {
@@ -689,7 +693,7 @@ namespace MVZ2.Level
         }
         private void ClickStarshard()
         {
-            if (heldItemType > 0)
+            if (level.HeldItemType > 0)
             {
                 if (CancelHeldItem())
                 {
@@ -714,12 +718,12 @@ namespace MVZ2.Level
             for (int i = 0; i < viewDatas.Length; i++)
             {
                 var seed = seeds[i];
-                var seedDef = Game.GetSeedDefinition(seed.SeedReference);
+                var seedDef = seed.Definition;
                 var sprite = GetBlueprintIcon(seedDef);
                 var viewData = new BlueprintViewData()
                 {
                     icon = sprite,
-                    cost = seed.Cost.ToString(),
+                    cost = seed.GetCost().ToString(),
                     triggerActive = seedDef.IsTriggerActive(),
                     triggerCost = seedDef.GetTriggerCost().ToString(),
                 };
@@ -735,7 +739,8 @@ namespace MVZ2.Level
             for (int i = 0; i < recharges.Length; i++)
             {
                 var seed = seeds[i];
-                recharges[i] = seed.MaxRecharge == 0 ? 1 : seed.Recharge / (float)seed.MaxRecharge;
+                var maxCharge = seed.GetMaxRecharge();
+                recharges[i] = maxCharge == 0 ? 1 : seed.GetRecharge() / maxCharge;
             }
             levelUI.SetBlueprintRecharges(recharges);
         }
@@ -758,13 +763,13 @@ namespace MVZ2.Level
         }
         private bool IsHoldingBlueprint(int i)
         {
-            return heldItemType == HeldTypes.BLUEPRINT && heldItemID == i;
+            return level.HeldItemType == HeldTypes.BLUEPRINT && level.HeldItemID == i;
         }
         private bool CanPickBlueprint(SeedPack seed)
         {
             if (seed == null)
                 return false;
-            return level.Energy >= seed.Cost && seed.IsCharged();
+            return level.Energy >= seed.GetCost() && seed.IsCharged() && !seed.IsDisabled();
         }
         private Sprite GetBlueprintIcon(int i)
         {
@@ -776,7 +781,7 @@ namespace MVZ2.Level
         {
             if (seed == null)
                 return null;
-            var seedDef = Game.GetSeedDefinition(seed.SeedReference);
+            var seedDef = seed.Definition;
             return GetBlueprintIcon(seedDef);
         }
         private Sprite GetBlueprintIcon(SeedDefinition seedDef)
@@ -793,7 +798,7 @@ namespace MVZ2.Level
         }
         private void ClickBlueprint(int index)
         {
-            if (heldItemType > 0)
+            if (level.HeldItemType > 0)
             {
                 if (CancelHeldItem())
                 {
@@ -848,7 +853,7 @@ namespace MVZ2.Level
                     var seed = level.GetSeedPackAt(heldId);
                     if (seed == null)
                         break;
-                    var seedDef = Game.GetSeedDefinition(seed.SeedReference);
+                    var seedDef = seed.Definition;
                     if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                     {
                         var entityID = seedDef.GetSeedEntityID();
@@ -1185,8 +1190,6 @@ namespace MVZ2.Level
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;
         public MainManager MainManager => main;
-        public int HeldItemType => heldItemType;
-        public int HeldItemID => heldItemID;
         public IGame Game => level.Game;
         public float MusicTime
         {
@@ -1199,10 +1202,6 @@ namespace MVZ2.Level
         private MainManager main => MainManager.Instance;
         private bool isGameStarted;
         private bool isGameOver;
-        private int heldItemType;
-        private int heldItemID;
-        private int heldItemPriority;
-        private bool heldItemNoCancel;
         private bool speedUp;
         private float gameRunTimeModular;
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);

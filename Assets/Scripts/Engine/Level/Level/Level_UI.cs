@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public partial class Level
     {
@@ -16,8 +16,13 @@ namespace PVZEngine.LevelManaging
         {
             OnShowDialog?.Invoke(title, content, options, onConfirm);
         }
+        public void Stop()
+        {
+            OnStop?.Invoke();
+        }
         public event Action<string> OnBeginLevel;
         public event Action OnShowMoney;
         public event Action<string, string, string[], Action<int>> OnShowDialog;
+        public event Action OnStop;
     }
 }

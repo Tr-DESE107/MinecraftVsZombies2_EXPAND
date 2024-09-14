@@ -4,14 +4,14 @@ using MVZ2.Vanilla;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using PVZEngine.Game;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.Tests
 {
-    using Level = PVZEngine.LevelManaging.Level;
+    using Level = PVZEngine.LevelManagement.Level;
     public class SerializationTests
     {
         [Test]

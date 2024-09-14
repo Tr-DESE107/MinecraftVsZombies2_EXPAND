@@ -1,7 +1,8 @@
 ﻿using PVZEngine.Definitions;
+using PVZEngine.Modifiers;
 using PVZEngine.Serialization;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public class Buff
     {
@@ -30,6 +31,7 @@ namespace PVZEngine.LevelManaging
             {
                 modifier.PostAdd(this);
             }
+            Definition.PostAdd(this);
         }
         public void RemoveFromTarget()
         {
@@ -40,6 +42,7 @@ namespace PVZEngine.LevelManaging
                 modifier.PostRemove(this);
             }
             Target = null;
+            Definition.PostRemove(this);
         }
         public SerializableBuff Serialize()
         {

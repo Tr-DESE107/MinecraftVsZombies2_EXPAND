@@ -1,6 +1,7 @@
-﻿using Tools;
+﻿using PVZEngine.LevelManagement;
+using Tools;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.Modifiers
 {
     public abstract class PropertyModifier
     {

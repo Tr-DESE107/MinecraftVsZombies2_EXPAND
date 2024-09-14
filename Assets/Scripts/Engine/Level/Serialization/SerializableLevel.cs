@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using Tools;
 
 namespace PVZEngine.Serialization
@@ -49,5 +49,7 @@ namespace PVZEngine.Serialization
         public bool levelProgressVisible;
         public List<int> spawnedLanes;
         public List<NamespaceID> spawnedID;
+
+        public SerializableBuffList buffs;
     }
 }

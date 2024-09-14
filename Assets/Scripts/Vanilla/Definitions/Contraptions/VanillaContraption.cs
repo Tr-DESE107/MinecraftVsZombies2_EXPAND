@@ -3,7 +3,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -13,6 +13,7 @@ namespace MVZ2.Vanilla
         public VanillaContraption(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.ATTACK_SPEED, 1f);
+            SetProperty(EntityProperties.PRODUCE_SPEED, 1f);
             SetProperty(EntityProperties.DAMAGE, 100f);
             SetProperty(EntityProperties.MAX_HEALTH, 300f);
             SetProperty(EntityProperties.FRICTION, 0.2f);
@@ -86,6 +87,10 @@ namespace MVZ2.Vanilla
         public static void AddTickDamage(Entity entity, float value)
         {
             SetTickDamage(entity, GetTickDamage(entity) + value);
+        }
+        public static Vector3 ModifyProjectileVelocity(Entity entity, Vector3 velocity)
+        {
+            return velocity;
         }
         private Entity CreateFragment(Entity entity)
         {

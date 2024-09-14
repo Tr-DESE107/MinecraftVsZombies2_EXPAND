@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public partial class Level
     {
@@ -40,7 +40,7 @@ namespace PVZEngine.LevelManaging
                 if (validSpawnDefs.Count() <= 0)
                     break;
                 var spawnDef = validSpawnDefs.Random(spawnRandom);
-                SpawnEnemy(spawnDef);
+                SpawnEnemyAtRandomLane(spawnDef);
                 totalEnergy -= spawnDef.SpawnCost;
             }
 
@@ -50,7 +50,7 @@ namespace PVZEngine.LevelManaging
                 var notSpawnedDefs = poolSpawnDefs.Where(def => !spawnedID.Contains(def.GetID()));
                 foreach (var notSpawnedDef in notSpawnedDefs)
                 {
-                    SpawnEnemy(notSpawnedDef);
+                    SpawnEnemyAtRandomLane(notSpawnedDef);
                 }
             }
         }
@@ -107,11 +107,17 @@ namespace PVZEngine.LevelManaging
                 return false;
             return pool.Any(e => e.GetSpawnDefinition(Game).GetID() == spawnRef);
         }
-        public Entity SpawnEnemy(SpawnDefinition spawnDef)
+        public Entity SpawnEnemyAtRandomLane(SpawnDefinition spawnDef)
         {
             if (spawnDef == null)
                 return null;
             var lane = GetRandomEnemySpawnLane();
+            return SpawnEnemy(spawnDef, lane);
+        }
+        public Entity SpawnEnemy(SpawnDefinition spawnDef, int lane)
+        {
+            if (spawnDef == null)
+                return null;
             var x = GetEnemySpawnX();
             var z = GetEntityLaneZ(lane);
             var y = GetGroundY(x, z);

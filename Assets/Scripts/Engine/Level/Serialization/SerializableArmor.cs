@@ -6,7 +6,7 @@ namespace PVZEngine.Serialization
     {
         public NamespaceID definitionID;
         public float health;
-        public List<SerializableBuff> buffs;
+        public SerializableBuffList buffs;
         public SerializablePropertyDictionary propertyDict;
     }
 }

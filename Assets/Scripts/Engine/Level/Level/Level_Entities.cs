@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Codice.Client.BaseCommands;
+using Codice.CM.Common;
 using PVZEngine.Definitions;
 using UnityEngine;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public partial class Level
     {
@@ -62,9 +64,33 @@ namespace PVZEngine.LevelManaging
                 return entities.ToArray();
             return FindEntities(e => filterTypes.Contains(e.Type));
         }
+        public Entity[] FindEntities(EntityDefinition def)
+        {
+            if (def == null)
+                return Array.Empty<Entity>();
+            return FindEntities(e => e.Definition == def);
+        }
+        public Entity[] FindEntities(NamespaceID id)
+        {
+            if (id == null)
+                return Array.Empty<Entity>();
+            return FindEntities(e => e.Definition.GetID() == id);
+        }
         public Entity[] FindEntities(Func<Entity, bool> predicate)
         {
             return entities.Where(predicate).ToArray();
+        }
+        public bool EntityExists(EntityDefinition def)
+        {
+            return entities.Exists(e => e.Definition == def);
+        }
+        public bool EntityExists(NamespaceID id)
+        {
+            return entities.Exists(e => e.Definition.GetID() == id);
+        }
+        public bool EntityExists(Predicate<Entity> predicate)
+        {
+            return entities.Exists(predicate);
         }
         public void Explode(Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
         {

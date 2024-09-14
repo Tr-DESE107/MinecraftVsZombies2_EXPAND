@@ -1,4 +1,4 @@
-﻿namespace PVZEngine.LevelManaging
+﻿namespace PVZEngine.Modifiers
 {
     public enum ModifyOperator
     {

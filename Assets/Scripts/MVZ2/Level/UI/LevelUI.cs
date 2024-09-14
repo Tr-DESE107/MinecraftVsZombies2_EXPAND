@@ -199,6 +199,15 @@ namespace MVZ2.Level.UI
         {
             youDiedText.SetActive(visible);
         }
+        public void ShowAdvice(string advice)
+        {
+            adviceObject.SetActive(true);
+            adviceText.text = advice;
+        }
+        public void HideAdvice()
+        {
+            adviceObject.SetActive(false);
+        }
         #endregion
 
         #region 暂停对话框
@@ -373,6 +382,12 @@ namespace MVZ2.Level.UI
         Button menuButton;
         [SerializeField]
         TextMeshProUGUI difficultyText;
+
+        [Header("Advice")]
+        [SerializeField]
+        GameObject adviceObject;
+        [SerializeField]
+        TextMeshProUGUI adviceText;
         #endregion
 
         #region 内嵌类

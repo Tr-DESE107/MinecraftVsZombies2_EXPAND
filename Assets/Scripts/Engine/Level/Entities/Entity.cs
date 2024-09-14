@@ -7,7 +7,7 @@ using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public sealed class Entity : IBuffTarget
     {
@@ -132,6 +132,10 @@ namespace PVZEngine.LevelManaging
         public float GetAttackSpeed()
         {
             return GetProperty<float>(EntityProperties.ATTACK_SPEED);
+        }
+        public float GetProduceSpeed()
+        {
+            return GetProperty<float>(EntityProperties.PRODUCE_SPEED);
         }
         public float GetFriction()
         {
@@ -319,15 +323,7 @@ namespace PVZEngine.LevelManaging
 
             if (!ignoreBuffs)
             {
-                foreach (var buff in buffs)
-                {
-                    foreach (var modi in buff.GetModifiers())
-                    {
-                        if (modi.PropertyName != name)
-                            continue;
-                        result = modi.CalculateProperty(buff, result);
-                    }
-                }
+                result = buffs.CalculateProperty(name, result);
             }
             return result;
         }
@@ -342,55 +338,25 @@ namespace PVZEngine.LevelManaging
         #endregion
 
         #region 增益
-        public void AddBuff(Buff buff)
+        public bool AddBuff(Buff buff)
         {
-            if (buff == null)
-                return;
-            buffs.Add(buff);
-            buff.AddToTarget(this);
+            if (buffs.AddBuff(buff))
+            {
+                buff.AddToTarget(this);
+                return true;
+            }
+            return false;
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
             AddBuff(Level.CreateBuff<T>());
         }
-        public bool RemoveBuff(Buff buff)
-        {
-            if (buff == null)
-                return false;
-            if (buffs.Remove(buff))
-            {
-                buff.RemoveFromTarget();
-                return true;
-            }
-            return false;
-        }
-        public int RemoveBuffs(IEnumerable<Buff> buffs)
-        {
-            if (buffs == null)
-                return 0;
-            int count = 0;
-            foreach (var buff in buffs)
-            {
-                count += RemoveBuff(buff) ? 1 : 0;
-            }
-            return count;
-        }
-        public bool HasBuff<T>() where T : BuffDefinition
-        {
-            return buffs.Any(b => b.Definition is T);
-        }
-        public bool HasBuff(Buff buff)
-        {
-            return buffs.Contains(buff);
-        }
-        public Buff[] GetBuffs<T>() where T : BuffDefinition
-        {
-            return buffs.Where(b => b.Definition is T).ToArray();
-        }
-        public Buff[] GetAllBuffs()
-        {
-            return buffs.ToArray();
-        }
+        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
+        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
+        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
+        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
+        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
+        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
         #endregion
 
         #region 物理
@@ -647,7 +613,7 @@ namespace PVZEngine.LevelManaging
             seri.health = Health;
             seri.isOnGround = isOnGround;
             seri.propertyDict = propertyDict.Serialize();
-            seri.buffs = buffs.ConvertAll(b => b.Serialize());
+            seri.buffs = buffs.ToSerializable();
             seri.collisionThisTick = collisionThisTick.ConvertAll(e => e?.ID ?? 0);
             seri.collisionList = collisionList.ConvertAll(e => e?.ID ?? 0);
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
@@ -685,7 +651,7 @@ namespace PVZEngine.LevelManaging
             Health = seri.health;
             isOnGround = seri.isOnGround;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, Level));
+            buffs = BuffList.FromSerializable(seri.buffs, Level);
             collisionThisTick = seri.collisionThisTick.ConvertAll(e => Level.FindEntityByID(e));
             collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
@@ -748,7 +714,7 @@ namespace PVZEngine.LevelManaging
         #region 接口实现
         ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
         {
-            return new SerializableBuffTarget(this);
+            return new SerializableBuffTargetEntity(this);
         }
         #endregion
 
@@ -801,7 +767,7 @@ namespace PVZEngine.LevelManaging
         private PropertyDictionary propertyDict = new PropertyDictionary();
 
         private bool isOnGround = true;
-        private List<Buff> buffs = new List<Buff>();
+        private BuffList buffs = new BuffList();
         private List<Entity> collisionThisTick = new List<Entity>();
         private List<Entity> collisionList = new List<Entity>();
         private List<LawnGrid> takenGrids = new List<LawnGrid>();

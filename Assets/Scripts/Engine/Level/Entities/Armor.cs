@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public class Armor : IBuffTarget
     {
@@ -42,15 +41,7 @@ namespace PVZEngine.LevelManaging
 
             if (!ignoreBuffs)
             {
-                foreach (var buff in buffs)
-                {
-                    foreach (var modi in buff.GetModifiers())
-                    {
-                        if (modi.PropertyName != name)
-                            continue;
-                        result = modi.CalculateProperty(buff, result);
-                    }
-                }
+                result = buffs.CalculateProperty(name, result);
             }
             return result;
         }
@@ -100,55 +91,25 @@ namespace PVZEngine.LevelManaging
         #endregion
 
         #region 增益
-        public void AddBuff(Buff buff)
+        public bool AddBuff(Buff buff)
         {
-            if (buff == null)
-                return;
-            buffs.Add(buff);
-            buff.AddToTarget(this);
+            if (buffs.AddBuff(buff))
+            {
+                buff.AddToTarget(this);
+                return true;
+            }
+            return false;
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
             AddBuff(Owner.Level.CreateBuff<T>());
         }
-        public bool RemoveBuff(Buff buff)
-        {
-            if (buff == null)
-                return false;
-            if (buffs.Remove(buff))
-            {
-                buff.RemoveFromTarget();
-                return true;
-            }
-            return false;
-        }
-        public int RemoveBuffs(IEnumerable<Buff> buffs)
-        {
-            if (buffs == null)
-                return 0;
-            int count = 0;
-            foreach (var buff in buffs)
-            {
-                count += RemoveBuff(buff) ? 1 : 0;
-            }
-            return count;
-        }
-        public bool HasBuff<T>() where T : BuffDefinition
-        {
-            return buffs.Any(b => b.Definition is T);
-        }
-        public bool HasBuff(Buff buff)
-        {
-            return buffs.Contains(buff);
-        }
-        public Buff[] GetBuffs<T>() where T : BuffDefinition
-        {
-            return buffs.Where(b => b.Definition is T).ToArray();
-        }
-        public Buff[] GetAllBuffs()
-        {
-            return buffs.ToArray();
-        }
+        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
+        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
+        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
+        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
+        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
+        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
         #endregion
         public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
         {
@@ -201,7 +162,7 @@ namespace PVZEngine.LevelManaging
             {
                 health = Health,
                 definitionID = Definition.GetID(),
-                buffs = buffs.ConvertAll(b => b.Serialize()),
+                buffs = buffs.ToSerializable(),
                 propertyDict = propertyDict.Serialize()
             };
         }
@@ -212,7 +173,7 @@ namespace PVZEngine.LevelManaging
             armor.Owner = owner;
             armor.Definition = definition;
             armor.Health = seri.health;
-            armor.buffs = seri.buffs.ConvertAll(b => Buff.Deserialize(b, owner.Level));
+            armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level);
             armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return armor;
         }
@@ -220,7 +181,7 @@ namespace PVZEngine.LevelManaging
         #region 私有方法
         ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
         {
-            return new SerializableBuffTarget(this);
+            return new SerializableBuffTargetEntity(this);
         }
         #endregion
 
@@ -228,7 +189,7 @@ namespace PVZEngine.LevelManaging
         public Entity Owner { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
-        private List<Buff> buffs = new List<Buff>();
+        private BuffList buffs = new BuffList();
         private PropertyDictionary propertyDict = new PropertyDictionary();
         #endregion
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
@@ -6,9 +7,9 @@ using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
-    public partial class Level
+    public partial class Level : IBuffTarget
     {
         #region 公有方法
         public Level(IGame game)
@@ -89,7 +90,7 @@ namespace PVZEngine.LevelManaging
         {
             propertyDict.SetProperty(name, value);
         }
-        public object GetProperty(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
+        public object GetProperty(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false, bool ignoreBuffs = false)
         {
             object result = null;
             if (propertyDict.TryGetProperty(name, out var value))
@@ -98,6 +99,11 @@ namespace PVZEngine.LevelManaging
                 result = stageProp;
             else if (!ignoreAreaDefinition && AreaDefinition.TryGetProperty<object>(name, out var areaProp))
                 result = areaProp;
+
+            if (!ignoreBuffs)
+            {
+                result = buffs.CalculateProperty(name, result);
+            }
             return result;
         }
         public T GetProperty<T>(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
@@ -211,6 +217,28 @@ namespace PVZEngine.LevelManaging
         }
         #endregion
 
+        #region 增益
+        public bool AddBuff(Buff buff)
+        {
+            if (buffs.AddBuff(buff))
+            {
+                buff.AddToTarget(this);
+                return true;
+            }
+            return false;
+        }
+        public void AddBuff<T>() where T : BuffDefinition
+        {
+            AddBuff(CreateBuff<T>());
+        }
+        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
+        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
+        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
+        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
+        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
+        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        #endregion
+
         public Buff CreateBuff<T>() where T : BuffDefinition
         {
             var buffDefinition = Game.GetBuffDefinition<T>();
@@ -266,6 +294,8 @@ namespace PVZEngine.LevelManaging
                 levelProgressVisible = LevelProgressVisible,
                 spawnedLanes = spawnedLanes,
                 spawnedID = spawnedID,
+
+                buffs = buffs.ToSerializable(),
             };
         }
         public static Level Deserialize(SerializableLevel seri, IGame game)
@@ -300,7 +330,7 @@ namespace PVZEngine.LevelManaging
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
-            level.seedPacks = seri.seedPacks.ConvertAll(g => SeedPack.Deserialize(g));
+            level.seedPacks = seri.seedPacks.ConvertAll(g => SeedPack.Deserialize(g, level));
             level.RequireCards = seri.requireCards;
 
             level.currentEntityID = seri.currentEntityID;
@@ -314,12 +344,21 @@ namespace PVZEngine.LevelManaging
             level.LevelProgressVisible = seri.levelProgressVisible;
             level.spawnedLanes = seri.spawnedLanes;
             level.spawnedID = seri.spawnedID;
+
+            level.buffs = BuffList.FromSerializable(seri.buffs, level);
             return level;
         }
 
         #endregion
 
         #region 私有方法
+
+        #region 接口实现
+        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
+        {
+            return new SerializableBuffTargetLevel(this);
+        }
+        #endregion
         public void InitAreaProperties()
         {
             gridWidth = AreaDefinition.GetProperty<float>(AreaProperties.GRID_WIDTH);
@@ -366,6 +405,7 @@ namespace PVZEngine.LevelManaging
 
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private LawnGrid[] grids;
+        private BuffList buffs = new BuffList();
 
         private float gridWidth;
         private float gridHeight;

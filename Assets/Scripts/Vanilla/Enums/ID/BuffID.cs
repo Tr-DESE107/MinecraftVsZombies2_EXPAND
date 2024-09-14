@@ -11,6 +11,15 @@ namespace MVZ2.GameContent
         public const string productionColor = "production_color";
         public const string mineTNTInvincible = "mine_tnt_invincible";
         public const string obsidianArmor = "obsidianArmor";
+
+        public static class SeedPack
+        {
+            public const string tutorialDisable = "tutorial_disable";
+        }
+        public static class Level
+        {
+            public const string tutorialPickaxeDisable = "tutorial_disable";
+        }
     }
     public static class BuffID
     {

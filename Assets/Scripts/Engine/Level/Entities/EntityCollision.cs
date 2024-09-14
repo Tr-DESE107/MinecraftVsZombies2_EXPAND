@@ -1,4 +1,4 @@
-﻿namespace PVZEngine.LevelManaging
+﻿namespace PVZEngine.LevelManagement
 {
     public static class EntityCollision
     {

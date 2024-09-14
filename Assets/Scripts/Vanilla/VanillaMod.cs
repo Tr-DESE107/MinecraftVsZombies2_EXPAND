@@ -7,7 +7,7 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Game;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -21,7 +21,7 @@ namespace MVZ2.Vanilla
 
             LevelCallbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
             LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
-            GameCallbacks.TalkAction.Add(TalkAction);
+            VanillaCallbacks.TalkAction.Add(TalkAction);
         }
         protected void LoadFromAssemblies(Assembly[] assemblies)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
+using PVZEngine.Modifiers;
 
 namespace PVZEngine.Definitions
 {
@@ -12,6 +13,8 @@ namespace PVZEngine.Definitions
         {
             return modifiers.ToArray();
         }
+        public virtual void PostAdd(Buff buff) { }
+        public virtual void PostRemove(Buff buff) { }
         protected void AddModifier(PropertyModifier modifier)
         {
             modifiers.Add(modifier);

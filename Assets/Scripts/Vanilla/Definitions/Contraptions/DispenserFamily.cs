@@ -1,7 +1,7 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using Tools;
 using UnityEngine;
 
@@ -58,6 +58,8 @@ namespace MVZ2.GameContent.Contraptions
                 offset.x *= -1;
                 velocity.x *= -1;
             }
+            velocity = ModifyProjectileVelocity(entity, velocity);
+
             var projectile = game.Spawn(Entity, entity.Pos + offset, entity);
             projectile.SetDamage(entity.GetDamage());
             projectile.Velocity = velocity;

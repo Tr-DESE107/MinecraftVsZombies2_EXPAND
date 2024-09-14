@@ -5,6 +5,7 @@
         public const string ETHEREAL = "ethereal";
         public const string DAMAGE = "damage";
         public const string ATTACK_SPEED = "attackSpeed";
+        public const string PRODUCE_SPEED = "produceSpeed";
         public const string MAX_HEALTH = "maxHealth";
         public const string FALL_DAMAGE = "fallDamage";
         public const string HEALTH = "health";

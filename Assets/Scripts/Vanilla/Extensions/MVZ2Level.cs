@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -65,6 +66,10 @@ namespace MVZ2.Vanilla
         public static void AddStarshardCount(this Level game, int value)
         {
             game.SetStarshardCount(GetStarshardCount(game) + value);
+        }
+        public static bool IsPickaxeDisabled(this Level level)
+        {
+            return level.GetProperty<bool>(LevelProps.PICKAXE_DISABLED);
         }
         public static float GetDoorZ(this Level game)
         {
@@ -128,6 +133,18 @@ namespace MVZ2.Vanilla
         public static float GetEnemyRightBorderX()
         {
             return ENEMY_RIGHT_BORDER;
+        }
+        public static NamespaceID GetHeldEntityID(this Level level)
+        {
+            if (level.HeldItemType != HeldTypes.ENTITY)
+                return null;
+            var seed = level.GetSeedPackAt(level.HeldItemID);
+            if (seed == null)
+                return null;
+            var seedDef = seed.Definition;
+            if (seedDef.GetSeedType() != SeedTypes.ENTITY)
+                return null;
+            return seedDef.GetSeedEntityID();
         }
         public const float ENERGY_SLOT_WIDTH = 48;
         public const float MIN_PREVIEW_X = 1080;

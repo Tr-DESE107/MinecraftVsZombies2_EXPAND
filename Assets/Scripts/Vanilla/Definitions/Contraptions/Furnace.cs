@@ -1,7 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
-using PVZEngine.LevelManaging;
+using PVZEngine.LevelManagement;
 using Tools;
 using UnityEngine;
 
@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Contraptions
         private void ProductionUpdate(Entity entity)
         {
             var productionTimer = GetProductionTimer(entity);
-            productionTimer.Run(entity.GetAttackSpeed());
+            productionTimer.Run(entity.GetProduceSpeed());
             if (entity.Level.IsNoProduction())
             {
                 productionTimer.Frame = productionTimer.MaxFrame;

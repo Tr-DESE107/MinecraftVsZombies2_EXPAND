@@ -17,5 +17,7 @@ namespace PVZEngine.Base
         ArmorDefinition GetArmorDefinition(NamespaceID defRef);
         T GetArmorDefinition<T>() where T : ArmorDefinition;
         SpawnDefinition GetSpawnDefinition(NamespaceID defRef);
+        string GetText(string textKey);
+        string GetTextParticular(string textKey, string context);
     }
 }

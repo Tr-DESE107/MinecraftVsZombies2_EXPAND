@@ -2,7 +2,7 @@
 using System.Linq;
 using PVZEngine.Definitions;
 
-namespace PVZEngine.LevelManaging
+namespace PVZEngine.LevelManagement
 {
     public partial class Level
     {
@@ -22,6 +22,10 @@ namespace PVZEngine.LevelManaging
                 SeedPack seedPack = i < allSeedPacks.Length ? allSeedPacks[i] : null;
                 seedPacks.Add(seedPack);
             }
+        }
+        public int GetSeedPackIndex(SeedPack seed)
+        {
+            return seedPacks.IndexOf(seed);
         }
         public void SetSeedPacks(NamespaceID[] seedIDs)
         {
@@ -45,38 +49,26 @@ namespace PVZEngine.LevelManaging
         }
         public SeedPack GetSeedPack(NamespaceID seedRef)
         {
-            return seedPacks.FirstOrDefault(r => r != null && r.SeedReference == seedRef);
+            return seedPacks.FirstOrDefault(r => r != null && r.Definition.GetID() == seedRef);
         }
         /// <summary>
         /// 将卡牌的重装载时间设置为初始。
         /// </summary>
-        /// <param name="id">要重置的卡牌ID。</param>
         public void SetRechargeTimeToStart(SeedPack seedPack)
         {
             if (seedPack == null)
                 return;
-            var seedDefinition = Game.GetSeedDefinition(seedPack.SeedReference);
-            var rechargeID = seedDefinition.GetRechargeID();
-            var rechargeDef = Game.GetRechargeDefinition(rechargeID);
-            var maxRecharge = rechargeDef.GetStartMaxRecharge();
-            float time = maxRecharge * RechargeTimeMultiplier;
-            seedPack.MaxRecharge = time;
+            seedPack.SetStartRecharge(true);
         }
 
         /// <summary>
         /// 将卡牌的重装载时间设置为使用后。
         /// </summary>
-        /// <param name="id">要重置的卡牌ID。</param>
         public void SetRechargeTimeToUsed(SeedPack seedPack)
         {
             if (seedPack == null)
                 return;
-            var seedDefinition = Game.GetSeedDefinition(seedPack.SeedReference);
-            var rechargeID = seedDefinition.GetRechargeID();
-            var rechargeDef = Game.GetRechargeDefinition(rechargeID);
-            var maxRecharge = rechargeDef.GetMaxRecharge();
-            float time = maxRecharge * RechargeTimeMultiplier;
-            seedPack.MaxRecharge = time;
+            seedPack.SetStartRecharge(false);
         }
 
         /// <summary>
@@ -116,12 +108,7 @@ namespace PVZEngine.LevelManaging
             float time = maxRecharge * RechargeTimeMultiplier;
             float progress = CurrentFlag <= 0 ? 0 : time;
 
-            return new SeedPack(seedRef)
-            {
-                Cost = seedDefinition.GetCost(),
-                MaxRecharge = time,
-                Recharge = progress
-            };
+            return new SeedPack(this, seedDefinition);
         }
 
         #endregion
