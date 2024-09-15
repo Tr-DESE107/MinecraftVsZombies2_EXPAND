@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using MVZ2.GameContent;
-using MVZ2.GameContent.Areas;
+﻿using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
-using MVZ2.GameContent.Stages;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -11,82 +8,6 @@ namespace MVZ2.Vanilla
 {
     public static class MVZ2Level
     {
-        public static Vector2 GetEnergySlotEntityPosition()
-        {
-            var x = GetBorderX(false) + ENERGY_SLOT_WIDTH * 0.5f;
-            var y = GetScreenHeight() - ENERGY_SLOT_WIDTH * 0.5f;
-            return new Vector2(x, y);
-        }
-        public static Rect GetEnemySpawnRect()
-        {
-            return new Rect(MIN_PREVIEW_X, MIN_PREVIEW_Y, MAX_PREVIEW_X - MIN_PREVIEW_X, MAX_PREVIEW_Y - MIN_PREVIEW_Y);
-        }
-        public static float GetScreenHeight()
-        {
-            return SCREEN_HEIGHT;
-        }
-        public static float GetBorderX(bool right)
-        {
-            return right ? RIGHT_BORDER : LEFT_BORDER;
-        }
-        public static void SpawnCarts(this LevelEngine game, NamespaceID cartRef, float x, float xInterval)
-        {
-            var carts = game.GetEntities(EntityTypes.CART);
-            for (int i = 0; i < game.GetMaxLaneCount(); i++)
-            {
-                if (carts.Any(c => c.GetLane() == i && c.State == EntityStates.IDLE))
-                    continue;
-                Entity cart = game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
-            }
-        }
-        public static bool IsAutoCollect(this LevelEngine game)
-        {
-            return game.GetProperty<bool>(StageProps.AUTO_COLLECT);
-        }
-        public static bool IsNoProduction(this LevelEngine game)
-        {
-            return game.GetProperty<bool>(StageProps.NO_PRODUCTION);
-        }
-        public static void SetNoProduction(this LevelEngine game, bool value)
-        {
-            game.SetProperty(StageProps.NO_PRODUCTION, value);
-        }
-        public static NamespaceID GetStartTalk(this LevelEngine game)
-        {
-            return game.GetProperty<NamespaceID>(StageProps.START_TALK);
-        }
-        public static int GetStarshardCount(this LevelEngine game)
-        {
-            return game.GetProperty<int>(LevelProps.STARSHARD_COUNT);
-        }
-        public static void SetStarshardCount(this LevelEngine game, int value)
-        {
-            game.SetProperty(LevelProps.STARSHARD_COUNT, value);
-        }
-        public static void AddStarshardCount(this LevelEngine game, int value)
-        {
-            game.SetStarshardCount(GetStarshardCount(game) + value);
-        }
-        public static bool IsPickaxeDisabled(this LevelEngine level)
-        {
-            return level.GetProperty<bool>(LevelProps.PICKAXE_DISABLED);
-        }
-        public static float GetDoorZ(this LevelEngine game)
-        {
-            return game.GetProperty<float>(AreaProps.DOOR_Z);
-        }
-        public static EntityID GetLastEnemy(this LevelEngine game)
-        {
-            return game.GetProperty<EntityID>(LevelProps.LAST_ENEMY);
-        }
-        public static NamespaceID GetMusicID(this LevelEngine game)
-        {
-            return game.GetProperty<NamespaceID>(LevelProps.MUSIC_ID);
-        }
-        public static void SetLastEnemy(this LevelEngine game, EntityID value)
-        {
-            game.SetProperty(LevelProps.LAST_ENEMY, value);
-        }
         private static float GetHalloweenGroundHeight(float x)
         {
             if (x < 185)
@@ -121,19 +42,6 @@ namespace MVZ2.Vanilla
             }
             return 0;
         }
-
-        public static float GetAttackBorderX(bool right)
-        {
-            return right ? ATTACK_RIGHT_BORDER : ATTACK_LEFT_BORDER;
-        }
-        public static float GetPickupBorderX(bool right)
-        {
-            return right ? PICKUP_RIGHT_BORDER : PICKUP_LEFT_BORDER;
-        }
-        public static float GetEnemyRightBorderX()
-        {
-            return ENEMY_RIGHT_BORDER;
-        }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
             if (level.HeldItemType != HeldTypes.ENTITY)
@@ -146,24 +54,5 @@ namespace MVZ2.Vanilla
                 return null;
             return seedDef.GetSeedEntityID();
         }
-        public const float ENERGY_SLOT_WIDTH = 48;
-        public const float MIN_PREVIEW_X = 1080;
-        public const float MAX_PREVIEW_X = 1300;
-        public const float MIN_PREVIEW_Y = 50;
-        public const float MAX_PREVIEW_Y = 450;
-        public const float GRID_SIZE = 80;
-        public const float LAWN_HEIGHT = 600;
-        public const float LEVEL_WIDTH = 1400;
-        public const float CART_START_X = 150;
-        public const float CART_TARGET_X = LEFT_BORDER;
-        public const float SCREEN_WIDTH = 800;
-        public const float SCREEN_HEIGHT = 600;
-        public const float LEFT_BORDER = 220;
-        public const float RIGHT_BORDER = LEFT_BORDER + SCREEN_WIDTH;
-        public const float PICKUP_LEFT_BORDER = LEFT_BORDER + 50;
-        public const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
-        public const float ATTACK_LEFT_BORDER = LEFT_BORDER;
-        public const float ATTACK_RIGHT_BORDER = RIGHT_BORDER;
-        public const float ENEMY_RIGHT_BORDER = RIGHT_BORDER + 60;
     }
 }

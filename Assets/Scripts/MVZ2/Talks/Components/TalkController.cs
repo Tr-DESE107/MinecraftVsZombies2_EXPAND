@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using MVZ2.GameContent;
 using MVZ2.UI;
-using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -284,7 +284,16 @@ namespace MVZ2.Talk
                     break;
 
                 case "end":
-                    EndTalk(script.arguments.Length > 0 ? script.arguments[0] : string.Empty);
+                    NamespaceID endMode;
+                    if (script.arguments.Length > 0)
+                    {
+                        endMode = NamespaceID.Parse(script.arguments[0], Main.BuiltinNamespace);
+                    }
+                    else
+                    {
+                        endMode = new NamespaceID(Main.BuiltinNamespace, "none");
+                    }
+                    EndTalk(endMode);
                     break;
             }
         }
@@ -449,7 +458,7 @@ namespace MVZ2.Talk
             speechBubble.ForceReshow();
         }
 
-        private void EndTalk(string mode)
+        private void EndTalk(NamespaceID mode)
         {
             groupID = null;
             sectionIndex = -1;
@@ -487,7 +496,7 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件
-        public event Action<string> OnTalkEnd;
+        public event Action<NamespaceID> OnTalkEnd;
         public event Action<string, string[]> OnTalkAction;
         #endregion 动作
 

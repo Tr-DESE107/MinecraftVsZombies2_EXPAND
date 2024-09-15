@@ -12,7 +12,7 @@ namespace MVZ2
         public int height;
         public float xOffset;
         public float yOffset;
-        public static ModelMeta FromXmlNode(XmlNode node)
+        public static ModelMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name");
             var type = node.GetAttribute("type");
@@ -25,7 +25,7 @@ namespace MVZ2
             {
                 name = name,
                 type = type,
-                path = ResourceManager.ParseNamespaceID(path),
+                path = NamespaceID.Parse(path, defaultNsp),
                 width = width,
                 height = height,
                 xOffset = xOffset,

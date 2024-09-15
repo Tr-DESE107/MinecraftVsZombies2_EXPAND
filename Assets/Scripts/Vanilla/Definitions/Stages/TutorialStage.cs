@@ -70,7 +70,7 @@ namespace MVZ2.GameContent.Stages
             SetState(level, state);
             var textKey = tutorialStrings[state];
             var context = string.Format(CONTEXT_STATE, state);
-            var advice = level.ContentProvider.GetTextParticular(textKey, context);
+            var advice = level.Translator.GetTextParticular(textKey, context);
             level.ShowAdvice(advice, 1000, -1);
             switch (state)
             {

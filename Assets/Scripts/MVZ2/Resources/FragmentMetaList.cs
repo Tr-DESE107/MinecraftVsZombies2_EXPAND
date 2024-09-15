@@ -2,17 +2,17 @@
 
 namespace MVZ2
 {
-    public class FragmentMetaList
+    public class DifficultyMetaList
     {
-        public FragmentMeta[] metas;
-        public static FragmentMetaList FromXmlNode(XmlNode node)
+        public DifficultyMeta[] metas;
+        public static DifficultyMetaList FromXmlNode(XmlNode node)
         {
-            var resources = new FragmentMeta[node.ChildNodes.Count];
+            var resources = new DifficultyMeta[node.ChildNodes.Count];
             for (int i = 0; i < resources.Length; i++)
             {
-                resources[i] = FragmentMeta.FromXmlNode(node.ChildNodes[i]);
+                resources[i] = DifficultyMeta.FromXmlNode(node.ChildNodes[i]);
             }
-            return new FragmentMetaList()
+            return new DifficultyMetaList()
             {
                 metas = resources,
             };

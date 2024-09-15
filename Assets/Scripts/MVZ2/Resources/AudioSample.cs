@@ -8,7 +8,7 @@ namespace MVZ2
         public NamespaceID path;
         public float weight;
 
-        public static AudioSample FromXmlNode(XmlNode node)
+        public static AudioSample FromXmlNode(XmlNode node, string defaultNsp)
         {
             float weight = 1;
             var weightAttribute = node.Attributes["weight"];
@@ -21,7 +21,7 @@ namespace MVZ2
             }
             return new AudioSample()
             {
-                path = ResourceManager.ParseNamespaceID(node.Attributes["path"].Value),
+                path = NamespaceID.Parse(node.Attributes["path"].Value, defaultNsp),
                 weight = weight,
             };
         }

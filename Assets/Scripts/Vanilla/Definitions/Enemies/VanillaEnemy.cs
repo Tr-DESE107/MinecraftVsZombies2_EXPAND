@@ -11,8 +11,8 @@ namespace MVZ2.GameContent.Enemies
     {
         public VanillaEnemy(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EnemyProps.SPEED, 0.5f);
-            SetProperty(EnemyProps.CRY_SOUND, SoundID.zombieCry);
+            SetProperty(BuiltinEnemyProps.SPEED, 0.5f);
+            SetProperty(BuiltinEnemyProps.CRY_SOUND, SoundID.zombieCry);
             SetProperty(EntityProperties.SHELL, ShellID.flesh);
             SetProperty(EntityProperties.ATTACK_SPEED, 1f);
             SetProperty(EntityProperties.DAMAGE, 100f);
@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Enemies
             SetProperty(EntityProperties.FALL_DAMAGE, 22.5f);
             SetProperty(EntityProperties.FRICTION, 0.15f);
             SetProperty(EntityProperties.FACE_LEFT_AT_DEFAULT, true);
-            SetProperty(EntityProps.DEATH_SOUND, SoundID.zombieDeath);
+            SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.zombieDeath);
         }
         public override void Init(Entity entity)
         {
@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Update(enemy);
             Vector3 pos = enemy.Pos;
-            pos.x = Mathf.Min(pos.x, MVZ2Level.GetEnemyRightBorderX());
+            pos.x = Mathf.Min(pos.x, BuiltinLevel.GetEnemyRightBorderX());
             enemy.Pos = pos;
 
             enemy.SetAnimationFloat("AttackSpeed", enemy.GetAttackSpeed());

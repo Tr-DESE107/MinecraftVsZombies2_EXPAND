@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Obsidian(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProps.PLACE_SOUND, SoundID.stone);
+            SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
             SetProperty(EntityProperties.SIZE, new Vector3(48, 48, 48));
             SetProperty(EntityProperties.MAX_HEALTH, maxHP);
         }

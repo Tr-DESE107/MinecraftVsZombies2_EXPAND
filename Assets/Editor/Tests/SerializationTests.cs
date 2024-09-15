@@ -47,7 +47,7 @@ namespace MVZ2.Tests
         public static void LevelSerializationTest()
         {
             var game = CreateGame();
-            var level = new LevelEngine(game);
+            var level = new LevelEngine(game, game);
             level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,
@@ -66,7 +66,7 @@ namespace MVZ2.Tests
             var converters = new JsonConverter[] { new Vector3Converter(), new Vector2Converter(), new ColorConverter() };
             var json = JsonConvert.SerializeObject(level.Serialize(), converters);
             var dese = JsonConvert.DeserializeObject<SerializableLevel>(json, converters);
-            var level2 = LevelEngine.Deserialize(dese, game);
+            var level2 = LevelEngine.Deserialize(dese, game, game);
             game.SetLevel(level2);
             var json2 = JsonConvert.SerializeObject(level2.Serialize(), converters);
             Debug.Log(json);
@@ -83,7 +83,7 @@ namespace MVZ2.Tests
         }
         private static LevelEngine CreateLevel(Game game)
         {
-            var level = new LevelEngine(game);
+            var level = new LevelEngine(game, game);
             game.SetLevel(level);
             level.Init(AreaID.day, StageID.prologue, new LevelOption()
             {

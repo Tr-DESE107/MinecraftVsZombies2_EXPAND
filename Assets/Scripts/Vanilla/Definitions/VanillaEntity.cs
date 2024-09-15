@@ -13,10 +13,10 @@ namespace MVZ2.Vanilla
         #region 公有方法
         protected VanillaEntity(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProps.PLACE_SOUND, SoundID.grass);
-            SetProperty(EntityProps.CHANGE_LANE_SPEED, 2.5f);
-            SetProperty(EntityProps.SHADOW_ALPHA, 1f);
-            SetProperty(EntityProps.SHADOW_SCALE, Vector3.one);
+            SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.grass);
+            SetProperty(BuiltinEntityProps.CHANGE_LANE_SPEED, 2.5f);
+            SetProperty(BuiltinEntityProps.SHADOW_ALPHA, 1f);
+            SetProperty(BuiltinEntityProps.SHADOW_SCALE, Vector3.one);
         }
         public override void Update(Entity entity)
         {
@@ -55,31 +55,31 @@ namespace MVZ2.Vanilla
         #region 换行
         public bool IsChangingLane(Entity entity)
         {
-            return entity.GetProperty<bool>(EntityProps.CHANGING_LANE);
+            return entity.GetProperty<bool>(BuiltinEntityProps.CHANGING_LANE);
         }
         public void SetChangingLane(Entity entity, bool value)
         {
-            entity.SetProperty(EntityProps.CHANGING_LANE, value);
+            entity.SetProperty(BuiltinEntityProps.CHANGING_LANE, value);
         }
         public int GetChangeLaneTarget(Entity entity)
         {
-            return entity.GetProperty<int>(EntityProps.CHANGE_LANE_TARGET);
+            return entity.GetProperty<int>(BuiltinEntityProps.CHANGE_LANE_TARGET);
         }
         public void SetChangeLaneTarget(Entity entity, int value)
         {
-            entity.SetProperty(EntityProps.CHANGE_LANE_TARGET, value);
+            entity.SetProperty(BuiltinEntityProps.CHANGE_LANE_TARGET, value);
         }
         public int GetChangeLaneSource(Entity entity)
         {
-            return entity.GetProperty<int>(EntityProps.CHANGE_LANE_SOURCE);
+            return entity.GetProperty<int>(BuiltinEntityProps.CHANGE_LANE_SOURCE);
         }
         public void SetChangeLaneSource(Entity entity, int value)
         {
-            entity.SetProperty(EntityProps.CHANGE_LANE_SOURCE, value);
+            entity.SetProperty(BuiltinEntityProps.CHANGE_LANE_SOURCE, value);
         }
         public float GetChangeLaneSpeed(Entity entity)
         {
-            return entity.GetProperty<float>(EntityProps.CHANGE_LANE_SPEED);
+            return entity.GetProperty<float>(BuiltinEntityProps.CHANGE_LANE_SPEED);
         }
         public virtual void PostStartChangingLane(Entity entity, int target)
         {
@@ -114,17 +114,5 @@ namespace MVZ2.Vanilla
         #endregion
 
         private const float leaveGridHeight = 64;
-    }
-    public interface IChangeLaneEntity
-    {
-        bool IsChangingLane(Entity entity);
-        void SetChangingLane(Entity entity, bool value);
-        int GetChangeLaneTarget(Entity entity);
-        int GetChangeLaneSource(Entity entity);
-        void SetChangeLaneTarget(Entity entity, int value);
-        void SetChangeLaneSource(Entity entity, int value);
-        float GetChangeLaneSpeed(Entity entity);
-        void PostStartChangingLane(Entity entity, int target);
-        void PostStopChangingLane(Entity entity);
     }
 }

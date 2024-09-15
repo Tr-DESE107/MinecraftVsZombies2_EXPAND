@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public RandomEnemySpeedBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EnemyProps.SPEED, ModifyOperator.Multiply, PROP_SPEED));
+            AddModifier(new FloatModifier(BuiltinEnemyProps.SPEED, ModifyOperator.Multiply, PROP_SPEED));
         }
         public const string PROP_SPEED = "Speed";
     }

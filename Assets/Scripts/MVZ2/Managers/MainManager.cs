@@ -10,15 +10,16 @@ namespace MVZ2
     {
         public async Task Initialize()
         {
-            await ModManager.LoadMods();
+            Game = new Game();
+            Game.OnGetString += OnGetStringCallback;
+            Game.OnGetStringParticular += OnGetStringParticularCallback;
+            await ModManager.LoadMods(Game);
             await ResourceManager.LoadAllModResources();
             LanguageManager.LoadAllLanguagePacks();
 
-            Game = new Game();
-            var mod = new VanillaMod(Game);
-            Game.AddMod(mod);
-            Game.OnGetString += OnGetStringCallback;
-            Game.OnGetStringParticular += OnGetStringParticularCallback;
+            SaveManager.LoadSaveData();
+
+            ModManager.InitMods(Game);
         }
         private void Awake()
         {

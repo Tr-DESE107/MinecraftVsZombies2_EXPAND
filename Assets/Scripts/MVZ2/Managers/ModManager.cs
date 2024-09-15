@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PVZEngine.Game;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace MVZ2
 {
-    public class ModManager : MonoBehaviour
+    public class ModManager : MonoBehaviour, IModManager
     {
-        public async Task LoadMods()
+        public async Task LoadMods(Game game)
         {
             var locator = await Addressables.InitializeAsync().Task;
             modInfos.Add(new ModInfo()
@@ -17,8 +19,28 @@ namespace MVZ2
                 DisplayName = "Vanilla",
                 CatalogPath = null,
                 IsBuiltin = true,
-                ResourceLocator = locator
+                ResourceLocator = locator,
             });
+            OnRegisterMod?.Invoke(this, game);
+
+            foreach (var modInfo in GetAllModInfos())
+            {
+                game.AddMod(modInfo.Logic);
+            }
+        }
+        public void InitMods(Game game)
+        {
+            foreach (var modInfo in GetAllModInfos())
+            {
+                modInfo.Logic.Init(game);
+            }
+        }
+        public void RegisterModLogic(string spaceName, IModLogic modLogic)
+        {
+            var modInfo = GetModInfo(spaceName);
+            if (modInfo == null)
+                return;
+            modInfo.Logic = modLogic;
         }
         public ModInfo GetModInfo(string nsp)
         {
@@ -28,9 +50,14 @@ namespace MVZ2
         {
             return modInfos.ToArray();
         }
+        public static event Action<IModManager, Game> OnRegisterMod;
         public MainManager Main => main;
         [SerializeField]
         private MainManager main;
         private List<ModInfo> modInfos = new List<ModInfo>();
+    }
+    public interface IModManager
+    {
+        void RegisterModLogic(string spacename, IModLogic logic);
     }
 }

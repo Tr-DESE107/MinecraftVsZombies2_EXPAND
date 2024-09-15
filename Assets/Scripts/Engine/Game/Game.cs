@@ -3,7 +3,7 @@ using PVZEngine.Level;
 
 namespace PVZEngine.Game
 {
-    public partial class Game : IContentProvider
+    public partial class Game : IContentProvider, ITranslator
     {
         public Game()
         {

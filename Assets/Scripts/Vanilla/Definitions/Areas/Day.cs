@@ -1,6 +1,8 @@
-﻿using MVZ2.GameContent.Stages;
+﻿using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
@@ -9,7 +11,7 @@ namespace MVZ2.GameContent.Areas
     {
         public Day(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(AreaProps.DOOR_Z, 240f);
+            SetProperty(BuiltinAreaProps.DOOR_Z, 240f);
             SetProperty(AreaProperties.GRID_WIDTH, 80);
             SetProperty(AreaProperties.GRID_HEIGHT, 80);
             SetProperty(AreaProperties.GRID_LEFT_X, 260);
@@ -17,11 +19,15 @@ namespace MVZ2.GameContent.Areas
             SetProperty(AreaProperties.MAX_LANE_COUNT, 5);
             SetProperty(AreaProperties.MAX_COLUMN_COUNT, 9);
             SetProperty(AreaProperties.CART_REFERENCE, CartID.minecart);
-            SetProperty(LevelProps.MUSIC_ID, MusicID.day);
+            SetProperty(BuiltinLevelProps.MUSIC_ID, MusicID.day);
             for (int i = 0; i < 45; i++)
             {
                 grids.Add(GridID.grass);
             }
+        }
+        public override void Init(LevelEngine level)
+        {
+            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
         }
     }
 }

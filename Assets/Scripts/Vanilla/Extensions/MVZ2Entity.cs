@@ -9,55 +9,6 @@ namespace MVZ2.Vanilla
 {
     public static class MVZ2Entity
     {
-        public static Vector3 GetSize(this EntityDefinition definition)
-        {
-            return definition.GetProperty<Vector3>(EntityProperties.SIZE);
-        }
-        public static NamespaceID GetPlaceSound(this EntityDefinition definition)
-        {
-            return definition.GetProperty<NamespaceID>(EntityProps.PLACE_SOUND);
-        }
-        public static NamespaceID GetDeathSound(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID>(EntityProps.DEATH_SOUND);
-        }
-
-        #region 影子
-        public static bool IsShadowHidden(this Entity entity) => entity.GetProperty<bool>(EntityProps.SHADOW_HIDDEN);
-        public static void SetShadowHidden(this Entity entity, bool value) => entity.SetProperty(EntityProps.SHADOW_HIDDEN, value);
-        public static float GetShadowAlpha(this Entity entity) => entity.GetProperty<float>(EntityProps.SHADOW_ALPHA);
-        public static void SetShadowAlpha(this Entity entity, float value) => entity.SetProperty(EntityProps.SHADOW_ALPHA, value);
-        public static Vector3 GetShadowScale(this Entity entity) => entity.GetProperty<Vector3>(EntityProps.SHADOW_SCALE);
-        public static void SetShadowScale(this Entity entity, Vector3 value) => entity.SetProperty(EntityProps.SHADOW_SCALE, value);
-        public static Vector3 GetShadowOffset(this Entity entity) => entity.GetProperty<Vector3>(EntityProps.SHADOW_OFFSET);
-        public static void SetShadowOffset(this Entity entity, Vector3 value) => entity.SetProperty(EntityProps.SHADOW_OFFSET, value);
-        #endregion
-        public static int GetMaxTimeout(this Entity entity)
-        {
-            return entity.GetProperty<int>(EntityProps.MAX_TIMEOUT);
-        }
-        public static void StartChangingLane(this Entity entity, int target)
-        {
-            if (entity.Definition is not IChangeLaneEntity changeLane)
-                return;
-            if (target < 0 || target >= entity.Level.GetMaxLaneCount())
-                return;
-            changeLane.SetChangingLane(entity, true);
-            changeLane.SetChangeLaneTarget(entity, target);
-            changeLane.SetChangeLaneSource(entity, entity.GetLane());
-            changeLane.PostStartChangingLane(entity, target);
-        }
-        public static void StopChangingLane(this Entity entity)
-        {
-            if (entity.Definition is not IChangeLaneEntity changeLane)
-                return;
-            if (!changeLane.IsChangingLane(entity))
-                return;
-            changeLane.SetChangingLane(entity, false);
-            changeLane.SetChangeLaneTarget(entity, 0);
-            changeLane.SetChangeLaneSource(entity, 0);
-            changeLane.PostStopChangingLane(entity);
-        }
         public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
         {
             if (entity == null || shell == null)

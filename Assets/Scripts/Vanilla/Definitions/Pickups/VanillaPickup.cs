@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla
             SetProperty(EntityProperties.GRAVITY, 1f);
             SetProperty(EntityProperties.FRICTION, 0.15f);
             SetProperty(EntityProperties.SIZE, new Vector3(32, 32, 32));
-            SetProperty(EntityProps.MAX_TIMEOUT, 300);
+            SetProperty(BuiltinEntityProps.MAX_TIMEOUT, 300);
         }
         public override void Init(Entity entity)
         {
@@ -45,16 +45,12 @@ namespace MVZ2.Vanilla
         private void LimitPosition(Entity entity)
         {
             Vector3 pos = entity.Pos;
-            pos.x = Mathf.Clamp(pos.x, MVZ2Level.GetPickupBorderX(false), MVZ2Level.GetPickupBorderX(true));
+            pos.x = Mathf.Clamp(pos.x, BuiltinLevel.GetPickupBorderX(false), BuiltinLevel.GetPickupBorderX(true));
             entity.Pos = pos;
         }
         public virtual void PostCollect(Entity pickup)
         {
         }
         public override int Type => EntityTypes.PICKUP;
-    }
-    public interface ICollectiblePickup
-    {
-        void PostCollect(Entity pickup);
     }
 }

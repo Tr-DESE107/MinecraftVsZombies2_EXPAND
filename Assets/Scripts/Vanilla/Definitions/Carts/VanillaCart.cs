@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Carts
     {
         protected VanillaCart(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(CartProps.CART_TRIGGER_SOUND, SoundID.minecart);
+            SetProperty(BuiltinCartProps.CART_TRIGGER_SOUND, SoundID.minecart);
             SetProperty(EntityProperties.SIZE, new Vector3(56, 32, 56));
         }
         public override void Init(Entity entity)
@@ -26,14 +26,14 @@ namespace MVZ2.GameContent.Carts
             switch (entity.State)
             {
                 default:
-                    if (entity.Pos.x < MVZ2Level.CART_TARGET_X)
+                    if (entity.Pos.x < BuiltinLevel.CART_TARGET_X)
                     {
                         entity.Velocity = Vector3.right * 10;
                     }
                     else
                     {
                         var pos = entity.Pos;
-                        pos.x = MVZ2Level.CART_TARGET_X;
+                        pos.x = BuiltinLevel.CART_TARGET_X;
                         entity.Pos = pos;
                         entity.Velocity = Vector3.zero;
                     }
@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Carts
                         ent.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY, DamageEffects.MUTE), new EntityReferenceChain(entity));
                     }
                     // 如果超出屏幕，消失。
-                    if (entity.GetBounds().min.x >= MVZ2Level.GetBorderX(true))
+                    if (entity.GetBounds().min.x >= BuiltinLevel.GetBorderX(true))
                     {
                         entity.Remove();
                     }
@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Carts
         }
         private void UpdateCartTint(Entity cart)
         {
-            var alpha = Mathf.Lerp(0, 1, (cart.Pos.x - MVZ2Level.CART_START_X) / (MVZ2Level.CART_TARGET_X - MVZ2Level.CART_START_X));
+            var alpha = Mathf.Lerp(0, 1, (cart.Pos.x - BuiltinLevel.CART_START_X) / (BuiltinLevel.CART_TARGET_X - BuiltinLevel.CART_START_X));
             var tint = cart.GetTint();
             tint = new Color(1, 1, 1, alpha);
             cart.SetTint(tint);

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using MVZ2.Level;
+using PVZEngine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +12,26 @@ namespace MVZ2
         {
             return controller;
         }
-        public void StartLevel()
+        public void StartLevel(NamespaceID areaID, NamespaceID stageID)
         {
-            controller.InitGame(Main.Game);
+            controller.InitGame(Main.Game, areaID, stageID);
+        }
+        public NamespaceID[] GetSeedPacksID()
+        {
+            var packs = new NamespaceID[6];
+            var unlocked = Main.SaveManager.GetUnlockedContraptions();
+            for (int i = 0; i < packs.Length; i++)
+            {
+                if (i < unlocked.Length)
+                {
+                    packs[i] = unlocked[i];
+                }
+            }
+            return packs;
+        }
+        public NamespaceID GetDifficulty()
+        {
+            return Main.SaveManager.GetDifficulty();
         }
         public async Task GotoLevelScene()
         {

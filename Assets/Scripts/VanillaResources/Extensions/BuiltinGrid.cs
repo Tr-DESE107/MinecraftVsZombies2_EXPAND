@@ -1,0 +1,18 @@
+﻿using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
+
+namespace MVZ2.Vanilla
+{
+    public static class BuiltinGrid
+    {
+        public static bool CanPlace(this LawnGrid grid, NamespaceID entityID)
+        {
+            return grid.CanPlace(grid.Level.ContentProvider.GetEntityDefinition(entityID));
+        }
+        public static bool CanPlace(this LawnGrid grid, EntityDefinition definition)
+        {
+            return grid.GetTakenEntities().Length <= 0;
+        }
+    }
+}

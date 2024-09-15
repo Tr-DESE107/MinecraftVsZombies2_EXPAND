@@ -54,11 +54,6 @@ namespace MVZ2
         }
         #endregion
 
-        public static NamespaceID ParseNamespaceID(string str)
-        {
-            return NamespaceID.Parse(str, VanillaMod.spaceName);
-        }
-
         #endregion
 
         #region 私有方法
@@ -102,13 +97,16 @@ namespace MVZ2
                         modResource.TalkCharacterMetaList = TalkCharacterMetaList.FromXmlNode(document["characters"], defaultNsp);
                         break;
                     case "sounds":
-                        modResource.SoundMetaList = SoundMetaList.FromXmlNode(document["sounds"]);
+                        modResource.SoundMetaList = SoundMetaList.FromXmlNode(document["sounds"], defaultNsp);
                         break;
                     case "models":
-                        modResource.ModelMetaList = ModelMetaList.FromXmlNode(document["models"]);
+                        modResource.ModelMetaList = ModelMetaList.FromXmlNode(document["models"], defaultNsp);
                         break;
                     case "fragments":
                         modResource.FragmentMetaList = FragmentMetaList.FromXmlNode(document["fragments"]);
+                        break;
+                    case "difficulties":
+                        modResource.DifficultyMetaList = DifficultyMetaList.FromXmlNode(document["difficulties"]);
                         break;
                 }
             }
@@ -145,7 +143,7 @@ namespace MVZ2
                 var op = Addressables.LoadAssetAsync<T>(loc);
                 op.Completed += (handle) =>
                 {
-                    var resID = ParseNamespaceID(loc.PrimaryKey);
+                    var resID = NamespaceID.Parse(loc.PrimaryKey, Main.BuiltinNamespace);
                     try
                     {
                         var res = handle.Result;

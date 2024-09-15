@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs.SeedPack
     {
         public TutorialPickaxeDisableBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(LevelProps.PICKAXE_DISABLED, ModifyOperator.Set, true));
+            AddModifier(new BooleanModifier(BuiltinLevelProps.PICKAXE_DISABLED, ModifyOperator.Set, true));
         }
     }
 }

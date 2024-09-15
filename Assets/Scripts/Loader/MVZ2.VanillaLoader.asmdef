@@ -1,0 +1,19 @@
+{
+    "name": "MVZ2.VanillaLoader",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5fde897b5e6f58943b173e1c033b7b41",
+        "GUID:860571ac0336a8545a10447b51db7410",
+        "GUID:a5deebaeba5dde94ca03a5ecbaf4c07c",
+        "GUID:22176648926941143911458f1e23c75d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -19,7 +19,7 @@ namespace MVZ2.GameContent
             float shadowAlpha = 1;
             if (pickup.IsCollected())
             {
-                var collectedTime = MVZ2Pickup.GetCollectedTime(pickup);
+                var collectedTime = BuiltinPickup.GetCollectedTime(pickup);
                 var moveTime = level.GetSecondTicks(1);
                 var vanishTime = level.GetSecondTicks(1.5f);
                 if (collectedTime < moveTime)
@@ -67,7 +67,7 @@ namespace MVZ2.GameContent
             float value = ENERGY_VALUE;
 
             var game = pickup.Level;
-            if (game.Difficulty == LevelDifficulty.Easy)
+            if (game.Difficulty == LevelDifficulty.easy)
             {
                 value += 25;
             }
@@ -79,7 +79,7 @@ namespace MVZ2.GameContent
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
             var game = entity.Level;
-            Vector3 slotPosition = MVZ2Level.GetEnergySlotEntityPosition();
+            Vector3 slotPosition = BuiltinLevel.GetEnergySlotEntityPosition();
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
         public static void Disappear(Entity pickup)

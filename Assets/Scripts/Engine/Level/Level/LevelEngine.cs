@@ -11,9 +11,10 @@ namespace PVZEngine.Level
     public partial class LevelEngine : IBuffTarget
     {
         #region 公有方法
-        public LevelEngine(IContentProvider contentProvider)
+        public LevelEngine(IContentProvider contentProvider, ITranslator translator)
         {
             ContentProvider = contentProvider;
+            Translator = translator;
         }
 
         #region 生命周期
@@ -58,7 +59,7 @@ namespace PVZEngine.Level
                 grids[i] = new LawnGrid(this, definition, lane, column);
             }
         }
-        public void Start(int difficulty)
+        public void Start(NamespaceID difficulty)
         {
             Difficulty = difficulty;
             StageDefinition.Start(this);
@@ -297,9 +298,9 @@ namespace PVZEngine.Level
                 buffs = buffs.ToSerializable(),
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider)
+        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator)
         {
-            var level = new LevelEngine(provider);
+            var level = new LevelEngine(provider, translator);
             level.Seed = seri.seed;
             level.IsCleared = seri.isCleared;
             level.StageDefinition = provider.GetStageDefinition(seri.stageDefinitionID);
@@ -365,11 +366,13 @@ namespace PVZEngine.Level
             gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
             maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
             maxColumnCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
+            AreaDefinition.Init(this);
         }
         #endregion
 
         #region 属性字段
         public IContentProvider ContentProvider { get; private set; }
+        public ITranslator Translator { get; private set; }
         public int Seed { get; private set; }
         public bool IsCleared { get; private set; }
         public NamespaceID StageID { get; private set; }
@@ -384,7 +387,7 @@ namespace PVZEngine.Level
         /// 游戏是否已经通关过一次。
         /// </summary>
         public bool IsRerun { get; set; }
-        public int Difficulty { get; set; }
+        public NamespaceID Difficulty { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; }
         private RandomGenerator levelRandom;

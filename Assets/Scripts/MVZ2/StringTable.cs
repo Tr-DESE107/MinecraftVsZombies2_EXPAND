@@ -26,5 +26,7 @@ namespace MVZ2
         public const string BUTTON_TEXT_BACK_TO_MAP = "返回地图";
         [TranslateMsg("按钮文本")]
         public const string BUTTON_TEXT_BACK_TO_MAINMENU = "返回主菜单";
+
+        public const string CONTEXT_DEATH_MESSAGE = "death_message";
     }
 }

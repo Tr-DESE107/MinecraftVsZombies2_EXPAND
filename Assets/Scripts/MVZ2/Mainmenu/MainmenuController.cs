@@ -80,7 +80,7 @@ namespace MVZ2.Mainmenu
             {
                 yield return null;
             }
-            main.LevelManager.StartLevel();
+            main.LevelManager.StartLevel(BuiltinAreaID.day, BuiltinStageID.prologue);
             Hide();
         }
         private IEnumerable<MainmenuButton> GetAllButtons()

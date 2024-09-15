@@ -101,13 +101,9 @@ namespace PVZEngine.Level
             SeedDefinition seedDefinition = ContentProvider.GetSeedDefinition(seedRef);
             if (seedDefinition == null)
                 return null;
-            var rechargeID = seedDefinition.GetRechargeID();
-            var rechargeDef = ContentProvider.GetRechargeDefinition(rechargeID);
-            var maxRecharge = rechargeDef.GetStartMaxRecharge();
-            float time = maxRecharge * RechargeTimeMultiplier;
-            float progress = CurrentFlag <= 0 ? 0 : time;
-
-            return new SeedPack(this, seedDefinition);
+            var seedPack = new SeedPack(this, seedDefinition);
+            seedPack.SetStartRecharge(true);
+            return seedPack;
         }
 
         #endregion

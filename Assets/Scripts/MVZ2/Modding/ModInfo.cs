@@ -1,4 +1,5 @@
-﻿using UnityEngine.AddressableAssets.ResourceLocators;
+﻿using PVZEngine.Game;
+using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2
 {
@@ -9,5 +10,6 @@ namespace MVZ2
         public bool IsBuiltin { get; set; }
         public IResourceLocator ResourceLocator { get; set; }
         public string CatalogPath { get; set; }
+        public IModLogic Logic { get; set; }
     }
 }

@@ -15,9 +15,9 @@ namespace MVZ2.GameContent.Stages
     {
         public ClassicStage(string nsp, string name, int totalFlags, EnemySpawnEntry[] spawnEntries) : base(nsp, name)
         {
-            SetProperty(StageProps.WAVE_MAX_TIME, 900);
-            SetProperty(StageProps.WAVE_ADVANCE_TIME, 300);
-            SetProperty(StageProps.WAVE_ADVANCE_HEALTH_PERCENT, 0.6f);
+            SetProperty(BuiltinStageProps.WAVE_MAX_TIME, 900);
+            SetProperty(BuiltinStageProps.WAVE_ADVANCE_TIME, 300);
+            SetProperty(BuiltinStageProps.WAVE_ADVANCE_HEALTH_PERCENT, 0.6f);
             SetProperty(StageProperties.TOTAL_FLAGS, totalFlags);
             this.spawnEntries = spawnEntries;
         }
@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Stages
                     FinalWaveUpdate(level);
                     break;
             }
-            var gameOverEnemies = level.FindEntities(e => e.Pos.x < MVZ2Level.GetBorderX(false) && IsAliveEnemy(e));
+            var gameOverEnemies = level.FindEntities(e => e.Pos.x < BuiltinLevel.GetBorderX(false) && IsAliveEnemy(e));
             if (gameOverEnemies.Length > 0)
             {
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
@@ -55,10 +55,10 @@ namespace MVZ2.GameContent.Stages
         {
             base.PrepareForBattle(level);
             level.AreaDefinition.PrepareForBattle(level);
-            if (level.Difficulty != LevelDifficulty.Hard)
+            if (level.Difficulty != LevelDifficulty.hard)
             {
                 var cartRef = level.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
-                level.SpawnCarts(cartRef, MVZ2Level.CART_START_X, 20);
+                level.SpawnCarts(cartRef, BuiltinLevel.CART_START_X, 20);
             }
         }
         public override void PostEnemySpawned(Entity entity)
@@ -137,13 +137,13 @@ namespace MVZ2.GameContent.Stages
         }
         public FrameTimer GetWaveTimer(LevelEngine level) => level.GetProperty<FrameTimer>("WaveTimer");
         public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetProperty("WaveTimer", value);
-        public int GetWaveMaxTime(LevelEngine level) => level.GetProperty<int>(StageProps.WAVE_MAX_TIME);
-        public int GetWaveAdvanceTime(LevelEngine level) => level.GetProperty<int>(StageProps.WAVE_ADVANCE_TIME);
+        public int GetWaveMaxTime(LevelEngine level) => level.GetProperty<int>(BuiltinStageProps.WAVE_MAX_TIME);
+        public int GetWaveAdvanceTime(LevelEngine level) => level.GetProperty<int>(BuiltinStageProps.WAVE_ADVANCE_TIME);
 
         public float GetWaveMaxHealth(LevelEngine level) => level.GetProperty<float>("WaveMaxHealth");
         public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetProperty("WaveMaxHealth", value);
         public void AddWaveMaxHealth(LevelEngine level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
-        public float GetWaveAdvanceHealthPercent(LevelEngine level) => level.GetProperty<float>(StageProps.WAVE_ADVANCE_HEALTH_PERCENT);
+        public float GetWaveAdvanceHealthPercent(LevelEngine level) => level.GetProperty<float>(BuiltinStageProps.WAVE_ADVANCE_HEALTH_PERCENT);
         protected virtual void NotStartedUpdate(LevelEngine level)
         {
             var waveTimer = GetWaveTimer(level);
@@ -247,7 +247,7 @@ namespace MVZ2.GameContent.Stages
         }
         private bool IsAliveEnemy(Entity entity)
         {
-            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(EnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
+            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(BuiltinEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
         }
         private void NextWaveOrHugeWave(LevelEngine level)
         {
@@ -264,7 +264,7 @@ namespace MVZ2.GameContent.Stages
             var waveTimer = GetWaveTimer(level);
             waveTimer.MaxFrame = 180;
             waveTimer.Reset();
-            VanillaCallbacks.PostHugeWaveApproach.Run(level);
+            BuiltinCallbacks.PostHugeWaveApproach.Run(level);
         }
         private void NextWave(LevelEngine level)
         {
@@ -275,7 +275,7 @@ namespace MVZ2.GameContent.Stages
             waveTimer.Reset();
             if (level.IsFinalWave(level.CurrentWave))
             {
-                VanillaCallbacks.PostFinalWave.Run(level);
+                BuiltinCallbacks.PostFinalWave.Run(level);
                 level.WaveState = STATE_FINAL_WAVE;
             }
         }
@@ -285,11 +285,6 @@ namespace MVZ2.GameContent.Stages
         public const int STATE_FINAL_WAVE = 3;
         private EnemySpawnEntry[] spawnEntries;
 
-    }
-    public interface IPreviewStage
-    {
-        void CreatePreviewEnemies(LevelEngine level, Rect rect);
-        void RemovePreviewEnemies(LevelEngine level);
     }
     [Serializable]
     public class EnemySpawnEntry : IEnemySpawnEntry

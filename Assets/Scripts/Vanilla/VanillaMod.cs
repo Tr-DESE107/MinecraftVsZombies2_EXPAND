@@ -4,6 +4,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Game;
 using PVZEngine.Level;
@@ -20,7 +21,16 @@ namespace MVZ2.Vanilla
 
             LevelCallbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
             LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
-            VanillaCallbacks.TalkAction.Add(TalkAction);
+            BuiltinCallbacks.TalkAction.Add(TalkAction);
+        }
+        public override void Init(Game game)
+        {
+            base.Init(game);
+            var saveManager = MainManager.Instance.SaveManager;
+            if (saveManager.GetDifficulty() == null)
+            {
+                saveManager.SetDifficulty(LevelDifficulty.normal);
+            }
         }
         protected void LoadFromAssemblies(Assembly[] assemblies)
         {
@@ -33,8 +43,11 @@ namespace MVZ2.Vanilla
                     {
                         var name = definitionAttr.Name;
                         var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
-                        var definition = constructor?.Invoke(new object[] { Namespace, name });
-                        AddDefinitionByObject(definition, name);
+                        var definitionObj = constructor?.Invoke(new object[] { Namespace, name });
+                        if (definitionObj is Definition def)
+                        {
+                            AddDefinition(def);
+                        }
                         var seedEntityAttr = type.GetCustomAttribute<EntitySeedDefinitionAttribute>();
                         if (seedEntityAttr != null)
                         {
@@ -45,13 +58,13 @@ namespace MVZ2.Vanilla
                                 seedEntityAttr.RechargeID,
                                 seedEntityAttr.TriggerActive,
                                 seedEntityAttr.TriggerCost);
-                            AddDefinition(seedDefinitions, name, seedDef);
+                            AddDefinition(seedDef);
                         }
                         var spawnDefAttr = type.GetCustomAttribute<SpawnDefinitionAttribute>();
                         if (spawnDefAttr != null)
                         {
                             var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
-                            AddDefinition(spawnDefinitions, name, spawnDef);
+                            AddDefinition(spawnDef);
                         }
                     }
                 }
@@ -71,7 +84,7 @@ namespace MVZ2.Vanilla
                     new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
                 }
             );
-            classicStage.SetProperty(StageProps.START_TALK, TalkID.tutorial);
+            classicStage.SetProperty(BuiltinStageProps.START_TALK, TalkID.tutorial);
             AddStage(classicStage);
         }
         private void AddClassicStage(string name, int totalFlags, params EnemySpawnEntry[] enemySpawnEntries)
@@ -80,7 +93,7 @@ namespace MVZ2.Vanilla
         }
         private void AddStage(StageDefinition definition)
         {
-            AddDefinition(stageDefinitions, definition.Name, definition);
+            AddDefinition(definition);
         }
         private void PostEntityTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {

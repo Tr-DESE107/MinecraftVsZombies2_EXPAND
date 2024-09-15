@@ -12,6 +12,7 @@ namespace MVZ2
         public ModelMetaList ModelMetaList { get; set; }
         public FragmentMetaList FragmentMetaList { get; set; }
         public TalkCharacterMetaList TalkCharacterMetaList { get; set; }
+        public DifficultyMetaList DifficultyMetaList { get; set; }
         public Dictionary<NamespaceID, AudioClip> Sounds = new();
         public Dictionary<NamespaceID, AudioClip> Musics = new();
         public Dictionary<NamespaceID, Model> Models = new();

@@ -10,6 +10,7 @@ namespace PVZEngine.Definitions
         {
             SetProperty(AreaProperties.ENEMY_SPAWN_X, 1080);
         }
+        public virtual void Init(LevelEngine level) { }
         public NamespaceID[] GetGridDefintionsID()
         {
             return grids.ToArray();

@@ -2,11 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using MVZ2.GameContent;
-using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Seeds;
-using MVZ2.GameContent.Stages;
 using MVZ2.Level.UI;
 using MVZ2.Talk;
 using MVZ2.UI;
@@ -26,10 +24,9 @@ namespace MVZ2.Level
     public class LevelController : MonoBehaviour
     {
         #region 公有方法
-        public void InitGame(Game game)
+        public void InitGame(Game game, NamespaceID areaID, NamespaceID stageID)
         {
-            var vanilla = new Vanilla.VanillaMod(game);
-            level = new LevelEngine(game);
+            level = new LevelEngine(game, game);
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
@@ -46,8 +43,8 @@ namespace MVZ2.Level
             level.OnHideAdvice += Logic_OnHideAdviceCallback;
             game.SetLevel(level);
 
-            VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
-            VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
+            BuiltinCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
+            BuiltinCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
 
             var option = new LevelOption()
             {
@@ -59,9 +56,9 @@ namespace MVZ2.Level
                 MaxEnergy = 9990,
                 TPS = 30
             };
-            level.Init(AreaID.day, StageID.prologue, option);
-
-            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
+            level.Init(areaID, stageID, option);
+            StartAreaID = areaID;
+            StartStageID = stageID;
 
             var startTalk = level.GetStartTalk();
             if (startTalk != null)
@@ -73,15 +70,7 @@ namespace MVZ2.Level
                 BeginLevel();
             }
 
-            level.SetSeedPacks(new NamespaceID[]
-            {
-                ContraptionID.dispenser,
-                ContraptionID.furnace,
-                ContraptionID.obsidian,
-                ContraptionID.mineTNT,
-                EnemyID.zombie,
-                null
-            });
+            level.SetSeedPacks(MainManager.LevelManager.GetSeedPacksID());
 
         }
         public void PlayReadySetBuild()
@@ -98,7 +87,7 @@ namespace MVZ2.Level
             {
                 preview.RemovePreviewEnemies(level);
             }
-            level.Start(LevelDifficulty.Normal);
+            level.Start(MainManager.LevelManager.GetDifficulty());
 
             main.MusicManager.Play(level.GetMusicID());
 
@@ -528,35 +517,25 @@ namespace MVZ2.Level
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            VanillaCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
+            BuiltinCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
         }
-        private void OnTalkEndCallback(string mode)
+        private void OnTalkEndCallback(NamespaceID mode)
         {
-            switch (mode)
+            var talkEndDefinition = Game.GetTalkEndDefinition(mode);
+            if (talkEndDefinition != null)
             {
-                case "start_tutorial":
-                    level.ChangeStage(StageID.tutorial);
-                    level.BeginLevel(LevelTransitions.TO_LAWN);
-                    break;
-                case "start_starshard_tutorial":
-                    level.ChangeStage(StageID.starshard_tutorial);
-                    level.BeginLevel(LevelTransitions.TO_LAWN);
-                    break;
-                case "start_trigger_tutorial":
-                    level.ChangeStage(StageID.trigger_tutorial);
-                    level.BeginLevel(LevelTransitions.TO_LAWN);
-                    break;
-
-                default:
-                    if (level.IsCleared)
-                    {
-                        ExitLevel();
-                    }
-                    else
-                    {
-                        level.BeginLevel(LevelTransitions.DEFAULT);
-                    }
-                    break;
+                talkEndDefinition.Execute(level);
+            }
+            else
+            {
+                if (level.IsCleared)
+                {
+                    ExitLevel();
+                }
+                else
+                {
+                    level.BeginLevel(LevelTransitions.DEFAULT);
+                }
             }
         }
         private void OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
@@ -917,22 +896,29 @@ namespace MVZ2.Level
         }
         private void UpdateLevelName()
         {
-            var levelUI = GetLevelUI();
-            if (!levelNames.TryGetValue(level.StageDefinition.GetID(), out var name))
+            string name = level.GetLevelName();
+            if (string.IsNullOrEmpty(name))
             {
                 name = StringTable.LEVEL_NAME_UNKNOWN;
             }
+            var levelUI = GetLevelUI();
             var levelName = main.LanguageManager._p(StringTable.CONTEXT_LEVEL_NAME, name);
             levelUI.SetLevelName(levelName);
         }
         private void UpdateDifficultyName()
         {
-            var levelUI = GetLevelUI();
-            if (!difficultyNames.TryGetValue(level.Difficulty, out var name))
+            string name;
+            var diffMeta = main.ResourceManager.GetDifficultyMeta(level.Difficulty);
+            if (diffMeta != null)
+            {
+                name = diffMeta.name;
+            }
+            else
             {
                 name = StringTable.DIFFICULTY_UNKNOWN;
             }
             var difficultyName = main.LanguageManager._p(StringTable.CONTEXT_DIFFICULTY, name);
+            var levelUI = GetLevelUI();
             levelUI.SetDifficulty(difficultyName);
         }
         private void SwitchSpeedUp()
@@ -1066,16 +1052,25 @@ namespace MVZ2.Level
             var levelUI = GetLevelUI();
             levelUI.SetGameOverDialogInteractable(false);
             await main.LevelManager.GotoLevelScene();
-            main.LevelManager.StartLevel();
+            main.LevelManager.StartLevel(StartAreaID, StartStageID);
         }
 
         #region 游戏结束
         private void ShowGameOverDialog()
         {
-            var message = killerID != null ? DeathMessages.GetByEntityID(killerID) : deathMessage;
+            string message;
+            if (killerID != null)
+            {
+                var entityDef = Game.GetEntityDefinition(killerID);
+                message = entityDef.GetDeathMessage();
+            }
+            else
+            {
+                message = deathMessage;
+            }
             var levelUI = GetLevelUI();
             levelUI.SetGameOverDialogActive(true);
-            levelUI.SetGameOverDialogMessage(main.LanguageManager._p(DeathMessages.CONTEXT, message));
+            levelUI.SetGameOverDialogMessage(main.LanguageManager._p(StringTable.CONTEXT_DEATH_MESSAGE, message));
         }
         private void SetGameOver()
         {
@@ -1127,7 +1122,7 @@ namespace MVZ2.Level
             main.MusicManager.Play(MusicID.choosing);
             if (level.StageDefinition is IPreviewStage preview)
             {
-                preview.CreatePreviewEnemies(level, MVZ2Level.GetEnemySpawnRect());
+                preview.CreatePreviewEnemies(level, BuiltinLevel.GetEnemySpawnRect());
             }
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
@@ -1175,16 +1170,8 @@ namespace MVZ2.Level
         public const int MaxEnemyCryCount = 20;
         public const int MinCryInterval = 60;
         public const int MaxCryInterval = 300;
-        public static Dictionary<NamespaceID, string> levelNames = new Dictionary<NamespaceID, string>()
-        {
-            { StageID.prologue, StringTable.LEVEL_NAME_PROLOGUE }
-        };
-        public static Dictionary<int, string> difficultyNames = new Dictionary<int, string>()
-        {
-            { LevelDifficulty.Easy, StringTable.DIFFICULTY_EASY },
-            { LevelDifficulty.Normal, StringTable.DIFFICULTY_NORMAL },
-            { LevelDifficulty.Hard, StringTable.DIFFICULTY_HARD },
-        };
+        public NamespaceID StartAreaID { get; private set; }
+        public NamespaceID StartStageID { get; private set; }
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;
         public MainManager MainManager => main;

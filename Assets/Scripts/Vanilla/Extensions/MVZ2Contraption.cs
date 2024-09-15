@@ -7,30 +7,6 @@ namespace MVZ2.Vanilla
 {
     public static class MVZ2Contraption
     {
-        public static bool CanEvoke(this Entity contraption)
-        {
-            if (contraption.Definition is IEvokableContraption evokable)
-            {
-                return evokable.CanEvoke(contraption);
-            }
-            return false;
-        }
-        public static void Evoke(this Entity contraption)
-        {
-            if (contraption.Definition is IEvokableContraption evokable)
-            {
-                evokable.Evoke(contraption);
-            }
-            VanillaCallbacks.PostContraptionEvoked.Run(contraption);
-        }
-        public static bool IsEvoked(this Entity contraption)
-        {
-            return contraption.GetProperty<bool>("Evoked");
-        }
-        public static void SetEvoked(this Entity contraption, bool value)
-        {
-            contraption.SetProperty("Evoked", value);
-        }
         public static bool IsFloor(this Entity contraption)
         {
             return contraption.GetProperty<bool>(ContraptionProps.IS_FLOOR);

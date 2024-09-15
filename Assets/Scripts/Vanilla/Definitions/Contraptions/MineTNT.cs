@@ -18,8 +18,8 @@ namespace MVZ2.GameContent.Contraptions
         public MineTNT(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.SHELL, ShellID.grass);
-            SetProperty(EntityProps.PLACE_SOUND, SoundID.grass);
-            SetProperty(EntityProps.DEATH_SOUND, SoundID.grass);
+            SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.grass);
+            SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.grass);
             SetProperty(EntityProperties.SIZE, new Vector3(48, 24, 48));
         }
         public override void Init(Entity entity)

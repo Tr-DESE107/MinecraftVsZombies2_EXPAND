@@ -23,7 +23,7 @@ namespace PVZEngine.Serialization
         public NamespaceID stageDefinitionID;
         public NamespaceID areaDefinitionID;
         public bool isEndless;
-        public int difficulty;
+        public NamespaceID difficulty;
         public SerializableLevelOption Option;
         public SerializableRNG levelRandom;
         public SerializableRNG entityRandom;

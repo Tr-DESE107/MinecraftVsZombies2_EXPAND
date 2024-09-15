@@ -32,7 +32,7 @@ namespace MVZ2.Vanilla
         public abstract bool IsInRange(Entity self, Entity target);
         protected bool TargetInLawn(Entity target)
         {
-            return target.Pos.x > MVZ2Level.GetAttackBorderX(false) && target.Pos.x < MVZ2Level.GetAttackBorderX(true);
+            return target.Pos.x > BuiltinLevel.GetAttackBorderX(false) && target.Pos.x < BuiltinLevel.GetAttackBorderX(true);
         }
         public bool canDetectInvisible;
         public bool ignoreBoss;

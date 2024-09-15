@@ -19,7 +19,7 @@ namespace MVZ2.Vanilla
             SetProperty(EntityProperties.FRICTION, 0.2f);
             SetProperty(EntityProperties.SHELL, ShellID.stone);
             SetProperty(EntityProperties.FALL_DAMAGE, 22.5f);
-            SetProperty(EntityProps.DEATH_SOUND, SoundID.stone);
+            SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.stone);
             SetProperty(ContraptionProps.FRAGMENT, GetID());
         }
         public override void Init(Entity entity)
@@ -112,11 +112,6 @@ namespace MVZ2.Vanilla
         }
         public override int Type => EntityTypes.PLANT;
 
-    }
-    public interface IEvokableContraption
-    {
-        bool CanEvoke(Entity contraption);
-        void Evoke(Entity contraption);
     }
     public class GradientInfo
     {

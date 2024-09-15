@@ -10,8 +10,8 @@ namespace MVZ2.Vanilla
     {
         protected VanillaProjectile(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProps.MAX_TIMEOUT, 1800);
-            SetProperty(EntityProps.CHANGE_LANE_SPEED, 10f);
+            SetProperty(BuiltinEntityProps.MAX_TIMEOUT, 1800);
+            SetProperty(BuiltinEntityProps.CHANGE_LANE_SPEED, 10f);
         }
 
         public override void Init(Entity entity)

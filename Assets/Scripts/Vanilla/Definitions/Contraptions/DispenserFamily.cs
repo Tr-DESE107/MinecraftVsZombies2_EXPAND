@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Contraptions
         public DispenserFamily(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EntityProperties.DAMAGE, 20);
-            SetProperty(EntityProps.PLACE_SOUND, SoundID.stone);
+            SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
             detector = new DispenserDetector()
             {
                 ignoreHighEnemy = true,
