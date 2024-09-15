@@ -140,7 +140,7 @@ msgstr "And instead of steel balls, it's Occult Balls!"
 
 msgctxt "talk-mvz2:dream.6"
 msgid "当然不是我，而是你！"
-msgstr "And instead of ME, it's YOU!"
+msgstr "And instead of energy, it's YOU!"
 
 msgctxt "talk-mvz2:dream.6.name"
 msgid "梦境世界第6天入场"
@@ -1975,9 +1975,9 @@ msgstr "Say hello to our little friend!"
 
 msgctxt "talk-mvz2:halloween_over.1"
 msgid ""
-"小型发射器不需要机械能就能放置，能够喷射短距离的雪球，是夜晚的一大利器！"
+"小型发射器不需要能量就能放置，能够喷射短距离的雪球，是夜晚的一大利器！"
 msgstr ""
-"Small Dispensers don't need ME to be placed. They can shoot short-ranged "
+"Small Dispensers don't need energy to be placed. They can shoot short-ranged "
 "snowballs and are great contraptions for nighttime!"
 
 msgctxt "talk-mvz2:halloween_over.1"
@@ -2018,14 +2018,14 @@ msgid "嘿！这是月光传感器！"
 msgstr "Hey! This is Moonlight Sensor!"
 
 msgctxt "talk-mvz2:halloween_over.2"
-msgid "它能依靠月光或黑暗，自动为你增加机械能！而且一段时间后会提高生产量！"
+msgid "它能依靠月光或黑暗，自动为你增加能量！而且一段时间后会提高生产量！"
 msgstr ""
-"It can automatically produce ME under the moonlight or in darkness! \n"
+"It can automatically produce energy under the moonlight or in darkness! \n"
 "And it increases its yield after a while!"
 
 msgctxt "talk-mvz2:halloween_over.2"
 msgid "因为它的廉价，用它来代替熔炉吧！"
-msgstr "You should use it instead of Furnaces, for its low ME cost!"
+msgstr "You should use it instead of Furnaces, for its low energy cost!"
 
 msgctxt "talk-mvz2:halloween_over.2.name"
 msgid "万圣夜第2天结束"

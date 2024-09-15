@@ -412,9 +412,9 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "2")]
         public const string STRING_STATE_2 = "干得漂亮！";
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "3")]
-        public const string STRING_STATE_3 = "点击红石收集机械能！";
+        public const string STRING_STATE_3 = "点击红石收集能量！";
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "4")]
-        public const string STRING_STATE_4 = "收集足够的机械能来放置器械！";
+        public const string STRING_STATE_4 = "收集足够的能量来放置器械！";
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "5")]
         public const string STRING_STATE_5 = "用发射器干掉僵尸！";
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "6")]

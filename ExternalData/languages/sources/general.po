@@ -804,8 +804,8 @@ msgid "点击并放置TNT！"
 msgstr "Click and place TNT!"
 
 msgctxt "advice.trigger_tutorial.1"
-msgid "左键点击机械能面板选中触发器！"
-msgstr "Click the ME Panel to select Trigger!"
+msgid "左键点击能量面板选中触发器！"
+msgstr "Click the Energy Panel to select Trigger!"
 
 msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
@@ -856,12 +856,12 @@ msgid "干得漂亮！"
 msgstr "Nicely done!"
 
 msgctxt "advice.tutorial.3"
-msgid "点击红石收集机械能！"
-msgstr "Click redstone to collect ME (Mechanical Energy)!"
+msgid "点击红石收集能量！"
+msgstr "Click redstone to collect energy!"
 
 msgctxt "advice.tutorial.4"
-msgid "收集足够的机械能来放置器械！"
-msgstr "Collect enough ME to place contraptions!"
+msgid "收集足够的能量来放置器械！"
+msgstr "Collect enough energy to place contraptions!"
 
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
@@ -996,8 +996,8 @@ msgstr "Cannot be used"
 msgid "已锁定"
 msgstr "Locked"
 
-msgid "机械能不足"
-msgstr "Not enough ME"
+msgid "能量不足"
+msgstr "Not enough energy"
 
 msgid "触发器械"
 msgstr "Trigger a contraption"

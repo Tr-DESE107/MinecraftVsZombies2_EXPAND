@@ -26,7 +26,7 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">这位是我们的老朋友，小型发射器！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">和我们的小伙伴打个招呼吧！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">小型发射器不需要机械能就能放置，能够喷射短距离的雪球，是夜晚的一大利器！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">小型发射器不需要能量就能放置，能够喷射短距离的雪球，是夜晚的一大利器！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;createcharacter mvz2:orant right;delay 0.5;next">好好利用吧！</sentence>
         <sentence speaker="mvz2:orant" description="mvz2:archive.orant_appears" sounds="mvz2:talk" onClick="end">……你们是？</sentence>
       </sentences>
@@ -80,7 +80,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿！这是月光传感器！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能依靠月光或黑暗，自动为你增加机械能！而且一段时间后会提高生产量！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能依靠月光或黑暗，自动为你增加能量！而且一段时间后会提高生产量！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">因为它的廉价，用它来代替熔炉吧！</sentence>
       </sentences>
     </section>
