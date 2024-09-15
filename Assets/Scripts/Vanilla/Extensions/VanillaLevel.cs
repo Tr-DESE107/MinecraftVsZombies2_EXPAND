@@ -44,7 +44,7 @@ namespace MVZ2.Vanilla
         }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
-            if (level.GetHeldItemType() != HeldTypes.pickaxe)
+            if (level.GetHeldItemType() != HeldTypes.blueprint)
                 return null;
             var seed = level.GetSeedPackAt(level.GetHeldItemID());
             if (seed == null)

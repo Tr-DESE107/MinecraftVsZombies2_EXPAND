@@ -324,6 +324,11 @@ namespace MVZ2.Level
             Model.RendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.RenderScale;
+            if (Entity.IsCollected())
+            {
+                Model.RendererGroup.SortingLayerID = SortingLayers.frontUI;
+                Model.RendererGroup.SortingOrder = 9999;
+            }
         }
         private Color GetColorOffset()
         {

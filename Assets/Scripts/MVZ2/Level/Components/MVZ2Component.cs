@@ -9,6 +9,13 @@ namespace MVZ2.Level
         {
             Controller = controller;
         }
+        public override ISerializableLevelComponent ToSerializable()
+        {
+            return new EmptySerializableLevelComponent();
+        }
+        public override void LoadSerializable(ISerializableLevelComponent seri)
+        {
+        }
         protected MainManager Main => MainManager.Instance;
         public LevelController Controller { get; private set; }
     }

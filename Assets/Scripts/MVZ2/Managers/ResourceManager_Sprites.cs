@@ -9,7 +9,7 @@ namespace MVZ2
     {
         public Sprite GetSprite(string nsp, string path)
         {
-            return GetSprite(nsp, path);
+            return GetSprite(new NamespaceID(nsp, path));
         }
         public Sprite GetSprite(NamespaceID id)
         {

@@ -1,5 +1,6 @@
 using System;
 using MVZ2.UI;
+using PVZEngine.Level;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -31,6 +32,10 @@ namespace MVZ2.Level.UI
         public void SetEnergyVisible(bool value)
         {
             energyPanel.SetActive(value);
+        }
+        public void SetTriggerSlotVisible(bool value)
+        {
+            triggerSlot.SetActive(value);
         }
         public void SetEnergy(string value)
         {
@@ -241,6 +246,35 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region 提示箭头
+        public void SetHintArrowPointToBlueprint(int index)
+        {
+            var blueprint = blueprints.GetBlueprintAt(index);
+            if (!blueprint)
+            {
+                HideHintArrow();
+                return;
+            }
+            hintArrow.SetVisible(true);
+            hintArrow.SetTarget(blueprint.transform, hintArrowOffsetBlueprint * 0.01f, hintArrowAngleBlueprint);
+        }
+        public void SetHintArrowPointToPickaxe()
+        {
+            hintArrow.SetVisible(true);
+            var pickaxe = pickaxeSlot;
+            hintArrow.SetTarget(pickaxe.transform, hintArrowOffsetPickaxe * 0.01f, hintArrowAnglePickaxe);
+        }
+        public void SetHintArrowPointToEntity(Transform transform, float height)
+        {
+            hintArrow.SetVisible(true);
+            hintArrow.SetTarget(transform, new Vector2(0, height + 16) * 0.01f, 180);
+        }
+        public void HideHintArrow()
+        {
+            hintArrow.SetVisible(false);
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -312,6 +346,8 @@ namespace MVZ2.Level.UI
         [Header("Blueprints")]
         [SerializeField]
         EnergyPanel energyPanel;
+        [SerializeField]
+        TriggerSlot triggerSlot;
         [SerializeField]
         BlueprintList blueprints;
         [SerializeField]
@@ -388,6 +424,18 @@ namespace MVZ2.Level.UI
         GameObject adviceObject;
         [SerializeField]
         TextMeshProUGUI adviceText;
+
+        [Header("Hint Arrow")]
+        [SerializeField]
+        HintArrow hintArrow;
+        [SerializeField]
+        Vector2 hintArrowOffsetBlueprint;
+        [SerializeField]
+        Vector2 hintArrowOffsetPickaxe;
+        [SerializeField]
+        float hintArrowAngleBlueprint;
+        [SerializeField]
+        float hintArrowAnglePickaxe;
         #endregion
 
         #region 内嵌类

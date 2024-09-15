@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MVZ2.Vanilla;
 using PVZEngine.Game;
 using UnityEngine;
+using static MVZ2.Level.LevelController;
 
 namespace MVZ2
 {
@@ -20,6 +21,24 @@ namespace MVZ2
             SaveManager.LoadSaveData();
 
             ModManager.InitMods(Game);
+        }
+        public bool IsMobile()
+        {
+#if UNITY_EDITOR
+            switch (platformMode)
+            {
+                case PlatformMode.Mobile:
+                    return true;
+                case PlatformMode.Standalone:
+                    return false;
+            }
+#endif
+
+#if UNITY_ANDROID || UNITY_IOS
+            return true;
+#else
+            return false;
+#endif
         }
         private void Awake()
         {
@@ -58,6 +77,8 @@ namespace MVZ2
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]
+        private PlatformMode platformMode = PlatformMode.Default;
+        [SerializeField]
         private ResourceManager resource;
         [SerializeField]
         private ModelManager model;
@@ -81,6 +102,12 @@ namespace MVZ2
         private TalkManager talk;
         [SerializeField]
         private MainSceneController scene;
+        public enum PlatformMode
+        {
+            Default,
+            Mobile,
+            Standalone
+        }
     }
     public class DuplicateInstanceException : Exception
     {

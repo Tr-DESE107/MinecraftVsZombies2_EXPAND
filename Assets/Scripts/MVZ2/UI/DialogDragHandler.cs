@@ -11,13 +11,17 @@ namespace MVZ2.UI
         {
             if (!eventData.pointerCurrentRaycast.isValid)
                 return;
+            dragTarget.GetComponentsInParent<Canvas>(true, canvasListCache);
+            var rootCanvas = canvasListCache.LastOrDefault();
+            if (rootCanvas == null)
+                return;
             dragging = true;
-            var worldPos = eventData.pointerCurrentRaycast.worldPosition;
-            lastDragWorldPos = worldPos;
+            var worldPos = rootCanvas.worldCamera.ScreenToWorldPoint(eventData.position);
+            dragTargetOffset = worldPos - dragTarget.position;
         }
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
-            if (!eventData.pointerCurrentRaycast.isValid || !dragging)
+            if (!dragging)
                 return;
             canvasListCache.Clear();
             dragTarget.GetComponentsInParent<Canvas>(true, canvasListCache);
@@ -26,9 +30,8 @@ namespace MVZ2.UI
                 return;
             RectTransform rootCanvasRectTransform = rootCanvas.transform as RectTransform;
 
-            var worldPos = eventData.pointerCurrentRaycast.worldPosition;
-            dragTarget.position += worldPos - lastDragWorldPos;
-            lastDragWorldPos = worldPos;
+            var worldPos = rootCanvas.worldCamera.ScreenToWorldPoint(eventData.position);
+            dragTarget.position = worldPos - dragTargetOffset;
 
 
             var rootCanvasWorldRect = rootCanvasRectTransform.GetWorldRect();
@@ -52,7 +55,7 @@ namespace MVZ2.UI
         [SerializeField]
         private RectTransform dragTarget;
         private bool dragging;
-        private Vector3 lastDragWorldPos;
+        private Vector3 dragTargetOffset;
         private List<Canvas> canvasListCache = new List<Canvas>();
     }
 }

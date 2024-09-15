@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Buffs.SeedPack;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Level;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
@@ -20,6 +22,7 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
             level.SetProperty(PROP_TUTORIAL_RNG, new RandomGenerator(level.Seed));
+            level.SetEnergy(150);
             StartState(level, STATE_CLICK_DISPENSER);
         }
         public override void Update(LevelEngine level)
@@ -73,19 +76,36 @@ namespace MVZ2.GameContent.Stages
             var context = string.Format(CONTEXT_STATE, state);
             var advice = level.Translator.GetTextParticular(textKey, context);
 
-            var adviceComp = level.GetComponent<AdviceComponent>();
-            adviceComp.ShowAdvice(advice, 1000, -1);
+            level.ShowAdvice(advice, 1000, -1);
             switch (state)
             {
                 case STATE_CLICK_DISPENSER:
-                    level.GetSeedPack(ContraptionID.furnace)?.AddBuff<TutorialDisableBuff>();
-                    level.GetSeedPack(ContraptionID.obsidian)?.AddBuff<TutorialDisableBuff>();
-                    level.GetSeedPack(ContraptionID.mineTNT)?.AddBuff<TutorialDisableBuff>();
-                    level.AddBuff<TutorialPickaxeDisableBuff>();
-                    level.SetNoProduction(true);
+                    {
+                        var dispenserSeedPack = level.GetSeedPack(ContraptionID.dispenser);
+                        level.GetSeedPack(ContraptionID.furnace)?.AddBuff<TutorialDisableBuff>();
+                        level.GetSeedPack(ContraptionID.obsidian)?.AddBuff<TutorialDisableBuff>();
+                        level.GetSeedPack(ContraptionID.mineTNT)?.AddBuff<TutorialDisableBuff>();
+                        level.AddBuff<TutorialPickaxeDisableBuff>();
+                        level.SetNoProduction(true);
+                        level.SetHintArrowPointToBlueprint(dispenserSeedPack.GetIndex());
+                    }
+                    break;
+                case STATE_PLACE_DISPENSER:
+                case STATE_COLLECT_TO_PLACE_DISPENSER:
+                    level.HideHintArrow();
                     break;
                 case STATE_DISPENSER_PLACED:
                     level.SetNoProduction(false);
+                    break;
+                case STATE_COLLECT_REDSTONE:
+                    {
+                        var redstones = level.FindEntities(e => e.Definition.GetID() == PickupID.redstone);
+                        var redstone = redstones.FirstOrDefault();
+                        if (redstone != null)
+                        {
+                            level.SetHintArrowPointToEntity(redstone);
+                        }
+                    }
                     break;
                 case STATE_PLACE_DISPENSER_TO_KILL_ZOMBIE:
                     {
@@ -107,6 +127,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         var buffs = furnace.GetBuffs<TutorialDisableBuff>();
                         furnace.RemoveBuffs(buffs);
+                        level.SetHintArrowPointToBlueprint(furnace.GetIndex());
                     }
                     break;
                 case STATE_PLACE_OBSIDIAN:
@@ -116,6 +137,7 @@ namespace MVZ2.GameContent.Stages
                         {
                             var buffs = obsidian.GetBuffs<TutorialDisableBuff>();
                             obsidian.RemoveBuffs(buffs);
+                            level.SetHintArrowPointToBlueprint(obsidian.GetIndex());
                         }
 
                         int maxLane = level.GetMaxLaneCount();
@@ -146,11 +168,13 @@ namespace MVZ2.GameContent.Stages
                         {
                             var buffs = mineTNT.GetBuffs<TutorialDisableBuff>();
                             mineTNT.RemoveBuffs(buffs);
+                            level.SetHintArrowPointToBlueprint(mineTNT.GetIndex());
                         }
                     }
                     break;
                 case STATE_BLOWS_UP_HELMET_ZOMBIE:
                     {
+                        level.HideHintArrow();
                         var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
                         var lane = GetLaneWithoutDispensers(level);
                         level.SpawnEnemy(spawnDef, lane);
@@ -160,6 +184,13 @@ namespace MVZ2.GameContent.Stages
                     {
                         var buffs = level.GetBuffs<TutorialPickaxeDisableBuff>();
                         level.RemoveBuffs(buffs);
+                        level.SetNoProduction(true);
+                        level.SetHintArrowPointToPickaxe();
+                    }
+                    break;
+                case STATE_DIG_CONTRAPTIONS:
+                    {
+                        level.HideHintArrow();
                     }
                     break;
             }
@@ -216,9 +247,16 @@ namespace MVZ2.GameContent.Stages
                     RunTimer(level);
                     break;
                 case STATE_PLACE_FURNACE:
-                    if (level.EntityExists(ContraptionID.furnace))
                     {
-                        StartState(level, STATE_FURNACE_PLACED);
+                        var heldEntityID = level.GetHeldEntityID();
+                        if (heldEntityID == ContraptionID.furnace)
+                        {
+                            level.HideHintArrow();
+                        }
+                        if (level.EntityExists(ContraptionID.furnace))
+                        {
+                            StartState(level, STATE_FURNACE_PLACED);
+                        }
                     }
                     break;
                 case STATE_PLACE_3_FURNACES:
@@ -228,9 +266,16 @@ namespace MVZ2.GameContent.Stages
                     }
                     break;
                 case STATE_PLACE_OBSIDIAN:
-                    if (level.GetEntities(EntityTypes.ENEMY).Length <= 0)
                     {
-                        StartState(level, STATE_HELMET_ZOMBIE_KILLED);
+                        var heldEntityID = level.GetHeldEntityID();
+                        if (heldEntityID == ContraptionID.obsidian)
+                        {
+                            level.HideHintArrow();
+                        }
+                        if (level.GetEntities(EntityTypes.ENEMY).Length <= 0)
+                        {
+                            StartState(level, STATE_HELMET_ZOMBIE_KILLED);
+                        }
                     }
                     break;
                 case STATE_CLICK_MINE_TNT:
@@ -249,19 +294,39 @@ namespace MVZ2.GameContent.Stages
                     }
                     break;
                 case STATE_HOLD_PICKAXE:
+                    foreach (var pickup in level.GetEntities(EntityTypes.PICKUP))
+                    {
+                        pickup.Timeout = Math.Min(pickup.Timeout, 30);
+                    }
                     if (level.GetHeldItemType() == HeldTypes.pickaxe)
                     {
                         StartState(level, STATE_DIG_CONTRAPTIONS);
                     }
                     break;
                 case STATE_DIG_CONTRAPTIONS:
+                    foreach (var pickup in level.GetEntities(EntityTypes.PICKUP))
+                    {
+                        pickup.Timeout = Math.Min(pickup.Timeout, 30);
+                    }
                     if (level.GetEntities(EntityTypes.PLANT).Length <= 0)
                     {
                         foreach (var particle in level.FindEntities(EffectID.fragment))
                         {
                             particle.Remove();
                         }
-                        level.Stop();
+                        level.StopLevel();
+                        level.HideAdvice();
+                        level.SetEnergy(level.Option.StartEnergy);
+                        foreach (var seedPack in level.GetAllSeedPacks())
+                        {
+                            if (seedPack == null)
+                                continue;
+                            seedPack.ResetRecharge();
+                            seedPack.SetStartRecharge(true);
+                        }
+                        level.SetNoProduction(false);
+                        level.ChangeStage(StageID.prologue);
+                        level.StartTalk(TalkID.tutorial, 3, 2);
                     }
                     break;
             }

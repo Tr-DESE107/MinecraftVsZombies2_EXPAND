@@ -29,6 +29,10 @@ namespace MVZ2.Level.UI
                 blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
             });
         }
+        public Blueprint GetBlueprintAt(int index)
+        {
+            return blueprints.getElement<Blueprint>(index);
+        }
         public void SetRecharges(float[] recharges)
         {
             for (int i = 0; i < blueprints.count; i++)

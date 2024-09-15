@@ -29,17 +29,15 @@ namespace MVZ2.Level
 
             level.AddComponent(new AdviceComponent(level, this));
             level.AddComponent(new HeldItemComponent(level, this));
+            level.AddComponent(new UIComponent(level, this));
+            level.AddComponent(new LogicComponent(level, this));
+            level.AddComponent(new SoundComponent(level, this));
+            level.AddComponent(new TalkComponent(level, this));
 
-            level.OnEntitySpawn += OnEntitySpawnCallback;
-            level.OnEntityRemove += OnEntityRemoveCallback;
-            level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
-            level.OnPlaySound += OnPlaySoundCallback;
-            level.OnShakeScreen += OnShakeScreenCallback;
-            level.OnGameOver += OnGameOverCallback;
+            level.OnEntitySpawn += Engine_OnEntitySpawnCallback;
+            level.OnEntityRemove += Engine_OnEntityRemoveCallback;
+            level.OnGameOver += Engine_OnGameOverCallback;
 
-            level.OnShowDialog += Logic_OnShowDialogCallback;
-            level.OnShowMoney += Logic_OnShowMoneyCallback;
-            level.OnBeginLevel += Logic_OnBeginLevelCallback;
             game.SetLevel(level);
 
             BuiltinCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
@@ -62,7 +60,7 @@ namespace MVZ2.Level
             var startTalk = level.GetStartTalk();
             if (startTalk != null)
             {
-                talkController.StartTalk(startTalk, 0, 2);
+                StartTalk(startTalk, 0, 2);
             }
             else
             {
@@ -70,7 +68,6 @@ namespace MVZ2.Level
             }
 
             level.SetSeedPacks(MainManager.LevelManager.GetSeedPacksID());
-
         }
         public void PlayReadySetBuild()
         {
@@ -86,12 +83,13 @@ namespace MVZ2.Level
             {
                 preview.RemovePreviewEnemies(level);
             }
-            level.Start(MainManager.LevelManager.GetDifficulty());
 
             main.MusicManager.Play(level.GetMusicID());
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
+
+            level.SetDifficulty(MainManager.LevelManager.GetDifficulty());
 
             //level.SetEnergy(9990);
             //level.RechargeSpeed = 99;
@@ -103,6 +101,8 @@ namespace MVZ2.Level
             UpdateBlueprints();
             UpdateLevelName();
             UpdateDifficultyName();
+
+            level.Start();
 
             isGameStarted = true;
         }
@@ -121,7 +121,7 @@ namespace MVZ2.Level
         public void GameOver(Entity killer)
         {
             killerID = killer.Definition.GetID();
-            killerEntity = entities.FirstOrDefault(e => e.Entity == killer);
+            killerEntity = GetEntityController(killer);
             SetGameOver();
             StartCoroutine(GameOverByEnemyTransition());
         }
@@ -136,6 +136,30 @@ namespace MVZ2.Level
             this.deathMessage = deathMessage;
             SetGameOver();
             ShowGameOverDialog();
+        }
+        public void BeginLevel()
+        {
+            BeginLevel(LevelTransitions.DEFAULT);
+        }
+        public void BeginLevel(string transition)
+        {
+            if (transition == LevelTransitions.TO_LAWN)
+            {
+                StartCoroutine(GameStartToLawnTransition());
+            }
+            else
+            {
+                StartCoroutine(GameStartTransition());
+            }
+        }
+        public void StopLevel()
+        {
+            SetUIVisibleState(VisibleState.Nothing);
+            isGameStarted = false;
+        }
+        public EntityController GetEntityController(Entity entity)
+        {
+            return entities.FirstOrDefault(e => e.Entity == entity);
         }
         public Vector3 LawnToTrans(Vector3 pos)
         {
@@ -152,6 +176,13 @@ namespace MVZ2.Level
             return vector;
         }
 
+        #region 对话
+        public void StartTalk(NamespaceID groupId, int section, float delay = 0)
+        {
+            talkController.StartTalk(groupId, section, delay);
+        }
+        #endregion
+
         #region 手持物品
         public void SetHeldItemUI(NamespaceID heldType, int id, int priority, bool noCancel)
         {
@@ -160,7 +191,7 @@ namespace MVZ2.Level
             LayerMask layerMask = Layers.GetMask(Layers.DEFAULT, Layers.PICKUP);
             if (heldType == HeldTypes.blueprint)
             {
-                icon = GetBlueprintIcon(id);
+                icon = GetHeldItemIcon(id);
                 layerMask = Layers.GetMask(Layers.GRID, Layers.RAYCAST_RECEIVER);
             }
             else if (heldType == HeldTypes.pickaxe)
@@ -303,6 +334,8 @@ namespace MVZ2.Level
             }
             for (int time = 0; time < times; time++)
             {
+                if (!IsGameRunning())
+                    break;
                 level.Update();
                 foreach (var entity in entities.ToArray())
                 {
@@ -316,7 +349,7 @@ namespace MVZ2.Level
         #region 事件回调
 
         #region 逻辑方
-        private void OnEntitySpawnCallback(Entity entity)
+        private void Engine_OnEntitySpawnCallback(Entity entity)
         {
             var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Pos), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
             entityController.Init(this, entity);
@@ -325,9 +358,9 @@ namespace MVZ2.Level
             entityController.OnPointerDown += OnEntityPointerDownCallback;
             entities.Add(entityController);
         }
-        private void OnEntityRemoveCallback(Entity entity)
+        private void Engine_OnEntityRemoveCallback(Entity entity)
         {
-            var entityController = entities.FirstOrDefault(e => e.Entity == entity);
+            var entityController = GetEntityController(entity);
             if (entityController)
             {
                 entityController.OnPointerEnter -= OnEntityPointerEnterCallback;
@@ -337,19 +370,7 @@ namespace MVZ2.Level
                 entities.Remove(entityController);
             }
         }
-        private void OnPlaySoundPositionCallback(NamespaceID soundID, Vector3 lawnPos, float pitch)
-        {
-            main.SoundManager.Play(soundID, LawnToTrans(lawnPos), pitch, 1);
-        }
-        private void OnPlaySoundCallback(NamespaceID soundID, float pitch)
-        {
-            main.SoundManager.Play(soundID, Vector3.zero, pitch, 0);
-        }
-        private void OnShakeScreenCallback(float startAmplitude, float endAmplitude, int time)
-        {
-            main.ShakeManager.AddShake(startAmplitude * LawnToTransScale, endAmplitude * LawnToTransScale, time / (float)level.TPS);
-        }
-        private void OnGameOverCallback(int type, Entity killer, string message)
+        private void Engine_OnGameOverCallback(int type, Entity killer, string message)
         {
             switch (type)
             {
@@ -363,19 +384,6 @@ namespace MVZ2.Level
                     GameOverInstantly(message);
                     break;
             }
-        }
-        private void Logic_OnShowDialogCallback(string title, string desc, string[] options, Action<int> onSelect)
-        {
-            main.Scene.ShowDialog(title, desc, options, onSelect);
-        }
-        private void Logic_OnShowMoneyCallback()
-        {
-            var levelUI = GetLevelUI();
-            levelUI.ResetMoneyFadeTime();
-        }
-        private void Logic_OnBeginLevelCallback(string transition)
-        {
-            BeginLevel(transition);
         }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
@@ -642,11 +650,39 @@ namespace MVZ2.Level
         {
             if (seedDef == null)
                 return null;
+            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+            {
+                var entityID = seedDef.GetSeedEntityID();
+                if (MainManager.IsMobile())
+                {
+                    return MainManager.ResourceManager.GetSprite(entityID.spacename, $"mobile_blueprint/{entityID.path}");
+                }
+            }
+            return GetHeldItemIcon(seedDef);
+        }
+        private Sprite GetHeldItemIcon(int i)
+        {
+            var seeds = level.GetAllSeedPacks();
+            var seed = seeds[i];
+            return GetHeldItemIcon(seed);
+        }
+        private Sprite GetHeldItemIcon(SeedPack seed)
+        {
+            if (seed == null)
+                return null;
+            var seedDef = seed.Definition;
+            return GetHeldItemIcon(seedDef);
+        }
+        private Sprite GetHeldItemIcon(SeedDefinition seedDef)
+        {
+            if (seedDef == null)
+                return null;
             Sprite sprite = null;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
-                var modelID = seedDef.GetSeedEntityID().ToModelID(ModelID.TYPE_ENTITY);
-                sprite = main.ResourceManager.GetModelIcon(modelID);
+                var entityID = seedDef.GetSeedEntityID();
+                var modelID = entityID.ToModelID(ModelID.TYPE_ENTITY);
+                sprite = MainManager.ResourceManager.GetModelIcon(modelID);
             }
             return sprite;
         }
@@ -698,14 +734,9 @@ namespace MVZ2.Level
             levelUI.ResetPauseDialogPosition();
         }
         #endregion
-
         public LevelUI GetLevelUI()
         {
-#if UNITY_ANDROID || UNITY_IOS
-            return mobileUI;
-#else
-            return standaloneUI;
-#endif
+            return MainManager.IsMobile() ? mobileUI : standaloneUI;
         }
         private void HideGridSprites()
         {
@@ -789,6 +820,7 @@ namespace MVZ2.Level
             levelUI.SetBlueprintsVisible(toolsVisible);
             levelUI.SetPickaxeSlotVisible(toolsVisible);
             levelUI.SetTopRightVisible(toolsVisible);
+            levelUI.SetTriggerSlotVisible(toolsVisible);
 
             var inlevelVisible = state == VisibleState.InLevel;
             levelUI.SetStarshardVisible(inlevelVisible);
@@ -881,21 +913,6 @@ namespace MVZ2.Level
         private bool CanUpdateBeforeGameStart(Entity entity)
         {
             return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
-        }
-        private void BeginLevel()
-        {
-            BeginLevel(LevelTransitions.DEFAULT);
-        }
-        private void BeginLevel(string transition)
-        {
-            if (transition == LevelTransitions.TO_LAWN)
-            {
-                StartCoroutine(GameStartToLawnTransition());
-            }
-            else
-            {
-                StartCoroutine(GameStartTransition());
-            }
         }
         private void ExitLevel()
         {

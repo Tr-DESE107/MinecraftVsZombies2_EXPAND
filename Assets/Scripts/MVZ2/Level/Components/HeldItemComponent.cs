@@ -72,15 +72,6 @@ namespace PVZEngine.Level
         private int heldItemID;
         private int heldItemPriority;
         private bool heldItemNoCancel;
-
-        public override ISerializableLevelComponent ToSerializable()
-        {
-            return new EmptySerializableLevelComponent();
-        }
-
-        public override void LoadSerializable(ISerializableLevelComponent seri)
-        {
-        }
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "heldItem");
     }
     public class EmptySerializableLevelComponent : ISerializableLevelComponent

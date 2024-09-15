@@ -513,14 +513,16 @@ namespace MVZ2.Talk
         {
             new TalkScript()
             {
-                function = "next"
+                function = "next",
+                arguments = Array.Empty<string>()
             }
         };
         private readonly static TalkScript[] defaultSkipScripts = new TalkScript[]
         {
             new TalkScript()
             {
-                function = "end"
+                function = "end",
+                arguments = Array.Empty<string>()
             }
         };
         private MainManager Main => MainManager.Instance;

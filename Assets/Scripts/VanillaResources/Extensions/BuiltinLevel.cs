@@ -9,12 +9,6 @@ namespace MVZ2.Vanilla
 {
     public static class BuiltinLevel
     {
-        public static Vector2 GetEnergySlotEntityPosition()
-        {
-            var x = GetBorderX(false) + ENERGY_SLOT_WIDTH * 0.5f;
-            var y = GetScreenHeight() - ENERGY_SLOT_WIDTH * 0.5f;
-            return new Vector2(x, y);
-        }
         public static Rect GetEnemySpawnRect()
         {
             return new Rect(MIN_PREVIEW_X, MIN_PREVIEW_Y, MAX_PREVIEW_X - MIN_PREVIEW_X, MAX_PREVIEW_Y - MIN_PREVIEW_Y);

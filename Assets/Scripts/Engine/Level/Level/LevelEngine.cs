@@ -79,11 +79,14 @@ namespace PVZEngine.Level
                 grids[i] = new LawnGrid(this, definition, lane, column);
             }
         }
-        public void Start(NamespaceID difficulty)
+        public void Start()
         {
-            Difficulty = difficulty;
             StageDefinition.Start(this);
             LevelCallbacks.PostLevelStart.Run(this);
+        }
+        public void SetDifficulty(NamespaceID difficulty)
+        {
+            Difficulty = difficulty;
         }
         public void ChangeStage(NamespaceID stageId)
         {
