@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
@@ -27,20 +26,20 @@ namespace MVZ2.Level
         public void InitGame(Game game, NamespaceID areaID, NamespaceID stageID)
         {
             level = new LevelEngine(game, game);
+
+            level.AddComponent(new AdviceComponent(level, this));
+            level.AddComponent(new HeldItemComponent(level, this));
+
             level.OnEntitySpawn += OnEntitySpawnCallback;
             level.OnEntityRemove += OnEntityRemoveCallback;
             level.OnPlaySoundPosition += OnPlaySoundPositionCallback;
             level.OnPlaySound += OnPlaySoundCallback;
             level.OnShakeScreen += OnShakeScreenCallback;
-            level.OnHeldItemChanged += OnHeldItemChangedCallback;
             level.OnGameOver += OnGameOverCallback;
 
             level.OnShowDialog += Logic_OnShowDialogCallback;
             level.OnShowMoney += Logic_OnShowMoneyCallback;
             level.OnBeginLevel += Logic_OnBeginLevelCallback;
-
-            level.OnShowAdvice += Logic_OnShowAdviceCallback;
-            level.OnHideAdvice += Logic_OnHideAdviceCallback;
             game.SetLevel(level);
 
             BuiltinCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
@@ -107,36 +106,6 @@ namespace MVZ2.Level
 
             isGameStarted = true;
         }
-        public bool IsEntityValidForHeldItem(Entity entity)
-        {
-            switch (entity.Type)
-            {
-                case EntityTypes.PLANT:
-                    switch (level.HeldItemType)
-                    {
-                        case HeldTypes.PICKAXE:
-                            return CanDigContraption(entity);
-                        case HeldTypes.STARSHARD:
-                            return entity.CanEvoke();
-                    }
-                    break;
-                case EntityTypes.PICKUP:
-                    switch (level.HeldItemType)
-                    {
-                        case HeldTypes.NONE:
-                            return !entity.IsCollected();
-                    }
-                    break;
-                case EntityTypes.CART:
-                    switch (level.HeldItemType)
-                    {
-                        case HeldTypes.NONE:
-                            return !entity.IsCartTriggered();
-                    }
-                    break;
-            }
-            return false;
-        }
         public float GetGameSpeed()
         {
             return speedUp ? 2 : 1;
@@ -182,6 +151,34 @@ namespace MVZ2.Level
             vector *= TransToLawnScale;
             return vector;
         }
+
+        #region 手持物品
+        public void SetHeldItemUI(NamespaceID heldType, int id, int priority, bool noCancel)
+        {
+            var ui = GetLevelUI();
+            Sprite icon = null;
+            LayerMask layerMask = Layers.GetMask(Layers.DEFAULT, Layers.PICKUP);
+            if (heldType == HeldTypes.blueprint)
+            {
+                icon = GetBlueprintIcon(id);
+                layerMask = Layers.GetMask(Layers.GRID, Layers.RAYCAST_RECEIVER);
+            }
+            else if (heldType == HeldTypes.pickaxe)
+            {
+                icon = main.ResourceManager.GetSprite(SpritePaths.pickaxe);
+                layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
+            }
+            else if (heldType == HeldTypes.starshard)
+            {
+                icon = main.ResourceManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
+                layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
+            }
+            ui.SetHeldItemIcon(icon);
+            ui.SetRaycasterMask(layerMask);
+            raycaster.eventMask = layerMask;
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -253,7 +250,7 @@ namespace MVZ2.Level
                 var ui = GetLevelUI();
                 ui.SetHeldItemPosition(levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
                 ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
-                ui.SetPickaxeVisible(!IsHoldingPickaxe());
+                ui.SetPickaxeVisible(!level.IsHoldingPickaxe());
                 ui.SetLevelTextAnimationSpeed(gameSpeed);
                 UpdateLevelProgress();
                 UpdateBlueprintRecharges();
@@ -352,10 +349,6 @@ namespace MVZ2.Level
         {
             main.ShakeManager.AddShake(startAmplitude * LawnToTransScale, endAmplitude * LawnToTransScale, time / (float)level.TPS);
         }
-        private void OnHeldItemChangedCallback(int heldType, int id, int priority, bool noCancel)
-        {
-            SetHeldItemUI(heldType, id, priority, noCancel);
-        }
         private void OnGameOverCallback(int type, Entity killer, string message)
         {
             switch (type)
@@ -384,16 +377,6 @@ namespace MVZ2.Level
         {
             BeginLevel(transition);
         }
-        private void Logic_OnShowAdviceCallback(string advice)
-        {
-            var ui = GetLevelUI();
-            ui.ShowAdvice(advice);
-        }
-        private void Logic_OnHideAdviceCallback()
-        {
-            var ui = GetLevelUI();
-            ui.HideAdvice();
-        }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
             var ui = GetLevelUI();
@@ -412,16 +395,9 @@ namespace MVZ2.Level
             entity.SetHovered(true);
             if (!IsGameRunning())
                 return;
-            switch (entity.Entity.Type)
+            if (Input.GetMouseButton((int)MouseButton.LeftMouse))
             {
-                case EntityTypes.PICKUP:
-                    if (level.HeldItemType == HeldTypes.NONE && Input.GetMouseButton((int)MouseButton.LeftMouse))
-                    {
-                        var pickup = entity.Entity;
-                        if (!pickup.IsCollected())
-                            pickup.Collect();
-                    }
-                    break;
+                level.HoverOnEntity(entity.Entity);
             }
         }
         private void OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
@@ -437,82 +413,45 @@ namespace MVZ2.Level
                 return;
 
             var entity = entityCtrl.Entity;
-            if (!IsEntityValidForHeldItem(entity))
+            if (!level.IsEntityValidForHeldItem(entity))
                 return;
 
-            switch (entity.Type)
+            if (level.UseOnEntity(entity))
             {
-                case EntityTypes.PLANT:
-                    switch (level.HeldItemType)
-                    {
-                        case HeldTypes.PICKAXE:
-                            entity.Die();
-                            level.ResetHeldItem();
-                            break;
-                        case HeldTypes.STARSHARD:
-                            entity.Evoke();
-                            level.ResetHeldItem();
-                            break;
-                    }
-                    break;
-                case EntityTypes.PICKUP:
-                    if (level.HeldItemType == HeldTypes.NONE)
-                    {
-                        entity.Collect();
-                    }
-                    break;
-                case EntityTypes.CART:
-                    if (level.HeldItemType == HeldTypes.NONE)
-                    {
-                        entity.TriggerCart();
-                    }
-                    break;
+                level.ResetHeldItem();
             }
         }
         private void OnGridEnterCallback(int lane, int column, PointerEventData data)
         {
+            if (!IsGameRunning())
+                return;
             var grid = gridLayout.GetGrid(lane, column);
             var color = Color.clear;
-            if (level.HeldItemType > 0)
+            if (level.IsHoldingItem())
             {
-                color = CanPlaceOnGrid(level.HeldItemType, level.HeldItemID, level.GetGrid(column, lane)) ? Color.green : Color.red;
+                color = level.IsGridValidForHeldItem(level.GetGrid(column, lane)) ? Color.green : Color.red;
             }
             grid.SetColor(color);
         }
         private void OnGridExitCallback(int lane, int column, PointerEventData data)
         {
+            if (!IsGameRunning())
+                return;
             var grid = gridLayout.GetGrid(lane, column);
             grid.SetColor(Color.clear);
         }
         private void OnGridPointerDownCallback(int lane, int column, PointerEventData data)
         {
+            if (!IsGameRunning())
+                return;
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            if (!CanPlaceOnGrid(level.HeldItemType, level.HeldItemID, level.GetGrid(column, lane)))
+            var grid = level.GetGrid(column, lane);
+            if (!level.IsGridValidForHeldItem(grid))
                 return;
-            switch (level.HeldItemType)
+            if (level.UseOnGrid(grid))
             {
-                case HeldTypes.BLUEPRINT:
-                    var seed = level.GetSeedPackAt(level.HeldItemID);
-                    if (seed == null)
-                        break;
-                    var seedDef = seed.Definition;
-                    if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-                    {
-                        var x = level.GetEntityColumnX(column);
-                        var z = level.GetEntityLaneZ(lane);
-                        var y = level.GetGroundY(x, z);
-                        var position = new Vector3(x, y, z);
-                        var entityID = seedDef.GetSeedEntityID();
-                        var entityDef = Game.GetEntityDefinition(entityID);
-                        level.Spawn(entityID, position, null);
-                        level.AddEnergy(-seedDef.GetCost());
-                        level.SetRechargeTimeToUsed(seed);
-                        seed.ResetRecharge();
-                        level.ResetHeldItem();
-                        level.PlaySound(entityDef.GetPlaceSound(), position);
-                    }
-                    break;
+                level.ResetHeldItem();
             }
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
@@ -546,32 +485,17 @@ namespace MVZ2.Level
         }
         private void OnRaycastReceiverPointerDownCallback(LevelUI.Receiver receiver)
         {
+            LawnArea area = LawnArea.Main;
             switch (receiver)
             {
                 case LevelUI.Receiver.Side:
-                    switch (level.HeldItemType)
-                    {
-                        case HeldTypes.BLUEPRINT:
-                        case HeldTypes.PICKAXE:
-                        case HeldTypes.STARSHARD:
-                            if (CancelHeldItem())
-                            {
-                                level.PlaySound(SoundID.tap);
-                            }
-                            break;
-                    }
+                    area = LawnArea.Side;
                     break;
-                case LevelUI.Receiver.Lawn:
                 case LevelUI.Receiver.Bottom:
-                    switch (level.HeldItemType)
-                    {
-                        case HeldTypes.PICKAXE:
-                        case HeldTypes.STARSHARD:
-                            CancelHeldItem();
-                            break;
-                    }
+                    area = LawnArea.Bottom;
                     break;
             }
+            level.UseOnLawn(area);
         }
         private void OnPickaxePointerDownCallback(PointerEventData eventData)
         {
@@ -612,67 +536,24 @@ namespace MVZ2.Level
         #endregion
 
         #endregion
-        private void SetHeldItemUI(int heldType, int id, int priority, bool noCancel)
-        {
-            var ui = GetLevelUI();
-            Sprite icon = null;
-            LayerMask layerMask = Layers.GetMask(Layers.DEFAULT, Layers.PICKUP);
-            switch (heldType)
-            {
-                case HeldTypes.BLUEPRINT:
-                    icon = GetBlueprintIcon(id);
-                    layerMask = Layers.GetMask(Layers.GRID, Layers.RAYCAST_RECEIVER);
-                    break;
-                case HeldTypes.PICKAXE:
-                    icon = main.ResourceManager.GetSprite(SpritePaths.pickaxe);
-                    layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
-                    break;
-                case HeldTypes.STARSHARD:
-                    icon = main.ResourceManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
-                    layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
-                    break;
-            }
-            ui.SetHeldItemIcon(icon);
-            ui.SetRaycasterMask(layerMask);
-            raycaster.eventMask = layerMask;
-        }
-        private bool CancelHeldItem()
-        {
-            if (level.HeldItemType <= 0 || level.HeldItemNoCancel)
-                return false;
-            level.ResetHeldItem();
-            return true;
-        }
-        private bool CanDigContraption(Entity entity)
-        {
-            return entity.GetFaction() == SelfFaction;
-        }
-        private bool IsHoldingPickaxe()
-        {
-            return level.HeldItemType == HeldTypes.PICKAXE;
-        }
-        private bool IsHoldingStarshard()
-        {
-            return level.HeldItemType == HeldTypes.STARSHARD;
-        }
         private void ClickPickaxe()
         {
-            if (level.HeldItemType > 0)
+            if (level.IsHoldingItem())
             {
-                if (CancelHeldItem())
+                if (level.CancelHeldItem())
                 {
                     level.PlaySound(SoundID.tap);
                 }
                 return;
             }
             level.PlaySound(SoundID.pickaxe);
-            level.SetHeldItem(HeldTypes.PICKAXE, 0, 0);
+            level.SetHeldItem(HeldTypes.pickaxe, 0, 0);
         }
         private void ClickStarshard()
         {
-            if (level.HeldItemType > 0)
+            if (level.IsHoldingItem())
             {
-                if (CancelHeldItem())
+                if (level.CancelHeldItem())
                 {
                     level.PlaySound(SoundID.tap);
                 }
@@ -683,7 +564,7 @@ namespace MVZ2.Level
                 level.PlaySound(SoundID.buzzer);
                 //return;
             }
-            level.SetHeldItem(HeldTypes.STARSHARD, 0, 0);
+            level.SetHeldItem(HeldTypes.starshard, 0, 0);
         }
 
         #region 蓝图
@@ -729,7 +610,7 @@ namespace MVZ2.Level
             for (int i = 0; i < disabled.Length; i++)
             {
                 var seed = seeds[i];
-                disabled[i] = IsHoldingBlueprint(i) || !CanPickBlueprint(seed);
+                disabled[i] = level.IsHoldingBlueprint(i) || !CanPickBlueprint(seed);
             }
             levelUI.SetBlueprintDisabled(disabled);
         }
@@ -737,10 +618,6 @@ namespace MVZ2.Level
         {
             var levelUI = GetLevelUI();
             levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
-        }
-        private bool IsHoldingBlueprint(int i)
-        {
-            return level.HeldItemType == HeldTypes.BLUEPRINT && level.HeldItemID == i;
         }
         private bool CanPickBlueprint(SeedPack seed)
         {
@@ -775,9 +652,9 @@ namespace MVZ2.Level
         }
         private void ClickBlueprint(int index)
         {
-            if (level.HeldItemType > 0)
+            if (level.IsHoldingItem())
             {
-                if (CancelHeldItem())
+                if (level.CancelHeldItem())
                 {
                     level.PlaySound(SoundID.tap);
                 }
@@ -793,7 +670,7 @@ namespace MVZ2.Level
         }
         private void SelectBlueprint(int index)
         {
-            level.SetHeldItem(HeldTypes.BLUEPRINT, index, 0);
+            level.SetHeldItem(HeldTypes.blueprint, index, 0);
         }
         #endregion
 
@@ -822,30 +699,7 @@ namespace MVZ2.Level
         }
         #endregion
 
-        private bool CanPlaceOnGrid(int heldType, int heldId, LawnGrid grid)
-        {
-            switch (heldType)
-            {
-                case HeldTypes.BLUEPRINT:
-                    var seed = level.GetSeedPackAt(heldId);
-                    if (seed == null)
-                        break;
-                    var seedDef = seed.Definition;
-                    if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-                    {
-                        var entityID = seedDef.GetSeedEntityID();
-                        var entityDef = Game.GetEntityDefinition(entityID);
-                        if (entityDef.Type == EntityTypes.PLANT)
-                        {
-                            if (!grid.CanPlace(entityDef))
-                                return false;
-                        }
-                    }
-                    break;
-            }
-            return true;
-        }
-        private LevelUI GetLevelUI()
+        public LevelUI GetLevelUI()
         {
 #if UNITY_ANDROID || UNITY_IOS
             return mobileUI;
@@ -969,7 +823,7 @@ namespace MVZ2.Level
             {
                 if (Input.GetMouseButtonDown(1))
                 {
-                    if (CancelHeldItem())
+                    if (level.CancelHeldItem())
                     {
                         level.PlaySound(SoundID.tap);
                     }

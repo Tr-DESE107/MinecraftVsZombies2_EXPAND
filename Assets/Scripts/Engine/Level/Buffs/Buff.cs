@@ -10,6 +10,13 @@ namespace PVZEngine.Level
         {
             Definition = definition;
         }
+        public void Update()
+        {
+            if (Definition != null)
+            {
+                Definition.PostUpdate(this);
+            }
+        }
         public T GetProperty<T>(string name)
         {
             return propertyDict.GetProperty<T>(name);

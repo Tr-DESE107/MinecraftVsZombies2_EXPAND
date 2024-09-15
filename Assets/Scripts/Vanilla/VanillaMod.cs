@@ -74,6 +74,7 @@ namespace MVZ2.Vanilla
         private void LoadStages()
         {
             var tutorialStage = new TutorialStage(spaceName, StageNames.tutorial);
+            tutorialStage.SetLevelName(LevelName.TUTORIAL);
             AddStage(tutorialStage);
 
             var classicStage = new ClassicStage(spaceName, StageNames.prologue, 1,
@@ -85,6 +86,7 @@ namespace MVZ2.Vanilla
                 }
             );
             classicStage.SetProperty(BuiltinStageProps.START_TALK, TalkID.tutorial);
+            classicStage.SetLevelName(LevelName.PROLOGUE);
             AddStage(classicStage);
         }
         private void AddClassicStage(string name, int totalFlags, params EnemySpawnEntry[] enemySpawnEntries)

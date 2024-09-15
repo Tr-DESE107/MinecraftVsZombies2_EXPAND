@@ -38,6 +38,10 @@ namespace PVZEngine.Level
             Definition.Update(this);
             if (EquipedArmor != null)
                 EquipedArmor.Update();
+            foreach (var buff in buffs.GetAllBuffs())
+            {
+                buff.Update();
+            }
             LevelCallbacks.PostEntityUpdate.RunFiltered(Type, this);
         }
         public void SetParent(Entity parent)

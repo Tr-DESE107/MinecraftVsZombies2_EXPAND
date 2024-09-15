@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
-    public static class MVZ2Level
+    public static class VanillaLevel
     {
         private static float GetHalloweenGroundHeight(float x)
         {
@@ -44,9 +44,9 @@ namespace MVZ2.Vanilla
         }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
-            if (level.HeldItemType != HeldTypes.ENTITY)
+            if (level.GetHeldItemType() != HeldTypes.pickaxe)
                 return null;
-            var seed = level.GetSeedPackAt(level.HeldItemID);
+            var seed = level.GetSeedPackAt(level.GetHeldItemID());
             if (seed == null)
                 return null;
             var seedDef = seed.Definition;

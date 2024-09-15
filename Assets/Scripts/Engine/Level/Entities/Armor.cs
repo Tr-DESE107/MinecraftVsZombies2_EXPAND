@@ -24,6 +24,10 @@ namespace PVZEngine.Level
         {
             if (Definition != null)
                 Definition.PostUpdate(this);
+            foreach (var buff in buffs.GetAllBuffs())
+            {
+                buff.Update();
+            }
         }
         public void Destroy(DamageResult result)
         {

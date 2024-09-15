@@ -16,6 +16,7 @@ namespace PVZEngine.Definitions
         }
         public virtual void PostAdd(Buff buff) { }
         public virtual void PostRemove(Buff buff) { }
+        public virtual void PostUpdate(Buff buff) { }
         protected void AddModifier(PropertyModifier modifier)
         {
             modifiers.Add(modifier);

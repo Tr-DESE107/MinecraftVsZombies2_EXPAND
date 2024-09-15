@@ -46,10 +46,6 @@ namespace MVZ2.GameContent.Enemies
 
             enemy.SetAnimationFloat("AttackSpeed", enemy.GetAttackSpeed());
             enemy.SetAnimationFloat("MoveSpeed", enemy.GetSpeed() * 2);
-            if (!enemy.IsDead)
-            {
-                enemy.RemoveBuffs(enemy.GetBuffs<DamageColorBuff>());
-            }
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {

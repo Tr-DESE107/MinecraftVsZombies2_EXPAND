@@ -17,6 +17,26 @@ namespace PVZEngine.Level
             Translator = translator;
         }
 
+        #region 组件
+        public void AddComponent(LevelComponent component)
+        {
+            levelComponents.Add(component);
+        }
+        public LevelComponent[] GetComponents()
+        {
+            return levelComponents.ToArray();
+        }
+        public T GetComponent<T>() where T : LevelComponent
+        {
+            foreach (var comp in levelComponents)
+            {
+                if (comp is T tComp)
+                    return tComp;
+            }
+            return null;
+        }
+        #endregion
+
         #region 生命周期
         public void Init(NamespaceID areaId, NamespaceID stageId, LevelOption option, int seed = 0)
         {
@@ -72,14 +92,21 @@ namespace PVZEngine.Level
         }
         public void Update()
         {
-            UpdateSeedRecharges();
-            UpdateAdvice();
+            UpdateSeedPacks();
             collisionCachedBounds.Clear();
             var entities = GetEntities();
             foreach (var entity in entities)
             {
                 entity.Update();
                 CollisionUpdate(entity, entity.CollisionMask, entities);
+            }
+            foreach (var buff in buffs.GetAllBuffs())
+            {
+                buff.Update();
+            }
+            foreach (var component in levelComponents)
+            {
+                component.Update();
             }
             StageDefinition.Update(this);
             LevelCallbacks.PostLevelUpdate.Run(this);
@@ -152,19 +179,10 @@ namespace PVZEngine.Level
         }
         public int GetLane(float z)
         {
-            //4.0 - 4.8 : 0
-            //3.2 - 4.0 : 1
-            //2.4 - 3.2 : 2
-            //1.6 - 2.4 : 3
-            //0.8 - 1.6 : 4
             return Mathf.FloorToInt((GetGridTopZ() - z) / GetGridHeight());
         }
         public int GetColumn(float x)
         {
-            //2.4 - 3.2 : 0
-            //3.2 - 4.0 : 1
-            //4.0 - 4.8 : 2
-            //5.6 - 6.2 : 3
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
         public float GetEntityLaneZ(int row)
@@ -296,9 +314,11 @@ namespace PVZEngine.Level
                 spawnedID = spawnedID,
 
                 buffs = buffs.ToSerializable(),
+
+                components = levelComponents.ToDictionary(c => c.GetID(), c => c.ToSerializable())
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator)
+        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator, params LevelComponent[] components)
         {
             var level = new LevelEngine(provider, translator);
             level.Seed = seri.seed;
@@ -345,6 +365,18 @@ namespace PVZEngine.Level
             level.spawnedID = seri.spawnedID;
 
             level.buffs = BuffList.FromSerializable(seri.buffs, level);
+
+            foreach (var comp in components)
+            {
+                level.AddComponent(comp);
+            }
+            foreach (var seriComp in seri.components)
+            {
+                var comp = level.levelComponents.FirstOrDefault(c => c.GetID() == seriComp.Key);
+                if (comp == null)
+                    continue;
+                comp.LoadSerializable(seriComp.Value);
+            }
             return level;
         }
 
@@ -414,6 +446,8 @@ namespace PVZEngine.Level
         private float gridBottomZ;
         private int maxLaneCount;
         private int maxColumnCount;
+
+        private List<LevelComponent> levelComponents = new List<LevelComponent>();
         #endregion 保存属性
     }
 }

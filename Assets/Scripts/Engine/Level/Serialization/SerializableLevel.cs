@@ -51,5 +51,7 @@ namespace PVZEngine.Serialization
         public List<NamespaceID> spawnedID;
 
         public SerializableBuffList buffs;
+
+        public Dictionary<NamespaceID, ISerializableLevelComponent> components;
     }
 }

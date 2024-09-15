@@ -3,6 +3,7 @@
     public interface IBuffTarget
     {
         ISerializeBuffTarget SerializeBuffTarget();
+        bool RemoveBuff(Buff buff);
     }
     public interface ISerializeBuffTarget
     {

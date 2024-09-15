@@ -84,13 +84,13 @@ namespace PVZEngine.Level
         #endregion
 
         #region 私有方法
-        private void UpdateSeedRecharges()
+        private void UpdateSeedPacks()
         {
             foreach (var seedPack in seedPacks)
             {
                 if (seedPack == null)
                     continue;
-                seedPack.UpdateRecharge(RechargeSpeed);
+                seedPack.Update(RechargeSpeed);
             }
         }
 

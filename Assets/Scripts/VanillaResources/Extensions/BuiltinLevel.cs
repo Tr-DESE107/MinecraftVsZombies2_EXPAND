@@ -101,6 +101,10 @@ namespace MVZ2.Vanilla
         {
             return level.GetProperty<string>(BuiltinStageProps.LEVEL_NAME);
         }
+        public static void SetLevelName(this StageDefinition stage, string name)
+        {
+            stage.SetProperty(BuiltinStageProps.LEVEL_NAME, name);
+        }
         public const float ENERGY_SLOT_WIDTH = 48;
         public const float MIN_PREVIEW_X = 1080;
         public const float MAX_PREVIEW_X = 1300;

@@ -2,6 +2,7 @@
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Buffs.SeedPack;
+using MVZ2.Level;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -71,7 +72,9 @@ namespace MVZ2.GameContent.Stages
             var textKey = tutorialStrings[state];
             var context = string.Format(CONTEXT_STATE, state);
             var advice = level.Translator.GetTextParticular(textKey, context);
-            level.ShowAdvice(advice, 1000, -1);
+
+            var adviceComp = level.GetComponent<AdviceComponent>();
+            adviceComp.ShowAdvice(advice, 1000, -1);
             switch (state)
             {
                 case STATE_CLICK_DISPENSER:
@@ -246,7 +249,7 @@ namespace MVZ2.GameContent.Stages
                     }
                     break;
                 case STATE_HOLD_PICKAXE:
-                    if (level.HeldItemType == HeldTypes.PICKAXE)
+                    if (level.GetHeldItemType() == HeldTypes.pickaxe)
                     {
                         StartState(level, STATE_DIG_CONTRAPTIONS);
                     }

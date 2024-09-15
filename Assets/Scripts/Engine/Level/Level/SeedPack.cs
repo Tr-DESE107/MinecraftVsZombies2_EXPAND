@@ -134,14 +134,19 @@ namespace PVZEngine.Level
         {
             SetRecharge(0);
         }
-        public void UpdateRecharge(float rechargeSpeed)
+        public void Update(float rechargeSpeed)
         {
-            if (IsCharged())
-                return;
-            var recharge = GetRecharge();
-            recharge += rechargeSpeed;
-            recharge = Mathf.Min(GetMaxRecharge(), recharge);
-            SetRecharge(recharge);
+            if (!IsCharged())
+            {
+                var recharge = GetRecharge();
+                recharge += rechargeSpeed;
+                recharge = Mathf.Min(GetMaxRecharge(), recharge);
+                SetRecharge(recharge);
+            }
+            foreach (var buff in buffs.GetAllBuffs())
+            {
+                buff.Update();
+            }
         }
         #endregion
 

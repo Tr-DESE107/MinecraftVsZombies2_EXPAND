@@ -18,6 +18,7 @@ namespace PVZEngine.Game
             lists.Add(new DefinitionList<SpawnDefinition>());
 
             lists.Add(new DefinitionList<TalkEndDefinition>());
+            lists.Add(new DefinitionList<HeldItemDefinition>());
         }
     }
 }

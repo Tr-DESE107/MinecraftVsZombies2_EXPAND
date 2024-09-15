@@ -18,12 +18,6 @@ namespace MVZ2.Vanilla
             SetProperty(BuiltinEntityProps.SHADOW_ALPHA, 1f);
             SetProperty(BuiltinEntityProps.SHADOW_SCALE, Vector3.one);
         }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            if (entity.EquipedArmor != null)
-                entity.EquipedArmor.RemoveBuffs(entity.EquipedArmor.GetBuffs<ArmorDamageColorBuff>());
-        }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
             base.PostTakeDamage(bodyResult, armorResult);
