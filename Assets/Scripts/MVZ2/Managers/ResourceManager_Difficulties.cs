@@ -24,7 +24,7 @@ namespace MVZ2
             var modResource = main.ResourceManager.GetModResource(difficulty.spacename);
             if (modResource == null)
                 return null;
-            return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.name == difficulty.path);
+            return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.id == difficulty.path);
         }
         #endregion
     }

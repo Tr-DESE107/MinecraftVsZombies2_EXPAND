@@ -15,6 +15,7 @@ namespace MVZ2
         public void LoadSaveData()
         {
             saveData = new SaveData();
+            saveData.difficulty = new NamespaceID(Main.BuiltinNamespace, "normal");
         }
         public NamespaceID GetDifficulty()
         {
@@ -26,7 +27,7 @@ namespace MVZ2
         }
         public NamespaceID[] GetUnlockedContraptions()
         {
-            var contraptions = MainManager.Instance.Game.GetDefinitions<EntityDefinition>().Where(d => d.Type == EntityTypes.PLANT);
+            var contraptions = Main.Game.GetDefinitions<EntityDefinition>().Where(d => d.Type == EntityTypes.PLANT);
             return contraptions.Select(c => c.GetID()).ToArray();
         }
         public MainManager Main => main;

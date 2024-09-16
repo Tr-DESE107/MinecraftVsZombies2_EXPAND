@@ -23,15 +23,6 @@ namespace MVZ2.Vanilla
             LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
             BuiltinCallbacks.TalkAction.Add(TalkAction);
         }
-        public override void Init(Game game)
-        {
-            base.Init(game);
-            var saveManager = MainManager.Instance.SaveManager;
-            if (saveManager.GetDifficulty() == null)
-            {
-                saveManager.SetDifficulty(LevelDifficulty.normal);
-            }
-        }
         protected void LoadFromAssemblies(Assembly[] assemblies)
         {
             foreach (var assembly in assemblies)
