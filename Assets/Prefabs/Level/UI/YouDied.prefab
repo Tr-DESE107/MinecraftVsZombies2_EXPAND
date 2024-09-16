@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 3638316840089622294}
   - component: {fileID: 3473408417475583563}
   - component: {fileID: 6842200635749214293}
-  - component: {fileID: 1682312506825825129}
+  - component: {fileID: 8319762798033727711}
   m_Layer: 0
   m_Name: YouDied
   m_TagString: Untagged
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1682312506825825129
+--- !u!114 &8319762798033727711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,16 +160,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3591083934633112290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188dbce6e336ec34096a7517b34b8001, type: 3}
+  m_Script: {fileID: 11500000, guid: a35cbd7b091ff134fb70819c318f7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: 
-  comment: 
-  spriteID:
-    spacename: mvz2
-    path: lose
-  isSheet: 0
-  sheetIndex: 0
 --- !u!1 &7776820854237374164
 GameObject:
   m_ObjectHideFlags: 0

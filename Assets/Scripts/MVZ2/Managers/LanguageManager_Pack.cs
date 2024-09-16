@@ -135,14 +135,16 @@ namespace MVZ2
             if (originalSprite)
             {
                 spriteRect = originalSprite.rect;
-                spritePivot = originalSprite.pivot;
+                spritePivot = originalSprite.pivot / spriteRect.size;
             }
             else
             {
                 spriteRect = new Rect(0, 0, texture2D.width, texture2D.height);
                 spritePivot = Vector2.one * 0.5f;
             }
-            return Sprite.Create(texture2D, spriteRect, spritePivot);
+            var spr = Sprite.Create(texture2D, spriteRect, spritePivot);
+            spr.name = spriteId.ToString();
+            return spr;
         }
         private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, ZipArchiveEntry entry)
         {
@@ -173,7 +175,7 @@ namespace MVZ2
                 rect.width = Math.Min(rect.width, texture2D.width);
                 rect.height = Math.Min(rect.height, texture2D.height);
                 var spr = Sprite.Create(texture2D, rect, info.pivot / rect.size);
-                spr.name = spriteId.ToString();
+                spr.name = $"{spriteId}[{i}]";
                 sprites[i] = spr;
             }
             return sprites;

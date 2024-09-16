@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 418869434706366180}
   - component: {fileID: 3474937231277291167}
   - component: {fileID: 3613720515773869351}
-  - component: {fileID: 6328926186418697150}
+  - component: {fileID: 2074900350120364855}
   m_Layer: 0
   m_Name: Build
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6328926186418697150
+--- !u!114 &2074900350120364855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,16 +85,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2132312780396872892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188dbce6e336ec34096a7517b34b8001, type: 3}
+  m_Script: {fileID: 11500000, guid: a35cbd7b091ff134fb70819c318f7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: 
-  comment: "\u51C6\u5907\u653E\u7F6E\u5668\u68B0"
-  spriteID:
-    spacename: mvz2
-    path: ready_set_build
-  isSheet: 1
-  sheetIndex: 2
 --- !u!1 &4874909142873391172
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +99,7 @@ GameObject:
   - component: {fileID: 8502212654404950604}
   - component: {fileID: 3764662881772795346}
   - component: {fileID: 9054473195951925156}
-  - component: {fileID: 7735485662918974309}
+  - component: {fileID: 4083515595349929542}
   m_Layer: 0
   m_Name: Set
   m_TagString: Untagged
@@ -171,7 +164,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7735485662918974309
+--- !u!114 &4083515595349929542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,16 +173,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4874909142873391172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188dbce6e336ec34096a7517b34b8001, type: 3}
+  m_Script: {fileID: 11500000, guid: a35cbd7b091ff134fb70819c318f7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: 
-  comment: "\u51C6\u5907\u653E\u7F6E\u5668\u68B0"
-  spriteID:
-    spacename: mvz2
-    path: ready_set_build
-  isSheet: 1
-  sheetIndex: 1
 --- !u!1 &6001985706829398420
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +187,7 @@ GameObject:
   - component: {fileID: 6797268308556383599}
   - component: {fileID: 6338036109148996681}
   - component: {fileID: 3512757135546782725}
-  - component: {fileID: 2316260478391080035}
+  - component: {fileID: 5460347168253207244}
   m_Layer: 0
   m_Name: Ready
   m_TagString: Untagged
@@ -266,7 +252,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2316260478391080035
+--- !u!114 &5460347168253207244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,16 +261,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6001985706829398420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188dbce6e336ec34096a7517b34b8001, type: 3}
+  m_Script: {fileID: 11500000, guid: a35cbd7b091ff134fb70819c318f7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: 
-  comment: "\u51C6\u5907\u653E\u7F6E\u5668\u68B0"
-  spriteID:
-    spacename: mvz2
-    path: ready_set_build
-  isSheet: 1
-  sheetIndex: 0
 --- !u!1 &8310146314224661653
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5146761598170656150}
   - component: {fileID: 7129732133965701375}
   - component: {fileID: 8374960067069996802}
-  - component: {fileID: 1223008840130882487}
   - component: {fileID: 3981892296252003039}
   - component: {fileID: 4195588387484958631}
   - component: {fileID: 2350997423083455121}
+  - component: {fileID: 898015398328502329}
   m_Layer: 0
   m_Name: HugeWave
   m_TagString: Untagged
@@ -79,25 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1223008840130882487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657906835077314688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188dbce6e336ec34096a7517b34b8001, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: 
-  comment: 
-  spriteID:
-    spacename: mvz2
-    path: huge_wave
-  isSheet: 0
-  sheetIndex: 0
 --- !u!114 &3981892296252003039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,3 +129,15 @@ MonoBehaviour:
     spacename: mvz2
     path: huge_wave
   pitch: 1
+--- !u!114 &898015398328502329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657906835077314688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35cbd7b091ff134fb70819c318f7651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

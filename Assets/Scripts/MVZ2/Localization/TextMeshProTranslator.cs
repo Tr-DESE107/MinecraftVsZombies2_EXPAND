@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MVZ2.Localization
 {
     [RequireComponent(typeof(TextMeshPro))]
-    public class TextMeshProTranslator : TranslateComponent<TextMeshPro>
+    public class TextMeshProTranslator : TranslateComponentText<TextMeshPro>
     {
         protected override string GetKeyInner()
         {
