@@ -2,17 +2,21 @@
 
 namespace PVZEngine.Modifiers
 {
-    public class BooleanModifier : PropertyModifier<bool>
+    public class StringModifier : PropertyModifier<string>
     {
-        public BooleanModifier(string propertyName, ModifyOperator op, bool valueConst) : base(propertyName, op, valueConst)
+        public StringModifier(string propertyName, ModifyOperator op, string valueConst) : base(propertyName, op, null)
         {
+            ConstValue = valueConst;
+        }
+        public static StringModifier FromPropertyName(string propertyName, ModifyOperator op, string buffPropertyName)
+        {
+            return new StringModifier(propertyName, op, null)
+            {
+                UsingBuffPropertyName = buffPropertyName
+            };
         }
 
-        public BooleanModifier(string propertyName, ModifyOperator op, string buffPropertyName) : base(propertyName, op, buffPropertyName)
-        {
-        }
-
-        public override bool CalculatePropertyGeneric(Buff buff, bool value)
+        public override string CalculatePropertyGeneric(Buff buff, string value)
         {
             return GetValueGeneric(buff);
         }

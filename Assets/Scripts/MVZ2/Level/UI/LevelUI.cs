@@ -48,21 +48,41 @@ namespace MVZ2.Level.UI
         {
             blueprints.SetActive(value);
         }
-        public void SetBlueprints(BlueprintViewData[] viewDatas)
-        {
-            blueprints.SetBlueprints(viewDatas);
-        }
-        public void SetBlueprintRecharges(float[] recharges)
-        {
-            blueprints.SetRecharges(recharges);
-        }
-        public void SetBlueprintDisabled(bool[] disabledValues)
-        {
-            blueprints.SetDisabled(disabledValues);
-        }
         public void SetBlueprintCount(int count)
         {
             blueprints.SetBlueprintCount(count);
+        }
+        public void SetBlueprintAt(int index, BlueprintViewData viewData)
+        {
+            var blueprint = blueprints.GetBlueprintAt(index);
+            if (!blueprint)
+                return;
+            blueprint.UpdateView(viewData);
+        }
+        public void SetBlueprintRecharge(int index, float recharge)
+        {
+            var blueprint = blueprints.GetBlueprintAt(index);
+            if (!blueprint)
+                return;
+            blueprint.SetRecharge(recharge);
+        }
+        public void SetBlueprintDisabled(int index, bool value)
+        {
+            var blueprint = blueprints.GetBlueprintAt(index);
+            if (!blueprint)
+                return;
+            blueprint.SetDisabled(value);
+        }
+        public void SetBlueprintTwinkle(int index, bool twinkle)
+        {
+            var blueprint = GetBlueprintAt(index);
+            if (!blueprint)
+                return;
+            blueprint.SetTwinkling(twinkle);
+        }
+        public Blueprint GetBlueprintAt(int index)
+        {
+            return blueprints.GetBlueprintAt(index);
         }
         #endregion
 
@@ -249,7 +269,7 @@ namespace MVZ2.Level.UI
         #region 提示箭头
         public void SetHintArrowPointToBlueprint(int index)
         {
-            var blueprint = blueprints.GetBlueprintAt(index);
+            var blueprint = GetBlueprintAt(index);
             if (!blueprint)
             {
                 HideHintArrow();
@@ -275,6 +295,35 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region 工具提示
+        public void ShowTooltipOnBlueprint(int index, TooltipViewData viewData)
+        {
+            var blueprint = GetBlueprintAt(index);
+            if (!blueprint)
+                return;
+            ShowTooltipOnComponent(blueprint, viewData);
+        }
+        public void ShowTooltipOnPickaxe(TooltipViewData viewData)
+        {
+            ShowTooltipOnComponent(pickaxeSlot, viewData);
+        }
+        public void ShowTooltipOnComponent(Component component, TooltipViewData viewData)
+        {
+            if (component is not ITooltipUI ui)
+                return;
+            var anchor = ui.Anchor;
+            if (anchor.IsDisabled)
+                return;
+            tooltip.gameObject.SetActive(true);
+            tooltip.SetPivot(anchor.Pivot);
+            tooltip.SetData(anchor.transform.position, viewData);
+        }
+        public void HideTooltip()
+        {
+            tooltip.gameObject.SetActive(false);
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -284,7 +333,11 @@ namespace MVZ2.Level.UI
             lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn);
             bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom);
 
+            blueprints.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
+            blueprints.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             blueprints.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
+            pickaxeSlot.OnPointerEnter += (data) => OnPickaxePointerEnter?.Invoke(data);
+            pickaxeSlot.OnPointerExit += (data) => OnPickaxePointerExit?.Invoke(data);
             pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
             starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
@@ -331,7 +384,11 @@ namespace MVZ2.Level.UI
 
         #region 事件
         public event Action<Receiver> OnRaycastReceiverPointerDown;
+        public event Action<int, PointerEventData> OnBlueprintPointerEnter;
+        public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<PointerEventData> OnPickaxePointerEnter;
+        public event Action<PointerEventData> OnPickaxePointerExit;
         public event Action<PointerEventData> OnPickaxePointerDown;
         public event Action<PointerEventData> OnStarshardPointerDown;
         public event Action OnMenuButtonClick;
@@ -424,6 +481,10 @@ namespace MVZ2.Level.UI
         GameObject adviceObject;
         [SerializeField]
         TextMeshProUGUI adviceText;
+
+        [Header("Tooltip")]
+        [SerializeField]
+        Tooltip tooltip;
 
         [Header("Hint Arrow")]
         [SerializeField]

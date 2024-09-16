@@ -471,9 +471,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.021874994
     y: 0
-    width: 1
+    width: 0.95625
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   builtinNamespace: mvz2
-  platformMode: 2
+  platformMode: 0
   resource: {fileID: 70516768}
   model: {fileID: 1928833185}
   sound: {fileID: 1008470526}
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 1694740220}
-  currentLanaguge: en-US
+  currentLanaguge: zh-Hans
 --- !u!4 &1796785306
 Transform:
   m_ObjectHideFlags: 0

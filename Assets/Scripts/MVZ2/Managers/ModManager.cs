@@ -23,7 +23,7 @@ namespace MVZ2
             });
             OnRegisterMod?.Invoke(this, game);
 
-            foreach (var modInfo in GetAllModInfos())
+            foreach (var modInfo in modInfos)
             {
                 game.AddMod(modInfo.Logic);
             }

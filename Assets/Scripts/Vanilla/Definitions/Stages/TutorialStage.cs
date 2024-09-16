@@ -6,9 +6,11 @@ using MVZ2.GameContent.Buffs.SeedPack;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Level;
 using MVZ2.Vanilla;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
+using static MVZ2.GameContent.BuffNames;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -23,6 +25,14 @@ namespace MVZ2.GameContent.Stages
             level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
             level.SetProperty(PROP_TUTORIAL_RNG, new RandomGenerator(level.Seed));
             level.SetEnergy(150);
+            level.SetSeedPackCount(4);
+            level.ReplaceSeedPacks(new NamespaceID[]
+            {
+                ContraptionID.dispenser,
+                ContraptionID.furnace,
+                ContraptionID.obsidian,
+                ContraptionID.mineTNT,
+            });
             StartState(level, STATE_CLICK_DISPENSER);
         }
         public override void Update(LevelEngine level)
@@ -87,11 +97,12 @@ namespace MVZ2.GameContent.Stages
                         level.GetSeedPack(ContraptionID.mineTNT)?.AddBuff<TutorialDisableBuff>();
                         level.AddBuff<TutorialPickaxeDisableBuff>();
                         level.SetNoProduction(true);
+                        dispenserSeedPack.SetTwinkling(true);
                         level.SetHintArrowPointToBlueprint(dispenserSeedPack.GetIndex());
                     }
                     break;
                 case STATE_PLACE_DISPENSER:
-                case STATE_COLLECT_TO_PLACE_DISPENSER:
+                    level.GetSeedPack(ContraptionID.dispenser)?.SetTwinkling(false);
                     level.HideHintArrow();
                     break;
                 case STATE_DISPENSER_PLACED:
@@ -106,6 +117,9 @@ namespace MVZ2.GameContent.Stages
                             level.SetHintArrowPointToEntity(redstone);
                         }
                     }
+                    break;
+                case STATE_COLLECT_TO_PLACE_DISPENSER:
+                    level.HideHintArrow();
                     break;
                 case STATE_PLACE_DISPENSER_TO_KILL_ZOMBIE:
                     {
@@ -127,6 +141,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         var buffs = furnace.GetBuffs<TutorialDisableBuff>();
                         furnace.RemoveBuffs(buffs);
+                        furnace.SetTwinkling(true);
                         level.SetHintArrowPointToBlueprint(furnace.GetIndex());
                     }
                     break;
@@ -137,6 +152,7 @@ namespace MVZ2.GameContent.Stages
                         {
                             var buffs = obsidian.GetBuffs<TutorialDisableBuff>();
                             obsidian.RemoveBuffs(buffs);
+                            obsidian.SetTwinkling(true);
                             level.SetHintArrowPointToBlueprint(obsidian.GetIndex());
                         }
 
@@ -168,12 +184,14 @@ namespace MVZ2.GameContent.Stages
                         {
                             var buffs = mineTNT.GetBuffs<TutorialDisableBuff>();
                             mineTNT.RemoveBuffs(buffs);
+                            mineTNT.SetTwinkling(true);
                             level.SetHintArrowPointToBlueprint(mineTNT.GetIndex());
                         }
                     }
                     break;
                 case STATE_BLOWS_UP_HELMET_ZOMBIE:
                     {
+                        level.GetSeedPack(ContraptionID.mineTNT)?.SetTwinkling(false);
                         level.HideHintArrow();
                         var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
                         var lane = GetLaneWithoutDispensers(level);
@@ -251,6 +269,7 @@ namespace MVZ2.GameContent.Stages
                         var heldEntityID = level.GetHeldEntityID();
                         if (heldEntityID == ContraptionID.furnace)
                         {
+                            level.GetSeedPack(ContraptionID.furnace)?.SetTwinkling(false);
                             level.HideHintArrow();
                         }
                         if (level.EntityExists(ContraptionID.furnace))
@@ -270,6 +289,7 @@ namespace MVZ2.GameContent.Stages
                         var heldEntityID = level.GetHeldEntityID();
                         if (heldEntityID == ContraptionID.obsidian)
                         {
+                            level.GetSeedPack(ContraptionID.obsidian)?.SetTwinkling(false);
                             level.HideHintArrow();
                         }
                         if (level.GetEntities(EntityTypes.ENEMY).Length <= 0)
@@ -317,13 +337,7 @@ namespace MVZ2.GameContent.Stages
                         level.StopLevel();
                         level.HideAdvice();
                         level.SetEnergy(level.Option.StartEnergy);
-                        foreach (var seedPack in level.GetAllSeedPacks())
-                        {
-                            if (seedPack == null)
-                                continue;
-                            seedPack.ResetRecharge();
-                            seedPack.SetStartRecharge(true);
-                        }
+                        level.ClearSeedPacks();
                         level.SetNoProduction(false);
                         level.ChangeStage(StageID.prologue);
                         level.StartTalk(TalkID.tutorial, 3, 2);

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -27,8 +28,17 @@ namespace MVZ2
         }
         public NamespaceID[] GetUnlockedContraptions()
         {
-            var contraptions = Main.Game.GetDefinitions<EntityDefinition>().Where(d => d.Type == EntityTypes.PLANT);
-            return contraptions.Select(c => c.GetID()).ToArray();
+            var resourceManager = Main.ResourceManager;
+            var entitiesID = resourceManager.GetAllEntitiesID();
+            List<NamespaceID> entities = new List<NamespaceID>();
+            foreach (var id in entitiesID)
+            {
+                var meta = resourceManager.GetEntityMeta(id);
+                if (meta == null || meta.type != EntityTypes.PLANT)
+                    continue;
+                entities.Add(id);
+            }
+            return entities.ToArray();
         }
         public MainManager Main => main;
         [SerializeField]

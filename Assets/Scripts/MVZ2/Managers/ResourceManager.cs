@@ -20,6 +20,7 @@ namespace MVZ2
         #region Mod资源
         public async Task LoadAllModResources()
         {
+            ClearResources();
             foreach (var mod in main.ModManager.GetAllModInfos())
             {
                 await LoadModResources(mod);
@@ -57,6 +58,12 @@ namespace MVZ2
         #endregion
 
         #region 私有方法
+        private void ClearResources()
+        {
+            modResources.Clear();
+            spriteReferenceCacheDict.Clear();
+            entitiesCacheDict.Clear();
+        }
         private async Task<ModResource> LoadModResources(ModInfo mod)
         {
             var modNamespace = mod.Namespace;
@@ -72,6 +79,11 @@ namespace MVZ2
             LoadCharacterVariantSprites(modNamespace);
 
             ShotModelIcons(modNamespace, modNamespace, modResource.ModelMetaList);
+
+            foreach (var meta in modResource.EntityMetaList.metas)
+            {
+                entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.id), meta);
+            }
 
             return modResource;
         }
@@ -91,24 +103,7 @@ namespace MVZ2
             }
             else
             {
-                switch (metaPath)
-                {
-                    case "talkcharacters":
-                        modResource.TalkCharacterMetaList = TalkCharacterMetaList.FromXmlNode(document["characters"], defaultNsp);
-                        break;
-                    case "sounds":
-                        modResource.SoundMetaList = SoundMetaList.FromXmlNode(document["sounds"], defaultNsp);
-                        break;
-                    case "models":
-                        modResource.ModelMetaList = ModelMetaList.FromXmlNode(document["models"], defaultNsp);
-                        break;
-                    case "fragments":
-                        modResource.FragmentMetaList = FragmentMetaList.FromXmlNode(document["fragments"]);
-                        break;
-                    case "difficulties":
-                        modResource.DifficultyMetaList = DifficultyMetaList.FromXmlNode(document["difficulties"]);
-                        break;
-                }
+                modResource.LoadMetaList(metaPath, document, defaultNsp);
             }
         }
         private async Task LoadMetaLists(string modNamespace)

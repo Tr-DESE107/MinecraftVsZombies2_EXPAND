@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Codice.CM.Common;
 using PVZEngine.Definitions;
 
 namespace PVZEngine.Level
@@ -11,41 +13,65 @@ namespace PVZEngine.Level
         {
             if (ignoreEmpty)
                 return seedPacks.Count(s => s != null);
-            return seedPacks.Count;
+            return seedPacks.Length;
         }
         public void SetSeedPackCount(int count)
         {
-            var allSeedPacks = GetAllSeedPacks();
-            seedPacks.Clear();
-            for (int i = 0; i < count; i++)
+            var oldSeedPacks = seedPacks.ToArray();
+            seedPacks = new SeedPack[count];
+            OnSeedPackCountChanged?.Invoke(count);
+            ReplaceSeedPacks(oldSeedPacks);
+        }
+        public void ClearSeedPacks()
+        {
+            for (int i = 0; i < seedPacks.Length; i++)
             {
-                SeedPack seedPack = i < allSeedPacks.Length ? allSeedPacks[i] : null;
-                seedPacks.Add(seedPack);
+                RemoveSeedPackAt(i);
+            }
+        }
+        public void ReplaceSeedPacks(IEnumerable<NamespaceID> targetsID)
+        {
+            ReplaceSeedPacks(targetsID.Select(t => CreateSeedPack(t)));
+        }
+        public void ReplaceSeedPacks(IEnumerable<SeedPack> targetPacks)
+        {
+            var targetCount = targetPacks.Count();
+            for (int i = 0; i < seedPacks.Length; i++)
+            {
+                var seed = i < targetCount ? targetPacks.ElementAt(i) : null;
+                SetSeedPackAt(i, seed);
             }
         }
         public int GetSeedPackIndex(SeedPack seed)
         {
-            return seedPacks.IndexOf(seed);
+            return Array.IndexOf(seedPacks, seed);
         }
-        public void SetSeedPacks(NamespaceID[] seedIDs)
+        public SeedPack[] GetAllSeedPacks()
         {
-            var seeds = seedIDs.Select(i => CreateSeedPack(i)).ToArray();
-            SetSeedPacks(seeds);
-        }
-        public void SetSeedPacks(SeedPack[] seeds)
-        {
-            seedPacks.Clear();
-            seedPacks.AddRange(seeds);
-        }
-        public SeedPack[] GetAllSeedPacks(bool ignoreEmpty = false)
-        {
-            if (ignoreEmpty)
-                return seedPacks.Where(s => s != null).ToArray();
             return seedPacks.ToArray();
         }
         public SeedPack GetSeedPackAt(int index)
         {
             return seedPacks[index];
+        }
+        public void SetSeedPackAt(int index, NamespaceID seedID)
+        {
+            var seed = CreateSeedPack(seedID);
+            SetSeedPackAt(index, seedID);
+        }
+        public void SetSeedPackAt(int index, SeedPack seed)
+        {
+            if (index < 0 || index >= seedPacks.Length)
+                return;
+            seedPacks[index] = seed;
+            NotifySeedPackChange(index);
+        }
+        public void RemoveSeedPackAt(int index)
+        {
+            if (index < 0 || index >= seedPacks.Length)
+                return;
+            seedPacks[index] = null;
+            NotifySeedPackChange(index);
         }
         public SeedPack GetSeedPack(NamespaceID seedRef)
         {
@@ -84,6 +110,10 @@ namespace PVZEngine.Level
         #endregion
 
         #region 私有方法
+        private void NotifySeedPackChange(int index)
+        {
+            OnSeedPackChanged?.Invoke(index);
+        }
         private void UpdateSeedPacks()
         {
             foreach (var seedPack in seedPacks)
@@ -108,10 +138,12 @@ namespace PVZEngine.Level
 
         #endregion
 
+        public event Action<int> OnSeedPackCountChanged;
+        public event Action<int> OnSeedPackChanged;
         #region 属性字段
         public float RechargeSpeed { get; set; } = 1;
         public float RechargeTimeMultiplier { get; set; } = 1;
-        private List<SeedPack> seedPacks = new List<SeedPack>();
+        private SeedPack[] seedPacks = Array.Empty<SeedPack>();
         #endregion
     }
 }

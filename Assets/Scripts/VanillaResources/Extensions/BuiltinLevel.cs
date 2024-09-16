@@ -63,6 +63,10 @@ namespace MVZ2.Vanilla
         {
             return level.GetProperty<bool>(BuiltinLevelProps.PICKAXE_DISABLED);
         }
+        public static string GetPickaxeDisableMessage(this LevelEngine level)
+        {
+            return level.GetProperty<string>(BuiltinLevelProps.PICKAXE_DISABLE_MESSAGE);
+        }
         public static float GetDoorZ(this LevelEngine game)
         {
             return game.GetProperty<float>(BuiltinAreaProps.DOOR_Z);

@@ -1,0 +1,970 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-16 18:08+0800\n"
+"PO-Revision-Date: 2024-09-10 20:50+0800\n"
+"Last-Translator: \n"
+"Language-Team: English (United States) <https://hosted.weblate.org/projects/"
+"mvz2/general/en_US/>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.5\n"
+
+msgctxt "error"
+msgid "<color=red>错误：未知文本</color>"
+msgstr ""
+
+msgctxt "error"
+msgid ""
+"<color=red>错误：</color>\n"
+"发现了重复的物体引用！\n"
+"请将你的日志文件发送给作者。"
+msgstr ""
+
+msgctxt "error"
+msgid ""
+"<color=red>错误：</color>\n"
+"加载用户存档文件失败。\n"
+"用户存档可能已损坏。"
+msgstr ""
+
+msgctxt "error"
+msgid ""
+"<color=red>错误：</color>\n"
+"打开用户存档文件失败。\n"
+"请确认没有其他正在使用该文件的应用程序，然后重新启动游戏。"
+msgstr ""
+
+msgctxt "error"
+msgid "读取关卡错误"
+msgstr ""
+
+msgctxt "error"
+msgid ""
+"加载关卡时出现了错误。\n"
+"请向作者报告本问题。"
+msgstr ""
+
+msgctxt "error"
+msgid ""
+"关卡存档版本未知。\n"
+"请重新开始关卡。"
+msgstr ""
+
+msgctxt "error"
+msgid ""
+"存档版本和游戏版本不相同。\n"
+"存档版本：{0}\n"
+"游戏版本： {1}"
+msgstr ""
+
+msgctxt "error"
+msgid "？？？"
+msgstr ""
+
+msgid "加载中……"
+msgstr ""
+
+msgid "选择您的偏好语言"
+msgstr ""
+
+msgid "点击以开始！"
+msgstr ""
+
+msgid "触摸以开始！"
+msgstr ""
+
+msgid "确定"
+msgstr ""
+
+msgid "返回"
+msgstr ""
+
+msgid "返回列表"
+msgstr ""
+
+msgid "返回主菜单"
+msgstr ""
+
+msgid "返回地图"
+msgstr ""
+
+msgid "血与碎块"
+msgstr ""
+
+msgid "取消"
+msgstr ""
+
+msgid "第一次游戏必须输入用户名"
+msgstr ""
+
+msgid ""
+"您通关了这一章节。\n"
+"下一章节目前还在进行新版本的开发。\n"
+"或许……您可以试试无尽模式？"
+msgstr ""
+
+msgid ""
+"确认删除用户吗？\n"
+"该用户所有的数据都将被删除！"
+msgstr ""
+
+msgid "选择你的蓝图"
+msgstr ""
+
+msgid ""
+"确认要返回吗？\n"
+"你的进度会被保存。"
+msgstr ""
+
+msgid "购买第七个器械槽位？"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"我才不会想你呢！"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"并安装720流氓卫士以威胁您的电脑。"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"旅店永远都会关门！"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"硕士，还不可以休息哦。"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"打得好，我认输。"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"请问您是否并不是不要否认您不想不去不卸载720流氓卫士？"
+msgstr ""
+
+msgid ""
+"确认要退出吗？\n"
+"退出会导致游戏停止！"
+msgstr ""
+
+msgid "是否进行新手教程？"
+msgstr ""
+
+msgid "恭喜！"
+msgstr ""
+
+msgid "继续"
+msgstr ""
+
+msgid "是否继续上一次的进度？"
+msgstr ""
+
+msgid "（新建用户）"
+msgstr ""
+
+msgid "自定义"
+msgstr ""
+
+msgid "删除"
+msgstr ""
+
+msgid "已经存在该用户名"
+msgstr ""
+
+msgid "进入商店"
+msgstr ""
+
+msgid "删除用户"
+msgstr ""
+
+msgid "难度"
+msgstr ""
+
+msgid "正在进入关卡……"
+msgstr ""
+
+msgid "尸潮"
+msgstr ""
+
+msgid "黑太阳"
+msgstr ""
+
+msgid "成真"
+msgstr ""
+
+msgid "衰老"
+msgstr ""
+
+msgid "疯狂"
+msgstr ""
+
+msgid "潘多拉的魔盒"
+msgstr ""
+
+msgid "深潜者"
+msgstr ""
+
+msgid "选吧。"
+msgstr ""
+
+msgid "选择你的命运"
+msgstr ""
+
+msgid "轮数"
+msgstr ""
+
+msgid "高"
+msgstr ""
+
+msgid "全屏"
+msgstr ""
+
+msgid "游戏结束"
+msgstr ""
+
+msgid "输入……"
+msgstr ""
+
+msgid "请输入用户名"
+msgstr ""
+
+msgid "语言"
+msgstr ""
+
+msgid "一起摇滚吧！"
+msgstr ""
+
+msgid ""
+"当前关卡正在开发！\n"
+"请在以后的版本中游玩。"
+msgstr ""
+
+msgid ""
+"按住右键拖动以移动视图\n"
+"滚轮以缩放视图"
+msgstr ""
+
+msgid ""
+"单指拖动以移动视图\n"
+"双指触摸以缩放视图"
+msgstr ""
+
+msgid "菜单"
+msgstr ""
+
+msgid "更多选项"
+msgstr ""
+
+msgid "音乐"
+msgstr ""
+
+msgid "否"
+msgstr ""
+
+msgid "用户名不能为空"
+msgstr ""
+
+msgid "不建议在这关使用"
+msgstr ""
+
+msgid "夜用型 - 白天失效"
+msgstr ""
+
+msgid "关"
+msgstr ""
+
+msgid "游戏暂停"
+msgstr ""
+
+msgid "播放"
+msgstr ""
+
+msgid "好"
+msgstr ""
+
+msgid "开"
+msgstr ""
+
+msgid "粒子数量"
+msgstr ""
+
+msgid "购买"
+msgstr ""
+
+msgid "退出"
+msgstr ""
+
+msgid "列"
+msgstr ""
+
+msgid "重命名"
+msgstr ""
+
+msgid "分辨率"
+msgstr ""
+
+msgid "重新开始"
+msgstr ""
+
+msgid ""
+"确认要重新开始关卡吗？\n"
+"本关的进度都将丢失。"
+msgstr ""
+
+msgid "返回游戏"
+msgstr ""
+
+msgid "再试一次"
+msgstr ""
+
+msgid "行"
+msgstr ""
+
+msgid "屏幕震动"
+msgstr ""
+
+msgid "音效"
+msgstr ""
+
+msgid "交换触发"
+msgstr ""
+
+msgid "新手教程"
+msgstr ""
+
+msgid "你无法删除唯一一个用户"
+msgstr ""
+
+msgid "震动"
+msgstr ""
+
+msgid "查看草坪"
+msgstr ""
+
+msgid "查看图鉴"
+msgstr ""
+
+msgid "我是谁？"
+msgstr ""
+
+msgid "是"
+msgstr ""
+
+msgctxt "achievement"
+msgid "解锁成就！"
+msgstr ""
+
+msgctxt "achievement"
+msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
+msgstr ""
+
+msgctxt "achievement"
+msgid "活塞递推"
+msgstr ""
+
+msgctxt "achievement"
+msgid "已解锁！"
+msgstr ""
+
+msgctxt "achievement"
+msgid "在不照亮任何一次的情况下消灭一个幽灵。"
+msgstr ""
+
+msgctxt "achievement"
+msgid "捉鬼敢死队"
+msgstr ""
+
+msgctxt "achievement"
+msgid "用一个火焰弹消灭一只恶魂。"
+msgstr ""
+
+msgctxt "achievement"
+msgid "见鬼去吧"
+msgstr ""
+
+msgctxt "achievement"
+msgid "让一个没有船的僵尸走进水上并沉没。"
+msgstr ""
+
+msgctxt "achievement"
+msgid "永远不会让你Swim"
+msgstr ""
+
+msgctxt "archive"
+msgid "如果成交"
+msgstr ""
+
+msgctxt "archive"
+msgid "教程完成后"
+msgstr ""
+
+msgctxt "archive"
+msgid "背景"
+msgstr ""
+
+msgctxt "archive"
+msgid "（哆来咪出现）"
+msgstr ""
+
+msgctxt "archive"
+msgid "（哆来咪倒地）"
+msgstr ""
+
+msgctxt "archive"
+msgid "（哆来咪睁开了她失明的双眼）"
+msgstr ""
+
+msgctxt "archive"
+msgid "（哆来咪双手抱头痛苦不堪）"
+msgstr ""
+
+msgctxt "archive"
+msgid "筛选"
+msgstr ""
+
+msgctxt "archive"
+msgid "（史蒂夫和村民前往了梦境世界。）"
+msgstr ""
+
+msgctxt "archive"
+msgid "是否有足够的金钱？"
+msgstr ""
+
+msgctxt "archive"
+msgid "如果金钱不够"
+msgstr ""
+
+msgctxt "archive"
+msgid "如果金钱足够"
+msgstr ""
+
+msgctxt "archive"
+msgid "音乐"
+msgstr ""
+
+msgctxt "archive"
+msgid "（噩梦世界展现了出来）"
+msgstr ""
+
+msgctxt "archive"
+msgid "（欧兰特出现）"
+msgstr ""
+
+msgctxt "archive"
+msgid "剧情分支"
+msgstr ""
+
+msgctxt "archive"
+msgid "如果拒绝"
+msgstr ""
+
+msgctxt "archive"
+msgid "播放结束"
+msgstr ""
+
+msgctxt "archive"
+msgid "是否再次播放？"
+msgstr ""
+
+msgctxt "archive"
+msgid "搜索"
+msgstr ""
+
+msgctxt "archive"
+msgid "段落{0}"
+msgstr ""
+
+msgctxt "archive"
+msgid "段落"
+msgstr ""
+
+msgctxt "archive"
+msgid "片段"
+msgstr ""
+
+msgctxt "archive"
+msgid "如果不进行教程"
+msgstr ""
+
+msgctxt "archive"
+msgid "开始序章"
+msgstr ""
+
+msgctxt "archive"
+msgid "开始段落"
+msgstr ""
+
+msgctxt "archive"
+msgid "梦境世界"
+msgstr ""
+
+msgctxt "archive"
+msgid "万圣夜"
+msgstr ""
+
+msgctxt "archive"
+msgid "序章"
+msgstr ""
+
+msgctxt "archive"
+msgid "标签"
+msgstr ""
+
+msgctxt "archive"
+msgid "如果进行教程"
+msgstr ""
+
+msgid "成就"
+msgstr ""
+
+msgid "对话档案"
+msgstr ""
+
+msgid "冒险模式"
+msgstr ""
+
+msgid "你的名字是："
+msgstr ""
+
+msgctxt "music"
+msgid "选择你的种子"
+msgstr ""
+
+msgctxt "music"
+msgid "草地行走"
+msgstr ""
+
+msgctxt "music"
+msgid "破碎的童话-关卡"
+msgstr ""
+
+msgctxt "music"
+msgid "破碎的童话-地图"
+msgstr ""
+
+msgctxt "music"
+msgid "莱克死灵之书-关卡"
+msgstr ""
+
+msgctxt "music"
+msgid "莱克死灵之书-首领"
+msgstr ""
+
+msgctxt "music"
+msgid "莱克死灵之书-地图"
+msgstr ""
+
+msgctxt "music"
+msgid "疯狂戴夫"
+msgstr ""
+
+msgctxt "music"
+msgid "狂人的愉悦"
+msgstr ""
+
+msgctxt "music"
+msgid "猩红之地"
+msgstr ""
+
+msgctxt "music"
+msgid "终极之战"
+msgstr ""
+
+msgctxt "music"
+msgid "无"
+msgstr ""
+
+msgid "商店"
+msgstr ""
+
+msgid "{0} 槽"
+msgstr ""
+
+msgid "确定以${0:N0}的价格买下这个物品？"
+msgstr ""
+
+msgid "我吃地上的东西！"
+msgstr ""
+
+msgid "Whaddaya Buyin'?"
+msgstr ""
+
+msgid "倒吊人今天会带给你好运！"
+msgstr ""
+
+msgid "你根本不知道在海的这边泥土有多值钱！"
+msgstr ""
+
+msgid "哼！我是说——哼！"
+msgstr ""
+
+msgid "一次购买多张蓝图会发生可怕的事情！我骗你的！"
+msgstr ""
+
+msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
+msgstr ""
+
+msgid "把传动力板放在重力板上，让它能够操纵上方子弹和敌人的位置！"
+msgstr ""
+
+msgid "把传染发射器放在小型发射器上，让它发射的子弹能够在敌人之间传播！"
+msgstr ""
+
+msgid "更多的碎片槽！让你的器械爆发吧！"
+msgstr ""
+
+msgid "你没有足够的金钱！"
+msgstr ""
+
+msgid "页面{0}/{1}"
+msgstr ""
+
+msgid "售罄"
+msgstr ""
+
+msgctxt "levelname"
+msgid "测试关"
+msgstr ""
+
+msgctxt "levelname"
+msgid "{0} - 第{1}天"
+msgstr ""
+
+msgctxt "levelname"
+msgid "梦境世界"
+msgstr ""
+
+msgctxt "levelname"
+msgid "{0}(无尽版)"
+msgstr ""
+
+msgctxt "levelname"
+msgid "{0} - 第{1}轮"
+msgstr ""
+
+msgctxt "levelname"
+msgid "万圣夜"
+msgstr ""
+
+msgctxt "levelname"
+msgid "序章"
+msgstr ""
+
+msgctxt "levelname"
+msgid "教程关"
+msgstr ""
+
+msgctxt "levelname"
+msgid "未知关卡"
+msgstr ""
+
+msgctxt "advice.click_to_continue"
+msgid "点击以继续"
+msgstr ""
+
+msgctxt "advice.collect_money.0"
+msgid "点击收集宝石！"
+msgstr ""
+
+msgctxt "advice.collect_money.1"
+msgid "收集宝石来获得更酷的道具吧！"
+msgstr ""
+
+msgctxt "advice.more_enemies"
+msgid "更多的敌人要来了！"
+msgstr ""
+
+msgctxt "advice.place_lily_pad_first"
+msgid "请先放睡莲"
+msgstr ""
+
+msgctxt "advice.place_on_statue"
+msgid "你不能在雕像上放置器械"
+msgstr ""
+
+msgctxt "advice.random_china.ace_of_diamonds"
+msgid "方片A"
+msgstr ""
+
+msgctxt "advice.random_china.china_town"
+msgid "瓷器小镇"
+msgstr ""
+
+msgctxt "advice.random_china.gauntlet_snap"
+msgid "手套响指"
+msgstr ""
+
+msgctxt "advice.random_china.hell_metal"
+msgid "地狱金属"
+msgstr ""
+
+msgctxt "advice.random_china.obsidian_prisons"
+msgid "黑曜石囚牢"
+msgstr ""
+
+msgctxt "advice.random_china.redstone_ready"
+msgid "红石俱备"
+msgstr ""
+
+msgctxt "advice.random_china.tower"
+msgid "塔 - XVI"
+msgstr ""
+
+msgctxt "advice.starshard_tutorial.0"
+msgid "左键点击星之碎片槽选中星之碎片！"
+msgstr ""
+
+msgctxt "advice.starshard_tutorial.1"
+msgid "点击发射器！"
+msgstr ""
+
+msgctxt "advice.starshard_tutorial.2"
+msgid "干得漂亮！"
+msgstr ""
+
+msgctxt "advice.starshard_tutorial.3"
+msgid "绿色的怪物会携带星之碎片！"
+msgstr ""
+
+msgctxt "advice.starshard_tutorial.4"
+msgid "点击收集星之碎片！"
+msgstr ""
+
+msgctxt "advice.starshard_tutorial.5"
+msgid "现在干掉铁盔僵尸！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.0"
+msgid "点击并放置TNT！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.1"
+msgid "左键点击能量面板选中触发器！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.10"
+msgid "祝你好运！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.2"
+msgid "点击以触发TNT！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.3"
+msgid "干得漂亮！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.4"
+msgid "选中触发器！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.5"
+msgid "点击TNT蓝图！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.6"
+msgid "放置TNT，它会立即被触发！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.7"
+msgid "干得好！"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.8"
+msgid "立即触发只限于一次性消耗类型的器械。"
+msgstr ""
+
+msgctxt "advice.trigger_tutorial.9"
+msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
+msgstr ""
+
+msgctxt "advice.tutorial.0"
+msgid "左键点击器械卡牌选中器械！"
+msgstr ""
+
+msgctxt "advice.tutorial.1"
+msgid "点击草坪放置器械！"
+msgstr ""
+
+msgctxt "advice.tutorial.2"
+msgid "干得漂亮！"
+msgstr ""
+
+msgctxt "advice.tutorial.3"
+msgid "点击红石收集能量！"
+msgstr ""
+
+msgctxt "advice.tutorial.4"
+msgid "收集足够的能量来放置器械！"
+msgstr ""
+
+msgctxt "advice.tutorial.5"
+msgid "用发射器干掉僵尸！"
+msgstr ""
+
+msgctxt "advice.tutorial.6"
+msgid "干得漂亮！"
+msgstr ""
+
+msgctxt "advice.tutorial.7"
+msgid "选择熔炉并放置！"
+msgstr ""
+
+msgctxt "advice.tutorial.8"
+msgid "熔炉能为你提供额外的红石！"
+msgstr ""
+
+msgctxt "advice.tutorial.9"
+msgid "熔炉越多，你放器械的速度就越快！"
+msgstr ""
+
+msgctxt "advice.tutorial.12"
+msgid "干得漂亮！"
+msgstr ""
+
+msgctxt "advice.tutorial.10"
+msgid "请至少放下三个熔炉！"
+msgstr ""
+
+msgctxt "advice.tutorial.11"
+msgid "用黑曜石来挡住僵尸的进攻！"
+msgstr ""
+
+msgctxt "advice.tutorial.13"
+msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
+msgstr ""
+
+msgctxt "advice.tutorial.14"
+msgid "用地雷TNT炸死铁盔僵尸！"
+msgstr ""
+
+msgctxt "advice.tutorial.15"
+msgid "干得漂亮！"
+msgstr ""
+
+msgctxt "advice.tutorial.16"
+msgid "最后，镐子能够挖掉你所放下的器械！"
+msgstr ""
+
+msgctxt "advice.tutorial.17"
+msgid "试着挖掉所有器械！"
+msgstr ""
+
+msgctxt "death_message"
+msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
+msgstr ""
+
+msgctxt "death_message"
+msgid "<color=red>来 到 我 们 之 中 吧</color>"
+msgstr ""
+
+msgctxt "death_message"
+msgid "亲爱的日记：今天我死了。"
+msgstr ""
+
+msgctxt "death_message"
+msgid "快拿出棒球棍！"
+msgstr ""
+
+msgctxt "death_message"
+msgid "我们现在，都是幽灵了。"
+msgstr ""
+
+msgctxt "death_message"
+msgid "你去告诉作者，说他忘了设置死亡信息了。"
+msgstr ""
+
+msgctxt "death_message"
+msgid "隔离！"
+msgstr ""
+
+msgctxt "death_message"
+msgid "没有坟墓能束缚我！没有坟墓能束缚我！"
+msgstr ""
+
+msgctxt "death_message"
+msgid ""
+"你挂了\n"
+"死亡带走了12450金币和经验值"
+msgstr ""
+
+msgctxt "death_message"
+msgid "恐怖寄生虫 已消灭世界上的所有……"
+msgstr ""
+
+msgctxt "death_message"
+msgid "被射成刺猬了！"
+msgstr ""
+
+msgctxt "death_message"
+msgid "我的蜘蛛感应又有反应了。"
+msgstr ""
+
+msgctxt "death_message"
+msgid "脑子是好的，但不是每个人都有"
+msgstr ""
+
+msgctxt "difficulty"
+msgid "简单"
+msgstr ""
+
+msgctxt "difficulty"
+msgid "困难"
+msgstr ""
+
+msgctxt "difficulty"
+msgid "普通"
+msgstr ""
+
+msgctxt "difficulty"
+msgid "未知难度"
+msgstr ""
+
+msgid "挖掉器械"
+msgstr ""
+
+msgid "无法使用"
+msgstr ""
+
+msgid "已锁定"
+msgstr ""
+
+msgid "能量不足"
+msgstr ""
+
+msgid "触发器械"
+msgstr ""
+
+msgid "重新充能中…"
+msgstr ""
+
+msgctxt "blueprint"
+msgid "增加弹珠"
+msgstr ""
+
+msgctxt "blueprint"
+msgid "增长挡板"
+msgstr ""
+
+msgctxt "blueprint"
+msgid "返回弹珠"
+msgstr ""
+
+msgid "点击继续"
+msgstr ""
+
+msgid "跳过"
+msgstr ""

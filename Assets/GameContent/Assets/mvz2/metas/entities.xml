@@ -1,0 +1,10 @@
+<entities>
+    <contraption id="dispenser" name="发射器" tooltip="向敌人射出箭" />
+    <contraption id="furnace" name="熔炉" tooltip="提供给你额外的红石"/>
+    <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械"/>
+    <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备"/>
+    <enemy id="zombie" name="僵尸"/>
+    <enemy id="leather_capped_zombie" name="皮帽僵尸"/>
+    <enemy id="iron_helmeted_zombie" name="铁盔僵尸" />
+    <enemy id="flag_zombie" name="旗帜僵尸" />
+</entities>

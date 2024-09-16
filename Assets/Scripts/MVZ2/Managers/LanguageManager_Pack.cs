@@ -17,7 +17,7 @@ namespace MVZ2
         public void LoadAllLanguagePacks()
         {
             var directory = GetLanguagePackDirectory();
-            var packs = Directory.GetFiles(directory, "*.pack", SearchOption.AllDirectories);
+            var packs = Directory.GetFiles(directory, "*.pack", SearchOption.TopDirectoryOnly);
             foreach (var pack in packs)
             {
                 var loaded = ReadLanguagePack(pack);

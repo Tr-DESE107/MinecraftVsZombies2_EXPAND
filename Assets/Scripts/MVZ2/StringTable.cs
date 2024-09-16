@@ -27,6 +27,15 @@ namespace MVZ2
         [TranslateMsg("按钮文本")]
         public const string BUTTON_TEXT_BACK_TO_MAINMENU = "返回主菜单";
 
+        [TranslateMsg("游戏内文本提示")]
+        public const string TOOLTIP_NOT_ENOUGH_ENERGY = "能量不足";
+        [TranslateMsg("游戏内文本提示")]
+        public const string TOOLTIP_RECHARGING = "重新充能中…";
+        [TranslateMsg("游戏内文本提示")]
+        public const string TOOLTIP_DIG_CONTRAPTION = "挖掉器械";
+
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
+        public const string CONTEXT_ENTITY_NAME = "entity.name";
+        public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
     }
 }

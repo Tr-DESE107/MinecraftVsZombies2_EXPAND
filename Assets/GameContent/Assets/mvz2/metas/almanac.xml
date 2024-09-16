@@ -1,0 +1,80 @@
+<almanac>
+    <contraptions>
+        <entry id="mvz2:dispenser">
+            <p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
+            <p/>
+            <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+            <p>伤害：每枚箭矢<![CDATA[<color=red>20</color>]]></p>
+            <p>技能：快速发射60支箭矢</p>
+            <p/>
+            <p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
+        </entry>
+        <entry id="furnace">
+            <p>熔炉能为你提供额外的红石。</p>
+            <p/>
+            <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
+            <p>提供能量：每枚红石<![CDATA[<color=red>25</color>]]></p>
+            <p>技能：瞬间生成12枚红石</p>
+            <p/>
+            <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
+        </entry>
+        <entry id="obsidian">
+            <p>黑曜石的强力装甲能够抵御敌人的攻击。</p>
+            <p/>
+            <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+            <p>技能：获得下界合金装甲，耐久提高至<![CDATA[<color=red>10000</color>]]></p>
+            <p/>
+            <p>听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？</p>
+            <p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/>
+            <p>恭喜你被耍了</p>
+        </entry>
+        <entry id="mine_tnt">
+            <p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
+            <p/>
+            <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
+            <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+            <p>技能：立即准备完毕，并向最前方投掷两个新的地雷TNT</p>
+            <p/>
+            <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”</p>
+        </entry>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+    </contraptions>
+    <enemies>
+        <entry id="zombie">
+            <p>僵尸会在死掉之前一直冲向你的脑子。</p>
+            <p/>
+            <p>生命：<![CDATA[<color=red>200</color>]]></p>
+            <p>速度：<![CDATA[<color=red>0.5</color>]]></p>
+            <p/>
+            <p>在上一次尸界大战失败后，僵尸在墙角里做了三天三夜的反省。后来他开始锻炼自己，想让自己变得更强以吃到更多的脑子。现在的他看起来……好吧还是没变。</p>
+        </entry>
+        <entry id="leather_capped_zombie">
+            <p>皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
+            <p/>
+            <p>生命：<![CDATA[<color=red>200+370</color>]]></p>
+            <p>速度：<![CDATA[<color=red>0.5</color>]]></p>
+            <p/>
+            <p>随着时代的发展，皮帽已经逐渐淡出了人们的视线。但仍有一些僵尸在坚守着皮帽。当问及为什么时，他们总会说：“玩个游戏还BB啥！”</p>
+        </entry>
+        <entry id="iron_helmeted_zombie">
+            <p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
+            <p/>
+            <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
+            <p>速度：<![CDATA[<color=red>0.5</color>]]></p>
+            <p/>
+            <p>戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。</p>
+        </entry>
+        <entry id="flag_zombie">
+            <p>旗帜僵尸的出现标志着一大波怪物的到来。</p>
+            <p/>
+            <p>生命：<![CDATA[<color=red>200</color>]]></p>
+            <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            <p/>
+            <p>当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
+        </entry>
+        <entry/>
+    </enemies>
+</almanac>

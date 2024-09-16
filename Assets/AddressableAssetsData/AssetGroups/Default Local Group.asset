@@ -17,6 +17,156 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
+  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
+    m_Address: mvz2:talk/villager/villager_short1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
+    m_Address: mvz2:talk/villager/villager_scream2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
+    m_Address: mvz2:talk/villager/villager_scream1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 901de8865eb390d449fbb737be0c7d44
+    m_Address: mvz2:talk/villager/villager_long3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 691131bb6028ac44c8e585797df31cec
+    m_Address: mvz2:talk/villager/villager_long2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e76fd1251c333743bf3c70a8fb12362
+    m_Address: mvz2:talk/villager/villager_long1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c83904aa459b69644bb8f7e0a0e03da6
+    m_Address: mvz2:talk/villager/villager_idle3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c355acd9020355f408f0556a3f1b21d0
+    m_Address: mvz2:talk/villager/villager_idle2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d562f410f9a62746a0886fc28b6fcc4
+    m_Address: mvz2:talk/villager/villager_idle1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d3cf3664e1b8304f90a615e9b1e27af
+    m_Address: mvz2:talk/villager/villager_extra_long3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4733fb55accce48499a5e6432fba9112
+    m_Address: mvz2:talk/villager/villager_extra_long2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92e64a282d43f9e48be1005158f128eb
+    m_Address: mvz2:talk/villager/villager_extra_long1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33be9ddfa854a7f4bb06b09b59441cf1
+    m_Address: mvz2:talk/villager/villager_crazy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eac3297eb77eaa9469a14df4d15e1125
+    m_Address: mvz2:random/crystal/crystal_place4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 924887d4b0c49ca4a95e462a77626841
+    m_Address: mvz2:random/crystal/crystal_place3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
+    m_Address: mvz2:random/crystal/crystal_place2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f85791f4565cdd48b780ea2b27b64f5
+    m_Address: mvz2:random/crystal/crystal_place1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d01a2a78c4760e3408aba65d73824db6
+    m_Address: mvz2:random/crystal/crystal_break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9db1c252e2a4b0944a7655f2fb93b494
+    m_Address: mvz2:random/crystal/crystal_break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df0e5b44567880844996ecebf00d7d8c
+    m_Address: mvz2:random/crystal/crystal_break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cecfb1a9efb49964e86f4d6237e7efde
+    m_Address: mvz2:random/crystal/crystal_break1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09abce2230dfb324ea662a24b97c0318
+    m_Address: mvz2:random/crystal/crystal4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
+    m_Address: mvz2:random/crystal/crystal3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4f225f0cc6c7994baa6e1a69bc2bbab
+    m_Address: mvz2:random/crystal/crystal2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 772451afbb93e0949906b761c0971acc
+    m_Address: mvz2:random/crystal/crystal1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db3c78d339728b54896ae08ad492515f
     m_Address: mvz2:entity/zombie/zombie_death
     m_ReadOnly: 0
@@ -1943,161 +2093,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9000fae04f3098546b6e8a44331c4077
+    m_Address: mvz2:entities
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410c602e03a209e49a68674fd0551a89
     m_Address: mvz2:difficulties
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 772451afbb93e0949906b761c0971acc
-    m_Address: mvz2:random/crystal/crystal1
+  - m_GUID: d7592bb973448e5439c9fa3c97cbce5b
+    m_Address: mvz2:almanac
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b4f225f0cc6c7994baa6e1a69bc2bbab
-    m_Address: mvz2:random/crystal/crystal2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
-    m_Address: mvz2:random/crystal/crystal3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 09abce2230dfb324ea662a24b97c0318
-    m_Address: mvz2:random/crystal/crystal4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cecfb1a9efb49964e86f4d6237e7efde
-    m_Address: mvz2:random/crystal/crystal_break1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: df0e5b44567880844996ecebf00d7d8c
-    m_Address: mvz2:random/crystal/crystal_break2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9db1c252e2a4b0944a7655f2fb93b494
-    m_Address: mvz2:random/crystal/crystal_break3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d01a2a78c4760e3408aba65d73824db6
-    m_Address: mvz2:random/crystal/crystal_break4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0f85791f4565cdd48b780ea2b27b64f5
-    m_Address: mvz2:random/crystal/crystal_place1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
-    m_Address: mvz2:random/crystal/crystal_place2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 924887d4b0c49ca4a95e462a77626841
-    m_Address: mvz2:random/crystal/crystal_place3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eac3297eb77eaa9469a14df4d15e1125
-    m_Address: mvz2:random/crystal/crystal_place4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 33be9ddfa854a7f4bb06b09b59441cf1
-    m_Address: mvz2:talk/villager/villager_crazy
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 92e64a282d43f9e48be1005158f128eb
-    m_Address: mvz2:talk/villager/villager_extra_long1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4733fb55accce48499a5e6432fba9112
-    m_Address: mvz2:talk/villager/villager_extra_long2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5d3cf3664e1b8304f90a615e9b1e27af
-    m_Address: mvz2:talk/villager/villager_extra_long3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5d562f410f9a62746a0886fc28b6fcc4
-    m_Address: mvz2:talk/villager/villager_idle1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c355acd9020355f408f0556a3f1b21d0
-    m_Address: mvz2:talk/villager/villager_idle2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c83904aa459b69644bb8f7e0a0e03da6
-    m_Address: mvz2:talk/villager/villager_idle3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e76fd1251c333743bf3c70a8fb12362
-    m_Address: mvz2:talk/villager/villager_long1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 691131bb6028ac44c8e585797df31cec
-    m_Address: mvz2:talk/villager/villager_long2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 901de8865eb390d449fbb737be0c7d44
-    m_Address: mvz2:talk/villager/villager_long3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
-    m_Address: mvz2:talk/villager/villager_scream1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
-    m_Address: mvz2:talk/villager/villager_scream2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
-    m_Address: mvz2:talk/villager/villager_short1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
+    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
     m_Address: mvz2:talk/villager/villager_short2

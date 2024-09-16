@@ -37,7 +37,7 @@ namespace PVZEngine.Serialization
         public SerializableGrid[] grids;
         public float rechargeSpeed;
         public float rechargeTimeMultiplier;
-        public List<SerializableSeedPack> seedPacks;
+        public SerializableSeedPack[] seedPacks;
         public bool requireCards;
         public int currentEntityID = 1;
         public List<SerializableEntity> entities;

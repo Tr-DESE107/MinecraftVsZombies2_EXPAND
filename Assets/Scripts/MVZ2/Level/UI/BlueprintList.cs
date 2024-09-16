@@ -7,25 +7,21 @@ namespace MVZ2.Level.UI
 {
     public class BlueprintList : LevelUIUnit
     {
-        public void SetBlueprints(BlueprintViewData[] viewDatas)
+        public void SetBlueprintCount(int count)
         {
-            blueprints.updateList(viewDatas.Length, (i, rect) =>
-            {
-                var blueprint = rect.GetComponent<Blueprint>();
-                var viewData = viewDatas[i];
-                blueprint.SetCost(viewData.cost);
-                blueprint.SetIcon(viewData.icon);
-                blueprint.SetTriggerActive(viewData.triggerActive);
-                blueprint.SetTriggerCost(viewData.triggerCost);
-            },
+            blueprints.updateList(count, null,
             rect =>
             {
                 var blueprint = rect.GetComponent<Blueprint>();
+                blueprint.OnPointerEnter += OnBlueprintPointerEnterCallback;
+                blueprint.OnPointerExit += OnBlueprintPointerExitCallback;
                 blueprint.OnPointerDown += OnBlueprintPointerDownCallback;
             },
             rect =>
             {
                 var blueprint = rect.GetComponent<Blueprint>();
+                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
+                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
                 blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
             });
         }
@@ -33,40 +29,22 @@ namespace MVZ2.Level.UI
         {
             return blueprints.getElement<Blueprint>(index);
         }
-        public void SetRecharges(float[] recharges)
+        private void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData data)
         {
-            for (int i = 0; i < blueprints.count; i++)
-            {
-                var recharge = recharges[i];
-                var blueprint = blueprints.getElement<Blueprint>(i);
-                if (!blueprint)
-                    continue;
-                blueprint.SetRecharge(1 - recharge);
-            }
+            OnBlueprintPointerEnter?.Invoke(blueprints.indexOf(blueprint), data);
         }
-        public void SetDisabled(bool[] disabledList)
+        private void OnBlueprintPointerExitCallback(Blueprint blueprint, PointerEventData data)
         {
-            for (int i = 0; i < blueprints.count; i++)
-            {
-                var disabled = disabledList[i];
-                var blueprint = blueprints.getElement<Blueprint>(i);
-                if (!blueprint)
-                    continue;
-                blueprint.SetDisabled(disabled);
-            }
-        }
-        public void SetBlueprintCount(int count)
-        {
-            blueprintPlaceholders.updateList(count);
+            OnBlueprintPointerExit?.Invoke(blueprints.indexOf(blueprint), data);
         }
         private void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData data)
         {
             OnBlueprintPointerDown?.Invoke(blueprints.indexOf(blueprint), data);
         }
+        public event Action<int, PointerEventData> OnBlueprintPointerEnter;
+        public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
         [SerializeField]
         private ElementList blueprints;
-        [SerializeField]
-        private ElementList blueprintPlaceholders;
     }
 }

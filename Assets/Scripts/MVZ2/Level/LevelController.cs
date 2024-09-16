@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Codice.CM.Common;
+using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
 using MVZ2.Talk;
@@ -13,6 +15,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Game;
 using PVZEngine.Level;
 using Tools;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -37,6 +40,9 @@ namespace MVZ2.Level
             level.OnEntitySpawn += Engine_OnEntitySpawnCallback;
             level.OnEntityRemove += Engine_OnEntityRemoveCallback;
             level.OnGameOver += Engine_OnGameOverCallback;
+
+            level.OnSeedPackChanged += Engine_OnSeedPackChangedCallback;
+            level.OnSeedPackCountChanged += Engine_OnSeedPackCountChangedCallback;
 
             game.SetLevel(level);
 
@@ -66,8 +72,6 @@ namespace MVZ2.Level
             {
                 BeginLevel();
             }
-
-            level.SetSeedPacks(MainManager.LevelManager.GetSeedPacksID());
         }
         public void PlayReadySetBuild()
         {
@@ -96,7 +100,6 @@ namespace MVZ2.Level
 
             var levelUI = GetLevelUI();
             SetUIVisibleState(VisibleState.InLevel);
-            levelUI.SetBlueprintCount(level.GetAllSeedPacks().Length);
 
             UpdateBlueprints();
             UpdateLevelName();
@@ -231,9 +234,13 @@ namespace MVZ2.Level
             standaloneUI.SetActive(standaloneUI == levelUI);
             mobileUI.SetActive(mobileUI == levelUI);
 
-            levelUI.OnBlueprintPointerDown += OnBlueprintPointerDownCallback;
+            levelUI.OnBlueprintPointerEnter += UI_OnBlueprintPointerEnterCallback;
+            levelUI.OnBlueprintPointerExit += UI_OnBlueprintPointerExitCallback;
+            levelUI.OnBlueprintPointerDown += UI_OnBlueprintPointerDownCallback;
+            levelUI.OnPickaxePointerEnter += UI_OnPickaxePointerEnterCallback;
+            levelUI.OnPickaxePointerExit += UI_OnPickaxePointerExitCallback;
+            levelUI.OnPickaxePointerDown += UI_OnPickaxePointerDownCallback;
             levelUI.OnRaycastReceiverPointerDown += OnRaycastReceiverPointerDownCallback;
-            levelUI.OnPickaxePointerDown += OnPickaxePointerDownCallback;
             levelUI.OnMenuButtonClick += OnMenuButtonClickCallback;
             levelUI.OnSpeedUpButtonClick += OnSpeedUpButtonClickCallback;
             levelUI.OnStarshardPointerDown += OnStarshardPointerDownCallback;
@@ -252,6 +259,7 @@ namespace MVZ2.Level
             levelUI.SetPauseDialogActive(false);
             levelUI.SetGameOverDialogActive(false);
             levelUI.SetYouDiedVisible(false);
+            levelUI.HideTooltip();
             SetUIVisibleState(VisibleState.Nothing);
         }
         private void Update()
@@ -286,6 +294,7 @@ namespace MVZ2.Level
                 UpdateLevelProgress();
                 UpdateBlueprintRecharges();
                 UpdateBlueprintDisabled();
+                UpdateBlueprintTwinkle();
                 UpdateStarshards();
 
                 levelCamera.ShakeOffset = (Vector3)main.ShakeManager.GetShake2D();
@@ -384,6 +393,14 @@ namespace MVZ2.Level
                     GameOverInstantly(message);
                     break;
             }
+        }
+        private void Engine_OnSeedPackChangedCallback(int index)
+        {
+            UpdateBlueprint(index);
+        }
+        private void Engine_OnSeedPackCountChangedCallback(int count)
+        {
+            UpdateBlueprints();
         }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
@@ -485,7 +502,37 @@ namespace MVZ2.Level
                 }
             }
         }
-        private void OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
+        private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData)
+        {
+            var levelUI = GetLevelUI();
+            var seedPack = level.GetSeedPackAt(index);
+            if (seedPack == null)
+                return;
+            var seedDef = seedPack.Definition;
+            if (seedDef == null || seedDef.GetSeedType() != SeedTypes.ENTITY)
+                return;
+            var entityID = seedDef.GetSeedEntityID();
+            var name = main.ResourceManager.GetEntityName(entityID);
+            var tooltip = main.ResourceManager.GetEntityTooltip(entityID);
+            string error = null;
+            if (!CanPickBlueprint(seedPack, out var errorMessage))
+            {
+                error = main.LanguageManager._(errorMessage);
+            }
+            var viewData = new TooltipViewData()
+            {
+                name = name,
+                error = error,
+                description = tooltip
+            };
+            levelUI.ShowTooltipOnBlueprint(index, viewData);
+        }
+        private void UI_OnBlueprintPointerExitCallback(int index, PointerEventData eventData)
+        {
+            var levelUI = GetLevelUI();
+            levelUI.HideTooltip();
+        }
+        private void UI_OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
@@ -505,11 +552,25 @@ namespace MVZ2.Level
             }
             level.UseOnLawn(area);
         }
-        private void OnPickaxePointerDownCallback(PointerEventData eventData)
+        private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
+        {
+            var levelUI = GetLevelUI();
+            var viewData = new TooltipViewData()
+            {
+                name = MainManager.LanguageManager._(StringTable.TOOLTIP_DIG_CONTRAPTION),
+                error = level.IsPickaxeDisabled() ? MainManager.LanguageManager._(level.GetPickaxeDisableMessage()) : null,
+                description = null
+            };
+            levelUI.ShowTooltipOnPickaxe(viewData);
+        }
+        private void UI_OnPickaxePointerExitCallback(PointerEventData eventData)
+        {
+            var levelUI = GetLevelUI();
+            levelUI.HideTooltip();
+        }
+        private void UI_OnPickaxePointerDownCallback(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
-                return;
-            if (level.IsPickaxeDisabled())
                 return;
             ClickPickaxe();
         }
@@ -546,6 +607,8 @@ namespace MVZ2.Level
         #endregion
         private void ClickPickaxe()
         {
+            if (level.IsPickaxeDisabled())
+                return;
             if (level.IsHoldingItem())
             {
                 if (level.CancelHeldItem())
@@ -578,49 +641,77 @@ namespace MVZ2.Level
         #region 蓝图
         private void UpdateBlueprints()
         {
+            var count = level.GetSeedPackCount();
             var levelUI = GetLevelUI();
-            var seeds = level.GetAllSeedPacks(true);
-            var viewDatas = new BlueprintViewData[seeds.Length];
-            for (int i = 0; i < viewDatas.Length; i++)
+            levelUI.SetBlueprintCount(count);
+        }
+        private void UpdateBlueprint(int index)
+        {
+            var seed = level.GetSeedPackAt(index);
+            BlueprintViewData viewData = GetSeedPackViewData(seed);
+            var levelUI = GetLevelUI();
+            levelUI.SetBlueprintAt(index, viewData);
+        }
+        private BlueprintViewData GetSeedPackViewData(SeedPack seed)
+        {
+            BlueprintViewData viewData;
+            if (seed == null)
             {
-                var seed = seeds[i];
+                viewData = new BlueprintViewData()
+                {
+                    empty = true,
+                };
+            }
+            else
+            {
                 var seedDef = seed.Definition;
                 var sprite = GetBlueprintIcon(seedDef);
-                var viewData = new BlueprintViewData()
+                viewData = new BlueprintViewData()
                 {
                     icon = sprite,
                     cost = seed.GetCost().ToString(),
                     triggerActive = seedDef.IsTriggerActive(),
                     triggerCost = seedDef.GetTriggerCost().ToString(),
                 };
-                viewDatas[i] = viewData;
             }
-            levelUI.SetBlueprints(viewDatas);
+            return viewData;
         }
         private void UpdateBlueprintRecharges()
         {
             var levelUI = GetLevelUI();
-            var seeds = level.GetAllSeedPacks(true);
-            var recharges = new float[seeds.Length];
-            for (int i = 0; i < recharges.Length; i++)
+            var seeds = level.GetAllSeedPacks();
+            for (int i = 0; i < seeds.Length; i++)
             {
                 var seed = seeds[i];
+                if (seed == null)
+                    continue;
                 var maxCharge = seed.GetMaxRecharge();
-                recharges[i] = maxCharge == 0 ? 1 : seed.GetRecharge() / maxCharge;
+                levelUI.SetBlueprintRecharge(i, maxCharge == 0 ? 0 : 1 - seed.GetRecharge() / maxCharge);
             }
-            levelUI.SetBlueprintRecharges(recharges);
         }
         private void UpdateBlueprintDisabled()
         {
             var levelUI = GetLevelUI();
-            var seeds = level.GetAllSeedPacks(true);
-            var disabled = new bool[seeds.Length];
-            for (int i = 0; i < disabled.Length; i++)
+            var seeds = level.GetAllSeedPacks();
+            for (int i = 0; i < seeds.Length; i++)
             {
                 var seed = seeds[i];
-                disabled[i] = level.IsHoldingBlueprint(i) || !CanPickBlueprint(seed);
+                if (seed == null)
+                    continue;
+                levelUI.SetBlueprintDisabled(i, level.IsHoldingBlueprint(i) || !CanPickBlueprint(seed));
             }
-            levelUI.SetBlueprintDisabled(disabled);
+        }
+        private void UpdateBlueprintTwinkle()
+        {
+            var levelUI = GetLevelUI();
+            var seeds = level.GetAllSeedPacks();
+            for (int i = 0; i < seeds.Length; i++)
+            {
+                var seed = seeds[i];
+                if (seed == null)
+                    continue;
+                levelUI.SetBlueprintTwinkle(i, seed.IsTwinkling());
+            }
         }
         private void UpdateStarshards()
         {
@@ -629,9 +720,32 @@ namespace MVZ2.Level
         }
         private bool CanPickBlueprint(SeedPack seed)
         {
+            return CanPickBlueprint(seed, out _);
+        }
+        private bool CanPickBlueprint(SeedPack seed, out string errorMessage)
+        {
             if (seed == null)
+            {
+                errorMessage = null;
                 return false;
-            return level.Energy >= seed.GetCost() && seed.IsCharged() && !seed.IsDisabled();
+            }
+            if (!seed.IsCharged())
+            {
+                errorMessage = StringTable.TOOLTIP_RECHARGING;
+                return false;
+            }
+            if (level.Energy < seed.GetCost())
+            {
+                errorMessage = StringTable.TOOLTIP_NOT_ENOUGH_ENERGY;
+                return false;
+            }
+            if (seed.IsDisabled())
+            {
+                errorMessage = seed.GetDisableMessage();
+                return false;
+            }
+            errorMessage = null;
+            return true;
         }
         private Sprite GetBlueprintIcon(int i)
         {
@@ -998,6 +1112,11 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
             yield return new WaitForSeconds(1);
+
+            var seedPacks = MainManager.LevelManager.GetSeedPacksID();
+            level.SetSeedPackCount(seedPacks.Length);
+            level.ReplaceSeedPacks(seedPacks);
+
             yield return MoveCameraToLawn();
             level.PrepareForBattle();
             yield return new WaitForSeconds(0.5f);

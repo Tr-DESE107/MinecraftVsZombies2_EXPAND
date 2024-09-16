@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             SetProperty(EntityProperties.DAMAGE, 20);
             SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
+            SetProperty(EntityProperties.SIZE, new Vector3(32, 48, 32));
             detector = new DispenserDetector()
             {
                 ignoreHighEnemy = true,
@@ -20,7 +21,6 @@ namespace MVZ2.GameContent.Contraptions
                 shootOffset = ProjectileOffset,
                 projectileID = Entity,
             };
-            SetProperty(EntityProperties.SIZE, new Vector3(32, 48, 32));
         }
 
         public void InitShootTimer(Entity entity)

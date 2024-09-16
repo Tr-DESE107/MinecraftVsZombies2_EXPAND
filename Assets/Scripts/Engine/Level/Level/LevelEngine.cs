@@ -301,7 +301,7 @@ namespace PVZEngine.Level
                 grids = grids.Select(g => g.Serialize()).ToArray(),
                 rechargeSpeed = RechargeSpeed,
                 rechargeTimeMultiplier = RechargeTimeMultiplier,
-                seedPacks = seedPacks.ConvertAll(g => g.Serialize()),
+                seedPacks = seedPacks.Select(g => g.Serialize()).ToArray(),
 
                 currentEntityID = 1,
                 entities = entities.ConvertAll(e => e.Serialize()),
@@ -353,7 +353,7 @@ namespace PVZEngine.Level
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
-            level.seedPacks = seri.seedPacks.ConvertAll(g => SeedPack.Deserialize(g, level));
+            level.seedPacks = seri.seedPacks.Select(g => SeedPack.Deserialize(g, level)).ToArray();
 
             level.currentEntityID = seri.currentEntityID;
 
