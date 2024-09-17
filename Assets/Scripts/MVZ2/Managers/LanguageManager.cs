@@ -25,7 +25,7 @@ namespace MVZ2
                 if (languagePack.TryGetString(language, text, out var result, args))
                     return result;
             }
-            return text;
+            return string.Format(text, args);
         }
         public string GetLocalizedStringParticular(string context, string text, string language, params string[] args)
         {
@@ -37,7 +37,7 @@ namespace MVZ2
                 if (languagePack.TryGetStringParticular(language, context, text, out var result, args))
                     return result;
             }
-            return text;
+            return string.Format(text, args);
         }
         public Sprite GetSprite(Sprite sprite)
         {
@@ -91,7 +91,7 @@ namespace MVZ2
         }
         public string GetCurrentLanguage()
         {
-            return currentLanaguge;
+            return Main.OptionsManager.GetLanguage();
         }
         public string[] GetAllLanguages()
         {
@@ -104,7 +104,5 @@ namespace MVZ2
         private List<string> allLanguages = new List<string>() { CN };
         [SerializeField]
         private MainManager main;
-        [SerializeField]
-        private string currentLanaguge = CN;
     }
 }

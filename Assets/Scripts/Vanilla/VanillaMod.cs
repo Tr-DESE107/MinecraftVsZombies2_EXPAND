@@ -3,6 +3,8 @@ using System.Reflection;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
+using MVZ2.Save;
+using MVZ2.Vanilla.Save;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
@@ -22,6 +24,21 @@ namespace MVZ2.Vanilla
             LevelCallbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
             LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
             BuiltinCallbacks.TalkAction.Add(TalkAction);
+        }
+        public override void Init(Game game)
+        {
+            base.Init(game);
+
+            SerializeHelper.RegisterClass<SerializableVanillaSaveData>();
+        }
+        public override ModSaveData CreateSaveData()
+        {
+            return new VanillaSaveData(spaceName);
+        }
+        public override ModSaveData LoadSaveData(string json)
+        {
+            var serializable = SerializeHelper.FromBson<SerializableVanillaSaveData>(json);
+            return serializable.Deserialize();
         }
         protected void LoadFromAssemblies(Assembly[] assemblies)
         {

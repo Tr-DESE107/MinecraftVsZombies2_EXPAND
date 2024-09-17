@@ -29,10 +29,6 @@ namespace MVZ2
             }
             return packs;
         }
-        public NamespaceID GetDifficulty()
-        {
-            return Main.SaveManager.GetDifficulty();
-        }
         public async Task GotoLevelScene()
         {
             var sceneName = "Level";

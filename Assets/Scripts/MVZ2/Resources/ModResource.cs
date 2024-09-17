@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
 using MVZ2.Talk;
 using PVZEngine;
 using UnityEngine;
-using static UnityEditorInternal.ReorderableList;
-using UnityEngine.Profiling.Memory.Experimental;
-using System.Xml;
 
 namespace MVZ2
 {
@@ -50,7 +48,7 @@ namespace MVZ2
                     DifficultyMetaList = DifficultyMetaList.FromXmlNode(document["difficulties"]);
                     break;
                 case "entities":
-                    EntityMetaList = EntityMetaList.FromXmlNode(document["entities"]);
+                    EntityMetaList = EntityMetaList.FromXmlNode(document["entities"], defaultNsp);
                     break;
                 case "almanac":
                     AlmanacMetaList = AlmanacMetaList.FromXmlNode(document["almanac"], defaultNsp);

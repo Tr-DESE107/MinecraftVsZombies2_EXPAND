@@ -34,6 +34,7 @@ namespace MVZ2
         [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_DIG_CONTRAPTION = "挖掉器械";
 
+        public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";

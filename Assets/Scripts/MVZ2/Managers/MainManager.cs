@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MVZ2.Vanilla;
 using PVZEngine.Game;
 using UnityEngine;
-using static MVZ2.Level.LevelController;
 
 namespace MVZ2
 {
@@ -14,11 +12,14 @@ namespace MVZ2
             Game = new Game();
             Game.OnGetString += OnGetStringCallback;
             Game.OnGetStringParticular += OnGetStringParticularCallback;
+
+            OptionsManager.InitOptions();
+            OptionsManager.LoadOptions();
             await ModManager.LoadMods(Game);
             await ResourceManager.LoadAllModResources();
             LanguageManager.LoadAllLanguagePacks();
 
-            SaveManager.LoadSaveData();
+            SaveManager.Load();
 
             ModManager.InitMods(Game);
         }
@@ -73,6 +74,7 @@ namespace MVZ2
         public CursorManager CursorManager => cursor;
         public ShakeManager ShakeManager => shake;
         public TalkManager TalkManager => talk;
+        public OptionsManager OptionsManager => options;
         public MainSceneController Scene => scene;
         [SerializeField]
         private string builtinNamespace = "mvz2";
@@ -100,6 +102,8 @@ namespace MVZ2
         private ShakeManager shake;
         [SerializeField]
         private TalkManager talk;
+        [SerializeField]
+        private OptionsManager options;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

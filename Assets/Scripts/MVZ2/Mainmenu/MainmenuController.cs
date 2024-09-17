@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MukioI18n;
 using MVZ2.GameContent;
 using UnityEngine;
 
@@ -18,6 +19,17 @@ namespace MVZ2.Mainmenu
             storeButton.gameObject.SetActive(false);
             backgroundLight.gameObject.SetActive(true);
             backgroundDark.gameObject.SetActive(false);
+
+            var userName = main.SaveManager.GetCurrentUserName();
+            if (string.IsNullOrEmpty(userName))
+            {
+                ui.SetUserName(string.Empty);
+                ShowInputNameDialog(false);
+            }
+            else
+            {
+                ui.SetUserName(userName);
+            }
         }
         public void Hide()
         {
@@ -39,29 +51,56 @@ namespace MVZ2.Mainmenu
             backToMenuButton.OnClick += OnBackToMenuButtonClickCallback;
             archiveButton.OnClick += OnArchiveButtonClickCallback;
             achievementButton.OnClick += OnAchievementButtonClickCallback;
+
+            ui.OnInputNameConfirm += OnInputNameConfirmCallback;
+            ui.OnInputNameCancel += OnInputNameCancelCallback;
         }
         #endregion
 
         #region 事件回调
-        public void OnAdventureButtonClickCallback()
+        private void OnAdventureButtonClickCallback()
         {
             StartCoroutine(StartAdventure());
         }
-        public void OnOptionsButtonClickCallback() { }
-        public void OnHelpButtonClickCallback() { }
-        public void OnUserManageButtonClickCallback() { }
-        public void OnQuitButtonClickCallback()
+        private void OnOptionsButtonClickCallback() { }
+        private void OnHelpButtonClickCallback() { }
+        private void OnUserManageButtonClickCallback() { }
+        private void OnQuitButtonClickCallback()
         {
             Application.Quit();
         }
 
-        public void OnAlmanacButtonClickCallback() { }
-        public void OnStoreButtonClickCallback() { }
-        public void OnMoreMenuButtonClickCallback() { }
+        private void OnAlmanacButtonClickCallback() { }
+        private void OnStoreButtonClickCallback() { }
+        private void OnMoreMenuButtonClickCallback() { }
 
-        public void OnBackToMenuButtonClickCallback() { }
-        public void OnArchiveButtonClickCallback() { }
-        public void OnAchievementButtonClickCallback() { }
+        private void OnBackToMenuButtonClickCallback() { }
+        private void OnArchiveButtonClickCallback() { }
+        private void OnAchievementButtonClickCallback() { }
+
+        private void OnInputNameConfirmCallback(string name) 
+        { 
+            if (!ValidateUserName(name, out var message))
+            {
+                var error = main.LanguageManager._(message);
+                ui.SetInputNameDialogError(error);
+                return;
+            }
+            main.SaveManager.SetCurrentUserName(name);
+            main.SaveManager.SaveMetaList();
+            ui.SetUserName(name);
+            ui.SetInputNameDialogVisible(false);
+        }
+        private void OnInputNameCancelCallback()
+        {
+            if (!canCancelInputName)
+            {
+                var error = main.LanguageManager._(ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT);
+                ui.SetInputNameDialogError(error);
+                return;
+            }
+            ui.SetInputNameDialogVisible(false);
+        }
         #endregion
         private IEnumerator StartAdventure()
         {
@@ -99,8 +138,37 @@ namespace MVZ2.Mainmenu
             yield return archiveButton;
             yield return achievementButton;
         }
+        private void ShowInputNameDialog(bool canCancel)
+        {
+            ui.SetInputNameDialogVisible(true);
+            canCancelInputName = canCancel;
+        }
+        private bool ValidateUserName(string name, out string message)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                message = ERROR_MESSAGE_NAME_EMPTY;
+                return false;
+            }
+
+            if (main.SaveManager.HasDuplicateUserName(name, main.SaveManager.GetCurrentUserIndex()))
+            {
+                message = ERROR_MESSAGE_NAME_DUPLICATE;
+                return false;
+            }
+            message = null;
+            return true;
+        }
         #region 属性字段
+        [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT = "第一次游戏必须输入用户名";
+        [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_NAME_EMPTY = "用户名不能为空";
+        [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
         private MainManager main => MainManager.Instance;
+        [SerializeField]
+        private MainmenuUI ui;
         [SerializeField]
         private GameObject backgroundLight;
         [SerializeField]
@@ -128,6 +196,7 @@ namespace MVZ2.Mainmenu
         private MainmenuButton archiveButton;
         [SerializeField]
         private MainmenuButton achievementButton;
+        private bool canCancelInputName;
         #endregion
     }
 }

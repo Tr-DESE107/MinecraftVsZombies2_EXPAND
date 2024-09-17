@@ -93,7 +93,7 @@ namespace MVZ2.Level
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
 
-            level.SetDifficulty(MainManager.LevelManager.GetDifficulty());
+            level.SetDifficulty(MainManager.OptionsManager.GetDifficulty());
 
             //level.SetEnergy(9990);
             //level.RechargeSpeed = 99;
