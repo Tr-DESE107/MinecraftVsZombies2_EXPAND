@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Talk;
-using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -63,6 +62,7 @@ namespace MVZ2
             modResources.Clear();
             spriteReferenceCacheDict.Clear();
             entitiesCacheDict.Clear();
+            difficultyCache.Clear();
         }
         private async Task<ModResource> LoadModResources(ModInfo mod)
         {
@@ -83,6 +83,10 @@ namespace MVZ2
             foreach (var meta in modResource.EntityMetaList.metas)
             {
                 entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.id), meta);
+            }
+            foreach (var meta in modResource.DifficultyMetaList.metas)
+            {
+                difficultyCache.Add(new NamespaceID(modNamespace, meta.id));
             }
 
             return modResource;

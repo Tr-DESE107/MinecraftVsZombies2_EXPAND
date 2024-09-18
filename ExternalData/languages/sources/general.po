@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:08+0800\n"
-"PO-Revision-Date: 2024-09-18 13:48+0800\n"
+"PO-Revision-Date: 2024-09-18 21:04+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -82,8 +82,8 @@ msgstr "Back to main menu"
 msgid "返回地图"
 msgstr "Back to map"
 
-msgid "血与碎块"
-msgstr "Blood and Gore"
+msgid "血与碎块：{0}"
+msgstr "Blood and Gore: {0}"
 
 msgid "取消"
 msgstr "Cancel"
@@ -199,8 +199,8 @@ msgstr "Enter Store"
 msgid "删除用户"
 msgstr "Delete User"
 
-msgid "难度"
-msgstr "Difficulty"
+msgid "难度：{0}"
+msgstr "Difficulty: {0}"
 
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
@@ -238,8 +238,8 @@ msgstr "Flags"
 msgid "高"
 msgstr "Height"
 
-msgid "全屏"
-msgstr "Fullscreen"
+msgid "全屏：{0}"
+msgstr "Full Screen: {0}"
 
 msgid "游戏结束"
 msgstr "Game Over"
@@ -283,8 +283,8 @@ msgstr "Menu"
 msgid "更多选项"
 msgstr "More Options"
 
-msgid "音乐"
-msgstr "Music"
+msgid "音乐音量：{0}"
+msgstr "Music Volume: {0}"
 
 msgid "否"
 msgstr "No"
@@ -313,8 +313,8 @@ msgstr "OK"
 msgid "开"
 msgstr "ON"
 
-msgid "粒子数量"
-msgstr "Particle Count"
+msgid "粒子数量：{0}"
+msgstr "Particle Count: {0}"
 
 msgid "购买"
 msgstr "Purchase"
@@ -347,11 +347,11 @@ msgstr "Retry"
 msgid "行"
 msgstr "Row"
 
-msgid "屏幕震动"
-msgstr "Screen Shake"
+msgid "设备震动：{0}"
+msgstr "Vibration: {0}"
 
-msgid "音效"
-msgstr "Sound FX"
+msgid "音效音量：{0}"
+msgstr "Sound Volume: {0}"
 
 msgid "交换触发"
 msgstr "Swap Trigger"
@@ -362,8 +362,8 @@ msgstr "Tutorial"
 msgid "你无法删除唯一一个用户"
 msgstr "You can't delete the only user"
 
-msgid "震动"
-msgstr "Vibration"
+msgid "屏幕震动：{0}"
+msgstr "Screen Shake: {0}"
 
 msgid "查看草坪"
 msgstr "View Lawn"
@@ -991,6 +991,27 @@ msgstr "Click to continue"
 
 msgid "跳过"
 msgstr "Skip"
+
+#~ msgid "震动幅度：{0}"
+#~ msgstr "Screen Shake: {0}"
+
+#~ msgid "难度"
+#~ msgstr "Difficulty"
+
+#~ msgid "全屏"
+#~ msgstr "Fullscreen"
+
+#~ msgid "音乐"
+#~ msgstr "Music"
+
+#~ msgid "屏幕震动"
+#~ msgstr "Screen Shake"
+
+#~ msgid "音效"
+#~ msgstr "Sound FX"
+
+#~ msgid "震动"
+#~ msgstr "Vibration"
 
 #~ msgctxt "error"
 #~ msgid "<color=red>错误：未知文本</color>"

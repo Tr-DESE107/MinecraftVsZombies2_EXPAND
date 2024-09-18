@@ -1,0 +1,187 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace MVZ2.UI
+{
+    public class OptionsDialog : MonoBehaviour
+    {
+        public void SetPage(Page page)
+        {
+            mainPage.SetActive(page == Page.Main);
+            morePage.SetActive(page == Page.More);
+        }
+        public void SetSliderValue(SliderType type, float value)
+        {
+            if (sliderDict.TryGetValue(type, out var slider))
+            {
+                slider.Slider.SetValueWithoutNotify(value);
+            }
+        }
+        public void SetSliderText(SliderType type, string text)
+        {
+            if (sliderDict.TryGetValue(type, out var slider))
+            {
+                slider.Text.text = text;
+            }
+        }
+        public void SetDropdownValue(DropdownType type, int index)
+        {
+            if (dropdownDict.TryGetValue(type, out var dropdown))
+            {
+                dropdown.SetValueWithoutNotify(index);
+                dropdown.Hide();
+            }
+        }
+        public void SetDropdownValues(DropdownType type, string[] texts)
+        {
+            if (dropdownDict.TryGetValue(type, out var dropdown))
+            {
+                dropdown.ClearOptions();
+                dropdown.AddOptions(texts.ToList());
+            }
+        }
+        public void SetButtonText(TextButtonType type, string text)
+        {
+            if (textButtonDict.TryGetValue(type, out var button))
+            {
+                button.Text.text = text;
+            }
+        }
+        public void SetButtonActive(ButtonType type, bool value)
+        {
+            if (buttonDict.TryGetValue(type, out var button))
+            {
+                button.gameObject.SetActive(value);
+            }
+        }
+        private void Awake()
+        {
+            sliderDict.Add(SliderType.Music, musicSlider);
+            sliderDict.Add(SliderType.Sound, soundSlider);
+            sliderDict.Add(SliderType.Particles, particlesSlider);
+            sliderDict.Add(SliderType.Shake, shakeSlider);
+
+            dropdownDict.Add(DropdownType.Language, languageDropdown);
+            dropdownDict.Add(DropdownType.Resolution, resolutionDropdown);
+
+            textButtonDict.Add(TextButtonType.SwapTrigger, swapTriggerButton);
+            textButtonDict.Add(TextButtonType.Fullscreen, fullscreenButton);
+            textButtonDict.Add(TextButtonType.Vibration, vibrationButton);
+            textButtonDict.Add(TextButtonType.Difficulty, diffcultyButton);
+            textButtonDict.Add(TextButtonType.BloodAndGore, bloodAndGoreButton);
+
+            buttonDict.Add(ButtonType.SwapTrigger, swapTriggerButton.Button);
+            buttonDict.Add(ButtonType.Fullscreen, fullscreenButton.Button);
+            buttonDict.Add(ButtonType.Vibration, vibrationButton.Button);
+            buttonDict.Add(ButtonType.Difficulty, diffcultyButton.Button);
+            buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
+            buttonDict.Add(ButtonType.Back, backButton);
+            buttonDict.Add(ButtonType.MoreOptions, moreOptionsButton);
+            buttonDict.Add(ButtonType.MoreBack, moreBackButton);
+
+
+            foreach (var pair in sliderDict)
+            {
+                var type = pair.Key;
+                pair.Value.Slider.onValueChanged.AddListener(value => OnSliderValueChanged?.Invoke(type, value));
+            }
+            foreach (var pair in dropdownDict)
+            {
+                var type = pair.Key;
+                pair.Value.onValueChanged.AddListener((value) => OnDropdownValueChanged?.Invoke(type, value));
+            }
+            foreach (var pair in buttonDict)
+            {
+                var type = pair.Key;
+                pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(type));
+            }
+        }
+        public event Action<SliderType, float> OnSliderValueChanged;
+        public event Action<DropdownType, int> OnDropdownValueChanged;
+        public event Action<ButtonType> OnButtonClick;
+
+        private Dictionary<SliderType, TextSlider> sliderDict = new Dictionary<SliderType, TextSlider>();
+        private Dictionary<DropdownType, TMP_Dropdown> dropdownDict = new Dictionary<DropdownType, TMP_Dropdown>();
+        private Dictionary<TextButtonType, TextButton> textButtonDict = new Dictionary<TextButtonType, TextButton>();
+        private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
+
+        [Header("Pages")]
+        [SerializeField]
+        private GameObject mainPage;
+        [SerializeField]
+        private GameObject morePage;
+
+        [Header("Main Elements")]
+        [SerializeField]
+        private TextSlider musicSlider;
+        [SerializeField]
+        private TextSlider soundSlider;
+        [SerializeField]
+        private TextButton swapTriggerButton;
+        [SerializeField]
+        private TextButton fullscreenButton;
+        [SerializeField]
+        private TextButton vibrationButton;
+        [SerializeField]
+        private TextButton diffcultyButton;
+        [SerializeField]
+        private Button moreOptionsButton;
+        [SerializeField]
+        private Button backButton;
+
+        [Header("More Elements")]
+        [SerializeField]
+        private TextSlider particlesSlider;
+        [SerializeField]
+        private TextSlider shakeSlider;
+        [SerializeField]
+        private TMP_Dropdown languageDropdown;
+        [SerializeField]
+        private TMP_Dropdown resolutionDropdown;
+        [SerializeField]
+        private TextButton bloodAndGoreButton;
+        [SerializeField]
+        private Button moreBackButton;
+        public enum Page
+        {
+            Main,
+            More
+        }
+        public enum SliderType
+        {
+            Music,
+            Sound,
+            Particles,
+            Shake
+        }
+        public enum DropdownType
+        {
+            Language,
+            Resolution,
+        }
+        public enum TextButtonType
+        {
+            SwapTrigger,
+            Fullscreen,
+            Vibration,
+            Difficulty,
+            BloodAndGore
+        }
+        public enum ButtonType
+        {
+            SwapTrigger,
+            Fullscreen,
+            Vibration,
+            Difficulty,
+            MoreOptions,
+            Back,
+            BloodAndGore,
+            MoreBack
+        }
+    }
+
+}

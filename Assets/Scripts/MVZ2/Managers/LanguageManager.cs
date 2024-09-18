@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using MukioI18n;
 using PVZEngine;
 using UnityEngine;
 
@@ -7,15 +9,21 @@ namespace MVZ2
 {
     public partial class LanguageManager : MonoBehaviour
     {
-        public string _(string text, params string[] args)
+        public string _(string text, params object[] args)
         {
             return GetLocalizedString(text, GetCurrentLanguage(), args);
         }
-        public string _p(string context, string text, params string[] args)
+        public string _p(string context, string text, params object[] args)
         {
             return GetLocalizedStringParticular(context, text, GetCurrentLanguage(), args);
         }
-        public string GetLocalizedString(string text, string language, params string[] args)
+        public string GetLocalizedString(string text, string language, params object[] args)
+        {
+            if (TryGetLocalizedString(text, language, out var str, args))
+                return str;
+            return string.Format(text, args);
+        }
+        public bool TryGetLocalizedString(string text, string language, out string translated, params object[] args)
         {
             var languagePacks = GetAllLanguagePacks();
             foreach (var languagePack in languagePacks)
@@ -23,11 +31,21 @@ namespace MVZ2
                 if (languagePack == null)
                     continue;
                 if (languagePack.TryGetString(language, text, out var result, args))
-                    return result;
+                {
+                    translated = result;
+                    return true;
+                }
             }
+            translated = null;
+            return false;
+        }
+        public string GetLocalizedStringParticular(string context, string text, string language, params object[] args)
+        {
+            if (TryGetLocalizedStringParticular(context, text, language, out var str, args))
+                return str;
             return string.Format(text, args);
         }
-        public string GetLocalizedStringParticular(string context, string text, string language, params string[] args)
+        public bool TryGetLocalizedStringParticular(string context, string text, string language, out string translated, params object[] args)
         {
             var languagePacks = GetAllLanguagePacks();
             foreach (var languagePack in languagePacks)
@@ -35,9 +53,25 @@ namespace MVZ2
                 if (languagePack == null)
                     continue;
                 if (languagePack.TryGetStringParticular(language, context, text, out var result, args))
-                    return result;
+                {
+                    translated = result;
+                    return true;
+                }
             }
-            return string.Format(text, args);
+            translated = null;
+            return false;
+        }
+        public string GetLanguageName(string language)
+        {
+            try
+            {
+                var cultureInfo = CultureInfo.GetCultureInfo(language);
+                return cultureInfo.NativeName;
+            }
+            catch (CultureNotFoundException)
+            {
+                return _p(StringTable.CONTEXT_LANGUAGE_NAME, language);
+            }
         }
         public Sprite GetSprite(Sprite sprite)
         {
@@ -110,6 +144,7 @@ namespace MVZ2
         public MainManager Main => main;
         public const string CN = "zh-Hans";
         public const string EN = "en-US";
+
         private List<string> allLanguages = new List<string>() { CN };
         [SerializeField]
         private MainManager main;

@@ -2,35 +2,27 @@
 
 namespace MVZ2.Level.UI
 {
-    [ExecuteAlways]
+    [DefaultExecutionOrder(1)]
     public class CameraLimiter : MonoBehaviour
     {
         private void OnEnable()
         {
-            var currentAspect = Screen.width / (float)Screen.height;
-            UpdateCamera(currentAspect);
+            MainManager.Instance.ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
+            UpdateCamera(Screen.width, Screen.height);
         }
         private void OnDisable()
         {
-            var rect = _camera.rect;
-            rect.size = Vector2.one;
-            rect.center = new Vector2(0.5f, 0.5f);
-            _camera.rect = rect;
-            lastAspect = 0;
+            MainManager.Instance.ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
         }
-        private void Update()
+        private void OnResolutionChangedCallback(int width, int height)
         {
-            var currentAspect = Screen.width / (float)Screen.height;
-            if (currentAspect != lastAspect)
-            {
-                lastAspect = currentAspect;
-                UpdateCamera(currentAspect);
-            }
+            UpdateCamera(width, height);
         }
-        private void UpdateCamera(float currentAspect)
+        private void UpdateCamera(int width, int height)
         {
             if (!_camera)
                 return;
+            var currentAspect = width / (float)height;
             var rectSize = new Vector2(1, 1);
             if (safeAspectMin > 0 && currentAspect < safeAspectMin)
             {
@@ -46,7 +38,6 @@ namespace MVZ2.Level.UI
             _camera.rect = rect;
         }
 
-        private float lastAspect;
         [SerializeField]
         protected float safeAspectMin = -1;
         [SerializeField]

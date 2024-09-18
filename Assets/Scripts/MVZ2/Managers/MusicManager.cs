@@ -1,6 +1,7 @@
 ﻿using MVZ2.UI;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace MVZ2
 {
@@ -46,6 +47,10 @@ namespace MVZ2
         {
             musicSource.volume = volume;
         }
+        public void SetGlobalVolume(float volume)
+        {
+            mixer.SetFloat("MusicVolume", AudioHelper.PercentageToDbA(volume));
+        }
         private void Awake()
         {
             volumeFader.OnValueChanged += value => SetVolume(value);
@@ -59,6 +64,8 @@ namespace MVZ2
         public bool IsPaused { get; private set; }
         [SerializeField]
         private MainManager main;
+        [SerializeField]
+        private AudioMixer mixer;
         [SerializeField]
         private AudioSource musicSource;
         [SerializeField]

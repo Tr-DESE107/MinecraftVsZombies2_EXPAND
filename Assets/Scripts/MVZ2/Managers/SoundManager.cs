@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace MVZ2
 {
     public class SoundManager : MonoBehaviour
     {
+        public void SetGlobalVolume(float volume)
+        {
+            mixer.SetFloat("SoundVolume", AudioHelper.PercentageToDbA(volume));
+        }
         public AudioSource Play2D(NamespaceID id, float pitch = 1)
         {
             return Play(id, Vector3.zero, pitch, 0);
@@ -49,6 +54,8 @@ namespace MVZ2
         public MainManager Main => main;
         [SerializeField]
         private MainManager main;
+        [SerializeField]
+        private AudioMixer mixer;
         [SerializeField]
         private Transform soundSourceRoot;
         [SerializeField]

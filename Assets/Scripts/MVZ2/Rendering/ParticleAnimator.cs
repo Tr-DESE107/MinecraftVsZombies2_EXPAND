@@ -6,8 +6,10 @@ namespace MVZ2.Rendering
     {
         public void Emit()
         {
-            var count = (int)emitCount;
-            modular += emitCount - count;
+            var modified = emitCount;
+            modified *= MainManager.Instance.OptionsManager.GetParticleAmount();
+            var count = (int)modified;
+            modular += modified - count;
             if (modular > 1)
             {
                 count += (int)modular;

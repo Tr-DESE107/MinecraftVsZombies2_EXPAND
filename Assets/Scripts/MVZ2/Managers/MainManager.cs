@@ -9,6 +9,8 @@ namespace MVZ2
     {
         public async Task Initialize()
         {
+            Application.targetFrameRate = 60;
+
             Game = new Game();
             Game.OnGetString += OnGetStringCallback;
             Game.OnGetStringParticular += OnGetStringParticularCallback;
@@ -75,6 +77,7 @@ namespace MVZ2
         public ShakeManager ShakeManager => shake;
         public TalkManager TalkManager => talk;
         public OptionsManager OptionsManager => options;
+        public ResolutionManager ResolutionManager => resolution;
         public MainSceneController Scene => scene;
         [SerializeField]
         private string builtinNamespace = "mvz2";
@@ -104,6 +107,8 @@ namespace MVZ2
         private TalkManager talk;
         [SerializeField]
         private OptionsManager options;
+        [SerializeField]
+        private ResolutionManager resolution;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

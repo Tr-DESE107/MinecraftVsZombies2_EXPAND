@@ -8,6 +8,10 @@ namespace MVZ2
         public void AddShake(float shakeAmp, float endAmp, float shakeTime)
         {
             shakes.Add(new Shake(shakeAmp, endAmp, shakeTime));
+            if (OptionsManager.IsVibration())
+            {
+                Handheld.Vibrate();
+            }
         }
         public Vector2 GetShake2D()
         {
@@ -16,7 +20,8 @@ namespace MVZ2
             {
                 shake2D += shake.GetShake2D();
             }
-            return shake2D;
+            var amount = OptionsManager.GetShakeAmount();
+            return shake2D * amount;
         }
         public Vector3 GetShake3D()
         {
@@ -25,7 +30,8 @@ namespace MVZ2
             {
                 shake3D += shake.GetShake3D();
             }
-            return shake3D;
+            var amount = OptionsManager.GetShakeAmount();
+            return shake3D * amount;
         }
         private void Update()
         {
@@ -35,6 +41,8 @@ namespace MVZ2
             }
             shakes.RemoveAll(s => s.timeout <= 0);
         }
+        private MainManager Main => MainManager.Instance;
+        private OptionsManager OptionsManager => Main.OptionsManager;
         private List<Shake> shakes = new List<Shake>();
     }
     public class Shake

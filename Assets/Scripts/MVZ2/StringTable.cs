@@ -38,5 +38,6 @@ namespace MVZ2
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
+        public const string CONTEXT_LANGUAGE_NAME = "language_name";
     }
 }

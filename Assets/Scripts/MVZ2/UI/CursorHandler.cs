@@ -5,6 +5,10 @@ namespace MVZ2.UI
 {
     public class CursorHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        private void OnDisable()
+        {
+            Exit();
+        }
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
             if (Interactable)

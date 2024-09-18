@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Talk;
 using PVZEngine;
 using UnityEngine;
 
@@ -27,5 +26,16 @@ namespace MVZ2
             return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.id == difficulty.path);
         }
         #endregion
+        public string GetDifficultyName(NamespaceID difficulty)
+        {
+            var diffMeta = main.ResourceManager.GetDifficultyMeta(difficulty);
+            string name = diffMeta != null ? diffMeta.name : StringTable.DIFFICULTY_UNKNOWN;
+            return main.LanguageManager._p(StringTable.CONTEXT_DIFFICULTY, name);
+        }
+        public NamespaceID[] GetAllDifficulties()
+        {
+            return difficultyCache.ToArray();
+        }
+        private List<NamespaceID> difficultyCache = new List<NamespaceID>();
     }
 }

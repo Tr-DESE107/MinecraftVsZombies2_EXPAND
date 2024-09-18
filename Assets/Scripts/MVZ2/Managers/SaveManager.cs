@@ -49,6 +49,14 @@ namespace MVZ2
         {
             return GetLevelDifficultyRecords(BuiltinStageID.prologue).Length > 0;
         }
+        public bool IsTriggerUnlocked()
+        {
+            return IsUnlocked(BuiltinUnlockID.trigger);
+        }
+        public bool IsStarshardUnlocked()
+        {
+            return IsUnlocked(BuiltinUnlockID.starshard);
+        }
         public ModSaveData GetModSaveData(string spaceName)
         {
             return modSaveDatas.FirstOrDefault(s => s.Namespace == spaceName);

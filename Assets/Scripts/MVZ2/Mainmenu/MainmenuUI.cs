@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,10 @@ namespace MVZ2.Mainmenu
         public void SetUserName(string name)
         {
             userNameText.text = name;
+        }
+        public void SetOptionsDialogVisible(bool visible)
+        {
+            optionsDialog.gameObject.SetActive(visible);
         }
         public void SetInputNameDialogVisible(bool visible)
         {
@@ -73,6 +78,8 @@ namespace MVZ2.Mainmenu
         public event Action OnInputNameCancel;
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
 
+
+        public OptionsDialog OptionsDialog => optionsDialog;
         private Dictionary<MainmenuButtonType, MainmenuButton> mainmenuButtonDict = new Dictionary<MainmenuButtonType, MainmenuButton>();
 
         [SerializeField]
@@ -85,6 +92,8 @@ namespace MVZ2.Mainmenu
         private TextMeshPro userNameText;
         [SerializeField]
         private InputNameDialog inputNameDialog;
+        [SerializeField]
+        private OptionsDialog optionsDialog;
         [Header("Buttons")]
         [SerializeField]
         private MainmenuButton adventureButton;

@@ -908,17 +908,7 @@ namespace MVZ2.Level
         }
         private void UpdateDifficultyName()
         {
-            string name;
-            var diffMeta = main.ResourceManager.GetDifficultyMeta(level.Difficulty);
-            if (diffMeta != null)
-            {
-                name = diffMeta.name;
-            }
-            else
-            {
-                name = StringTable.DIFFICULTY_UNKNOWN;
-            }
-            var difficultyName = main.LanguageManager._p(StringTable.CONTEXT_DIFFICULTY, name);
+            var difficultyName = main.ResourceManager.GetDifficultyName(level.Difficulty);
             var levelUI = GetLevelUI();
             levelUI.SetDifficulty(difficultyName);
         }
@@ -936,10 +926,10 @@ namespace MVZ2.Level
             levelUI.SetBlueprintsVisible(toolsVisible);
             levelUI.SetPickaxeSlotVisible(toolsVisible);
             levelUI.SetTopRightVisible(toolsVisible);
-            levelUI.SetTriggerSlotVisible(toolsVisible);
+            levelUI.SetTriggerSlotVisible(toolsVisible && main.SaveManager.IsTriggerUnlocked());
 
             var inlevelVisible = state == VisibleState.InLevel;
-            levelUI.SetStarshardVisible(inlevelVisible);
+            levelUI.SetStarshardVisible(inlevelVisible && main.SaveManager.IsStarshardUnlocked());
             levelUI.SetSpeedUpVisible(inlevelVisible);
             levelUI.SetLevelNameVisible(inlevelVisible);
         }

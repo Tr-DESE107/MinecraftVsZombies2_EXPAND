@@ -79,7 +79,7 @@ msgstr ""
 msgid "返回地图"
 msgstr ""
 
-msgid "血与碎块"
+msgid "血与碎块：{0}"
 msgstr ""
 
 msgid "取消"
@@ -175,7 +175,7 @@ msgstr ""
 msgid "删除用户"
 msgstr ""
 
-msgid "难度"
+msgid "难度：{0}"
 msgstr ""
 
 msgid "正在进入关卡……"
@@ -214,7 +214,7 @@ msgstr ""
 msgid "高"
 msgstr ""
 
-msgid "全屏"
+msgid "全屏：{0}"
 msgstr ""
 
 msgid "游戏结束"
@@ -253,7 +253,7 @@ msgstr ""
 msgid "更多选项"
 msgstr ""
 
-msgid "音乐"
+msgid "音乐音量：{0}"
 msgstr ""
 
 msgid "否"
@@ -283,7 +283,7 @@ msgstr ""
 msgid "开"
 msgstr ""
 
-msgid "粒子数量"
+msgid "粒子数量：{0}"
 msgstr ""
 
 msgid "购买"
@@ -318,10 +318,10 @@ msgstr ""
 msgid "行"
 msgstr ""
 
-msgid "屏幕震动"
+msgid "设备震动：{0}"
 msgstr ""
 
-msgid "音效"
+msgid "音效音量：{0}"
 msgstr ""
 
 msgid "交换触发"
@@ -333,7 +333,7 @@ msgstr ""
 msgid "你无法删除唯一一个用户"
 msgstr ""
 
-msgid "震动"
+msgid "屏幕震动：{0}"
 msgstr ""
 
 msgid "查看草坪"

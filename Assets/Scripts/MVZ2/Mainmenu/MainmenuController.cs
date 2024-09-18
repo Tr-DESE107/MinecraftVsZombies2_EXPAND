@@ -19,11 +19,17 @@ namespace MVZ2.Mainmenu
             ui.SetButtonActive(MainmenuButtonType.Almanac, false);
             ui.SetButtonActive(MainmenuButtonType.Store, false);
             ui.SetBackgroundDark(false);
+            ui.SetOptionsDialogVisible(false);
             ui.SetRayblockerActive(true);
         }
         public void Hide()
         {
             gameObject.SetActive(false);
+        }
+        public void Reload()
+        {
+            Hide();
+            Display();
         }
         public void Init()
         {
@@ -72,7 +78,12 @@ namespace MVZ2.Mainmenu
         {
             StartCoroutine(StartAdventure());
         }
-        private void OnOptionsButtonClickCallback() { }
+        private void OnOptionsButtonClickCallback() 
+        {
+            ui.SetOptionsDialogVisible(true);
+            optionsLogic = new OptionsLogic(ui.OptionsDialog);
+            optionsLogic.OnClose += OnOptionsCloseClickCallback;
+        }
         private void OnHelpButtonClickCallback() { }
         private void OnUserManageButtonClickCallback() { }
         private void OnQuitButtonClickCallback()
@@ -88,6 +99,20 @@ namespace MVZ2.Mainmenu
         private void OnArchiveButtonClickCallback() { }
         private void OnAchievementButtonClickCallback() { }
 
+        private void OnOptionsCloseClickCallback()
+        {
+            ui.SetOptionsDialogVisible(false);
+            if (optionsLogic == null)
+                return;
+            if (optionsLogic.NeedsReload)
+            {
+                main.OptionsManager.SetLanguage(optionsLogic.Language);
+                main.OptionsManager.SetBloodAndGore(optionsLogic.BloodAndGore);
+                Reload();
+            }
+            optionsLogic.OnClose -= OnOptionsCloseClickCallback;
+            optionsLogic.Dispose();
+        }
         private void OnInputNameConfirmCallback(string name)
         {
             if (!ValidateUserName(name, out var message))
@@ -168,6 +193,7 @@ namespace MVZ2.Mainmenu
         private MainManager main => MainManager.Instance;
         [SerializeField]
         private MainmenuUI ui;
+        private OptionsLogic optionsLogic;
         private bool canCancelInputName;
         #endregion
     }
