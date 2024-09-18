@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
+using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.GameContent;
+using MVZ2.Landing;
 using MVZ2.Mainmenu;
+using MVZ2.Titlescreen;
 using MVZ2.UI;
 using UnityEngine;
 
@@ -12,6 +17,14 @@ namespace MVZ2
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
         {
             ui.ShowDialog(title, desc, options, onSelect);
+        }
+        public void ShowMainmenu()
+        {
+            mainmenu.Display();
+        }
+        public void ShowTitlescreen()
+        {
+            titlescreen.Display();
         }
         private async void Start()
         {
@@ -24,8 +37,8 @@ namespace MVZ2
                 ShowErrorDialog(e);
                 return;
             }
-
-            mainmenu.Display();
+            main.MusicManager.Play(MusicID.mainmenu);
+            landing.Display();
         }
         private string GetErrorMessage(Exception e)
         {
@@ -92,6 +105,10 @@ namespace MVZ2
         [SerializeField]
         private MainSceneUI ui;
         [SerializeField]
+        private LandingController landing;
+        [SerializeField]
         private MainmenuController mainmenu;
+        [SerializeField]
+        private TitlescreenController titlescreen; 
     }
 }

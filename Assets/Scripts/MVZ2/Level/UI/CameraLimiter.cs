@@ -16,6 +16,7 @@ namespace MVZ2.Level.UI
             rect.size = Vector2.one;
             rect.center = new Vector2(0.5f, 0.5f);
             _camera.rect = rect;
+            lastAspect = 0;
         }
         private void Update()
         {

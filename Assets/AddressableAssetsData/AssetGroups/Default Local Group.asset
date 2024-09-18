@@ -17,6 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fbabeea97c99f8143b5d1b05494f46e9
   m_SerializeEntries:
+  - m_GUID: 3225cf10a7527224a8a7cedc03206148
+    m_Address: mvz2:talk/villager/villager_short3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
+    m_Address: mvz2:talk/villager/villager_short2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
     m_Address: mvz2:talk/villager/villager_short1
     m_ReadOnly: 0
@@ -1277,6 +1289,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36ceb837ec0bbd54e9f7ecac4e5ecc70
+    m_Address: mvz2:titlescreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b71a3502ba3935b49a514559f8734478
     m_Address: mvz2:starshard_ring.day
     m_ReadOnly: 0
@@ -1357,6 +1375,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c0108de01484784fa9b10b13d99aed0
     m_Address: mvz2:lose
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a422491a28838f04aa763d050d8aa766
+    m_Address: mvz2:logo
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2051,6 +2075,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58f0336839418eb4c96fc1c90d5bf596
+    m_Address: mvz2:mainmenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3583655055a075342acf09efa95d3f56
     m_Address: mvz2:day
     m_ReadOnly: 0
@@ -2110,18 +2140,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
-    m_Address: mvz2:talk/villager/villager_short2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3225cf10a7527224a8a7cedc03206148
-    m_Address: mvz2:talk/villager/villager_short3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

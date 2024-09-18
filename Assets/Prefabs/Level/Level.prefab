@@ -2746,7 +2746,7 @@ MonoBehaviour:
   tooltip: {fileID: 7566730288575870426}
   hintArrow: {fileID: 1630430558056639465}
   hintArrowOffsetBlueprint: {x: 24, y: -108}
-  hintArrowOffsetPickaxe: {x: 32, y: -108}
+  hintArrowOffsetPickaxe: {x: 0, y: -72}
   hintArrowAngleBlueprint: 0
   hintArrowAnglePickaxe: 0
 --- !u!1 &3431746760177928383
@@ -2836,7 +2836,7 @@ Transform:
   m_GameObject: {fileID: 3580299581115580701}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.1000004, y: 3, z: -10}
+  m_LocalPosition: {x: 13.000073, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2869,9 +2869,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.021874994
+    x: 0.31242892
     y: 0
-    width: 0.95625
+    width: 0.37514216
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

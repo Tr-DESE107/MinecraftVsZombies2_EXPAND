@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.GameContent;
@@ -15,11 +16,17 @@ namespace MVZ2.Mainmenu
             {
                 button.Interactable = true;
             }
-            almanacButton.gameObject.SetActive(false);
-            storeButton.gameObject.SetActive(false);
-            backgroundLight.gameObject.SetActive(true);
-            backgroundDark.gameObject.SetActive(false);
-
+            ui.SetButtonActive(MainmenuButtonType.Almanac, false);
+            ui.SetButtonActive(MainmenuButtonType.Store, false);
+            ui.SetBackgroundDark(false);
+            ui.SetRayblockerActive(true);
+        }
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
+        public void Init()
+        {
             var userName = main.SaveManager.GetCurrentUserName();
             if (string.IsNullOrEmpty(userName))
             {
@@ -30,27 +37,23 @@ namespace MVZ2.Mainmenu
             {
                 ui.SetUserName(userName);
             }
-        }
-        public void Hide()
-        {
-            gameObject.SetActive(false);
+            ui.SetRayblockerActive(false);
         }
         #region 生命周期
         private void Awake()
         {
-            adventureButton.OnClick += OnAdventureButtonClickCallback;
-            optionsButton.OnClick += OnOptionsButtonClickCallback;
-            helpButton.OnClick += OnHelpButtonClickCallback;
-            userManageButton.OnClick += OnUserManageButtonClickCallback;
-            quitButton.OnClick += OnQuitButtonClickCallback;
-
-            almanacButton.OnClick += OnAlmanacButtonClickCallback;
-            storeButton.OnClick += OnStoreButtonClickCallback;
-            moreMenuButton.OnClick += OnMoreMenuButtonClickCallback;
-
-            backToMenuButton.OnClick += OnBackToMenuButtonClickCallback;
-            archiveButton.OnClick += OnArchiveButtonClickCallback;
-            achievementButton.OnClick += OnAchievementButtonClickCallback;
+            mainmenuActionDict.Add(MainmenuButtonType.Adventure, OnAdventureButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Options, OnOptionsButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Help, OnHelpButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.UserManage, OnUserManageButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Quit, OnQuitButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Almanac, OnAlmanacButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Store, OnStoreButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.MoreMenu, OnMoreMenuButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.BackToMenu, OnBackToMenuButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Archive, OnArchiveButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
+            ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
             ui.OnInputNameConfirm += OnInputNameConfirmCallback;
             ui.OnInputNameCancel += OnInputNameCancelCallback;
@@ -58,6 +61,13 @@ namespace MVZ2.Mainmenu
         #endregion
 
         #region 事件回调
+        private void OnMainmenuButtonClickCallback(MainmenuButtonType type)
+        {
+            if (mainmenuActionDict.TryGetValue(type, out var action))
+            {
+                action?.Invoke();
+            }
+        }
         private void OnAdventureButtonClickCallback()
         {
             StartCoroutine(StartAdventure());
@@ -78,8 +88,8 @@ namespace MVZ2.Mainmenu
         private void OnArchiveButtonClickCallback() { }
         private void OnAchievementButtonClickCallback() { }
 
-        private void OnInputNameConfirmCallback(string name) 
-        { 
+        private void OnInputNameConfirmCallback(string name)
+        {
             if (!ValidateUserName(name, out var message))
             {
                 var error = main.LanguageManager._(message);
@@ -104,8 +114,8 @@ namespace MVZ2.Mainmenu
         #endregion
         private IEnumerator StartAdventure()
         {
-            backgroundLight.gameObject.SetActive(false);
-            backgroundDark.gameObject.SetActive(true);
+            ui.SetBackgroundDark(true);
+            main.MusicManager.Stop();
             main.SoundManager.Play2D(SoundID.loseMusic);
 
             foreach (var button in GetAllButtons())
@@ -124,19 +134,7 @@ namespace MVZ2.Mainmenu
         }
         private IEnumerable<MainmenuButton> GetAllButtons()
         {
-            yield return adventureButton;
-            yield return optionsButton;
-            yield return helpButton;
-            yield return userManageButton;
-            yield return quitButton;
-
-            yield return almanacButton;
-            yield return storeButton;
-            yield return moreMenuButton;
-
-            yield return backToMenuButton;
-            yield return archiveButton;
-            yield return achievementButton;
+            return ui.GetAllButtons();
         }
         private void ShowInputNameDialog(bool canCancel)
         {
@@ -166,36 +164,10 @@ namespace MVZ2.Mainmenu
         public const string ERROR_MESSAGE_NAME_EMPTY = "用户名不能为空";
         [TranslateMsg("输入名称对话框的错误信息")]
         public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
+        private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;
         [SerializeField]
         private MainmenuUI ui;
-        [SerializeField]
-        private GameObject backgroundLight;
-        [SerializeField]
-        private GameObject backgroundDark;
-        [Header("Buttons")]
-        [SerializeField]
-        private MainmenuButton adventureButton;
-        [SerializeField]
-        private MainmenuButton optionsButton;
-        [SerializeField]
-        private MainmenuButton helpButton;
-        [SerializeField]
-        private MainmenuButton userManageButton;
-        [SerializeField]
-        private MainmenuButton quitButton;
-        [SerializeField]
-        private MainmenuButton almanacButton;
-        [SerializeField]
-        private MainmenuButton storeButton;
-        [SerializeField]
-        private MainmenuButton moreMenuButton;
-        [SerializeField]
-        private MainmenuButton backToMenuButton;
-        [SerializeField]
-        private MainmenuButton archiveButton;
-        [SerializeField]
-        private MainmenuButton achievementButton;
         private bool canCancelInputName;
         #endregion
     }

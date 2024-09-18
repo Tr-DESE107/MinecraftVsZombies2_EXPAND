@@ -36,6 +36,7 @@ namespace MVZ2.Level
             level.AddComponent(new LogicComponent(level, this));
             level.AddComponent(new SoundComponent(level, this));
             level.AddComponent(new TalkComponent(level, this));
+            level.AddComponent(new MusicComponent(level, this));
 
             level.OnEntitySpawn += Engine_OnEntitySpawnCallback;
             level.OnEntityRemove += Engine_OnEntityRemoveCallback;
@@ -66,6 +67,7 @@ namespace MVZ2.Level
             var startTalk = level.GetStartTalk();
             if (startTalk != null)
             {
+                main.MusicManager.Play(MusicID.mainmenu);
                 StartTalk(startTalk, 0, 2);
             }
             else

@@ -43,6 +43,12 @@ msgctxt "error"
 msgid "文件格式错误"
 msgstr ""
 
+msgid "Cuerzor制作"
+msgstr ""
+
+msgid "版本{0}"
+msgstr ""
+
 msgid "退出"
 msgstr ""
 

@@ -91,6 +91,15 @@ namespace MVZ2
         }
         public string GetCurrentLanguage()
         {
+#if UNITY_EDITOR
+            switch (debugLanguage)
+            {
+                case DebugLanguage.Chinese:
+                    return CN;
+                case DebugLanguage.English:
+                    return EN;
+            }
+#endif
             return Main.OptionsManager.GetLanguage();
         }
         public string[] GetAllLanguages()
@@ -104,5 +113,13 @@ namespace MVZ2
         private List<string> allLanguages = new List<string>() { CN };
         [SerializeField]
         private MainManager main;
+        [SerializeField]
+        private DebugLanguage debugLanguage;
+    }
+    public enum DebugLanguage
+    {
+        Default,
+        Chinese,
+        English
     }
 }

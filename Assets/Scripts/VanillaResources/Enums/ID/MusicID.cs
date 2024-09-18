@@ -5,6 +5,7 @@ namespace MVZ2.GameContent
 {
     public static class MusicID
     {
+        public readonly static NamespaceID mainmenu = Get("mainmenu");
         public readonly static NamespaceID choosing = Get("choosing");
         public readonly static NamespaceID day = Get("day");
         private static NamespaceID Get(string name)

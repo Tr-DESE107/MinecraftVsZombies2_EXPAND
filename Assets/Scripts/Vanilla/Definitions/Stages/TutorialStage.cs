@@ -335,6 +335,7 @@ namespace MVZ2.GameContent.Stages
                             particle.Remove();
                         }
                         level.StopLevel();
+                        level.PlayMusic(MusicID.mainmenu);
                         level.HideAdvice();
                         level.SetEnergy(level.Option.StartEnergy);
                         level.ClearSeedPacks();

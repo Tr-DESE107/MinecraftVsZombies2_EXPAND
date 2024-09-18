@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu
@@ -20,8 +20,44 @@ namespace MVZ2.Mainmenu
         {
             inputNameDialog.SetErrorMessage(message);
         }
+        public void SetBackgroundDark(bool dark)
+        {
+            backgroundLight.gameObject.SetActive(!dark);
+            backgroundDark.gameObject.SetActive(dark);
+        }
+        public void SetButtonActive(MainmenuButtonType type, bool active)
+        {
+            almanacButton.gameObject.SetActive(false);
+            storeButton.gameObject.SetActive(false);
+        }
+        public void SetRayblockerActive(bool active)
+        {
+            rayblocker.SetActive(active);
+        }
+        public IEnumerable<MainmenuButton> GetAllButtons()
+        {
+            return mainmenuButtonDict.Values;
+        }
         private void Awake()
         {
+            mainmenuButtonDict.Add(MainmenuButtonType.Adventure, adventureButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Options, optionsButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Help, helpButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.UserManage, userManageButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Quit, quitButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Almanac, almanacButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Store, storeButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.MoreMenu, moreMenuButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.BackToMenu, backToMenuButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Archive, archiveButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Achievement, achievementButton);
+
+            foreach (var pair in mainmenuButtonDict)
+            {
+                var type = pair.Key;
+                pair.Value.OnClick += () => OnMainmenuButtonClick?.Invoke(type);
+            }
+
             inputNameDialog.OnConfirm += OnInputNameConfirmCallback;
             inputNameDialog.OnCancel += OnInputNameCancelCallback;
         }
@@ -35,10 +71,56 @@ namespace MVZ2.Mainmenu
         }
         public event Action<string> OnInputNameConfirm;
         public event Action OnInputNameCancel;
+        public event Action<MainmenuButtonType> OnMainmenuButtonClick;
 
+        private Dictionary<MainmenuButtonType, MainmenuButton> mainmenuButtonDict = new Dictionary<MainmenuButtonType, MainmenuButton>();
+
+        [SerializeField]
+        private GameObject backgroundLight;
+        [SerializeField]
+        private GameObject backgroundDark;
+        [SerializeField]
+        private GameObject rayblocker;
         [SerializeField]
         private TextMeshPro userNameText;
         [SerializeField]
         private InputNameDialog inputNameDialog;
+        [Header("Buttons")]
+        [SerializeField]
+        private MainmenuButton adventureButton;
+        [SerializeField]
+        private MainmenuButton optionsButton;
+        [SerializeField]
+        private MainmenuButton helpButton;
+        [SerializeField]
+        private MainmenuButton userManageButton;
+        [SerializeField]
+        private MainmenuButton quitButton;
+        [SerializeField]
+        private MainmenuButton almanacButton;
+        [SerializeField]
+        private MainmenuButton storeButton;
+        [SerializeField]
+        private MainmenuButton moreMenuButton;
+        [SerializeField]
+        private MainmenuButton backToMenuButton;
+        [SerializeField]
+        private MainmenuButton archiveButton;
+        [SerializeField]
+        private MainmenuButton achievementButton;
+    }
+    public enum MainmenuButtonType
+    {
+        Adventure,
+        Options,
+        Help,
+        UserManage,
+        Quit,
+        Almanac,
+        Store,
+        MoreMenu,
+        BackToMenu,
+        Archive,
+        Achievement
     }
 }
