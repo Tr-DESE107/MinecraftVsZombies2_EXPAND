@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.GameContent;
+using UnityEditor.Search;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu
 {
-    public class MainmenuController : MonoBehaviour
+    public class MainmenuController : MainScenePage
     {
-        public void Display()
+        public override void Display()
         {
-            gameObject.SetActive(true);
+            base.Display();
             foreach (var button in GetAllButtons())
             {
                 button.Interactable = true;
@@ -21,10 +22,11 @@ namespace MVZ2.Mainmenu
             ui.SetBackgroundDark(false);
             ui.SetOptionsDialogVisible(false);
             ui.SetRayblockerActive(true);
-        }
-        public void Hide()
-        {
-            gameObject.SetActive(false);
+
+            if (!main.MusicManager.IsPlaying(MusicID.mainmenu))
+            {
+                main.MusicManager.Play(MusicID.mainmenu);
+            }
         }
         public void Reload()
         {
@@ -84,7 +86,13 @@ namespace MVZ2.Mainmenu
             optionsLogic = new OptionsLogic(ui.OptionsDialog);
             optionsLogic.OnClose += OnOptionsCloseClickCallback;
         }
-        private void OnHelpButtonClickCallback() { }
+        private void OnHelpButtonClickCallback()
+        {
+            main.SoundManager.Play2D(SoundID.paper);
+            main.MusicManager.Stop();
+            var buttonText = main.LanguageManager._(StringTable.BACK);
+            main.Scene.DisplayNote(BuiltinNoteID.help, buttonText, () => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+        }
         private void OnUserManageButtonClickCallback() { }
         private void OnQuitButtonClickCallback()
         {

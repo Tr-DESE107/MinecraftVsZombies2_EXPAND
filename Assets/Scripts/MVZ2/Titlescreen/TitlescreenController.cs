@@ -3,16 +3,12 @@ using UnityEngine;
 
 namespace MVZ2.Titlescreen
 {
-    public class TitlescreenController : MonoBehaviour
+    public class TitlescreenController : MainScenePage
     {
-        public void Display()
+        public override void Display()
         {
-            gameObject.SetActive(true);
+            base.Display();
             ui.SetVersionText(GetVersionText());
-        }
-        public void Hide()
-        {
-            gameObject.SetActive(false);
         }
         #region 生命周期
         private void Awake()
@@ -25,8 +21,7 @@ namespace MVZ2.Titlescreen
         private void OnButtonClickCallback()
         {
             var scene = main.Scene;
-            Hide();
-            scene.ShowMainmenu();
+            scene.DisplayPage(MainScenePageType.Mainmenu);
         }
         #endregion
 

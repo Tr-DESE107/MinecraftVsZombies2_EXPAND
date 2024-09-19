@@ -7,7 +7,11 @@ namespace MVZ2.UI
     {
         private void OnDisable()
         {
-            Exit();
+            if (isHovered)
+            {
+                isHovered = false;
+                UpdateCursor();
+            }
         }
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {

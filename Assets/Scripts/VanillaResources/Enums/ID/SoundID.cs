@@ -19,6 +19,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID loseMusic = Get("lose_music");
         public readonly static NamespaceID mineExplode = Get("mine_explode");
         public readonly static NamespaceID minecart = Get("minecart");
+        public readonly static NamespaceID paper = Get("paper");
         public readonly static NamespaceID pause = Get("pause");
         public readonly static NamespaceID points = Get("points");
         public readonly static NamespaceID pick = Get("pick");

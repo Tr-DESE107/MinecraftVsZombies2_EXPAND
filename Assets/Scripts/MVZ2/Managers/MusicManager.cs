@@ -11,6 +11,7 @@ namespace MVZ2
         {
             var clip = main.ResourceManager.GetMusicClip(id);
             Play(clip);
+            musicID = id;
         }
         public void Pause()
         {
@@ -30,14 +31,11 @@ namespace MVZ2
         {
             IsPaused = false;
             musicSource.Stop();
+            musicID = null;
         }
-        public void Play(AudioClip clip)
+        public bool IsPlaying(NamespaceID id)
         {
-            if (!clip)
-                return;
-            musicSource.clip = clip;
-            IsPaused = false;
-            musicSource.Play();
+            return musicID == id;
         }
         public void StartFade(float target, float duration)
         {
@@ -55,6 +53,14 @@ namespace MVZ2
         {
             volumeFader.OnValueChanged += value => SetVolume(value);
         }
+        private void Play(AudioClip clip)
+        {
+            if (!clip)
+                return;
+            musicSource.clip = clip;
+            IsPaused = false;
+            musicSource.Play();
+        }
         public MainManager Main => main;
         public float Time
         {
@@ -62,6 +68,7 @@ namespace MVZ2
             set => musicSource.time = value;
         }
         public bool IsPaused { get; private set; }
+        private NamespaceID musicID;
         [SerializeField]
         private MainManager main;
         [SerializeField]

@@ -203,7 +203,7 @@ namespace MVZ2.Talk
                         switch (script.arguments[0])
                         {
                             case "change":
-                                foregroundImage.sprite = Main.ResourceManager.GetSprite(ParseArgumentSpriteReference(script.arguments[1]));
+                                foregroundImage.sprite = Main.LanguageManager.GetSprite(ParseArgumentSpriteReference(script.arguments[1]));
                                 break;
                             case "alpha":
                                 foregroundFader.Value = ParseArgumentFloat(script.arguments[1]);

@@ -77,9 +77,13 @@ namespace MVZ2
         {
             return GetLocalizedSprite(sprite, GetCurrentLanguage());
         }
+        public Sprite GetSprite(NamespaceID id)
+        {
+            return GetLocalizedSprite(id, GetCurrentLanguage()) ?? main.ResourceManager.GetSprite(id);
+        }
         public Sprite GetSprite(SpriteReference spriteRef)
         {
-            return GetLocalizedSprite(spriteRef.id, GetCurrentLanguage());
+            return GetLocalizedSprite(spriteRef, GetCurrentLanguage()) ?? main.ResourceManager.GetSprite(spriteRef);
         }
         public Sprite GetLocalizedSprite(Sprite sprite, string language)
         {

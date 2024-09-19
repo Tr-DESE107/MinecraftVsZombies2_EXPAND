@@ -16,6 +16,14 @@ namespace MVZ2.Mainmenu
         {
             UpdateSprite();
         }
+        private void OnDisable()
+        {
+            if (isHovered)
+            {
+                isHovered = false;
+                UpdateSprite();
+            }
+        }
         void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
             if (Interactable)

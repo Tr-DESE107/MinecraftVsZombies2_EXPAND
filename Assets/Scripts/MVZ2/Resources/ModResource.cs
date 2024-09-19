@@ -16,6 +16,7 @@ namespace MVZ2
         public DifficultyMetaList DifficultyMetaList { get; set; }
         public EntityMetaList EntityMetaList { get; set; }
         public AlmanacMetaList AlmanacMetaList { get; set; }
+        public NoteMetaList NoteMetaList { get; set; }
         public Dictionary<NamespaceID, AudioClip> Sounds = new();
         public Dictionary<NamespaceID, AudioClip> Musics = new();
         public Dictionary<NamespaceID, Model> Models = new();
@@ -52,6 +53,9 @@ namespace MVZ2
                     break;
                 case "almanac":
                     AlmanacMetaList = AlmanacMetaList.FromXmlNode(document["almanac"], defaultNsp);
+                    break;
+                case "notes":
+                    NoteMetaList = NoteMetaList.FromXmlNode(document["notes"], defaultNsp);
                     break;
             }
         }

@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.GameContent;
 using MVZ2.Landing;
 using MVZ2.Mainmenu;
+using MVZ2.Note;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2
@@ -18,13 +19,29 @@ namespace MVZ2
         {
             ui.ShowDialog(title, desc, options, onSelect);
         }
-        public void ShowMainmenu()
+        public void DisplayPage(MainScenePageType type)
         {
-            mainmenu.Display();
+            foreach (var pair in pages)
+            {
+                if (pair.Key == type)
+                    pair.Value.Display();
+                else
+                    pair.Value.Hide();
+            }
         }
-        public void ShowTitlescreen()
+        public void DisplayNote(NamespaceID id, string buttonText, Action onClose)
         {
-            titlescreen.Display();
+            DisplayPage(MainScenePageType.Note);
+            note.SetNote(id);
+            note.SetButtonText(buttonText);
+            note.OnClose += onClose;
+        }
+        private void Awake()
+        {
+            pages.Add(MainScenePageType.Landing, landing);
+            pages.Add(MainScenePageType.Titlescreen, titlescreen);
+            pages.Add(MainScenePageType.Mainmenu, mainmenu);
+            pages.Add(MainScenePageType.Note, note);
         }
         private async void Start()
         {
@@ -102,13 +119,23 @@ namespace MVZ2
         [TranslateMsg("开始游戏时读取出错，对话框的按钮文本")]
         public const string ERROR_QUIT = "退出";
         private MainManager main => MainManager.Instance;
+        private Dictionary<MainScenePageType, MainScenePage> pages = new Dictionary<MainScenePageType, MainScenePage>();
         [SerializeField]
         private MainSceneUI ui;
         [SerializeField]
         private LandingController landing;
         [SerializeField]
+        private TitlescreenController titlescreen;
+        [SerializeField]
         private MainmenuController mainmenu;
         [SerializeField]
-        private TitlescreenController titlescreen; 
+        private NoteController note;
+    }
+    public enum MainScenePageType
+    {
+        Landing,
+        Titlescreen,
+        Mainmenu,
+        Note
     }
 }

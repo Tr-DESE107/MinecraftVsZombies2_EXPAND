@@ -63,6 +63,7 @@ namespace MVZ2
             spriteReferenceCacheDict.Clear();
             entitiesCacheDict.Clear();
             difficultyCache.Clear();
+            noteCache.Clear();
         }
         private async Task<ModResource> LoadModResources(ModInfo mod)
         {
@@ -87,6 +88,10 @@ namespace MVZ2
             foreach (var meta in modResource.DifficultyMetaList.metas)
             {
                 difficultyCache.Add(new NamespaceID(modNamespace, meta.id));
+            }
+            foreach (var meta in modResource.NoteMetaList.metas)
+            {
+                noteCache.Add(new NamespaceID(modNamespace, meta.id));
             }
 
             return modResource;

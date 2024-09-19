@@ -61,7 +61,7 @@ namespace MVZ2
             imageTexture.name = $"{character}({variantID})";
             foreach (TalkCharacterLayer layer in variantInfo.layers)
             {
-                Sprite sourceSpr = main.ResourceManager.GetSprite(layer.sprite);
+                Sprite sourceSpr = GetSprite(layer.sprite);
                 Texture2D sourceTex = sourceSpr.texture;
                 Rect sourceRect = sourceSpr.rect;
                 var colors = sourceTex.GetPixels((int)sourceRect.xMin, (int)sourceRect.yMin, (int)sourceRect.width, (int)sourceRect.height);

@@ -201,12 +201,12 @@ namespace MVZ2.Level
             }
             else if (heldType == HeldTypes.pickaxe)
             {
-                icon = main.ResourceManager.GetSprite(SpritePaths.pickaxe);
+                icon = main.LanguageManager.GetSprite(SpritePaths.pickaxe);
                 layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
             }
             else if (heldType == HeldTypes.starshard)
             {
-                icon = main.ResourceManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
+                icon = main.LanguageManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
                 layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
             }
             ui.SetHeldItemIcon(icon);
@@ -839,7 +839,7 @@ namespace MVZ2.Level
             {
                 level.PlaySound(SoundID.pause);
                 var spriteReference = pauseImages.Random(uiRandom);
-                levelUI.SetPauseDialogImage(main.ResourceManager.GetSprite(spriteReference));
+                levelUI.SetPauseDialogImage(main.LanguageManager.GetSprite(spriteReference));
                 main.MusicManager.Pause();
             }
             else

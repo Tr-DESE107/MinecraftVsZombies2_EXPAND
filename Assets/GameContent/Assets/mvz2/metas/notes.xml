@@ -1,0 +1,3 @@
+<notes>
+    <note id="help" sprite="note/help_front" background="note/background_day" canFlip="true" flipSprite="note/help_back" />
+</notes>
