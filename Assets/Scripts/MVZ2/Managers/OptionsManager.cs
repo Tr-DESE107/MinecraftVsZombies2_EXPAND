@@ -23,6 +23,7 @@ namespace MVZ2
             options.swapTrigger = GetPlayerPrefsBool(PREFS_SWAP_TRIGGER, false);
             options.vibration = GetPlayerPrefsBool(PREFS_VIBRATION, false);
             options.bloodAndGore = GetPlayerPrefsBool(PREFS_BLOOD_AND_GORE, true);
+            options.pauseOnFocusLost = GetPlayerPrefsBool(PREFS_PAUSE_ON_FOCUS_LOST, true);
 
             options.musicVolume = GetPlayerPrefsFloat(PREFS_MUSIC_VOLUME, 1);
             options.soundVolume = GetPlayerPrefsFloat(PREFS_SOUND_VOLUME, 1);
@@ -114,7 +115,7 @@ namespace MVZ2
         }
         #endregion
 
-        #region 震动
+        #region 血与碎块
         public bool HasBloodAndGore()
         {
             return options.bloodAndGore;
@@ -129,6 +130,23 @@ namespace MVZ2
             SetBloodAndGore(!HasBloodAndGore());
         }
         #endregion
+
+        #region 焦点丢失暂停
+        public bool GetPauseOnFocusLost()
+        {
+            return options.pauseOnFocusLost;
+        }
+        public void SetPauseOnFocusLost(bool value)
+        {
+            options.pauseOnFocusLost = value;
+            PlayerPrefs.SetInt(PREFS_PAUSE_ON_FOCUS_LOST, BoolToInt(value));
+        }
+        public void SwitchPauseOnFocusLost()
+        {
+            SetPauseOnFocusLost(!GetPauseOnFocusLost());
+        }
+        #endregion
+
 
         #region 音乐音量
         public float GetMusicVolume()
@@ -251,6 +269,7 @@ namespace MVZ2
         public const string PREFS_SWAP_TRIGGER = "SwapTrigger";
         public const string PREFS_VIBRATION = "Vibration";
         public const string PREFS_BLOOD_AND_GORE = "BloodAndGore";
+        public const string PREFS_PAUSE_ON_FOCUS_LOST = "PauseOnFocusLost";
 
         public const string PREFS_MUSIC_VOLUME = "MusicVolume";
         public const string PREFS_SOUND_VOLUME = "SoundVolume";
@@ -265,6 +284,7 @@ namespace MVZ2
         public bool vibration;
         public NamespaceID difficulty;
         public bool bloodAndGore;
+        public bool pauseOnFocusLost;
 
         public float musicVolume;
         public float soundVolume;

@@ -266,6 +266,18 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region 菜单对话框
+        public void SetOptionsDialogActive(bool visible)
+        {
+            optionsDialogObj.SetActive(visible);
+        }
+        public void ResetOptionsDialogPosition()
+        {
+            var rectTrans = optionsDialogObj.transform as RectTransform;
+            rectTrans.anchoredPosition = Vector3.zero;
+        }
+        #endregion
+
         #region 提示箭头
         public void SetHintArrowPointToBlueprint(int index)
         {
@@ -329,9 +341,9 @@ namespace MVZ2.Level.UI
         #region 私有方法
         private void Awake()
         {
-            sideReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side);
-            lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn);
-            bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom);
+            sideReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side, data);
+            lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn, data);
+            bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom, data);
 
             blueprints.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
             blueprints.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
@@ -383,7 +395,7 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 事件
-        public event Action<Receiver> OnRaycastReceiverPointerDown;
+        public event Action<Receiver, PointerEventData> OnRaycastReceiverPointerDown;
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
@@ -400,6 +412,8 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 属性字段
+        public OptionsDialog OptionsDialog => optionsDialog;
+
         [Header("Blueprints")]
         [SerializeField]
         EnergyPanel energyPanel;
@@ -431,6 +445,12 @@ namespace MVZ2.Level.UI
         GameObject gameOverDialogObj;
         [SerializeField]
         GameOverDialog gameOverDialog;
+
+        [Header("Options Dialog")]
+        [SerializeField]
+        GameObject optionsDialogObj;
+        [SerializeField]
+        OptionsDialog optionsDialog;
 
         [Header("Raycast Receivers")]
         [SerializeField]

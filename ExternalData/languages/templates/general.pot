@@ -178,6 +178,9 @@ msgstr ""
 msgid "难度：{0}"
 msgstr ""
 
+msgid "后台暂停：{0}"
+msgstr ""
+
 msgid "正在进入关卡……"
 msgstr ""
 

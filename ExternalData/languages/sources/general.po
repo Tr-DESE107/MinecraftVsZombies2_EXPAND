@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:08+0800\n"
-"PO-Revision-Date: 2024-09-18 21:04+0800\n"
+"PO-Revision-Date: 2024-09-19 19:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -201,6 +201,9 @@ msgstr "Delete User"
 
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
+
+msgid "后台暂停：{0}"
+msgstr "Pause on Focus Lost: {0}"
 
 msgid "正在进入关卡……"
 msgstr "Entering Level…"

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Codice.CM.Common;
 using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
@@ -15,7 +14,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Game;
 using PVZEngine.Level;
 using Tools;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -23,7 +21,7 @@ using UnityEngine.UIElements;
 namespace MVZ2.Level
 {
     using LevelEngine = PVZEngine.Level.LevelEngine;
-    public class LevelController : MonoBehaviour
+    public class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法
         public void InitGame(Game game, NamespaceID areaID, NamespaceID stageID)
@@ -75,6 +73,14 @@ namespace MVZ2.Level
                 BeginLevel();
             }
         }
+        public void Dispose()
+        {
+            if (optionsLogic != null)
+            {
+                optionsLogic.Dispose();
+                optionsLogic = null;
+            }
+        }
         public void PlayReadySetBuild()
         {
             var ui = GetLevelUI();
@@ -110,14 +116,26 @@ namespace MVZ2.Level
             level.Start();
 
             isGameStarted = true;
+            UpdateFocusLost(Application.isFocused);
         }
         public float GetGameSpeed()
         {
             return speedUp ? 2 : 1;
         }
+        public async Task RestartLevel()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetGameOverDialogInteractable(false);
+            await main.LevelManager.GotoLevelSceneAsync();
+            main.LevelManager.StartLevel(StartAreaID, StartStageID);
+        }
         public bool IsGameRunning()
         {
             return isGameStarted && !isPaused && !isGameOver;
+        }
+        public bool IsGameStarted()
+        {
+            return isGameStarted;
         }
         public bool IsGameOver()
         {
@@ -161,6 +179,10 @@ namespace MVZ2.Level
         {
             SetUIVisibleState(VisibleState.Nothing);
             isGameStarted = false;
+        }
+        public int GetCurrentFlag()
+        {
+            return level.CurrentFlag;
         }
         public EntityController GetEntityController(Entity entity)
         {
@@ -259,6 +281,7 @@ namespace MVZ2.Level
             levelUI.SetFinalWaveTextVisible(false);
             levelUI.SetReadySetBuildVisible(false);
             levelUI.SetPauseDialogActive(false);
+            levelUI.SetOptionsDialogActive(false);
             levelUI.SetGameOverDialogActive(false);
             levelUI.SetYouDiedVisible(false);
             levelUI.HideTooltip();
@@ -354,6 +377,10 @@ namespace MVZ2.Level
                 }
                 UpdateEnemyCry();
             }
+        }
+        private void OnApplicationFocus(bool focus)
+        {
+            UpdateFocusLost(focus);
         }
         #endregion
 
@@ -540,8 +567,14 @@ namespace MVZ2.Level
                 return;
             ClickBlueprint(index);
         }
-        private void OnRaycastReceiverPointerDownCallback(LevelUI.Receiver receiver)
+        private void OnRaycastReceiverPointerDownCallback(LevelUI.Receiver receiver, PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+
+            if (!IsGameRunning())
+                return;
+
             LawnArea area = LawnArea.Main;
             switch (receiver)
             {
@@ -578,6 +611,13 @@ namespace MVZ2.Level
         }
         private void OnMenuButtonClickCallback()
         {
+            SetGamePaused(true);
+            level.PlaySound(SoundID.pause);
+            ShowOptionsDialog();
+        }
+        private void OnOptionsMenuCloseCallback()
+        {
+            SetGamePaused(false);
         }
         private void OnSpeedUpButtonClickCallback()
         {
@@ -596,11 +636,11 @@ namespace MVZ2.Level
         #region 游戏结束
         private async void OnGameOverRetryButtonClickedCallback()
         {
-            await Retry();
+            await RestartLevel();
         }
         private async void OnGameOverBackButtonClickedCallback()
         {
-            await Retry();
+            await RestartLevel();
         }
         #endregion
 
@@ -827,32 +867,63 @@ namespace MVZ2.Level
         #endregion
 
         #region 暂停
-        public void SwitchPauseGame()
-        {
-            SetGamePaused(!isPaused);
-        }
-        public void SetGamePaused(bool paused)
+        private void SetGamePaused(bool paused)
         {
             isPaused = paused;
-            var levelUI = GetLevelUI();
-            if (paused)
+            if (isPaused)
             {
-                level.PlaySound(SoundID.pause);
-                var spriteReference = pauseImages.Random(uiRandom);
-                levelUI.SetPauseDialogImage(main.LanguageManager.GetSprite(spriteReference));
                 main.MusicManager.Pause();
             }
             else
             {
                 main.MusicManager.Resume();
+
+                if (optionsLogic != null)
+                {
+                    optionsLogic.Dispose();
+                    optionsLogic = null;
+                }
+                var levelUI = GetLevelUI();
+                levelUI.SetPauseDialogActive(false);
+                levelUI.SetOptionsDialogActive(false);
             }
-            levelUI.SetPauseDialogActive(isPaused);
-            levelUI.ResetPauseDialogPosition();
+        }
+        private void UpdateFocusLost(bool focus)
+        {
+            if (isPaused)
+                return;
+            if (!IsGameStarted())
+                return;
+            if (focus)
+                return;
+            if (!main.OptionsManager.GetPauseOnFocusLost())
+                return;
+
+            SetGamePaused(true);
+            ShowPausedDialog();
         }
         #endregion
         public LevelUI GetLevelUI()
         {
             return MainManager.IsMobile() ? mobileUI : standaloneUI;
+        }
+        private void ShowOptionsDialog()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetOptionsDialogActive(true);
+
+            optionsLogic = new OptionsLogicLevel(levelUI.OptionsDialog, this);
+            optionsLogic.InitDialog();
+            optionsLogic.OnClose += OnOptionsMenuCloseCallback;
+            levelUI.ResetPauseDialogPosition();
+        }
+        private void ShowPausedDialog()
+        {
+            var levelUI = GetLevelUI();
+            var spriteReference = pauseImages.Random(uiRandom);
+            levelUI.SetPauseDialogActive(isPaused);
+            levelUI.SetPauseDialogImage(main.LanguageManager.GetSprite(spriteReference));
+            levelUI.ResetPauseDialogPosition();
         }
         private void HideGridSprites()
         {
@@ -946,10 +1017,27 @@ namespace MVZ2.Level
 #endif
             if (!isGameOver)
             {
-                if (isGameStarted && Input.GetKeyDown(KeyCode.Space))
+                if (isGameStarted)
                 {
-                    SwitchPauseGame();
-                }
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        SetGamePaused(!isPaused);
+                        if (isPaused)
+                        {
+                            level.PlaySound(SoundID.pause);
+                            ShowPausedDialog();
+                        }
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        SetGamePaused(!isPaused);
+                        if (isPaused)
+                        {
+                            level.PlaySound(SoundID.pause);
+                            ShowOptionsDialog();
+                        }
+                    }
+                } 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     SwitchSpeedUp();
@@ -1023,13 +1111,6 @@ namespace MVZ2.Level
         private void ExitLevel()
         {
             // TODO
-        }
-        private async Task Retry()
-        {
-            var levelUI = GetLevelUI();
-            levelUI.SetGameOverDialogInteractable(false);
-            await main.LevelManager.GotoLevelScene();
-            main.LevelManager.StartLevel(StartAreaID, StartStageID);
         }
 
         #region 游戏结束
@@ -1182,6 +1263,8 @@ namespace MVZ2.Level
 
         private float levelProgress;
         private float[] bannerProgresses;
+
+        private OptionsLogicLevel optionsLogic;
 
         [SerializeField]
         private LevelView view;

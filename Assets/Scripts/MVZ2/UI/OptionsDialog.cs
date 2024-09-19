@@ -69,18 +69,32 @@ namespace MVZ2.UI
             dropdownDict.Add(DropdownType.Resolution, resolutionDropdown);
 
             textButtonDict.Add(TextButtonType.SwapTrigger, swapTriggerButton);
+            textButtonDict.Add(TextButtonType.PauseOnFocusLost, pauseOnFocusLostButton);
             textButtonDict.Add(TextButtonType.Fullscreen, fullscreenButton);
             textButtonDict.Add(TextButtonType.Vibration, vibrationButton);
             textButtonDict.Add(TextButtonType.Difficulty, diffcultyButton);
+            textButtonDict.Add(TextButtonType.LeaveLevel, leaveLevelButton);
             textButtonDict.Add(TextButtonType.BloodAndGore, bloodAndGoreButton);
 
             buttonDict.Add(ButtonType.SwapTrigger, swapTriggerButton.Button);
+            buttonDict.Add(ButtonType.PauseOnFocusLost, pauseOnFocusLostButton.Button);
+
+            // 左上
             buttonDict.Add(ButtonType.Fullscreen, fullscreenButton.Button);
             buttonDict.Add(ButtonType.Vibration, vibrationButton.Button);
+
+            // 右上
             buttonDict.Add(ButtonType.Difficulty, diffcultyButton.Button);
-            buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
-            buttonDict.Add(ButtonType.Back, backButton);
+            buttonDict.Add(ButtonType.Restart, restartButton);
+
+            // 左下
             buttonDict.Add(ButtonType.MoreOptions, moreOptionsButton);
+            buttonDict.Add(ButtonType.LeaveLevel, leaveLevelButton.Button);
+
+            // 右下
+            buttonDict.Add(ButtonType.Back, backButton);
+
+            buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
 
 
@@ -120,16 +134,27 @@ namespace MVZ2.UI
         private TextSlider musicSlider;
         [SerializeField]
         private TextSlider soundSlider;
+
         [SerializeField]
         private TextButton swapTriggerButton;
+        [SerializeField]
+        private TextButton pauseOnFocusLostButton;
+
         [SerializeField]
         private TextButton fullscreenButton;
         [SerializeField]
         private TextButton vibrationButton;
+
         [SerializeField]
         private TextButton diffcultyButton;
         [SerializeField]
+        private Button restartButton;
+
+        [SerializeField]
         private Button moreOptionsButton;
+        [SerializeField]
+        private TextButton leaveLevelButton;
+
         [SerializeField]
         private Button backButton;
 
@@ -166,21 +191,31 @@ namespace MVZ2.UI
         public enum TextButtonType
         {
             SwapTrigger,
+            PauseOnFocusLost,
             Fullscreen,
             Vibration,
             Difficulty,
+            LeaveLevel,
             BloodAndGore
         }
         public enum ButtonType
         {
             SwapTrigger,
+            PauseOnFocusLost,
+
             Fullscreen,
             Vibration,
+
             Difficulty,
+            Restart,
+
             MoreOptions,
+            LeaveLevel,
+
             Back,
+
+            MoreBack,
             BloodAndGore,
-            MoreBack
         }
     }
 

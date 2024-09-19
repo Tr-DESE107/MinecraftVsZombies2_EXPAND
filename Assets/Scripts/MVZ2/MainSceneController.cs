@@ -15,6 +15,14 @@ namespace MVZ2
 {
     public class MainSceneController : MonoBehaviour
     {
+        public void ShowDialogConfirm(string title, string desc, Action<bool> onSelect = null)
+        {
+            ShowDialog(title, desc, new string[]
+            {
+                main.LanguageManager._(StringTable.YES),
+                main.LanguageManager._(StringTable.NO),
+            }, (index) => onSelect?.Invoke(index == 0));
+        }
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
         {
             ui.ShowDialog(title, desc, options, onSelect);

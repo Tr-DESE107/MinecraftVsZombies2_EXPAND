@@ -4,7 +4,11 @@ namespace MVZ2
 {
     public static class StringTable
     {
-        [TranslateMsg("关卡难度")]
+        [TranslateMsg("通用的是")]
+        public const string YES = "是";
+        [TranslateMsg("通用的否")]
+        public const string NO = "否";
+        [TranslateMsg("通用的返回")]
         public const string BACK = "返回";
 
         [TranslateMsg("按钮文本")]

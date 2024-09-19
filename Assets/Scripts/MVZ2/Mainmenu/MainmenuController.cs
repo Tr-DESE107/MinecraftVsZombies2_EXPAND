@@ -27,6 +27,7 @@ namespace MVZ2.Mainmenu
             {
                 main.MusicManager.Play(MusicID.mainmenu);
             }
+            ui.SetUserName(main.SaveManager.GetCurrentUserName());
         }
         public void Reload()
         {
@@ -38,12 +39,7 @@ namespace MVZ2.Mainmenu
             var userName = main.SaveManager.GetCurrentUserName();
             if (string.IsNullOrEmpty(userName))
             {
-                ui.SetUserName(string.Empty);
                 ShowInputNameDialog(false);
-            }
-            else
-            {
-                ui.SetUserName(userName);
             }
             ui.SetRayblockerActive(false);
         }
@@ -83,7 +79,8 @@ namespace MVZ2.Mainmenu
         private void OnOptionsButtonClickCallback() 
         {
             ui.SetOptionsDialogVisible(true);
-            optionsLogic = new OptionsLogic(ui.OptionsDialog);
+            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog);
+            optionsLogic.InitDialog();
             optionsLogic.OnClose += OnOptionsCloseClickCallback;
         }
         private void OnHelpButtonClickCallback()
@@ -157,7 +154,7 @@ namespace MVZ2.Mainmenu
             }
 
             yield return new WaitForSeconds(6);
-            var task = main.LevelManager.GotoLevelScene();
+            var task = main.LevelManager.GotoLevelSceneAsync();
             while (!task.IsCompleted)
             {
                 yield return null;
@@ -201,7 +198,7 @@ namespace MVZ2.Mainmenu
         private MainManager main => MainManager.Instance;
         [SerializeField]
         private MainmenuUI ui;
-        private OptionsLogic optionsLogic;
+        private OptionsLogicMainmenu optionsLogic;
         private bool canCancelInputName;
         #endregion
     }

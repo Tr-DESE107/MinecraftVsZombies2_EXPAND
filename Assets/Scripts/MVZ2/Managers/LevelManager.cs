@@ -29,17 +29,18 @@ namespace MVZ2
             }
             return packs;
         }
-        public async Task GotoLevelScene()
+        public async Task GotoLevelSceneAsync()
         {
             var sceneName = "Level";
-            if (IsSceneLoaded(sceneName))
-            {
-                await UnloadSceneAsync(sceneName);
-            }
+            var oldScene = GetScene(sceneName);
             await LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            if (oldScene.IsValid())
+            {
+                await UnloadSceneAsync(oldScene);
+            }
 
-            var scene = SceneManager.GetSceneByName(sceneName);
-            foreach (var go in scene.GetRootGameObjects())
+            var newScene = GetScene(sceneName);
+            foreach (var go in newScene.GetRootGameObjects())
             {
                 var ctrl = go.GetComponent<LevelController>();
                 if (ctrl)
@@ -49,10 +50,22 @@ namespace MVZ2
                 }
             }
         }
+        public async Task ExitLevelSceneAsync()
+        {
+            var sceneName = "Level";
+            if (!IsSceneLoaded(sceneName))
+                return;
+            await UnloadSceneAsync(sceneName);
+            controller = null;
+        }
         private bool IsSceneLoaded(string name)
         {
             var scene = SceneManager.GetSceneByName(name);
             return scene.IsValid();
+        }
+        private Scene GetScene(string name)
+        {
+            return SceneManager.GetSceneByName(name);
         }
         private Task LoadSceneAsync(string name, LoadSceneMode mode)
         {
@@ -66,6 +79,14 @@ namespace MVZ2
         {
             TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
             var op = SceneManager.UnloadSceneAsync(name);
+            op.completed += (op) => tcs.SetResult(op);
+
+            return tcs.Task;
+        }
+        private Task UnloadSceneAsync(Scene scene)
+        {
+            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
+            var op = SceneManager.UnloadSceneAsync(scene);
             op.completed += (op) => tcs.SetResult(op);
 
             return tcs.Task;
