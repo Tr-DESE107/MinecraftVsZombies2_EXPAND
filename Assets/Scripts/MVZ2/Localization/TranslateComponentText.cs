@@ -29,7 +29,7 @@ namespace MVZ2.Localization
                 return keys;
             }
         }
-        public  string Path
+        public string Path
         {
             get
             {

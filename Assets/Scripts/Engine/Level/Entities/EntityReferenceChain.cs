@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-
-namespace PVZEngine.Level
+﻿namespace PVZEngine.Level
 {
     public class EntityReferenceChain
     {

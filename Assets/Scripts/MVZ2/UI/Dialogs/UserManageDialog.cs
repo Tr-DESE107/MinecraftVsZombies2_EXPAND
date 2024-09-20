@@ -43,7 +43,7 @@ namespace MVZ2.UI
         public void SetCreateNewUserActive(bool active)
         {
             createNewUserButton.gameObject.SetActive(active);
-        } 
+        }
         private void Awake()
         {
             buttonDict.Add(ButtonType.CreateNewUser, createNewUserButton);

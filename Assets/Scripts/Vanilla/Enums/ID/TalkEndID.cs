@@ -1,7 +1,4 @@
-﻿using MVZ2.Vanilla;
-using PVZEngine;
-
-namespace MVZ2.GameContent
+﻿namespace MVZ2.GameContent
 {
     public static class TalkEndNames
     {

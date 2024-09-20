@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MVZ2.GameContent;
 using MVZ2.Save;
 using PVZEngine;
 using PVZEngine.Level;

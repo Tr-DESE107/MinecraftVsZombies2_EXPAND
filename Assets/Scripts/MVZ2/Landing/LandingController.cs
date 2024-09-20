@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace MVZ2.Landing
 {
     public class LandingController : MainScenePage

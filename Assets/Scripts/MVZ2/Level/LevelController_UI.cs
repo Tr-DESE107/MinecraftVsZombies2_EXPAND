@@ -420,7 +420,7 @@ namespace MVZ2.Level
         [TranslateMsg("对话框内容，{0}为错误信息")]
         public const string ERROR_LOAD_LEVEL_EXCEPTION = "加载关卡失败，出现错误：{0}";
         [TranslateMsg("对话框内容")]
-        public const string ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH = "加载关卡失败，存档状态和当前游戏状态不匹配。"; 
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH = "加载关卡失败，存档状态和当前游戏状态不匹配。";
 
         #region 保存属性
         private RandomGenerator uiRandom = new RandomGenerator(Guid.NewGuid().GetHashCode());

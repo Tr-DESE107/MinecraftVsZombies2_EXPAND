@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using MukioI18n;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MVZ2.Localization
 {

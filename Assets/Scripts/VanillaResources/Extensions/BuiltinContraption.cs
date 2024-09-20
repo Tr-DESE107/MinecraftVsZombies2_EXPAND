@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using MVZ2.Vanilla;
-using PVZEngine.Level;
+﻿using PVZEngine.Level;
 
 namespace MVZ2.GameContent
 {

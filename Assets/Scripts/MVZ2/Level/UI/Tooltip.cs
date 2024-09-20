@@ -2,8 +2,6 @@
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Level.UI
 {

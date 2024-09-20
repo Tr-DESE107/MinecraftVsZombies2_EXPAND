@@ -1,10 +1,8 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.Level.Components;
-using MVZ2.Level.UI;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2
 {

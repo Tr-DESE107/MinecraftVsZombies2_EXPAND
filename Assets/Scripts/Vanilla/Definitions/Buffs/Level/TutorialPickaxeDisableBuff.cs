@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla;
 using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 

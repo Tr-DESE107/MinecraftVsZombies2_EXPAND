@@ -21,7 +21,7 @@ namespace PVZEngine
                 }
             }
         }
-        public T GetDefinition<T>(NamespaceID id) where T: Definition
+        public T GetDefinition<T>(NamespaceID id) where T : Definition
         {
             foreach (var list in lists)
             {

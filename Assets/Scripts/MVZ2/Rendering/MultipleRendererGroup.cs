@@ -1,11 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
-using Codice.CM.Common;
-using NGettext.Loaders;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static UnityEngine.ParticleSystem;
 
 namespace MVZ2.Rendering
 {

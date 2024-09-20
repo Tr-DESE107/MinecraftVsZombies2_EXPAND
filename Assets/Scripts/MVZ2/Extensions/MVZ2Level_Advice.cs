@@ -1,6 +1,4 @@
-﻿using System;
-using MVZ2.Level;
-using MVZ2.Level.Components;
+﻿using MVZ2.Level.Components;
 using PVZEngine.Level;
 
 namespace MVZ2

@@ -5,9 +5,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent;
 using MVZ2.UI;
-using UnityEditor.Search;
 using UnityEngine;
-using static MVZ2.Mainmenu.MainmenuController;
 
 namespace MVZ2.Mainmenu
 {
@@ -84,7 +82,7 @@ namespace MVZ2.Mainmenu
         {
             StartCoroutine(StartAdventure());
         }
-        private void OnOptionsButtonClickCallback() 
+        private void OnOptionsButtonClickCallback()
         {
             ui.SetOptionsDialogVisible(true);
             optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog);
@@ -98,7 +96,7 @@ namespace MVZ2.Mainmenu
             var buttonText = main.LanguageManager._(StringTable.BACK);
             main.Scene.DisplayNote(BuiltinNoteID.help, buttonText, () => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
         }
-        private void OnUserManageButtonClickCallback() 
+        private void OnUserManageButtonClickCallback()
         {
             ui.SetUserManageDialogVisible(true);
             RefreshUserManageDialog();

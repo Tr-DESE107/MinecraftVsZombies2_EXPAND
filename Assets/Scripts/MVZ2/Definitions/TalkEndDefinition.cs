@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using PVZEngine.Base;
+﻿using PVZEngine.Base;
 using PVZEngine.Level;
 
 namespace PVZEngine.Definitions

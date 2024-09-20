@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
 using PVZEngine;
-using PVZEngine.Level;
 
 namespace MVZ2
 {

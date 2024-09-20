@@ -60,7 +60,7 @@ namespace MVZ2.UI
         }
         public bool Interactable
         {
-            get 
+            get
             {
                 return (!trackSelectable || trackSelectable.interactable) && interactable;
             }
