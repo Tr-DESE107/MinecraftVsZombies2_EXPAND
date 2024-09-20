@@ -35,37 +35,37 @@ namespace MVZ2
             var component = level.GetHeldItemComponent();
             return component.HeldItemType;
         }
-        public static int GetHeldItemID(this LevelEngine level)
+        public static long GetHeldItemID(this LevelEngine level)
         {
             var component = level.GetHeldItemComponent();
             return component.HeldItemID;
         }
-        public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
+        public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             return heldItemDef.IsValidOnEntity(entity, heldId);
         }
-        public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid, NamespaceID heldType, int heldId)
+        public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             return heldItemDef.IsValidOnGrid(grid, heldId);
         }
-        public static bool UseOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
+        public static bool UseOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             return heldItemDef.UseOnEntity(entity, heldId);
         }
-        public static void HoverOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
+        public static void HoverOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             heldItemDef.HoverOnEntity(entity, heldId);
         }
-        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, int heldId)
+        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             return heldItemDef.UseOnGrid(grid, heldId);
         }
-        public static void UseOnLawn(this LevelEngine level, LawnArea area, NamespaceID heldType, int heldId)
+        public static void UseOnLawn(this LevelEngine level, LawnArea area, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             heldItemDef.UseOnLawn(level, area, heldId);

@@ -1,10 +1,7 @@
 using System;
-using log4net.Core;
-using MVZ2;
 using MVZ2.GameContent;
 using MVZ2.Level;
 using MVZ2.Level.Components;
-using PVZEngine.Definitions;
 
 namespace PVZEngine.Level
 {
@@ -30,23 +27,91 @@ namespace PVZEngine.Level
         {
             var levelUI = Controller.GetLevelUI();
             levelUI.SetHintArrowPointToBlueprint(index);
+            TargetType = HintArrowTargetType.Blueprint;
+            TargetID = index;
         }
         public void SetHintArrowPointToPickaxe()
         {
             var levelUI = Controller.GetLevelUI();
             levelUI.SetHintArrowPointToPickaxe();
+            TargetType = HintArrowTargetType.Pickaxe;
+            TargetID = 0;
         }
         public void SetHintArrowPointToEntity(Entity entity)
         {
             var levelUI = Controller.GetLevelUI();
             var entityCtrl = Controller.GetEntityController(entity);
             levelUI.SetHintArrowPointToEntity(entityCtrl.transform, entity.GetScaledSize().y);
+            TargetType = HintArrowTargetType.Entity;
+            TargetID = entity.ID;
         }
         public void HideHintArrow()
         {
             var levelUI = Controller.GetLevelUI();
             levelUI.HideHintArrow();
+            TargetType = HintArrowTargetType.None;
+            TargetID = 0;
         }
+        public override ISerializableLevelComponent ToSerializable()
+        {
+            return new SerializableUIComponent()
+            {
+                targetType = (int)TargetType,
+                targetID = TargetID
+            };
+        }
+        public override void LoadSerializable(ISerializableLevelComponent seri)
+        {
+            if (seri is not SerializableUIComponent comp)
+                return;
+            TargetType = (HintArrowTargetType)comp.targetType;
+            TargetID = comp.targetID;
+        }
+        public override void PostLevelLoad()
+        {
+            base.PostLevelLoad();
+            switch (TargetType)
+            {
+                case HintArrowTargetType.Entity:
+                    {
+                        if (TargetID <= 0)
+                            break;
+                        var entity = Level.FindEntityByID(TargetID);
+                        if (entity == null)
+                            break;
+                        SetHintArrowPointToEntity(entity);
+                    }
+                    break;
+                case HintArrowTargetType.Blueprint:
+                    {
+                        var index = (int)TargetID;
+                        if (index < 0 || index >= Level.GetSeedPackCount())
+                            break;
+                        SetHintArrowPointToBlueprint(index);
+                    }
+                    break;
+                case HintArrowTargetType.Pickaxe:
+                    {
+                        SetHintArrowPointToPickaxe();
+                    }
+                    break;
+            }
+        }
+        public HintArrowTargetType TargetType { get; private set; }
+        public long TargetID { get; private set; }
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "ui");
+    }
+    [Serializable]
+    public class SerializableUIComponent : ISerializableLevelComponent
+    {
+        public int targetType;
+        public long targetID;
+    }
+    public enum HintArrowTargetType
+    {
+        None,
+        Blueprint,
+        Pickaxe,
+        Entity
     }
 }

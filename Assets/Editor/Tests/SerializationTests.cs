@@ -211,7 +211,7 @@ namespace MVZ2.Tests
             public TestHeldItemComponent(LevelEngine level) : base(level, new NamespaceID("mvz2", "held_item"))
             {
             }
-            public void SetHeldItem(NamespaceID type, int id, int priority, bool noCancel = false)
+            public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
             {
                 if (Level.IsHoldingItem() && heldItemPriority > priority)
                     return;
@@ -241,11 +241,11 @@ namespace MVZ2.Tests
             {
             }
             public NamespaceID HeldItemType => heldItemType;
-            public int HeldItemID => heldItemID;
+            public long HeldItemID => heldItemID;
             public int HeldItemPriority => heldItemPriority;
             public bool HeldItemNoCancel => heldItemNoCancel;
             private NamespaceID heldItemType;
-            private int heldItemID;
+            private long heldItemID;
             private int heldItemPriority;
             private bool heldItemNoCancel;
         }
@@ -255,7 +255,7 @@ namespace MVZ2.Tests
             {
             }
 
-            public void ShowAdvice(string text, int priority, int timeout)
+            public void ShowAdvice(string context, string textKey, int priority, int timeout)
             {
             }
 

@@ -654,7 +654,7 @@ namespace PVZEngine.Level
             Health = seri.health;
             isOnGround = seri.isOnGround;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            buffs = BuffList.FromSerializable(seri.buffs, Level);
+            buffs = BuffList.FromSerializable(seri.buffs, Level.ContentProvider, this);
             collisionThisTick = seri.collisionThisTick.ConvertAll(e => Level.FindEntityByID(e));
             collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
@@ -712,14 +712,6 @@ namespace PVZEngine.Level
             Definition.PostTakeDamage(bodyResult, armorResult);
             LevelCallbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
         }
-
-
-        #region 接口实现
-        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
-        {
-            return new SerializableBuffTargetEntity(this);
-        }
-        #endregion
 
         #endregion
 

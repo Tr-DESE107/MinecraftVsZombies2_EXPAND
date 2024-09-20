@@ -177,17 +177,10 @@ namespace PVZEngine.Level
             armor.Owner = owner;
             armor.Definition = definition;
             armor.Health = seri.health;
-            armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level);
+            armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level.ContentProvider, armor);
             armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return armor;
         }
-
-        #region 私有方法
-        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
-        {
-            return new SerializableBuffTargetEntity(this);
-        }
-        #endregion
 
         #region 属性字段
         public Entity Owner { get; set; }

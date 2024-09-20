@@ -46,7 +46,7 @@ namespace MVZ2.Vanilla
         {
             if (level.GetHeldItemType() != HeldTypes.blueprint)
                 return null;
-            var seed = level.GetSeedPackAt(level.GetHeldItemID());
+            var seed = level.GetSeedPackAt((int)level.GetHeldItemID());
             if (seed == null)
                 return null;
             var seedDef = seed.Definition;

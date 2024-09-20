@@ -174,15 +174,12 @@ namespace PVZEngine.Level
         public static SeedPack Deserialize(SerializableSeedPack seri, LevelEngine level)
         {
             var definition = level.ContentProvider.GetSeedDefinition(seri.seedID);
-            return new SeedPack(level, definition)
+            var seedPack = new SeedPack(level, definition)
             {
-                propertyDict = PropertyDictionary.Deserialize(seri.propertyDict),
-                buffs = BuffList.FromSerializable(seri.buffs, level)
+                propertyDict = PropertyDictionary.Deserialize(seri.propertyDict)
             };
-        }
-        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
-        {
-            return new SerializableBuffTargetSeedPack(this);
+            seedPack.buffs = BuffList.FromSerializable(seri.buffs, level.ContentProvider, seedPack);
+            return seedPack;
         }
         #endregion
 

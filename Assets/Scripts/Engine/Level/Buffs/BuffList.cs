@@ -72,11 +72,11 @@ namespace PVZEngine.Level
                 buffs = buffs.ConvertAll(b => b.Serialize())
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList buffList, LevelEngine level)
+        public static BuffList FromSerializable(SerializableBuffList buffList, IContentProvider provider, IBuffTarget target)
         {
             return new BuffList()
             {
-                buffs = buffList.buffs.ConvertAll(b => Buff.Deserialize(b, level))
+                buffs = buffList.buffs.ConvertAll(b => Buff.Deserialize(b, provider, target))
             };
         }
         private List<Buff> buffs = new List<Buff>();

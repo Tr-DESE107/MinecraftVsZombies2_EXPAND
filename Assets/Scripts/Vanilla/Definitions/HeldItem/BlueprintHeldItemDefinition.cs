@@ -12,14 +12,14 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, int id)
+        public override bool IsValidOnEntity(Entity entity, long id)
         {
             return false;
         }
-        public override bool IsValidOnGrid(LawnGrid grid, int id)
+        public override bool IsValidOnGrid(LawnGrid grid, long id)
         {
             var level = grid.Level;
-            var seed = level.GetSeedPackAt(id);
+            var seed = level.GetSeedPackAt((int)id);
             if (seed == null)
                 return false;
             var seedDef = seed.Definition;
@@ -35,10 +35,10 @@ namespace MVZ2.Vanilla
             }
             return true;
         }
-        public override bool UseOnGrid(LawnGrid grid, int id)
+        public override bool UseOnGrid(LawnGrid grid, long id)
         {
             var level = grid.Level;
-            var seed = level.GetSeedPackAt(id);
+            var seed = level.GetSeedPackAt((int)id);
             if (seed == null)
                 return false;
             var seedDef = seed.Definition;
@@ -60,7 +60,7 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
-        public override void UseOnLawn(LevelEngine level, LawnArea area, int id)
+        public override void UseOnLawn(LevelEngine level, LawnArea area, long id)
         {
             base.UseOnLawn(level, area, id);
             if (area != LawnArea.Side)

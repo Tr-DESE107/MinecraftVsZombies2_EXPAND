@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, int id)
+        public override bool IsValidOnEntity(Entity entity, long id)
         {
             switch (entity.Type)
             {
@@ -20,7 +20,7 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
-        public override bool UseOnEntity(Entity entity, int id)
+        public override bool UseOnEntity(Entity entity, long id)
         {
             base.UseOnEntity(entity, id);
             switch (entity.Type)
@@ -31,7 +31,7 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
-        public override void UseOnLawn(LevelEngine level, LawnArea area, int id)
+        public override void UseOnLawn(LevelEngine level, LawnArea area, long id)
         {
             base.UseOnLawn(level, area, id);
             if (level.CancelHeldItem() && area == LawnArea.Side)
@@ -39,7 +39,7 @@ namespace MVZ2.Vanilla
                 level.PlaySound(SoundID.tap);
             }
         }
-        public override bool IsValidOnGrid(LawnGrid grid, int id)
+        public override bool IsValidOnGrid(LawnGrid grid, long id)
         {
             return false;
         }

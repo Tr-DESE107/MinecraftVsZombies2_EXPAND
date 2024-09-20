@@ -17,7 +17,7 @@ namespace MVZ2.Level
     {
         #region 公有方法
 
-        public void SetHeldItemUI(NamespaceID heldType, int id, int priority, bool noCancel)
+        public void SetHeldItemUI(NamespaceID heldType, long id, int priority, bool noCancel)
         {
             var ui = GetLevelUI();
             Sprite icon = null;
@@ -262,7 +262,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 手持物品
-        private Sprite GetHeldItemIcon(int i)
+        private Sprite GetHeldItemIcon(long i)
         {
             var seeds = level.GetAllSeedPacks();
             var seed = seeds[i];

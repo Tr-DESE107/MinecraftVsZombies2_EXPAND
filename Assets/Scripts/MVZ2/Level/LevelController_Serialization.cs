@@ -94,6 +94,14 @@ namespace MVZ2.Level
 
             isGameStarted = true;
 
+            foreach (var component in level.GetComponents())
+            {
+                if (component is MVZ2Component comp)
+                {
+                    comp.PostLevelLoad();
+                }
+            }
+
             Pause();
             ShowLevelLoadedDialog();
         }

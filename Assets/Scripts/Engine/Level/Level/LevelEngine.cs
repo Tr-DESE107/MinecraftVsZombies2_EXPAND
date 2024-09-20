@@ -340,6 +340,7 @@ namespace PVZEngine.Level
             level.miscRandom = RandomGenerator.Deserialize(seri.miscRandom);
 
             level.IsCleared = seri.isCleared;
+            level.StageID = seri.stageDefinitionID;
             level.StageDefinition = provider.GetStageDefinition(seri.stageDefinitionID);
             level.AreaDefinition = provider.GetAreaDefinition(seri.areaDefinitionID);
             level.InitAreaProperties();
@@ -349,7 +350,7 @@ namespace PVZEngine.Level
             level.Option = LevelOption.Deserialize(seri.Option);
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
             level.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            level.buffs = BuffList.FromSerializable(seri.buffs, level);
+            level.buffs = BuffList.FromSerializable(seri.buffs, provider, level);
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
@@ -391,13 +392,6 @@ namespace PVZEngine.Level
         #endregion
 
         #region 私有方法
-
-        #region 接口实现
-        ISerializeBuffTarget IBuffTarget.SerializeBuffTarget()
-        {
-            return new SerializableBuffTargetLevel(this);
-        }
-        #endregion
         public void InitAreaProperties()
         {
             gridWidth = AreaDefinition.GetProperty<float>(AreaProperties.GRID_WIDTH);

@@ -8,12 +8,12 @@ namespace PVZEngine.Definitions
         public HeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public abstract bool IsValidOnEntity(Entity entity, int id);
-        public virtual bool UseOnEntity(Entity entity, int id) { return false; }
-        public virtual void HoverOnEntity(Entity entity, int id) { }
-        public abstract bool IsValidOnGrid(LawnGrid grid, int id);
-        public virtual bool UseOnGrid(LawnGrid grid, int id) { return false; }
-        public virtual void UseOnLawn(LevelEngine level, LawnArea area, int id) { }
+        public abstract bool IsValidOnEntity(Entity entity, long id);
+        public virtual bool UseOnEntity(Entity entity, long id) { return false; }
+        public virtual void HoverOnEntity(Entity entity, long id) { }
+        public abstract bool IsValidOnGrid(LawnGrid grid, long id);
+        public virtual bool UseOnGrid(LawnGrid grid, long id) { return false; }
+        public virtual void UseOnLawn(LevelEngine level, LawnArea area, long id) { }
     }
     public enum LawnArea
     {

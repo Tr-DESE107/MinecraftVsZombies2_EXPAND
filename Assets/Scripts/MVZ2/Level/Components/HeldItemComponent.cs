@@ -15,7 +15,7 @@ namespace PVZEngine.Level
         {
             return NamespaceID.IsValid(heldItemType) && heldItemType != HeldTypes.none;
         }
-        public void SetHeldItem(NamespaceID type, int id, int priority, bool noCancel = false)
+        public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
         {
             if (IsHoldingItem() && heldItemPriority > priority)
                 return;
@@ -36,42 +36,12 @@ namespace PVZEngine.Level
             ResetHeldItem();
             return true;
         }
-        public bool IsValidOnEntity(Entity entity, NamespaceID type, int heldItemID)
-        {
-            var heldItemDef = Controller.Game.GetDefinition<HeldItemDefinition>(type);
-            return heldItemDef.IsValidOnEntity(entity, heldItemID);
-        }
-        public bool IsValidOnGrid(LawnGrid grid, NamespaceID type, int heldItemID)
-        {
-            var heldItemDef = Controller.Game.GetDefinition<HeldItemDefinition>(type);
-            return heldItemDef.IsValidOnGrid(grid, heldItemID);
-        }
-        public bool UseOnEntity(Entity entity)
-        {
-            var heldItemDef = Controller.Game.GetDefinition<HeldItemDefinition>(HeldItemType);
-            return heldItemDef.UseOnEntity(entity, heldItemID);
-        }
-        public bool UseOnGrid(LawnGrid grid)
-        {
-            var heldItemDef = Controller.Game.GetDefinition<HeldItemDefinition>(HeldItemType);
-            return heldItemDef.UseOnGrid(grid, heldItemID);
-        }
-        public void UseOnLawn(LevelEngine level, LawnArea area)
-        {
-            var heldItemDef = Controller.Game.GetDefinition<HeldItemDefinition>(HeldItemType);
-            heldItemDef.UseOnLawn(level, area, heldItemID);
-        }
-        public void HoverOnEntity(Entity entity)
-        {
-            var heldItemDef = Controller.Game.GetDefinition<HeldItemDefinition>(HeldItemType);
-            heldItemDef.HoverOnEntity(entity, heldItemID);
-        }
         public NamespaceID HeldItemType => heldItemType;
-        public int HeldItemID => heldItemID;
+        public long HeldItemID => heldItemID;
         public int HeldItemPriority => heldItemPriority;
         public bool HeldItemNoCancel => heldItemNoCancel;
         private NamespaceID heldItemType;
-        private int heldItemID;
+        private long heldItemID;
         private int heldItemPriority;
         private bool heldItemNoCancel;
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "heldItem");

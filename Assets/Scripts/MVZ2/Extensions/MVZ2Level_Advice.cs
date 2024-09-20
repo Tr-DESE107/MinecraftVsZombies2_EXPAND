@@ -11,10 +11,10 @@ namespace MVZ2
         {
             return level.GetComponent<IAdviceComponent>();
         }
-        public static void ShowAdvice(this LevelEngine level, string text, int priority, int timeout)
+        public static void ShowAdvice(this LevelEngine level, string context, string textKey, int priority, int timeout)
         {
             var component = level.GetAdviceComponent();
-            component.ShowAdvice(text, priority, timeout);
+            component.ShowAdvice(context, textKey, priority, timeout);
         }
         public static void HideAdvice(this LevelEngine level)
         {

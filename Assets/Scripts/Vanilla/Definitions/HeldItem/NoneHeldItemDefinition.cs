@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, int id)
+        public override bool IsValidOnEntity(Entity entity, long id)
         {
             switch (entity.Type)
             {
@@ -22,11 +22,11 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
-        public override bool IsValidOnGrid(LawnGrid grid, int id)
+        public override bool IsValidOnGrid(LawnGrid grid, long id)
         {
             return false;
         }
-        public override bool UseOnEntity(Entity entity, int id)
+        public override bool UseOnEntity(Entity entity, long id)
         {
             switch (entity.Type)
             {
@@ -39,7 +39,7 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
-        public override void HoverOnEntity(Entity entity, int id)
+        public override void HoverOnEntity(Entity entity, long id)
         {
             switch (entity.Type)
             {

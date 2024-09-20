@@ -56,15 +56,14 @@ namespace PVZEngine.Level
             return new SerializableBuff()
             {
                 definitionID = Definition.GetID(),
-                target = Target.SerializeBuffTarget(),
                 propertyDict = propertyDict.Serialize()
             };
         }
-        public static Buff Deserialize(SerializableBuff seri, LevelEngine level)
+        public static Buff Deserialize(SerializableBuff seri, IContentProvider provider, IBuffTarget target)
         {
-            var definition = level.ContentProvider.GetBuffDefinition(seri.definitionID);
+            var definition = provider.GetBuffDefinition(seri.definitionID);
             var buff = new Buff(definition);
-            buff.Target = seri.target.DeserializeBuffTarget(level);
+            buff.Target = target;
             buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return buff;
         }

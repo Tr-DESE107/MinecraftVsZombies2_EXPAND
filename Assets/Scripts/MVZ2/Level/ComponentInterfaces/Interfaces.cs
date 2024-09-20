@@ -9,16 +9,16 @@ namespace MVZ2.Level.Components
 {
     public interface IAdviceComponent : ILevelComponent
     {
-        void ShowAdvice(string text, int priority, int timeout);
+        void ShowAdvice(string context, string textKey, int priority, int timeout);
         void HideAdvice();
     }
     public interface IHeldItemComponent : ILevelComponent
     {
-        void SetHeldItem(NamespaceID type, int id, int priority, bool noCancel = false);
+        void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false);
         void ResetHeldItem();
         bool CancelHeldItem();
         NamespaceID HeldItemType { get; }
-        int HeldItemID { get; }
+        long HeldItemID { get; }
         int HeldItemPriority { get; }
         bool HeldItemNoCancel { get; }
     }

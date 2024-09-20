@@ -44,9 +44,6 @@ namespace MVZ2
             RegisterClass<SerializableArmor>();
             RegisterClass<SerializableBuff>();
             RegisterClass<SerializableBuffList>();
-            RegisterClass<SerializableBuffTargetEntity>();
-            RegisterClass<SerializableBuffTargetLevel>();
-            RegisterClass<SerializableBuffTargetSeedPack>();
             RegisterClass<SerializableGrid>();
             RegisterClass<SerializableLevel>();
             RegisterClass<SerializableDelayedEnergy>();
@@ -61,6 +58,7 @@ namespace MVZ2
             RegisterClass<SerializableUserStatEntry>();
             RegisterClass<SerializableLevelDifficultyRecord>();
             RegisterClass<SerializableAdviceComponent>();
+            RegisterClass<SerializableUIComponent>();
             RegisterClass<EmptySerializableLevelComponent>();
 
             isInited = true;

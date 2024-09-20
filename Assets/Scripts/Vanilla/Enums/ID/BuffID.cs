@@ -18,7 +18,7 @@ namespace MVZ2.GameContent
         }
         public static class Level
         {
-            public const string tutorialPickaxeDisable = "tutorial_disable";
+            public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
         }
     }
     public static class BuffID

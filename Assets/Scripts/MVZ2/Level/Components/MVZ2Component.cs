@@ -16,6 +16,10 @@ namespace MVZ2.Level
         public override void LoadSerializable(ISerializableLevelComponent seri)
         {
         }
+        public virtual void PostLevelLoad()
+        {
+
+        }
         protected MainManager Main => MainManager.Instance;
         public LevelController Controller { get; private set; }
     }
