@@ -9,15 +9,15 @@ namespace PVZEngine.Serialization
     [Serializable]
     public class SerializableEntity
     {
-        public int id;
+        public long id;
         public int type;
         public int state;
-        public int target;
+        public long target;
+        public long parent;
         public SerializableRNG rng;
         public NamespaceID definitionID;
         public NamespaceID modelID;
         public EntityReferenceChain spawnerReference;
-        public int parent;
         public SerializableArmor EquipedArmor;
         public Vector3 position;
         public Vector3 velocity;
@@ -42,9 +42,9 @@ namespace PVZEngine.Serialization
         public bool isOnGround;
         public SerializablePropertyDictionary propertyDict;
         public SerializableBuffList buffs;
-        public List<int> collisionThisTick;
-        public List<int> collisionList;
-        public List<int> children;
+        public List<long> collisionThisTick;
+        public List<long> collisionList;
+        public List<long> children;
         public List<int> takenGrids;
     }
 }

@@ -11,14 +11,14 @@ namespace PVZEngine.Level
     public sealed class Entity : IBuffTarget
     {
         #region 公有方法
-        internal Entity(LevelEngine level, int type, int id, EntityReferenceChain spawnerReference)
+        internal Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
         {
             Level = level;
             Type = type;
             ID = id;
             SpawnerReference = spawnerReference;
         }
-        public Entity(LevelEngine level, int id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
+        public Entity(LevelEngine level, long id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
         {
             Definition = definition;
             ModelID = definition.GetModelID();
@@ -740,7 +740,7 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性字段
-        public int ID { get; }
+        public long ID { get; }
         public RandomGenerator RNG { get; private set; }
         public bool Removed { get; private set; }
         public EntityDefinition Definition { get; private set; }

@@ -23,7 +23,7 @@ namespace PVZEngine.Serialization
                 return entity.EquipedArmor;
             return entity;
         }
-        public int entityID;
+        public long entityID;
         public bool isArmor;
     }
     [Serializable]

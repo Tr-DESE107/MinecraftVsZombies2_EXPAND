@@ -52,9 +52,9 @@ namespace PVZEngine.Level
         }
         public EntityReferenceChain SpawnerReference => spawnerReference;
         public NamespaceID DefinitionID => definitionID;
-        public int ID => id;
+        public long ID => id;
         private EntityReferenceChain spawnerReference;
         private NamespaceID definitionID;
-        private int id;
+        private long id;
     }
 }

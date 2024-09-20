@@ -40,7 +40,7 @@ namespace PVZEngine.Serialization
         public float rechargeTimeMultiplier;
         public SerializableSeedPack[] seedPacks;
         public bool requireCards;
-        public int currentEntityID = 1;
+        public long currentEntityID = 1;
         public List<SerializableEntity> entities;
         public float energy;
         public SerializableDelayedEnergy[] delayedEnergyEntities;
@@ -58,7 +58,7 @@ namespace PVZEngine.Serialization
     [Serializable]
     public class SerializableDelayedEnergy
     {
-        public int entityId;
+        public long entityId;
         public float energy;
     }
 }

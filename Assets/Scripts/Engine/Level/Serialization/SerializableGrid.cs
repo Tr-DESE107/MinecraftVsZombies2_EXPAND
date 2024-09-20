@@ -9,6 +9,6 @@ namespace PVZEngine.Serialization
         public int lane;
         public int column;
         public NamespaceID definitionID;
-        public List<int> takenEntities;
+        public List<long> takenEntities;
     }
 }

@@ -30,7 +30,7 @@ namespace PVZEngine.Level
         }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
         {
-            int id = AllocEntityID();
+            long id = AllocEntityID();
             var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, entityRandom.Next());
             spawned.Pos = pos;
             entities.Add(spawned);
@@ -52,7 +52,7 @@ namespace PVZEngine.Level
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
-        public Entity FindEntityByID(int id)
+        public Entity FindEntityByID(long id)
         {
             return entities.FirstOrDefault(e => e.ID == id);
         }
@@ -109,9 +109,9 @@ namespace PVZEngine.Level
             }
             return bounds;
         }
-        private int AllocEntityID()
+        private long AllocEntityID()
         {
-            int id = currentEntityID;
+            long id = currentEntityID;
             currentEntityID++;
             return id;
         }
@@ -119,8 +119,8 @@ namespace PVZEngine.Level
         public Action<Entity> OnEntitySpawn;
         public Action<Entity> OnEntityRemove;
         #endregion
-        private int currentEntityID = 1;
+        private long currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
-        private Dictionary<int, Bounds> collisionCachedBounds = new Dictionary<int, Bounds>();
+        private Dictionary<long, Bounds> collisionCachedBounds = new Dictionary<long, Bounds>();
     }
 }

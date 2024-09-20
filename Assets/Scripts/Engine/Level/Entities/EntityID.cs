@@ -10,7 +10,7 @@ namespace PVZEngine.Level
         {
 
         }
-        public EntityID(int id)
+        public EntityID(long id)
         {
             this.id = id;
         }
@@ -42,8 +42,8 @@ namespace PVZEngine.Level
             return !(lhs == rhs);
         }
         [BsonIgnore]
-        public int ID => id;
+        public long ID => id;
         [BsonElement("id")]
-        private int id;
+        private long id;
     }
 }

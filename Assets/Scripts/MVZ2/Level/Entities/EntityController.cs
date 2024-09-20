@@ -438,7 +438,7 @@ namespace MVZ2.Level
     }
     public class SerializableEntityController
     {
-        public int id;
+        public long id;
         public SerializableModelData model;
     }
 }

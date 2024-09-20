@@ -426,15 +426,18 @@ namespace MVZ2.Level
                     enemy.Die();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.F2))
+            if (isGameStarted && !isGameOver)
             {
-                Main.LevelManager.SaveLevel();
-                Debug.Log("Game Saved!");
-            }
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                Debug.Log("Restarting Game...");
-                _ = ReloadLevel();
+                if (Input.GetKeyDown(KeyCode.F2))
+                {
+                    Main.LevelManager.SaveLevel();
+                    Debug.Log("Game Saved!");
+                }
+                if (Input.GetKeyDown(KeyCode.F3))
+                {
+                    Debug.Log("Restarting Game...");
+                    _ = ReloadLevel();
+                }
             }
 #endif
             if (!isGameOver)

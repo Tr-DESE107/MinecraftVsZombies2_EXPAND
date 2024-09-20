@@ -39,8 +39,8 @@ namespace MVZ2
             var path = GetLevelStatePath(controller.StartStageID);
             FileHelper.ValidateDirectory(path);
             var seri = controller.SaveGame();
-            var json = seri.ToBson(true);
-            SerializeHelper.WriteJson(path, json);
+            var json = seri.ToBson();
+            SerializeHelper.WriteCompressedJson(path, json);
         }
         public void LoadLevel(NamespaceID stageID)
         {
@@ -51,7 +51,7 @@ namespace MVZ2
             try
             {
                 var path = GetLevelStatePath(stageID);
-                var json = SerializeHelper.ReadJson(path);
+                var json = SerializeHelper.ReadCompressedJson(path);
                 var seri = SerializeHelper.FromBson<SerializableLevelController>(json);
                 controller.LoadGame(seri, Main.Game);
             }
