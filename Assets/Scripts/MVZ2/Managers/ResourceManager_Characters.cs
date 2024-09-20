@@ -54,21 +54,22 @@ namespace MVZ2
             TalkCharacterVariant variantInfo = info.GetVariant(variantID);
 
             // Variables
-            GetCharacterVariantProperties(info, variantInfo, out float pivotX, out float pivotY, out int width, out int height);
+            var layers = new List<TalkCharacterLayer>();
+            GetCharacterVariantProperties(info, variantInfo, layers, out float pivotX, out float pivotY, out int width, out int height);
             Vector2 spritePivot = new Vector2(pivotX, pivotY);
 
             var imageTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
             imageTexture.name = $"{character}({variantID})";
-            foreach (TalkCharacterLayer layer in variantInfo.layers)
+            foreach (TalkCharacterLayer layer in layers)
             {
                 Sprite sourceSpr = GetSprite(layer.sprite);
                 Texture2D sourceTex = sourceSpr.texture;
                 Rect sourceRect = sourceSpr.rect;
-                var colors = sourceTex.GetPixels((int)sourceRect.xMin, (int)sourceRect.yMin, (int)sourceRect.width, (int)sourceRect.height);
+                var layerWidth = (int)sourceRect.width;
+                var layerHeight = (int)sourceRect.height;
+                var colors = sourceTex.GetPixels((int)sourceRect.xMin, (int)sourceRect.yMin, layerWidth, layerHeight);
 
-                var layerPos = new Vector2(layer.positionX, layer.positionY);
-                Rect targetRect = new Rect(layerPos, sourceRect.size);
-                imageTexture.SetPixels((int)targetRect.xMin, (int)targetRect.yMin, (int)targetRect.width, (int)targetRect.height, colors);
+                imageTexture.SetPixels(layer.positionX, layer.positionY, layerWidth, layerHeight, colors);
             }
 
             imageTexture.Apply();
@@ -78,13 +79,13 @@ namespace MVZ2
             return spr;
         }
         #region 私有方法
-        private void GetCharacterVariantProperties(TalkCharacterMeta info, TalkCharacterVariant variantInfo, out float pivotX, out float pivotY, out int width, out int height)
+        private void GetCharacterVariantProperties(TalkCharacterMeta info, TalkCharacterVariant variantInfo, List<TalkCharacterLayer> layers, out float pivotX, out float pivotY, out int width, out int height)
         {
             var parentID = variantInfo.parent;
             if (NamespaceID.IsValid(parentID))
             {
                 var parent = info.GetVariant(variantInfo.parent);
-                GetCharacterVariantProperties(info, parent, out pivotX, out pivotY, out width, out height);
+                GetCharacterVariantProperties(info, parent, layers, out pivotX, out pivotY, out width, out height);
             }
             else
             {
@@ -93,6 +94,7 @@ namespace MVZ2
                 width = 0;
                 height = 0;
             }
+            layers.AddRange(variantInfo.layers);
             pivotX = variantInfo.pivotX ?? pivotX;
             pivotY = variantInfo.pivotY ?? pivotY;
             width = variantInfo.width ?? width;

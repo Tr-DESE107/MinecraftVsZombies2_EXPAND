@@ -8,10 +8,12 @@ namespace MVZ2
         public void AddShake(float shakeAmp, float endAmp, float shakeTime)
         {
             shakes.Add(new Shake(shakeAmp, endAmp, shakeTime));
+#if UNITY_ANDROID || UNITY_IOS
             if (OptionsManager.IsVibration())
             {
                 Handheld.Vibrate();
             }
+#endif
         }
         public Vector2 GetShake2D()
         {
