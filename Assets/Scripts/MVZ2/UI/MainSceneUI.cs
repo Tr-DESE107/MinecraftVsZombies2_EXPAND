@@ -16,6 +16,6 @@ namespace MVZ2.UI
             dialog.ResetPosition();
         }
         [SerializeField]
-        private Dialog dialog;
+        private CustomDialog dialog;
     }
 }

@@ -10,21 +10,14 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public class SaveManager : MonoBehaviour
+    public partial class SaveManager : MonoBehaviour
     {
-        public void SaveMetaList()
-        {
-            var saveDataMetaPath = GetSaveDataMetaPath();
-            FileHelper.ValidateDirectory(saveDataMetaPath);
-            var serializable = saveDataMetaList.ToSerializable();
-            var metaJson = serializable.ToBson();
-            SerializeHelper.WriteCompressedJson(saveDataMetaPath, metaJson);
-        }
+        #region 保存
         public void SaveModDatas()
         {
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
-                SaveModData(saveDataMetaList.CurrentUserIndex, mod.Namespace);
+                SaveModData(userDataList.CurrentUserIndex, mod.Namespace);
             }
         }
         public void SaveModData(int userIndex, string spaceName)
@@ -36,144 +29,21 @@ namespace MVZ2
             var metaJson = serializable.ToBson();
             SerializeHelper.WriteCompressedJson(path, metaJson);
         }
+        #endregion
+
+        #region 加载
         public void Load()
         {
-            LoadMetaList();
+            LoadUserList();
+            ReloadCurrentUserData();
+        }
+        public void ReloadCurrentUserData()
+        {
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
-                LoadModData(saveDataMetaList.CurrentUserIndex, mod.Namespace);
+                LoadModData(userDataList.CurrentUserIndex, mod.Namespace);
             }
             EvaluateUnlockedEntities();
-        }
-        public bool IsTriggerUnlocked()
-        {
-            return IsUnlocked(BuiltinUnlockID.trigger);
-        }
-        public bool IsStarshardUnlocked()
-        {
-            return IsUnlocked(BuiltinUnlockID.starshard);
-        }
-        public ModSaveData GetModSaveData(string spaceName)
-        {
-            return modSaveDatas.FirstOrDefault(s => s.Namespace == spaceName);
-        }
-        public T GetModSaveData<T>(string spaceName)
-        {
-            foreach (var saveData in modSaveDatas)
-            {
-                if (saveData.Namespace == spaceName && saveData is T tData)
-                {
-                    return tData;
-                }
-            }
-            return default;
-        }
-        public void SetCurrentUserName(string name)
-        {
-            var index = saveDataMetaList.CurrentUserIndex;
-            var meta = saveDataMetaList.GetUserMeta(index);
-            if (meta == null)
-            {
-                meta = saveDataMetaList.CreateUserMeta(index);
-            }
-            meta.Username = name;
-        }
-        public string GetCurrentUserName()
-        {
-            var index = saveDataMetaList.CurrentUserIndex;
-            var meta = saveDataMetaList.GetUserMeta(index);
-            if (meta == null)
-                return null;
-            return meta.Username;
-        }
-        public int GetCurrentUserIndex()
-        {
-            return saveDataMetaList.CurrentUserIndex;
-        }
-        public bool HasDuplicateUserName(string name, int indexToExcept)
-        {
-            for (int i = 0; i < saveDataMetaList.GetMaxUserCount(); i++)
-            {
-                if (i == indexToExcept)
-                    continue;
-                var meta = saveDataMetaList.GetUserMeta(i);
-                if (meta == null)
-                    continue;
-                if (meta.Username == name)
-                    return true;
-            }
-            return false;
-        }
-
-
-        #region 路径
-        public string GetSaveDataRoot()
-        {
-            return Path.Combine(Application.persistentDataPath, "userdata");
-        }
-        public string GetSaveDataMetaPath()
-        {
-            return Path.Combine(GetSaveDataRoot(), "users.dat");
-        }
-        public string GetUserSaveDataDirectory(int userIndex)
-        {
-            return Path.Combine(GetSaveDataRoot(), $"user{userIndex}");
-        }
-        public string GetUserModSaveDataDirectory(int userIndex, string spaceName)
-        {
-            return Path.Combine(GetUserSaveDataDirectory(userIndex), spaceName);
-        }
-        #endregion
-
-        #region 解锁状态
-        public bool IsUnlocked(NamespaceID stageID)
-        {
-            if (stageID == null)
-                return false;
-            var modSaveData = GetModSaveData(stageID.spacename);
-            if (modSaveData == null)
-                return false;
-            return modSaveData.IsUnlocked(stageID.path);
-        }
-        #endregion
-
-        #region 关卡难度记录
-        public NamespaceID[] GetLevelDifficultyRecords(NamespaceID stageID)
-        {
-            if (stageID == null)
-                return Array.Empty<NamespaceID>();
-            var modSaveData = GetModSaveData(stageID.spacename);
-            if (modSaveData == null)
-                return Array.Empty<NamespaceID>();
-            return modSaveData.GetLevelDifficultyRecords(stageID.path);
-        }
-        #endregion
-
-        #region 解锁实体
-        public NamespaceID[] GetUnlockedContraptions()
-        {
-            return unlockedContraptionsCache.ToArray();
-        }
-        public NamespaceID[] GetUnlockedEnemies()
-        {
-            return unlockedEnemiesCache.ToArray();
-        }
-        #endregion
-
-        #region 私有方法
-        private void LoadMetaList()
-        {
-            var saveDataMetaPath = GetSaveDataMetaPath();
-            if (!File.Exists(saveDataMetaPath))
-            {
-                saveDataMetaList = new SaveDataMetaList(MAX_USER_COUNT);
-            }
-            else
-            {
-                var metaJson = SerializeHelper.ReadCompressedJson(saveDataMetaPath);
-                var serializable = SerializeHelper.FromBson<SerializableSaveDataMetaList>(metaJson);
-                saveDataMetaList = SaveDataMetaList.FromSerializable(serializable);
-            }
         }
         private void LoadModData(int userIndex, string spaceName)
         {
@@ -193,6 +63,79 @@ namespace MVZ2
             }
             modSaveDatas.Add(saveData);
         }
+        #endregion
+
+        #region 获取
+        public ModSaveData GetModSaveData(string spaceName)
+        {
+            return modSaveDatas.FirstOrDefault(s => s.Namespace == spaceName);
+        }
+        public T GetModSaveData<T>(string spaceName)
+        {
+            foreach (var saveData in modSaveDatas)
+            {
+                if (saveData.Namespace == spaceName && saveData is T tData)
+                {
+                    return tData;
+                }
+            }
+            return default;
+        }
+        public bool IsUnlocked(NamespaceID stageID)
+        {
+            if (stageID == null)
+                return false;
+            var modSaveData = GetModSaveData(stageID.spacename);
+            if (modSaveData == null)
+                return false;
+            return modSaveData.IsUnlocked(stageID.path);
+        }
+        public NamespaceID[] GetLevelDifficultyRecords(NamespaceID stageID)
+        {
+            if (stageID == null)
+                return Array.Empty<NamespaceID>();
+            var modSaveData = GetModSaveData(stageID.spacename);
+            if (modSaveData == null)
+                return Array.Empty<NamespaceID>();
+            return modSaveData.GetLevelDifficultyRecords(stageID.path);
+        }
+        public NamespaceID[] GetUnlockedContraptions()
+        {
+            return unlockedContraptionsCache.ToArray();
+        }
+        public NamespaceID[] GetUnlockedEnemies()
+        {
+            return unlockedEnemiesCache.ToArray();
+        }
+        #endregion
+
+        #region 修改
+        public bool DeleteUserSaveData(int index)
+        {
+            var path = GetUserSaveDataDirectory(index);
+            if (!Directory.Exists(path))
+                return false;
+            Directory.Delete(path, true);
+            return true;
+        }
+        #endregion
+
+        #region 路径
+        public string GetSaveDataRoot()
+        {
+            return Path.Combine(Application.persistentDataPath, "userdata");
+        }
+        public string GetUserSaveDataDirectory(int userIndex)
+        {
+            return Path.Combine(GetSaveDataRoot(), $"user{userIndex}");
+        }
+        public string GetUserModSaveDataDirectory(int userIndex, string spaceName)
+        {
+            return Path.Combine(GetUserSaveDataDirectory(userIndex), spaceName);
+        }
+        #endregion
+
+        #region 私有方法
         private void EvaluateUnlockedEntities()
         {
             unlockedContraptionsCache.Clear();
@@ -219,9 +162,7 @@ namespace MVZ2
         #endregion
 
         #region 属性字段
-        public const int MAX_USER_COUNT = 8;
         public MainManager Main => MainManager.Instance;
-        private SaveDataMetaList saveDataMetaList;
         private List<ModSaveData> modSaveDatas = new List<ModSaveData>();
         private List<NamespaceID> unlockedContraptionsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedEnemiesCache = new List<NamespaceID>();

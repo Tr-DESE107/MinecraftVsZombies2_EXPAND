@@ -1,4 +1,5 @@
-﻿using MVZ2.Save;
+﻿using MVZ2.GameContent;
+using MVZ2.Save;
 using PVZEngine;
 
 namespace MVZ2
@@ -11,6 +12,14 @@ namespace MVZ2
             if (saveData == null)
                 return null;
             return saveData.LastMapID;
+        }
+        public static bool IsTriggerUnlocked(this SaveManager save)
+        {
+            return save.IsUnlocked(BuiltinUnlockID.trigger);
+        }
+        public static bool IsStarshardUnlocked(this SaveManager save)
+        {
+            return save.IsUnlocked(BuiltinUnlockID.starshard);
         }
     }
 }

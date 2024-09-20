@@ -5,7 +5,7 @@ using PVZEngine;
 
 namespace MVZ2.Save
 {
-    public class SaveDataMeta
+    public class UserDataItem
     {
         public SerializableSaveDataMeta ToSerializable()
         {
@@ -14,11 +14,11 @@ namespace MVZ2.Save
                 username = Username
             };
         }
-        public static SaveDataMeta FromSerializable(SerializableSaveDataMeta serializable)
+        public static UserDataItem FromSerializable(SerializableSaveDataMeta serializable)
         {
             if (serializable == null)
                 return null;
-            return new SaveDataMeta()
+            return new UserDataItem()
             {
                 Username = serializable.username
             };

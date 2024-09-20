@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:08+0800\n"
-"PO-Revision-Date: 2024-09-20 13:32+0800\n"
+"PO-Revision-Date: 2024-09-20 19:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -16,6 +16,9 @@ msgstr ""
 
 msgid "错误"
 msgstr "Error"
+
+msgid "警告"
+msgstr "Warning"
 
 msgid ""
 "游戏加载失败：\n"
@@ -50,6 +53,9 @@ msgstr "Quit"
 
 msgid "加载中……"
 msgstr "Loading…"
+
+msgid "输入文字……"
+msgstr "Input text..."
 
 msgid "选择您的偏好语言"
 msgstr "Select your preferred language"
@@ -94,10 +100,10 @@ msgstr ""
 "Or...You may try the Endless Mode!"
 
 msgid ""
-"确认删除用户吗？\n"
+"确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
-"Delete User?\n"
+"Delete User {0}?\n"
 "This user's data will be all deleted!"
 
 msgid "选择你的蓝图"
@@ -192,7 +198,7 @@ msgid "删除"
 msgstr "Delete"
 
 msgid "已经存在该用户名"
-msgstr "The username already exists, Reno is green."
+msgstr "This username already exists"
 
 msgid "进入商店"
 msgstr "Enter Store"

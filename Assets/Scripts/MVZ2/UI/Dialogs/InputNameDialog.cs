@@ -1,15 +1,20 @@
 ﻿using System;
+using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MVZ2.Mainmenu
 {
-    public class InputNameDialog : MonoBehaviour
+    public class InputNameDialog : Dialog
     {
         public void SetErrorMessage(string error)
         {
             errorMessage.text = error;
+        }
+        public void ClearContent()
+        {
+            inputField.text = string.Empty;
         }
         private void Awake()
         {

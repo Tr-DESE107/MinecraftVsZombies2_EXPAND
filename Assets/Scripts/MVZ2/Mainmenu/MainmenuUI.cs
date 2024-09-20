@@ -15,11 +15,32 @@ namespace MVZ2.Mainmenu
         public void SetOptionsDialogVisible(bool visible)
         {
             optionsDialog.gameObject.SetActive(visible);
+            optionsDialog.ResetPosition();
+        }
+        public void SetUserManageDialogVisible(bool visible)
+        {
+            userManageDialog.gameObject.SetActive(visible);
+        }
+        public void UpdateUserManageDialog(string[] names, int selectedIndex)
+        {
+            userManageDialog.UpdateUsers(names);
+            userManageDialog.ResetPosition();
+            userManageDialog.SelectUser(selectedIndex);
+        }
+        public void SetUserManageButtonInteractable(UserManageDialog.ButtonType type, bool interactable)
+        {
+            userManageDialog.SetButtonInteractable(type, interactable);
+        }
+        public void SetUserManageCreateNewUserActive(bool active)
+        {
+            userManageDialog.SetCreateNewUserActive(active);
         }
         public void SetInputNameDialogVisible(bool visible)
         {
             SetInputNameDialogError(string.Empty);
             inputNameDialog.gameObject.SetActive(visible);
+            inputNameDialog.ResetPosition();
+            inputNameDialog.ClearContent();
         }
         public void SetInputNameDialogError(string message)
         {
@@ -65,6 +86,9 @@ namespace MVZ2.Mainmenu
 
             inputNameDialog.OnConfirm += OnInputNameConfirmCallback;
             inputNameDialog.OnCancel += OnInputNameCancelCallback;
+
+            userManageDialog.OnButtonClick += type => OnUserManageDialogButtonClick?.Invoke(type);
+            userManageDialog.OnUserSelect += index => OnUserManageDialogUserSelect?.Invoke(index);
         }
         private void OnInputNameConfirmCallback(string name)
         {
@@ -77,23 +101,32 @@ namespace MVZ2.Mainmenu
         public event Action<string> OnInputNameConfirm;
         public event Action OnInputNameCancel;
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
+        public event Action<UserManageDialog.ButtonType> OnUserManageDialogButtonClick;
+        public event Action<int> OnUserManageDialogUserSelect;
 
 
         public OptionsDialog OptionsDialog => optionsDialog;
         private Dictionary<MainmenuButtonType, MainmenuButton> mainmenuButtonDict = new Dictionary<MainmenuButtonType, MainmenuButton>();
 
         [SerializeField]
+        private GameObject rayblocker;
+
+        [Header("Backgrounds")]
+        [SerializeField]
         private GameObject backgroundLight;
         [SerializeField]
         private GameObject backgroundDark;
         [SerializeField]
-        private GameObject rayblocker;
-        [SerializeField]
         private TextMeshPro userNameText;
+
+        [Header("Dialogs")]
         [SerializeField]
         private InputNameDialog inputNameDialog;
         [SerializeField]
         private OptionsDialog optionsDialog;
+        [SerializeField]
+        private UserManageDialog userManageDialog;
+
         [Header("Buttons")]
         [SerializeField]
         private MainmenuButton adventureButton;

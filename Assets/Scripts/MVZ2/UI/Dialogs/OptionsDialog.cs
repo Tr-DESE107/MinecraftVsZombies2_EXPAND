@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class OptionsDialog : MonoBehaviour
+    public class OptionsDialog : Dialog
     {
         public void SetPage(Page page)
         {

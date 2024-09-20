@@ -613,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c8af821cb5cda488227a6419a243cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogTransform: {fileID: 5160966256287831042}
   errorMessage: {fileID: 8775066939106080375}
   inputField: {fileID: 6038492825642214860}
   confirmButton: {fileID: 481022202502989522}

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 1
+  trackSelectable: {fileID: 4470342031882714769}
 --- !u!1 &2972323303460149899
 GameObject:
   m_ObjectHideFlags: 0

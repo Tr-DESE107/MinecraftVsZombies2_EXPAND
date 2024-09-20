@@ -5,56 +5,67 @@ using PVZEngine;
 
 namespace MVZ2.Save
 {
-    public class SaveDataMetaList
+    public class UserDataList
     {
-        public SaveDataMetaList(int metaCount)
+        public UserDataList(int metaCount)
         {
-            metas = new SaveDataMeta[metaCount];
+            metas = new UserDataItem[metaCount];
         }
-        public SaveDataMeta CreateUserMeta(int index)
+        public UserDataItem Create(int index)
         {
             if (index < 0 || index >= metas.Length)
                 return null;
-            var meta = new SaveDataMeta();
+            var meta = new UserDataItem();
             metas[index] = meta;
             return meta;
         }
-        public SaveDataMeta GetUserMeta(int index)
+        public UserDataItem Get(int index)
         {
             if (index < 0 || index >= metas.Length)
                 return null;
             return metas[index];
         }
+        public bool Delete(int index)
+        {
+            if (index < 0 || index >= metas.Length)
+                return false;
+            metas[index] = null;
+            return true;
+        }
+        public UserDataItem[] GetAllUsers()
+        {
+            return metas.ToArray();
+        }
         public int GetMaxUserCount()
         {
             return metas.Length;
         }
-        public SerializableSaveDataMetaList ToSerializable()
+        public SerializableUserDataList ToSerializable()
         {
-            return new SerializableSaveDataMetaList()
+            return new SerializableUserDataList()
             {
                 currentUserIndex = CurrentUserIndex,
                 metas = metas.Select(m => m != null ? m.ToSerializable() : null).ToArray()
             };
         }
-        public static SaveDataMetaList FromSerializable(SerializableSaveDataMetaList serializable)
+        public static UserDataList FromSerializable(SerializableUserDataList serializable)
         {
-            var metaList = new SaveDataMetaList(serializable.metas.Length);
+            var metaList = new UserDataList(serializable.metas.Length);
             metaList.CurrentUserIndex = serializable.currentUserIndex;
             for (int i = 0; i < metaList.metas.Length; i++)
             {
                 var seriMeta = serializable.metas[i];
                 if (seriMeta == null)
                     continue;
-                metaList.metas[i] = SaveDataMeta.FromSerializable(seriMeta);
+                metaList.metas[i] = UserDataItem.FromSerializable(seriMeta);
             }
             return metaList;
         }
         public int CurrentUserIndex { get; set; }
-        private SaveDataMeta[] metas;
+        private UserDataItem[] metas;
     }
     [Serializable]
-    public class SerializableSaveDataMetaList
+    public class SerializableUserDataList
     {
         public int currentUserIndex;
         public SerializableSaveDataMeta[] metas;

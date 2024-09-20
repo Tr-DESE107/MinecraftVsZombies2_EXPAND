@@ -51,7 +51,7 @@ namespace MVZ2
             RegisterClass<SerializableSeedPack>();
 
             // MVZ2
-            RegisterClass<SerializableSaveDataMetaList>();
+            RegisterClass<SerializableUserDataList>();
             RegisterClass<SerializableSaveDataMeta>();
             RegisterClass<SerializableModSaveData>();
             RegisterClass<SerializableUserStats>();

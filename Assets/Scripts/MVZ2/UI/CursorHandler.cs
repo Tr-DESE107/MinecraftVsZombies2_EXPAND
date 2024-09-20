@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
@@ -59,7 +60,10 @@ namespace MVZ2.UI
         }
         public bool Interactable
         {
-            get => interactable;
+            get 
+            {
+                return (!trackSelectable || trackSelectable.interactable) && interactable;
+            }
             set
             {
                 interactable = value;
@@ -67,6 +71,8 @@ namespace MVZ2.UI
             }
         }
         public CursorType cursorType = CursorType.Point;
+        [SerializeField]
+        private Selectable trackSelectable;
         private bool isHovered;
         private bool interactable = true;
         private HandlerCursorSource _cursorSource;
