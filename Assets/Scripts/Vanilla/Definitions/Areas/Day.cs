@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Areas
                 grids.Add(GridID.grass);
             }
         }
-        public override void Init(LevelEngine level)
+        public override void Setup(LevelEngine level)
         {
             level.Spawn<Miner>(new Vector3(600, 0, 60), null);
         }

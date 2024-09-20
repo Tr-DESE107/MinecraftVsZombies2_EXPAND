@@ -1,13 +1,14 @@
-﻿using PVZEngine;
+﻿using MVZ2.Level.Components;
+using PVZEngine;
 using PVZEngine.Level;
 
 namespace MVZ2
 {
     public static partial class MVZ2Level
     {
-        public static MusicComponent GetMusicComponent(this LevelEngine level)
+        public static IMusicComponent GetMusicComponent(this LevelEngine level)
         {
-            return level.GetComponent<MusicComponent>();
+            return level.GetComponent<IMusicComponent>();
         }
         public static void PlayMusic(this LevelEngine level, NamespaceID id)
         {

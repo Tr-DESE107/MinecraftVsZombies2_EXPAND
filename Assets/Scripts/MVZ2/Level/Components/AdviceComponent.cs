@@ -1,11 +1,12 @@
 ﻿using System;
 using MVZ2.GameContent;
+using MVZ2.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
 
 namespace MVZ2.Level
 {
-    public class AdviceComponent : MVZ2Component
+    public class AdviceComponent : MVZ2Component, IAdviceComponent
     {
         public AdviceComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
@@ -56,6 +57,7 @@ namespace MVZ2.Level
         public int AdviceTimeout { get; private set; }
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "advice");
     }
+    [Serializable]
     public class SerializableAdviceComponent : ISerializableLevelComponent
     {
         public int advicePriority;

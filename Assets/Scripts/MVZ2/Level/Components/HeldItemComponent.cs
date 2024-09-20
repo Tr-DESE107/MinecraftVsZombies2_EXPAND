@@ -1,10 +1,12 @@
+using System;
 using MVZ2.GameContent;
 using MVZ2.Level;
+using MVZ2.Level.Components;
 using PVZEngine.Definitions;
 
 namespace PVZEngine.Level
 {
-    public partial class HeldItemComponent : MVZ2Component
+    public partial class HeldItemComponent : MVZ2Component, IHeldItemComponent
     {
         public HeldItemComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
@@ -74,6 +76,7 @@ namespace PVZEngine.Level
         private bool heldItemNoCancel;
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "heldItem");
     }
+    [Serializable]
     public class EmptySerializableLevelComponent : ISerializableLevelComponent
     {
     }

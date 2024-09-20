@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9547ff9cd10dd4468b391fde2e31bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogTransform: {fileID: 1686237492373893987}
   title: {fileID: 6594943967323580664}
   desc: {fileID: 2691967335895432537}
   buttonList: {fileID: 6825158652728427775}

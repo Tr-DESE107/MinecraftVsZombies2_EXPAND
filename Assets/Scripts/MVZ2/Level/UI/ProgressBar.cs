@@ -1,5 +1,6 @@
 ﻿using MVZ2.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
@@ -7,15 +8,7 @@ namespace MVZ2.Level.UI
     {
         public void SetProgress(float progress)
         {
-            var barContentRectTrans = barTransform.parent as RectTransform;
-            var x = Mathf.Lerp(0, barContentRectTrans.rect.width, progress);
-            var sizeDelta = barTransform.sizeDelta;
-            sizeDelta.x = x;
-            barTransform.sizeDelta = sizeDelta;
-
-            var iconPos = iconTransform.anchoredPosition;
-            iconPos.x = -x;
-            iconTransform.anchoredPosition = iconPos;
+            slider.SetValueWithoutNotify(progress);
         }
         public void SetBannerProgresses(float[] progresses)
         {
@@ -29,8 +22,6 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private ElementList flags;
         [SerializeField]
-        private RectTransform barTransform;
-        [SerializeField]
-        private RectTransform iconTransform;
+        private Slider slider;
     }
 }

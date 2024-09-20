@@ -15,31 +15,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.5\n"
 
-msgctxt "error"
 msgid "错误"
 msgstr ""
 
-msgctxt "error"
 msgid "游戏加载失败：\n{0}"
 msgstr ""
 
-msgctxt "error"
 msgid "文件目录丢失"
 msgstr ""
 
-msgctxt "error"
 msgid "文件丢失"
 msgstr ""
 
-msgctxt "error"
 msgid "文件被占用"
 msgstr ""
 
-msgctxt "error"
 msgid "文件读取失败"
 msgstr ""
 
-msgctxt "error"
 msgid "文件格式错误"
 msgstr ""
 
@@ -105,6 +98,12 @@ msgstr ""
 msgid ""
 "确认要返回吗？\n"
 "你的进度会被保存。"
+msgstr ""
+
+msgid "加载关卡失败，出现错误：{0}"
+msgstr ""
+
+msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 msgid "购买第七个器械槽位？"

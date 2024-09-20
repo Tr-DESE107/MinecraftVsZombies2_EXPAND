@@ -1,6 +1,7 @@
 ﻿using MukioI18n;
 using MVZ2.Level;
 using MVZ2.UI;
+using PVZEngine;
 
 namespace MVZ2
 {
@@ -24,25 +25,15 @@ namespace MVZ2
                         {
                             if (confirm)
                             {
-                                Level.Dispose();
-                                await Main.LevelManager.ExitLevelSceneAsync();
-                                Main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+                                Main.LevelManager.SaveLevel();
+                                await Level.ExitLevel();
                             }
                         });
                     }
                     break;
                 case ButtonType.Restart:
                     {
-                        var title = Main.LanguageManager._(DIALOG_TITLE_RESTART);
-                        var desc = Main.LanguageManager._(DIALOG_DESC_RESTART);
-                        Main.Scene.ShowDialogConfirm(title, desc, async (confirm) =>
-                        {
-                            if (confirm)
-                            {
-                                Level.Dispose();
-                                await Level.RestartLevel();
-                            }
-                        });
+                        Level.ShowRestartConfirmDialog();
                     }
                     break;
             }
@@ -62,21 +53,13 @@ namespace MVZ2
         }
         protected void UpdateLeaveLevelButton()
         {
-            var textKey = Main.SaveManager.IsPrologueCleared() ? OPTION_BACK_TO_MAP : OPTION_BACK_TO_MAINMENU;
+            var textKey = NamespaceID.IsValid(Main.SaveManager.GetLastMapID()) ? StringTable.BACK_TO_MAP : StringTable.BACK_TO_MAINMENU;
             var text = Main.LanguageManager._(textKey);
             dialog.SetButtonText(TextButtonType.LeaveLevel, text);
         }
         #endregion
-        [TranslateMsg("对话框标题")]
-        public const string DIALOG_TITLE_RESTART = "重新开始";
-        [TranslateMsg("对话框内容")]
-        public const string DIALOG_DESC_RESTART = "确认要重新开始关卡吗？\n本关的进度都将丢失。";
         [TranslateMsg("对话框内容")]
         public const string DIALOG_DESC_LEAVE_LEVEL = "确认要返回吗？\n你的进度会被保存。";
-        [TranslateMsg("选项")]
-        public const string OPTION_BACK_TO_MAP = "返回地图";
-        [TranslateMsg("选项")]
-        public const string OPTION_BACK_TO_MAINMENU = "返回主菜单";
 
         public LevelController Level { get; private set; }
     }

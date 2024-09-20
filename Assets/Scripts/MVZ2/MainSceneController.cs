@@ -63,7 +63,14 @@ namespace MVZ2
                 return;
             }
             main.MusicManager.Play(MusicID.mainmenu);
-            landing.Display();
+            if (main.IsFastMode())
+            {
+                DisplayPage(MainScenePageType.Mainmenu);
+            }
+            else
+            {
+                DisplayPage(MainScenePageType.Landing);
+            }
         }
         private string GetErrorMessage(Exception e)
         {
@@ -92,7 +99,7 @@ namespace MVZ2
         {
             Debug.LogException(e);
             var innerMessage = GetErrorMessage(e);
-            var title = main.LanguageManager._p(StringTable.CONTEXT_ERROR, ERROR_TITLE);
+            var title = main.LanguageManager._(StringTable.ERROR);
             var message = main.LanguageManager._p(StringTable.CONTEXT_ERROR, ERROR_FAILED_TO_INITIALIZE, innerMessage);
             var options = new string[]
             {
@@ -110,8 +117,6 @@ namespace MVZ2
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
         }
-        [TranslateMsg("开始游戏时读取出错，对话框的标题")]
-        public const string ERROR_TITLE = "错误";
         [TranslateMsg("开始游戏时读取出错，对话框的描述，{0}为错误信息")]
         public const string ERROR_FAILED_TO_INITIALIZE = "游戏加载失败：\n{0}";
         [TranslateMsg("开始游戏时读取出错，对话框的错误信息")]

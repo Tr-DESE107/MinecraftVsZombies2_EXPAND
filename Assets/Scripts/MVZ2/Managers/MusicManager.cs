@@ -33,6 +33,10 @@ namespace MVZ2
             musicSource.Stop();
             musicID = null;
         }
+        public NamespaceID GetCurrentMusicID()
+        {
+            return musicID;
+        }
         public bool IsPlaying(NamespaceID id)
         {
             return musicID == id;

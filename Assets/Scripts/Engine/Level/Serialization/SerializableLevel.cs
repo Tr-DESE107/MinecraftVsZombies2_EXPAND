@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PVZEngine.Level;
 using Tools;
 
@@ -42,7 +43,7 @@ namespace PVZEngine.Serialization
         public int currentEntityID = 1;
         public List<SerializableEntity> entities;
         public float energy;
-        public Dictionary<int, float> delayedEnergyEntities;
+        public SerializableDelayedEnergy[] delayedEnergyEntities;
         public int currentWave;
         public int currentFlag;
         public int waveState;
@@ -52,6 +53,12 @@ namespace PVZEngine.Serialization
 
         public SerializableBuffList buffs;
 
-        public Dictionary<NamespaceID, ISerializableLevelComponent> components;
+        public Dictionary<string, ISerializableLevelComponent> components;
+    }
+    [Serializable]
+    public class SerializableDelayedEnergy
+    {
+        public int entityId;
+        public float energy;
     }
 }

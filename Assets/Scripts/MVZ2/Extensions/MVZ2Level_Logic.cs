@@ -1,12 +1,13 @@
-﻿using PVZEngine.Level;
+﻿using MVZ2.Level.Components;
+using PVZEngine.Level;
 
 namespace MVZ2
 {
     public static partial class MVZ2Level
     {
-        public static LogicComponent GetLogicComponent(this LevelEngine level)
+        public static ILogicComponent GetLogicComponent(this LevelEngine level)
         {
-            return level.GetComponent<LogicComponent>();
+            return level.GetComponent<ILogicComponent>();
         }
         public static void BeginLevel(this LevelEngine level, string transition)
         {

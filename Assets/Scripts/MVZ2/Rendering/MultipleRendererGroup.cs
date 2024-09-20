@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
+using Codice.CM.Common;
+using NGettext.Loaders;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.ParticleSystem;
 
 namespace MVZ2.Rendering
 {
@@ -13,8 +17,7 @@ namespace MVZ2.Rendering
         {
             foreach (var particle in particles)
             {
-                var main = particle.main;
-                main.simulationSpeed = speed;
+                particle.SetSimulationSpeed(speed);
             }
         }
         public void UpdateRendererElements()
@@ -39,7 +42,12 @@ namespace MVZ2.Rendering
             {
                 if (!IsParticleChildOfGroup(ps.transform, this))
                     continue;
-                particles.Add(ps);
+                var player = ps.GetComponent<ParticlePlayer>();
+                if (!player)
+                {
+                    player = ps.gameObject.AddComponent<ParticlePlayer>();
+                }
+                particles.Add(player);
             }
         }
         public void SetGroundPosition(Vector3 position)
@@ -54,25 +62,25 @@ namespace MVZ2.Rendering
         }
         public void SetPropertyInt(string name, int value)
         {
-            foreach (Renderer renderer in GetAllRenderers())
+            foreach (var element in GetAllElements())
             {
-                SetRendererInt(renderer, name, value);
+                element.SetInt(name, value);
             }
         }
 
         public void SetPropertyFloat(string name, float alpha)
         {
-            foreach (Renderer renderer in GetAllRenderers())
+            foreach (var element in GetAllElements())
             {
-                SetRendererFloat(renderer, name, alpha);
+                element.SetFloat(name, alpha);
             }
         }
 
         public void SetPropertyColor(string name, Color color)
         {
-            foreach (Renderer renderer in GetAllRenderers())
+            foreach (var element in GetAllElements())
             {
-                SetRendererColor(renderer, name, color);
+                element.SetColor(name, color);
             }
         }
         public void SetTint(Color color)
@@ -83,13 +91,40 @@ namespace MVZ2.Rendering
         {
             SetPropertyColor("_ColorOffset", color);
         }
+
+        public SerializableMultipleRendererGroup ToSerializable()
+        {
+            var serializable = new SerializableMultipleRendererGroup();
+            serializable.sortingLayerID = SortingLayerID;
+            serializable.sortingOrder = SortingOrder;
+            serializable.elements = elements.Select(e => e.ToSerializable()).ToArray();
+            serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
+            return serializable;
+        }
+        public void LoadFromSerializable(SerializableMultipleRendererGroup serializable)
+        {
+            SortingLayerID = serializable.sortingLayerID;
+            SortingOrder = serializable.sortingOrder;
+            for (int i = 0; i < elements.Count; i++)
+            {
+                if (i >= serializable.elements.Length)
+                    break;
+                var element = elements[i];
+                var data = serializable.elements[i];
+                element.LoadFromSerializable(data);
+            }
+            for (int i = 0; i < particles.Count; i++)
+            {
+                if (i >= serializable.particles.Length)
+                    break;
+                var particle = particles[i];
+                var data = serializable.particles[i];
+                particle.LoadFromSerializable(data);
+            }
+        }
         #endregion
 
         #region 私有方法
-        private void Awake()
-        {
-            propertyBlock = new MaterialPropertyBlock();
-        }
         private static bool IsChildOfGroup(Transform child, MultipleRendererGroup group)
         {
             return child.GetComponentInParent<MultipleRendererGroup>() == group;
@@ -98,34 +133,11 @@ namespace MVZ2.Rendering
         {
             return !child.parent.GetComponentInParent<ParticleSystem>() && IsChildOfGroup(child, group);
         }
-        private void SetRendererFloat(Renderer renderer, string name, float alpha)
-        {
-            propertyBlock.Clear();
-            renderer.GetPropertyBlock(propertyBlock);
-            propertyBlock.SetFloat(name, alpha);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
-
-        private void SetRendererColor(Renderer renderer, string name, Color color)
-        {
-            propertyBlock.Clear();
-            renderer.GetPropertyBlock(propertyBlock);
-            propertyBlock.SetColor(name, color);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
-
-        private void SetRendererInt(Renderer renderer, string name, int value)
-        {
-            propertyBlock.Clear();
-            renderer.GetPropertyBlock(propertyBlock);
-            propertyBlock.SetInt(name, value);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
-        private Renderer[] GetAllRenderers(bool includeExcluded = false)
+        private RendererElement[] GetAllElements(bool includeExcluded = false)
         {
             if (includeExcluded)
-                return elements.Select(e => e.Renderer).ToArray();
-            return elements.Where(e => !e.ExcludedInGroup).Select(e => e.Renderer).ToArray();
+                return elements.ToArray();
+            return elements.Where(e => !e.ExcludedInGroup).ToArray();
         }
         #endregion
         public int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
@@ -137,10 +149,16 @@ namespace MVZ2.Rendering
         [SerializeField]
         private List<RendererElement> elements = new List<RendererElement>();
         [SerializeField]
-        private List<ParticleSystem> particles = new List<ParticleSystem>();
+        private List<ParticlePlayer> particles = new List<ParticlePlayer>();
         [SerializeField]
         private SortingGroup sortingGroup;
-        private MaterialPropertyBlock propertyBlock;
 
+    }
+    public class SerializableMultipleRendererGroup
+    {
+        public SerializableRendererElement[] elements;
+        public SerializableParticleSystem[] particles;
+        public int sortingLayerID;
+        public int sortingOrder;
     }
 }

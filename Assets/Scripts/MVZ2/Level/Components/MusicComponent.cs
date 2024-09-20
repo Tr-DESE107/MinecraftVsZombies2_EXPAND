@@ -1,9 +1,10 @@
 using MVZ2.GameContent;
 using MVZ2.Level;
+using MVZ2.Level.Components;
 
 namespace PVZEngine.Level
 {
-    public partial class MusicComponent : MVZ2Component
+    public partial class MusicComponent : MVZ2Component, IMusicComponent
     {
         public MusicComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {

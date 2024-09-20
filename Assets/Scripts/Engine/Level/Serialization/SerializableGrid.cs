@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PVZEngine.Serialization
 {
+    [Serializable]
     public class SerializableGrid
     {
         public int lane;

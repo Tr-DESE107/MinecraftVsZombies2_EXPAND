@@ -13,6 +13,7 @@ namespace MVZ2.UI
                 onSelect?.Invoke(i);
                 dialog.gameObject.SetActive(false);
             });
+            dialog.ResetPosition();
         }
         [SerializeField]
         private Dialog dialog;

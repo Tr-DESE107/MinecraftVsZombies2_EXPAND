@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Serialization
 {
+    [Serializable]
     public class SerializableEntity
     {
         public int id;

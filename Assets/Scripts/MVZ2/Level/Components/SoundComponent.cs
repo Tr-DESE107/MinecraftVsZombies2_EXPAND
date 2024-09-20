@@ -2,12 +2,13 @@ using System;
 using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level;
+using MVZ2.Level.Components;
 using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace PVZEngine.Level
 {
-    public partial class SoundComponent : MVZ2Component
+    public partial class SoundComponent : MVZ2Component, ISoundComponent
     {
         public SoundComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {

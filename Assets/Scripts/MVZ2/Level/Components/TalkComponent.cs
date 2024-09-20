@@ -1,9 +1,10 @@
 using MVZ2.GameContent;
 using MVZ2.Level;
+using MVZ2.Level.Components;
 
 namespace PVZEngine.Level
 {
-    public partial class TalkComponent : MVZ2Component
+    public partial class TalkComponent : MVZ2Component, ITalkComponent
     {
         public TalkComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {

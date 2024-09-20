@@ -16,6 +16,7 @@ namespace MVZ2
             modInfos.Add(new ModInfo()
             {
                 Namespace = main.BuiltinNamespace,
+                LevelDataVersion = LevelManager.CURRENT_DATA_VERSION,
                 DisplayName = "Vanilla",
                 CatalogPath = null,
                 IsBuiltin = true,

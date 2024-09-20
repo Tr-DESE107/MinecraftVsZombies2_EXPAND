@@ -8,8 +8,14 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
+using MVZ2.Level;
 using MVZ2.Save;
 using PVZEngine;
+using PVZEngine.Level;
+using PVZEngine.Serialization;
+using Tools;
+using Tools.BsonSerializers;
+using UnityEngine;
 
 namespace MVZ2
 {
@@ -17,31 +23,76 @@ namespace MVZ2
     {
         public static void init()
         {
-            RegisterClass<NamespaceID>();
+            if (isInited)
+                return;
+            RegisterSerializer<Vector2>(new Vector2Serializer());
+            RegisterSerializer<Vector3>(new Vector3Serializer());
+            RegisterSerializer<Color>(new ColorSerializer());
 
+            // Tools
+            RegisterClass<FrameTimer>();
+            RegisterClass<RandomGenerator>();
+
+            // PVZEngine.Base
+            RegisterClass<NamespaceID>();
+            RegisterClass<SerializablePropertyDictionary>();
+
+            // PVZEngine.Level
+            RegisterClass<EntityReferenceChain>();
+            RegisterClass<EntityID>();
+            RegisterClass<SerializableEntity>();
+            RegisterClass<SerializableArmor>();
+            RegisterClass<SerializableBuff>();
+            RegisterClass<SerializableBuffList>();
+            RegisterClass<SerializableBuffTargetEntity>();
+            RegisterClass<SerializableBuffTargetLevel>();
+            RegisterClass<SerializableBuffTargetSeedPack>();
+            RegisterClass<SerializableGrid>();
+            RegisterClass<SerializableLevel>();
+            RegisterClass<SerializableDelayedEnergy>();
+            RegisterClass<SerializableLevelOption>();
+            RegisterClass<SerializableSeedPack>();
+
+            // MVZ2
             RegisterClass<SerializableSaveDataMetaList>();
             RegisterClass<SerializableSaveDataMeta>();
             RegisterClass<SerializableModSaveData>();
-
             RegisterClass<SerializableUserStats>();
             RegisterClass<SerializableUserStatEntry>();
             RegisterClass<SerializableLevelDifficultyRecord>();
+            RegisterClass<SerializableAdviceComponent>();
+            RegisterClass<EmptySerializableLevelComponent>();
 
             isInited = true;
         }
         public static void WriteCompressedJson(string path, string json)
         {
-            using var metaStream = File.Open(path, FileMode.Create);
-            using var gzipStream = new GZipStream(metaStream, CompressionMode.Compress);
+            using var stream = File.Open(path, FileMode.Create);
+            using var gzipStream = new GZipStream(stream, CompressionMode.Compress);
             using var textWriter = new StreamWriter(gzipStream);
             textWriter.Write(json);
         }
         public static string ReadCompressedJson(string path)
         {
-            using var metaStream = File.Open(path, FileMode.Open);
-            using var gzipStream = new GZipStream(metaStream, CompressionMode.Decompress);
+            using var stream = File.Open(path, FileMode.Open);
+            using var gzipStream = new GZipStream(stream, CompressionMode.Decompress);
             using var memory = new MemoryStream();
             gzipStream.CopyTo(memory);
+            memory.Seek(0, SeekOrigin.Begin);
+            using var textReader = new StreamReader(memory);
+            return textReader.ReadToEnd();
+        }
+        public static void WriteJson(string path, string json)
+        {
+            using var stream = File.Open(path, FileMode.Create);
+            using var textWriter = new StreamWriter(stream);
+            textWriter.Write(json);
+        }
+        public static string ReadJson(string path)
+        {
+            using var stream = File.Open(path, FileMode.Open);
+            using var memory = new MemoryStream();
+            stream.CopyTo(memory);
             memory.Seek(0, SeekOrigin.Begin);
             using var textReader = new StreamReader(memory);
             return textReader.ReadToEnd();
@@ -61,9 +112,14 @@ namespace MVZ2
             ConventionRegistry.Remove(nameof(CustomClassMapConvention));
             return obj;
         }
+        public static void RegisterSerializer<T>(IBsonSerializer<T> serializer)
+        {
+            BsonSerializer.RegisterSerializer<T>(serializer);
+        }
         public static void RegisterClass<T>()
         {
-            if (!BsonClassMap.IsClassMapRegistered(typeof(T))) BsonClassMap.RegisterClassMap<T>();
+            if (!BsonClassMap.IsClassMapRegistered(typeof(T)))
+                BsonClassMap.RegisterClassMap<T>();
         }
         public static bool isInited { get; private set; } = false;
         public static JsonWriterSettings readFriendlyWriterSettings = new JsonWriterSettings()
@@ -72,7 +128,7 @@ namespace MVZ2
         };
         static ConventionPack conventions = new ConventionPack()
         {
-            new CustomClassMapConvention()
+            new CustomClassMapConvention(),
         };
     }
     /// <summary>

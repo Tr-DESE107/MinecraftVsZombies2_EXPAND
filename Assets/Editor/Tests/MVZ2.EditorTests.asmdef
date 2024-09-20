@@ -6,10 +6,10 @@
         "UnityEditor.TestRunner",
         "MVZ2",
         "MVZ2.Vanilla",
-        "PVZEngine.Game",
         "PVZEngine.Base",
         "Tools",
-        "PVZEngine.Level"
+        "PVZEngine.Level",
+        "MVZ2.VanillaResources"
     ],
     "includePlatforms": [
         "Editor"

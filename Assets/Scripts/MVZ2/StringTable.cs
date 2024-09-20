@@ -10,6 +10,14 @@ namespace MVZ2
         public const string NO = "否";
         [TranslateMsg("通用的返回")]
         public const string BACK = "返回";
+        [TranslateMsg("通用文本")]
+        public const string RESTART = "重新开始";
+        [TranslateMsg("通用文本")]
+        public const string BACK_TO_MAP = "返回地图";
+        [TranslateMsg("通用文本")]
+        public const string BACK_TO_MAINMENU = "返回主菜单";
+        [TranslateMsg("通用文本")]
+        public const string ERROR = "错误";
 
         [TranslateMsg("按钮文本")]
         public const string BUTTON_TEXT_BACK_TO_MAP = "返回地图";

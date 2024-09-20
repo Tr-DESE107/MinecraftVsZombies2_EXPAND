@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace PVZEngine.Level
 {
+    [Serializable]
     public class EntityID
     {
         public EntityID()
@@ -39,8 +41,9 @@ namespace PVZEngine.Level
         {
             return !(lhs == rhs);
         }
+        [BsonIgnore]
         public int ID => id;
-        [JsonProperty]
+        [BsonElement("id")]
         private int id;
     }
 }

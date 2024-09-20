@@ -1,23 +1,20 @@
 ﻿using System;
+using System.Reflection.Emit;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Tools
 {
+    [Serializable]
     public class RandomGenerator
     {
         public RandomGenerator(int seed)
         {
-            generator = new Random(seed);
             Seed = seed;
         }
         public RandomGenerator(int seed, int times)
         {
-            generator = new Random(seed);
             Seed = seed;
             Times = times;
-            for (int i = 0; i < times; i++)
-            {
-                generator.Next();
-            }
         }
 
 
@@ -67,8 +64,26 @@ namespace Tools
         {
             return new RandomGenerator(seri.seed, seri.times);
         }
-        public int Times { get; set; }
-        public int Seed { get; set; }
-        private Random generator;
+        [BsonElement("times")]
+        public int Times { get; private set; }
+        [BsonElement("seed")]
+        public int Seed { get; private set; }
+        [BsonIgnore]
+        private Random generator
+        {
+            get
+            {
+                if (_generator == null)
+                {
+                    _generator = new Random(Seed);
+                    for (int i = 0; i < Times; i++)
+                    {
+                        generator.Next();
+                    }
+                }
+                return _generator;
+            }
+        }
+        private Random _generator;
     }
 }

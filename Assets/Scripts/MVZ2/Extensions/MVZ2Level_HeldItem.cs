@@ -1,16 +1,19 @@
 ﻿using MVZ2.GameContent;
+using MVZ2.Level.Components;
+using MVZ2.Level.UI;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2
 {
     public static partial class MVZ2Level
     {
         #region 手持物品
-        public static HeldItemComponent GetHeldItemComponent(this LevelEngine level)
+        public static IHeldItemComponent GetHeldItemComponent(this LevelEngine level)
         {
-            return level.GetComponent<HeldItemComponent>();
+            return level.GetComponent<IHeldItemComponent>();
         }
         public static void SetHeldItem(this LevelEngine level, NamespaceID type, int id, int priority, bool noCancel = false)
         {
@@ -37,43 +40,59 @@ namespace MVZ2
             var component = level.GetHeldItemComponent();
             return component.HeldItemID;
         }
+        public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.IsValidOnEntity(entity, heldId);
+        }
+        public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid, NamespaceID heldType, int heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.IsValidOnGrid(grid, heldId);
+        }
+        public static bool UseOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.UseOnEntity(entity, heldId);
+        }
+        public static void HoverOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            heldItemDef.HoverOnEntity(entity, heldId);
+        }
+        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, int heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.UseOnGrid(grid, heldId);
+        }
+        public static void UseOnLawn(this LevelEngine level, LawnArea area, NamespaceID heldType, int heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            heldItemDef.UseOnLawn(level, area, heldId);
+        }
         public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity)
         {
             return level.IsEntityValidForHeldItem(entity, level.GetHeldItemType(), level.GetHeldItemID());
-        }
-        public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity, NamespaceID heldType, int heldId)
-        {
-            var component = level.GetHeldItemComponent();
-            return component.IsValidOnEntity(entity, heldType, heldId);
         }
         public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid)
         {
             return level.IsGridValidForHeldItem(grid, level.GetHeldItemType(), level.GetHeldItemID());
         }
-        public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid, NamespaceID heldType, int heldId)
-        {
-            var component = level.GetHeldItemComponent();
-            return component.IsValidOnGrid(grid, heldType, heldId);
-        }
         public static bool UseOnEntity(this LevelEngine level, Entity entity)
         {
-            var component = level.GetHeldItemComponent();
-            return component.UseOnEntity(entity);
+            return level.UseOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemID());
         }
         public static void HoverOnEntity(this LevelEngine level, Entity entity)
         {
-            var component = level.GetHeldItemComponent();
-            component.HoverOnEntity(entity);
+            level.HoverOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemID());
         }
         public static bool UseOnGrid(this LevelEngine level, LawnGrid grid)
         {
-            var component = level.GetHeldItemComponent();
-            return component.UseOnGrid(grid);
+            return level.UseOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID());
         }
         public static void UseOnLawn(this LevelEngine level, LawnArea area)
         {
-            var component = level.GetHeldItemComponent();
-            component.UseOnLawn(level, area);
+            level.UseOnLawn(area, level.GetHeldItemType(), level.GetHeldItemID());
         }
         public static bool IsHoldingItem(this LevelEngine level)
         {

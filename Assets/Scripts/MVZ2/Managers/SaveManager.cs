@@ -29,7 +29,7 @@ namespace MVZ2
         }
         public void SaveModData(int userIndex, string spaceName)
         {
-            var path = GetSaveDataPath(userIndex, spaceName);
+            var path = GetUserModSaveDataDirectory(userIndex, spaceName);
             FileHelper.ValidateDirectory(path);
             var modSaveData = GetModSaveData(spaceName);
             var serializable = modSaveData.ToSerializable();
@@ -45,10 +45,6 @@ namespace MVZ2
             }
             EvaluateUnlockedEntities();
         }
-        public bool IsPrologueCleared()
-        {
-            return GetLevelDifficultyRecords(BuiltinStageID.prologue).Length > 0;
-        }
         public bool IsTriggerUnlocked()
         {
             return IsUnlocked(BuiltinUnlockID.trigger);
@@ -61,7 +57,7 @@ namespace MVZ2
         {
             return modSaveDatas.FirstOrDefault(s => s.Namespace == spaceName);
         }
-        public T GetModSaveData<T>(string spaceName) where T : ModSaveData
+        public T GetModSaveData<T>(string spaceName)
         {
             foreach (var saveData in modSaveDatas)
             {
@@ -70,7 +66,7 @@ namespace MVZ2
                     return tData;
                 }
             }
-            return null;
+            return default;
         }
         public void SetCurrentUserName(string name)
         {
@@ -119,13 +115,13 @@ namespace MVZ2
         {
             return Path.Combine(GetSaveDataRoot(), "users.dat");
         }
-        public string GetSaveDataDirectory(int userIndex)
+        public string GetUserSaveDataDirectory(int userIndex)
         {
             return Path.Combine(GetSaveDataRoot(), $"user{userIndex}");
         }
-        public string GetSaveDataPath(int userIndex, string spaceName)
+        public string GetUserModSaveDataDirectory(int userIndex, string spaceName)
         {
-            return Path.Combine(GetSaveDataDirectory(userIndex), spaceName);
+            return Path.Combine(GetUserSaveDataDirectory(userIndex), spaceName);
         }
         #endregion
 
@@ -181,7 +177,7 @@ namespace MVZ2
         }
         private void LoadModData(int userIndex, string spaceName)
         {
-            var path = GetSaveDataPath(userIndex, spaceName);
+            var path = GetUserModSaveDataDirectory(userIndex, spaceName);
             var modInfo = Main.ModManager.GetModInfo(spaceName);
             if (modInfo == null || modInfo.Logic == null)
                 return;

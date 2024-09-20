@@ -3,11 +3,12 @@ using log4net.Core;
 using MVZ2;
 using MVZ2.GameContent;
 using MVZ2.Level;
+using MVZ2.Level.Components;
 using PVZEngine.Definitions;
 
 namespace PVZEngine.Level
 {
-    public partial class UIComponent : MVZ2Component
+    public partial class UIComponent : MVZ2Component, IUIComponent
     {
         public UIComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {

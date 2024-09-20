@@ -144,16 +144,19 @@ namespace MVZ2.Mainmenu
         #endregion
         private IEnumerator StartAdventure()
         {
-            ui.SetBackgroundDark(true);
-            main.MusicManager.Stop();
-            main.SoundManager.Play2D(SoundID.loseMusic);
-
-            foreach (var button in GetAllButtons())
+            if (!main.IsFastMode())
             {
-                button.Interactable = false;
-            }
+                ui.SetBackgroundDark(true);
+                main.MusicManager.Stop();
+                main.SoundManager.Play2D(SoundID.loseMusic);
 
-            yield return new WaitForSeconds(6);
+                foreach (var button in GetAllButtons())
+                {
+                    button.Interactable = false;
+                }
+
+                yield return new WaitForSeconds(6);
+            }
             var task = main.LevelManager.GotoLevelSceneAsync();
             while (!task.IsCompleted)
             {

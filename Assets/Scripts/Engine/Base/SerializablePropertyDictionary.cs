@@ -1,9 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PVZEngine
 {
-    public class SerializablePropertyDictionary
+    [Serializable]
+    public class SerializablePropertyDictionary : Dictionary<string, object>
     {
-        public Dictionary<string, object> propertyDict = new Dictionary<string, object>();
+        public SerializablePropertyDictionary() { }
+        public SerializablePropertyDictionary(IDictionary<string, object> properties)
+        {
+            foreach (var pair in properties)
+            {
+                Add(pair.Key, pair.Value);
+            }
+        }
     }
 }

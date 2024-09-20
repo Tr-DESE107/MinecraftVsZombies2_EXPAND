@@ -1,7 +1,9 @@
-﻿using PVZEngine.Level;
+﻿using System;
+using PVZEngine.Level;
 
 namespace PVZEngine.Serialization
 {
+    [Serializable]
     public class SerializableBuffTargetEntity : ISerializeBuffTarget
     {
         public SerializableBuffTargetEntity(Entity entity)
@@ -24,6 +26,7 @@ namespace PVZEngine.Serialization
         public int entityID;
         public bool isArmor;
     }
+    [Serializable]
     public class SerializableBuffTargetSeedPack : ISerializeBuffTarget
     {
         public SerializableBuffTargetSeedPack(SeedPack seedPack)
@@ -36,6 +39,7 @@ namespace PVZEngine.Serialization
         }
         public int index;
     }
+    [Serializable]
     public class SerializableBuffTargetLevel : ISerializeBuffTarget
     {
         public SerializableBuffTargetLevel(LevelEngine level)

@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
+using UnityEngine;
 
 namespace Tools
 {
+    [Serializable]
     public class FrameTimer : Timer
     {
         public FrameTimer(int time)
@@ -50,9 +53,13 @@ namespace Tools
             FrameModular = 0;
         }
         public override bool Expired => Frame <= 0;
+        [BsonElement("maxFrame")]
         public int MaxFrame { get; set; }
+        [BsonElement("lastFrame")]
         public int LastFrame { get; set; }
+        [BsonElement("frame")]
         public int Frame { get; set; }
+        [BsonElement("frameModular")]
         public int FrameModular { get; set; }
     }
 }

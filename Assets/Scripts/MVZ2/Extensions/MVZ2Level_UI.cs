@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.GameContent;
+using MVZ2.Level.Components;
 using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -10,9 +11,9 @@ namespace MVZ2
 {
     public static partial class MVZ2Level
     {
-        public static UIComponent GetUIComponent(this LevelEngine level)
+        public static IUIComponent GetUIComponent(this LevelEngine level)
         {
-            return level.GetComponent<UIComponent>();
+            return level.GetComponent<IUIComponent>();
         }
         public static void ShowMoney(this LevelEngine level)
         {

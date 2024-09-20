@@ -16,7 +16,7 @@ namespace PVZEngine.Callbacks
             callback.filter = filter;
             Add(callback);
         }
-        protected bool Remove(Action action)
+        public bool Remove(TDelegate action)
         {
             return Remove(callbacks.FirstOrDefault(f => f.action == action));
         }

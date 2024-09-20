@@ -10,6 +10,7 @@ namespace MVZ2
         public async Task Initialize()
         {
             Application.targetFrameRate = 60;
+            SerializeHelper.init();
 
             Game = new Game();
             Game.OnGetString += OnGetStringCallback;
@@ -39,6 +40,14 @@ namespace MVZ2
 
 #if UNITY_ANDROID || UNITY_IOS
             return true;
+#else
+            return false;
+#endif
+        }
+        public bool IsFastMode()
+        {
+#if UNITY_EDITOR
+            return fastMode;
 #else
             return false;
 #endif
@@ -83,6 +92,8 @@ namespace MVZ2
         private string builtinNamespace = "mvz2";
         [SerializeField]
         private PlatformMode platformMode = PlatformMode.Default;
+        [SerializeField]
+        private bool fastMode;
         [SerializeField]
         private ResourceManager resource;
         [SerializeField]

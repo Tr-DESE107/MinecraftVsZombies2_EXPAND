@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net.Core;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
@@ -18,22 +19,22 @@ namespace PVZEngine.Level
         }
 
         #region 组件
-        public void AddComponent(LevelComponent component)
+        public void AddComponent(ILevelComponent component)
         {
             levelComponents.Add(component);
         }
-        public LevelComponent[] GetComponents()
+        public ILevelComponent[] GetComponents()
         {
             return levelComponents.ToArray();
         }
-        public T GetComponent<T>() where T : LevelComponent
+        public T GetComponent<T>() where T : ILevelComponent
         {
             foreach (var comp in levelComponents)
             {
                 if (comp is T tComp)
                     return tComp;
             }
-            return null;
+            return default;
         }
         #endregion
 
@@ -78,6 +79,10 @@ namespace PVZEngine.Level
                 int column = i % maxColumn;
                 grids[i] = new LawnGrid(this, definition, lane, column);
             }
+        }
+        public void SetupArea()
+        {
+            AreaDefinition.Setup(this);
         }
         public void Start()
         {
@@ -204,7 +209,7 @@ namespace PVZEngine.Level
         {
             return GetGridTopZ() - (lane + 1) * GetGridHeight();
         }
-        public float GetGroundHeight(Vector3 pos)
+        public float GetGroundY(Vector3 pos)
         {
             return GetGroundY(pos.x, pos.z);
         }
@@ -301,13 +306,13 @@ namespace PVZEngine.Level
                 grids = grids.Select(g => g.Serialize()).ToArray(),
                 rechargeSpeed = RechargeSpeed,
                 rechargeTimeMultiplier = RechargeTimeMultiplier,
-                seedPacks = seedPacks.Select(g => g.Serialize()).ToArray(),
+                seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray(),
 
-                currentEntityID = 1,
+                currentEntityID = currentEntityID,
                 entities = entities.ConvertAll(e => e.Serialize()),
 
                 energy = Energy,
-                delayedEnergyEntities = delayedEnergyEntities.ToDictionary(d => d.Key.ID, d => d.Value),
+                delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
 
                 currentWave = CurrentWave,
                 currentFlag = CurrentFlag,
@@ -318,27 +323,13 @@ namespace PVZEngine.Level
 
                 buffs = buffs.ToSerializable(),
 
-                components = levelComponents.ToDictionary(c => c.GetID(), c => c.ToSerializable())
+                components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator, params LevelComponent[] components)
+        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator)
         {
             var level = new LevelEngine(provider, translator);
             level.Seed = seri.seed;
-            level.IsCleared = seri.isCleared;
-            level.StageDefinition = provider.GetStageDefinition(seri.stageDefinitionID);
-            level.AreaDefinition = provider.GetAreaDefinition(seri.areaDefinitionID);
-            level.InitAreaProperties();
-
-            level.IsEndless = seri.isEndless;
-            level.Difficulty = seri.difficulty;
-            level.Option = LevelOption.Deserialize(seri.Option);
-            level.entities = seri.entities.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
-            for (int i = 0; i < level.entities.Count; i++)
-            {
-                level.entities[i].ApplyDeserialize(seri.entities[i]);
-            }
-
             level.levelRandom = RandomGenerator.Deserialize(seri.levelRandom);
             level.entityRandom = RandomGenerator.Deserialize(seri.entityRandom);
             level.effectRandom = RandomGenerator.Deserialize(seri.effectRandom);
@@ -348,17 +339,24 @@ namespace PVZEngine.Level
             level.debugRandom = RandomGenerator.Deserialize(seri.debugRandom);
             level.miscRandom = RandomGenerator.Deserialize(seri.miscRandom);
 
-            level.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            level.IsCleared = seri.isCleared;
+            level.StageDefinition = provider.GetStageDefinition(seri.stageDefinitionID);
+            level.AreaDefinition = provider.GetAreaDefinition(seri.areaDefinitionID);
+            level.InitAreaProperties();
+
+            level.IsEndless = seri.isEndless;
+            level.Difficulty = seri.difficulty;
+            level.Option = LevelOption.Deserialize(seri.Option);
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
+            level.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            level.buffs = BuffList.FromSerializable(seri.buffs, level);
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
-            level.seedPacks = seri.seedPacks.Select(g => SeedPack.Deserialize(g, level)).ToArray();
+            level.seedPacks = seri.seedPacks.Select(g => g != null ? SeedPack.Deserialize(g, level) : null).ToArray();
 
             level.currentEntityID = seri.currentEntityID;
 
-            level.Energy = seri.energy;
-            level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.Key), d => d.Value);
 
             level.CurrentWave = seri.currentWave;
             level.CurrentFlag = seri.currentFlag;
@@ -367,20 +365,27 @@ namespace PVZEngine.Level
             level.spawnedLanes = seri.spawnedLanes;
             level.spawnedID = seri.spawnedID;
 
-            level.buffs = BuffList.FromSerializable(seri.buffs, level);
-
-            foreach (var comp in components)
+            // 在网格加载后面
+            level.entities = seri.entities.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
+            for (int i = 0; i < level.entities.Count; i++)
             {
-                level.AddComponent(comp);
+                level.entities[i].ApplyDeserialize(seri.entities[i]);
             }
+            // 在实体加载后面
+            level.Energy = seri.energy;
+            level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
+
+            return level;
+        }
+        public void DeserializeComponents(SerializableLevel seri)
+        {
             foreach (var seriComp in seri.components)
             {
-                var comp = level.levelComponents.FirstOrDefault(c => c.GetID() == seriComp.Key);
+                var comp = levelComponents.FirstOrDefault(c => c.GetID().ToString() == seriComp.Key);
                 if (comp == null)
                     continue;
                 comp.LoadSerializable(seriComp.Value);
             }
-            return level;
         }
 
         #endregion
@@ -401,7 +406,6 @@ namespace PVZEngine.Level
             gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
             maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
             maxColumnCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
-            AreaDefinition.Init(this);
         }
         #endregion
 
@@ -450,7 +454,7 @@ namespace PVZEngine.Level
         private int maxLaneCount;
         private int maxColumnCount;
 
-        private List<LevelComponent> levelComponents = new List<LevelComponent>();
+        private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
         #endregion 保存属性
     }
 }

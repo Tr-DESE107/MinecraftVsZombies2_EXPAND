@@ -1,6 +1,13 @@
 ﻿namespace PVZEngine.Level
 {
-    public abstract class LevelComponent
+    public interface ILevelComponent
+    {
+        NamespaceID GetID();
+        void Update() { }
+        ISerializableLevelComponent ToSerializable();
+        void LoadSerializable(ISerializableLevelComponent seri);
+    }
+    public abstract class LevelComponent : ILevelComponent
     {
         public LevelComponent(LevelEngine level, NamespaceID id)
         {

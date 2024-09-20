@@ -239,6 +239,7 @@ namespace MVZ2.Level.UI
         public void SetPauseDialogActive(bool active)
         {
             pauseDialogObj.SetActive(active);
+            ResetPauseDialogPosition();
         }
         public void ResetPauseDialogPosition()
         {
@@ -270,11 +271,31 @@ namespace MVZ2.Level.UI
         public void SetOptionsDialogActive(bool visible)
         {
             optionsDialogObj.SetActive(visible);
+            ResetOptionsDialogPosition();
         }
         public void ResetOptionsDialogPosition()
         {
             var rectTrans = optionsDialogObj.transform as RectTransform;
             rectTrans.anchoredPosition = Vector3.zero;
+        }
+        #endregion
+
+        #region 加载关卡对话框
+        public void SetLevelLoadedDialogVisible(bool visible)
+        {
+            levelLoadedDialogObj.SetActive(visible);
+        }
+        public void SetLevelErrorLoadingDialogVisible(bool visible)
+        {
+            levelErrorLoadingDialogObj.SetActive(visible);
+        }
+        public void SetLevelErrorLoadingDialogDesc(string text)
+        {
+            levelErrorLoadingDialog.SetDescription(text);
+        }
+        public void SetLevelErrorLoadingDialogInteractable(bool interactable)
+        {
+            levelErrorLoadingDialog.SetInteractable(interactable);
         }
         #endregion
 
@@ -359,6 +380,9 @@ namespace MVZ2.Level.UI
 
             gameOverDialog.OnRetryButtonClicked += () => OnGameOverRetryButtonClicked?.Invoke();
             gameOverDialog.OnBackButtonClicked += () => OnGameOverBackButtonClicked?.Invoke();
+
+            levelLoadedDialog.OnButtonClicked += (button) => OnLevelLoadedDialogButtonClicked?.Invoke(button);
+            levelErrorLoadingDialog.OnButtonClicked += (restart) => OnLevelErrorLoadingDialogButtonClicked?.Invoke(restart);
         }
         private void Update()
         {
@@ -409,6 +433,8 @@ namespace MVZ2.Level.UI
         public event Action OnPauseDialogResumeClicked;
         public event Action OnGameOverRetryButtonClicked;
         public event Action OnGameOverBackButtonClicked;
+        public event Action<LevelLoadedDialog.ButtonType> OnLevelLoadedDialogButtonClicked;
+        public event Action<bool> OnLevelErrorLoadingDialogButtonClicked;
         #endregion
 
         #region 属性字段
@@ -451,6 +477,19 @@ namespace MVZ2.Level.UI
         GameObject optionsDialogObj;
         [SerializeField]
         OptionsDialog optionsDialog;
+
+        [Header("Level Loaded Dialog")]
+        [SerializeField]
+        GameObject levelLoadedDialogObj;
+        [SerializeField]
+        LevelLoadedDialog levelLoadedDialog;
+
+        [Header("Level Error Loading Dialog")]
+        [SerializeField]
+        GameObject levelErrorLoadingDialogObj;
+        [SerializeField]
+        LevelErrorLoadingDialog levelErrorLoadingDialog;
+
 
         [Header("Raycast Receivers")]
         [SerializeField]

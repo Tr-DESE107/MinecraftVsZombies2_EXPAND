@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace PVZEngine.Level
 {
@@ -53,11 +53,8 @@ namespace PVZEngine.Level
         public EntityReferenceChain SpawnerReference => spawnerReference;
         public NamespaceID DefinitionID => definitionID;
         public int ID => id;
-        [JsonProperty]
         private EntityReferenceChain spawnerReference;
-        [JsonProperty]
         private NamespaceID definitionID;
-        [JsonProperty]
         private int id;
     }
 }

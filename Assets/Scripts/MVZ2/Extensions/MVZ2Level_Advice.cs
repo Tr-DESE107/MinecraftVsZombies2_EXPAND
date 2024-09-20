@@ -1,14 +1,15 @@
 ﻿using System;
 using MVZ2.Level;
+using MVZ2.Level.Components;
 using PVZEngine.Level;
 
 namespace MVZ2
 {
     public static partial class MVZ2Level
     {
-        public static AdviceComponent GetAdviceComponent(this LevelEngine level)
+        public static IAdviceComponent GetAdviceComponent(this LevelEngine level)
         {
-            return level.GetComponent<AdviceComponent>();
+            return level.GetComponent<IAdviceComponent>();
         }
         public static void ShowAdvice(this LevelEngine level, string text, int priority, int timeout)
         {

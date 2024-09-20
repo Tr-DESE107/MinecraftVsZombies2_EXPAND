@@ -45,16 +45,13 @@ namespace PVZEngine
         }
         public SerializablePropertyDictionary Serialize()
         {
-            return new SerializablePropertyDictionary()
-            {
-                propertyDict = propertyDict.ToDictionary(p => p.Key, p => p.Value)
-            };
+            return new SerializablePropertyDictionary(propertyDict);
         }
         public static PropertyDictionary Deserialize(SerializablePropertyDictionary seri)
         {
             return new PropertyDictionary()
             {
-                propertyDict = seri.propertyDict.ToDictionary(p => p.Key, p => p.Value)
+                propertyDict = seri.ToDictionary(p => p.Key, p => p.Value)
             };
         }
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();

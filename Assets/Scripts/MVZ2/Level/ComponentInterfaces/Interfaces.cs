@@ -1,0 +1,54 @@
+﻿using System;
+using MVZ2.Level.UI;
+using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.Level.Components
+{
+    public interface IAdviceComponent : ILevelComponent
+    {
+        void ShowAdvice(string text, int priority, int timeout);
+        void HideAdvice();
+    }
+    public interface IHeldItemComponent : ILevelComponent
+    {
+        void SetHeldItem(NamespaceID type, int id, int priority, bool noCancel = false);
+        void ResetHeldItem();
+        bool CancelHeldItem();
+        NamespaceID HeldItemType { get; }
+        int HeldItemID { get; }
+        int HeldItemPriority { get; }
+        bool HeldItemNoCancel { get; }
+    }
+    public interface ILogicComponent : ILevelComponent
+    {
+        void BeginLevel(string transition);
+        void StopLevel();
+    }
+    public interface IMusicComponent : ILevelComponent
+    {
+        void Play(NamespaceID id);
+        void Stop();
+    }
+    public interface ISoundComponent : ILevelComponent
+    {
+        void PlaySound(NamespaceID id, Vector3 position, float pitch = 1);
+        void PlaySound(NamespaceID id, float pitch = 1);
+    }
+    public interface ITalkComponent : ILevelComponent
+    {
+        void StartTalk(NamespaceID id, int section, float delay = 1);
+    }
+    public interface IUIComponent : ILevelComponent
+    {
+        void ShakeScreen(float startAmplitude, float endAmplitude, int time);
+        void ShowDialog(string title, string desc, string[] options, Action<int> onSelect);
+        void ShowMoney();
+        void SetHintArrowPointToBlueprint(int index);
+        void SetHintArrowPointToPickaxe();
+        void SetHintArrowPointToEntity(Entity entity);
+        void HideHintArrow();
+    }
+}

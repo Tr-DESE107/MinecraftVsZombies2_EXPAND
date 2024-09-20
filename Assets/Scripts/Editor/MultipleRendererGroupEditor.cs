@@ -26,6 +26,7 @@ namespace MVZ2.Editor
             if (GUILayout.Button("Update Elements"))
             {
                 group.UpdateRendererElements();
+                EditorUtility.SetDirty(group);
             }
         }
     }

@@ -1,5 +1,8 @@
-﻿namespace PVZEngine.Serialization
+﻿using System;
+
+namespace PVZEngine.Serialization
 {
+    [Serializable]
     public class SerializableSeedPack
     {
         public NamespaceID seedID;

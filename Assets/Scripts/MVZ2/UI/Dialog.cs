@@ -23,11 +23,17 @@ namespace MVZ2.UI
                 button.Button.onClick.AddListener(() => OnOptionClickCallback(buttonList.indexOf(rect)));
             });
         }
+        public void ResetPosition()
+        {
+            dialogTransform.anchoredPosition = Vector2.zero;
+        }
         private void OnOptionClickCallback(int index)
         {
             OnOptionSelect?.Invoke(index);
         }
         private Action<int> OnOptionSelect;
+        [SerializeField]
+        private RectTransform dialogTransform;
         [SerializeField]
         private TextMeshProUGUI title;
         [SerializeField]

@@ -44,7 +44,7 @@ namespace MVZ2.Level
             UpdateEntityModel();
             UpdateArmorModel();
         }
-        public void UpdateMovement(float deltaTime)
+        public void UpdateMovement()
         {
             movementTransitionFrame++;
             var nextPos = Entity.GetNextPosition();
@@ -57,8 +57,11 @@ namespace MVZ2.Level
                 zOffset = offset * Level.LawnToTransScale;
             }
             transform.position = transPos + posOffset + Vector3.back * zOffset;
-
             UpdateShadow(posOffset);
+        }
+        public void UpdateShadow()
+        {
+            UpdateShadow(Vector3.zero);
         }
         public void UpdateModel(float deltaTime, float simulationSpeed)
         {
@@ -73,6 +76,21 @@ namespace MVZ2.Level
         public void SetHovered(bool hovered)
         {
             isHovered = hovered;
+        }
+        public SerializableEntityController ToSerializable()
+        {
+            return new SerializableEntityController()
+            {
+                id = Entity.ID,
+                model = Model ? Model.ToSerializable() : null
+            };
+        }
+        public void LoadFromSerializable(SerializableEntityController serializable)
+        {
+            if (Model && serializable.model != null)
+            {
+                Model.LoadFromSerializable(serializable.model);
+            }
         }
         #endregion
 
@@ -256,7 +274,7 @@ namespace MVZ2.Level
         }
         private Model CreateModel(NamespaceID id)
         {
-            var res = Level.MainManager.ResourceManager;
+            var res = Main.ResourceManager;
             var modelMeta = res.GetModelMeta(id);
             if (modelMeta == null)
                 return null;
@@ -382,17 +400,18 @@ namespace MVZ2.Level
             { EntityTypes.EFFECT, 6 },
             { EntityTypes.PICKUP, 7 },
         };
+        public MainManager Main => MainManager.Instance;
         public Model Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
-        [SerializeField]
-        private ShadowController shadow;
         private bool isHovered;
         private EntityCursorSource _cursorSource;
         private int movementTransitionFrame;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
+        [SerializeField]
+        private ShadowController shadow;
         #endregion shader相关属性
 
         #endregion
@@ -416,5 +435,10 @@ namespace MVZ2.Level
         public int Priority => priority;
         private CursorType type;
         public CursorType CursorType => type;
+    }
+    public class SerializableEntityController
+    {
+        public int id;
+        public SerializableModelData model;
     }
 }

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 353650590044568920}
   - component: {fileID: 963988660585146475}
   - component: {fileID: 220374343874706168}
+  - component: {fileID: 3430000647019085224}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -4878,6 +4879,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   excludedInGroup: 0
   lockToGround: 0
+--- !u!114 &3430000647019085224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817132168954275357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b70938912efd41ae1b06e741430ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1411313375228467585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4905,7 +4918,7 @@ PrefabInstance:
     - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: particles.Array.data[0]
       value: 
-      objectReference: {fileID: 353650590044568920}
+      objectReference: {fileID: 3430000647019085224}
     - target: {fileID: 1610644400493193040, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.32

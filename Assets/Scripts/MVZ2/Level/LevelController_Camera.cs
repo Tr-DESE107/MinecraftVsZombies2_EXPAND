@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
+using MVZ2.GameContent;
+using MVZ2.Level.UI;
+using MVZ2.Talk;
+using MVZ2.Vanilla;
+using PVZEngine;
+using PVZEngine.Game;
+using PVZEngine.Level;
+using PVZEngine.Serialization;
+using Tools;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace MVZ2.Level
+{
+    using LevelEngine = PVZEngine.Level.LevelEngine;
+    public partial class LevelController : MonoBehaviour, IDisposable
+    {
+        #region 私有方法
+
+        private IEnumerator MoveCameraLawn(Vector3 target, Vector2 targetAnchor, float maxTime)
+        {
+            float time = 0;
+            Vector3 start = levelCamera.CameraPosition;
+            Vector2 startAnchor = levelCamera.CameraAnchor;
+            while (time < maxTime)
+            {
+                time = Mathf.Clamp(time + Time.deltaTime, 0, maxTime);
+                var lerp = cameraMoveCurve.Evaluate(time / maxTime);
+                var pos = Vector3.Lerp(start, target, lerp);
+                var anchor = Vector2.Lerp(startAnchor, targetAnchor, lerp);
+                levelCamera.SetPosition(pos, anchor);
+                yield return null;
+            }
+        }
+        private IEnumerator MoveCameraToHouse()
+        {
+            return MoveCameraLawn(cameraHousePosition, cameraHouseAnchor, 1f);
+        }
+        private IEnumerator MoveCameraToLawn()
+        {
+            return MoveCameraLawn(cameraLawnPosition, cameraLawnAnchor, 1f);
+        }
+        private IEnumerator MoveCameraToChoose()
+        {
+            return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
+        }
+        private IEnumerator GameStartToLawnTransition()
+        {
+            Main.MusicManager.Play(MusicID.choosing);
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToLawn();
+            yield return new WaitForSeconds(0.5f);
+            StartGame();
+        }
+        private IEnumerator GameStartTransition()
+        {
+            Main.MusicManager.Play(MusicID.choosing);
+            if (level.StageDefinition is IPreviewStage preview)
+            {
+                preview.CreatePreviewEnemies(level, BuiltinLevel.GetEnemySpawnRect());
+            }
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToChoose();
+            yield return new WaitForSeconds(1);
+
+            var seedPacks = Main.LevelManager.GetSeedPacksID();
+            level.SetSeedPackCount(seedPacks.Length);
+            level.ReplaceSeedPacks(seedPacks);
+
+            yield return MoveCameraToLawn();
+            level.PrepareForBattle();
+            yield return new WaitForSeconds(0.5f);
+            PlayReadySetBuild();
+        }
+        private IEnumerator GameOverByEnemyTransition()
+        {
+            Main.MusicManager.Stop();
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToHouse();
+            yield return new WaitForSeconds(3);
+            level.PlaySound(SoundID.hit);
+            yield return new WaitForSeconds(0.5f);
+            level.PlaySound(SoundID.hit);
+            yield return new WaitForSeconds(0.5f);
+            level.PlaySound(SoundID.hit);
+            yield return new WaitForSeconds(0.5f);
+            level.PlaySound(SoundID.scream);
+            var levelUI = GetLevelUI();
+            levelUI.SetYouDiedVisible(true);
+            yield return new WaitForSeconds(4);
+            ShowGameOverDialog();
+        }
+        private IEnumerator GameOverNoEnemyTransition()
+        {
+            Main.MusicManager.Stop();
+            level.PlaySound(SoundID.scream);
+            var levelUI = GetLevelUI();
+            levelUI.SetYouDiedVisible(true);
+            yield return new WaitForSeconds(4);
+            ShowGameOverDialog();
+        }
+        private IEnumerator ExitLevelTransition()
+        {
+            var task = ExitLevel();
+            while (!task.IsCompleted)
+                yield return null;
+        }
+        #endregion
+
+        #region 属性字段
+
+        [Header("Cameras")]
+        [SerializeField]
+        private LevelCamera levelCamera;
+        [SerializeField]
+        private AnimationCurve cameraMoveCurve;
+        [SerializeField]
+        private Vector3 cameraHousePosition = new Vector3(0, 3, -10);
+        [SerializeField]
+        private Vector2 cameraHouseAnchor = new Vector2(0, 0.5f);
+        [SerializeField]
+        private Vector3 cameraLawnPosition = new Vector3(10.2f, 3, -10);
+        [SerializeField]
+        private Vector2 cameraLawnAnchor = new Vector2(1, 0.5f);
+        [SerializeField]
+        private Vector3 cameraChoosePosition = new Vector3(14, 3, -10);
+        [SerializeField]
+        private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
+        #endregion
+
+        #region 内嵌类
+        public enum CameraPosition
+        {
+            House,
+            Lawn,
+            Choose,
+        }
+        #endregion
+    }
+}
