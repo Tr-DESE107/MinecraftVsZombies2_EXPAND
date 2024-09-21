@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 1694740220}
-  debugLanguage: 2
+  debugLanguage: 0
 --- !u!4 &1796785306
 Transform:
   m_ObjectHideFlags: 0

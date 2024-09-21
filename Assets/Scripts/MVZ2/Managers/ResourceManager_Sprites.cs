@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace MVZ2
 {
@@ -47,18 +49,45 @@ namespace MVZ2
             }
             return null;
         }
+        private async Task LoadSpriteManifests(string modNamespace)
+        {
+            var modResource = GetModResource(modNamespace);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, "SpriteManifest");
+            foreach (var (path, manifest) in resources)
+            {
+                foreach (var entry in manifest.spriteEntries)
+                {
+                    var sprite = entry.sprite;
+                    var id = new NamespaceID(modNamespace, entry.name);
+                    modResource.Sprites.Add(entry.name, sprite);
+                    AddSpriteReferenceCache(new SpriteReference(id), sprite);
+                }
+                foreach (var entry in manifest.spritesheetEntries)
+                {
+                    var sheet = entry.spritesheet;
+                    var id = new NamespaceID(modNamespace, entry.name);
+                    modResource.SpriteSheets.Add(entry.name, sheet);
+                    for (int i = 0; i < sheet.Length; i++)
+                    {
+                        AddSpriteReferenceCache(new SpriteReference(id, i), sheet[i]);
+                    }
+                }
+            }
+        }
         private async Task LoadSpriteSheets(string modNamespace)
         {
             var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
             var resources = await LoadLabeledResources<Sprite[]>(modNamespace, "Spritesheet");
-            foreach (var (path, res) in resources)
+            foreach (var (id, res) in resources)
             {
-                modResource.SpriteSheets.Add(path, res);
+                modResource.SpriteSheets.Add(id.path, res);
                 for (int i = 0; i < res.Length; i++)
                 {
-                    var sprRef = new SpriteReference(path, i);
+                    var sprRef = new SpriteReference(id, i);
                     AddSpriteReferenceCache(sprRef, res[i]);
                 }
             }
@@ -69,10 +98,10 @@ namespace MVZ2
             if (modResource == null)
                 return;
             var resources = await LoadLabeledResources<Sprite>(modNamespace, "Sprite");
-            foreach (var (path, res) in resources)
+            foreach (var (id, res) in resources)
             {
-                modResource.Sprites.Add(path, res);
-                var sprRef = new SpriteReference(path);
+                modResource.Sprites.Add(id.path, res);
+                var sprRef = new SpriteReference(id);
                 AddSpriteReferenceCache(sprRef, res);
             }
         }

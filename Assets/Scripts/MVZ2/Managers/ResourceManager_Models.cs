@@ -57,10 +57,10 @@ namespace MVZ2
             if (modResource == null)
                 return;
             var resources = await LoadLabeledResources<GameObject>(nsp, "Model");
-            foreach (var (path, res) in resources)
+            foreach (var (id, res) in resources)
             {
                 var model = res.GetComponent<Model>();
-                modResource.Models.Add(path, model);
+                modResource.Models.Add(id.path, model);
             }
         }
         private void ShotModelIcons(string modNamespace, string metaNamespace, ModelMetaList metaList)
@@ -74,7 +74,7 @@ namespace MVZ2
                 var metaPath = ModelID.ConcatName(meta.type, meta.name);
                 var metaID = new NamespaceID(metaNamespace, metaPath);
                 var sprite = main.ModelManager.ShotIcon(model, meta.width, meta.height, new Vector2(meta.xOffset, meta.yOffset), metaID.ToString());
-                modResource.ModelIcons.Add(metaID, sprite);
+                modResource.ModelIcons.Add(metaPath, sprite);
             }
         }
         #endregion

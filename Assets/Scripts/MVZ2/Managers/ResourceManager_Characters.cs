@@ -122,7 +122,7 @@ namespace MVZ2
                     };
                     sprites.Add(cvs);
                 }
-                modResource.CharacterVariantSprites.Add(characterID, sprites.ToArray());
+                modResource.CharacterVariantSprites.Add(meta.name, sprites.ToArray());
             }
         }
         #endregion

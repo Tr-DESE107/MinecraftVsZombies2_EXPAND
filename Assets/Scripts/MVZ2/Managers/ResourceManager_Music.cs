@@ -25,9 +25,9 @@ namespace MVZ2
             if (modResource == null)
                 return;
             var resources = await LoadLabeledResources<AudioClip>(nsp, "Music");
-            foreach (var (path, res) in resources)
+            foreach (var (id, res) in resources)
             {
-                modResource.Musics.Add(path, res);
+                modResource.Musics.Add(id.path, res);
             }
         }
         #endregion

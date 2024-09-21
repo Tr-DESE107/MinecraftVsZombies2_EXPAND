@@ -75,8 +75,7 @@ namespace MVZ2
             await LoadModMusicClips(modNamespace);
             await LoadModSoundClips(modNamespace);
             await LoadModModels(modNamespace);
-            await LoadSpriteSheets(modNamespace);
-            await LoadSprites(modNamespace);
+            await LoadSpriteManifests(modNamespace);
             LoadCharacterVariantSprites(modNamespace);
 
             ShotModelIcons(modNamespace, modNamespace, modResource.ModelMetaList);
@@ -108,7 +107,7 @@ namespace MVZ2
             {
                 var talkRelativePath = metaPath.Substring(talksDirectory.Length);
                 var meta = TalkMeta.FromXmlDocument(document, defaultNsp);
-                modResource.TalkMetas.Add(new NamespaceID(resID.spacename, talkRelativePath), meta);
+                modResource.TalkMetas.Add(talkRelativePath, meta);
             }
             else
             {
@@ -182,14 +181,16 @@ namespace MVZ2
             var locator = Main.ModManager.GetModInfo(nsp).ResourceLocator;
             return await LoadAddressableResource<T>(locator, path);
         }
-        private T FindInMods<T>(NamespaceID id, Func<ModResource, Dictionary<NamespaceID, T>> dictionaryGetter)
+        private T FindInMods<T>(NamespaceID id, Func<ModResource, Dictionary<string, T>> dictionaryGetter)
         {
             if (id == null)
                 return default;
             foreach (var mod in modResources)
             {
+                if (mod.Namespace != id.spacename)
+                    continue;
                 var dict = dictionaryGetter(mod);
-                if (dict.TryGetValue(id, out var resource))
+                if (dict.TryGetValue(id.path, out var resource))
                 {
                     return resource;
                 }

@@ -17,14 +17,14 @@ namespace MVZ2
         public EntityMetaList EntityMetaList { get; set; }
         public AlmanacMetaList AlmanacMetaList { get; set; }
         public NoteMetaList NoteMetaList { get; set; }
-        public Dictionary<NamespaceID, AudioClip> Sounds = new();
-        public Dictionary<NamespaceID, AudioClip> Musics = new();
-        public Dictionary<NamespaceID, Model> Models = new();
-        public Dictionary<NamespaceID, Sprite> ModelIcons = new();
-        public Dictionary<NamespaceID, Sprite[]> SpriteSheets = new();
-        public Dictionary<NamespaceID, Sprite> Sprites = new();
-        public Dictionary<NamespaceID, CharacterVariantSprite[]> CharacterVariantSprites = new();
-        public Dictionary<NamespaceID, TalkMeta> TalkMetas = new();
+        public Dictionary<string, AudioClip> Sounds = new();
+        public Dictionary<string, AudioClip> Musics = new();
+        public Dictionary<string, Model> Models = new();
+        public Dictionary<string, Sprite> ModelIcons = new();
+        public Dictionary<string, Sprite[]> SpriteSheets = new();
+        public Dictionary<string, Sprite> Sprites = new();
+        public Dictionary<string, CharacterVariantSprite[]> CharacterVariantSprites = new();
+        public Dictionary<string, TalkMeta> TalkMetas = new();
         public ModResource(string spaceName)
         {
             Namespace = spaceName;

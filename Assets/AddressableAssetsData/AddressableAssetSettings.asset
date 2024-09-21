@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: fbabeea97c99f8143b5d1b05494f46e9
   m_currentHash:
     serializedVersion: 2
-    Hash: 37f9791f2685a7c79d2373ca869e69c0
+    Hash: d35e3c6b4d2ff9e139961b967be58409
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -57,40 +57,39 @@ MonoBehaviour:
       m_Id: a9b6f527b73b5134ea86d88bb2fae6fa
       m_ProfileName: Default
       m_Values:
-      - m_Id: 90b86e8d8baf63c43ab33da059835b56
-        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
-      - m_Id: 76fe8b4a0b5d39148b562ee396e13b6f
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 20522c9d6b3b9a14681012b92cf69a51
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
-      - m_Id: d282b6fd4c09e3e41bf2682564a2e4e0
-        m_Value: ServerData/[BuildTarget]
       - m_Id: 5b71dabce9e5fb5489bfe9506bf60889
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+      - m_Id: 76fe8b4a0b5d39148b562ee396e13b6f
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 90b86e8d8baf63c43ab33da059835b56
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: d282b6fd4c09e3e41bf2682564a2e4e0
+        m_Value: ServerData/[BuildTarget]
     m_ProfileEntryNames:
-    - m_Id: 90b86e8d8baf63c43ab33da059835b56
-      m_Name: BuildTarget
+    - m_Id: 20522c9d6b3b9a14681012b92cf69a51
+      m_Name: Local.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 5b71dabce9e5fb5489bfe9506bf60889
+      m_Name: Remote.LoadPath
       m_InlineUsage: 0
     - m_Id: 76fe8b4a0b5d39148b562ee396e13b6f
       m_Name: Local.BuildPath
       m_InlineUsage: 0
-    - m_Id: 20522c9d6b3b9a14681012b92cf69a51
-      m_Name: Local.LoadPath
+    - m_Id: 90b86e8d8baf63c43ab33da059835b56
+      m_Name: BuildTarget
       m_InlineUsage: 0
     - m_Id: d282b6fd4c09e3e41bf2682564a2e4e0
       m_Name: Remote.BuildPath
-      m_InlineUsage: 0
-    - m_Id: 5b71dabce9e5fb5489bfe9506bf60889
-      m_Name: Remote.LoadPath
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
     - Model
     - Meta
-    - Sprite
+    - SpriteManifest
     - Sound
-    - Spritesheet
     - Music
     - Language
   m_SchemaTemplates: []
