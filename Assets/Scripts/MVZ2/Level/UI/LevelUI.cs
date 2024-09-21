@@ -1,9 +1,11 @@
 using System;
+using log4net.Core;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static MVZ2.Level.LevelController;
 
 namespace MVZ2.Level.UI
 {
@@ -363,6 +365,10 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        public void SetUIVisibleState(VisibleState state)
+        {
+            animator.SetInteger("UIState", (int)state);
+        }
         public Receiver GetReceiverType(RaycastReceiver receiver)
         {
             if (receiver == sideReceiver)
@@ -467,6 +473,9 @@ namespace MVZ2.Level.UI
 
         #region ÊôÐÔ×Ö¶Î
         public OptionsDialog OptionsDialog => optionsDialog;
+
+        [SerializeField]
+        Animator animator;
 
         [Header("Blueprints")]
         [SerializeField]

@@ -36,6 +36,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.Update(level);
             UpdateState(level);
+            level.CheckGameOver();
         }
         private void StartTimer(LevelEngine level, int timeout)
         {

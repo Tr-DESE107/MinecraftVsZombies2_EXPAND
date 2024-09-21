@@ -44,11 +44,7 @@ namespace MVZ2.GameContent.Stages
                     FinalWaveUpdate(level);
                     break;
             }
-            var gameOverEnemies = level.FindEntities(e => e.Pos.x < BuiltinLevel.GetBorderX(false) && IsAliveEnemy(e));
-            if (gameOverEnemies.Length > 0)
-            {
-                level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
-            }
+            level.CheckGameOver();
         }
 
         public override void PrepareForBattle(LevelEngine level)
@@ -69,11 +65,11 @@ namespace MVZ2.GameContent.Stages
 
         public float CountAliveEnemies(LevelEngine level)
         {
-            return level.FindEntities(e => IsAliveEnemy(e)).Length;
+            return level.FindEntities(e => e.IsAliveEnemy()).Length;
         }
         public bool CheckEnemiesRemainedHealth(LevelEngine level)
         {
-            var enemies = level.FindEntities(e => IsAliveEnemy(e));
+            var enemies = level.FindEntities(e => e.IsAliveEnemy());
             var health = enemies.Sum(e => e.Health + (e.EquipedArmor?.Health ?? 0));
             return health <= GetWaveAdvanceHealthPercent(level) * GetWaveMaxHealth(level);
         }
@@ -188,7 +184,7 @@ namespace MVZ2.GameContent.Stages
                 level.SetNoProduction(true);
             }
 
-            var lastEnemy = level.FindEntities(e => IsAliveEnemy(e)).FirstOrDefault();
+            var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
             if (lastEnemy != null)
             {
                 level.SetLastEnemy(new EntityID(lastEnemy));
@@ -244,10 +240,6 @@ namespace MVZ2.GameContent.Stages
 
             // 加速。
             waveTimer.Frame = 30;
-        }
-        private bool IsAliveEnemy(Entity entity)
-        {
-            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(BuiltinEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
         }
         private void NextWaveOrHugeWave(LevelEngine level)
         {

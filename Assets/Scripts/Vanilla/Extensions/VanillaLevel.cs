@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent;
+﻿using System.Linq;
+using MVZ2.GameContent;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -7,6 +8,14 @@ namespace MVZ2.Vanilla
 {
     public static class VanillaLevel
     {
+        public static void CheckGameOver(this LevelEngine level)
+        {
+            var gameOverEnemies = level.FindEntities(e => e.Pos.x < BuiltinLevel.GetBorderX(false) && e.IsAliveEnemy());
+            if (gameOverEnemies.Length > 0)
+            {
+                level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
+            }
+        }
         private static float GetHalloweenGroundHeight(float x)
         {
             if (x < 185)

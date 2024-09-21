@@ -418,6 +418,7 @@ namespace MVZ2.Level
             isGameOver = true;
             level.PlaySound(SoundID.loseMusic);
             view.SetDoorVisible(false);
+            level.HideAdvice();
             SetUIVisibleState(VisibleState.Nothing);
         }
         #endregion

@@ -82,12 +82,12 @@ namespace MVZ2.Level
             }
 
             level.ResetHeldItem();
-            SetUIVisibleState(VisibleState.InLevel);
             UpdateBlueprintsView();
             UpdateLevelName();
             UpdateLevelProgress();
             UpdateDifficultyName();
             UpdateLevelUI(0);
+            SetUIVisibleState(VisibleState.InLevel);
 
             SetCameraToLawn();
 

@@ -87,6 +87,7 @@ namespace MVZ2
         public TalkManager TalkManager => talk;
         public OptionsManager OptionsManager => options;
         public ResolutionManager ResolutionManager => resolution;
+        public SceneLoadingManager SceneManager => sceneLoadingManager;
         public MainSceneController Scene => scene;
         [SerializeField]
         private string builtinNamespace = "mvz2";
@@ -120,6 +121,8 @@ namespace MVZ2
         private OptionsManager options;
         [SerializeField]
         private ResolutionManager resolution;
+        [SerializeField]
+        private SceneLoadingManager sceneLoadingManager; 
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

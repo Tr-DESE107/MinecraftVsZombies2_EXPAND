@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: levelui_mobile
+  m_Controller: {fileID: 9100000, guid: 10a714dd649fd4f4bae277f279b7c154, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c2f446307a82cf740810e5bb1db30b63, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 796b8594913e0124ca0f15d1dbfbcf12, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cf68b46a4bbc8134698416394da62d98, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5dde43cd8e6d1b84eab5a289fa264e7c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d7114ef9c2a3e5d428b0e5900de2c347, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6955bdd39152ac3468b9616d3d7d3164, type: 2}

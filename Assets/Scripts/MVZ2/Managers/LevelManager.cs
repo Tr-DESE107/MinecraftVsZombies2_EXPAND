@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MVZ2.Level;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 namespace MVZ2
@@ -101,15 +103,15 @@ namespace MVZ2
         public async Task GotoLevelSceneAsync()
         {
             var sceneName = "Level";
-            var oldScene = GetScene(sceneName);
-            await LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            if (oldScene.IsValid())
+            var oldScene = Scene.GetSceneInstance(sceneName);
+            await Scene.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            if (oldScene.Scene.IsValid())
             {
-                await UnloadSceneAsync(oldScene);
+                await Scene.UnloadSceneAsync(oldScene);
             }
 
-            var newScene = GetScene(sceneName);
-            foreach (var go in newScene.GetRootGameObjects())
+            var newScene = Scene.GetSceneInstance(sceneName);
+            foreach (var go in newScene.Scene.GetRootGameObjects())
             {
                 var ctrl = go.GetComponent<LevelController>();
                 if (ctrl)
@@ -122,46 +124,14 @@ namespace MVZ2
         public async Task ExitLevelSceneAsync()
         {
             var sceneName = "Level";
-            if (!IsSceneLoaded(sceneName))
+            if (!Scene.IsSceneLoaded(sceneName))
                 return;
-            await UnloadSceneAsync(sceneName);
+            await Scene.UnloadSceneAsync(sceneName);
             controller = null;
-        }
-        private bool IsSceneLoaded(string name)
-        {
-            var scene = SceneManager.GetSceneByName(name);
-            return scene.IsValid();
-        }
-        private Scene GetScene(string name)
-        {
-            return SceneManager.GetSceneByName(name);
-        }
-        private Task LoadSceneAsync(string name, LoadSceneMode mode)
-        {
-            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
-            var op = SceneManager.LoadSceneAsync(name, mode);
-            op.completed += (op) => tcs.SetResult(op);
-
-            return tcs.Task;
-        }
-        private Task UnloadSceneAsync(string name)
-        {
-            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
-            var op = SceneManager.UnloadSceneAsync(name);
-            op.completed += (op) => tcs.SetResult(op);
-
-            return tcs.Task;
-        }
-        private Task UnloadSceneAsync(Scene scene)
-        {
-            TaskCompletionSource<AsyncOperation> tcs = new TaskCompletionSource<AsyncOperation>();
-            var op = SceneManager.UnloadSceneAsync(scene);
-            op.completed += (op) => tcs.SetResult(op);
-
-            return tcs.Task;
         }
         public const int CURRENT_DATA_VERSION = 0;
         public MainManager Main => main;
+        public SceneLoadingManager Scene => main.SceneManager;
         [SerializeField]
         private MainManager main;
         private LevelController controller;

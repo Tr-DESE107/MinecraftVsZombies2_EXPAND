@@ -433,17 +433,7 @@ namespace MVZ2.Level
         private void SetUIVisibleState(VisibleState state)
         {
             var levelUI = GetLevelUI();
-            var toolsVisible = state == VisibleState.InLevel || state == VisibleState.ChoosingBlueprints;
-            levelUI.SetEnergyVisible(toolsVisible);
-            levelUI.SetBlueprintsVisible(toolsVisible);
-            levelUI.SetPickaxeSlotVisible(toolsVisible);
-            levelUI.SetTopRightVisible(toolsVisible);
-            levelUI.SetTriggerSlotVisible(toolsVisible && Main.SaveManager.IsTriggerUnlocked());
-
-            var inlevelVisible = state == VisibleState.InLevel;
-            levelUI.SetStarshardVisible(inlevelVisible && Main.SaveManager.IsStarshardUnlocked());
-            levelUI.SetSpeedUpVisible(inlevelVisible);
-            levelUI.SetLevelNameVisible(inlevelVisible);
+            levelUI.SetUIVisibleState(state);
         }
 
         #endregion

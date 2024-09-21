@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Shells;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -6,7 +7,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.Vanilla
 {
-    public static class MVZ2Entity
+    public static class VanillaEntityExt
     {
         public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
         {
@@ -27,6 +28,11 @@ namespace MVZ2.Vanilla
             {
                 level.PlaySound(hitSound, entity.Pos);
             }
+        }
+
+        public static bool IsAliveEnemy(this Entity entity)
+        {
+            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(BuiltinEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
         }
     }
 }
