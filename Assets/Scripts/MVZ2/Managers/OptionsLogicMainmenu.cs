@@ -83,7 +83,7 @@ namespace MVZ2
                 case DropdownType.Resolution:
                     {
                         var resolution = resolutionValues[index];
-                        Main.ResolutionManager.SetResolution(resolution);
+                        Main.ResolutionManager.SetResolution(resolution.x, resolution.y);
                         UpdateResolutionDropdown();
                     }
                     break;
@@ -127,17 +127,17 @@ namespace MVZ2
         }
         private void InitResolutionDropdown()
         {
-            var resolutions = Main.ResolutionManager.GetResolutions();
+            var resolutions = Main.ResolutionManager.GetResolutions().Select(r => new Vector2Int(r.width, r.height)).Distinct().ToArray();
             var currentResolution = Main.ResolutionManager.GetCurrentResolution();
-            Resolution[] values;
-            if (!resolutions.Any(r => r.width == currentResolution.width && r.height == currentResolution.height))
+            Vector2Int[] values;
+            if (!resolutions.Any(r => r.x == currentResolution.width && r.y == currentResolution.height))
             {
-                values = new Resolution[resolutions.Length + 1];
+                values = new Vector2Int[resolutions.Length + 1];
                 for (int i = 0; i < resolutions.Length; i++)
                 {
                     values[i] = resolutions[i];
                 }
-                values[values.Length - 1] = currentResolution;
+                values[values.Length - 1] = new Vector2Int(currentResolution.width, currentResolution.height);
             }
             else
             {
@@ -145,7 +145,7 @@ namespace MVZ2
             }
             resolutionValues = values;
 
-            var texts = values.Select(v => Main.ResolutionManager.GetResolutionName(v));
+            var texts = values.Select(v => Main.ResolutionManager.GetResolutionName(v.x, v.y));
             dialog.SetDropdownValues(DropdownType.Resolution, texts.ToArray());
         }
         private void UpdateLanguageDropdown()
@@ -157,7 +157,7 @@ namespace MVZ2
         private void UpdateResolutionDropdown()
         {
             var value = Main.ResolutionManager.GetCurrentResolution();
-            var index = Array.FindIndex(resolutionValues, r => r.width == value.width && r.height == value.height);
+            var index = Array.FindIndex(resolutionValues, r => r.x == value.width && r.y == value.height);
             if (index < 0)
             {
                 index = resolutionValues.Length - 1;
@@ -181,6 +181,6 @@ namespace MVZ2
         public bool BloodAndGore { get; private set; }
         public string Language { get; private set; }
         private string[] languageValues;
-        private Resolution[] resolutionValues;
+        private Vector2Int[] resolutionValues;
     }
 }

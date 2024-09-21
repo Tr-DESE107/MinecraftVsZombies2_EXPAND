@@ -7,9 +7,13 @@ namespace MVZ2
     [ExecuteAlways]
     public class ResolutionManager : MonoBehaviour
     {
+        public void SetResolution(int width, int height)
+        {
+            Screen.SetResolution(width, height, Screen.fullScreenMode);
+        }
         public void SetResolution(Resolution resolution)
         {
-            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode);
+            SetResolution(resolution.width, resolution.height);
         }
         public Resolution[] GetResolutions()
         {
@@ -23,9 +27,13 @@ namespace MVZ2
                 height = Screen.height
             };
         }
+        public string GetResolutionName(int width, int height)
+        {
+            return MainManager.Instance.LanguageManager._(RESOLUTION_NAME, width, height);
+        }
         public string GetResolutionName(Resolution resolution)
         {
-            return MainManager.Instance.LanguageManager._(RESOLUTION_NAME, resolution.width, resolution.height);
+            return GetResolutionName(resolution.width, resolution.height);
         }
         private void OnEnable()
         {

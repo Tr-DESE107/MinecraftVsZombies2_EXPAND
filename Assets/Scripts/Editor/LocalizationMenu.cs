@@ -41,7 +41,7 @@ namespace MVZ2.Editor
         public static void CompressLanguagePack()
         {
             var path = LanguageManager.GetLanguagePackDirectory();
-            var dirPath = Path.Combine(path, "builtin");
+            var dirPath = Path.Combine(Application.dataPath, "Localization", "pack");
             var destPath = Path.Combine(path, "builtin.pack");
             LanguageManager.CompressLanguagePack(dirPath, destPath);
             Debug.Log("Langauge Pack Compressed.");

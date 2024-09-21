@@ -1,3 +1,6 @@
 [submodule "Assets/Plugins/MukioI18n"]
 	path = Assets/Plugins/MukioI18n
 	url = https://code.lotlab.org/cuerzor/MukioI18n
+[submodule "Assets/Plugins/CustomBuilder"]
+	path = Assets/Plugins/CustomBuilder
+	url = https://code.lotlab.org/IGensokyo/CustomBuilder.git
