@@ -11,6 +11,10 @@ namespace MVZ2.Level
     {
         #region 私有方法
 
+        private void SetCameraToLawn()
+        {
+            levelCamera.SetPosition(cameraLawnPosition, cameraLawnAnchor);
+        }
         private IEnumerator MoveCameraLawn(Vector3 target, Vector2 targetAnchor, float maxTime)
         {
             float time = 0;

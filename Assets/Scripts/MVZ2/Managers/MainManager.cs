@@ -20,7 +20,7 @@ namespace MVZ2
             OptionsManager.LoadOptions();
             await ModManager.LoadMods(Game);
             await ResourceManager.LoadAllModResources();
-            LanguageManager.LoadAllLanguagePacks();
+            await LanguageManager.LoadAllLanguagePacks();
 
             SaveManager.Load();
 

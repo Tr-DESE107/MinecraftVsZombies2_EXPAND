@@ -195,6 +195,7 @@ namespace MVZ2.Level
                     Resume();
                     var ui = GetLevelUI();
                     ui.SetLevelLoadedDialogVisible(false);
+                    levelLoaded = false;
                     break;
                 case LevelLoadedDialog.ButtonType.Restart:
                     ShowRestartConfirmDialog();

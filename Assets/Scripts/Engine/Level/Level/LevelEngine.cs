@@ -52,9 +52,6 @@ namespace PVZEngine.Level
             conveyorRandom = new RandomGenerator(levelRandom.Next());
 
             miscRandom = new RandomGenerator(levelRandom.Next());
-#if UNITY_EDITOR
-            debugRandom = new RandomGenerator(levelRandom.Next());
-#endif
 
             Energy = option.StartEnergy;
 
@@ -298,7 +295,6 @@ namespace PVZEngine.Level
                 roundRandom = roundRandom.Serialize(),
                 spawnRandom = spawnRandom.Serialize(),
                 conveyorRandom = conveyorRandom.Serialize(),
-                debugRandom = debugRandom.Serialize(),
                 miscRandom = miscRandom.Serialize(),
 
                 propertyDict = propertyDict.Serialize(),
@@ -335,7 +331,6 @@ namespace PVZEngine.Level
             level.roundRandom = RandomGenerator.Deserialize(seri.roundRandom);
             level.spawnRandom = RandomGenerator.Deserialize(seri.spawnRandom);
             level.conveyorRandom = RandomGenerator.Deserialize(seri.conveyorRandom);
-            level.debugRandom = RandomGenerator.Deserialize(seri.debugRandom);
             level.miscRandom = RandomGenerator.Deserialize(seri.miscRandom);
 
             level.IsCleared = seri.isCleared;
@@ -431,7 +426,6 @@ namespace PVZEngine.Level
         private RandomGenerator spawnRandom;
         private RandomGenerator conveyorRandom;
 
-        private RandomGenerator debugRandom;
         private RandomGenerator miscRandom;
 
         private string deathMessage;

@@ -4,25 +4,26 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using MVZ2.Localization;
 using Newtonsoft.Json;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace MVZ2
 {
     public delegate bool TryGetTranslation<in TKey, TResult>(LanguagePack pack, TKey key, out TResult result);
     public partial class LanguageManager
     {
-        public void LoadAllLanguagePacks()
+        public Task LoadAllLanguagePacks()
         {
-            var directory = GetLanguagePackDirectory();
-            var packs = Directory.GetFiles(directory, "*.pack", SearchOption.TopDirectoryOnly);
-            foreach (var pack in packs)
+            var op = Addressables.LoadAssetsAsync<TextAsset>("LanguagePack", textAsset =>
             {
-                var loaded = ReadLanguagePack(pack);
+                var bytes = textAsset.bytes;
+                var loaded = ReadLanguagePack(bytes);
                 if (loaded == null)
-                    continue;
+                    return;
                 languagePacks.Add(loaded);
                 foreach (var lang in loaded.GetLanguages())
                 {
@@ -31,38 +32,25 @@ namespace MVZ2
                         allLanguages.Add(lang);
                     }
                 }
-            }
+            });
+            return op.Task;
         }
         public LanguagePack[] GetAllLanguagePacks()
         {
             return languagePacks.ToArray();
         }
-        public static string GetLanguagePackDirectory()
-        {
-            if (Application.isEditor)
-            {
-                var path = Application.dataPath;
-                path = Path.GetDirectoryName(path);
-                return Path.Combine(path, "ExternalData", "languages");
-            }
-            return Path.Combine(Application.streamingAssetsPath, "languages");
-        }
-        public static void CompressLanguagePack(string sourceDirectory, string destPath)
-        {
-            var sourceDirInfo = new DirectoryInfo(sourceDirectory);
-            var files = Directory.GetFiles(sourceDirectory, "*", SearchOption.AllDirectories);
-            using var stream = File.Open(destPath, FileMode.Create);
-            using var archive = new ZipArchive(stream, ZipArchiveMode.Create);
-
-            foreach (var filePath in files)
-            {
-                var entryName = Path.GetRelativePath(sourceDirectory, filePath);
-                var entry = archive.CreateEntryFromFile(filePath, entryName);
-            }
-        }
         public LanguagePack ReadLanguagePack(string path)
         {
             using var stream = File.Open(path, FileMode.Open);
+            return ReadLanguagePack(stream);
+        }
+        public LanguagePack ReadLanguagePack(byte[] bytes)
+        {
+            using var memory = new MemoryStream(bytes);
+            return ReadLanguagePack(memory);
+        }
+        public LanguagePack ReadLanguagePack(Stream stream)
+        {
             using var archive = new ZipArchive(stream);
 
             var metadataEntry = archive.GetEntry(metadataName);

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Xml;
-using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level.Components;
 using PVZEngine;

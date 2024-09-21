@@ -89,6 +89,8 @@ namespace MVZ2.Level
             UpdateDifficultyName();
             UpdateLevelUI(0);
 
+            SetCameraToLawn();
+
             isGameStarted = true;
 
             foreach (var component in level.GetComponents())
@@ -101,6 +103,7 @@ namespace MVZ2.Level
 
             Pause();
             ShowLevelLoadedDialog();
+            levelLoaded = true;
         }
 
         #endregion

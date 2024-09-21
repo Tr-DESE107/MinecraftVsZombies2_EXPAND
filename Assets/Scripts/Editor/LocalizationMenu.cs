@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.IO.Compression;
 using MukioI18n;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -40,11 +41,30 @@ namespace MVZ2.Editor
         [MenuItem("Custom/Localization/Compress Langauge Pack")]
         public static void CompressLanguagePack()
         {
-            var path = LanguageManager.GetLanguagePackDirectory();
+            var path = GetLanguagePackDirectory();
             var dirPath = Path.Combine(Application.dataPath, "Localization", "pack");
-            var destPath = Path.Combine(path, "builtin.pack");
-            LanguageManager.CompressLanguagePack(dirPath, destPath);
+            var destPath = Path.Combine(path, "builtin.bytes");
+            CompressLanguagePack(dirPath, destPath);
+            AssetDatabase.Refresh();
             Debug.Log("Langauge Pack Compressed.");
+        }
+        public static void CompressLanguagePack(string sourceDirectory, string destPath)
+        {
+            FileHelper.ValidateDirectory(destPath);
+            var sourceDirInfo = new DirectoryInfo(sourceDirectory);
+            var files = Directory.GetFiles(sourceDirectory, "*", SearchOption.AllDirectories);
+            using var stream = File.Open(destPath, FileMode.Create);
+            using var archive = new ZipArchive(stream, ZipArchiveMode.Create);
+
+            foreach (var filePath in files)
+            {
+                var entryName = Path.GetRelativePath(sourceDirectory, filePath);
+                var entry = archive.CreateEntryFromFile(filePath, entryName);
+            }
+        }
+        public static string GetLanguagePackDirectory()
+        {
+            return Path.Combine(Application.dataPath, "GameContent", "LanguagePacks");
         }
         static void SearchObject(Transform tr, MukioPotGenerator pot)
         {

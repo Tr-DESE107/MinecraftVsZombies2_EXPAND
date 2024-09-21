@@ -393,6 +393,8 @@ namespace MVZ2.Level
             var levelUI = GetLevelUI();
             levelUI.SetPauseDialogActive(false);
             levelUI.SetOptionsDialogActive(false);
+            levelUI.SetLevelLoadedDialogVisible(false);
+            levelLoaded = false;
         }
         private void UpdateFocusLost(bool focus)
         {
@@ -522,7 +524,7 @@ namespace MVZ2.Level
 #endif
             if (!isGameOver)
             {
-                if (isGameStarted)
+                if (isGameStarted && !levelLoaded)
                 {
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
@@ -598,6 +600,7 @@ namespace MVZ2.Level
         private MainManager Main => MainManager.Instance;
         private LevelEngine level;
         private bool isPaused = false;
+        private bool levelLoaded = true;
         private bool isGameStarted;
         private bool isGameOver;
         private bool speedUp;

@@ -1,0 +1,1701 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: dependencies
+  m_EditorClassIdentifier: 
+  m_GroupName: dependencies
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 193f1ea0ce7ba97409722aa7e95ba125
+  m_SerializeEntries:
+  - m_GUID: 227f1415773a5194c8d41771c4329d23
+    m_Address: 227f1415773a5194c8d41771c4329d23
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 472858aad77242147ae5c15f47b7aab0
+    m_Address: Assets/Prefabs/Models/_Base/ArmorModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8831902be3baaeb42bd2369c1e280b2f
+    m_Address: Assets/Prefabs/Models/_Base/Model.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0518633751bb81b40aeb929df85a1a64
+    m_Address: 0518633751bb81b40aeb929df85a1a64
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9abc2d1d73694ef4798b808c036c46ae
+    m_Address: 9abc2d1d73694ef4798b808c036c46ae
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 330020be876ccc1459bd1fd9ee18152a
+    m_Address: Assets/Shaders/entity.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4604673f13e91a847a5781f0d106be31
+    m_Address: Assets/Textures/Armors/iron_helmet.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5823169e2b4ffa4ea5db2df43246c92
+    m_Address: Assets/Animation/Entities/Armors/IronHelmet/iron_helmet.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47ce2b2a42b33624081ebb4fff663cf7
+    m_Address: 47ce2b2a42b33624081ebb4fff663cf7
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b48eb5ac3b4baaf4d87cff20825e50ad
+    m_Address: Assets/Animation/Entities/Armors/IronHelmet/iron_helmet_damaged.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78bbd4fba782a7947aa9388e823ce458
+    m_Address: Assets/Animation/Entities/Armors/IronHelmet/iron_helmet_broken.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7781cc4a7453674ca52e11169d03ee7
+    m_Address: Assets/Animation/Entities/Armors/IronHelmet/iron_helmet_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e336ff858b2a96e4588529934206cbad
+    m_Address: Assets/Textures/noise.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbec3a6887d19854c839fac1474ec945
+    m_Address: Assets/Materials/entity.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 366c1d7ae1a0dbc4f99a5d9661b238eb
+    m_Address: Assets/Animation/Entities/Armors/LeatherCap/leather_cap_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 322df065ba413c844b5dce8b3a34b8fd
+    m_Address: Assets/Animation/Entities/Armors/LeatherCap/leather_cap_damaged.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5645667a7925b494ba7a15deda7b72e5
+    m_Address: Assets/Animation/Entities/Armors/LeatherCap/leather_cap_broken.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03832b8b573fa884993ba7232246622f
+    m_Address: Assets/Textures/Armors/leather_cap.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdaf08b8c2514244cb0e97eb6aa061ee
+    m_Address: Assets/Animation/Entities/Armors/LeatherCap/leather_cap.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2acd2b7814e32a64f8f459c37b449d53
+    m_Address: Assets/Prefabs/Models/_Base/CartModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d9178829e9e3e340b9f8df54bfcbbb5
+    m_Address: Assets/Textures/Carts/minecart.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8b5fc6bc8605c7498d0a162438727ce
+    m_Address: Assets/Textures/Particles/particle_outline.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cfbe646a11a9544285a43058bb9c176
+    m_Address: Assets/Animation/Entities/Dispenser/dispenser_shoot.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
+    m_Address: Assets/Textures/Particles/flash.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3ffec953f3b51d4fbe1130f7e6f67e5
+    m_Address: Assets/Textures/Contraptions/dispenser.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d70d62722151087409d72ed6d98d22a8
+    m_Address: Assets/Prefabs/Particle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8efefac9bfda7204fa5e681ebece2bd5
+    m_Address: Assets/Animation/Entities/Dispenser/dispenser_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21615b35e154908418c75836a33b9924
+    m_Address: Assets/Materials/contraption.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52a5bfbab5a5c31459ac4f5776975168
+    m_Address: Assets/Animation/Entities/Dispenser/dispenser.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b945c9918327bcc4f9bd3fabcb076700
+    m_Address: Assets/Prefabs/Models/_Base/ContraptionModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c6b70938912efd41ae1b06e741430ae
+    m_Address: 4c6b70938912efd41ae1b06e741430ae
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53359ca663efade43b3230937f7c2e82
+    m_Address: Assets/Animation/Entities/Furnace/furnace.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 516d74eccaaf1e24fb1a0ab53d0f2657
+    m_Address: Assets/Textures/Contraptions/furnace.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d85cbeb77563b9c448535146d352551c
+    m_Address: Assets/Animation/Entities/Furnace/furnace_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9eaaff40137b4a48ae370a62af9d163
+    m_Address: Assets/Animation/Entities/Furnace/furnace_work.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cacaf09671bbf9349960285c0a3bb560
+    m_Address: Assets/Animation/Entities/MineTNT/mine_tnt_hidden.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b23618a9d507454ea45d59c9299b145
+    m_Address: Assets/Animation/Entities/MineTNT/mine_tnt.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4248bf9361ced74c8135ccc08eb2f44
+    m_Address: Assets/Textures/square.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a95d3df0c2f89584b9f61c9c791ec13d
+    m_Address: Assets/Animation/Entities/MineTNT/mine_tnt_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caad8c3049dedbb4796afa81b872ead5
+    m_Address: Assets/Textures/Contraptions/mine_dirt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f0a8eaf9b153b3429a373a0155f968f
+    m_Address: Assets/Textures/Contraptions/tnt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56a1aecfe28a6d846b7a243cef82a39a
+    m_Address: Assets/Animation/Entities/MineTNT/mine_tnt_rise.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cd67e193c23b1f46ae2e123c4a0bd3a
+    m_Address: Assets/Textures/Contraptions/pressure_plate.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7cb0ec4cbe18ee42a16781ab8868465
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian_armored_damaged.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d6f8c2182f473f448a8e641debd769c
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian_broken.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be02d6f910cf2224d902910914410271
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian_armored_broken.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04dc216cf6bf78b47b013a94ceaa8b3d
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian_damaged.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33ba0e7c1de18b4489b11c2050dff351
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b71851861a6a4934cbe0caadef2e91cc
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian_armored.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7222bd5e75cfb9648bebd40d7a9e1f04
+    m_Address: Assets/Animation/Entities/Obsidian/obsidian.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86a0b0aabb4ceca42a409ee8c656695a
+    m_Address: Assets/Textures/Contraptions/obsidian.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14179179cc7d1c8418cf76f39b9e1316
+    m_Address: Assets/Animation/Entities/Fragment/fragment.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6adce0cefee23234890fc9d72d6c6fe8
+    m_Address: Assets/Animation/Entities/Fragment/fragment_on.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53551aac6de617747bf4df641b1c506d
+    m_Address: Assets/Prefabs/Models/_Base/EffectModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16d04645d7fb02e499e4a83b96f836fe
+    m_Address: 16d04645d7fb02e499e4a83b96f836fe
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a86b26689fa937a498456ef9f0f05b95
+    m_Address: Assets/Textures/Particles/fragment.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e96af0d13def4d944896740ceea141fa
+    m_Address: e96af0d13def4d944896740ceea141fa
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f30bfa3d16bb2884fa235562e4ffa57f
+    m_Address: Assets/Animation/Entities/MineDebris/mine_debris_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfc407fef2adb174fbe34d5fb6918389
+    m_Address: cfc407fef2adb174fbe34d5fb6918389
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8cc2e256684364897cd68a561a74bf
+    m_Address: Assets/Textures/Effects/mine_debris.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abb3b12df4cc24745898eb9762e0a56c
+    m_Address: Assets/Animation/Entities/MineDebris/mine_debris.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb5e2bc67116432448cc7b7883ec618c
+    m_Address: Assets/Animation/Entities/Miner/miner.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b391cd78e387a1489b9fb97806ca692
+    m_Address: Assets/Animation/Entities/Miner/miner_work.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
+    m_Address: Assets/Textures/Effects/Miner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 444df9eac7dedc74c8aa58ca0d13191c
+    m_Address: Assets/Animation/Entities/Miner/miner_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d57a55de4390bb240b7b2d063fcade82
+    m_Address: Assets/Animation/Entities/Zombie/zombie_damaged.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65f232ed16af051458c848aa910800b1
+    m_Address: Assets/Animation/Entities/Zombie/zombie_boat_none.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9f2b634143e6e64a8d38e856f65869a
+    m_Address: Assets/Animation/Entities/Zombie/zombie_flag_none.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6f28270b534c3d4fb188d59db91c8fb
+    m_Address: Assets/Animation/Entities/Zombie/zombie_attack.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fd85005af7ce8468e98426de312865
+    m_Address: Assets/Animation/Entities/Zombie/zombie_die.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17d2130bd10576f4ab5abd6884e7589c
+    m_Address: Assets/Animation/Entities/Zombie/zombie_walk.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 892e4149fd693fe46b55bb7bc3236fe8
+    m_Address: Assets/Animation/Entities/Zombie/zombie.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ee7e3c6233a6be4191bfd80ff87e80e
+    m_Address: Assets/Textures/Enemies/boat.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9f334efce3476947b4df652d7c70710
+    m_Address: Assets/Animation/Entities/Zombie/zombie_stand.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b7591e03ea16c14baa943a1370d5f24
+    m_Address: Assets/Animation/Entities/Zombie/zombie_none.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2bf8c3bc4226ec4d8c03ac6b23a5553
+    m_Address: Assets/Animation/Entities/Zombie/zombie_flag_exist.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfb65a4dd3d782f4faf213897e7b3cd8
+    m_Address: Assets/Animation/Entities/Zombie/zombie_cast.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58eadcb8281219a418802875c2f38bbe
+    m_Address: Assets/Textures/Armors/flag.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 197b9d5f83cb74543a415544caa4eca8
+    m_Address: Assets/Animation/Entities/Zombie/zombie_not_damaged.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
+    m_Address: Assets/Textures/Enemies/zombie.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a59f156b7312964eaf4237b532d1191
+    m_Address: Assets/Animation/Entities/Zombie/zombie_boat_exist.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 689034d4e1df7594b85450c0b364f6b6
+    m_Address: Assets/Prefabs/Models/_Base/EnemyModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4bcb4a36c4807547bd214731667c8d2
+    m_Address: Assets/Prefabs/Models/_Base/PickupModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99fdfba4aeff67c43b3124c97a3a0dd7
+    m_Address: Assets/Textures/Pickups/Redstone.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01ea06eaff14a0746a137123701e46b3
+    m_Address: Assets/Textures/Projectiles/arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b69825c292961840a29fdc677b9453a
+    m_Address: Assets/Prefabs/Models/_Base/ProjectileModel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bee4c5ccd7fcc24db2be5193824a36c
+    m_Address: Assets/Shaders/model3d.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91b0771432ad53b49a90770e681c33eb
+    m_Address: Assets/Animation/Entities/MineTNTSeed/mine_tnt_seed_rotate.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8f0d1ad4664a88499c9c8662e813b5e
+    m_Address: Assets/Materials/tnt_seed.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f80de695b1916f443872d0fbef73c5fb
+    m_Address: Assets/Models/Block.obj
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3914c600c554d34da0a87ec1b49c20d
+    m_Address: Assets/Animation/Entities/MineTNTSeed/mine_tnt_seed.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dcf2a5a02a900846ab9ca6458a25522
+    m_Address: Assets/Textures/Projectiles/tnt_model.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d8919103acb38b42be34804da617729
+    m_Address: Assets/Prefabs/Level/Level.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f237f8dd88bea8743bfcaec3b9163f19
+    m_Address: f237f8dd88bea8743bfcaec3b9163f19
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 110f160f9f7d6254cb1ff3a48ea6086e
+    m_Address: 110f160f9f7d6254cb1ff3a48ea6086e
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e88f993462edd224d86a6abb5b6250c3
+    m_Address: e88f993462edd224d86a6abb5b6250c3
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eff9242b77db87440adc80dd250dd44a
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_show.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1aa08ab6e0800fa44ae55d278d1423e3
+    m_Address: 1aa08ab6e0800fa44ae55d278d1423e3
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8377ca22c43dd784f85308891f7c59a7
+    m_Address: Assets/Textures/Level/UI/card_curtain.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8951be889575e16409d78382d910e690
+    m_Address: Assets/Prefabs/UI/Dialogs/GameOverDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbb9e0ce7c5197043830d7413fb4b6c7
+    m_Address: fbb9e0ce7c5197043830d7413fb4b6c7
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 260154c2fe2dee949af7eafc9c867f05
+    m_Address: Assets/Fonts/minecraft_font.otf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6dd5a6d92204bca41a3e946f1a179077
+    m_Address: 6dd5a6d92204bca41a3e946f1a179077
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe87c0e1cc204ed48ad3b37840f39efc
+    m_Address: fe87c0e1cc204ed48ad3b37840f39efc
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3fb8d61fec87704189d63aacaa3814c
+    m_Address: Assets/Textures/Level/UI/starshard_point.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0253ed2339497eb43a7e9753f34de79a
+    m_Address: Assets/Fonts/minecraft_font_outline.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d59f27f60f2b2c64fa8deacb7abbdf87
+    m_Address: d59f27f60f2b2c64fa8deacb7abbdf87
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b2e55d12d554ed4f9bf1c03efdee504
+    m_Address: Assets/Textures/Level/day_door.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2156299c9ad6a149827e1ee60c23f79
+    m_Address: Assets/Textures/Level/UI/ProgressBar/level_progress_bar.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0073cab635d76f246a30e3abd3ab7e0f
+    m_Address: Assets/Animation/LevelUI/YouDied/you_died.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bab90e1a9c25324cbcc21e59508834d
+    m_Address: 8bab90e1a9c25324cbcc21e59508834d
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94857d9dd9d48ec48820e0ea20ab2893
+    m_Address: 94857d9dd9d48ec48820e0ea20ab2893
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9f046bb0bbb46546bff5500c0c6fdab
+    m_Address: Assets/Textures/Level/UI/energy_slot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e25f8212df4ceb942a9cad7fffc214c2
+    m_Address: e25f8212df4ceb942a9cad7fffc214c2
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3245ec927659c4140ac4f8d17403cc18
+    m_Address: 3245ec927659c4140ac4f8d17403cc18
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb5af6f4487ddb94d8e6ff0e67b267d0
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_enter.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e682d41aaaa89540b1d4b50090d2736
+    m_Address: Assets/Prefabs/Level/UI/EnergyPanelMobile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 249bff1de5d47004baf9588eba3757a7
+    m_Address: Assets/Textures/UI/button_disabled.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3271dde185726664f9327d84700c9c21
+    m_Address: Assets/Fonts/minecraft_font.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cd44c1031e13a943bb63640046fad76
+    m_Address: 0cd44c1031e13a943bb63640046fad76
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3db666493f8aba49bce78e3ba27ef65
+    m_Address: Assets/Prefabs/UI/Dialogs/OptionsDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ffcd0d5a258fee40a459a6ccb1316de
+    m_Address: Assets/Fonts/minecraft_font_shadow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 133d49a43aee59c4abc5430c7b854e25
+    m_Address: Assets/Prefabs/UI/SpeechBubble.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f8a5f5d157306441bcb7345644e34d9
+    m_Address: 6f8a5f5d157306441bcb7345644e34d9
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c96dfc1434af4a641a4f84e202b31d6b
+    m_Address: Assets/Prefabs/Level/UI/ProgressBar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 998fdb0dccbdfb4458d393397ba444c4
+    m_Address: Assets/Prefabs/Level/UI/FinalWave.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50dfbc34e69bd36419926d73d182cc88
+    m_Address: 50dfbc34e69bd36419926d73d182cc88
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf689ec965f1a93419d22bcf54d03206
+    m_Address: Assets/Prefabs/UI/Talk.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1972412161e13204499c7490327399f5
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_leave.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc77ec2e1aa491a4c8d40bfd6bf0802b
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b197e8d3bbd24b49b12d470d4c933f5
+    m_Address: 9b197e8d3bbd24b49b12d470d4c933f5
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f78452808942ee44788486d7d89859bd
+    m_Address: f78452808942ee44788486d7d89859bd
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9d5243df16e2fc409d73a67d316f14c
+    m_Address: Assets/Animation/LevelUI/ReadySetBuild/ready_set_build.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54d15402f15189c42a0e0e0955892f6e
+    m_Address: Assets/Textures/UI/button_highlighted.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6be91ec42a553aa4489d5429b0576a27
+    m_Address: Assets/Textures/UI/speed_up.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 402d1ee357d9650409da3f6713dd371c
+    m_Address: Assets/Textures/Level/UI/starshard.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90ccf2b0402cfd841acee59a9359d7f9
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_speaking_leave.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7b10122b4c90614e9ad081466b03bc0
+    m_Address: c7b10122b4c90614e9ad081466b03bc0
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddcdd2fcc671d3646a8c49fe2ebca01c
+    m_Address: Assets/Prefabs/UI/TextButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1e772e448f3c4f48b0de3d012316d88
+    m_Address: Assets/Prefabs/UI/Dialogs/LevelErrorLoadingDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb15cd6c556e4824c941a7c77c3eb86e
+    m_Address: Assets/Textures/Level/day.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e672bc4b8901cf48bf235f8a9f5ccd2
+    m_Address: 6e672bc4b8901cf48bf235f8a9f5ccd2
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1dc1c86635d37be44b1cfa986a7fdbca
+    m_Address: Assets/Animation/LevelUI/HugeWave/huge_wave.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3797a666ec2b66844ba158667be7226a
+    m_Address: Assets/Prefabs/Level/UI/LevelName.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22ecb9cec5ca01e4086b4900473c81f3
+    m_Address: Assets/Prefabs/UI/ImageButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc15180aa484bbe498d127055b576f1a
+    m_Address: fc15180aa484bbe498d127055b576f1a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 197e218a77a37754fac3af9200c19683
+    m_Address: 197e218a77a37754fac3af9200c19683
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2276e0be6a4d1e468d697ec67f200cf
+    m_Address: Assets/Prefabs/UI/Dialogs/LevelLoadedDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1ea5837e819e354b941385b7e6d4354
+    m_Address: Assets/Animation/LevelUI/HintArrow/hint_arrow_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9085046f02f69544eb97fd06b6048fe2
+    m_Address: 9085046f02f69544eb97fd06b6048fe2
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0784b30367a6d9641ada63bda6ec2336
+    m_Address: Assets/Textures/Level/UI/Mobile/selected.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 945bda9db910c474f914bb2feee3518e
+    m_Address: Assets/Prefabs/Level/Views/PrologueView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0840aed6efdce94985847a302b9441f
+    m_Address: e0840aed6efdce94985847a302b9441f
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e930dda385f41e84c81364a6f231b988
+    m_Address: Assets/Prefabs/Level/UI/StarshardSlot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23645a3b80625764cbb9c90ed96f0024
+    m_Address: Assets/Textures/Level/UI/Mobile/energy_slot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18741b4c358492b4d9414fed5cbdde93
+    m_Address: 18741b4c358492b4d9414fed5cbdde93
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a62d2d86c3da6164fb85ab8fef46149f
+    m_Address: Assets/Textures/Level/UI/Mobile/card_mobile.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 306cc8c2b49d7114eaa3623786fc2126
+    m_Address: 306cc8c2b49d7114eaa3623786fc2126
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27b703c4e9d50e94b8360d75312b3972
+    m_Address: Assets/Prefabs/Level/UI/HugeWave.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86710e43de46f6f4bac7c8e50813a599
+    m_Address: 86710e43de46f6f4bac7c8e50813a599
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ac2cc708daab0a45bdbb18fcd6d12eb
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_right.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23576b1f7e3a27e45af33cb0ad4f201b
+    m_Address: Assets/Textures/Level/UI/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45676c5928868ae4092cf6ecaeb3f4d6
+    m_Address: Assets/Textures/Level/UI/Mobile/trigger_gear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b56f2710b087e74190f0ad539f71138
+    m_Address: Assets/Fonts/unifont.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3df5bc97465a5d04ea01fea5ce972f3a
+    m_Address: 3df5bc97465a5d04ea01fea5ce972f3a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d808ca55c911a248b2b788e0160b2e6
+    m_Address: Assets/Animation/LevelUI/HugeWave/huge_wave.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e784c0427ce232488fd2f10b6bee02f
+    m_Address: Assets/Textures/UI/speed_up_active.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 041d96c7eff5c5141abd0d0316e081d0
+    m_Address: Assets/Materials/shading/darkness.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9e913e5bc94c0c49808cc3e0c25228a
+    m_Address: Assets/Textures/Level/day_house_cover.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59f8146938fff824cb5fd77236b75775
+    m_Address: 59f8146938fff824cb5fd77236b75775
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a4db7a114972834c8e4117be1d82ba3
+    m_Address: 2a4db7a114972834c8e4117be1d82ba3
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b743370ac3e4ec2a1668f5455a8ef8a
+    m_Address: 7b743370ac3e4ec2a1668f5455a8ef8a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0473f920090d7f41b244edfaaa8c7f3
+    m_Address: a0473f920090d7f41b244edfaaa8c7f3
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0079bb959da9f684786d7c4800cad4a3
+    m_Address: Assets/Prefabs/Level/UI/Advice.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a9792724dfb2274bb43590372e056b9
+    m_Address: 4a9792724dfb2274bb43590372e056b9
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df85cd15e8709764fa45652ed8205987
+    m_Address: Assets/Prefabs/UI/MoneyPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb1cd08fc3eeb78489f9e7dc88df493d
+    m_Address: Assets/Prefabs/Level/UI/Tooltip.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67db9e8f0e2ae9c40bc1e2b64352a6b4
+    m_Address: 67db9e8f0e2ae9c40bc1e2b64352a6b4
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b47a1518c66bede45857d4f085113863
+    m_Address: Assets/Animation/LevelUI/FinalWave/final_wave.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68e6db2ebdc24f95958faec2be5558d6
+    m_Address: Assets/TextMesh Pro/Shaders/TMP_SDF.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb5f3afbbabc5d9488d3632e74eb3b4c
+    m_Address: cb5f3afbbabc5d9488d3632e74eb3b4c
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30649d3a9faa99c48a7b1166b86bf2a0
+    m_Address: 30649d3a9faa99c48a7b1166b86bf2a0
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0baac1c4285e38f43aa65b8e2bf49a46
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_left.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2e00ad79dae51a4cb8a04953096dd58
+    m_Address: Assets/Fonts/unifont.otf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 267998c278e916848afc8f7f0add2e43
+    m_Address: Assets/Prefabs/Level/UI/PickaxeSlotMobile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47f64bb4f9829ae49a99df91e2c19d03
+    m_Address: Assets/Textures/Level/UI/Mobile/card_curtain.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4688fdb7df04437aeb418b961361dc5
+    m_Address: f4688fdb7df04437aeb418b961361dc5
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe393ace9b354375a9cb14cdbbc28be4
+    m_Address: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c155734170259d94aa41aa0296fba9ce
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_down.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e24f506998c375468b7d055cda2a821
+    m_Address: 9e24f506998c375468b7d055cda2a821
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97699913659d70548a705a92f8efbaca
+    m_Address: 97699913659d70548a705a92f8efbaca
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d19bad19203f7574ba7e02894066b47a
+    m_Address: d19bad19203f7574ba7e02894066b47a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a3f8e7afbd339e4589c8f77bac929d9
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_idle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ad514cfa5facc641aff7e79a21b80ee
+    m_Address: Assets/Prefabs/Level/UI/EnergyPanelStandalone.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85871b2edccd3f246aa9b0d5ab040b3a
+    m_Address: Assets/Animation/LevelUI/ReadySetBuild/ready_set_build.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b626708772b5ae44699b01c650dcf73f
+    m_Address: Assets/Textures/Level/UI/starshard_slot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b02555eba453c644bba76281bfaa3078
+    m_Address: b02555eba453c644bba76281bfaa3078
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6abadcaddc169fe40aa3e29fb12f7f57
+    m_Address: 6abadcaddc169fe40aa3e29fb12f7f57
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebf191e7b65d79843b8fe836c1333c10
+    m_Address: Assets/Prefabs/UI/Slider.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a3b8b44fe6e661499916b5673d5e483
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_speak.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f2a0d03c8c4dc4d9e37942fd99cfa4
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_up.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67f37128752e1854f8ac709a03e35b8e
+    m_Address: 67f37128752e1854f8ac709a03e35b8e
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 033dd59ce2dc153448fa75a2e0c608b3
+    m_Address: Assets/Prefabs/Entity/Entity.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 388288e48645ca54595e057cba58da6f
+    m_Address: 388288e48645ca54595e057cba58da6f
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1aefc59239478744b6bdc884a1fc842
+    m_Address: Assets/Textures/Level/UI/wallet.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d67a6e55296b4024991184a0c4dcc47d
+    m_Address: Assets/Animation/LevelUI/FinalWave/final_wave.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9183b342897dd14408e465e5f073d81b
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble_hidden.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f390100601ad9a44a0d01b7ecc0b132
+    m_Address: 2f390100601ad9a44a0d01b7ecc0b132
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bfaa6717dc27ec45a34c584136182c3
+    m_Address: Assets/Animation/Talk/speech_bubble/speech_bubble.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31a19414c41e5ae4aae2af33fee712f6
+    m_Address: 31a19414c41e5ae4aae2af33fee712f6
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1344c3c82d62a2a41a3576d8abb8e3ea
+    m_Address: 1344c3c82d62a2a41a3576d8abb8e3ea
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 374545445b0c8534d9f83b29325cf7a7
+    m_Address: Assets/Animation/LevelUI/HintArrow/hint_arrow.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32cd59aafdc3bdf4791da50017c9a7ea
+    m_Address: Assets/Animation/Blueprint/standalone/blueprint_standalone_no_twinkling.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f0b991351a6d82438478d5887e46544
+    m_Address: Assets/Prefabs/Level/UI/ReadySetBuild.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd4d45b4709f67f48ab0a084f1b8199a
+    m_Address: Assets/Prefabs/UI/Dropdown.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e29b1a8efbd4b44bb3f3716e73f07ff
+    m_Address: 4e29b1a8efbd4b44bb3f3716e73f07ff
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff44e922c0b7fc14495a9f2164d4b6e8
+    m_Address: Assets/Prefabs/Level/UI/SideReceiver.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e244a816d5bd4a44d9e872e86afc809d
+    m_Address: Assets/Animation/Blueprint/mobile/blueprint_mobile_no_twinkling.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41b80df373f9cc545b4c0896d1c59359
+    m_Address: 41b80df373f9cc545b4c0896d1c59359
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cd6125a6ed6e684f9828314315b1d8e
+    m_Address: Assets/Textures/LightRenderTexture.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb8d93fdba079384caf6cc18707bec94
+    m_Address: eb8d93fdba079384caf6cc18707bec94
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbde7b08383e8074a9147fda9c6862f9
+    m_Address: dbde7b08383e8074a9147fda9c6862f9
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71c1514a6bd24e1e882cebbe1904ce04
+    m_Address: 71c1514a6bd24e1e882cebbe1904ce04
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 684c368f87f216448aa4fb749e4d91de
+    m_Address: 684c368f87f216448aa4fb749e4d91de
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 967f5fa6c99ba5a4e81e18c343429834
+    m_Address: Assets/Animation/Blueprint/mobile/blueprint_mobile.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b4eb655861939d418777eb4cd82f678
+    m_Address: Assets/Prefabs/UI/TalkCharacter.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c3e7349212bcbe408ffbcb3665a58a3
+    m_Address: Assets/Textures/ShadowRenderTexture.renderTexture
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ee5a9cdf2e7d6240854856056bd20ed
+    m_Address: Assets/Prefabs/Level/UI/PickaxeSlotStandalone.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7319700d2aad2f649bc293f1dfcc147f
+    m_Address: Assets/Animation/LevelUI/YouDied/you_died.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d45242dcd3593b846a4ac4e69be3c022
+    m_Address: Assets/Animation/Blueprint/mobile/blueprint_mobile_twinkling.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb83d19fc9de5bd43b74e3a5d47144b0
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_mute.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 623be27dc7187ac4a9f24ca87bb1d3b6
+    m_Address: Assets/Prefabs/Entity/Shadow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b149303dbaf941b4ba2483460e17bf86
+    m_Address: Assets/Prefabs/Level/UI/BlueprintMobile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc1332b8f9ae59647aa7ab46db07a333
+    m_Address: bc1332b8f9ae59647aa7ab46db07a333
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24d902c61d41892478d085a513cc421a
+    m_Address: Assets/Textures/Level/UI/ProgressBar/level_progress_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56666c5a40171f54783dd416a44f42bf
+    m_Address: 56666c5a40171f54783dd416a44f42bf
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cb8b7b21ed1264448b47a77b1bf79c3
+    m_Address: Assets/Prefabs/Level/UI/BlueprintStandalone.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cea6564201783f4c89229e7e527784f
+    m_Address: 4cea6564201783f4c89229e7e527784f
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f2f4e63d086c1c4d8d62d9d14a418d9
+    m_Address: Assets/Textures/UI/button.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be87a533caf550d4bb4e6663e340c54d
+    m_Address: Assets/Animation/Blueprint/standalone/blueprint_standalone.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e498d1c8094910479dc3e1b768306a4
+    m_Address: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Fallback.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dabb85b8cea48d49aa6f0a4838046d5
+    m_Address: Assets/Prefabs/Level/Lane.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9a48aea9c652ad43a6ea42e6fac9542
+    m_Address: Assets/Animation/Talk/talk_character/talk_character.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d163ee5f9e13eac4ca1859e348085a3d
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_none.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68dd7590445ee8343acf2b74a4e87210
+    m_Address: 68dd7590445ee8343acf2b74a4e87210
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4a708769260d274680898bd48f233df
+    m_Address: c4a708769260d274680898bd48f233df
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcde95a2b3dfbe4488e02dbfc287ee81
+    m_Address: Assets/Prefabs/Level/Arrow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aba17c9cb2acbde4b88d1847f6bba2a6
+    m_Address: aba17c9cb2acbde4b88d1847f6bba2a6
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5c827731a69e09499b50b2aec05be40
+    m_Address: f5c827731a69e09499b50b2aec05be40
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4339bf5f9f84c374c80373f3c986dc65
+    m_Address: Assets/Textures/Level/UI/pickaxe_slot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6e46e1c712e202428b8956dcaa82142
+    m_Address: a6e46e1c712e202428b8956dcaa82142
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a35cbd7b091ff134fb70819c318f7651
+    m_Address: a35cbd7b091ff134fb70819c318f7651
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97486648199ea214988c77f0736bdf19
+    m_Address: 97486648199ea214988c77f0736bdf19
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 202f2bf5e244db84da0dfdbaeb21dee0
+    m_Address: 202f2bf5e244db84da0dfdbaeb21dee0
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43d0c46d78f545946b9f8472fc64be72
+    m_Address: Assets/Textures/Level/UI/ProgressBar/level_progress_banner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36a1d82e3979cb24f9036b321a8f36da
+    m_Address: Assets/Prefabs/Level/UI/SpeedUpButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9c3afa979032394891b052be3b5eb07
+    m_Address: Assets/Animation/Talk/talk_character/talk_character_speaking.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73b080b4a290289488ad4d44b5a99c34
+    m_Address: Assets/Prefabs/Level/UI/YouDied.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ee8f3e43fcc1844dac2763789896186
+    m_Address: Assets/Animation/Blueprint/standalone/blueprint_standalone_twinkling.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ac39d519d5b7564dbf3a99440d3aae2
+    m_Address: 1ac39d519d5b7564dbf3a99440d3aae2
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e54f2595624bbc447b98881de587ce72
+    m_Address: Assets/Textures/UI/hint_arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d2a230b419fef4e989eda69318a20a
+    m_Address: c3d2a230b419fef4e989eda69318a20a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e37c673705f6c8f44bd1d620e1eb111a
+    m_Address: e37c673705f6c8f44bd1d620e1eb111a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28d3c52e6dcb031479123c61e22546ae
+    m_Address: Assets/Prefabs/Level/Grid.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5ccd0b2064964141897d244b8b815bf
+    m_Address: Assets/Textures/Level/UI/Mobile/trigger_gear_slot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc42784cf147c0c48a680349fa168899
+    m_Address: dc42784cf147c0c48a680349fa168899
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0b6596cc1138244495a3d6fd3ba9f24
+    m_Address: Assets/Prefabs/UI/TextSlider.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85fc4cf81c16b5f40a5aca54cdc85565
+    m_Address: Assets/Textures/shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b34bc915055138f4b98fddeb34062934
+    m_Address: Assets/Textures/Level/UI/ProgressBar/level_progress_flag_pole.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bff10e63feb7674e9db74e02ab78e3d
+    m_Address: Assets/Shaders/Shading/darkness.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af4145d02f458a942bbb481bfdcf237f
+    m_Address: Assets/Prefabs/UI/LabeledDropdown.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3265ab4bf004d28a9537516768c1c75
+    m_Address: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71aad52f0a4282641a59ab8f1dc541d5
+    m_Address: 71aad52f0a4282641a59ab8f1dc541d5
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c308516223b2e34e9b4a4bbda3c0c03
+    m_Address: Assets/Textures/Cursors/move.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17356241becec2741948d1ef55c6cfb0
+    m_Address: Assets/Prefabs/Mainmenu/MainmenuButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50b7fab4764fb754aa33be483c78ae42
+    m_Address: 50b7fab4764fb754aa33be483c78ae42
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d478da8006bfa24fa6e6c29e58945a8
+    m_Address: Assets/Animation/Landing/landing.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 041ff549e863adf4fa0e554e312efd03
+    m_Address: Assets/Prefabs/UI/Dialogs/CustomDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec28551da2520044b9d43cf636cefc74
+    m_Address: Assets/Textures/Cursors/drag.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 862155e92706adf418647c95fba63038
+    m_Address: Assets/Textures/Cursors/arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d2a20e668454cc458c31f4055672488
+    m_Address: Assets/Animation/Titlescreen/titlescreen.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a75e870082a7f9f46b34aa9b6760a538
+    m_Address: a75e870082a7f9f46b34aa9b6760a538
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fe7118bcb306af43a71df659e3054f6
+    m_Address: 0fe7118bcb306af43a71df659e3054f6
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bad8dd7ca96eb047840a09bdbdcc162
+    m_Address: Assets/Textures/Mainmenu/submenu_background.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d32025451590f143a8bd84bef4e2e7f
+    m_Address: Assets/Prefabs/UI/InputField.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6f71f2de5fe62942a2e28c304bc594c
+    m_Address: Assets/Textures/Cursors/hand.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca24df4660bb145428d32bbd60ec09b7
+    m_Address: ca24df4660bb145428d32bbd60ec09b7
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aba2354dec08d03469f352cac83f71db
+    m_Address: aba2354dec08d03469f352cac83f71db
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be8a1b6b3f3933e48b251906c6ab34e6
+    m_Address: Assets/Prefabs/Titlescreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fafe2cfe61f6974895a912c3755e8f1
+    m_Address: 2fafe2cfe61f6974895a912c3755e8f1
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6c8af821cb5cda488227a6419a243cb
+    m_Address: e6c8af821cb5cda488227a6419a243cb
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e10ece44e3050a42a114e468c35721a
+    m_Address: 5e10ece44e3050a42a114e468c35721a
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2da0c512f12947e489f739169773d7ca
+    m_Address: 2da0c512f12947e489f739169773d7ca
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 523cd7d4af816fa41bc08f3cfb6c1d18
+    m_Address: Assets/Animation/Landing/landing.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 452c8577528c39f42847063a4778fdf2
+    m_Address: 452c8577528c39f42847063a4778fdf2
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25139b4adfd089b419f21cf03e1eaa84
+    m_Address: 25139b4adfd089b419f21cf03e1eaa84
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5530fcd3122b904080994aac60569e5
+    m_Address: Assets/Animation/Titlescreen/titlescreen.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 367bfabbbd59b874d9485b0191ce12f9
+    m_Address: 367bfabbbd59b874d9485b0191ce12f9
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9547ff9cd10dd4468b391fde2e31bb1
+    m_Address: c9547ff9cd10dd4468b391fde2e31bb1
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3312d7739989d2b4e91e6319e9a96d76
+    m_Address: 3312d7739989d2b4e91e6319e9a96d76
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 129a4fc404429774a82035e200ea4e06
+    m_Address: 129a4fc404429774a82035e200ea4e06
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6636fdae1c32c8d48a3345844b758a53
+    m_Address: Assets/Prefabs/UI/Dialogs/InputNameDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d7f3c7369b68684b9a88018c6176f7b
+    m_Address: Assets/Textures/Mainmenu/mainmenu_background_dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44f683dbeddce234ba35e194fcb55863
+    m_Address: 44f683dbeddce234ba35e194fcb55863
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b39697ef3e4f8c40b612723f1c7169c
+    m_Address: Assets/Prefabs/UI/Dialogs/UserManageDialog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fbbba219c45ca74497d29cf6fea2c5e
+    m_Address: Assets/Textures/Mainmenu/spruce_planks.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7339932124229c24c9c5941a06b266dd
+    m_Address: 7339932124229c24c9c5941a06b266dd
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f143525f8f919c84a92ad7721d6711ef
+    m_Address: f143525f8f919c84a92ad7721d6711ef
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9541d86e2fd84c1d9990edf0852d74ab
+    m_Address: 9541d86e2fd84c1d9990edf0852d74ab
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4f264a60e790ad4d8edd47b57ed0406
+    m_Address: c4f264a60e790ad4d8edd47b57ed0406
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c833ac401af4ce44c872c8fe55574646
+    m_Address: Assets/Textures/Mainmenu/birch_planks.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cb59ad6c574a064aba0e6f123cfdf1f
+    m_Address: Assets/Prefabs/Mainmenu/Mainmenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7f76fc21abb7e24381fcdfb962d85a1
+    m_Address: b7f76fc21abb7e24381fcdfb962d85a1
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 582a25cb5ce4236499edbe72e8eda564
+    m_Address: Assets/Mixers/Main.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 694d197fa305e314db5b3c0416d517cd
+    m_Address: Assets/Animation/Mainmenu/mainmenu.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fdd8c4b751dd0042bcb38e9e5ca5ff4
+    m_Address: 3fdd8c4b751dd0042bcb38e9e5ca5ff4
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 995545c6e0e2cba4b8369489053f4c60
+    m_Address: 995545c6e0e2cba4b8369489053f4c60
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ff84dcf58a3d1749b3247baff7503f7
+    m_Address: Assets/Animation/Note/note.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fa7f21a7f8675f47a19b64ae5086153
+    m_Address: Assets/Textures/Mainmenu/mainmenu.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2b78f1e4dc826e46b5f3b430a24ff2a
+    m_Address: Assets/Prefabs/Note.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f290a8cb18c67d4e9fb7ceb6e47b16d
+    m_Address: 4f290a8cb18c67d4e9fb7ceb6e47b16d
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0358425de8c56d54bb82d9b376792142
+    m_Address: 0358425de8c56d54bb82d9b376792142
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e6aa8abb442cb347b19049b79471118
+    m_Address: 9e6aa8abb442cb347b19049b79471118
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be25a5a5574e9c34687799cf1207d568
+    m_Address: be25a5a5574e9c34687799cf1207d568
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e60cd1c47fafd94387cdd64b4f80a56
+    m_Address: 5e60cd1c47fafd94387cdd64b4f80a56
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84932c00bd4836e4e99b86808b2c993f
+    m_Address: 84932c00bd4836e4e99b86808b2c993f
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b94dbe80d569394599f08fe99a580d7
+    m_Address: 4b94dbe80d569394599f08fe99a580d7
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 481742dc2fb41c042b26dda83965afb8
+    m_Address: 481742dc2fb41c042b26dda83965afb8
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f231c4fb786f3946a6b90b886c48677
+    m_Address: 4f231c4fb786f3946a6b90b886c48677
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76c392e42b5098c458856cdf6ecaaaa1
+    m_Address: 76c392e42b5098c458856cdf6ecaaaa1
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc2a147fd12b6054189c8d770380e000
+    m_Address: cc2a147fd12b6054189c8d770380e000
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2bee865fa604a744b40d9ad7c7a5123
+    m_Address: Assets/Prefabs/Landing.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77fac6b3fcdbc32429344df3df088ad6
+    m_Address: 77fac6b3fcdbc32429344df3df088ad6
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53d7eebb1fe12084bac7653fdfb7fbe5
+    m_Address: Assets/Animation/Note/note_enter.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98fd69ac848ec1f469d2de92d95e8d9a
+    m_Address: Assets/Animation/Mainmenu/mainmenu_start.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3aa46c26781242b43822997df85fd643, type: 2}
+    - {fileID: 11400000, guid: 573e71131d88de440aea2893b87651e6, type: 2}
