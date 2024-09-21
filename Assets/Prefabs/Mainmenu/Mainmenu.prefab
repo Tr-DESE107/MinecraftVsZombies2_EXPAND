@@ -2448,22 +2448,6 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
       value: 0.23266041
       objectReference: {fileID: 0}
-    - target: {fileID: 1512078254831172713, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
-      propertyPath: normalSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
-    - target: {fileID: 1512078254831172713, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
-      propertyPath: hoveredSprite
-      value: 
-      objectReference: {fileID: 21300002, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
-    - target: {fileID: 1512078254831172713, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
-      propertyPath: disabledSprite
-      value: 
-      objectReference: {fileID: 21300004, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
-    - target: {fileID: 1512078254831172713, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
-      propertyPath: normalSprite.id.spacename
-      value: mvz2
-      objectReference: {fileID: 0}
     - target: {fileID: 2742125469936148500, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
       propertyPath: m_Name
       value: Adventure
@@ -2484,6 +2468,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
+    - target: {fileID: 6593236132113763212, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8165627588496604918, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

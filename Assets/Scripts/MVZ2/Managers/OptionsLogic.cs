@@ -42,8 +42,9 @@ namespace MVZ2
                     break;
                 case ButtonType.Fullscreen:
                     {
-                        Main.OptionsManager.SwitchFullscreen();
-                        UpdateFullscreenButton();
+                        bool fullscreen = Main.OptionsManager.IsFullscreen();
+                        Main.OptionsManager.SetFullscreen(!fullscreen);
+                        UpdateFullscreenButton(!fullscreen);
                     }
                     break;
                 case ButtonType.Vibration:
@@ -128,9 +129,8 @@ namespace MVZ2
             var value = Main.OptionsManager.IsTriggerSwapped();
             UpdateButtonText(value, OPTION_SWAP_TRIGGER, TextButtonType.SwapTrigger);
         }
-        protected void UpdateFullscreenButton()
+        protected void UpdateFullscreenButton(bool value)
         {
-            var value = Main.OptionsManager.IsFullscreen();
             UpdateButtonText(value, OPTION_FULLSCREEN, TextButtonType.Fullscreen);
         }
         protected void UpdateVibrationButton()
@@ -155,7 +155,7 @@ namespace MVZ2
             UpdateMusicSlider();
             UpdateSoundSlider();
             UpdateSwapTriggerButton();
-            UpdateFullscreenButton();
+            UpdateFullscreenButton(Main.OptionsManager.IsFullscreen());
             UpdateVibrationButton();
             UpdateDifficultyButton();
             UpdatePauseOnFocusLostButton();

@@ -133,9 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   spriteRenderer: {fileID: 6593236132113763212}
-  normalSprite: {fileID: 0}
-  hoveredSprite: {fileID: 0}
-  disabledSprite: {fileID: 0}
+  normalSprite: {fileID: -2128004668, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
+  hoveredSprite: {fileID: -1271579674, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
+  disabledSprite: {fileID: 809021128, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
 --- !u!114 &3383399647440908231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 1
+  trackSelectable: {fileID: 0}
 --- !u!60 &933871143794288847
 PolygonCollider2D:
   m_ObjectHideFlags: 0
