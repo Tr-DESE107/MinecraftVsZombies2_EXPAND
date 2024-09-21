@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -10,6 +11,7 @@ using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static MVZ2.Level.UI.LevelUI;
 
 namespace MVZ2.Level
 {
@@ -21,23 +23,36 @@ namespace MVZ2.Level
         {
             var ui = GetLevelUI();
             Sprite icon = null;
-            LayerMask layerMask = Layers.GetMask(Layers.DEFAULT, Layers.PICKUP);
             if (heldType == HeldTypes.blueprint)
             {
                 icon = GetHeldItemIcon(id);
-                layerMask = Layers.GetMask(Layers.GRID, Layers.RAYCAST_RECEIVER);
             }
             else if (heldType == HeldTypes.pickaxe)
             {
                 icon = Main.LanguageManager.GetSprite(SpritePaths.pickaxe);
-                layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
             }
             else if (heldType == HeldTypes.starshard)
             {
                 icon = Main.LanguageManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
-                layerMask = Layers.GetMask(Layers.DEFAULT, Layers.RAYCAST_RECEIVER);
             }
             ui.SetHeldItemIcon(icon);
+
+
+            List<int> layers = new List<int>();
+            layers.Add(Layers.RAYCAST_RECEIVER);
+            if (level.IsHeldItemForGrid(heldType))
+            {
+                layers.Add(Layers.GRID);
+            }
+            if (level.IsHeldItemForEntity(heldType))
+            {
+                layers.Add(Layers.DEFAULT);
+            }
+            if (level.IsHeldItemForPickup(heldType))
+            {
+                layers.Add(Layers.PICKUP);
+            }
+            LayerMask layerMask = Layers.GetMask(layers.ToArray());
             ui.SetRaycasterMask(layerMask);
             raycaster.eventMask = layerMask;
         }
@@ -72,10 +87,14 @@ namespace MVZ2.Level
             levelUI.OnPickaxePointerEnter += UI_OnPickaxePointerEnterCallback;
             levelUI.OnPickaxePointerExit += UI_OnPickaxePointerExitCallback;
             levelUI.OnPickaxePointerDown += UI_OnPickaxePointerDownCallback;
+
+            levelUI.OnStarshardPointerDown += UI_OnStarshardPointerDownCallback;
+
+            levelUI.OnTriggerPointerDown += UI_OnTriggerPointerDownCallback;
+
             levelUI.OnRaycastReceiverPointerDown += UI_OnRaycastReceiverPointerDownCallback;
             levelUI.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             levelUI.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
-            levelUI.OnStarshardPointerDown += UI_OnStarshardPointerDownCallback;
             levelUI.OnPauseDialogResumeClicked += UI_OnPauseDialogResumeClickedCallback;
             levelUI.OnLevelLoadedDialogButtonClicked += UI_OnLevelLoadedDialogOptionClickedCallback;
             levelUI.OnLevelErrorLoadingDialogButtonClicked += UI_OnLevelErrorLoadingDialogOptionClickedCallback;
@@ -107,20 +126,7 @@ namespace MVZ2.Level
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
 
-            if (!IsGameRunning())
-                return;
-
-            LawnArea area = LawnArea.Main;
-            switch (receiver)
-            {
-                case LevelUI.Receiver.Side:
-                    area = LawnArea.Side;
-                    break;
-                case LevelUI.Receiver.Bottom:
-                    area = LawnArea.Bottom;
-                    break;
-            }
-            level.UseOnLawn(area);
+            ClickOnReceiver(receiver);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
@@ -163,6 +169,11 @@ namespace MVZ2.Level
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
             ClickStarshard();
+        }
+        private void UI_OnTriggerPointerDownCallback(PointerEventData eventData)
+        {
+            if (eventData.button != PointerEventData.InputButton.Left)
+                return;
         }
         private void UI_OnPauseDialogResumeClickedCallback()
         {
@@ -320,6 +331,29 @@ namespace MVZ2.Level
                 //return;
             }
             level.SetHeldItem(HeldTypes.starshard, 0, 0);
+        }
+        private void ClickOnReceiver(RaycastReceiver receiver)
+        {
+            var levelUI = GetLevelUI();
+            var type = levelUI.GetReceiverType(receiver);
+            ClickOnReceiver(type);
+        }
+        private void ClickOnReceiver(LevelUI.Receiver receiver)
+        {
+            if (!IsGameRunning())
+                return;
+
+            LawnArea area = LawnArea.Main;
+            switch (receiver)
+            {
+                case LevelUI.Receiver.Side:
+                    area = LawnArea.Side;
+                    break;
+                case LevelUI.Receiver.Bottom:
+                    area = LawnArea.Bottom;
+                    break;
+            }
+            level.UseOnLawn(area);
         }
         private void AdvanceLevelProgress()
         {

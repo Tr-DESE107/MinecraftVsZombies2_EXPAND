@@ -11,20 +11,28 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, long id)
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    return !entity.IsCollected();
+                    if (!entity.IsCollected())
+                    {
+                        return HeldFlags.Valid;
+                    }
+                    break;
                 case EntityTypes.CART:
-                    return !entity.IsCartTriggered();
+                    if (!entity.IsCartTriggered())
+                    {
+                        return HeldFlags.Valid;
+                    }
+                    break;
             }
-            return false;
+            return HeldFlags.None;
         }
-        public override bool IsValidOnGrid(LawnGrid grid, long id)
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
         {
-            return false;
+            return HeldFlags.None;
         }
         public override bool UseOnEntity(Entity entity, long id)
         {
@@ -49,5 +57,8 @@ namespace MVZ2.Vanilla
                     break;
             }
         }
+        public override bool IsForGrid() => false;
+        public override bool IsForEntity() => true;
+        public override bool IsForPickup() => true;
     }
 }

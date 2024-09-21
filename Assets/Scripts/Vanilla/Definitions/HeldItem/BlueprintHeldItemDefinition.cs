@@ -12,16 +12,16 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, long id)
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
-            return false;
+            return HeldFlags.None;
         }
-        public override bool IsValidOnGrid(LawnGrid grid, long id)
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
         {
             var level = grid.Level;
             var seed = level.GetSeedPackAt((int)id);
             if (seed == null)
-                return false;
+                return HeldFlags.None;
             var seedDef = seed.Definition;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
@@ -30,10 +30,10 @@ namespace MVZ2.Vanilla
                 if (entityDef.Type == EntityTypes.PLANT)
                 {
                     if (!grid.CanPlace(entityDef))
-                        return false;
+                        return HeldFlags.None;
                 }
             }
-            return true;
+            return HeldFlags.Valid;
         }
         public override bool UseOnGrid(LawnGrid grid, long id)
         {
@@ -70,5 +70,7 @@ namespace MVZ2.Vanilla
                 level.PlaySound(SoundID.tap);
             }
         }
+        public override bool IsForGrid() => true;
+        public override bool IsForEntity() => false;
     }
 }

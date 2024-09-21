@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
-    public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+    public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
         public void SetColor(Color color)
         {
@@ -22,9 +22,16 @@ namespace MVZ2.Level
         {
             OnPointerDown?.Invoke(eventData);
         }
+        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
+        {
+            OnPointerUp?.Invoke(eventData);
+        }
         public event Action<PointerEventData> OnPointerEnter;
         public event Action<PointerEventData> OnPointerExit;
         public event Action<PointerEventData> OnPointerDown;
+        public event Action<PointerEventData> OnPointerUp;
+        public int Lane { get; set; }
+        public int Column { get; set; }
         [SerializeField]
         private SpriteRenderer spriteRenderer;
     }

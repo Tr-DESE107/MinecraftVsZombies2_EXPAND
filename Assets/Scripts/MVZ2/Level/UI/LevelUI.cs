@@ -72,6 +72,13 @@ namespace MVZ2.Level.UI
                 return;
             blueprint.SetDisabled(value);
         }
+        public void SetBlueprintSelected(int index, bool value)
+        {
+            var blueprint = blueprints.GetBlueprintAt(index);
+            if (!blueprint)
+                return;
+            blueprint.SetSelected(value);
+        }
         public void SetBlueprintTwinkle(int index, bool twinkle)
         {
             var blueprint = GetBlueprintAt(index);
@@ -356,6 +363,16 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        public Receiver GetReceiverType(RaycastReceiver receiver)
+        {
+            if (receiver == sideReceiver)
+                return Receiver.Side;
+            else if (receiver == bottomReceiver)
+                return Receiver.Bottom;
+            else
+                return Receiver.Lawn;
+        }
+
         #endregion
 
         #region 私有方法
@@ -368,10 +385,16 @@ namespace MVZ2.Level.UI
             blueprints.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
             blueprints.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             blueprints.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
+
             pickaxeSlot.OnPointerEnter += (data) => OnPickaxePointerEnter?.Invoke(data);
             pickaxeSlot.OnPointerExit += (data) => OnPickaxePointerExit?.Invoke(data);
             pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
+
             starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
+
+            triggerSlot.OnPointerDown += (data) => OnTriggerPointerDown?.Invoke(data);
+
+
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
             readyText.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
@@ -419,13 +442,19 @@ namespace MVZ2.Level.UI
 
         #region 事件
         public event Action<Receiver, PointerEventData> OnRaycastReceiverPointerDown;
+
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
+
         public event Action<PointerEventData> OnPickaxePointerEnter;
         public event Action<PointerEventData> OnPickaxePointerExit;
         public event Action<PointerEventData> OnPickaxePointerDown;
+
         public event Action<PointerEventData> OnStarshardPointerDown;
+
+        public event Action<PointerEventData> OnTriggerPointerDown;
+
         public event Action OnMenuButtonClick;
         public event Action OnSpeedUpButtonClick;
         public event Action OnStartGameCalled;

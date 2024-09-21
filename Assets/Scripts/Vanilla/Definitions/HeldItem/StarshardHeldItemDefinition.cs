@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent;
+﻿using System.Linq;
+using MVZ2.GameContent;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 
@@ -11,14 +12,20 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, long id)
+        public override bool IsForEntity() => !MainManager.Instance.IsMobile();
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
+            HeldFlags flags = HeldFlags.ForceReset;
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    return entity.CanEvoke();
+                    if (entity.CanEvoke())
+                    {
+                        flags |= HeldFlags.Valid;
+                    }
+                    break;
             }
-            return false;
+            return flags;
         }
         public override bool UseOnEntity(Entity entity, long id)
         {
@@ -31,6 +38,28 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
+        public override bool IsForGrid() => MainManager.Instance.IsMobile();
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
+        {
+            var flags = HeldFlags.ForceReset;
+            var entities = grid.GetTakenEntities();
+            if (entities.Any(e => e.Type == EntityTypes.PLANT && e.CanEvoke()))
+            {
+                flags |= HeldFlags.Valid;
+            }
+            return flags;
+        }
+        public override bool UseOnGrid(LawnGrid grid, long id)
+        {
+            base.UseOnGrid(grid, id);
+            var entities = grid.GetTakenEntities();
+            var entity = entities.FirstOrDefault(e => e.Type == EntityTypes.PLANT && e.CanEvoke());
+            if (entity != null)
+            {
+                entity.Evoke();
+            }
+            return true;
+        }
         public override void UseOnLawn(LevelEngine level, LawnArea area, long id)
         {
             base.UseOnLawn(level, area, id);
@@ -38,10 +67,6 @@ namespace MVZ2.Vanilla
             {
                 level.PlaySound(SoundID.tap);
             }
-        }
-        public override bool IsValidOnGrid(LawnGrid grid, long id)
-        {
-            return false;
         }
     }
 }

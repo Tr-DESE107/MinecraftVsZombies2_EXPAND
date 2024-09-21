@@ -77,10 +77,13 @@ namespace MVZ2.Level
                 return;
 
             var entity = entityCtrl.Entity;
-            if (!level.IsEntityValidForHeldItem(entity))
-                return;
-
-            if (level.UseOnEntity(entity))
+            var heldFlags = level.GetHeldFlagsOnEntity(entity);
+            bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
+            if (heldFlags.HasFlag(HeldFlags.Valid))
+            {
+                reset = level.UseOnEntity(entity);
+            }
+            if (reset)
             {
                 level.ResetHeldItem();
             }

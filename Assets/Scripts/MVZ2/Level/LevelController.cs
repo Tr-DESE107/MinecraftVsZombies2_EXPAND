@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.GameContent;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Game;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
@@ -212,26 +216,21 @@ namespace MVZ2.Level
         #region 生命周期
         private void Awake()
         {
-            gridLayout.OnPointerEnter += UI_OnGridEnterCallback;
-            gridLayout.OnPointerExit += UI_OnGridExitCallback;
-            gridLayout.OnPointerDown += UI_OnGridPointerDownCallback;
+            Awake_Grids();
 
             talkController.OnTalkAction += UI_OnTalkActionCallback;
             talkController.OnTalkEnd += UI_OnTalkEndCallback;
 
             levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
 
-            HideGridSprites();
+            ClearGridHighlight();
             var levelUI = GetLevelUI();
             standaloneUI.SetActive(standaloneUI == levelUI);
             mobileUI.SetActive(mobileUI == levelUI);
 
             levelUI.OnStartGameCalled += StartGame;
 
-            levelUI.OnBlueprintPointerEnter += UI_OnBlueprintPointerEnterCallback;
-            levelUI.OnBlueprintPointerExit += UI_OnBlueprintPointerExitCallback;
-            levelUI.OnBlueprintPointerDown += UI_OnBlueprintPointerDownCallback;
-
+            Awake_Blueprints();
             Awake_UI();
         }
         private void Update()
@@ -262,11 +261,22 @@ namespace MVZ2.Level
                 AdvanceLevelProgress();
 
                 var levelUI = GetLevelUI();
-                levelUI.SetHeldItemPosition(levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
+                bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
+                Vector2 heldItemPosition;
+                if (Main.IsMobile() && !isPressing)
+                {
+                    heldItemPosition = new Vector2(-1000, -1000);
+                }
+                else
+                {
+                    heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
+                }
+                levelUI.SetHeldItemPosition(heldItemPosition);
                 UpdateLevelUI(gameSpeed);
 
                 levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
             }
+            UpdateGridHighlight();
             UpdateInput();
         }
         private void FixedUpdate()
@@ -416,7 +426,77 @@ namespace MVZ2.Level
             GetLevelUI().SetSpeedUp(speedUp);
             level.PlaySound(speedUp ? SoundID.fastForward : SoundID.slowDown);
         }
+
         private void UpdateInput()
+        {
+            UpdatePointer();
+            UpdateKeys();
+        }
+        private void UpdatePointer()
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                OnLeftPointerUp(Input.mousePosition);
+            }
+            var touches = Input.touches;
+            for (int i = 0; i < touches.Length; i++)
+            {
+                var touch = touches[i];
+                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                {
+                    OnLeftPointerUp(touch.position);
+                }
+            }
+        }
+        private T GetRaycastComponent<T>(Vector2 screenPosition) where T : Component
+        {
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            raycaster.Raycast(new PointerEventData(EventSystem.current) { position = screenPosition }, raycastResults);
+            foreach (var raycastResult in raycastResults)
+            {
+                if (!raycastResult.isValid)
+                    continue;
+                var grid = raycastResult.gameObject.GetComponentInParent<T>();
+                if (grid)
+                    return grid;
+            }
+            return null;
+        }
+        private GameObject GetRaycastGameObject(Vector2 screenPosition)
+        {
+            var eventSystem = EventSystem.current;
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            eventSystem.RaycastAll(new PointerEventData(eventSystem) { position = screenPosition }, raycastResults);
+            foreach (var raycastResult in raycastResults)
+            {
+                if (!raycastResult.isValid)
+                    continue;
+                return raycastResult.gameObject;
+            }
+            return null;
+        }
+        private void OnLeftPointerUp(Vector2 screenPosition)
+        {
+            if (!Main.IsMobile())
+                return;
+            var gameObject = GetRaycastGameObject(screenPosition);
+            if (!gameObject || !gameObject.activeInHierarchy)
+                return;
+            var grid = gameObject.GetComponentInParent<GridController>();
+            if (grid)
+            {
+                ClickOnGrid(grid.Lane, grid.Column);
+                return;
+            }
+
+            var receiver = gameObject.GetComponentInParent<RaycastReceiver>();
+            if (receiver)
+            {
+                ClickOnReceiver(receiver);
+                return;
+            }
+        }
+        private void UpdateKeys()
         {
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F1))

@@ -1,4 +1,7 @@
-﻿using MVZ2.GameContent;
+﻿using System;
+using System.Xml;
+using log4net.Core;
+using MVZ2.GameContent;
 using MVZ2.Level.Components;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -38,15 +41,30 @@ namespace MVZ2
             var component = level.GetHeldItemComponent();
             return component.HeldItemID;
         }
-        public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
+        public static HeldFlags GetHeldFlagsOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
-            return heldItemDef.IsValidOnEntity(entity, heldId);
+            return heldItemDef.GetHeldFlagsOnEntity(entity, heldId);
         }
-        public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId)
+        public static HeldFlags GetHeldFlagsOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId)
         {
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
-            return heldItemDef.IsValidOnGrid(grid, heldId);
+            return heldItemDef.GetHeldFlagsOnGrid(grid, heldId);
+        }
+        public static bool IsHeldItemForGrid(this LevelEngine level, NamespaceID heldType)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.IsForGrid();
+        }
+        public static bool IsHeldItemForEntity(this LevelEngine level, NamespaceID heldType)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.IsForEntity();
+        }
+        public static bool IsHeldItemForPickup(this LevelEngine level, NamespaceID heldType)
+        {
+            var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
+            return heldItemDef.IsForPickup();
         }
         public static bool UseOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
         {
@@ -68,13 +86,13 @@ namespace MVZ2
             var heldItemDef = level.ContentProvider.GetDefinition<HeldItemDefinition>(heldType);
             heldItemDef.UseOnLawn(level, area, heldId);
         }
-        public static bool IsEntityValidForHeldItem(this LevelEngine level, Entity entity)
+        public static HeldFlags GetHeldFlagsOnEntity(this LevelEngine level, Entity entity)
         {
-            return level.IsEntityValidForHeldItem(entity, level.GetHeldItemType(), level.GetHeldItemID());
+            return level.GetHeldFlagsOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemID());
         }
-        public static bool IsGridValidForHeldItem(this LevelEngine level, LawnGrid grid)
+        public static HeldFlags GetHeldFlagsOnGrid(this LevelEngine level, LawnGrid grid)
         {
-            return level.IsGridValidForHeldItem(grid, level.GetHeldItemType(), level.GetHeldItemID());
+            return level.GetHeldFlagsOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID());
         }
         public static bool UseOnEntity(this LevelEngine level, Entity entity)
         {
@@ -110,5 +128,13 @@ namespace MVZ2
             return level.GetHeldItemType() == HeldTypes.blueprint && level.GetHeldItemID() == i;
         }
         #endregion
+    }
+    [Flags]
+    public enum HeldFlags
+    {
+        None = 0,
+        Valid = 1,
+        ForceReset = 1 << 1,
+        HideGridColor = 1 << 2
     }
 }

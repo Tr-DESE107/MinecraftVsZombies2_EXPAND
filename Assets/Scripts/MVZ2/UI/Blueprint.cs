@@ -47,6 +47,10 @@ namespace MVZ2.UI
         {
             disabledObject.SetActive(disabled);
         }
+        public void SetSelected(bool selected)
+        {
+            selectedObject.SetActive(selected);
+        }
         public void SetTwinkling(bool twinkling)
         {
             animator.SetBool("Twinkling", twinkling);
@@ -63,7 +67,6 @@ namespace MVZ2.UI
         {
             OnPointerExit?.Invoke(this, eventData);
         }
-
         public event Action<Blueprint, PointerEventData> OnPointerDown;
         public event Action<Blueprint, PointerEventData> OnPointerEnter;
         public event Action<Blueprint, PointerEventData> OnPointerExit;
@@ -80,6 +83,8 @@ namespace MVZ2.UI
         private TextMeshProUGUI costText;
         [SerializeField]
         private Image rechargeImage;
+        [SerializeField]
+        private GameObject selectedObject;
         [SerializeField]
         private GameObject disabledObject;
         [SerializeField]

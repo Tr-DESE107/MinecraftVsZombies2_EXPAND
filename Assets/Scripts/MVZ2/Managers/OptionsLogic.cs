@@ -15,7 +15,7 @@ namespace MVZ2
 
             dialog.OnButtonClick += OnButtonClickCallback;
             dialog.OnSliderValueChanged += OnSliderValueChangedCallback;
-            dialog.OnDropdownValueChanged += OnDropdownValueChangedCallback;
+            dialog.OnPointerUpdownValueChanged += OnPointerUpdownValueChangedCallback;
         }
         public virtual void InitDialog()
         {
@@ -25,7 +25,7 @@ namespace MVZ2
         {
             dialog.OnButtonClick -= OnButtonClickCallback;
             dialog.OnSliderValueChanged -= OnSliderValueChangedCallback;
-            dialog.OnDropdownValueChanged -= OnDropdownValueChangedCallback;
+            dialog.OnPointerUpdownValueChanged -= OnPointerUpdownValueChangedCallback;
         }
         protected virtual void OnButtonClickCallback(ButtonType type)
         {
@@ -85,7 +85,7 @@ namespace MVZ2
                     break;
             }
         }
-        protected virtual void OnDropdownValueChangedCallback(DropdownType type, int index)
+        protected virtual void OnPointerUpdownValueChangedCallback(DropdownType type, int index)
         {
         }
         #region 更新元素

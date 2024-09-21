@@ -100,7 +100,7 @@ namespace MVZ2.Level
         private void Update()
         {
             var engine = Entity.Level;
-            bool cursorValid = isHovered && Level.IsGameRunning() && !engine.IsHoldingItem() && engine.IsEntityValidForHeldItem(Entity);
+            bool cursorValid = isHovered && Level.IsGameRunning() && !engine.IsHoldingItem() && engine.GetHeldFlagsOnEntity(Entity).HasFlag(HeldFlags.Valid);
             if (cursorValid)
             {
                 if (_cursorSource == null)
@@ -351,7 +351,7 @@ namespace MVZ2.Level
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
-            if (isHovered && Entity.Level.IsHoldingItem() && Entity.Level.IsEntityValidForHeldItem(Entity))
+            if (isHovered && Entity.Level.IsHoldingItem() && Entity.Level.GetHeldFlagsOnEntity(Entity).HasFlag(HeldFlags.Valid))
             {
                 color += new Color(0.5f, 0.5f, 0.5f, 0);
             }

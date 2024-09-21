@@ -1,4 +1,5 @@
 ﻿using System;
+using log4net.Core;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
 using MVZ2.UI;
@@ -12,6 +13,14 @@ namespace MVZ2.Level
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 私有方法
+
+        private void Awake_Blueprints()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.OnBlueprintPointerEnter += UI_OnBlueprintPointerEnterCallback;
+            levelUI.OnBlueprintPointerExit += UI_OnBlueprintPointerExitCallback;
+            levelUI.OnBlueprintPointerDown += UI_OnBlueprintPointerDownCallback;
+        }
 
         #region 事件回调
 
@@ -92,6 +101,7 @@ namespace MVZ2.Level
         {
             UpdateBlueprintRecharges();
             UpdateBlueprintDisabled();
+            UpdateBlueprintSelected();
             UpdateBlueprintTwinkle();
         }
         private BlueprintViewData GetSeedPackViewData(SeedPack seed)
@@ -140,7 +150,19 @@ namespace MVZ2.Level
                 var seed = seeds[i];
                 if (seed == null)
                     continue;
-                levelUI.SetBlueprintDisabled(i, level.IsHoldingBlueprint(i) || !CanPickBlueprint(seed));
+                levelUI.SetBlueprintDisabled(i, !CanPickBlueprint(seed));
+            }
+        }
+        private void UpdateBlueprintSelected()
+        {
+            var levelUI = GetLevelUI();
+            var seeds = level.GetAllSeedPacks();
+            for (int i = 0; i < seeds.Length; i++)
+            {
+                var seed = seeds[i];
+                if (seed == null)
+                    continue;
+                levelUI.SetBlueprintSelected(i, level.IsHoldingBlueprint(i));
             }
         }
         private void UpdateBlueprintTwinkle()

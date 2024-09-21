@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent;
+﻿using System.Linq;
+using MVZ2.GameContent;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 
@@ -11,18 +12,19 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsValidOnEntity(Entity entity, long id)
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
+            HeldFlags flags = HeldFlags.ForceReset;
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    return CanDigContraption(entity);
+                    if (CanDigContraption(entity))
+                    {
+                        flags |= HeldFlags.Valid;
+                    }
+                    break;
             }
-            return false;
-        }
-        public override bool IsValidOnGrid(LawnGrid grid, long id)
-        {
-            return false;
+            return flags;
         }
         public override bool UseOnEntity(Entity entity, long id)
         {
@@ -33,6 +35,27 @@ namespace MVZ2.Vanilla
                     return true;
             }
             return false;
+        }
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
+        {
+            var flags = HeldFlags.ForceReset;
+            var entities = grid.GetTakenEntities();
+            if (entities.Any(e => e.Type == EntityTypes.PLANT && CanDigContraption(e)))
+            {
+                flags |= HeldFlags.Valid;
+            }
+            return flags;
+        }
+        public override bool UseOnGrid(LawnGrid grid, long id)
+        {
+            base.UseOnGrid(grid, id);
+            var entities = grid.GetTakenEntities();
+            var entity = entities.FirstOrDefault(e => e.Type == EntityTypes.PLANT && CanDigContraption(e));
+            if (entity != null)
+            {
+                entity.Die();
+            }
+            return true;
         }
         public override void UseOnLawn(LevelEngine level, LawnArea area, long id)
         {
@@ -46,5 +69,7 @@ namespace MVZ2.Vanilla
         {
             return entity.GetFaction() == entity.Level.Option.LeftFaction;
         }
+        public override bool IsForGrid() => MainManager.Instance.IsMobile();
+        public override bool IsForEntity() => !MainManager.Instance.IsMobile();
     }
 }

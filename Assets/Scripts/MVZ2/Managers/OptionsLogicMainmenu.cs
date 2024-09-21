@@ -68,9 +68,9 @@ namespace MVZ2
                     break;
             }
         }
-        protected override void OnDropdownValueChangedCallback(DropdownType type, int index)
+        protected override void OnPointerUpdownValueChangedCallback(DropdownType type, int index)
         {
-            base.OnDropdownValueChangedCallback(type, index);
+            base.OnPointerUpdownValueChangedCallback(type, index);
             switch (type)
             {
                 case DropdownType.Language:
