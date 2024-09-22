@@ -17,6 +17,9 @@
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:Pickups/Redstone" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="emerald" type="entity" path="mvz2:Pickups/emerald" width="32" height="32" xOffset="0" yOffset="4"/>
+    <model name="ruby" type="entity" path="mvz2:Pickups/ruby" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="diamond" type="entity" path="mvz2:Pickups/diamond" width="96" height="96" xOffset="0" yOffset="4"/>
     
     <!-- Effects -->
     <model name="miner" type="entity" path="mvz2:Effects/Miner" width="32" height="32" xOffset="0" yOffset="0"/>

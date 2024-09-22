@@ -2,6 +2,7 @@
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.Components;
+using MVZ2.Save;
 using MVZ2.Vanilla;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -249,7 +250,7 @@ namespace MVZ2.Tests
             private int heldItemPriority;
             private bool heldItemNoCancel;
         }
-        private class DummyComponent : LevelComponent, IAdviceComponent, ILogicComponent, IMusicComponent, ISoundComponent, ITalkComponent, IUIComponent
+        private class DummyComponent : LevelComponent, IAdviceComponent, ILogicComponent, IMusicComponent, ISoundComponent, ITalkComponent, IUIComponent, IMoneyComponent
         {
             public DummyComponent(LevelEngine level) : base(level, new NamespaceID("mvz2", "dummy"))
             {
@@ -326,6 +327,29 @@ namespace MVZ2.Tests
 
             public override void LoadSerializable(ISerializableLevelComponent seri)
             {
+            }
+
+            public int GetMoney()
+            {
+                return 0;
+            }
+
+            public void AddMoney(int value)
+            {
+            }
+
+            public int GetDelayedMoney()
+            {
+                return 0;
+            }
+
+            public void AddDelayedMoney(Entity entity, int value)
+            {
+            }
+
+            public bool RemoveDelayedMoney(Entity entity)
+            {
+                return false;
             }
         }
     }

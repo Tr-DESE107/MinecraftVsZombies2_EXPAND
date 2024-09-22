@@ -97,6 +97,7 @@ namespace PVZEngine.Level
         public void Update()
         {
             UpdateSeedPacks();
+            UpdateDelayedEnergyEntities();
             collisionCachedBounds.Clear();
             var entities = GetEntities();
             foreach (var entity in entities)

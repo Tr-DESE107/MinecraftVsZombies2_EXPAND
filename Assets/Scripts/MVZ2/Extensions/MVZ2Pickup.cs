@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.Vanilla;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -8,7 +9,15 @@ namespace MVZ2
 {
     public static class MVZ2Pickup
     {
-        public static void Produce<T>(this Entity entity) where T : EntityDefinition
+        public static Entity Produce(this Entity entity, NamespaceID pickupID)
+        {
+            return entity.Produce(entity.Level.ContentProvider.GetEntityDefinition(pickupID));
+        }
+        public static Entity Produce<T>(this Entity entity) where T : EntityDefinition
+        {
+            return entity.Produce(entity.Level.ContentProvider.GetEntityDefinition<T>());
+        }
+        public static Entity Produce(this Entity entity, EntityDefinition pickupDef)
         {
             float xSpeed;
             float maxSpeed = 1.6f;
@@ -29,10 +38,11 @@ namespace MVZ2
                 xSpeed = rng.Next(-maxSpeed, maxSpeed);
             }
             Vector3 dropVelocity = new Vector3(xSpeed, 14, 0);
-            var redstone = level.Spawn<T>(position, entity);
-            redstone.Velocity = dropVelocity;
+            var pickup = level.Spawn(pickupDef, position, entity);
+            pickup.Velocity = dropVelocity;
 
             level.PlaySound(SoundID.throwSound, entity.Pos);
+            return pickup;
         }
     }
 }

@@ -49,4 +49,12 @@ namespace MVZ2.Level.Components
         void SetHintArrowPointToEntity(Entity entity);
         void HideHintArrow();
     }
+    public interface IMoneyComponent : ILevelComponent
+    {
+        void AddMoney(int value);
+        int GetMoney();
+        int GetDelayedMoney();
+        void AddDelayedMoney(Entity entity, int value);
+        bool RemoveDelayedMoney(Entity entity);
+    }
 }

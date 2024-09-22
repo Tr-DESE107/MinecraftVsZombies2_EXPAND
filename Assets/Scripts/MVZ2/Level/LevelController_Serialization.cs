@@ -90,6 +90,7 @@ namespace MVZ2.Level
             SetLevelUISimulationSpeed(0);
             SetUIVisibleState(VisibleState.InLevel);
             SetUnlockedUIVisible();
+            ShowMoney();
 
             SetCameraToLawn();
 
@@ -134,6 +135,7 @@ namespace MVZ2.Level
             level.AddComponent(new SoundComponent(level, this));
             level.AddComponent(new TalkComponent(level, this));
             level.AddComponent(new MusicComponent(level, this));
+            level.AddComponent(new MoneyComponent(level, this));
         }
         private SerializableLevel SerializeLevel()
         {

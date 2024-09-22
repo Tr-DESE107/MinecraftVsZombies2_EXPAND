@@ -40,6 +40,12 @@ namespace MVZ2
         {
             { "contraption", EntityTypes.PLANT },
             { "enemy", EntityTypes.ENEMY },
+            { "obstacle", EntityTypes.OBSTACLE },
+            { "boss", EntityTypes.BOSS },
+            { "cart", EntityTypes.CART },
+            { "pickup", EntityTypes.PICKUP },
+            { "projectile", EntityTypes.PROJECTILE },
+            { "effect", EntityTypes.EFFECT },
         };
     }
 }

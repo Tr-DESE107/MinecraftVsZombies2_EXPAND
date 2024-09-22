@@ -283,6 +283,10 @@ namespace MVZ2.Level
                     levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
                 }
             }
+            if (isPaused)
+            {
+                ShowMoney();
+            }
             SetLevelUISimulationSpeed(IsGameRunning() ? gameSpeed : 0);
             UpdateGridHighlight();
             UpdateInput();

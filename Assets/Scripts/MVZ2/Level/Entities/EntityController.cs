@@ -6,7 +6,6 @@ using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.PlayerSettings;
 
 namespace MVZ2.Level
 {

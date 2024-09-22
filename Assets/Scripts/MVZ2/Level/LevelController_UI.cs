@@ -56,6 +56,11 @@ namespace MVZ2.Level
             ui.SetRaycasterMask(layerMask);
             raycaster.eventMask = layerMask;
         }
+        public void ShowMoney()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.ResetMoneyFadeTime();
+        }
         public LevelUI GetLevelUI()
         {
             return Main.IsMobile() ? mobileUI : standaloneUI;
@@ -395,6 +400,7 @@ namespace MVZ2.Level
         {
             var ui = GetLevelUI();
             ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
+            ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
             ui.SetPickaxeVisible(!level.IsHoldingPickaxe());
             UpdateLevelProgress();
             UpdateBlueprintsState();

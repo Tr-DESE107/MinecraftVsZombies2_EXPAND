@@ -127,6 +127,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f33715c080e647f4eb47909df824bc60, type: 3}
   - name: note/help_front
     sprite: {fileID: 21300000, guid: 8f85d3d605c8bf34b9c860577f50ba8c, type: 3}
+  - name: note/prologue
+    sprite: {fileID: 21300000, guid: 32f36e28f5381c345b9988e80c40ee5a, type: 3}
+  - name: pickups/diamond
+    sprite: {fileID: 21300000, guid: 842c7ddcc4687ac43bd7fd5d478c0b7f, type: 3}
+  - name: pickups/dream_key
+    sprite: {fileID: 21300000, guid: f157785ef7e10214aa053f2a7c1ea926, type: 3}
+  - name: pickups/ender_chest
+    sprite: {fileID: 21300000, guid: 329b9a3401e28284e914a54eee51e840, type: 3}
+  - name: pickups/map_pickup
+    sprite: {fileID: 21300000, guid: aad19d3d7617e834f8cccff23f786aa5, type: 3}
+  - name: pickups/money_chest
+    sprite: {fileID: 21300000, guid: 2aa6e1715df244b4bb2e23736a2e751c, type: 3}
+  - name: pickups/redstone
+    sprite: {fileID: 21300000, guid: 6a0f8cf8b009d6a489e4231fec5c686b, type: 3}
   spritesheetEntries:
   - name: ready_set_build
     spritesheet:
@@ -213,3 +227,23 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 21300004, guid: 504d237734e4940488bbf711d9083635, type: 3}
     - {fileID: 21300006, guid: 504d237734e4940488bbf711d9083635, type: 3}
+  - name: pickups/emerald
+    spritesheet:
+    - {fileID: 21300000, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300002, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300004, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300006, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300008, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300010, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300012, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+    - {fileID: 21300014, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
+  - name: pickups/ruby
+    spritesheet:
+    - {fileID: 21300000, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300002, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300004, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300006, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300008, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300010, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300012, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+    - {fileID: 21300014, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}

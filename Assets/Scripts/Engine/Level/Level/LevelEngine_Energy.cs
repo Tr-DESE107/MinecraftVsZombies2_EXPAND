@@ -30,6 +30,14 @@ namespace PVZEngine.Level
         {
             return delayedEnergyEntities.Values.Sum();
         }
+        private void UpdateDelayedEnergyEntities()
+        {
+            var entities = delayedEnergyEntities.Keys.Where(e => !e.Exists()).ToArray();
+            foreach (var entity in entities)
+            {
+                delayedEnergyEntities.Remove(entity);
+            }
+        }
         public float Energy { get; private set; }
         private Dictionary<Entity, float> delayedEnergyEntities = new Dictionary<Entity, float>();
     }

@@ -28,7 +28,7 @@ namespace MVZ2.Vanilla
                 {
                     pickup.Collect();
                 }
-                if (!pickup.IsImportantPickup())
+                if (!pickup.IsImportantPickup() && pickup.Timeout >= 0)
                 {
                     pickup.Timeout--;
                     if (pickup.Timeout <= 0)

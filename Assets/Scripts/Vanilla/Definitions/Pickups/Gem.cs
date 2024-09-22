@@ -1,0 +1,99 @@
+using MVZ2.Vanilla;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.GameContent
+{
+    public abstract class Gem : VanillaPickup
+    {
+        public Gem(string nsp, string name) : base(nsp, name)
+        {
+            SetProperty(PickupProps.DROP_SOUND, SoundID.moneyFall);
+            SetProperty(PickupProps.COLLECT_SOUND, SoundID.coin);
+            SetProperty(PickupProps.MONEY_VALUE, 10);
+            SetProperty(EntityProperties.SIZE, new Vector3(16, 16, 16));
+        }
+        public override void Update(Entity pickup)
+        {
+            base.Update(pickup);
+            var level = pickup.Level;
+            float alpha = 1;
+            float shadowAlpha = 1;
+            if (pickup.IsCollected())
+            {
+                var collectedTime = pickup.GetCollectedTime();
+                var moveTime = level.GetSecondTicks(1);
+                var vanishTime = level.GetSecondTicks(1.5f);
+                if (collectedTime < moveTime)
+                {
+                    float timePercent = collectedTime / (float)moveTime;
+                    var targetPos = GetMoveTargetPosition(pickup);
+                    pickup.Velocity = (targetPos - pickup.Pos) * 0.2f;
+                    alpha = 1;
+                }
+                else
+                {
+                    if (collectedTime == moveTime)
+                    {
+                        level.RemoveDelayedMoney(pickup);
+                    }
+
+                    var vanishLerp = (collectedTime - moveTime) / (float)(vanishTime - moveTime);
+                    pickup.RenderScale = Vector3.Lerp(Vector3.one, Vector3.one * 0.5f, vanishLerp);
+                    alpha = Mathf.Lerp(1, 0, vanishLerp);
+                    if (collectedTime == vanishTime)
+                    {
+                        pickup.Remove();
+                    }
+                }
+                shadowAlpha = 0;
+            }
+            else
+            {
+                if (!pickup.IsImportantPickup() && pickup.Timeout < 15 && pickup.Timeout >= 0)
+                {
+                    pickup.Velocity = Vector3.zero;
+                    alpha = pickup.Timeout / 15f;
+                    shadowAlpha = alpha;
+                }
+            }
+            pickup.SetAnimationBool("Rotating", !pickup.IsCollected() && pickup.GetGroundHeight() <= 0);
+            var color = pickup.GetTint(true);
+            color.a = alpha;
+            pickup.SetTint(color);
+            pickup.SetShadowAlpha(shadowAlpha);
+        }
+        public override void PostContactGround(Entity entity)
+        {
+            entity.Velocity = Vector3.zero;
+            entity.Level.PlaySound(entity.GetDropSound());
+        }
+        public override void PostCollect(Entity pickup)
+        {
+            pickup.Velocity = Vector3.zero;
+            var level = pickup.Level;
+            level.AddDelayedMoney(pickup, pickup.GetMoneyValue());
+            pickup.SetProperty(EntityProperties.GRAVITY, 0f);
+
+            var pitch = GetRandomCollectPitch() ? Random.Range(0.95f, 1.5f) : 1;
+            level.PlaySound(pickup.GetCollectSound(), pickup.Pos, pitch);
+            level.ShowMoney();
+        }
+        protected virtual bool GetRandomCollectPitch()
+        {
+            return true;
+        }
+        private static Vector3 GetMoveTargetPosition(Entity entity)
+        {
+            var level = entity.Level;
+            Vector3 slotPosition = level.GetMoneyPanelEntityPosition();
+            return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
+        }
+        public static void Disappear(Entity pickup)
+        {
+            pickup.Timeout = 15;
+        }
+        private const float COLLECTED_Z = -100;
+    }
+}

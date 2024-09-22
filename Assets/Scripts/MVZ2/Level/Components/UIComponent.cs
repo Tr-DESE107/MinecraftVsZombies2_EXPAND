@@ -20,8 +20,7 @@ namespace PVZEngine.Level
         }
         public void ShowMoney()
         {
-            var levelUI = Controller.GetLevelUI();
-            levelUI.ResetMoneyFadeTime();
+            Controller.ShowMoney();
         }
         public void SetHintArrowPointToBlueprint(int index)
         {

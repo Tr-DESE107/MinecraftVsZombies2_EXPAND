@@ -17,6 +17,8 @@ namespace MVZ2
         }
         public AudioSource Play(NamespaceID id, Vector3 pos, float pitch = 1, float spatialBlend = 1)
         {
+            if (id == null)
+                return null;
             var soundsMeta = main.ResourceManager.GetSoundMetaList(id.spacename);
             var res = main.ResourceManager.GetSoundMeta(id);
             if (soundsMeta == null || res == null)

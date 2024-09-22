@@ -47,6 +47,21 @@ namespace MVZ2
             var component = level.GetUIComponent();
             component.HideHintArrow();
         }
+        public static Vector2 GetMoneyPanelEntityPosition(this LevelEngine level)
+        {
+            if (MainManager.Instance.IsMobile())
+            {
+                var x = 160 + BuiltinLevel.MONEY_PANEL_X_TO_LEFT;
+                var y = BuiltinLevel.MONEY_PANEL_Y_TO_BOTTOM;
+                return new Vector2(x, y);
+            }
+            else
+            {
+                var x = BuiltinLevel.GetBorderX(false) + BuiltinLevel.MONEY_PANEL_X_TO_LEFT;
+                var y = BuiltinLevel.MONEY_PANEL_Y_TO_BOTTOM;
+                return new Vector2(x, y);
+            }
+        }
         public static Vector2 GetEnergySlotEntityPosition(this LevelEngine level)
         {
             if (MainManager.Instance.IsMobile())

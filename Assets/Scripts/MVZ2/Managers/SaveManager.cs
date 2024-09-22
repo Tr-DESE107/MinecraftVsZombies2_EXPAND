@@ -16,12 +16,16 @@ namespace MVZ2
         {
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
-                SaveModData(userDataList.CurrentUserIndex, mod.Namespace);
+                SaveCurrentModData(mod.Namespace);
             }
+        }
+        public void SaveCurrentModData(string spaceName)
+        {
+            SaveModData(userDataList.CurrentUserIndex, spaceName);
         }
         public void SaveModData(int userIndex, string spaceName)
         {
-            var path = GetUserModSaveDataDirectory(userIndex, spaceName);
+            var path = GetUserModSaveDataPath(userIndex, spaceName);
             FileHelper.ValidateDirectory(path);
             var modSaveData = GetModSaveData(spaceName);
             var serializable = modSaveData.ToSerializable();
@@ -46,7 +50,7 @@ namespace MVZ2
         }
         private void LoadModData(int userIndex, string spaceName)
         {
-            var path = GetUserModSaveDataDirectory(userIndex, spaceName);
+            var path = GetUserModSaveDataPath(userIndex, spaceName);
             var modInfo = Main.ModManager.GetModInfo(spaceName);
             if (modInfo == null || modInfo.Logic == null)
                 return;
@@ -131,6 +135,10 @@ namespace MVZ2
         public string GetUserModSaveDataDirectory(int userIndex, string spaceName)
         {
             return Path.Combine(GetUserSaveDataDirectory(userIndex), spaceName);
+        }
+        public string GetUserModSaveDataPath(int userIndex, string spaceName)
+        {
+            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), $"user.dat");
         }
         #endregion
 

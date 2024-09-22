@@ -104,6 +104,9 @@ namespace MVZ2.Vanilla
             stage.SetProperty(BuiltinStageProps.LEVEL_NAME, name);
         }
         public const float ENERGY_SLOT_WIDTH = 48;
+        public const float MONEY_PANEL_X_TO_LEFT = 16;
+        public const float MONEY_PANEL_Y_TO_BOTTOM = 32;
+
         public const float MIN_PREVIEW_X = 1080;
         public const float MAX_PREVIEW_X = 1300;
         public const float MIN_PREVIEW_Y = 50;

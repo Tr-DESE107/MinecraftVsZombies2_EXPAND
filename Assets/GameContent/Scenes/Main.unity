@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   builtinNamespace: mvz2
-  platformMode: 1
+  platformMode: 0
   fastMode: 1
   resource: {fileID: 70516768}
   model: {fileID: 1928833185}

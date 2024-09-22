@@ -46,6 +46,9 @@
         <sample path="mvz2:random/crystal/crystal_place3" weight="1" />
         <sample path="mvz2:random/crystal/crystal_place4" weight="1" />
     </sound>
+    <sound name="diamond">
+        <sample path="mvz2:diamond" weight="1" />
+    </sound>
     <sound name="dirt_rise">
         <sample path="mvz2:dirt_rise" weight="1" />
     </sound>
