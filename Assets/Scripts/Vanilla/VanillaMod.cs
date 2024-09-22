@@ -16,7 +16,7 @@ namespace MVZ2.Vanilla
 {
     public class VanillaMod : Mod
     {
-        public VanillaMod(Game game) : base(game, spaceName)
+        public VanillaMod() : base(spaceName)
         {
             LoadStages();
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
@@ -25,10 +25,9 @@ namespace MVZ2.Vanilla
             LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
             BuiltinCallbacks.TalkAction.Add(TalkAction);
         }
-        public override void Init(Game game)
+        public override void Init()
         {
-            base.Init(game);
-
+            base.Init();
             SerializeHelper.RegisterClass<SerializableVanillaSaveData>();
         }
         public override ModSaveData CreateSaveData()
@@ -174,7 +173,7 @@ namespace MVZ2.Vanilla
         }
         private void TalkAction(ITalkSystem system, string cmd, string[] parameters)
         {
-            var game = Game;
+            var game = Global.Game;
             if (!game.IsInLevel())
             {
                 return;
@@ -195,7 +194,7 @@ namespace MVZ2.Vanilla
         }
         private void ShowSeventhSlotDialog(ITalkSystem system)
         {
-            var game = Game;
+            var game = Global.Game;
             if (!game.IsInLevel())
             {
                 return;
@@ -207,21 +206,21 @@ namespace MVZ2.Vanilla
                 return;
             }
 
-            var title = Game.GetText(TextID.UI_PURCHASE);
-            var desc = Game.GetText(TextID.UI_CONFIRM_BUY_7TH_SLOT);
+            var title = game.GetText(TextID.UI_PURCHASE);
+            var desc = game.GetText(TextID.UI_CONFIRM_BUY_7TH_SLOT);
             var options = new string[]
             {
-                Game.GetText(TextID.UI_YES),
-                Game.GetText(TextID.UI_NO)
+                game.GetText(TextID.UI_YES),
+                game.GetText(TextID.UI_NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {
                 switch (index)
                 {
                     case 0:
-                        Game.AddMoney(-750);
+                        game.AddMoney(-750);
                         level.SetSeedPackCount(7);
-                        Game.SetBlueprintSlots(7);
+                        game.SetBlueprintSlots(7);
                         system.StartSection(3);
                         break;
                     case 1:
@@ -232,7 +231,7 @@ namespace MVZ2.Vanilla
         }
         private void ShowTutorialDialog(ITalkSystem system)
         {
-            var game = Game;
+            var game = Global.Game;
             if (!game.IsInLevel())
             {
                 return;
@@ -244,12 +243,12 @@ namespace MVZ2.Vanilla
                 return;
             }
 
-            var title = Game.GetText(TextID.UI_TUTORIAL);
-            var desc = Game.GetText(TextID.UI_CONFIRM_TUTORIAL);
+            var title = game.GetText(TextID.UI_TUTORIAL);
+            var desc = game.GetText(TextID.UI_CONFIRM_TUTORIAL);
             var options = new string[]
             {
-                Game.GetText(TextID.UI_YES),
-                Game.GetText(TextID.UI_NO)
+                game.GetText(TextID.UI_YES),
+                game.GetText(TextID.UI_NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {
@@ -266,14 +265,14 @@ namespace MVZ2.Vanilla
         }
         private void TryBuySeventhSlot(ITalkSystem system)
         {
-            var game = Game;
+            var game = Global.Game;
             if (!game.IsInLevel())
             {
                 return;
             }
             LevelEngine level = game.GetLevel();
             level.ShowMoney();
-            if (Game.GetMoney() >= 750)
+            if (game.GetMoney() >= 750)
             {
                 system.StartSection(1);
             }

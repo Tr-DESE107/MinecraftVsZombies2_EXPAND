@@ -23,6 +23,7 @@ namespace PVZEngine.Level
             Definition = definition;
             ModelID = definition.GetModelID();
             RNG = new RandomGenerator(seed);
+            DropRNG = new RandomGenerator(RNG.Next());
             SetTint(Color.white);
         }
         public void Init(Entity spawner)
@@ -595,6 +596,7 @@ namespace PVZEngine.Level
             seri.type = Type;
             seri.state = State;
             seri.rng = RNG.Serialize();
+            seri.dropRng = DropRNG.Serialize();
             seri.target = Target?.ID ?? 0;
 
             seri.definitionID = Definition.GetID();
@@ -632,6 +634,7 @@ namespace PVZEngine.Level
         public void ApplyDeserialize(SerializableEntity seri)
         {
             RNG = RandomGenerator.Deserialize(seri.rng);
+            DropRNG = RandomGenerator.Deserialize(seri.dropRng);
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 
@@ -734,6 +737,7 @@ namespace PVZEngine.Level
         #region 属性字段
         public long ID { get; }
         public RandomGenerator RNG { get; private set; }
+        public RandomGenerator DropRNG { get; private set; }
         public bool Removed { get; private set; }
         public EntityDefinition Definition { get; private set; }
         public NamespaceID ModelID { get; private set; }

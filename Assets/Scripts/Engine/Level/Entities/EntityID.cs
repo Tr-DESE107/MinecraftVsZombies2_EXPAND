@@ -35,6 +35,8 @@ namespace PVZEngine.Level
         }
         public static bool operator ==(EntityID lhs, EntityID rhs)
         {
+            if (lhs is null)
+                return rhs is null;
             return lhs.Equals(rhs);
         }
         public static bool operator !=(EntityID lhs, EntityID rhs)

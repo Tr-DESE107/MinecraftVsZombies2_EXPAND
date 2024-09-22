@@ -188,6 +188,7 @@ namespace MVZ2.Talk
                     {
                         var characterId = ParseArgumentNamespaceID(script.arguments[0]);
                         dialogCharacters[characterId].SetLeaving(true);
+                        dialogCharacters.Remove(characterId);
                     }
                     break;
                 case "faint":

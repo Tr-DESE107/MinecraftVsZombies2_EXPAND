@@ -15,6 +15,7 @@ namespace PVZEngine.Serialization
         public long target;
         public long parent;
         public SerializableRNG rng;
+        public SerializableRNG dropRng;
         public NamespaceID definitionID;
         public NamespaceID modelID;
         public EntityReferenceChain spawnerReference;

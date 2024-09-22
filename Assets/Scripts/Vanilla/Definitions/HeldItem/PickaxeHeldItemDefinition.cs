@@ -69,7 +69,7 @@ namespace MVZ2.Vanilla
         {
             return entity.GetFaction() == entity.Level.Option.LeftFaction;
         }
-        public override bool IsForGrid() => MainManager.Instance.IsMobile();
-        public override bool IsForEntity() => !MainManager.Instance.IsMobile();
+        public override bool IsForGrid() => Global.IsMobile();
+        public override bool IsForEntity() => !Global.IsMobile();
     }
 }

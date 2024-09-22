@@ -5,12 +5,11 @@ namespace PVZEngine.Game
 {
     public abstract class Mod : IContentProvider, IModLogic
     {
-        public Mod(Game game, string nsp)
+        public Mod(string nsp)
         {
-            Game = game;
             Namespace = nsp;
         }
-        public virtual void Init(Game game) { }
+        public virtual void Init() { }
         public abstract ModSaveData CreateSaveData();
         public abstract ModSaveData LoadSaveData(string json);
         protected void AddDefinition(Definition def)
@@ -29,7 +28,6 @@ namespace PVZEngine.Game
         {
             return definitionGroup.GetDefinitions();
         }
-        public Game Game { get; }
         public string Namespace { get; }
         private GameDefinitionGroup definitionGroup = new GameDefinitionGroup();
 

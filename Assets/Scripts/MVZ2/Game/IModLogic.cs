@@ -4,7 +4,7 @@ namespace PVZEngine.Game
 {
     public interface IModLogic : IContentProvider
     {
-        void Init(Game game);
+        void Init();
         ModSaveData CreateSaveData();
         ModSaveData LoadSaveData(string json);
     }

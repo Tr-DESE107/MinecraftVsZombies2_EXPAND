@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2
 {
-    public partial class LanguageManager : MonoBehaviour
+    public partial class LanguageManager : MonoBehaviour, ITranslator
     {
         public string _(string text, params object[] args)
         {
@@ -142,6 +142,14 @@ namespace MVZ2
         public string[] GetAllLanguages()
         {
             return allLanguages.ToArray();
+        }
+        string ITranslator.GetText(string textKey, params string[] args)
+        {
+            return _(textKey, args);
+        }
+        string ITranslator.GetTextParticular(string textKey, string context, params string[] args)
+        {
+            return _p(context, textKey, args);
         }
         public event Action<string> OnLanguageChanged;
         public MainManager Main => main;

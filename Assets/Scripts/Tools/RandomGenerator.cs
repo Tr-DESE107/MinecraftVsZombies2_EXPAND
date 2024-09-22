@@ -1,4 +1,5 @@
 ﻿using System;
+using Codice.Client.BaseCommands;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Tools
@@ -22,6 +23,14 @@ namespace Tools
             var value = generator.Next();
             Times++;
             return value;
+        }
+        public int Next(int max)
+        {
+            return Next(0, max);
+        }
+        public float Next(float max)
+        {
+            return Next(0, max);
         }
         public int Next(int min, int max)
         {

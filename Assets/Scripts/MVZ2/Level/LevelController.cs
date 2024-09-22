@@ -144,11 +144,13 @@ namespace MVZ2.Level
         {
             BuiltinCallbacks.PostHugeWaveApproach.Remove(PostHugeWaveApproachCallback);
             BuiltinCallbacks.PostFinalWave.Remove(PostFinalWaveCallback);
+
             if (optionsLogic != null)
             {
                 optionsLogic.Dispose();
                 optionsLogic = null;
             }
+            level?.Dispose();
         }
         public async Task ExitLevel()
         {
@@ -607,7 +609,7 @@ namespace MVZ2.Level
         private MainManager Main => MainManager.Instance;
         private LevelEngine level;
         private bool isPaused = false;
-        private bool levelLoaded = true;
+        private bool levelLoaded = false;
         private bool isGameStarted;
         private bool isGameOver;
         private bool speedUp;

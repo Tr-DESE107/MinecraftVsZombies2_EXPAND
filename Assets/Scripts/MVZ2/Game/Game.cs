@@ -1,12 +1,15 @@
 ﻿using System;
+using MVZ2.Save;
 using PVZEngine.Level;
 
 namespace PVZEngine.Game
 {
-    public partial class Game : IContentProvider, ITranslator
+    public partial class Game : IGame
     {
-        public Game()
+        public Game(ITranslator translator, ISaveDataProvider saveDataProvider)
         {
+            this.translator = translator;
+            this.saveDataProvider = saveDataProvider;
         }
         public bool IsInLevel()
         {
@@ -20,23 +23,50 @@ namespace PVZEngine.Game
         {
             level = value;
         }
+
+        public string GetText(string textKey, params string[] args)
+        {
+            return translator.GetText(textKey, args);
+        }
+
+        public string GetTextParticular(string textKey, string context, params string[] args)
+        {
+            return translator.GetTextParticular(textKey, context, args);
+        }
+
+        public bool IsUnlocked(NamespaceID unlockID)
+        {
+            return saveDataProvider.IsUnlocked(unlockID);
+        }
+
+        public void Unlock(NamespaceID unlockID)
+        {
+            saveDataProvider.Unlock(unlockID);
+        }
+
+        public T GetModSaveData<T>(string spaceName)
+        {
+            return saveDataProvider.GetModSaveData<T>(spaceName);
+        }
+
+        public ModSaveData GetModSaveData(string spaceName)
+        {
+            return saveDataProvider.GetModSaveData(spaceName);
+        }
+
+        public void SaveCurrentModData(string spaceName)
+        {
+            saveDataProvider.SaveCurrentModData(spaceName);
+        }
         public void SetProperty(string name, object value) => propertyDict.SetProperty(name, value);
         public object GetProperty(string name) => propertyDict.GetProperty(name);
         public bool TryGetProperty(string name, out object value) => propertyDict.TryGetProperty(name, out value);
         public T GetProperty<T>(string name) => propertyDict.GetProperty<T>(name);
         public bool TryGetProperty<T>(string name, out T value) => propertyDict.TryGetProperty<T>(name, out value);
         public string[] GetPropertyNames() => propertyDict.GetPropertyNames();
-        public string GetText(string textKey)
-        {
-            return OnGetString?.Invoke(textKey) ?? textKey;
-        }
-        public string GetTextParticular(string textKey, string context)
-        {
-            return OnGetStringParticular?.Invoke(textKey, context) ?? textKey;
-        }
-        public event Func<string, string> OnGetString;
-        public event Func<string, string, string> OnGetStringParticular;
         private LevelEngine level;
         private PropertyDictionary propertyDict = new PropertyDictionary();
+        private ITranslator translator;
+        private ISaveDataProvider saveDataProvider;
     }
 }

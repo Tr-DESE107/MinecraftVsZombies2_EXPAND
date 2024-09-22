@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla
         {
         }
 
-        public override bool IsForEntity() => !MainManager.Instance.IsMobile();
+        public override bool IsForEntity() => !Global.IsMobile();
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
             HeldFlags flags = HeldFlags.ForceReset;
@@ -38,7 +38,7 @@ namespace MVZ2.Vanilla
             }
             return false;
         }
-        public override bool IsForGrid() => MainManager.Instance.IsMobile();
+        public override bool IsForGrid() => Global.IsMobile();
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
         {
             var flags = HeldFlags.ForceReset;

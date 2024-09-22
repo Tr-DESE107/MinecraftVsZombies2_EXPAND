@@ -4,7 +4,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla.Save
 {
-    public class VanillaSaveData : ModSaveData, ILastMapSaveData, IMoneySaveData
+    public class VanillaSaveData : ModSaveData, IBuiltinSaveData
     {
         public VanillaSaveData(string spaceName) : base(spaceName)
         {
@@ -14,7 +14,8 @@ namespace MVZ2.Vanilla.Save
             return new SerializableVanillaSaveData()
             {
                 lastMapID = LastMapID,
-                money = money
+                money = money,
+                blueprintSlots = blueprintSlots,
             };
         }
         public void LoadSerializable(SerializableVanillaSaveData serializable)
@@ -22,6 +23,7 @@ namespace MVZ2.Vanilla.Save
             LoadFromSerializable(serializable);
             LastMapID = serializable.lastMapID;
             money = serializable.money;
+            blueprintSlots = serializable.blueprintSlots;
         }
 
         public int GetMoney()
@@ -33,8 +35,18 @@ namespace MVZ2.Vanilla.Save
         {
             money = Math.Clamp(value, 0, 999990);
         }
+        public int GetBlueprintSlots()
+        {
+            return blueprintSlots;
+        }
+
+        public void SetBlueprintSlots(int value)
+        {
+            blueprintSlots = value;
+        }
         public NamespaceID LastMapID { get; set; }
         private int money;
+        private int blueprintSlots = 6;
     }
     [Serializable]
     public class SerializableVanillaSaveData : SerializableModSaveData
@@ -47,5 +59,6 @@ namespace MVZ2.Vanilla.Save
         }
         public NamespaceID lastMapID;
         public int money;
+        public int blueprintSlots;
     }
 }

@@ -6,34 +6,56 @@ namespace MVZ2
 {
     public static class MVZ2Save
     {
-        public static NamespaceID GetLastMapID(this SaveManager save)
+        public static IBuiltinSaveData GetBuiltinMapSaveData(this ISaveDataProvider save)
         {
-            var saveData = save.GetModSaveData<ILastMapSaveData>(save.Main.BuiltinNamespace);
+            return save.GetModSaveData<IBuiltinSaveData>(MainManager.Instance.BuiltinNamespace);
+        }
+        public static NamespaceID GetLastMapID(this ISaveDataProvider save)
+        {
+            var saveData = save.GetBuiltinMapSaveData();
             if (saveData == null)
                 return null;
             return saveData.LastMapID;
         }
-        public static void SetMoney(this SaveManager save, int money)
+        public static void SetMoney(this ISaveDataProvider save, int money)
         {
-            var nsp = save.Main.BuiltinNamespace;
-            var saveData = save.GetModSaveData<IMoneySaveData>(nsp);
+            var saveData = save.GetBuiltinMapSaveData();
             if (saveData == null)
                 return;
             saveData.SetMoney(money);
-            save.SaveCurrentModData(nsp);
+            save.SaveCurrentModData(saveData.Namespace);
         }
-        public static int GetMoney(this SaveManager save)
+        public static void AddMoney(this ISaveDataProvider save, int money)
         {
-            var saveData = save.GetModSaveData<IMoneySaveData>(save.Main.BuiltinNamespace);
+            save.SetMoney(save.GetMoney() + money);
+        }
+        public static int GetMoney(this ISaveDataProvider save)
+        {
+            var saveData = save.GetBuiltinMapSaveData();
             if (saveData == null)
                 return 0;
             return saveData.GetMoney();
         }
-        public static bool IsTriggerUnlocked(this SaveManager save)
+        public static void SetBlueprintSlots(this ISaveDataProvider save, int slots)
+        {
+            var saveData = save.GetBuiltinMapSaveData();
+            if (saveData == null)
+                return;
+            saveData.SetBlueprintSlots(slots);
+            save.SaveCurrentModData(saveData.Namespace);
+        }
+        public static int GetBlueprintSlots(this ISaveDataProvider save)
+        {
+            var saveData = save.GetBuiltinMapSaveData();
+            if (saveData == null)
+                return 0;
+            return saveData.GetBlueprintSlots();
+        }
+        public static bool IsTriggerUnlocked(this ISaveDataProvider save)
         {
             return save.IsUnlocked(BuiltinUnlockID.trigger);
         }
-        public static bool IsStarshardUnlocked(this SaveManager save)
+        public static bool IsStarshardUnlocked(this ISaveDataProvider save)
         {
             return save.IsUnlocked(BuiltinUnlockID.starshard);
         }

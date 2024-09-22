@@ -8,13 +8,21 @@ using UnityEngine;
 
 namespace PVZEngine.Level
 {
-    public partial class LevelEngine : IBuffTarget
+    public partial class LevelEngine : IBuffTarget, IDisposable
     {
         #region 公有方法
         public LevelEngine(IContentProvider contentProvider, ITranslator translator)
         {
             ContentProvider = contentProvider;
             Translator = translator;
+        }
+
+        public void Dispose()
+        {
+            if (StageDefinition != null)
+            {
+                StageDefinition.RemoveCallbacks();
+            }
         }
 
         #region 组件
@@ -91,8 +99,13 @@ namespace PVZEngine.Level
         }
         public void ChangeStage(NamespaceID stageId)
         {
+            if (StageDefinition != null)
+            {
+                StageDefinition.RemoveCallbacks();
+            }
             StageID = stageId;
             StageDefinition = ContentProvider.GetStageDefinition(stageId);
+            StageDefinition.AddCallbacks();
         }
         public void Update()
         {
@@ -335,8 +348,7 @@ namespace PVZEngine.Level
             level.miscRandom = RandomGenerator.Deserialize(seri.miscRandom);
 
             level.IsCleared = seri.isCleared;
-            level.StageID = seri.stageDefinitionID;
-            level.StageDefinition = provider.GetStageDefinition(seri.stageDefinitionID);
+            level.ChangeStage(seri.stageDefinitionID);
             level.AreaDefinition = provider.GetAreaDefinition(seri.areaDefinitionID);
             level.InitAreaProperties();
 

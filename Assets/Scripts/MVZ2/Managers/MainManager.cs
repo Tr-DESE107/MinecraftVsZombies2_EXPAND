@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MVZ2.Save;
 using PVZEngine.Game;
 using UnityEngine;
 
@@ -11,10 +12,7 @@ namespace MVZ2
         {
             Application.targetFrameRate = 60;
             SerializeHelper.init();
-
-            Game = new Game();
-            Game.OnGetString += OnGetStringCallback;
-            Game.OnGetStringParticular += OnGetStringParticularCallback;
+            Game = new Game(LanguageManager, SaveManager);
 
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
@@ -24,7 +22,7 @@ namespace MVZ2
 
             SaveManager.Load();
 
-            ModManager.InitMods(Game);
+            ModManager.InitMods();
         }
         public bool IsMobile()
         {
@@ -62,14 +60,6 @@ namespace MVZ2
             {
                 throw new DuplicateInstanceException(name);
             }
-        }
-        private string OnGetStringCallback(string textKey)
-        {
-            return LanguageManager._(textKey);
-        }
-        private string OnGetStringParticularCallback(string textKey, string context)
-        {
-            return LanguageManager._p(context, textKey);
         }
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }

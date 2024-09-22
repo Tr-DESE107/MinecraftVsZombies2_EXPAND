@@ -175,8 +175,8 @@ namespace MVZ2.Tests
 
         private static Game CreateGame()
         {
-            var game = new Game();
-            var mod = new VanillaMod(game);
+            var game = new Game(new DummyTranslator(), new DummySaveDataProvider());
+            var mod = new VanillaMod();
             game.AddMod(mod);
             return game;
         }
@@ -350,6 +350,43 @@ namespace MVZ2.Tests
             public bool RemoveDelayedMoney(Entity entity)
             {
                 return false;
+            }
+        }
+        private class DummyTranslator : ITranslator
+        {
+            public string GetText(string textKey, params string[] args)
+            {
+                return string.Format(textKey, args);
+            }
+
+            public string GetTextParticular(string textKey, string context, params string[] args)
+            {
+                return string.Format(textKey, args);
+            }
+        }
+        private class DummySaveDataProvider : ISaveDataProvider
+        {
+            public bool IsUnlocked(NamespaceID unlockID)
+            {
+                return false;
+            }
+
+            public void Unlock(NamespaceID unlockID)
+            {
+            }
+
+            public T GetModSaveData<T>(string spaceName)
+            {
+                return default;
+            }
+
+            public ModSaveData GetModSaveData(string spaceName)
+            {
+                return null;
+            }
+
+            public void SaveCurrentModData(string spaceName)
+            {
             }
         }
     }

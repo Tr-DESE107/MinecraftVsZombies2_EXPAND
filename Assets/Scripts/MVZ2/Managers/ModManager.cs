@@ -29,11 +29,11 @@ namespace MVZ2
                 game.AddMod(modInfo.Logic);
             }
         }
-        public void InitMods(Game game)
+        public void InitMods()
         {
             foreach (var modInfo in GetAllModInfos())
             {
-                modInfo.Logic.Init(game);
+                modInfo.Logic.Init();
             }
         }
         public void RegisterModLogic(string spaceName, IModLogic modLogic)

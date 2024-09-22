@@ -15,7 +15,7 @@ namespace MVZ2
         }
         private static void RegisterMod(IModManager manager, Game game)
         {
-            manager.RegisterModLogic(VanillaMod.spaceName, new VanillaMod(game));
+            manager.RegisterModLogic(VanillaMod.spaceName, new VanillaMod());
         }
     }
 }

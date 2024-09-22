@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
-    public static class VanillaLevel
+    public static class VanillaLevelExt
     {
         public static void CheckGameOver(this LevelEngine level)
         {

@@ -5,11 +5,12 @@ using System.Linq;
 using MVZ2.Save;
 using PVZEngine;
 using PVZEngine.Level;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace MVZ2
 {
-    public partial class SaveManager : MonoBehaviour
+    public partial class SaveManager : MonoBehaviour, ISaveDataProvider
     {
         #region 保存
         public void SaveModDatas()
@@ -84,14 +85,14 @@ namespace MVZ2
             }
             return default;
         }
-        public bool IsUnlocked(NamespaceID stageID)
+        public bool IsUnlocked(NamespaceID unlockId)
         {
-            if (stageID == null)
+            if (unlockId == null)
                 return false;
-            var modSaveData = GetModSaveData(stageID.spacename);
+            var modSaveData = GetModSaveData(unlockId.spacename);
             if (modSaveData == null)
                 return false;
-            return modSaveData.IsUnlocked(stageID.path);
+            return modSaveData.IsUnlocked(unlockId.path);
         }
         public NamespaceID[] GetLevelDifficultyRecords(NamespaceID stageID)
         {
@@ -113,6 +114,15 @@ namespace MVZ2
         #endregion
 
         #region 修改
+        public void Unlock(NamespaceID unlockId)
+        {
+            if (unlockId == null)
+                return;
+            var modSaveData = GetModSaveData(unlockId.spacename);
+            if (modSaveData == null)
+                return;
+            modSaveData.Unlock(unlockId.path);
+        }
         public bool DeleteUserSaveData(int index)
         {
             var path = GetUserSaveDataDirectory(index);

@@ -28,9 +28,7 @@ namespace MVZ2.GameContent.Effects
                 timer.Run();
                 if (timer.Expired)
                 {
-                    entity.Produce(PickupID.emerald);
-                    entity.Produce(PickupID.ruby);
-                    entity.Produce(PickupID.diamond);
+                    entity.Produce(PickupID.redstone);
                     timer.MaxFrame = PRODUCE_TIME;
                     timer.Reset();
                 }

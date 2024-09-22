@@ -23,6 +23,10 @@ namespace MVZ2.UI
                 position.y = targetTransform.position.y + targetOffset.y;
                 transform.position = position;
             }
+            else
+            {
+                transform.position = new Vector3(-1000, -1000, 0);
+            }
         }
         [SerializeField]
         private Transform targetTransform;
