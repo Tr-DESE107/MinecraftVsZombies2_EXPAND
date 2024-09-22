@@ -6,6 +6,7 @@ using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.PlayerSettings;
 
 namespace MVZ2.Level
 {
@@ -31,6 +32,7 @@ namespace MVZ2.Level
             entity.OnSetModelProperty += OnSetModelPropertyCallback;
             SetModel(Entity.ModelID);
         }
+        #region 模型
         public void SetModel(NamespaceID modelId)
         {
             SetModel(CreateModel(modelId));
@@ -44,35 +46,39 @@ namespace MVZ2.Level
             UpdateEntityModel();
             UpdateArmorModel();
         }
-        public void UpdateMovement()
+        public void SetSimulationSpeed(float simulationSpeed)
         {
-            movementTransitionFrame++;
-            var nextPos = Entity.GetNextPosition();
-            var pos = Entity.Pos;
-            var transPos = Level.LawnToTrans(pos);
-            var posOffset = (Level.LawnToTrans(nextPos) - transPos) * (1 - 1 / movementTransitionFrame);
-            float zOffset = 0;
-            if (zOffsetDict.TryGetValue(Entity.Type, out float offset))
+            if (Model)
             {
-                zOffset = offset * Level.LawnToTransScale;
+                Model.SetSimulationSpeed(simulationSpeed);
             }
-            transform.position = transPos + posOffset + Vector3.back * zOffset;
+        }
+        #endregion
+
+        #region 更新
+        public void UpdateFixed()
+        {
+            movementTransitionTime = 0;
+            if (Model)
+            {
+                Model.UpdateFixed();
+            }
+        }
+        public void UpdateFrame(float deltaTime)
+        {
+            movementTransitionTime += deltaTime;
+            var posOffset = GetTransformOffset();
+            UpdateTransform(posOffset);
             UpdateShadow(posOffset);
-        }
-        public void UpdateShadow()
-        {
-            UpdateShadow(Vector3.zero);
-        }
-        public void UpdateModel(float deltaTime, float simulationSpeed)
-        {
             if (Model)
             {
                 UpdateEntityModel();
                 UpdateArmorModel();
-                Model.UpdateModel(deltaTime, simulationSpeed);
+                Model.UpdateFrame(deltaTime);
             }
-            movementTransitionFrame = 0;
         }
+        #endregion
+
         public void SetHovered(bool hovered)
         {
             isHovered = hovered;
@@ -189,9 +195,7 @@ namespace MVZ2.Level
         #region 事件回调
         private void PostInitCallback()
         {
-            UpdateEntityModel();
-            UpdateArmorModel();
-            UpdateShadow(Vector3.zero);
+            UpdateFrame(0);
         }
         private void OnTriggerAnimationCallback(string name, EntityAnimationTarget target)
         {
@@ -259,6 +263,13 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 位置
+        protected void UpdateTransform(Vector3 posOffset)
+        {
+            var pos = Entity.Pos;
+            var currentTransPos = Level.LawnToTrans(pos);
+            transform.position = currentTransPos + posOffset;
+        }
         protected void UpdateShadow(Vector3 posOffset)
         {
             var shadowPos = Entity.Pos;
@@ -272,17 +283,36 @@ namespace MVZ2.Level
             Shadow.gameObject.SetActive(!Entity.IsShadowHidden());
             Shadow.SetAlpha(Entity.GetShadowAlpha() * alpha);
         }
-        private Model CreateModel(NamespaceID id)
+        protected Vector3 GetTransitionOffset()
         {
-            var res = Main.ResourceManager;
-            var modelMeta = res.GetModelMeta(id);
-            if (modelMeta == null)
-                return null;
-            var modelTemplate = res.GetModel(modelMeta.path);
-            if (modelTemplate == null)
-                return null;
-            return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
+            var pos = Entity.Pos;
+            var nextPos = Entity.GetNextPosition();
+            var nextTransPos = Level.LawnToTrans(nextPos);
+            var currentTransPos = Level.LawnToTrans(pos);
+
+            var passedTime = movementTransitionTime;
+            var passedTicks = passedTime * Entity.Level.TPS;
+            var targetTransPos = Vector3.Lerp(currentTransPos, nextTransPos, passedTicks);
+            var transitionOffset = targetTransPos - currentTransPos;
+            return transitionOffset;
         }
+        protected float GetZOffset()
+        {
+            float zOffset = 0;
+            if (zOffsetDict.TryGetValue(Entity.Type, out float offset))
+            {
+                zOffset = offset * Level.LawnToTransScale;
+            }
+            return zOffset;
+        }
+        protected Vector3 GetTransformOffset()
+        {
+            var transitionOffset = GetTransitionOffset();
+            float zOffset = GetZOffset();
+            return transitionOffset + Vector3.back * zOffset;
+        }
+        #endregion
+
         #region 护甲
         private void CreateArmorModel(Armor armor)
         {
@@ -315,6 +345,19 @@ namespace MVZ2.Level
             Model.ArmorModel.RendererGroup.SetColorOffset(armor.GetColorOffset());
         }
         #endregion
+
+        #region 模型
+        private Model CreateModel(NamespaceID id)
+        {
+            var res = Main.ResourceManager;
+            var modelMeta = res.GetModelMeta(id);
+            if (modelMeta == null)
+                return null;
+            var modelTemplate = res.GetModel(modelMeta.path);
+            if (modelTemplate == null)
+                return null;
+            return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
+        }
         private Model GetAnimationTargetModel(EntityAnimationTarget target)
         {
             switch (target)
@@ -335,19 +378,23 @@ namespace MVZ2.Level
             {
                 Model.SetAnimatorInt("State", EntityStates.WALK);
             }
-            Model.RendererGroup.SetTint(Entity.GetTint());
-            Model.RendererGroup.SetColorOffset(GetColorOffset());
             var groundPos = Entity.Pos;
             groundPos.y = Entity.GetGroundHeight();
-            Model.RendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
+
+            var rendererGroup = Model.RendererGroup;
+            rendererGroup.SetTint(Entity.GetTint());
+            rendererGroup.SetColorOffset(GetColorOffset());
+            rendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.RenderScale;
             if (Entity.IsCollected())
             {
-                Model.RendererGroup.SortingLayerID = SortingLayers.frontUI;
-                Model.RendererGroup.SortingOrder = 9999;
+                rendererGroup.SortingLayerID = SortingLayers.frontUI;
+                rendererGroup.SortingOrder = 9999;
             }
         }
+        #endregion
+
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
@@ -407,7 +454,7 @@ namespace MVZ2.Level
         public LevelController Level { get; private set; }
         private bool isHovered;
         private EntityCursorSource _cursorSource;
-        private int movementTransitionFrame;
+        private float movementTransitionTime;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
         [SerializeField]

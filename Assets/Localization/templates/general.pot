@@ -878,6 +878,10 @@ msgctxt "death_message"
 msgid "脑子是好的，但不是每个人都有"
 msgstr ""
 
+msgctxt "death_message"
+msgid "你死了！"
+msgstr ""
+
 msgctxt "difficulty"
 msgid "简单"
 msgstr ""

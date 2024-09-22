@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static MVZ2.Level.LevelController;
 
 namespace MVZ2.Level.UI
 {
@@ -26,17 +25,8 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region 左上角
 
         #region 能量
-        public void SetEnergyVisible(bool value)
-        {
-            energyPanel.SetActive(value);
-        }
-        public void SetTriggerSlotVisible(bool value)
-        {
-            triggerSlot.SetActive(value);
-        }
         public void SetEnergy(string value)
         {
             energyPanel.SetEnergy(value);
@@ -44,10 +34,6 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 蓝图
-        public void SetBlueprintsVisible(bool value)
-        {
-            blueprints.SetActive(value);
-        }
         public void SetBlueprintCount(int count)
         {
             blueprints.SetBlueprintCount(count);
@@ -94,19 +80,11 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 铁镐
-        public void SetPickaxeSlotVisible(bool visible)
-        {
-            pickaxeSlot.SetActive(visible);
-        }
         public void SetPickaxeVisible(bool visible)
         {
             pickaxeSlot.SetPickaxeVisible(visible);
         }
         #endregion
-
-        #endregion
-
-        #region 左下角
 
         #region 钱
         public void SetMoney(string money)
@@ -130,7 +108,7 @@ namespace MVZ2.Level.UI
         #region 星之碎片
         public void SetStarshardVisible(bool visible)
         {
-            starshardPanel.SetActive(visible);
+            animator.SetBool("Starshard", visible);
         }
         public void SetStarshardCount(int count, int maxCount)
         {
@@ -138,14 +116,14 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region 触发
+        public void SetTriggerSlotVisible(bool visible)
+        {
+            animator.SetBool("TriggerSlot", visible);
+        }
         #endregion
 
         #region 右上角
-
-        public void SetTopRightVisible(bool visible)
-        {
-            topRightObj.SetActive(visible);
-        }
 
         #region 游戏难度
         public void SetDifficulty(string difficulty)
@@ -155,10 +133,6 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 加速
-        public void SetSpeedUpVisible(bool visible)
-        {
-            speedUpButton.gameObject.SetActive(visible);
-        }
         public void SetSpeedUp(bool speedUp)
         {
             speedUpEnabledObject.SetActive(speedUp);
@@ -171,10 +145,6 @@ namespace MVZ2.Level.UI
         #region 关卡进度
 
         #region 关卡名
-        public void SetLevelNameVisible(bool visible)
-        {
-            levelNameText.gameObject.SetActive(visible);
-        }
         public void SetLevelName(string name)
         {
             levelNameText.text = name;
@@ -221,11 +191,6 @@ namespace MVZ2.Level.UI
         public void SetReadySetBuildVisible(bool visible)
         {
             readyText.SetActive(visible);
-        }
-        public void SetLevelTextAnimationSpeed(float speed)
-        {
-            hugeWaveText.TextAnimator.speed = speed;
-            finalWaveText.TextAnimator.speed = speed;
         }
         public void SetYouDiedVisible(bool visible)
         {
@@ -364,6 +329,11 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        public void SetSimulationSpeed(float speed)
+        {
+            hugeWaveText.TextAnimator.speed = speed;
+            finalWaveText.TextAnimator.speed = speed;
+        }
         public void SetUIVisibleState(VisibleState state)
         {
             animator.SetInteger("UIState", (int)state);
@@ -600,6 +570,12 @@ namespace MVZ2.Level.UI
             Side,
             Lawn,
             Bottom
+        }
+        public enum VisibleState
+        {
+            Nothing = 0,
+            ChoosingBlueprints = 1,
+            InLevel = 2,
         }
         #endregion
     }

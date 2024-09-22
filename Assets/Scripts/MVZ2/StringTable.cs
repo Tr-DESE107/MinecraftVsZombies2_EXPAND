@@ -53,8 +53,11 @@ namespace MVZ2
         [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]
         public const string LEVEL_NAME_HALLOWEEN = "万圣夜";
 
-        public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
+        [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
+        public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
+
+        public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";

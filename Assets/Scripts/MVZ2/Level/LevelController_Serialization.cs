@@ -11,6 +11,7 @@ using UnityEngine;
 
 namespace MVZ2.Level
 {
+    using VisibleState = MVZ2.Level.UI.LevelUI.VisibleState;
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法
@@ -70,8 +71,7 @@ namespace MVZ2.Level
                     if (seriEntity == null)
                         throw new SerializationException($"Could not find entity data with id {entity.ID} in the level state data.");
                     controller.LoadFromSerializable(seriEntity);
-                    controller.UpdateModel(0, 0);
-                    controller.UpdateShadow();
+                    controller.UpdateFrame(0);
                 }
             }
             catch (Exception e)
@@ -86,8 +86,10 @@ namespace MVZ2.Level
             UpdateLevelName();
             UpdateLevelProgress();
             UpdateDifficultyName();
-            UpdateLevelUI(0);
+            UpdateLevelUI();
+            SetLevelUISimulationSpeed(0);
             SetUIVisibleState(VisibleState.InLevel);
+            SetUnlockedUIVisible();
 
             SetCameraToLawn();
 

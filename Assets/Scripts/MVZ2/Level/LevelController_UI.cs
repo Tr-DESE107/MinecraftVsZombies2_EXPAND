@@ -245,8 +245,7 @@ namespace MVZ2.Level
             string message;
             if (killerID != null)
             {
-                var entityDef = Game.GetEntityDefinition(killerID);
-                message = entityDef.GetDeathMessage();
+                message = Main.ResourceManager.GetEntityDeathMessage(killerID);
             }
             else
             {
@@ -371,7 +370,8 @@ namespace MVZ2.Level
             }
             for (int i = 0; i < bannerProgresses.Length; i++)
             {
-                bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + level.CurrentWave >= i * level.GetWavesPerFlag() ? deltaTime : -deltaTime);
+                float value = level.CurrentWave >= i * level.GetWavesPerFlag() ? deltaTime : -deltaTime;
+                bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + value);
             }
             int totalWaveCount = level.GetTotalWaveCount();
             float targetProgress = totalWaveCount <= 0 ? 0 : level.CurrentWave / (float)totalWaveCount;
@@ -391,15 +391,19 @@ namespace MVZ2.Level
             var ui = GetLevelUI();
             ui.SetReadySetBuildVisible(true);
         }
-        private void UpdateLevelUI(float simulationSpeed)
+        private void UpdateLevelUI()
         {
             var ui = GetLevelUI();
             ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
             ui.SetPickaxeVisible(!level.IsHoldingPickaxe());
-            ui.SetLevelTextAnimationSpeed(simulationSpeed);
             UpdateLevelProgress();
             UpdateBlueprintsState();
             UpdateStarshards();
+        }
+        private void SetLevelUISimulationSpeed(float simulationSpeed)
+        {
+            var ui = GetLevelUI();
+            ui.SetSimulationSpeed(simulationSpeed);
         }
         private void UpdateLevelProgress()
         {
@@ -435,6 +439,12 @@ namespace MVZ2.Level
             var levelUI = GetLevelUI();
             levelUI.SetUIVisibleState(state);
         }
+        private void SetUnlockedUIVisible()
+        {
+            var levelUI = GetLevelUI();
+            levelUI.SetStarshardVisible(Main.SaveManager.IsStarshardUnlocked());
+            levelUI.SetTriggerSlotVisible(Main.SaveManager.IsTriggerUnlocked());
+        }
 
         #endregion
 
@@ -464,15 +474,6 @@ namespace MVZ2.Level
         private LevelUI mobileUI;
         [SerializeField]
         private List<SpriteReference> pauseImages = new List<SpriteReference>();
-        #endregion
-
-        #region 内嵌类
-        public enum VisibleState
-        {
-            Nothing,
-            ChoosingBlueprints,
-            InLevel,
-        }
         #endregion
     }
 }

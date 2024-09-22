@@ -14,6 +14,7 @@ using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
+    using VisibleState = MVZ2.Level.UI.LevelUI.VisibleState;
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法
@@ -89,11 +90,13 @@ namespace MVZ2.Level
             //level.RechargeSpeed = 99;
 
             SetUIVisibleState(VisibleState.InLevel);
+            SetUnlockedUIVisible();
 
             UpdateBlueprintCount();
             UpdateLevelName();
             UpdateDifficultyName();
-            UpdateLevelUI(GetGameSpeed());
+            UpdateLevelUI();
+            SetLevelUISimulationSpeed(GetGameSpeed());
 
             level.Start();
 
@@ -235,47 +238,52 @@ namespace MVZ2.Level
         }
         private void Update()
         {
-            float gameSpeed = 0;
+            float deltaTime = Time.deltaTime;
+            float gameSpeed = GetGameSpeed();
             if (isGameOver)
             {
                 if (killerEntity)
                 {
-                    killerEntity.UpdateMovement();
-                }
-            }
-            else if (!IsGameRunning())
-            {
-                foreach (var entity in entities.Where(e => CanUpdateBeforeGameStart(e.Entity)).ToArray())
-                {
-                    entity.UpdateMovement();
+                    float simulationSpeed = 1;
+                    killerEntity.SetSimulationSpeed(simulationSpeed);
+                    killerEntity.UpdateFrame(deltaTime);
                 }
             }
             else
             {
-                gameSpeed = GetGameSpeed();
-                var deltaTime = Time.deltaTime * gameSpeed;
+                // 更新实体动画。
+                // 只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
                 foreach (var entity in entities)
                 {
-                    entity.UpdateMovement();
+                    bool modelActive = IsGameRunning() || CanUpdateBeforeGameStart(entity.Entity) || entity.Entity.IsPreviewEnemy();
+                    float simulationSpeed = modelActive ? gameSpeed : 0;
+                    entity.SetSimulationSpeed(simulationSpeed);
+                    entity.UpdateFrame(deltaTime * simulationSpeed);
                 }
-                AdvanceLevelProgress();
 
-                var levelUI = GetLevelUI();
-                bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
-                Vector2 heldItemPosition;
-                if (Main.IsMobile() && !isPressing)
+                // 游戏运行时更新UI。
+                if (IsGameRunning())
                 {
-                    heldItemPosition = new Vector2(-1000, -1000);
-                }
-                else
-                {
-                    heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
-                }
-                levelUI.SetHeldItemPosition(heldItemPosition);
-                UpdateLevelUI(gameSpeed);
+                    AdvanceLevelProgress();
 
-                levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
+                    var levelUI = GetLevelUI();
+                    bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
+                    Vector2 heldItemPosition;
+                    if (Main.IsMobile() && !isPressing)
+                    {
+                        heldItemPosition = new Vector2(-1000, -1000);
+                    }
+                    else
+                    {
+                        heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
+                    }
+                    levelUI.SetHeldItemPosition(heldItemPosition);
+                    UpdateLevelUI();
+
+                    levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
+                }
             }
+            SetLevelUISimulationSpeed(IsGameRunning() ? gameSpeed : 0);
             UpdateGridHighlight();
             UpdateInput();
         }
@@ -290,51 +298,45 @@ namespace MVZ2.Level
                     pos.z = pos.z * 0.5f + level.GetDoorZ() * 0.5f;
                     pos.y = pos.y * 0.5f + level.GetGroundY(pos.x, pos.z) * 0.5f;
                     killerEntity.Entity.Pos = pos;
-                    killerEntity.UpdateModel(Time.fixedDeltaTime, 1);
+                    killerEntity.UpdateFixed();
                 }
                 return;
             }
-
-            if (!IsGameRunning())
-            {
-                foreach (var entity in entities.ToArray())
-                {
-                    bool modelActive = false;
-                    if (CanUpdateBeforeGameStart(entity.Entity))
-                    {
-                        entity.Entity.Update();
-                        modelActive = true;
-                    }
-                    else if (entity.Entity.IsPreviewEnemy())
-                    {
-                        modelActive = true;
-                    }
-                    float deltaTime = modelActive ? Time.fixedDeltaTime : 0;
-                    float simulationSpeed = modelActive ? 1 : 0;
-                    entity.UpdateModel(deltaTime, simulationSpeed);
-                }
-            }
             else
             {
-                var gameSpeed = GetGameSpeed();
-                var times = (int)gameSpeed;
-                gameRunTimeModular += gameSpeed - times;
-                if (gameRunTimeModular > 1)
+                if (!IsGameRunning())
                 {
-                    times += (int)gameRunTimeModular;
-                    gameRunTimeModular %= 1;
-                }
-                for (int time = 0; time < times; time++)
-                {
-                    // 用于中断循环。防止Update后游戏结束，然后执行两次。
-                    if (!IsGameRunning())
-                        break;
-                    level.Update();
                     foreach (var entity in entities.ToArray())
                     {
-                        entity.UpdateModel(Time.fixedDeltaTime, gameSpeed);
+                        if (CanUpdateBeforeGameStart(entity.Entity))
+                        {
+                            entity.Entity.Update();
+                            entity.UpdateFixed();
+                        }
                     }
-                    UpdateEnemyCry();
+                }
+                else
+                {
+                    var gameSpeed = GetGameSpeed();
+                    var times = (int)gameSpeed;
+                    gameRunTimeModular += gameSpeed - times;
+                    if (gameRunTimeModular > 1)
+                    {
+                        times += (int)gameRunTimeModular;
+                        gameRunTimeModular %= 1;
+                    }
+                    for (int time = 0; time < times; time++)
+                    {
+                        // 用于中断循环。防止Update后游戏结束，然后执行两次。
+                        if (!IsGameRunning())
+                            break;
+                        level.Update();
+                        foreach (var entity in entities.ToArray())
+                        {
+                            entity.UpdateFixed();
+                        }
+                        UpdateEnemyCry();
+                    }
                 }
             }
         }

@@ -35,6 +35,19 @@ namespace MVZ2
                 return entityID.ToString();
             return Main.LanguageManager._p(StringTable.CONTEXT_ENTITY_NAME, meta.name);
         }
+        public string GetEntityDeathMessage(NamespaceID entityID)
+        {
+            string key = StringTable.DEATH_MESSAGE_UNKNOWN;
+            if (entityID != null)
+            {
+                var meta = GetEntityMeta(entityID);
+                if (meta != null && meta.deathMessage != null)
+                {
+                    key = meta.deathMessage;
+                }
+            }
+            return Main.LanguageManager._p(StringTable.CONTEXT_DEATH_MESSAGE, key);
+        }
         public string GetEntityTooltip(NamespaceID entityID)
         {
             if (entityID == null)

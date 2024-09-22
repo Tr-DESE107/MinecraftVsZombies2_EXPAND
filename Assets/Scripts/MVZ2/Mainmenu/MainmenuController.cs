@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.GameContent;
 using MVZ2.UI;
@@ -239,17 +240,21 @@ namespace MVZ2.Mainmenu
 
                 yield return new WaitForSeconds(6);
             }
-            var task = main.LevelManager.GotoLevelSceneAsync();
+            var task = GotoLevel();
             while (!task.IsCompleted)
             {
                 yield return null;
             }
-            main.LevelManager.StartLevel(BuiltinAreaID.day, BuiltinStageID.prologue);
-            Hide();
         }
         private IEnumerable<MainmenuButton> GetAllButtons()
         {
             return ui.GetAllButtons();
+        }
+        private async Task GotoLevel()
+        {
+            await main.LevelManager.GotoLevelSceneAsync();
+            main.LevelManager.StartLevel(BuiltinAreaID.day, BuiltinStageID.prologue);
+            Hide();
         }
         #region 输入用户名
         private void ShowInputNameDialog(InputNameType type)

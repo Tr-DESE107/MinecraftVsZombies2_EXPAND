@@ -10,6 +10,7 @@ namespace MVZ2
         public int type;
         public string id;
         public string name;
+        public string deathMessage;
         public string tooltip;
         public NamespaceID unlock;
         public int order;
@@ -22,6 +23,7 @@ namespace MVZ2
             }
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
+            var deathMessage = node.GetAttribute("deathMessage");
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var tooltip = node.GetAttribute("tooltip");
             return new EntityMeta()
@@ -29,6 +31,7 @@ namespace MVZ2
                 type = type,
                 id = id,
                 name = name,
+                deathMessage = deathMessage,
                 tooltip = tooltip,
                 unlock = unlock
             };

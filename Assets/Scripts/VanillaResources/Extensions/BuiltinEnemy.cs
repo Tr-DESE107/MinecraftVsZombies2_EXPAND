@@ -27,9 +27,5 @@ namespace MVZ2.Vanilla
         {
             enemy.SetProperty(BuiltinEnemyProps.PREVIEW_ENEMY, value);
         }
-        public static string GetDeathMessage(this EntityDefinition enemy)
-        {
-            return enemy.GetProperty<string>(BuiltinEnemyProps.DEATH_MESSAGE);
-        }
     }
 }
