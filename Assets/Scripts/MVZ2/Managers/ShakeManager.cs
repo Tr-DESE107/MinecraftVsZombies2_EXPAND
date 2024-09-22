@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class ShakeManager : MonoBehaviour
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using MVZ2.Save;
+using MVZ2.Serialization;
 using PVZEngine;
 using PVZEngine.Level;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public partial class SaveManager : MonoBehaviour, ISaveDataProvider
     {

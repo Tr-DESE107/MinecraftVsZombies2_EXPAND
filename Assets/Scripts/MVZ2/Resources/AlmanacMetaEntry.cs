@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using PVZEngine;
 
-namespace MVZ2
+namespace MVZ2.Resources
 {
     public class AlmanacMetaEntry
     {

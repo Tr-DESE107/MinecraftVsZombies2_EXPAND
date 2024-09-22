@@ -1,10 +1,12 @@
 ﻿using System;
 using MukioI18n;
-using MVZ2.UI;
+using MVZ2.Extensions;
+using MVZ2.Localization;
+using MVZ2.Managers;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.UI
 {
     using static MVZ2.UI.OptionsDialog;
     public abstract class OptionsLogic : IDisposable

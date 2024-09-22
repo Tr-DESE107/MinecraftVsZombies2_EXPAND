@@ -1,6 +1,5 @@
-﻿using MVZ2.Save;
-using PVZEngine;
-using PVZEngine.Game;
+﻿using MVZ2.Games;
+using MVZ2.Managers;
 
 namespace MVZ2
 {
@@ -10,7 +9,8 @@ namespace MVZ2
         {
             return Main.IsMobile();
         }
-        private static MainManager Main => MainManager.Instance;
+        public static string BuiltinNamespace => Main.BuiltinNamespace;
         public static Game Game => Main.Game;
+        private static MainManager Main => MainManager.Instance;
     }
 }

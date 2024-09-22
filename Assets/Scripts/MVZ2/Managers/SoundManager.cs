@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class SoundManager : MonoBehaviour
     {

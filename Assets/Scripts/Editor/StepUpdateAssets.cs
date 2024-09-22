@@ -1,8 +1,4 @@
-﻿using System;
-using CustomBuilder;
-using MVZ2.Editor;
-using UnityEditor;
-using UnityEngine;
+﻿using CustomBuilder;
 
 namespace MVZ2.Editor
 {

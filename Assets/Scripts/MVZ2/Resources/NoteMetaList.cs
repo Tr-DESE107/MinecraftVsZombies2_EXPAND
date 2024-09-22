@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace MVZ2
+namespace MVZ2.Resources
 {
     public class NoteMetaList
     {

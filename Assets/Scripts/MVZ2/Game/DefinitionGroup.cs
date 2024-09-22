@@ -1,6 +1,8 @@
-﻿using PVZEngine.Definitions;
+﻿using MVZ2.Definitions;
+using PVZEngine;
+using PVZEngine.Definitions;
 
-namespace PVZEngine.Game
+namespace MVZ2.Games
 {
     public class GameDefinitionGroup : DefinitionGroup
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using PVZEngine;
 
-namespace MVZ2
+namespace MVZ2.Resources
 {
     [Serializable]
     public class SpriteReference

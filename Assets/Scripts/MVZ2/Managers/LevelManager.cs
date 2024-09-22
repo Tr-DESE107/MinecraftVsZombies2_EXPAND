@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using MVZ2.Level;
+using MVZ2.Managers;
+using MVZ2.Serialization;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-namespace MVZ2
+namespace MVZ2.Level
 {
     public class LevelManager : MonoBehaviour
     {

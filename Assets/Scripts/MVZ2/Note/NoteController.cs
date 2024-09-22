@@ -1,5 +1,7 @@
 ﻿using System;
 using MVZ2.GameContent;
+using MVZ2.Managers;
+using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
 

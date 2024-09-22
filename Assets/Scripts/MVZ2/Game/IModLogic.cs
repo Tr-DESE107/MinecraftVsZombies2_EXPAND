@@ -1,6 +1,7 @@
 ﻿using MVZ2.Save;
+using PVZEngine;
 
-namespace PVZEngine.Game
+namespace MVZ2.Modding
 {
     public interface IModLogic : IContentProvider
     {

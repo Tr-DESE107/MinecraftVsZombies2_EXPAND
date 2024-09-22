@@ -1,9 +1,10 @@
 ﻿using MukioI18n;
+using MVZ2.Extensions;
 using MVZ2.Level;
-using MVZ2.UI;
+using MVZ2.Localization;
 using PVZEngine;
 
-namespace MVZ2
+namespace MVZ2.UI
 {
     using static MVZ2.UI.OptionsDialog;
     public class OptionsLogicLevel : OptionsLogic

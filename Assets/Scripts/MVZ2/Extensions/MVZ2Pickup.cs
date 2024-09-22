@@ -5,7 +5,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Extensions
 {
     public static class MVZ2Pickup
     {

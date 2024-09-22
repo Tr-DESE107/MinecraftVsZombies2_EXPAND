@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {

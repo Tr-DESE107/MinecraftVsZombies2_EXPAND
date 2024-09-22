@@ -1,6 +1,8 @@
+using MVZ2.Modding;
+using PVZEngine;
 using PVZEngine.Base;
 
-namespace PVZEngine.Game
+namespace MVZ2.Games
 {
     public partial class Game
     {

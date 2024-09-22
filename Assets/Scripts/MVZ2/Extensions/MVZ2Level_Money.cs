@@ -1,10 +1,7 @@
-﻿using System;
-using MVZ2.Level.Components;
-using MVZ2.Vanilla;
+﻿using MVZ2.Level.Components;
 using PVZEngine.Level;
-using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Extensions
 {
     public static partial class MVZ2Level
     {

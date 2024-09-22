@@ -1,3 +1,5 @@
+using MVZ2.Managers;
+
 namespace MVZ2.Landing
 {
     public class LandingController : MainScenePage

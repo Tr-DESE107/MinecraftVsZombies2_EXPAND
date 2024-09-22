@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using MVZ2.Rendering;
+using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class ModelManager : MonoBehaviour
     {

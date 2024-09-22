@@ -2,13 +2,13 @@
 using MVZ2.Save;
 using PVZEngine;
 
-namespace MVZ2
+namespace MVZ2.Extensions
 {
     public static class MVZ2Save
     {
         public static IBuiltinSaveData GetBuiltinMapSaveData(this ISaveDataProvider save)
         {
-            return save.GetModSaveData<IBuiltinSaveData>(MainManager.Instance.BuiltinNamespace);
+            return save.GetModSaveData<IBuiltinSaveData>(Global.BuiltinNamespace);
         }
         public static NamespaceID GetLastMapID(this ISaveDataProvider save)
         {

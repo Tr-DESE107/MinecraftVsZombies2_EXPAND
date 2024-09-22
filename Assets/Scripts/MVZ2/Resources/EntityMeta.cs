@@ -3,7 +3,7 @@ using System.Xml;
 using PVZEngine;
 using PVZEngine.Level;
 
-namespace MVZ2
+namespace MVZ2.Resources
 {
     public class EntityMeta
     {

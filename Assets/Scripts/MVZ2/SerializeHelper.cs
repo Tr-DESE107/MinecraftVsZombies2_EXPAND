@@ -8,7 +8,7 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
-using MVZ2.Level;
+using MVZ2.Level.Components;
 using MVZ2.Save;
 using PVZEngine;
 using PVZEngine.Level;
@@ -17,7 +17,7 @@ using Tools;
 using Tools.BsonSerializers;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Serialization
 {
     public static class SerializeHelper
     {

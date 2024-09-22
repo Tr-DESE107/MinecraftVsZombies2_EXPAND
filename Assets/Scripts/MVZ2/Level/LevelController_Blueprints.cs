@@ -1,6 +1,8 @@
 ﻿using System;
+using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
+using MVZ2.Localization;
 using MVZ2.UI;
 using PVZEngine.Definitions;
 using PVZEngine.Level;

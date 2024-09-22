@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NGettext;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Resources
 {
     public static class ZipArchiveHelper
     {

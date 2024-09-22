@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using MVZ2.Localization;
+using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public partial class LanguageManager : MonoBehaviour, ITranslator
     {

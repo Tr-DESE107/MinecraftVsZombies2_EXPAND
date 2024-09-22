@@ -1,7 +1,7 @@
 ﻿using MVZ2.GameContent;
 using PVZEngine.Level;
 
-namespace MVZ2
+namespace MVZ2.Extensions
 {
     public static class MVZ2Seed
     {

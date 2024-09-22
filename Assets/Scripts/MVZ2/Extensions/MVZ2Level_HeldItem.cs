@@ -1,11 +1,11 @@
 ﻿using System;
+using MVZ2.Definitions;
 using MVZ2.GameContent;
 using MVZ2.Level.Components;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
 
-namespace MVZ2
+namespace MVZ2.Extensions
 {
     public static partial class MVZ2Level
     {

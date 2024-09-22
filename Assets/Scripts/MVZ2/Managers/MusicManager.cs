@@ -1,9 +1,10 @@
-﻿using MVZ2.UI;
+﻿using MVZ2.Resources;
+using MVZ2.UI;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class MusicManager : MonoBehaviour
     {

@@ -1,8 +1,8 @@
-﻿using log4net.Core;
-using MVZ2.Save;
+﻿using MVZ2.Save;
+using PVZEngine;
 using PVZEngine.Level;
 
-namespace PVZEngine.Game
+namespace MVZ2.Games
 {
     public interface IGame : IContentProvider, ITranslator, ISaveDataProvider
     {

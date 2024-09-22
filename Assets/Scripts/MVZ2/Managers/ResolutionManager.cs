@@ -2,7 +2,7 @@
 using MukioI18n;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     [ExecuteAlways]
     public class ResolutionManager : MonoBehaviour

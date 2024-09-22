@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MVZ2.Save;
-using PVZEngine.Game;
+using MVZ2.Games;
+using MVZ2.Level;
+using MVZ2.Rendering;
+using MVZ2.Serialization;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class MainManager : MonoBehaviour
     {
@@ -112,7 +114,7 @@ namespace MVZ2
         [SerializeField]
         private ResolutionManager resolution;
         [SerializeField]
-        private SceneLoadingManager sceneLoadingManager; 
+        private SceneLoadingManager sceneLoadingManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

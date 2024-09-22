@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
+using MVZ2.Rendering;
 using MVZ2.Talk;
-using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Resources
 {
     public class ModResource
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class OptionsManager : MonoBehaviour
     {

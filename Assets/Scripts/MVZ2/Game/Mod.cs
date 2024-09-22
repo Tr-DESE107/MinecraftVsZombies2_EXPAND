@@ -1,7 +1,9 @@
-﻿using MVZ2.Save;
+﻿using MVZ2.Games;
+using MVZ2.Save;
+using PVZEngine;
 using PVZEngine.Base;
 
-namespace PVZEngine.Game
+namespace MVZ2.Modding
 {
     public abstract class Mod : IContentProvider, IModLogic
     {

@@ -2,7 +2,7 @@
 using PVZEngine;
 using PVZEngine.Level;
 
-namespace MVZ2
+namespace MVZ2.Extensions
 {
     public static partial class MVZ2Level
     {

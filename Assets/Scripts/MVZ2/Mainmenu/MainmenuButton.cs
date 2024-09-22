@@ -1,9 +1,10 @@
 ﻿using System;
+using MVZ2.Managers;
 using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.Mainmenu
+namespace MVZ2.Mainmenu.UI
 {
     [RequireComponent(typeof(CursorHandler))]
     public class MainmenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler

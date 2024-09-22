@@ -1,10 +1,9 @@
 ﻿using System;
 using MVZ2.GameContent;
-using MVZ2.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
 
-namespace MVZ2.Level
+namespace MVZ2.Level.Components
 {
     public class AdviceComponent : MVZ2Component, IAdviceComponent
     {

@@ -1,7 +1,6 @@
-﻿using PVZEngine.Game;
-using UnityEngine.AddressableAssets.ResourceLocators;
+﻿using UnityEngine.AddressableAssets.ResourceLocators;
 
-namespace MVZ2
+namespace MVZ2.Modding
 {
     public class ModInfo
     {

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.UI
+namespace MVZ2.Mainmenu.UI
 {
     public class UserManageDialog : Dialog
     {

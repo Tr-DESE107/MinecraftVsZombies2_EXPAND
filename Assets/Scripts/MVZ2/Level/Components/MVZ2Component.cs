@@ -1,7 +1,8 @@
-﻿using PVZEngine;
+﻿using MVZ2.Managers;
+using PVZEngine;
 using PVZEngine.Level;
 
-namespace MVZ2.Level
+namespace MVZ2.Level.Components
 {
     public abstract class MVZ2Component : LevelComponent
     {

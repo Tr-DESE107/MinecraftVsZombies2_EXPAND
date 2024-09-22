@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.Extensions;
 using MVZ2.GameContent.Buffs.SeedPack;
 using MVZ2.Vanilla;
 using PVZEngine;

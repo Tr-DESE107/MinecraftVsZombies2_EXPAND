@@ -4,7 +4,7 @@ using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.Mainmenu
+namespace MVZ2.Mainmenu.UI
 {
     public class MainmenuUI : MonoBehaviour
     {

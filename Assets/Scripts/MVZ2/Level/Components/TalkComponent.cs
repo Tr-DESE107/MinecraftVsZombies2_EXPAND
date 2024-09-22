@@ -1,8 +1,8 @@
 using MVZ2.GameContent;
-using MVZ2.Level;
-using MVZ2.Level.Components;
+using PVZEngine;
+using PVZEngine.Level;
 
-namespace PVZEngine.Level
+namespace MVZ2.Level.Components
 {
     public partial class TalkComponent : MVZ2Component, ITalkComponent
     {

@@ -1,8 +1,8 @@
-﻿using MVZ2;
+﻿using MVZ2.Extensions;
 using PVZEngine.Base;
 using PVZEngine.Level;
 
-namespace PVZEngine.Definitions
+namespace MVZ2.Definitions
 {
     public abstract class HeldItemDefinition : Definition
     {

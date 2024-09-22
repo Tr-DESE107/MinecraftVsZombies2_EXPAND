@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MVZ2.Localization;
+using MVZ2.Resources;
 using Newtonsoft.Json;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public delegate bool TryGetTranslation<in TKey, TResult>(LanguagePack pack, TKey key, out TResult result);
     public partial class LanguageManager

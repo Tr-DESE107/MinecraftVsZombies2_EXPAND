@@ -1,6 +1,7 @@
-﻿using PVZEngine.Definitions;
+﻿using MVZ2.Definitions;
+using PVZEngine;
 
-namespace PVZEngine.Game
+namespace MVZ2.Games
 {
     public static class ContentProviderHelper
     {

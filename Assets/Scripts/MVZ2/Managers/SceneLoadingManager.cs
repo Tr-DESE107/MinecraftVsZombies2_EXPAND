@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public class SceneLoadingManager : MonoBehaviour
     {
@@ -28,7 +28,7 @@ namespace MVZ2
         public async Task UnloadSceneAsync(SceneInstance scene)
         {
             var op = Addressables.UnloadSceneAsync(scene);
-            await op.Task; 
+            await op.Task;
             sceneCaches.Remove(scene);
         }
         public bool IsSceneLoaded(string name)

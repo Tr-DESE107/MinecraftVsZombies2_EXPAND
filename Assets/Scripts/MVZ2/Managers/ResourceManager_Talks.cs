@@ -3,7 +3,7 @@ using MVZ2.Talk;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using MVZ2.Rendering;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Rendering
 {
     [DisallowMultipleComponent]
     public sealed class Model : MonoBehaviour

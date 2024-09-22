@@ -1,7 +1,7 @@
 ﻿using PVZEngine.Base;
 using PVZEngine.Level;
 
-namespace PVZEngine.Definitions
+namespace MVZ2.Definitions
 {
     public abstract class TalkEndDefinition : Definition
     {

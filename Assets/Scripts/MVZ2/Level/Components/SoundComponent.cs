@@ -1,9 +1,9 @@
 using MVZ2.GameContent;
-using MVZ2.Level;
-using MVZ2.Level.Components;
+using PVZEngine;
+using PVZEngine.Level;
 using UnityEngine;
 
-namespace PVZEngine.Level
+namespace MVZ2.Level.Components
 {
     public partial class SoundComponent : MVZ2Component, ISoundComponent
     {

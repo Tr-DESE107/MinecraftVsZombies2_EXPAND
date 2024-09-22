@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using MukioI18n;
+using MVZ2.Definitions;
+using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
+using MVZ2.Localization;
+using MVZ2.Resources;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 using MukioI18n;
-using MVZ2.UI;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.UI
 {
     using static MVZ2.UI.OptionsDialog;
     public class OptionsLogicMainmenu : OptionsLogic

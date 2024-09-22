@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.Modding;
+using MVZ2.Resources;
 using MVZ2.Talk;
 using PVZEngine;
 using UnityEngine;
@@ -10,7 +12,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
-namespace MVZ2
+namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {

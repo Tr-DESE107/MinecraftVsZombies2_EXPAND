@@ -1,4 +1,4 @@
-﻿namespace MVZ2
+﻿namespace MVZ2.Resources
 {
     public enum ResourceType
     {
