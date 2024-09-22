@@ -10,7 +10,7 @@ namespace MVZ2.Editor
 {
     public class LocalizationMenu
     {
-        [MenuItem("Custom/Localization/Update Translations")]
+        [MenuItem("Custom/Assets/Localization/Update Translations")]
         public static void UpdateTranslations()
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
@@ -38,7 +38,7 @@ namespace MVZ2.Editor
             Debug.Log("Script Translations Updated.");
             EditorSceneManager.OpenScene(active);
         }
-        [MenuItem("Custom/Localization/Compress Langauge Pack")]
+        [MenuItem("Custom/Assets/Localization/Compress Langauge Pack")]
         public static void CompressLanguagePack()
         {
             var path = GetLanguagePackDirectory();

@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: back_to_mainmenu[0]
+      name: back_to_mainmenu_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,7 +137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: back_to_mainmenu[1]
+      name: back_to_mainmenu_1
       rect:
         serializedVersion: 2
         x: 0

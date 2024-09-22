@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Tools
@@ -29,6 +30,10 @@ namespace Tools
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list, RandomGenerator rng)
         {
             return list.RandomTake(list.Count(), rng);
+        }
+        public static IEnumerable<T> TakeWhileLast<T>(this IEnumerable<T> list, Func<T, bool> predicate)
+        {
+            return list.Reverse().TakeWhile(predicate).Reverse();
         }
     }
 }

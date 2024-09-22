@@ -152,7 +152,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: doremy[0]
+      name: doremy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[1]
+      name: doremy_1
       rect:
         serializedVersion: 2
         x: 642
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[2]
+      name: doremy_2
       rect:
         serializedVersion: 2
         x: 1070
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[3]
+      name: doremy_3
       rect:
         serializedVersion: 2
         x: 642
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[4]
+      name: doremy_4
       rect:
         serializedVersion: 2
         x: 642
@@ -257,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[5]
+      name: doremy_5
       rect:
         serializedVersion: 2
         x: 830
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[6]
+      name: doremy_6
       rect:
         serializedVersion: 2
         x: 642
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[7]
+      name: doremy_7
       rect:
         serializedVersion: 2
         x: 830
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[8]
+      name: doremy_8
       rect:
         serializedVersion: 2
         x: 642
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[9]
+      name: doremy_9
       rect:
         serializedVersion: 2
         x: 831
@@ -362,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[10]
+      name: doremy_10
       rect:
         serializedVersion: 2
         x: 642
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[11]
+      name: doremy_11
       rect:
         serializedVersion: 2
         x: 642
@@ -404,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[12]
+      name: doremy_12
       rect:
         serializedVersion: 2
         x: 664
@@ -425,7 +425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doremy[13]
+      name: doremy_13
       rect:
         serializedVersion: 2
         x: 701
@@ -456,6 +456,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      doremy[22]: -1563039466
       doremy_0: 1032467398
       doremy_1: -1315305599
       doremy_10: 521282652

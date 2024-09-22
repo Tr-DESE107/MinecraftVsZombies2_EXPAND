@@ -7,7 +7,7 @@ namespace MVZ2.Editor
 {
     public class ModelMenu
     {
-        [MenuItem("Custom/Models/Update Model Elements")]
+        [MenuItem("Custom/Assets/Models/Update Model Elements")]
         public static void UpdateModelElements()
         {
             Debug.Log("Updating model elements...");

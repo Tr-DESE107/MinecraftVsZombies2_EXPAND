@@ -1,5 +1,4 @@
 using System;
-using log4net.Core;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;

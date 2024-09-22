@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: fbabeea97c99f8143b5d1b05494f46e9
+  m_DefaultGroup: 7a738a0d559ecdc4184b556a8290e169
   m_currentHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: d5cf8028fb6e8374f85e8c04cdcac104, type: 2}
-  - {fileID: 11400000, guid: f26831694df874841bdb74ea06a07931, type: 2}
-  - {fileID: 11400000, guid: 1e340d8200404c9489a64fea67fd7f9c, type: 2}
-  - {fileID: 11400000, guid: 7badf1bf3d7bf9449a1e84d0c74ab713, type: 2}
+  - {fileID: 11400000, guid: 54a055595b120404f9723ef07bf51d5c, type: 2}
+  - {fileID: 11400000, guid: c74e880dbfbe25e419f3f4cc5611cee7, type: 2}
+  - {fileID: 11400000, guid: e32521ac6141d4e41a68cd79b01eef01, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -114,5 +114,6 @@ MonoBehaviour:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}
     m_NextInstanceId: 0
-    m_RegisteredServiceTypeRefs: []
+    m_RegisteredServiceTypeRefs:
+    - UnityEditor.AddressableAssets.HostingServices.HttpHostingService, Unity.Addressables.Editor
     m_PingTimeoutInMilliseconds: 5000

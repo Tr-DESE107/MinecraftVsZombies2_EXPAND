@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: almanac[0]
+      name: almanac_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,7 +140,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: almanac[1]
+      name: almanac_1
       rect:
         serializedVersion: 2
         x: 359
@@ -161,7 +161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: almanac[2]
+      name: almanac_2
       rect:
         serializedVersion: 2
         x: 718

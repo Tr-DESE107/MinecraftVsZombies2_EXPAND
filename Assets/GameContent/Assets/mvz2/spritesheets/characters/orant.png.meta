@@ -134,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orant[0]
+      name: orant_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,7 +155,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orant[1]
+      name: orant_1
       rect:
         serializedVersion: 2
         x: 525
@@ -176,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orant[2]
+      name: orant_2
       rect:
         serializedVersion: 2
         x: 525

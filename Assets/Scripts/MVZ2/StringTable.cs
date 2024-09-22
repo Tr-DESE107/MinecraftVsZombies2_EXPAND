@@ -20,6 +20,8 @@ namespace MVZ2
         public const string ERROR = "错误";
         [TranslateMsg("通用文本")]
         public const string WARNING = "警告";
+        [TranslateMsg("通用文本")]
+        public const string QUIT = "退出";
 
         [TranslateMsg("按钮文本")]
         public const string BUTTON_TEXT_BACK_TO_MAP = "返回地图";

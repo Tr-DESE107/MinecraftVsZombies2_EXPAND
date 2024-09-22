@@ -103,7 +103,7 @@ namespace MVZ2
             var message = main.LanguageManager._p(StringTable.CONTEXT_ERROR, ERROR_FAILED_TO_INITIALIZE, innerMessage);
             var options = new string[]
             {
-                main.LanguageManager._(ERROR_QUIT)
+                main.LanguageManager._(StringTable.QUIT)
             };
             ui.ShowDialog(title, message, options, i =>
             {
@@ -129,8 +129,6 @@ namespace MVZ2
         public const string ERROR_FAILED_TO_LOAD_FILE = "文件读取失败";
         [TranslateMsg("开始游戏时读取出错，对话框的错误信息")]
         public const string ERROR_INCORRECT_FILE_FORMAT = "文件格式错误";
-        [TranslateMsg("开始游戏时读取出错，对话框的按钮文本")]
-        public const string ERROR_QUIT = "退出";
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, MainScenePage> pages = new Dictionary<MainScenePageType, MainScenePage>();
         [SerializeField]

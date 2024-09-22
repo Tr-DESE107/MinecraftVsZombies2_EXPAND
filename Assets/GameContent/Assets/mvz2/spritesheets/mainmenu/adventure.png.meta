@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: adventure[0]
+      name: adventure_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,7 +140,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: adventure[1]
+      name: adventure_1
       rect:
         serializedVersion: 2
         x: 89
@@ -161,7 +161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: adventure[2]
+      name: adventure_2
       rect:
         serializedVersion: 2
         x: 178

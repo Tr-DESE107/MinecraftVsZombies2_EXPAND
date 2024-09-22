@@ -103,7 +103,13 @@ namespace MVZ2.Mainmenu
         }
         private void OnQuitButtonClickCallback()
         {
-            Application.Quit();
+            var title = main.LanguageManager._(StringTable.QUIT);
+            var desc = main.LanguageManager._(QUIT_DESC);
+            main.Scene.ShowDialogConfirm(title, desc, (value) =>
+            {
+                if (value)
+                    Application.Quit();
+            });
         }
 
         private void OnAlmanacButtonClickCallback() { }
@@ -356,6 +362,9 @@ namespace MVZ2.Mainmenu
         public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
         [TranslateMsg("删除用户时的警告，{0}为名称")]
         public const string WARNING_DELETE_USER = "确认删除用户{0}吗？\n该用户所有的数据都将被删除！";
+        [TranslateMsg("退出对话框的描述")]
+        public const string QUIT_DESC = "确认要退出吗？";
+
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;
         [SerializeField]

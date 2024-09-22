@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: language_packs
   m_Data:
     m_SerializedData: []
-  m_GUID: cc6b098b13c161b4197e57d560d3fed6
+  m_GUID: ba2c2c42e4a31de4ca2b705e2037127d
   m_SerializeEntries:
   - m_GUID: 84cf3fa757c851d40aaa9f90e89f0b84
     m_Address: builtin
@@ -27,5 +27,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 300c108a7a526cf40ae4b2d237e8b975, type: 2}
-    - {fileID: 11400000, guid: cf57b8ccea5a00445b210f27226bcff2, type: 2}
+    - {fileID: 11400000, guid: 52be1c0e4f4f3214597e767ea6e52142, type: 2}
+    - {fileID: 11400000, guid: 49e9fa84cfecd3447b98bae46ede93d5, type: 2}
