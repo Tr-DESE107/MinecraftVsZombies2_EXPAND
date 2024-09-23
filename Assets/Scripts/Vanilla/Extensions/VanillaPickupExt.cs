@@ -18,5 +18,9 @@ namespace MVZ2.Vanilla
         {
             return entity.GetProperty<int>(PickupProps.MONEY_VALUE);
         }
+        public static bool RemoveOnCollect(this Entity entity)
+        {
+            return entity.GetProperty<bool>(PickupProps.REMOVE_ON_COLLECT);
+        }
     }
 }

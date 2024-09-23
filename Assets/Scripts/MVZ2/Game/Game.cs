@@ -1,4 +1,5 @@
-﻿using MVZ2.Save;
+﻿using MVZ2.Resources;
+using MVZ2.Save;
 using PVZEngine;
 using PVZEngine.Level;
 
@@ -6,10 +7,11 @@ namespace MVZ2.Games
 {
     public partial class Game : IGame
     {
-        public Game(ITranslator translator, ISaveDataProvider saveDataProvider)
+        public Game(ITranslator translator, ISaveDataProvider saveDataProvider, IMetaProvider metaProvider)
         {
             this.translator = translator;
             this.saveDataProvider = saveDataProvider;
+            this.metaProvider = metaProvider;
         }
         public bool IsInLevel()
         {

@@ -9,6 +9,7 @@ namespace MVZ2.GameContent
         public const string emerald = "emerald";
         public const string ruby = "ruby";
         public const string diamond = "diamond";
+        public const string clearPickup = "clear_pickup";
     }
     public static class PickupID
     {
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID emerald = Get(PickupNames.emerald);
         public static readonly NamespaceID ruby = Get(PickupNames.ruby);
         public static readonly NamespaceID diamond = Get(PickupNames.diamond);
+        public static readonly NamespaceID clearPickup = Get(PickupNames.clearPickup);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

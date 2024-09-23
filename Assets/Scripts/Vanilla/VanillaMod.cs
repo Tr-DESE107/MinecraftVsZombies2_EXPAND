@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Modding;
+using MVZ2.Resources;
 using MVZ2.Save;
 using MVZ2.Serialization;
 using MVZ2.Vanilla.Save;
@@ -82,25 +84,20 @@ namespace MVZ2.Vanilla
 
         private void LoadStages()
         {
-            var tutorialStage = new TutorialStage(spaceName, StageNames.tutorial);
-            tutorialStage.SetLevelName(LevelName.TUTORIAL);
-            AddStage(tutorialStage);
+            AddStage(new TutorialStage(spaceName, StageNames.tutorial));
 
-            var classicStage = new ClassicStage(spaceName, StageNames.prologue, 1,
-                new EnemySpawnEntry[]
+            foreach (var stageMeta in Global.Game.GetModStageMetas(spaceName).Where(m => m.type == StageMeta.TYPE_NORMAL))
+            {
+                var stage = new ClassicStage(spaceName, StageNames.prologue);
+                var meta = Global.Game.GetStageMeta(stage.GetID());
+                if (meta != null)
                 {
-                    new EnemySpawnEntry(EnemyID.zombie),
-                    new EnemySpawnEntry(EnemyID.leatherCappedZombie),
-                    new EnemySpawnEntry(EnemyID.ironHelmettedZombie)
+                    stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
+                    stage.SetLevelName(meta.name);
+                    stage.SetSpawnEntries(meta.spawns);
                 }
-            );
-            classicStage.SetProperty(BuiltinStageProps.START_TALK, TalkID.tutorial);
-            classicStage.SetLevelName(LevelName.PROLOGUE);
-            AddStage(classicStage);
-        }
-        private void AddClassicStage(string name, int totalFlags, params EnemySpawnEntry[] enemySpawnEntries)
-        {
-            AddStage(new ClassicStage(Namespace, name, totalFlags, enemySpawnEntries));
+                AddStage(stage);
+            }
         }
         private void AddStage(StageDefinition definition)
         {

@@ -14,7 +14,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace MVZ2.Managers
 {
-    public partial class ResourceManager : MonoBehaviour
+    public partial class ResourceManager : MonoBehaviour, IMetaProvider
     {
         #region 公有方法
 

@@ -129,6 +129,11 @@ namespace PVZEngine.Level
             StageDefinition.Update(this);
             LevelCallbacks.PostLevelUpdate.Run(this);
         }
+        public void Clear()
+        {
+            IsCleared = true;
+            OnClear?.Invoke();
+        }
         #endregion
 
         #region 属性
@@ -410,6 +415,8 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        public event Action OnClear;
+
         #region 属性字段
         public IContentProvider ContentProvider { get; private set; }
         public ITranslator Translator { get; private set; }
@@ -418,15 +425,13 @@ namespace PVZEngine.Level
         public NamespaceID StageID { get; private set; }
         public StageDefinition StageDefinition { get; private set; }
         public AreaDefinition AreaDefinition { get; private set; }
+        public NamespaceID StartAreaID { get; set; }
+        public NamespaceID StartStageID { get; set; }
         /// <summary>
         /// 进屋的僵尸。
         /// </summary>
         public Entity KillerEnemy { get; private set; }
         public bool IsEndless { get; set; }
-        /// <summary>
-        /// 游戏是否已经通关过一次。
-        /// </summary>
-        public bool IsRerun { get; set; }
         public NamespaceID Difficulty { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; }

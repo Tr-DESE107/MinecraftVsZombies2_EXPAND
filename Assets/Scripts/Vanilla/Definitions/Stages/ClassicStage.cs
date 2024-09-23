@@ -7,19 +7,22 @@ using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
     public partial class ClassicStage : StageDefinition, IPreviewStage
     {
-        public ClassicStage(string nsp, string name, int totalFlags, EnemySpawnEntry[] spawnEntries) : base(nsp, name)
+        public ClassicStage(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinStageProps.WAVE_MAX_TIME, 900);
             SetProperty(BuiltinStageProps.WAVE_ADVANCE_TIME, 300);
             SetProperty(BuiltinStageProps.WAVE_ADVANCE_HEALTH_PERCENT, 0.6f);
-            SetProperty(StageProperties.TOTAL_FLAGS, totalFlags);
-            this.spawnEntries = spawnEntries;
+        }
+        public void SetSpawnEntries(IEnemySpawnEntry[] entries)
+        {
+            spawnEntries = entries;
         }
         public override void AddCallbacks()
         {
@@ -187,19 +190,24 @@ namespace MVZ2.GameContent.Stages
             else
             {
                 level.SetNoProduction(true);
-                var recorded = level.GetLastEnemy();
-                var enemy = recorded?.GetEntity(level);
-                Vector3 position;
-                if (enemy == null)
+                if (!IsAllEnemiesCleared(level))
                 {
-                    var x = level.GetProperty<float>(AreaProperties.ENEMY_SPAWN_X);
-                    var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
-                    var y = level.GetGroundY(x, z);
-                    position = new Vector3(x, y, z);
-                }
-                else
-                {
-                    position = enemy.Pos;
+                    SetAllEnemiesCleared(level, true);
+                    var recorded = level.GetLastEnemy();
+                    var enemy = recorded?.GetEntity(level);
+                    Vector3 position;
+                    if (enemy == null)
+                    {
+                        var x = level.GetProperty<float>(AreaProperties.ENEMY_SPAWN_X);
+                        var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
+                        var y = level.GetGroundY(x, z);
+                        position = new Vector3(x, y, z);
+                    }
+                    else
+                    {
+                        position = enemy.Pos;
+                    }
+                    level.Spawn(PickupID.clearPickup, position, enemy);
                 }
             }
         }
@@ -289,6 +297,15 @@ namespace MVZ2.GameContent.Stages
         public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetProperty("WaveMaxHealth", value);
         public void AddWaveMaxHealth(LevelEngine level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
         public float GetWaveAdvanceHealthPercent(LevelEngine level) => level.GetProperty<float>(BuiltinStageProps.WAVE_ADVANCE_HEALTH_PERCENT);
+
+        public static bool IsAllEnemiesCleared(LevelEngine level) 
+        {
+            return level.GetProperty<bool>(VanillaLevelProps.ALL_ENEMIES_CLEARED);
+        }
+        public static void SetAllEnemiesCleared(LevelEngine level, bool value)
+        {
+            level.SetProperty(VanillaLevelProps.ALL_ENEMIES_CLEARED, value);
+        }
         #endregion
 
         #region 属性字段
@@ -296,29 +313,7 @@ namespace MVZ2.GameContent.Stages
         public const int STATE_STARTED = 1;
         public const int STATE_HUGE_WAVE_APPROACHING = 2;
         public const int STATE_FINAL_WAVE = 3;
-        private EnemySpawnEntry[] spawnEntries;
+        private IEnemySpawnEntry[] spawnEntries;
         #endregion
-
-    }
-    [Serializable]
-    public class EnemySpawnEntry : IEnemySpawnEntry
-    {
-        public NamespaceID spawnRef;
-        public int earliestFlag;
-        public EnemySpawnEntry(NamespaceID spawnRef, int earliestFlag = 0)
-        {
-            this.spawnRef = spawnRef;
-            this.earliestFlag = earliestFlag;
-        }
-
-        public bool CanSpawn(LevelEngine game)
-        {
-            return game.CurrentFlag >= earliestFlag;
-        }
-
-        public SpawnDefinition GetSpawnDefinition(IContentProvider game)
-        {
-            return game.GetSpawnDefinition(spawnRef);
-        }
     }
 }

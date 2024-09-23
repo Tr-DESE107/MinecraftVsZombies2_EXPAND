@@ -15,6 +15,10 @@ namespace MVZ2.Save
         {
             difficulties.Add(difficulty);
         }
+        public bool RemoveRecord(NamespaceID difficulty)
+        {
+            return difficulties.Remove(difficulty);
+        }
         public bool HasRecord(NamespaceID difficulty)
         {
             return difficulties.Contains(difficulty);

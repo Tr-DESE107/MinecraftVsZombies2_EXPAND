@@ -41,7 +41,6 @@ namespace MVZ2.Level
             };
             level.Init(areaID, stageID, option);
             level.SetupArea();
-            StartAreaID = areaID;
 
             var startTalk = level.GetStartTalk();
             if (startTalk != null)
@@ -114,7 +113,7 @@ namespace MVZ2.Level
             levelUI.SetGameOverDialogInteractable(false);
             Dispose();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.StartLevel(StartAreaID, StartStageID);
+            Main.LevelManager.StartLevel(level.StartAreaID, level.StartStageID);
         }
         public void GameOver(Entity killer)
         {
@@ -154,9 +153,9 @@ namespace MVZ2.Level
         }
         public async Task ExitLevel()
         {
-            var lastMapID = Main.SaveManager.GetLastMapID();
-            if (NamespaceID.IsValid(lastMapID))
+            if (Main.SaveManager.IsLevelCleared(BuiltinStageID.prologue))
             {
+                var lastMapID = Main.SaveManager.GetLastMapID();
                 //TODO
             }
             else
@@ -211,7 +210,20 @@ namespace MVZ2.Level
         }
         public void RemoveLevelState()
         {
-            Main.LevelManager.RemoveLevelState(StartStageID);
+            Main.LevelManager.RemoveLevelState(level.StartStageID);
+        }
+        public void SetStartStageID(NamespaceID areaID, NamespaceID stageID)
+        {
+            level.StartStageID = stageID;
+            level.StartAreaID = areaID;
+        }
+        public NamespaceID GetStartAreaID()
+        {
+            return level.StartAreaID;
+        }
+        public NamespaceID GetStartStageID()
+        {
+            return level.StartStageID;
         }
 
         #endregion
@@ -368,6 +380,15 @@ namespace MVZ2.Level
                     GameOverInstantly(message);
                     break;
             }
+        }
+        private void Engine_OnClearCallback()
+        {
+            Main.LevelManager.RemoveLevelState(level.StartStageID);
+            Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StartStageID));
+            Main.SaveManager.AddLevelDifficultyRecord(level.StartStageID, level.Difficulty);
+            var endTalk = level.GetEndTalk();
+            if (NamespaceID.IsValid(endTalk))
+                StartTalk(endTalk, 0, 5);
         }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
@@ -619,8 +640,6 @@ namespace MVZ2.Level
         private string deathMessage;
 
         #region 保存属性
-        public NamespaceID StartAreaID { get; set; }
-        public NamespaceID StartStageID { get; set; }
         public NamespaceID CurrentMusic
         {
             get => Main.MusicManager.GetCurrentMusicID();

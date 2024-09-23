@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MVZ2.Managers;
 using MVZ2.Serialization;
 using PVZEngine;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,8 +22,7 @@ namespace MVZ2.Level
         {
             if (!controller)
                 return;
-            controller.StartStageID = stageID;
-            controller.StartAreaID = areaID;
+            controller.SetStartStageID(areaID, stageID);
             if (HasLevelState(stageID))
             {
                 LoadLevel(stageID);
@@ -37,7 +37,7 @@ namespace MVZ2.Level
         {
             if (!controller)
                 return;
-            var path = GetLevelStatePath(controller.StartStageID);
+            var path = GetLevelStatePath(controller.GetStartStageID());
             FileHelper.ValidateDirectory(path);
             var seri = controller.SaveGame();
             var json = seri.ToBson();
@@ -127,6 +127,10 @@ namespace MVZ2.Level
                 return;
             await Scene.UnloadSceneAsync(sceneName);
             controller = null;
+        }
+        public static NamespaceID GetLevelClearUnlockID(NamespaceID stageID)
+        {
+            return new NamespaceID(stageID.spacename, $"level.{stageID.path}");
         }
         public const int CURRENT_DATA_VERSION = 0;
         public MainManager Main => main;

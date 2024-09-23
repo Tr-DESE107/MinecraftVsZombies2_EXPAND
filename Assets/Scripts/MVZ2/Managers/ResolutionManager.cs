@@ -57,7 +57,7 @@ namespace MVZ2.Managers
                 OnResolutionChanged?.Invoke(lastWidth, lastHeight);
             }
         }
-        public event Action<int, int> OnResolutionChanged;
+        public static event Action<int, int> OnResolutionChanged;
 
         [TranslateMsg("分辨率名，{0}为宽，{1}为高")]
         public const string RESOLUTION_NAME = "{0}x{1}";

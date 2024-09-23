@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent;
+using MVZ2.Games;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -50,6 +51,10 @@ namespace MVZ2.Vanilla
         }
         public virtual void PostCollect(Entity pickup)
         {
+            if (pickup.RemoveOnCollect())
+            {
+                pickup.Remove();
+            }
         }
         public override int Type => EntityTypes.PICKUP;
     }

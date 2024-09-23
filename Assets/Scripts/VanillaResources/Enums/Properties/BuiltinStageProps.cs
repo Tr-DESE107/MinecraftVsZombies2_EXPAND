@@ -9,6 +9,7 @@
         public const string AUTO_COLLECT = "autoCollect";
 
         public const string START_TALK = "startTalk";
+        public const string END_TALK = "endTalk";
         public const string LEVEL_NAME = "levelName";
     }
 }

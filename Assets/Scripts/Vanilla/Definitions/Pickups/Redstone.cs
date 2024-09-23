@@ -1,5 +1,6 @@
 using MVZ2.Extensions;
 using MVZ2.Vanilla;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace MVZ2.GameContent
     {
         public Redstone(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(PickupProps.COLLECT_SOUND, SoundID.points);
         }
         public override void Update(Entity pickup)
         {
@@ -64,6 +66,7 @@ namespace MVZ2.GameContent
         }
         public override void PostCollect(Entity pickup)
         {
+            base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
             float value = ENERGY_VALUE;
 
@@ -75,7 +78,7 @@ namespace MVZ2.GameContent
             game.AddEnergyDelayed(pickup, value);
             pickup.SetProperty(EntityProperties.GRAVITY, 0f);
 
-            game.PlaySound(SoundID.points, pickup.Pos, Random.Range(0.95f, 1.5f));
+            game.PlaySound(pickup.GetCollectSound(), pickup.Pos, Random.Range(0.95f, 1.5f));
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {

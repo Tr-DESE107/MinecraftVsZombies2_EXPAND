@@ -15,7 +15,7 @@ namespace MVZ2.Extensions
             var component = level.GetMusicComponent();
             component.Play(id);
         }
-        public static void Stop(this LevelEngine level, NamespaceID id)
+        public static void StopMusic(this LevelEngine level)
         {
             var component = level.GetMusicComponent();
             component.Stop();

@@ -28,6 +28,15 @@ namespace MVZ2.Save
             }
             record.AddRecord(difficulty);
         }
+        public bool RemoveLevelDifficultyRecord(string levelID, NamespaceID difficulty)
+        {
+            var record = GetLevelDifficultyRecord(levelID);
+            if (record == null)
+            {
+                return false;
+            }
+            return record.RemoveRecord(difficulty);
+        }
         public bool HasLevelDifficultyRecord(string levelID, NamespaceID difficulty)
         {
             var record = GetLevelDifficultyRecord(levelID);

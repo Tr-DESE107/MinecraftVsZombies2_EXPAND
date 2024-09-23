@@ -125,6 +125,8 @@ namespace MVZ2.Level
             level.OnSeedPackChanged += Engine_OnSeedPackChangedCallback;
             level.OnSeedPackCountChanged += Engine_OnSeedPackCountChangedCallback;
 
+            level.OnClear += Engine_OnClearCallback;
+
             BuiltinCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
             BuiltinCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
         }

@@ -3,17 +3,18 @@ using UnityEngine;
 
 namespace MVZ2.Level.UI
 {
+    [ExecuteAlways]
     [DefaultExecutionOrder(1)]
     public class CameraLimiter : MonoBehaviour
     {
         private void OnEnable()
         {
-            MainManager.Instance.ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
+            ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
             UpdateCamera(Screen.width, Screen.height);
         }
         private void OnDisable()
         {
-            MainManager.Instance.ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
+            ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
         }
         private void OnResolutionChangedCallback(int width, int height)
         {

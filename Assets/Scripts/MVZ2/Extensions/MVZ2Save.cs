@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent;
+using MVZ2.Level;
 using MVZ2.Save;
 using PVZEngine;
 
@@ -50,6 +51,10 @@ namespace MVZ2.Extensions
             if (saveData == null)
                 return 0;
             return saveData.GetBlueprintSlots();
+        }
+        public static bool IsLevelCleared(this ISaveDataProvider save, NamespaceID stageID)
+        {
+            return save.IsUnlocked(LevelManager.GetLevelClearUnlockID(stageID));
         }
         public static bool IsTriggerUnlocked(this ISaveDataProvider save)
         {

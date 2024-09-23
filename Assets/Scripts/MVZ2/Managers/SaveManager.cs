@@ -103,6 +103,15 @@ namespace MVZ2.Managers
                 return Array.Empty<NamespaceID>();
             return modSaveData.GetLevelDifficultyRecords(stageID.path);
         }
+        public bool HasLevelDifficultyRecords(NamespaceID stageID, NamespaceID difficulty)
+        {
+            if (stageID == null || difficulty == null)
+                return false;
+            var modSaveData = GetModSaveData(stageID.spacename);
+            if (modSaveData == null)
+                return false;
+            return modSaveData.HasLevelDifficultyRecord(stageID.path, difficulty);
+        }
         public NamespaceID[] GetUnlockedContraptions()
         {
             return unlockedContraptionsCache.ToArray();
@@ -122,6 +131,24 @@ namespace MVZ2.Managers
             if (modSaveData == null)
                 return;
             modSaveData.Unlock(unlockId.path);
+        }
+        public void AddLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
+        {
+            if (stageID == null || difficulty == null)
+                return;
+            var modSaveData = GetModSaveData(stageID.spacename);
+            if (modSaveData == null)
+                return;
+            modSaveData.AddLevelDifficultyRecord(stageID.path, difficulty);
+        }
+        public bool RemoveLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
+        {
+            if (stageID == null || difficulty == null)
+                return false;
+            var modSaveData = GetModSaveData(stageID.spacename);
+            if (modSaveData == null)
+                return false;
+            return modSaveData.RemoveLevelDifficultyRecord(stageID.path, difficulty);
         }
         public bool DeleteUserSaveData(int index)
         {

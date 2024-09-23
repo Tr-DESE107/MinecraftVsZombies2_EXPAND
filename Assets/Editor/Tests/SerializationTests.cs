@@ -4,6 +4,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Games;
 using MVZ2.Level.Components;
+using MVZ2.Resources;
 using MVZ2.Save;
 using MVZ2.Serialization;
 using MVZ2.Vanilla;
@@ -177,7 +178,7 @@ namespace MVZ2.Tests
 
         private static Game CreateGame()
         {
-            var game = new Game(new DummyTranslator(), new DummySaveDataProvider());
+            var game = new Game(new DummyTranslator(), new DummySaveDataProvider(), new DummyMetaProvider());
             var mod = new VanillaMod();
             game.AddMod(mod);
             return game;
@@ -389,6 +390,17 @@ namespace MVZ2.Tests
 
             public void SaveCurrentModData(string spaceName)
             {
+            }
+        }
+        private class DummyMetaProvider : IMetaProvider
+        {
+            public StageMeta GetStageMeta(NamespaceID stageID)
+            {
+                return null;
+            }
+            public StageMeta[] GetModStageMetas(string spaceName)
+            {
+                return Array.Empty<StageMeta>();
             }
         }
     }

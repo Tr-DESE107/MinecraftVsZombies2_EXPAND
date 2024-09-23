@@ -38,6 +38,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID stone = Get("stone");
         public readonly static NamespaceID tap = Get("tap");
         public readonly static NamespaceID throwSound = Get("throw");
+        public readonly static NamespaceID winMusic = Get("win_music");
         public readonly static NamespaceID zombieCry = Get("zombie_cry");
         public readonly static NamespaceID zombieDeath = Get("zombie_death");
         private static NamespaceID Get(string name)

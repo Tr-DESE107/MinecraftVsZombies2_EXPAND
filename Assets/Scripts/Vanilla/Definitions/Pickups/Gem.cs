@@ -72,6 +72,7 @@ namespace MVZ2.GameContent
         }
         public override void PostCollect(Entity pickup)
         {
+            base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
             level.AddDelayedMoney(pickup, pickup.GetMoneyValue());

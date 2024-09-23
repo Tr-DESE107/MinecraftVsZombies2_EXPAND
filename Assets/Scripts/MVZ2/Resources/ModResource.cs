@@ -17,6 +17,7 @@ namespace MVZ2.Resources
         public EntityMetaList EntityMetaList { get; set; }
         public AlmanacMetaList AlmanacMetaList { get; set; }
         public NoteMetaList NoteMetaList { get; set; }
+        public StageMetaList StageMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Model> Models = new();
@@ -56,6 +57,9 @@ namespace MVZ2.Resources
                     break;
                 case "notes":
                     NoteMetaList = NoteMetaList.FromXmlNode(document["notes"], defaultNsp);
+                    break;
+                case "stages":
+                    StageMetaList = StageMetaList.FromXmlNode(document["stages"], defaultNsp);
                     break;
             }
         }

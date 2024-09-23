@@ -1,5 +1,6 @@
 ﻿using MukioI18n;
 using MVZ2.Extensions;
+using MVZ2.GameContent;
 using MVZ2.Level;
 using MVZ2.Localization;
 using PVZEngine;
@@ -54,7 +55,7 @@ namespace MVZ2.UI
         }
         protected void UpdateLeaveLevelButton()
         {
-            var textKey = NamespaceID.IsValid(Main.SaveManager.GetLastMapID()) ? StringTable.BACK_TO_MAP : StringTable.BACK_TO_MAINMENU;
+            var textKey = Main.SaveManager.IsLevelCleared(BuiltinStageID.prologue) ? StringTable.BACK_TO_MAP : StringTable.BACK_TO_MAINMENU;
             var text = Main.LanguageManager._(textKey);
             dialog.SetButtonText(TextButtonType.LeaveLevel, text);
         }

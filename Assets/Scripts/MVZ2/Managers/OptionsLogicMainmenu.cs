@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MukioI18n;
+using MVZ2.Managers;
 using UnityEngine;
 
 namespace MVZ2.UI
@@ -10,7 +11,7 @@ namespace MVZ2.UI
     {
         public OptionsLogicMainmenu(OptionsDialog dialog) : base(dialog)
         {
-            Main.ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
+            ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
 
             Language = Main.OptionsManager.GetLanguage();
             BloodAndGore = Main.OptionsManager.HasBloodAndGore();
@@ -26,7 +27,7 @@ namespace MVZ2.UI
         public override void Dispose()
         {
             base.Dispose();
-            Main.ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
+            ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
         }
         protected override void OnButtonClickCallback(ButtonType type)
         {

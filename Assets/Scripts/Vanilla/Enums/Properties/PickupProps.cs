@@ -5,5 +5,6 @@
         public const string DROP_SOUND = "dropSound";
         public const string COLLECT_SOUND = "collectSound";
         public const string MONEY_VALUE = "moneyValue";
+        public const string REMOVE_ON_COLLECT = "removeOnCollect";
     }
 }

@@ -47,6 +47,10 @@ namespace MVZ2.Vanilla
         {
             return game.GetProperty<NamespaceID>(BuiltinStageProps.START_TALK);
         }
+        public static NamespaceID GetEndTalk(this LevelEngine game)
+        {
+            return game.GetProperty<NamespaceID>(BuiltinStageProps.END_TALK);
+        }
         public static int GetStarshardCount(this LevelEngine game)
         {
             return game.GetProperty<int>(BuiltinLevelProps.STARSHARD_COUNT);

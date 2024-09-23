@@ -14,7 +14,7 @@ namespace MVZ2.Managers
         {
             Application.targetFrameRate = 60;
             SerializeHelper.init();
-            Game = new Game(LanguageManager, SaveManager);
+            Game = new Game(LanguageManager, SaveManager, ResourceManager);
 
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
