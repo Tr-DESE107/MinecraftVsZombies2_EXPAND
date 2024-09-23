@@ -20,11 +20,15 @@
     <model name="emerald" type="entity" path="mvz2:Pickups/emerald" width="32" height="32" xOffset="0" yOffset="4"/>
     <model name="ruby" type="entity" path="mvz2:Pickups/ruby" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="diamond" type="entity" path="mvz2:Pickups/diamond" width="96" height="96" xOffset="0" yOffset="4"/>
+    <model name="map_pickup" type="entity" path="mvz2:Pickups/map_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="money_chest" type="entity" path="mvz2:Pickups/money_chest" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="blueprint_pickup" type="entity" path="mvz2:Pickups/blueprint_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
     
     <!-- Effects -->
     <model name="miner" type="entity" path="mvz2:Effects/Miner" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mine_debris" type="entity" path="mvz2:Effects/MineDebris" width="150" height="100" xOffset="0" yOffset="30"/>
     <model name="fragment" type="entity" path="mvz2:Effects/Fragment" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="star_particles" type="entity" path="mvz2:Effects/star_particles" width="160" height="160" xOffset="0" yOffset="30"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:Projectiles/Arrow" width="32" height="10" xOffset="0" yOffset="5"/>
