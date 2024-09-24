@@ -1,4 +1,4 @@
 <notes>
     <note id="help" sprite="note/help_front" background="note/background_day" canFlip="true" flipSprite="note/help_back" />
-    <note id="prologue" sprite="note/prologue" background="note/background_day" />
+    <note id="prologue" sprite="note/prologue" background="note/background_day" startTalk="" />
 </notes>

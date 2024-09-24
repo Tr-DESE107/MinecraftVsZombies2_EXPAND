@@ -19,6 +19,10 @@ namespace MVZ2.Note
         {
             button.Text.text = text;
         }
+        public void SetButtonInteractable(bool interactable)
+        {
+            button.Button.interactable = interactable;
+        }
         public void SetCanFlip(bool flip)
         {
             flipObj.SetActive(flip);

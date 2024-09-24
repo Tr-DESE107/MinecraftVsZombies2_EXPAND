@@ -4,6 +4,7 @@ using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
 using MVZ2.Vanilla;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -98,11 +99,18 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
         }
-        private IEnumerator ExitLevelTransition()
+        private IEnumerator ExitLevelTransition(float delay)
         {
-            var task = ExitLevel();
-            while (!task.IsCompleted)
-                yield return null;
+            yield return new WaitForSeconds(delay);
+            var levelUI = GetLevelUI();
+            levelUI.SetExiting(false);
+        }
+        private IEnumerator ExitLevelToNoteTransition(NamespaceID noteID, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            var levelUI = GetLevelUI();
+            levelUI.SetExiting(true);
+            exitTargetNoteID = noteID;
         }
         #endregion
 

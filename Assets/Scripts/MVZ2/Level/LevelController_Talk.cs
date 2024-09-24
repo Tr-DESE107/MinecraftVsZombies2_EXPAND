@@ -40,7 +40,7 @@ namespace MVZ2.Level
             {
                 if (level.IsCleared)
                 {
-                    StartCoroutine(ExitLevelTransition());
+                    StartCoroutine(ExitLevelTransition(0));
                 }
                 else
                 {

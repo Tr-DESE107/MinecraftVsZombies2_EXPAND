@@ -2,6 +2,7 @@
 using MVZ2.GameContent;
 using MVZ2.Managers;
 using MVZ2.Resources;
+using MVZ2.Talk;
 using PVZEngine;
 using UnityEngine;
 
@@ -11,15 +12,17 @@ namespace MVZ2.Note
     {
         public void SetNote(NamespaceID id)
         {
-            SetNote(main.ResourceManager.GetNoteMeta(id));
-        }
-        public void SetNote(NoteMeta meta)
-        {
-            this.meta = meta;
+            meta = main.ResourceManager.GetNoteMeta(id);
             ui.SetNoteSprite(main.LanguageManager.GetSprite(meta.sprite));
             ui.SetBackground(main.LanguageManager.GetSprite(meta.background));
             ui.SetCanFlip(meta.canFlip);
             ui.SetFlipAtLeft(isFlipped);
+            var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
+            if (NamespaceID.IsValid(startTalk) && main.ResourceManager.GetTalkGroup(startTalk) != null)
+            {
+                StartTalk(startTalk, 0);
+                ui.SetButtonInteractable(false);
+            }
         }
         public void SetButtonText(string text)
         {
@@ -53,12 +56,19 @@ namespace MVZ2.Note
         }
         #endregion
 
+        private void StartTalk(NamespaceID groupId, int section, float delay = 0)
+        {
+            talkController.StartTalk(groupId, section, delay);
+        }
+
         public event Action OnClose;
 
         #region 属性字段
         private MainManager main => MainManager.Instance;
         private NoteMeta meta;
         private bool isFlipped;
+        [SerializeField]
+        private TalkController talkController;
         [SerializeField]
         private NoteUI ui;
         #endregion

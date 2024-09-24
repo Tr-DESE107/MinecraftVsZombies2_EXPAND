@@ -23,14 +23,19 @@ namespace MVZ2.GameContent
             var modelID = GetPickupModelID(entity);
             entity.ChangeModel(modelID);
 
+            var level = entity.Level;
             if (modelID == VanillaModelID.blueprintPickup)
             {
                 var game = Global.Game;
-                var level = entity.Level;
                 var stageMeta = game.GetStageMeta(level.StageID);
                 var blueprintID = stageMeta?.clearPickupBlueprint;
                 if (NamespaceID.IsValid(blueprintID))
                     entity.SetModelProperty("BlueprintID", blueprintID);
+            }
+            var noteID = level.GetEndNoteID();
+            if (NamespaceID.IsValid(noteID))
+            {
+                entity.SetProperty(PickupProps.REMOVE_ON_COLLECT, true);
             }
         }
         public override NamespaceID GetModelID()

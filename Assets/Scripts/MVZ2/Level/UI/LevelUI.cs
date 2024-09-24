@@ -347,6 +347,19 @@ namespace MVZ2.Level.UI
             else
                 return Receiver.Lawn;
         }
+        public void SetExiting(bool note)
+        {
+            animator.SetTrigger("Exit");
+            animator.SetBool("ExitToNote", note);
+        }
+        public void CallExitLevel()
+        {
+            OnExitLevelCalled?.Invoke(false);
+        }
+        public void CallExitLevelToNote()
+        {
+            OnExitLevelCalled?.Invoke(true);
+        }
 
         #endregion
 
@@ -433,6 +446,7 @@ namespace MVZ2.Level.UI
         public event Action OnMenuButtonClick;
         public event Action OnSpeedUpButtonClick;
         public event Action OnStartGameCalled;
+        public event Action<bool> OnExitLevelCalled;
         public event Action OnPauseDialogResumeClicked;
         public event Action OnGameOverRetryButtonClicked;
         public event Action OnGameOverBackButtonClicked;

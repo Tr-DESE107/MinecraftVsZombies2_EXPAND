@@ -93,6 +93,9 @@ namespace MVZ2.Vanilla
                 if (meta != null)
                 {
                     stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
+                    stage.SetProperty(BuiltinStageProps.START_TALK, meta.startTalk);
+                    stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
+                    stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
                     stage.SetLevelName(meta.name);
                     stage.SetSpawnEntries(meta.spawns);
                 }

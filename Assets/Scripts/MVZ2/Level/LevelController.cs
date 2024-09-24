@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
+using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -42,8 +43,8 @@ namespace MVZ2.Level
             level.Init(areaID, stageID, option);
             level.SetupArea();
 
-            var startTalk = level.GetStartTalk();
-            if (startTalk != null)
+            var startTalk = level.GetStartTalk() ?? level.StageID;
+            if (NamespaceID.IsValid(startTalk) && Main.ResourceManager.GetTalkGroup(startTalk) != null)
             {
                 Main.MusicManager.Play(MusicID.mainmenu);
                 StartTalk(startTalk, 0, 2);
@@ -151,7 +152,23 @@ namespace MVZ2.Level
             }
             level?.Dispose();
         }
+        public async Task ExitLevelToNote(NamespaceID id)
+        {
+            Dispose();
+            await Main.LevelManager.ExitLevelSceneAsync();
+            var buttonText = Main.LanguageManager._(StringTable.BACK);
+            Main.Scene.DisplayNote(id, buttonText, () =>
+            {
+                BackToMapOrMainmenu();
+            });
+        }
         public async Task ExitLevel()
+        {
+            Dispose();
+            await Main.LevelManager.ExitLevelSceneAsync();
+            BackToMapOrMainmenu();
+        }
+        public void BackToMapOrMainmenu()
         {
             if (Main.SaveManager.IsLevelCleared(BuiltinStageID.prologue))
             {
@@ -160,8 +177,6 @@ namespace MVZ2.Level
             }
             else
             {
-                Dispose();
-                await Main.LevelManager.ExitLevelSceneAsync();
                 Main.Scene.DisplayPage(MainScenePageType.Mainmenu);
             }
         }
@@ -246,6 +261,7 @@ namespace MVZ2.Level
             mobileUI.SetActive(mobileUI == levelUI);
 
             levelUI.OnStartGameCalled += StartGame;
+            levelUI.OnExitLevelCalled += UI_OnExitLevelCalledCallback;
 
             Awake_Blueprints();
             Awake_UI();
@@ -386,9 +402,35 @@ namespace MVZ2.Level
             Main.LevelManager.RemoveLevelState(level.StartStageID);
             Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StartStageID));
             Main.SaveManager.AddLevelDifficultyRecord(level.StartStageID, level.Difficulty);
-            var endTalk = level.GetEndTalk();
-            if (NamespaceID.IsValid(endTalk))
+            var stageID = level.StageID;
+            var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
+            if (!Main.SaveManager.IsLevelCleared(stageID) && NamespaceID.IsValid(endTalk) && Main.ResourceManager.GetTalkGroup(endTalk) != null)
+            {
                 StartTalk(endTalk, 0, 5);
+            }
+            else
+            {
+                var endNoteId = level.GetEndNoteID();
+                if (NamespaceID.IsValid(endNoteId))
+                {
+                    StartCoroutine(ExitLevelToNoteTransition(endNoteId, 5));
+                }
+                else
+                {
+                    StartCoroutine(ExitLevelTransition(5));
+                }
+            }
+        }
+        private async void UI_OnExitLevelCalledCallback(bool toNote)
+        {
+            if (toNote)
+            {
+                await ExitLevelToNote(exitTargetNoteID);
+            }
+            else
+            {
+                await ExitLevel();
+            }
         }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
@@ -638,6 +680,7 @@ namespace MVZ2.Level
         private NamespaceID killerID;
         private EntityController killerEntity;
         private string deathMessage;
+        private NamespaceID exitTargetNoteID;
 
         #region 保存属性
         public NamespaceID CurrentMusic

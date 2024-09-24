@@ -1,6 +1,6 @@
 <stages>
     <stage id="tutorial" name="教程关" type="special" />
-    <stage id="prologue" name="序章" flags="1" startTalk="mvz2:tutorial" clearPickupModel="mvz2:entity.map_pickup">
+    <stage id="prologue" name="序章" flags="1" startTalk="mvz2:tutorial" endNote="mvz2:prologue" clearPickupModel="mvz2:entity.map_pickup">
         <spawn id="mvz2:zombie"/>
         <spawn id="mvz2:leather_capped_zombie"/>
         <spawn id="mvz2:iron_helmetted_zombie"/>

@@ -1,4 +1,5 @@
 ﻿using System.Xml;
+using MVZ2.GameContent;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -12,9 +13,11 @@ namespace MVZ2.Resources
         public string type;
         public int totalFlags;
         public NamespaceID startTalk;
+        public NamespaceID endTalk;
         public NamespaceID unlock;
         public NamespaceID clearPickupModel;
         public NamespaceID clearPickupBlueprint;
+        public NamespaceID endNote;
         public EnemySpawnEntry[] spawns;
         public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -23,6 +26,7 @@ namespace MVZ2.Resources
             var type = node.GetAttribute("type") ?? "normal";
             var totalFlags = node.GetAttributeInt("totalFlags") ?? 1;
             var startTalk = node.GetAttributeNamespaceID("startTalk", defaultNsp);
+            var endTalk = node.GetAttributeNamespaceID("startTalk", defaultNsp);
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var clearPickupModel = node.GetAttributeNamespaceID("clearPickupModel", defaultNsp);
             var clearPickupBlueprint = node.GetAttributeNamespaceID("clearPickupBlueprint", defaultNsp);
