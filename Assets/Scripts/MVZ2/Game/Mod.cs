@@ -11,7 +11,7 @@ namespace MVZ2.Modding
         {
             Namespace = nsp;
         }
-        public virtual void Init() { }
+        public virtual void PostGameInit() { }
         public abstract ModSaveData CreateSaveData();
         public abstract ModSaveData LoadSaveData(string json);
         protected void AddDefinition(Definition def)

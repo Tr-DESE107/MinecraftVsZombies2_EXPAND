@@ -29,9 +29,9 @@ namespace MVZ2.Vanilla
             LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
             BuiltinCallbacks.TalkAction.Add(TalkAction);
         }
-        public override void Init()
+        public override void PostGameInit()
         {
-            base.Init();
+            base.PostGameInit();
             SerializeHelper.RegisterClass<SerializableVanillaSaveData>();
         }
         public override ModSaveData CreateSaveData()

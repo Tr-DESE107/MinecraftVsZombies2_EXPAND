@@ -1,0 +1,53 @@
+﻿using MVZ2.GameContent;
+using MVZ2.Managers;
+using PVZEngine;
+using PVZEngine.Level;
+using TMPro;
+using UnityEngine;
+
+namespace MVZ2.Rendering
+{
+    public class BlueprintPickupSetter : MonoBehaviour
+    {
+        private void Update()
+        {
+            var blueprintID = model.GetProperty<NamespaceID>("BlueprintID");
+            if (lastID != blueprintID)
+            {
+                lastID = blueprintID;
+                if (blueprintID != null)
+                {
+                    var resourceManager = MainManager.Instance.ResourceManager;
+                    var entityID = blueprintID;
+                    var modelID = entityID.ToModelID(ModelID.TYPE_ENTITY);
+                    var modelIcon = resourceManager.GetModelIcon(modelID);
+                    iconSprite.sprite = modelIcon;
+
+                    var spriteScale = Mathf.Max(modelIcon.rect.width, modelIcon.rect.height) / 64;
+                    iconSprite.transform.localScale = Vector3.one * spriteScale;
+
+                    var definition = MainManager.Instance.Game.GetSeedDefinition(blueprintID);
+                    costText.text = definition.GetCost().ToString();
+                    triggerCostText.text = definition.GetTriggerCost().ToString();
+                    triggerCostText.gameObject.SetActive(definition.IsTriggerActive());
+                }
+                else
+                {
+                    iconSprite.sprite = null;
+                    costText.text = null;
+                    triggerCostText.text = null;
+                    triggerCostText.gameObject.SetActive(false);
+                }
+            }
+        }
+        [SerializeField]
+        private Model model;
+        [SerializeField]
+        private SpriteRenderer iconSprite;
+        [SerializeField]
+        private TextMeshPro costText;
+        [SerializeField]
+        private TextMeshPro triggerCostText;
+        private NamespaceID lastID;
+    }
+}

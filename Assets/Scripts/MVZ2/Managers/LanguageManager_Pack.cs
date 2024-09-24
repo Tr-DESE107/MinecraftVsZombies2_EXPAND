@@ -117,57 +117,79 @@ namespace MVZ2.Managers
         }
         private Sprite ReadEntryToSprite(NamespaceID spriteId, ZipArchiveEntry entry)
         {
-            var originalSprite = Main.ResourceManager.GetSprite(spriteId);
-            var texture2D = entry.ReadTexture2D();
-            Rect spriteRect;
-            Vector2 spritePivot;
-            if (originalSprite)
+            try
             {
-                spriteRect = originalSprite.rect;
-                spritePivot = originalSprite.pivot / spriteRect.size;
+                var originalSprite = Main.ResourceManager.GetSprite(spriteId);
+                var texture2D = entry.ReadTexture2D();
+                Rect spriteRect;
+                Vector2 spritePivot;
+                if (originalSprite)
+                {
+                    spriteRect = originalSprite.rect;
+                    spritePivot = originalSprite.pivot / spriteRect.size;
+                }
+                else
+                {
+                    spriteRect = new Rect(0, 0, texture2D.width, texture2D.height);
+                    spritePivot = Vector2.one * 0.5f;
+                }
+                var spr = Sprite.Create(texture2D, spriteRect, spritePivot);
+                spr.name = spriteId.ToString();
+                return spr;
             }
-            else
+            catch (Exception e)
             {
-                spriteRect = new Rect(0, 0, texture2D.width, texture2D.height);
-                spritePivot = Vector2.one * 0.5f;
+                Debug.LogError($"An exception thrown when loading sprite {spriteId} from a language pack: {e}");
+                return Main.ResourceManager.GetDefaultSpriteClone();
             }
-            var spr = Sprite.Create(texture2D, spriteRect, spritePivot);
-            spr.name = spriteId.ToString();
-            return spr;
         }
         private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, ZipArchiveEntry entry)
         {
             var originalSpriteSheet = Main.ResourceManager.GetSpriteSheet(spriteId);
-            var texture2D = entry.ReadTexture2D();
-            (Rect rect, Vector2 pivot)[] spriteInfos;
-            if (originalSpriteSheet != null)
+            try
             {
-                spriteInfos = new (Rect rect, Vector2 pivot)[originalSpriteSheet.Length];
-                for (int i = 0; i < spriteInfos.Length; i++)
+                var texture2D = entry.ReadTexture2D();
+                (Rect rect, Vector2 pivot)[] spriteInfos;
+                if (originalSpriteSheet != null)
                 {
-                    var originalSprite = originalSpriteSheet[i];
-                    spriteInfos[i] = (originalSprite.rect, originalSprite.pivot);
+                    spriteInfos = new (Rect rect, Vector2 pivot)[originalSpriteSheet.Length];
+                    for (int i = 0; i < spriteInfos.Length; i++)
+                    {
+                        var originalSprite = originalSpriteSheet[i];
+                        spriteInfos[i] = (originalSprite.rect, originalSprite.pivot);
+                    }
                 }
-            }
-            else
-            {
-                spriteInfos = new (Rect rect, Vector2 pivot)[1]
+                else
                 {
-                    (new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f)
-                };
+                    spriteInfos = new (Rect rect, Vector2 pivot)[1]
+                    {
+                        (new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f)
+                    };
+                }
+                var sprites = new Sprite[spriteInfos.Length];
+                for (int i = 0; i < sprites.Length; i++)
+                {
+                    var info = spriteInfos[i];
+                    var rect = info.rect;
+                    rect.width = Math.Min(rect.width, texture2D.width);
+                    rect.height = Math.Min(rect.height, texture2D.height);
+                    var spr = Sprite.Create(texture2D, rect, info.pivot / rect.size);
+                    spr.name = $"{spriteId}[{i}]";
+                    sprites[i] = spr;
+                }
+                return sprites;
             }
-            var sprites = new Sprite[spriteInfos.Length];
-            for (int i = 0; i < sprites.Length; i++)
+            catch (Exception e)
             {
-                var info = spriteInfos[i];
-                var rect = info.rect;
-                rect.width = Math.Min(rect.width, texture2D.width);
-                rect.height = Math.Min(rect.height, texture2D.height);
-                var spr = Sprite.Create(texture2D, rect, info.pivot / rect.size);
-                spr.name = $"{spriteId}[{i}]";
-                sprites[i] = spr;
+                Debug.LogError($"An exception thrown when loading spritesheet {spriteId} from a language pack: {e}");
+                var length = originalSpriteSheet?.Length ?? 1;
+                var sprites = new Sprite[length];
+                for (int i = 0; i < sprites.Length; i++)
+                {
+                    sprites[i] = Main.ResourceManager.GetDefaultSpriteClone();
+                }
+                return sprites;
             }
-            return sprites;
         }
         private LanguageAssets GetOrCreateLanguageAsset(List<LanguageAssets> assets, string lang)
         {

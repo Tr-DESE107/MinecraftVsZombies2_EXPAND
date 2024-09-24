@@ -22,7 +22,6 @@ namespace MVZ2.Level
         {
             if (!controller)
                 return;
-            controller.SetStartStageID(areaID, stageID);
             if (HasLevelState(stageID))
             {
                 LoadLevel(stageID);
@@ -31,6 +30,7 @@ namespace MVZ2.Level
             {
                 controller.InitGame(Main.Game, areaID, stageID);
             }
+            controller.SetStartStageID(areaID, stageID);
         }
         #region 关卡存读
         public void SaveLevel()

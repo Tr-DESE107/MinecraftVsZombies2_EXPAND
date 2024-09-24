@@ -21,7 +21,7 @@ namespace PVZEngine.Definitions
         public virtual void PostRemoveArmor(Entity entity, Armor slot) { }
         public virtual NamespaceID GetModelID()
         {
-            return GetID().ToModelID("entity");
+            return GetID().ToModelID(ModelID.TYPE_ENTITY);
         }
         public abstract int Type { get; }
     }

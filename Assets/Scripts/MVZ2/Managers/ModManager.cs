@@ -24,6 +24,9 @@ namespace MVZ2.Managers
                 IsBuiltin = true,
                 ResourceLocator = locator,
             });
+        }
+        public void LoadModLogics(Game game)
+        {
             OnRegisterMod?.Invoke(this, game);
 
             foreach (var modInfo in modInfos)
@@ -31,11 +34,11 @@ namespace MVZ2.Managers
                 game.AddMod(modInfo.Logic);
             }
         }
-        public void InitMods()
+        public void PostGameInit()
         {
             foreach (var modInfo in GetAllModInfos())
             {
-                modInfo.Logic.Init();
+                modInfo.Logic.PostGameInit();
             }
         }
         public void RegisterModLogic(string spaceName, IModLogic modLogic)

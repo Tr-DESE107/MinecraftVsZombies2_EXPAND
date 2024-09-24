@@ -48,6 +48,14 @@ namespace MVZ2.Managers
             }
             return null;
         }
+        public Sprite GetDefaultSprite()
+        {
+            return defaultSprite;
+        }
+        public Sprite GetDefaultSpriteClone()
+        {
+            return Instantiate(defaultSprite);
+        }
         private async Task LoadSpriteManifests(string modNamespace)
         {
             var modResource = GetModResource(modNamespace);
@@ -109,5 +117,8 @@ namespace MVZ2.Managers
             spriteReferenceCacheDict.Add(sprite, sprRef);
         }
         private Dictionary<Sprite, SpriteReference> spriteReferenceCacheDict = new Dictionary<Sprite, SpriteReference>();
+        [Header("Sprites")]
+        [SerializeField]
+        private Sprite defaultSprite;
     }
 }

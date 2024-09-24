@@ -5,7 +5,7 @@ namespace MVZ2.Modding
 {
     public interface IModLogic : IContentProvider
     {
-        void Init();
+        void PostGameInit();
         ModSaveData CreateSaveData();
         ModSaveData LoadSaveData(string json);
     }

@@ -18,13 +18,20 @@ namespace MVZ2.Managers
 
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
+
             await ModManager.LoadMods(Game);
+
+            // 在MOD信息加载之后
             await ResourceManager.LoadAllModResources();
             await LanguageManager.LoadAllLanguagePacks();
 
+            // 在MOD资源加载之后
+            ModManager.LoadModLogics(Game);
+
+            // 在MOD逻辑加载之后
             SaveManager.Load();
 
-            ModManager.InitMods();
+            ModManager.PostGameInit();
         }
         public bool IsMobile()
         {

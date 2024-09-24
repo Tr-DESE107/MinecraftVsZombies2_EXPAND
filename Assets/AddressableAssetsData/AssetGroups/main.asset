@@ -17,6 +17,36 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3225cf10a7527224a8a7cedc03206148
+    m_Address: mvz2:talk/villager/villager_short3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
+    m_Address: mvz2:talk/villager/villager_short2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
+    m_Address: mvz2:talk/villager/villager_short1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
+    m_Address: mvz2:talk/villager/villager_scream2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: mvz2:talk/villager/villager_scream1
     m_ReadOnly: 0
@@ -1203,6 +1233,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6680241eb2835d849b88849e175d87da
+    m_Address: mvz2:Pickups/blueprint_pickup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
     m_Address: mvz2:Enemies/Zombie
     m_ReadOnly: 0
@@ -2204,36 +2240,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5e2544d28223e5b46936117e4b99bd1c
-    m_Address: mvz2:talk/villager/villager_scream2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce53b3037e41f04cb8ff0ff9897fd49
-    m_Address: mvz2:talk/villager/villager_short1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
-    m_Address: mvz2:talk/villager/villager_short2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3225cf10a7527224a8a7cedc03206148
-    m_Address: mvz2:talk/villager/villager_short3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
     m_Address: Main

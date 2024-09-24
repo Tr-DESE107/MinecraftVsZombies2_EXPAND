@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 1694740220}
+  defaultSprite: {fileID: 21300000, guid: ada34604e282038429a0cd4310662aa1, type: 3}
 --- !u!4 &107458334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5012742312879478206, guid: c2bee865fa604a744b40d9ad7c7a5123, type: 3}

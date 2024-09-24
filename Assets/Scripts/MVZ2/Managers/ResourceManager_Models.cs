@@ -5,6 +5,7 @@ using MVZ2.Resources;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.Profiling.Memory.Experimental;
 
 namespace MVZ2.Managers
 {
@@ -75,8 +76,16 @@ namespace MVZ2.Managers
                 var model = GetModel(meta.path);
                 var metaPath = ModelID.ConcatName(meta.type, meta.name);
                 var metaID = new NamespaceID(metaNamespace, metaPath);
-                var sprite = main.ModelManager.ShotIcon(model, meta.width, meta.height, new Vector2(meta.xOffset, meta.yOffset), metaID.ToString());
-                modResource.ModelIcons.Add(metaPath, sprite);
+                if (model != null)
+                {
+                    var sprite = main.ModelManager.ShotIcon(model, meta.width, meta.height, new Vector2(meta.xOffset, meta.yOffset), metaID.ToString());
+                    modResource.ModelIcons.Add(metaPath, sprite);
+                }
+                else
+                {
+                    modResource.ModelIcons.Add(metaPath, GetDefaultSpriteClone());
+                    Debug.LogWarning($"Model {metaID} is missing.");
+                }
             }
         }
         #endregion
