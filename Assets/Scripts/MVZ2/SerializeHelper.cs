@@ -9,8 +9,10 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
 using MVZ2.Level.Components;
+using MVZ2.Managers;
 using MVZ2.Save;
 using PVZEngine;
+using PVZEngine.BsonSerializers;
 using PVZEngine.Level;
 using PVZEngine.Serialization;
 using Tools;
@@ -28,6 +30,7 @@ namespace MVZ2.Serialization
             RegisterSerializer<Vector2>(new Vector2Serializer());
             RegisterSerializer<Vector3>(new Vector3Serializer());
             RegisterSerializer<Color>(new ColorSerializer());
+            RegisterSerializer<NamespaceID>(new NamespaceIDSerializer(MainManager.Instance.BuiltinNamespace));
 
             // Tools
             RegisterClass<FrameTimer>();

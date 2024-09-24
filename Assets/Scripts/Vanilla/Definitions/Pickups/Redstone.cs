@@ -14,6 +14,10 @@ namespace MVZ2.GameContent
         {
             SetProperty(PickupProps.COLLECT_SOUND, SoundID.points);
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+        }
         public override void Update(Entity pickup)
         {
             base.Update(pickup);
