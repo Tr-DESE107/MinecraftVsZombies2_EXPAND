@@ -56,10 +56,6 @@ namespace MVZ2.Games
             return saveDataProvider.GetModSaveData(spaceName);
         }
 
-        public void SaveCurrentModData(string spaceName)
-        {
-            saveDataProvider.SaveCurrentModData(spaceName);
-        }
         public void SetProperty(string name, object value) => propertyDict.SetProperty(name, value);
         public object GetProperty(string name) => propertyDict.GetProperty(name);
         public bool TryGetProperty(string name, out object value) => propertyDict.TryGetProperty(name, out value);

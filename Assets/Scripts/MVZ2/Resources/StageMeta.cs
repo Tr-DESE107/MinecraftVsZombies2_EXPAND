@@ -26,7 +26,8 @@ namespace MVZ2.Resources
             var type = node.GetAttribute("type") ?? "normal";
             var totalFlags = node.GetAttributeInt("totalFlags") ?? 1;
             var startTalk = node.GetAttributeNamespaceID("startTalk", defaultNsp);
-            var endTalk = node.GetAttributeNamespaceID("startTalk", defaultNsp);
+            var endTalk = node.GetAttributeNamespaceID("endTalk", defaultNsp);
+            var endNote = node.GetAttributeNamespaceID("endNote", defaultNsp);
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var clearPickupModel = node.GetAttributeNamespaceID("clearPickupModel", defaultNsp);
             var clearPickupBlueprint = node.GetAttributeNamespaceID("clearPickupBlueprint", defaultNsp);
@@ -43,6 +44,8 @@ namespace MVZ2.Resources
                 type = type,
                 totalFlags = totalFlags,
                 startTalk = startTalk,
+                endTalk = endTalk,
+                endNote = endNote,
                 unlock = unlock,
                 spawns = spawns,
                 clearPickupModel = clearPickupModel,

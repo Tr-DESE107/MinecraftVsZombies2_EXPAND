@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("Shoot");
 
             var game = entity.Level;
-            game.PlaySound(ShootSound, entity.Pos);
+            entity.PlaySound(ShootSound);
 
             Vector3 offset = ProjectileOffset;
             Vector3 velocity = ProjectileVelocity;

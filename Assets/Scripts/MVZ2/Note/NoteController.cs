@@ -1,5 +1,7 @@
 ﻿using System;
+using log4net.Core;
 using MVZ2.GameContent;
+using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Resources;
 using MVZ2.Talk;
@@ -20,7 +22,7 @@ namespace MVZ2.Note
             var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
             if (NamespaceID.IsValid(startTalk) && main.ResourceManager.GetTalkGroup(startTalk) != null)
             {
-                StartTalk(startTalk, 0);
+                StartTalk(startTalk, 0, 3);
                 ui.SetButtonInteractable(false);
             }
         }
@@ -38,6 +40,8 @@ namespace MVZ2.Note
         {
             ui.OnNoteFlipClick += OnNoteFlipClickCallback;
             ui.OnButtonClick += OnButtonClickCallback;
+            talkController.OnTalkAction += OnTalkActionCallback;
+            talkController.OnTalkEnd += OnTalkEndCallback;
         }
         #endregion
 
@@ -53,6 +57,22 @@ namespace MVZ2.Note
         private void OnButtonClickCallback()
         {
             OnClose?.Invoke();
+        }
+        private void OnTalkActionCallback(string action, string[] param)
+        {
+
+        }
+        private void OnTalkEndCallback(NamespaceID mode)
+        {
+            var talkEndDefinition = main.Game.GetTalkEndDefinition(mode);
+            if (talkEndDefinition != null)
+            {
+                talkEndDefinition.Execute();
+            }
+            else
+            {
+                ui.SetButtonInteractable(true);
+            }
         }
         #endregion
 

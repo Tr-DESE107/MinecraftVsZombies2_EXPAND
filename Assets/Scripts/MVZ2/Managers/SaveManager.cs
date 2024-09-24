@@ -31,7 +31,7 @@ namespace MVZ2.Managers
             var modSaveData = GetModSaveData(spaceName);
             var serializable = modSaveData.ToSerializable();
             var metaJson = serializable.ToBson();
-            SerializeHelper.WriteCompressedJson(path, metaJson);
+            Main.FileManager.WriteJsonFile(path, metaJson);
         }
         #endregion
 
@@ -62,7 +62,7 @@ namespace MVZ2.Managers
             }
             else
             {
-                var saveDataJson = SerializeHelper.ReadCompressedJson(path);
+                var saveDataJson = Main.FileManager.ReadJsonFile(path);
                 saveData = modInfo.Logic.LoadSaveData(saveDataJson);
             }
             modSaveDatas.Add(saveData);

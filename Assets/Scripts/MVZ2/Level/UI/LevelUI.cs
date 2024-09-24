@@ -347,6 +347,10 @@ namespace MVZ2.Level.UI
             else
                 return Receiver.Lawn;
         }
+        public void SetRaycastDisabled(bool disabled)
+        {
+            animator.SetBool("RaycastDisabled", disabled);
+        }
         public void SetExiting(bool note)
         {
             animator.SetTrigger("Exit");

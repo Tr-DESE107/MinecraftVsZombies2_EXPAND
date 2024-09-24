@@ -30,7 +30,6 @@ namespace MVZ2.Vanilla.Save
         {
             return money;
         }
-
         public void SetMoney(int value)
         {
             money = Math.Clamp(value, 0, 999990);
@@ -39,7 +38,6 @@ namespace MVZ2.Vanilla.Save
         {
             return blueprintSlots;
         }
-
         public void SetBlueprintSlots(int value)
         {
             blueprintSlots = value;

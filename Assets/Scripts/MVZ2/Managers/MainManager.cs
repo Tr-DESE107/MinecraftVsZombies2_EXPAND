@@ -70,6 +70,10 @@ namespace MVZ2.Managers
                 throw new DuplicateInstanceException(name);
             }
         }
+        private void OnApplicationQuit()
+        {
+            SaveManager.SaveModDatas();
+        }
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }
         public string BuiltinNamespace => builtinNamespace;
@@ -83,7 +87,7 @@ namespace MVZ2.Managers
         public ModManager ModManager => mod;
         public CursorManager CursorManager => cursor;
         public ShakeManager ShakeManager => shake;
-        public TalkManager TalkManager => talk;
+        public FileManager FileManager => file;
         public OptionsManager OptionsManager => options;
         public ResolutionManager ResolutionManager => resolution;
         public SceneLoadingManager SceneManager => sceneLoadingManager;
@@ -115,7 +119,7 @@ namespace MVZ2.Managers
         [SerializeField]
         private ShakeManager shake;
         [SerializeField]
-        private TalkManager talk;
+        private FileManager file;
         [SerializeField]
         private OptionsManager options;
         [SerializeField]

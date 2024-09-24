@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Effects
                 if (timer.Expired)
                 {
                     entity.Produce(PickupID.redstone);
+                    entity.PlaySound(SoundID.throwSound);
                     timer.MaxFrame = PRODUCE_TIME;
                     timer.Reset();
                 }

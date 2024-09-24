@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.Remove();
                 return;
             }
-            entity.Level.PlaySound(entity.GetDeathSound(), entity.Pos);
+            entity.PlaySound(entity.GetDeathSound());
         }
         protected void MeleeCollision(Entity enemy, Entity other)
         {

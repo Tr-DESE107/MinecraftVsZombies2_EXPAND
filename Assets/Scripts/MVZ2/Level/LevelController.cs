@@ -110,8 +110,7 @@ namespace MVZ2.Level
         }
         public async Task ReloadLevel()
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetGameOverDialogInteractable(false);
+            Main.SaveManager.SaveModDatas();
             Dispose();
             await Main.LevelManager.GotoLevelSceneAsync();
             Main.LevelManager.StartLevel(level.StartAreaID, level.StartStageID);
@@ -139,6 +138,7 @@ namespace MVZ2.Level
         {
             SetUIVisibleState(VisibleState.Nothing);
             isGameStarted = false;
+            Main.SaveManager.SaveModDatas();
         }
         public void Dispose()
         {
@@ -154,9 +154,9 @@ namespace MVZ2.Level
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
-            Dispose();
-            await Main.LevelManager.ExitLevelSceneAsync();
+            await ExitScene();
             var buttonText = Main.LanguageManager._(StringTable.BACK);
+            Main.SoundManager.Play2D(SoundID.paper);
             Main.Scene.DisplayNote(id, buttonText, () =>
             {
                 BackToMapOrMainmenu();
@@ -164,8 +164,7 @@ namespace MVZ2.Level
         }
         public async Task ExitLevel()
         {
-            Dispose();
-            await Main.LevelManager.ExitLevelSceneAsync();
+            await ExitScene();
             BackToMapOrMainmenu();
         }
         public void BackToMapOrMainmenu()
@@ -240,7 +239,6 @@ namespace MVZ2.Level
         {
             return level.StartStageID;
         }
-
         #endregion
 
         #region 私有方法
@@ -296,7 +294,6 @@ namespace MVZ2.Level
                 {
                     AdvanceLevelProgress();
 
-                    var levelUI = GetLevelUI();
                     bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
                     Vector2 heldItemPosition;
                     if (Main.IsMobile() && !isPressing)
@@ -307,7 +304,8 @@ namespace MVZ2.Level
                     {
                         heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
                     }
-                    levelUI.SetHeldItemPosition(heldItemPosition);
+                    var ui = GetLevelUI();
+                    ui.SetHeldItemPosition(heldItemPosition);
                     UpdateLevelUI();
 
                     levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
@@ -317,6 +315,8 @@ namespace MVZ2.Level
             {
                 ShowMoney();
             }
+            var levelUI = GetLevelUI();
+            levelUI.SetRaycastDisabled(IsInputDisabled());
             SetLevelUISimulationSpeed(IsGameRunning() ? gameSpeed : 0);
             UpdateGridHighlight();
             UpdateInput();
@@ -402,6 +402,10 @@ namespace MVZ2.Level
             Main.LevelManager.RemoveLevelState(level.StartStageID);
             Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StartStageID));
             Main.SaveManager.AddLevelDifficultyRecord(level.StartStageID, level.Difficulty);
+            Main.SaveManager.SaveModDatas();
+
+            isInputDisabled = true;
+
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
             if (!Main.SaveManager.IsLevelCleared(stageID) && NamespaceID.IsValid(endTalk) && Main.ResourceManager.GetTalkGroup(endTalk) != null)
@@ -413,11 +417,11 @@ namespace MVZ2.Level
                 var endNoteId = level.GetEndNoteID();
                 if (NamespaceID.IsValid(endNoteId))
                 {
-                    StartCoroutine(ExitLevelToNoteTransition(endNoteId, 5));
+                    StartCoroutine(ExitLevelToNoteTransition(endNoteId, 3));
                 }
                 else
                 {
-                    StartCoroutine(ExitLevelTransition(5));
+                    StartCoroutine(ExitLevelTransition(3));
                 }
             }
         }
@@ -501,12 +505,20 @@ namespace MVZ2.Level
             level.PlaySound(speedUp ? SoundID.fastForward : SoundID.slowDown);
         }
 
+        private async Task ExitScene()
+        {
+            Main.SaveManager.SaveModDatas();
+            Dispose();
+            await Main.LevelManager.ExitLevelSceneAsync();
+        }
         private void UpdateInput()
         {
-            UpdatePointer();
+            if (IsInputDisabled())
+                return;
+            UpdatePointerUp();
             UpdateKeys();
         }
-        private void UpdatePointer()
+        private void UpdatePointerUp()
         {
             if (Input.GetMouseButtonUp(0))
             {
@@ -663,6 +675,10 @@ namespace MVZ2.Level
         {
             return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
         }
+        private bool IsInputDisabled()
+        {
+            return isInputDisabled;
+        }
         #endregion
 
         #region 属性字段
@@ -675,6 +691,7 @@ namespace MVZ2.Level
         private bool levelLoaded = false;
         private bool isGameStarted;
         private bool isGameOver;
+        private bool isInputDisabled;
         private bool speedUp;
         private float gameRunTimeModular;
         private NamespaceID killerID;

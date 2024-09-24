@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Back/Main
+    path: Canvas/CameraLimit/Back/Main
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -55,7 +55,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Back/Side
+    path: Canvas/CameraLimit/Back/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -76,7 +76,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Front/Main/Bottom
+    path: Canvas/CameraLimit/Front/Main/Bottom
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -97,7 +97,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Front/Side
+    path: Canvas/CameraLimit/Front/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -118,7 +118,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Front/Main/Lawn/Top
+    path: Canvas/CameraLimit/Front/Main/Lawn/Top
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -214,7 +214,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Back/Main
+    path: Canvas/CameraLimit/Back/Main
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -235,7 +235,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Back/Side
+    path: Canvas/CameraLimit/Back/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -256,7 +256,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Front/Main/Bottom
+    path: Canvas/CameraLimit/Front/Main/Bottom
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -277,7 +277,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Front/Side
+    path: Canvas/CameraLimit/Front/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -298,7 +298,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FrontCanvas/CameraLimit/Front/Main/Lawn/Top
+    path: Canvas/CameraLimit/Front/Main/Lawn/Top
     classID: 1
     script: {fileID: 0}
     flags: 0

@@ -1,18 +1,20 @@
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
+using PVZEngine;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.mineDebris)]
-    public class MineDebris : VanillaEffect
+    [Definition(EffectNames.starParticles)]
+    public class StarParticles : VanillaEffect
     {
+
         #region 公有方法
-        public MineDebris(string nsp, string name) : base(nsp, name)
+        public StarParticles(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)
         {
-            base.Init(entity);
             entity.Timeout = 30;
         }
         #endregion

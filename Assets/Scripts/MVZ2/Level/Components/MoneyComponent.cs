@@ -12,13 +12,17 @@ namespace MVZ2.Level.Components
         public MoneyComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
+        public void SetMoney(int value)
+        {
+            Global.Game.SetMoney(value);
+        }
         public void AddMoney(int value)
         {
-            Main.SaveManager.SetMoney(GetMoney() + value);
+            SetMoney(GetMoney() + value);
         }
         public int GetMoney()
         {
-            return Main.SaveManager.GetMoney();
+            return Global.Game.GetMoney();
         }
         public int GetDelayedMoney()
         {

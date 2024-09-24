@@ -412,7 +412,7 @@
       </sentences>
     </section>
   </group>
-  <group name="note_halloween" background="mvz2:archive.note_halloween" tags="mvz2:archive.tag.halloween">
+  <group name="halloween_note" background="mvz2:archive.halloween_note" tags="mvz2:archive.tag.halloween">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />

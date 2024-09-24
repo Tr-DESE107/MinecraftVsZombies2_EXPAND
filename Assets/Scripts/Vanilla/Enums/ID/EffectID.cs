@@ -9,7 +9,7 @@ namespace MVZ2.GameContent
         public const string mineDebris = "mine_debris";
         public const string brokenArmor = "broken_armor";
         public const string fragment = "fragment";
-        public const string starParticles = "starParticles";
+        public const string starParticles = "star_particles";
     }
     public static class EffectID
     {

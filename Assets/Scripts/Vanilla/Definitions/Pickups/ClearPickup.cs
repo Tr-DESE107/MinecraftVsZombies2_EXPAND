@@ -71,6 +71,7 @@ namespace MVZ2.GameContent
             game.Clear();
             game.StopMusic();
             game.PlaySound(pickup.GetCollectSound());
+            game.PlaySound(GetPickupSoundID(pickup));
             game.Spawn(EffectID.starParticles, pickup.Pos, pickup);
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)
@@ -90,6 +91,14 @@ namespace MVZ2.GameContent
             if (NamespaceID.IsValid(levelModel))
                 return levelModel;
             return VanillaModelID.blueprintPickup;
+        }
+        private NamespaceID GetPickupSoundID(Entity entity)
+        {
+            if (entity.ModelID == VanillaModelID.mapPickup)
+            {
+                return SoundID.pick;
+            }
+            return SoundID.tap;
         }
         private const float COLLECTED_Z = 0;
     }

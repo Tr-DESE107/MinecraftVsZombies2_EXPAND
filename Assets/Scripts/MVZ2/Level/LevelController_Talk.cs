@@ -34,7 +34,7 @@ namespace MVZ2.Level
             var talkEndDefinition = Game.GetTalkEndDefinition(mode);
             if (talkEndDefinition != null)
             {
-                talkEndDefinition.Execute(level);
+                talkEndDefinition.Execute();
             }
             else
             {

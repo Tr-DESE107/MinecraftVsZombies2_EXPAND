@@ -8,6 +8,6 @@ namespace MVZ2.Definitions
         public TalkEndDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public virtual void Execute(LevelEngine level) { }
+        public virtual void Execute() { }
     }
 }

@@ -207,7 +207,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         position = enemy.Pos;
                     }
-                    level.Spawn(PickupID.clearPickup, position, enemy);
+                    level.Produce(PickupID.clearPickup, position, enemy);
                 }
             }
         }

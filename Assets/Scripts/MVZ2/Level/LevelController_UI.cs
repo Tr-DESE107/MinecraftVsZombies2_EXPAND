@@ -190,6 +190,8 @@ namespace MVZ2.Level
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {
+            var levelUI = GetLevelUI();
+            levelUI.SetGameOverDialogInteractable(false);
             await RestartLevel();
         }
         private async void UI_OnGameOverBackButtonClickedCallback()

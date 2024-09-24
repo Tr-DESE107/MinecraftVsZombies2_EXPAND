@@ -24,7 +24,6 @@ namespace MVZ2.Extensions
             if (saveData == null)
                 return;
             saveData.SetMoney(money);
-            save.SaveCurrentModData(saveData.Namespace);
         }
         public static void AddMoney(this ISaveDataProvider save, int money)
         {
@@ -43,7 +42,6 @@ namespace MVZ2.Extensions
             if (saveData == null)
                 return;
             saveData.SetBlueprintSlots(slots);
-            save.SaveCurrentModData(saveData.Namespace);
         }
         public static int GetBlueprintSlots(this ISaveDataProvider save)
         {

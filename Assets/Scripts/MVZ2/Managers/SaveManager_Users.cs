@@ -19,6 +19,7 @@ namespace MVZ2.Managers
         }
         public void SetCurrentUserIndex(int index)
         {
+            SaveModDatas();
             userDataList.CurrentUserIndex = index;
             ReloadCurrentUserData();
         }
@@ -92,7 +93,7 @@ namespace MVZ2.Managers
             FileHelper.ValidateDirectory(saveDataMetaPath);
             var serializable = userDataList.ToSerializable();
             var metaJson = serializable.ToBson();
-            SerializeHelper.WriteCompressedJson(saveDataMetaPath, metaJson);
+            Main.FileManager.WriteJsonFile(saveDataMetaPath, metaJson);
         }
         #endregion
 
@@ -106,7 +107,7 @@ namespace MVZ2.Managers
             }
             else
             {
-                var metaJson = SerializeHelper.ReadCompressedJson(saveDataMetaPath);
+                var metaJson = Main.FileManager.ReadJsonFile(saveDataMetaPath);
                 var serializable = SerializeHelper.FromBson<SerializableUserDataList>(metaJson);
                 userDataList = UserDataList.FromSerializable(serializable);
             }

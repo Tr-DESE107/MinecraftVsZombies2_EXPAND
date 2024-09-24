@@ -19,12 +19,23 @@ namespace MVZ2.Extensions
         }
         public static Entity Produce(this Entity entity, EntityDefinition pickupDef)
         {
+            return entity.Level.Produce(pickupDef, entity.Pos, entity);
+        }
+        public static Entity Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity spawner)
+        {
+            return level.Produce(level.ContentProvider.GetEntityDefinition(pickupID), position, spawner);
+        }
+        public static Entity Produce<T>(this LevelEngine level, Vector3 position, Entity spawner) where T : EntityDefinition
+        {
+            return level.Produce(level.ContentProvider.GetEntityDefinition<T>(), position, spawner);
+        }
+        public static Entity Produce(this LevelEngine level, EntityDefinition pickupDef, Vector3 position, Entity spawner)
+        {
             float xSpeed;
             float maxSpeed = 1.6f;
-            Vector3 position = entity.Pos;
+            var pickup = level.Spawn(pickupDef, position, spawner);
 
-            var level = entity.Level;
-            var rng = entity.RNG;
+            var rng = pickup.RNG;
             if (position.x <= BuiltinLevel.GetBorderX(false) + 150)
             {
                 xSpeed = rng.Next(0, maxSpeed);
@@ -38,10 +49,7 @@ namespace MVZ2.Extensions
                 xSpeed = rng.Next(-maxSpeed, maxSpeed);
             }
             Vector3 dropVelocity = new Vector3(xSpeed, 14, 0);
-            var pickup = level.Spawn(pickupDef, position, entity);
             pickup.Velocity = dropVelocity;
-
-            level.PlaySound(SoundID.throwSound, entity.Pos);
             return pickup;
         }
     }

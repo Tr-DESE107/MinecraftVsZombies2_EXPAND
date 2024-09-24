@@ -15,16 +15,14 @@ namespace MVZ2.GameContent.Effects
         }
         public override void Init(Entity entity)
         {
+            base.Init(entity);
             entity.Timeout = 60;
         }
         public override void Update(Entity entity)
         {
+            base.Update(entity);
             var parent = entity.Parent;
-            if (parent == null || !parent.Exists())
-            {
-                entity.Timeout--;
-            }
-            else
+            if (parent != null && parent.Exists())
             {
                 entity.Timeout = 30;
                 entity.Pos = parent.Pos;
@@ -32,11 +30,6 @@ namespace MVZ2.GameContent.Effects
             }
             entity.SetAnimationFloat("EmitSpeed", GetEmitSpeed(entity));
             SetEmitSpeed(entity, 0);
-            if (entity.Timeout <= 0)
-            {
-                entity.Remove();
-            }
-
         }
         public static float GetEmitSpeed(Entity entity)
         {

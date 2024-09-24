@@ -79,7 +79,7 @@ namespace MVZ2.GameContent
             pickup.SetProperty(EntityProperties.GRAVITY, 0f);
 
             var pitch = GetRandomCollectPitch() ? Random.Range(0.95f, 1.5f) : 1;
-            level.PlaySound(pickup.GetCollectSound(), pickup.Pos, pitch);
+            pickup.PlaySound(pickup.GetCollectSound(), pitch);
             level.ShowMoney();
         }
         protected virtual bool GetRandomCollectPitch()

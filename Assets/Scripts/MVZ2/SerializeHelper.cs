@@ -65,10 +65,17 @@ namespace MVZ2.Serialization
         }
         public static void WriteCompressedJson(string path, string json)
         {
-            using var stream = File.Open(path, FileMode.Create);
-            using var gzipStream = new GZipStream(stream, CompressionMode.Compress);
-            using var textWriter = new StreamWriter(gzipStream);
-            textWriter.Write(json);
+            try
+            {
+                using var stream = File.Open(path, FileMode.Create);
+                using var gzipStream = new GZipStream(stream, CompressionMode.Compress);
+                using var textWriter = new StreamWriter(gzipStream);
+                textWriter.Write(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to write compressed json to file {path}: {e}");
+            }
         }
         public static string ReadCompressedJson(string path)
         {
@@ -82,9 +89,16 @@ namespace MVZ2.Serialization
         }
         public static void WriteJson(string path, string json)
         {
-            using var stream = File.Open(path, FileMode.Create);
-            using var textWriter = new StreamWriter(stream);
-            textWriter.Write(json);
+            try
+            {
+                using var stream = File.Open(path, FileMode.Create);
+                using var textWriter = new StreamWriter(stream);
+                textWriter.Write(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to write compressed json to file {path}: {e}");
+            }
         }
         public static string ReadJson(string path)
         {

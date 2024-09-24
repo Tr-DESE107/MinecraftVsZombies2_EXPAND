@@ -11,9 +11,13 @@ namespace MVZ2.Vanilla.TalkEnd
         public StartTutorialEndDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Execute(LevelEngine level)
+        public override void Execute()
         {
-            base.Execute(level);
+            base.Execute();
+            var game = Global.Game;
+            if (!game.IsInLevel())
+                return;
+            var level = game.GetLevel();
             level.ChangeStage(StageID.tutorial);
             level.BeginLevel(LevelTransitions.TO_LAWN);
         }

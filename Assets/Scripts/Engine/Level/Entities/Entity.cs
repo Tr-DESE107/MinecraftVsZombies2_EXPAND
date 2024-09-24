@@ -755,7 +755,7 @@ namespace PVZEngine.Level
         public bool CanUnderGround { get; set; }
         public Vector3 BoundsOffset { get; set; }
         public int PoolCount { get; set; }
-        public int Timeout { get; set; }
+        public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
         public float Health { get; set; }
         public int Type { get; }

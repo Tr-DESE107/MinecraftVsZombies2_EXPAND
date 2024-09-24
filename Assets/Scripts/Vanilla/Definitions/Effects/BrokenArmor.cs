@@ -16,15 +16,12 @@ namespace MVZ2.GameContent.Effects
         }
         public override void Init(Entity entity)
         {
+            base.Init(entity);
             entity.Timeout = 60;
         }
         public override void Update(Entity entity)
         {
-            entity.Timeout--;
-            if (entity.Timeout <= 0)
-            {
-                entity.Remove();
-            }
+            base.Update(entity);
             entity.SetTint(new Color(1, 1, 1, Mathf.Clamp01(entity.Timeout / 15f)));
             entity.SetAnimationInt("HealthState", 0);
             entity.RenderRotation += new Vector3(0, 0, -entity.Velocity.x);

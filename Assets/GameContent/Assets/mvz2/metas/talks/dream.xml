@@ -467,7 +467,7 @@
       </sentences>
     </section>
   </group>
-  <group name="note_dream" background="mvz2:archive.note_dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_note" background="mvz2:archive.dream_note" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />

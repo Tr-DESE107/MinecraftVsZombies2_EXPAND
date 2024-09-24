@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Contraptions
 
             if (riseTimer.Frame == 30)
             {
-                entity.Level.PlaySound(SoundID.dirtRise, entity.Pos);
+                entity.PlaySound(SoundID.dirtRise);
             }
             if (riseTimer.Frame < 30)
             {
@@ -112,7 +112,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
             entity.Level.Spawn<MineDebris>(entity.Pos, entity);
             entity.Remove();
-            entity.Level.PlaySound(SoundID.mineExplode, entity.Pos);
+            entity.PlaySound(SoundID.mineExplode);
             entity.Level.ShakeScreen(10, 0, 15);
         }
         private static Entity FireSeed(Entity contraption, LawnGrid grid)

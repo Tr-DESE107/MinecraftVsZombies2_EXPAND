@@ -41,6 +41,11 @@ namespace MVZ2.Level
         }
         public void SetModel(Model model)
         {
+            if (Model)
+            {
+                Destroy(Model.gameObject);
+                Model = null;
+            }
             Model = model;
             if (!Model)
                 return;

@@ -22,6 +22,7 @@ namespace MVZ2.Level
         {
             if (!controller)
                 return;
+            Main.SaveManager.SaveModDatas();
             if (HasLevelState(stageID))
             {
                 LoadLevel(stageID);
@@ -41,7 +42,7 @@ namespace MVZ2.Level
             FileHelper.ValidateDirectory(path);
             var seri = controller.SaveGame();
             var json = seri.ToBson();
-            SerializeHelper.WriteCompressedJson(path, json);
+            Main.FileManager.WriteJsonFile(path, json);
         }
         public void LoadLevel(NamespaceID stageID)
         {
@@ -52,7 +53,7 @@ namespace MVZ2.Level
             try
             {
                 var path = GetLevelStatePath(stageID);
-                var json = SerializeHelper.ReadCompressedJson(path);
+                var json = Main.FileManager.ReadJsonFile(path);
                 var seri = SerializeHelper.FromBson<SerializableLevelController>(json);
                 controller.LoadGame(seri, Main.Game);
             }

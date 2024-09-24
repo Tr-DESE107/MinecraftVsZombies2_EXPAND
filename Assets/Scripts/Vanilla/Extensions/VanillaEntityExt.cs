@@ -19,21 +19,21 @@ namespace MVZ2.Vanilla
             var hitSound = shell.GetProperty<NamespaceID>(ShellProps.HIT_SOUND);
             if (damageEffects.HasEffect(DamageEffects.FIRE) && !blocksFire)
             {
-                level.PlaySound(SoundID.fire, entity.Pos);
+                entity.PlaySound(SoundID.fire);
             }
             else if (damageEffects.HasEffect(DamageEffects.SLICE) && shell.GetProperty<bool>(ShellProps.SLICE_CRITICAL))
             {
-                level.PlaySound(SoundID.slice, entity.Pos);
+                entity.PlaySound(SoundID.slice);
             }
             else
             {
-                level.PlaySound(hitSound, entity.Pos);
+                entity.PlaySound(hitSound);
             }
         }
 
         public static bool IsAliveEnemy(this Entity entity)
         {
-            return entity.Type == EntityTypes.ENEMY && !entity.GetProperty<bool>(BuiltinEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
+            return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.GetProperty<bool>(BuiltinEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
         }
     }
 }

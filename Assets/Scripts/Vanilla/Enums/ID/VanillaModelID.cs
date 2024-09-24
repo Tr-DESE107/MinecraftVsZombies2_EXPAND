@@ -8,6 +8,7 @@ namespace MVZ2.GameContent
     {
         public static readonly NamespaceID moneyChest = Get("money_chest", ModelID.TYPE_ENTITY);
         public static readonly NamespaceID blueprintPickup = Get("blueprint_pickup", ModelID.TYPE_ENTITY);
+        public static readonly NamespaceID mapPickup = Get("map_pickup", ModelID.TYPE_ENTITY);
         private static NamespaceID Get(string name, string type)
         {
             return new NamespaceID(VanillaMod.spaceName, name).ToModelID(type);

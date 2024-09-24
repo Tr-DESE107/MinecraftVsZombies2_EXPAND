@@ -47,7 +47,7 @@
       </sentences>
     </section>
   </group>
-  <group name="note_prologue" background="mvz2:archive.note_prologue" tags="mvz2:archive.tag.prologue">
+  <group name="prologue_note" background="mvz2:archive.prologue_note" tags="mvz2:archive.tag.prologue">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />

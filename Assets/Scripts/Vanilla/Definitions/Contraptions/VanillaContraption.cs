@@ -51,7 +51,7 @@ namespace MVZ2.Vanilla
             var fragment = GetOrCreateFragment(entity);
             Fragment.AddEmitSpeed(fragment, 50);
 
-            entity.Level.PlaySound(entity.GetDeathSound(), entity.Pos);
+            entity.PlaySound(entity.GetDeathSound());
             entity.Remove();
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)

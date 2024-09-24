@@ -11,7 +11,7 @@ namespace MVZ2.Extensions
         {
             entity.State = EntityStates.CART_TRIGGERED;
             entity.Velocity = Vector3.right * 10;
-            entity.Level.PlaySound(entity.GetCartTriggerSound(), entity.Pos);
+            entity.PlaySound(entity.GetCartTriggerSound());
         }
     }
 }

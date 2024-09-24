@@ -95,6 +95,7 @@ namespace MVZ2.GameContent.Contraptions
             if (productionTimer.Expired)
             {
                 entity.Produce<Redstone>();
+                entity.PlaySound(SoundID.throwSound);
                 productionTimer.MaxFrame = 720;
                 productionTimer.Reset();
             }
@@ -105,8 +106,8 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Run();
             if (evocationTimer.PassedInterval(5))
             {
-                entity.Level.PlaySound(SoundID.potion, entity.Pos);
                 entity.Produce<Redstone>();
+                entity.PlaySound(SoundID.potion);
             }
             if (evocationTimer.Expired)
             {

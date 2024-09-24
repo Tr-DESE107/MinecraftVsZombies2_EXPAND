@@ -8,6 +8,5 @@ namespace MVZ2.Save
         void Unlock(NamespaceID unlockID);
         T GetModSaveData<T>(string spaceName);
         ModSaveData GetModSaveData(string spaceName);
-        void SaveCurrentModData(string spaceName);
     }
 }

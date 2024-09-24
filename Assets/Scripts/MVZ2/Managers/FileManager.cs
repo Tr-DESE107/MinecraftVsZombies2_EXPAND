@@ -1,0 +1,42 @@
+﻿using System;
+using MVZ2.Serialization;
+using UnityEngine;
+
+namespace MVZ2.Managers
+{
+    public class FileManager : MonoBehaviour
+    {
+        public void WriteJsonFile(string path, string json)
+        {
+            if (!compressed && IsEditor())
+            {
+                SerializeHelper.WriteJson(path, json);
+            }
+            else
+            {
+                SerializeHelper.WriteCompressedJson(path, json);
+            }
+        }
+        public string ReadJsonFile(string path)
+        {
+            try
+            {
+                return SerializeHelper.ReadCompressedJson(path);
+            }
+            catch (Exception)
+            {
+                if (IsEditor())
+                {
+                    return SerializeHelper.ReadJson(path);
+                }
+                throw;
+            }
+        }
+        private bool IsEditor()
+        {
+            return Application.isEditor;
+        }
+        [SerializeField]
+        private bool compressed = true;
+    }
+}

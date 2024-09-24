@@ -78,7 +78,7 @@ namespace MVZ2.GameContent
             game.AddEnergyDelayed(pickup, value);
             pickup.SetProperty(EntityProperties.GRAVITY, 0f);
 
-            game.PlaySound(pickup.GetCollectSound(), pickup.Pos, Random.Range(0.95f, 1.5f));
+            pickup.PlaySound(pickup.GetCollectSound(), Random.Range(0.95f, 1.5f));
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
