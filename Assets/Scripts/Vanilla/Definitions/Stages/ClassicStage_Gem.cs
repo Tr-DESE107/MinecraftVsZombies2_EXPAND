@@ -6,7 +6,6 @@ using MVZ2.Games;
 using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Level;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -14,8 +13,8 @@ namespace MVZ2.GameContent.Stages
     {
         private void Gem_AddCallbacks()
         {
-            LevelCallbacks.PostEntityInit.Add(Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
-            LevelCallbacks.PostEntityDeath.Add(Gem_PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            AddCallback(LevelCallbacks.PostEntityInit, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
+            AddCallback(LevelCallbacks.PostEntityDeath, Gem_PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
 
         private void Gem_PostPickupInitCallback(Entity pickup)

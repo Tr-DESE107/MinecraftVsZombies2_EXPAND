@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public VanillaEnemy(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(BuiltinEnemyProps.SPEED, 0.5f);
+            SetProperty(BuiltinEnemyProps.SPEED, 1f);
             SetProperty(BuiltinEnemyProps.CRY_SOUND, SoundID.zombieCry);
             SetProperty(EntityProperties.SHELL, ShellID.flesh);
             SetProperty(EntityProperties.ATTACK_SPEED, 1f);
@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Enemies
             enemy.Pos = pos;
 
             enemy.SetAnimationFloat("AttackSpeed", enemy.GetAttackSpeed());
-            enemy.SetAnimationFloat("MoveSpeed", enemy.GetSpeed() * 2);
+            enemy.SetAnimationFloat("MoveSpeed", enemy.GetSpeed());
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
@@ -102,7 +102,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected virtual float GetRandomSpeedMultiplier(Entity entity)
         {
-            return entity.RNG.Next(1, 1.33333f);
+            return entity.RNG.Next(1, 1.5f);
         }
         public override int Type => EntityTypes.ENEMY;
     }
@@ -189,7 +189,7 @@ namespace MVZ2.GameContent.Enemies
         protected virtual void UpdateStateWalk(Entity enemy)
         {
             var velocity = enemy.Velocity;
-            var speed = enemy.GetSpeed();
+            var speed = enemy.GetSpeed() * 0.4f;
             if (Mathf.Abs(velocity.x) < speed)
             {
                 float min = Mathf.Min(speed, -speed);

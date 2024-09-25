@@ -19,15 +19,11 @@ namespace MVZ2.GameContent.Stages
             SetProperty(BuiltinStageProps.WAVE_MAX_TIME, 900);
             SetProperty(BuiltinStageProps.WAVE_ADVANCE_TIME, 300);
             SetProperty(BuiltinStageProps.WAVE_ADVANCE_HEALTH_PERCENT, 0.6f);
+            Gem_AddCallbacks();
         }
         public void SetSpawnEntries(IEnemySpawnEntry[] entries)
         {
             spawnEntries = entries;
-        }
-        public override void AddCallbacks()
-        {
-            base.AddCallbacks();
-            Gem_AddCallbacks();
         }
         public override void Start(LevelEngine level)
         {
