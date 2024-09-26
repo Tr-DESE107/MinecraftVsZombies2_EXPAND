@@ -133,6 +133,7 @@ namespace PVZEngine.Level
         {
             IsCleared = true;
             OnClear?.Invoke();
+            LevelCallbacks.PostLevelClear.Run(this);
         }
         #endregion
 

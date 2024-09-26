@@ -4,6 +4,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Games;
 using MVZ2.Level.Components;
+using MVZ2.Modding;
 using MVZ2.Resources;
 using MVZ2.Save;
 using MVZ2.Serialization;
@@ -36,6 +37,7 @@ namespace MVZ2.Tests
             var seriId = SerializeHelper.FromBson<EntityID>(json);
             var json2 = seriId.ToBson();
             Assert.AreEqual(json, json2);
+            UnloadMods();
         }
         [Test]
         public static void EntitySerializationTest()
@@ -55,6 +57,7 @@ namespace MVZ2.Tests
             SerializableEntity seriEnt3 = entity2.Serialize();
             var json2 = seriEnt3.ToBson();
             Assert.AreEqual(json, json2);
+            UnloadMods();
         }
         [Test]
         public static void LevelSerializationTest()
@@ -78,6 +81,7 @@ namespace MVZ2.Tests
             Debug.Log(json);
             Debug.Log(json2);
             Assert.AreEqual(json, json2);
+            UnloadMods();
         }
         [Test]
         public static void LevelSerializationTestPrologue()
@@ -174,12 +178,15 @@ namespace MVZ2.Tests
             Debug.Log(jsonAfterUpdate1);
             Debug.Log(jsonAfterUpdate2);
             Assert.AreEqual(jsonAfterUpdate1, jsonAfterUpdate2);
+            UnloadMods();
         }
 
         private static Game CreateGame()
         {
             var game = new Game(new DummyTranslator(), new DummySaveDataProvider(), new DummyMetaProvider());
             var mod = new VanillaMod();
+            mod.Load();
+            loadedMods.Add(mod);
             game.AddMod(mod);
             return game;
         }
@@ -201,6 +208,14 @@ namespace MVZ2.Tests
             });
             return level;
         }
+        private static void UnloadMods()
+        {
+            foreach (var mod in loadedMods)
+            {
+                mod.Unload();
+            }
+            loadedMods.Clear();
+        }
         private static LevelEngine DeserializeLevel(SerializableLevel seri, Game game)
         {
             var level = LevelEngine.Deserialize(seri, game, game);
@@ -210,6 +225,7 @@ namespace MVZ2.Tests
             game.SetLevel(level);
             return level;
         }
+        private static System.Collections.Generic.List<Mod> loadedMods = new System.Collections.Generic.List<Mod>();
         private class TestHeldItemComponent : LevelComponent, IHeldItemComponent
         {
             public TestHeldItemComponent(LevelEngine level) : base(level, new NamespaceID("mvz2", "held_item"))

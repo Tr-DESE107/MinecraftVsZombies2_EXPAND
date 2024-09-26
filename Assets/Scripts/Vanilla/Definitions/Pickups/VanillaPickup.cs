@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent;
+﻿using MVZ2.Extensions;
+using MVZ2.GameContent;
 using MVZ2.Games;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -55,6 +56,8 @@ namespace MVZ2.Vanilla
             {
                 pickup.Remove();
             }
+            pickup.SetSortingLayer(SortingLayers.frontUI);
+            pickup.SetSortingOrder(9999);
         }
         public override int Type => EntityTypes.PICKUP;
     }

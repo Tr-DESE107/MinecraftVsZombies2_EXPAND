@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
@@ -21,14 +22,17 @@ namespace MVZ2.Managers
             if (id == null)
                 return null;
             var soundsMeta = main.ResourceManager.GetSoundMetaList(id.spacename);
-            var res = main.ResourceManager.GetSoundMeta(id);
-            if (soundsMeta == null || res == null)
+            var meta = main.ResourceManager.GetSoundMeta(id);
+            if (soundsMeta == null || meta == null)
                 return null;
-            var sample = res.GetRandomSample();
+            var sample = meta.GetRandomSample();
             if (sample == null)
                 return null;
+            var maxCount = meta.maxCount;
             var clip = main.ResourceManager.GetSoundClip(sample.path);
-            return Play(clip, pos, res.priority, pitch, spatialBlend);
+            if (maxCount > 0 && soundSources.Count(s => s.clip == clip) >= maxCount)
+                return null;
+            return Play(clip, pos, meta.priority, pitch, spatialBlend);
         }
         public AudioSource Play(AudioClip clip, Vector3 pos, int priority, float pitch = 1, float spatialBlend = 1)
         {

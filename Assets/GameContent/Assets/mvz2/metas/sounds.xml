@@ -25,7 +25,7 @@
     <sound name="click" maxCount="4" priority="64">
         <sample path="mvz2:click" weight="1" />
     </sound>
-    <sound name="coin" priority="64">
+    <sound name="coin" maxCount="1" priority="64">
         <sample path="mvz2:coin" weight="1" />
     </sound>
     <sound name="crystal_break">
@@ -46,7 +46,7 @@
         <sample path="mvz2:random/crystal/crystal_place3" weight="1" />
         <sample path="mvz2:random/crystal/crystal_place4" weight="1" />
     </sound>
-    <sound name="diamond">
+    <sound name="diamond" maxCount="3">
         <sample path="mvz2:diamond" weight="1" />
     </sound>
     <sound name="dirt_rise">

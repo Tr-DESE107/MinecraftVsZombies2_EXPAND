@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using MVZ2.Extensions;
+using MVZ2.GameContent.Effects;
 using MVZ2.Games;
 using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent
 {
@@ -67,12 +69,33 @@ namespace MVZ2.GameContent
         {
             base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
-            var game = pickup.Level;
-            game.Clear();
-            game.StopMusic();
-            game.PlaySound(pickup.GetCollectSound());
-            game.PlaySound(GetPickupSoundID(pickup));
-            game.Spawn(EffectID.starParticles, pickup.Pos, pickup);
+            var level = pickup.Level;
+            if (IsLevelCleared(level))
+            {
+                int money = 250;
+                if (level.Difficulty == LevelDifficulty.easy)
+                {
+                    money = 50;
+                }
+                else if (level.Difficulty == LevelDifficulty.hard)
+                {
+                    money = 1000;
+                }
+                GemEffect.SpawnGemEffects(level, money, pickup.Pos, pickup, false);
+            }
+            else
+            {
+                if (level.Difficulty == LevelDifficulty.hard)
+                {
+                    GemEffect.SpawnGemEffects(level, 250, pickup.Pos, pickup, false);
+                }
+            }
+            level.Clear();
+            level.StopMusic();
+            level.PlaySound(pickup.GetCollectSound());
+            level.PlaySound(GetPickupSoundID(pickup));
+            level.Spawn(EffectID.starParticles, pickup.Pos, pickup);
+
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
@@ -91,6 +114,11 @@ namespace MVZ2.GameContent
             if (NamespaceID.IsValid(levelModel))
                 return levelModel;
             return VanillaModelID.blueprintPickup;
+        }
+        private bool IsLevelCleared(LevelEngine level)
+        {
+            var game = Global.Game;
+            return game.IsLevelCleared(level.StartStageID);
         }
         private NamespaceID GetPickupSoundID(Entity entity)
         {

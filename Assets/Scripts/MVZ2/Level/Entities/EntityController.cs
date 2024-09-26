@@ -49,7 +49,6 @@ namespace MVZ2.Level
             Model = model;
             if (!Model)
                 return;
-            Model.RendererGroup.SortingLayerID = SortingLayers.entities;
             UpdateEntityModel();
             UpdateArmorModel();
         }
@@ -394,11 +393,8 @@ namespace MVZ2.Level
             rendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.RenderScale;
-            if (Entity.IsCollected())
-            {
-                rendererGroup.SortingLayerID = SortingLayers.frontUI;
-                rendererGroup.SortingOrder = 9999;
-            }
+            Model.RendererGroup.SortingLayerID = Entity.GetSortingLayer();
+            Model.RendererGroup.SortingOrder = Entity.GetSortingOrder();
         }
         #endregion
 

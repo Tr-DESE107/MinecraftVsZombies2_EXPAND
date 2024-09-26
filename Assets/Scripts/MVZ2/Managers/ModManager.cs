@@ -31,6 +31,7 @@ namespace MVZ2.Managers
 
             foreach (var modInfo in modInfos)
             {
+                modInfo.Logic.Load();
                 game.AddMod(modInfo.Logic);
             }
         }

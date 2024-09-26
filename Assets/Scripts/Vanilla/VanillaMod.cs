@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Modding;
@@ -14,6 +15,7 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -25,9 +27,11 @@ namespace MVZ2.Vanilla
             LoadStages();
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
-            LevelCallbacks.PostEntityTakeDamage.Add(PostEntityTakeDamage);
-            LevelCallbacks.PostEntityUpdate.Add(ChangeLaneUpdate);
-            BuiltinCallbacks.TalkAction.Add(TalkAction);
+            AddCallback(LevelCallbacks.PostEntityTakeDamage, PostEntityTakeDamage);
+            AddCallback(LevelCallbacks.PostEntityUpdate, ChangeLaneUpdate);
+            AddCallback(LevelCallbacks.PostLevelClear, PostLevelClear);
+            AddCallback(LevelCallbacks.PostEntityUpdate, CartUpdate, filter: EntityTypes.CART);
+            AddCallback(BuiltinCallbacks.TalkAction, TalkAction);
         }
         public override void PostGameInit()
         {
@@ -171,6 +175,35 @@ namespace MVZ2.Vanilla
                     entity.Pos = pos;
                 }
                 entity.StopChangingLane();
+            }
+        }
+        private void PostLevelClear(LevelEngine level)
+        {
+            foreach (var cart in level.GetEntities(EntityTypes.CART))
+            {
+                if (cart.IsCartTriggered())
+                    continue;
+                cart.SetTurnToMoneyTimer(new FrameTimer(30 + 15 * (level.GetMaxLaneCount() - cart.GetLane())));
+            }
+        }
+        private void CartUpdate(Entity entity)
+        {
+            FrameTimer timer = entity.GetTurnToMoneyTimer();
+            if (timer == null)
+                return;
+            timer.Run();
+            if (timer.Expired)
+            {
+                var level = entity.Level;
+                var gemType = GemEffect.GemType.Ruby;
+                if (level.Difficulty == LevelDifficulty.easy)
+                {
+                    gemType = GemEffect.GemType.Emerald;
+                }
+                var gemEffect = GemEffect.SpawnGemEffect(level, gemType, entity.Pos, entity, true);
+                gemEffect.PlaySound(SoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
+                level.ShowMoney();
+                entity.Remove();
             }
         }
         private void TalkAction(ITalkSystem system, string cmd, string[] parameters)

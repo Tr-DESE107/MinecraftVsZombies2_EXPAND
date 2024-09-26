@@ -15,5 +15,8 @@
         public const string SHADOW_ALPHA = "shadowAlpha";
         public const string SHADOW_SCALE = "shadowScale";
         public const string SHADOW_OFFSET = "shadowOffset";
+
+        public const string SORTING_LAYER = "sortingLayer";
+        public const string SORTING_ORDER = "sortingOrder";
     }
 }

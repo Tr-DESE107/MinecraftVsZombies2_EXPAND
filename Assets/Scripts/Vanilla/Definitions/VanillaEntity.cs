@@ -17,6 +17,7 @@ namespace MVZ2.Vanilla
             SetProperty(BuiltinEntityProps.CHANGE_LANE_SPEED, 2.5f);
             SetProperty(BuiltinEntityProps.SHADOW_ALPHA, 1f);
             SetProperty(BuiltinEntityProps.SHADOW_SCALE, Vector3.one);
+            SetProperty(BuiltinEntityProps.SORTING_LAYER, SortingLayers.entities);
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
