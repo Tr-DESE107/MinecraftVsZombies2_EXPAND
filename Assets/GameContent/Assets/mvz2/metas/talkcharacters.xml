@@ -1,10 +1,10 @@
 <characters>
-    <character name="crazy_villager" unlock="mvz2:always">
+    <character name="crazy_villager">
         <variant id="mvz2:normal" width="488" height="1000" pivotX="0.5" pivotY="0.4">
             <layer sprite="mvz2:characters/crazy_villager[0]" />
         </variant>
     </character>
-    <character name="orant" unlock="mvz2:halloween.1">
+    <character name="orant">
         <variant id="mvz2:normal" width="524" height="1280" pivotX="0.5" pivotY="0.5">
             <layer sprite="mvz2:characters/orant[0]" />
         </variant>
@@ -15,7 +15,7 @@
             <layer sprite="mvz2:characters/orant[2]" positionX="137" positionY="213" />
         </variant>
     </character>
-    <character name="doremy" unlock="mvz2:dream.1">
+    <character name="doremy">
         <variant id="mvz2:normal" width="641" height="1280" pivotX="0.5" pivotY="0.5">
             <layer sprite="mvz2:characters/doremy[0]" />
         </variant>
