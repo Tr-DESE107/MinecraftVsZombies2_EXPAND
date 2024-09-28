@@ -12,12 +12,12 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action create_tutorial_form">差不多快忘了吧？要不要复习一下呢？</sentence>
       </sentences>
     </section>
-    <section nameID="mvz2:archive.take_tutorial" onSkip="end start_tutorial">
+    <section nameID="mvz2:archive.take_tutorial" onSkip="action start_tutorial;end">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_tutorial">好了，现在开始吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="action start_tutorial;end">好了，现在开始吧！</sentence>
       </sentences>
     </section>
     <section nameID="mvz2:archive.skip_tutorial">

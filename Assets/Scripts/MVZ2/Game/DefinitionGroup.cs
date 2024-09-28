@@ -19,7 +19,6 @@ namespace MVZ2.Games
             lists.Add(new DefinitionList<ArmorDefinition>());
             lists.Add(new DefinitionList<SpawnDefinition>());
 
-            lists.Add(new DefinitionList<TalkEndDefinition>());
             lists.Add(new DefinitionList<HeldItemDefinition>());
         }
     }

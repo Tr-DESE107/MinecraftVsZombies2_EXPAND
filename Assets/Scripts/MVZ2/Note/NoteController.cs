@@ -62,17 +62,9 @@ namespace MVZ2.Note
         {
 
         }
-        private void OnTalkEndCallback(NamespaceID mode)
+        private void OnTalkEndCallback()
         {
-            var talkEndDefinition = main.Game.GetTalkEndDefinition(mode);
-            if (talkEndDefinition != null)
-            {
-                talkEndDefinition.Execute();
-            }
-            else
-            {
-                ui.SetButtonInteractable(true);
-            }
+            ui.SetButtonInteractable(true);
         }
         #endregion
 

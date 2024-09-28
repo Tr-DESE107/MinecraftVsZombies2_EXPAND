@@ -51,7 +51,7 @@
     </section>
   </group>
   <group name="starshard_tutorial" requiresNot="mvz2:starshard" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section nameID="mvz2:archive.start_section" onSkip="end start_starshard_tutorial">
+    <section nameID="mvz2:archive.start_section" onSkip="action start_starshard_tutorial;end">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -59,7 +59,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，伙计，我来给你分享一些神奇的事情！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">这个东西叫做星之碎片！它能随着当前地方变形成一种道具！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">但是，它的效果都是一样的！都能让你的器械爆发！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_starshard_tutorial">好了，现在来试试吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="action start_starshard_tutorial;end">好了，现在来试试吧！</sentence>
       </sentences>
     </section>
     <section nameID="mvz2:archive.after_tutorial">
@@ -281,13 +281,13 @@
     </section>
   </group>
   <group name="trigger_tutorial" requiresNot="mvz2:trigger" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section onSkip="end start_trigger_tutorial">
+    <section onSkip="action start_trigger_tutorial;end">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">好了！今天我来教你如何触发器械！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end start_trigger_tutorial">那么，现在来开始吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="action start_trigger_tutorial;end">那么，现在来开始吧！</sentence>
       </sentences>
     </section>
   </group>

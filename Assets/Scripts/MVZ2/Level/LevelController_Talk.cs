@@ -29,23 +29,15 @@ namespace MVZ2.Level
         {
             BuiltinCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
         }
-        private void UI_OnTalkEndCallback(NamespaceID mode)
+        private void UI_OnTalkEndCallback()
         {
-            var talkEndDefinition = Game.GetTalkEndDefinition(mode);
-            if (talkEndDefinition != null)
+            if (level.IsCleared)
             {
-                talkEndDefinition.Execute();
+                StartCoroutine(ExitLevelTransition(0));
             }
             else
             {
-                if (level.IsCleared)
-                {
-                    StartCoroutine(ExitLevelTransition(0));
-                }
-                else
-                {
-                    level.BeginLevel(LevelTransitions.DEFAULT);
-                }
+                level.BeginLevel(LevelTransitions.DEFAULT);
             }
         }
 

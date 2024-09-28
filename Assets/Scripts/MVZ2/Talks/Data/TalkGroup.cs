@@ -9,7 +9,8 @@ namespace MVZ2.Talk
     public class TalkGroup
     {
         public string name;
-        public NamespaceID unlockCondition;
+        public NamespaceID requires;
+        public NamespaceID requiresNot;
         public SpriteReference archiveBackground;
         public NamespaceID music;
         public List<NamespaceID> tags;
@@ -18,7 +19,8 @@ namespace MVZ2.Talk
         {
             XmlNode node = document.CreateElement("group");
             node.CreateAttribute("name", name);
-            node.CreateAttribute("unlock", unlockCondition?.ToString());
+            node.CreateAttribute("requires", requires?.ToString());
+            node.CreateAttribute("requiresNot", requiresNot?.ToString());
             node.CreateAttribute("background", archiveBackground?.ToString());
             node.CreateAttribute("music", music?.ToString());
             node.CreateAttribute("tags", tags != null ? string.Join(";", tags.Select(t => t.ToString())) : null);
@@ -32,7 +34,8 @@ namespace MVZ2.Talk
         public static TalkGroup FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name");
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
+            var requiresNot = node.GetAttributeNamespaceID("requiresNot", defaultNsp);
             var background = node.GetAttributeSpriteReference("background", defaultNsp);
             var music = node.GetAttributeNamespaceID("music", defaultNsp);
             var tags = node.GetAttribute("tags")?.Split(';')?.Select(t => NamespaceID.Parse(t, defaultNsp))?.ToList();
@@ -47,7 +50,8 @@ namespace MVZ2.Talk
             return new TalkGroup()
             {
                 name = name,
-                unlockCondition = unlock,
+                requires = requires,
+                requiresNot = requiresNot,
                 archiveBackground = background,
                 music = music,
                 tags = tags,

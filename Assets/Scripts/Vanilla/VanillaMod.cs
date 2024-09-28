@@ -225,6 +225,16 @@ namespace MVZ2.Vanilla
                 case "try_buy_seventh_slot":
                     TryBuySeventhSlot(system);
                     break;
+
+                case "start_tutorial":
+                    level.ChangeStage(StageID.tutorial);
+                    break;
+                case "start_starshard_tutorial":
+                    level.ChangeStage(StageID.starshard_tutorial);
+                    break;
+                case "start_trigger_tutorial":
+                    level.ChangeStage(StageID.trigger_tutorial);
+                    break;
             }
         }
         private void ShowSeventhSlotDialog(ITalkSystem system)

@@ -287,16 +287,7 @@ namespace MVZ2.Talk
                     break;
 
                 case "end":
-                    NamespaceID endMode;
-                    if (script.arguments.Length > 0)
-                    {
-                        endMode = NamespaceID.Parse(script.arguments[0], Main.BuiltinNamespace);
-                    }
-                    else
-                    {
-                        endMode = new NamespaceID(Main.BuiltinNamespace, "none");
-                    }
-                    EndTalk(endMode);
+                    EndTalk();
                     break;
             }
         }
@@ -461,7 +452,7 @@ namespace MVZ2.Talk
             speechBubble.ForceReshow();
         }
 
-        private void EndTalk(NamespaceID mode)
+        private void EndTalk()
         {
             groupID = null;
             sectionIndex = -1;
@@ -481,7 +472,7 @@ namespace MVZ2.Talk
             dialogCharacters.Clear();
             blockerObject.SetActive(false);
             raycastReceiver.gameObject.SetActive(false);
-            OnTalkEnd?.Invoke(mode);
+            OnTalkEnd?.Invoke();
         }
         private void ClearCharacters()
         {
@@ -499,7 +490,7 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件
-        public event Action<NamespaceID> OnTalkEnd;
+        public event Action OnTalkEnd;
         public event Action<string, string[]> OnTalkAction;
         #endregion 动作
 
