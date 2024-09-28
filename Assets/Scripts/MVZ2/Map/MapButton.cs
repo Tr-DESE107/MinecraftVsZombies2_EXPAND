@@ -7,12 +7,8 @@ using UnityEngine.UI;
 
 namespace MVZ2.Map
 {
-    public class MapButton : MonoBehaviour, IPointerDownHandler, IPointerClickHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public class MapButton : Selectable, IPointerDownHandler, IPointerClickHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public void SetInteractable(bool interactable)
-        {
-            canvasGroup.interactable = interactable;
-        }
         public void SetColor(Color color)
         {
             buttonRenderer.color = color;
@@ -30,6 +26,8 @@ namespace MVZ2.Map
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
+            if (!IsInteractable())
+                return;
             // Not left mouse nor first touch.
             if (eventData.pointerId != -1 && eventData.pointerId != 0)
                 return;
@@ -39,6 +37,8 @@ namespace MVZ2.Map
 
         void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
+            if (!IsInteractable())
+                return;
             // Not left mouse nor first touch.
             if (eventData.pointerId != -1 && eventData.pointerId != 0)
                 return;
@@ -74,10 +74,6 @@ namespace MVZ2.Map
         public event Action OnClick;
         private bool isPointerEnter;
         private bool isPointerDown;
-        [SerializeField]
-        private Animator animator;
-        [SerializeField]
-        private CanvasGroup canvasGroup;
         [SerializeField]
         private SpriteRenderer buttonRenderer;
         [SerializeField]

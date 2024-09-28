@@ -13,7 +13,7 @@ namespace MVZ2.Map
         }
         public void SetEndlessButtonInteractable(bool interactable)
         {
-            endlessButton.SetInteractable(interactable);
+            endlessButton.interactable = interactable;
         }
         public void SetEndlessButtonColor(Color color)
         {
@@ -27,7 +27,7 @@ namespace MVZ2.Map
         {
             if (index < 0 || index >= mapButtons.Length)
                 return;
-            mapButtons[index].SetInteractable(interactable);
+            mapButtons[index].interactable = interactable;
         }
         public void SetMapButtonColor(int index, Color color)
         {

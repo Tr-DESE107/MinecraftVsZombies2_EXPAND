@@ -15,6 +15,7 @@ namespace MVZ2.Map
 {
     public class MapController : MainScenePage
     {
+        #region å…¬æœ‰æ–¹æ³•
         public override void Display()
         {
             base.Display();
@@ -39,22 +40,45 @@ namespace MVZ2.Map
         }
         public void SetMap(NamespaceID mapId)
         {
-            var modelMeta = Main.ResourceManager.GetMapMeta(mapId);
-            if (modelMeta == null)
+            MapID = mapId;
+            mapMeta = Main.ResourceManager.GetMapMeta(mapId);
+            if (mapMeta == null)
                 return;
-            var modelPrefab = Main.ResourceManager.GetMapModel(modelMeta.model);
+            var modelPrefab = Main.ResourceManager.GetMapModel(mapMeta.model);
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
 
             for (int i = 0; i < model.GetMapButtonCount(); i++)
             {
+                var unlocked = IsLevelUnlocked(i);
+                var color = buttonColorCleared;
+                if (!unlocked)
+                    color = buttonColorLocked;
+                else if(IsMinigameStage(i))
+                    color = buttonColorMinigame;
+                else if (!IsLevelCleared(i))
+                    color = buttonColorUncleared;
+
+                model.SetMapButtonInteractable(i, unlocked);
+                model.SetMapButtonColor(i, color);
                 model.SetMapButtonText(i, (i + 1).ToString());
             }
+            var endlessColor = buttonColorCleared;
+            var endlessUnlocked = IsEndlessUnlocked();
+            if (!endlessUnlocked)
+                endlessColor = buttonColorLocked;
+            model.SetEndlessButtonInteractable(endlessUnlocked);
+            model.SetEndlessButtonColor(endlessColor);
             model.SetEndlessButtonText("E");
 
-            SetCameraBackgroundColor(modelMeta.backgroundColor);
+            SetCameraBackgroundColor(mapMeta.backgroundColor);
         }
+        #endregion
+
+        #region ç§æœ‰æ–¹æ³•
+
+        #region ç”Ÿå‘½å‘¨æœŸ
         private void Awake()
         {
             ui.OnButtonClick += OnButtonClickCallback;
@@ -74,6 +98,9 @@ namespace MVZ2.Map
             LimitCameraPosition();
             cameraScaleSpeed *= 0.8f;
         }
+        #endregion
+
+        #region äº‹ä»¶å›žè°ƒ
         private void OnButtonClickCallback(MapUI.ButtonType button)
         {
             switch (button)
@@ -87,6 +114,7 @@ namespace MVZ2.Map
                     break;
                 case MapUI.ButtonType.Setting:
                     ui.SetOptionsDialogActive(true);
+                    ui.OptionsDialog.ResetPosition();
                     optionsLogic = new OptionsLogicMap(ui.OptionsDialog);
                     optionsLogic.InitDialog();
                     optionsLogic.OnClose += OnOptionsDialogCloseCallback;
@@ -106,6 +134,9 @@ namespace MVZ2.Map
         {
 
         }
+        #endregion
+
+        #region ç›¸æœº
         private void ResetCamera()
         {
             mapCamera.transform.localPosition = Vector3.zero;
@@ -125,7 +156,41 @@ namespace MVZ2.Map
             position.y = Mathf.Clamp(position.y, minCameraPosition.y + cameraHeight * 0.5f, maxCameraPosition.y - cameraHeight * 0.5f);
             mapCamera.transform.position = position;
         }
-        #region ´¥ÃþÊäÈë
+        #endregion
+
+        #region å…³å¡
+        private StageMeta GetStageMeta(int index)
+        {
+            var stageID = mapMeta.stages[index];
+            if (stageID == null)
+                return null;
+            return Main.ResourceManager.GetStageMeta(stageID);
+        }
+        private bool IsMinigameStage(int index)
+        {
+            var stageMeta = GetStageMeta(index);
+            if (stageMeta == null)
+                return false;
+            return stageMeta.type == StageMeta.TYPE_MINIGAME;
+        }
+        private bool IsLevelUnlocked(int index)
+        {
+            var stageMeta = GetStageMeta(index);
+            if (stageMeta == null)
+                return false;
+            return Main.SaveManager.IsUnlocked(stageMeta.unlock);
+        }
+        private bool IsEndlessUnlocked()
+        {
+            return Main.SaveManager.IsUnlocked(mapMeta.endlessUnlock);
+        }
+        private bool IsLevelCleared(int index)
+        {
+            return Main.SaveManager.IsLevelCleared(mapMeta.stages[index]);
+        }
+        #endregion
+
+        #region è§¦æ‘¸è¾“å…¥
         private void UpdateTouchDatas()
         {
             touchDatas.RemoveAll(d => !Input.touches.Any(t => d.fingerId == t.fingerId));
@@ -200,7 +265,7 @@ namespace MVZ2.Map
         }
         #endregion
 
-        #region Êó±êÊäÈë
+        #region é¼ æ ‡è¾“å…¥
         private void UpdateMouse()
         {
             var position = Input.mousePosition;
@@ -271,19 +336,22 @@ namespace MVZ2.Map
         }
         #endregion
 
+        #endregion
 
-        [TranslateMsg("µØÍ¼µÄÌáÊ¾ÎÄ±¾")]
-        public const string HINT_TEXT = "°´×¡ÓÒ¼üÍÏ¶¯ÒÔÒÆ¶¯ÊÓÍ¼\n¹öÂÖÒÔËõ·ÅÊÓÍ¼";
-        [TranslateMsg("µØÍ¼µÄÌáÊ¾ÎÄ±¾")]
-        public const string HINT_TEXT_MOBILE = "µ¥Ö¸ÍÏ¶¯ÒÔÒÆ¶¯ÊÓÍ¼\nË«Ö¸´¥ÃþÒÔËõ·ÅÊÓÍ¼";
+        [TranslateMsg("åœ°å›¾çš„æç¤ºæ–‡æœ¬")]
+        public const string HINT_TEXT = "æŒ‰ä½å³é”®æ‹–åŠ¨ä»¥ç§»åŠ¨è§†å›¾\næ»šè½®ä»¥ç¼©æ”¾è§†å›¾";
+        [TranslateMsg("åœ°å›¾çš„æç¤ºæ–‡æœ¬")]
+        public const string HINT_TEXT_MOBILE = "å•æŒ‡æ‹–åŠ¨ä»¥ç§»åŠ¨è§†å›¾\nåŒæŒ‡è§¦æ‘¸ä»¥ç¼©æ”¾è§†å›¾";
         private MainManager Main => MainManager.Instance;
         private MapModel model;
+        private MapMeta mapMeta;
         private bool draggingView;
         private Vector2 mapDragStartPos;
         private float cameraScaleSpeed;
         private OptionsLogicMap optionsLogic;
         private List<RaycastResult> raycastResultCache = new List<RaycastResult>();
         private List<TouchData> touchDatas = new List<TouchData>();
+        public NamespaceID MapID { get; private set; }
         [SerializeField]
         private MapUI ui;
         [SerializeField]
@@ -300,6 +368,16 @@ namespace MVZ2.Map
         private float minCameraSize = 2;
         [SerializeField]
         private float maxCameraSize = 6;
+
+        [Header("Button Colors")]
+        [SerializeField]
+        private Color buttonColorMinigame = Color.yellow;
+        [SerializeField]
+        private Color buttonColorLocked = Color.gray;
+        [SerializeField]
+        private Color buttonColorUncleared = new Color(0, 1, 0, 1);
+        [SerializeField]
+        private Color buttonColorCleared = new Color(0, 0.5f, 1, 1);
 
         private class TouchData
         {
