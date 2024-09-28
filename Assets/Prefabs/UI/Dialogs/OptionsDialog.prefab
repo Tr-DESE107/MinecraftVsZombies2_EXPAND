@@ -712,7 +712,9 @@ MonoBehaviour:
   backButton: {fileID: 6064180544314641015}
   particlesSlider: {fileID: 7224805176257337664}
   shakeSlider: {fileID: 4412273638233473008}
+  languageDropdownPair: {fileID: 7002560895170866732}
   languageDropdown: {fileID: 4132688427591157807}
+  resolutionDropdownPair: {fileID: 4422878530726014133}
   resolutionDropdown: {fileID: 7072999497873332074}
   bloodAndGoreButton: {fileID: 8028287649355846167}
   moreBackButton: {fileID: 4613762898037199186}

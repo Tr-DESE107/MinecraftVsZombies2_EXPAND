@@ -7,6 +7,7 @@ using MVZ2.Landing;
 using MVZ2.Localization;
 using MVZ2.Mainmenu;
 using MVZ2.Managers;
+using MVZ2.Map;
 using MVZ2.Note;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
@@ -39,6 +40,11 @@ namespace MVZ2
                     pair.Value.Hide();
             }
         }
+        public void DisplayMap(NamespaceID mapId)
+        {
+            DisplayPage(MainScenePageType.Map);
+            map.SetMap(mapId);
+        }
         public void DisplayNote(NamespaceID id, string buttonText, Action onClose)
         {
             DisplayPage(MainScenePageType.Note);
@@ -52,6 +58,7 @@ namespace MVZ2
             pages.Add(MainScenePageType.Titlescreen, titlescreen);
             pages.Add(MainScenePageType.Mainmenu, mainmenu);
             pages.Add(MainScenePageType.Note, note);
+            pages.Add(MainScenePageType.Map, map);
         }
         private async void Start()
         {
@@ -143,12 +150,15 @@ namespace MVZ2
         private MainmenuController mainmenu;
         [SerializeField]
         private NoteController note;
+        [SerializeField]
+        private MapController map;
     }
     public enum MainScenePageType
     {
         Landing,
         Titlescreen,
         Mainmenu,
-        Note
+        Note,
+        Map
     }
 }

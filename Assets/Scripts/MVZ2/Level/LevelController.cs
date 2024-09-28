@@ -171,8 +171,8 @@ namespace MVZ2.Level
         {
             if (Main.SaveManager.IsLevelCleared(BuiltinStageID.prologue))
             {
-                var lastMapID = Main.SaveManager.GetLastMapID();
-                //TODO
+                var lastMapID = Main.SaveManager.GetLastMapID() ?? Main.ResourceManager.GetFirstMapID();
+                Main.Scene.DisplayMap(lastMapID);
             }
             else
             {

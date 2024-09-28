@@ -17,11 +17,113 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level
     m_ReadOnly: 0
     m_SerializedLabels:
     - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18170164ed705914ebb03c0ee8ca6ef9
+    m_Address: mvz2:map/halloween/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5346a49dd46a2a4194dcbca45d9a022
+    m_Address: mvz2:map/dream/sleepenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f47cc08bb024bd04d87a290c78ab60de
+    m_Address: mvz2:map/dream/nightmare_sleepenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 482bc6c937f3f2345b34075e5d1a3f69
+    m_Address: mvz2:map/dream/nightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
+    m_Address: mvz2:map/dream/nightmare.censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 508b6af64add28a4aa27df24e84640ff
+    m_Address: mvz2:map/dream/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88d242bbad7e8d543a90ae63fb6aeeb5
+    m_Address: mvz2:map/dream/bubble
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dbd91e96448f5e4fbe0aa7bfdd4e675
+    m_Address: mvz2:map/dream/apollo_meridian_red
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2578011139751f4ebed15184256f29d
+    m_Address: mvz2:map/dream/apollo_meridian_blue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec5ff71ab8787124f871adc517ed1852
+    m_Address: mvz2:level/halloween/halloween_house_cover
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c353c60defe28b4e917138418d92484
+    m_Address: mvz2:level/halloween/halloween_house
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f37ee72c04034a4d930b31185d1e90e
+    m_Address: mvz2:level/halloween/halloween_cloudy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd7b2da4545106b46b4afbf8863f9926
+    m_Address: mvz2:level/halloween/halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9e913e5bc94c0c49808cc3e0c25228a
+    m_Address: mvz2:level/day/day_house_cover
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b2e55d12d554ed4f9bf1c03efdee504
+    m_Address: mvz2:level/day/day_door
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb15cd6c556e4824c941a7c77c3eb86e
+    m_Address: mvz2:level/day/day
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3225cf10a7527224a8a7cedc03206148
     m_Address: mvz2:talk/villager/villager_short3
@@ -620,312 +722,398 @@ MonoBehaviour:
   - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
     m_Address: mvz2:pickups/ruby
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11c66b9ab6ebf1c49b3ad1c98403f288
     m_Address: mvz2:pickups/emerald
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 504d237734e4940488bbf711d9083635
     m_Address: mvz2:mainmenu/user_manage
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6bc73c94a1f99a4783bbd0bb5714d72
     m_Address: mvz2:mainmenu/store
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 246bf4383058f29459ba61df6b57ff55
     m_Address: mvz2:mainmenu/quit
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6265be12c87a324eae9c9efa6f6735d
     m_Address: mvz2:mainmenu/options
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b183abb28c7b13c4995d0fc7bfaa8299
     m_Address: mvz2:mainmenu/more_menus
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3358e00bce0b2da4cafbb5941d366592
     m_Address: mvz2:mainmenu/help
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c42c8de90a7c30499eae9212c363c7d
     m_Address: mvz2:mainmenu/back_to_mainmenu
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74ea0e5623da9347962fc99538ad869
     m_Address: mvz2:mainmenu/archive
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2844d55fd599f0348a29e3ba6776c932
     m_Address: mvz2:mainmenu/almanac
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5fe0dd11f7539a43a66c14d3952b30e
     m_Address: mvz2:mainmenu/adventure
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5a796bc539a0c245afcb4ad033aef4f
     m_Address: mvz2:mainmenu/achievement
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 403593c82a7adb74b8cc7ce5e0a7e925
     m_Address: mvz2:characters/orant
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bf781a25449e494cb164af741da24e7
     m_Address: mvz2:characters/doremy_suffering
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66d6b2cec1b5a03498ee84ec03d69134
     m_Address: mvz2:characters/doremy
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ab4a75a9055bfe45b77160fc117ae13
     m_Address: mvz2:characters/dim_vision
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c321612661c274844b82586aba232f9f
     m_Address: mvz2:characters/crazy_villager
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a0f8cf8b009d6a489e4231fec5c686b
     m_Address: mvz2:pickups/redstone
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2aa6e1715df244b4bb2e23736a2e751c
     m_Address: mvz2:pickups/money_chest
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aad19d3d7617e834f8cccff23f786aa5
     m_Address: mvz2:pickups/map_pickup
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 329b9a3401e28284e914a54eee51e840
     m_Address: mvz2:pickups/ender_chest
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f157785ef7e10214aa053f2a7c1ea926
     m_Address: mvz2:pickups/dream_key
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 842c7ddcc4687ac43bd7fd5d478c0b7f
     m_Address: mvz2:pickups/diamond
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32f36e28f5381c345b9988e80c40ee5a
     m_Address: mvz2:note/prologue
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f85d3d605c8bf34b9c860577f50ba8c
     m_Address: mvz2:note/help_front
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f33715c080e647f4eb47909df824bc60
     m_Address: mvz2:note/help_back
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30972c61ea296a2468f76e78a6efa1f3
     m_Address: mvz2:note/halloween
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e732382db38cd764888b963c49cc59c5
     m_Address: mvz2:note/dream
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13026b5d2e6efdc4e9f551e6433d1600
     m_Address: mvz2:note/background_halloween
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8dbc419c62dfc148a2d10db9f0ce0d3
     m_Address: mvz2:note/background_dream
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e864b8c475a1ea43babf97b5de8c9a0
     m_Address: mvz2:note/background_day
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6514a857fb8b7fc4d992741ae15f66e5
     m_Address: mvz2:mobile_blueprint/zombie
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e43064c78598fd4493a1d5c14308edb
     m_Address: mvz2:mobile_blueprint/vortex_hopper
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed576f37fbc44b44d9396b8ea59f7911
     m_Address: mvz2:mobile_blueprint/totenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a2d8f0334da2b349b397a3ed1cf7b97
     m_Address: mvz2:mobile_blueprint/tnt
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11ac6f32e59e29e4aa1067a79c215185
     m_Address: mvz2:mobile_blueprint/soul_furnace
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df4339844dabc79468b681d3c124227f
     m_Address: mvz2:mobile_blueprint/small_dispenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c7cacc742c9f154e80d19b1b5b133c2
     m_Address: mvz2:mobile_blueprint/silvenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90b1efed9d95d3b43a897fa9d566324a
     m_Address: mvz2:mobile_blueprint/return_pearl
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 739dc404e782a0c4dae8390f142f0cc5
     m_Address: mvz2:mobile_blueprint/random_china
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d8a7cdd4327da14ea5a749df090984d
     m_Address: mvz2:mobile_blueprint/punchton
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdec7faf255eabe4195b58d4652126e3
     m_Address: mvz2:mobile_blueprint/pistenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d49d253e83fc104d9eb629a8a238ee3
     m_Address: mvz2:mobile_blueprint/obsidian
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 579cf24a5de6c3449ba61159e5649187
     m_Address: mvz2:mobile_blueprint/moonlight_sensor
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3eeaaee3b5925f349bc67370a4813884
     m_Address: mvz2:mobile_blueprint/mine_tnt
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f3ddf82a6251b743b3e647d2f839e64
     m_Address: mvz2:mobile_blueprint/magichest
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d502efd9e6fce1543ae6919e926b244c
     m_Address: mvz2:mobile_blueprint/lily_pad
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c0f3cc55c6401d458ad5611a9d70c0e
     m_Address: mvz2:mobile_blueprint/lengthen_board
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ad59fee145905345a3241aca0804d48
     m_Address: mvz2:mobile_blueprint/infectenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b362171cd0a32824e9b3ac7c42f24dd7
     m_Address: mvz2:mobile_blueprint/gravity_pad
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb5396e8d49b71b4b899a73dae8c9ce9
     m_Address: mvz2:mobile_blueprint/glowstone
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acc2e6159831cab4bb25141293768c3c
     m_Address: mvz2:mobile_blueprint/furnace
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f25d2b94a621a1e4d8cd823493b4a29f
     m_Address: mvz2:mobile_blueprint/force_pad
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc3f43337866cef4c94af92af1159b8f
     m_Address: mvz2:mobile_blueprint/drivenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b5d435139279434d9a7cc073987d99f
     m_Address: mvz2:mobile_blueprint/dream_silk
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec64b1f344d5e534899c5676939afb2e
     m_Address: mvz2:mobile_blueprint/dispenser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db41f5cca7edeb34a8465f62eae3d2c3
     m_Address: mvz2:mobile_blueprint/add_pearl
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
+    m_Address: mvz2:map/map_drag_mark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bb8171db9a35d847a0d278960512921
+    m_Address: mvz2:map/map_drag_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76002873be7e1314c8853b5a35e273ec
+    m_Address: mvz2:map/map_back_button_highlighted
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b47d03bd743710345b665a5cac672aee
+    m_Address: mvz2:map/map_back_button
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f307ca42f92ea0343bc5a7916590a612
     m_Address: mvz2:chapter_transition/chapter_wheel_dark
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f022b6ff2c7efb247b94a9b7a2f0d006
     m_Address: mvz2:chapter_transition/chapter_wheel
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa82843b9b0ef4c43a15446e94370464
     m_Address: mvz2:chapter_transition/chapter_title_1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d28e63ecd71367a4e8507400e2ed6c6c
     m_Address: mvz2:talk/dialog_wipe
@@ -1386,122 +1574,170 @@ MonoBehaviour:
   - m_GUID: 164c517f4b3a40f49a48c0f998d7fd7e
     m_Address: mvz2:ready_set_build
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c248fa89323d594a9c08ed0413b6aea
+    m_Address: mvz2:map_button
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410f8ec80407d6e4ab481954c0ce2d49
     m_Address: mvz2:ui_arrow
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36ceb837ec0bbd54e9f7ecac4e5ecc70
     m_Address: mvz2:titlescreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b71a3502ba3935b49a514559f8734478
     m_Address: mvz2:starshard_ring.day
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ead2b534e897e48469cac6037a937e50
     m_Address: mvz2:starshard.day
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a4746211870c7249adf3104c2ebdac4
     m_Address: mvz2:speech_bubble_no_arrow
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6a955717c4507e4aa60b1e721268640
     m_Address: mvz2:speech_bubble_center
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da0c5367a9a28744296833a41ea6087a
     m_Address: mvz2:speech_bubble
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c98850842ba8ff14f919f63ce5114326
     m_Address: mvz2:pickaxe
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16ff246ec2a095242a62262d2ac32272
     m_Address: mvz2:pause_image_6
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f17579a8f0c42344b02ba3589ca2d6e
     m_Address: mvz2:pause_image_5
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b27d973956921144f81710753ef50c35
     m_Address: mvz2:pause_image_4
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8494573086f607245af4f3dd35644156
     m_Address: mvz2:pause_image_3
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8cf5193a3c0b9a4ea8d1119e96dfa2b
     m_Address: mvz2:pause_image_2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d42af99014807345b8b7fa93e6acadf
     m_Address: mvz2:pause_image_1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cb42106841fca546970463cc36fbf45
     m_Address: mvz2:pause_image_0
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c0108de01484784fa9b10b13d99aed0
     m_Address: mvz2:lose
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a422491a28838f04aa763d050d8aa766
     m_Address: mvz2:logo
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5bea0ef6d58f2d47ad694ab28830cba
     m_Address: mvz2:level_progress_back
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f033484ae726acf46924c7b84c0c592b
     m_Address: mvz2:huge_wave
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7ad17d08589c04459d3a3030abbf9f5
+    m_Address: mvz2:gear_banned
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0c7697228ff843469a11a3a633766bb
+    m_Address: mvz2:gear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 878374b343a8047409456043eaeec225
     m_Address: mvz2:form_hollow
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecdea1f2d39df2049be852b3107d40a4
     m_Address: mvz2:form
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 003fea51ebc7be1498297e7b66cc61d1
     m_Address: mvz2:final_wave
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c835075b9c05e84dac89a36e61236bb
     m_Address: mvz2:boom
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 343af9cde9d29df4eb4188060da23847
+    m_Address: mvz2:almanac_book
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07f8f3775ebbde44fb533c449ef87183
     m_Address: mvz2:manifest
@@ -2217,6 +2453,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41dcf35c43418054cb6d7b6eb542f543
+    m_Address: mvz2:maps
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40c5d6493088d5344a631523effc16e7
     m_Address: mvz2:fragments
     m_ReadOnly: 0
@@ -2241,11 +2483,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
+  - m_GUID: 5c5027fb3c5657e43b4b4ba9d36deefe
+    m_Address: mvz2:halloween
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Scene
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da6e4661f37feae45bff7fb231b6dd8d
+    m_Address: mvz2:halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LevelModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 945bda9db910c474f914bb2feee3518e
+    m_Address: mvz2:day
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LevelModel
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

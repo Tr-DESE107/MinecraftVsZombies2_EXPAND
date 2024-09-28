@@ -1,0 +1,94 @@
+using System;
+using PVZEngine;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace MVZ2.Map
+{
+    public class MapButton : MonoBehaviour, IPointerDownHandler, IPointerClickHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    {
+        public void SetInteractable(bool interactable)
+        {
+            canvasGroup.interactable = interactable;
+        }
+        public void SetColor(Color color)
+        {
+            buttonRenderer.color = color;
+        }
+        public void SetText(string text)
+        {
+            buttonText.text = text;
+        }
+        public void SetDifficulty(NamespaceID difficulty)
+        {
+            foreach (var border in borders)
+            {
+                border.borderObj.SetActive(border.difficulty == difficulty);
+            }
+        }
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            // Not left mouse nor first touch.
+            if (eventData.pointerId != -1 && eventData.pointerId != 0)
+                return;
+            isPointerDown = true;
+            UpdatePointer();
+        }
+
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+        {
+            // Not left mouse nor first touch.
+            if (eventData.pointerId != -1 && eventData.pointerId != 0)
+                return;
+            isPointerDown = false;
+            UpdatePointer();
+            OnClick?.Invoke();
+        }
+
+        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
+        {
+            // Not left mouse nor first touch.
+            if (eventData.pointerId != -1 && eventData.pointerId != 0)
+                return;
+            isPointerDown = false;
+            UpdatePointer();
+        }
+
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        {
+            isPointerEnter = true;
+            UpdatePointer();
+        }
+
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+        {
+            isPointerEnter = false;
+            UpdatePointer();
+        }
+        private void UpdatePointer()
+        {
+            animator.SetBool("Pressed", isPointerEnter && isPointerDown);
+        }
+        public event Action OnClick;
+        private bool isPointerEnter;
+        private bool isPointerDown;
+        [SerializeField]
+        private Animator animator;
+        [SerializeField]
+        private CanvasGroup canvasGroup;
+        [SerializeField]
+        private SpriteRenderer buttonRenderer;
+        [SerializeField]
+        private TextMeshPro buttonText;
+        [SerializeField]
+        private MapBorder[] borders;
+    }
+    [Serializable]
+    public class MapBorder
+    {
+        public NamespaceID difficulty;
+        public GameObject borderObj;
+    }
+}

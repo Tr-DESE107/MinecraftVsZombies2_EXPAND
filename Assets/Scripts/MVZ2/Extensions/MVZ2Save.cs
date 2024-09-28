@@ -54,6 +54,14 @@ namespace MVZ2.Extensions
         {
             return save.IsUnlocked(LevelManager.GetLevelClearUnlockID(stageID));
         }
+        public static bool IsAlmanacUnlocked(this ISaveDataProvider save)
+        {
+            return save.IsUnlocked(BuiltinUnlockID.almanac);
+        }
+        public static bool IsStoreUnlocked(this ISaveDataProvider save)
+        {
+            return save.IsUnlocked(BuiltinUnlockID.store);
+        }
         public static bool IsTriggerUnlocked(this ISaveDataProvider save)
         {
             return save.IsUnlocked(BuiltinUnlockID.trigger);

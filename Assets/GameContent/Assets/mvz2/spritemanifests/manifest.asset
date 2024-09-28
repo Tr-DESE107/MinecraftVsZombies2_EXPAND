@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: manifest
   m_EditorClassIdentifier: 
   spriteEntries:
+  - name: almanac_book
+    sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: boom
     sprite: {fileID: 21300000, guid: 8c835075b9c05e84dac89a36e61236bb, type: 3}
   - name: final_wave
@@ -21,6 +23,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ecdea1f2d39df2049be852b3107d40a4, type: 3}
   - name: form_hollow
     sprite: {fileID: 21300000, guid: 878374b343a8047409456043eaeec225, type: 3}
+  - name: gear
+    sprite: {fileID: 21300000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
+  - name: gear_banned
+    sprite: {fileID: 21300000, guid: d7ad17d08589c04459d3a3030abbf9f5, type: 3}
   - name: huge_wave
     sprite: {fileID: 21300000, guid: f033484ae726acf46924c7b84c0c592b, type: 3}
   - name: level_progress_back
@@ -65,6 +71,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f022b6ff2c7efb247b94a9b7a2f0d006, type: 3}
   - name: chapter_transition/chapter_wheel_dark
     sprite: {fileID: 21300000, guid: f307ca42f92ea0343bc5a7916590a612, type: 3}
+  - name: map/map_back_button
+    sprite: {fileID: 21300000, guid: b47d03bd743710345b665a5cac672aee, type: 3}
+  - name: map/map_back_button_highlighted
+    sprite: {fileID: 21300000, guid: 76002873be7e1314c8853b5a35e273ec, type: 3}
+  - name: map/map_drag_arrow
+    sprite: {fileID: 21300000, guid: 7bb8171db9a35d847a0d278960512921, type: 3}
+  - name: map/map_drag_mark
+    sprite: {fileID: 21300000, guid: 4d1a02ea98fa8a440b49d3871b5d0dff, type: 3}
   - name: mobile_blueprint/add_pearl
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
   - name: mobile_blueprint/dispenser
@@ -147,7 +161,51 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2aa6e1715df244b4bb2e23736a2e751c, type: 3}
   - name: pickups/redstone
     sprite: {fileID: 21300000, guid: 6a0f8cf8b009d6a489e4231fec5c686b, type: 3}
+  - name: level/day/day
+    sprite: {fileID: 21300000, guid: eb15cd6c556e4824c941a7c77c3eb86e, type: 3}
+  - name: level/day/day_door
+    sprite: {fileID: 21300000, guid: 9b2e55d12d554ed4f9bf1c03efdee504, type: 3}
+  - name: level/day/day_house_cover
+    sprite: {fileID: 21300000, guid: a9e913e5bc94c0c49808cc3e0c25228a, type: 3}
+  - name: level/halloween/halloween
+    sprite: {fileID: 21300000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
+  - name: level/halloween/halloween_cloudy
+    sprite: {fileID: 21300000, guid: 2f37ee72c04034a4d930b31185d1e90e, type: 3}
+  - name: level/halloween/halloween_house
+    sprite: {fileID: 21300000, guid: 6c353c60defe28b4e917138418d92484, type: 3}
+  - name: level/halloween/halloween_house_cover
+    sprite: {fileID: 21300000, guid: ec5ff71ab8787124f871adc517ed1852, type: 3}
+  - name: map/dream/apollo_meridian_blue
+    sprite: {fileID: 21300000, guid: c2578011139751f4ebed15184256f29d, type: 3}
+  - name: map/dream/apollo_meridian_red
+    sprite: {fileID: 21300000, guid: 3dbd91e96448f5e4fbe0aa7bfdd4e675, type: 3}
+  - name: map/dream/bubble
+    sprite: {fileID: 21300000, guid: 88d242bbad7e8d543a90ae63fb6aeeb5, type: 3}
+  - name: map/dream/map
+    sprite: {fileID: 21300000, guid: 508b6af64add28a4aa27df24e84640ff, type: 3}
+  - name: map/dream/nightmare.censored
+    sprite: {fileID: 21300000, guid: cbe2117cde68d914493afb8f0aaa9bb0, type: 3}
+  - name: map/dream/nightmare
+    sprite: {fileID: 21300000, guid: 482bc6c937f3f2345b34075e5d1a3f69, type: 3}
+  - name: map/dream/nightmare_sleepenser
+    sprite: {fileID: 21300000, guid: f47cc08bb024bd04d87a290c78ab60de, type: 3}
+  - name: map/dream/sleepenser
+    sprite: {fileID: 21300000, guid: f5346a49dd46a2a4194dcbca45d9a022, type: 3}
+  - name: map/halloween/map
+    sprite: {fileID: 21300000, guid: 18170164ed705914ebb03c0ee8ca6ef9, type: 3}
   spritesheetEntries:
+  - name: map_button
+    spritesheet:
+    - {fileID: -7641300568463921924, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: -2316852929736406760, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: -3751137658871076315, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: -8725691012614211750, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: 5380312353230899589, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: -281983461663450405, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: -2690208585031789568, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: 1686918570674494234, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: -4745778892844803770, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+    - {fileID: 4039136606957829479, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
   - name: ready_set_build
     spritesheet:
     - {fileID: -843921380, guid: 164c517f4b3a40f49a48c0f998d7fd7e, type: 3}

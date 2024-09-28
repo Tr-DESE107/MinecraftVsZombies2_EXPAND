@@ -58,6 +58,13 @@ namespace MVZ2.UI
                 button.gameObject.SetActive(value);
             }
         }
+        public void SetDropdownActive(DropdownType type, bool value)
+        {
+            if (dropdownPairDict.TryGetValue(type, out var dropdownPair))
+            {
+                dropdownPair.SetActive(value);
+            }
+        }
         private void Awake()
         {
             sliderDict.Add(SliderType.Music, musicSlider);
@@ -67,6 +74,9 @@ namespace MVZ2.UI
 
             dropdownDict.Add(DropdownType.Language, languageDropdown);
             dropdownDict.Add(DropdownType.Resolution, resolutionDropdown);
+
+            dropdownPairDict.Add(DropdownType.Language, languageDropdownPair);
+            dropdownPairDict.Add(DropdownType.Resolution, resolutionDropdownPair);
 
             textButtonDict.Add(TextButtonType.SwapTrigger, swapTriggerButton);
             textButtonDict.Add(TextButtonType.PauseOnFocusLost, pauseOnFocusLostButton);
@@ -120,6 +130,7 @@ namespace MVZ2.UI
 
         private Dictionary<SliderType, TextSlider> sliderDict = new Dictionary<SliderType, TextSlider>();
         private Dictionary<DropdownType, TMP_Dropdown> dropdownDict = new Dictionary<DropdownType, TMP_Dropdown>();
+        private Dictionary<DropdownType, GameObject> dropdownPairDict = new Dictionary<DropdownType, GameObject>();
         private Dictionary<TextButtonType, TextButton> textButtonDict = new Dictionary<TextButtonType, TextButton>();
         private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
 
@@ -164,7 +175,11 @@ namespace MVZ2.UI
         [SerializeField]
         private TextSlider shakeSlider;
         [SerializeField]
+        private GameObject languageDropdownPair;
+        [SerializeField]
         private TMP_Dropdown languageDropdown;
+        [SerializeField]
+        private GameObject resolutionDropdownPair;
         [SerializeField]
         private TMP_Dropdown resolutionDropdown;
         [SerializeField]

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Localization;
 using MVZ2.Mainmenu.UI;
@@ -243,10 +244,18 @@ namespace MVZ2.Mainmenu
 
                 yield return new WaitForSeconds(6);
             }
-            var task = GotoLevel();
-            while (!task.IsCompleted)
+            if (main.SaveManager.IsLevelCleared(BuiltinStageID.prologue))
             {
-                yield return null;
+                var lastMapID = main.SaveManager.GetLastMapID() ?? main.ResourceManager.GetFirstMapID();
+                main.Scene.DisplayMap(lastMapID);
+            }
+            else
+            {
+                var task = GotoLevel();
+                while (!task.IsCompleted)
+                {
+                    yield return null;
+                }
             }
         }
         private IEnumerable<MainmenuButton> GetAllButtons()

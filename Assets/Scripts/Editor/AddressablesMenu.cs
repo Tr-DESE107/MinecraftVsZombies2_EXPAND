@@ -158,6 +158,18 @@ namespace MVZ2.Editor
                 case "spritemanifests":
                     labels.Add("SpriteManifest");
                     break;
+                case "sprites":
+                    labels.Add("Sprite");
+                    break;
+                case "spritesheets":
+                    labels.Add("Spritesheet");
+                    break;
+                case "mapmodels":
+                    labels.Add("MapModel");
+                    break;
+                case "levelmodels":
+                    labels.Add("LevelModel");
+                    break;
             }
             return labels.ToArray();
         }

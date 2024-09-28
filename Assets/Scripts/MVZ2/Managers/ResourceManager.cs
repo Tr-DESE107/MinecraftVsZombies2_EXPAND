@@ -77,6 +77,7 @@ namespace MVZ2.Managers
             await LoadModMusicClips(modNamespace);
             await LoadModSoundClips(modNamespace);
             await LoadModModels(modNamespace);
+            await LoadModMapModels(modNamespace);
             await LoadSpriteManifests(modNamespace);
             LoadCharacterVariantSprites(modNamespace);
 
