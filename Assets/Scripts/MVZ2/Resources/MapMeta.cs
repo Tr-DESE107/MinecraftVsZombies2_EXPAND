@@ -1,27 +1,36 @@
-﻿using UnityEngine;
-using System.Xml;
-using MVZ2.GameContent;
+﻿using System.Xml;
 using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.Resources
 {
     public class MapMeta
     {
         public string id;
-        public NamespaceID path;
+        public NamespaceID model;
+        public NamespaceID endlessUnlock;
         public Color backgroundColor;
+        public NamespaceID[] stages;
         public static MapMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var path = node.GetAttributeNamespaceID("path", defaultNsp);
+            var model = node.GetAttributeNamespaceID("model", defaultNsp);
+            var endlessUnlock = node.GetAttributeNamespaceID("endlessUnlock", defaultNsp);
             var backgroundColor = node.GetAttributeColor("backgroundColor") ?? Color.black;
+
+            var stagesNode = node["stages"];
+            var stages = new NamespaceID[stagesNode.ChildNodes.Count];
+            for (int i = 0; i < stages.Length; i++)
+            {
+                stages[i] = stagesNode.ChildNodes[i].GetAttributeNamespaceID("id", defaultNsp);
+            }
             return new MapMeta()
             {
                 id = id,
-                path = path,
+                model = model,
+                endlessUnlock = endlessUnlock,
                 backgroundColor = backgroundColor,
+                stages = stages,
             };
         }
     }

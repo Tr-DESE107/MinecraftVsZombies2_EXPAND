@@ -14,6 +14,7 @@ namespace MVZ2.Vanilla.Save
             return new SerializableVanillaSaveData()
             {
                 lastMapID = LastMapID,
+                mapTalkID = MapTalkID,
                 money = money,
                 blueprintSlots = blueprintSlots,
             };
@@ -22,6 +23,7 @@ namespace MVZ2.Vanilla.Save
         {
             LoadFromSerializable(serializable);
             LastMapID = serializable.lastMapID;
+            MapTalkID = serializable.mapTalkID;
             money = serializable.money;
             blueprintSlots = serializable.blueprintSlots;
         }
@@ -43,6 +45,7 @@ namespace MVZ2.Vanilla.Save
             blueprintSlots = value;
         }
         public NamespaceID LastMapID { get; set; }
+        public NamespaceID MapTalkID { get; set; }
         private int money;
         private int blueprintSlots = 6;
     }
@@ -56,6 +59,7 @@ namespace MVZ2.Vanilla.Save
             return saveData;
         }
         public NamespaceID lastMapID;
+        public NamespaceID mapTalkID;
         public int money;
         public int blueprintSlots;
     }

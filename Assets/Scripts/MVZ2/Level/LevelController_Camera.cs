@@ -30,10 +30,6 @@ namespace MVZ2.Level
             }
             levelCamera.SetPosition(pos, anchor);
         }
-        private void SetCameraToLawn()
-        {
-            levelCamera.SetPosition(cameraLawnPosition, cameraLawnAnchor);
-        }
         private IEnumerator MoveCameraLawn(Vector3 target, Vector2 targetAnchor, float maxTime)
         {
             float time = 0;
@@ -156,14 +152,11 @@ namespace MVZ2.Level
         [SerializeField]
         private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
         #endregion
-
     }
-    #region 内嵌类
     public enum LevelCameraPosition
     {
         House,
         Lawn,
         Choose,
     }
-    #endregion
 }

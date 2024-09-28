@@ -10,7 +10,6 @@ namespace PVZEngine.Definitions
     {
         public StageDefinition(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(StageProperties.FIRST_WAVE_TIME, 540);
             SetProperty(StageProperties.WAVES_PER_FLAG, 10);
         }
         public virtual void Start(LevelEngine level) { }

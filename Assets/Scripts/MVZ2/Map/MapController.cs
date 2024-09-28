@@ -42,7 +42,7 @@ namespace MVZ2.Map
             var modelMeta = Main.ResourceManager.GetMapMeta(mapId);
             if (modelMeta == null)
                 return;
-            var modelPrefab = Main.ResourceManager.GetMapModel(modelMeta.path);
+            var modelPrefab = Main.ResourceManager.GetMapModel(modelMeta.model);
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;

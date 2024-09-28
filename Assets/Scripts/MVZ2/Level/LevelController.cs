@@ -54,6 +54,7 @@ namespace MVZ2.Level
             {
                 BeginLevel();
             }
+            SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
         }
         public void BeginLevel()
         {
@@ -402,9 +403,10 @@ namespace MVZ2.Level
         private void Engine_OnClearCallback()
         {
             Main.LevelManager.RemoveLevelState(level.StartStageID);
-            Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StartStageID));
-            Main.SaveManager.AddLevelDifficultyRecord(level.StartStageID, level.Difficulty);
+            Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StageID));
+            Main.SaveManager.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Main.SaveManager.SaveModDatas();
+            Main.SaveManager.SetMapTalk(level.GetMapTalk());
 
             isInputDisabled = true;
 

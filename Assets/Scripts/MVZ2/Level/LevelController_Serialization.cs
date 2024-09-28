@@ -95,7 +95,7 @@ namespace MVZ2.Level
             SetUnlockedUIVisible();
             ShowMoney();
 
-            SetCameraToLawn();
+            SetCameraPosition(LevelCameraPosition.Lawn);
 
             isGameStarted = true;
 

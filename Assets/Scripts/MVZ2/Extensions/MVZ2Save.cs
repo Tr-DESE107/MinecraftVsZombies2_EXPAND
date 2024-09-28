@@ -7,20 +7,20 @@ namespace MVZ2.Extensions
 {
     public static class MVZ2Save
     {
-        public static IBuiltinSaveData GetBuiltinMapSaveData(this ISaveDataProvider save)
+        public static IBuiltinSaveData GetBuiltinSaveData(this ISaveDataProvider save)
         {
             return save.GetModSaveData<IBuiltinSaveData>(Global.BuiltinNamespace);
         }
         public static NamespaceID GetLastMapID(this ISaveDataProvider save)
         {
-            var saveData = save.GetBuiltinMapSaveData();
+            var saveData = save.GetBuiltinSaveData();
             if (saveData == null)
                 return null;
             return saveData.LastMapID;
         }
         public static void SetMoney(this ISaveDataProvider save, int money)
         {
-            var saveData = save.GetBuiltinMapSaveData();
+            var saveData = save.GetBuiltinSaveData();
             if (saveData == null)
                 return;
             saveData.SetMoney(money);
@@ -31,21 +31,21 @@ namespace MVZ2.Extensions
         }
         public static int GetMoney(this ISaveDataProvider save)
         {
-            var saveData = save.GetBuiltinMapSaveData();
+            var saveData = save.GetBuiltinSaveData();
             if (saveData == null)
                 return 0;
             return saveData.GetMoney();
         }
         public static void SetBlueprintSlots(this ISaveDataProvider save, int slots)
         {
-            var saveData = save.GetBuiltinMapSaveData();
+            var saveData = save.GetBuiltinSaveData();
             if (saveData == null)
                 return;
             saveData.SetBlueprintSlots(slots);
         }
         public static int GetBlueprintSlots(this ISaveDataProvider save)
         {
-            var saveData = save.GetBuiltinMapSaveData();
+            var saveData = save.GetBuiltinSaveData();
             if (saveData == null)
                 return 0;
             return saveData.GetBlueprintSlots();
@@ -69,6 +69,20 @@ namespace MVZ2.Extensions
         public static bool IsStarshardUnlocked(this ISaveDataProvider save)
         {
             return save.IsUnlocked(BuiltinUnlockID.starshard);
+        }
+        public static void SetMapTalk(this ISaveDataProvider save, NamespaceID value)
+        {
+            var saveData = save.GetBuiltinSaveData();
+            if (saveData == null)
+                return;
+            saveData.MapTalkID = value;
+        }
+        public static NamespaceID GetMapTalk(this ISaveDataProvider save)
+        {
+            var saveData = save.GetBuiltinSaveData();
+            if (saveData == null)
+                return null;
+            return saveData.MapTalkID;
         }
     }
 }

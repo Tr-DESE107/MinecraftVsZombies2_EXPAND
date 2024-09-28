@@ -51,6 +51,10 @@ namespace MVZ2.Vanilla
         {
             return game.GetProperty<NamespaceID>(BuiltinStageProps.END_TALK);
         }
+        public static NamespaceID GetMapTalk(this LevelEngine game)
+        {
+            return game.GetProperty<NamespaceID>(BuiltinStageProps.MAP_TALK);
+        }
         public static NamespaceID GetEndNoteID(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID>(BuiltinStageProps.END_NOTE_ID);
@@ -110,6 +114,14 @@ namespace MVZ2.Vanilla
         public static void SetLevelName(this StageDefinition stage, string name)
         {
             stage.SetProperty(BuiltinStageProps.LEVEL_NAME, name);
+        }
+        public static int GetDayNumber(this LevelEngine level)
+        {
+            return level.GetProperty<int>(BuiltinStageProps.DAY_NUMBER);
+        }
+        public static void SetDayNumber(this StageDefinition stage, int number)
+        {
+            stage.SetProperty(BuiltinStageProps.DAY_NUMBER, number);
         }
         public const float ENERGY_SLOT_WIDTH = 48;
         public const float MONEY_PANEL_X_TO_LEFT = 16;

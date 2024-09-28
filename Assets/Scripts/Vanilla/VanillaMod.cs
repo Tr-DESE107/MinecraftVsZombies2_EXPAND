@@ -96,15 +96,27 @@ namespace MVZ2.Vanilla
                 var meta = Global.Game.GetStageMeta(stage.GetID());
                 if (meta != null)
                 {
-                    stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
+                    stage.SetLevelName(meta.name);
+                    stage.SetDayNumber(meta.dayNumber);
+
                     stage.SetProperty(BuiltinStageProps.START_TALK, meta.startTalk);
                     stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
+                    stage.SetProperty(BuiltinStageProps.MAP_TALK, meta.mapTalk);
+
                     stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
-                    stage.SetLevelName(meta.name);
+
 
                     stage.SetProperty(BuiltinStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
                     stage.SetProperty(BuiltinStageProps.START_TRANSITION, meta.startTransition);
+
+                    stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
+                    stage.SetProperty(StageProperties.FIRST_WAVE_TIME, meta.firstWaveTime);
                     stage.SetSpawnEntries(meta.spawns);
+
+                    foreach (var pair in meta.properties)
+                    {
+                        stage.SetProperty(pair.Key, pair.Value);
+                    }
                 }
                 AddStage(stage);
             }

@@ -427,12 +427,17 @@ namespace MVZ2.Level
         private void UpdateLevelName()
         {
             string name = level.GetLevelName();
+            int dayNumber = level.GetDayNumber();
             if (string.IsNullOrEmpty(name))
             {
                 name = StringTable.LEVEL_NAME_UNKNOWN;
             }
             var levelUI = GetLevelUI();
             var levelName = Main.LanguageManager._p(StringTable.CONTEXT_LEVEL_NAME, name);
+            if (dayNumber > 0)
+            {
+                levelName = Main.LanguageManager._p(StringTable.CONTEXT_LEVEL_NAME, StringTable.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+            }
             levelUI.SetLevelName(levelName);
         }
         private void UpdateStarshards()

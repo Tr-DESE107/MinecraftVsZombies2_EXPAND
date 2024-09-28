@@ -1,3 +1,17 @@
 <maps>
-    <map id="halloween" path="mvz2:halloween" backgroundColor="#00001A" />
+    <map id="halloween" model="mvz2:halloween" backgroundColor="#00001A" endlessUnlock="mvz2:level.halloween_11" >
+        <stages>
+            <stage id="mvz2:halloween_1"/>
+            <stage id="mvz2:halloween_2"/>
+            <stage id="mvz2:halloween_3"/>
+            <stage id="mvz2:halloween_4"/>
+            <stage id="mvz2:halloween_5"/>
+            <stage id="mvz2:halloween_6"/>
+            <stage id="mvz2:halloween_7"/>
+            <stage id="mvz2:halloween_8"/>
+            <stage id="mvz2:halloween_9"/>
+            <stage id="mvz2:halloween_10"/>
+            <stage id="mvz2:halloween_11"/>
+        </stages>
+    </map>
 </maps>
