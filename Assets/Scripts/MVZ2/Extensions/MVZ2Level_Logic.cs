@@ -9,10 +9,10 @@ namespace MVZ2.Extensions
         {
             return level.GetComponent<ILogicComponent>();
         }
-        public static void BeginLevel(this LevelEngine level, string transition)
+        public static void BeginLevel(this LevelEngine level)
         {
             var component = level.GetLogicComponent();
-            component.BeginLevel(transition);
+            component.BeginLevel();
         }
         public static void StopLevel(this LevelEngine level)
         {

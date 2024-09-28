@@ -9,9 +9,9 @@ namespace MVZ2.Level.Components
         public LogicComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
-        public void BeginLevel(string transition)
+        public void BeginLevel()
         {
-            Controller.BeginLevel(transition);
+            Controller.BeginLevel();
         }
         public void StopLevel()
         {

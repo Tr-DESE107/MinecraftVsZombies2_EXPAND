@@ -4,5 +4,6 @@
     {
         public static string DEFAULT = "default";
         public static string TO_LAWN = "to_lawn";
+        public static string INSTANT = "instant";
     }
 }

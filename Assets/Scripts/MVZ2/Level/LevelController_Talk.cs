@@ -37,7 +37,7 @@ namespace MVZ2.Level
             }
             else
             {
-                level.BeginLevel(LevelTransitions.DEFAULT);
+                level.BeginLevel();
             }
         }
 

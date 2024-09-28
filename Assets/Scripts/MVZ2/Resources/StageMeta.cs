@@ -1,5 +1,7 @@
-﻿using System.Xml;
+﻿using System.Collections.Generic;
+using System.Xml;
 using MVZ2.GameContent;
+using MVZ2.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -18,6 +20,10 @@ namespace MVZ2.Resources
         public NamespaceID clearPickupModel;
         public NamespaceID clearPickupBlueprint;
         public NamespaceID endNote;
+
+        public LevelCameraPosition startCameraPosition;
+        public string startTransition;
+
         public EnemySpawnEntry[] spawns;
         public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -31,6 +37,11 @@ namespace MVZ2.Resources
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var clearPickupModel = node.GetAttributeNamespaceID("clearPickupModel", defaultNsp);
             var clearPickupBlueprint = node.GetAttributeNamespaceID("clearPickupBlueprint", defaultNsp);
+
+            var cameraNode = node["camera"];
+            var cameraPositionStr = cameraNode?.GetAttribute("position");
+            var startCameraPosition = cameraPositionDict.TryGetValue(cameraPositionStr ?? string.Empty, out var p) ? p : LevelCameraPosition.House;
+            var transition = cameraNode?.GetAttribute("transition");
 
             var spawns = new EnemySpawnEntry[node.ChildNodes.Count];
             for (int i = 0; i < spawns.Length; i++)
@@ -47,6 +58,9 @@ namespace MVZ2.Resources
                 endTalk = endTalk,
                 endNote = endNote,
                 unlock = unlock,
+
+                startCameraPosition = startCameraPosition,
+                startTransition = transition,
                 spawns = spawns,
                 clearPickupModel = clearPickupModel,
                 clearPickupBlueprint = clearPickupBlueprint
@@ -54,6 +68,12 @@ namespace MVZ2.Resources
         }
         public const string TYPE_NORMAL = "normal";
         public const string TYPE_SPECIAL = "special";
+        public static readonly Dictionary<string, LevelCameraPosition> cameraPositionDict = new Dictionary<string, LevelCameraPosition>()
+        {
+            { "house", LevelCameraPosition.House },
+            { "lawn", LevelCameraPosition.Lawn },
+            { "choose", LevelCameraPosition.Choose },
+        };
     }
     public class EnemySpawnEntry : IEnemySpawnEntry
     {

@@ -291,7 +291,7 @@ namespace MVZ2.Tests
             {
             }
 
-            public void BeginLevel(string transition)
+            public void BeginLevel()
             {
             }
 

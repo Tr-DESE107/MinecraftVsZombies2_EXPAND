@@ -101,6 +101,9 @@ namespace MVZ2.Vanilla
                     stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
                     stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
                     stage.SetLevelName(meta.name);
+
+                    stage.SetProperty(BuiltinStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
+                    stage.SetProperty(BuiltinStageProps.START_TRANSITION, meta.startTransition);
                     stage.SetSpawnEntries(meta.spawns);
                 }
                 AddStage(stage);

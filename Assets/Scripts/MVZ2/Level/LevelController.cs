@@ -9,6 +9,7 @@ using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -56,11 +57,12 @@ namespace MVZ2.Level
         }
         public void BeginLevel()
         {
-            BeginLevel(LevelTransitions.DEFAULT);
-        }
-        public void BeginLevel(string transition)
-        {
-            if (transition == LevelTransitions.TO_LAWN)
+            string transition = level.StageDefinition.GetStartTransition() ?? LevelTransitions.DEFAULT;
+            if (transition == LevelTransitions.INSTANT)
+            {
+                GameInstantTransition();
+            }
+            else if (transition == LevelTransitions.TO_LAWN)
             {
                 StartCoroutine(GameStartToLawnTransition());
             }

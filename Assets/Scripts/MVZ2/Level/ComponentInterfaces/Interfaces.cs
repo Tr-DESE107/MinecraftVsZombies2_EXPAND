@@ -22,7 +22,7 @@ namespace MVZ2.Level.Components
     }
     public interface ILogicComponent : ILevelComponent
     {
-        void BeginLevel(string transition);
+        void BeginLevel();
         void StopLevel();
     }
     public interface IMusicComponent : ILevelComponent

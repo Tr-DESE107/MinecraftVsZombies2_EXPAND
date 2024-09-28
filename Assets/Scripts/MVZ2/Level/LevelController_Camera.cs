@@ -13,6 +13,23 @@ namespace MVZ2.Level
     {
         #region 私有方法
 
+        private void SetCameraPosition(LevelCameraPosition position)
+        {
+            var pos = cameraHousePosition;
+            var anchor = cameraHouseAnchor;
+            switch (position)
+            {
+                case LevelCameraPosition.Lawn:
+                    pos = cameraLawnPosition;
+                    anchor = cameraLawnAnchor;
+                    break;
+                case LevelCameraPosition.Choose:
+                    pos = cameraChoosePosition;
+                    anchor = cameraChooseAnchor;
+                    break;
+            }
+            levelCamera.SetPosition(pos, anchor);
+        }
         private void SetCameraToLawn()
         {
             levelCamera.SetPosition(cameraLawnPosition, cameraLawnAnchor);
@@ -43,6 +60,11 @@ namespace MVZ2.Level
         private IEnumerator MoveCameraToChoose()
         {
             return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
+        }
+        private void GameInstantTransition()
+        {
+            SetCameraPosition(LevelCameraPosition.Lawn);
+            StartGame();
         }
         private IEnumerator GameStartToLawnTransition()
         {
@@ -135,13 +157,13 @@ namespace MVZ2.Level
         private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
         #endregion
 
-        #region 内嵌类
-        public enum CameraPosition
-        {
-            House,
-            Lawn,
-            Choose,
-        }
-        #endregion
     }
+    #region 内嵌类
+    public enum LevelCameraPosition
+    {
+        House,
+        Lawn,
+        Choose,
+    }
+    #endregion
 }
