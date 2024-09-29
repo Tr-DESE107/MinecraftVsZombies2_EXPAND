@@ -16,6 +16,9 @@
         <sample path="mvz2:entity/bone_wall/bone_wall_build2" weight="1" />
         <sample path="mvz2:entity/bone_wall/bone_wall_build3" weight="1" />
     </sound>
+    <sound name="bow">
+        <sample path="mvz2:bow" weight="1" />
+    </sound>
     <sound name="buzzer" maxCount="4" priority="64">
         <sample path="mvz2:buzzer" weight="1" />
     </sound>

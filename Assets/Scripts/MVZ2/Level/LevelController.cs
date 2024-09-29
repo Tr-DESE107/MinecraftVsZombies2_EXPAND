@@ -50,7 +50,7 @@ namespace MVZ2.Level
             level.SetupArea();
 
             var startTalk = level.GetStartTalk() ?? level.StageID;
-            if (NamespaceID.IsValid(startTalk) && Main.ResourceManager.GetTalkGroup(startTalk) != null)
+            if (!level.IsRerun && NamespaceID.IsValid(startTalk) && Main.ResourceManager.GetTalkGroup(startTalk) != null)
             {
                 Main.MusicManager.Play(MusicID.mainmenu);
                 StartTalk(startTalk, 0, 2);

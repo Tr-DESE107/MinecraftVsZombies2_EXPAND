@@ -114,6 +114,7 @@ namespace MVZ2.Map
             {
                 case MapUI.ButtonType.Back:
                     Main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+                    Main.SaveManager.SaveModDatas();
                     break;
                 case MapUI.ButtonType.Almanac:
                     break;
@@ -134,6 +135,7 @@ namespace MVZ2.Map
         }
         private void OnTalkEndCallback()
         {
+            Main.SaveManager.SetMapTalk(null);
         }
         private void OnOptionsDialogCloseCallback()
         {
@@ -147,7 +149,6 @@ namespace MVZ2.Map
         }
         private void OnEndlessButtonClickCallback()
         {
-            Main.SaveManager.SetMapTalk(null);
         }
         #endregion
 
@@ -370,6 +371,7 @@ namespace MVZ2.Map
         }
         private async Task GotoLevelAsync(int index)
         {
+            Main.SaveManager.SaveModDatas();
             await Main.LevelManager.GotoLevelSceneAsync();
             Main.LevelManager.StartLevel(mapMeta.area, mapMeta.stages[index]);
             Hide();
