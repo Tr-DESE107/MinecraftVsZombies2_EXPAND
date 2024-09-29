@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent;
+using MVZ2.Level;
 using PVZEngine;
 using UnityEngine;
 
@@ -16,6 +18,11 @@ namespace MVZ2.Rendering
         {
             Animator.enabled = false;
             Animator.Update(deltaTime);
+
+            var lightVisible = GetProperty<bool>(BuiltinModelProps.LIGHT_VISIBLE);
+            var lightScale = GetProperty<Vector2>(BuiltinModelProps.LIGHT_RANGE);
+            var lightColor = GetProperty<Color>(BuiltinModelProps.LIGHT_COLOR);
+            rendererGroup.SetLight(lightVisible, lightScale, lightColor);
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {

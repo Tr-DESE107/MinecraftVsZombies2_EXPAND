@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Effects
         }
         public override void Init(Entity entity)
         {
+            base.Init(entity);
             entity.Timeout = 30;
         }
         #endregion

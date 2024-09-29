@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Codice.CM.Common;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -16,6 +17,12 @@ namespace MVZ2.Rendering
                 particle.SetSimulationSpeed(speed);
             }
         }
+        public void SetLight(bool visible, Vector2 range, Color color)
+        {
+            lightController.gameObject.SetActive(visible);
+            lightController.SetColor(color);
+            lightController.SetRange(range);
+        }
         public void UpdateRendererElements()
         {
             elements.Clear();
@@ -24,6 +31,8 @@ namespace MVZ2.Rendering
                 if (!IsChildOfGroup(renderer.transform, this))
                     continue;
                 if (renderer is SpriteMask)
+                    continue;
+                if (renderer.gameObject.layer == Layers.LIGHT)
                     continue;
                 var element = renderer.GetComponent<RendererElement>();
                 if (!element)
@@ -95,6 +104,7 @@ namespace MVZ2.Rendering
             serializable.sortingOrder = SortingOrder;
             serializable.elements = elements.Select(e => e.ToSerializable()).ToArray();
             serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
+            serializable.light = lightController.ToSerializable();
             return serializable;
         }
         public void LoadFromSerializable(SerializableMultipleRendererGroup serializable)
@@ -117,6 +127,7 @@ namespace MVZ2.Rendering
                 var data = serializable.particles[i];
                 particle.LoadFromSerializable(data);
             }
+            lightController.LoadFromSerializable(serializable.light);
         }
         #endregion
 
@@ -143,17 +154,20 @@ namespace MVZ2.Rendering
         public int SortingOrder { get => sortingGroup.sortingOrder; set => sortingGroup.sortingOrder = value; }
 
         [SerializeField]
+        private SortingGroup sortingGroup;
+        [SerializeField]
+        private LightController lightController;
+        [SerializeField]
         private List<RendererElement> elements = new List<RendererElement>();
         [SerializeField]
         private List<ParticlePlayer> particles = new List<ParticlePlayer>();
-        [SerializeField]
-        private SortingGroup sortingGroup;
 
     }
     public class SerializableMultipleRendererGroup
     {
         public SerializableRendererElement[] elements;
         public SerializableParticleSystem[] particles;
+        public SerializableLightController light;
         public int sortingLayerID;
         public int sortingOrder;
     }

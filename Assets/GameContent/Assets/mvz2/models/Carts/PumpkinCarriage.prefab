@@ -115,6 +115,10 @@ PrefabInstance:
       propertyPath: elements.Array.data[0]
       value: 
       objectReference: {fileID: 3560349925815085322}
+    - target: {fileID: 2161308169746488382, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5800025478509911982, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

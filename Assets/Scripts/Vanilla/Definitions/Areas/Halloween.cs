@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Areas
             SetProperty(BuiltinAreaProps.DOOR_Z, 160f);
             SetProperty(AreaProperties.CART_REFERENCE, CartID.pumpkinCarriage);
             SetProperty(BuiltinLevelProps.MUSIC_ID, MusicID.halloween);
+            SetProperty(BuiltinAreaProps.NIGHT_VALUE, 0.5f);
             for (int i = 0; i < 45; i++)
             {
                 grids.Add(GridID.grass);

@@ -329,6 +329,18 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        public void SetNightValue(float value)
+        {
+            var color = nightImage.color;
+            color.a = value;
+            nightImage.color = color;
+        }
+        public void SetDarknessValue(float value)
+        {
+            var color = darknessImage.color;
+            color.a = value;
+            darknessImage.color = color;
+        }
         public void SetSimulationSpeed(float speed)
         {
             hugeWaveText.TextAnimator.speed = speed;
@@ -575,6 +587,12 @@ namespace MVZ2.Level.UI
         float hintArrowAngleBlueprint;
         [SerializeField]
         float hintArrowAnglePickaxe;
+
+        [Header("Shading")]
+        [SerializeField]
+        private Image nightImage;
+        [SerializeField]
+        private Image darknessImage;
         #endregion
 
         #region ÄÚÇ¶Àà

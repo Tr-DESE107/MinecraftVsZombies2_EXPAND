@@ -133,10 +133,14 @@ namespace MVZ2.Level
             return new NamespaceID(stageID.spacename, $"level.{stageID.path}");
         }
         public const int CURRENT_DATA_VERSION = 0;
+        public float LawnToTransScale => 1 / transToLawnScale;
+        public float TransToLawnScale => transToLawnScale;
         public MainManager Main => main;
         public SceneLoadingManager Scene => main.SceneManager;
         [SerializeField]
         private MainManager main;
+        [SerializeField]
+        private float transToLawnScale = 100;
         private LevelController controller;
     }
     [Serializable]

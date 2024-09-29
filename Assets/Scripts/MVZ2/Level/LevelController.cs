@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
+using MVZ2.Level.UI;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2.UI;
@@ -320,6 +321,10 @@ namespace MVZ2.Level
             }
             var levelUI = GetLevelUI();
             levelUI.SetRaycastDisabled(IsInputDisabled());
+            if (level != null)
+            {
+                levelUI.SetNightValue(level.GetNightValue());
+            }
             SetLevelUISimulationSpeed(IsGameRunning() ? gameSpeed : 0);
             UpdateGridHighlight();
             UpdateInput();
@@ -688,8 +693,8 @@ namespace MVZ2.Level
         #endregion
 
         #region 属性字段
-        public float LawnToTransScale => 1 / transToLawnScale;
-        public float TransToLawnScale => transToLawnScale;
+        public float LawnToTransScale => Main.LevelManager.LawnToTransScale;
+        public float TransToLawnScale => Main.LevelManager.TransToLawnScale;
         public Game Game => Main.Game;
         private MainManager Main => MainManager.Instance;
         private LevelEngine level;
@@ -722,8 +727,6 @@ namespace MVZ2.Level
         [Header("Main")]
         [SerializeField]
         private Transform modelRoot;
-        [SerializeField]
-        private float transToLawnScale = 100;
         #endregion
     }
 }

@@ -18,6 +18,19 @@ namespace MVZ2.Vanilla
             SetProperty(BuiltinEntityProps.SHADOW_ALPHA, 1f);
             SetProperty(BuiltinEntityProps.SHADOW_SCALE, Vector3.one);
             SetProperty(BuiltinEntityProps.SORTING_LAYER, SortingLayers.entities);
+            SetProperty(VanillaEntityProps.IS_LIGHT_SOURCE, false);
+            SetProperty(VanillaEntityProps.LIGHT_RANGE, Vector2.zero);
+            SetProperty(VanillaEntityProps.LIGHT_COLOR, Color.white);
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.UpdateModelLight();
+        }
+        public override void Update(Entity entity)
+        {
+            base.Update(entity);
+            entity.UpdateModelLight();
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {

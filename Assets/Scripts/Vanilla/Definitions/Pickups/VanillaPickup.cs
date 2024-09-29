@@ -23,6 +23,7 @@ namespace MVZ2.Vanilla
         }
         public override void Update(Entity pickup)
         {
+            base.Update(pickup);
             if (!pickup.IsCollected())
             {
                 LimitPosition(pickup);

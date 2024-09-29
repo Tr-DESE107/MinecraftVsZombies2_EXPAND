@@ -5,11 +5,18 @@ using MVZ2.GameContent.Shells;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
     public static class VanillaEntityExt
     {
+        public static void UpdateModelLight(this Entity entity)
+        {
+            entity.SetModelProperty(BuiltinModelProps.LIGHT_VISIBLE, entity.IsLightSource());
+            entity.SetModelProperty(BuiltinModelProps.LIGHT_RANGE, entity.GetLightRange() * Global.LawnToTransScale);
+            entity.SetModelProperty(BuiltinModelProps.LIGHT_COLOR, entity.GetLightColor());
+        }
         public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
         {
             if (entity == null || shell == null)

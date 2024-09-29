@@ -16,7 +16,7 @@ TagManager:
   - ModelShot
   - RaycastReceiver
   - Pickup
-  - 
+  - Light
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 4254708015
+    locked: 0
+  - name: Darkness
+    uniqueID: 1572647217
     locked: 0
   - name: FrontUI
     uniqueID: 4110715849
