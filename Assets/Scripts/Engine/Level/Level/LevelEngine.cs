@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net.Core;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
+using UnityEditor.SceneManagement;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace PVZEngine.Level
@@ -64,7 +67,7 @@ namespace PVZEngine.Level
             Energy = option.StartEnergy;
 
 
-            AreaDefinition = ContentProvider.GetAreaDefinition(areaId);
+            ChangeArea(areaId);
             ChangeStage(stageId);
 
             InitAreaProperties();
@@ -106,6 +109,11 @@ namespace PVZEngine.Level
             StageID = stageId;
             StageDefinition = ContentProvider.GetStageDefinition(stageId);
             StageDefinition.AddCallbacks();
+        }
+        public void ChangeArea(NamespaceID areaId)
+        {
+            AreaID = areaId;
+            AreaDefinition = ContentProvider.GetAreaDefinition(areaId);
         }
         public void Update()
         {
@@ -355,7 +363,7 @@ namespace PVZEngine.Level
 
             level.IsCleared = seri.isCleared;
             level.ChangeStage(seri.stageDefinitionID);
-            level.AreaDefinition = provider.GetAreaDefinition(seri.areaDefinitionID);
+            level.ChangeArea(seri.areaDefinitionID);
             level.InitAreaProperties();
 
             level.IsEndless = seri.isEndless;
@@ -425,6 +433,7 @@ namespace PVZEngine.Level
         public bool IsCleared { get; private set; }
         public NamespaceID StageID { get; private set; }
         public StageDefinition StageDefinition { get; private set; }
+        public NamespaceID AreaID { get; private set; }
         public AreaDefinition AreaDefinition { get; private set; }
         public NamespaceID StartAreaID { get; set; }
         public NamespaceID StartStageID { get; set; }

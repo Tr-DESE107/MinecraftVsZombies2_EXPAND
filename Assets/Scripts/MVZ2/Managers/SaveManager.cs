@@ -120,6 +120,15 @@ namespace MVZ2.Managers
         {
             return unlockedEnemiesCache.ToArray();
         }
+        public NamespaceID GetMapPresetID(NamespaceID mapId)
+        {
+            if (mapId == null)
+                return null;
+            var modSaveData = GetModSaveData(mapId.spacename);
+            if (modSaveData == null)
+                return null;
+            return modSaveData.GetMapPresetID(mapId.path);
+        }
         #endregion
 
         #region 修改
@@ -157,6 +166,15 @@ namespace MVZ2.Managers
                 return false;
             Directory.Delete(path, true);
             return true;
+        }
+        public void SetMapPresetID(NamespaceID mapId, NamespaceID presetId)
+        {
+            if (mapId == null || presetId == null)
+                return;
+            var modSaveData = GetModSaveData(mapId.spacename);
+            if (modSaveData == null)
+                return;
+            modSaveData.SetMapPresetID(mapId.path, presetId);
         }
         #endregion
 

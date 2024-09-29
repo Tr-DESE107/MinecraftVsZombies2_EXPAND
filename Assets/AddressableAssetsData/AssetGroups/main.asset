@@ -17,12 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level
     m_ReadOnly: 0
@@ -2405,6 +2399,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34ea81d5c696f1a4d8ae72c0da539742
+    m_Address: mvz2:halloween_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 804225591a395d3499b55198f88fa584
+    m_Address: mvz2:halloween_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82a10341e3b6a454d9c21086c64d5367
+    m_Address: mvz2:halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3583655055a075342acf09efa95d3f56
     m_Address: mvz2:day
     m_ReadOnly: 0
@@ -2477,6 +2489,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51b5678df05eb434f9dc35d0069a9c08
+    m_Address: mvz2:areas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7592bb973448e5439c9fa3c97cbce5b
     m_Address: mvz2:almanac
     m_ReadOnly: 0
@@ -2493,13 +2511,19 @@ MonoBehaviour:
     m_Address: mvz2:halloween
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelModel
+    - AreaModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 945bda9db910c474f914bb2feee3518e
     m_Address: mvz2:day
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelModel
+    - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

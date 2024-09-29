@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Resources;
 using PVZEngine;
 
 namespace MVZ2.Save
@@ -19,6 +20,7 @@ namespace MVZ2.Save
         {
             return unlocks.Contains(unlockID);
         }
+        #region 关卡难度记录
         public void AddLevelDifficultyRecord(string levelID, NamespaceID difficulty)
         {
             var record = GetLevelDifficultyRecord(levelID);
@@ -61,12 +63,44 @@ namespace MVZ2.Save
         {
             return levelDifficultyRecords.FirstOrDefault(r => r.ID == levelID); ;
         }
+        #endregion
+
+        #region 地图预设
+        public void SetMapPresetID(string mapId, NamespaceID preset)
+        {
+            var config = GetMapPresetConfig(mapId);
+            if (config == null)
+            {
+                config = CreateMapPresetConfig(mapId);
+            }
+            config.Preset = preset;
+        }
+        public NamespaceID GetMapPresetID(string mapId)
+        {
+            var config = GetMapPresetConfig(mapId);
+            if (config == null)
+                return null;
+            return config.Preset;
+        }
+        private MapPresetConfig CreateMapPresetConfig(string mapId)
+        {
+            var config = new MapPresetConfig(mapId);
+            mapPresetConfigs.Add(config);
+            return config;
+        }
+        private MapPresetConfig GetMapPresetConfig(string mapId)
+        {
+            return mapPresetConfigs.FirstOrDefault(r => r.ID == mapId); 
+        }
+        #endregion
+
         public SerializableModSaveData ToSerializable()
         {
             var serializable = CreateSerializable();
             serializable.spaceName = Namespace;
             serializable.stats = stats.ToSerializable();
             serializable.levelDifficultyRecords = levelDifficultyRecords.Select(r => r.ToSerializable()).ToArray();
+            serializable.mapPresetConfigs = mapPresetConfigs.Select(i => i.ToSerializable()).ToArray();
             serializable.unlocks = unlocks.ToArray();
             return serializable;
         }
@@ -75,11 +109,13 @@ namespace MVZ2.Save
         {
             stats = UserStats.FromSerializable(serializable.stats);
             levelDifficultyRecords = serializable.levelDifficultyRecords.Select(r => LevelDifficultyRecord.FromSerializable(r)).ToList();
+            mapPresetConfigs = serializable.mapPresetConfigs?.Select(i => MapPresetConfig.FromSerializable(i))?.ToList() ?? new List<MapPresetConfig>();
             unlocks = serializable.unlocks.ToHashSet();
         }
         public string Namespace { get; private set; }
         protected UserStats stats = new UserStats();
         protected List<LevelDifficultyRecord> levelDifficultyRecords = new List<LevelDifficultyRecord>();
+        protected List<MapPresetConfig> mapPresetConfigs = new List<MapPresetConfig>();
         protected HashSet<string> unlocks = new HashSet<string>();
     }
     public abstract class SerializableModSaveData
@@ -87,6 +123,7 @@ namespace MVZ2.Save
         public string spaceName;
         public SerializableUserStats stats;
         public SerializableLevelDifficultyRecord[] levelDifficultyRecords;
+        public SerializableMapPresetConfig[] mapPresetConfigs;
         public string[] unlocks;
     }
 }

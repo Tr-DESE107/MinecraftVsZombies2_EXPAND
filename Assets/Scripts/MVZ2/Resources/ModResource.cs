@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
+using MVZ2.Level;
 using MVZ2.Map;
 using MVZ2.Rendering;
 using MVZ2.Talk;
@@ -20,6 +21,7 @@ namespace MVZ2.Resources
         public NoteMetaList NoteMetaList { get; set; }
         public StageMetaList StageMetaList { get; set; }
         public MapMetaList MapMetaList { get; set; }
+        public AreaMetaList AreaMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Model> Models = new();
@@ -29,6 +31,7 @@ namespace MVZ2.Resources
         public Dictionary<string, CharacterVariantSprite[]> CharacterVariantSprites = new();
         public Dictionary<string, TalkMeta> TalkMetas = new();
         public Dictionary<string, MapModel> MapModels = new();
+        public Dictionary<string, AreaModel> AreaModels = new();
         public ModResource(string spaceName)
         {
             Namespace = spaceName;
@@ -66,6 +69,9 @@ namespace MVZ2.Resources
                     break;
                 case "maps":
                     MapMetaList = MapMetaList.FromXmlNode(document["maps"], defaultNsp);
+                    break;
+                case "areas":
+                    AreaMetaList = AreaMetaList.FromXmlNode(document["areas"], defaultNsp);
                     break;
             }
         }

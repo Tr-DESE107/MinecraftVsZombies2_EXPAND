@@ -11,6 +11,12 @@ namespace MVZ2.Map
         {
             return mapButtons.Length;
         }
+        public MapButton GetMapButton(int index)
+        {
+            if (index < 0 || index >= mapButtons.Length)
+                return null;
+            return mapButtons[index];
+        }
         public void SetEndlessButtonInteractable(bool interactable)
         {
             endlessButton.interactable = interactable;
@@ -25,27 +31,31 @@ namespace MVZ2.Map
         }
         public void SetMapButtonInteractable(int index, bool interactable)
         {
-            if (index < 0 || index >= mapButtons.Length)
+            var button = GetMapButton(index);
+            if (!button)
                 return;
-            mapButtons[index].interactable = interactable;
+            button.interactable = interactable;
         }
         public void SetMapButtonColor(int index, Color color)
         {
-            if (index < 0 || index >= mapButtons.Length)
+            var button = GetMapButton(index);
+            if (!button)
                 return;
-            mapButtons[index].SetColor(color);
+            button.SetColor(color);
         }
         public void SetMapButtonText(int index, string text)
         {
-            if (index < 0 || index >= mapButtons.Length)
+            var button = GetMapButton(index);
+            if (!button)
                 return;
-            mapButtons[index].SetText(text);
+            button.SetText(text);
         }
         public void SetMapButtonDifficulty(int index, NamespaceID difficulty)
         {
-            if (index < 0 || index >= mapButtons.Length)
+            var button = GetMapButton(index);
+            if (!button)
                 return;
-            mapButtons[index].SetDifficulty(difficulty);
+            button.SetDifficulty(difficulty);
         }
         public NamespaceID[] GetMapElementUnlocks()
         {

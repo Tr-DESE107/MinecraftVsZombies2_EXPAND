@@ -1,5 +1,8 @@
 <maps>
-    <map id="halloween" model="mvz2:halloween" backgroundColor="#00001A" endlessUnlock="mvz2:level.halloween_11" >
+    <map id="halloween" endlessUnlock="mvz2:level.halloween_11" area="mvz2:halloween" >
+        <presets>
+            <preset id="mvz2:halloween" model="mvz2:halloween" backgroundColor="#00001A" music="mvz2:halloween_map" />
+        </presets>
         <stages>
             <stage id="mvz2:halloween_1"/>
             <stage id="mvz2:halloween_2"/>

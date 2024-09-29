@@ -9,6 +9,12 @@ namespace PVZEngine.Definitions
         public AreaDefinition(string nsp, string name) : base(nsp, name)
         {
             SetProperty(AreaProperties.ENEMY_SPAWN_X, 1080);
+            SetProperty(AreaProperties.GRID_WIDTH, 80);
+            SetProperty(AreaProperties.GRID_HEIGHT, 80);
+            SetProperty(AreaProperties.GRID_LEFT_X, 260);
+            SetProperty(AreaProperties.GRID_BOTTOM_Z, 80);
+            SetProperty(AreaProperties.MAX_LANE_COUNT, 5);
+            SetProperty(AreaProperties.MAX_COLUMN_COUNT, 9);
         }
         public virtual void Setup(LevelEngine level) { }
         public NamespaceID[] GetGridDefintionsID()

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Extensions;
+using MVZ2.GameContent;
 using MVZ2.Managers;
 using MVZ2.Resources;
 using MVZ2.UI;
 using PVZEngine;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,6 +26,7 @@ namespace MVZ2.Map
             ui.SetHintText(Main.LanguageManager._(Main.IsMobile() ? HINT_TEXT_MOBILE : HINT_TEXT));
             ui.SetDragRootVisible(false);
             ui.SetOptionsDialogActive(false);
+            ui.SetRaycastBlockerActive(false);
         }
         public override void Hide()
         {
@@ -44,21 +46,36 @@ namespace MVZ2.Map
             mapMeta = Main.ResourceManager.GetMapMeta(mapId);
             if (mapMeta == null)
                 return;
-            var modelPrefab = Main.ResourceManager.GetMapModel(mapMeta.model);
+
+            var savedPreset = Main.SaveManager.GetMapPresetID(mapId);
+            MapPreset mapPreset = null;
+            if (NamespaceID.IsValid(savedPreset))
+            {
+                mapPreset = mapMeta.presets.FirstOrDefault(p => p.id == savedPreset);
+            }
+            if (mapPreset == null)
+            {
+                mapPreset = mapMeta.presets.FirstOrDefault();
+            }
+            var modelPrefab = Main.ResourceManager.GetMapModel(mapPreset.model);
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
 
+            int unclearedMapButtonIndex = -1;
             for (int i = 0; i < model.GetMapButtonCount(); i++)
             {
                 var unlocked = IsLevelUnlocked(i);
                 var color = buttonColorCleared;
                 if (!unlocked)
                     color = buttonColorLocked;
-                else if(IsMinigameStage(i))
+                else if (IsMinigameStage(i))
                     color = buttonColorMinigame;
                 else if (!IsLevelCleared(i))
+                {
                     color = buttonColorUncleared;
+                    unclearedMapButtonIndex = i;
+                }
 
                 model.SetMapButtonInteractable(i, unlocked);
                 model.SetMapButtonColor(i, color);
@@ -72,7 +89,19 @@ namespace MVZ2.Map
             model.SetEndlessButtonColor(endlessColor);
             model.SetEndlessButtonText("E");
 
-            SetCameraBackgroundColor(mapMeta.backgroundColor);
+
+            if (unclearedMapButtonIndex >= 0)
+            {
+                var unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
+                if (unclearedMapButton)
+                {
+                    var pos = unclearedMapButton.transform.position;
+                    pos.z = mapCamera.transform.position.z;
+                    mapCamera.transform.position = pos;
+                }
+            }
+            SetCameraBackgroundColor(mapPreset.backgroundColor);
+            Main.MusicManager.Play(mapPreset.music);
         }
         #endregion
 
@@ -94,7 +123,7 @@ namespace MVZ2.Map
             {
                 UpdateMouse();
             }
-            mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraSize);
+            mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraY);
             LimitCameraPosition();
             cameraScaleSpeed *= 0.8f;
         }
@@ -129,6 +158,7 @@ namespace MVZ2.Map
         }
         private void OnMapButtonClickCallback(int index)
         {
+            StartCoroutine(EnterLevel(index));
         }
         private void OnEndlessButtonClickCallback()
         {
@@ -152,8 +182,12 @@ namespace MVZ2.Map
             var fullHeight = mapCamera.orthographicSize * 2;
             var cameraHeight = mapCamera.rect.height * fullHeight;
             var cameraWidth = cameraHeight * aspect;
-            position.x = Mathf.Clamp(position.x, minCameraPosition.x + cameraWidth * 0.5f, maxCameraPosition.x - cameraWidth * 0.5f);
-            position.y = Mathf.Clamp(position.y, minCameraPosition.y + cameraHeight * 0.5f, maxCameraPosition.y - cameraHeight * 0.5f);
+            var minX = -maxCameraY * maxCameraAspect;
+            var maxX = maxCameraY * maxCameraAspect;
+            var minY = -maxCameraY;
+            var maxY = maxCameraY;
+            position.x = Mathf.Clamp(position.x, minX + cameraWidth * 0.5f, maxX - cameraWidth * 0.5f);
+            position.y = Mathf.Clamp(position.y, minY + cameraHeight * 0.5f, maxY - cameraHeight * 0.5f);
             mapCamera.transform.position = position;
         }
         #endregion
@@ -218,7 +252,7 @@ namespace MVZ2.Map
                 var currentCenter = (position0 + position1) * 0.5f;
                 var motion = lastCenter - currentCenter;
 
-                mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize * scale, minCameraSize, maxCameraSize);
+                mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize * scale, minCameraSize, maxCameraY);
                 mapCamera.transform.position += (Vector3)motion;
             }
             else if (touchDatas.Count > 0)
@@ -336,12 +370,34 @@ namespace MVZ2.Map
         }
         #endregion
 
+        private IEnumerator EnterLevel(int index)
+        {
+            ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
+            ui.SetRaycastBlockerActive(true);
+            Main.MusicManager.Stop();
+            Main.SoundManager.Play2D(SoundID.spring);
+            yield return new WaitForSeconds(1);
+            var task = GotoLevelAsync(index);
+            while (!task.IsCompleted)
+            {
+                yield return null;
+            }
+        }
+        private async Task GotoLevelAsync(int index)
+        {
+            await Main.LevelManager.GotoLevelSceneAsync();
+            Main.LevelManager.StartLevel(mapMeta.area, mapMeta.stages[index]);
+            Hide();
+        }
+
         #endregion
 
         [TranslateMsg("地图的提示文本")]
         public const string HINT_TEXT = "按住右键拖动以移动视图\n滚轮以缩放视图";
         [TranslateMsg("地图的提示文本")]
         public const string HINT_TEXT_MOBILE = "单指拖动以移动视图\n双指触摸以缩放视图";
+        [TranslateMsg("地图的提示文本")]
+        public const string HINT_TEXT_ENTERING_LEVEL = "正在进入关卡……";
         private MainManager Main => MainManager.Instance;
         private MapModel model;
         private MapMeta mapMeta;
@@ -361,13 +417,11 @@ namespace MVZ2.Map
         [SerializeField]
         private Camera mapCamera;
         [SerializeField]
-        private Vector2 minCameraPosition = new Vector2(-16, -12);
+        private float maxCameraY = 12;
         [SerializeField]
-        private Vector2 maxCameraPosition = new Vector2(16, 12);
+        private float maxCameraAspect = 1.7f;
         [SerializeField]
         private float minCameraSize = 2;
-        [SerializeField]
-        private float maxCameraSize = 6;
 
         [Header("Button Colors")]
         [SerializeField]

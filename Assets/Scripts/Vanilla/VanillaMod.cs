@@ -92,7 +92,7 @@ namespace MVZ2.Vanilla
 
             foreach (var stageMeta in Global.Game.GetModStageMetas(spaceName).Where(m => m.type == StageMeta.TYPE_NORMAL))
             {
-                var stage = new ClassicStage(spaceName, StageNames.prologue);
+                var stage = new ClassicStage(spaceName, stageMeta.id);
                 var meta = Global.Game.GetStageMeta(stage.GetID());
                 if (meta != null)
                 {

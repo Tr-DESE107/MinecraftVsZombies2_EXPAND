@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.Serialization;
+using Codice.CM.Common;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
@@ -53,6 +54,7 @@ namespace MVZ2.Level
             {
                 level = DeserializeLevel(seri.level, game);
                 AddLevelCallbacks();
+                CreateLevelModel(level.AreaID);
 
                 bannerProgresses = seri.bannerProgresses.ToArray();
                 levelProgress = seri.levelProgress;

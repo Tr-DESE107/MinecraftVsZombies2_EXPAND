@@ -24,6 +24,8 @@ namespace MVZ2.Level
         #region 游戏流程
         public void InitGame(Game game, NamespaceID areaID, NamespaceID stageID)
         {
+            CreateLevelModel(areaID);
+
             level = new LevelEngine(game, game);
 
             ApplyComponents(level);
@@ -496,7 +498,7 @@ namespace MVZ2.Level
         {
             isGameOver = true;
             level.PlaySound(SoundID.loseMusic);
-            view.SetDoorVisible(false);
+            model.SetDoorVisible(false);
             level.HideAdvice();
             SetUIVisibleState(VisibleState.Nothing);
         }
@@ -683,6 +685,15 @@ namespace MVZ2.Level
         {
             return isInputDisabled;
         }
+
+        private void CreateLevelModel(NamespaceID areaId)
+        {
+            var areaMeta = Main.ResourceManager.GetAreaMeta(areaId);
+            if (areaMeta == null)
+                return;
+            var modelPrefab = Main.ResourceManager.GetAreaModel(areaMeta.model);
+            model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<AreaModel>();
+        }
         #endregion
 
         #region 属性字段
@@ -702,6 +713,7 @@ namespace MVZ2.Level
         private EntityController killerEntity;
         private string deathMessage;
         private NamespaceID exitTargetNoteID;
+        private AreaModel model;
 
         #region 保存属性
         public NamespaceID CurrentMusic
@@ -718,7 +730,7 @@ namespace MVZ2.Level
 
         [Header("Main")]
         [SerializeField]
-        private LevelView view;
+        private Transform modelRoot;
         [SerializeField]
         private float transToLawnScale = 100;
         #endregion

@@ -28,6 +28,10 @@ namespace MVZ2.Map
         {
             optionsDialog.gameObject.SetActive(active);
         }
+        public void SetRaycastBlockerActive(bool active)
+        {
+            raycastBlocker.SetActive(active);
+        }
         public void SetDragRootPosition(Vector2 screenPos)
         {
             dragRootTrans.position = mapCamera.ScreenToWorldPoint(screenPos);
@@ -77,6 +81,8 @@ namespace MVZ2.Map
         private TextMeshProUGUI hintText;
         [SerializeField]
         private OptionsDialog optionsDialog;
+        [SerializeField]
+        private GameObject raycastBlocker;
 
         [Header("Drag")]
         [SerializeField]

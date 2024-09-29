@@ -35,6 +35,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID shieldHit = Get("shield_hit");
         public readonly static NamespaceID slowDown = Get("slow_down");
         public readonly static NamespaceID splat = Get("splat");
+        public readonly static NamespaceID spring = Get("spring");
         public readonly static NamespaceID stone = Get("stone");
         public readonly static NamespaceID tap = Get("tap");
         public readonly static NamespaceID throwSound = Get("throw");

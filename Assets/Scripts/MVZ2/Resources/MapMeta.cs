@@ -7,19 +7,25 @@ namespace MVZ2.Resources
     public class MapMeta
     {
         public string id;
-        public NamespaceID model;
+        public NamespaceID area;
         public NamespaceID endlessUnlock;
-        public Color backgroundColor;
+        public MapPreset[] presets;
         public NamespaceID[] stages;
         public static MapMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var model = node.GetAttributeNamespaceID("model", defaultNsp);
             var endlessUnlock = node.GetAttributeNamespaceID("endlessUnlock", defaultNsp);
-            var backgroundColor = node.GetAttributeColor("backgroundColor") ?? Color.black;
+            var area = node.GetAttributeNamespaceID("area", defaultNsp);
+
+            var presetsNode = node["presets"];
+            var presets = new MapPreset[presetsNode?.ChildNodes.Count ?? 0];
+            for (int i = 0; i < presets.Length; i++)
+            {
+                presets[i] = MapPreset.FromXmlNode(presetsNode.ChildNodes[i], defaultNsp);
+            }
 
             var stagesNode = node["stages"];
-            var stages = new NamespaceID[stagesNode.ChildNodes.Count];
+            var stages = new NamespaceID[stagesNode?.ChildNodes.Count ?? 0];
             for (int i = 0; i < stages.Length; i++)
             {
                 stages[i] = stagesNode.ChildNodes[i].GetAttributeNamespaceID("id", defaultNsp);
@@ -27,10 +33,31 @@ namespace MVZ2.Resources
             return new MapMeta()
             {
                 id = id,
-                model = model,
                 endlessUnlock = endlessUnlock,
-                backgroundColor = backgroundColor,
+                area = area,
+                presets = presets,
                 stages = stages,
+            };
+        }
+    }
+    public class MapPreset
+    {
+        public NamespaceID id;
+        public NamespaceID model;
+        public NamespaceID music;
+        public Color backgroundColor;
+        public static MapPreset FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            var model = node.GetAttributeNamespaceID("model", defaultNsp);
+            var music = node.GetAttributeNamespaceID("music", defaultNsp);
+            var backgroundColor = node.GetAttributeColor("backgroundColor") ?? Color.black;
+            return new MapPreset()
+            {
+                id = id,
+                model = model,
+                music = music,
+                backgroundColor = backgroundColor,
             };
         }
     }

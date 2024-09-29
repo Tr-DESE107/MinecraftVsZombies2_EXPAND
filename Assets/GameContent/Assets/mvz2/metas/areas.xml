@@ -1,0 +1,4 @@
+<areas>
+    <area id="day" model="mvz2:day" music="mvz2:day" />
+    <area id="halloween" model="mvz2:halloween" music="mvz2:halloween" />
+</areas>

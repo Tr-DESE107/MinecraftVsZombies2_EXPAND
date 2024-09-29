@@ -167,8 +167,8 @@ namespace MVZ2.Editor
                 case "mapmodels":
                     labels.Add("MapModel");
                     break;
-                case "levelmodels":
-                    labels.Add("LevelModel");
+                case "areamodels":
+                    labels.Add("AreaModel");
                     break;
             }
             return labels.ToArray();

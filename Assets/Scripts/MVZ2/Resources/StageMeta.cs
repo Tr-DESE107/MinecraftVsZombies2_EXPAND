@@ -56,7 +56,7 @@ namespace MVZ2.Resources
             var startCameraPosition = cameraPositionDict.TryGetValue(cameraPositionStr ?? string.Empty, out var p) ? p : LevelCameraPosition.House;
             var transition = cameraNode?.GetAttribute("transition");
 
-            var spawnNode = node["spawn"];
+            var spawnNode = node["spawns"];
             var flags = spawnNode?.GetAttributeInt("flags") ?? 1;
             var firstWaveTime = spawnNode?.GetAttributeInt("firstWaveTime") ?? 540;
             var spawns = new EnemySpawnEntry[spawnNode?.ChildNodes.Count ?? 0];

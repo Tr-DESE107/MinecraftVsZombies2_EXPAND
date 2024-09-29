@@ -36,6 +36,20 @@ namespace MVZ2.Extensions
                 return 0;
             return saveData.GetMoney();
         }
+        public static void SetMapTalk(this ISaveDataProvider save, NamespaceID value)
+        {
+            var saveData = save.GetBuiltinSaveData();
+            if (saveData == null)
+                return;
+            saveData.MapTalkID = value;
+        }
+        public static NamespaceID GetMapTalk(this ISaveDataProvider save)
+        {
+            var saveData = save.GetBuiltinSaveData();
+            if (saveData == null)
+                return null;
+            return saveData.MapTalkID;
+        }
         public static void SetBlueprintSlots(this ISaveDataProvider save, int slots)
         {
             var saveData = save.GetBuiltinSaveData();
@@ -69,20 +83,6 @@ namespace MVZ2.Extensions
         public static bool IsStarshardUnlocked(this ISaveDataProvider save)
         {
             return save.IsUnlocked(BuiltinUnlockID.starshard);
-        }
-        public static void SetMapTalk(this ISaveDataProvider save, NamespaceID value)
-        {
-            var saveData = save.GetBuiltinSaveData();
-            if (saveData == null)
-                return;
-            saveData.MapTalkID = value;
-        }
-        public static NamespaceID GetMapTalk(this ISaveDataProvider save)
-        {
-            var saveData = save.GetBuiltinSaveData();
-            if (saveData == null)
-                return null;
-            return saveData.MapTalkID;
         }
     }
 }
