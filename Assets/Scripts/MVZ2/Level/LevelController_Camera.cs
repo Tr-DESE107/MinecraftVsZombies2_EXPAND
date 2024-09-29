@@ -104,8 +104,7 @@ namespace MVZ2.Level
             level.PlaySound(SoundID.hit);
             yield return new WaitForSeconds(0.5f);
             level.PlaySound(SoundID.scream);
-            var levelUI = GetLevelUI();
-            levelUI.SetYouDiedVisible(true);
+            ui.SetYouDiedVisible(true);
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
         }
@@ -113,8 +112,7 @@ namespace MVZ2.Level
         {
             Main.MusicManager.Stop();
             level.PlaySound(SoundID.scream);
-            var levelUI = GetLevelUI();
-            levelUI.SetYouDiedVisible(true);
+            ui.SetYouDiedVisible(true);
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
         }
@@ -131,8 +129,7 @@ namespace MVZ2.Level
         private IEnumerator ExitLevelToNoteTransition(NamespaceID noteID, float delay)
         {
             yield return new WaitForSeconds(delay);
-            var levelUI = GetLevelUI();
-            levelUI.SetExitingToNote();
+            ui.SetExitingToNote();
             exitTargetNoteID = noteID;
         }
         #endregion

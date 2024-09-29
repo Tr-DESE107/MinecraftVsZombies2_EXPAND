@@ -24,21 +24,21 @@ namespace MVZ2.Level.Components
         }
         public void SetHintArrowPointToBlueprint(int index)
         {
-            var levelUI = Controller.GetLevelUI();
+            var levelUI = Controller.GetUIPreset();
             levelUI.SetHintArrowPointToBlueprint(index);
             TargetType = HintArrowTargetType.Blueprint;
             TargetID = index;
         }
         public void SetHintArrowPointToPickaxe()
         {
-            var levelUI = Controller.GetLevelUI();
+            var levelUI = Controller.GetUIPreset();
             levelUI.SetHintArrowPointToPickaxe();
             TargetType = HintArrowTargetType.Pickaxe;
             TargetID = 0;
         }
         public void SetHintArrowPointToEntity(Entity entity)
         {
-            var levelUI = Controller.GetLevelUI();
+            var levelUI = Controller.GetUIPreset();
             var entityCtrl = Controller.GetEntityController(entity);
             levelUI.SetHintArrowPointToEntity(entityCtrl.transform, entity.GetScaledSize().y);
             TargetType = HintArrowTargetType.Entity;
@@ -46,7 +46,7 @@ namespace MVZ2.Level.Components
         }
         public void HideHintArrow()
         {
-            var levelUI = Controller.GetLevelUI();
+            var levelUI = Controller.GetUIPreset();
             levelUI.HideHintArrow();
             TargetType = HintArrowTargetType.None;
             TargetID = 0;

@@ -7,27 +7,29 @@
 
 	}
 
-		SubShader
+	SubShader
+	{
+		Tags
 		{
-			Tags
-			{
-				"Queue" = "Transparent"
-				"IgnoreProjector" = "True"
-				"RenderType" = "Light"
-				"PreviewType" = "Plane"
-				"CanUseSpriteAtlas" = "True"
-			}
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Light"
+			"PreviewType" = "Plane"
+			"CanUseSpriteAtlas" = "True"
+		}
+		Pass
+		{
+		    Name "Main"
 
 			Cull Off
 			Lighting Off
 			ZWrite Off
 			Blend One OneMinusSrcAlpha
-			Pass
-			{
+
 			CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
-				#include "UnitySprites.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnitySprites.cginc"
 
 
 			struct appdata_masking
@@ -60,7 +62,6 @@
 			{
 				fixed4 c = SampleSpriteTexture(IN.uv) * IN.color;
 				c.rgb *= c.a;
-				//c.rgb = 1 / (1 - c.rgb);
 				return c;
 			}
 			ENDCG

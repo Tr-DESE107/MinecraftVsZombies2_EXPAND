@@ -17,7 +17,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
-    using VisibleState = MVZ2.Level.UI.LevelUI.VisibleState;
+    using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法
@@ -258,12 +258,13 @@ namespace MVZ2.Level
             levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
 
             ClearGridHighlight();
-            var levelUI = GetLevelUI();
-            standaloneUI.SetActive(standaloneUI == levelUI);
-            mobileUI.SetActive(mobileUI == levelUI);
 
-            levelUI.OnStartGameCalled += StartGame;
-            levelUI.OnExitLevelToNoteCalled += UI_OnExitLevelToNoteCalledCallback;
+            ui.OnExitLevelToNoteCalled += UI_OnExitLevelToNoteCalledCallback;
+            var uiPreset = GetUIPreset();
+            standaloneUI.SetActive(standaloneUI == uiPreset);
+            mobileUI.SetActive(mobileUI == uiPreset);
+
+            uiPreset.OnStartGameCalled += StartGame;
 
             Awake_Blueprints();
             Awake_UI();
@@ -308,7 +309,6 @@ namespace MVZ2.Level
                     {
                         heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
                     }
-                    var ui = GetLevelUI();
                     ui.SetHeldItemPosition(heldItemPosition);
                     UpdateLevelUI();
 
@@ -319,11 +319,10 @@ namespace MVZ2.Level
             {
                 ShowMoney();
             }
-            var levelUI = GetLevelUI();
-            levelUI.SetRaycastDisabled(IsInputDisabled());
+            ui.SetRaycastDisabled(IsInputDisabled());
             if (level != null)
             {
-                levelUI.SetNightValue(level.GetNightValue());
+                ui.SetNightValue(level.GetNightValue());
             }
             SetLevelUISimulationSpeed(IsGameRunning() ? gameSpeed : 0);
             UpdateGridHighlight();
@@ -440,12 +439,12 @@ namespace MVZ2.Level
         }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
-            var ui = GetLevelUI();
+            var ui = GetUIPreset();
             ui.SetHugeWaveTextVisible(true);
         }
         private void PostFinalWaveCallback(LevelEngine level)
         {
-            var ui = GetLevelUI();
+            var ui = GetUIPreset();
             ui.SetFinalWaveTextVisible(true);
         }
 
@@ -467,10 +466,9 @@ namespace MVZ2.Level
                 optionsLogic.Dispose();
                 optionsLogic = null;
             }
-            var levelUI = GetLevelUI();
-            levelUI.SetPauseDialogActive(false);
-            levelUI.SetOptionsDialogActive(false);
-            levelUI.SetLevelLoadedDialogVisible(false);
+            ui.SetPauseDialogActive(false);
+            ui.SetOptionsDialogActive(false);
+            ui.SetLevelLoadedDialogVisible(false);
             levelLoaded = false;
         }
         private void UpdateFocusLost(bool focus)
@@ -503,7 +501,7 @@ namespace MVZ2.Level
         private void SwitchSpeedUp()
         {
             speedUp = !speedUp;
-            GetLevelUI().SetSpeedUp(speedUp);
+            GetUIPreset().SetSpeedUp(speedUp);
             level.PlaySound(speedUp ? SoundID.fastForward : SoundID.slowDown);
         }
 
@@ -725,6 +723,8 @@ namespace MVZ2.Level
         #endregion
 
         [Header("Main")]
+        [SerializeField]
+        private LevelUI ui;
         [SerializeField]
         private Transform modelRoot;
         #endregion

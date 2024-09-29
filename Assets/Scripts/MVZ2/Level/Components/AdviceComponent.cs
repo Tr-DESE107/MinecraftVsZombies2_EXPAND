@@ -19,7 +19,7 @@ namespace MVZ2.Level.Components
             AdviceKey = textKey;
             AdvicePriority = priority;
             AdviceTimeout = timeout;
-            var ui = Controller.GetLevelUI();
+            var ui = Controller.GetUIPreset();
             ui.ShowAdvice(GetAdvice());
 
         }
@@ -29,7 +29,7 @@ namespace MVZ2.Level.Components
             AdviceKey = null;
             AdvicePriority = 0;
             AdviceTimeout = 0;
-            var ui = Controller.GetLevelUI();
+            var ui = Controller.GetUIPreset();
             ui.HideAdvice();
         }
         public override void Update()
@@ -65,7 +65,7 @@ namespace MVZ2.Level.Components
             base.PostLevelLoad();
             if (AdviceTimeout != 0)
             {
-                var ui = Controller.GetLevelUI();
+                var ui = Controller.GetUIPreset();
                 ui.ShowAdvice(GetAdvice());
             }
         }

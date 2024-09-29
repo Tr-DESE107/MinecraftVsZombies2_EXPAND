@@ -6,28 +6,28 @@
 		_Color("Tint", Color) = (1,1,1,1)
 	}
 
-		SubShader
+	SubShader
+	{
+		Tags
 		{
-			Tags
-			{
-				"Queue" = "Transparent"
-				"IgnoreProjector" = "True"
-				"RenderType" = "Light"
-				"PreviewType" = "Plane"
-				"CanUseSpriteAtlas" = "True"
-			}
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "LightDisplay"
+			"PreviewType" = "Plane"
+			"CanUseSpriteAtlas" = "True"
+		}
 
-			Cull Off
-			Lighting Off
-			ZWrite Off
-			Blend One One
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Blend One One
 
-			Pass
-			{
+		Pass
+		{
 			CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
-				#include "UnitySprites.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnitySprites.cginc"
 
 
 			struct appdata_masking
@@ -62,7 +62,7 @@
 				c.rgb *= c.a;
 				return c;
 			}
-		ENDCG
+			ENDCG
 		}
 	}
 }

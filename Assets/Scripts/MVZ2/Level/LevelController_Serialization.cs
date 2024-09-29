@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace MVZ2.Level
 {
-    using VisibleState = MVZ2.Level.UI.LevelUI.VisibleState;
+    using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法

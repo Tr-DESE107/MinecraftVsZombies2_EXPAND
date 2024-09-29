@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8749061831517456452}
   - component: {fileID: 5996849860487715985}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1743128330019553126}
   - component: {fileID: 3100756773309555607}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5671797193147986414}
   - component: {fileID: 1097465531986341648}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: halloween
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299756372484147714}
   - component: {fileID: 1310151774257788305}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cloudy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408006683769287392}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,6 +390,14 @@ PrefabInstance:
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_DrawMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingLayer
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2057763135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -473,6 +481,18 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -40259281
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -538,6 +558,14 @@ PrefabInstance:
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_DrawMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingLayer
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2057763135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

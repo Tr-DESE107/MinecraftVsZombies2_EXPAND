@@ -1,33 +1,44 @@
-﻿Shader "MinecraftVSZombies2/LightMaskShader"
+﻿Shader "MinecraftVSZombies2/LightReplacementShader"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
-
 	}
-
-		SubShader
+	
+	SubShader
+	{
+		Tags
 		{
-			Tags
-			{
-				"Queue" = "Transparent"
-				"IgnoreProjector" = "True"
-				"RenderType" = "LightMask"
-				"PreviewType" = "Plane"
-				"CanUseSpriteAtlas" = "True"
-			}
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Light"
+			"PreviewType" = "Plane"
+			"CanUseSpriteAtlas" = "True"
+		}
+		UsePass "MinecraftVSZombies2/LightShader/Main"
+	}
+	SubShader
+	{
+		Tags
+		{
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Entity"
+			"PreviewType" = "Plane"
+			"CanUseSpriteAtlas" = "True"
+		}
 
-			Cull Off
-			Lighting Off
-			ZWrite Off
-			Blend One OneMinusSrcAlpha
-			Pass
-			{
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
+		Pass
+		{
 			CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
-				#include "UnitySprites.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnitySprites.cginc"
 
 
 			struct appdata_masking
@@ -59,8 +70,7 @@
 			fixed4 frag(v2f_masking IN) : SV_Target
 			{
 				fixed4 c = SampleSpriteTexture(IN.uv) * IN.color;
-				c.rgb *= c.a;
-				//c.rgb = 1 / (1 - c.rgb);
+				c.rgb = 0;
 				return c;
 			}
 			ENDCG

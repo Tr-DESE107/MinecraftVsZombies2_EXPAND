@@ -17,7 +17,7 @@ namespace MVZ2.Level
 
         private void Awake_Blueprints()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.OnBlueprintPointerEnter += UI_OnBlueprintPointerEnterCallback;
             levelUI.OnBlueprintPointerExit += UI_OnBlueprintPointerExitCallback;
             levelUI.OnBlueprintPointerDown += UI_OnBlueprintPointerDownCallback;
@@ -37,7 +37,7 @@ namespace MVZ2.Level
 
         private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData)
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var seedPack = level.GetSeedPackAt(index);
             if (seedPack == null)
                 return;
@@ -62,7 +62,7 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintPointerExitCallback(int index, PointerEventData eventData)
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.HideTooltip();
         }
         private void UI_OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
@@ -76,20 +76,20 @@ namespace MVZ2.Level
         private void UpdateBlueprintCount()
         {
             var count = level.GetSeedPackCount();
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetBlueprintCount(count);
         }
         private void UpdateBlueprint(int index)
         {
             var seed = level.GetSeedPackAt(index);
             BlueprintViewData viewData = GetSeedPackViewData(seed);
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetBlueprintAt(index, viewData);
         }
         private void UpdateBlueprintsView()
         {
             var count = level.GetSeedPackCount();
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetBlueprintCount(count);
             for (int i = 0; i < count; i++)
             {
@@ -131,7 +131,7 @@ namespace MVZ2.Level
         }
         private void UpdateBlueprintRecharges()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var seeds = level.GetAllSeedPacks();
             for (int i = 0; i < seeds.Length; i++)
             {
@@ -144,7 +144,7 @@ namespace MVZ2.Level
         }
         private void UpdateBlueprintDisabled()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var seeds = level.GetAllSeedPacks();
             for (int i = 0; i < seeds.Length; i++)
             {
@@ -156,7 +156,7 @@ namespace MVZ2.Level
         }
         private void UpdateBlueprintSelected()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var seeds = level.GetAllSeedPacks();
             for (int i = 0; i < seeds.Length; i++)
             {
@@ -168,7 +168,7 @@ namespace MVZ2.Level
         }
         private void UpdateBlueprintTwinkle()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var seeds = level.GetAllSeedPacks();
             for (int i = 0; i < seeds.Length; i++)
             {

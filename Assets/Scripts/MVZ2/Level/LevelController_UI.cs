@@ -15,7 +15,7 @@ using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static MVZ2.Level.UI.LevelUI;
+using static MVZ2.Level.UI.LevelUIPreset;
 
 namespace MVZ2.Level
 {
@@ -25,7 +25,6 @@ namespace MVZ2.Level
 
         public void SetHeldItemUI(NamespaceID heldType, long id, int priority, bool noCancel)
         {
-            var ui = GetLevelUI();
             Sprite icon = null;
             if (heldType == HeldTypes.blueprint)
             {
@@ -57,15 +56,16 @@ namespace MVZ2.Level
                 layers.Add(Layers.PICKUP);
             }
             LayerMask layerMask = Layers.GetMask(layers.ToArray());
-            ui.SetRaycasterMask(layerMask);
+            var uiPreset = GetUIPreset();
+            uiPreset.SetRaycasterMask(layerMask);
             raycaster.eventMask = layerMask;
         }
         public void ShowMoney()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.ResetMoneyFadeTime();
         }
-        public LevelUI GetLevelUI()
+        public LevelUIPreset GetUIPreset()
         {
             return Main.IsMobile() ? mobileUI : standaloneUI;
         }
@@ -92,45 +92,47 @@ namespace MVZ2.Level
 
         private void Awake_UI()
         {
-            var levelUI = GetLevelUI();
-            levelUI.OnPickaxePointerEnter += UI_OnPickaxePointerEnterCallback;
-            levelUI.OnPickaxePointerExit += UI_OnPickaxePointerExitCallback;
-            levelUI.OnPickaxePointerDown += UI_OnPickaxePointerDownCallback;
+            ui.OnPauseDialogResumeClicked += UI_OnPauseDialogResumeClickedCallback;
+            ui.OnLevelLoadedDialogButtonClicked += UI_OnLevelLoadedDialogOptionClickedCallback;
+            ui.OnLevelErrorLoadingDialogButtonClicked += UI_OnLevelErrorLoadingDialogOptionClickedCallback;
 
-            levelUI.OnStarshardPointerDown += UI_OnStarshardPointerDownCallback;
+            ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
+            ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
 
-            levelUI.OnTriggerPointerDown += UI_OnTriggerPointerDownCallback;
+            ui.SetHeldItemIcon(null);
+            ui.SetPauseDialogActive(false);
+            ui.SetOptionsDialogActive(false);
+            ui.SetGameOverDialogActive(false);
+            ui.SetLevelLoadedDialogVisible(false);
+            ui.SetLevelErrorLoadingDialogVisible(false);
+            ui.SetYouDiedVisible(false);
 
-            levelUI.OnRaycastReceiverPointerDown += UI_OnRaycastReceiverPointerDownCallback;
-            levelUI.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
-            levelUI.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
-            levelUI.OnPauseDialogResumeClicked += UI_OnPauseDialogResumeClickedCallback;
-            levelUI.OnLevelLoadedDialogButtonClicked += UI_OnLevelLoadedDialogOptionClickedCallback;
-            levelUI.OnLevelErrorLoadingDialogButtonClicked += UI_OnLevelErrorLoadingDialogOptionClickedCallback;
+            var uiPreset = GetUIPreset();
+            uiPreset.OnPickaxePointerEnter += UI_OnPickaxePointerEnterCallback;
+            uiPreset.OnPickaxePointerExit += UI_OnPickaxePointerExitCallback;
+            uiPreset.OnPickaxePointerDown += UI_OnPickaxePointerDownCallback;
 
-            levelUI.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
-            levelUI.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
+            uiPreset.OnStarshardPointerDown += UI_OnStarshardPointerDownCallback;
 
-            levelUI.SetHeldItemIcon(null);
-            levelUI.HideMoney();
-            levelUI.SetProgressVisible(false);
-            levelUI.SetHugeWaveTextVisible(false);
-            levelUI.SetFinalWaveTextVisible(false);
-            levelUI.SetReadySetBuildVisible(false);
-            levelUI.SetPauseDialogActive(false);
-            levelUI.SetOptionsDialogActive(false);
-            levelUI.SetGameOverDialogActive(false);
-            levelUI.SetLevelLoadedDialogVisible(false);
-            levelUI.SetLevelErrorLoadingDialogVisible(false);
-            levelUI.SetYouDiedVisible(false);
-            levelUI.HideTooltip();
+            uiPreset.OnTriggerPointerDown += UI_OnTriggerPointerDownCallback;
+
+            uiPreset.OnRaycastReceiverPointerDown += UI_OnRaycastReceiverPointerDownCallback;
+            uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
+            uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
+
+            uiPreset.HideMoney();
+            uiPreset.SetProgressVisible(false);
+            uiPreset.SetHugeWaveTextVisible(false);
+            uiPreset.SetFinalWaveTextVisible(false);
+            uiPreset.SetReadySetBuildVisible(false);
+            uiPreset.HideTooltip();
             SetUIVisibleState(VisibleState.Nothing);
         }
 
         #region 事件回调
 
         #region UI方
-        private void UI_OnRaycastReceiverPointerDownCallback(LevelUI.Receiver receiver, PointerEventData eventData)
+        private void UI_OnRaycastReceiverPointerDownCallback(LevelUIPreset.Receiver receiver, PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
@@ -139,7 +141,7 @@ namespace MVZ2.Level
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var viewData = new TooltipViewData()
             {
                 name = Main.LanguageManager._(StringTable.TOOLTIP_DIG_CONTRAPTION),
@@ -150,7 +152,7 @@ namespace MVZ2.Level
         }
         private void UI_OnPickaxePointerExitCallback(PointerEventData eventData)
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.HideTooltip();
         }
         private void UI_OnPickaxePointerDownCallback(PointerEventData eventData)
@@ -190,8 +192,7 @@ namespace MVZ2.Level
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetGameOverDialogInteractable(false);
+            ui.SetGameOverDialogInteractable(false);
             await RestartLevel();
         }
         private async void UI_OnGameOverBackButtonClickedCallback()
@@ -204,7 +205,6 @@ namespace MVZ2.Level
             {
                 case LevelLoadedDialog.ButtonType.Resume:
                     Resume();
-                    var ui = GetLevelUI();
                     ui.SetLevelLoadedDialogVisible(false);
                     levelLoaded = false;
                     break;
@@ -218,8 +218,7 @@ namespace MVZ2.Level
         }
         private async void UI_OnLevelErrorLoadingDialogOptionClickedCallback(bool restart)
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetLevelErrorLoadingDialogInteractable(false);
+            ui.SetLevelErrorLoadingDialogInteractable(false);
             if (restart)
             {
                 await RestartLevel();
@@ -237,19 +236,17 @@ namespace MVZ2.Level
         #region 对话框
         private void ShowOptionsDialog()
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetOptionsDialogActive(true);
+            ui.SetOptionsDialogActive(true);
 
-            optionsLogic = new OptionsLogicLevel(levelUI.OptionsDialog, this);
+            optionsLogic = new OptionsLogicLevel(ui.OptionsDialog, this);
             optionsLogic.InitDialog();
             optionsLogic.OnClose += UI_OnOptionsMenuCloseCallback;
         }
         private void ShowPausedDialog()
         {
-            var levelUI = GetLevelUI();
             var spriteReference = pauseImages.Random(uiRandom);
-            levelUI.SetPauseDialogActive(true);
-            levelUI.SetPauseDialogImage(Main.LanguageManager.GetSprite(spriteReference));
+            ui.SetPauseDialogActive(true);
+            ui.SetPauseDialogImage(Main.LanguageManager.GetSprite(spriteReference));
         }
         private void ShowGameOverDialog()
         {
@@ -262,15 +259,13 @@ namespace MVZ2.Level
             {
                 message = deathMessage;
             }
-            var levelUI = GetLevelUI();
-            levelUI.SetGameOverDialogActive(true);
-            levelUI.SetGameOverDialogMessage(Main.LanguageManager._p(StringTable.CONTEXT_DEATH_MESSAGE, message));
+            ui.SetGameOverDialogActive(true);
+            ui.SetGameOverDialogMessage(Main.LanguageManager._p(StringTable.CONTEXT_DEATH_MESSAGE, message));
         }
         private void ShowLevelErrorLoadingDialog(string desc)
         {
-            var levelUI = GetLevelUI();
-            levelUI.SetLevelErrorLoadingDialogVisible(true);
-            levelUI.SetLevelErrorLoadingDialogDesc(desc);
+            ui.SetLevelErrorLoadingDialogVisible(true);
+            ui.SetLevelErrorLoadingDialogDesc(desc);
         }
         private void ShowLevelErrorLoadingDialog()
         {
@@ -278,7 +273,6 @@ namespace MVZ2.Level
         }
         private void ShowLevelLoadedDialog()
         {
-            var ui = GetLevelUI();
             ui.SetLevelLoadedDialogVisible(true);
         }
         #endregion
@@ -345,11 +339,11 @@ namespace MVZ2.Level
         }
         private void ClickOnReceiver(RaycastReceiver receiver)
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var type = levelUI.GetReceiverType(receiver);
             ClickOnReceiver(type);
         }
-        private void ClickOnReceiver(LevelUI.Receiver receiver)
+        private void ClickOnReceiver(LevelUIPreset.Receiver receiver)
         {
             if (!IsGameRunning())
                 return;
@@ -357,10 +351,10 @@ namespace MVZ2.Level
             LawnArea area = LawnArea.Main;
             switch (receiver)
             {
-                case LevelUI.Receiver.Side:
+                case LevelUIPreset.Receiver.Side:
                     area = LawnArea.Side;
                     break;
-                case LevelUI.Receiver.Bottom:
+                case LevelUIPreset.Receiver.Bottom:
                     area = LawnArea.Bottom;
                     break;
             }
@@ -399,12 +393,12 @@ namespace MVZ2.Level
         }
         private void PlayReadySetBuild()
         {
-            var ui = GetLevelUI();
+            var ui = GetUIPreset();
             ui.SetReadySetBuildVisible(true);
         }
         private void UpdateLevelUI()
         {
-            var ui = GetLevelUI();
+            var ui = GetUIPreset();
             ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
             ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
             ui.SetPickaxeVisible(!level.IsHoldingPickaxe());
@@ -414,12 +408,12 @@ namespace MVZ2.Level
         }
         private void SetLevelUISimulationSpeed(float simulationSpeed)
         {
-            var ui = GetLevelUI();
+            var ui = GetUIPreset();
             ui.SetSimulationSpeed(simulationSpeed);
         }
         private void UpdateLevelProgress()
         {
-            var ui = GetLevelUI();
+            var ui = GetUIPreset();
             ui.SetProgressVisible(level.LevelProgressVisible);
             ui.SetProgress(levelProgress);
             ui.SetBannerProgresses(bannerProgresses);
@@ -432,7 +426,7 @@ namespace MVZ2.Level
             {
                 name = StringTable.LEVEL_NAME_UNKNOWN;
             }
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             var levelName = Main.LanguageManager._p(StringTable.CONTEXT_LEVEL_NAME, name);
             if (dayNumber > 0)
             {
@@ -442,23 +436,23 @@ namespace MVZ2.Level
         }
         private void UpdateStarshards()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
         }
         private void UpdateDifficultyName()
         {
             var difficultyName = Main.ResourceManager.GetDifficultyName(level.Difficulty);
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetDifficulty(difficultyName);
         }
         private void SetUIVisibleState(VisibleState state)
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetUIVisibleState(state);
         }
         private void SetUnlockedUIVisible()
         {
-            var levelUI = GetLevelUI();
+            var levelUI = GetUIPreset();
             levelUI.SetStarshardVisible(Main.SaveManager.IsStarshardUnlocked());
             levelUI.SetTriggerSlotVisible(Main.SaveManager.IsTriggerUnlocked());
         }
@@ -486,9 +480,9 @@ namespace MVZ2.Level
         [SerializeField]
         private Physics2DRaycaster raycaster;
         [SerializeField]
-        private LevelUI standaloneUI;
+        private LevelUIPreset standaloneUI;
         [SerializeField]
-        private LevelUI mobileUI;
+        private LevelUIPreset mobileUI;
         [SerializeField]
         private List<SpriteReference> pauseImages = new List<SpriteReference>();
         #endregion

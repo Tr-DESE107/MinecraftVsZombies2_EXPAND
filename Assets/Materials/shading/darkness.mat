@@ -43,9 +43,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BlurRadius: 1
+    - _BlurSize: 2
     - _LightBorderStrength: 1
-    - _LightBorderThresold: 0.4
-    - _LightBorderWidth: 0.02
+    - _LightBorderThresold: 1
+    - _LightBorderWidth: 0.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

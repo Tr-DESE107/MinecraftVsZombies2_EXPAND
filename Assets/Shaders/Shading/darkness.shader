@@ -5,9 +5,8 @@
 		_MainTex("Main Texture", 2D) = "white" {}
 		_LightTex("Light Texture", 2D) = "white" {}
 		_NoiseTex("Noise Texture", 2D) = "white" {}
-		_LightBorderThresold("Light Border Thresold", Range(0, 1)) = 0.5
-		_LightBorderStrength("Light Border Strength", Range(0, 1)) = 0.5
-		_LightBorderWidth("Light Border Width", Float) = 0.5
+		_BlurRadius("Blur Radius", Int) = 0
+		_BlurSize("Blur Size", Float) = 0
 		_Color("Tint", Color) = (1,1,1,1)
 	}
 
@@ -35,11 +34,11 @@
 				#include "UnitySprites.cginc"
 
 				sampler2D _LightTex;
+				half4 _LightTex_TexelSize;
 				sampler2D _NoiseTex;
 				float4 _NoiseTex_ST;
-				fixed _LightBorderThresold;
-				fixed _LightBorderStrength;
-				float _LightBorderWidth;
+				int _BlurRadius;
+				fixed _BlurSize;
 
 				struct a2v_darkness
 				{
@@ -69,15 +68,34 @@
 					return OUT;
 				}
 
+				fixed4 blur(sampler2D tex, half4 texelSize, fixed2 uv)
+				{
+					int blurSize = _BlurSize;
+					int radius = _BlurRadius;
+					int grids = (radius * 2 + 1) * (radius * 2 + 1);
+					fixed4 col = 0;
+					for (int x = -radius; x <= radius; x++)
+					{
+						for (int y = -radius; y <= radius; y++)
+						{
+							float weight = 1.0 / grids;
+							fixed2 offset = fixed2(x * texelSize.x * blurSize, y * texelSize.y * blurSize);
+							col += tex2D(tex, uv + offset) * weight;
+						}
+					}
+					return col;
+				}
 
 				fixed4 frag(v2f_darkness IN) : SV_Target
 				{
-					fixed4 c = tex2D(_MainTex, IN.texcoord) * IN.color;
-					fixed4 light = tex2D(_LightTex, IN.texcoord);
+					fixed4 dark = tex2D(_MainTex, IN.texcoord) * IN.color;
+					fixed4 light = blur(_LightTex, _LightTex_TexelSize, IN.texcoord);
 
-					c.rgb = 1 - (1 - c.rgb) * (1 - light.rgb);
-					c.rgb = lerp(1, c.rgb, c.a);
-					return c;
+
+
+					dark.rgb = 1 - (1 - dark.rgb) * (1 - light.rgb);
+					dark.rgb = lerp(1, dark.rgb, dark.a);
+					return dark;
 				}
 				ENDCG
 			}
