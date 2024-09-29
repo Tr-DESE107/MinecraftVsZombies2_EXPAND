@@ -16,6 +16,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID finalWave = Get("final_wave");
         public readonly static NamespaceID grass = Get("grass");
         public readonly static NamespaceID hit = Get("hit");
+        public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID hugeWave = Get("huge_wave");
         public readonly static NamespaceID leatherHit = Get("leather_hit");
         public readonly static NamespaceID loseMusic = Get("lose_music");

@@ -14,6 +14,7 @@
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:Carts/Minecart" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="pumpkin_carriage" type="entity" path="mvz2:Carts/PumpkinCarriage" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:Pickups/Redstone" width="64" height="64" xOffset="0" yOffset="4"/>

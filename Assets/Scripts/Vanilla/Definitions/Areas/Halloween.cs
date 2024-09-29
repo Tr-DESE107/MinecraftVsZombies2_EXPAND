@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Areas
         public Halloween(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinAreaProps.DOOR_Z, 160f);
-            SetProperty(AreaProperties.CART_REFERENCE, CartID.minecart);
+            SetProperty(AreaProperties.CART_REFERENCE, CartID.pumpkinCarriage);
             SetProperty(BuiltinLevelProps.MUSIC_ID, MusicID.halloween);
             for (int i = 0; i < 45; i++)
             {
