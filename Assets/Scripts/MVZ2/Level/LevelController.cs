@@ -32,6 +32,9 @@ namespace MVZ2.Level
             game.SetLevel(level);
 
             AddLevelCallbacks();
+            level.StartStageID = stageID;
+            level.StartAreaID = areaID;
+            level.IsRerun = Main.SaveManager.IsLevelCleared(stageID);
 
             var option = new LevelOption()
             {
@@ -231,11 +234,6 @@ namespace MVZ2.Level
         {
             Main.LevelManager.RemoveLevelState(level.StartStageID);
         }
-        public void SetStartStageID(NamespaceID areaID, NamespaceID stageID)
-        {
-            level.StartStageID = stageID;
-            level.StartAreaID = areaID;
-        }
         public NamespaceID GetStartAreaID()
         {
             return level.StartAreaID;
@@ -414,7 +412,7 @@ namespace MVZ2.Level
 
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
-            if (!Main.SaveManager.IsLevelCleared(stageID) && NamespaceID.IsValid(endTalk) && Main.ResourceManager.GetTalkGroup(endTalk) != null)
+            if (!level.IsRerun && NamespaceID.IsValid(endTalk) && Main.ResourceManager.GetTalkGroup(endTalk) != null)
             {
                 StartTalk(endTalk, 0, 5);
             }

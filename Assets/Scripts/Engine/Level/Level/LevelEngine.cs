@@ -430,6 +430,7 @@ namespace PVZEngine.Level
         public IContentProvider ContentProvider { get; private set; }
         public ITranslator Translator { get; private set; }
         public int Seed { get; private set; }
+        public bool IsRerun { get; set; }
         public bool IsCleared { get; private set; }
         public NamespaceID StageID { get; private set; }
         public StageDefinition StageDefinition { get; private set; }

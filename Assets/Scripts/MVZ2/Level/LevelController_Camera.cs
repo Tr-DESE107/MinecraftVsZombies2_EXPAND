@@ -125,6 +125,7 @@ namespace MVZ2.Level
             Main.Scene.SetPortalFadeIn(async () =>
             {
                 await ExitLevel();
+                Main.Scene.SetPortalFadeOut();
             });
         }
         private IEnumerator ExitLevelToNoteTransition(NamespaceID noteID, float delay)

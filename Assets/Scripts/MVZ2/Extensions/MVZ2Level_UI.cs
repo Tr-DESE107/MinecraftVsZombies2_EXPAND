@@ -72,7 +72,7 @@ namespace MVZ2.Extensions
         public static Vector2 GetScreenCenterPosition(this LevelEngine level)
         {
             var x = level.GetLeftUIBorderX() + BuiltinLevel.SCREEN_WIDTH * 0.5f;
-            var y = BuiltinLevel.SCREEN_HEIGHT;
+            var y = BuiltinLevel.SCREEN_HEIGHT * 0.5f;
             return new Vector2(x, y);
         }
     }

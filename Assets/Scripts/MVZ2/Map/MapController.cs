@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using log4net.Core;
 using MukioI18n;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Managers;
 using MVZ2.Resources;
+using MVZ2.Talk;
 using MVZ2.UI;
 using PVZEngine;
 using UnityEngine;
@@ -67,46 +69,15 @@ namespace MVZ2.Map
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
 
-            int unclearedMapButtonIndex = -1;
-            for (int i = 0; i < model.GetMapButtonCount(); i++)
-            {
-                var unlocked = IsLevelUnlocked(i);
-                var color = buttonColorCleared;
-                if (!unlocked)
-                    color = buttonColorLocked;
-                else if (IsMinigameStage(i))
-                    color = buttonColorMinigame;
-                else if (!IsLevelCleared(i))
-                {
-                    color = buttonColorUncleared;
-                    unclearedMapButtonIndex = i;
-                }
-
-                model.SetMapButtonInteractable(i, unlocked);
-                model.SetMapButtonColor(i, color);
-                model.SetMapButtonText(i, (i + 1).ToString());
-            }
-            var endlessColor = buttonColorCleared;
-            var endlessUnlocked = IsEndlessUnlocked();
-            if (!endlessUnlocked)
-                endlessColor = buttonColorLocked;
-            model.SetEndlessButtonInteractable(endlessUnlocked);
-            model.SetEndlessButtonColor(endlessColor);
-            model.SetEndlessButtonText("E");
-
-
-            if (unclearedMapButtonIndex >= 0)
-            {
-                var unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
-                if (unclearedMapButton)
-                {
-                    var pos = unclearedMapButton.transform.position;
-                    pos.z = mapCamera.transform.position.z;
-                    mapCamera.transform.position = pos;
-                }
-            }
+            UpdateModelButtons();
             SetCameraBackgroundColor(mapPreset.backgroundColor);
             Main.MusicManager.Play(mapPreset.music);
+
+            var mapTalk = Main.SaveManager.GetMapTalk();
+            if (Main.ResourceManager.GetTalkGroup(mapTalk) != null)
+            {
+                talkController.StartTalk(mapTalk, 0, 3);
+            }
         }
         #endregion
 
@@ -116,6 +87,8 @@ namespace MVZ2.Map
         private void Awake()
         {
             ui.OnButtonClick += OnButtonClickCallback;
+            talkController.OnTalkAction += OnTalkActionCallback;
+            talkController.OnTalkEnd += OnTalkEndCallback;
         }
         private void Update()
         {
@@ -155,6 +128,13 @@ namespace MVZ2.Map
                     break;
             }
         }
+        private void OnTalkActionCallback(string cmd, string[] parameters)
+        {
+            BuiltinCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
+        }
+        private void OnTalkEndCallback()
+        {
+        }
         private void OnOptionsDialogCloseCallback()
         {
             optionsLogic.OnClose -= OnOptionsDialogCloseCallback;
@@ -167,7 +147,7 @@ namespace MVZ2.Map
         }
         private void OnEndlessButtonClickCallback()
         {
-
+            Main.SaveManager.SetMapTalk(null);
         }
         #endregion
 
@@ -395,6 +375,48 @@ namespace MVZ2.Map
             Hide();
         }
 
+        private void UpdateModelButtons()
+        {
+            int unclearedMapButtonIndex = -1;
+            for (int i = 0; i < model.GetMapButtonCount(); i++)
+            {
+                var unlocked = IsLevelUnlocked(i);
+                var color = buttonColorCleared;
+                if (!unlocked)
+                    color = buttonColorLocked;
+                else if (IsMinigameStage(i))
+                    color = buttonColorMinigame;
+                else if (!IsLevelCleared(i))
+                {
+                    color = buttonColorUncleared;
+                    unclearedMapButtonIndex = i;
+                }
+
+                model.SetMapButtonInteractable(i, unlocked);
+                model.SetMapButtonColor(i, color);
+                model.SetMapButtonText(i, (i + 1).ToString());
+            }
+            var endlessColor = buttonColorCleared;
+            var endlessUnlocked = IsEndlessUnlocked();
+            if (!endlessUnlocked)
+                endlessColor = buttonColorLocked;
+            model.SetEndlessButtonInteractable(endlessUnlocked);
+            model.SetEndlessButtonColor(endlessColor);
+            model.SetEndlessButtonText("E");
+
+
+            if (unclearedMapButtonIndex >= 0)
+            {
+                var unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
+                if (unclearedMapButton)
+                {
+                    var pos = unclearedMapButton.transform.position;
+                    pos.z = mapCamera.transform.position.z;
+                    mapCamera.transform.position = pos;
+                }
+            }
+        }
+
         #endregion
 
         [TranslateMsg("地图的提示文本")]
@@ -415,6 +437,8 @@ namespace MVZ2.Map
         public NamespaceID MapID { get; private set; }
         [SerializeField]
         private MapUI ui;
+        [SerializeField]
+        private TalkController talkController;
         [SerializeField]
         private GameObject raycastHitbox;
         [SerializeField]

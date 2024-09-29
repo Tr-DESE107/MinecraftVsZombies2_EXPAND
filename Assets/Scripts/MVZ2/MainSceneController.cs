@@ -42,6 +42,7 @@ namespace MVZ2
         public void SetPortalFadeOut()
         {
             portal.SetDisplay(false);
+            portal.ResetFadeout();
         }
         public void DisplayPage(MainScenePageType type)
         {

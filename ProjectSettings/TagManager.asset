@@ -62,6 +62,9 @@ TagManager:
   - name: FrontUI
     uniqueID: 4110715849
     locked: 0
+  - name: Talk
+    uniqueID: 1660876549
+    locked: 0
   - name: Dialog
     uniqueID: 2478835277
     locked: 0

@@ -1,4 +1,5 @@
 using MVZ2.Vanilla;
+using UnityEngine;
 
 namespace MVZ2.GameContent
 {
@@ -7,6 +8,7 @@ namespace MVZ2.GameContent
     {
         public Emerald(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(BuiltinEntityProps.SHADOW_SCALE, Vector3.one * 0.5f);
         }
     }
 }

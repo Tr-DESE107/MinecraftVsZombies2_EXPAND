@@ -13,11 +13,11 @@ namespace MVZ2.Talk
         }
         public void SetSpeaking(bool value)
         {
-            _animator.SetBool("Speaking", value);
+            speaking = value;
         }
         public void SetLeaving(bool value)
         {
-            _animator.SetBool("Leaving", value);
+            leaving = value;
         }
         public void SetDisappear(bool value)
         {
@@ -34,54 +34,42 @@ namespace MVZ2.Talk
         public void SetCharacter(Sprite spr)
         {
             image.sprite = spr;
-            //image.SetNativeSize();
-            //(transform as RectTransform).pivot = spr.pivot;
+            image.SetNativeSize();
+            imageRectTransform.pivot = spr.pivot / spr.rect.size;
         }
-        public void SetStartPosition(Position position)
+        private void Update()
         {
-            positionTransition.setStartTransform(GetTransformByPosition(position));
-        }
-        public void SetTargetPosition(Position position)
-        {
-            positionTransition.setTargetTransform(GetTransformByPosition(position));
+            if (leaving)
+            {
+                blendValue = Mathf.Lerp(blendValue, 0, idleBlendFactor);
+            }
+            else if (speaking)
+            {
+                blendValue = Mathf.Lerp(blendValue, 1, idleBlendFactor);
+            }
+            else
+            {
+                blendValue = Mathf.Lerp(blendValue, idleBlendValue, idleBlendFactor);
+            }
+            _animator.SetFloat("Blend", blendValue);
         }
         #endregion
-        private Transform GetTransformByPosition(Position position)
-        {
-            switch (position)
-            {
-                case Position.Start:
-                    return startTransform;
-                case Position.Idle:
-                    return idleTransform;
-                case Position.Speak:
-                    return speakTransform;
-            }
-            return null;
-        }
 
         #region 属性字段
+        private bool speaking;
+        private bool leaving;
+        private float blendValue = 0;
         [SerializeField]
         private Animator _animator;
         [SerializeField]
         private Image image;
-
-        [Header("Animator")]
         [SerializeField]
-        private PositionTransition positionTransition;
+        private RectTransform imageRectTransform;
         [SerializeField]
-        private Transform startTransform;
+        private float idleBlendFactor = 0.2f;
         [SerializeField]
-        private Transform idleTransform;
-        [SerializeField]
-        private Transform speakTransform;
+        private float idleBlendValue = 0.8f;
         #endregion
-        public enum Position
-        {
-            Start,
-            Idle,
-            Speak
-        }
 
     }
 

@@ -1,13 +1,9 @@
-using System.Collections.Generic;
 using MVZ2.Extensions;
 using MVZ2.GameContent.Effects;
-using MVZ2.Games;
 using MVZ2.Vanilla;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent
 {
@@ -56,7 +52,9 @@ namespace MVZ2.GameContent
                 float timePercent = collectedTime / (float)moveTime;
                 var targetPos = GetMoveTargetPosition(pickup);
                 pickup.Velocity = (targetPos - pickup.Pos) * 0.05f;
-                
+                pickup.Scale = Vector3.one * Mathf.Lerp(1, 3, timePercent);
+                pickup.RenderScale = Vector3.one * Mathf.Lerp(1, 3, timePercent);
+
                 shadowAlpha = 0;
             }
             pickup.SetShadowAlpha(shadowAlpha);
@@ -70,7 +68,7 @@ namespace MVZ2.GameContent
             base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
-            if (IsLevelCleared(level))
+            if (level.IsRerun)
             {
                 int money = 250;
                 if (level.Difficulty == LevelDifficulty.easy)
@@ -90,6 +88,12 @@ namespace MVZ2.GameContent
                     GemEffect.SpawnGemEffects(level, 250, pickup.Pos, pickup, false);
                 }
             }
+            foreach (var p in level.GetEntities(EntityTypes.PICKUP))
+            {
+                if (p == pickup || p.IsCollected())
+                    continue;
+                p.Collect();
+            }
             level.Clear();
             level.StopMusic();
             level.PlaySound(pickup.GetCollectSound());
@@ -100,25 +104,20 @@ namespace MVZ2.GameContent
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
             var level = entity.Level;
-            Vector3 slotPosition = level.GetScreenCenterPosition();
+            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.RenderScale.y * 0.5f);
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
         private NamespaceID GetPickupModelID(Entity entity)
         {
             var game = Global.Game;
             var level = entity.Level;
-            if (game.IsLevelCleared(level.StartStageID))
+            if (level.IsRerun)
                 return VanillaModelID.moneyChest;
             var stageMeta = game.GetStageMeta(level.StageID);
             var levelModel = stageMeta?.clearPickupModel;
             if (NamespaceID.IsValid(levelModel))
                 return levelModel;
             return VanillaModelID.blueprintPickup;
-        }
-        private bool IsLevelCleared(LevelEngine level)
-        {
-            var game = Global.Game;
-            return game.IsLevelCleared(level.StartStageID);
         }
         private NamespaceID GetPickupSoundID(Entity entity)
         {

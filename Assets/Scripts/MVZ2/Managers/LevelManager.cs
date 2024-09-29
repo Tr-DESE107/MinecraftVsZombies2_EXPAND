@@ -25,13 +25,12 @@ namespace MVZ2.Level
             Main.SaveManager.SaveModDatas();
             if (HasLevelState(stageID))
             {
-                LoadLevel(stageID);
+                LoadLevel(areaID, stageID);
             }
             else
             {
                 controller.InitGame(Main.Game, areaID, stageID);
             }
-            controller.SetStartStageID(areaID, stageID);
         }
         #region 关卡存读
         public void SaveLevel()
@@ -44,7 +43,7 @@ namespace MVZ2.Level
             var json = seri.ToBson();
             Main.FileManager.WriteJsonFile(path, json);
         }
-        public void LoadLevel(NamespaceID stageID)
+        public void LoadLevel(NamespaceID areaID, NamespaceID stageID)
         {
             if (!controller)
                 return;
@@ -55,7 +54,7 @@ namespace MVZ2.Level
                 var path = GetLevelStatePath(stageID);
                 var json = Main.FileManager.ReadJsonFile(path);
                 var seri = SerializeHelper.FromBson<SerializableLevelController>(json);
-                controller.LoadGame(seri, Main.Game);
+                controller.LoadGame(seri, Main.Game, areaID, stageID);
             }
             catch (Exception e)
             {

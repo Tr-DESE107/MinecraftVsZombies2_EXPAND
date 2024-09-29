@@ -2542,7 +2542,7 @@ Transform:
   m_GameObject: {fileID: 3580299581115580701}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.901076, y: 3, z: -10}
+  m_LocalPosition: {x: 1.5986756, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2575,10 +2575,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.23394352
-    width: 1
-    height: 0.53211296
+    x: 0.30023038
+    y: 0
+    width: 0.3995392
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3282,8 +3282,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -184251447
-  m_SortingOrder: 10000
+  m_SortingLayerID: 1660876549
+  m_SortingOrder: -100
   m_TargetDisplay: 0
 --- !u!114 &2099377276436715626
 MonoBehaviour:
@@ -3807,8 +3807,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -184251447
-  m_SortingOrder: 10000
+  m_SortingLayerID: 1660876549
+  m_SortingOrder: -100
   m_TargetDisplay: 0
 --- !u!114 &3162039923273125476
 MonoBehaviour:
@@ -9855,6 +9855,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1343413838038683634, guid: bf689ec965f1a93419d22bcf54d03206, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100.00003
+      objectReference: {fileID: 0}
     - target: {fileID: 2123900138864289957, guid: bf689ec965f1a93419d22bcf54d03206, type: 3}
       propertyPath: m_Camera
       value: 
@@ -9862,10 +9866,6 @@ PrefabInstance:
     - target: {fileID: 5352697095018158009, guid: bf689ec965f1a93419d22bcf54d03206, type: 3}
       propertyPath: m_Name
       value: Talk
-      objectReference: {fileID: 0}
-    - target: {fileID: 5352697095018158009, guid: bf689ec965f1a93419d22bcf54d03206, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,6 +13,10 @@ namespace MVZ2.UI
         {
             animator.SetTrigger("Fadeout");
         }
+        public void ResetFadeout()
+        {
+            animator.ResetTrigger("Fadeout");
+        }
         public void CallFadeIn()
         {
             OnFadeIn?.Invoke();

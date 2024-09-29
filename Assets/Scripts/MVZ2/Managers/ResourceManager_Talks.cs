@@ -9,6 +9,8 @@ namespace MVZ2.Managers
     {
         public TalkGroup GetTalkGroup(NamespaceID groupID)
         {
+            if (!NamespaceID.IsValid(groupID))
+                return null;
             var modResource = GetModResource(groupID.spacename);
             if (modResource == null)
                 return null;

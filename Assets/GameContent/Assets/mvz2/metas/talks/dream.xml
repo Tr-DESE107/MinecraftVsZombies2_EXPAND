@@ -15,7 +15,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.1" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_1_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -30,7 +30,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.1" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_1_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -66,7 +66,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.2" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_2_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -80,7 +80,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.2" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_2_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -115,7 +115,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.3" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_3_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -128,7 +128,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.3" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_3_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -147,7 +147,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.4" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_4_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -159,7 +159,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.4" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_4_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:doremy" variant="mvz2:read_smile" side="right" />
@@ -185,7 +185,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.5" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_5_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -198,7 +198,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.5" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_5_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -243,7 +243,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.6" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_6_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -255,7 +255,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.6" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_6_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section onSkip="end;music volume 1;screen black set 1;screen black fade -1;action show_nightmare;music play mvz2:nightmare_map">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -292,7 +292,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.7" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group name="dream_7_over" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -305,7 +305,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.7" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_7_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
     <section onSkip="end;foreground alpha 0;music fade 0;music volume 1">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -367,7 +367,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.8" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group name="dream_8_over" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -380,7 +380,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.8" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_8_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
     <section onSkip="end;music fade 1 0">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -436,7 +436,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.9" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group name="dream_9_over" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -449,7 +449,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.9" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_9_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -480,7 +480,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.10" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_10_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -513,7 +513,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_over.11" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group name="dream_11_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -530,7 +530,7 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_map.11" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group name="dream_11_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
     <section onSkip="end;music fade 1 0;screen black fade -1">
       <characters>
         <character id="mvz2:crazy_villager" />

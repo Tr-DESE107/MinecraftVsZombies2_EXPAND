@@ -8,6 +8,7 @@ using MVZ2.Managers;
 using MVZ2.Resources;
 using MVZ2.UI;
 using PVZEngine;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,7 +23,6 @@ namespace MVZ2.Talk
         /// </summary>
         public void StartTalk(NamespaceID groupId, int section, float delay = 0)
         {
-            gameObject.SetActive(true);
             IsTalking = true;
 
 
@@ -55,6 +55,7 @@ namespace MVZ2.Talk
             }
             chr.SetCharacter(sprite);
             chr.gameObject.SetActive(true);
+            chr.gameObject.name = characterId.ToString();
             dialogCharacters.Add(characterId, chr);
             return chr;
         }
@@ -69,11 +70,19 @@ namespace MVZ2.Talk
         {
             characterTemplate.gameObject.SetActive(false);
             skipButton.gameObject.SetActive(false);
+            blockerObject.SetActive(false);
+            raycastReceiver.gameObject.SetActive(false);
+            SetSkipButtonActive(false);
 
             skipButton.onClick.AddListener(OnSkipClicked);
             raycastReceiver.OnPointerDown += OnClick;
             foregroundFader.OnValueChanged += OnForegroundAlphaChanged;
             forecolorFader.OnValueChanged += OnForegroundColorChanged;
+        }
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+            ClearCharacters();
         }
         #endregion
 
@@ -469,16 +478,23 @@ namespace MVZ2.Talk
                 TalkCharacterController character = pair.Value;
                 character.SetLeaving(true);
             }
-            dialogCharacters.Clear();
+            StartCoroutine(DelayedClearCharacters(0.5f));
             blockerObject.SetActive(false);
             raycastReceiver.gameObject.SetActive(false);
             OnTalkEnd?.Invoke();
+        }
+        private IEnumerator DelayedClearCharacters(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            ClearCharacters();
         }
         private void ClearCharacters()
         {
             foreach (var pair in dialogCharacters)
             {
                 var character = pair.Value;
+                if (!character)
+                    continue;
                 Destroy(character.gameObject);
             }
             dialogCharacters.Clear();
