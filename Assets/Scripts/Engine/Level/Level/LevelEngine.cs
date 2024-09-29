@@ -239,7 +239,7 @@ namespace PVZEngine.Level
         }
         public float GetGroundY(float x, float z)
         {
-            return 0;
+            return AreaDefinition.GetGroundY(x, z);
         }
         public LawnGrid GetGrid(int index)
         {

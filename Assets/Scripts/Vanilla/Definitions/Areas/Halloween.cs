@@ -19,5 +19,28 @@ namespace MVZ2.GameContent.Areas
                 grids.Add(GridID.grass);
             }
         }
+        public override float GetGroundY(float x, float z)
+        {
+            switch (x)
+            {
+                case > 185:
+                    return 0;
+                case > 175:
+                    // 地面和第一层的交界处
+                    return Mathf.Lerp(0, 48, (185 - x) / 10);
+                case > 140:
+                    return 48;
+                case > 130:
+                    // 第一层和第二层的交界处
+                    return Mathf.Lerp(48, 96, (140 - x) / 10);
+                case > 95:
+                    return 96;
+                case > 85:
+                    // 第二层和第三层的交界处
+                    return Mathf.Lerp(96, 144, (95 - x) / 10);
+                default:
+                    return 144;
+            }
+        }
     }
 }

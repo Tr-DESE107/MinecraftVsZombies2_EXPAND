@@ -12,6 +12,7 @@ namespace MVZ2.GameContent.Carts
         protected VanillaCart(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinCartProps.CART_TRIGGER_SOUND, SoundID.minecart);
+            SetProperty(EntityProperties.CAN_UNDER_GROUND, true);
             SetProperty(EntityProperties.SIZE, new Vector3(56, 32, 56));
         }
         public override void Init(Entity entity)

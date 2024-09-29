@@ -21,5 +21,6 @@
         public const string TINT = "tint";
         public const string COLOR_OFFSET = "colorOffset";
         public const string FACE_LEFT_AT_DEFAULT = "faceLeftAtDefault";
+        public const string CAN_UNDER_GROUND = "canUnderGround";
     }
 }

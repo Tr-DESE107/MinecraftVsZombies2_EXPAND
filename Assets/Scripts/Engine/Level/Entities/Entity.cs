@@ -413,7 +413,7 @@ namespace PVZEngine.Level
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
             var nextPos = Pos + velocity * simulationSpeed;
-            if (!CanUnderGround)
+            if (!GetProperty<bool>(EntityProperties.CAN_UNDER_GROUND))
             {
                 nextPos.y = Mathf.Max(GetGroundHeight(), nextPos.y);
             }
@@ -609,7 +609,6 @@ namespace PVZEngine.Level
             seri.collisionMask = CollisionMask;
             seri.renderRotation = RenderRotation;
             seri.renderScale = RenderScale;
-            seri.canUnderGround = CanUnderGround;
             seri.boundsOffset = BoundsOffset;
             seri.poolCount = PoolCount;
             seri.timeout = Timeout;
@@ -648,7 +647,6 @@ namespace PVZEngine.Level
             CollisionMask = seri.collisionMask;
             RenderRotation = seri.renderRotation;
             RenderScale = seri.renderScale;
-            CanUnderGround = seri.canUnderGround;
             BoundsOffset = seri.boundsOffset;
             PoolCount = seri.poolCount;
             Timeout = seri.timeout;
@@ -752,7 +750,6 @@ namespace PVZEngine.Level
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
         public Vector3 RenderScale { get; set; } = Vector3.one;
         public bool FlipX => Scale.x < 0;
-        public bool CanUnderGround { get; set; }
         public Vector3 BoundsOffset { get; set; }
         public int PoolCount { get; set; }
         public int Timeout { get; set; } = -1;

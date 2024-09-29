@@ -26,7 +26,6 @@ namespace PVZEngine.Serialization
         public int collisionMask;
         public Vector3 renderRotation;
         public Vector3 renderScale;
-        public bool canUnderGround;
         public Vector3 boundsOffset;
         public int poolCount;
         public int timeout;
