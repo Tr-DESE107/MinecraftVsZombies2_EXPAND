@@ -351,18 +351,13 @@ namespace MVZ2.Level.UI
         {
             animator.SetBool("RaycastDisabled", disabled);
         }
-        public void SetExiting(bool note)
+        public void SetExitingToNote()
         {
             animator.SetTrigger("Exit");
-            animator.SetBool("ExitToNote", note);
-        }
-        public void CallExitLevel()
-        {
-            OnExitLevelCalled?.Invoke(false);
         }
         public void CallExitLevelToNote()
         {
-            OnExitLevelCalled?.Invoke(true);
+            OnExitLevelToNoteCalled?.Invoke();
         }
 
         #endregion
@@ -450,7 +445,7 @@ namespace MVZ2.Level.UI
         public event Action OnMenuButtonClick;
         public event Action OnSpeedUpButtonClick;
         public event Action OnStartGameCalled;
-        public event Action<bool> OnExitLevelCalled;
+        public event Action OnExitLevelToNoteCalled;
         public event Action OnPauseDialogResumeClicked;
         public event Action OnGameOverRetryButtonClicked;
         public event Action OnGameOverBackButtonClicked;

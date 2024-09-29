@@ -27,6 +27,11 @@ namespace MVZ2.Map
             ui.SetDragRootVisible(false);
             ui.SetOptionsDialogActive(false);
             ui.SetRaycastBlockerActive(false);
+            if (!Main.SoundManager.IsPlaying(SoundID.travel))
+            {
+                Main.SoundManager.Play2D(SoundID.travel);
+            }
+            Main.Scene.ShowPortal();
         }
         public override void Hide()
         {

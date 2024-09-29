@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Assets.Scripts.MVZ2.Managers;
 using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
@@ -12,6 +13,10 @@ namespace MVZ2.Managers
         public void SetGlobalVolume(float volume)
         {
             mixer.SetFloat("SoundVolume", AudioHelper.PercentageToDbA(volume));
+        }
+        public bool IsPlaying(NamespaceID id)
+        {
+            return soundSources.Any(s => s.SoundID == id);
         }
         public AudioSource Play2D(NamespaceID id, float pitch = 1)
         {
@@ -30,28 +35,27 @@ namespace MVZ2.Managers
                 return null;
             var maxCount = meta.maxCount;
             var clip = main.ResourceManager.GetSoundClip(sample.path);
-            if (maxCount > 0 && soundSources.Count(s => s.clip == clip) >= maxCount)
+            if (maxCount > 0 && soundSources.Count(s => s.SoundID == id) >= maxCount)
                 return null;
-            return Play(clip, pos, meta.priority, pitch, spatialBlend);
-        }
-        public AudioSource Play(AudioClip clip, Vector3 pos, int priority, float pitch = 1, float spatialBlend = 1)
-        {
             if (!clip)
                 return null;
             var source = Instantiate(soundTemplate, pos, Quaternion.identity, soundSourceRoot);
-            source.clip = clip;
-            source.pitch = pitch;
-            source.spatialBlend = spatialBlend;
-            source.priority = priority;
+            source.SoundID = id;
+
+            var audioSource = source.AudioSource;
+            audioSource.clip = clip;
+            audioSource.pitch = pitch;
+            audioSource.spatialBlend = spatialBlend;
+            audioSource.priority = meta.priority;
             soundSources.Add(source);
-            source.gameObject.SetActive(true);
-            return source;
+            audioSource.gameObject.SetActive(true);
+            return audioSource;
         }
         private void Update()
         {
             foreach (var source in soundSources.ToArray())
             {
-                if (!source.isPlaying)
+                if (!source.AudioSource.isPlaying)
                 {
                     soundSources.Remove(source);
                     Destroy(source.gameObject);
@@ -66,9 +70,9 @@ namespace MVZ2.Managers
         [SerializeField]
         private Transform soundSourceRoot;
         [SerializeField]
-        private AudioSource soundTemplate;
+        private SoundSource soundTemplate;
 
         [Header("AudioClips")]
-        private List<AudioSource> soundSources = new List<AudioSource>();
+        private List<SoundSource> soundSources = new List<SoundSource>();
     }
 }

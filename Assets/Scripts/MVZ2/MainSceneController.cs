@@ -30,6 +30,19 @@ namespace MVZ2
         {
             ui.ShowDialog(title, desc, options, onSelect);
         }
+        public void ShowPortal()
+        {
+            portal.Fadeout();
+        }
+        public void SetPortalFadeIn(Action OnFadeIn)
+        {
+            portal.SetDisplay(true);
+            portal.OnFadeIn += OnFadeIn;
+        }
+        public void SetPortalFadeOut()
+        {
+            portal.SetDisplay(false);
+        }
         public void DisplayPage(MainScenePageType type)
         {
             foreach (var pair in pages)
@@ -152,6 +165,8 @@ namespace MVZ2
         private NoteController note;
         [SerializeField]
         private MapController map;
+        [SerializeField]
+        private PortalController portal;
     }
     public enum MainScenePageType
     {

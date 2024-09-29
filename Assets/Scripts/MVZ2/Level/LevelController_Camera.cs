@@ -120,14 +120,17 @@ namespace MVZ2.Level
         private IEnumerator ExitLevelTransition(float delay)
         {
             yield return new WaitForSeconds(delay);
-            var levelUI = GetLevelUI();
-            levelUI.SetExiting(false);
+            Main.SoundManager.Play2D(SoundID.travel);
+            Main.Scene.SetPortalFadeIn(async () =>
+            {
+                await ExitLevel();
+            });
         }
         private IEnumerator ExitLevelToNoteTransition(NamespaceID noteID, float delay)
         {
             yield return new WaitForSeconds(delay);
             var levelUI = GetLevelUI();
-            levelUI.SetExiting(true);
+            levelUI.SetExitingToNote();
             exitTargetNoteID = noteID;
         }
         #endregion

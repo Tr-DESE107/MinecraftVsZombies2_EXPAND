@@ -264,7 +264,7 @@ namespace MVZ2.Level
             mobileUI.SetActive(mobileUI == levelUI);
 
             levelUI.OnStartGameCalled += StartGame;
-            levelUI.OnExitLevelCalled += UI_OnExitLevelCalledCallback;
+            levelUI.OnExitLevelToNoteCalled += UI_OnExitLevelToNoteCalledCallback;
 
             Awake_Blueprints();
             Awake_UI();
@@ -431,16 +431,9 @@ namespace MVZ2.Level
                 }
             }
         }
-        private async void UI_OnExitLevelCalledCallback(bool toNote)
+        private async void UI_OnExitLevelToNoteCalledCallback()
         {
-            if (toNote)
-            {
-                await ExitLevelToNote(exitTargetNoteID);
-            }
-            else
-            {
-                await ExitLevel();
-            }
+            await ExitLevelToNote(exitTargetNoteID);
         }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
