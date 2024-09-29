@@ -9,6 +9,9 @@ namespace MVZ2.GameContent
         public const string furnace = "furnace";
         public const string obsidian = "obsidian";
         public const string mineTNT = "mine_tnt";
+
+        public const string smallDispenser = "small_dispenser";
+
         public const string lilyPad = "lily_pad";
     }
     public static class ContraptionID
@@ -17,6 +20,8 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID furnace = Get(ContraptionNames.furnace);
         public static readonly NamespaceID obsidian = Get(ContraptionNames.obsidian);
         public static readonly NamespaceID mineTNT = Get(ContraptionNames.mineTNT);
+
+        public static readonly NamespaceID smallDispenser = Get(ContraptionNames.smallDispenser);
 
         public static readonly NamespaceID lilyPad = Get(ContraptionNames.lilyPad);
         private static NamespaceID Get(string name)

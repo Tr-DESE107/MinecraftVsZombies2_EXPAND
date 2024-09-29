@@ -41,6 +41,16 @@
         <entry/>
         <entry/>
         <entry/>
+        <entry id="small_dispenser">
+            <p>小型发射器能发射短距离的雪球。</p>
+            <p/>
+            <p><![CDATA[<color=blue>白天失效</color>]]></p>
+            <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+            <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+            <p>技能：射出一个越滚越大的雪球</p>
+            <p/>
+            <p>雪球里包着石头，别问了。</p>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="zombie">

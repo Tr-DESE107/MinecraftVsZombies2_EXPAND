@@ -14,13 +14,15 @@ namespace MVZ2.GameContent.Contraptions
         {
             SetProperty(EntityProperties.DAMAGE, 20);
             SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
+            SetProperty(VanillaEntityProps.RANGE, -1);
+            SetProperty(VanillaEntityProps.SHOT_VELOCITY, new Vector3(10, 0, 0));
+            SetProperty(VanillaEntityProps.SHOT_OFFSET, new Vector3(25, 30, 0));
+            SetProperty(VanillaEntityProps.SHOOT_SOUND, SoundID.shot);
+            SetProperty(VanillaEntityProps.PROJECTILE_ID, ProjectileID.arrow);
             SetProperty(EntityProperties.SIZE, new Vector3(32, 48, 32));
             detector = new DispenserDetector()
             {
-                ignoreHighEnemy = true,
-                range = Range,
-                shootOffset = ProjectileOffset,
-                projectileID = Entity,
+                ignoreHighEnemy = true
             };
         }
 
@@ -50,10 +52,10 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("Shoot");
 
             var game = entity.Level;
-            entity.PlaySound(ShootSound);
+            entity.PlaySound(entity.GetShootSound());
 
-            Vector3 offset = ProjectileOffset;
-            Vector3 velocity = ProjectileVelocity;
+            Vector3 offset = entity.GetShotOffset();
+            Vector3 velocity = entity.GetShotVelocity();
             if (entity.IsFacingLeft())
             {
                 offset.x *= -1;
@@ -61,7 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             velocity = ModifyProjectileVelocity(entity, velocity);
 
-            var projectile = game.Spawn(Entity, entity.Pos + offset, entity);
+            var projectile = game.Spawn(entity.GetProjectileID(), entity.Pos + offset, entity);
             projectile.SetDamage(entity.GetDamage());
             projectile.Velocity = velocity;
             projectile.SetFaction(entity.GetFaction());
@@ -79,13 +81,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             return Mathf.FloorToInt(entity.RNG.Next(40, 45) * entity.GetAttackSpeed());
         }
-        protected virtual Vector3 ProjectileOffset => projectileOffset;
-        protected virtual Vector3 ProjectileVelocity => projectileVelocity;
-        protected virtual float Range => -1;
-        protected virtual NamespaceID ShootSound => SoundID.shot;
-        protected virtual NamespaceID Entity => ProjectileID.arrow;
-        private Vector3 projectileOffset = new Vector3(25, 30, 0);
-        private Vector3 projectileVelocity = new Vector3(10, 0, 0);
         private Detector detector;
 
     }

@@ -161,6 +161,40 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2aa6e1715df244b4bb2e23736a2e751c, type: 3}
   - name: pickups/redstone
     sprite: {fileID: 21300000, guid: 6a0f8cf8b009d6a489e4231fec5c686b, type: 3}
+  - name: projectiles/arrow
+    sprite: {fileID: 21300000, guid: 01ea06eaff14a0746a137123701e46b3, type: 3}
+  - name: projectiles/breakout_pearl
+    sprite: {fileID: 21300000, guid: 1180289811b708d4781f5bd9065fb543, type: 3}
+  - name: projectiles/bullet
+    sprite: {fileID: 21300000, guid: ee8a95d990407e34ea9ff1aa13122998, type: 3}
+  - name: projectiles/dart
+    sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
+  - name: projectiles/fire_charge
+    sprite: {fileID: 21300000, guid: 98f6783386f0a7b43bea535a34495e61, type: 3}
+  - name: projectiles/gas
+    sprite: {fileID: 21300000, guid: 985fbd93414b34845b4a0a7ee830eb1a, type: 3}
+  - name: projectiles/giant_spike
+    sprite: {fileID: 21300000, guid: 4d88a598c5aab984891215c1f4414390, type: 3}
+  - name: projectiles/javelin
+    sprite: {fileID: 21300000, guid: 8af07b31f932791429fddf24a251679f, type: 3}
+  - name: projectiles/knife
+    sprite: {fileID: 21300000, guid: 85842c2e1aa457b418e743fc8faeae75, type: 3}
+  - name: projectiles/mine_tnt_seed
+    sprite: {fileID: 21300000, guid: b71c1daafbba0124f80126366dd3a4e6, type: 3}
+  - name: projectiles/missile
+    sprite: {fileID: 21300000, guid: a5c1e4e7edb774e48a12ea382df65f15, type: 3}
+  - name: projectiles/parabot
+    sprite: {fileID: 21300000, guid: d270746c6b1f84442af0d2614257f2e6, type: 3}
+  - name: projectiles/snowball
+    sprite: {fileID: 21300000, guid: 0b6aa6449e74e064eb7a4dc5dd9cc283, type: 3}
+  - name: projectiles/soulfire_ball
+    sprite: {fileID: 21300000, guid: a84ced210884b2b4cac4a4b7d7f4f6a6, type: 3}
+  - name: projectiles/spike
+    sprite: {fileID: 21300000, guid: 62ae9a026747aea4f83506787af8d75a, type: 3}
+  - name: projectiles/spike_ball
+    sprite: {fileID: 21300000, guid: b9edefea292182b489711acd39777a42, type: 3}
+  - name: projectiles/tnt_model
+    sprite: {fileID: 21300000, guid: 2dcf2a5a02a900846ab9ca6458a25522, type: 3}
   - name: level/day/day
     sprite: {fileID: 21300000, guid: eb15cd6c556e4824c941a7c77c3eb86e, type: 3}
   - name: level/day/day_door
@@ -206,6 +240,40 @@ MonoBehaviour:
     - {fileID: 1686918570674494234, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
     - {fileID: -4745778892844803770, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
     - {fileID: 4039136606957829479, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+  - name: portal
+    spritesheet:
+    - {fileID: 21300000, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300002, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300004, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300006, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300008, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300010, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300012, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300014, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300016, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300018, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300020, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300022, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300024, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300026, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300028, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300030, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300032, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300034, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300036, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300038, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300040, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300042, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300044, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300046, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300048, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300050, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300052, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300054, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300056, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300058, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300060, guid: f1647e2400793da43be7f9344136d81d, type: 3}
+    - {fileID: 21300062, guid: f1647e2400793da43be7f9344136d81d, type: 3}
   - name: ready_set_build
     spritesheet:
     - {fileID: -843921380, guid: 164c517f4b3a40f49a48c0f998d7fd7e, type: 3}

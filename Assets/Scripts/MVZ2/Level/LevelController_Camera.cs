@@ -84,6 +84,7 @@ namespace MVZ2.Level
             var seedPacks = Main.LevelManager.GetSeedPacksID();
             level.SetSeedPackCount(seedPacks.Length);
             level.ReplaceSeedPacks(seedPacks);
+            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
 
             yield return MoveCameraToLawn();
             level.PrepareForBattle();

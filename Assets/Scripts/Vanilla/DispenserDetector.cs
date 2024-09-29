@@ -11,6 +11,8 @@ namespace MVZ2.Vanilla
             var targetSize = target.GetSize();
             float enemyHeight = targetSize.y;
 
+            var projectileID = self.GetProjectileID();
+            var shootOffset = self.GetShotOffset();
             var projectileDef = self.Level.ContentProvider.GetEntityDefinition(projectileID);
             var projectileSize = projectileDef.GetSize();
             if (TargetInLawn(target) &&
@@ -45,12 +47,11 @@ namespace MVZ2.Vanilla
 
         private bool TargetInFront(Entity self, Entity target)
         {
+            var shootOffset = self.GetShotOffset();
+            var range = self.GetRange();
             return range < 0 ? Detection.IsInFrontOf(self, target, shootOffset.x) : Detection.IsInFrontOf(self, target, shootOffset.x, range);
         }
-        public NamespaceID projectileID;
-        public float range;
         public bool ignoreLowEnemy;
         public bool ignoreHighEnemy;
-        public Vector3 shootOffset;
     }
 }

@@ -5,6 +5,7 @@
     <model name="furnace" type="entity" path="mvz2:Contraptions/Furnace" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="obsidian" type="entity" path="mvz2:Contraptions/Obsidian" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="mine_tnt" type="entity" path="mvz2:Contraptions/MineTNT" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="small_dispenser" type="entity" path="mvz2:Contraptions/SmallDispenser" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:Enemies/Zombie" width="64" height="96" xOffset="10" yOffset="8"/>
@@ -34,6 +35,7 @@
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:Projectiles/Arrow" width="32" height="10" xOffset="0" yOffset="5"/>
     <model name="mine_tnt_seed" type="entity" path="mvz2:Projectiles/MineTNTSeed" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="snowball" type="entity" path="mvz2:Projectiles/Snowball" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:Armors/LeatherCap" width="33" height="14" xOffset="0" yOffset="7"/>
