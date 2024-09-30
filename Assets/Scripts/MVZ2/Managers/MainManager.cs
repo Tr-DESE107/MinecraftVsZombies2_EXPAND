@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MVZ2.Extensions;
+using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Level;
 using MVZ2.Rendering;
@@ -59,6 +61,18 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
+        public void GotoMapOrMainmenu()
+        {
+            if (SaveManager.IsLevelCleared(BuiltinStageID.prologue))
+            {
+                var lastMapID = SaveManager.GetLastMapID() ?? ResourceManager.GetFirstMapID();
+                Scene.DisplayMap(lastMapID);
+            }
+            else
+            {
+                Scene.DisplayPage(MainScenePageType.Mainmenu);
+            }
+        }
         private void Awake()
         {
             if (!Instance)
@@ -77,6 +91,7 @@ namespace MVZ2.Managers
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }
         public string BuiltinNamespace => builtinNamespace;
+        public CoroutineManager CoroutineManager => coroutine;
         public ResourceManager ResourceManager => resource;
         public ModelManager ModelManager => model;
         public SoundManager SoundManager => sound;
@@ -98,6 +113,8 @@ namespace MVZ2.Managers
         private PlatformMode platformMode = PlatformMode.Default;
         [SerializeField]
         private bool fastMode;
+        [SerializeField]
+        private CoroutineManager coroutine;
         [SerializeField]
         private ResourceManager resource;
         [SerializeField]

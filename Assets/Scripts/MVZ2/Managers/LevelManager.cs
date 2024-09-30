@@ -18,7 +18,7 @@ namespace MVZ2.Level
         {
             return controller;
         }
-        public void StartLevel(NamespaceID areaID, NamespaceID stageID)
+        public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0)
         {
             if (!controller)
                 return;
@@ -29,7 +29,8 @@ namespace MVZ2.Level
             }
             else
             {
-                controller.InitGame(Main.Game, areaID, stageID);
+                controller.InitLevel(Main.Game, areaID, stageID);
+                controller.StartLevelIntro(beginningDelay);
             }
         }
         #region 关卡存读

@@ -68,6 +68,12 @@ TagManager:
   - name: Talk
     uniqueID: 1660876549
     locked: 0
+  - name: Money
+    uniqueID: 3947008057
+    locked: 0
   - name: Dialog
     uniqueID: 2478835277
+    locked: 0
+  - name: ScreenCover
+    uniqueID: 1206696159
     locked: 0

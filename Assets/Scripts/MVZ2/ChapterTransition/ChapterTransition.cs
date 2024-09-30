@@ -8,23 +8,10 @@ namespace MVZ2.ChapterTransition
         {
             wheelRoot.eulerAngles = new Vector3(0, 0, rotation);
         }
-        public void SetTitleBlur(float blur)
+        public void SetTitleSprite(Sprite sprite)
         {
-            propertyBlock.Clear();
-            titleRenderer.GetPropertyBlock(propertyBlock);
-            propertyBlock.SetFloat("_Blur", blur);
-            titleRenderer.SetPropertyBlock(propertyBlock);
+            titleRenderer.sprite = sprite;
         }
-        private MaterialPropertyBlock propertyBlock
-        {
-            get
-            {
-                if (_propertyBlock == null)
-                    _propertyBlock = new MaterialPropertyBlock();
-                return _propertyBlock;
-            }
-        }
-        private MaterialPropertyBlock _propertyBlock;
         [SerializeField]
         private Transform wheelRoot;
         [SerializeField]

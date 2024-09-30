@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.ChapterTransition;
 using MVZ2.GameContent;
 using MVZ2.Landing;
 using MVZ2.Localization;
@@ -13,6 +15,7 @@ using MVZ2.Titlescreen;
 using MVZ2.UI;
 using PVZEngine;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2
 {
@@ -54,17 +57,39 @@ namespace MVZ2
                     pair.Value.Hide();
             }
         }
+        public void HidePages()
+        {
+            foreach (var pair in pages)
+            {
+                pair.Value.Hide();
+            }
+        }
         public void DisplayMap(NamespaceID mapId)
         {
             DisplayPage(MainScenePageType.Map);
             map.SetMap(mapId);
         }
-        public void DisplayNote(NamespaceID id, string buttonText, Action onClose)
+        public void DisplayNote(NamespaceID id, string buttonText)
         {
             DisplayPage(MainScenePageType.Note);
             note.SetNote(id);
             note.SetButtonText(buttonText);
-            note.OnClose += onClose;
+        }
+        public Task DisplayChapterTransitionAsync(NamespaceID id)
+        {
+            return chapterTransition.DisplayAsync(id);
+        }
+        public void HideChapterTransition()
+        {
+            chapterTransition.Hide();
+        }
+        public void SetBlackScreen(float value)
+        {
+            ui.SetBlackScreen(value);
+        }
+        public void FadeBlackScreen(float target, float duration)
+        {
+            ui.FadeBlackScreen(target, duration);
         }
         private void Awake()
         {
@@ -168,6 +193,8 @@ namespace MVZ2
         private MapController map;
         [SerializeField]
         private PortalController portal;
+        [SerializeField]
+        private ChapterTransitionController chapterTransition;
     }
     public enum MainScenePageType
     {

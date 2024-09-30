@@ -99,7 +99,7 @@ namespace MVZ2.Mainmenu
             main.SoundManager.Play2D(SoundID.paper);
             main.MusicManager.Stop();
             var buttonText = main.LanguageManager._(StringTable.BACK);
-            main.Scene.DisplayNote(BuiltinNoteID.help, buttonText, () => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+            main.Scene.DisplayNote(BuiltinNoteID.help, buttonText);
         }
         private void OnUserManageButtonClickCallback()
         {
@@ -265,7 +265,7 @@ namespace MVZ2.Mainmenu
         private async Task GotoLevel()
         {
             await main.LevelManager.GotoLevelSceneAsync();
-            main.LevelManager.StartLevel(BuiltinAreaID.day, BuiltinStageID.prologue);
+            main.LevelManager.InitLevel(BuiltinAreaID.day, BuiltinStageID.prologue);
             Hide();
         }
         #region 输入用户名

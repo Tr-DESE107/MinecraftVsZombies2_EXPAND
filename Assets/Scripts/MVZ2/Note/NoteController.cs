@@ -1,20 +1,26 @@
 ﻿using System;
+using System.Threading.Tasks;
 using log4net.Core;
+using MVZ2.Definitions;
+using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Resources;
 using MVZ2.Talk;
 using PVZEngine;
+using PVZEngine.Base;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Note
 {
-    public class NoteController : MainScenePage
+    public class NoteController : MainScenePage, INote
     {
         public void SetNote(NamespaceID id)
         {
             meta = main.ResourceManager.GetNoteMeta(id);
+            definition = main.Game.GetNoteDefinition(id);
             ui.SetNoteSprite(main.LanguageManager.GetSprite(meta.sprite));
             ui.SetBackground(main.LanguageManager.GetSprite(meta.background));
             ui.SetCanFlip(meta.canFlip);
@@ -23,17 +29,16 @@ namespace MVZ2.Note
             if (NamespaceID.IsValid(startTalk) && main.ResourceManager.GetTalkGroup(startTalk) != null)
             {
                 StartTalk(startTalk, 0, 3);
-                ui.SetButtonInteractable(false);
+                SetInteractable(false);
             }
         }
         public void SetButtonText(string text)
         {
             ui.SetButtonText(text);
         }
-        public override void Hide()
+        public void SetInteractable(bool interactable)
         {
-            base.Hide();
-            OnClose = null;
+            ui.SetButtonInteractable(interactable);
         }
         #region 生命周期
         private void Awake()
@@ -56,7 +61,7 @@ namespace MVZ2.Note
         }
         private void OnButtonClickCallback()
         {
-            OnClose?.Invoke();
+            definition?.OnBack(this);
         }
         private void OnTalkActionCallback(string action, string[] param)
         {
@@ -64,7 +69,7 @@ namespace MVZ2.Note
         }
         private void OnTalkEndCallback()
         {
-            ui.SetButtonInteractable(true);
+            SetInteractable(true);
         }
         #endregion
 
@@ -73,11 +78,10 @@ namespace MVZ2.Note
             talkController.StartTalk(groupId, section, delay);
         }
 
-        public event Action OnClose;
-
         #region 属性字段
         private MainManager main => MainManager.Instance;
         private NoteMeta meta;
+        private NoteDefinition definition;
         private bool isFlipped;
         [SerializeField]
         private TalkController talkController;

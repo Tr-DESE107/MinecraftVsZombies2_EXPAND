@@ -2459,6 +2459,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1fa87ad28ffce44bbf8d383c57b9990
+    m_Address: mvz2:chapter_transition
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0c451f64229d1d4da4b4c9d3f02cff9
     m_Address: mvz2:buzzer
     m_ReadOnly: 0

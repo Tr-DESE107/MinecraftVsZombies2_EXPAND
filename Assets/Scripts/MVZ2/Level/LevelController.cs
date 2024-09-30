@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.Extensions;
@@ -23,7 +24,7 @@ namespace MVZ2.Level
         #region 公有方法
 
         #region 游戏流程
-        public void InitGame(Game game, NamespaceID areaID, NamespaceID stageID)
+        public void InitLevel(Game game, NamespaceID areaID, NamespaceID stageID)
         {
             CreateLevelModel(areaID);
 
@@ -49,20 +50,19 @@ namespace MVZ2.Level
             };
             level.Init(areaID, stageID, option);
             level.SetupArea();
-
-            var startTalk = level.GetStartTalk() ?? level.StageID;
-            if (!level.IsRerun && NamespaceID.IsValid(startTalk) && Main.ResourceManager.GetTalkGroup(startTalk) != null)
+        }
+        public void StartLevelIntro(float delay)
+        {
+            if (delay <= 0)
             {
-                Main.MusicManager.Play(MusicID.mainmenu);
-                StartTalk(startTalk, 0, 2);
+                StartLevelIntroInstant();
             }
             else
             {
-                BeginLevel();
+                StartCoroutine(StartLevelIntroDelayed(delay));
             }
-            SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
         }
-        public void BeginLevel()
+        public void StartLevelTransition()
         {
             string transition = level.StageDefinition.GetStartTransition() ?? LevelTransitions.DEFAULT;
             if (transition == LevelTransitions.INSTANT)
@@ -122,7 +122,7 @@ namespace MVZ2.Level
             Main.SaveManager.SaveModDatas();
             Dispose();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.StartLevel(level.StartAreaID, level.StartStageID);
+            Main.LevelManager.InitLevel(level.StartAreaID, level.StartStageID);
         }
         public void GameOver(Entity killer)
         {
@@ -164,12 +164,9 @@ namespace MVZ2.Level
         public async Task ExitLevelToNote(NamespaceID id)
         {
             await ExitScene();
-            var buttonText = Main.LanguageManager._(StringTable.BACK);
+            var buttonText = Main.LanguageManager._(StringTable.CONTINUE);
             Main.SoundManager.Play2D(SoundID.paper);
-            Main.Scene.DisplayNote(id, buttonText, () =>
-            {
-                BackToMapOrMainmenu();
-            });
+            Main.Scene.DisplayNote(id, buttonText);
         }
         public async Task ExitLevel()
         {
@@ -178,15 +175,7 @@ namespace MVZ2.Level
         }
         public void BackToMapOrMainmenu()
         {
-            if (Main.SaveManager.IsLevelCleared(BuiltinStageID.prologue))
-            {
-                var lastMapID = Main.SaveManager.GetLastMapID() ?? Main.ResourceManager.GetFirstMapID();
-                Main.Scene.DisplayMap(lastMapID);
-            }
-            else
-            {
-                Main.Scene.DisplayPage(MainScenePageType.Mainmenu);
-            }
+            Main.GotoMapOrMainmenu();
         }
         public bool IsGameRunning()
         {
@@ -687,6 +676,25 @@ namespace MVZ2.Level
                 return;
             var modelPrefab = Main.ResourceManager.GetAreaModel(areaMeta.model);
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<AreaModel>();
+        }
+        private IEnumerator StartLevelIntroDelayed(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            StartLevelIntroInstant();
+        }
+        private void StartLevelIntroInstant()
+        {
+            var startTalk = level.GetStartTalk() ?? level.StageID;
+            if (!level.IsRerun && NamespaceID.IsValid(startTalk) && Main.ResourceManager.GetTalkGroup(startTalk) != null)
+            {
+                Main.MusicManager.Play(MusicID.mainmenu);
+                StartTalk(startTalk, 0, 2);
+            }
+            else
+            {
+                StartLevelTransition();
+            }
+            SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
         }
         #endregion
 

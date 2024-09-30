@@ -373,7 +373,7 @@ namespace MVZ2.Map
         {
             Main.SaveManager.SaveModDatas();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.StartLevel(mapMeta.area, mapMeta.stages[index]);
+            Main.LevelManager.InitLevel(mapMeta.area, mapMeta.stages[index]);
             Hide();
         }
 

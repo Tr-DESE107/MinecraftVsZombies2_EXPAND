@@ -20,6 +20,7 @@ namespace MVZ2.Games
             lists.Add(new DefinitionList<SpawnDefinition>());
 
             lists.Add(new DefinitionList<HeldItemDefinition>());
+            lists.Add(new DefinitionList<NoteDefinition>());
         }
     }
 }
