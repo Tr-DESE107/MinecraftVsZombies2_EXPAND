@@ -329,6 +329,7 @@ namespace MVZ2.Mainmenu
         }
         private void SwitchUser(int userIndex)
         {
+            main.SaveManager.SaveModDatas();
             main.SaveManager.SetCurrentUserIndex(userIndex);
             main.SaveManager.SaveUserList();
             HideUserManageDialog();

@@ -19,7 +19,6 @@ namespace MVZ2.Managers
         }
         public void SetCurrentUserIndex(int index)
         {
-            SaveModDatas();
             userDataList.CurrentUserIndex = index;
             ReloadCurrentUserData();
         }

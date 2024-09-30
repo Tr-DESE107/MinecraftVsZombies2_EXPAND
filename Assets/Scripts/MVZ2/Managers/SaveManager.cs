@@ -43,6 +43,7 @@ namespace MVZ2.Managers
         }
         public void ReloadCurrentUserData()
         {
+            modSaveDatas.Clear();
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
                 LoadModData(userDataList.CurrentUserIndex, mod.Namespace);
