@@ -7,11 +7,12 @@ using UnityEngine;
 
 namespace MVZ2.Rendering
 {
-    public class BlueprintPickupSetter : MonoBehaviour
+    public class BlueprintPickupSetter : ModelComponent
     {
-        private void Update()
+        public override void UpdateLogic()
         {
-            var blueprintID = model.GetProperty<NamespaceID>("BlueprintID");
+            base.UpdateLogic();
+            var blueprintID = Model.GetProperty<NamespaceID>("BlueprintID");
             if (lastID != blueprintID)
             {
                 lastID = blueprintID;
@@ -40,8 +41,6 @@ namespace MVZ2.Rendering
                 }
             }
         }
-        [SerializeField]
-        private Model model;
         [SerializeField]
         private SpriteRenderer iconSprite;
         [SerializeField]

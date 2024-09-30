@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Effects
                 entity.Pos = parent.Pos;
                 entity.SetModelProperty("FragmentID", parent.GetProperty<NamespaceID>(ContraptionProps.FRAGMENT));
             }
-            entity.SetAnimationFloat("EmitSpeed", GetEmitSpeed(entity));
+            entity.SetModelProperty("EmitSpeed", GetEmitSpeed(entity));
             SetEmitSpeed(entity, 0);
         }
         public static float GetEmitSpeed(Entity entity)

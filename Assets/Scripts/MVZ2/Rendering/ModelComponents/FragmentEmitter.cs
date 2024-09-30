@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace MVZ2.Rendering
 {
-    public class ParticleAnimator : MonoBehaviour
+    public class FragmentEmitter : ModelComponent
     {
-        public void Emit()
+        public override void UpdateLogic()
         {
-            var modified = emitCount;
+            base.UpdateLogic();
+            var modified = emitCount * Model.GetProperty<float>("EmitSpeed");
             modified *= MainManager.Instance.OptionsManager.GetParticleAmount();
             var count = (int)modified;
             modular += modified - count;

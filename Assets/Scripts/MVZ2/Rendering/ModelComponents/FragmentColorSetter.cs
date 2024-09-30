@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace MVZ2.Rendering
 {
-    public class FragmentColorSetter : MonoBehaviour
+    public class FragmentColorSetter : ModelComponent
     {
-        private void Update()
+        public override void UpdateFrame(float deltaTime)
         {
-            var fragID = model.GetProperty<NamespaceID>("FragmentID");
+            base.UpdateFrame(deltaTime);
+            var fragID = Model.GetProperty<NamespaceID>("FragmentID");
             if (lastID != fragID)
             {
                 lastID = fragID;
@@ -35,8 +36,6 @@ namespace MVZ2.Rendering
                 new GradientColorKey(Color.black, 1)
             }
         };
-        [SerializeField]
-        private Model model;
         [SerializeField]
         private ParticleSystem particles;
         private NamespaceID lastID;

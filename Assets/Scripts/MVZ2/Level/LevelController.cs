@@ -360,8 +360,9 @@ namespace MVZ2.Level
                         // 用于中断循环。防止Update后游戏结束，然后执行两次。
                         if (!IsGameRunning())
                             break;
+                        var entitiesCache = entities.ToArray();
                         level.Update();
-                        foreach (var entity in entities.ToArray())
+                        foreach (var entity in entitiesCache)
                         {
                             entity.UpdateFixed();
                         }

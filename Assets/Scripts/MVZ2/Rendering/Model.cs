@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MVZ2.GameContent;
 using MVZ2.Level;
 using PVZEngine;
@@ -13,6 +14,11 @@ namespace MVZ2.Rendering
         public void UpdateFixed()
         {
             triggeringEvents.Clear();
+
+            foreach (var comp in modelComponents)
+            {
+                comp.UpdateLogic();
+            }
         }
         public void UpdateFrame(float deltaTime)
         {
@@ -23,6 +29,11 @@ namespace MVZ2.Rendering
             var lightScale = GetProperty<Vector2>(BuiltinModelProps.LIGHT_RANGE);
             var lightColor = GetProperty<Color>(BuiltinModelProps.LIGHT_COLOR);
             rendererGroup.SetLight(lightVisible, lightScale, lightColor);
+
+            foreach (var comp in modelComponents)
+            {
+                comp.UpdateFrame(deltaTime);
+            }
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -76,7 +87,11 @@ namespace MVZ2.Rendering
             rendererGroup.LoadFromSerializable(serializable.rendererGroup);
             if (serializable.propertyDict != null)
             {
-                propertyDict = PropertyDictionary.Deserialize(serializable.propertyDict);
+                var dict = PropertyDictionary.Deserialize(serializable.propertyDict);
+                foreach (var name in dict.GetPropertyNames())
+                {
+                    SetProperty(name, dict.GetProperty(name));
+                }
             }
             triggeredEvents.Clear();
             triggeringEvents.Clear();
@@ -115,19 +130,30 @@ namespace MVZ2.Rendering
         public void SetProperty(string name, object value)
         {
             propertyDict.SetProperty(name, value);
+            foreach (var comp in modelComponents)
+            {
+                comp.OnPropertySet(name, value);
+            }
         }
         #endregion
 
         #endregion
 
         #region 私有方法
+        private void Awake()
+        {
+            modelComponents = GetComponents<ModelComponent>();
+            foreach (var comp in modelComponents)
+            {
+                comp.Model = this;
+            }
+        }
         private void TriggerEvent(string name)
         {
             triggeringEvents.Add(name);
             triggeredEvents.Add(name);
         }
         #endregion
-
 
         #region 属性字段
         public MultipleRendererGroup RendererGroup => rendererGroup;
@@ -148,6 +174,8 @@ namespace MVZ2.Rendering
         private Transform armorTransform;
         [SerializeField]
         private Model armorModel;
+        [SerializeField]
+        private ModelComponent[] modelComponents;
         private List<string> triggeringEvents = new List<string>();
         private List<string> triggeredEvents = new List<string>();
         private PropertyDictionary propertyDict = new PropertyDictionary();

@@ -31,6 +31,7 @@
     <model name="mine_debris" type="entity" path="mvz2:Effects/MineDebris" width="150" height="100" xOffset="0" yOffset="30"/>
     <model name="fragment" type="entity" path="mvz2:Effects/Fragment" width="160" height="160" xOffset="0" yOffset="30"/>
     <model name="star_particles" type="entity" path="mvz2:Effects/star_particles" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="smoke" type="entity" path="mvz2:Effects/smoke" width="160" height="160" xOffset="0" yOffset="30"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:Projectiles/Arrow" width="32" height="10" xOffset="0" yOffset="5"/>
