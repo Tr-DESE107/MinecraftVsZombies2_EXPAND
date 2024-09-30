@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 189541102}
   - component: {fileID: 189541101}
   - component: {fileID: 189541099}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 16384
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1021,7 +1021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1172606736}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Dialogs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,6 +2013,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1172606736}
     m_Modifications:
+    - target: {fileID: 110706851337471667, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 608764578009488074, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2036,6 +2040,14 @@ PrefabInstance:
     - target: {fileID: 608764578009488074, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -162.01001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158703928237144998, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445836635247074139, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1946656283023187756, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_Pivot.x
@@ -2141,6 +2153,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 2681943116292524146, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237336783175951277, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3545352741850908310, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2164,6 +2184,26 @@ PrefabInstance:
     - target: {fileID: 3545352741850908310, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916372869366234728, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310689634385561433, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818275910032943947, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553883807658024404, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682729649280877596, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8506925406212499204, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2192,6 +2232,10 @@ PrefabInstance:
     - target: {fileID: 8624057342736729939, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_Name
       value: Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624057342736729939, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8624057342736729939, guid: 041ff549e863adf4fa0e554e312efd03, type: 3}
       propertyPath: m_IsActive
@@ -2329,6 +2373,10 @@ PrefabInstance:
     - target: {fileID: 2155061187156302096, guid: c6556b1377cef8c41a02a06b394ab236, type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155061187156302096, guid: c6556b1377cef8c41a02a06b394ab236, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4158866887933857120, guid: c6556b1377cef8c41a02a06b394ab236, type: 3}
       propertyPath: m_Pivot.x
@@ -2730,7 +2778,7 @@ GameObject:
   - component: {fileID: 6342548409857016505}
   - component: {fileID: 8965442655916016932}
   - component: {fileID: 8965442655916016933}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Blackscreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

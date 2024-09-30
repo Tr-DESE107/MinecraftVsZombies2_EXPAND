@@ -1,4 +1,6 @@
-﻿namespace MVZ2.GameContent
+﻿using PVZEngine.Definitions;
+
+namespace MVZ2.GameContent
 {
     public static class BuiltinEntityProps
     {

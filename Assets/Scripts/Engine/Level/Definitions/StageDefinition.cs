@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Base;
-using PVZEngine.Callbacks;
 using PVZEngine.Level;
 
 namespace PVZEngine.Definitions
@@ -12,39 +11,60 @@ namespace PVZEngine.Definitions
         {
             SetProperty(StageProperties.WAVES_PER_FLAG, 10);
         }
-        public virtual void Start(LevelEngine level) { }
-        public virtual void Update(LevelEngine level) { }
-        public virtual void PrepareForBattle(LevelEngine level) { }
-        public virtual void PostWave(LevelEngine level, int wave) { }
-        public virtual void PostHugeWave(LevelEngine level) { }
-        public virtual void PostFinalWave(LevelEngine level) { }
-        public virtual void PostEnemySpawned(Entity entity) { }
-        public void AddCallbacks()
+        public void Start(LevelEngine level)
         {
-            foreach (var action in addCallbackActions)
-            {
-                action?.Invoke();
-            }
+            behaviours.ForEach(b => b.Start(level));
+            OnStart(level);
         }
-        public void RemoveCallbacks()
+        public void Update(LevelEngine level)
         {
-            foreach (var action in removeCallbackActions)
-            {
-                action?.Invoke();
-            }
+            behaviours.ForEach(b => b.Update(level));
+            OnUpdate(level);
         }
-        protected void AddCallback<TEntry, TDelegate>(CallbackListBase<TEntry, TDelegate> callbackList, TDelegate action, int priority = 0, object filter = null)
-            where TDelegate : Delegate
-            where TEntry : CallbackActionBase<TDelegate>, new()
+        public void PrepareForBattle(LevelEngine level)
         {
-            addCallbackActions.Add(() => callbackList.Add(action, priority, filter));
-            removeCallbackActions.Add(() => callbackList.Remove(action));
+            behaviours.ForEach(b => b.PrepareForBattle(level));
+            OnPrepareForBattle(level);
         }
+        public void PostWave(LevelEngine level, int wave)
+        {
+            behaviours.ForEach(b => b.PostWave(level, wave));
+            OnPostWave(level, wave);
+        }
+        public void PostHugeWave(LevelEngine level)
+        {
+            behaviours.ForEach(b => b.PostHugeWave(level));
+            OnPostHugeWave(level);
+        }
+        public void PostFinalWave(LevelEngine level)
+        {
+            behaviours.ForEach(b => b.PostFinalWave(level));
+            OnPostFinalWave(level);
+        }
+        public void PostEnemySpawned(Entity entity)
+        {
+            behaviours.ForEach(b => b.PostEnemySpawned(entity));
+            OnPostEnemySpawned(entity);
+        }
+        public virtual void OnStart(LevelEngine level) { }
+        public virtual void OnUpdate(LevelEngine level) { }
+        public virtual void OnPrepareForBattle(LevelEngine level) { }
+        public virtual void OnPostWave(LevelEngine level, int wave) { }
+        public virtual void OnPostHugeWave(LevelEngine level) { }
+        public virtual void OnPostFinalWave(LevelEngine level) { }
+        public virtual void OnPostEnemySpawned(Entity entity) { }
         public virtual IEnumerable<IEnemySpawnEntry> GetEnemyPool()
         {
             yield break;
         }
-        private List<Action> addCallbackActions = new List<Action>();
-        private List<Action> removeCallbackActions = new List<Action>();
+        protected void AddBehaviour(StageBehaviour behaviour)
+        {
+            behaviours.Add(behaviour);
+        }
+        public bool HasBehaviour<T>() where T : StageBehaviour
+        {
+            return behaviours.OfType<T>().Any();
+        }
+        private List<StageBehaviour> behaviours = new List<StageBehaviour>();
     }
 }

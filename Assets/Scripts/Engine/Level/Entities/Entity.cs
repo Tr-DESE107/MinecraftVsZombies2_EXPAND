@@ -293,7 +293,7 @@ namespace PVZEngine.Level
             info = info ?? new DamageInfo(0, new DamageEffectList(), this, new EntityReferenceChain(null));
             IsDead = true;
             Definition.PostDeath(this, info);
-            LevelCallbacks.PostEntityDeath.Run(this, info);
+            LevelCallbacks.PostEntityDeath.RunFiltered(Type, this, info);
         }
         #endregion
 

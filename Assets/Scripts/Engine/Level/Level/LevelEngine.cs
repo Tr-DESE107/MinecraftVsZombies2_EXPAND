@@ -22,10 +22,6 @@ namespace PVZEngine.Level
 
         public void Dispose()
         {
-            if (StageDefinition != null)
-            {
-                StageDefinition.RemoveCallbacks();
-            }
         }
 
         #region 组件
@@ -102,13 +98,8 @@ namespace PVZEngine.Level
         }
         public void ChangeStage(NamespaceID stageId)
         {
-            if (StageDefinition != null)
-            {
-                StageDefinition.RemoveCallbacks();
-            }
             StageID = stageId;
             StageDefinition = ContentProvider.GetStageDefinition(stageId);
-            StageDefinition.AddCallbacks();
         }
         public void ChangeArea(NamespaceID areaId)
         {

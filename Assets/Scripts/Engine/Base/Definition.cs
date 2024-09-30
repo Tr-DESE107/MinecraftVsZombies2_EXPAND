@@ -1,4 +1,8 @@
-﻿namespace PVZEngine.Base
+﻿using PVZEngine.Callbacks;
+using System;
+using System.Collections.Generic;
+
+namespace PVZEngine.Base
 {
     public abstract class Definition
     {

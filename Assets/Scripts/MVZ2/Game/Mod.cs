@@ -42,31 +42,22 @@ namespace MVZ2.Modding
         {
             return definitionGroup.GetDefinitions();
         }
-        protected void AddCallback<TEntry, TDelegate>(CallbackListBase<TEntry, TDelegate> callbackList, TDelegate action, int priority = 0, object filter = null)
+        public void RegisterCallback<TEntry, TDelegate>(CallbackListBase<TEntry, TDelegate> callbackList, TDelegate action, int priority = 0, object filter = null)
             where TDelegate : Delegate
             where TEntry : CallbackActionBase<TDelegate>, new()
         {
-            addCallbackActions.Add(() => callbackList.Add(action, priority, filter));
-            removeCallbackActions.Add(() => callbackList.Remove(action));
+            registry.RegisterCallback(callbackList, action, priority, filter);
         }
         private void AddCallbacks()
         {
-            foreach (var action in addCallbackActions)
-            {
-                action?.Invoke();
-            }
+            registry.AddCallbacks();
         }
         private void RemoveCallbacks()
         {
-            foreach (var action in removeCallbackActions)
-            {
-                action?.Invoke();
-            }
+            registry.RemoveCallbacks();
         }
         public string Namespace { get; }
         private GameDefinitionGroup definitionGroup = new GameDefinitionGroup();
-        private List<Action> addCallbackActions = new List<Action>();
-        private List<Action> removeCallbackActions = new List<Action>();
-
+        private CallbackRegistry registry = new CallbackRegistry();
     }
 }

@@ -17,9 +17,9 @@ namespace MVZ2.GameContent.Stages
         public TutorialStage(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Start(LevelEngine level)
+        public override void OnStart(LevelEngine level)
         {
-            base.Start(level);
+            base.OnStart(level);
             level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
             level.SetProperty(PROP_TUTORIAL_RNG, new RandomGenerator(level.Seed));
             level.SetEnergy(150);
@@ -33,9 +33,9 @@ namespace MVZ2.GameContent.Stages
             });
             StartState(level, STATE_CLICK_DISPENSER);
         }
-        public override void Update(LevelEngine level)
+        public override void OnUpdate(LevelEngine level)
         {
-            base.Update(level);
+            base.OnUpdate(level);
             UpdateState(level);
             level.CheckGameOver();
         }

@@ -12,13 +12,17 @@ namespace PVZEngine.BsonSerializers
         public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, NamespaceID value)
         {
             var writer = context.Writer;
-            writer.WriteString(value.ToString());
+            writer.WriteString(value != null ? value.ToString() : null);
         }
 
         public override NamespaceID Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
         {
             var reader = context.Reader;
-            return NamespaceID.Parse(reader.ReadString(), defaultNsp);
+            if (NamespaceID.TryParse(reader.ReadString(), defaultNsp, out var parsed))
+            {
+                return parsed;
+            }
+            return null;
         }
         private string defaultNsp;
     }

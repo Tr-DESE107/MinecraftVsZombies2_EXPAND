@@ -60,6 +60,7 @@ namespace MVZ2.Rendering
             {
                 animator = new SerializableAnimator(animator),
                 armorModel = armorModel ? armorModel.ToSerializable() : null,
+                propertyDict = propertyDict != null ? propertyDict.Serialize() : null,
                 rendererGroup = rendererGroup.ToSerializable(),
                 triggeredEvents = triggeredEvents.ToArray(),
                 triggeringEvents = triggeringEvents.ToArray()
@@ -73,6 +74,10 @@ namespace MVZ2.Rendering
                 armorModel.LoadFromSerializable(serializable.armorModel);
             }
             rendererGroup.LoadFromSerializable(serializable.rendererGroup);
+            if (serializable.propertyDict != null)
+            {
+                propertyDict = PropertyDictionary.Deserialize(serializable.propertyDict);
+            }
             triggeredEvents.Clear();
             triggeringEvents.Clear();
             triggeredEvents.AddRange(serializable.triggeredEvents);
@@ -153,6 +158,7 @@ namespace MVZ2.Rendering
         public SerializableMultipleRendererGroup rendererGroup;
         public SerializableAnimator animator;
         public SerializableModelData armorModel;
+        public SerializablePropertyDictionary propertyDict;
         public string[] triggeringEvents;
         public string[] triggeredEvents;
     }

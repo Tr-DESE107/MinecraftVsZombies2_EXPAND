@@ -27,11 +27,13 @@ namespace MVZ2.Vanilla
             LoadStages();
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
 
-            AddCallback(LevelCallbacks.PostEntityTakeDamage, PostEntityTakeDamage);
-            AddCallback(LevelCallbacks.PostEntityUpdate, ChangeLaneUpdate);
-            AddCallback(LevelCallbacks.PostLevelClear, PostLevelClear);
-            AddCallback(LevelCallbacks.PostEntityUpdate, CartUpdate, filter: EntityTypes.CART);
-            AddCallback(BuiltinCallbacks.TalkAction, TalkAction);
+            RegisterCallback(LevelCallbacks.PostEntityTakeDamage, PostEntityTakeDamage);
+            RegisterCallback(LevelCallbacks.PostEntityUpdate, ChangeLaneUpdate);
+            RegisterCallback(LevelCallbacks.PostLevelClear, PostLevelClear);
+            RegisterCallback(LevelCallbacks.PostEntityUpdate, CartUpdate, filter: EntityTypes.CART);
+            RegisterCallback(BuiltinCallbacks.TalkAction, TalkAction);
+
+            ImplementCallbacks(new GemStageImplements());
         }
         public override void PostGameInit()
         {
@@ -86,6 +88,10 @@ namespace MVZ2.Vanilla
             }
         }
 
+        private void ImplementCallbacks(VanillaImplements implements)
+        {
+            implements.Implement(this);
+        }
         private void LoadStages()
         {
             AddStage(new TutorialStage(spaceName, StageNames.tutorial));
