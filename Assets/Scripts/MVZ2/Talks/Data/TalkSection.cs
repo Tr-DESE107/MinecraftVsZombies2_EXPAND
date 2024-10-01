@@ -8,6 +8,7 @@ namespace MVZ2.Talk
     public class TalkSection
     {
         public NamespaceID nameId;
+        public List<TalkScript> startScripts;
         public List<TalkScript> skipScripts;
         public List<TalkCharacter> characters;
         public List<TalkSentence> sentences;
@@ -15,6 +16,7 @@ namespace MVZ2.Talk
         {
             XmlNode node = document.CreateElement("section");
             node.CreateAttribute("nameID", nameId?.ToString());
+            node.CreateAttribute("onStart", startScripts != null ? string.Join(";", startScripts.Where(s => s != null).Select(s => s.ToString())) : null);
             node.CreateAttribute("onSkip", skipScripts != null ? string.Join(";", skipScripts.Where(s => s != null).Select(s => s.ToString())) : null);
 
             if (characters != null)
@@ -43,7 +45,8 @@ namespace MVZ2.Talk
         public static TalkSection FromXmlNode(XmlNode node, string defaultNsp)
         {
             var nameID = node.GetAttributeNamespaceID("nameID", defaultNsp);
-            var skipScripts = node.GetAttribute("onSkip")?.Split(';')?.Select(s => TalkScript.Parse(s))?.ToList();
+            var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
+            var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip"))?.ToList();
 
             var charactersNode = node["characters"];
             List<TalkCharacter> characters = null;
@@ -72,6 +75,7 @@ namespace MVZ2.Talk
             return new TalkSection()
             {
                 nameId = nameID,
+                startScripts = startScripts,
                 skipScripts = skipScripts,
                 characters = characters,
                 sentences = sentences,

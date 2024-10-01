@@ -406,21 +406,13 @@ namespace MVZ2.Level
 
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
-            if (!level.IsRerun && NamespaceID.IsValid(endTalk) && Main.ResourceManager.GetTalkGroup(endTalk) != null)
+            if (!level.IsRerun && talkController.CanStartTalk(endTalk))
             {
                 StartTalk(endTalk, 0, 5);
             }
             else
             {
-                var endNoteId = level.GetEndNoteID();
-                if (NamespaceID.IsValid(endNoteId))
-                {
-                    StartCoroutine(ExitLevelToNoteTransition(endNoteId, 3));
-                }
-                else
-                {
-                    StartCoroutine(ExitLevelTransition(3));
-                }
+                StartExitLevelTransition(3);
             }
         }
         private async void UI_OnExitLevelToNoteCalledCallback()
@@ -686,7 +678,7 @@ namespace MVZ2.Level
         private void StartLevelIntroInstant()
         {
             var startTalk = level.GetStartTalk() ?? level.StageID;
-            if (!level.IsRerun && NamespaceID.IsValid(startTalk) && Main.ResourceManager.GetTalkGroup(startTalk) != null)
+            if (!level.IsRerun && talkController.CanStartTalk(startTalk))
             {
                 Main.MusicManager.Play(MusicID.mainmenu);
                 StartTalk(startTalk, 0, 2);

@@ -33,8 +33,8 @@ namespace MVZ2.Talk
             var description = node.GetAttributeNamespaceID("description", defaultNsp);
             var sounds = node.GetAttribute("sounds")?.Split(';')?.Select(s => NamespaceID.Parse(s, defaultNsp)).ToList();
             var variant = node.GetAttribute("variant");
-            var startScripts = node.GetAttribute("onStart")?.Split(';')?.Select(s => TalkScript.Parse(s))?.ToList();
-            var clickScripts = node.GetAttribute("onClick")?.Split(';')?.Select(s => TalkScript.Parse(s))?.ToList();
+            var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
+            var clickScripts = TalkScript.ParseArray(node.GetAttribute("onClick"))?.ToList();
             var text = node.InnerText;
             return new TalkSentence()
             {

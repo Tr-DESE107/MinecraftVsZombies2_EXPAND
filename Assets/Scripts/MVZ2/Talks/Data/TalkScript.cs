@@ -39,6 +39,10 @@ namespace MVZ2.Talk
             }
             throw new FormatException($"Invalid TalkScript {str}.");
         }
+        public static TalkScript[] ParseArray(string str)
+        {
+            return str?.Split(';')?.Select(s => Parse(s))?.ToArray();
+        }
         public override string ToString()
         {
             if (arguments == null)

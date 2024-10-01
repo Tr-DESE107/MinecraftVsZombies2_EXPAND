@@ -22,6 +22,10 @@ namespace MVZ2.Managers
             }
             return null;
         }
+        public bool HasTalkGroup(NamespaceID groupID)
+        {
+            return GetTalkGroup(groupID) != null;
+        }
         public TalkSection GetTalkSection(NamespaceID groupID, int sectionIndex)
         {
             var group = GetTalkGroup(groupID);

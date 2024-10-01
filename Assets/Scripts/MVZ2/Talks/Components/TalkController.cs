@@ -21,19 +21,24 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始进行对话。
         /// </summary>
-        public void StartTalk(NamespaceID groupId, int section, float delay = 0)
+        public void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0)
         {
+            var group = Main.ResourceManager.GetTalkGroup(groupId);
+            if (group == null)
+                throw new InvalidOperationException($"Could not find talk group with id {groupId}.");
             IsTalking = true;
 
-
             groupID = groupId;
-            sectionIndex = section;
+            this.sectionIndex = sectionIndex;
             sentenceIndex = 0;
 
             speechBubble.SetShowing(false);
             blockerObject.SetActive(true);
             raycastReceiver.gameObject.SetActive(true);
             ClearCharacters();
+
+            var section = group.sections[sectionIndex];
+            StartCoroutine(ExecuteScripts(section.startScripts));
 
             StartCoroutine(DelayedStart(delay));
         }
@@ -60,7 +65,17 @@ namespace MVZ2.Talk
             return chr;
         }
 
-
+        public bool CanStartTalk(NamespaceID groupId)
+        {
+            var group = Main.ResourceManager.GetTalkGroup(groupId);
+            if (group == null)
+                return false;
+            if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
+                return false;
+            if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
+                return false;
+            return true;
+        }
         #endregion
 
         #region 私有方法
@@ -303,22 +318,21 @@ namespace MVZ2.Talk
 
         private IEnumerator ExecuteScripts(IEnumerable<TalkScript> scripts)
         {
-            if (scripts != null)
+            if (scripts == null)
+                yield break;
+            IsRunningScripts = true;
+            if (!blockerObject.activeSelf)
             {
-                IsRunningScripts = true;
-                if (!blockerObject.activeSelf)
-                {
-                    blockerObject.SetActive(true);
-                }
-                foreach (TalkScript scr in scripts)
-                {
-                    yield return ExecuteScript(scr);
-                }
-                IsRunningScripts = false;
-                if (blockerObject.activeSelf)
-                {
-                    blockerObject.SetActive(false);
-                }
+                blockerObject.SetActive(true);
+            }
+            foreach (TalkScript scr in scripts)
+            {
+                yield return ExecuteScript(scr);
+            }
+            IsRunningScripts = false;
+            if (blockerObject.activeSelf)
+            {
+                blockerObject.SetActive(false);
             }
         }
 

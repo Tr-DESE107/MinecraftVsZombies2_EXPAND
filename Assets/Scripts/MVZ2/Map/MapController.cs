@@ -74,7 +74,7 @@ namespace MVZ2.Map
             Main.MusicManager.Play(mapPreset.music);
 
             var mapTalk = Main.SaveManager.GetMapTalk();
-            if (Main.ResourceManager.GetTalkGroup(mapTalk) != null)
+            if (talkController.CanStartTalk(mapTalk))
             {
                 talkController.StartTalk(mapTalk, 0, 3);
             }

@@ -132,6 +132,18 @@ namespace MVZ2.Level
             ui.SetExitingToNote();
             exitTargetNoteID = noteID;
         }
+        private void StartExitLevelTransition(float delay)
+        {
+            var endNoteId = level.GetEndNoteID();
+            if (NamespaceID.IsValid(endNoteId))
+            {
+                StartCoroutine(ExitLevelToNoteTransition(endNoteId, delay));
+            }
+            else
+            {
+                StartCoroutine(ExitLevelTransition(delay));
+            }
+        }
         #endregion
 
         #region 属性字段

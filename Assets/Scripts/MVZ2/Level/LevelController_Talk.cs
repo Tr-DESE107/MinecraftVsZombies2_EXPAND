@@ -33,7 +33,7 @@ namespace MVZ2.Level
         {
             if (level.IsCleared)
             {
-                StartCoroutine(ExitLevelTransition(0));
+                StartExitLevelTransition(0);
             }
             else
             {
