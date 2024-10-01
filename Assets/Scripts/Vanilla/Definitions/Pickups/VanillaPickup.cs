@@ -47,9 +47,9 @@ namespace MVZ2.Vanilla
         }
         private void LimitPosition(Entity entity)
         {
-            Vector3 pos = entity.Pos;
+            Vector3 pos = entity.Position;
             pos.x = Mathf.Clamp(pos.x, BuiltinLevel.GetPickupBorderX(false), BuiltinLevel.GetPickupBorderX(true));
-            entity.Pos = pos;
+            entity.Position = pos;
         }
         public virtual void PostCollect(Entity pickup)
         {

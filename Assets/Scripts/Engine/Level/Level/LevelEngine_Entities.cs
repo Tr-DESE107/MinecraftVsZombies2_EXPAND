@@ -32,7 +32,7 @@ namespace PVZEngine.Level
         {
             long id = AllocEntityID();
             var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, entityRandom.Next());
-            spawned.Pos = pos;
+            spawned.Position = pos;
             entities.Add(spawned);
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init(spawner);

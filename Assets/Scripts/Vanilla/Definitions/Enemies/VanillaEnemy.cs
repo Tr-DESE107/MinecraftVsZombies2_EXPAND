@@ -41,9 +41,9 @@ namespace MVZ2.GameContent.Enemies
         public override void Update(Entity enemy)
         {
             base.Update(enemy);
-            Vector3 pos = enemy.Pos;
+            Vector3 pos = enemy.Position;
             pos.x = Mathf.Min(pos.x, BuiltinLevel.GetEnemyRightBorderX());
-            enemy.Pos = pos;
+            enemy.Position = pos;
 
             enemy.SetAnimationFloat("AttackSpeed", enemy.GetAttackSpeed());
             enemy.SetAnimationFloat("MoveSpeed", enemy.GetSpeed());

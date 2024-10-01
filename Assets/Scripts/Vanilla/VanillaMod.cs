@@ -172,12 +172,12 @@ namespace MVZ2.Vanilla
             // Warp upwards.
             if (sourceLane > targetLane)
             {
-                passed = entity.Pos.z >= targetZ - 0.03f;
+                passed = entity.Position.z >= targetZ - 0.03f;
             }
             // Warp downwards.
             else
             {
-                passed = entity.Pos.z <= targetZ + 0.03f;
+                passed = entity.Position.z <= targetZ + 0.03f;
             }
 
             if (!passed)
@@ -199,11 +199,11 @@ namespace MVZ2.Vanilla
             }
             else
             {
-                if (Mathf.Abs(entity.Pos.z - targetZ) <= 0.05f)
+                if (Mathf.Abs(entity.Position.z - targetZ) <= 0.05f)
                 {
-                    var pos = entity.Pos;
+                    var pos = entity.Position;
                     pos.z = targetZ;
-                    entity.Pos = pos;
+                    entity.Position = pos;
                 }
                 entity.StopChangingLane();
             }
@@ -231,7 +231,7 @@ namespace MVZ2.Vanilla
                 {
                     gemType = GemEffect.GemType.Emerald;
                 }
-                var gemEffect = GemEffect.SpawnGemEffect(level, gemType, entity.Pos, entity, true);
+                var gemEffect = GemEffect.SpawnGemEffect(level, gemType, entity.Position, entity, true);
                 gemEffect.PlaySound(SoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
                 level.ShowMoney();
                 entity.Remove();

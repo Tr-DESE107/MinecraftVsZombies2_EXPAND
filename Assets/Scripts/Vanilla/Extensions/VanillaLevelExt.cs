@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
     {
         public static void CheckGameOver(this LevelEngine level)
         {
-            var gameOverEnemies = level.FindEntities(e => e.Pos.x < BuiltinLevel.GetBorderX(false) && e.IsAliveEnemy());
+            var gameOverEnemies = level.FindEntities(e => e.Position.x < BuiltinLevel.GetBorderX(false) && e.IsAliveEnemy());
             if (gameOverEnemies.Length > 0)
             {
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);

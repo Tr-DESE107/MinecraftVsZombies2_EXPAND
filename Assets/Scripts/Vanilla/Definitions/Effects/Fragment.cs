@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Effects
             if (parent != null && parent.Exists())
             {
                 entity.Timeout = 30;
-                entity.Pos = parent.Pos;
+                entity.Position = parent.Position;
                 entity.SetModelProperty("FragmentID", parent.GetProperty<NamespaceID>(ContraptionProps.FRAGMENT));
             }
             entity.SetModelProperty("EmitSpeed", GetEmitSpeed(entity));

@@ -186,7 +186,7 @@ namespace MVZ2.Vanilla
                     }
                     else
                     {
-                        position = enemy.Pos;
+                        position = enemy.Position;
                     }
                     level.Produce(PickupID.clearPickup, position, enemy);
                 }

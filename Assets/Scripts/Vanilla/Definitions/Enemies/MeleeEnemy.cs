@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Enemies
                 return false;
             if (target.Type == EntityTypes.PLANT && target.IsFloor())
                 return false;
-            if (target.Pos.y > enemy.Pos.y + enemy.GetMaxAttackHeight())
+            if (target.Position.y > enemy.Position.y + enemy.GetMaxAttackHeight())
                 return false;
             return true;
         }

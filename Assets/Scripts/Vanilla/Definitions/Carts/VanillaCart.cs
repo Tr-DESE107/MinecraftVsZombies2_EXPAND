@@ -28,21 +28,21 @@ namespace MVZ2.GameContent.Carts
             switch (entity.State)
             {
                 default:
-                    if (entity.Pos.x < BuiltinLevel.CART_TARGET_X)
+                    if (entity.Position.x < BuiltinLevel.CART_TARGET_X)
                     {
                         entity.Velocity = Vector3.right * 10;
                     }
                     else
                     {
-                        var pos = entity.Pos;
+                        var pos = entity.Position;
                         pos.x = BuiltinLevel.CART_TARGET_X;
-                        entity.Pos = pos;
+                        entity.Position = pos;
                         entity.Velocity = Vector3.zero;
                     }
                     UpdateCartTint(entity);
 
                     bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
-                        .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Pos.x <= entity.Pos.x + TRIGGER_DISTANCE);
+                        .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Position.x <= entity.Position.x + TRIGGER_DISTANCE);
                     if (triggered)
                     {
                         entity.TriggerCart();
@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Carts
         }
         private void UpdateCartTint(Entity cart)
         {
-            var alpha = Mathf.Lerp(0, 1, (cart.Pos.x - BuiltinLevel.CART_START_X) / (BuiltinLevel.CART_TARGET_X - BuiltinLevel.CART_START_X));
+            var alpha = Mathf.Lerp(0, 1, (cart.Position.x - BuiltinLevel.CART_START_X) / (BuiltinLevel.CART_TARGET_X - BuiltinLevel.CART_START_X));
             var tint = cart.GetTint();
             tint = new Color(1, 1, 1, alpha);
             cart.SetTint(tint);

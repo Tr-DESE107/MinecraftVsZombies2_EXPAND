@@ -20,15 +20,15 @@ namespace PVZEngine.Level
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset)
         {
             return IsInFrontOf(self, target) &&
-                target.CoincidesYDown(self.Pos.y + heightOffset) &&
-                IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.GetSize().z);
+                target.CoincidesYDown(self.Position.y + heightOffset) &&
+                IsZCoincide(self.Position.z, projectileZSpan, target.Position.z, target.GetSize().z);
         }
 
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset, float frontRange)
         {
             return IsInFrontOf(self, target, 0, frontRange) &&
-                target.CoincidesYDown(self.Pos.y + heightOffset) &&
-                IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.GetSize().z);
+                target.CoincidesYDown(self.Position.y + heightOffset) &&
+                IsZCoincide(self.Position.z, projectileZSpan, target.Position.z, target.GetSize().z);
         }
 
         public static bool CanDetect(Entity entity)
@@ -43,11 +43,11 @@ namespace PVZEngine.Level
             float farRange = rangeStart + rangeLength;
             if (self.IsFacingLeft())
             {
-                return other.Pos.x <= self.Pos.x - nearRange && other.Pos.x > self.Pos.x - farRange;
+                return other.Position.x <= self.Position.x - nearRange && other.Position.x > self.Position.x - farRange;
             }
             else
             {
-                return other.Pos.x >= self.Pos.x + nearRange && other.Pos.x < self.Pos.x + farRange;
+                return other.Position.x >= self.Position.x + nearRange && other.Position.x < self.Position.x + farRange;
             }
         }
 
@@ -55,11 +55,11 @@ namespace PVZEngine.Level
         {
             if (self.IsFacingLeft())
             {
-                return other.Pos.x <= self.Pos.x - rangeStart;
+                return other.Position.x <= self.Position.x - rangeStart;
             }
             else
             {
-                return other.Pos.x >= self.Pos.x + rangeStart;
+                return other.Position.x >= self.Position.x + rangeStart;
             }
         }
 

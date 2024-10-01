@@ -109,8 +109,8 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = GetRiseTimer(entity);
             if (riseTimer == null || !riseTimer.Expired)
                 return;
-            entity.Level.Explode(entity.Pos, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
-            entity.Level.Spawn<MineDebris>(entity.Pos, entity);
+            entity.Level.Explode(entity.Position, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
+            entity.Level.Spawn<MineDebris>(entity.Position, entity);
             entity.Remove();
             entity.PlaySound(SoundID.mineExplode);
             entity.Level.ShakeScreen(10, 0, 15);
@@ -119,14 +119,14 @@ namespace MVZ2.GameContent.Contraptions
         {
             var level = contraption.Level;
 
-            var seed = level.Spawn<MineTNTSeed>(contraption.Pos, contraption);
+            var seed = level.Spawn<MineTNTSeed>(contraption.Position, contraption);
 
             var x = level.GetEntityColumnX(grid.Column);
             var z = level.GetEntityLaneZ(grid.Lane);
             var y = level.GetGroundY(x, z);
             var target = new Vector3(x, y, z);
-            var maxY = Mathf.Max(contraption.Pos.y, y) + 32;
-            seed.Velocity = MVZ2Projectile.GetLobVelocity(contraption.Pos, target, maxY, seed.GetGravity());
+            var maxY = Mathf.Max(contraption.Position.y, y) + 32;
+            seed.Velocity = MVZ2Projectile.GetLobVelocity(contraption.Position, target, maxY, seed.GetGravity());
 
             return seed;
         }

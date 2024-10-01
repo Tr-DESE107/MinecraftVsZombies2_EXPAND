@@ -17,24 +17,24 @@ namespace MVZ2.Vanilla
             var projectileSize = projectileDef.GetSize();
             if (TargetInLawn(target) &&
                 TargetInFront(self, target) &&
-                Detection.IsZCoincide(self.Pos.z, projectileSize.z, target.Pos.z, targetSize.z))
+                Detection.IsZCoincide(self.Position.z, projectileSize.z, target.Position.z, targetSize.z))
             {
                 if (ignoreHighEnemy)
                 {
                     if (ignoreLowEnemy)
                     {
-                        return Detection.IsYCoincide(target.Pos.y, enemyHeight, self.Pos.y + shootOffset.y, projectileSize.y);
+                        return Detection.IsYCoincide(target.Position.y, enemyHeight, self.Position.y + shootOffset.y, projectileSize.y);
                     }
                     else
                     {
-                        return target.CoincidesYDown(self.Pos.y + shootOffset.y + projectileSize.y);
+                        return target.CoincidesYDown(self.Position.y + shootOffset.y + projectileSize.y);
                     }
                 }
                 else
                 {
                     if (ignoreLowEnemy)
                     {
-                        return target.CoincidesYUp(self.Pos.y + shootOffset.y);
+                        return target.CoincidesYUp(self.Position.y + shootOffset.y);
                     }
                     else
                     {

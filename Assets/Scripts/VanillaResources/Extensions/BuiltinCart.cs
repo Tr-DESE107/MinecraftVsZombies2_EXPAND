@@ -36,8 +36,8 @@ namespace MVZ2.Vanilla
                 cart.IsEnemy(target) &&
                 target.IsActiveEntity() &&
                 cart.GetLane() == target.GetLane() &&
-                target.Pos.x >= bounds.min.x &&
-                target.Pos.x <= bounds.max.x;
+                target.Position.x >= bounds.min.x &&
+                target.Position.x <= bounds.max.x;
         }
         public static bool IsCartTriggered(this Entity entity)
         {

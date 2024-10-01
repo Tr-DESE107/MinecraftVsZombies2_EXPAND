@@ -19,7 +19,7 @@ namespace MVZ2.Extensions
         }
         public static Entity Produce(this Entity entity, EntityDefinition pickupDef)
         {
-            return entity.Level.Produce(pickupDef, entity.Pos, entity);
+            return entity.Level.Produce(pickupDef, entity.Position, entity);
         }
         public static Entity Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity spawner)
         {

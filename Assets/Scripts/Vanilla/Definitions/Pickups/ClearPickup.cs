@@ -51,7 +51,7 @@ namespace MVZ2.GameContent
                 var moveTime = level.GetSecondTicks(3);
                 float timePercent = collectedTime / (float)moveTime;
                 var targetPos = GetMoveTargetPosition(pickup);
-                pickup.Velocity = (targetPos - pickup.Pos) * 0.05f;
+                pickup.Velocity = (targetPos - pickup.Position) * 0.05f;
                 pickup.Scale = Vector3.one * Mathf.Lerp(1, 3, timePercent);
                 pickup.RenderScale = Vector3.one * Mathf.Lerp(1, 3, timePercent);
 
@@ -79,13 +79,13 @@ namespace MVZ2.GameContent
                 {
                     money = 1000;
                 }
-                GemEffect.SpawnGemEffects(level, money, pickup.Pos, pickup, false);
+                GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
             }
             else
             {
                 if (level.Difficulty == LevelDifficulty.hard)
                 {
-                    GemEffect.SpawnGemEffects(level, 250, pickup.Pos, pickup, false);
+                    GemEffect.SpawnGemEffects(level, 250, pickup.Position, pickup, false);
                 }
             }
             foreach (var p in level.GetEntities(EntityTypes.PICKUP))
@@ -98,7 +98,7 @@ namespace MVZ2.GameContent
             level.StopMusic();
             level.PlaySound(pickup.GetCollectSound());
             level.PlaySound(GetPickupSoundID(pickup));
-            level.Spawn(EffectID.starParticles, pickup.Pos, pickup);
+            level.Spawn(EffectID.starParticles, pickup.Position, pickup);
 
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)

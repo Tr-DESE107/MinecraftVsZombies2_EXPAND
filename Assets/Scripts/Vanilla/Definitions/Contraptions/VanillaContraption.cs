@@ -91,7 +91,7 @@ namespace MVZ2.Vanilla
         }
         private Entity CreateFragment(Entity entity)
         {
-            var fragment = entity.Level.Spawn<Fragment>(entity.Pos, entity);
+            var fragment = entity.Level.Spawn<Fragment>(entity.Position, entity);
             fragment.SetParent(entity);
             return fragment;
         }

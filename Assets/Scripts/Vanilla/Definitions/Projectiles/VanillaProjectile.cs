@@ -80,7 +80,7 @@ namespace MVZ2.Vanilla
         public virtual bool IsOutsideView(Entity proj)
         {
             var bounds = proj.GetBounds();
-            var position = proj.Pos;
+            var position = proj.Position;
             return position.x < 180 - bounds.extents.x ||
                 position.x > 1100 + bounds.extents.x ||
                 position.z > 550 ||
@@ -99,7 +99,7 @@ namespace MVZ2.Vanilla
             if (entity.Removed || !entity.IsEnemy(other) || (collided != null && collided.Any(c => c.ID == other.ID)) || other.IsDead)
                 return;
 
-            if (!Detection.IsZCoincide(entity.Pos.z, entity.GetScaledSize().z, other.Pos.z, other.GetScaledSize().z))
+            if (!Detection.IsZCoincide(entity.Position.z, entity.GetScaledSize().z, other.Position.z, other.GetScaledSize().z))
                 return;
 
             other.TakeDamage(entity.GetDamage(), new DamageEffectList(), new EntityReferenceChain(entity));

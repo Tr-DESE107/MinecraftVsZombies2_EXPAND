@@ -321,11 +321,11 @@ namespace MVZ2.Level
             {
                 if (killerEntity)
                 {
-                    var pos = killerEntity.Entity.Pos;
+                    var pos = killerEntity.Entity.Position;
                     pos.x -= 1;
                     pos.z = pos.z * 0.5f + level.GetDoorZ() * 0.5f;
                     pos.y = pos.y * 0.5f + level.GetGroundY(pos.x, pos.z) * 0.5f;
-                    killerEntity.Entity.Pos = pos;
+                    killerEntity.Entity.Position = pos;
                     killerEntity.UpdateFixed();
                 }
                 return;

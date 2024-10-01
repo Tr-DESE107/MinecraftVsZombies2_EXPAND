@@ -20,7 +20,7 @@ namespace MVZ2.Vanilla
             }
             velocity = entity.ModifyProjectileVelocity(velocity);
 
-            var projectile = game.Spawn(entity.GetProjectileID(), entity.Pos + offset, entity);
+            var projectile = game.Spawn(entity.GetProjectileID(), entity.Position + offset, entity);
             projectile.SetDamage(entity.GetDamage());
             projectile.SetFaction(entity.GetFaction());
             projectile.Velocity = velocity;

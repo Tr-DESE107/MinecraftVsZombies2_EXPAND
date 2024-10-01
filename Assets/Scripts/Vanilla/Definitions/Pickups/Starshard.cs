@@ -46,7 +46,7 @@ namespace MVZ2.GameContent
                 if (collectedTime < moveTime)
                 {
                     var targetPos = GetMoveTargetPosition(pickup);
-                    pickup.Velocity = (targetPos - pickup.Pos) * 0.2f;
+                    pickup.Velocity = (targetPos - pickup.Position) * 0.2f;
                     alpha = 1;
                 }
                 else
@@ -63,11 +63,11 @@ namespace MVZ2.GameContent
             else
             {
                 var velocity = pickup.Velocity;
-                if ((pickup.Pos.z < GetMinZ() && velocity.z < 0) || (pickup.Pos.z > GetMaxZ() && velocity.z > 0))
+                if ((pickup.Position.z < GetMinZ() && velocity.z < 0) || (pickup.Position.z > GetMaxZ() && velocity.z > 0))
                 {
                     velocity.z *= -1;
                 }
-                if ((pickup.Pos.x < GetMinX() && velocity.x < 0) || (pickup.Pos.x > GetMaxX() && velocity.x > 0))
+                if ((pickup.Position.x < GetMinX() && velocity.x < 0) || (pickup.Position.x > GetMaxX() && velocity.x > 0))
                 {
                     velocity.x *= -1;
                 }

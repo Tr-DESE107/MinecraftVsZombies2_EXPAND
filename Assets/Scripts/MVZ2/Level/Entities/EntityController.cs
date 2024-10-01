@@ -136,9 +136,9 @@ namespace MVZ2.Level
             Vector3 size = Entity.GetScaledSize() * pixelUnit;
             var scaledBoundsOffset = Entity.GetScaledBoundsOffset();
             float
-                startX = (Entity.Pos.x + scaledBoundsOffset.x) * pixelUnit,
-                startY = (Entity.Pos.y + scaledBoundsOffset.y) * pixelUnit,
-                startZ = (Entity.Pos.z + scaledBoundsOffset.z) * pixelUnit;
+                startX = (Entity.Position.x + scaledBoundsOffset.x) * pixelUnit,
+                startY = (Entity.Position.y + scaledBoundsOffset.y) * pixelUnit,
+                startZ = (Entity.Position.z + scaledBoundsOffset.z) * pixelUnit;
             Gizmos.color = new Color(
                 ((Entity.CollisionMask >> 0) & 7) / 7f,
                 ((Entity.CollisionMask >> 3) & 7) / 7f,
@@ -272,13 +272,13 @@ namespace MVZ2.Level
         #region Œª÷√
         protected void UpdateTransform(Vector3 posOffset)
         {
-            var pos = Entity.Pos;
+            var pos = Entity.Position;
             var currentTransPos = Level.LawnToTrans(pos);
             transform.position = currentTransPos + posOffset;
         }
         protected void UpdateShadow(Vector3 posOffset)
         {
-            var shadowPos = Entity.Pos;
+            var shadowPos = Entity.Position;
             shadowPos.y = Entity.GetGroundHeight();
             shadowPos += Entity.GetShadowOffset();
             Shadow.transform.position = Level.LawnToTrans(shadowPos) + posOffset;
@@ -291,7 +291,7 @@ namespace MVZ2.Level
         }
         protected Vector3 GetTransitionOffset()
         {
-            var pos = Entity.Pos;
+            var pos = Entity.Position;
             var nextPos = Entity.GetNextPosition();
             var nextTransPos = Level.LawnToTrans(nextPos);
             var currentTransPos = Level.LawnToTrans(pos);
@@ -384,7 +384,7 @@ namespace MVZ2.Level
             {
                 Model.SetAnimatorInt("State", EntityStates.WALK);
             }
-            var groundPos = Entity.Pos;
+            var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundHeight();
 
             var rendererGroup = Model.RendererGroup;

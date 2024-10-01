@@ -36,7 +36,7 @@ namespace MVZ2.Extensions
                     var y = level.GetGroundY(x, z);
                     Vector3 pos = new Vector3(x, y, z);
 
-                    if (radius > 0 && createdEnemies.Any(e => Vector3.Distance(e.Pos, pos) < radius))
+                    if (radius > 0 && createdEnemies.Any(e => Vector3.Distance(e.Position, pos) < radius))
                         continue;
 
                     Entity enm = level.Spawn(id, pos, null);

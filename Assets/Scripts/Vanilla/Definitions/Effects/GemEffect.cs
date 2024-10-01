@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Effects
             else if (timeout > vanishTime)
             {
                 var targetPos = GetMoveTargetPosition(entity);
-                entity.Velocity = (targetPos - entity.Pos) * 0.2f;
+                entity.Velocity = (targetPos - entity.Position) * 0.2f;
                 alpha = 1;
             }
             else

@@ -47,11 +47,11 @@ namespace MVZ2.Vanilla
             base.PostDestroyArmor(entity, armor, damage);
             entity.RemoveArmor();
             var effect = entity.Level.Spawn<BrokenArmor>(GetArmorPosition(entity), entity);
-            var sourcePosition = damage?.Source?.GetEntity(entity.Level)?.Pos;
+            var sourcePosition = damage?.Source?.GetEntity(entity.Level)?.Position;
             var moveDirection = entity.IsFacingLeft() ? Vector3.right : Vector3.left;
             if (sourcePosition.HasValue)
             {
-                moveDirection = (entity.Pos - sourcePosition.Value).normalized;
+                moveDirection = (entity.Position - sourcePosition.Value).normalized;
             }
             effect.Velocity = moveDirection * 10;
             effect.ChangeModel(armor.Definition.GetModelID());

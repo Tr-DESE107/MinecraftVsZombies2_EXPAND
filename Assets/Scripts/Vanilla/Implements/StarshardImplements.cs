@@ -22,7 +22,7 @@ namespace MVZ2.Vanilla
             var buffs = enemy.GetBuffs<StarshardCarrierBuff>();
             foreach (var buff in buffs)
             {
-                enemy.Level.Spawn(PickupID.starshard, enemy.Pos, enemy);
+                enemy.Level.Spawn(PickupID.starshard, enemy.Position, enemy);
                 enemy.RemoveBuff(buff);
             }
         }

@@ -368,7 +368,7 @@ namespace PVZEngine.Level
         #region 体积
         public Vector3 GetBoundsCenter()
         {
-            return Pos + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
+            return Position + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
         }
         public Bounds GetBounds()
         {
@@ -395,24 +395,24 @@ namespace PVZEngine.Level
         #region 相对高度
         public float GetGroundHeight()
         {
-            return Level.GetGroundY(Pos.x, Pos.z);
+            return Level.GetGroundY(Position.x, Position.z);
         }
         public float GetRelativeY()
         {
-            return Pos.y - GetGroundHeight();
+            return Position.y - GetGroundHeight();
         }
         public void SetRelativeY(float value)
         {
-            var pos = Pos;
+            var pos = Position;
             pos.y = value + GetGroundHeight();
-            Pos = pos;
+            Position = pos;
         }
         #endregion
 
         public Vector3 GetNextPosition(float simulationSpeed = 1)
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
-            var nextPos = Pos + velocity * simulationSpeed;
+            var nextPos = Position + velocity * simulationSpeed;
             if (!GetProperty<bool>(EntityProperties.CAN_UNDER_GROUND))
             {
                 nextPos.y = Mathf.Max(GetGroundHeight(), nextPos.y);
@@ -439,7 +439,7 @@ namespace PVZEngine.Level
         {
             Vector3 nextVelocity = GetNextVelocity(simulationSpeed);
             Vector3 nextPos = GetNextPosition(simulationSpeed);
-            Pos = nextPos;
+            Position = nextPos;
             Velocity = nextVelocity;
 
             float groundHeight = GetGroundHeight();
@@ -467,11 +467,11 @@ namespace PVZEngine.Level
         #region 网格
         public int GetColumn()
         {
-            return Level.GetColumn(Pos.x);
+            return Level.GetColumn(Position.x);
         }
         public int GetLane()
         {
-            return Level.GetLane(Pos.z);
+            return Level.GetLane(Position.z);
         }
         public void TakeGrid(LawnGrid grid)
         {
@@ -603,7 +603,7 @@ namespace PVZEngine.Level
             seri.modelID = ModelID;
             seri.parent = Parent?.ID ?? 0;
             seri.EquipedArmor = EquipedArmor?.Serialize();
-            seri.position = Pos;
+            seri.position = Position;
             seri.velocity = Velocity;
             seri.scale = Scale;
             seri.collisionMask = CollisionMask;
@@ -641,7 +641,7 @@ namespace PVZEngine.Level
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
-            Pos = seri.position;
+            Position = seri.position;
             Velocity = seri.velocity;
             Scale = seri.scale;
             CollisionMask = seri.collisionMask;
@@ -743,7 +743,7 @@ namespace PVZEngine.Level
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
         public Armor EquipedArmor { get; private set; }
-        public Vector3 Pos { get; set; }
+        public Vector3 Position { get; set; }
         public Vector3 Velocity { get; set; }
         public Vector3 Scale { get; set; } = Vector3.one;
         public int CollisionMask { get; set; }

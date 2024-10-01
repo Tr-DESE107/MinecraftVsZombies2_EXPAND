@@ -30,7 +30,7 @@ namespace MVZ2.GameContent
                 {
                     float timePercent = collectedTime / (float)moveTime;
                     var targetPos = GetMoveTargetPosition(pickup);
-                    pickup.Velocity = (targetPos - pickup.Pos) * 0.2f;
+                    pickup.Velocity = (targetPos - pickup.Position) * 0.2f;
                     alpha = 1;
                 }
                 else

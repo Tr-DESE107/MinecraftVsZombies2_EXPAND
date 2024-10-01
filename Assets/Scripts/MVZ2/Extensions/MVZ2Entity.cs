@@ -8,7 +8,7 @@ namespace MVZ2.Extensions
     {
         public static void PlaySound(this Entity entity, NamespaceID soundID, float pitch = 1)
         {
-            entity.Level.PlaySound(soundID, entity.Pos, pitch);
+            entity.Level.PlaySound(soundID, entity.Position, pitch);
         }
         public static int GetSortingLayer(this Entity entity)
         {

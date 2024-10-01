@@ -20,7 +20,7 @@ namespace MVZ2.Level
         }
         private EntityController CreateControllerForEntity(Entity entity)
         {
-            var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Pos), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
+            var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Position), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
             entityController.Init(this, entity);
             entityController.OnPointerEnter += UI_OnEntityPointerEnterCallback;
             entityController.OnPointerExit += UI_OnEntityPointerExitCallback;
