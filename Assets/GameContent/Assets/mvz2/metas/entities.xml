@@ -1,19 +1,194 @@
 <entities>
-    <contraption id="dispenser" name="发射器" tooltip="向敌人射出箭" />
-    <contraption id="furnace" name="熔炉" tooltip="提供给你额外的红石"/>
-    <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械"/>
-    <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备"/>
-    <contraption id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1"/>
+    <templates>
+        <entity>
+            <float name="changeLaneSpeed" value="2.5"/>
+            <float name="shadowAlpha" value="1"/>
+            <vector3 name="shadowScale" x="1" y="1" z="1"/>
+            <id name="placeSound" value="mvz2:grass"/>
+        </entity>
+        <contraption id="1" parent="entity">
+            <float name="maxHealth" value="300"/>
+            <float name="friction" value="0.2"/>
+            <float name="gravity" value="1"/>
+            <float name="attackSpeed" value="1"/>
+            <float name="produceSpeed" value="1"/>
+            <float name="damage" value="100"/>
+            <float name="fallDamage" value="-22.5"/>
+            <id name="shell" value="mvz2:stone"/>
+            <id name="deathSound" value="mvz2:stone"/>
+        </contraption>
+        <enemy id="2" parent="entity">
+            <float name="maxHealth" value="200"/>
+            <float name="friction" value="0.15"/>
+            <float name="gravity" value="1"/>
+            <float name="attackSpeed" value="1"/>
+            <float name="speed" value="1"/>
+            <float name="damage" value="100"/>
+            <float name="fallDamage" value="-22.5"/>
+            <id name="shell" value="mvz2:flesh"/>
+            <id name="crySound" value="mvz2:zombie_cry"/>
+            <id name="deathSound" value="mvz2:zombie_death"/>
+            <bool name="faceLeftAtDefault" value="true"/>
+        </enemy>
+        <obstacle id="3" parent="entity">
+            <float name="maxHealth" value="200"/>
+            <float name="friction" value="0.2"/>
+            <float name="gravity" value="1"/>
+            <float name="fallDamage" value="-22.5"/>
+            <id name="shell" value="mvz2:stone"/>
+            <id name="deathSound" value="mvz2:stone"/>
+            <bool name="faceLeftAtDefault" value="true"/>
+        </obstacle>
+        <boss id="4" parent="entity">
+            <float name="maxHealth" value="1000"/>
+            <float name="friction" value="0.15"/>
+            <float name="gravity" value="1"/>
+            <id name="shell" value="mvz2:flesh"/>
+            <bool name="faceLeftAtDefault" value="true"/>
+        </boss>
+        <cart id="5" parent="entity">
+            <bool name="canUnderGround" value="true"/>
+            <vector3 name="size" x="56" y="32" z="56"/>
+            <id name="cartTriggerSound" value="mvz2:minecart"/>
+        </cart>
+        <pickup id="6" parent="entity">
+            <int name="maxTimeout" value="300"/>
+            <float name="gravity" value="1"/>
+            <float name="friction" value="0.15"/>
+            <float name="size" x="32" y="32" z="32"/>
+        </pickup>
+        <projectile id="7" parent="entity">
+            <int name="maxTimeout" value="1800"/>
+            <float name="changeLaneSpeed" value="10"/>
+        </projectile>
+        <effect id="8" parent="entity">
+            <bool name="shadowHidden" value="true"/>
+        </effect>
 
-    <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
-    <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
-    <enemy id="iron_helmeted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
-    <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
-    <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！"/>
+        <dispenser id="1" parent="contraption">
+            <id name="placeSound" value="mvz2:stone"/>
+            <id name="shootSound" value="mvz2:shot"/>
+            <id name="projectileID" value="mvz2:arrow"/>
+            <float name="damage" value="20"/>
+            <float name="range" value="-1"/>
+            <vector3 name="shotVelocity" x="10" y="0" z="0"/>
+            <vector3 name="shotOffset" x="25" y="30" z="0"/>
+            <vector3 name="size" x="32" y="48" z="32"/>
+        </dispenser>
+        <zombie id="2" parent="enemy">
+            <vector3 name="size" x="32" y="86" z="32"/>
+        </zombie>
+        <gem id="6" parent="pickup">
+            <id name="dropSound" value="mvz2:money_fall"/>
+            <id name="collectSound" value="mvz2:coin"/>
+            <int name="moneyValue" value="10"/>
+            <vector3 name="size" x="16" y="16" z="16" />
+        </gem>
+    </templates>
+    <entries>
+        <!-- Contraption Start -->
+        <!-- Prologue Start -->
+        <dispenser id="dispenser" name="发射器" tooltip="向敌人射出箭" />
+        <contraption id="furnace" name="熔炉" tooltip="提供给你额外的红石">
+            <id name="placeSound" value="mvz2:stone"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <bool name="isLightSource" value="true"/>
+            <vector2 name="lightRange" x="80" y="80"/>
+            <color name="lightColor" value="#FFAA00"/>
+        </contraption>
+        <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械">
+            <id name="placeSound" value="mvz2:stone"/>
+            <float name="maxHealth" value="4000"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+        </contraption>
+        <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备">
+            <id name="shell" value="mvz2:grass"/>
+            <id name="deathSound" value="mvz2:grass"/>
+            <vector3 name="size" x="48" y="24" z="48"/>
+        </contraption>
 
-    <pickup id="redstone" name="红石"/>
-    <pickup id="emerald" name="绿宝石"/>
-    <pickup id="ruby" name="红宝石"/>
-    <pickup id="diamond" name="钻石"/>
-    <pickup id="clear_pickup" name="通关掉落物"/>
+        <!-- Halloween Start -->
+        <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1">
+            <float name="range" value="255"/>
+            <id name="projectileID" value="mvz2:snowball"/>
+            <id name="shootSound" value="mvz2:bow"/>
+            <id name="fragmentID" value="mvz2:furnace"/>
+            <vector3 name="shotOffset" x="25" y="15" z="0"/>
+            <vector3 name="size" x="32" y="32" z="32"/>
+        </dispenser>
+
+        <!-- Enemies Start -->
+        <!-- Prologue Start -->
+        <!-- Zombie -->
+        <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
+        <zombie id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
+        <zombie id="iron_helmeted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
+        <zombie id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
+
+        <!-- Halloween Start -->
+        <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！">
+            <float name="range" value="-1"/>
+            <vector3 name="size" x="32" y="86" z="32"/>
+            <vector3 name="shotOffset" x="10" y="40" z="0"/>
+            <vector3 name="shotVelocity" x="15" y="0" z="0"/>
+            <id name="shell" value="mvz2:bone"/>
+            <id name="projectileID" value="mvz2:arrow"/>
+            <id name="crySound" value="mvz2:skeleton_cry"/>
+            <id name="deathSound" value="mvz2:skeleton_death"/>
+        </enemy>
+
+        <cart id="minecart" name="南瓜马车">
+            <id name="cartTriggerSound" value="mvz2:horse_angry"/>
+            <bool name="isLightSource" value="true"/>
+            <vector2 name="lightRange" x="80" y="80"/>
+            <color name="lightColor" value="#00FF00"/>
+        </cart>
+
+        <pickup id="redstone" name="红石">
+            <id name="collectSound" value="mvz2:points"/>
+        </pickup>
+        <gem id="emerald" name="绿宝石">
+            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+        </gem>
+        <gem id="ruby" name="红宝石">
+            <int name="moneyValue" value="50"/>
+            <vector3 name="size" x="32" y="32" z="32" />
+        </gem>
+        <gem id="diamond" name="钻石">
+            <int name="maxTimeout" value="-1"/>
+            <int name="moneyValue" value="1000"/>
+            <id name="collectSound" value="mvz2:diamond"/>
+            <id name="dropSound" />
+            <vector3 name="size" x="64" y="64" z="64" />
+        </gem>
+        <pickup id="clear_pickup" name="通关掉落物">
+            <bool name="important" value="true"/>
+            <id name="collectSound" value="mvz2:win_music"/>
+        </pickup>
+        <pickup id="starshard" name="星之碎片">
+            <bool name="canUnderGround" value="true"/>
+            <bool name="shadowHidden" value="true"/>
+            <float name="friction" value="0"/>
+            <float name="gravity" value="0"/>
+            <id name="collectSound" value="mvz2:starshard_use"/>
+        </pickup>
+
+        <projectile id="arrow">
+            <bool name="pointToDirection" value="true" />
+            <vector3 name="size" x="32" y="2" z="2" />
+        </projectile>
+        <projectile id="mine_tnt_seed">
+            <bool name="noHitEntities" value="true"/>
+            <float name="gravity" value="1"/>
+            <vector3 name="size" x="24" y="24" z="24" />
+        </projectile>
+        <projectile id="snowball">
+            <vector3 name="size" x="24" y="24" z="24" />
+        </projectile>
+
+        <effect id="broken_armor">
+            <float name="friction" value="0.1"/>
+            <float name="gravity" value="1"/>
+        </effect>
+    </entries>
 </entities>

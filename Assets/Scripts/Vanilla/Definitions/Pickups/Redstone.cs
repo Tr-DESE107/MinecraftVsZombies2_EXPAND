@@ -12,7 +12,6 @@ namespace MVZ2.GameContent
     {
         public Redstone(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.points);
         }
         public override void Update(Entity pickup)
         {

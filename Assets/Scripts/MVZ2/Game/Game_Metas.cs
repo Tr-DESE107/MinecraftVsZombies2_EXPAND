@@ -15,6 +15,14 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModStageMetas(spaceName);
         }
+        public EntityMeta GetEntityMeta(NamespaceID stageID)
+        {
+            return metaProvider.GetEntityMeta(stageID);
+        }
+        public EntityMeta[] GetModEntityMetas(string spaceName)
+        {
+            return metaProvider.GetModEntityMetas(spaceName);
+        }
         private IMetaProvider metaProvider;
     }
 }

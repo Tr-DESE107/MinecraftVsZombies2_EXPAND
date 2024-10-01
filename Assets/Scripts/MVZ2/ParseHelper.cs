@@ -28,28 +28,6 @@ namespace MVZ2
         {
             return float.TryParse(str, NumberStyles.Float, provider, out parsed);
         }
-        public static bool TryParseVector2(string str, out Vector2 parsed)
-        {
-            parsed = Vector2.zero;
-            var split = str.Split(',');
-            if (split.Length != 2)
-                return false;
-            if (!TryParseFloat(split[0], out var x) || !TryParseFloat(split[1], out var y))
-                return false;
-            parsed = new Vector2(x, y);
-            return true;
-        }
-        public static bool TryParseVector3(string str, out Vector3 parsed)
-        {
-            parsed = Vector3.zero;
-            var split = str.Split(',');
-            if (split.Length != 3)
-                return false;
-            if (!TryParseFloat(split[0], out var x) || !TryParseFloat(split[1], out var y) || !TryParseFloat(split[2], out var z))
-                return false;
-            parsed = new Vector3(x, y, z);
-            return true;
-        }
         private static IFormatProvider provider => CultureInfo.InvariantCulture;
     }
 }

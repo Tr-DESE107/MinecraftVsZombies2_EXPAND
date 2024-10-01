@@ -11,9 +11,6 @@ namespace MVZ2.GameContent.Projectiles
     {
         public MineTNTSeed(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.SIZE, new Vector3(24, 24, 24));
-            SetProperty(EngineEntityProps.GRAVITY, 1f);
-            SetProperty(VanillaProjectileProps.NO_HIT_ENTITIES, true);
         }
         public override void Init(Entity entity)
         {

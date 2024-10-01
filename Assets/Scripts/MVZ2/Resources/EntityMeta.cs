@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using PVZEngine;
 using PVZEngine.Level;
@@ -14,18 +15,28 @@ namespace MVZ2.Resources
         public string tooltip;
         public NamespaceID unlock;
         public int order;
-        public static EntityMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public Dictionary<string, object> properties;
+        public static EntityMeta FromXmlNode(XmlNode node, string defaultNsp, IEnumerable<EntityMetaTemplate> templates)
         {
             var type = EntityTypes.EFFECT;
-            if (entityTypeDict.TryGetValue(node.Name, out var t))
-            {
-                type = t;
-            }
+            var template = templates.FirstOrDefault(t => t.name == node.Name);
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var deathMessage = node.GetAttribute("deathMessage");
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var tooltip = node.GetAttribute("tooltip");
+
+            Dictionary<string, object> properties = node.ToPropertyDictionary(defaultNsp);
+            if (template != null)
+            {
+                type = template.id;
+                foreach (var prop in template.properties)
+                {
+                    if (properties.ContainsKey(prop.Key))
+                        continue;
+                    properties.Add(prop.Key, prop.Value);
+                }
+            }
             return new EntityMeta()
             {
                 type = type,
@@ -33,19 +44,9 @@ namespace MVZ2.Resources
                 name = name,
                 deathMessage = deathMessage,
                 tooltip = tooltip,
-                unlock = unlock
+                unlock = unlock,
+                properties = properties,
             };
         }
-        private static readonly Dictionary<string, int> entityTypeDict = new Dictionary<string, int>()
-        {
-            { "contraption", EntityTypes.PLANT },
-            { "enemy", EntityTypes.ENEMY },
-            { "obstacle", EntityTypes.OBSTACLE },
-            { "boss", EntityTypes.BOSS },
-            { "cart", EntityTypes.CART },
-            { "pickup", EntityTypes.PICKUP },
-            { "projectile", EntityTypes.PROJECTILE },
-            { "effect", EntityTypes.EFFECT },
-        };
     }
 }

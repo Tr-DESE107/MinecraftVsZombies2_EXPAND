@@ -10,10 +10,6 @@ namespace MVZ2.GameContent
     {
         public Gem(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaPickupProps.DROP_SOUND, SoundID.moneyFall);
-            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.coin);
-            SetProperty(VanillaPickupProps.MONEY_VALUE, 10);
-            SetProperty(EngineEntityProps.SIZE, new Vector3(16, 16, 16));
         }
         public override void Update(Entity pickup)
         {

@@ -26,6 +26,7 @@ namespace MVZ2.Vanilla
         {
             LoadStages();
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
+            LoadEntityProperties();
 
             RegisterCallback(LevelCallbacks.PostEntityTakeDamage, PostEntityTakeDamage);
             RegisterCallback(LevelCallbacks.PostEntityUpdate, ChangeLaneUpdate);
@@ -90,7 +91,6 @@ namespace MVZ2.Vanilla
                 }
             }
         }
-
         private void ImplementCallbacks(VanillaImplements implements)
         {
             implements.Implement(this);
@@ -135,6 +135,21 @@ namespace MVZ2.Vanilla
                 foreach (var pair in meta.properties)
                 {
                     stage.SetProperty(pair.Key, pair.Value);
+                }
+            }
+        }
+        private void LoadEntityProperties()
+        {
+            foreach (EntityMeta meta in Global.Game.GetModEntityMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var entity = GetDefinition<EntityDefinition>(new NamespaceID(spaceName, meta.id));
+                if (entity == null)
+                    continue;
+                foreach (var pair in meta.properties)
+                {
+                    entity.SetProperty(pair.Key, pair.Value);
                 }
             }
         }

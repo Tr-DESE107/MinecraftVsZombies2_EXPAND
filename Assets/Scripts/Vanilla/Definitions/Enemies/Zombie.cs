@@ -12,7 +12,6 @@ namespace MVZ2.GameContent.Enemies
     {
         public Zombie(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 86, 32));
         }
         public override void Update(Entity entity)
         {

@@ -429,6 +429,14 @@ namespace MVZ2.Tests
             {
                 return Array.Empty<StageMeta>();
             }
+            public EntityMeta GetEntityMeta(NamespaceID stageID)
+            {
+                return null;
+            }
+            public EntityMeta[] GetModEntityMetas(string spaceName)
+            {
+                return Array.Empty<EntityMeta>();
+            }
         }
     }
 }

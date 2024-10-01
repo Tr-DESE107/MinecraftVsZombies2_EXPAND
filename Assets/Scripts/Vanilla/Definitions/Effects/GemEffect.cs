@@ -14,7 +14,6 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public GemEffect(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(BuiltinEntityProps.SHADOW_HIDDEN, true);
         }
         public override void Init(Entity entity)
         {

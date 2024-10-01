@@ -12,8 +12,6 @@ namespace MVZ2.GameContent
     {
         public ClearPickup(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(BuiltinPickupProps.IMPORTANT, true);
-            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.winMusic);
         }
         public override void Init(Entity entity)
         {

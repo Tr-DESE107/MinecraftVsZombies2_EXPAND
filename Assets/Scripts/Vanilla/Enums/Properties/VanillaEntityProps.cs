@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
         public const string SHOT_VELOCITY = "shotVelocity";
         public const string SHOT_OFFSET = "shotOffset";
         public const string SHOOT_SOUND = "shootSound";
-        public const string PROJECTILE_ID = "projectileId";
+        public const string PROJECTILE_ID = "projectileID";
         public const string IS_LIGHT_SOURCE = "isLightSource";
         public const string LIGHT_RANGE = "lightRange";
         public const string LIGHT_COLOR = "lightColor";

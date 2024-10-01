@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Localization;
 using MVZ2.Resources;
@@ -16,6 +17,13 @@ namespace MVZ2.Managers
             if (modResource == null)
                 return null;
             return modResource.EntityMetaList;
+        }
+        public EntityMeta[] GetModEntityMetas(string nsp)
+        {
+            var metaList = GetEntityMetaList(nsp);
+            if (metaList == null)
+                return Array.Empty<EntityMeta>();
+            return metaList.metas.ToArray();
         }
         public NamespaceID[] GetAllEntitiesID()
         {

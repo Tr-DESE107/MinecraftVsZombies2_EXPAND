@@ -13,14 +13,7 @@ namespace MVZ2.Vanilla
         #region 公有方法
         protected VanillaEntity(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.grass);
-            SetProperty(BuiltinEntityProps.CHANGE_LANE_SPEED, 2.5f);
-            SetProperty(BuiltinEntityProps.SHADOW_ALPHA, 1f);
-            SetProperty(BuiltinEntityProps.SHADOW_SCALE, Vector3.one);
             SetProperty(BuiltinEntityProps.SORTING_LAYER, SortingLayers.entities);
-            SetProperty(VanillaEntityProps.IS_LIGHT_SOURCE, false);
-            SetProperty(VanillaEntityProps.LIGHT_RANGE, Vector2.zero);
-            SetProperty(VanillaEntityProps.LIGHT_COLOR, Color.white);
         }
         public override void Init(Entity entity)
         {

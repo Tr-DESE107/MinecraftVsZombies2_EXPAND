@@ -12,16 +12,6 @@ namespace MVZ2.GameContent.Enemies
     {
         public VanillaEnemy(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.SHELL, VanillaShellID.flesh);
-            SetProperty(EngineEntityProps.MAX_HEALTH, 200f);
-            SetProperty(EngineEntityProps.FRICTION, 0.15f);
-            SetProperty(EngineEntityProps.FACE_LEFT_AT_DEFAULT, true);
-            SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.zombieDeath);
-            SetProperty(BuiltinEnemyProps.SPEED, 1f);
-            SetProperty(BuiltinEnemyProps.CRY_SOUND, SoundID.zombieCry);
-            SetProperty(VanillaEntityProps.ATTACK_SPEED, 1f);
-            SetProperty(VanillaEntityProps.DAMAGE, 100f);
-            SetProperty(VanillaEntityProps.FALL_DAMAGE, 22.5f);
         }
         public override void Init(Entity entity)
         {

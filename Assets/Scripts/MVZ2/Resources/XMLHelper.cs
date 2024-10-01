@@ -71,24 +71,6 @@ namespace MVZ2
                 return null;
             return value;
         }
-        public static Vector2? GetAttributeVector2(this XmlNode node, string name)
-        {
-            var attr = node.Attributes[name];
-            if (attr == null)
-                return null;
-            if (!ParseHelper.TryParseVector2(attr.Value, out var vec2))
-                return null;
-            return vec2;
-        }
-        public static Vector3? GetAttributeVector3(this XmlNode node, string name)
-        {
-            var attr = node.Attributes[name];
-            if (attr == null)
-                return null;
-            if (!ParseHelper.TryParseVector3(attr.Value, out var vec3))
-                return null;
-            return vec3;
-        }
         public static Color? GetAttributeColor(this XmlNode node, string name)
         {
             var attr = node.Attributes[name];
@@ -194,6 +176,7 @@ namespace MVZ2
                         case "bool":
                             propValue = propNode.GetAttributeBool("value") ?? false;
                             break;
+                        case "int":
                         case "integer":
                             propValue = propNode.GetAttributeInt("value") ?? 0;
                             break;
@@ -201,10 +184,10 @@ namespace MVZ2
                             propValue = propNode.GetAttributeFloat("value") ?? 0f;
                             break;
                         case "vector2":
-                            propValue = propNode.GetAttributeVector2("value") ?? Vector2.zero;
+                            propValue = new Vector2(propNode.GetAttributeFloat("x") ?? 0, propNode.GetAttributeFloat("y") ?? 0);
                             break;
                         case "vector3":
-                            propValue = propNode.GetAttributeVector3("value") ?? Vector3.zero;
+                            propValue = new Vector3(propNode.GetAttributeFloat("x") ?? 0, propNode.GetAttributeFloat("y") ?? 0, propNode.GetAttributeFloat("z") ?? 0);
                             break;
                         case "color":
                             propValue = propNode.GetAttributeColor("value") ?? Color.clear;

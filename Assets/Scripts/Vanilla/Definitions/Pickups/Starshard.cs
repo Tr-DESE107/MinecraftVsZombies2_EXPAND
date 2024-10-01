@@ -13,11 +13,6 @@ namespace MVZ2.GameContent
     {
         public Starshard(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.CAN_UNDER_GROUND, true);
-            SetProperty(EngineEntityProps.FRICTION, 0f);
-            SetProperty(EngineEntityProps.GRAVITY, 0f);
-            SetProperty(BuiltinEntityProps.SHADOW_HIDDEN, true);
-            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.starshardUse);
         }
         public override void Init(Entity pickup)
         {

@@ -10,7 +10,6 @@ namespace MVZ2.GameContent.Projectiles
     {
         public Snowball(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.SIZE, new Vector3(24, 24, 24));
         }
     }
 }

@@ -11,8 +11,6 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public BrokenArmor(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.GRAVITY, 1);
-            SetProperty(EngineEntityProps.FRICTION, 0.1f);
         }
         public override void Init(Entity entity)
         {

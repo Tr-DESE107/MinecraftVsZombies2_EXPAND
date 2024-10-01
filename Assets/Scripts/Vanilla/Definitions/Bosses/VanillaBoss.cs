@@ -8,8 +8,6 @@ namespace MVZ2.Vanilla
     {
         protected VanillaBoss(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.FRICTION, 0.15f);
-            SetProperty(EngineEntityProps.FACE_LEFT_AT_DEFAULT, true);
         }
         public override void Init(Entity entity)
         {

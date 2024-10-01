@@ -7,7 +7,6 @@ namespace MVZ2.Vanilla
     {
         protected VanillaEffect(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(BuiltinEntityProps.SHADOW_HIDDEN, true);
         }
         public override void Update(Entity entity)
         {

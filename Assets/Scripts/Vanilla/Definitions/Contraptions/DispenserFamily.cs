@@ -12,14 +12,6 @@ namespace MVZ2.GameContent.Contraptions
     {
         public DispenserFamily(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
-            SetProperty(VanillaEntityProps.DAMAGE, 20);
-            SetProperty(VanillaEntityProps.RANGE, -1);
-            SetProperty(VanillaEntityProps.SHOT_VELOCITY, new Vector3(10, 0, 0));
-            SetProperty(VanillaEntityProps.SHOT_OFFSET, new Vector3(25, 30, 0));
-            SetProperty(VanillaEntityProps.SHOOT_SOUND, SoundID.shot);
-            SetProperty(VanillaEntityProps.PROJECTILE_ID, VanillaProjectileID.arrow);
-            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 48, 32));
             detector = new DispenserDetector()
             {
                 ignoreHighEnemy = true

@@ -13,14 +13,6 @@ namespace MVZ2.GameContent.Enemies
     {
         public Skeleton(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 86, 32));
-            SetProperty(EngineEntityProps.SHELL, VanillaShellID.bone);
-            SetProperty(VanillaEntityProps.RANGE, -1f);
-            SetProperty(VanillaEntityProps.SHOT_OFFSET, new Vector3(10, 40, 0));
-            SetProperty(VanillaEntityProps.SHOT_VELOCITY, new Vector3(15, 0, 0));
-            SetProperty(VanillaEntityProps.PROJECTILE_ID, VanillaProjectileID.arrow);
-            SetProperty(BuiltinEnemyProps.CRY_SOUND, SoundID.skeletonCry);
-            SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.skeletonDeath);
             detector = new DispenserDetector()
             {
                 ignoreLowEnemy = true
