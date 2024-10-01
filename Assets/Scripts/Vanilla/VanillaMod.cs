@@ -81,6 +81,7 @@ namespace MVZ2.Vanilla
                         if (spawnDefAttr != null)
                         {
                             var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
+                            spawnDef.SetProperty(BuiltinSpawnProps.PREVIEW_COUNT, spawnDefAttr.PreviewCount);
                             AddDefinition(spawnDef);
                         }
                     }
