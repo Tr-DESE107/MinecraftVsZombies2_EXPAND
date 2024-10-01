@@ -4,10 +4,13 @@
     <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械"/>
     <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备"/>
     <contraption id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1"/>
+
     <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
     <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
     <enemy id="iron_helmeted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
     <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
+    <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！"/>
+
     <pickup id="redstone" name="红石"/>
     <pickup id="emerald" name="绿宝石"/>
     <pickup id="ruby" name="红宝石"/>

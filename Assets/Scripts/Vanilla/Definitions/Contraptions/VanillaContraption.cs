@@ -89,10 +89,6 @@ namespace MVZ2.Vanilla
         {
             SetTickDamage(entity, GetTickDamage(entity) + value);
         }
-        public static Vector3 ModifyProjectileVelocity(Entity entity, Vector3 velocity)
-        {
-            return velocity;
-        }
         private Entity CreateFragment(Entity entity)
         {
             var fragment = entity.Level.Spawn<Fragment>(entity.Pos, entity);

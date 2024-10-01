@@ -50,24 +50,7 @@ namespace MVZ2.GameContent.Contraptions
         public virtual Entity Shoot(Entity entity)
         {
             entity.TriggerAnimation("Shoot");
-
-            var game = entity.Level;
-            entity.PlaySound(entity.GetShootSound());
-
-            Vector3 offset = entity.GetShotOffset();
-            Vector3 velocity = entity.GetShotVelocity();
-            if (entity.IsFacingLeft())
-            {
-                offset.x *= -1;
-                velocity.x *= -1;
-            }
-            velocity = ModifyProjectileVelocity(entity, velocity);
-
-            var projectile = game.Spawn(entity.GetProjectileID(), entity.Pos + offset, entity);
-            projectile.SetDamage(entity.GetDamage());
-            projectile.Velocity = velocity;
-            projectile.SetFaction(entity.GetFaction());
-            return projectile;
+            return entity.ShootProjectile();
         }
         public static FrameTimer GetShootTimer(Entity entity)
         {

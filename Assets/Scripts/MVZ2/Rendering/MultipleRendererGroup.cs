@@ -185,6 +185,13 @@ namespace MVZ2.Rendering
         #endregion
 
         #region 私有方法
+        private void Awake()
+        {
+            foreach (var animator in animators)
+            {
+                animator.logWarnings = false;
+            }
+        }
         private static bool IsChildOfGroup(Transform child, MultipleRendererGroup group)
         {
             return child.GetComponentInParent<MultipleRendererGroup>() == group;

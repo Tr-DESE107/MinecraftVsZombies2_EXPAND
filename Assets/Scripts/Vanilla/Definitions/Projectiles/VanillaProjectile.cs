@@ -23,6 +23,11 @@ namespace MVZ2.Vanilla
                 | EntityCollision.MASK_ENEMY
                 | EntityCollision.MASK_OBSTACLE
                 | EntityCollision.MASK_BOSS;
+            if (entity.PointsTowardDirection())
+            {
+                var vel = new Vector2(entity.Velocity.x, entity.Velocity.y + entity.Velocity.z);
+                entity.RenderRotation = Vector3.forward * Vector2.SignedAngle(Vector2.right, vel);
+            }
         }
 
         public override void Update(Entity projectile)
@@ -38,6 +43,11 @@ namespace MVZ2.Vanilla
             {
                 projectile.Remove();
                 return;
+            }
+            if (projectile.PointsTowardDirection())
+            {
+                var vel = new Vector2(projectile.Velocity.x, projectile.Velocity.y + projectile.Velocity.z);
+                projectile.RenderRotation = Vector3.forward * Vector2.SignedAngle(Vector2.right, vel);
             }
         }
         public override void PostCollision(Entity entity, Entity other, int state)

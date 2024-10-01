@@ -255,6 +255,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
+      propertyPath: animators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: particles.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -274,6 +278,10 @@ PrefabInstance:
       propertyPath: elements.Array.data[2]
       value: 
       objectReference: {fileID: 4830824070208952020}
+    - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
+      propertyPath: animators.Array.data[0]
+      value: 
+      objectReference: {fileID: 8990201626012453747}
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: particles.Array.data[0]
       value: 
@@ -360,6 +368,11 @@ BoxCollider2D:
 --- !u!4 &8708317998892296488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7988910521364251698, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
+  m_PrefabInstance: {fileID: 1586506072868367642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8990201626012453747 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7694393783756858985, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
   m_PrefabInstance: {fileID: 1586506072868367642}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2300487391070106940

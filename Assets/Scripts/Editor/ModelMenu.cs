@@ -12,7 +12,7 @@ namespace MVZ2.Editor
         public static void UpdateModelElements()
         {
             Debug.Log("Updating model elements...");
-            var directory = Path.Combine(Application.dataPath, "GameContent", "Res", "Models");
+            var directory = Path.Combine(Application.dataPath, "GameContent", "Assets", "mvz2", "models");
             var filePaths = new List<string>();
             SearchModelPaths(directory, filePaths);
 

@@ -23,18 +23,18 @@ namespace MVZ2.Vanilla
                 {
                     if (ignoreLowEnemy)
                     {
-                        return Detection.IsYCoincide(self.Pos.y + shootOffset.y, projectileSize.y, target.Pos.y, enemyHeight);
+                        return Detection.IsYCoincide(target.Pos.y, enemyHeight, self.Pos.y + shootOffset.y, projectileSize.y);
                     }
                     else
                     {
-                        return Detection.IsBelowOf(self, target, shootOffset.y);
+                        return target.CoincidesYDown(self.Pos.y + shootOffset.y + projectileSize.y);
                     }
                 }
                 else
                 {
                     if (ignoreLowEnemy)
                     {
-                        return Detection.IsOverOf(self, target, shootOffset.y);
+                        return target.CoincidesYUp(self.Pos.y + shootOffset.y);
                     }
                     else
                     {

@@ -37,7 +37,10 @@ namespace MVZ2.Vanilla
                 entity.PlaySound(hitSound);
             }
         }
-
+        public static Vector3 ModifyProjectileVelocity(this Entity entity, Vector3 velocity)
+        {
+            return velocity;
+        }
         public static bool IsAliveEnemy(this Entity entity)
         {
             return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.GetProperty<bool>(BuiltinEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);

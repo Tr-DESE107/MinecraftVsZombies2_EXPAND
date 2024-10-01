@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.Serialization;
-using Codice.CM.Common;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Level.Components;
-using MVZ2.Level.UI;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Serialization;
@@ -60,8 +58,6 @@ namespace MVZ2.Level
                 level = DeserializeLevel(seri.level, game);
                 AddLevelCallbacks();
                 CreateLevelModel(level.AreaID);
-                level.StartStageID = stageID;
-                level.StartAreaID = areaID;
                 level.IsRerun = Main.SaveManager.IsLevelCleared(stageID);
 
                 bannerProgresses = seri.bannerProgresses.ToArray();

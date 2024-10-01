@@ -19,6 +19,8 @@ namespace MVZ2.Vanilla
         }
         public bool Validate(Entity self, Entity target)
         {
+            if (target == null)
+                return false;
             if (target.IsDead)
                 return false;
             if (!self.IsEnemy(target))

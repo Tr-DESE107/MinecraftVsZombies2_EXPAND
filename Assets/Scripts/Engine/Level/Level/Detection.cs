@@ -20,14 +20,14 @@ namespace PVZEngine.Level
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset)
         {
             return IsInFrontOf(self, target) &&
-                IsBelowOf(self, target, heightOffset) &&
+                target.CoincidesYDown(self.Pos.y + heightOffset) &&
                 IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.GetSize().z);
         }
 
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset, float frontRange)
         {
             return IsInFrontOf(self, target, 0, frontRange) &&
-                IsBelowOf(self, target, heightOffset) &&
+                target.CoincidesYDown(self.Pos.y + heightOffset) &&
                 IsZCoincide(self.Pos.z, projectileZSpan, target.Pos.z, target.GetSize().z);
         }
 
@@ -72,14 +72,14 @@ namespace PVZEngine.Level
         #endregion
 
         #region Y related
-        public static bool IsBelowOf(Entity self, Entity other, float offset = 0)
+        public static bool CoincidesYDown(this Entity entity, float y)
         {
-            return other.Pos.y < self.Pos.y + offset;
+            return entity.GetBounds().min.y < y;
         }
 
-        public static bool IsOverOf(Entity self, Entity other, float offset = 0)
+        public static bool CoincidesYUp(this Entity entity, float y)
         {
-            return other.Pos.y > self.Pos.y + offset;
+            return entity.GetBounds().max.y > y;
         }
 
         public static bool IsYCoincide(float y1, float yLength1, float y2, float yLength2)

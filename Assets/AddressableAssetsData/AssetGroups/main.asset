@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level
     m_ReadOnly: 0
@@ -821,6 +827,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20e366ae3ad04144489c4e881a2d2b4a
+    m_Address: mvz2:enemies/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 403593c82a7adb74b8cc7ce5e0a7e925
     m_Address: mvz2:characters/orant
     m_ReadOnly: 0
@@ -1241,6 +1253,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a517e81da420e4941880bb250f059923
+    m_Address: mvz2:enemies/bow_texture
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f307ca42f92ea0343bc5a7916590a612
     m_Address: mvz2:chapter_transition/chapter_wheel_dark
     m_ReadOnly: 0
@@ -1578,25 +1596,31 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
-    m_Address: mvz2:Enemies/Zombie
+    m_Address: mvz2:enemies/zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 364114971f5fdad46a4a51cedb7e7ea2
+    m_Address: mvz2:enemies/skeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2fee4be52329b84cad8cea5bb42445a
-    m_Address: mvz2:Enemies/LeatherCappedZombie
+    m_Address: mvz2:enemies/leather_capped_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7e28eba85b9ce64cbb6eb3254ad851b
-    m_Address: mvz2:Enemies/IronHelmettedZombie
+    m_Address: mvz2:enemies/iron_helmetted_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2d49595b19ea50489ac9ae21590c502
-    m_Address: mvz2:Enemies/FlagZombie
+    m_Address: mvz2:enemies/flag_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2704,12 +2728,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

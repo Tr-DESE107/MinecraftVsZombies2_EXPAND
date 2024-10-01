@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererGroup: {fileID: 3485482240055686899}
-  animator: {fileID: 547804964397208255}
   rootTransform: {fileID: 303959657157909876}
   centerTransform: {fileID: 253191266560798948}
   armorTransform: {fileID: 0}
   armorModel: {fileID: 0}
+  modelComponents: []
 --- !u!114 &3485482240055686899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortingGroup: {fileID: 6247621814009837820}
   lightController: {fileID: 2506431363863272896}
+  animators:
+  - {fileID: 547804964397208255}
   elements: []
   particles: []
 --- !u!1 &6576236377435692889

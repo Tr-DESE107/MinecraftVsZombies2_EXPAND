@@ -427,8 +427,6 @@ namespace PVZEngine.Level
         public StageDefinition StageDefinition { get; private set; }
         public NamespaceID AreaID { get; private set; }
         public AreaDefinition AreaDefinition { get; private set; }
-        public NamespaceID StartAreaID { get; set; }
-        public NamespaceID StartStageID { get; set; }
         /// <summary>
         /// 进屋的僵尸。
         /// </summary>

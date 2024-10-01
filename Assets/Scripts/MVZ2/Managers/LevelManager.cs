@@ -23,6 +23,8 @@ namespace MVZ2.Level
             if (!controller)
                 return;
             Main.SaveManager.SaveModDatas();
+            controller.StartStageID = stageID;
+            controller.StartAreaID = areaID;
             if (HasLevelState(stageID))
             {
                 LoadLevel(areaID, stageID);

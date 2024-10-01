@@ -34,8 +34,6 @@ namespace MVZ2.Level
             game.SetLevel(level);
 
             AddLevelCallbacks();
-            level.StartStageID = stageID;
-            level.StartAreaID = areaID;
             level.IsRerun = Main.SaveManager.IsLevelCleared(stageID);
 
             var option = new LevelOption()
@@ -122,7 +120,7 @@ namespace MVZ2.Level
             Main.SaveManager.SaveModDatas();
             Dispose();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.InitLevel(level.StartAreaID, level.StartStageID);
+            Main.LevelManager.InitLevel(StartAreaID, StartStageID);
         }
         public void GameOver(Entity killer)
         {
@@ -222,15 +220,15 @@ namespace MVZ2.Level
         }
         public void RemoveLevelState()
         {
-            Main.LevelManager.RemoveLevelState(level.StartStageID);
+            Main.LevelManager.RemoveLevelState(StartStageID);
         }
         public NamespaceID GetStartAreaID()
         {
-            return level.StartAreaID;
+            return StartAreaID;
         }
         public NamespaceID GetStartStageID()
         {
-            return level.StartStageID;
+            return StartStageID;
         }
         #endregion
 
@@ -396,7 +394,7 @@ namespace MVZ2.Level
         }
         private void Engine_OnClearCallback()
         {
-            Main.LevelManager.RemoveLevelState(level.StartStageID);
+            Main.LevelManager.RemoveLevelState(StartStageID);
             Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StageID));
             Main.SaveManager.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Main.SaveManager.SaveModDatas();
@@ -709,6 +707,8 @@ namespace MVZ2.Level
         private string deathMessage;
         private NamespaceID exitTargetNoteID;
         private AreaModel model;
+        public NamespaceID StartAreaID { get; set; }
+        public NamespaceID StartStageID { get; set; }
 
         #region 保存属性
         public NamespaceID CurrentMusic
@@ -761,10 +761,10 @@ namespace MVZ2.Level
                 uiPreset.SetTriggerActive(value);
             }
         }
-        private bool blueprintsActive;
-        private bool pickaxeActive;
-        private bool starshardActive;
-        private bool triggerActive;
+        private bool blueprintsActive = true;
+        private bool pickaxeActive = true;
+        private bool starshardActive = true;
+        private bool triggerActive = true;
         #endregion
 
         [Header("Main")]

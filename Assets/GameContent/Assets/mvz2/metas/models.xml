@@ -8,10 +8,12 @@
     <model name="small_dispenser" type="entity" path="mvz2:Contraptions/SmallDispenser" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
-    <model name="zombie" type="entity" path="mvz2:Enemies/Zombie" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="leather_capped_zombie" type="entity" path="mvz2:Enemies/LeatherCappedZombie" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="iron_helmetted_zombie" type="entity" path="mvz2:Enemies/IronHelmettedZombie" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="flag_zombie" type="entity" path="mvz2:Enemies/FlagZombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="zombie" type="entity" path="mvz2:enemies/zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="leather_capped_zombie" type="entity" path="mvz2:enemies/leather_capped_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="iron_helmetted_zombie" type="entity" path="mvz2:enemies/iron_helmetted_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="flag_zombie" type="entity" path="mvz2:enemies/flag_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+
+    <model name="skeleton" type="entity" path="mvz2:enemies/skeleton" width="64" height="96" xOffset="10" yOffset="8"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:Carts/Minecart" width="64" height="64" xOffset="0" yOffset="4"/>

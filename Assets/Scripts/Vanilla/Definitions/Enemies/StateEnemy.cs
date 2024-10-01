@@ -1,0 +1,119 @@
+using MVZ2.Extensions;
+using MVZ2.GameContent.Buffs;
+using MVZ2.Vanilla;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
+using Tools;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Enemies
+{
+    public abstract class StateEnemy : VanillaEnemy
+    {
+        protected StateEnemy(string nsp, string name) : base(nsp, name)
+        {
+        }
+
+        public override void Update(Entity enemy)
+        {
+            base.Update(enemy);
+            enemy.State = GetActionState(enemy);
+            UpdateActionState(enemy, enemy.State);
+
+        }
+        public override void PostDeath(Entity entity, DamageInfo info)
+        {
+            base.PostDeath(entity, info);
+            SetDeathTimer(entity, new FrameTimer(30));
+        }
+        public static FrameTimer GetDeathTimer(Entity entity)
+        {
+            return entity.GetProperty<FrameTimer>("DeathTimer");
+        }
+        public static void SetDeathTimer(Entity entity, FrameTimer frameTimer)
+        {
+            entity.SetProperty("DeathTimer", frameTimer);
+        }
+        protected virtual int GetActionState(Entity enemy)
+        {
+            if (enemy.IsDead)
+            {
+                return EntityStates.DEAD;
+            }
+            else if (enemy.IsPreviewEnemy())
+            {
+                return EntityStates.IDLE;
+            }
+            else if (enemy.Target != null)
+            {
+                return EntityStates.ATTACK;
+            }
+            else
+            {
+                return EntityStates.WALK;
+            }
+        }
+        protected virtual void UpdateActionState(Entity enemy, int state)
+        {
+            enemy.SetAnimationInt("State", state);
+            switch (state)
+            {
+                case EntityStates.WALK:
+                    UpdateStateWalk(enemy);
+                    break;
+                case EntityStates.ATTACK:
+                    UpdateStateAttack(enemy);
+                    break;
+                case EntityStates.DEAD:
+                    UpdateStateDead(enemy);
+                    break;
+                case EntityStates.CAST:
+                    UpdateStateCast(enemy);
+                    break;
+                case EntityStates.IDLE:
+                    UpdateStateIdle(enemy);
+                    break;
+            }
+        }
+        protected virtual void UpdateStateWalk(Entity enemy)
+        {
+            var velocity = enemy.Velocity;
+            var speed = enemy.GetSpeed() * 0.4f;
+            if (Mathf.Abs(velocity.x) < speed)
+            {
+                float min = Mathf.Min(speed, -speed);
+                float max = Mathf.Max(speed, -speed);
+                float direciton = enemy.IsFacingLeft() ? -1 : 1;
+                velocity.x += speed * direciton;
+                velocity.x = Mathf.Clamp(velocity.x, min, max);
+            }
+            enemy.Velocity = velocity;
+        }
+        protected virtual void UpdateStateDead(Entity enemy)
+        {
+            var deathTimer = GetDeathTimer(enemy);
+            if (deathTimer == null)
+            {
+                deathTimer = new FrameTimer(30);
+                SetDeathTimer(enemy, deathTimer);
+            }
+            deathTimer.Run();
+            if (deathTimer.Expired)
+            {
+                var smoke = enemy.Level.Spawn(EffectID.smoke, enemy.Pos, enemy);
+                smoke.SetSize(enemy.GetSize());
+                enemy.Remove();
+            }
+        }
+        protected virtual void UpdateStateAttack(Entity enemy)
+        {
+        }
+        protected virtual void UpdateStateCast(Entity enemy)
+        {
+        }
+        protected virtual void UpdateStateIdle(Entity enemy)
+        {
+        }
+    }
+
+}
