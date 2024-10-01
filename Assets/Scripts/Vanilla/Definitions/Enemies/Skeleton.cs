@@ -6,19 +6,19 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(EnemyNames.skeleton)]
+    [Definition(VanillaEnemyNames.skeleton)]
     [SpawnDefinition(2)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
+    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Skeleton : StateEnemy
     {
         public Skeleton(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.SIZE, new Vector3(32, 86, 32));
-            SetProperty(EntityProperties.SHELL, ShellID.bone);
+            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 86, 32));
+            SetProperty(EngineEntityProps.SHELL, VanillaShellID.bone);
             SetProperty(VanillaEntityProps.RANGE, -1f);
             SetProperty(VanillaEntityProps.SHOT_OFFSET, new Vector3(10, 40, 0));
             SetProperty(VanillaEntityProps.SHOT_VELOCITY, new Vector3(15, 0, 0));
-            SetProperty(VanillaEntityProps.PROJECTILE_ID, ProjectileID.arrow);
+            SetProperty(VanillaEntityProps.PROJECTILE_ID, VanillaProjectileID.arrow);
             SetProperty(BuiltinEnemyProps.CRY_SOUND, SoundID.skeletonCry);
             SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.skeletonDeath);
             detector = new DispenserDetector()

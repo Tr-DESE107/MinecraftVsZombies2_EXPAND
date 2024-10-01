@@ -1,15 +1,16 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [Definition(RechargeNames.veryLongTime)]
+    [Definition(VanillaRechargeNames.veryLongTime)]
     public class VeryLongRecharge : RechargeDefinition
     {
         public VeryLongRecharge(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(RechargeProperties.START_MAX_RECHARGE, 1050);
-            SetProperty(RechargeProperties.MAX_RECHARGE, 1500);
+            SetProperty(EngineRechargeProps.START_MAX_RECHARGE, 1050);
+            SetProperty(EngineRechargeProps.MAX_RECHARGE, 1500);
         }
     }
 }

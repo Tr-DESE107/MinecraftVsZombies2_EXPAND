@@ -20,9 +20,9 @@ namespace MVZ2.Vanilla
         public override void PrepareForBattle(LevelEngine level)
         {
             level.AreaDefinition.PrepareForBattle(level);
-            if (level.Difficulty != LevelDifficulty.hard)
+            if (level.Difficulty != VanillaDifficulties.hard)
             {
-                var cartRef = level.GetProperty<NamespaceID>(AreaProperties.CART_REFERENCE);
+                var cartRef = level.GetProperty<NamespaceID>(EngineAreaProps.CART_REFERENCE);
                 level.SpawnCarts(cartRef, BuiltinLevel.CART_START_X, 20);
             }
         }
@@ -150,7 +150,7 @@ namespace MVZ2.Vanilla
                 level.PlaySound(SoundID.siren);
                 level.WaveState = STATE_STARTED;
                 NextWave(level);
-                level.SpawnEnemyAtRandomLane(level.ContentProvider.GetSpawnDefinition(EnemyID.flagZombie));
+                level.SpawnEnemyAtRandomLane(level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.flagZombie));
                 level.RunHugeWaveEvent();
             }
         }
@@ -179,7 +179,7 @@ namespace MVZ2.Vanilla
                     Vector3 position;
                     if (enemy == null)
                     {
-                        var x = level.GetProperty<float>(AreaProperties.ENEMY_SPAWN_X);
+                        var x = level.GetProperty<float>(EngineAreaProps.ENEMY_SPAWN_X);
                         var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
                         var y = level.GetGroundY(x, z);
                         position = new Vector3(x, y, z);
@@ -188,7 +188,7 @@ namespace MVZ2.Vanilla
                     {
                         position = enemy.Position;
                     }
-                    level.Produce(PickupID.clearPickup, position, enemy);
+                    level.Produce(VanillaPickupID.clearPickup, position, enemy);
                 }
             }
         }

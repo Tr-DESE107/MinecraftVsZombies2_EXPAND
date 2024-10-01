@@ -4,7 +4,6 @@ using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Modding;
@@ -36,6 +35,7 @@ namespace MVZ2.Vanilla
 
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StarshardSpawnImplements());
+            ImplementCallbacks(new EntityImplements());
         }
         public override void PostGameInit()
         {
@@ -97,8 +97,8 @@ namespace MVZ2.Vanilla
         }
         private void LoadStages()
         {
-            AddStage(new TutorialStage(spaceName, StageNames.tutorial));
-            AddStage(new StarshardTutorialStage(spaceName, StageNames.starshardTutorial));
+            AddStage(new TutorialStage(spaceName, VanillaStageNames.tutorial));
+            AddStage(new StarshardTutorialStage(spaceName, VanillaStageNames.starshardTutorial));
 
             foreach (var meta in Global.Game.GetModStageMetas(spaceName).Where(m => m.type == StageMeta.TYPE_NORMAL))
             {
@@ -122,14 +122,15 @@ namespace MVZ2.Vanilla
                 stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
                 stage.SetProperty(BuiltinStageProps.MAP_TALK, meta.mapTalk);
 
+                stage.SetProperty(BuiltinStageProps.CLEAR_PICKUP_MODEL, meta.clearPickupModel);
+                stage.SetProperty(BuiltinStageProps.CLEAR_PICKUP_BLUEPRINT, meta.clearPickupBlueprint);
                 stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
-
 
                 stage.SetProperty(BuiltinStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
                 stage.SetProperty(BuiltinStageProps.START_TRANSITION, meta.startTransition);
 
-                stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
-                stage.SetProperty(StageProperties.FIRST_WAVE_TIME, meta.firstWaveTime);
+                stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.totalFlags);
+                stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.firstWaveTime);
 
                 foreach (var pair in meta.properties)
                 {
@@ -143,13 +144,13 @@ namespace MVZ2.Vanilla
         }
         private void PostEntityTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
-            if (armorResult != null && !armorResult.Effects.HasEffect(DamageEffects.MUTE))
+            if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
                 var entity = armorResult.Entity;
                 var shellDefinition = armorResult.ShellDefinition;
                 entity.PlayHitSound(armorResult.Effects, shellDefinition);
             }
-            if (bodyResult != null && !bodyResult.Effects.HasEffect(DamageEffects.MUTE))
+            if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
                 var entity = bodyResult.Entity;
                 var shellDefinition = bodyResult.ShellDefinition;
@@ -227,7 +228,7 @@ namespace MVZ2.Vanilla
             {
                 var level = entity.Level;
                 var gemType = GemEffect.GemType.Ruby;
-                if (level.Difficulty == LevelDifficulty.easy)
+                if (level.Difficulty == VanillaDifficulties.easy)
                 {
                     gemType = GemEffect.GemType.Emerald;
                 }
@@ -258,27 +259,27 @@ namespace MVZ2.Vanilla
                     break;
 
                 case "start_tutorial":
-                    level.ChangeStage(StageID.tutorial);
+                    level.ChangeStage(VanillaStageID.tutorial);
                     break;
                 case "prepare_starshard_tutorial":
                     {
                         var grid = level.GetGrid(4, 2);
                         if (grid == null)
                             break;
-                        if (!grid.CanPlace(ContraptionID.dispenser))
+                        if (!grid.CanPlace(VanillaContraptionID.dispenser))
                             break;
                         var x = level.GetEntityColumnX(4);
                         var z = level.GetEntityLaneZ(2);
                         var y = level.GetGroundY(x, z);
                         var position = new Vector3(x, y, z);
-                        level.Spawn(ContraptionID.dispenser, position, null);
+                        level.Spawn(VanillaContraptionID.dispenser, position, null);
                     }
                     break;
                 case "start_starshard_tutorial":
-                    level.ChangeStage(StageID.starshard_tutorial);
+                    level.ChangeStage(VanillaStageID.starshard_tutorial);
                     break;
                 case "start_trigger_tutorial":
-                    level.ChangeStage(StageID.trigger_tutorial);
+                    level.ChangeStage(VanillaStageID.trigger_tutorial);
                     break;
             }
         }
@@ -290,7 +291,7 @@ namespace MVZ2.Vanilla
                 return;
             }
             LevelEngine level = game.GetLevel();
-            if (level.StageID != StageID.halloween7)
+            if (level.StageID != VanillaStageID.halloween7)
             {
                 Debug.LogError("尝试在非万圣夜场景创建第七卡槽对话框。");
                 return;
@@ -327,7 +328,7 @@ namespace MVZ2.Vanilla
                 return;
             }
             LevelEngine level = game.GetLevel();
-            if (level.StageID != StageID.prologue)
+            if (level.StageID != VanillaStageID.prologue)
             {
                 Debug.LogError("尝试在非教程场景创建教程对话框。");
                 return;

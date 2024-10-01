@@ -1,4 +1,5 @@
-﻿using PVZEngine.Definitions;
+﻿using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 
 namespace MVZ2.Vanilla
@@ -7,8 +8,8 @@ namespace MVZ2.Vanilla
     {
         protected VanillaBoss(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.FRICTION, 0.15f);
-            SetProperty(EntityProperties.FACE_LEFT_AT_DEFAULT, true);
+            SetProperty(EngineEntityProps.FRICTION, 0.15f);
+            SetProperty(EngineEntityProps.FACE_LEFT_AT_DEFAULT, true);
         }
         public override void Init(Entity entity)
         {

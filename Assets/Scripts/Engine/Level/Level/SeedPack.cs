@@ -67,35 +67,19 @@ namespace PVZEngine.Level
         #region 消耗
         public int GetCost()
         {
-            var cost = GetProperty<int>(SeedProperties.COST);
+            var cost = GetProperty<int>(EngineSeedProps.COST);
             cost = Mathf.Max(cost, 0);
             return cost;
         }
         #endregion
 
         #region 充能
-        public float GetRecharge()
-        {
-            return GetProperty<float>(SeedPackProperties.RECHARGE);
-        }
-        public void SetRecharge(float value)
-        {
-            SetProperty(SeedPackProperties.RECHARGE, value);
-        }
-        public NamespaceID GetRechargeID()
-        {
-            return GetProperty<NamespaceID>(SeedProperties.RECHARGE_ID);
-        }
         public RechargeDefinition GetRechargeDefinition()
         {
-            var rechargeID = GetRechargeID();
+            var rechargeID = this.GetRechargeID();
             if (rechargeID == null)
                 return null;
             return Level.ContentProvider.GetRechargeDefinition(rechargeID);
-        }
-        public int GetMaxRecharge()
-        {
-            return IsStartRecharge() ? GetStartMaxRecharge() : GetUsedMaxRecharge();
         }
         public int GetStartMaxRecharge()
         {
@@ -111,53 +95,19 @@ namespace PVZEngine.Level
                 return 0;
             return rechargeDef.GetMaxRecharge();
         }
-        public bool IsStartRecharge()
-        {
-            return GetProperty<bool>(SeedPackProperties.IS_START_RECHARGE);
-        }
-        /// <summary>
-        /// 将卡牌的重装载时间设置为初始或已被使用。
-        /// </summary>
-        public void SetStartRecharge(bool value)
-        {
-            SetProperty(SeedPackProperties.IS_START_RECHARGE, value);
-        }
-        public void FullRecharge()
-        {
-            SetRecharge(GetMaxRecharge());
-        }
-        public bool IsCharged()
-        {
-            return GetRecharge() >= GetMaxRecharge();
-        }
-        public void ResetRecharge()
-        {
-            SetRecharge(0);
-        }
         public void Update(float rechargeSpeed)
         {
-            if (!IsCharged())
+            if (!this.IsCharged())
             {
-                var recharge = GetRecharge();
+                var recharge = this.GetRecharge();
                 recharge += rechargeSpeed;
-                recharge = Mathf.Min(GetMaxRecharge(), recharge);
-                SetRecharge(recharge);
+                recharge = Mathf.Min(this.GetMaxRecharge(), recharge);
+                this.SetRecharge(recharge);
             }
             foreach (var buff in buffs.GetAllBuffs())
             {
                 buff.Update();
             }
-        }
-        #endregion
-
-        #region 无法使用
-        public bool IsDisabled()
-        {
-            return GetProperty<bool>(SeedPackProperties.DISABLED);
-        }
-        public string GetDisableMessage()
-        {
-            return GetProperty<string>(SeedPackProperties.DISABLE_MESSAGE);
         }
         #endregion
 

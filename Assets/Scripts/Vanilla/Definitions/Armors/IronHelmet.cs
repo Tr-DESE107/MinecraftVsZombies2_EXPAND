@@ -4,13 +4,13 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors
 {
-    [Definition(ArmorNames.ironHelmet)]
+    [Definition(VanillaArmorNames.ironHelmet)]
     public class IronHelmet : ArmorDefinition
     {
         public IronHelmet(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ArmorProperties.SHELL, ShellID.metal);
-            SetProperty(ArmorProperties.MAX_HEALTH, MAX_HEALTH);
+            SetProperty(EngineArmorProps.SHELL, VanillaShellID.metal);
+            SetProperty(EngineArmorProps.MAX_HEALTH, MAX_HEALTH);
         }
         public override void PostUpdate(Armor armor)
         {

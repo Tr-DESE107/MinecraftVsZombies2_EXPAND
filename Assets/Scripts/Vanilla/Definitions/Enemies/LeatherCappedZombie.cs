@@ -4,9 +4,9 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(EnemyNames.leatherCappedZombie)]
+    [Definition(VanillaEnemyNames.leatherCappedZombie)]
     [SpawnDefinition(2, previewCount: 2)]
-    [EntitySeedDefinition(75, VanillaMod.spaceName, RechargeNames.none)]
+    [EntitySeedDefinition(75, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class LeatherCappedZombie : Zombie
     {
         public LeatherCappedZombie(string nsp, string name) : base(nsp, name)

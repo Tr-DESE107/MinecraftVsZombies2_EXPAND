@@ -406,12 +406,12 @@ namespace PVZEngine.Level
         #region 私有方法
         public void InitAreaProperties()
         {
-            gridWidth = AreaDefinition.GetProperty<float>(AreaProperties.GRID_WIDTH);
-            gridHeight = AreaDefinition.GetProperty<float>(AreaProperties.GRID_HEIGHT);
-            gridLeftX = AreaDefinition.GetProperty<float>(AreaProperties.GRID_LEFT_X);
-            gridBottomZ = AreaDefinition.GetProperty<float>(AreaProperties.GRID_BOTTOM_Z);
-            maxLaneCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_LANE_COUNT);
-            maxColumnCount = AreaDefinition.GetProperty<int>(AreaProperties.MAX_COLUMN_COUNT);
+            gridWidth = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_WIDTH);
+            gridHeight = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_HEIGHT);
+            gridLeftX = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_LEFT_X);
+            gridBottomZ = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_BOTTOM_Z);
+            maxLaneCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_LANE_COUNT);
+            maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
         }
         #endregion
 

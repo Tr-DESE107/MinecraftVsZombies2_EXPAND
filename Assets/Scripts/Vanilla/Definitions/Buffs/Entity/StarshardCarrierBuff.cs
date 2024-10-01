@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Buffs
 {
-    [Definition(BuffNames.starshardCarrier)]
+    [Definition(VanillaBuffNames.starshardCarrier)]
     public class StarshardCarrierBuff : BuffDefinition
     {
         public StarshardCarrierBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EntityProperties.COLOR_OFFSET, ModifyOperator.Average, new Color(0, 0.5f, 0, 0)));
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, ModifyOperator.Average, new Color(0, 0.5f, 0, 0)));
         }
     }
 }

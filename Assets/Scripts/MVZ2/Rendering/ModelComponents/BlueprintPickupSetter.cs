@@ -20,7 +20,7 @@ namespace MVZ2.Rendering
                 {
                     var resourceManager = MainManager.Instance.ResourceManager;
                     var entityID = blueprintID;
-                    var modelID = entityID.ToModelID(ModelID.TYPE_ENTITY);
+                    var modelID = entityID.ToModelID(EngineModelID.TYPE_ENTITY);
                     var modelIcon = resourceManager.GetModelIcon(modelID);
                     iconSprite.sprite = modelIcon;
 

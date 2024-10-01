@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.gemEffect)]
+    [Definition(VanillaEffectNames.gemEffect)]
     public class GemEffect : VanillaEffect
     {
         #region 公有方法
@@ -96,7 +96,7 @@ namespace MVZ2.GameContent.Effects
         }
         public static Entity SpawnGemEffect(LevelEngine level, GemType type, Vector3 position, Entity spawner, bool mute = false)
         {
-            var effect = level.Spawn(EffectID.gemEffect, position, spawner);
+            var effect = level.Spawn(VanillaEffectID.gemEffect, position, spawner);
             level.AddDelayedMoney(effect, gemMoneyDict[type]);
             effect.ChangeModel(gemModelDict[type]);
             if (!mute)

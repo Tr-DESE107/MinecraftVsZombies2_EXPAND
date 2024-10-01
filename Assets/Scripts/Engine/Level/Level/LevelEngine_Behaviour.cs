@@ -11,7 +11,7 @@ namespace PVZEngine.Level
     {
         public void NextWave()
         {
-            if (IsHugeWave(CurrentWave))
+            if (this.IsHugeWave(CurrentWave))
             {
                 CurrentFlag++;
             }
@@ -27,7 +27,7 @@ namespace PVZEngine.Level
         public void SpawnWaveEnemies(int wave)
         {
             var totalEnergy = Mathf.Ceil(wave / 3f);
-            if (IsHugeWave(wave))
+            if (this.IsHugeWave(wave))
             {
                 totalEnergy *= 2.5f;
             }
@@ -43,7 +43,7 @@ namespace PVZEngine.Level
                 totalEnergy -= spawnDef.SpawnCost;
             }
 
-            if (IsFinalWave(wave))
+            if (this.IsFinalWave(wave))
             {
                 var poolSpawnDefs = pool.Select(e => e.GetSpawnDefinition(ContentProvider));
                 var notSpawnedDefs = poolSpawnDefs.Where(def => !spawnedID.Contains(def.GetID()));
@@ -63,37 +63,9 @@ namespace PVZEngine.Level
             StageDefinition.PostHugeWave(this);
             LevelCallbacks.PostHugeWave.Run(this);
         }
-        public bool IsHugeWave(int wave)
-        {
-            return wave > 0 && wave % GetWavesPerFlag() == 0;
-        }
-        public bool IsFinalWave(int wave)
-        {
-            return wave == GetTotalWaveCount();
-        }
-        public int GetTotalWaveCount()
-        {
-            return GetTotalFlags() * GetWavesPerFlag();
-        }
         public int GetEnemySpawnX()
         {
-            return GetProperty<int>(AreaProperties.ENEMY_SPAWN_X);
-        }
-        public int GetTotalFlags()
-        {
-            return GetProperty<int>(StageProperties.TOTAL_FLAGS);
-        }
-        public int GetWavesPerFlag()
-        {
-            return GetProperty<int>(StageProperties.WAVES_PER_FLAG);
-        }
-        public int GetFirstWaveTime()
-        {
-            return GetProperty<int>(StageProperties.FIRST_WAVE_TIME);
-        }
-        public int GetContinutedFirstWaveTime()
-        {
-            return GetProperty<int>(StageProperties.CONTINUED_FIRST_WAVE_TIME);
+            return GetProperty<int>(EngineAreaProps.ENEMY_SPAWN_X);
         }
         public IEnumerable<IEnemySpawnEntry> GetEnemyPool()
         {

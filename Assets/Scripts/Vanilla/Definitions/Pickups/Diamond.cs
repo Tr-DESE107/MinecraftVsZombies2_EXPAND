@@ -4,15 +4,15 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent
 {
-    [Definition(PickupNames.diamond)]
+    [Definition(VanillaPickupNames.diamond)]
     public class Diamond : Gem
     {
         public Diamond(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinEntityProps.MAX_TIMEOUT, -1);
-            SetProperty(PickupProps.DROP_SOUND, null);
-            SetProperty(PickupProps.COLLECT_SOUND, SoundID.diamond);
-            SetProperty(PickupProps.MONEY_VALUE, 1000);
+            SetProperty(VanillaPickupProps.DROP_SOUND, null);
+            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.diamond);
+            SetProperty(VanillaPickupProps.MONEY_VALUE, 1000);
         }
         public override void Init(Entity entity)
         {

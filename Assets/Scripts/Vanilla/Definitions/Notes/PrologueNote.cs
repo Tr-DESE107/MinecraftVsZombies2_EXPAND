@@ -35,7 +35,7 @@ namespace MVZ2.Vanilla
             Global.SetBlackScreen(1);
             Global.FadeBlackScreen(0, 1);
             Global.SetMusicVolume(1);
-            Global.InitLevel(AreaID.halloween, StageID.halloween1, 1);
+            Global.InitLevel(VanillaAreaID.halloween, VanillaStageID.halloween1, 1);
             Global.HideChapterTransition();
         }
     }

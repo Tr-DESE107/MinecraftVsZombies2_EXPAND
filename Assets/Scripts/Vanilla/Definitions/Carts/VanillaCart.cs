@@ -12,8 +12,8 @@ namespace MVZ2.GameContent.Carts
         protected VanillaCart(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinCartProps.CART_TRIGGER_SOUND, SoundID.minecart);
-            SetProperty(EntityProperties.CAN_UNDER_GROUND, true);
-            SetProperty(EntityProperties.SIZE, new Vector3(56, 32, 56));
+            SetProperty(EngineEntityProps.CAN_UNDER_GROUND, true);
+            SetProperty(EngineEntityProps.SIZE, new Vector3(56, 32, 56));
         }
         public override void Init(Entity entity)
         {
@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Carts
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
                     {
                         // 碰到小车的僵尸受到伤害。
-                        ent.TakeDamage(58115310, new DamageEffectList(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY, DamageEffects.MUTE), new EntityReferenceChain(entity));
+                        ent.TakeDamage(58115310, new DamageEffectList(EngineDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), new EntityReferenceChain(entity));
                     }
                     // 如果超出屏幕，消失。
                     if (entity.GetBounds().min.x >= BuiltinLevel.GetBorderX(true))

@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Stages
             {
                 case STATE_CLICK_STARSHARD:
                     {
-                        var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.zombie);
+                        var spawnDef = level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.zombie);
                         level.SpawnEnemy(spawnDef, 2);
                         level.SetHintArrowPointToStarshard();
                     }
@@ -70,14 +70,14 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_GREEN_ENEMY:
                     {
-                        var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.zombie);
+                        var spawnDef = level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.zombie);
                         var enemy = level.SpawnEnemy(spawnDef, 2);
                         enemy.AddBuff<StarshardCarrierBuff>();
                     }
                     break;
                 case STATE_KILL_HELMET_ZOMBIE:
                     {
-                        var spawnDef = level.ContentProvider.GetSpawnDefinition(EnemyID.ironHelmettedZombie);
+                        var spawnDef = level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.ironHelmettedZombie);
                         var enemy = level.SpawnEnemy(spawnDef, 2);
                     }
                     break;
@@ -110,7 +110,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_GREEN_ENEMY:
                     {
-                        if (level.EntityExists(PickupID.starshard))
+                        if (level.EntityExists(VanillaPickupID.starshard))
                         {
                             StartState(level, STATE_COLLECT_STARSHARD);
                         }
@@ -118,7 +118,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_COLLECT_STARSHARD:
                     {
-                        foreach (var starshard in level.FindEntities(PickupID.starshard))
+                        foreach (var starshard in level.FindEntities(VanillaPickupID.starshard))
                         {
                             starshard.SetProperty(BuiltinPickupProps.IMPORTANT, true);
                         }
@@ -131,7 +131,7 @@ namespace MVZ2.GameContent.Stages
                 case STATE_KILL_HELMET_ZOMBIE:
                     if (level.GetEntities(EntityTypes.ENEMY).Length <= 0)
                     {
-                        foreach (var particle in level.FindEntities(EffectID.smoke))
+                        foreach (var particle in level.FindEntities(VanillaEffectID.smoke))
                         {
                             particle.Remove();
                         }
@@ -140,7 +140,7 @@ namespace MVZ2.GameContent.Stages
                         level.HideAdvice();
                         level.SetEnergy(level.Option.StartEnergy);
                         level.ClearSeedPacks();
-                        level.ChangeStage(StageID.halloween2);
+                        level.ChangeStage(VanillaStageID.halloween2);
                         level.StartTalk(TalkID.starshardTutorial, 1, 2);
                         level.SetBlueprintsActive(true);
                         level.SetPickaxeActive(true);

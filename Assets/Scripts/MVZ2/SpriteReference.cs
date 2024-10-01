@@ -37,7 +37,7 @@ namespace MVZ2.Resources
                     return false;
 
                 var bracketContent = str.Substring(leftBracketIndex + 1, rightBracketIndex - leftBracketIndex - 1);
-                if (!int.TryParse(bracketContent, out var index))
+                if (!ParseHelper.TryParseInt(bracketContent, out var index))
                     return false;
 
                 var idStr = str.Substring(0, leftBracketIndex);

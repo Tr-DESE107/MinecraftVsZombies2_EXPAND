@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace MVZ2.GameContent
 {
-    [Definition(PickupNames.clearPickup)]
+    [Definition(VanillaPickupNames.clearPickup)]
     public class ClearPickup : VanillaPickup
     {
         public ClearPickup(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinPickupProps.IMPORTANT, true);
-            SetProperty(PickupProps.COLLECT_SOUND, SoundID.winMusic);
+            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.winMusic);
         }
         public override void Init(Entity entity)
         {
@@ -25,15 +25,14 @@ namespace MVZ2.GameContent
             if (modelID == VanillaModelID.blueprintPickup)
             {
                 var game = Global.Game;
-                var stageMeta = game.GetStageMeta(level.StageID);
-                var blueprintID = stageMeta?.clearPickupBlueprint;
+                var blueprintID = level.GetClearPickupBlueprint();
                 if (NamespaceID.IsValid(blueprintID))
                     entity.SetModelProperty("BlueprintID", blueprintID);
             }
             var noteID = level.GetEndNoteID();
             if (NamespaceID.IsValid(noteID))
             {
-                entity.SetProperty(PickupProps.REMOVE_ON_COLLECT, true);
+                entity.SetProperty(VanillaPickupProps.REMOVE_ON_COLLECT, true);
             }
         }
         public override NamespaceID GetModelID(LevelEngine level)
@@ -59,8 +58,9 @@ namespace MVZ2.GameContent
             }
             pickup.SetShadowAlpha(shadowAlpha);
         }
-        public override void PostContactGround(Entity entity)
+        public override void PostContactGround(Entity entity, Vector3 velocity)
         {
+            base.PostContactGround(entity, velocity);
             entity.Velocity = Vector3.zero;
         }
         public override void PostCollect(Entity pickup)
@@ -71,11 +71,11 @@ namespace MVZ2.GameContent
             if (level.IsRerun)
             {
                 int money = 250;
-                if (level.Difficulty == LevelDifficulty.easy)
+                if (level.Difficulty == VanillaDifficulties.easy)
                 {
                     money = 50;
                 }
-                else if (level.Difficulty == LevelDifficulty.hard)
+                else if (level.Difficulty == VanillaDifficulties.hard)
                 {
                     money = 1000;
                 }
@@ -83,7 +83,7 @@ namespace MVZ2.GameContent
             }
             else
             {
-                if (level.Difficulty == LevelDifficulty.hard)
+                if (level.Difficulty == VanillaDifficulties.hard)
                 {
                     GemEffect.SpawnGemEffects(level, 250, pickup.Position, pickup, false);
                 }
@@ -98,7 +98,7 @@ namespace MVZ2.GameContent
             level.StopMusic();
             level.PlaySound(pickup.GetCollectSound());
             level.PlaySound(GetPickupSoundID(pickup));
-            level.Spawn(EffectID.starParticles, pickup.Position, pickup);
+            level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
 
         }
         private static Vector3 GetMoveTargetPosition(Entity entity)
@@ -113,11 +113,7 @@ namespace MVZ2.GameContent
             var level = entity.Level;
             if (level.IsRerun)
                 return VanillaModelID.moneyChest;
-            var stageMeta = game.GetStageMeta(level.StageID);
-            var levelModel = stageMeta?.clearPickupModel;
-            if (NamespaceID.IsValid(levelModel))
-                return levelModel;
-            return VanillaModelID.blueprintPickup;
+            return level.GetClearPickupModel() ?? VanillaModelID.blueprintPickup;
         }
         private NamespaceID GetPickupSoundID(Entity entity)
         {

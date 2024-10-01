@@ -86,9 +86,9 @@ namespace MVZ2.Vanilla
         public const string ADVICE_COLLECT_MONEY_1 = "收集宝石来获得更酷的道具吧！";
         private static readonly List<(NamespaceID id, float weight)> gemWeights = new List<(NamespaceID, float)>()
         {
-            ( PickupID.emerald, 100 ),
-            ( PickupID.ruby, 20 ),
-            ( PickupID.diamond, 1 ),
+            ( VanillaPickupID.emerald, 100 ),
+            ( VanillaPickupID.ruby, 20 ),
+            ( VanillaPickupID.diamond, 1 ),
         };
     }
 }

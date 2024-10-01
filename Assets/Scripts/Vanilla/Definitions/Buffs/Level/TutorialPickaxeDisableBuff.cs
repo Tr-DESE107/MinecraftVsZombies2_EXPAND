@@ -4,7 +4,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.SeedPack
 {
-    [Definition(BuffNames.Level.tutorialPickaxeDisable)]
+    [Definition(VanillaBuffNames.Level.tutorialPickaxeDisable)]
     public class TutorialPickaxeDisableBuff : BuffDefinition
     {
         public TutorialPickaxeDisableBuff(string nsp, string name) : base(nsp, name)

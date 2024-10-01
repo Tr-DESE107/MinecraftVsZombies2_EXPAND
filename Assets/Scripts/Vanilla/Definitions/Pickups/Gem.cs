@@ -10,10 +10,10 @@ namespace MVZ2.GameContent
     {
         public Gem(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(PickupProps.DROP_SOUND, SoundID.moneyFall);
-            SetProperty(PickupProps.COLLECT_SOUND, SoundID.coin);
-            SetProperty(PickupProps.MONEY_VALUE, 10);
-            SetProperty(EntityProperties.SIZE, new Vector3(16, 16, 16));
+            SetProperty(VanillaPickupProps.DROP_SOUND, SoundID.moneyFall);
+            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.coin);
+            SetProperty(VanillaPickupProps.MONEY_VALUE, 10);
+            SetProperty(EngineEntityProps.SIZE, new Vector3(16, 16, 16));
         }
         public override void Update(Entity pickup)
         {
@@ -65,8 +65,9 @@ namespace MVZ2.GameContent
             pickup.SetTint(color);
             pickup.SetShadowAlpha(shadowAlpha);
         }
-        public override void PostContactGround(Entity entity)
+        public override void PostContactGround(Entity entity, Vector3 velocity)
         {
+            base.PostContactGround(entity, velocity);
             entity.Velocity = Vector3.zero;
             entity.Level.PlaySound(entity.GetDropSound());
         }
@@ -76,7 +77,7 @@ namespace MVZ2.GameContent
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
             level.AddDelayedMoney(pickup, pickup.GetMoneyValue());
-            pickup.SetProperty(EntityProperties.GRAVITY, 0f);
+            pickup.SetProperty(EngineEntityProps.GRAVITY, 0f);
 
             var pitch = GetRandomCollectPitch() ? Random.Range(0.95f, 1.5f) : 1;
             pickup.PlaySound(pickup.GetCollectSound(), pitch);

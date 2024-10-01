@@ -8,16 +8,16 @@ using UnityEngine;
 
 namespace MVZ2.GameContent
 {
-    [Definition(PickupNames.starshard)]
+    [Definition(VanillaPickupNames.starshard)]
     public class Starshard : VanillaPickup
     {
         public Starshard(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.CAN_UNDER_GROUND, true);
-            SetProperty(EntityProperties.FRICTION, 0f);
-            SetProperty(EntityProperties.GRAVITY, 0f);
+            SetProperty(EngineEntityProps.CAN_UNDER_GROUND, true);
+            SetProperty(EngineEntityProps.FRICTION, 0f);
+            SetProperty(EngineEntityProps.GRAVITY, 0f);
             SetProperty(BuiltinEntityProps.SHADOW_HIDDEN, true);
-            SetProperty(PickupProps.COLLECT_SOUND, SoundID.starshardUse);
+            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.starshardUse);
         }
         public override void Init(Entity pickup)
         {
@@ -88,7 +88,7 @@ namespace MVZ2.GameContent
 
             var level = pickup.Level;
             level.AddStarshardCount(1);
-            pickup.SetProperty(EntityProperties.GRAVITY, 0f);
+            pickup.SetGravity(0);
 
             pickup.PlaySound(pickup.GetCollectSound());
         }
@@ -122,7 +122,7 @@ namespace MVZ2.GameContent
         {
             var areaID = level.AreaID;
             var id = new NamespaceID(areaID.spacename, $"starshard.{areaID.path}");
-            return id.ToModelID(ModelID.TYPE_ENTITY);
+            return id.ToModelID(EngineModelID.TYPE_ENTITY);
         }
         private const float COLLECTED_Z = 0;
     }

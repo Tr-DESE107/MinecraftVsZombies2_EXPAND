@@ -27,7 +27,7 @@ namespace MVZ2.Managers
             var meta = GetModelMetaList(id.spacename);
             if (meta == null)
                 return null;
-            return meta.metas.FirstOrDefault(m => ModelID.ConcatName(m.type, m.name) == id.path);
+            return meta.metas.FirstOrDefault(m => EngineModelID.ConcatName(m.type, m.name) == id.path);
         }
         #endregion
 
@@ -74,7 +74,7 @@ namespace MVZ2.Managers
             foreach (var meta in metaList.metas)
             {
                 var model = GetModel(meta.path);
-                var metaPath = ModelID.ConcatName(meta.type, meta.name);
+                var metaPath = EngineModelID.ConcatName(meta.type, meta.name);
                 var metaID = new NamespaceID(metaNamespace, metaPath);
                 if (model != null)
                 {

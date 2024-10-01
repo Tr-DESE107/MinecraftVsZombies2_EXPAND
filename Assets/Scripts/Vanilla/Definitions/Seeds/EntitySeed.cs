@@ -1,5 +1,6 @@
 ﻿using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Seeds
 {
@@ -9,8 +10,8 @@ namespace MVZ2.GameContent.Seeds
         {
             SetProperty(BuiltinSeedProps.SEED_TYPE, SeedTypes.ENTITY);
             SetProperty(BuiltinSeedProps.SEED_ENTITY_ID, new NamespaceID(nsp, name));
-            SetProperty(SeedProperties.COST, cost);
-            SetProperty(SeedProperties.RECHARGE_ID, rechargeID);
+            SetProperty(EngineSeedProps.COST, cost);
+            SetProperty(EngineSeedProps.RECHARGE_ID, rechargeID);
             SetProperty(BuiltinSeedProps.TRIGGER_ACTIVE, triggerActive);
             SetProperty(BuiltinSeedProps.TRIGGER_COST, triggerCost);
         }

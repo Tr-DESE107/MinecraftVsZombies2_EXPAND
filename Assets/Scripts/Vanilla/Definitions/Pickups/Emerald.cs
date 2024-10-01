@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent
 {
-    [Definition(PickupNames.emerald)]
+    [Definition(VanillaPickupNames.emerald)]
     public class Emerald : Gem
     {
         public Emerald(string nsp, string name) : base(nsp, name)

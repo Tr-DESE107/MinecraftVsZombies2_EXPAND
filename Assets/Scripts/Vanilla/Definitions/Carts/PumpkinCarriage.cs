@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Carts
 {
-    [Definition(CartNames.pumpkinCarriage)]
+    [Definition(VanillaCartNames.pumpkinCarriage)]
     public class PumpkinCarriage : VanillaCart
     {
         public PumpkinCarriage(string nsp, string name) : base(nsp, name)

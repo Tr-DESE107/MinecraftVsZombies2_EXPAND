@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.starParticles)]
+    [Definition(VanillaEffectNames.starParticles)]
     public class StarParticles : VanillaEffect
     {
 

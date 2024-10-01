@@ -9,7 +9,7 @@ namespace PVZEngine.Definitions
     {
         public StageDefinition(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(StageProperties.WAVES_PER_FLAG, 10);
+            SetProperty(EngineStageProps.WAVES_PER_FLAG, 10);
         }
         public void Start(LevelEngine level)
         {

@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace MVZ2.GameContent
 {
-    [Definition(PickupNames.redstone)]
+    [Definition(VanillaPickupNames.redstone)]
     public class Redstone : VanillaPickup
     {
         public Redstone(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(PickupProps.COLLECT_SOUND, SoundID.points);
+            SetProperty(VanillaPickupProps.COLLECT_SOUND, SoundID.points);
         }
         public override void Update(Entity pickup)
         {
@@ -60,8 +60,9 @@ namespace MVZ2.GameContent
             pickup.SetTint(color);
             pickup.SetShadowAlpha(shadowAlpha);
         }
-        public override void PostContactGround(Entity entity)
+        public override void PostContactGround(Entity entity, Vector3 velocity)
         {
+            base.PostContactGround(entity, velocity);
             entity.Velocity = Vector3.zero;
         }
         public override void PostCollect(Entity pickup)
@@ -71,12 +72,12 @@ namespace MVZ2.GameContent
             float value = ENERGY_VALUE;
 
             var game = pickup.Level;
-            if (game.Difficulty == LevelDifficulty.easy)
+            if (game.Difficulty == VanillaDifficulties.easy)
             {
                 value += 25;
             }
             game.AddEnergyDelayed(pickup, value);
-            pickup.SetProperty(EntityProperties.GRAVITY, 0f);
+            pickup.SetGravity(0);
 
             pickup.PlaySound(pickup.GetCollectSound(), Random.Range(0.95f, 1.5f));
         }

@@ -4,17 +4,17 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Shells
 {
-    [Definition(ShellNames.stone)]
+    [Definition(VanillaShellNames.stone)]
     public class StoneShell : ShellDefinition
     {
         public StoneShell(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ShellProps.HIT_SOUND, SoundID.stone);
+            SetProperty(VanillaShellProps.HIT_SOUND, SoundID.stone);
         }
         public override void EvaluateDamage(DamageInfo damageInfo)
         {
             base.EvaluateDamage(damageInfo);
-            if (damageInfo.Effects.HasEffect(DamageEffects.PUNCH))
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.PUNCH))
             {
                 damageInfo.Multiply(20);
             }

@@ -100,7 +100,7 @@ namespace MVZ2.GameContent.Enemies
             deathTimer.Run();
             if (deathTimer.Expired)
             {
-                var smoke = enemy.Level.Spawn(EffectID.smoke, enemy.Position, enemy);
+                var smoke = enemy.Level.Spawn(VanillaEffectID.smoke, enemy.Position, enemy);
                 smoke.SetSize(enemy.GetSize());
                 enemy.Remove();
             }

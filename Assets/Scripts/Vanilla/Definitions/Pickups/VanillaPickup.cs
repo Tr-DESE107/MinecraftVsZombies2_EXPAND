@@ -11,9 +11,9 @@ namespace MVZ2.Vanilla
     {
         public VanillaPickup(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.GRAVITY, 1f);
-            SetProperty(EntityProperties.FRICTION, 0.15f);
-            SetProperty(EntityProperties.SIZE, new Vector3(32, 32, 32));
+            SetProperty(EngineEntityProps.GRAVITY, 1f);
+            SetProperty(EngineEntityProps.FRICTION, 0.15f);
+            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 32, 32));
             SetProperty(BuiltinEntityProps.MAX_TIMEOUT, 300);
         }
         public override void Init(Entity entity)

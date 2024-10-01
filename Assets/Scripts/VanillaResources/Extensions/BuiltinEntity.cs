@@ -8,10 +8,6 @@ namespace MVZ2.Vanilla
 {
     public static class BuiltinEntity
     {
-        public static Vector3 GetSize(this EntityDefinition definition)
-        {
-            return definition.GetProperty<Vector3>(EntityProperties.SIZE);
-        }
         public static NamespaceID GetPlaceSound(this EntityDefinition definition)
         {
             return definition.GetProperty<NamespaceID>(BuiltinEntityProps.PLACE_SOUND);

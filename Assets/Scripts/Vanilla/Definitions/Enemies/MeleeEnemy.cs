@@ -1,10 +1,6 @@
-using MVZ2.Extensions;
-using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
-using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -71,7 +67,7 @@ namespace MVZ2.GameContent.Enemies
         {
             if (target == null)
                 return;
-            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(DamageEffects.MUTE), new EntityReferenceChain(enemy));
+            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(VanillaDamageEffects.MUTE), new EntityReferenceChain(enemy));
         }
     }
 

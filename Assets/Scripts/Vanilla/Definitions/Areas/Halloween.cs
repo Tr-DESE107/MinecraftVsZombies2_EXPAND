@@ -6,18 +6,18 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [Definition(AreaNames.halloween)]
+    [Definition(VanillaAreaNames.halloween)]
     public class Halloween : AreaDefinition
     {
         public Halloween(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinAreaProps.DOOR_Z, 160f);
-            SetProperty(AreaProperties.CART_REFERENCE, CartID.pumpkinCarriage);
+            SetProperty(EngineAreaProps.CART_REFERENCE, VanillaCartID.pumpkinCarriage);
             SetProperty(BuiltinLevelProps.MUSIC_ID, MusicID.halloween);
             SetProperty(BuiltinAreaProps.NIGHT_VALUE, 0.5f);
             for (int i = 0; i < 45; i++)
             {
-                grids.Add(GridID.grass);
+                grids.Add(VanillaGridID.grass);
             }
         }
         public override float GetGroundY(float x, float z)

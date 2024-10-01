@@ -4,8 +4,8 @@ using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(ContraptionNames.dispenser)]
-    [EntitySeedDefinition(100, VanillaMod.spaceName, RechargeNames.shortTime)]
+    [Definition(VanillaContraptionNames.dispenser)]
+    [EntitySeedDefinition(100, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class Dispenser : DispenserFamily
     {
         public Dispenser(string nsp, string name) : base(nsp, name)

@@ -3,9 +3,9 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(EnemyNames.flagZombie)]
+    [Definition(VanillaEnemyNames.flagZombie)]
     [SpawnDefinition(0)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
+    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class FlagZombie : Zombie
     {
         public FlagZombie(string nsp, string name) : base(nsp, name)

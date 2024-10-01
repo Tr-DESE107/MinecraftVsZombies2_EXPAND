@@ -126,9 +126,9 @@ namespace MVZ2.Tests
                 }
             }
             // 生成僵尸
-            var zombie = EnemyID.zombie;
-            var leatherCap = EnemyID.leatherCappedZombie;
-            var ironHelmet = EnemyID.ironHelmettedZombie;
+            var zombie = VanillaEnemyID.zombie;
+            var leatherCap = VanillaEnemyID.leatherCappedZombie;
+            var ironHelmet = VanillaEnemyID.ironHelmettedZombie;
             for (int t = 0; t < 3; t++)
             {
                 NamespaceID def = zombie;
@@ -196,7 +196,7 @@ namespace MVZ2.Tests
             level.AddComponent(new TestHeldItemComponent(level));
             level.AddComponent(new DummyComponent(level));
             game.SetLevel(level);
-            level.Init(AreaID.day, StageID.prologue, new LevelOption()
+            level.Init(VanillaAreaID.day, VanillaStageID.prologue, new LevelOption()
             {
                 CardSlotCount = 10,
                 LeftFaction = 0,

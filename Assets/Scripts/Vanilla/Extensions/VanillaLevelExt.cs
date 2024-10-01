@@ -17,6 +17,16 @@ namespace MVZ2.Vanilla
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
             }
         }
+        public static void Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        {
+            foreach (Entity entity in level.GetEntities())
+            {
+                if (entity.IsEnemy(faction) && Detection.IsInSphere(entity, center, radius))
+                {
+                    entity.TakeDamage(amount, effects, source);
+                }
+            }
+        }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
             if (level.GetHeldItemType() != HeldTypes.blueprint)

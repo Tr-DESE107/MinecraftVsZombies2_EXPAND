@@ -299,7 +299,7 @@ namespace MVZ2.Level
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
-                var modelID = entityID.ToModelID(ModelID.TYPE_ENTITY);
+                var modelID = entityID.ToModelID(EngineModelID.TYPE_ENTITY);
                 sprite = Main.ResourceManager.GetModelIcon(modelID);
             }
             return sprite;

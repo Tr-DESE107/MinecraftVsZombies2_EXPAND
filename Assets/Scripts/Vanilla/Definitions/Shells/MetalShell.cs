@@ -3,12 +3,12 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Shells
 {
-    [Definition(ShellNames.metal)]
+    [Definition(VanillaShellNames.metal)]
     public class MetalShell : ShellDefinition
     {
         public MetalShell(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ShellProps.HIT_SOUND, SoundID.shieldHit);
+            SetProperty(VanillaShellProps.HIT_SOUND, SoundID.shieldHit);
         }
     }
 }

@@ -131,11 +131,11 @@ namespace MVZ2.Talk
         #region 脚本
         private int ParseArgumentInt(string str)
         {
-            return int.Parse(str);
+            return ParseHelper.ParseInt(str);
         }
         private float ParseArgumentFloat(string str)
         {
-            return float.Parse(str, CultureInfo.InvariantCulture);
+            return ParseHelper.ParseFloat(str);
         }
         private Color ParseArgumentColor(string str)
         {

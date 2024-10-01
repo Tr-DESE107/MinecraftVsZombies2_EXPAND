@@ -90,16 +90,6 @@ namespace PVZEngine.Level
         {
             return entities.Exists(predicate);
         }
-        public void Explode(Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
-        {
-            foreach (Entity entity in GetEntities())
-            {
-                if (entity.IsEnemy(faction) && Detection.IsInSphere(entity, center, radius))
-                {
-                    entity.TakeDamage(amount, effects, source);
-                }
-            }
-        }
         private Bounds GetCachedBounds(Entity entity)
         {
             if (!collisionCachedBounds.TryGetValue(entity.ID, out var bounds))

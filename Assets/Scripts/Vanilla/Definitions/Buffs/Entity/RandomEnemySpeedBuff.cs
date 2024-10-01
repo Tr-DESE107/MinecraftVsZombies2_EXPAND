@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(BuffNames.randomEnemySpeed)]
+    [Definition(VanillaBuffNames.randomEnemySpeed)]
     public class RandomEnemySpeedBuff : BuffDefinition
     {
         public RandomEnemySpeedBuff(string nsp, string name) : base(nsp, name)

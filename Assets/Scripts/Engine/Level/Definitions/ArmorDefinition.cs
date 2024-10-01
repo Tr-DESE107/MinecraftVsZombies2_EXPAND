@@ -11,7 +11,7 @@ namespace PVZEngine.Definitions
         public virtual void PostUpdate(Armor armor) { }
         public NamespaceID GetModelID()
         {
-            return GetID().ToModelID(ModelID.TYPE_ARMOR);
+            return GetID().ToModelID(EngineModelID.TYPE_ARMOR);
         }
     }
 }

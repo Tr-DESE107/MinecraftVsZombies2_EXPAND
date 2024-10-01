@@ -5,7 +5,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.miner)]
+    [Definition(VanillaEffectNames.miner)]
     public class Miner : VanillaEffect
     {
         #region 公有方法
@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Effects
                 timer.Run();
                 if (timer.Expired)
                 {
-                    entity.Produce(PickupID.redstone);
+                    entity.Produce(VanillaPickupID.redstone);
                     entity.PlaySound(SoundID.throwSound);
                     timer.MaxFrame = PRODUCE_TIME;
                     timer.Reset();

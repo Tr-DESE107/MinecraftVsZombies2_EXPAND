@@ -24,7 +24,7 @@ namespace PVZEngine.Level
             ModelID = definition.GetModelID(level);
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
-            SetTint(Color.white);
+            this.SetTint(Color.white);
         }
         public void Init(Entity spawner)
         {
@@ -100,115 +100,16 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 原版属性
-        public bool IsInvincible()
-        {
-            return GetProperty<bool>(EntityProperties.INVINCIBLE);
-        }
-        public bool IsInvisible()
-        {
-            return GetProperty<bool>(EntityProperties.INVISIBLE);
-        }
-        public bool IsEthereal()
-        {
-            return GetProperty<bool>(EntityProperties.ETHEREAL);
-        }
-        public float GetGravity()
-        {
-            return GetProperty<float>(EntityProperties.GRAVITY);
-        }
-        public float GetFallDamage()
-        {
-            return GetProperty<float>(EntityProperties.FALL_DAMAGE);
-        }
-        public void SetFallDamage(float value)
-        {
-            SetProperty(EntityProperties.FALL_DAMAGE, value);
-        }
-        public float GetDamage(bool ignoreBuffs = false)
-        {
-            return GetProperty<float>(EntityProperties.DAMAGE, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetDamage(float value)
-        {
-            SetProperty(EntityProperties.DAMAGE, value);
-        }
-        public float GetAttackSpeed()
-        {
-            return GetProperty<float>(EntityProperties.ATTACK_SPEED);
-        }
-        public float GetProduceSpeed()
-        {
-            return GetProperty<float>(EntityProperties.PRODUCE_SPEED);
-        }
-        public float GetFriction()
-        {
-            return GetProperty<float>(EntityProperties.FRICTION);
-        }
-        public void SetFriction(float value)
-        {
-            SetProperty(EntityProperties.FRICTION, value);
-        }
-        public Color GetTint(bool ignoreBuffs = false)
-        {
-            return GetProperty<Color>(EntityProperties.TINT, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetTint(Color value)
-        {
-            SetProperty(EntityProperties.TINT, value);
-        }
-        public Color GetColorOffset(bool ignoreBuffs = false)
-        {
-            return GetProperty<Color>(EntityProperties.COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetColorOffset(Color value)
-        {
-            SetProperty(EntityProperties.COLOR_OFFSET, value);
-        }
-        public int GetFaction(bool ignoreBuffs = false)
-        {
-            return GetProperty<int>(EntityProperties.FACTION, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetFaction(int value)
-        {
-            SetProperty(EntityProperties.FACTION, value);
-        }
-        public Vector3 GetSize(bool ignoreBuffs = false)
-        {
-            return GetProperty<Vector3>(EntityProperties.SIZE, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetSize(Vector3 value)
-        {
-            SetProperty(EntityProperties.SIZE, value);
-        }
-        public float GetMaxHealth(bool ignoreBuffs = false)
-        {
-            return GetProperty<float>(EntityProperties.MAX_HEALTH, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetMaxHealth(float value)
-        {
-            SetProperty(EntityProperties.MAX_HEALTH, value);
-        }
-        public NamespaceID GetShellID(bool ignoreBuffs = false)
-        {
-            return GetProperty<NamespaceID>(EntityProperties.SHELL, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetShellID(NamespaceID value)
-        {
-            SetProperty(EntityProperties.SHELL, value);
-        }
-        #endregion
-
         #region 伤害
         private static DamageResult ArmoredTakeDamage(DamageInfo info, out DamageResult armorResult)
         {
             var entity = info.Entity;
             armorResult = Armor.TakeDamage(info);
-            if (info.Effects.HasEffect(DamageFlags.DAMAGE_BOTH_ARMOR_AND_BODY))
+            if (info.Effects.HasEffect(EngineDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY))
             {
                 return BodyTakeDamage(info);
             }
-            else if (info.Effects.HasEffect(DamageFlags.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
+            else if (info.Effects.HasEffect(EngineDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
             {
                 float overkillDamage = armorResult != null ? info.Amount - armorResult.UsedDamage : info.Amount;
                 if (overkillDamage > 0)
@@ -222,7 +123,7 @@ namespace PVZEngine.Level
         private static DamageResult BodyTakeDamage(DamageInfo info)
         {
             var entity = info.Entity;
-            var shellRef = entity.GetProperty<NamespaceID>(EntityProperties.SHELL);
+            var shellRef = entity.GetShellID();
             var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
             if (shell != null)
             {
@@ -275,7 +176,7 @@ namespace PVZEngine.Level
             if (info.Amount <= 0)
                 return null;
             DamageResult bodyResult;
-            if (Armor.Exists(info.Entity.EquipedArmor) && !info.Effects.HasEffect(DamageFlags.IGNORE_ARMOR))
+            if (Armor.Exists(info.Entity.EquipedArmor) && !info.Effects.HasEffect(EngineDamageEffects.IGNORE_ARMOR))
             {
                 bodyResult = ArmoredTakeDamage(info, out armorResult);
             }
@@ -307,7 +208,7 @@ namespace PVZEngine.Level
 
         public bool IsEnemy(int faction)
         {
-            return GetFaction() != faction;
+            return this.GetFaction() != faction;
         }
         public bool IsActiveEntity(bool includeDead = false)
         {
@@ -372,15 +273,15 @@ namespace PVZEngine.Level
         }
         public Bounds GetBounds()
         {
-            return new Bounds(GetBoundsCenter(), GetSize());
+            return new Bounds(GetBoundsCenter(), this.GetSize());
         }
         public Bounds GetCachedBounds()
         {
-            return new Bounds(GetBoundsCenter(), GetSize());
+            return new Bounds(GetBoundsCenter(), this.GetSize());
         }
         public Vector3 GetScaledSize()
         {
-            Vector3 size = GetSize();
+            Vector3 size = this.GetSize();
             size.Scale(Scale);
             return size;
         }
@@ -413,7 +314,7 @@ namespace PVZEngine.Level
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
             var nextPos = Position + velocity * simulationSpeed;
-            if (!GetProperty<bool>(EntityProperties.CAN_UNDER_GROUND))
+            if (!GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND))
             {
                 nextPos.y = Mathf.Max(GetGroundHeight(), nextPos.y);
             }
@@ -428,10 +329,10 @@ namespace PVZEngine.Level
             // Friction.
             float magnitude = velocity.magnitude;
             Vector3 normalized = velocity.normalized;
-            velocity = normalized * Math.Max(0, magnitude * (1 - simulationSpeed * GetFriction()));
+            velocity = normalized * Math.Max(0, magnitude * (1 - simulationSpeed * this.GetFriction()));
 
             // Gravity.
-            velocity.y -= GetGravity() * simulationSpeed;
+            velocity.y -= this.GetGravity() * simulationSpeed;
 
             return velocity;
         }
@@ -577,7 +478,7 @@ namespace PVZEngine.Level
             OnRemoveArmor?.Invoke(armor);
         }
         #endregion
-        public bool IsFacingLeft() => GetProperty<bool>(EntityProperties.FACE_LEFT_AT_DEFAULT) != FlipX;
+        public bool IsFacingLeft() => GetProperty<bool>(EngineEntityProps.FACE_LEFT_AT_DEFAULT) != FlipX;
 
         public void ChangeModel(NamespaceID id)
         {
@@ -670,7 +571,7 @@ namespace PVZEngine.Level
         #region 私有方法
         private void OnInit(Entity spawner)
         {
-            Health = GetMaxHealth();
+            Health = this.GetMaxHealth();
         }
         private void OnUpdate()
         {
@@ -678,26 +579,14 @@ namespace PVZEngine.Level
         }
         private void OnContactGround()
         {
-            HitGround(Velocity);
-            Definition.PostContactGround(this);
-            LevelCallbacks.PostEntityContactGround.Run(this);
+            var velocity = Velocity;
+            Definition.PostContactGround(this, velocity);
+            LevelCallbacks.PostEntityContactGround.Run(this, velocity);
         }
         private void OnLeaveGround()
         {
             Definition.PostLeaveGround(this);
             LevelCallbacks.PostEntityLeaveGround.Run(this);
-        }
-        private void HitGround(Vector3 velocity)
-        {
-            if (!EntityTypes.IsDamagable(Type))
-                return;
-            float fallHeight = Mathf.Max(0, GetFallDamage() - velocity.y * 5);
-            float fallDamage = Mathf.Pow(fallHeight, 2);
-            if (fallDamage > 0)
-            {
-                var effects = new DamageEffectList(DamageFlags.IGNORE_ARMOR, DamageFlags.FALL_DAMAGE);
-                TakeDamage(fallDamage, effects, new EntityReferenceChain(null));
-            }
         }
         private void PostCollision(Entity other, int state)
         {

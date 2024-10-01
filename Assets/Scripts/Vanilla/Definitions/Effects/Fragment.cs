@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.fragment)]
+    [Definition(VanillaEffectNames.fragment)]
     public class Fragment : VanillaEffect
     {
 
@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Effects
             {
                 entity.Timeout = 30;
                 entity.Position = parent.Position;
-                entity.SetModelProperty("FragmentID", parent.GetProperty<NamespaceID>(ContraptionProps.FRAGMENT));
+                entity.SetModelProperty("FragmentID", parent.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID));
             }
             entity.SetModelProperty("EmitSpeed", GetEmitSpeed(entity));
             SetEmitSpeed(entity, 0);

@@ -1,15 +1,16 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [Definition(RechargeNames.shortTime)]
+    [Definition(VanillaRechargeNames.shortTime)]
     public class ShortRecharge : RechargeDefinition
     {
         public ShortRecharge(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(RechargeProperties.START_MAX_RECHARGE, 0);
-            SetProperty(RechargeProperties.MAX_RECHARGE, 225);
+            SetProperty(EngineRechargeProps.START_MAX_RECHARGE, 0);
+            SetProperty(EngineRechargeProps.MAX_RECHARGE, 225);
         }
     }
 }

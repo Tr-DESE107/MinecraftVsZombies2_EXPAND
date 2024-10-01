@@ -7,31 +7,32 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(ContraptionNames.obsidian)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.longTime)]
+    [Definition(VanillaContraptionNames.obsidian)]
+    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.longTime)]
     public class Obsidian : VanillaContraption
     {
         public Obsidian(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
-            SetProperty(EntityProperties.SIZE, new Vector3(48, 48, 48));
-            SetProperty(EntityProperties.MAX_HEALTH, maxHP);
+            SetProperty(EngineEntityProps.SIZE, new Vector3(48, 48, 48));
+            SetProperty(EngineEntityProps.MAX_HEALTH, 4000);
         }
         public override void Update(Entity contraption)
         {
             base.Update(contraption);
             var state = 0;
+            var maxHP = contraption.GetMaxHealth();
             if (contraption.HasBuff<ObsidianArmorBuff>())
             {
-                state = GetArmoredHealthState(contraption);
-                if (contraption.Health <= maxHP)
+                state = GetArmoredHealthState(contraption, maxHP);
+                if (contraption.Health <= maxHP * 0.4f)
                 {
                     contraption.RemoveBuffs(contraption.GetBuffs<ObsidianArmorBuff>());
                 }
             }
             else
             {
-                state = GetHealthState(contraption);
+                state = GetHealthState(contraption, maxHP);
             }
             contraption.SetAnimationInt("HealthState", state);
         }
@@ -50,33 +51,39 @@ namespace MVZ2.GameContent.Contraptions
             contraption.Health = contraption.GetMaxHealth();
             contraption.Level.PlaySound(SoundID.armorUp);
         }
-        private int GetArmoredHealthState(Entity contraption)
+        private int GetArmoredHealthState(Entity contraption, float maxHP)
         {
-            switch (contraption.Health)
+            if (contraption.Health <= 0.4f * maxHP)
             {
-                case > armoredHP * 2 / 3f + maxHP:
-                    return 5;
-                case > armoredHP / 3f + maxHP:
-                    return 4;
-                case > maxHP:
-                    return 3;
-                default:
-                    return GetHealthState(contraption);
+                return GetHealthState(contraption, maxHP * 0.4f);
+            }
+            else if (contraption.Health <= 0.6f * maxHP)
+            {
+                return 3;
+            }
+            else if (contraption.Health <= 0.8f * maxHP)
+            {
+                return 4;
+            }
+            else
+            {
+                return 5;
             }
         }
-        private int GetHealthState(Entity contraption)
+        private int GetHealthState(Entity contraption, float maxHP)
         {
-            switch (contraption.Health)
+            if (contraption.Health <= maxHP / 3)
             {
-                case > maxHP * 2 / 3f:
-                    return 2;
-                case > maxHP / 3f:
-                    return 1;
-                default:
-                    return 0;
+                return 0;
+            }
+            else if (contraption.Health <= maxHP * 2 / 3)
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
             }
         }
-        private const float maxHP = 4000;
-        private const float armoredHP = 6000;
     }
 }

@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(BuffNames.damageColor)]
+    [Definition(VanillaBuffNames.damageColor)]
     public class DamageColorBuff : BuffDefinition
     {
         public DamageColorBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EntityProperties.COLOR_OFFSET, ModifyOperator.Average, new Color(1, 0, 0, 0)));
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, ModifyOperator.Average, new Color(1, 0, 0, 0)));
         }
         public override void PostUpdate(Buff buff)
         {

@@ -8,14 +8,14 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(ContraptionNames.furnace)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.shortTime)]
+    [Definition(VanillaContraptionNames.furnace)]
+    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class Furnace : VanillaContraption
     {
         public Furnace(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.stone);
-            SetProperty(EntityProperties.SIZE, new Vector3(48, 48, 48));
+            SetProperty(EngineEntityProps.SIZE, new Vector3(48, 48, 48));
             SetProperty(VanillaEntityProps.IS_LIGHT_SOURCE, true);
             SetProperty(VanillaEntityProps.LIGHT_RANGE, Vector2.one * 80f);
             SetProperty(VanillaEntityProps.LIGHT_COLOR, new Color(1, 0.67f, 0, 1));

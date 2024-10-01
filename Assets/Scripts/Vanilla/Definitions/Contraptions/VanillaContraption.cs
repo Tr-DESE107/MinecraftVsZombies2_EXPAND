@@ -13,15 +13,15 @@ namespace MVZ2.Vanilla
     {
         public VanillaContraption(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.ATTACK_SPEED, 1f);
-            SetProperty(EntityProperties.PRODUCE_SPEED, 1f);
-            SetProperty(EntityProperties.DAMAGE, 100f);
-            SetProperty(EntityProperties.MAX_HEALTH, 300f);
-            SetProperty(EntityProperties.FRICTION, 0.2f);
-            SetProperty(EntityProperties.SHELL, ShellID.stone);
-            SetProperty(EntityProperties.FALL_DAMAGE, 22.5f);
+            SetProperty(EngineEntityProps.MAX_HEALTH, 300f);
+            SetProperty(EngineEntityProps.FRICTION, 0.2f);
+            SetProperty(EngineEntityProps.SHELL, VanillaShellID.stone);
             SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.stone);
-            SetProperty(ContraptionProps.FRAGMENT, GetID());
+            SetProperty(VanillaEntityProps.ATTACK_SPEED, 1f);
+            SetProperty(VanillaEntityProps.PRODUCE_SPEED, 1f);
+            SetProperty(VanillaEntityProps.DAMAGE, 100f);
+            SetProperty(VanillaEntityProps.FALL_DAMAGE, 22.5f);
+            SetProperty(VanillaContraptionProps.FRAGMENT_ID, GetID());
         }
         public override void Init(Entity entity)
         {

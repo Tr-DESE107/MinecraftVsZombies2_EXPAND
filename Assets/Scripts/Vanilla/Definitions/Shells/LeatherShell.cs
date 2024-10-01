@@ -3,12 +3,12 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Shells
 {
-    [Definition(ShellNames.leather)]
+    [Definition(VanillaShellNames.leather)]
     public class LeatherShell : ShellDefinition
     {
         public LeatherShell(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ShellProps.HIT_SOUND, SoundID.leatherHit);
+            SetProperty(VanillaShellProps.HIT_SOUND, SoundID.leatherHit);
         }
     }
 }

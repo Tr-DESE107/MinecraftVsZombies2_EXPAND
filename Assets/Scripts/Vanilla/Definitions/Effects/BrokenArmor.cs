@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.brokenArmor)]
+    [Definition(VanillaEffectNames.brokenArmor)]
     public class BrokenArmor : VanillaEffect
     {
         #region 公有方法
         public BrokenArmor(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.GRAVITY, 1);
-            SetProperty(EntityProperties.FRICTION, 0.1f);
+            SetProperty(EngineEntityProps.GRAVITY, 1);
+            SetProperty(EngineEntityProps.FRICTION, 0.1f);
         }
         public override void Init(Entity entity)
         {
@@ -26,9 +26,9 @@ namespace MVZ2.GameContent.Effects
             entity.SetAnimationInt("HealthState", 0);
             entity.RenderRotation += new Vector3(0, 0, -entity.Velocity.x);
         }
-        public override void PostContactGround(Entity entity)
+        public override void PostContactGround(Entity entity, Vector3 velocity)
         {
-            base.PostContactGround(entity);
+            base.PostContactGround(entity, velocity);
             var vel = entity.Velocity;
             vel.y *= -0.4f;
             entity.Velocity = vel;

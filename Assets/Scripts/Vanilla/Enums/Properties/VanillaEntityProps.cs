@@ -1,4 +1,5 @@
 ﻿using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -15,6 +16,46 @@ namespace MVZ2.Vanilla
         public const string LIGHT_RANGE = "lightRange";
         public const string LIGHT_COLOR = "lightColor";
 
+        public const string DAMAGE = "damage";
+        public const string ATTACK_SPEED = "attackSpeed";
+        public const string PRODUCE_SPEED = "produceSpeed";
+        public const string ETHEREAL = "ethereal";
+        public const string FALL_DAMAGE = "fallDamage";
+        public const string CAN_DISABLE = "canDisable";
+        public const string INVISIBLE = "invisible";
+
+        public static float GetFallDamage(this Entity entity)
+        {
+            return entity.GetProperty<float>(FALL_DAMAGE);
+        }
+        public static void SetFallDamage(this Entity entity, float value)
+        {
+            entity.SetProperty(FALL_DAMAGE, value);
+        }
+        public static float GetDamage(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<float>(DAMAGE, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetDamage(this Entity entity, float value)
+        {
+            entity.SetProperty(DAMAGE, value);
+        }
+        public static bool IsInvisible(this Entity entity)
+        {
+            return entity.GetProperty<bool>(INVISIBLE);
+        }
+        public static bool IsEthereal(this Entity entity)
+        {
+            return entity.GetProperty<bool>(ETHEREAL);
+        }
+        public static float GetAttackSpeed(this Entity entity)
+        {
+            return entity.GetProperty<float>(ATTACK_SPEED);
+        }
+        public static float GetProduceSpeed(this Entity entity)
+        {
+            return entity.GetProperty<float>(PRODUCE_SPEED);
+        }
         public static float GetRange(this Entity entity)
         {
             return entity.GetProperty<float>(RANGE);

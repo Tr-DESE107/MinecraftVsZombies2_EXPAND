@@ -14,7 +14,7 @@ namespace MVZ2.Resources
             var weightAttribute = node.Attributes["weight"];
             if (weightAttribute != null)
             {
-                if (float.TryParse(weightAttribute.Value, out var floatValue))
+                if (ParseHelper.TryParseFloat(weightAttribute.Value, out var floatValue))
                 {
                     weight = floatValue;
                 }

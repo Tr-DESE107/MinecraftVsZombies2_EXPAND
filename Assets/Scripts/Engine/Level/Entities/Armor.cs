@@ -16,9 +16,9 @@ namespace PVZEngine.Level
         {
             Owner = owner;
             Definition = definition;
-            Health = GetMaxHealth();
+            Health = this.GetMaxHealth();
 
-            SetProperty(ArmorProperties.TINT, Color.white);
+            SetProperty(EngineArmorProps.TINT, Color.white);
         }
         public void Update()
         {
@@ -59,41 +59,6 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 原版属性
-        public NamespaceID GetShellID(bool ignoreBuffs = false)
-        {
-            return GetProperty<NamespaceID>(EntityProperties.SHELL, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetShellID(NamespaceID value)
-        {
-            SetProperty(EntityProperties.SHELL, value);
-        }
-        public Color GetTint(bool ignoreBuffs = false)
-        {
-            return GetProperty<Color>(ArmorProperties.TINT, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetTint(Color value)
-        {
-            SetProperty(ArmorProperties.TINT, value);
-        }
-        public Color GetColorOffset(bool ignoreBuffs = false)
-        {
-            return GetProperty<Color>(ArmorProperties.COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetColorOffset(Color value)
-        {
-            SetProperty(ArmorProperties.COLOR_OFFSET, value);
-        }
-        public float GetMaxHealth(bool ignoreBuffs = false)
-        {
-            return GetProperty<float>(EntityProperties.MAX_HEALTH, ignoreBuffs: ignoreBuffs);
-        }
-        public void SetMaxHealth(float value)
-        {
-            SetProperty(EntityProperties.MAX_HEALTH, value);
-        }
-        #endregion
-
         #region 增益
         public bool AddBuff(Buff buff)
         {
@@ -125,7 +90,7 @@ namespace PVZEngine.Level
             var armor = entity.EquipedArmor;
             if (!Exists(armor))
                 return null;
-            var shellRef = armor.GetProperty<NamespaceID>(ArmorProperties.SHELL);
+            var shellRef = armor.GetProperty<NamespaceID>(EngineArmorProps.SHELL);
             var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
             if (shell != null)
             {

@@ -53,7 +53,7 @@ namespace MVZ2.Vanilla
         public override void PostCollision(Entity entity, Entity other, int state)
         {
             base.PostCollision(entity, other, state);
-            if (entity.GetProperty<bool>(ProjectileProps.NO_HIT_ENTITIES))
+            if (entity.GetProperty<bool>(VanillaProjectileProps.NO_HIT_ENTITIES))
                 return;
             if (state != EntityCollision.STATE_EXIT)
             {

@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(EnemyNames.zombie)]
+    [Definition(VanillaEnemyNames.zombie)]
     [SpawnDefinition(1, previewCount: 3)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, RechargeNames.none)]
+    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Zombie : MeleeEnemy
     {
         public Zombie(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.SIZE, new Vector3(32, 86, 32));
+            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 86, 32));
         }
         public override void Update(Entity entity)
         {

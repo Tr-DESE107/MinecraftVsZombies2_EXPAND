@@ -22,13 +22,13 @@ namespace MVZ2.Vanilla
             if (entity == null || shell == null)
                 return;
             var level = entity.Level;
-            var blocksFire = shell.GetProperty<bool>(ShellProps.BLOCKS_FIRE);
-            var hitSound = shell.GetProperty<NamespaceID>(ShellProps.HIT_SOUND);
-            if (damageEffects.HasEffect(DamageEffects.FIRE) && !blocksFire)
+            var blocksFire = shell.GetProperty<bool>(VanillaShellProps.BLOCKS_FIRE);
+            var hitSound = shell.GetProperty<NamespaceID>(VanillaShellProps.HIT_SOUND);
+            if (damageEffects.HasEffect(VanillaDamageEffects.FIRE) && !blocksFire)
             {
                 entity.PlaySound(SoundID.fire);
             }
-            else if (damageEffects.HasEffect(DamageEffects.SLICE) && shell.GetProperty<bool>(ShellProps.SLICE_CRITICAL))
+            else if (damageEffects.HasEffect(VanillaDamageEffects.SLICE) && shell.GetProperty<bool>(VanillaShellProps.SLICE_CRITICAL))
             {
                 entity.PlaySound(SoundID.slice);
             }

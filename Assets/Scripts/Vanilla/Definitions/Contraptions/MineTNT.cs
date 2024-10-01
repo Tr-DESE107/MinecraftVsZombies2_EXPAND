@@ -12,16 +12,16 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(ContraptionNames.mineTNT)]
-    [EntitySeedDefinition(25, VanillaMod.spaceName, RechargeNames.longTime)]
+    [Definition(VanillaContraptionNames.mineTNT)]
+    [EntitySeedDefinition(25, VanillaMod.spaceName, VanillaRechargeNames.longTime)]
     public class MineTNT : VanillaContraption
     {
         public MineTNT(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.SHELL, ShellID.grass);
+            SetProperty(EngineEntityProps.SHELL, VanillaShellID.grass);
             SetProperty(BuiltinEntityProps.PLACE_SOUND, SoundID.grass);
             SetProperty(BuiltinEntityProps.DEATH_SOUND, SoundID.grass);
-            SetProperty(EntityProperties.SIZE, new Vector3(48, 24, 48));
+            SetProperty(EngineEntityProps.SIZE, new Vector3(48, 24, 48));
         }
         public override void Init(Entity entity)
         {
@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int y = 0; y < entity.Level.GetMaxLaneCount(); y++)
                 {
                     var grid = entity.Level.GetGrid(x, y);
-                    if (grid.CanPlace(ContraptionID.mineTNT))
+                    if (grid.CanPlace(VanillaContraptionID.mineTNT))
                     {
                         grids.Add(grid);
                     }
@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = GetRiseTimer(entity);
             if (riseTimer == null || !riseTimer.Expired)
                 return;
-            entity.Level.Explode(entity.Position, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(DamageEffects.MUTE, DamageFlags.IGNORE_ARMOR, DamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
+            entity.Level.Explode(entity.Position, EXPLOSION_RADIUS, entity.GetFaction(), 1800, new DamageEffectList(VanillaDamageEffects.MUTE, EngineDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH), new EntityReferenceChain(entity));
             entity.Level.Spawn<MineDebris>(entity.Position, entity);
             entity.Remove();
             entity.PlaySound(SoundID.mineExplode);
@@ -126,7 +126,7 @@ namespace MVZ2.GameContent.Contraptions
             var y = level.GetGroundY(x, z);
             var target = new Vector3(x, y, z);
             var maxY = Mathf.Max(contraption.Position.y, y) + 32;
-            seed.Velocity = MVZ2Projectile.GetLobVelocity(contraption.Position, target, maxY, seed.GetGravity());
+            seed.Velocity = VanillaProjectileExt.GetLobVelocity(contraption.Position, target, maxY, seed.GetGravity());
 
             return seed;
         }

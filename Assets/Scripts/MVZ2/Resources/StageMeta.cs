@@ -66,39 +66,7 @@ namespace MVZ2.Resources
             }
 
             var propertiesNode = node["properties"];
-            var properties = new Dictionary<string, object>();
-            if (propertiesNode != null)
-            {
-                for (int i = 0; i < propertiesNode.ChildNodes.Count; i++)
-                {
-                    var propNode = propertiesNode.ChildNodes[i];
-                    var propName = propNode.Name;
-                    var propKey = propNode.GetAttribute("name");
-                    object propValue = null;
-                    switch (propName)
-                    {
-                        case "bool":
-                            propValue = propNode.GetAttributeBool("value") ?? false;
-                            break;
-                        case "integer":
-                            propValue = propNode.GetAttributeInt("value") ?? 0;
-                            break;
-                        case "float":
-                            propValue = propNode.GetAttributeFloat("value") ?? 0f;
-                            break;
-                        case "color":
-                            propValue = propNode.GetAttributeColor("value") ?? Color.clear;
-                            break;
-                        case "id":
-                            propValue = propNode.GetAttributeNamespaceID("value", defaultNsp);
-                            break;
-                        case "sprite":
-                            propValue = propNode.GetAttributeSpriteReference("value", defaultNsp);
-                            break;
-                    }
-                    properties.Add(propKey, propValue);
-                }
-            }
+            var properties = propertiesNode.ToPropertyDictionary(defaultNsp);
             return new StageMeta()
             {
                 id = id,

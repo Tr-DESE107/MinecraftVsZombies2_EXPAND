@@ -1,8 +1,11 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Xml;
 using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
+using static UnityEditorInternal.ReorderableList;
 
 namespace MVZ2
 {
@@ -55,7 +58,7 @@ namespace MVZ2
             var attr = node.Attributes[name];
             if (attr == null)
                 return null;
-            if (!int.TryParse(attr.Value, out var value))
+            if (!ParseHelper.TryParseInt(attr.Value, out var value))
                 return null;
             return value;
         }
@@ -64,9 +67,27 @@ namespace MVZ2
             var attr = node.Attributes[name];
             if (attr == null)
                 return null;
-            if (!float.TryParse(attr.Value, out var value))
+            if (!ParseHelper.TryParseFloat(attr.Value, out var value))
                 return null;
             return value;
+        }
+        public static Vector2? GetAttributeVector2(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!ParseHelper.TryParseVector2(attr.Value, out var vec2))
+                return null;
+            return vec2;
+        }
+        public static Vector3? GetAttributeVector3(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!ParseHelper.TryParseVector3(attr.Value, out var vec3))
+                return null;
+            return vec3;
         }
         public static Color? GetAttributeColor(this XmlNode node, string name)
         {
@@ -156,6 +177,49 @@ namespace MVZ2
             var alpha = node.GetAttributeFloat("alpha") ?? 1;
             var time = node.GetAttributeFloat("time") ?? 0;
             return new GradientAlphaKey(alpha, time);
+        }
+        public static Dictionary<string, object> ToPropertyDictionary(this XmlNode node, string defaultNsp)
+        {
+            var properties = new Dictionary<string, object>();
+            if (node != null)
+            {
+                for (int i = 0; i < node.ChildNodes.Count; i++)
+                {
+                    var propNode = node.ChildNodes[i];
+                    var propName = propNode.Name;
+                    var propKey = propNode.GetAttribute("name");
+                    object propValue = null;
+                    switch (propName)
+                    {
+                        case "bool":
+                            propValue = propNode.GetAttributeBool("value") ?? false;
+                            break;
+                        case "integer":
+                            propValue = propNode.GetAttributeInt("value") ?? 0;
+                            break;
+                        case "float":
+                            propValue = propNode.GetAttributeFloat("value") ?? 0f;
+                            break;
+                        case "vector2":
+                            propValue = propNode.GetAttributeVector2("value") ?? Vector2.zero;
+                            break;
+                        case "vector3":
+                            propValue = propNode.GetAttributeVector3("value") ?? Vector3.zero;
+                            break;
+                        case "color":
+                            propValue = propNode.GetAttributeColor("value") ?? Color.clear;
+                            break;
+                        case "id":
+                            propValue = propNode.GetAttributeNamespaceID("value", defaultNsp);
+                            break;
+                        case "sprite":
+                            propValue = propNode.GetAttributeSpriteReference("value", defaultNsp);
+                            break;
+                    }
+                    properties.Add(propKey, propValue);
+                }
+            }
+            return properties;
         }
     }
 }

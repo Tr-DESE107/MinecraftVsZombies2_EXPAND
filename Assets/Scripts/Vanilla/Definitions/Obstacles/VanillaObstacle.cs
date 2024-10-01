@@ -7,9 +7,9 @@ namespace MVZ2.Vanilla
     {
         protected VanillaObstacle(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EntityProperties.FRICTION, 0.2f);
-            SetProperty(EntityProperties.FALL_DAMAGE, 22.5f);
-            SetProperty(EntityProperties.FACE_LEFT_AT_DEFAULT, true);
+            SetProperty(EngineEntityProps.FRICTION, 0.2f);
+            SetProperty(EngineEntityProps.FACE_LEFT_AT_DEFAULT, true);
+            SetProperty(VanillaEntityProps.FALL_DAMAGE, 22.5f);
         }
         public override void Init(Entity entity)
         {

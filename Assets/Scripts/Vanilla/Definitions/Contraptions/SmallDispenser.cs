@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(ContraptionNames.smallDispenser)]
-    [EntitySeedDefinition(0, VanillaMod.spaceName, RechargeNames.shortTime)]
+    [Definition(VanillaContraptionNames.smallDispenser)]
+    [EntitySeedDefinition(0, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class SmallDispenser : DispenserFamily
     {
         public SmallDispenser(string nsp, string name) : base(nsp, name)
@@ -15,9 +15,9 @@ namespace MVZ2.GameContent.Contraptions
             SetProperty(VanillaEntityProps.RANGE, 255f);
             SetProperty(VanillaEntityProps.SHOT_OFFSET, new Vector3(25, 15, 0));
             SetProperty(VanillaEntityProps.SHOOT_SOUND, SoundID.bow);
-            SetProperty(VanillaEntityProps.PROJECTILE_ID, ProjectileID.snowball);
-            SetProperty(EntityProperties.SIZE, new Vector3(32, 32, 32));
-            SetProperty(ContraptionProps.FRAGMENT, ContraptionID.furnace);
+            SetProperty(VanillaEntityProps.PROJECTILE_ID, VanillaProjectileID.snowball);
+            SetProperty(EngineEntityProps.SIZE, new Vector3(32, 32, 32));
+            SetProperty(VanillaContraptionProps.FRAGMENT_ID, VanillaContraptionID.furnace);
         }
 
         public override void Init(Entity entity)

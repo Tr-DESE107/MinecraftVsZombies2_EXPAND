@@ -6,17 +6,17 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [Definition(AreaNames.day)]
+    [Definition(VanillaAreaNames.day)]
     public class Day : AreaDefinition
     {
         public Day(string nsp, string name) : base(nsp, name)
         {
             SetProperty(BuiltinAreaProps.DOOR_Z, 240f);
-            SetProperty(AreaProperties.CART_REFERENCE, CartID.minecart);
+            SetProperty(EngineAreaProps.CART_REFERENCE, VanillaCartID.minecart);
             SetProperty(BuiltinLevelProps.MUSIC_ID, MusicID.day);
             for (int i = 0; i < 45; i++)
             {
-                grids.Add(GridID.grass);
+                grids.Add(VanillaGridID.grass);
             }
         }
         public override void Setup(LevelEngine level)

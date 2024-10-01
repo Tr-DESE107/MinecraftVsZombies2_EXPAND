@@ -4,13 +4,13 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors
 {
-    [Definition(ArmorNames.leatherCap)]
+    [Definition(VanillaArmorNames.leatherCap)]
     public class LeatherCap : ArmorDefinition
     {
         public LeatherCap(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(ArmorProperties.SHELL, ShellID.leather);
-            SetProperty(ArmorProperties.MAX_HEALTH, MAX_HEALTH);
+            SetProperty(EngineArmorProps.SHELL, VanillaShellID.leather);
+            SetProperty(EngineArmorProps.MAX_HEALTH, MAX_HEALTH);
         }
         public override void PostUpdate(Armor armor)
         {

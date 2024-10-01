@@ -3,7 +3,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.mineDebris)]
+    [Definition(VanillaEffectNames.mineDebris)]
     public class MineDebris : VanillaEffect
     {
         #region 公有方法

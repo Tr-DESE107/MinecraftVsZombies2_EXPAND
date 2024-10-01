@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(EffectNames.smoke)]
+    [Definition(VanillaEffectNames.smoke)]
     public class Smoke : VanillaEffect
     {
 
