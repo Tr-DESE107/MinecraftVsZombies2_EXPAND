@@ -37,6 +37,11 @@ namespace MVZ2.Level
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
 
+                blueprintsActive = BlueprintsActive,
+                pickaxeActive = PickaxeActive,
+                starshardActive = StarshardActive,
+                triggerActive = TriggerActive,
+
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
 
                 level = SerializeLevel()
@@ -70,6 +75,11 @@ namespace MVZ2.Level
 
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
+
+                BlueprintsActive = seri.blueprintsActive;
+                PickaxeActive = seri.pickaxeActive;
+                StarshardActive = seri.starshardActive;
+                TriggerActive = seri.triggerActive;
 
                 foreach (var entity in level.GetEntities())
                 {
@@ -172,6 +182,11 @@ namespace MVZ2.Level
 
         public NamespaceID musicID;
         public float musicTime;
+
+        public bool blueprintsActive;
+        public bool pickaxeActive;
+        public bool starshardActive;
+        public bool triggerActive;
 
         public int maxCryTime;
         public FrameTimer cryTimer;

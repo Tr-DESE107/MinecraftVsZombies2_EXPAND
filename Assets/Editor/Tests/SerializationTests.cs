@@ -322,6 +322,15 @@ namespace MVZ2.Tests
             public void ShowMoney()
             {
             }
+            public void SetBlueprintsActive(bool visible)
+            {
+            }
+            public void SetPickaxeActive(bool visible)
+            {
+            }
+            public void SetStarshardActive(bool visible)
+            {
+            }
 
             public void SetHintArrowPointToBlueprint(int index)
             {
@@ -330,7 +339,9 @@ namespace MVZ2.Tests
             public void SetHintArrowPointToPickaxe()
             {
             }
-
+            public void SetHintArrowPointToStarshard()
+            {
+            }
             public void SetHintArrowPointToEntity(Entity entity)
             {
             }

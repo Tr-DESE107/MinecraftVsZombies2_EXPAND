@@ -729,6 +729,50 @@ namespace MVZ2.Level
             get => Main.MusicManager.Time;
             set => Main.MusicManager.Time = value;
         }
+        public bool BlueprintsActive
+        {
+            get => blueprintsActive;
+            set 
+            {
+                blueprintsActive = value;
+                var uiPreset = GetUIPreset();
+                uiPreset.SetBlueprintsActive(value);
+            }
+        }
+        public bool PickaxeActive
+        {
+            get => pickaxeActive;
+            set
+            {
+                pickaxeActive = value;
+                var uiPreset = GetUIPreset();
+                uiPreset.SetPickaxeActive(value);
+            }
+        }
+        public bool StarshardActive
+        {
+            get => starshardActive;
+            set
+            {
+                starshardActive = value;
+                var uiPreset = GetUIPreset();
+                uiPreset.SetStarshardActive(value);
+            }
+        }
+        public bool TriggerActive
+        {
+            get => triggerActive;
+            set
+            {
+                triggerActive = value;
+                var uiPreset = GetUIPreset();
+                uiPreset.SetTriggerActive(value);
+            }
+        }
+        private bool blueprintsActive;
+        private bool pickaxeActive;
+        private bool starshardActive;
+        private bool triggerActive;
         #endregion
 
         [Header("Main")]

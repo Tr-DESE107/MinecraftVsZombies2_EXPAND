@@ -22,6 +22,18 @@ namespace MVZ2.Level.Components
         {
             Controller.ShowMoney();
         }
+        public void SetBlueprintsActive(bool visible)
+        {
+            Controller.BlueprintsActive = visible;
+        }
+        public void SetPickaxeActive(bool visible)
+        {
+            Controller.PickaxeActive = visible;
+        }
+        public void SetStarshardActive(bool visible)
+        {
+            Controller.StarshardActive = visible;
+        }
         public void SetHintArrowPointToBlueprint(int index)
         {
             var levelUI = Controller.GetUIPreset();
@@ -111,6 +123,7 @@ namespace MVZ2.Level.Components
         None,
         Blueprint,
         Pickaxe,
-        Entity
+        Entity,
+        Starshard,
     }
 }

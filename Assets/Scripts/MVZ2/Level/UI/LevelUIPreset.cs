@@ -33,6 +33,10 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region À¶Í¼
+        public void SetBlueprintsActive(bool visible)
+        {
+            animator.SetBool("Blueprints", visible);
+        }
         public void SetBlueprintCount(int count)
         {
             blueprints.SetBlueprintCount(count);
@@ -79,6 +83,10 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region Ìú¸ä
+        public void SetPickaxeActive(bool visible)
+        {
+            animator.SetBool("Pickaxe", visible);
+        }
         public void SetPickaxeVisible(bool visible)
         {
             pickaxeSlot.SetPickaxeVisible(visible);
@@ -105,7 +113,7 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region ÐÇÖ®ËéÆ¬
-        public void SetStarshardVisible(bool visible)
+        public void SetStarshardActive(bool visible)
         {
             animator.SetBool("Starshard", visible);
         }
@@ -116,7 +124,7 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region ´¥·¢
-        public void SetTriggerSlotVisible(bool visible)
+        public void SetTriggerActive(bool visible)
         {
             animator.SetBool("TriggerSlot", visible);
         }

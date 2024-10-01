@@ -307,7 +307,7 @@ namespace MVZ2.Level
         #endregion
         private void ClickPickaxe()
         {
-            if (level.IsPickaxeDisabled())
+            if (!PickaxeActive)
                 return;
             if (level.IsHoldingItem())
             {
@@ -317,11 +317,15 @@ namespace MVZ2.Level
                 }
                 return;
             }
+            if (level.IsPickaxeDisabled())
+                return;
             level.PlaySound(SoundID.pickaxe);
             level.SetHeldItem(HeldTypes.pickaxe, 0, 0);
         }
         private void ClickStarshard()
         {
+            if (!StarshardActive)
+                return;
             if (level.IsHoldingItem())
             {
                 if (level.CancelHeldItem())
@@ -333,7 +337,7 @@ namespace MVZ2.Level
             if (level.GetStarshardCount() <= 0)
             {
                 level.PlaySound(SoundID.buzzer);
-                //return;
+                return;
             }
             level.SetHeldItem(HeldTypes.starshard, 0, 0);
         }
@@ -453,8 +457,8 @@ namespace MVZ2.Level
         private void SetUnlockedUIVisible()
         {
             var levelUI = GetUIPreset();
-            levelUI.SetStarshardVisible(Main.SaveManager.IsStarshardUnlocked());
-            levelUI.SetTriggerSlotVisible(Main.SaveManager.IsTriggerUnlocked());
+            StarshardActive = Main.SaveManager.IsStarshardUnlocked();
+            TriggerActive = Main.SaveManager.IsTriggerUnlocked();
         }
 
         #endregion

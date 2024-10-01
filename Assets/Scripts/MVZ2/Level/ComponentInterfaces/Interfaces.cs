@@ -44,6 +44,9 @@ namespace MVZ2.Level.Components
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect);
         void ShowMoney();
+        void SetBlueprintsActive(bool visible);
+        void SetPickaxeActive(bool visible);
+        void SetStarshardActive(bool visible);
         void SetHintArrowPointToBlueprint(int index);
         void SetHintArrowPointToPickaxe();
         void SetHintArrowPointToEntity(Entity entity);

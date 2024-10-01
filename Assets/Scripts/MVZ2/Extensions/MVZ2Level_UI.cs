@@ -24,6 +24,21 @@ namespace MVZ2.Extensions
             var component = level.GetUIComponent();
             component.ShowDialog(title, desc, options, onSelect);
         }
+        public static void SetBlueprintsActive(this LevelEngine level, bool visible)
+        {
+            var component = level.GetUIComponent();
+            component.SetBlueprintsActive(visible);
+        }
+        public static void SetPickaxeActive(this LevelEngine level, bool visible)
+        {
+            var component = level.GetUIComponent();
+            component.SetPickaxeActive(visible);
+        }
+        public static void SetStarshardActive(this LevelEngine level, bool visible)
+        {
+            var component = level.GetUIComponent();
+            component.SetStarshardActive(visible);
+        }
         public static void ShakeScreen(this LevelEngine level, float startAmplitude, float endAmplitude, int time)
         {
             var component = level.GetUIComponent();
