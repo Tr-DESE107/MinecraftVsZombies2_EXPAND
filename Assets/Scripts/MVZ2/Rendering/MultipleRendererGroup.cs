@@ -10,6 +10,14 @@ namespace MVZ2.Rendering
     public class MultipleRendererGroup : MonoBehaviour
     {
         #region 公有方法
+        public void UpdateFrame(float deltaTime)
+        {
+            foreach (var animator in animators)
+            {
+                animator.enabled = false;
+                animator.Update(deltaTime);
+            }
+        }
         public void SetSimulationSpeed(float speed)
         {
             foreach (var particle in particles)
@@ -54,6 +62,14 @@ namespace MVZ2.Rendering
                 }
                 particles.Add(player);
             }
+
+            animators.Clear();
+            foreach (var animator in GetComponentsInChildren<Animator>(true))
+            {
+                if (!IsChildOfGroup(animator.transform, this))
+                    continue;
+                animators.Add(animator);
+            }
         }
         public void SetGroundPosition(Vector3 position)
         {
@@ -88,6 +104,34 @@ namespace MVZ2.Rendering
                 element.SetColor(name, color);
             }
         }
+        public void TriggerAnimator(string name)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetTrigger(name);
+            }
+        }
+        public void SetAnimatorBool(string name, bool value)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetBool(name, value);
+            }
+        }
+        public void SetAnimatorInt(string name, int value)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetInteger(name, value);
+            }
+        }
+        public void SetAnimatorFloat(string name, float value)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetFloat(name, value);
+            }
+        }
         public void SetTint(Color color)
         {
             SetPropertyColor("_Color", color);
@@ -100,6 +144,7 @@ namespace MVZ2.Rendering
         public SerializableMultipleRendererGroup ToSerializable()
         {
             var serializable = new SerializableMultipleRendererGroup();
+            serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
             serializable.sortingLayerID = SortingLayerID;
             serializable.sortingOrder = SortingOrder;
             serializable.elements = elements.Select(e => e.ToSerializable()).ToArray();
@@ -111,6 +156,14 @@ namespace MVZ2.Rendering
         {
             SortingLayerID = serializable.sortingLayerID;
             SortingOrder = serializable.sortingOrder;
+            for (int i = 0; i < animators.Count; i++)
+            {
+                if (i >= serializable.animators.Length)
+                    break;
+                var animator = animators[i];
+                var data = serializable.animators[i];
+                data.Deserialize(animator);
+            }
             for (int i = 0; i < elements.Count; i++)
             {
                 if (i >= serializable.elements.Length)
@@ -158,6 +211,8 @@ namespace MVZ2.Rendering
         [SerializeField]
         private LightController lightController;
         [SerializeField]
+        private List<Animator> animators;
+        [SerializeField]
         private List<RendererElement> elements = new List<RendererElement>();
         [SerializeField]
         private List<ParticlePlayer> particles = new List<ParticlePlayer>();
@@ -165,10 +220,139 @@ namespace MVZ2.Rendering
     }
     public class SerializableMultipleRendererGroup
     {
+        public SerializableAnimator[] animators;
         public SerializableRendererElement[] elements;
         public SerializableParticleSystem[] particles;
         public SerializableLightController light;
         public int sortingLayerID;
         public int sortingOrder;
+    }
+    public class SerializableAnimator
+    {
+        public SerializableAnimatorPlayingData[] playingDatas;
+        public List<string> triggerParameters = new List<string>();
+        public Dictionary<string, bool> boolParameters = new Dictionary<string, bool>();
+        public Dictionary<string, int> intParameters = new Dictionary<string, int>();
+        public Dictionary<string, float> floatParameters = new Dictionary<string, float>();
+
+        public SerializableAnimator(Animator animator)
+        {
+            int layerCount = animator.layerCount;
+
+            playingDatas = new SerializableAnimatorPlayingData[layerCount];
+            for (int i = 0; i < playingDatas.Length; i++)
+            {
+                AnimatorStateInfo current = animator.GetCurrentAnimatorStateInfo(i);
+                AnimatorStateInfo next = animator.GetNextAnimatorStateInfo(i);
+                AnimatorTransitionInfo transition = animator.GetAnimatorTransitionInfo(i);
+
+                SerializableAnimatorPlayingData playingData = new SerializableAnimatorPlayingData()
+                {
+                    currentHash = current.shortNameHash,
+                    currentTime = current.normalizedTime,
+
+                    nextHash = next.shortNameHash,
+                    nextNormalizedTime = next.normalizedTime,
+                    nextLength = next.length == Mathf.Infinity ? 0 : next.length,
+
+                    transitionDuration = transition.duration,
+                    transitionDurationUnit = (int)transition.durationUnit,
+                    transitionTime = transition.normalizedTime
+                };
+                playingDatas[i] = playingData;
+            }
+
+            foreach (AnimatorControllerParameter para in animator.parameters)
+            {
+                string name = para.name;
+                switch (para.type)
+                {
+                    case AnimatorControllerParameterType.Bool:
+                        boolParameters.Add(name, animator.GetBool(name));
+                        break;
+
+                    case AnimatorControllerParameterType.Float:
+                        floatParameters.Add(name, (float)animator.GetFloat(name));
+                        break;
+
+                    case AnimatorControllerParameterType.Int:
+                        intParameters.Add(name, animator.GetInteger(name));
+                        break;
+
+                    case AnimatorControllerParameterType.Trigger:
+                        if (animator.GetBool(name))
+                        {
+                            triggerParameters.Add(name);
+                        }
+                        break;
+                }
+            }
+        }
+        public void Deserialize(Animator animator)
+        {
+            int layerCount = playingDatas.Length;
+
+            foreach (var pair in floatParameters)
+            {
+                animator.SetFloat(pair.Key, pair.Value);
+            }
+            foreach (var pair in boolParameters)
+            {
+                animator.SetBool(pair.Key, pair.Value);
+            }
+            foreach (var pair in intParameters)
+            {
+                animator.SetInteger(pair.Key, pair.Value);
+            }
+            foreach (string trigger in triggerParameters)
+            {
+                animator.SetTrigger(trigger);
+            }
+
+            for (int i = 0; i < layerCount; i++)
+            {
+                SerializableAnimatorPlayingData playingData = playingDatas[i];
+                int currentNameHash = playingData.currentHash;
+                float currentNormalizedTime = playingData.currentTime;
+
+                animator.Play(currentNameHash, i, currentNormalizedTime);
+            }
+            animator.Update(0);
+
+            for (int i = 0; i < layerCount; i++)
+            {
+                SerializableAnimatorPlayingData playingData = playingDatas[i];
+                int nextFullPathHash = playingData.nextHash;
+                if (nextFullPathHash != 0)
+                {
+                    float nextNormalizedTime = playingData.nextNormalizedTime;
+                    float nextLength = playingData.nextLength;
+
+                    var transitionDurationUnit = (DurationUnit)playingData.transitionDurationUnit;
+                    float transitionDuration = playingData.transitionDuration;
+                    float transitionNormalizedTime = playingData.transitionTime;
+                    if (transitionDurationUnit == DurationUnit.Fixed)
+                    {
+                        animator.CrossFadeInFixedTime(nextFullPathHash, transitionDuration, i, nextLength, transitionNormalizedTime);
+                    }
+                    else
+                    {
+                        animator.CrossFade(nextFullPathHash, transitionDuration, i, nextNormalizedTime, transitionNormalizedTime);
+                    }
+                }
+            }
+            animator.Update(0);
+        }
+    }
+    public class SerializableAnimatorPlayingData
+    {
+        public int currentHash;
+        public float currentTime;
+        public int nextHash;
+        public float nextNormalizedTime;
+        public float nextLength;
+        public int transitionDurationUnit;
+        public float transitionDuration;
+        public float transitionTime;
     }
 }

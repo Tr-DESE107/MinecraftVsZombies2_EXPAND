@@ -12,6 +12,7 @@ namespace MVZ2.Editor
         private SerializedProperty elementsProperty;
         private SerializedProperty particlesProperty;
         private SerializedProperty lightControllerProperty;
+        private SerializedProperty animatorsProperty;
         private void OnEnable()
         {
             group = target as MultipleRendererGroup;
@@ -19,6 +20,7 @@ namespace MVZ2.Editor
             elementsProperty = serializedObject.FindProperty("elements");
             particlesProperty = serializedObject.FindProperty("particles");
             lightControllerProperty = serializedObject.FindProperty("lightController");
+            animatorsProperty = serializedObject.FindProperty("animators");
         }
         public override void OnInspectorGUI()
         {
@@ -26,6 +28,7 @@ namespace MVZ2.Editor
             EditorGUILayout.PropertyField(lightControllerProperty);
             EditorGUILayout.PropertyField(elementsProperty);
             EditorGUILayout.PropertyField(particlesProperty);
+            EditorGUILayout.PropertyField(animatorsProperty);
             if (GUILayout.Button("Update Elements"))
             {
                 group.UpdateRendererElements();
