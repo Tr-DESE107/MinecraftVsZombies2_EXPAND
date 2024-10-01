@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-22 16:12+0800\n"
-"PO-Revision-Date: 2024-09-22 21:44+0800\n"
+"PO-Revision-Date: 2024-10-01 13:55+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -709,7 +709,7 @@ msgid "塔 - XVI"
 msgstr "The Tower - XVI"
 
 msgctxt "advice.starshard_tutorial.0"
-msgid "左键点击星之碎片槽选中星之碎片！"
+msgid "点击星之碎片槽选中星之碎片！"
 msgstr "Click the Starshard to select it!"
 
 msgctxt "advice.starshard_tutorial.1"
@@ -737,7 +737,7 @@ msgid "点击并放置TNT！"
 msgstr "Click and place TNT!"
 
 msgctxt "advice.trigger_tutorial.1"
-msgid "左键点击能量面板选中触发器！"
+msgid "点击能量面板选中触发器！"
 msgstr "Click the Energy Panel to select Trigger!"
 
 msgctxt "advice.trigger_tutorial.10"
@@ -777,7 +777,7 @@ msgid "如果你想交换这两个动作的效果，你可以在设置中更改�
 msgstr "You can swap these two actions in Settings."
 
 msgctxt "advice.tutorial.0"
-msgid "左键点击器械卡牌选中器械！"
+msgid "点击器械卡牌选中器械！"
 msgstr "Click a blueprint to choose a contraption!"
 
 msgctxt "advice.tutorial.1"

@@ -49,6 +49,7 @@ namespace MVZ2.Level.Components
         void SetStarshardActive(bool visible);
         void SetHintArrowPointToBlueprint(int index);
         void SetHintArrowPointToPickaxe();
+        void SetHintArrowPointToStarshard();
         void SetHintArrowPointToEntity(Entity entity);
         void HideHintArrow();
     }

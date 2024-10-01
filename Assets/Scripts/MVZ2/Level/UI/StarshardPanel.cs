@@ -24,6 +24,7 @@ namespace MVZ2.Level.UI
             icon.OnPointerDown += (data) => OnPointerDown?.Invoke(data);
         }
         public event Action<PointerEventData> OnPointerDown;
+        public StarshardPanelIcon Icon => icon;
         [SerializeField]
         private StarshardPanelIcon icon;
         [SerializeField]

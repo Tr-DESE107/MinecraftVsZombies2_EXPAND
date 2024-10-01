@@ -217,6 +217,12 @@ namespace MVZ2.Level.UI
             var pickaxe = pickaxeSlot;
             hintArrow.SetTarget(pickaxe.transform, hintArrowOffsetPickaxe * 0.01f, hintArrowAnglePickaxe);
         }
+        public void SetHintArrowPointToStarshard()
+        {
+            hintArrow.SetVisible(true);
+            var starshard = starshardPanel.Icon;
+            hintArrow.SetTarget(starshard.transform, hintArrowOffsetStarshard * 0.01f, hintArrowAngleStarshard);
+        }
         public void SetHintArrowPointToEntity(Transform transform, float height)
         {
             hintArrow.SetVisible(true);
@@ -436,9 +442,13 @@ namespace MVZ2.Level.UI
         [SerializeField]
         Vector2 hintArrowOffsetPickaxe;
         [SerializeField]
+        Vector2 hintArrowOffsetStarshard;
+        [SerializeField]
         float hintArrowAngleBlueprint;
         [SerializeField]
         float hintArrowAnglePickaxe;
+        [SerializeField]
+        float hintArrowAngleStarshard;
         #endregion
 
         #region ÄÚÇ¶Àà

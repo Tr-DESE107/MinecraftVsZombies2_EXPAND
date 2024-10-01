@@ -680,7 +680,7 @@ msgid "塔 - XVI"
 msgstr ""
 
 msgctxt "advice.starshard_tutorial.0"
-msgid "左键点击星之碎片槽选中星之碎片！"
+msgid "点击星之碎片槽选中星之碎片！"
 msgstr ""
 
 msgctxt "advice.starshard_tutorial.1"
@@ -708,7 +708,7 @@ msgid "点击并放置TNT！"
 msgstr ""
 
 msgctxt "advice.trigger_tutorial.1"
-msgid "左键点击能量面板选中触发器！"
+msgid "点击能量面板选中触发器！"
 msgstr ""
 
 msgctxt "advice.trigger_tutorial.10"
@@ -748,7 +748,7 @@ msgid "如果你想交换这两个动作的效果，你可以在设置中更改�
 msgstr ""
 
 msgctxt "advice.tutorial.0"
-msgid "左键点击器械卡牌选中器械！"
+msgid "点击器械卡牌选中器械！"
 msgstr ""
 
 msgctxt "advice.tutorial.1"

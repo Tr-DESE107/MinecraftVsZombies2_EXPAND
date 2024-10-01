@@ -48,6 +48,13 @@ namespace MVZ2.Level.Components
             TargetType = HintArrowTargetType.Pickaxe;
             TargetID = 0;
         }
+        public void SetHintArrowPointToStarshard()
+        {
+            var levelUI = Controller.GetUIPreset();
+            levelUI.SetHintArrowPointToStarshard();
+            TargetType = HintArrowTargetType.Starshard;
+            TargetID = 0;
+        }
         public void SetHintArrowPointToEntity(Entity entity)
         {
             var levelUI = Controller.GetUIPreset();
@@ -104,6 +111,11 @@ namespace MVZ2.Level.Components
                 case HintArrowTargetType.Pickaxe:
                     {
                         SetHintArrowPointToPickaxe();
+                    }
+                    break;
+                case HintArrowTargetType.Starshard:
+                    {
+                        SetHintArrowPointToStarshard();
                     }
                     break;
             }

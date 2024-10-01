@@ -35,6 +35,7 @@ namespace MVZ2.Vanilla
             {
                 case EntityTypes.PLANT:
                     entity.Evoke();
+                    entity.Level.AddStarshardCount(-1);
                     return true;
             }
             return false;
@@ -58,6 +59,7 @@ namespace MVZ2.Vanilla
             if (entity != null)
             {
                 entity.Evoke();
+                entity.Level.AddStarshardCount(-1);
             }
             return true;
         }

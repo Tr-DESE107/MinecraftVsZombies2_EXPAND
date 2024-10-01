@@ -54,6 +54,11 @@ namespace MVZ2.Extensions
             var component = level.GetUIComponent();
             component.SetHintArrowPointToPickaxe();
         }
+        public static void SetHintArrowPointToStarshard(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            component.SetHintArrowPointToStarshard();
+        }
         public static void SetHintArrowPointToEntity(this LevelEngine level, Entity entity)
         {
             var component = level.GetUIComponent();

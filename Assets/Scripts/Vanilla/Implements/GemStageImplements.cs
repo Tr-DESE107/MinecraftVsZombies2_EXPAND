@@ -15,7 +15,7 @@ namespace MVZ2.Vanilla
         public override void Implement(Mod mod)
         {
             mod.RegisterCallback(LevelCallbacks.PostEntityInit, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
-            mod.RegisterCallback(LevelCallbacks.PostLevelUpdate, Gem_PostUpdateCallback, filter: EntityTypes.PICKUP);
+            mod.RegisterCallback(LevelCallbacks.PostLevelUpdate, Gem_PostUpdateCallback);
             mod.RegisterCallback(LevelCallbacks.PostEntityDeath, Gem_PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
         private void Gem_PostUpdateCallback(LevelEngine level)

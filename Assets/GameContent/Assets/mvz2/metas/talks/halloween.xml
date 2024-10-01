@@ -51,7 +51,7 @@
     </section>
   </group>
   <group name="starshard_tutorial" requiresNot="mvz2:starshard" background="mvz2:eternal_night_swamp" music="mvz2:mainmenu" tags="mvz2:archive.tag.halloween">
-    <section nameID="mvz2:archive.start_section" onSkip="action start_starshard_tutorial;end">
+    <section nameID="mvz2:archive.start_section" onStart="action prepare_starshard_tutorial" onSkip="action start_starshard_tutorial;end">
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>

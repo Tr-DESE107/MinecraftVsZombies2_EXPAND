@@ -13,8 +13,13 @@ namespace MVZ2.UI
             targetTransform = target;
             targetOffset = offset;
             transform.localEulerAngles = Vector3.forward * angle;
+            UpdatePosition();
         }
         private void Update()
+        {
+            UpdatePosition();
+        }
+        private void UpdatePosition()
         {
             if (targetTransform)
             {

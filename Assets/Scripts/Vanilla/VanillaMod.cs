@@ -4,6 +4,7 @@ using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Modding;
@@ -34,6 +35,7 @@ namespace MVZ2.Vanilla
             RegisterCallback(BuiltinCallbacks.TalkAction, TalkAction);
 
             ImplementCallbacks(new GemStageImplements());
+            ImplementCallbacks(new StarshardSpawnImplements());
         }
         public override void PostGameInit()
         {
@@ -96,36 +98,43 @@ namespace MVZ2.Vanilla
         private void LoadStages()
         {
             AddStage(new TutorialStage(spaceName, StageNames.tutorial));
+            AddStage(new StarshardTutorialStage(spaceName, StageNames.starshardTutorial));
 
-            foreach (var stageMeta in Global.Game.GetModStageMetas(spaceName).Where(m => m.type == StageMeta.TYPE_NORMAL))
+            foreach (var meta in Global.Game.GetModStageMetas(spaceName).Where(m => m.type == StageMeta.TYPE_NORMAL))
             {
-                var stage = new ClassicStage(spaceName, stageMeta.id);
-                var meta = Global.Game.GetStageMeta(stage.GetID());
-                if (meta != null)
-                {
-                    stage.SetLevelName(meta.name);
-                    stage.SetDayNumber(meta.dayNumber);
-
-                    stage.SetProperty(BuiltinStageProps.START_TALK, meta.startTalk);
-                    stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
-                    stage.SetProperty(BuiltinStageProps.MAP_TALK, meta.mapTalk);
-
-                    stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
-
-
-                    stage.SetProperty(BuiltinStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
-                    stage.SetProperty(BuiltinStageProps.START_TRANSITION, meta.startTransition);
-
-                    stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
-                    stage.SetProperty(StageProperties.FIRST_WAVE_TIME, meta.firstWaveTime);
-                    stage.SetSpawnEntries(meta.spawns);
-
-                    foreach (var pair in meta.properties)
-                    {
-                        stage.SetProperty(pair.Key, pair.Value);
-                    }
-                }
+                if (meta == null)
+                    continue;
+                var stage = new ClassicStage(spaceName, meta.id);
+                stage.SetSpawnEntries(meta.spawns);
                 AddStage(stage);
+            }
+            foreach (var meta in Global.Game.GetModStageMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var stage = GetDefinition<StageDefinition>(new NamespaceID(spaceName, meta.id));
+                if (stage == null)
+                    continue;
+                stage.SetLevelName(meta.name);
+                stage.SetDayNumber(meta.dayNumber);
+
+                stage.SetProperty(BuiltinStageProps.START_TALK, meta.startTalk);
+                stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
+                stage.SetProperty(BuiltinStageProps.MAP_TALK, meta.mapTalk);
+
+                stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
+
+
+                stage.SetProperty(BuiltinStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
+                stage.SetProperty(BuiltinStageProps.START_TRANSITION, meta.startTransition);
+
+                stage.SetProperty(StageProperties.TOTAL_FLAGS, meta.totalFlags);
+                stage.SetProperty(StageProperties.FIRST_WAVE_TIME, meta.firstWaveTime);
+
+                foreach (var pair in meta.properties)
+                {
+                    stage.SetProperty(pair.Key, pair.Value);
+                }
             }
         }
         private void AddStage(StageDefinition definition)
@@ -250,6 +259,20 @@ namespace MVZ2.Vanilla
 
                 case "start_tutorial":
                     level.ChangeStage(StageID.tutorial);
+                    break;
+                case "prepare_starshard_tutorial":
+                    {
+                        var grid = level.GetGrid(4, 2);
+                        if (grid == null)
+                            break;
+                        if (!grid.CanPlace(ContraptionID.dispenser))
+                            break;
+                        var x = level.GetEntityColumnX(4);
+                        var z = level.GetEntityLaneZ(2);
+                        var y = level.GetGroundY(x, z);
+                        var position = new Vector3(x, y, z);
+                        level.Spawn(ContraptionID.dispenser, position, null);
+                    }
                     break;
                 case "start_starshard_tutorial":
                     level.ChangeStage(StageID.starshard_tutorial);

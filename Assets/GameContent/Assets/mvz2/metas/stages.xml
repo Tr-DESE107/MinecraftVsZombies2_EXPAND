@@ -1,5 +1,7 @@
 <stages>
-    <stage id="tutorial" name="教程关" type="special" />
+    <stage id="tutorial" name="教程关" type="special">
+        <camera transition="to_lawn"/>
+    </stage>
     <stage id="prologue" name="序章">
         <talk start="mvz2:tutorial" />
         <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:prologue"/>
@@ -16,6 +18,9 @@
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
         </spawns>
+    </stage>
+    <stage id="starshard_tutorial" name="教程关" type="special">
+        <camera transition="to_lawn"/>
     </stage>
     <stage id="halloween_2" name="万圣夜" dayNumber="2" unlock="mvz2:level.halloween_1">
         <talk start="mvz2:starshard_tutorial" end="mvz2:halloween_2_over" map="mvz2:halloween_2_map" />
