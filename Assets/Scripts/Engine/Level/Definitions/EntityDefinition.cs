@@ -19,7 +19,7 @@ namespace PVZEngine.Definitions
         public virtual void PostEquipArmor(Entity entity, Armor slot) { }
         public virtual void PostDestroyArmor(Entity entity, Armor slot, DamageResult damage) { }
         public virtual void PostRemoveArmor(Entity entity, Armor slot) { }
-        public virtual NamespaceID GetModelID()
+        public virtual NamespaceID GetModelID(LevelEngine level)
         {
             return GetID().ToModelID(ModelID.TYPE_ENTITY);
         }

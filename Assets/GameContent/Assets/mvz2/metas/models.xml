@@ -25,6 +25,7 @@
     <model name="map_pickup" type="entity" path="mvz2:Pickups/map_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="money_chest" type="entity" path="mvz2:Pickups/money_chest" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="blueprint_pickup" type="entity" path="mvz2:Pickups/blueprint_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="starshard.halloween" type="entity" path="mvz2:Pickups/starshards/halloween" width="64" height="64" xOffset="0" yOffset="4"/>
     
     <!-- Effects -->
     <model name="miner" type="entity" path="mvz2:Effects/Miner" width="32" height="32" xOffset="0" yOffset="0"/>

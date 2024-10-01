@@ -124,8 +124,12 @@ namespace MVZ2.Vanilla
             stage.SetProperty(BuiltinStageProps.DAY_NUMBER, number);
         }
         public const float ENERGY_SLOT_WIDTH = 48;
+
         public const float MONEY_PANEL_X_TO_LEFT = 16;
         public const float MONEY_PANEL_Y_TO_BOTTOM = 32;
+
+        public const float STARSHARD_X_TO_LEFT = 128 + 165 + 16;
+        public const float STARSHARD_Y_TO_BOTTOM = 32;
 
         public const float MIN_PREVIEW_X = 1080;
         public const float MAX_PREVIEW_X = 1300;

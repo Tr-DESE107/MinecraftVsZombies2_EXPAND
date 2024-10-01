@@ -63,6 +63,12 @@ namespace MVZ2.Extensions
             var y = BuiltinLevel.MONEY_PANEL_Y_TO_BOTTOM;
             return new Vector2(x, y);
         }
+        public static Vector2 GetStarshardEntityPosition(this LevelEngine level)
+        {
+            var x = level.GetLeftUIBorderX() + BuiltinLevel.STARSHARD_X_TO_LEFT;
+            var y = BuiltinLevel.STARSHARD_Y_TO_BOTTOM;
+            return new Vector2(x, y);
+        }
         public static Vector2 GetEnergySlotEntityPosition(this LevelEngine level)
         {
             var x = level.GetLeftUIBorderX() + BuiltinLevel.ENERGY_SLOT_WIDTH * 0.5f;

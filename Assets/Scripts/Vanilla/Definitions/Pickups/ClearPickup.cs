@@ -36,7 +36,7 @@ namespace MVZ2.GameContent
                 entity.SetProperty(PickupProps.REMOVE_ON_COLLECT, true);
             }
         }
-        public override NamespaceID GetModelID()
+        public override NamespaceID GetModelID(LevelEngine level)
         {
             return VanillaModelID.moneyChest;
         }

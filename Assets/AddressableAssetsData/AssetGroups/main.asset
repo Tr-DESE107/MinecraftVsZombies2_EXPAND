@@ -17,6 +17,48 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18170164ed705914ebb03c0ee8ca6ef9
+    m_Address: mvz2:map/halloween/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5346a49dd46a2a4194dcbca45d9a022
+    m_Address: mvz2:map/dream/sleepenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f47cc08bb024bd04d87a290c78ab60de
+    m_Address: mvz2:map/dream/nightmare_sleepenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 482bc6c937f3f2345b34075e5d1a3f69
+    m_Address: mvz2:map/dream/nightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
+    m_Address: mvz2:map/dream/nightmare.censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 508b6af64add28a4aa27df24e84640ff
+    m_Address: mvz2:map/dream/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88d242bbad7e8d543a90ae63fb6aeeb5
     m_Address: mvz2:map/dream/bubble
     m_ReadOnly: 0
@@ -670,6 +712,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9be88d49c2a357e42825f5e2320b26c1
+    m_Address: mvz2:Pickups/starshards/halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
     m_Address: mvz2:pickups/ruby
@@ -2656,48 +2704,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 508b6af64add28a4aa27df24e84640ff
-    m_Address: mvz2:map/dream/map
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
-    m_Address: mvz2:map/dream/nightmare.censored
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 482bc6c937f3f2345b34075e5d1a3f69
-    m_Address: mvz2:map/dream/nightmare
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f47cc08bb024bd04d87a290c78ab60de
-    m_Address: mvz2:map/dream/nightmare_sleepenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f5346a49dd46a2a4194dcbca45d9a022
-    m_Address: mvz2:map/dream/sleepenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 18170164ed705914ebb03c0ee8ca6ef9
-    m_Address: mvz2:map/halloween/map
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
     m_Address: Main

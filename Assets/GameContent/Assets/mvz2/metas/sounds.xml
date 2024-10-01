@@ -243,6 +243,12 @@
     <sound name="spring" priority="64">
         <sample path="mvz2:spring" weight="1" />
     </sound>
+    <sound name="starshard_appear" maxCount="3">
+        <sample path="mvz2:starshard_appear" weight="1" />
+    </sound>
+    <sound name="starshard_use">
+        <sample path="mvz2:starshard_use" weight="1" />
+    </sound>
     <sound name="stone">
         <sample path="mvz2:random/stone1" weight="1" />
         <sample path="mvz2:random/stone2" weight="1" />

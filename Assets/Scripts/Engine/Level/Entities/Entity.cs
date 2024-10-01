@@ -21,7 +21,7 @@ namespace PVZEngine.Level
         public Entity(LevelEngine level, long id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
         {
             Definition = definition;
-            ModelID = definition.GetModelID();
+            ModelID = definition.GetModelID(level);
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
             SetTint(Color.white);
