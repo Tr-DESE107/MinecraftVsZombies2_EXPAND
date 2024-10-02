@@ -41,9 +41,9 @@ namespace MVZ2.GameContent.Contraptions
             return base.CanEvoke(entity);
         }
 
-        public override void Evoke(Entity contraption)
+        protected override void OnEvoke(Entity contraption)
         {
-            base.Evoke(contraption);
+            base.OnEvoke(contraption);
             contraption.AddBuff<ObsidianArmorBuff>();
             contraption.Health = contraption.GetMaxHealth();
             contraption.Level.PlaySound(SoundID.armorUp);

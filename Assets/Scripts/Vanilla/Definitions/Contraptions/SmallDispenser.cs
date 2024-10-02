@@ -35,9 +35,9 @@ namespace MVZ2.GameContent.Contraptions
             return projectile;
         }
 
-        public override void Evoke(Entity entity)
+        protected override void OnEvoke(Entity entity)
         {
-            base.Evoke(entity);
+            base.OnEvoke(entity);
         }
     }
 }

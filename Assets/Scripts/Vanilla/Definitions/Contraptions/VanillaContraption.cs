@@ -56,6 +56,15 @@ namespace MVZ2.Vanilla
         }
         public virtual void Evoke(Entity entity)
         {
+            var bounds = entity.GetBounds();
+            var pos = bounds.center;
+            pos.z = entity.Position.z;
+            entity.Level.Spawn(VanillaEffectID.evocationStar, pos, entity);
+            OnEvoke(entity);
+        }
+        protected virtual void OnEvoke(Entity entity)
+        {
+
         }
         public override int Type => EntityTypes.PLANT;
 

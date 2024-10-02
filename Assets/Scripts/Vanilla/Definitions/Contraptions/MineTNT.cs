@@ -34,9 +34,9 @@ namespace MVZ2.GameContent.Contraptions
             RiseUpdate(entity);
         }
 
-        public override void Evoke(Entity entity)
+        protected override void OnEvoke(Entity entity)
         {
-            base.Evoke(entity);
+            base.OnEvoke(entity);
             var riseTimer = GetRiseTimer(entity);
             if (riseTimer.Frame > 30)
             {

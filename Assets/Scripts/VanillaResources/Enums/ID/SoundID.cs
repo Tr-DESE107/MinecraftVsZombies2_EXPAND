@@ -13,6 +13,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID coin = Get("coin");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
+        public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID finalWave = Get("final_wave");

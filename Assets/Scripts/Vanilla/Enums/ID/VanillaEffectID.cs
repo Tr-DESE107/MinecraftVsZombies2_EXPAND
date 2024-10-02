@@ -13,6 +13,7 @@ namespace MVZ2.GameContent
         public const string gemEffect = "gem_effect";
         public const string smoke = "smoke";
         public const string thunderBolt = "thunder_bolt";
+        public const string evocationStar = "evocation_star";
     }
     public static class VanillaEffectID
     {
@@ -24,6 +25,7 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID gemEffect = Get(VanillaEffectNames.gemEffect);
         public static readonly NamespaceID smoke = Get(VanillaEffectNames.smoke);
         public static readonly NamespaceID thunderBolt = Get(VanillaEffectNames.thunderBolt);
+        public static readonly NamespaceID evocationStar = Get(VanillaEffectNames.evocationStar);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

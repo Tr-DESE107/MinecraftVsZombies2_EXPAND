@@ -198,6 +198,7 @@
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
 
+        <!-- Effects -->
         <effect id="broken_armor">
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>
@@ -207,5 +208,6 @@
             <vector2 name="lightRange" x="8000" y="8000"/>
             <color name="lightColor" value="#FF00FF"/>
         </effect>
+        <effect id="evocation_star" />
     </entries>
 </entities>

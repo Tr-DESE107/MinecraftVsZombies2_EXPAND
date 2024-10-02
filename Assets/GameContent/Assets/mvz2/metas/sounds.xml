@@ -58,6 +58,9 @@
     <sound name="dirt_rise">
         <sample path="mvz2:dirt_rise" weight="1" />
     </sound>
+    <sound name="evocation" priority="64">
+        <sample path="mvz2:evocation" weight="1" />
+    </sound>
     <sound name="explosion" priority="64">
         <sample path="mvz2:random/explosion1" weight="1" />
         <sample path="mvz2:random/explosion2" weight="1" />
