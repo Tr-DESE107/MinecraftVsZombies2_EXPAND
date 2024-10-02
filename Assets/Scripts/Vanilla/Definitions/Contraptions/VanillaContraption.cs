@@ -19,18 +19,15 @@ namespace MVZ2.Vanilla
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.LeftFaction);
-            var fragment = CreateFragment(entity);
-            var fragmentRef = new EntityID(fragment);
-            SetFragment(entity, fragmentRef);
+
+            entity.InitFragment();
         }
         public override void Update(Entity entity)
         {
             base.Update(entity);
             UpdateTakenGrids(entity);
 
-            var fragment = GetOrCreateFragment(entity);
-            Fragment.AddEmitSpeed(fragment, GetTickDamage(entity) * 0.1f);
-            SetTickDamage(entity, 0);
+            entity.UpdateFragment();
         }
         public override void PostRemove(Entity entity)
         {
@@ -40,8 +37,7 @@ namespace MVZ2.Vanilla
         public override void PostDeath(Entity entity, DamageInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            var fragment = GetOrCreateFragment(entity);
-            Fragment.AddEmitSpeed(fragment, 50);
+            entity.PostFragmentDeath(damageInfo);
 
             entity.PlaySound(entity.GetDeathSound());
             entity.Remove();
@@ -51,7 +47,7 @@ namespace MVZ2.Vanilla
             base.PostTakeDamage(bodyResult, armorResult);
             if (bodyResult != null)
             {
-                AddTickDamage(bodyResult.Entity, bodyResult.Amount);
+                bodyResult.Entity.AddFragmentTickDamage(bodyResult.Amount);
             }
         }
         public virtual bool CanEvoke(Entity entity)
@@ -60,44 +56,6 @@ namespace MVZ2.Vanilla
         }
         public virtual void Evoke(Entity entity)
         {
-        }
-        public static EntityID GetFragment(Entity entity)
-        {
-            return entity.GetProperty<EntityID>("Fragment");
-        }
-        public static void SetFragment(Entity entity, EntityID value)
-        {
-            entity.SetProperty("Fragment", value);
-        }
-        public static float GetTickDamage(Entity entity)
-        {
-            return entity.GetProperty<float>("TickDamage");
-        }
-        public static void SetTickDamage(Entity entity, float value)
-        {
-            entity.SetProperty("TickDamage", value);
-        }
-        public static void AddTickDamage(Entity entity, float value)
-        {
-            SetTickDamage(entity, GetTickDamage(entity) + value);
-        }
-        private Entity CreateFragment(Entity entity)
-        {
-            var fragment = entity.Level.Spawn<Fragment>(entity.Position, entity);
-            fragment.SetParent(entity);
-            return fragment;
-        }
-        private Entity GetOrCreateFragment(Entity entity)
-        {
-            var fragmentRef = GetFragment(entity);
-            var fragment = fragmentRef?.GetEntity(entity.Level);
-            if (fragment == null || !fragment.Exists())
-            {
-                fragment = CreateFragment(entity);
-                fragmentRef = new EntityID(fragment);
-                SetFragment(entity, fragmentRef);
-            }
-            return fragment;
         }
         public override int Type => EntityTypes.PLANT;
 

@@ -997,6 +997,7 @@ GameObject:
   - component: {fileID: 6114132798279822428}
   - component: {fileID: 4424032078652646507}
   - component: {fileID: 5102171393267091551}
+  - component: {fileID: 363496779674261978}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1089,6 +1090,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   excludedInGroup: 0
   lockToGround: 0
+--- !u!95 &363496779674261978
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8304686068079835052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: c38c4d46b1dd68e49b205e01d326622f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &21500200205723279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1139,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3152729976638313519, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Name
-      value: Zombie
+      value: zombie
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: elements.Array.size
@@ -1147,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.size
@@ -1193,6 +1215,10 @@ PrefabInstance:
       propertyPath: animators.Array.data[0]
       value: 
       objectReference: {fileID: 7734433056528099549}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: animators.Array.data[1]
+      value: 
+      objectReference: {fileID: 363496779674261978}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 

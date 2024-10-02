@@ -23,8 +23,8 @@ namespace PVZEngine.Level
         public readonly static CallbackActionList<LevelEngine> PostLevelClear = new();
         public readonly static CallbackActionList<LevelEngine> PostPrepareForBattle = new();
         public readonly static CallbackActionList<LevelEngine, int> PostWave = new();
-        public readonly static CallbackActionList<LevelEngine> PostHugeWave = new();
-        public readonly static CallbackActionList<LevelEngine> PostFinalWave = new();
+        public readonly static CallbackActionList<LevelEngine> PostHugeWaveEvent = new();
+        public readonly static CallbackActionList<LevelEngine> PostFinalWaveEvent = new();
 
         public readonly static CallbackActionList<Entity> PostEnemySpawned = new();
     }

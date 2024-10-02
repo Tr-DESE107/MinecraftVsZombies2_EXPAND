@@ -35,13 +35,7 @@ namespace MVZ2.GameContent.Enemies
             enemy.SetAnimationFloat("BowBlend", 1 - Mathf.Pow(1 - GetBowPower(enemy) / (float)BOW_POWER_MAX, 2));
             enemy.SetAnimationBool("ArrowVisible", !GetBowFired(enemy));
 
-            int healthState;
-            float maxHP = enemy.GetMaxHealth();
-            if (enemy.Health > maxHP * 0.5f)
-                healthState = 1;
-            else
-                healthState = 0;
-            enemy.SetAnimationInt("HealthState", healthState);
+            enemy.SetAnimationInt("HealthState", enemy.GetHealthState(2));
         }
         public static int GetBowPower(Entity enemy)
         {

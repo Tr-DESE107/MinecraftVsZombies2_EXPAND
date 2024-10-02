@@ -41,24 +41,6 @@ namespace Tools
         {
             return min + (float)Next(0, int.MaxValue) / int.MaxValue * (max - min);
         }
-        public int WeightedRandom(float[] weights)
-        {
-            float totalWeight = 0;
-            foreach (int weight in weights)
-            {
-                totalWeight += weight;
-            }
-            float value = Next(0, totalWeight);
-            for (int i = 0; i < weights.Length; i++)
-            {
-                value -= weights[i];
-                if (value <= 0)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
         public SerializableRNG Serialize()
         {
             return new SerializableRNG()

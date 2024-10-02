@@ -1,4 +1,4 @@
-﻿Shader "MinecraftVSZombies2/EntityCircleTiledShader"
+﻿Shader "MinecraftVSZombies2/Entity/CircleTiled"
 {
     Properties
     {
@@ -66,5 +66,5 @@
 			ENDCG
 		}
 	}
-	FallBack "Sprites/Default"
+	FallBack "MinecraftVSZombies2/Entity/Entity"
 }

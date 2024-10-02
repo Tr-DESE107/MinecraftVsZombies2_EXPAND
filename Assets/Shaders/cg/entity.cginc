@@ -78,7 +78,7 @@ fixed4 EntityFrag(v2f i) :SV_Target
     #if BURN_ON
     col = Burn(col, i);
     #endif
-    clip(col.a - 0.15);
+    //clip(col.a - 0.15);
 
     return col;
 }

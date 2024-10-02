@@ -23,7 +23,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     attribute: m_Sprite
-    path: Root/Center/Main/Body
+    path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -32,7 +32,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
     attribute: m_Sprite
-    path: Root/Center/Main/Body/InnerArm/Flag
+    path: InnerArm/Flag
     classID: 212
     script: {fileID: 0}
     flags: 2

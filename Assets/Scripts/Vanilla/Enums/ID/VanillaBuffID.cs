@@ -12,6 +12,8 @@ namespace MVZ2.GameContent
         public const string mineTNTInvincible = "mine_tnt_invincible";
         public const string obsidianArmor = "obsidianArmor";
         public const string starshardCarrier = "starshard_carrier";
+        public const string temporaryUpdateBeforeGame = "temporaryUpdateBeforeGame";
+        public const string thunderLightFadeout = "thunderLightFadeout";
 
         public static class SeedPack
         {
@@ -31,6 +33,8 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID mineTNTInvincible = Get(VanillaBuffNames.mineTNTInvincible);
         public static readonly NamespaceID obsidianArmor = Get(VanillaBuffNames.obsidianArmor);
         public static readonly NamespaceID starshardCarrier = Get(VanillaBuffNames.starshardCarrier);
+        public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.temporaryUpdateBeforeGame);
+        public static readonly NamespaceID thunderLightFadeout = Get(VanillaBuffNames.thunderLightFadeout);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

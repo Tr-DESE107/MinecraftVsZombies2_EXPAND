@@ -11,6 +11,12 @@ namespace MVZ2.Vanilla
 {
     public static class VanillaEntityExt
     {
+        public static int GetHealthState(this Entity entity, int stateCount)
+        {
+            float maxHP = entity.GetMaxHealth();
+            float stateHP = maxHP / stateCount;
+            return Mathf.CeilToInt(entity.Health / stateHP) - 1;
+        }
         public static void UpdateModelLight(this Entity entity)
         {
             entity.SetModelProperty(BuiltinModelProps.LIGHT_VISIBLE, entity.IsLightSource());

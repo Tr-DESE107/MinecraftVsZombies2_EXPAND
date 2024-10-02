@@ -653,7 +653,7 @@ namespace MVZ2.Level
         }
         private bool CanUpdateBeforeGameStart(Entity entity)
         {
-            return entity.Type == EntityTypes.CART && entity.State == EntityStates.IDLE;
+            return entity.CanUpdateBeforeGameStart();
         }
         private bool IsInputDisabled()
         {

@@ -19,16 +19,16 @@ namespace PVZEngine.Level
         {
             return Level.GetGridIndex(Column, Lane);
         }
-        public Vector3 GetPosition()
+        public Vector3 GetEntityPosition()
         {
-            var x = Level.GetColumnX(Column);
+            var x = Level.GetEntityColumnX(Column);
             var z = Level.GetEntityLaneZ(Lane);
             var y = Level.GetGroundY(x, z);
             return new Vector3(x, y, z);
         }
-        public float GetGroundHeight()
+        public float GetGroundY()
         {
-            var x = Level.GetColumnX(Column);
+            var x = Level.GetEntityColumnX(Column);
             var z = Level.GetEntityLaneZ(Lane);
             return Level.GetGroundY(x, z);
         }

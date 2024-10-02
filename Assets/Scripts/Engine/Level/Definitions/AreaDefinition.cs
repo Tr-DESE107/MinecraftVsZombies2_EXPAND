@@ -22,6 +22,8 @@ namespace PVZEngine.Definitions
             return grids.ToArray();
         }
         public virtual void PrepareForBattle(LevelEngine level) { }
+        public virtual void PostHugeWaveEvent(LevelEngine level) { }
+        public virtual void PostFinalWaveEvent(LevelEngine level) { }
         public virtual float GetGroundY(float x, float z) { return 0; }
         protected List<NamespaceID> grids = new List<NamespaceID>();
     }

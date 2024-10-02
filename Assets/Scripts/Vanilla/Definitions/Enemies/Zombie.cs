@@ -16,13 +16,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            int healthState;
-            float maxHP = entity.GetMaxHealth();
-            if (entity.Health > maxHP * 0.5f)
-                healthState = 1;
-            else
-                healthState = 0;
-            entity.SetAnimationInt("HealthState", healthState);
+            entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
         }
     }
 }

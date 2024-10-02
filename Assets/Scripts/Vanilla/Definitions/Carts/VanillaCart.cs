@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Carts
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.LeftFaction);
+            entity.SetProperty(BuiltinEntityProps.UPDATE_BEFORE_GAME, true);
             UpdateCartTint(entity);
         }
 

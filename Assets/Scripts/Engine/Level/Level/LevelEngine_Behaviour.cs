@@ -55,13 +55,13 @@ namespace PVZEngine.Level
         }
         public void RunFinalWaveEvent()
         {
-            StageDefinition.PostFinalWave(this);
-            LevelCallbacks.PostFinalWave.Run(this);
+            StageDefinition.PostFinalWaveEvent(this);
+            LevelCallbacks.PostFinalWaveEvent.Run(this);
         }
         public void RunHugeWaveEvent()
         {
-            StageDefinition.PostHugeWave(this);
-            LevelCallbacks.PostHugeWave.Run(this);
+            StageDefinition.PostHugeWaveEvent(this);
+            LevelCallbacks.PostHugeWaveEvent.Run(this);
         }
         public int GetEnemySpawnX()
         {

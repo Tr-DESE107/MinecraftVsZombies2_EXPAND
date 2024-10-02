@@ -51,6 +51,16 @@ namespace MVZ2.Vanilla
             }
             level.CheckGameOver();
         }
+        public override void PostHugeWaveEvent(LevelEngine level)
+        {
+            base.PostHugeWaveEvent(level);
+            level.AreaDefinition.PostHugeWaveEvent(level);
+        }
+        public override void PostFinalWaveEvent(LevelEngine level)
+        {
+            base.PostHugeWaveEvent(level);
+            level.AreaDefinition.PostFinalWaveEvent(level);
+        }
         public override void PostEnemySpawned(Entity entity)
         {
             AddWaveMaxHealth(entity.Level, entity.GetMaxHealth() + (entity.EquipedArmor?.GetMaxHealth() ?? 0));
@@ -114,6 +124,7 @@ namespace MVZ2.Vanilla
             {
                 BuiltinCallbacks.PostFinalWave.Run(level);
                 level.WaveState = STATE_FINAL_WAVE;
+                SetFinalWaveEventTimer(level, new FrameTimer(60));
             }
         }
         #endregion
@@ -163,10 +174,20 @@ namespace MVZ2.Vanilla
                 level.SetNoProduction(true);
             }
 
+            var finalWaveTimer = GetFinalWaveEventTimer(level);
+            if (finalWaveTimer != null)
+            {
+                finalWaveTimer.Run();
+                if (finalWaveTimer.Expired)
+                {
+                    level.RunFinalWaveEvent();
+                }
+            }
+
             var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
             if (lastEnemy != null)
             {
-                level.SetLastEnemy(new EntityID(lastEnemy));
+                level.SetLastEnemyPosition(lastEnemy.Position);
             }
             else
             {
@@ -174,10 +195,9 @@ namespace MVZ2.Vanilla
                 if (!IsAllEnemiesCleared(level))
                 {
                     SetAllEnemiesCleared(level, true);
-                    var recorded = level.GetLastEnemy();
-                    var enemy = recorded?.GetEntity(level);
+                    var lastEnemyPosition = level.GetLastEnemyPosition();
                     Vector3 position;
-                    if (enemy == null)
+                    if (lastEnemyPosition.x <= BuiltinLevel.GetBorderX(false))
                     {
                         var x = level.GetProperty<float>(EngineAreaProps.ENEMY_SPAWN_X);
                         var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
@@ -186,9 +206,9 @@ namespace MVZ2.Vanilla
                     }
                     else
                     {
-                        position = enemy.Position;
+                        position = lastEnemyPosition;
                     }
-                    level.Produce(VanillaPickupID.clearPickup, position, enemy);
+                    level.Produce(VanillaPickupID.clearPickup, position, null);
                 }
             }
         }
@@ -211,6 +231,8 @@ namespace MVZ2.Vanilla
         #region 关卡属性
         public FrameTimer GetWaveTimer(LevelEngine level) => level.GetProperty<FrameTimer>("WaveTimer");
         public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetProperty("WaveTimer", value);
+        public FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetProperty<FrameTimer>("FinalWaveEventTimer");
+        public void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetProperty("FinalWaveEventTimer", value);
         public int GetWaveMaxTime(LevelEngine level) => level.GetProperty<int>(BuiltinStageProps.WAVE_MAX_TIME);
         public int GetWaveAdvanceTime(LevelEngine level) => level.GetProperty<int>(BuiltinStageProps.WAVE_ADVANCE_TIME);
 

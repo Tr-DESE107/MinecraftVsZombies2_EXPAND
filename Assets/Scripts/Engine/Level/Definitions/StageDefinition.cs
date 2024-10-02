@@ -31,14 +31,14 @@ namespace PVZEngine.Definitions
             behaviours.ForEach(b => b.PostWave(level, wave));
             OnPostWave(level, wave);
         }
-        public void PostHugeWave(LevelEngine level)
+        public void PostHugeWaveEvent(LevelEngine level)
         {
-            behaviours.ForEach(b => b.PostHugeWave(level));
+            behaviours.ForEach(b => b.PostHugeWaveEvent(level));
             OnPostHugeWave(level);
         }
-        public void PostFinalWave(LevelEngine level)
+        public void PostFinalWaveEvent(LevelEngine level)
         {
-            behaviours.ForEach(b => b.PostFinalWave(level));
+            behaviours.ForEach(b => b.PostFinalWaveEvent(level));
             OnPostFinalWave(level);
         }
         public void PostEnemySpawned(Entity entity)

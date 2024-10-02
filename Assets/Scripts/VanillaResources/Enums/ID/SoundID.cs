@@ -45,6 +45,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID starshardUse = Get("starshard_use");
         public readonly static NamespaceID stone = Get("stone");
         public readonly static NamespaceID tap = Get("tap");
+        public readonly static NamespaceID thunder = Get("thunder");
         public readonly static NamespaceID throwSound = Get("throw");
         public readonly static NamespaceID travel = Get("travel");
         public readonly static NamespaceID winMusic = Get("win_music");

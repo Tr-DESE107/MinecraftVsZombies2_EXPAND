@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Definitions;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent
 {
@@ -20,5 +21,12 @@ namespace MVZ2.GameContent
 
         public const string SORTING_LAYER = "sortingLayer";
         public const string SORTING_ORDER = "sortingOrder";
+
+        public const string UPDATE_BEFORE_GAME = "updateBeforeGame";
+
+        public static bool CanUpdateBeforeGameStart(this Entity entity)
+        {
+            return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
+        }
     }
 }

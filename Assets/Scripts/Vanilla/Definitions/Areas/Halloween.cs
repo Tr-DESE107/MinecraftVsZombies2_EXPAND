@@ -1,7 +1,9 @@
-﻿using MVZ2.GameContent.Effects;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
@@ -19,6 +21,24 @@ namespace MVZ2.GameContent.Areas
             {
                 grids.Add(VanillaGridID.grass);
             }
+        }
+        public override void Setup(LevelEngine level)
+        {
+            base.Setup(level);
+            level.SetProperty(PROP_RNG, new RandomGenerator(level.Seed));
+        }
+        public override void PrepareForBattle(LevelEngine level)
+        {
+            base.PrepareForBattle(level);
+            SpawnStatues(level, level.GetStatueCount());
+        }
+        public override void PostHugeWaveEvent(LevelEngine level)
+        {
+            SpawnStatues(level, 2);
+        }
+        public override void PostFinalWaveEvent(LevelEngine level)
+        {
+            ReviveStatues(level);
         }
         public override float GetGroundY(float x, float z)
         {
@@ -43,5 +63,51 @@ namespace MVZ2.GameContent.Areas
                     return 144;
             }
         }
+        public void SpawnStatues(LevelEngine level, int count)
+        {
+            if (count <= 0)
+                return;
+            List<LawnGrid> valid = new List<LawnGrid>();
+            List<int> weights = new List<int>();
+            for (int col = STATUE_MIN_COLUMN; col < level.GetMaxColumnCount(); col++)
+            {
+                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+                {
+                    var grid = level.GetGrid(col, lane);
+                    if (grid.GetTakenEntities().Any(e => e != null && e.Type != EntityTypes.PLANT))
+                        continue;
+                    valid.Add(grid);
+                    weights.Add(GetStatueWeight(col));
+                }
+            }
+            count = Mathf.Clamp(count, 0, valid.Count);
+            if (count <= 0)
+                return;
+
+            var rng = level.GetProperty<RandomGenerator>(PROP_RNG);
+            var grids = valid.WeightedRandomTake(weights.ToArray(), count, rng);
+            foreach (var grid in grids)
+            {
+                var pos = grid.GetEntityPosition();
+                level.Spawn(VanillaObstacleID.gargoyleStatue, pos, null);
+            }
+        }
+        public void ReviveStatues(LevelEngine level)
+        {
+            foreach (var statue in level.FindEntities(VanillaObstacleID.gargoyleStatue))
+            {
+                level.Spawn(VanillaEnemyID.gargoyle, statue.Position, statue);
+                level.Spawn(VanillaEffectID.thunderBolt, statue.Position, statue);
+                statue.Die();
+            }
+        }
+
+        private int GetStatueWeight(int column)
+        {
+            return column - STATUE_MIN_COLUMN + 1;
+        }
+
+        public const string PROP_RNG = "HalloweenRNG";
+        public const int STATUE_MIN_COLUMN = 5;
     }
 }

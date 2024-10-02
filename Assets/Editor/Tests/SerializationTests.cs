@@ -32,7 +32,7 @@ namespace MVZ2.Tests
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
             var converters = new JsonConverter[] { };
-            EntityID id = VanillaContraption.GetFragment(entity);
+            EntityID id = entity.GetFragment();
             var json = id.ToBson();
             var seriId = SerializeHelper.FromBson<EntityID>(json);
             var json2 = seriId.ToBson();

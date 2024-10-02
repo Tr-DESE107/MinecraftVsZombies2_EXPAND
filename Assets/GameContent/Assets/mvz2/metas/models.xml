@@ -14,6 +14,7 @@
     <model name="flag_zombie" type="entity" path="mvz2:enemies/flag_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
 
     <model name="skeleton" type="entity" path="mvz2:enemies/skeleton" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="gargoyle" type="entity" path="mvz2:enemies/gargoyle" width="64" height="96" xOffset="10" yOffset="8"/>
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacles/gargoyle_statue" width="64" height="96" xOffset="10" yOffset="8"/>
@@ -38,6 +39,7 @@
     <model name="fragment" type="entity" path="mvz2:effects/fragment" width="160" height="160" xOffset="0" yOffset="30"/>
     <model name="star_particles" type="entity" path="mvz2:effects/star_particles" width="160" height="160" xOffset="0" yOffset="30"/>
     <model name="smoke" type="entity" path="mvz2:effects/smoke" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="thunder_bolt" type="entity" path="mvz2:effects/thunder_bolt" width="120" height="550" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectiles/arrow" width="32" height="10" xOffset="0" yOffset="5"/>

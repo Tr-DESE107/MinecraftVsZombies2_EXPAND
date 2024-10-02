@@ -1,4 +1,4 @@
-﻿Shader "MinecraftVSZombies2/EntityShader"
+﻿Shader "MinecraftVSZombies2/Entity/Entity"
 {
     Properties
     {

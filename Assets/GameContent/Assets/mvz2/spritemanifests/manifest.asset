@@ -151,6 +151,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
   - name: entity/effects/star
     sprite: {fileID: 21300000, guid: 9274a6de61534f940b4da30c3fffcb67, type: 3}
+  - name: entity/effects/thunder_bolt
+    sprite: {fileID: 21300000, guid: 498cfe5e32569bc43ae84fc47f7622ce, type: 3}
   - name: entity/enemies/bow_texture
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
   - name: entity/pickups/almanac_book
@@ -449,6 +451,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 21300004, guid: 504d237734e4940488bbf711d9083635, type: 3}
     - {fileID: 21300006, guid: 504d237734e4940488bbf711d9083635, type: 3}
+  - name: obstacles/gargoyle_statue
+    spritesheet:
+    - {fileID: 21300000, guid: af4197b7fa73c8644895197de59ed07d, type: 3}
   - name: entity/armor/flag
     spritesheet:
     - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
@@ -532,6 +537,14 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 21300000, guid: 8ee7e3c6233a6be4191bfd80ff87e80e, type: 3}
     - {fileID: 21300002, guid: 8ee7e3c6233a6be4191bfd80ff87e80e, type: 3}
+  - name: entity/enemy/gargoyle
+    spritesheet:
+    - {fileID: 21300000, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - {fileID: 21300002, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - {fileID: 21300004, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - {fileID: 21300006, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - {fileID: 21300008, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - {fileID: 21300010, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
   - name: entity/enemy/skeleton
     spritesheet:
     - {fileID: 21300000, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
@@ -546,6 +559,13 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
+  - name: entity/obstacle/gargoyle_statue
+    spritesheet:
+    - {fileID: 1300053136, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
+    - {fileID: 812074310, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
+    - {fileID: 1066313923, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
+    - {fileID: 639807706, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
+    - {fileID: 26981402, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
   - name: entity/pickup/emerald
     spritesheet:
     - {fileID: 21300000, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}

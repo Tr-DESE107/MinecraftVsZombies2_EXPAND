@@ -12,6 +12,7 @@ namespace MVZ2.GameContent
         public const string starParticles = "star_particles";
         public const string gemEffect = "gem_effect";
         public const string smoke = "smoke";
+        public const string thunderBolt = "thunder_bolt";
     }
     public static class VanillaEffectID
     {
@@ -22,6 +23,7 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID starParticles = Get(VanillaEffectNames.starParticles);
         public static readonly NamespaceID gemEffect = Get(VanillaEffectNames.gemEffect);
         public static readonly NamespaceID smoke = Get(VanillaEffectNames.smoke);
+        public static readonly NamespaceID thunderBolt = Get(VanillaEffectNames.thunderBolt);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

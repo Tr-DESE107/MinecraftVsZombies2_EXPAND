@@ -17,6 +17,246 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 476d29f782ced5045aee9c4a94e69cad
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24d902c61d41892478d085a513cc421a
+    m_Address: mvz2:ui/level/progress_bar/level_progress_icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b34bc915055138f4b98fddeb34062934
+    m_Address: mvz2:ui/level/progress_bar/level_progress_flag_pole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2156299c9ad6a149827e1ee60c23f79
+    m_Address: mvz2:ui/level/progress_bar/level_progress_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43d0c46d78f545946b9f8472fc64be72
+    m_Address: mvz2:ui/level/progress_bar/level_progress_banner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54522e226cf17e14bb45c04de8805928
+    m_Address: mvz2:ui/level/progress_bar/frankenstein_health_bar_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e512505562ed4c44ae29837d5cd4be7
+    m_Address: mvz2:ui/level/progress_bar/frankenstein_health_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5ccd0b2064964141897d244b8b815bf
+    m_Address: mvz2:ui/level/mobile/trigger_gear_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45676c5928868ae4092cf6ecaeb3f4d6
+    m_Address: mvz2:ui/level/mobile/trigger_gear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0784b30367a6d9641ada63bda6ec2336
+    m_Address: mvz2:ui/level/mobile/selected
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23645a3b80625764cbb9c90ed96f0024
+    m_Address: mvz2:ui/level/mobile/energy_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2cfaa6b4cafa4e4cb84af18ad63d07f
+    m_Address: mvz2:ui/level/mobile/card_upgrade_mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a62d2d86c3da6164fb85ab8fef46149f
+    m_Address: mvz2:ui/level/mobile/card_mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47f64bb4f9829ae49a99df91e2c19d03
+    m_Address: mvz2:ui/level/mobile/card_curtain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3fb8d61fec87704189d63aacaa3814c
+    m_Address: mvz2:ui/level/starshard_point
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
+    m_Address: mvz2:entity/pickup/ruby
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11c66b9ab6ebf1c49b3ad1c98403f288
+    m_Address: mvz2:entity/pickup/emerald
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 684ec7aa8b558924d9d579d222e0eac5
+    m_Address: mvz2:entity/obstacle/gargoyle_statue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
+    m_Address: mvz2:entity/enemy/zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20e366ae3ad04144489c4e881a2d2b4a
+    m_Address: mvz2:entity/enemy/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7379af57c598c9a438cfd765804f71e3
+    m_Address: mvz2:entity/enemy/gargoyle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ee7e3c6233a6be4191bfd80ff87e80e
+    m_Address: mvz2:entity/enemy/boat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef0c4e33486bc0b44bd32da3f6b7c34f
+    m_Address: mvz2:entity/effect/smoke
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d38c1fa4b0e4e641a7bb81ade3dad97
+    m_Address: mvz2:entity/effect/particle_pure
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8b5fc6bc8605c7498d0a162438727ce
+    m_Address: mvz2:entity/effect/particle_outline
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
+    m_Address: mvz2:entity/effect/miner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 700aed4be18069141a38feb57b823f77
+    m_Address: mvz2:entity/effect/filled_smoke
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86a0b0aabb4ceca42a409ee8c656695a
+    m_Address: mvz2:entity/contraption/obsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caad8c3049dedbb4796afa81b872ead5
+    m_Address: mvz2:entity/contraption/mine_dirt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 516d74eccaaf1e24fb1a0ab53d0f2657
+    m_Address: mvz2:entity/contraption/furnace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3ffec953f3b51d4fbe1130f7e6f67e5
+    m_Address: mvz2:entity/contraption/dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03832b8b573fa884993ba7232246622f
+    m_Address: mvz2:entity/armor/leather_cap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4604673f13e91a847a5781f0d106be31
+    m_Address: mvz2:entity/armor/iron_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58eadcb8281219a418802875c2f38bbe
+    m_Address: mvz2:entity/armor/flag
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
+    m_Address: mvz2:ui/map/map_drag_mark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bb8171db9a35d847a0d278960512921
+    m_Address: mvz2:ui/map/map_drag_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76002873be7e1314c8853b5a35e273ec
     m_Address: mvz2:ui/map/map_back_button_highlighted
     m_ReadOnly: 0
@@ -37,12 +277,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b626708772b5ae44699b01c650dcf73f
     m_Address: mvz2:ui/level/starshard_slot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7bb8171db9a35d847a0d278960512921
-    m_Address: mvz2:ui/map/map_drag_arrow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -169,6 +403,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8377ca22c43dd784f85308891f7c59a7
     m_Address: mvz2:ui/level/card_curtain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23576b1f7e3a27e45af33cb0ad4f201b
+    m_Address: mvz2:ui/level/card
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -415,6 +655,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a517e81da420e4941880bb250f059923
     m_Address: mvz2:entity/enemies/bow_texture
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 498cfe5e32569bc43ae84fc47f7622ce
+    m_Address: mvz2:entity/effects/thunder_bolt
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1072,6 +1318,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af4197b7fa73c8644895197de59ed07d
+    m_Address: mvz2:obstacles/gargoyle_statue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 504d237734e4940488bbf711d9083635
     m_Address: mvz2:mainmenu/user_manage
@@ -1847,11 +2099,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
-    m_Address: mvz2:ui/map/map_drag_mark
+  - m_GUID: 6135e939a5beceb4a88bf7d213280d41
+    m_Address: mvz2:obstacles/gargoyle_statue
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
     m_Address: mvz2:enemies/zombie
@@ -1877,8 +2129,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c596357fa0926a40a463d6a01d483d8
+    m_Address: mvz2:enemies/gargoyle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2d49595b19ea50489ac9ae21590c502
     m_Address: mvz2:enemies/flag_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 134305071b87df346a0a0fe64e2edbdf
+    m_Address: mvz2:effects/thunder_bolt
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2830,228 +3094,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 58eadcb8281219a418802875c2f38bbe
-    m_Address: mvz2:entity/armor/flag
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4604673f13e91a847a5781f0d106be31
-    m_Address: mvz2:entity/armor/iron_helmet
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 03832b8b573fa884993ba7232246622f
-    m_Address: mvz2:entity/armor/leather_cap
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a3ffec953f3b51d4fbe1130f7e6f67e5
-    m_Address: mvz2:entity/contraption/dispenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 516d74eccaaf1e24fb1a0ab53d0f2657
-    m_Address: mvz2:entity/contraption/furnace
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: caad8c3049dedbb4796afa81b872ead5
-    m_Address: mvz2:entity/contraption/mine_dirt
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 86a0b0aabb4ceca42a409ee8c656695a
-    m_Address: mvz2:entity/contraption/obsidian
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 700aed4be18069141a38feb57b823f77
-    m_Address: mvz2:entity/effect/filled_smoke
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
-    m_Address: mvz2:entity/effect/miner
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8b5fc6bc8605c7498d0a162438727ce
-    m_Address: mvz2:entity/effect/particle_outline
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3d38c1fa4b0e4e641a7bb81ade3dad97
-    m_Address: mvz2:entity/effect/particle_pure
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef0c4e33486bc0b44bd32da3f6b7c34f
-    m_Address: mvz2:entity/effect/smoke
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8ee7e3c6233a6be4191bfd80ff87e80e
-    m_Address: mvz2:entity/enemy/boat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 20e366ae3ad04144489c4e881a2d2b4a
-    m_Address: mvz2:entity/enemy/skeleton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
-    m_Address: mvz2:entity/enemy/zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 11c66b9ab6ebf1c49b3ad1c98403f288
-    m_Address: mvz2:entity/pickup/emerald
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
-    m_Address: mvz2:entity/pickup/ruby
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b3fb8d61fec87704189d63aacaa3814c
-    m_Address: mvz2:ui/level/starshard_point
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 47f64bb4f9829ae49a99df91e2c19d03
-    m_Address: mvz2:ui/level/mobile/card_curtain
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a62d2d86c3da6164fb85ab8fef46149f
-    m_Address: mvz2:ui/level/mobile/card_mobile
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a2cfaa6b4cafa4e4cb84af18ad63d07f
-    m_Address: mvz2:ui/level/mobile/card_upgrade_mobile
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23645a3b80625764cbb9c90ed96f0024
-    m_Address: mvz2:ui/level/mobile/energy_slot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0784b30367a6d9641ada63bda6ec2336
-    m_Address: mvz2:ui/level/mobile/selected
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 45676c5928868ae4092cf6ecaeb3f4d6
-    m_Address: mvz2:ui/level/mobile/trigger_gear
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b5ccd0b2064964141897d244b8b815bf
-    m_Address: mvz2:ui/level/mobile/trigger_gear_slot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6e512505562ed4c44ae29837d5cd4be7
-    m_Address: mvz2:ui/level/progress_bar/frankenstein_health_bar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 54522e226cf17e14bb45c04de8805928
-    m_Address: mvz2:ui/level/progress_bar/frankenstein_health_bar_background
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 43d0c46d78f545946b9f8472fc64be72
-    m_Address: mvz2:ui/level/progress_bar/level_progress_banner
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2156299c9ad6a149827e1ee60c23f79
-    m_Address: mvz2:ui/level/progress_bar/level_progress_bar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b34bc915055138f4b98fddeb34062934
-    m_Address: mvz2:ui/level/progress_bar/level_progress_flag_pole
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 24d902c61d41892478d085a513cc421a
-    m_Address: mvz2:ui/level/progress_bar/level_progress_icon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 476d29f782ced5045aee9c4a94e69cad
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23576b1f7e3a27e45af33cb0ad4f201b
-    m_Address: mvz2:ui/level/card
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

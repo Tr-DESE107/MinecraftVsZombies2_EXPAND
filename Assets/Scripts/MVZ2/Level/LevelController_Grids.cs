@@ -75,11 +75,12 @@ namespace MVZ2.Level
             if (pointingGrid != lastPointingGrid)
             {
                 ClearGridHighlight();
-                if (pointingGrid)
-                {
-                    HighlightGrid(pointingGridLane, pointingGridColumn);
-                }
+                HighlightAxisGrids(pointingGridLane, pointingGridColumn);
                 lastPointingGrid = pointingGrid;
+            }
+            if (pointingGrid)
+            {
+                HighlightGrid(pointingGridLane, pointingGridColumn);
             }
         }
         private void HighlightGrid(int lane, int column)
@@ -92,17 +93,19 @@ namespace MVZ2.Level
                 color = heldFlags.HasFlag(HeldFlags.Valid) ? Color.green : Color.red;
             }
             grid.SetColor(color);
-            if (Main.IsMobile())
+        }
+        private void HighlightAxisGrids(int lane, int column)
+        {
+            if (!Main.IsMobile())
+                return;
+            for (int l = 0; l < level.GetMaxLaneCount(); l++)
             {
-                for (int l = 0; l < level.GetMaxLaneCount(); l++)
+                for (int c = 0; c < level.GetMaxColumnCount(); c++)
                 {
-                    for (int c = 0; c < level.GetMaxColumnCount(); c++)
+                    if ((l == lane || c == column) && !(l == lane && c == column))
                     {
-                        if ((l == lane || c == column) && !(l == lane && c == column))
-                        {
-                            var g = gridLayout.GetGrid(l, c);
-                            g.SetColor(gridColorTransparent);
-                        }
+                        var g = gridLayout.GetGrid(l, c);
+                        g.SetColor(gridColorTransparent);
                     }
                 }
             }

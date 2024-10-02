@@ -83,17 +83,17 @@ namespace MVZ2.Vanilla
         {
             return game.GetProperty<float>(BuiltinAreaProps.DOOR_Z);
         }
-        public static EntityID GetLastEnemy(this LevelEngine game)
+        public static Vector3 GetLastEnemyPosition(this LevelEngine game)
         {
-            return game.GetProperty<EntityID>(BuiltinLevelProps.LAST_ENEMY);
+            return game.GetProperty<Vector3>(BuiltinLevelProps.LAST_ENEMY_POSITION);
         }
         public static NamespaceID GetMusicID(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID>(BuiltinLevelProps.MUSIC_ID);
         }
-        public static void SetLastEnemy(this LevelEngine game, EntityID value)
+        public static void SetLastEnemyPosition(this LevelEngine game, Vector3 value)
         {
-            game.SetProperty(BuiltinLevelProps.LAST_ENEMY, value);
+            game.SetProperty(BuiltinLevelProps.LAST_ENEMY_POSITION, value);
         }
         public static float GetAttackBorderX(bool right)
         {

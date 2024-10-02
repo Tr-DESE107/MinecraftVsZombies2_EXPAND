@@ -1,0 +1,39 @@
+﻿using MVZ2.GameContent;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
+using PVZEngine.Modifiers;
+using Tools;
+
+namespace MVZ2.Vanilla.Buffs
+{
+    [Definition(VanillaBuffNames.temporaryUpdateBeforeGame)]
+    public class TemporaryUpdateBeforeGameBuff : BuffDefinition
+    {
+        public TemporaryUpdateBeforeGameBuff(string nsp, string name) : base(nsp, name)
+        {
+            AddModifier(new BooleanModifier(BuiltinEntityProps.UPDATE_BEFORE_GAME, ModifyOperator.Set, true));
+        }
+        public override void PostAdd(Buff buff)
+        {
+            base.PostAdd(buff);
+            buff.SetProperty(PROP_TIMER, new FrameTimer(32));
+        }
+        public override void PostUpdate(Buff buff)
+        {
+            base.PostUpdate(buff);
+            var timer = buff.GetProperty<FrameTimer>(PROP_TIMER);
+            if (timer == null)
+            {
+                buff.Target.RemoveBuff(buff);
+                return;
+            }
+            timer.Run();
+            if (timer.Expired)
+            {
+                buff.Target.RemoveBuff(buff);
+                return;
+            }
+        }
+        public const string PROP_TIMER = "Timer";
+    }
+}

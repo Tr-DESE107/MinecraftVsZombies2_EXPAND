@@ -11,8 +11,8 @@ namespace PVZEngine.Level
         public virtual void Update(LevelEngine level) { }
         public virtual void PrepareForBattle(LevelEngine level) { }
         public virtual void PostWave(LevelEngine level, int wave) { }
-        public virtual void PostHugeWave(LevelEngine level) { }
-        public virtual void PostFinalWave(LevelEngine level) { }
+        public virtual void PostHugeWaveEvent(LevelEngine level) { }
+        public virtual void PostFinalWaveEvent(LevelEngine level) { }
         public virtual void PostEnemySpawned(Entity entity) { }
         public bool LevelHasBehaviour<T>(LevelEngine level) where T : StageBehaviour
         {
