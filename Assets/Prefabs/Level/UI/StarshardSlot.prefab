@@ -172,7 +172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 402d1ee357d9650409da3f6713dd371c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ead2b534e897e48469cac6037a937e50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 1
+  trackSelectable: {fileID: 0}
 --- !u!1 &857391153651654308
 GameObject:
   m_ObjectHideFlags: 0
