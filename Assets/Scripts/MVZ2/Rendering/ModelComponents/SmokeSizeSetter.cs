@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MVZ2.Managers;
+using UnityEngine;
 
 namespace MVZ2.Rendering
 {
@@ -11,7 +12,7 @@ namespace MVZ2.Rendering
                 return;
             Model.SetProperty(PROP_EMITTED, true);
             var size = Model.GetProperty<Vector3>("Size");
-            size *= Global.LawnToTransScale;
+            size *= MainManager.Instance.LevelManager.LawnToTransScale;
             var shape = particles.shape;
             int volume = Mathf.CeilToInt(100 * size.x * size.y * size.z);
             var scale = size;

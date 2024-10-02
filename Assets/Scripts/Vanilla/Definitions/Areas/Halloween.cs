@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Areas
         public override void Setup(LevelEngine level)
         {
             base.Setup(level);
-            level.SetProperty(PROP_RNG, new RandomGenerator(level.Seed));
+            level.SetProperty(PROP_RNG, level.CreateRNG());
         }
         public override void PrepareForBattle(LevelEngine level)
         {
@@ -96,7 +96,8 @@ namespace MVZ2.GameContent.Areas
         {
             foreach (var statue in level.FindEntities(VanillaObstacleID.gargoyleStatue))
             {
-                level.Spawn(VanillaEnemyID.gargoyle, statue.Position, statue);
+                var gargoyle = level.Spawn(VanillaEnemyID.gargoyle, statue.Position, statue);
+                gargoyle.Health = gargoyle.GetMaxHealth() * statue.Health / statue.GetMaxHealth();
                 level.Spawn(VanillaEffectID.thunderBolt, statue.Position, statue);
                 statue.Die();
             }

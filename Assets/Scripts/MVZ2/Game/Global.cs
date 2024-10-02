@@ -69,7 +69,6 @@ namespace MVZ2
         }
 
         public static string BuiltinNamespace => Main.BuiltinNamespace;
-        public static float LawnToTransScale => Main.LevelManager.LawnToTransScale;
         public static Game Game => Main.Game;
         private static MainManager Main => MainManager.Instance;
     }

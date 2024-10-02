@@ -152,7 +152,7 @@
         <cart id="pumpkin_carriage" name="南瓜马车">
             <id name="cartTriggerSound" value="mvz2:horse_angry"/>
             <bool name="isLightSource" value="true"/>
-            <vector2 name="lightRange" x="80" y="80"/>
+            <vector2 name="lightRange" x="240" y="240"/>
             <color name="lightColor" value="#00FF00"/>
         </cart>
 

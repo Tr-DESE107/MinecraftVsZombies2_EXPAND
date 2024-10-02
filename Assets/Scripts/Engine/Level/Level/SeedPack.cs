@@ -133,6 +133,8 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        Entity IBuffTarget.GetEntity() => null;
+
         #region 属性字段
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }

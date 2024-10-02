@@ -1314,7 +1314,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9be88d49c2a357e42825f5e2320b26c1
-    m_Address: mvz2:pickups/starshards/halloween
+    m_Address: mvz2:pickup/starshards/halloween
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2040,193 +2040,193 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f293cc88afd3740aefda42f8b3dfcf
-    m_Address: mvz2:projectiles/snowball
+    m_Address: mvz2:projectile/snowball
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c0296d1bdf087b44b8393dd14f667bf
-    m_Address: mvz2:projectiles/mine_tnt_seed
+    m_Address: mvz2:projectile/mine_tnt_seed
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f05b495221b92af4fa139f81ee8873f3
-    m_Address: mvz2:projectiles/arrow
+    m_Address: mvz2:projectile/arrow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7865af6122289884aa1160a9bb226b43
-    m_Address: mvz2:pickups/ruby
+    m_Address: mvz2:pickup/ruby
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ff5950a87d45c2428b59b7e2132c2b7
-    m_Address: mvz2:pickups/redstone
+    m_Address: mvz2:pickup/redstone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51b054752ef1472469ec6b367036d3bb
-    m_Address: mvz2:pickups/money_chest
+    m_Address: mvz2:pickup/money_chest
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37c426cd95f3d1b4e9d35e6257c17190
-    m_Address: mvz2:pickups/map_pickup
+    m_Address: mvz2:pickup/map_pickup
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6253230b052dd4849b79835c143f0a61
-    m_Address: mvz2:pickups/emerald
+    m_Address: mvz2:pickup/emerald
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76aaafa0dc303a2408b7890708f37d5d
-    m_Address: mvz2:pickups/diamond
+    m_Address: mvz2:pickup/diamond
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6680241eb2835d849b88849e175d87da
-    m_Address: mvz2:pickups/blueprint_pickup
+    m_Address: mvz2:pickup/blueprint_pickup
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6135e939a5beceb4a88bf7d213280d41
-    m_Address: mvz2:obstacles/gargoyle_statue
+    m_Address: mvz2:obstacle/gargoyle_statue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
-    m_Address: mvz2:enemies/zombie
+    m_Address: mvz2:enemy/zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 364114971f5fdad46a4a51cedb7e7ea2
-    m_Address: mvz2:enemies/skeleton
+    m_Address: mvz2:enemy/skeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2fee4be52329b84cad8cea5bb42445a
-    m_Address: mvz2:enemies/leather_capped_zombie
+    m_Address: mvz2:enemy/leather_capped_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7e28eba85b9ce64cbb6eb3254ad851b
-    m_Address: mvz2:enemies/iron_helmetted_zombie
+    m_Address: mvz2:enemy/iron_helmetted_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c596357fa0926a40a463d6a01d483d8
-    m_Address: mvz2:enemies/gargoyle
+    m_Address: mvz2:enemy/gargoyle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2d49595b19ea50489ac9ae21590c502
-    m_Address: mvz2:enemies/flag_zombie
+    m_Address: mvz2:enemy/flag_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 134305071b87df346a0a0fe64e2edbdf
-    m_Address: mvz2:effects/thunder_bolt
+    m_Address: mvz2:effect/thunder_bolt
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62fbd37ba015ce149b39c20b3fe2f457
-    m_Address: mvz2:effects/star_particles
+    m_Address: mvz2:effect/star_particles
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48284edfb09923e4aa51df2b3b66a8ab
-    m_Address: mvz2:effects/smoke
+    m_Address: mvz2:effect/smoke
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7bda5fabb0661c49a162fd25d0bb0f5
-    m_Address: mvz2:effects/mine_debris
+    m_Address: mvz2:effect/mine_debris
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf35e37b41a96884bbac2da2ee062a64
-    m_Address: mvz2:effects/miner
+    m_Address: mvz2:effect/miner
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdd0e6446538d484b9e6fb81268f0a8a
-    m_Address: mvz2:effects/fragment
+    m_Address: mvz2:effect/fragment
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c737bd83286c3b4982889d6ae8d53ec
-    m_Address: mvz2:contraptions/small_dispenser
+    m_Address: mvz2:contraption/small_dispenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3048f7f20bb9bd54fb32018bcd4af2b0
-    m_Address: mvz2:contraptions/obsidian
+    m_Address: mvz2:contraption/obsidian
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63a05174c3979bc4997142266dc829d8
-    m_Address: mvz2:contraptions/mine_tnt
+    m_Address: mvz2:contraption/mine_tnt
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 459a462a45f46064f872c2bf09247529
-    m_Address: mvz2:contraptions/furnace
+    m_Address: mvz2:contraption/furnace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93d639edbe3bd734992554afc31dc4d8
-    m_Address: mvz2:contraptions/dispenser
+    m_Address: mvz2:contraption/dispenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7b87e9ba8735564fb84629ba90507ba
-    m_Address: mvz2:carts/pumpkin_carriage
+    m_Address: mvz2:cart/pumpkin_carriage
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27e82ff068e4b8a439d196de3631d525
-    m_Address: mvz2:carts/minecart
+    m_Address: mvz2:cart/minecart
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6f6e44ab2a3c4b4e82764fd5c5a2cdc
-    m_Address: mvz2:armors/leather_cap
+    m_Address: mvz2:armor/leather_cap
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f80db95b91adf0d4ab2472fc428ad43e
-    m_Address: mvz2:armors/iron_helmet
+    m_Address: mvz2:armor/iron_helmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

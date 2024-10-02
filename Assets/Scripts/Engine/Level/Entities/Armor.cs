@@ -146,6 +146,7 @@ namespace PVZEngine.Level
             armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return armor;
         }
+        Entity IBuffTarget.GetEntity() => Owner;
 
         #region 属性字段
         public Entity Owner { get; set; }

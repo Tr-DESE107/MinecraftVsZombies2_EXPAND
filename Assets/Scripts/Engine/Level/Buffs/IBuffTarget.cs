@@ -3,5 +3,6 @@
     public interface IBuffTarget
     {
         bool RemoveBuff(Buff buff);
+        Entity GetEntity();
     }
 }

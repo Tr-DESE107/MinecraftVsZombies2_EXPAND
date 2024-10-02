@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Extensions;
 using MVZ2.Vanilla;
-using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -17,6 +14,7 @@ namespace MVZ2.GameContent.Stages
         {
             AddBehaviour(new WaveStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
+            AddBehaviour(new StarshardStageBehaviour(this));
         }
         public void SetSpawnEntries(IEnemySpawnEntry[] entries)
         {

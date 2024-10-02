@@ -1,5 +1,6 @@
 ﻿using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent
 {
@@ -27,6 +28,23 @@ namespace MVZ2.GameContent
         public static bool CanUpdateBeforeGameStart(this Entity entity)
         {
             return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
+        }
+
+
+        public const string IS_LIGHT_SOURCE = "isLightSource";
+        public const string LIGHT_RANGE = "lightRange";
+        public const string LIGHT_COLOR = "lightColor";
+        public static bool IsLightSource(this Entity entity)
+        {
+            return entity.GetProperty<bool>(IS_LIGHT_SOURCE);
+        }
+        public static Vector2 GetLightRange(this Entity entity)
+        {
+            return entity.GetProperty<Vector2>(LIGHT_RANGE);
+        }
+        public static Color GetLightColor(this Entity entity)
+        {
+            return entity.GetProperty<Color>(LIGHT_COLOR);
         }
     }
 }

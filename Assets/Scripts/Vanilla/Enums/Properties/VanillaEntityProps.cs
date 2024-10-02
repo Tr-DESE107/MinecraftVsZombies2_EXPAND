@@ -12,9 +12,6 @@ namespace MVZ2.Vanilla
         public const string SHOT_OFFSET = "shotOffset";
         public const string SHOOT_SOUND = "shootSound";
         public const string PROJECTILE_ID = "projectileID";
-        public const string IS_LIGHT_SOURCE = "isLightSource";
-        public const string LIGHT_RANGE = "lightRange";
-        public const string LIGHT_COLOR = "lightColor";
 
         public const string DAMAGE = "damage";
         public const string ATTACK_SPEED = "attackSpeed";
@@ -75,18 +72,6 @@ namespace MVZ2.Vanilla
         public static NamespaceID GetProjectileID(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(PROJECTILE_ID);
-        }
-        public static bool IsLightSource(this Entity entity)
-        {
-            return entity.GetProperty<bool>(IS_LIGHT_SOURCE);
-        }
-        public static Vector2 GetLightRange(this Entity entity)
-        {
-            return entity.GetProperty<Vector2>(LIGHT_RANGE);
-        }
-        public static Color GetLightColor(this Entity entity)
-        {
-            return entity.GetProperty<Color>(LIGHT_COLOR);
         }
     }
 }

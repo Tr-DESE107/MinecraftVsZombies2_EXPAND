@@ -49,13 +49,13 @@ namespace PVZEngine.Level
             Option = option;
 
             levelRandom = new RandomGenerator(Seed);
-            entityRandom = new RandomGenerator(levelRandom.Next());
-            effectRandom = new RandomGenerator(levelRandom.Next());
-            roundRandom = new RandomGenerator(levelRandom.Next());
-            spawnRandom = new RandomGenerator(levelRandom.Next());
-            conveyorRandom = new RandomGenerator(levelRandom.Next());
+            entityRandom = CreateRNG();
+            effectRandom = CreateRNG();
+            roundRandom = CreateRNG();
+            spawnRandom = CreateRNG();
+            conveyorRandom = CreateRNG();
 
-            miscRandom = new RandomGenerator(levelRandom.Next());
+            miscRandom = CreateRNG();
 
             Energy = option.StartEnergy;
 
@@ -293,6 +293,11 @@ namespace PVZEngine.Level
             return new Buff(buffDefinition);
         }
 
+        public RandomGenerator CreateRNG()
+        {
+            return new RandomGenerator(levelRandom.Next());
+        }
+
         public SerializableLevel Serialize()
         {
             return new SerializableLevel()
@@ -410,6 +415,7 @@ namespace PVZEngine.Level
             maxLaneCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_LANE_COUNT);
             maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
         }
+        Entity IBuffTarget.GetEntity() => null;
         #endregion
 
         public event Action OnClear;

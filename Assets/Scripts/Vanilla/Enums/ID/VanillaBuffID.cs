@@ -5,15 +5,22 @@ namespace MVZ2.GameContent
 {
     public static class VanillaBuffNames
     {
+
+        // Contraption
+        public const string productionColor = "production_color";
+        public const string mineTNTInvincible = "mine_tnt_invincible";
+        public const string obsidianArmor = "obsidian_armor";
+        // Enemy
+        public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";
         public const string armorDamageColor = "armor_damage_color";
         public const string damageColor = "damage_color";
-        public const string productionColor = "production_color";
-        public const string mineTNTInvincible = "mine_tnt_invincible";
-        public const string obsidianArmor = "obsidianArmor";
-        public const string starshardCarrier = "starshard_carrier";
-        public const string temporaryUpdateBeforeGame = "temporaryUpdateBeforeGame";
-        public const string thunderLightFadeout = "thunderLightFadeout";
+        // Obstacle
+        public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
+        public const string thunderLightFadeout = "thunder_light_fadeout";
+
+        // Cart
+        public const string cartFadeIn = "cart_fade_in";
 
         public static class SeedPack
         {
@@ -35,6 +42,7 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID starshardCarrier = Get(VanillaBuffNames.starshardCarrier);
         public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.temporaryUpdateBeforeGame);
         public static readonly NamespaceID thunderLightFadeout = Get(VanillaBuffNames.thunderLightFadeout);
+        public static readonly NamespaceID cartFadeIn = Get(VanillaBuffNames.cartFadeIn);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

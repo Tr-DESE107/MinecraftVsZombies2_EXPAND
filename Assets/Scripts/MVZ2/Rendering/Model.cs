@@ -23,12 +23,6 @@ namespace MVZ2.Rendering
         public void UpdateFrame(float deltaTime)
         {
             rendererGroup.UpdateFrame(deltaTime);
-
-            var lightVisible = GetProperty<bool>(BuiltinModelProps.LIGHT_VISIBLE);
-            var lightScale = GetProperty<Vector2>(BuiltinModelProps.LIGHT_RANGE);
-            var lightColor = GetProperty<Color>(BuiltinModelProps.LIGHT_COLOR);
-            rendererGroup.SetLight(lightVisible, lightScale, lightColor);
-
             foreach (var comp in modelComponents)
             {
                 comp.UpdateFrame(deltaTime);

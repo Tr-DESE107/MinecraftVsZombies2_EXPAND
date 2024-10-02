@@ -17,12 +17,6 @@ namespace MVZ2.Vanilla
             float stateHP = maxHP / stateCount;
             return Mathf.CeilToInt(entity.Health / stateHP) - 1;
         }
-        public static void UpdateModelLight(this Entity entity)
-        {
-            entity.SetModelProperty(BuiltinModelProps.LIGHT_VISIBLE, entity.IsLightSource());
-            entity.SetModelProperty(BuiltinModelProps.LIGHT_RANGE, entity.GetLightRange() * Global.LawnToTransScale);
-            entity.SetModelProperty(BuiltinModelProps.LIGHT_COLOR, entity.GetLightColor());
-        }
         public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
         {
             if (entity == null || shell == null)

@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <models>
     <!-- Contraptions -->
-    <model name="dispenser" type="entity" path="mvz2:contraptions/dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="furnace" type="entity" path="mvz2:contraptions/furnace" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="obsidian" type="entity" path="mvz2:contraptions/obsidian" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="mine_tnt" type="entity" path="mvz2:contraptions/mine_tnt" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="small_dispenser" type="entity" path="mvz2:contraptions/small_dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="dispenser" type="entity" path="mvz2:contraption/dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="furnace" type="entity" path="mvz2:contraption/furnace" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="obsidian" type="entity" path="mvz2:contraption/obsidian" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="mine_tnt" type="entity" path="mvz2:contraption/mine_tnt" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="small_dispenser" type="entity" path="mvz2:contraption/small_dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
-    <model name="zombie" type="entity" path="mvz2:enemies/zombie" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="leather_capped_zombie" type="entity" path="mvz2:enemies/leather_capped_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="iron_helmetted_zombie" type="entity" path="mvz2:enemies/iron_helmetted_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="flag_zombie" type="entity" path="mvz2:enemies/flag_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="leather_capped_zombie" type="entity" path="mvz2:enemy/leather_capped_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="iron_helmetted_zombie" type="entity" path="mvz2:enemy/iron_helmetted_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="flag_zombie" type="entity" path="mvz2:enemy/flag_zombie" width="64" height="96" xOffset="10" yOffset="8"/>
 
-    <model name="skeleton" type="entity" path="mvz2:enemies/skeleton" width="64" height="96" xOffset="10" yOffset="8"/>
-    <model name="gargoyle" type="entity" path="mvz2:enemies/gargoyle" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="skeleton" type="entity" path="mvz2:enemy/skeleton" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="gargoyle" type="entity" path="mvz2:enemy/gargoyle" width="64" height="96" xOffset="10" yOffset="8"/>
 
     <!-- Obstacles -->
-    <model name="gargoyle_statue" type="entity" path="mvz2:obstacles/gargoyle_statue" width="64" height="96" xOffset="10" yOffset="8"/>
+    <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="10" yOffset="8"/>
 
     <!-- Carts -->
-    <model name="minecart" type="entity" path="mvz2:carts/minecart" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="pumpkin_carriage" type="entity" path="mvz2:carts/pumpkin_carriage" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="pumpkin_carriage" type="entity" path="mvz2:cart/pumpkin_carriage" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Pickups -->
-    <model name="redstone" type="entity" path="mvz2:pickups/redstone" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="emerald" type="entity" path="mvz2:pickups/emerald" width="32" height="32" xOffset="0" yOffset="4"/>
-    <model name="ruby" type="entity" path="mvz2:pickups/ruby" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="diamond" type="entity" path="mvz2:pickups/diamond" width="96" height="96" xOffset="0" yOffset="4"/>
-    <model name="map_pickup" type="entity" path="mvz2:pickups/map_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="money_chest" type="entity" path="mvz2:pickups/money_chest" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="blueprint_pickup" type="entity" path="mvz2:pickups/blueprint_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
-    <model name="starshard.halloween" type="entity" path="mvz2:pickups/starshards/halloween" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="emerald" type="entity" path="mvz2:pickup/emerald" width="32" height="32" xOffset="0" yOffset="4"/>
+    <model name="ruby" type="entity" path="mvz2:pickup/ruby" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="diamond" type="entity" path="mvz2:pickup/diamond" width="96" height="96" xOffset="0" yOffset="4"/>
+    <model name="map_pickup" type="entity" path="mvz2:pickup/map_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="money_chest" type="entity" path="mvz2:pickup/money_chest" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="blueprint_pickup" type="entity" path="mvz2:pickup/blueprint_pickup" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="starshard.halloween" type="entity" path="mvz2:pickup/starshards/halloween" width="64" height="64" xOffset="0" yOffset="4"/>
     
     <!-- Effects -->
-    <model name="miner" type="entity" path="mvz2:effects/miner" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="mine_debris" type="entity" path="mvz2:effects/mine_debris" width="150" height="100" xOffset="0" yOffset="30"/>
-    <model name="fragment" type="entity" path="mvz2:effects/fragment" width="160" height="160" xOffset="0" yOffset="30"/>
-    <model name="star_particles" type="entity" path="mvz2:effects/star_particles" width="160" height="160" xOffset="0" yOffset="30"/>
-    <model name="smoke" type="entity" path="mvz2:effects/smoke" width="160" height="160" xOffset="0" yOffset="30"/>
-    <model name="thunder_bolt" type="entity" path="mvz2:effects/thunder_bolt" width="120" height="550" xOffset="0" yOffset="0"/>
+    <model name="miner" type="entity" path="mvz2:effect/miner" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="mine_debris" type="entity" path="mvz2:effect/mine_debris" width="150" height="100" xOffset="0" yOffset="30"/>
+    <model name="fragment" type="entity" path="mvz2:effect/fragment" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="star_particles" type="entity" path="mvz2:effect/star_particles" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="smoke" type="entity" path="mvz2:effect/smoke" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="thunder_bolt" type="entity" path="mvz2:effect/thunder_bolt" width="120" height="550" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
-    <model name="arrow" type="entity" path="mvz2:projectiles/arrow" width="32" height="10" xOffset="0" yOffset="5"/>
-    <model name="mine_tnt_seed" type="entity" path="mvz2:projectiles/mine_tnt_seed" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="snowball" type="entity" path="mvz2:projectiles/snowball" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>
+    <model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
-    <model name="leather_cap" type="armor" path="mvz2:armors/leather_cap" width="33" height="14" xOffset="0" yOffset="7"/>
-    <model name="iron_helmet" type="armor" path="mvz2:armors/iron_helmet" width="33" height="14" xOffset="0" yOffset="7"/>
+    <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="7"/>
+    <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="7"/>
 </models>

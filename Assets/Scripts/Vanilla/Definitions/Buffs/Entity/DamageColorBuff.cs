@@ -16,13 +16,12 @@ namespace MVZ2.GameContent.Buffs
         public override void PostUpdate(Buff buff)
         {
             base.PostUpdate(buff);
-            var target = buff.Target;
-            if (target is Entity entity)
+            var entity = buff.Target.GetEntity();
+            if (entity == null)
+                return;
+            if (!entity.IsDead)
             {
-                if (!entity.IsDead)
-                {
-                    target.RemoveBuff(buff);
-                }
+                entity.RemoveBuff(buff);
             }
         }
     }

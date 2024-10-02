@@ -15,16 +15,6 @@ namespace MVZ2.Vanilla
         {
             SetProperty(BuiltinEntityProps.SORTING_LAYER, SortingLayers.entities);
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.UpdateModelLight();
-        }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            entity.UpdateModelLight();
-        }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {
             base.PostTakeDamage(bodyResult, armorResult);

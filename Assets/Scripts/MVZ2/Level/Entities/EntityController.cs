@@ -10,6 +10,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Level
 {
@@ -396,6 +397,12 @@ namespace MVZ2.Level
             Model.transform.localScale = Entity.RenderScale;
             Model.RendererGroup.SortingLayerID = Entity.GetSortingLayer();
             Model.RendererGroup.SortingOrder = Entity.GetSortingOrder();
+
+            var lightVisible = Entity.IsLightSource();
+            var lightScale = Entity.GetLightRange() * Main.LevelManager.LawnToTransScale;
+            var lightColor = Entity.GetLightColor();
+            Model.RendererGroup.SetLight(lightVisible, lightScale, lightColor);
+
         }
         #endregion
 

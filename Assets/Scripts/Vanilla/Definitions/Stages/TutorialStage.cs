@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnStart(level);
             level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
-            level.SetProperty(PROP_TUTORIAL_RNG, new RandomGenerator(level.Seed));
+            level.SetProperty(PROP_TUTORIAL_RNG, level.CreateRNG());
             level.SetEnergy(150);
             level.SetSeedPackCount(4);
             level.ReplaceSeedPacks(new NamespaceID[]

@@ -603,6 +603,7 @@ namespace PVZEngine.Level
             LevelCallbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
         }
 
+        Entity IBuffTarget.GetEntity() => this;
         #endregion
 
         #region 事件
