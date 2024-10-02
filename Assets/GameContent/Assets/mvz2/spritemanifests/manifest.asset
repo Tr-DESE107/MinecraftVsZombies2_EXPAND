@@ -107,9 +107,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8f85d3d605c8bf34b9c860577f50ba8c, type: 3}
   - name: note/prologue
     sprite: {fileID: 21300000, guid: 32f36e28f5381c345b9988e80c40ee5a, type: 3}
-  - name: starshards/day
+  - name: starshards/halloween
     sprite: {fileID: 21300000, guid: ead2b534e897e48469cac6037a937e50, type: 3}
-  - name: starshard_rings/day
+  - name: starshard_rings/halloween
     sprite: {fileID: 21300000, guid: b71a3502ba3935b49a514559f8734478, type: 3}
   - name: talk/speech_bubble
     sprite: {fileID: 21300000, guid: da0c5367a9a28744296833a41ea6087a, type: 3}
@@ -143,6 +143,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
   - name: entity/effects/boom
     sprite: {fileID: 21300000, guid: 8c835075b9c05e84dac89a36e61236bb, type: 3}
+  - name: entity/effects/evocation_star
+    sprite: {fileID: 21300000, guid: 8b93445b685c42440938fc5154ea419c, type: 3}
   - name: entity/effects/flash
     sprite: {fileID: 21300000, guid: 25c080cbfda0cb24ab261eb38b1e7f3d, type: 3}
   - name: entity/effects/fragment

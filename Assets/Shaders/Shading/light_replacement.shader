@@ -76,4 +76,21 @@
 			ENDCG
 		}
 	}
+	SubShader
+	{
+		Tags
+        {
+            "Queue"="Transparent"
+            "IgnoreProjector"="True"
+            "RenderType"="EntityMask"
+            "PreviewType"="Plane"
+            "CanUseSpriteAtlas"="True"
+        }
+        Cull Off
+        Lighting Off
+        ZWrite Off
+        Blend Off
+        ColorMask 0
+		UsePass "MinecraftVSZombies2/Entity/Mask/Main"
+	}
 }
