@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using log4net.Core;
 using PVZEngine.Definitions;
 using PVZEngine.Serialization;
 using Tools;
-using UnityEditor.SceneManagement;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace PVZEngine.Level

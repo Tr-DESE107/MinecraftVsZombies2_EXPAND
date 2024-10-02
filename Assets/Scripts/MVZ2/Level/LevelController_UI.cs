@@ -32,7 +32,7 @@ namespace MVZ2.Level
             }
             else if (heldType == HeldTypes.pickaxe)
             {
-                icon = Main.LanguageManager.GetSprite(SpritePaths.pickaxe);
+                icon = Main.LanguageManager.GetSprite(pickaxeSprite);
             }
             else if (heldType == HeldTypes.starshard)
             {
@@ -488,7 +488,9 @@ namespace MVZ2.Level
         [SerializeField]
         private LevelUIPreset mobileUI;
         [SerializeField]
-        private List<SpriteReference> pauseImages = new List<SpriteReference>();
+        private List<Sprite> pauseImages = new List<Sprite>();
+        [SerializeField]
+        private Sprite pickaxeSprite;
         #endregion
     }
 }

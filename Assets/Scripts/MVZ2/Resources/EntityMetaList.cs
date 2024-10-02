@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Xml;
-using log4net.Util;
 
 namespace MVZ2.Resources
 {

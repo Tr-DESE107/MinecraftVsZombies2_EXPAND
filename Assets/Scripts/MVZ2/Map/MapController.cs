@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using log4net.Core;
 using MukioI18n;
 using MVZ2.Extensions;
 using MVZ2.GameContent;

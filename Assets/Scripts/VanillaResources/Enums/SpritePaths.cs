@@ -12,7 +12,7 @@ namespace MVZ2.GameContent
         }
         public static NamespaceID GetStarshardIcon(NamespaceID areaID)
         {
-            return new NamespaceID(areaID.spacename, $"starshard.{areaID.path}");
+            return new NamespaceID(areaID.spacename, $"starshards/{areaID.path}");
         }
     }
 }

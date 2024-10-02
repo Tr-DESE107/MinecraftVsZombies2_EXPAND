@@ -337,41 +337,14 @@ MonoBehaviour:
   standaloneUI: {fileID: 6472675871860068721}
   mobileUI: {fileID: 8660247993393822725}
   pauseImages:
-  - id:
-      spacename: mvz2
-      path: pause_image_0
-    isSheet: 0
-    index: 0
-  - id:
-      spacename: mvz2
-      path: pause_image_1
-    isSheet: 0
-    index: 0
-  - id:
-      spacename: mvz2
-      path: pause_image_2
-    isSheet: 0
-    index: 0
-  - id:
-      spacename: mvz2
-      path: pause_image_3
-    isSheet: 0
-    index: 0
-  - id:
-      spacename: mvz2
-      path: pause_image_4
-    isSheet: 0
-    index: 0
-  - id:
-      spacename: mvz2
-      path: pause_image_5
-    isSheet: 0
-    index: 0
-  - id:
-      spacename: mvz2
-      path: pause_image_6
-    isSheet: 0
-    index: 0
+  - {fileID: 21300000, guid: 3cb42106841fca546970463cc36fbf45, type: 3}
+  - {fileID: 21300000, guid: 9d42af99014807345b8b7fa93e6acadf, type: 3}
+  - {fileID: 21300000, guid: a8cf5193a3c0b9a4ea8d1119e96dfa2b, type: 3}
+  - {fileID: 21300000, guid: 8494573086f607245af4f3dd35644156, type: 3}
+  - {fileID: 21300000, guid: b27d973956921144f81710753ef50c35, type: 3}
+  - {fileID: 21300000, guid: 7f17579a8f0c42344b02ba3589ca2d6e, type: 3}
+  - {fileID: 21300000, guid: 16ff246ec2a095242a62262d2ac32272, type: 3}
+  pickaxeSprite: {fileID: 21300000, guid: c98850842ba8ff14f919f63ce5114326, type: 3}
 --- !u!1 &870622145771743601
 GameObject:
   m_ObjectHideFlags: 0

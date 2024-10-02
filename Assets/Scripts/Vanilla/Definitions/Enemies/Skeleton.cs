@@ -2,7 +2,6 @@
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Enemies
 {

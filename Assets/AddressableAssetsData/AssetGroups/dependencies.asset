@@ -27,6 +27,61 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b4a3cfd1bcac854b9b445f3e9e1cd6b
+    m_Address: Assets/Shaders/Shading/light.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3271dde185726664f9327d84700c9c21
+    m_Address: Assets/Fonts/minecraft_font.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b56f2710b087e74190f0ad539f71138
+    m_Address: Assets/Fonts/unifont.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2e00ad79dae51a4cb8a04953096dd58
+    m_Address: Assets/Fonts/unifont.otf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cd6125a6ed6e684f9828314315b1d8e
+    m_Address: Assets/Textures/LightRenderTexture.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 862155e92706adf418647c95fba63038
+    m_Address: Assets/Textures/Cursors/arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec28551da2520044b9d43cf636cefc74
+    m_Address: Assets/Textures/Cursors/drag.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6f71f2de5fe62942a2e28c304bc594c
+    m_Address: Assets/Textures/Cursors/hand.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c308516223b2e34e9b4a4bbda3c0c03
+    m_Address: Assets/Textures/Cursors/move.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ada34604e282038429a0cd4310662aa1
+    m_Address: Assets/Textures/missing.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c3e7349212bcbe408ffbcb3665a58a3
+    m_Address: Assets/Textures/ShadowRenderTexture.renderTexture
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
   m_SchemaSet:

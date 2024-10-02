@@ -1,16 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using log4net.Core;
-using MVZ2.Definitions;
+﻿using MVZ2.Definitions;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
-using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Resources;
 using MVZ2.Talk;
 using PVZEngine;
-using PVZEngine.Base;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Note

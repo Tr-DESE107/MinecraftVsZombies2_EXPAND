@@ -119,8 +119,11 @@ namespace MVZ2.Editor
 
                 EditorUtility.SetDirty(textureImporter);
                 textureImporter.SaveAndReimport();
-                AssetDatabase.ImportAsset(filePath, ImportAssetOptions.ForceUpdate);
                 EditorUtility.DisplayProgressBar("Renaming sprites...", filePath, (float)renamedDict.Count / filePaths.Length);
+            }
+            foreach (var filePath in filePaths)
+            {
+                AssetDatabase.ImportAsset(filePath, ImportAssetOptions.ForceUpdate);
             }
             Debug.Log($"Rename sprites completed, expected {filePaths.Length}, updated {renamedDict.Count}.");
             Debug.Log($"Renamed sprites:\n{string.Join("\n", renamedDict.Select(p => $"{p.Key} => {p.Value}"))}");

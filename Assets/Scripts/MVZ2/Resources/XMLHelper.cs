@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Xml;
 using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
-using static UnityEditorInternal.ReorderableList;
 
 namespace MVZ2
 {
@@ -168,41 +166,105 @@ namespace MVZ2
                 for (int i = 0; i < node.ChildNodes.Count; i++)
                 {
                     var propNode = node.ChildNodes[i];
-                    var propName = propNode.Name;
                     var propKey = propNode.GetAttribute("name");
-                    object propValue = null;
-                    switch (propName)
+                    if (propNode.TryToProperty(defaultNsp, out var propValue))
                     {
-                        case "bool":
-                            propValue = propNode.GetAttributeBool("value") ?? false;
-                            break;
-                        case "int":
-                        case "integer":
-                            propValue = propNode.GetAttributeInt("value") ?? 0;
-                            break;
-                        case "float":
-                            propValue = propNode.GetAttributeFloat("value") ?? 0f;
-                            break;
-                        case "vector2":
-                            propValue = new Vector2(propNode.GetAttributeFloat("x") ?? 0, propNode.GetAttributeFloat("y") ?? 0);
-                            break;
-                        case "vector3":
-                            propValue = new Vector3(propNode.GetAttributeFloat("x") ?? 0, propNode.GetAttributeFloat("y") ?? 0, propNode.GetAttributeFloat("z") ?? 0);
-                            break;
-                        case "color":
-                            propValue = propNode.GetAttributeColor("value") ?? Color.clear;
-                            break;
-                        case "id":
-                            propValue = propNode.GetAttributeNamespaceID("value", defaultNsp);
-                            break;
-                        case "sprite":
-                            propValue = propNode.GetAttributeSpriteReference("value", defaultNsp);
-                            break;
+                        properties.Add(propKey, propValue);
                     }
-                    properties.Add(propKey, propValue);
+                    else
+                    {
+                        Debug.LogWarning($"Cannot create property \"{propKey}\" of type \"{propNode.Name}\" from xml node.");
+                    }
                 }
             }
             return properties;
+        }
+        public static bool TryToProperty(this XmlNode node, string defaultNsp, out object propValue)
+        {
+            propValue = null;
+            var propName = node.Name;
+            switch (propName)
+            {
+                case "bool":
+                    {
+                        var value = node.GetAttributeBool("value");
+                        bool valid = value.HasValue;
+                        if (valid)
+                            propValue = value.Value;
+                        return valid;
+                    }
+                case "int":
+                case "integer":
+                    {
+                        var value = node.GetAttributeInt("value");
+                        bool valid = value.HasValue;
+                        if (valid)
+                            propValue = value.Value;
+                        return valid;
+                    }
+                case "float":
+                    {
+                        var value = node.GetAttributeFloat("value");
+                        bool valid = value.HasValue;
+                        if (valid)
+                            propValue = value.Value;
+                        return valid;
+                    }
+                case "vector2":
+                    {
+                        var x = node.GetAttributeFloat("x");
+                        var y = node.GetAttributeFloat("y");
+                        bool valid = x.HasValue && y.HasValue;
+                        if (valid)
+                            propValue = new Vector2(x.Value, y.Value);
+                        return valid;
+                    }
+                case "vector3":
+                    {
+                        var x = node.GetAttributeFloat("x");
+                        var y = node.GetAttributeFloat("y");
+                        var z = node.GetAttributeFloat("z");
+                        bool valid = x.HasValue && y.HasValue && z.HasValue;
+                        if (valid)
+                            propValue = new Vector3(x.Value, y.Value, z.Value);
+                        return valid;
+                    }
+                case "color":
+                    {
+                        var value = node.GetAttributeColor("value");
+                        bool valid = value.HasValue;
+                        if (valid)
+                            propValue = value.Value;
+                        return valid;
+                    }
+                case "id":
+                    {
+                        if (node.GetAttributeBool("null") ?? false)
+                        {
+                            propValue = null;
+                            return true;
+                        }
+                        var value = node.GetAttributeNamespaceID("value", defaultNsp);
+                        bool valid = value != null;
+                        if (valid)
+                            propValue = value;
+                        return valid;
+                    }
+                case "sprite":
+                    {
+                        if (node.GetAttributeBool("null") ?? false)
+                        {
+                            propValue = null;
+                            return true;
+                        }
+                        var value = node.GetAttributeSpriteReference("value", defaultNsp);
+                        bool valid = value != null;
+                        if (valid)
+                            propValue = value;
+                        return valid;
+                    }
+            }
+            return false;
         }
     }
 }
