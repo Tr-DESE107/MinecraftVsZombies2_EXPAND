@@ -107,7 +107,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_COLLECT_REDSTONE:
                     {
-                        var redstones = level.FindEntities(e => e.Definition.GetID() == VanillaPickupID.redstone);
+                        var redstones = level.FindEntities(e => e.IsEntityOf(VanillaPickupID.redstone));
                         var redstone = redstones.FirstOrDefault();
                         if (redstone != null)
                         {
@@ -237,7 +237,7 @@ namespace MVZ2.GameContent.Stages
                     }
                     break;
                 case STATE_COLLECT_REDSTONE:
-                    if (level.EntityExists(e => e.Definition.GetID() == VanillaPickupID.redstone && e.IsCollected()))
+                    if (level.EntityExists(e => e.IsEntityOf(VanillaPickupID.redstone) && e.IsCollected()))
                     {
                         StartState(level, STATE_COLLECT_TO_PLACE_DISPENSER);
                     }

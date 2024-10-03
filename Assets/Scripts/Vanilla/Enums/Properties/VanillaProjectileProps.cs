@@ -1,6 +1,7 @@
 ﻿using MVZ2.Vanilla;
 using System.Collections.Generic;
 using PVZEngine.Level;
+using PVZEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -8,6 +9,7 @@ namespace MVZ2.GameContent.Projectiles
     {
         public const string PIERCING = "piercing";
         public const string POINT_TO_DIRECTION = "pointToDirection";
+        public const string DAMAGE_EFFECTS = "damageEffects";
         public const string NO_DESTROY_OUTSIDE_LAWN = "noDestroyOutsideLawn";
         public const string CAN_HIT_SPAWNER = "canHitSpawner";
         public const string COLLIDING_ENTITIES = "collidingEntities";
@@ -24,6 +26,10 @@ namespace MVZ2.GameContent.Projectiles
         public static bool IsPiercing(this Entity projectile)
         {
             return projectile.GetProperty<bool>(PIERCING);
+        }
+        public static NamespaceID[] GetDamageEffects(this Entity projectile)
+        {
+            return projectile.GetProperty<NamespaceID[]>(DAMAGE_EFFECTS);
         }
         public static bool CanHitSpawner(this Entity projectile)
         {

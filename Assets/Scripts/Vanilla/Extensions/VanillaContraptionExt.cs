@@ -10,9 +10,9 @@ namespace MVZ2.Vanilla
         public static void FallIntoWater(this Entity contraption)
         {
             var grid = contraption.GetGrid();
-            if (grid.GetTakenEntities().Any(e => e.Definition.GetID() == VanillaContraptionID.lilyPad))
+            if (grid.GetTakenEntities().Any(e => e.IsEntityOf(VanillaContraptionID.lilyPad)))
             {
-                if (!contraption.GetProperty<bool>(VanillaContraptionProps.PLACE_ON_LILY) && contraption.Definition.GetID() != VanillaContraptionID.lilyPad)
+                if (!contraption.GetProperty<bool>(VanillaContraptionProps.PLACE_ON_LILY) && !contraption.IsEntityOf(VanillaContraptionID.lilyPad))
                 {
                     contraption.Die();
                 }

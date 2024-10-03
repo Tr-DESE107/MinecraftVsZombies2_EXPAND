@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Carts
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
                     {
                         // 碰到小车的僵尸受到伤害。
-                        ent.TakeDamage(58115310, new DamageEffectList(EngineDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), new EntityReferenceChain(entity));
+                        ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), new EntityReferenceChain(entity));
                     }
                     // 如果超出屏幕，消失。
                     if (entity.GetBounds().min.x >= BuiltinLevel.GetBorderX(true))

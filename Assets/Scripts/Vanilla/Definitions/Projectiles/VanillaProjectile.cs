@@ -1,6 +1,8 @@
+using System;
 using System.Linq;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Projectiles;
+using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -100,7 +102,9 @@ namespace MVZ2.Vanilla
             if (!Detection.IsZCoincide(entity.Position.z, entity.GetScaledSize().z, other.Position.z, other.GetScaledSize().z))
                 return;
 
-            other.TakeDamage(entity.GetDamage(), new DamageEffectList(), new EntityReferenceChain(entity));
+            var damageEffects = entity.GetDamageEffects();
+            DamageEffectList effects = new DamageEffectList(damageEffects ?? Array.Empty<NamespaceID>());
+            other.TakeDamage(entity.GetDamage(), effects, new EntityReferenceChain(entity));
 
             entity.AddProjectileCollidingEntity(other);
             if (!entity.CanPierce(other))

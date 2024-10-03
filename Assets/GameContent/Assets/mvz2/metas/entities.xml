@@ -185,6 +185,7 @@
             <id name="collectSound" value="mvz2:starshard_use"/>
         </pickup>
 
+        <!-- Projectiles -->
         <projectile id="arrow">
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="32" y="2" z="2" />
@@ -196,6 +197,12 @@
         </projectile>
         <projectile id="snowball">
             <vector3 name="size" x="24" y="24" z="24" />
+        </projectile>
+        <projectile id="large_snowball">
+            <bool name="piercing" value="true" />
+            <float name="gravity" value="1" />
+            <vector3 name="size" x="24" y="24" z="24" />
+            <idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
         </projectile>
 
         <!-- Effects -->

@@ -18,6 +18,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID finalWave = Get("final_wave");
         public readonly static NamespaceID grass = Get("grass");
+        public readonly static NamespaceID grind = Get("grind");
         public readonly static NamespaceID hit = Get("hit");
         public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID hugeWave = Get("huge_wave");
@@ -26,6 +27,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID mineExplode = Get("mine_explode");
         public readonly static NamespaceID minecart = Get("minecart");
         public readonly static NamespaceID moneyFall = Get("money_fall");
+        public readonly static NamespaceID odd = Get("odd");
         public readonly static NamespaceID paper = Get("paper");
         public readonly static NamespaceID pause = Get("pause");
         public readonly static NamespaceID points = Get("points");

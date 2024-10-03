@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.Extensions;
+using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -9,11 +10,18 @@ namespace MVZ2.Vanilla
     {
         public static Entity ShootProjectile(this Entity entity)
         {
+            return entity.ShootProjectile(entity.GetProjectileID());
+        }
+        public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID)
+        {
+            return entity.ShootProjectile(projectileID, entity.GetShotVelocity());
+        }
+        public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID, Vector3 velocity)
+        {
             var game = entity.Level;
             entity.PlaySound(entity.GetShootSound());
 
             Vector3 offset = entity.GetShotOffset();
-            Vector3 velocity = entity.GetShotVelocity();
             if (entity.IsFacingLeft())
             {
                 offset.x *= -1;
@@ -21,7 +29,7 @@ namespace MVZ2.Vanilla
             }
             velocity = entity.ModifyProjectileVelocity(velocity);
 
-            var projectile = game.Spawn(entity.GetProjectileID(), entity.Position + offset, entity);
+            var projectile = game.Spawn(projectileID, entity.Position + offset, entity);
             projectile.SetDamage(entity.GetDamage());
             projectile.SetFaction(entity.GetFaction());
             projectile.Velocity = velocity;

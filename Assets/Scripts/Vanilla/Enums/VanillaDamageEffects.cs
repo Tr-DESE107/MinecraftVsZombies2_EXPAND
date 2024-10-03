@@ -5,12 +5,15 @@ namespace MVZ2.GameContent
 {
     public static class VanillaDamageEffects
     {
+        public readonly static NamespaceID DAMAGE_BOTH_ARMOR_AND_BODY = Get("damage_both_armor_and_body");
+        public readonly static NamespaceID DAMAGE_BODY_AFTER_ARMOR_BROKEN = Get("damage_body_after_armor_broken");
+        public readonly static NamespaceID IGNORE_ARMOR = Get("ignore_armor");
+        public readonly static NamespaceID FALL_DAMAGE = Get("fall_damage");
         public static readonly NamespaceID FIRE = Get("fire");
         public static readonly NamespaceID SLICE = Get("slice");
         public static readonly NamespaceID PUNCH = Get("punch");
         public static readonly NamespaceID MUTE = Get("mute");
         public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
-        public readonly static NamespaceID FALL_DAMAGE = Get("fallDamage");
 
         public static NamespaceID Get(string name)
         {

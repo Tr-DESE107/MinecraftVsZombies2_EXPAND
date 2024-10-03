@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using MVZ2.Resources;
 using PVZEngine;
@@ -249,6 +250,19 @@ namespace MVZ2
                         if (valid)
                             propValue = value;
                         return valid;
+                    }
+                case "idArray":
+                    {
+                        if (node.GetAttributeBool("null") ?? false)
+                        {
+                            propValue = null;
+                            return true;
+                        }
+                        var valueStr = node.GetAttribute("value");
+                        if (string.IsNullOrEmpty(valueStr))
+                            return false;
+                        propValue = valueStr.Split(' ').Select(v => NamespaceID.TryParse(v, defaultNsp, out var parsed) ? parsed : null).Where(v => v != null).ToArray();
+                        return true;
                     }
                 case "sprite":
                     {

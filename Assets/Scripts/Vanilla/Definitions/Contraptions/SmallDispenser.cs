@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Extensions;
+using MVZ2.Vanilla;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
@@ -38,6 +39,8 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
+            entity.ShootProjectile(VanillaProjectileID.largeSnowball, new Vector3(3, 0, 0));
+            entity.PlaySound(SoundID.odd);
         }
     }
 }

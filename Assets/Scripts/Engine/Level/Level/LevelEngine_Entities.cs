@@ -72,7 +72,7 @@ namespace PVZEngine.Level
         {
             if (id == null)
                 return Array.Empty<Entity>();
-            return FindEntities(e => e.Definition.GetID() == id);
+            return FindEntities(e => e.IsEntityOf(id));
         }
         public Entity[] FindEntities(Func<Entity, bool> predicate)
         {
@@ -84,7 +84,7 @@ namespace PVZEngine.Level
         }
         public bool EntityExists(NamespaceID id)
         {
-            return entities.Exists(e => e.Definition.GetID() == id);
+            return entities.Exists(e => e.IsEntityOf(id));
         }
         public bool EntityExists(Predicate<Entity> predicate)
         {

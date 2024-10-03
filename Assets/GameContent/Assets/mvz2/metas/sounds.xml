@@ -165,10 +165,8 @@
     <sound name="mummy_death" maxCount="3">
         <sample path="mvz2:entity/mummy/mummy_death" weight="1" />
     </sound>
-    <sound name="orga_cry">
-        <sample path="mvz2:entity/orga/orga_cry1" weight="1" />
-        <sample path="mvz2:entity/orga/orga_cry2" weight="1" />
-        <sample path="mvz2:entity/orga/orga_cry3" weight="1" />
+    <sound name="odd">
+        <sample path="mvz2:odd" weight="1" />
     </sound>
     <sound name="paper" priority="64">
         <sample path="mvz2:paper" weight="1" />

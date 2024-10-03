@@ -76,6 +76,10 @@ namespace PVZEngine.Level
                 LevelCallbacks.PostEntityRemove.Run(this);
             }
         }
+        public bool IsEntityOf(NamespaceID id)
+        {
+            return Definition.GetID() == id;
+        }
         public EntityReferenceChain GetReference()
         {
             return new EntityReferenceChain(this);
@@ -101,93 +105,6 @@ namespace PVZEngine.Level
         #endregion
 
         #region 伤害
-        private static DamageResult ArmoredTakeDamage(DamageInfo info, out DamageResult armorResult)
-        {
-            var entity = info.Entity;
-            armorResult = Armor.TakeDamage(info);
-            if (info.Effects.HasEffect(EngineDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY))
-            {
-                return BodyTakeDamage(info);
-            }
-            else if (info.Effects.HasEffect(EngineDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
-            {
-                float overkillDamage = armorResult != null ? info.Amount - armorResult.UsedDamage : info.Amount;
-                if (overkillDamage > 0)
-                {
-                    var overkillInfo = new DamageInfo(overkillDamage, info.Effects, entity, info.Source);
-                    return BodyTakeDamage(overkillInfo);
-                }
-            }
-            return null;
-        }
-        private static DamageResult BodyTakeDamage(DamageInfo info)
-        {
-            var entity = info.Entity;
-            var shellRef = entity.GetShellID();
-            var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
-            if (shell != null)
-            {
-                shell.EvaluateDamage(info);
-            }
-
-
-            // Calculate used damage.
-            float usedDamage = info.GetUsedDamage();
-
-            // Apply Damage.
-            float hpBefore = entity.Health;
-            entity.Health -= info.Amount;
-            if (entity.Health <= 0)
-            {
-                entity.Die(info);
-            }
-
-            return new DamageResult()
-            {
-                OriginalDamage = info.OriginalDamage,
-                Amount = info.Amount,
-                UsedDamage = info.GetUsedDamage(),
-                Entity = entity,
-                Effects = info.Effects,
-                Source = info.Source,
-                ShellDefinition = shell,
-                Fatal = hpBefore > 0 && entity.Health <= 0
-            };
-        }
-        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
-        {
-            return TakeDamage(amount, effects, source, out _);
-        }
-        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source, out DamageResult armorResult)
-        {
-            return TakeDamage(new DamageInfo(amount, effects, this, source), out armorResult);
-        }
-        public static DamageResult TakeDamage(DamageInfo info)
-        {
-            return TakeDamage(info, out _);
-        }
-        public static DamageResult TakeDamage(DamageInfo info, out DamageResult armorResult)
-        {
-            armorResult = null;
-            if (info.Entity.IsInvincible() || info.Entity.IsDead)
-                return null;
-            if (!info.Entity.PreTakeDamage(info))
-                return null;
-            if (info.Amount <= 0)
-                return null;
-            DamageResult bodyResult;
-            if (Armor.Exists(info.Entity.EquipedArmor) && !info.Effects.HasEffect(EngineDamageEffects.IGNORE_ARMOR))
-            {
-                bodyResult = ArmoredTakeDamage(info, out armorResult);
-            }
-            else
-            {
-                bodyResult = BodyTakeDamage(info);
-            }
-            info.Entity.PostTakeDamage(bodyResult, armorResult);
-            return bodyResult;
-        }
-
 
         public void Die(DamageInfo info = null)
         {
@@ -273,11 +190,7 @@ namespace PVZEngine.Level
         }
         public Bounds GetBounds()
         {
-            return new Bounds(GetBoundsCenter(), this.GetSize());
-        }
-        public Bounds GetCachedBounds()
-        {
-            return new Bounds(GetBoundsCenter(), this.GetSize());
+            return new Bounds(GetBoundsCenter(), GetScaledSize());
         }
         public Vector3 GetScaledSize()
         {
@@ -592,15 +505,6 @@ namespace PVZEngine.Level
         {
             Definition.PostCollision(this, other, state);
             LevelCallbacks.PostEntityCollision.Run(this, other, state);
-        }
-        private bool PreTakeDamage(DamageInfo damageInfo)
-        {
-            return true;
-        }
-        private void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
-        {
-            Definition.PostTakeDamage(bodyResult, armorResult);
-            LevelCallbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
         }
 
         Entity IBuffTarget.GetEntity() => this;
