@@ -5,7 +5,9 @@
     <model name="furnace" type="entity" path="mvz2:contraption/furnace" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="obsidian" type="entity" path="mvz2:contraption/obsidian" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="mine_tnt" type="entity" path="mvz2:contraption/mine_tnt" width="64" height="64" xOffset="0" yOffset="4"/>
+
     <model name="small_dispenser" type="entity" path="mvz2:contraption/small_dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="moonlight_sensor" type="entity" path="mvz2:contraption/moonlight_sensor" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="4"/>

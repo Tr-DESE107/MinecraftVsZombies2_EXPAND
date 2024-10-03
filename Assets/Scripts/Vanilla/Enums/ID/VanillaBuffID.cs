@@ -10,6 +10,8 @@ namespace MVZ2.GameContent
         public const string productionColor = "production_color";
         public const string mineTNTInvincible = "mine_tnt_invincible";
         public const string obsidianArmor = "obsidian_armor";
+        public const string moonlightSensorLaunching = "moonlight_sensor_launching";
+        public const string moonlightSensorEvoked = "moonlight_sensor_evoked";
         // Enemy
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";

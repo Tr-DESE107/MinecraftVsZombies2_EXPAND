@@ -141,6 +141,7 @@ namespace MVZ2.Managers
             if (modSaveData == null)
                 return;
             modSaveData.Unlock(unlockId.path);
+            EvaluateUnlockedEntities();
         }
         public void AddLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
         {

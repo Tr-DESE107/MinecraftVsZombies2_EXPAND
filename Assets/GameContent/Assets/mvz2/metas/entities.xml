@@ -15,6 +15,7 @@
             <float name="damage" value="100"/>
             <float name="fallDamage" value="-22.5"/>
             <id name="shell" value="mvz2:stone"/>
+            <id name="placeSound" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
         </contraption>
         <enemy id="2" parent="entity">
@@ -67,7 +68,6 @@
         </effect>
 
         <dispenser id="1" parent="contraption">
-            <id name="placeSound" value="mvz2:stone"/>
             <id name="shootSound" value="mvz2:shot"/>
             <id name="projectileID" value="mvz2:arrow"/>
             <float name="damage" value="20"/>
@@ -85,27 +85,24 @@
     </templates>
     <entries>
         <!-- Contraption Start -->
-        <!-- Prologue Start -->
         <dispenser id="dispenser" name="发射器" tooltip="向敌人射出箭" />
         <contraption id="furnace" name="熔炉" tooltip="提供给你额外的红石">
-            <id name="placeSound" value="mvz2:stone"/>
             <vector3 name="size" x="48" y="48" z="48"/>
             <bool name="isLightSource" value="true"/>
-            <vector2 name="lightRange" x="80" y="80"/>
+            <vector3 name="lightRange" x="80" y="80" z="80"/>
             <color name="lightColor" value="#FFAA00"/>
         </contraption>
         <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械">
-            <id name="placeSound" value="mvz2:stone"/>
             <float name="maxHealth" value="4000"/>
             <vector3 name="size" x="48" y="48" z="48"/>
         </contraption>
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备">
+            <id name="placeSound" value="mvz2:grass"/>
             <id name="shell" value="mvz2:grass"/>
             <id name="deathSound" value="mvz2:grass"/>
             <vector3 name="size" x="48" y="24" z="48"/>
         </contraption>
 
-        <!-- Halloween Start -->
         <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1">
             <float name="range" value="255"/>
             <id name="projectileID" value="mvz2:snowball"/>
@@ -114,13 +111,17 @@
             <vector3 name="shotOffset" x="25" y="15" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
         </dispenser>
+        <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量" unlock="mvz2:level.halloween_2">
+            <vector3 name="size" x="48" y="24" z="48"/>
+            <color name="lightColor" value="#0000FF"/>
+        </contraption>
 
         <!-- Enemies Start -->
         <!-- Prologue Start -->
         <!-- Zombie -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
         <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
-        <enemy id="iron_helmeted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
+        <enemy id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
 
         <!-- Halloween Start -->
@@ -152,7 +153,7 @@
         <cart id="pumpkin_carriage" name="南瓜马车">
             <id name="cartTriggerSound" value="mvz2:horse_angry"/>
             <bool name="isLightSource" value="true"/>
-            <vector2 name="lightRange" x="240" y="240"/>
+            <vector3 name="lightRange" x="240" y="240" z="240"/>
             <color name="lightColor" value="#00FF00"/>
         </cart>
 
@@ -212,7 +213,7 @@
         </effect>
         <effect id="thunder_bolt">
             <bool name="isLightSource" value="true"/>
-            <vector2 name="lightRange" x="8000" y="8000"/>
+            <vector3 name="lightRange" x="3000" y="3000" z="3000"/>
             <color name="lightColor" value="#FF00FF"/>
         </effect>
         <effect id="evocation_star" />

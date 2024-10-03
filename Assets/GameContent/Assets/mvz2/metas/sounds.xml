@@ -230,6 +230,12 @@
     <sound name="scream">
         <sample path="mvz2:scream" weight="1" />
     </sound>
+    <sound name="screw">
+        <sample path="mvz2:screw" weight="1" />
+    </sound>
+    <sound name="sparkle">
+        <sample path="mvz2:sparkle" weight="1" />
+    </sound>
     <sound name="spider_cry">
         <sample path="mvz2:spider_cry1" weight="1" />
         <sample path="mvz2:spider_cry2" weight="1" />

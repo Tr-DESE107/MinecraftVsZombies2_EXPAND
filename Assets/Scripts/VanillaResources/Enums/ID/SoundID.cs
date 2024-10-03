@@ -35,6 +35,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID pickaxe = Get("pickaxe");
         public readonly static NamespaceID potion = Get("potion");
         public readonly static NamespaceID scream = Get("scream");
+        public readonly static NamespaceID screw = Get("screw");
         public readonly static NamespaceID shot = Get("shot");
         public readonly static NamespaceID siren = Get("siren");
         public readonly static NamespaceID slice = Get("slice");
@@ -42,6 +43,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID skeletonCry = Get("skeleton_cry");
         public readonly static NamespaceID skeletonDeath = Get("skeleton_death");
         public readonly static NamespaceID slowDown = Get("slow_down");
+        public readonly static NamespaceID sparkle = Get("sparkle");
         public readonly static NamespaceID splat = Get("splat");
         public readonly static NamespaceID spring = Get("spring");
         public readonly static NamespaceID starshardAppear = Get("starshard_appear");

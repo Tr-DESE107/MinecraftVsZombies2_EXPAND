@@ -11,6 +11,7 @@ namespace MVZ2.GameContent
         public const string mineTNT = "mine_tnt";
 
         public const string smallDispenser = "small_dispenser";
+        public const string moonlightSensor = "moonlight_sensor";
 
         public const string lilyPad = "lily_pad";
     }
@@ -22,6 +23,7 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID mineTNT = Get(VanillaContraptionNames.mineTNT);
 
         public static readonly NamespaceID smallDispenser = Get(VanillaContraptionNames.smallDispenser);
+        public static readonly NamespaceID moonlightSensor = Get(VanillaContraptionNames.moonlightSensor);
 
         public static readonly NamespaceID lilyPad = Get(VanillaContraptionNames.lilyPad);
         private static NamespaceID Get(string name)

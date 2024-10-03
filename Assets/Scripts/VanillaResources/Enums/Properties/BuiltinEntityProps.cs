@@ -38,9 +38,9 @@ namespace MVZ2.GameContent
         {
             return entity.GetProperty<bool>(IS_LIGHT_SOURCE);
         }
-        public static Vector2 GetLightRange(this Entity entity)
+        public static Vector3 GetLightRange(this Entity entity)
         {
-            return entity.GetProperty<Vector2>(LIGHT_RANGE);
+            return entity.GetProperty<Vector3>(LIGHT_RANGE);
         }
         public static Color GetLightColor(this Entity entity)
         {

@@ -399,7 +399,8 @@ namespace MVZ2.Level
             Model.RendererGroup.SortingOrder = Entity.GetSortingOrder();
 
             var lightVisible = Entity.IsLightSource();
-            var lightScale = Entity.GetLightRange() * Main.LevelManager.LawnToTransScale;
+            var lightScaleLawn = Entity.GetLightRange();
+            var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z, lightScaleLawn.y + lightScaleLawn.z - 1)) * Level.LawnToTransScale;
             var lightColor = Entity.GetLightColor();
             Model.RendererGroup.SetLight(lightVisible, lightScale, lightColor);
 

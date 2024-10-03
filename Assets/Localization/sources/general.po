@@ -668,7 +668,7 @@ msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-msgctxt "advice.error"
+msgctxt "advice"
 msgid "更多的敌人要来了！"
 msgstr "More enemies approaching!"
 
