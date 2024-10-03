@@ -56,6 +56,19 @@ namespace MVZ2.Managers
         {
             return Instantiate(defaultSprite);
         }
+        public Sprite CreateSprite(Texture2D texture, Rect rect, Vector2 pivot, string name, string category = "default")
+        {
+            var sprite = Sprite.Create(texture, rect, pivot);
+            sprite.name = name;
+            if (generatedSpriteManifest && Application.isEditor)
+            {
+                var textureClone = GetGeneratedSpriteTexture(texture);
+                var spriteClone = Sprite.Create(textureClone, rect, pivot);
+                spriteClone.name = name;
+                generatedSpriteManifest.AddSprite(category, spriteClone);
+            }
+            return sprite;
+        }
         private async Task LoadSpriteManifests(string modNamespace)
         {
             var modResource = GetModResource(modNamespace);
@@ -116,9 +129,37 @@ namespace MVZ2.Managers
         {
             spriteReferenceCacheDict.Add(sprite, sprRef);
         }
+        private Texture2D GetGeneratedSpriteTexture(Texture2D texture)
+        {
+            if (!generatedSpriteTextureDict.TryGetValue(texture, out var tex))
+            {
+                tex = Instantiate(texture);
+                var width = tex.width;
+                var pixels = tex.GetPixels();
+                for (int i = 0; i < pixels.Length; i++)
+                {
+                    var x = i % width;
+                    var y = i / width;
+                    var col = ((x / 16) + (y / 16)) % 2 == 0 ? Color.gray : new Color(0.25f, 0.25f, 0.25f, 1);
+                    var pixel = pixels[i];
+                    pixel.r = pixel.r * pixel.a + col.r * (1 - pixel.a);
+                    pixel.g = pixel.g * pixel.a + col.g * (1 - pixel.a);
+                    pixel.b = pixel.b * pixel.a + col.b * (1 - pixel.a);
+                    pixel.a = pixel.a * pixel.a + col.a * (1 - pixel.a);
+                    pixels[i] = pixel;
+                }
+                tex.SetPixels(pixels);
+                tex.Apply();
+                generatedSpriteTextureDict.Add(texture, tex);
+            }
+            return tex;
+        }
         private Dictionary<Sprite, SpriteReference> spriteReferenceCacheDict = new Dictionary<Sprite, SpriteReference>();
+        private Dictionary<Texture2D, Texture2D> generatedSpriteTextureDict = new Dictionary<Texture2D, Texture2D>();
         [Header("Sprites")]
         [SerializeField]
         private Sprite defaultSprite;
+        [SerializeField]
+        private GeneratedSpriteManifest generatedSpriteManifest;
     }
 }

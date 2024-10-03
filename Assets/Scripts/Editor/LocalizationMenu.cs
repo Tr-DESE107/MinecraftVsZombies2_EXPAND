@@ -58,6 +58,8 @@ namespace MVZ2.Editor
 
             foreach (var filePath in files)
             {
+                if (Path.GetExtension(filePath) == ".meta")
+                    continue;
                 var entryName = Path.GetRelativePath(sourceDirectory, filePath);
                 var entry = archive.CreateEntryFromFile(filePath, entryName);
             }

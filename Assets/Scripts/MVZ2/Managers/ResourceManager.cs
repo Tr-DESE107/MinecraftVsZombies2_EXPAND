@@ -67,6 +67,13 @@ namespace MVZ2.Managers
             difficultyCache.Clear();
             noteCache.Clear();
         }
+        private void OnApplicationQuit()
+        {
+            if (generatedSpriteManifest && Application.isEditor)
+            {
+                generatedSpriteManifest.Reset();
+            }
+        }
         private async Task<ModResource> LoadModResources(ModInfo mod)
         {
             var modNamespace = mod.Namespace;

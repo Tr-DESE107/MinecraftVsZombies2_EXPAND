@@ -74,8 +74,7 @@ namespace MVZ2.Managers
 
             imageTexture.Apply();
 
-            Sprite spr = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), spritePivot);
-            spr.name = imageTexture.name;
+            Sprite spr = CreateSprite(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), spritePivot, imageTexture.name, "character");
             return spr;
         }
         #region 私有方法
