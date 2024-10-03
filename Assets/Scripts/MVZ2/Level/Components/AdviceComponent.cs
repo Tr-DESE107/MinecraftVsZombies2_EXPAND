@@ -13,7 +13,7 @@ namespace MVZ2.Level.Components
 
         public void ShowAdvice(string context, string textKey, int priority, int timeout)
         {
-            if (AdvicePriority >= priority && AdviceTimeout == 0)
+            if (AdvicePriority >= priority && AdviceTimeout != 0)
                 return;
             AdviceContext = context;
             AdviceKey = textKey;

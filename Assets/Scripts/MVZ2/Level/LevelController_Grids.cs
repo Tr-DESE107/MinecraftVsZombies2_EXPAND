@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.Extensions;
+using MVZ2.Localization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -56,6 +57,14 @@ namespace MVZ2.Level
             if (heldFlags.HasFlag(HeldFlags.Valid))
             {
                 reset = level.UseOnGrid(grid);
+            }
+            else
+            {
+                var errorMessage = level.GetHeldErrorMessageOnGrid(grid);
+                if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    level.ShowAdvice(StringTable.CONTEXT_ADVICE_ERROR, errorMessage, 0, 150);
+                }
             }
             if (reset)
             {

@@ -1,4 +1,5 @@
-﻿using MVZ2.Definitions;
+﻿using System.Linq;
+using MVZ2.Definitions;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using PVZEngine.Level;
@@ -19,22 +20,20 @@ namespace MVZ2.Vanilla
         }
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
         {
-            var level = grid.Level;
-            var seed = level.GetSeedPackAt((int)id);
-            if (seed == null)
-                return HeldFlags.None;
-            var seedDef = seed.Definition;
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+            var flags = HeldFlags.None;
+            if (IsValidOnGrid(grid, id, out _))
             {
-                var entityID = seedDef.GetSeedEntityID();
-                var entityDef = level.ContentProvider.GetEntityDefinition(entityID);
-                if (entityDef.Type == EntityTypes.PLANT)
-                {
-                    if (!grid.CanPlace(entityDef))
-                        return HeldFlags.None;
-                }
+                flags |= HeldFlags.Valid;
             }
-            return HeldFlags.Valid;
+            return flags;
+        }
+        public override string GetHeldErrorMessageOnGrid(LawnGrid grid, long id)
+        {
+            if (!IsValidOnGrid(grid, id, out var message))
+            {
+                return message;
+            }
+            return null;
         }
         public override bool UseOnGrid(LawnGrid grid, long id)
         {
@@ -70,6 +69,30 @@ namespace MVZ2.Vanilla
             {
                 level.PlaySound(SoundID.tap);
             }
+        }
+        private bool IsValidOnGrid(LawnGrid grid, long id, out string errorMessage)
+        {
+            errorMessage = null;
+            var level = grid.Level;
+            var seed = level.GetSeedPackAt((int)id);
+            if (seed == null)
+                return false;
+            var seedDef = seed.Definition;
+            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+            {
+                var entityID = seedDef.GetSeedEntityID();
+                var entityDef = level.ContentProvider.GetEntityDefinition(entityID);
+                if (entityDef.Type == EntityTypes.PLANT)
+                {
+                    if (!grid.CanPlace(entityDef))
+                    {
+                        if (grid.GetTakenEntities().Any(e => e.IsEntityOf(VanillaObstacleID.gargoyleStatue)))
+                            errorMessage = VanillaStrings.ADVICE_CANNOT_PLACE_ON_STATUES;
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
         public override bool IsForGrid() => true;
         public override bool IsForEntity() => false;

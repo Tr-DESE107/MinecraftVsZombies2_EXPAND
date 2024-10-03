@@ -49,6 +49,11 @@ namespace MVZ2.Extensions
             var heldItemDef = level.ContentProvider.GetHeldItemDefinition(heldType);
             return heldItemDef.GetHeldFlagsOnGrid(grid, heldId);
         }
+        public static string GetHeldErrorMessageOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId)
+        {
+            var heldItemDef = level.ContentProvider.GetHeldItemDefinition(heldType);
+            return heldItemDef.GetHeldErrorMessageOnGrid(grid, heldId);
+        }
         public static bool IsHeldItemForGrid(this LevelEngine level, NamespaceID heldType)
         {
             var heldItemDef = level.ContentProvider.GetHeldItemDefinition(heldType);
@@ -91,6 +96,10 @@ namespace MVZ2.Extensions
         public static HeldFlags GetHeldFlagsOnGrid(this LevelEngine level, LawnGrid grid)
         {
             return level.GetHeldFlagsOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID());
+        }
+        public static string GetHeldErrorMessageOnGrid(this LevelEngine level, LawnGrid grid)
+        {
+            return level.GetHeldErrorMessageOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID());
         }
         public static bool UseOnEntity(this LevelEngine level, Entity entity)
         {
