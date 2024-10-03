@@ -59,7 +59,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Center/Main/Dirt/Particle
+    path: Root/Dirt/Particle
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -79,7 +79,7 @@ AnimationClip:
     - time: 0.41666666
       value: {fileID: -1830890523, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
     attribute: m_Sprite
-    path: Root/Center/Main/Dirt
+    path: Root/Dirt
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -100,7 +100,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2616424835
+      path: 3857086953
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -109,7 +109,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3985474240
+      path: 78353875
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -252,7 +252,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Center/Main/Dirt/Particle
+    path: Root/Dirt/Particle
     classID: 1
     script: {fileID: 0}
     flags: 0

@@ -89,11 +89,8 @@ namespace MVZ2.Rendering
             }
         }
         public bool ExcludedInGroup => excludedInGroup;
-        public bool LockToGround => lockToGround;
         [SerializeField]
         private bool excludedInGroup;
-        [SerializeField]
-        private bool lockToGround;
         private MaterialPropertyBlock propertyBlock;
         private Dictionary<string, float> floatProperties = new Dictionary<string, float>();
         private Dictionary<string, int> intProperties = new Dictionary<string, int>();

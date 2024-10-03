@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1 &4674308928313227874
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1 &4691794939721211683
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1001 &2268413341374404726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,6 +371,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
+      propertyPath: renderers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
       propertyPath: elements.Array.data[0]
       value: 
       objectReference: {fileID: 7489469208065732720}
@@ -383,6 +384,18 @@ PrefabInstance:
       objectReference: {fileID: 4743177837203850678}
     - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
       propertyPath: elements.Array.data[2]
+      value: 
+      objectReference: {fileID: 8986706117475970126}
+    - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 7489469208065732720}
+    - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
+      propertyPath: renderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 4743177837203850678}
+    - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
+      propertyPath: renderers.Array.data[2]
       value: 
       objectReference: {fileID: 8986706117475970126}
     - target: {fileID: 1610644400493193040, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}

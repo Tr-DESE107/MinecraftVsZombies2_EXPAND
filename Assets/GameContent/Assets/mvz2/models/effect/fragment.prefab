@@ -4878,7 +4878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!114 &3430000647019085224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4912,6 +4911,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: elements.Array.data[0]
       value: 
       objectReference: {fileID: 220374343874706168}
@@ -4927,6 +4930,10 @@ PrefabInstance:
       propertyPath: particles.Array.data[0]
       value: 
       objectReference: {fileID: 3430000647019085224}
+    - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 220374343874706168}
     - target: {fileID: 1610644400493193040, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.32
@@ -4977,7 +4984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: m_Name
-      value: Fragment
+      value: fragment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

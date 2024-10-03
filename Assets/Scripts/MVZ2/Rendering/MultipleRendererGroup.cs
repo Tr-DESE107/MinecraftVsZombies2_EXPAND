@@ -33,7 +33,7 @@ namespace MVZ2.Rendering
         }
         public void UpdateRendererElements()
         {
-            elements.Clear();
+            renderers.Clear();
             foreach (var renderer in GetComponentsInChildren<Renderer>(true))
             {
                 if (!IsChildOfGroup(renderer.transform, this))
@@ -47,7 +47,14 @@ namespace MVZ2.Rendering
                 {
                     element = renderer.gameObject.AddComponent<RendererElement>();
                 }
-                elements.Add(element);
+                renderers.Add(element);
+            }
+            transforms.Clear();
+            foreach (var trans in GetComponentsInChildren<TransformElement>(true))
+            {
+                if (!IsChildOfGroup(trans.transform, this))
+                    continue;
+                transforms.Add(trans);
             }
 
             particles.Clear();
@@ -73,12 +80,11 @@ namespace MVZ2.Rendering
         }
         public void SetGroundPosition(Vector3 position)
         {
-            foreach (var element in elements)
+            foreach (var trans in transforms)
             {
-                if (!element.LockToGround)
+                if (!trans.LockToGround)
                     continue;
-                var trans = element.transform;
-                trans.position = position;
+                trans.transform.position = position;
             }
         }
         public void SetPropertyInt(string name, int value)
@@ -147,7 +153,7 @@ namespace MVZ2.Rendering
             serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
             serializable.sortingLayerID = SortingLayerID;
             serializable.sortingOrder = SortingOrder;
-            serializable.elements = elements.Select(e => e.ToSerializable()).ToArray();
+            serializable.elements = renderers.Select(e => e.ToSerializable()).ToArray();
             serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
             serializable.light = lightController.ToSerializable();
             return serializable;
@@ -164,11 +170,11 @@ namespace MVZ2.Rendering
                 var data = serializable.animators[i];
                 data.Deserialize(animator);
             }
-            for (int i = 0; i < elements.Count; i++)
+            for (int i = 0; i < renderers.Count; i++)
             {
                 if (i >= serializable.elements.Length)
                     break;
-                var element = elements[i];
+                var element = renderers[i];
                 var data = serializable.elements[i];
                 element.LoadFromSerializable(data);
             }
@@ -203,8 +209,8 @@ namespace MVZ2.Rendering
         private RendererElement[] GetAllElements(bool includeExcluded = false)
         {
             if (includeExcluded)
-                return elements.ToArray();
-            return elements.Where(e => !e.ExcludedInGroup).ToArray();
+                return renderers.ToArray();
+            return renderers.Where(e => !e.ExcludedInGroup).ToArray();
         }
         #endregion
         public int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
@@ -220,7 +226,9 @@ namespace MVZ2.Rendering
         [SerializeField]
         private List<Animator> animators;
         [SerializeField]
-        private List<RendererElement> elements = new List<RendererElement>();
+        private List<TransformElement> transforms = new List<TransformElement>();
+        [SerializeField]
+        private List<RendererElement> renderers = new List<RendererElement>();
         [SerializeField]
         private List<ParticlePlayer> particles = new List<ParticlePlayer>();
 

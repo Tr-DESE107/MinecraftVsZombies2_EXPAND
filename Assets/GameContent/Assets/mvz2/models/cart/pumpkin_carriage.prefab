@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1001 &7248766974060387990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,7 +111,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74170501792220475, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
       propertyPath: elements.Array.data[0]
+      value: 
+      objectReference: {fileID: 3560349925815085322}
+    - target: {fileID: 74170501792220475, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
+      propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 3560349925815085322}
     - target: {fileID: 2161308169746488382, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
@@ -161,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 2acd2b7814e32a64f8f459c37b449d53, type: 3}
       propertyPath: m_Name
-      value: PumpkinCarriage
+      value: pumpkin_carriage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

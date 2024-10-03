@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1001 &2635492152321180291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,7 +111,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
       propertyPath: elements.Array.data[0]
+      value: 
+      objectReference: {fileID: 7796581448128216300}
+    - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
+      propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 7796581448128216300}
     - target: {fileID: 3946098556087542135, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
@@ -161,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
       propertyPath: m_Name
-      value: LeatherCap
+      value: leather_cap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

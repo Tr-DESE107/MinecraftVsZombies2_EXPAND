@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1 &8080197916029061785
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1001 &8950828362329595017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,11 +223,11 @@ PrefabInstance:
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 
-      objectReference: {fileID: 6530628370194607465}
+      objectReference: {fileID: 1951512761277503630}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: renderers.Array.data[1]
       value: 
-      objectReference: {fileID: 6219793651102708534}
+      objectReference: {fileID: 6277226795108456347}
     - target: {fileID: 5800025478509911982, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -272,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: m_Name
-      value: Arrow
+      value: arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

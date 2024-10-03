@@ -9,7 +9,8 @@ namespace MVZ2.Editor
     {
         private MultipleRendererGroup group;
         private SerializedProperty sortingGroupProperty;
-        private SerializedProperty elementsProperty;
+        private SerializedProperty renderersProperty;
+        private SerializedProperty transformsProperty;
         private SerializedProperty particlesProperty;
         private SerializedProperty lightControllerProperty;
         private SerializedProperty animatorsProperty;
@@ -17,16 +18,18 @@ namespace MVZ2.Editor
         {
             group = target as MultipleRendererGroup;
             sortingGroupProperty = serializedObject.FindProperty("sortingGroup");
-            elementsProperty = serializedObject.FindProperty("elements");
-            particlesProperty = serializedObject.FindProperty("particles");
             lightControllerProperty = serializedObject.FindProperty("lightController");
+            renderersProperty = serializedObject.FindProperty("renderers");
+            transformsProperty = serializedObject.FindProperty("transforms");
+            particlesProperty = serializedObject.FindProperty("particles");
             animatorsProperty = serializedObject.FindProperty("animators");
         }
         public override void OnInspectorGUI()
         {
             EditorGUILayout.PropertyField(sortingGroupProperty);
             EditorGUILayout.PropertyField(lightControllerProperty);
-            EditorGUILayout.PropertyField(elementsProperty);
+            EditorGUILayout.PropertyField(renderersProperty);
+            EditorGUILayout.PropertyField(transformsProperty);
             EditorGUILayout.PropertyField(particlesProperty);
             EditorGUILayout.PropertyField(animatorsProperty);
             if (GUILayout.Button("Update Elements"))

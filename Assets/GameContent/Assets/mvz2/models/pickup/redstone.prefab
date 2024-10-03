@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
-  lockToGround: 0
 --- !u!1001 &2268413341374404726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,7 +111,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
       propertyPath: elements.Array.data[0]
+      value: 
+      objectReference: {fileID: 7489469208065732720}
+    - target: {fileID: 74170501792220475, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
+      propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 7489469208065732720}
     - target: {fileID: 1610644400493193040, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
@@ -161,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
       propertyPath: m_Name
-      value: Redstone
+      value: redstone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
