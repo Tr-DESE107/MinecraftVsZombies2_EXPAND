@@ -2,7 +2,7 @@
 {
     public class SerializableRNG
     {
-        public int times;
+        public long times;
         public int seed;
     }
 }

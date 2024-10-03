@@ -240,7 +240,7 @@ namespace MVZ2.Level
         }
         private void ShowPausedDialog()
         {
-            var spriteReference = pauseImages.Random(uiRandom);
+            var spriteReference = pauseImages.Random(rng);
             ui.SetPauseDialogActive(true);
             ui.SetPauseDialogImage(Main.LanguageManager.GetSprite(spriteReference));
         }
@@ -469,11 +469,12 @@ namespace MVZ2.Level
         public const string ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH = "加载关卡失败，存档状态和当前游戏状态不匹配。";
 
         #region 保存属性
-        private RandomGenerator uiRandom = new RandomGenerator(Guid.NewGuid().GetHashCode());
         private float levelProgress;
         private float[] bannerProgresses;
         #endregion
 
+        public RandomGenerator RNG => rng;
+        private RandomGenerator rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
         private OptionsLogicLevel optionsLogic;
 
         [Header("UI")]

@@ -10,7 +10,7 @@ namespace Tools
         {
             Seed = seed;
         }
-        public RandomGenerator(int seed, int times)
+        public RandomGenerator(int seed, long times)
         {
             Seed = seed;
             Times = times;
@@ -54,7 +54,7 @@ namespace Tools
             return new RandomGenerator(seri.seed, seri.times);
         }
         [BsonElement("times")]
-        public int Times { get; private set; }
+        public long Times { get; private set; }
         [BsonElement("seed")]
         public int Seed { get; private set; }
         [BsonIgnore]

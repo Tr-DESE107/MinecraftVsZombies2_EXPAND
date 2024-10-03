@@ -32,8 +32,6 @@ namespace MVZ2.Level
                 cryTimer = cryTimer,
                 cryTimeCheckTimer = cryTimeCheckTimer,
 
-                uiRandom = uiRandom,
-
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
 
@@ -69,8 +67,6 @@ namespace MVZ2.Level
                 maxCryTime = seri.maxCryTime;
                 cryTimer = seri.cryTimer;
                 cryTimeCheckTimer = seri.cryTimeCheckTimer;
-
-                uiRandom = seri.uiRandom;
 
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
@@ -192,8 +188,6 @@ namespace MVZ2.Level
         public int maxCryTime;
         public FrameTimer cryTimer;
         public FrameTimer cryTimeCheckTimer;
-
-        public RandomGenerator uiRandom;
 
         public SerializableEntityController[] entities;
         public SerializableLevel level;

@@ -400,8 +400,10 @@ namespace MVZ2.Level
 
             var lightVisible = Entity.IsLightSource();
             var lightScaleLawn = Entity.GetLightRange();
-            var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z, lightScaleLawn.y + lightScaleLawn.z - 1)) * Level.LawnToTransScale;
+            var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
             var lightColor = Entity.GetLightColor();
+            var randomLightScale = Level.RNG.Next(-0.05f, 0.05f);
+            lightScale += Vector2.one * randomLightScale;
             Model.RendererGroup.SetLight(lightVisible, lightScale, lightColor);
 
         }
