@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 2791501288855094688}
   - component: {fileID: 8795523037444006488}
   - component: {fileID: 6435801121429859402}
-  - component: {fileID: 8549487197138941102}
-  - component: {fileID: 7526537207868945846}
-  - component: {fileID: 994158681688045273}
   - component: {fileID: 8171049185354483774}
   m_Layer: 0
   m_Name: FinalWave
@@ -63,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -79,56 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8549487197138941102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8266932129338437867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684c368f87f216448aa4fb749e4d91de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textAnimator: {fileID: 7526537207868945846}
---- !u!95 &7526537207868945846
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8266932129338437867}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b47a1518c66bede45857d4f085113863, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &994158681688045273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8266932129338437867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c827731a69e09499b50b2aec05be40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundID:
-    spacename: mvz2
-    path: final_wave
-  pitch: 1
 --- !u!114 &8171049185354483774
 MonoBehaviour:
   m_ObjectHideFlags: 0

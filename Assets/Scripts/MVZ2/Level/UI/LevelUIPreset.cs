@@ -1,4 +1,5 @@
 using System;
+using MVZ2.Rendering;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
@@ -176,17 +177,17 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 提示文本
-        public void SetHugeWaveTextVisible(bool visible)
+        public void ShowHugeWaveText()
         {
-            hugeWaveText.SetActive(visible);
+            animator.SetTrigger("HugeWave");
         }
-        public void SetFinalWaveTextVisible(bool visible)
+        public void ShowFinalWaveText()
         {
-            finalWaveText.SetActive(visible);
+            animator.SetTrigger("FinalWave");
         }
-        public void SetReadySetBuildVisible(bool visible)
+        public void ShowReadySetBuild()
         {
-            readyText.SetActive(visible);
+            animator.SetTrigger("ReadySetBuild");
         }
         public void ShowAdvice(string advice)
         {
@@ -265,8 +266,7 @@ namespace MVZ2.Level.UI
 
         public void SetSimulationSpeed(float speed)
         {
-            hugeWaveText.TextAnimator.speed = speed;
-            finalWaveText.TextAnimator.speed = speed;
+            animator.speed = speed;
         }
         public void SetUIVisibleState(VisibleState state)
         {
@@ -280,6 +280,25 @@ namespace MVZ2.Level.UI
                 return Receiver.Bottom;
             else
                 return Receiver.Lawn;
+        }
+
+        public SerializableLevelUIPreset ToSerializable()
+        {
+            return new SerializableLevelUIPreset()
+            {
+                animator = new SerializableAnimator(animator),
+            };
+        }
+        public void LoadFromSerializable(SerializableLevelUIPreset serializable)
+        {
+            if (serializable == null)
+                return;
+            serializable.animator?.Deserialize(animator);
+        }
+
+        public void CallStartGame()
+        {
+            OnStartGameCalled?.Invoke();
         }
         #endregion
 
@@ -305,7 +324,6 @@ namespace MVZ2.Level.UI
 
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
-            readyText.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
         }
         private void Update()
         {
@@ -376,15 +394,6 @@ namespace MVZ2.Level.UI
         BlueprintList blueprints;
         [SerializeField]
         PickaxeSlot pickaxeSlot;
-
-        [Header("Texts")]
-        [SerializeField]
-        LevelHintText hugeWaveText;
-        [SerializeField]
-        LevelHintText finalWaveText;
-        [SerializeField]
-        ReadySetBuild readyText;
-
 
         [Header("Raycast Receivers")]
         [SerializeField]
@@ -465,5 +474,10 @@ namespace MVZ2.Level.UI
             InLevel = 2,
         }
         #endregion
+    }
+    [Serializable]
+    public class SerializableLevelUIPreset
+    {
+        public SerializableAnimator animator;
     }
 }

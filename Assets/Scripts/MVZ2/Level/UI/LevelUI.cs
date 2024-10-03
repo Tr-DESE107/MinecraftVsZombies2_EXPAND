@@ -31,9 +31,9 @@ namespace MVZ2.UI
         {
             OnExitLevelToNoteCalled?.Invoke();
         }
-        public void SetYouDiedVisible(bool visible)
+        public void ShowYouDied()
         {
-            youDiedText.SetActive(visible);
+            animator.SetTrigger("YouDied");
         }
 
         #region 手持物品
@@ -131,8 +131,6 @@ namespace MVZ2.UI
 
         [SerializeField]
         Animator animator;
-        [SerializeField]
-        LevelHintText youDiedText;
         [Header("Shading")]
         [SerializeField]
         private Image nightImage;

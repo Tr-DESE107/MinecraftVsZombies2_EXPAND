@@ -8,7 +8,15 @@ namespace MVZ2.Sounds
     {
         public void Play2D()
         {
-            MainManager.Instance.SoundManager.Play(soundID, Vector3.zero, pitch, 0);
+            Play2D(soundID);
+        }
+        public void PlaySound2D(string idString)
+        {
+            Play2D(NamespaceID.Parse(idString, MainManager.Instance.BuiltinNamespace));
+        }
+        public void Play2D(NamespaceID id)
+        {
+            MainManager.Instance.SoundManager.Play(id, Vector3.zero, pitch, 0);
         }
         [SerializeField]
         private NamespaceID soundID;

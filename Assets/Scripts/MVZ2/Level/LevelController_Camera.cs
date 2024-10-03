@@ -104,7 +104,7 @@ namespace MVZ2.Level
             level.PlaySound(SoundID.hit);
             yield return new WaitForSeconds(0.5f);
             level.PlaySound(SoundID.scream);
-            ui.SetYouDiedVisible(true);
+            ui.ShowYouDied();
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
         }
@@ -112,7 +112,7 @@ namespace MVZ2.Level
         {
             Main.MusicManager.Stop();
             level.PlaySound(SoundID.scream);
-            ui.SetYouDiedVisible(true);
+            ui.ShowYouDied();
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
         }

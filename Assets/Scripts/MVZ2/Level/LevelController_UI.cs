@@ -105,7 +105,6 @@ namespace MVZ2.Level
             ui.SetGameOverDialogActive(false);
             ui.SetLevelLoadedDialogVisible(false);
             ui.SetLevelErrorLoadingDialogVisible(false);
-            ui.SetYouDiedVisible(false);
 
             var uiPreset = GetUIPreset();
             uiPreset.OnPickaxePointerEnter += UI_OnPickaxePointerEnterCallback;
@@ -122,9 +121,6 @@ namespace MVZ2.Level
 
             uiPreset.HideMoney();
             uiPreset.SetProgressVisible(false);
-            uiPreset.SetHugeWaveTextVisible(false);
-            uiPreset.SetFinalWaveTextVisible(false);
-            uiPreset.SetReadySetBuildVisible(false);
             uiPreset.HideTooltip();
             SetUIVisibleState(VisibleState.Nothing);
         }
@@ -398,7 +394,7 @@ namespace MVZ2.Level
         private void PlayReadySetBuild()
         {
             var ui = GetUIPreset();
-            ui.SetReadySetBuildVisible(true);
+            ui.ShowReadySetBuild();
         }
         private void UpdateLevelUI()
         {

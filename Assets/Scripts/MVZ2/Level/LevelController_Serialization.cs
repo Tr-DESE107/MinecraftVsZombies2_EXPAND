@@ -5,10 +5,12 @@ using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Level.Components;
+using MVZ2.Level.UI;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Serialization;
 using Tools;
+using UnityEditor.Presets;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -42,7 +44,8 @@ namespace MVZ2.Level
 
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
 
-                level = SerializeLevel()
+                level = SerializeLevel(),
+                uiPreset = GetUIPreset().ToSerializable()
             };
         }
         public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
@@ -76,6 +79,8 @@ namespace MVZ2.Level
                 PickaxeActive = seri.pickaxeActive;
                 StarshardActive = seri.starshardActive;
                 TriggerActive = seri.triggerActive;
+
+                GetUIPreset().LoadFromSerializable(seri.uiPreset);
 
                 foreach (var entity in level.GetEntities())
                 {
@@ -192,5 +197,7 @@ namespace MVZ2.Level
 
         public SerializableEntityController[] entities;
         public SerializableLevel level;
+
+        public SerializableLevelUIPreset uiPreset;
     }
 }

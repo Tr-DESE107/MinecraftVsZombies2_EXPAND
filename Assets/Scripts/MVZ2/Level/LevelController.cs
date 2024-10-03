@@ -311,7 +311,7 @@ namespace MVZ2.Level
             {
                 ui.SetNightValue(level.GetNightValue());
             }
-            SetLevelUISimulationSpeed(IsGameRunning() ? gameSpeed : 0);
+            SetLevelUISimulationSpeed(IsGamePaused() ? 0 : gameSpeed);
             UpdateGridHighlight();
             UpdateInput();
         }
@@ -420,12 +420,12 @@ namespace MVZ2.Level
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
             var ui = GetUIPreset();
-            ui.SetHugeWaveTextVisible(true);
+            ui.ShowHugeWaveText();
         }
         private void PostFinalWaveCallback(LevelEngine level)
         {
             var ui = GetUIPreset();
-            ui.SetFinalWaveTextVisible(true);
+            ui.ShowFinalWaveText();
         }
 
         #endregion
