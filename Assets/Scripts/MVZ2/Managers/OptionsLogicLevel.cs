@@ -14,6 +14,19 @@ namespace MVZ2.UI
         {
             Level = level;
         }
+        public override void InitDialog()
+        {
+            UpdateLeaveLevelButton();
+
+            base.InitDialog();
+
+            bool isInLevel = Level.IsGameStarted() && Level.GetCurrentFlag() <= 0;
+            dialog.SetButtonActive(ButtonType.Difficulty, !isInLevel);
+            dialog.SetButtonActive(ButtonType.Restart, isInLevel);
+
+            dialog.SetButtonActive(ButtonType.MoreOptions, false);
+            dialog.SetButtonActive(ButtonType.LeaveLevel, true);
+        }
         protected override void OnButtonClickCallback(ButtonType type)
         {
             base.OnButtonClickCallback(type);
@@ -41,18 +54,6 @@ namespace MVZ2.UI
             }
         }
         #region 更新元素
-        protected override void UpdateAllElements()
-        {
-            base.UpdateAllElements();
-
-            UpdateLeaveLevelButton();
-            bool isInLevel = Level.IsGameStarted() && Level.GetCurrentFlag() <= 0;
-            dialog.SetButtonActive(ButtonType.Difficulty, !isInLevel);
-            dialog.SetButtonActive(ButtonType.Restart, isInLevel);
-
-            dialog.SetButtonActive(ButtonType.MoreOptions, false);
-            dialog.SetButtonActive(ButtonType.LeaveLevel, true);
-        }
         protected void UpdateLeaveLevelButton()
         {
             var textKey = Main.SaveManager.IsLevelCleared(BuiltinStageID.prologue) ? StringTable.BACK_TO_MAP : StringTable.BACK_TO_MAINMENU;

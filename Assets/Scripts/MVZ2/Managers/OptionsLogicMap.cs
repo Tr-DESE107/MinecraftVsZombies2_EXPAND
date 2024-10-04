@@ -15,7 +15,14 @@ namespace MVZ2.UI
         }
         public override void InitDialog()
         {
+            UpdateParticlesSlider();
+            UpdateShakeSlider();
+
+            InitResolutionDropdown();
+            UpdateResolutionDropdown();
+
             base.InitDialog();
+
             dialog.SetButtonActive(ButtonType.LeaveLevel, false);
             dialog.SetButtonActive(ButtonType.Restart, false);
 
@@ -80,17 +87,6 @@ namespace MVZ2.UI
             UpdateResolutionDropdown();
         }
         #region 更新元素
-        protected override void UpdateAllElements()
-        {
-            base.UpdateAllElements();
-
-            UpdateParticlesSlider();
-            UpdateShakeSlider();
-
-            InitResolutionDropdown();
-            UpdateResolutionDropdown();
-
-        }
         private void UpdateParticlesSlider()
         {
             var value = Main.OptionsManager.GetParticleAmount();

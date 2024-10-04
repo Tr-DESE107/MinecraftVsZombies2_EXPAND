@@ -139,6 +139,7 @@ namespace MVZ2.Map
         private void OnOptionsDialogCloseCallback()
         {
             optionsLogic.OnClose -= OnOptionsDialogCloseCallback;
+            optionsLogic.Dispose();
             optionsLogic = null;
             ui.SetOptionsDialogActive(false);
         }

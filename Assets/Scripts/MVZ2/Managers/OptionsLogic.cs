@@ -21,7 +21,16 @@ namespace MVZ2.UI
         }
         public virtual void InitDialog()
         {
-            UpdateAllElements();
+            UpdateMusicSlider();
+            UpdateSoundSlider();
+            UpdateSwapTriggerButton();
+            UpdateFullscreenButton(Main.OptionsManager.IsFullscreen());
+            UpdateVibrationButton();
+            UpdateDifficultyButton();
+            UpdatePauseOnFocusLostButton();
+            dialog.SetButtonActive(ButtonType.SwapTrigger, Main.SaveManager.IsTriggerUnlocked());
+            dialog.SetButtonActive(ButtonType.Fullscreen, !Main.IsMobile());
+            dialog.SetButtonActive(ButtonType.Vibration, Main.IsMobile());
         }
         public virtual void Dispose()
         {
@@ -151,19 +160,6 @@ namespace MVZ2.UI
         {
             var value = Main.OptionsManager.GetPauseOnFocusLost();
             UpdateButtonText(value, OPTION_PAUSE_ON_FOCUS_LOST, TextButtonType.PauseOnFocusLost);
-        }
-        protected virtual void UpdateAllElements()
-        {
-            UpdateMusicSlider();
-            UpdateSoundSlider();
-            UpdateSwapTriggerButton();
-            UpdateFullscreenButton(Main.OptionsManager.IsFullscreen());
-            UpdateVibrationButton();
-            UpdateDifficultyButton();
-            UpdatePauseOnFocusLostButton();
-            dialog.SetButtonActive(ButtonType.SwapTrigger, Main.SaveManager.IsTriggerUnlocked());
-            dialog.SetButtonActive(ButtonType.Fullscreen, !Main.IsMobile());
-            dialog.SetButtonActive(ButtonType.Vibration, Main.IsMobile());
         }
         #endregion
 
