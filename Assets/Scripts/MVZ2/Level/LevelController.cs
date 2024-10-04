@@ -143,6 +143,7 @@ namespace MVZ2.Level
         public void StopLevel()
         {
             SetUIVisibleState(VisibleState.Nothing);
+            ClearGridHighlight();
             isGameStarted = false;
             Main.SaveManager.SaveModDatas();
         }
