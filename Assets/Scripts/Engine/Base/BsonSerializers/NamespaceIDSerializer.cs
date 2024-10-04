@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 
 namespace PVZEngine.BsonSerializers
@@ -12,12 +13,24 @@ namespace PVZEngine.BsonSerializers
         public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, NamespaceID value)
         {
             var writer = context.Writer;
-            writer.WriteString(value != null ? value.ToString() : null);
+            if (value == null)
+            {
+                writer.WriteNull();
+            }
+            else
+            {
+                writer.WriteString(value.ToString());
+            }
         }
 
         public override NamespaceID Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
         {
             var reader = context.Reader;
+            if (reader.GetCurrentBsonType() != BsonType.String)
+            {
+                reader.ReadNull();
+                return null;
+            }
             if (NamespaceID.TryParse(reader.ReadString(), defaultNsp, out var parsed))
             {
                 return parsed;

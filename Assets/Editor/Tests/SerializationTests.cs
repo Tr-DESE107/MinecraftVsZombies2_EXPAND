@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
@@ -15,428 +16,39 @@ using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Serialization;
+using Tools;
 using UnityEngine;
 
-namespace MVZ2.Tests
+namespace MVZ2.EditorTests
 {
-    using LevelEngine = PVZEngine.Level.LevelEngine;
     public class SerializationTests
     {
         [Test]
-        public static void EntityReferenceTest()
+        public static void RNGTest()
         {
-            SerializeHelper.init();
-            var game = CreateGame();
-            var level = CreateLevel(game);
-            var definition = game.GetEntityDefinition<Dispenser>();
-            var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
+            SerializeHelper.init("mvz2");
 
-            var converters = new JsonConverter[] { };
-            EntityID id = entity.GetFragment();
-            var json = id.ToBson();
-            var seriId = SerializeHelper.FromBson<EntityID>(json);
-            var json2 = seriId.ToBson();
-            Assert.AreEqual(json, json2);
-            UnloadMods();
-        }
-        [Test]
-        public static void EntitySerializationTest()
-        {
-            SerializeHelper.init();
-            var game = CreateGame();
-            var level = CreateLevel(game);
-            var definition = game.GetEntityDefinition<Dispenser>();
-            var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
+            var rng = new RandomGenerator(1234);
 
-            SerializableEntity seriEnt = entity.Serialize();
-            var json = seriEnt.ToBson();
-
-            SerializableEntity seriEnt2 = SerializeHelper.FromBson<SerializableEntity>(json);
-            var entity2 = Entity.Deserialize(seriEnt2, level);
-
-            SerializableEntity seriEnt3 = entity2.Serialize();
-            var json2 = seriEnt3.ToBson();
-            Assert.AreEqual(json, json2);
-            UnloadMods();
-        }
-        [Test]
-        public static void LevelSerializationTest()
-        {
-            SerializeHelper.init();
-            var game = CreateGame();
-            var level = CreateLevel(game);
-
-            var definition = game.GetEntityDefinition<Dispenser>();
-            var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
-
-            SerializableLevel seriLevel = level.Serialize();
-            var json = seriLevel.ToBson();
-
-            SerializableLevel seriLevel2 = SerializeHelper.FromBson<SerializableLevel>(json);
-            var level2 = DeserializeLevel(seriLevel2, game);
-
-            SerializableLevel seriLevel3 = level2.Serialize();
-            var json2 = seriLevel3.ToBson();
+            var json = rng.ToBson();
+            var seri = SerializeHelper.FromBson<RandomGenerator>(json);
+            var json2 = seri.ToBson();
 
             Debug.Log(json);
             Debug.Log(json2);
             Assert.AreEqual(json, json2);
-            UnloadMods();
-        }
-        [Test]
-        public static void LevelSerializationTestPrologue()
-        {
-            SerializeHelper.init();
-            var game = CreateGame();
-            var level = CreateLevel(game);
 
-            level.Start();
-
-            // 生成器械
-            var dispenser = game.GetEntityDefinition<Dispenser>();
-            var furnace = game.GetEntityDefinition<Furnace>();
-            var obsidian = game.GetEntityDefinition<Obsidian>();
-            var mineTNT = game.GetEntityDefinition<MineTNT>();
-            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
-            {
-                for (int column = 0; column < 7; column++)
-                {
-                    EntityDefinition def;
-                    if (lane == 0 || lane == 3 || lane == 4)
-                    {
-                        def = dispenser;
-                    }
-                    else if (lane > 0 && lane < 3)
-                    {
-                        def = furnace;
-                    }
-                    else if (lane == 5)
-                    {
-                        def = obsidian;
-                    }
-                    else
-                    {
-                        def = mineTNT;
-                    }
-                    var x = level.GetEntityColumnX(column);
-                    var z = level.GetEntityLaneZ(lane);
-                    var height = level.GetGroundY(x, z);
-                    var position = new Vector3(x, height, z);
-                    level.Spawn(def, position, null);
-                }
-            }
-            // 生成僵尸
-            var zombie = VanillaEnemyID.zombie;
-            var leatherCap = VanillaEnemyID.leatherCappedZombie;
-            var ironHelmet = VanillaEnemyID.ironHelmettedZombie;
-            for (int t = 0; t < 3; t++)
-            {
-                NamespaceID def = zombie;
-                switch (t)
-                {
-                    case 1:
-                        def = leatherCap;
-                        break;
-                    case 2:
-                        def = ironHelmet;
-                        break;
-                }
-                for (int i = 0; i < 10; i++)
-                {
-                    var spawnDef = game.GetSpawnDefinition(def);
-                    level.SpawnEnemyAtRandomLane(spawnDef);
-                }
-            }
-
-            var serializableBeforeSave = level.Serialize();
-            var jsonBeforeSave = serializableBeforeSave.ToBson();
-
-            var serializableAfterLoad = SerializeHelper.FromBson<SerializableLevel>(jsonBeforeSave);
-            var jsonAfterLoad = serializableAfterLoad.ToBson();
-
-            Debug.Log(jsonBeforeSave);
-            Debug.Log(jsonAfterLoad);
-            Assert.AreEqual(jsonBeforeSave, jsonAfterLoad);
-
-            // 更新五秒
-            for (int i = 0; i < 5 * level.TPS; i++)
-            {
-                level.Update();
-            }
-            var serializableAfterUpdate1 = level.Serialize();
-            var jsonAfterUpdate1 = SerializeHelper.ToBson(serializableAfterUpdate1);
-
-            var levelAfterLoad = DeserializeLevel(serializableAfterLoad, game);
-            // 更新五秒
-            for (int i = 0; i < 5 * level.TPS; i++)
-            {
-                levelAfterLoad.Update();
-            }
-            var serializableAfterUpdate2 = level.Serialize();
-            var jsonAfterUpdate2 = SerializeHelper.ToBson(serializableAfterUpdate2);
-
-            Debug.Log(jsonAfterUpdate1);
-            Debug.Log(jsonAfterUpdate2);
-            Assert.AreEqual(jsonAfterUpdate1, jsonAfterUpdate2);
-            UnloadMods();
-        }
-
-        private static Game CreateGame()
-        {
-            var game = new Game(new DummyTranslator(), new DummySaveDataProvider(), new DummyMetaProvider());
-            var mod = new VanillaMod();
-            mod.Load();
-            loadedMods.Add(mod);
-            game.AddMod(mod);
-            return game;
-        }
-        private static LevelEngine CreateLevel(Game game)
-        {
-            var level = new LevelEngine(game, game);
-            level.AddComponent(new TestHeldItemComponent(level));
-            level.AddComponent(new DummyComponent(level));
-            game.SetLevel(level);
-            level.Init(VanillaAreaID.day, VanillaStageID.prologue, new LevelOption()
-            {
-                CardSlotCount = 10,
-                LeftFaction = 0,
-                RightFaction = 1,
-                MaxEnergy = 9990,
-                StartEnergy = 50,
-                TPS = 30,
-                StarshardSlotCount = 3
-            });
-            return level;
-        }
-        private static void UnloadMods()
-        {
-            foreach (var mod in loadedMods)
-            {
-                mod.Unload();
-            }
-            loadedMods.Clear();
-        }
-        private static LevelEngine DeserializeLevel(SerializableLevel seri, Game game)
-        {
-            var level = LevelEngine.Deserialize(seri, game, game);
-            level.AddComponent(new TestHeldItemComponent(level));
-            level.AddComponent(new DummyComponent(level));
-            level.DeserializeComponents(seri);
-            game.SetLevel(level);
-            return level;
-        }
-        private static System.Collections.Generic.List<Mod> loadedMods = new System.Collections.Generic.List<Mod>();
-        private class TestHeldItemComponent : LevelComponent, IHeldItemComponent
-        {
-            public TestHeldItemComponent(LevelEngine level) : base(level, new NamespaceID("mvz2", "held_item"))
-            {
-            }
-            public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
-            {
-                if (Level.IsHoldingItem() && heldItemPriority > priority)
-                    return;
-                heldItemType = type;
-                heldItemID = id;
-                heldItemPriority = priority;
-                heldItemNoCancel = noCancel;
-            }
-            public void ResetHeldItem()
-            {
-                SetHeldItem(HeldTypes.none, 0, 0, false);
-            }
-            public bool CancelHeldItem()
-            {
-                if (!Level.IsHoldingItem() || HeldItemNoCancel)
-                    return false;
-                ResetHeldItem();
-                return true;
-            }
-
-            public override ISerializableLevelComponent ToSerializable()
-            {
-                return new EmptySerializableLevelComponent();
-            }
-
-            public override void LoadSerializable(ISerializableLevelComponent seri)
-            {
-            }
-            public NamespaceID HeldItemType => heldItemType;
-            public long HeldItemID => heldItemID;
-            public int HeldItemPriority => heldItemPriority;
-            public bool HeldItemNoCancel => heldItemNoCancel;
-            private NamespaceID heldItemType;
-            private long heldItemID;
-            private int heldItemPriority;
-            private bool heldItemNoCancel;
-        }
-        private class DummyComponent : LevelComponent, IAdviceComponent, ILogicComponent, IMusicComponent, ISoundComponent, ITalkComponent, IUIComponent, IMoneyComponent
-        {
-            public DummyComponent(LevelEngine level) : base(level, new NamespaceID("mvz2", "dummy"))
-            {
-            }
-
-            public void ShowAdvice(string context, string textKey, int priority, int timeout)
-            {
-            }
-
-            public void HideAdvice()
-            {
-            }
-
-            public void Play(NamespaceID id)
-            {
-            }
-
-            public void Stop()
-            {
-            }
-
-            public void BeginLevel()
-            {
-            }
-
-            public void StopLevel()
-            {
-            }
-
-            public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1)
-            {
-            }
-
-            public void PlaySound(NamespaceID id, float pitch = 1)
-            {
-            }
-
-            public void StartTalk(NamespaceID id, int section, float delay = 1)
-            {
-            }
-
-            public void ShakeScreen(float startAmplitude, float endAmplitude, int time)
-            {
-            }
-
-            public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect)
-            {
-            }
-
-            public void ShowMoney()
-            {
-            }
-            public void SetBlueprintsActive(bool visible)
-            {
-            }
-            public void SetPickaxeActive(bool visible)
-            {
-            }
-            public void SetStarshardActive(bool visible)
-            {
-            }
-
-            public void SetHintArrowPointToBlueprint(int index)
-            {
-            }
-
-            public void SetHintArrowPointToPickaxe()
-            {
-            }
-            public void SetHintArrowPointToStarshard()
-            {
-            }
-            public void SetHintArrowPointToEntity(Entity entity)
-            {
-            }
-
-            public void HideHintArrow()
-            {
-            }
-
-            public override ISerializableLevelComponent ToSerializable()
-            {
-                return new EmptySerializableLevelComponent();
-            }
-
-            public override void LoadSerializable(ISerializableLevelComponent seri)
-            {
-            }
-
-            public int GetMoney()
-            {
-                return 0;
-            }
-
-            public void AddMoney(int value)
-            {
-            }
-
-            public int GetDelayedMoney()
-            {
-                return 0;
-            }
-
-            public void AddDelayedMoney(Entity entity, int value)
-            {
-            }
-
-            public bool RemoveDelayedMoney(Entity entity)
-            {
-                return false;
-            }
-        }
-        private class DummyTranslator : ITranslator
-        {
-            public string GetText(string textKey, params string[] args)
-            {
-                return string.Format(textKey, args);
-            }
-
-            public string GetTextParticular(string textKey, string context, params string[] args)
-            {
-                return string.Format(textKey, args);
-            }
-        }
-        private class DummySaveDataProvider : ISaveDataProvider
-        {
-            public bool IsUnlocked(NamespaceID unlockID)
-            {
-                return false;
-            }
-
-            public void Unlock(NamespaceID unlockID)
-            {
-            }
-
-            public T GetModSaveData<T>(string spaceName)
-            {
-                return default;
-            }
-
-            public ModSaveData GetModSaveData(string spaceName)
-            {
-                return null;
-            }
-
-            public void SaveCurrentModData(string spaceName)
-            {
-            }
-        }
-        private class DummyMetaProvider : IMetaProvider
-        {
-            public StageMeta GetStageMeta(NamespaceID stageID)
-            {
-                return null;
-            }
-            public StageMeta[] GetModStageMetas(string spaceName)
-            {
-                return Array.Empty<StageMeta>();
-            }
-            public EntityMeta GetEntityMeta(NamespaceID stageID)
-            {
-                return null;
-            }
-            public EntityMeta[] GetModEntityMetas(string spaceName)
-            {
-                return Array.Empty<EntityMeta>();
-            }
+            rng.Next();
+            rng.Next();
+            rng.Next();
+            var json3 = rng.ToBson();
+            seri.Next();
+            seri.Next();
+            seri.Next();
+            var json4 = seri.ToBson();
+            Debug.Log(json3);
+            Debug.Log(json4);
+            Assert.AreEqual(json3, json4);
         }
     }
 }

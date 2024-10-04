@@ -310,13 +310,13 @@ namespace PVZEngine.Level
                 difficulty = Difficulty,
                 Option = Option.Serialize(),
 
-                levelRandom = levelRandom.Serialize(),
-                entityRandom = entityRandom.Serialize(),
-                effectRandom = effectRandom.Serialize(),
-                roundRandom = roundRandom.Serialize(),
-                spawnRandom = spawnRandom.Serialize(),
-                conveyorRandom = conveyorRandom.Serialize(),
-                miscRandom = miscRandom.Serialize(),
+                levelRandom = levelRandom.ToSerializable(),
+                entityRandom = entityRandom.ToSerializable(),
+                effectRandom = effectRandom.ToSerializable(),
+                roundRandom = roundRandom.ToSerializable(),
+                spawnRandom = spawnRandom.ToSerializable(),
+                conveyorRandom = conveyorRandom.ToSerializable(),
+                miscRandom = miscRandom.ToSerializable(),
 
                 propertyDict = propertyDict.Serialize(),
                 grids = grids.Select(g => g.Serialize()).ToArray(),
@@ -346,13 +346,13 @@ namespace PVZEngine.Level
         {
             var level = new LevelEngine(provider, translator);
             level.Seed = seri.seed;
-            level.levelRandom = RandomGenerator.Deserialize(seri.levelRandom);
-            level.entityRandom = RandomGenerator.Deserialize(seri.entityRandom);
-            level.effectRandom = RandomGenerator.Deserialize(seri.effectRandom);
-            level.roundRandom = RandomGenerator.Deserialize(seri.roundRandom);
-            level.spawnRandom = RandomGenerator.Deserialize(seri.spawnRandom);
-            level.conveyorRandom = RandomGenerator.Deserialize(seri.conveyorRandom);
-            level.miscRandom = RandomGenerator.Deserialize(seri.miscRandom);
+            level.levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
+            level.entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
+            level.effectRandom = RandomGenerator.FromSerializable(seri.effectRandom);
+            level.roundRandom = RandomGenerator.FromSerializable(seri.roundRandom);
+            level.spawnRandom = RandomGenerator.FromSerializable(seri.spawnRandom);
+            level.conveyorRandom = RandomGenerator.FromSerializable(seri.conveyorRandom);
+            level.miscRandom = RandomGenerator.FromSerializable(seri.miscRandom);
 
             level.IsCleared = seri.isCleared;
             level.ChangeStage(seri.stageDefinitionID);

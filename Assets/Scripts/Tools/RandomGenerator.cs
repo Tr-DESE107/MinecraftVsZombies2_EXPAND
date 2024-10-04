@@ -1,5 +1,4 @@
 ﻿using System;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace Tools
 {
@@ -8,20 +7,21 @@ namespace Tools
     {
         public RandomGenerator(int seed)
         {
-            Seed = seed;
+            if (seed == 0)
+                seed = -1;
+            generator = new XORShift128();
+            generator.InitSeed(seed);
         }
-        public RandomGenerator(int seed, long times)
+        private RandomGenerator(int x, int y, int z, int w)
         {
-            Seed = seed;
-            Times = times;
+            generator = new XORShift128();
+            generator.InitState((uint)x, (uint)y, (uint)z, (uint)w);
         }
 
 
         public int Next()
         {
-            var value = generator.Next();
-            Times++;
-            return value;
+            return generator.NextInt();
         }
         public int Next(int max)
         {
@@ -33,46 +33,20 @@ namespace Tools
         }
         public int Next(int min, int max)
         {
-            var value = generator.Next(min, max);
-            Times++;
-            return value;
+            return generator.NextIntRange(min, max);
         }
         public float Next(float min, float max)
         {
-            return min + (float)Next(0, int.MaxValue) / int.MaxValue * (max - min);
+            return generator.NextFloatRange(min, max);
         }
-        public SerializableRNG Serialize()
+        public SerializableRNG ToSerializable()
         {
-            return new SerializableRNG()
-            {
-                times = Times,
-                seed = Seed
-            };
+            return new SerializableRNG(generator);
         }
-        public static RandomGenerator Deserialize(SerializableRNG seri)
+        public static RandomGenerator FromSerializable(SerializableRNG seri)
         {
-            return new RandomGenerator(seri.seed, seri.times);
+            return new RandomGenerator(seri.x, seri.y, seri.z, seri.w);
         }
-        [BsonElement("times")]
-        public long Times { get; private set; }
-        [BsonElement("seed")]
-        public int Seed { get; private set; }
-        [BsonIgnore]
-        private Random generator
-        {
-            get
-            {
-                if (_generator == null)
-                {
-                    _generator = new Random(Seed);
-                    for (int i = 0; i < Times; i++)
-                    {
-                        generator.Next();
-                    }
-                }
-                return _generator;
-            }
-        }
-        private Random _generator;
+        private XORShift128 generator;
     }
 }

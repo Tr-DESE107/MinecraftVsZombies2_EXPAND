@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 namespace MVZ2.Managers
 {
-    public class MusicManager : MonoBehaviour
+    public class MusicManager : MonoBehaviour, IMusicManager
     {
         public void Play(NamespaceID id)
         {

@@ -103,7 +103,6 @@ namespace MVZ2.Level
             UpdateLevelName();
             UpdateDifficultyName();
             UpdateLevelUI();
-            SetLevelUISimulationSpeed(GetGameSpeed());
 
             level.Start();
 
@@ -230,92 +229,8 @@ namespace MVZ2.Level
         {
             return StartStageID;
         }
-        #endregion
 
-        #region 私有方法
-
-        #region 生命周期
-        private void Awake()
-        {
-            Awake_Grids();
-
-            talkController.OnTalkAction += UI_OnTalkActionCallback;
-            talkController.OnTalkEnd += UI_OnTalkEndCallback;
-
-            levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
-
-            ClearGridHighlight();
-
-            ui.OnExitLevelToNoteCalled += UI_OnExitLevelToNoteCalledCallback;
-            var uiPreset = GetUIPreset();
-            standaloneUI.SetActive(standaloneUI == uiPreset);
-            mobileUI.SetActive(mobileUI == uiPreset);
-
-            uiPreset.OnStartGameCalled += StartGame;
-
-            Awake_Blueprints();
-            Awake_UI();
-        }
-        private void Update()
-        {
-            float deltaTime = Time.deltaTime;
-            float gameSpeed = GetGameSpeed();
-            if (isGameOver)
-            {
-                if (killerEntity)
-                {
-                    float simulationSpeed = 1;
-                    killerEntity.SetSimulationSpeed(simulationSpeed);
-                    killerEntity.UpdateFrame(deltaTime);
-                }
-            }
-            else
-            {
-                // 更新实体动画。
-                // 只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
-                foreach (var entity in entities)
-                {
-                    bool modelActive = IsGameRunning() || CanUpdateBeforeGameStart(entity.Entity) || entity.Entity.IsPreviewEnemy();
-                    float simulationSpeed = modelActive ? gameSpeed : 0;
-                    entity.SetSimulationSpeed(simulationSpeed);
-                    entity.UpdateFrame(deltaTime * simulationSpeed);
-                }
-
-                // 游戏运行时更新UI。
-                if (IsGameRunning())
-                {
-                    AdvanceLevelProgress();
-
-                    bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
-                    Vector2 heldItemPosition;
-                    if (Main.IsMobile() && !isPressing)
-                    {
-                        heldItemPosition = new Vector2(-1000, -1000);
-                    }
-                    else
-                    {
-                        heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
-                    }
-                    ui.SetHeldItemPosition(heldItemPosition);
-                    UpdateLevelUI();
-
-                    levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
-                }
-            }
-            if (isPaused)
-            {
-                ShowMoney();
-            }
-            ui.SetRaycastDisabled(IsInputDisabled());
-            if (level != null)
-            {
-                ui.SetNightValue(level.GetNightValue());
-            }
-            SetLevelUISimulationSpeed(IsGamePaused() ? 0 : gameSpeed);
-            UpdateGridHighlight();
-            UpdateInput();
-        }
-        private void FixedUpdate()
+        public void UpdateLogic()
         {
             if (isGameOver)
             {
@@ -368,6 +283,120 @@ namespace MVZ2.Level
                     }
                 }
             }
+        }
+        public void UpdateFrame(float deltaTime)
+        {
+            float gameSpeed = GetGameSpeed();
+            if (isGameOver)
+            {
+                if (killerEntity)
+                {
+                    float simulationSpeed = 1;
+                    killerEntity.SetSimulationSpeed(simulationSpeed);
+                    killerEntity.UpdateFrame(deltaTime);
+                }
+            }
+            else
+            {
+                // 更新实体动画。
+                // 只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
+                foreach (var entity in entities)
+                {
+                    bool modelActive = IsGameRunning() || CanUpdateBeforeGameStart(entity.Entity) || entity.Entity.IsPreviewEnemy();
+                    float simulationSpeed = modelActive ? gameSpeed : 0;
+                    entity.SetSimulationSpeed(simulationSpeed);
+                    entity.UpdateFrame(deltaTime * simulationSpeed);
+                }
+
+                // 游戏运行时更新UI。
+                if (IsGameRunning())
+                {
+                    AdvanceLevelProgress();
+
+                    bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
+                    Vector2 heldItemPosition;
+                    if (Main.IsMobile() && !isPressing)
+                    {
+                        heldItemPosition = new Vector2(-1000, -1000);
+                    }
+                    else
+                    {
+                        heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
+                    }
+                    ui.SetHeldItemPosition(heldItemPosition);
+                    UpdateLevelUI();
+
+                    levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
+                }
+            }
+            if (isPaused)
+            {
+                ShowMoney();
+            }
+            ui.SetRaycastDisabled(IsInputDisabled());
+            if (level != null)
+            {
+                ui.SetNightValue(level.GetNightValue());
+            }
+            var uiPreset = GetUIPreset();
+            var uiDeltaTime = IsGamePaused() ? 0 : deltaTime * gameSpeed;
+            uiPreset.UpdateFrame(uiDeltaTime);
+            UpdateGridHighlight();
+            UpdateInput();
+        }
+        public void Pause()
+        {
+            isPaused = true;
+            Main.MusicManager.Pause();
+        }
+        public void Resume()
+        {
+            isPaused = false;
+            Main.MusicManager.Resume();
+
+            if (optionsLogic != null)
+            {
+                optionsLogic.Dispose();
+                optionsLogic = null;
+            }
+            ui.SetPauseDialogActive(false);
+            ui.SetOptionsDialogActive(false);
+            ui.SetLevelLoadedDialogVisible(false);
+            levelLoaded = false;
+        }
+        #endregion
+
+        #region 私有方法
+
+        #region 生命周期
+        private void Awake()
+        {
+            Awake_Grids();
+
+            talkController.OnTalkAction += UI_OnTalkActionCallback;
+            talkController.OnTalkEnd += UI_OnTalkEndCallback;
+
+            levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
+
+            ClearGridHighlight();
+
+            ui.OnExitLevelToNoteCalled += UI_OnExitLevelToNoteCalledCallback;
+            var uiPreset = GetUIPreset();
+            standaloneUI.SetActive(standaloneUI == uiPreset);
+            mobileUI.SetActive(mobileUI == uiPreset);
+
+            uiPreset.OnStartGameCalled += StartGame;
+
+            Awake_Blueprints();
+            Awake_UI();
+        }
+        private void Update()
+        {
+            UpdateFrame(Time.deltaTime);
+        }
+        private void FixedUpdate()
+        {
+            UpdateLogic();
         }
         private void OnApplicationFocus(bool focus)
         {
@@ -431,26 +460,6 @@ namespace MVZ2.Level
         #endregion
 
         #region 暂停
-        private void Pause()
-        {
-            isPaused = true;
-            Main.MusicManager.Pause();
-        }
-        private void Resume()
-        {
-            isPaused = false;
-            Main.MusicManager.Resume();
-
-            if (optionsLogic != null)
-            {
-                optionsLogic.Dispose();
-                optionsLogic = null;
-            }
-            ui.SetPauseDialogActive(false);
-            ui.SetOptionsDialogActive(false);
-            ui.SetLevelLoadedDialogVisible(false);
-            levelLoaded = false;
-        }
         private void UpdateFocusLost(bool focus)
         {
             if (isPaused)

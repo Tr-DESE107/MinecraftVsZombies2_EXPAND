@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 namespace MVZ2.Level
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager : MonoBehaviour, ILevelManager
     {
         public LevelController GetLevel()
         {

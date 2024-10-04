@@ -375,7 +375,7 @@ namespace MVZ2.Level
             }
             for (int i = 0; i < bannerProgresses.Length; i++)
             {
-                float value = level.CurrentWave >= i * level.GetWavesPerFlag() ? deltaTime : -deltaTime;
+                float value = (level.CurrentWave >= i * level.GetWavesPerFlag()) ? deltaTime : -deltaTime;
                 bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + value);
             }
             int totalWaveCount = level.GetTotalWaveCount();
@@ -405,11 +405,6 @@ namespace MVZ2.Level
             UpdateLevelProgress();
             UpdateBlueprintsState();
             UpdateStarshards();
-        }
-        private void SetLevelUISimulationSpeed(float simulationSpeed)
-        {
-            var ui = GetUIPreset();
-            ui.SetSimulationSpeed(simulationSpeed);
         }
         private void UpdateLevelProgress()
         {

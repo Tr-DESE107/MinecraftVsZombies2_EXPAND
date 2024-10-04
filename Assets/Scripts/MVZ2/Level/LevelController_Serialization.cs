@@ -25,7 +25,7 @@ namespace MVZ2.Level
             {
                 identifiers = Main.LevelManager.GetLevelStateIdentifierList(),
 
-                bannerProgresses = bannerProgresses.ToArray(),
+                bannerProgresses = bannerProgresses?.ToArray(),
                 levelProgress = levelProgress,
 
                 maxCryTime = maxCryTime,
@@ -61,7 +61,7 @@ namespace MVZ2.Level
                 CreateLevelModel(level.AreaID);
                 level.IsRerun = Main.SaveManager.IsLevelCleared(stageID);
 
-                bannerProgresses = seri.bannerProgresses.ToArray();
+                bannerProgresses = seri.bannerProgresses?.ToArray();
                 levelProgress = seri.levelProgress;
 
                 maxCryTime = seri.maxCryTime;
@@ -102,7 +102,6 @@ namespace MVZ2.Level
             UpdateLevelProgress();
             UpdateDifficultyName();
             UpdateLevelUI();
-            SetLevelUISimulationSpeed(0);
             SetUIVisibleState(VisibleState.InLevel);
             SetUnlockedUIVisible();
             ShowMoney();

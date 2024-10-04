@@ -1,31 +1,28 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
+using Codice.CM.Common;
 using MVZ2.Games;
 using MVZ2.Managers;
 using PVZEngine;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace MVZ2
 {
     public static class Global
     {
+        public static void Init(IMainManager main)
+        {
+            Main = main;
+        }
         public static bool IsMobile()
         {
             return Main.IsMobile();
         }
 
-        public static void GotoMainmenu()
-        {
-            Main.Scene.DisplayPage(MainScenePageType.Mainmenu);
-        }
-
-        public static void GotoMainmenuOrMap()
-        {
-            Main.GotoMapOrMainmenu();
-        }
         public static Coroutine StartCoroutine(IEnumerator enumerator)
         {
-            return Main.CoroutineManager.StartCoroutine(enumerator);
+            return Main.StartCoroutine(enumerator);
         }
         public static Coroutine StartCoroutine(Task task)
         {
@@ -34,42 +31,81 @@ namespace MVZ2
 
         public static void FadeMusic(float target, float duration)
         {
-            Main.MusicManager.StartFade(target, duration);
+            Music.StartFade(target, duration);
         }
         public static void SetMusicVolume(float volume)
         {
-            Main.MusicManager.SetVolume(volume);
-        }
-
-        public static IEnumerator GotoLevel()
-        {
-            yield return Main.LevelManager.GotoLevelSceneAsync().ToCoroutineFunc();
-            Main.Scene.HidePages();
+            Music.SetVolume(volume);
         }
         public static void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0)
         {
-            Main.LevelManager.InitLevel(areaId, stageId, introDelay);
+            Level.InitLevel(areaId, stageId, introDelay);
         }
 
+        public static void GotoMainmenuOrMap()
+        {
+            Main.GotoMapOrMainmenu();
+        }
+        public static IEnumerator GotoLevel()
+        {
+            yield return Level.GotoLevelSceneAsync().ToCoroutineFunc();
+            Scene.HidePages();
+        }
+        public static void GotoMainmenu()
+        {
+            Scene.DisplayPage(MainScenePageType.Mainmenu);
+        }
         public static IEnumerator DisplayChapterTransition(NamespaceID chapterID)
         {
-            return Main.Scene.DisplayChapterTransitionAsync(chapterID).ToCoroutineFunc();
+            return Scene.DisplayChapterTransitionAsync(chapterID).ToCoroutineFunc();
         }
         public static void HideChapterTransition()
         {
-            Main.Scene.HideChapterTransition();
+            Scene.HideChapterTransition();
         }
         public static void SetBlackScreen(float value)
         {
-            Main.Scene.SetBlackScreen(value);
+            Scene.SetBlackScreen(value);
         }
         public static void FadeBlackScreen(float target, float duration)
         {
-            Main.Scene.FadeBlackScreen(target, duration);
+            Scene.FadeBlackScreen(target, duration);
         }
 
-        public static string BuiltinNamespace => Main.BuiltinNamespace;
+        private static IMainManager Main { get; set; }
+        public static string BuiltinNamespace => Game.DefaultNamespace;
         public static Game Game => Main.Game;
-        private static MainManager Main => MainManager.Instance;
+        private static ISceneController Scene => Main.Scene;
+        private static IMusicManager Music => Main.Music;
+        private static ILevelManager Level => Main.Level;
+    }
+    public interface IMainManager
+    {
+        bool IsMobile();
+        Coroutine StartCoroutine(IEnumerator enumerator);
+        void GotoMapOrMainmenu();
+        Game Game { get; }
+        ISceneController Scene { get; }
+        IMusicManager Music { get; }
+        ILevelManager Level { get; }
+    }
+    public interface ISceneController
+    {
+        void DisplayPage(MainScenePageType type);
+        void HidePages();
+        void FadeBlackScreen(float target, float duration);
+        void SetBlackScreen(float value);
+        void HideChapterTransition();
+        Task DisplayChapterTransitionAsync(NamespaceID chapterID);
+    }
+    public interface IMusicManager
+    {
+        void StartFade(float target, float duration);
+        void SetVolume(float volume);
+    }
+    public interface ILevelManager
+    {
+        void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0);
+        Task GotoLevelSceneAsync();
     }
 }

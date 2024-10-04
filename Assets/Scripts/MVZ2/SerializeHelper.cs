@@ -23,14 +23,15 @@ namespace MVZ2.Serialization
 {
     public static class SerializeHelper
     {
-        public static void init()
+        public static void init(string defaultNsp)
         {
             if (isInited)
                 return;
             RegisterSerializer<Vector2>(new Vector2Serializer());
             RegisterSerializer<Vector3>(new Vector3Serializer());
             RegisterSerializer<Color>(new ColorSerializer());
-            RegisterSerializer<NamespaceID>(new NamespaceIDSerializer(MainManager.Instance.BuiltinNamespace));
+            RegisterSerializer<RandomGenerator>(new RandomGeneratorSerializer());
+            RegisterSerializer<NamespaceID>(new NamespaceIDSerializer(defaultNsp));
 
             // Tools
             RegisterClass<FrameTimer>();

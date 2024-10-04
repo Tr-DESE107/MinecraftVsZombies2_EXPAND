@@ -409,8 +409,8 @@ namespace PVZEngine.Level
             seri.spawnerReference = SpawnerReference;
             seri.type = Type;
             seri.state = State;
-            seri.rng = RNG.Serialize();
-            seri.dropRng = DropRNG.Serialize();
+            seri.rng = RNG.ToSerializable();
+            seri.dropRng = DropRNG.ToSerializable();
             seri.target = Target?.ID ?? 0;
 
             seri.definitionID = Definition.GetID();
@@ -446,8 +446,8 @@ namespace PVZEngine.Level
         }
         public void ApplyDeserialize(SerializableEntity seri)
         {
-            RNG = RandomGenerator.Deserialize(seri.rng);
-            DropRNG = RandomGenerator.Deserialize(seri.dropRng);
+            RNG = RandomGenerator.FromSerializable(seri.rng);
+            DropRNG = RandomGenerator.FromSerializable(seri.dropRng);
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 

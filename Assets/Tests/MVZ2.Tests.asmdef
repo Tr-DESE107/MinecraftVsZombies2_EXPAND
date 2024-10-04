@@ -6,7 +6,12 @@
         "UnityEditor.TestRunner",
         "MVZ2",
         "MVZ2.Vanilla",
-        "PVZEngine.Level"
+        "MVZ2.VanillaResources",
+        "PVZEngine.Base",
+        "PVZEngine.Level",
+        "Tools",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

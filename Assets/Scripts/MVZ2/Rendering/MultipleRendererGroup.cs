@@ -25,11 +25,11 @@ namespace MVZ2.Rendering
                 particle.SetSimulationSpeed(speed);
             }
         }
-        public void SetLight(bool visible, Vector2 range, Color color)
+        public void SetLight(bool visible, Vector2 range, Color color, Vector2 randomOffset)
         {
             lightController.gameObject.SetActive(visible);
             lightController.SetColor(color);
-            lightController.SetRange(range);
+            lightController.SetRange(range, randomOffset);
         }
         public void UpdateRendererElements()
         {
@@ -332,7 +332,6 @@ namespace MVZ2.Rendering
 
                 animator.Play(currentNameHash, i, currentNormalizedTime);
             }
-            animator.Update(0);
 
             for (int i = 0; i < layerCount; i++)
             {
@@ -356,7 +355,6 @@ namespace MVZ2.Rendering
                     }
                 }
             }
-            animator.Update(0);
         }
     }
     public class SerializableAnimatorPlayingData

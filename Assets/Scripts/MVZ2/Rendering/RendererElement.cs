@@ -52,17 +52,17 @@ namespace MVZ2.Rendering
             foreach (var prop in serializable.intProperties)
             {
                 PropertyBlock.SetInt(prop.Key, prop.Value);
-                intProperties[name] = prop.Value;
+                intProperties[prop.Key] = prop.Value;
             }
             foreach (var prop in serializable.floatProperties)
             {
                 PropertyBlock.SetFloat(prop.Key, prop.Value);
-                floatProperties[name] = prop.Value;
+                floatProperties[prop.Key] = prop.Value;
             }
             foreach (var prop in serializable.colorProperties)
             {
                 PropertyBlock.SetColor(prop.Key, prop.Value);
-                colorProperties[name] = prop.Value;
+                colorProperties[prop.Key] = prop.Value;
             }
             Renderer.SetPropertyBlock(PropertyBlock);
         }

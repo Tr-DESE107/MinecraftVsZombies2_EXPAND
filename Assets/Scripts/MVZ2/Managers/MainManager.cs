@@ -10,13 +10,14 @@ using UnityEngine;
 
 namespace MVZ2.Managers
 {
-    public class MainManager : MonoBehaviour
+    public class MainManager : MonoBehaviour, IMainManager
     {
         public async Task Initialize()
         {
             Application.targetFrameRate = 60;
-            SerializeHelper.init();
-            Game = new Game(LanguageManager, SaveManager, ResourceManager);
+            SerializeHelper.init(BuiltinNamespace);
+            Global.Init(this);
+            Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
 
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
@@ -107,6 +108,9 @@ namespace MVZ2.Managers
         public ResolutionManager ResolutionManager => resolution;
         public SceneLoadingManager SceneManager => sceneLoadingManager;
         public MainSceneController Scene => scene;
+        ISceneController IMainManager.Scene => scene;
+        IMusicManager IMainManager.Music => music;
+        ILevelManager IMainManager.Level => level;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]

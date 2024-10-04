@@ -4,18 +4,19 @@ namespace MVZ2.Rendering
 {
     public class LightController : MonoBehaviour
     {
-        public void SetRange(Vector2 scale)
+        public void SetRange(Vector2 scale, Vector2 randomOffset)
         {
             this.scale = scale;
-            var aspect = scale.x / scale.y;
-            if (scale.x > scale.y)
+            var lightScale = scale + randomOffset;
+            var aspect = lightScale.x / lightScale.y;
+            if (lightScale.x > lightScale.y)
             {
-                lightRenderer.transform.localScale = new Vector3(scale.y, scale.y);
+                lightRenderer.transform.localScale = new Vector3(lightScale.y, lightScale.y);
                 lightRenderer.size = new Vector2(aspect, 1);
             }
             else
             {
-                lightRenderer.transform.localScale = new Vector3(scale.x, scale.x);
+                lightRenderer.transform.localScale = new Vector3(lightScale.x, lightScale.x);
                 lightRenderer.size = new Vector2(1, 1 / aspect);
             }
         }
@@ -36,7 +37,7 @@ namespace MVZ2.Rendering
         {
             if (serializable == null)
                 return;
-            SetRange(serializable.scale);
+            SetRange(serializable.scale, Vector2.zero);
             SetColor(serializable.color);
         }
         [SerializeField]

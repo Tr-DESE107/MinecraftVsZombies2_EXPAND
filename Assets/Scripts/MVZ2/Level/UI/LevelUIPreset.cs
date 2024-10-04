@@ -24,6 +24,10 @@ namespace MVZ2.Level.UI
                 raycaster.blockingMask = mask;
             }
         }
+        public void UpdateFrame(float deltaTime)
+        {
+            animator.Update(deltaTime);
+        }
         #endregion
 
         #region 能量
@@ -264,10 +268,6 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        public void SetSimulationSpeed(float speed)
-        {
-            animator.speed = speed;
-        }
         public void SetUIVisibleState(VisibleState state)
         {
             animator.SetInteger("UIState", (int)state);
@@ -305,6 +305,7 @@ namespace MVZ2.Level.UI
         #region 私有方法
         private void Awake()
         {
+            animator.enabled = false;
             sideReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side, data);
             lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn, data);
             bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom, data);

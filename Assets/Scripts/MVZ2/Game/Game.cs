@@ -7,8 +7,9 @@ namespace MVZ2.Games
 {
     public partial class Game : IGame
     {
-        public Game(ITranslator translator, ISaveDataProvider saveDataProvider, IMetaProvider metaProvider)
+        public Game(string defaultNsp, ITranslator translator, ISaveDataProvider saveDataProvider, IMetaProvider metaProvider)
         {
+            DefaultNamespace = defaultNsp;
             this.translator = translator;
             this.saveDataProvider = saveDataProvider;
             this.metaProvider = metaProvider;
@@ -62,6 +63,7 @@ namespace MVZ2.Games
         public T GetProperty<T>(string name) => propertyDict.GetProperty<T>(name);
         public bool TryGetProperty<T>(string name, out T value) => propertyDict.TryGetProperty<T>(name, out value);
         public string[] GetPropertyNames() => propertyDict.GetPropertyNames();
+        public string DefaultNamespace { get; private set; }
         private LevelEngine level;
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private ITranslator translator;
