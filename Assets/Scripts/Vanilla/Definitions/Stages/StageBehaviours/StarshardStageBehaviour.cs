@@ -47,7 +47,7 @@ namespace MVZ2.Vanilla
             }
             return rng;
         }
-        public const int MIN_STARSHARD_CHANCE = -25;
+        public const int MIN_STARSHARD_CHANCE = -15;
         public const int STARSHARD_INCREAMENT = 10;
         public const int STARSHARD_REDUCTION = -125;
     }

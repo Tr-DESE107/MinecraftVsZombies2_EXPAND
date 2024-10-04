@@ -31,4 +31,12 @@
             <color hex="#000000" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="moonlight_sensor">
+        <colorKeys>
+            <color hex="#56452B" time="0.45"/>
+            <color hex="#BAC6D7" time="0.90"/>
+            <color hex="#354359" time="0.95"/>
+            <color hex="#282217" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>
