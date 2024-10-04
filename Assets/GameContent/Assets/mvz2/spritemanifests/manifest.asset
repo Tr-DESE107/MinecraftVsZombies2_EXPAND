@@ -488,6 +488,13 @@ MonoBehaviour:
     - {fileID: -1003954353, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
     - {fileID: -1770725842, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
     - {fileID: -1830890523, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
+  - name: entity/contraption/moonlight_sensor
+    spritesheet:
+    - {fileID: -1532640040, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+    - {fileID: 1066157882, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+    - {fileID: -1376072912, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+    - {fileID: 662959243, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+    - {fileID: 2073939680, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
   - name: entity/contraption/obsidian
     spritesheet:
     - {fileID: -242657119, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
