@@ -25,11 +25,7 @@ namespace MVZ2.Managers
             }
             catch (Exception)
             {
-                if (IsEditor())
-                {
-                    return SerializeHelper.ReadJson(path);
-                }
-                throw;
+                return SerializeHelper.ReadJson(path);
             }
         }
         private bool IsEditor()
