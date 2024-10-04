@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Runtime.Serialization;
 using MVZ2.Save;
 using MVZ2.Serialization;
 using UnityEngine;
@@ -106,9 +108,17 @@ namespace MVZ2.Managers
             }
             else
             {
-                var metaJson = Main.FileManager.ReadJsonFile(saveDataMetaPath);
-                var serializable = SerializeHelper.FromBson<SerializableUserDataList>(metaJson);
-                userDataList = UserDataList.FromSerializable(serializable);
+                try
+                {
+                    var metaJson = Main.FileManager.ReadJsonFile(saveDataMetaPath);
+                    var serializable = SerializeHelper.FromBson<SerializableUserDataList>(metaJson);
+                    userDataList = UserDataList.FromSerializable(serializable);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Error loading user list: {e}");
+                    userDataList = new UserDataList(MAX_USER_COUNT);
+                }
             }
         }
         #endregion

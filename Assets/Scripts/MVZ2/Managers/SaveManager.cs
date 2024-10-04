@@ -63,8 +63,16 @@ namespace MVZ2.Managers
             }
             else
             {
-                var saveDataJson = Main.FileManager.ReadJsonFile(path);
-                saveData = modInfo.Logic.LoadSaveData(saveDataJson);
+                try
+                {
+                    var saveDataJson = Main.FileManager.ReadJsonFile(path);
+                    saveData = modInfo.Logic.LoadSaveData(saveDataJson);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Error loading user{userIndex}'s {spaceName} mod save data : {e}");
+                    saveData = modInfo.Logic.CreateSaveData();
+                }
             }
             modSaveDatas.Add(saveData);
         }
