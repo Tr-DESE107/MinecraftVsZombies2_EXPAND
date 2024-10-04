@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Rendering;
 using MVZ2.Resources;
@@ -17,6 +18,13 @@ namespace MVZ2.Managers
             if (modResource == null)
                 return null;
             return modResource.ModelMetaList;
+        }
+        public ModelMeta[] GetModModelMetas(string nsp)
+        {
+            var metaList = GetModelMetaList(nsp);
+            if (metaList == null)
+                return Array.Empty<ModelMeta>();
+            return metaList.metas.ToArray();
         }
         #endregion
 

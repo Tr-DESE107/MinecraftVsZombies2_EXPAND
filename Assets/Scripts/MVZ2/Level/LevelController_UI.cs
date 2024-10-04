@@ -36,7 +36,7 @@ namespace MVZ2.Level
             }
             else if (heldType == HeldTypes.starshard)
             {
-                icon = Main.LanguageManager.GetSprite(SpritePaths.GetStarshardIcon(level.AreaDefinition.GetID()));
+                icon = Main.LanguageManager.GetSprite(GetStarshardIcon(level.AreaDefinition.GetID()));
             }
             ui.SetHeldItemIcon(icon);
 
@@ -450,6 +450,15 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             StarshardActive = Main.SaveManager.IsStarshardUnlocked();
             TriggerActive = Main.SaveManager.IsTriggerUnlocked();
+        }
+        private NamespaceID GetStarshardIcon(NamespaceID areaID)
+        {
+            var spriteID = new NamespaceID(areaID.spacename, $"starshards/{areaID.path}");
+            if (!Main.ResourceManager.GetSprite(spriteID))
+            {
+                spriteID = new NamespaceID(areaID.spacename, $"starshards/default");
+            }
+            return spriteID;
         }
 
         #endregion

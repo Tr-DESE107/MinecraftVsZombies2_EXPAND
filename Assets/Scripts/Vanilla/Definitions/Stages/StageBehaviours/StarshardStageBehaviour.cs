@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent;
+﻿using MVZ2.Extensions;
+using MVZ2.GameContent;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -26,6 +27,8 @@ namespace MVZ2.Vanilla
         public override void PostEnemySpawned(Entity entity)
         {
             base.PostEnemySpawned(entity);
+            if (!Global.Game.IsStarshardUnlocked())
+                return;
             var level = entity.Level;
             var chance = level.GetStarshardChance();
             var rng = GetOrCreateStarshardRNG(level);

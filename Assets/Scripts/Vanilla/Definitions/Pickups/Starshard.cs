@@ -116,8 +116,12 @@ namespace MVZ2.GameContent
         public override NamespaceID GetModelID(LevelEngine level)
         {
             var areaID = level.AreaID;
-            var id = new NamespaceID(areaID.spacename, $"starshard.{areaID.path}");
-            return id.ToModelID(EngineModelID.TYPE_ENTITY);
+            var modelId = new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(EngineModelID.TYPE_ENTITY);
+            if (Global.Game.GetModelMeta(modelId) == null)
+            {
+                modelId = new NamespaceID(areaID.spacename, $"starshard.default").ToModelID(EngineModelID.TYPE_ENTITY);
+            }
+            return modelId;
         }
         private const float COLLECTED_Z = 0;
     }
