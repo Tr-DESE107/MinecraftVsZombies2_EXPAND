@@ -207,6 +207,9 @@
         </projectile>
 
         <!-- Effects -->
+        <effect id="miner">
+            <bool name="shadowHidden" value="false"/>
+        </effect>
         <effect id="broken_armor">
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>
