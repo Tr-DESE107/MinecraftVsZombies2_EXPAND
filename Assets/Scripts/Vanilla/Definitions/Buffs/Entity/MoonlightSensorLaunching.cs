@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public MoonlightSensorLaunchingBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaEntityProps.PRODUCE_SPEED, ModifyOperator.Multiply, PRODUCE_SPEED_MULTIPLIER));
+            AddModifier(new FloatModifier(VanillaEntityProps.PRODUCE_SPEED, NumberOperator.Multiply, PRODUCE_SPEED_MULTIPLIER));
         }
         public const float PRODUCE_SPEED_MULTIPLIER = 0.625f;
     }

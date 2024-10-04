@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
@@ -15,6 +16,10 @@ namespace PVZEngine.Definitions
         public PropertyModifier[] GetModifiers()
         {
             return modifiers.ToArray();
+        }
+        public PropertyModifier[] GetModifiers(string propName)
+        {
+            return modifiers.Where(e => e.PropertyName == propName).ToArray();
         }
         public virtual void PostAdd(Buff buff) { }
         public virtual void PostRemove(Buff buff) { }

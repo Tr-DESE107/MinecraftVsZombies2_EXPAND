@@ -1,4 +1,5 @@
-﻿using PVZEngine.Definitions;
+﻿using System.Linq;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using PVZEngine.Serialization;
 
@@ -28,6 +29,10 @@ namespace PVZEngine.Level
         public PropertyModifier[] GetModifiers()
         {
             return Definition.GetModifiers();
+        }
+        public PropertyModifier[] GetModifiers(string propName)
+        {
+            return Definition.GetModifiers(propName);
         }
         public void AddToTarget(IBuffTarget target)
         {

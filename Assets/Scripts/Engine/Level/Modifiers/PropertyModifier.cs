@@ -3,18 +3,20 @@ using Tools;
 
 namespace PVZEngine.Modifiers
 {
-    public abstract class PropertyModifier
+    public interface IPropertyModifier
     {
-        public PropertyModifier(string propertyName, ModifyOperator op, object valueConst)
+        object GetModifierValue(Buff buff);
+    }
+    public abstract class PropertyModifier : IPropertyModifier
+    {
+        public PropertyModifier(string propertyName, object valueConst)
         {
             PropertyName = propertyName;
-            Operator = op;
             ConstValue = valueConst;
         }
-        public PropertyModifier(string propertyName, ModifyOperator op, string buffPropertyName)
+        public PropertyModifier(string propertyName, string buffPropertyName)
         {
             PropertyName = propertyName;
-            Operator = op;
             UsingBuffPropertyName = buffPropertyName;
         }
         public virtual void PostAdd(Buff buff)
@@ -25,7 +27,7 @@ namespace PVZEngine.Modifiers
         {
 
         }
-        public object GetValue(Buff buff)
+        public object GetModifierValue(Buff buff)
         {
             if (!string.IsNullOrEmpty(UsingBuffPropertyName))
             {
@@ -36,36 +38,24 @@ namespace PVZEngine.Modifiers
                 return ConstValue;
             }
         }
-        public abstract object CalculateProperty(Buff buff, object value);
         public string PropertyName { get; set; }
         public object ConstValue { get; set; }
         public string UsingBuffPropertyName { get; set; }
-        public ModifyOperator Operator { get; set; }
     }
     public abstract class PropertyModifier<T> : PropertyModifier
     {
-        protected PropertyModifier(string propertyName, ModifyOperator op, T valueConst) : base(propertyName, op, valueConst)
+        protected PropertyModifier(string propertyName, T valueConst) : base(propertyName, valueConst)
         {
         }
 
-        protected PropertyModifier(string propertyName, ModifyOperator op, string buffPropertyName) : base(propertyName, op, buffPropertyName)
+        protected PropertyModifier(string propertyName, string buffPropertyName) : base(propertyName, buffPropertyName)
         {
         }
-
-        public override sealed object CalculateProperty(Buff buff, object value)
+        public T GetModifierValueGeneric(Buff buff)
         {
-            if (value == null)
-                value = default(T);
-            if (value.TryToGeneric<T>(out var tValue))
-                return CalculatePropertyGeneric(buff, tValue);
-            return value;
-        }
-        public T GetValueGeneric(Buff buff)
-        {
-            if (GetValue(buff) is T tValue)
+            if (GetModifierValue(buff) is T tValue)
                 return tValue;
             return default;
         }
-        public abstract T CalculatePropertyGeneric(Buff buff, T value);
     }
 }

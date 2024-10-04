@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla.Buffs
     {
         public TemporaryUpdateBeforeGameBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(BuiltinEntityProps.UPDATE_BEFORE_GAME, ModifyOperator.Set, true));
+            AddModifier(new BooleanModifier(BuiltinEntityProps.UPDATE_BEFORE_GAME, true));
         }
         public override void PostAdd(Buff buff)
         {

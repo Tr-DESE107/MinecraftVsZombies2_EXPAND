@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Definitions;
+using PVZEngine.Modifiers;
 using PVZEngine.Serialization;
 
 namespace PVZEngine.Level
@@ -54,16 +56,25 @@ namespace PVZEngine.Level
         }
         public object CalculateProperty(string name, object value)
         {
-            foreach (var buff in buffs)
-            {
-                foreach (var modi in buff.GetModifiers())
-                {
-                    if (modi.PropertyName != name)
-                        continue;
-                    value = modi.CalculateProperty(buff, value);
-                }
-            }
-            return value;
+            if (buffs.Count == 0)
+                return value;
+
+            var modifiers = buffs.SelectMany(buff => buff.GetModifiers(name).Select(modifier => new BuffModifierItem(buff, modifier)));
+            if (modifiers.Count() == 0)
+                return value;
+
+            var modifierTypes = modifiers.Select(p => p.modifier.GetType()).Distinct();
+
+            if (modifierTypes.Count() > 1)
+                throw new MultipleValueModifierException($"Modifiers of property {name} has multiple modifiers with different types : {string.Join(',', modifierTypes)}");
+
+            var modifierType = modifierTypes.First();
+            var calculator = ModifierMap.GetCalculator(modifierType);
+
+            if (calculator == null)
+                throw new NullReferenceException($"Calculator for modifier type {modifierType} does not exists.");
+
+            return calculator.Calculate(value, modifiers);
         }
         public SerializableBuffList ToSerializable()
         {
@@ -80,5 +91,11 @@ namespace PVZEngine.Level
             };
         }
         private List<Buff> buffs = new List<Buff>();
+    }
+    public class MultipleValueModifierException : Exception
+    {
+        public MultipleValueModifierException(string message) : base(message)
+        {
+        }
     }
 }

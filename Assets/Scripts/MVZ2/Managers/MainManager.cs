@@ -16,6 +16,7 @@ namespace MVZ2.Managers
         {
             Application.targetFrameRate = 60;
             SerializeHelper.init(BuiltinNamespace);
+            ModifierHelper.Init();
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
 

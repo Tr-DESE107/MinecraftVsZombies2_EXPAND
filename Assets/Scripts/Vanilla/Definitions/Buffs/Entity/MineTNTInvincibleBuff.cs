@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public MineTNTInvincibleBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, ModifyOperator.Set, true));
+            AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
         }
     }
 }

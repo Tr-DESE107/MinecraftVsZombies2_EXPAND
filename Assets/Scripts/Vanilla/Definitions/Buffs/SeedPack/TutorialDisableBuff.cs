@@ -10,8 +10,8 @@ namespace MVZ2.GameContent.Buffs.SeedPack
     {
         public TutorialDisableBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(PVZEngine.Level.EngineSeedProps.DISABLED, ModifyOperator.Set, true));
-            AddModifier(new StringModifier(PVZEngine.Level.EngineSeedProps.DISABLE_MESSAGE, ModifyOperator.Set, VanillaStrings.TOOLTIP_DISABLE_MESSAGE));
+            AddModifier(new BooleanModifier(PVZEngine.Level.EngineSeedProps.DISABLED, true));
+            AddModifier(new StringModifier(PVZEngine.Level.EngineSeedProps.DISABLE_MESSAGE, VanillaStrings.TOOLTIP_DISABLE_MESSAGE));
         }
     }
 }

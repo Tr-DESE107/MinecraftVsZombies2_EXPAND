@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public ArmorDamageColorBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EngineArmorProps.COLOR_OFFSET, ModifyOperator.Average, new Color(1, 0, 0, 0)));
+            AddModifier(new ColorModifier(EngineArmorProps.COLOR_OFFSET, new Color(1, 0, 0, 0.5f)));
         }
         public override void PostUpdate(Buff buff)
         {

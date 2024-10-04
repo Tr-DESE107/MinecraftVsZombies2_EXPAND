@@ -88,6 +88,7 @@ namespace MVZ2.GameContent.Contraptions
                 color.r = colorValue;
                 color.g = colorValue;
                 color.b = colorValue;
+                color.a = 0.5f;
                 buff.SetProperty(ProductionColorBuff.PROP_COLOR, color);
             }
             if (productionTimer.Expired)

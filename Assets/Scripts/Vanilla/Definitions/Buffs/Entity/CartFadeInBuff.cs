@@ -11,9 +11,9 @@ namespace MVZ2.Vanilla.Buffs
     {
         public CartFadeInBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EngineEntityProps.TINT, ModifyOperator.Multiply, PROP_COLOR_MULTIPLIER));
-            AddModifier(new ColorModifier(BuiltinEntityProps.LIGHT_COLOR, ModifyOperator.Multiply, PROP_COLOR_MULTIPLIER));
-            AddModifier(new FloatModifier(BuiltinEntityProps.SHADOW_ALPHA, ModifyOperator.Multiply, PROP_ALPHA_MULTIPLIER));
+            AddModifier(new ColorModifier(EngineEntityProps.TINT, BlendOperator.DstColor, BlendOperator.Zero, PROP_COLOR_MULTIPLIER));
+            AddModifier(new ColorModifier(BuiltinEntityProps.LIGHT_COLOR, BlendOperator.DstColor, BlendOperator.Zero, PROP_COLOR_MULTIPLIER));
+            AddModifier(new FloatModifier(BuiltinEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_ALPHA_MULTIPLIER));
         }
         public override void PostAdd(Buff buff)
         {

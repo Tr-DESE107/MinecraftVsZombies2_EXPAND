@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public ProductionColorBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, ModifyOperator.Average, PROP_COLOR));
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR));
         }
         public const string PROP_COLOR = "color";
     }

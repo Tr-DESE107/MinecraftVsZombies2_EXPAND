@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla.Buffs
     {
         public StarshardCarrierBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, ModifyOperator.Average, PROP_COLOR_OFFSET));
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
         }
 
         public override void PostAdd(Buff buff)
@@ -31,7 +31,7 @@ namespace MVZ2.Vanilla.Buffs
             time++;
             time %= MAX_TIME;
             var green = 1 - (Mathf.Cos((float)time / MAX_TIME * 360 * Mathf.Deg2Rad) + 1) / 2;
-            buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, green, 0, 0));
+            buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, green, 0, 0.5f));
             buff.SetProperty(PROP_TIME, time);
         }
         public const int MAX_TIME = 60;
