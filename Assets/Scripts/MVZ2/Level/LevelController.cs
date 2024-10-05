@@ -391,14 +391,6 @@ namespace MVZ2.Level
             Awake_Blueprints();
             Awake_UI();
         }
-        private void Update()
-        {
-            UpdateFrame(Time.deltaTime);
-        }
-        private void FixedUpdate()
-        {
-            UpdateLogic();
-        }
         private void OnApplicationFocus(bool focus)
         {
             UpdateFocusLost(focus);

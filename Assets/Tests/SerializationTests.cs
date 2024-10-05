@@ -242,7 +242,7 @@ namespace MVZ2.Tests
         }
         private static LevelController GetLevelController()
         {
-            return levelController;
+            return Main.LevelManager.GetLevel();
         }
         private static void InitLevel(LevelController level, NamespaceID areaId, NamespaceID stageId)
         {
@@ -254,33 +254,11 @@ namespace MVZ2.Tests
             level.LoadGame(seri, Global.Game, areaId, stageId);
             level.Resume();
         }
-        private static async Task GotoLevelAsync()
-        {
-            var sceneName = "TestLevel";
-            var scene = MainManager.Instance.SceneManager;
-            var oldScene = scene.GetSceneInstance(sceneName);
-            await scene.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            if (oldScene.Scene.IsValid())
-            {
-                await scene.UnloadSceneAsync(oldScene);
-            }
-
-            var newScene = scene.GetSceneInstance(sceneName);
-            foreach (var go in newScene.Scene.GetRootGameObjects())
-            {
-                var ctrl = go.GetComponent<LevelController>();
-                if (ctrl)
-                {
-                    levelController = ctrl;
-                    break;
-                }
-            }
-        }
         private static IEnumerator GotoLevel()
         {
-            return GotoLevelAsync().ToCoroutineFunc();
+            return Global.GotoLevel();
         }
-        private static LevelController levelController;
+        private static MainManager Main => MainManager.Instance;
         private static bool inited = false;
     }
 }
