@@ -76,7 +76,7 @@ namespace MVZ2.GameContent.Contraptions
             foreach (var buff in buffs)
             {
                 var color = buff.GetProperty<Color>(ProductionColorBuff.PROP_COLOR);
-                float colorValue = color.r;
+                float colorValue = color.a;
                 if (productionTimer.Frame < 30)
                 {
                     colorValue = Mathf.Lerp(1, 0, productionTimer.Frame / 30f);
@@ -85,10 +85,10 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     colorValue = Mathf.Max(0, colorValue - 1 / 30f);
                 }
-                color.r = colorValue;
-                color.g = colorValue;
-                color.b = colorValue;
-                color.a = 0.5f;
+                color.r = 1;
+                color.g = 1;
+                color.b = 1;
+                color.a = colorValue;
                 buff.SetProperty(ProductionColorBuff.PROP_COLOR, color);
             }
             if (productionTimer.Expired)

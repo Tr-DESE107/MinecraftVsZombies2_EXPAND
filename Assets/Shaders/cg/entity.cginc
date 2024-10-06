@@ -73,7 +73,7 @@ fixed4 EntityFrag(v2f i) :SV_Target
 {
     fixed4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
 
-    col = col + _ColorOffset;
+    col.rgb = _ColorOffset.rgb * _ColorOffset.a + col.rgb * (1 - _ColorOffset.a);
 
     #if BURN_ON
     col = Burn(col, i);

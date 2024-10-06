@@ -30,8 +30,8 @@ namespace MVZ2.Vanilla.Buffs
             var time = buff.GetProperty<int>(PROP_TIME);
             time++;
             time %= MAX_TIME;
-            var green = 1 - (Mathf.Cos((float)time / MAX_TIME * 360 * Mathf.Deg2Rad) + 1) / 2;
-            buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, green, 0, 0.5f));
+            var alpha = 1 - (Mathf.Cos((float)time / MAX_TIME * 360 * Mathf.Deg2Rad) + 1) / 2;
+            buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, 1, 0, alpha));
             buff.SetProperty(PROP_TIME, time);
         }
         public const int MAX_TIME = 60;
