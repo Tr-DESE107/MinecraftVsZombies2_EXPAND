@@ -69,7 +69,7 @@ namespace MVZ2.Level
             }
             else if (transition == LevelTransitions.TO_LAWN)
             {
-                StartCoroutine(GameStartToLawnTransition());
+                StartCoroutine(GameStartToLawnInstantTransition());
             }
             else
             {
@@ -143,7 +143,9 @@ namespace MVZ2.Level
         public void StopLevel()
         {
             SetUIVisibleState(VisibleState.Nothing);
-            ClearGridHighlight();
+            pointingGridLane = -1;
+            pointingGridColumn = -1;
+            UpdateGridHighlight();
             isGameStarted = false;
             Main.SaveManager.SaveModDatas();
         }

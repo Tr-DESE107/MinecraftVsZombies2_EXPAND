@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Main/Bottom/TriggerSlot/TriggerSlot
+    path: Canvas/CameraLimit/Front/BottomRight/TriggerSlot/TriggerSlot
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -47,7 +47,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2653795562
+      path: 1312811657
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -94,7 +94,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Main/Bottom/TriggerSlot/TriggerSlot
+    path: Canvas/CameraLimit/Front/BottomRight/TriggerSlot/TriggerSlot
     classID: 1
     script: {fileID: 0}
     flags: 0

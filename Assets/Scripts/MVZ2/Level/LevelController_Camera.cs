@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
@@ -62,15 +63,7 @@ namespace MVZ2.Level
             SetCameraPosition(LevelCameraPosition.Lawn);
             StartGame();
         }
-        private IEnumerator GameStartToLawnTransition()
-        {
-            Main.MusicManager.Play(MusicID.choosing);
-            yield return new WaitForSeconds(1);
-            yield return MoveCameraToLawn();
-            yield return new WaitForSeconds(0.5f);
-            StartGame();
-        }
-        private IEnumerator GameStartTransition()
+        private IEnumerator GameStartToPreviewTransition()
         {
             Main.MusicManager.Play(MusicID.choosing);
             if (level.StageDefinition is IPreviewStage preview)
@@ -80,16 +73,45 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
             yield return new WaitForSeconds(1);
-
-            var seedPacks = Main.LevelManager.GetSeedPacksID();
-            level.SetSeedPackCount(seedPacks.Length);
-            level.ReplaceSeedPacks(seedPacks);
-            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
-
+        }
+        private IEnumerator GameStartToLawnTransition()
+        {
             yield return MoveCameraToLawn();
             level.PrepareForBattle();
             yield return new WaitForSeconds(0.5f);
             PlayReadySetBuild();
+        }
+        private IEnumerator GameStartToLawnInstantTransition()
+        {
+            Main.MusicManager.Play(MusicID.choosing);
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToLawn();
+            yield return new WaitForSeconds(0.5f);
+            StartGame();
+        }
+        private IEnumerator GameStartTransition()
+        {
+            yield return GameStartToPreviewTransition();
+
+            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
+            var seedSlots = Main.SaveManager.GetBlueprintSlots();
+            level.SetSeedPackCount(seedSlots);
+            var unlocked = Main.SaveManager.GetUnlockedContraptions();
+
+            if (unlocked.Length > seedSlots)
+            {
+                // 选卡。
+                var uiPreset = GetUIPreset();
+                uiPreset.SetSideUIBlend(0);
+                uiPreset.SetBlueprintChooseBlend(0);
+                ShowBlueprintChoosePanel(unlocked);
+            }
+            else
+            {
+                var seedPacks = unlocked.Take(seedSlots).ToArray();
+                level.ReplaceSeedPacks(seedPacks);
+                yield return GameStartToLawnTransition();
+            }
         }
         private IEnumerator GameOverByEnemyTransition()
         {

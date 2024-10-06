@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MukioI18n;
 using MVZ2.Definitions;
 using MVZ2.Extensions;
@@ -285,20 +286,7 @@ namespace MVZ2.Level
             if (seed == null)
                 return null;
             var seedDef = seed.Definition;
-            return GetHeldItemIcon(seedDef);
-        }
-        private Sprite GetHeldItemIcon(SeedDefinition seedDef)
-        {
-            if (seedDef == null)
-                return null;
-            Sprite sprite = null;
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-            {
-                var entityID = seedDef.GetSeedEntityID();
-                var modelID = entityID.ToModelID(EngineModelID.TYPE_ENTITY);
-                sprite = Main.ResourceManager.GetModelIcon(modelID);
-            }
-            return sprite;
+            return Main.ResourceManager.GetBlueprintIconStandalone(seedDef);
         }
         #endregion
         private void ClickPickaxe()
@@ -459,6 +447,30 @@ namespace MVZ2.Level
                 spriteID = new NamespaceID(areaID.spacename, $"starshards/default");
             }
             return spriteID;
+        }
+        private void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
+        {
+            var panelViewData = new BlueprintChoosePanelViewData()
+            {
+                hasArtifacts = false,
+                canViewLawn = level.CurrentFlag > 0,
+                hasCommandBlock = false,
+            };
+            var blueprintViewDatas = blueprints.Select(b =>
+            {
+                if (!NamespaceID.IsValid(b))
+                    return BlueprintViewData.Empty;
+                var blueprintDef = Game.GetSeedDefinition(b);
+                return Main.ResourceManager.GetSeedDefinitionViewData(blueprintDef);
+            }).ToArray();
+
+            var uiPreset = GetUIPreset();
+            uiPreset.SetSideUIVisible(true);
+            uiPreset.SetBlueprintsChooseVisible(true);
+            uiPreset.ResetBlueprintChooseArtifactCount(3);
+            uiPreset.UpdateBlueprintChooseElements(panelViewData);
+            uiPreset.UpdateBlueprintChooseItems(blueprintViewDatas);
+            uiPreset.SetUIVisibleState(VisibleState.ChoosingBlueprints);
         }
 
         #endregion

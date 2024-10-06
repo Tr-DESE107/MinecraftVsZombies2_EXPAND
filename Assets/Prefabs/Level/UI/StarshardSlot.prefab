@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8549677031169286751}
   - component: {fileID: 349941882848245000}
   - component: {fileID: 1413441089794752470}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6279019578778093645}
   - component: {fileID: 7725422540196981014}
   - component: {fileID: 5735073890847712399}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 6192170848796652454}
   - component: {fileID: 2115973866519645924}
   - component: {fileID: 6406392715525907118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: StarshardSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3759555804368183399}
   - component: {fileID: 5433560868725333396}
   - component: {fileID: 3795185604166301529}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 5161153395913489488}
   - component: {fileID: 635341660607481957}
   - component: {fileID: 7995129516486761019}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 3162667823752158200}
   - component: {fileID: 6201153714561657406}
   - component: {fileID: 5298554074746613193}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,10 +472,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6192170848796652454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 112, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6201153714561657406
 CanvasRenderer:
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1279618527776813840}
   - component: {fileID: 99381390636718912}
   - component: {fileID: 2854888499843072934}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

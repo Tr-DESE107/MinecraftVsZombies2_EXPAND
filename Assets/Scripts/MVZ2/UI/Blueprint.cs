@@ -102,5 +102,6 @@ namespace MVZ2.UI
         public Sprite icon;
         public bool triggerActive;
         public string triggerCost;
+        public static readonly BlueprintViewData Empty = new BlueprintViewData { empty = true };
     }
 }

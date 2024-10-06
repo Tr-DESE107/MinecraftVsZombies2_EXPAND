@@ -48,7 +48,7 @@ namespace MVZ2.Level
             var name = Main.ResourceManager.GetEntityName(entityID);
             var tooltip = Main.ResourceManager.GetEntityTooltip(entityID);
             string error = null;
-            if (!CanPickBlueprint(seedPack, out var errorMessage))
+            if (!CanPickBlueprint(seedPack, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
             {
                 error = Main.LanguageManager._(errorMessage);
             }
@@ -82,7 +82,7 @@ namespace MVZ2.Level
         private void UpdateBlueprint(int index)
         {
             var seed = level.GetSeedPackAt(index);
-            BlueprintViewData viewData = GetSeedPackViewData(seed);
+            BlueprintViewData viewData = Main.ResourceManager.GetBlueprintViewData(seed);
             var levelUI = GetUIPreset();
             levelUI.SetBlueprintAt(index, viewData);
         }
@@ -94,7 +94,7 @@ namespace MVZ2.Level
             for (int i = 0; i < count; i++)
             {
                 var seed = level.GetSeedPackAt(i);
-                BlueprintViewData viewData = GetSeedPackViewData(seed);
+                BlueprintViewData viewData = Main.ResourceManager.GetBlueprintViewData(seed);
                 levelUI.SetBlueprintAt(i, viewData);
             }
         }
@@ -104,30 +104,6 @@ namespace MVZ2.Level
             UpdateBlueprintDisabled();
             UpdateBlueprintSelected();
             UpdateBlueprintTwinkle();
-        }
-        private BlueprintViewData GetSeedPackViewData(SeedPack seed)
-        {
-            BlueprintViewData viewData;
-            if (seed == null)
-            {
-                viewData = new BlueprintViewData()
-                {
-                    empty = true,
-                };
-            }
-            else
-            {
-                var seedDef = seed.Definition;
-                var sprite = GetBlueprintIcon(seedDef);
-                viewData = new BlueprintViewData()
-                {
-                    icon = sprite,
-                    cost = seed.GetCost().ToString(),
-                    triggerActive = seedDef.IsTriggerActive(),
-                    triggerCost = seedDef.GetTriggerCost().ToString(),
-                };
-            }
-            return viewData;
         }
         private void UpdateBlueprintRecharges()
         {
@@ -217,22 +193,7 @@ namespace MVZ2.Level
         {
             if (seed == null)
                 return null;
-            var seedDef = seed.Definition;
-            return GetBlueprintIcon(seedDef);
-        }
-        private Sprite GetBlueprintIcon(SeedDefinition seedDef)
-        {
-            if (seedDef == null)
-                return null;
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-            {
-                var entityID = seedDef.GetSeedEntityID();
-                if (Main.IsMobile())
-                {
-                    return Main.ResourceManager.GetSprite(entityID.spacename, $"mobile_blueprint/{entityID.path}");
-                }
-            }
-            return GetHeldItemIcon(seedDef);
+            return Main.ResourceManager.GetBlueprintIcon(seed.Definition);
         }
         private void ClickBlueprint(int index)
         {

@@ -75,7 +75,9 @@ namespace MVZ2.Level
                 StarshardActive = seri.starshardActive;
                 TriggerActive = seri.triggerActive;
 
-                GetUIPreset().LoadFromSerializable(seri.uiPreset);
+                var uiPreset = GetUIPreset();
+                uiPreset.LoadFromSerializable(seri.uiPreset);
+                uiPreset.UpdateFrame(0);
 
                 foreach (var entity in level.GetEntities())
                 {

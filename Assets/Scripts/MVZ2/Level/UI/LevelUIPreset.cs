@@ -27,6 +27,13 @@ namespace MVZ2.Level.UI
         public void UpdateFrame(float deltaTime)
         {
             animator.Update(deltaTime);
+            float targetSideUIBlend = sideUIVisible ? 1 : 0;
+            float targetBlueprintChooseBlend = blueprintChooseVisible ? 1 : 0;
+            const float blendSpeed = 1;
+            float sideUIBlendAddition = (targetSideUIBlend - sideUIBlend) * blendSpeed * deltaTime;
+            float blueprintChooseAddition = (targetBlueprintChooseBlend - blueprintChooseBlend) * blendSpeed * deltaTime;
+            SetSideUIBlend(sideUIBlend + sideUIBlendAddition);
+            SetBlueprintChooseBlend(blueprintChooseBlend + blueprintChooseAddition);
         }
         #endregion
 
@@ -84,6 +91,43 @@ namespace MVZ2.Level.UI
         public Blueprint GetBlueprintAt(int index)
         {
             return blueprints.GetBlueprintAt(index);
+        }
+        #endregion
+
+        #region À¶Í¼Ñ¡Ôñ
+        public void SetSideUIVisible(bool visible)
+        {
+            sideUIVisible = visible;
+        }
+        public void SetBlueprintsChooseVisible(bool visible)
+        {
+            blueprintChooseVisible = visible;
+        }
+        public void SetSideUIBlend(float blend)
+        {
+            sideUIBlend = blend;
+            animator.SetFloat("SideUIBlend", sideUIBlend);
+        }
+        public void SetBlueprintChooseBlend(float blend)
+        {
+            blueprintChooseBlend = blend;
+            animator.SetFloat("BlueprintChooseBlend", blend);
+        }
+        public void ResetBlueprintChooseArtifactCount(int count)
+        {
+            blueprintChoosePanel.ResetArtifactCount(count);
+        }
+        public void UpdateBlueprintChooseArtifactAt(int index, ArtifactViewData viewData)
+        {
+            blueprintChoosePanel.UpdateArtifactAt(index, viewData);
+        }
+        public void UpdateBlueprintChooseElements(BlueprintChoosePanelViewData viewData)
+        {
+            blueprintChoosePanel.UpdateElements(viewData);
+        }
+        public void UpdateBlueprintChooseItems(BlueprintViewData[] viewDatas)
+        {
+            blueprintChoosePanel.UpdateItems(viewDatas);
         }
         #endregion
 
@@ -314,6 +358,14 @@ namespace MVZ2.Level.UI
             blueprints.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             blueprints.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
 
+            blueprintChoosePanel.OnArtifactClick += (index) => OnBlueprintChooseArtifactClick?.Invoke(index);
+            blueprintChoosePanel.OnStartButtonClick += () => OnBlueprintChooseStartClick?.Invoke();
+            blueprintChoosePanel.OnViewLawnButtonClick += () => OnBlueprintChooseViewLawnClick?.Invoke();
+            blueprintChoosePanel.OnCommandBlockBlueprintClick += () => OnBlueprintChooseCommandBlockClick?.Invoke();
+            blueprintChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintChooseBlueprintPointerEnter?.Invoke(index, data);
+            blueprintChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintChooseBlueprintPointerExit?.Invoke(index, data);
+            blueprintChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintChooseBlueprintPointerDown?.Invoke(index, data);
+
             pickaxeSlot.OnPointerEnter += (data) => OnPickaxePointerEnter?.Invoke(data);
             pickaxeSlot.OnPointerExit += (data) => OnPickaxePointerExit?.Invoke(data);
             pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
@@ -367,6 +419,14 @@ namespace MVZ2.Level.UI
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
 
+        public event Action OnBlueprintChooseStartClick;
+        public event Action OnBlueprintChooseViewLawnClick;
+        public event Action OnBlueprintChooseCommandBlockClick;
+        public event Action<int> OnBlueprintChooseArtifactClick;
+        public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerEnter;
+        public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerExit;
+        public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerDown;
+
         public event Action<PointerEventData> OnPickaxePointerEnter;
         public event Action<PointerEventData> OnPickaxePointerExit;
         public event Action<PointerEventData> OnPickaxePointerDown;
@@ -395,6 +455,16 @@ namespace MVZ2.Level.UI
         BlueprintList blueprints;
         [SerializeField]
         PickaxeSlot pickaxeSlot;
+
+        [Header("Blueprint Choose")]
+        [SerializeField]
+        BlueprintChoosePanel blueprintChoosePanel;
+        [SerializeField]
+        bool sideUIVisible = true;
+        float sideUIBlend = 1;
+        [SerializeField]
+        bool blueprintChooseVisible;
+        float blueprintChooseBlend;
 
         [Header("Raycast Receivers")]
         [SerializeField]

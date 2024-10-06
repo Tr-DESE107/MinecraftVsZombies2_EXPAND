@@ -89,19 +89,6 @@ namespace MVZ2.Level
             return new LevelDataIdentifierList(mods.Select(m => new LevelDataIdentifier(m.Namespace, m.LevelDataVersion)));
         }
         #endregion
-        public NamespaceID[] GetSeedPacksID()
-        {
-            var packs = new NamespaceID[6];
-            var unlocked = Main.SaveManager.GetUnlockedContraptions();
-            for (int i = 0; i < packs.Length; i++)
-            {
-                if (i < unlocked.Length)
-                {
-                    packs[i] = unlocked[i];
-                }
-            }
-            return packs;
-        }
         public async Task GotoLevelSceneAsync()
         {
             var sceneName = "Level";
