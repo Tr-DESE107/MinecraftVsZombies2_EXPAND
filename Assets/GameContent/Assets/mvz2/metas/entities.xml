@@ -115,6 +115,14 @@
             <vector3 name="size" x="48" y="24" z="48"/>
             <color name="lightColor" value="#0000FF"/>
         </contraption>
+        <contraption id="glowstone" name="萤石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
+            <id name="placeSound" value="mvz2:glass"/>
+            <id name="deathSound" value="mvz2:glass_break"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="240" y="240" z="240"/>
+            <color name="lightColor" value="#FFFF7F"/>
+        </contraption>
 
         <!-- Enemies Start -->
         <!-- Prologue Start -->
@@ -125,7 +133,7 @@
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
 
         <!-- Halloween Start -->
-        <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！">
+        <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
             <float name="range" value="-1"/>
             <vector3 name="shotOffset" x="10" y="40" z="0"/>
             <vector3 name="shotVelocity" x="15" y="0" z="0"/>
@@ -134,12 +142,18 @@
             <id name="crySound" value="mvz2:skeleton_cry"/>
             <id name="deathSound" value="mvz2:skeleton_death"/>
         </enemy>
-        <enemy id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
+        <enemy id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。" noEndless="true">
             <float name="maxHealth" value="900"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="crySound" value="mvz2:gargoyle_cry"/>
             <id name="deathSound" value="mvz2:gargoyle_death"/>
             <id name="fragmentID" value="mvz2:furnace"/>
+        </enemy>
+        <enemy id="ghost" name="幽灵" deathMessage="现在有伴了。" unlock="mvz2:level.halloween_3">
+            <float name="friction" value="0.05"/>
+            <id name="shell" value="mvz2:bone"/>
+            <id name="crySound" value="mvz2:ghost_cry"/>
+            <id name="deathSound" value="mvz2:ghost_death"/>
         </enemy>
 
 

@@ -8,6 +8,7 @@
 
     <model name="small_dispenser" type="entity" path="mvz2:contraption/small_dispenser" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="moonlight_sensor" type="entity" path="mvz2:contraption/moonlight_sensor" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="glowstone" type="entity" path="mvz2:contraption/glowstone" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="4"/>
@@ -17,6 +18,7 @@
 
     <model name="skeleton" type="entity" path="mvz2:enemy/skeleton" width="64" height="96" xOffset="10" yOffset="4"/>
     <model name="gargoyle" type="entity" path="mvz2:enemy/gargoyle" width="64" height="96" xOffset="10" yOffset="4"/>
+    <model name="ghost" type="entity" path="mvz2:enemy/ghost" width="64" height="96" xOffset="10" yOffset="4"/>
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="4"/>

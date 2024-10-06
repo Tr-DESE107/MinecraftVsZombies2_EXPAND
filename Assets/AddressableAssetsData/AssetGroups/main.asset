@@ -2099,12 +2099,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 364114971f5fdad46a4a51cedb7e7ea2
-    m_Address: mvz2:enemy/skeleton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2fee4be52329b84cad8cea5bb42445a
     m_Address: mvz2:enemy/leather_capped_zombie
     m_ReadOnly: 0
@@ -2113,12 +2107,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7e28eba85b9ce64cbb6eb3254ad851b
     m_Address: mvz2:enemy/iron_helmetted_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0c596357fa0926a40a463d6a01d483d8
-    m_Address: mvz2:enemy/gargoyle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
