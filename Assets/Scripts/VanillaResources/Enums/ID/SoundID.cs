@@ -17,6 +17,7 @@ namespace MVZ2.GameContent
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID finalWave = Get("final_wave");
+        public readonly static NamespaceID glowstone = Get("glowstone");
         public readonly static NamespaceID grass = Get("grass");
         public readonly static NamespaceID grind = Get("grind");
         public readonly static NamespaceID hit = Get("hit");

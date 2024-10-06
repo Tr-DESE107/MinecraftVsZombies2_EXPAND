@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Callbacks;
+using PVZEngine.Level.Triggers;
 using UnityEngine;
 
 namespace PVZEngine.Level
@@ -9,7 +10,6 @@ namespace PVZEngine.Level
         public readonly static CallbackActionList<Entity> PostEntityUpdate = new();
         public readonly static CallbackActionList<Entity, Vector3> PostEntityContactGround = new();
         public readonly static CallbackActionList<Entity> PostEntityLeaveGround = new();
-        public readonly static CallbackActionList<DamageResult, DamageResult> PostEntityTakeDamage = new();
         public readonly static CallbackActionList<Entity, Entity, int> PostEntityCollision = new();
         public readonly static CallbackActionList<Entity, DamageInfo> PostEntityDeath = new();
         public readonly static CallbackActionList<Entity> PostEntityRemove = new();

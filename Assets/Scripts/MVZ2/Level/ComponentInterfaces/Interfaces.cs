@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -60,5 +61,11 @@ namespace MVZ2.Level.Components
         int GetDelayedMoney();
         void AddDelayedMoney(Entity entity, int value);
         bool RemoveDelayedMoney(Entity entity);
+    }
+    public interface ILightComponent : ILevelComponent
+    {
+        bool IsIlluminated(Entity entity);
+        long GetIlluminationLightSourceID(Entity entity);
+        IEnumerable<long> GetAllIlluminationLightSources(Entity entity);
     }
 }

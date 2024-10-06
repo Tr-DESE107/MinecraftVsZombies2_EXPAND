@@ -1,11 +1,13 @@
-﻿using MVZ2.Extensions;
+﻿using System.Linq;
+using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Shells;
+using MVZ2.Vanilla.Buffs;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -81,6 +83,15 @@ namespace MVZ2.Vanilla
         }
         private static bool PreTakeDamage(DamageInfo damageInfo)
         {
+            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PreEntityTakeDamage);
+            foreach (var trigger in triggers)
+            {
+                trigger.Invoke(damageInfo);
+                if (damageInfo.Canceled)
+                {
+                    return false;
+                }
+            }
             return true;
         }
         private static void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
@@ -97,7 +108,7 @@ namespace MVZ2.Vanilla
             if (entity == null)
                 return;
             entity.Definition.PostTakeDamage(bodyResult, armorResult);
-            LevelCallbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
+            VanillaLevelCallbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
         }
         private static DamageResult ArmoredTakeDamage(DamageInfo info, out DamageResult armorResult)
         {
@@ -151,6 +162,36 @@ namespace MVZ2.Vanilla
                 ShellDefinition = shell,
                 Fatal = hpBefore > 0 && entity.Health <= 0
             };
+        }
+        public static bool IsIlluminated(this Entity entity)
+        {
+            if (entity == null)
+                return false;
+            return entity.Level.IsIlluminated(entity);
+        }
+        public static Entity GetIlluminationLightSource(this Entity entity)
+        {
+            if (entity == null)
+                return null;
+            var level = entity.Level;
+            var entityID = level.GetIlluminationLightSourceID(entity);
+            return level.FindEntityByID(entityID);
+        }
+        public static Entity[] GetIlluminationLightSources(this Entity entity)
+        {
+            if (entity == null)
+                return null;
+            var level = entity.Level;
+            var entitiesID = level.GetIlluminationLightSources(entity);
+            return entitiesID.Select(e => level.FindEntityByID(e)).ToArray();
+        }
+
+        public static void Stun(this Entity entity, int timeout)
+        {
+            if (entity == null)
+                return;
+            var buff = entity.AddBuff<StunBuff>();
+            buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
         }
 
     }

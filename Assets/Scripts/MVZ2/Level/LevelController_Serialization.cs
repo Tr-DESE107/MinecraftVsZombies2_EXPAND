@@ -153,6 +153,7 @@ namespace MVZ2.Level
             level.AddComponent(new TalkComponent(level, this));
             level.AddComponent(new MusicComponent(level, this));
             level.AddComponent(new MoneyComponent(level, this));
+            level.AddComponent(new LightComponent(level, this));
         }
         private SerializableLevel SerializeLevel()
         {
@@ -160,7 +161,7 @@ namespace MVZ2.Level
         }
         private LevelEngine DeserializeLevel(SerializableLevel seri, Game game)
         {
-            var level = LevelEngine.Deserialize(seri, game, game);
+            var level = LevelEngine.Deserialize(seri, game, game, game);
             ApplyComponents(level);
             level.DeserializeComponents(seri);
             game.SetLevel(level);

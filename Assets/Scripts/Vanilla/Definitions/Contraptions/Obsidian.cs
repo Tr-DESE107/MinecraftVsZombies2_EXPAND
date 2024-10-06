@@ -14,9 +14,9 @@ namespace MVZ2.GameContent.Contraptions
         public Obsidian(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Update(Entity contraption)
+        protected override void UpdateLogic(Entity contraption)
         {
-            base.Update(contraption);
+            base.UpdateLogic(contraption);
             var state = 0;
             var maxHP = contraption.GetMaxHealth();
             if (contraption.HasBuff<ObsidianArmorBuff>())

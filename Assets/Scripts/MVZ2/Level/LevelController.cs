@@ -28,7 +28,7 @@ namespace MVZ2.Level
         {
             CreateLevelModel(areaID);
 
-            level = new LevelEngine(game, game);
+            level = new LevelEngine(game, game, game);
 
             ApplyComponents(level);
             game.SetLevel(level);

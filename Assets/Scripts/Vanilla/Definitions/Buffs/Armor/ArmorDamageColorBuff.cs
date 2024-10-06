@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs
         public override void PostUpdate(Buff buff)
         {
             base.PostUpdate(buff);
-            buff.Target.RemoveBuff(buff);
+            buff.Remove();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace PVZEngine.Level
         public const string FACE_LEFT_AT_DEFAULT = "faceLeftAtDefault";
         public const string FACTION = "faction";
         public const string INVINCIBLE = "invincible";
+
         public static bool IsInvincible(this Entity entity)
         {
             return entity.GetProperty<bool>(INVINCIBLE);

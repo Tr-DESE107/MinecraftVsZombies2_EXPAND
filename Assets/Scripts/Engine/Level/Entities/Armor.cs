@@ -71,7 +71,7 @@ namespace PVZEngine.Level
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(Owner.Level.CreateBuff<T>());
+            AddBuff(Level.CreateBuff<T>());
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
@@ -142,13 +142,14 @@ namespace PVZEngine.Level
             armor.Owner = owner;
             armor.Definition = definition;
             armor.Health = seri.health;
-            armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level.ContentProvider, armor);
+            armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
             armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return armor;
         }
         Entity IBuffTarget.GetEntity() => Owner;
 
         #region 属性字段
+        public LevelEngine Level => Owner?.Level;
         public Entity Owner { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }

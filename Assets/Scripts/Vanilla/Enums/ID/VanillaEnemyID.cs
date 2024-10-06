@@ -12,6 +12,7 @@ namespace MVZ2.GameContent
 
         public const string skeleton = "skeleton";
         public const string gargoyle = "gargoyle";
+        public const string ghost = "ghost";
     }
     public static class VanillaEnemyID
     {
@@ -19,9 +20,10 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID leatherCappedZombie = Get(VanillaEnemyNames.leatherCappedZombie);
         public static readonly NamespaceID ironHelmettedZombie = Get(VanillaEnemyNames.ironHelmettedZombie);
         public static readonly NamespaceID flagZombie = Get(VanillaEnemyNames.flagZombie);
-        public static readonly NamespaceID gargoyle = Get(VanillaEnemyNames.gargoyle);
 
         public static readonly NamespaceID skeleton = Get(VanillaEnemyNames.skeleton);
+        public static readonly NamespaceID gargoyle = Get(VanillaEnemyNames.gargoyle);
+        public static readonly NamespaceID ghost = Get(VanillaEnemyNames.ghost);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

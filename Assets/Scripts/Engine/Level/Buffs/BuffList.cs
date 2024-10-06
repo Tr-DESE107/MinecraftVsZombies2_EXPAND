@@ -14,6 +14,7 @@ namespace PVZEngine.Level
             if (buff == null)
                 return false;
             buffs.Add(buff);
+            buff.Level.AddTriggers(buff.GetTriggers());
             return true;
         }
         public bool RemoveBuff(Buff buff)
@@ -23,6 +24,7 @@ namespace PVZEngine.Level
             if (buffs.Remove(buff))
             {
                 buff.RemoveFromTarget();
+                buff.Level.RemoveTriggers(buff.GetTriggers());
                 return true;
             }
             return false;
@@ -83,11 +85,11 @@ namespace PVZEngine.Level
                 buffs = buffs.ConvertAll(b => b.Serialize())
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList buffList, IContentProvider provider, IBuffTarget target)
+        public static BuffList FromSerializable(SerializableBuffList buffList, LevelEngine level, IBuffTarget target)
         {
             return new BuffList()
             {
-                buffs = buffList.buffs.ConvertAll(b => Buff.Deserialize(b, provider, target))
+                buffs = buffList.buffs.ConvertAll(b => Buff.Deserialize(b, level, target))
             };
         }
         private List<Buff> buffs = new List<Buff>();

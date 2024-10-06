@@ -23,11 +23,15 @@ namespace MVZ2.GameContent.Contraptions
             var upgradeTimer = new FrameTimer(UPGRADE_TIME);
             SetUpgradeTimer(entity, upgradeTimer);
         }
-        public override void Update(Entity entity)
+        protected override void UpdateAI(Entity entity)
         {
-            base.Update(entity);
+            base.UpdateAI(entity);
             ProductionUpdate(entity);
             UpgradeUpdate(entity);
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
             entity.SetAnimationBool("Upgraded", GetUpgraded(entity));
         }
 

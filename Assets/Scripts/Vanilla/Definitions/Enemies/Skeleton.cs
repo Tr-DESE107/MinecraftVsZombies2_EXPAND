@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Enemies
                 ignoreLowEnemy = true
             };
         }
-        public override void Update(Entity enemy)
+        protected override void UpdateAI(Entity enemy)
         {
             if (CanShoot(enemy))
             {
@@ -31,11 +31,15 @@ namespace MVZ2.GameContent.Enemies
             {
                 enemy.Target = null;
             }
-            base.Update(enemy);
-            enemy.SetAnimationFloat("BowBlend", 1 - Mathf.Pow(1 - GetBowPower(enemy) / (float)BOW_POWER_MAX, 2));
-            enemy.SetAnimationBool("ArrowVisible", !GetBowFired(enemy));
+            base.UpdateAI(enemy);
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.SetAnimationFloat("BowBlend", 1 - Mathf.Pow(1 - GetBowPower(entity) / (float)BOW_POWER_MAX, 2));
+            entity.SetAnimationBool("ArrowVisible", !GetBowFired(entity));
 
-            enemy.SetAnimationInt("HealthState", enemy.GetHealthState(2));
+            entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
         }
         public static int GetBowPower(Entity enemy)
         {

@@ -1,88 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Tools
+namespace Tools.Mathematics
 {
     public static class MathTool
     {
-        //public static bool DoLinesIntersect(Vector2 lineA1, Vector2 lineA2, Vector2 lineB1, Vector2 lineB2, out Vector2 intersection)
-        //{
-        //    SortVector2(ref lineA1, ref lineA2);
-        //    SortVector2(ref lineB1, ref lineB2);
-
-        //    // 若有点重合
-        //    if (lineA1 == lineB1 || lineA1 == lineB2)
-        //    {
-        //        intersection = lineA1;
-        //        return true;
-        //    }
-        //    else if (lineA2 == lineB1 || lineA2 == lineB2)
-        //    {
-        //        intersection = lineA2;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        Vector2 lineADir = lineA1 - lineA2;
-        //        Vector2 lineBDir = lineB1 - lineB2;
-        //        // 若两条线平行
-        //        if (lineADir.Cross(lineBDir) == 0)
-        //        {
-        //            // 若两线段共线
-        //            if (lineADir.Cross(lineA1 - lineB2) == 0)
-        //            {
-        //                int A1CompB1 = lineA1.Compare(lineB1);
-        //                int A2CompB1 = lineA2.Compare(lineB1);
-        //                int A1CompB2 = lineA1.Compare(lineB2);
-        //                int A2CompB2 = lineA2.Compare(lineB2);
-        //                // 如果线段A的两个端点在B1左右两侧
-        //                if (A1CompB1 * A2CompB1 <= 0)
-        //                {
-        //                    // 交点是A2和B1的中点
-        //                    intersection = Vector2.Lerp(lineA2, lineB1, 0.5f);
-        //                    return true;
-        //                }
-        //                // 如果线段A的两个端点在B2左右两侧
-        //                else if (A1CompB2 * A2CompB2 <= 0)
-        //                {
-        //                    // 交点是A1和B2的中点
-        //                    intersection = Vector2.Lerp(lineA1, lineB2, 0.5f);
-        //                    return true;
-        //                }
-        //                // 如果线段A的两个端点都在线段B上
-        //                else if (A1CompB1 == A2CompB1 && A1CompB2 == A2CompB2 && A1CompB1 <= A1CompB2)
-        //                {
-        //                    // 交点是A1和A2的中点
-        //                    intersection = Vector2.Lerp(lineA1, lineA2, 0.5f);
-        //                    return true;
-        //                }
-        //                // 如果线段B的两个端点都在线段A上
-        //                else if (A1CompB1 == A1CompB2 && A2CompB1 == A2CompB2 && A1CompB1 <= A2CompB1)
-        //                {
-        //                    // 交点是B1和B2的中点
-        //                    intersection = Vector2.Lerp(lineB1, lineB2, 0.5f);
-        //                    return true;
-        //                }
-        //            }
-        //        }
-        //        // 若两条线不平行
-        //        else
-        //        {
-        //            float B1ToLineA = lineADir.Cross(lineA1 - lineB1),
-        //                B2ToLineA = lineADir.Cross(lineA1 - lineB2),
-        //                A1ToLineB = lineBDir.Cross(lineB1 - lineA1),
-        //                A2ToLineB = lineBDir.Cross(lineB1 - lineA2);
-
-        //            // 如果线段B的两端在线段A的两边或线段A上，
-        //            // 且线段A的两端在线段B的两边或线段B上。
-        //            if (B1ToLineA * B2ToLineA <= 0 && A1ToLineB * A2ToLineB <= 0)
-        //            {
-        //                return true;
-        //            }
-        //        }
-        //    }
-        //    intersection = Vector2.zero;
-        //    return false;
-        //}
         public static bool DoRectAndRayIntersect(Rect rect, Vector2 point, Vector2 dir, out Vector2 intersection)
         {
             for (int i = 0; i < 4; i++)
@@ -372,6 +293,78 @@ namespace Tools
             return a * Mathf.Pow((variable - startX) - h, 2) + k + startY;
         }
 
+        public static bool CollideBetweenCudeAndCylinder(Cylinder cylinder, Bounds cube)
+        {
+            int componentSide1;
+            int componentSide2;
+            int componentTop1;
+            int componentTop2;
+            switch (cylinder.axis)
+            {
+                case Axis.X:
+                    {
+                        componentSide1 = 0; // x
+                        componentSide2 = 1; // y
+
+                        componentTop1 = 2; // z
+                        componentTop2 = 1; // y
+                    }
+                    break;
+                case Axis.Y:
+                    {
+                        componentSide1 = 0; // x
+                        componentSide2 = 1; // y
+
+                        componentTop1 = 0; // x
+                        componentTop2 = 2; // z
+                    }
+                    break;
+                case Axis.Z:
+                    {
+                        componentSide1 = 0; // x
+                        componentSide2 = 2; // z
+
+                        componentTop1 = 0; // x
+                        componentTop2 = 1; // y
+                    }
+                    break;
+                default:
+                    return false;
+            }
+            Rect cylinderRectSide = new Rect(cylinder.center[componentSide1] - cylinder.length * 0.5f, cylinder.center[componentSide2] - cylinder.radius, cylinder.length, cylinder.radius * 2);
+            Rect cubeRectSide = new Rect(cube.min[componentSide1], cube.min[componentSide2], cube.size[componentSide1], cube.size[componentSide2]);
+
+            // 检测圆柱体侧面1是否与方块侧面相交。
+            if (!cubeRectSide.Overlaps(cylinderRectSide))
+                return false;
+
+            Vector2 cylinderCenterTop = new Vector2(cylinder.center[componentTop1], cylinder.center[componentTop2]);
+            Rect cubeRectTop = new Rect(cube.min[componentTop1], cube.min[componentTop2], cube.size[componentTop1], cube.size[componentTop2]);
+            return CollideBetweenRectangleAndCircle(cylinderCenterTop, cylinder.radius, cubeRectTop.center, cubeRectTop.size);
+        }
+        public static bool CollideBetweenCudeAndRoundCube(RoundCube roundCube, Bounds cube)
+        {
+            // 检测x-y平面和x-z平面的投影相交。
+            for (int i = 0; i < 2; i++)
+            {
+                var comp1 = 0;
+                var comp2 = 1;
+                if (i == 1)
+                {
+                    comp2 = 2;
+                }
+                var roundCenter = new Vector2(roundCube.center[comp1], roundCube.center[comp2]);
+                var roundSize = new Vector2(roundCube.size[comp1], roundCube.size[comp2]);
+                var xyRoundRect = new RoundRect(roundCenter, roundSize, roundCube.radius);
+
+                var rectCenter = new Vector2(cube.center[comp1], cube.center[comp2]);
+                var rectSize = new Vector2(cube.size[comp1], cube.size[comp2]);
+                var xyRect = new Rect(rectCenter, rectSize);
+                if (CollideBetweenRectangleAndRoundRectangle(xyRoundRect, xyRect))
+                    return true;
+            }
+            return false;
+        }
         public static bool CollideBetweenCubeAndSphere(Vector3 sphereCenter, float sphereRadius, Vector3 cubeCenter, Vector3 cubeScale)
         {
             // 将目标球的坐标(world Potition)转换为立方体的 localPosition
@@ -406,7 +399,6 @@ namespace Tools
             // 距离大于半径则不相交
             return distance <= sphereRadius;
         }
-
         public static bool CollideBetweenRectangleAndCircle(Vector2 circleCenter, float circleRadius, Vector2 rectCenter, Vector2 rectScale)
         {
             // 将目标圆的坐标(world Potition)转换为矩形的 localPosition
@@ -436,31 +428,79 @@ namespace Tools
             // 距离大于半径则不相交
             return distance <= circleRadius;
         }
-
-
-        public static Color TranslateColor(Color currentColor, Color targetColor, float speed)
+        public static bool CollideBetweenRectangleAndRoundRectangle(RoundRect roundRect, Rect rectangle)
         {
+            var roundRectCenter = new Rect(roundRect.center - roundRect.size * 0.5f, roundRect.size);
+            if (roundRect.radius <= 0) 
+                return roundRectCenter.Overlaps(rectangle);
 
-            if (currentColor != targetColor)
+            // 水平相交
+            var roundSizeHori = roundRect.size + Vector2.right * roundRect.radius;
+            var roundRectHori = new Rect(roundRect.center - roundSizeHori * 0.5f, roundSizeHori);
+            if (rectangle.Overlaps(roundRectHori))
+                return true;
+
+            // 垂直相交
+            var roundSizeVert = roundRect.size + Vector2.up * roundRect.radius;
+            var roundRectVert = new Rect(roundRect.center - roundSizeVert * 0.5f, roundSizeVert);
+            if (rectangle.Overlaps(roundRectVert))
+                return true;
+
+            // 圆角相交
+            for (int i = 0; i < 4; i++)
             {
-                Color diff = (targetColor - currentColor);
-                float maxColor = diff.maxColorComponent;
-                float minColor = Mathf.Min(diff.r, diff.g, diff.b);
-                if (maxColor > 0 || minColor < 0)
-                {
-                    float beforeMax = currentColor.maxColorComponent - targetColor.maxColorComponent;
-
-                    Color colorSign = diff / Mathf.Max(Mathf.Abs(maxColor), Mathf.Abs(minColor));
-                    currentColor += speed * colorSign;
-
-                    float nowMax = currentColor.maxColorComponent - targetColor.maxColorComponent;
-                    if (nowMax * beforeMax <= 0)
-                    {
-                        currentColor = targetColor;
-                    }
-                }
+                var x = (i & 1) == 1 ? roundRectCenter.xMax : roundRectCenter.xMin;
+                var y = (i & 2) == 2 ? roundRectCenter.yMax : roundRectCenter.yMin;
+                var corner = new Vector2(x, y);
+                if (CollideBetweenRectangleAndCircle(corner, roundRect.radius, rectangle.center, rectangle.size))
+                    return true;
             }
-            return currentColor;
+            return false;
         }
+
+    }
+    public enum Axis
+    {
+        X,
+        Y,
+        Z
+    }
+    public struct Cylinder
+    {
+        public Cylinder(Axis axis, Vector3 center, float length, float radius)
+        {
+            this.axis = axis;
+            this.center = center;
+            this.length = length;
+            this.radius = radius;
+        }
+        public Axis axis;
+        public Vector3 center;
+        public float length;
+        public float radius;
+    }
+    public struct RoundRect
+    {
+        public RoundRect(Vector2 center, Vector2 size, float radius)
+        {
+            this.center = center;
+            this.size = size;
+            this.radius = radius;
+        }
+        public Vector2 center;
+        public Vector2 size;
+        public float radius;
+    }
+    public struct RoundCube
+    {
+        public RoundCube(Vector3 center, Vector3 size, float radius)
+        {
+            this.center = center;
+            this.size = size;
+            this.radius = radius;
+        }
+        public Vector3 center;
+        public Vector3 size;
+        public float radius;
     }
 }

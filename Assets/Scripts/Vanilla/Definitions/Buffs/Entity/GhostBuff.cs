@@ -1,11 +1,8 @@
-﻿using System;
-using MVZ2.GameContent;
+﻿using MVZ2.GameContent;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace MVZ2.Vanilla.Buffs
 {
@@ -16,7 +13,7 @@ namespace MVZ2.Vanilla.Buffs
         {
             AddModifier(new ColorModifier(EngineEntityProps.TINT, BlendOperator.DstColor, BlendOperator.Zero, PROP_TINT_MULTIPLIER));
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
-            AddTrigger(LevelCallbacks.PreEntityTakeDamage, PreEntityTakeDamageCallback);
+            AddTrigger<PreTakeDamage>(VanillaLevelCallbacks.PreEntityTakeDamage, PreEntityTakeDamageCallback);
         }
         public override void PostAdd(Buff buff)
         {
@@ -57,5 +54,6 @@ namespace MVZ2.Vanilla.Buffs
         public const float TINT_ALPHA_MIN = 0.5f;
         public const float TINT_ALPHA_MAX = 1;
         public const float TINT_SPEED = 0.02f;
+        private delegate void PreTakeDamage(Buff buff, DamageInfo info);
     }
 }

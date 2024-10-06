@@ -15,13 +15,15 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             entity.PlaySound(SoundID.glowstone);
+            var ring = entity.Level.Spawn(VanillaEffectID.shineRing, entity.Position, entity);
+            ring.SetParent(entity);
         }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
-            foreach (var enemy in entity.Level.GetEntities(EntityTypes.ENEMY))
+            foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(entity)))
             {
-                enemy.Stun();
+                enemy.Stun(150);
             }
         }
     }

@@ -19,9 +19,9 @@ namespace MVZ2.GameContent.Contraptions
             var evocationTimer = new FrameTimer(120);
             SetEvocationTimer(entity, evocationTimer);
         }
-        public override void Update(Entity entity)
+        protected override void UpdateAI(Entity entity)
         {
-            base.Update(entity);
+            base.UpdateAI(entity);
             if (!entity.IsEvoked())
             {
                 ShootTick(entity);

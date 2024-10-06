@@ -10,11 +10,11 @@ namespace MVZ2.GameContent.Enemies
         {
         }
 
-        public override void Update(Entity enemy)
+        protected override void UpdateAI(Entity enemy)
         {
             if (!ValidateMeleeTarget(enemy, enemy.Target))
                 enemy.Target = null;
-            base.Update(enemy);
+            base.UpdateAI(enemy);
         }
         public override void PostCollision(Entity enemy, Entity other, int state)
         {

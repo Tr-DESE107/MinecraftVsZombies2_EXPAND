@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
         public override void Implement(Mod mod)
         {
             mod.RegisterCallback(LevelCallbacks.PostEntityContactGround, PostContactGroundCallback);
-            mod.RegisterCallback(LevelCallbacks.PostEntityTakeDamage, PostEnemyTakeDamageCallback);
+            mod.RegisterCallback(VanillaLevelCallbacks.PostEntityTakeDamage, PostEnemyTakeDamageCallback);
         }
         private void PostContactGroundCallback(Entity entity, Vector3 velocity)
         {

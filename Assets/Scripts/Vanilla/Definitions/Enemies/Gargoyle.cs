@@ -18,9 +18,9 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             entity.InitFragment();
         }
-        public override void Update(Entity entity)
+        protected override void UpdateLogic(Entity entity)
         {
-            base.Update(entity);
+            base.UpdateLogic(entity);
             entity.UpdateFragment();
             entity.SetAnimationInt("HealthState", entity.GetHealthState(3));
         }

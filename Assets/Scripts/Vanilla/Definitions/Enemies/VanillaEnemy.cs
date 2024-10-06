@@ -28,15 +28,25 @@ namespace MVZ2.GameContent.Enemies
                 | EntityCollision.MASK_OBSTACLE
                 | EntityCollision.MASK_BOSS;
         }
-        public override void Update(Entity enemy)
+        public override sealed void Update(Entity entity)
         {
-            base.Update(enemy);
-            Vector3 pos = enemy.Position;
+            base.Update(entity);
+            if (!entity.IsAIFrozen())
+            {
+                UpdateAI(entity);
+            }
+            UpdateLogic(entity);
+        }
+        protected virtual void UpdateLogic(Entity entity)
+        {
+            Vector3 pos = entity.Position;
             pos.x = Mathf.Min(pos.x, BuiltinLevel.GetEnemyRightBorderX());
-            enemy.Position = pos;
-
-            enemy.SetAnimationFloat("AttackSpeed", enemy.GetAttackSpeed());
-            enemy.SetAnimationFloat("MoveSpeed", enemy.GetSpeed());
+            entity.Position = pos;
+            entity.SetAnimationFloat("AttackSpeed", entity.GetAttackSpeed());
+            entity.SetAnimationFloat("MoveSpeed", entity.GetSpeed());
+        }
+        protected virtual void UpdateAI(Entity entity)
+        {
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {

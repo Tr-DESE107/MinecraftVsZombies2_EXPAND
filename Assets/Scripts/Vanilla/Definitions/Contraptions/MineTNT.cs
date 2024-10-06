@@ -28,9 +28,9 @@ namespace MVZ2.GameContent.Contraptions
 
             entity.CollisionMask |= EntityCollision.MASK_ENEMY;
         }
-        public override void Update(Entity entity)
+        protected override void UpdateAI(Entity entity)
         {
-            base.Update(entity);
+            base.UpdateAI(entity);
             RiseUpdate(entity);
         }
 

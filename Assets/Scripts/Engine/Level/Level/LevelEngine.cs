@@ -11,14 +11,16 @@ namespace PVZEngine.Level
     public partial class LevelEngine : IBuffTarget, IDisposable
     {
         #region 公有方法
-        public LevelEngine(IContentProvider contentProvider, ITranslator translator)
+        public LevelEngine(IContentProvider contentProvider, ITranslator translator, ITriggerProvider triggers)
         {
             ContentProvider = contentProvider;
             Translator = translator;
+            TriggerProvider = triggers;
         }
 
         public void Dispose()
         {
+            RemoveTriggers(addedTriggers);
         }
 
         #region 组件
@@ -283,14 +285,14 @@ namespace PVZEngine.Level
             var buffDefinition = ContentProvider.GetBuffDefinition<T>();
             if (buffDefinition == null)
                 return null;
-            return new Buff(buffDefinition);
+            return new Buff(this, buffDefinition);
         }
         public Buff CreateBuff(NamespaceID id)
         {
             var buffDefinition = ContentProvider.GetBuffDefinition(id);
             if (buffDefinition == null)
                 return null;
-            return new Buff(buffDefinition);
+            return new Buff(this, buffDefinition);
         }
 
         public RandomGenerator CreateRNG()
@@ -342,9 +344,9 @@ namespace PVZEngine.Level
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator)
+        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator, ITriggerProvider triggers)
         {
-            var level = new LevelEngine(provider, translator);
+            var level = new LevelEngine(provider, translator, triggers);
             level.Seed = seri.seed;
             level.levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
             level.entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
@@ -364,7 +366,7 @@ namespace PVZEngine.Level
             level.Option = LevelOption.Deserialize(seri.Option);
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
             level.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            level.buffs = BuffList.FromSerializable(seri.buffs, provider, level);
+            level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;

@@ -128,7 +128,7 @@ namespace PVZEngine.Level
             {
                 propertyDict = PropertyDictionary.Deserialize(seri.propertyDict)
             };
-            seedPack.buffs = BuffList.FromSerializable(seri.buffs, level.ContentProvider, seedPack);
+            seedPack.buffs = BuffList.FromSerializable(seri.buffs, level, seedPack);
             return seedPack;
         }
         #endregion

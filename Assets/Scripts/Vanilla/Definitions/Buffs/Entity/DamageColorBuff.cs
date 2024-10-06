@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Buffs
                 return;
             if (!entity.IsDead)
             {
-                entity.RemoveBuff(buff);
+                buff.Remove();
             }
         }
     }

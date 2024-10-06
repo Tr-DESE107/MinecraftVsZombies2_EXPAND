@@ -13,9 +13,9 @@ namespace MVZ2.GameContent.Enemies
         public Zombie(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Update(Entity entity)
+        protected override void UpdateLogic(Entity entity)
         {
-            base.Update(entity);
+            base.UpdateLogic(entity);
             entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
         }
     }

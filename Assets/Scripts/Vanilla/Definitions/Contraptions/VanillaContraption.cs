@@ -3,6 +3,7 @@ using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -22,12 +23,22 @@ namespace MVZ2.Vanilla
 
             entity.InitFragment();
         }
-        public override void Update(Entity entity)
+        public override sealed void Update(Entity entity)
         {
             base.Update(entity);
+            if (!entity.IsAIFrozen())
+            {
+                UpdateAI(entity);
+            }
+            UpdateLogic(entity);
+        }
+        protected virtual void UpdateLogic(Entity entity)
+        {
             UpdateTakenGrids(entity);
-
             entity.UpdateFragment();
+        }
+        protected virtual void UpdateAI(Entity entity)
+        {
         }
         public override void PostRemove(Entity entity)
         {

@@ -9,6 +9,7 @@ namespace PVZEngine.Level
         public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; private set; }
         public EntityReferenceChain Source { get; set; }
+        public bool Canceled { get; private set; }
         private float usedDamage;
 
         public DamageInfo(float amount, DamageEffectList effects, Entity entity, EntityReferenceChain source)
@@ -36,6 +37,10 @@ namespace PVZEngine.Level
             {
                 usedDamage /= value;
             }
+        }
+        public void Cancel()
+        {
+            Canceled = true;
         }
         public float GetUsedDamage()
         {

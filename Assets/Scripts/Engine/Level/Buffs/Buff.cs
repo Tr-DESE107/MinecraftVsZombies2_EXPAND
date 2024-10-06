@@ -1,15 +1,21 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Definitions;
+using PVZEngine.Level.Triggers;
 using PVZEngine.Modifiers;
 using PVZEngine.Serialization;
+using PVZEngine.Triggers;
 
 namespace PVZEngine.Level
 {
     public class Buff
     {
-        public Buff(BuffDefinition definition)
+        public Buff(LevelEngine level, BuffDefinition definition)
         {
+            Level = level;
             Definition = definition;
+            triggers.AddRange(definition.GetTriggerCaches().Select(t => new BuffTrigger(this, t)));
         }
         public void Update()
         {
@@ -34,7 +40,11 @@ namespace PVZEngine.Level
         {
             return Definition.GetModifiers(propName);
         }
-        public void AddToTarget(IBuffTarget target)
+        public BuffTrigger[] GetTriggers()
+        {
+            return triggers.ToArray();
+        }
+        internal void AddToTarget(IBuffTarget target)
         {
             if (Target != null)
                 return;
@@ -45,7 +55,7 @@ namespace PVZEngine.Level
             }
             Definition.PostAdd(this);
         }
-        public void RemoveFromTarget()
+        internal void RemoveFromTarget()
         {
             if (Target == null)
                 return;
@@ -56,6 +66,12 @@ namespace PVZEngine.Level
             Target = null;
             Definition.PostRemove(this);
         }
+        public void Remove()
+        {
+            if (Target == null)
+                return;
+            Target.RemoveBuff(this);
+        }
         public SerializableBuff Serialize()
         {
             return new SerializableBuff()
@@ -64,16 +80,18 @@ namespace PVZEngine.Level
                 propertyDict = propertyDict.Serialize()
             };
         }
-        public static Buff Deserialize(SerializableBuff seri, IContentProvider provider, IBuffTarget target)
+        public static Buff Deserialize(SerializableBuff seri, LevelEngine level, IBuffTarget target)
         {
-            var definition = provider.GetBuffDefinition(seri.definitionID);
-            var buff = new Buff(definition);
+            var definition = level.ContentProvider.GetBuffDefinition(seri.definitionID);
+            var buff = new Buff(level, definition);
             buff.Target = target;
             buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return buff;
         }
+        public LevelEngine Level { get; }
         public BuffDefinition Definition { get; }
         public IBuffTarget Target { get; private set; }
         private PropertyDictionary propertyDict = new PropertyDictionary();
+        private List<BuffTrigger> triggers = new List<BuffTrigger>();
     }
 }

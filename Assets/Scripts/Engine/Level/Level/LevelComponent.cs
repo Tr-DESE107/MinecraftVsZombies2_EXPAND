@@ -3,7 +3,7 @@
     public interface ILevelComponent
     {
         NamespaceID GetID();
-        void Update() { }
+        void Update();
         ISerializableLevelComponent ToSerializable();
         void LoadSerializable(ISerializableLevelComponent seri);
     }

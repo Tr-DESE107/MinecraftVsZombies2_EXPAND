@@ -24,13 +24,13 @@ namespace MVZ2.Vanilla.Buffs
             var timer = buff.GetProperty<FrameTimer>(PROP_TIMER);
             if (timer == null)
             {
-                buff.Target.RemoveBuff(buff);
+                buff.Remove();
                 return;
             }
             timer.Run();
             if (timer.Expired)
             {
-                buff.Target.RemoveBuff(buff);
+                buff.Remove();
                 return;
             }
         }

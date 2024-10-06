@@ -28,7 +28,7 @@ namespace MVZ2.Vanilla
             LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
             LoadEntityProperties();
 
-            RegisterCallback(LevelCallbacks.PostEntityTakeDamage, PostEntityTakeDamage);
+            RegisterCallback(VanillaLevelCallbacks.PostEntityTakeDamage, PostEntityTakeDamage);
             RegisterCallback(LevelCallbacks.PostEntityUpdate, ChangeLaneUpdate);
             RegisterCallback(LevelCallbacks.PostLevelClear, PostLevelClear);
             RegisterCallback(LevelCallbacks.PostEntityUpdate, CartUpdate, filter: EntityTypes.CART);

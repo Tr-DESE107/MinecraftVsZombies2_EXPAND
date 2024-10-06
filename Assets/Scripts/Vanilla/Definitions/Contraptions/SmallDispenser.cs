@@ -20,9 +20,9 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             InitShootTimer(entity);
         }
-        public override void Update(Entity entity)
+        protected override void UpdateAI(Entity entity)
         {
-            base.Update(entity);
+            base.UpdateAI(entity);
             if (!entity.IsEvoked())
             {
                 ShootTick(entity);

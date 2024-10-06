@@ -169,9 +169,11 @@ namespace PVZEngine.Level
             }
             return false;
         }
-        public void AddBuff<T>() where T : BuffDefinition
+        public Buff AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(Level.CreateBuff<T>());
+            var buff = Level.CreateBuff<T>();
+            AddBuff(buff);
+            return buff;
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
@@ -469,7 +471,7 @@ namespace PVZEngine.Level
             Health = seri.health;
             isOnGround = seri.isOnGround;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            buffs = BuffList.FromSerializable(seri.buffs, Level.ContentProvider, this);
+            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
             collisionThisTick = seri.collisionThisTick.ConvertAll(e => Level.FindEntityByID(e));
             collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));

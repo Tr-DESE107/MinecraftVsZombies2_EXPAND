@@ -17,6 +17,8 @@ namespace MVZ2.GameContent
         public const string randomEnemySpeed = "random_enemy_speed";
         public const string armorDamageColor = "armor_damage_color";
         public const string damageColor = "damage_color";
+        public const string ghost = "ghost";
+        public const string stun = "stun";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";

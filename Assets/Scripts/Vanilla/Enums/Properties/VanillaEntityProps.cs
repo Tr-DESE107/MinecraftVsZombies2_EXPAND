@@ -20,6 +20,7 @@ namespace MVZ2.Vanilla
         public const string FALL_DAMAGE = "fallDamage";
         public const string CAN_DISABLE = "canDisable";
         public const string INVISIBLE = "invisible";
+        public const string AI_FROZEN = "aiFrozen";
 
         public static float GetFallDamage(this Entity entity)
         {
@@ -72,6 +73,10 @@ namespace MVZ2.Vanilla
         public static NamespaceID GetProjectileID(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(PROJECTILE_ID);
+        }
+        public static bool IsAIFrozen(this Entity entity)
+        {
+            return entity.GetProperty<bool>(AI_FROZEN);
         }
     }
 }

@@ -14,12 +14,19 @@ namespace MVZ2.GameContent.Enemies
         {
         }
 
-        public override void Update(Entity enemy)
+        protected override void UpdateAI(Entity entity)
         {
-            base.Update(enemy);
-            enemy.State = GetActionState(enemy);
-            UpdateActionState(enemy, enemy.State);
-
+            base.UpdateAI(entity);
+            entity.State = GetActionState(entity);
+            UpdateActionState(entity, entity.State);
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            if (entity.State == EntityStates.DEAD)
+            {
+                UpdateStateDead(entity);
+            }
         }
         public override void PostDeath(Entity entity, DamageInfo info)
         {
@@ -63,9 +70,6 @@ namespace MVZ2.GameContent.Enemies
                     break;
                 case EntityStates.ATTACK:
                     UpdateStateAttack(enemy);
-                    break;
-                case EntityStates.DEAD:
-                    UpdateStateDead(enemy);
                     break;
                 case EntityStates.CAST:
                     UpdateStateCast(enemy);

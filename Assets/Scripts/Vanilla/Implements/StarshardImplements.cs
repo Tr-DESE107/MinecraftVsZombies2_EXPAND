@@ -23,7 +23,7 @@ namespace MVZ2.Vanilla
             foreach (var buff in buffs)
             {
                 enemy.Level.Spawn(VanillaPickupID.starshard, enemy.Position, enemy);
-                enemy.RemoveBuff(buff);
+                buff.Remove();
             }
         }
     }
