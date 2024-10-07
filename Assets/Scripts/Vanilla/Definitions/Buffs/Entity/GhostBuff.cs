@@ -11,8 +11,9 @@ namespace MVZ2.Vanilla.Buffs
     {
         public GhostBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EngineEntityProps.TINT, BlendOperator.DstColor, BlendOperator.Zero, PROP_TINT_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
+            AddModifier(new FloatModifier(BuiltinEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
             AddTrigger<PreTakeDamage>(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
         }
         public override void PostAdd(Buff buff)
@@ -20,6 +21,7 @@ namespace MVZ2.Vanilla.Buffs
             base.PostAdd(buff);
             buff.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, TINT_ALPHA_MIN));
             buff.SetProperty(PROP_ETHEREAL, true);
+            buff.SetProperty(PROP_SHADOW_ALPHA, SHADOW_ALPHA_MIN);
             UpdateIllumination(buff);
         }
         public override void PostUpdate(Buff buff)
@@ -38,22 +40,33 @@ namespace MVZ2.Vanilla.Buffs
         }
         private void UpdateIllumination(Buff buff)
         {
-            var entity = buff.Target.GetEntity();
+            var entity = buff.GetEntity();
             if (entity == null)
                 return;
             bool illuminated = entity.IsIlluminated() || entity.IsAIFrozen();
-            float alphaSpeed = illuminated ? TINT_SPEED : -TINT_SPEED;
+            float tintSpeed = illuminated ? TINT_SPEED : -TINT_SPEED;
+            float shadowSpeed = illuminated ? SHADOW_ALPHA_SPEED : -SHADOW_ALPHA_SPEED;
             bool ethereal = illuminated ? false : true;
+
             var tint = buff.GetProperty<Color>(PROP_TINT_MULTIPLIER);
-            tint.a = Mathf.Clamp(tint.a + alphaSpeed, TINT_ALPHA_MIN, TINT_ALPHA_MAX);
+            tint.a = Mathf.Clamp(tint.a + tintSpeed, TINT_ALPHA_MIN, TINT_ALPHA_MAX);
+
+            var shadowAlpha = buff.GetProperty<float>(PROP_SHADOW_ALPHA);
+            shadowAlpha = Mathf.Clamp(shadowAlpha + shadowSpeed, SHADOW_ALPHA_MIN, SHADOW_ALPHA_MAX);
+
             buff.SetProperty(PROP_TINT_MULTIPLIER, tint);
+            buff.SetProperty(PROP_SHADOW_ALPHA, shadowAlpha);
             buff.SetProperty(PROP_ETHEREAL, ethereal);
         }
         public const string PROP_TINT_MULTIPLIER = "TintMultiplier";
+        public const string PROP_SHADOW_ALPHA = "ShadowAlpha";
         public const string PROP_ETHEREAL = "Ethereal";
         public const float TINT_ALPHA_MIN = 0.5f;
         public const float TINT_ALPHA_MAX = 1;
         public const float TINT_SPEED = 0.02f;
+        public const float SHADOW_ALPHA_MIN = 0;
+        public const float SHADOW_ALPHA_MAX = 1;
+        public const float SHADOW_ALPHA_SPEED = 0.04f;
         private delegate void PreTakeDamage(Buff buff, DamageInfo info);
     }
 }

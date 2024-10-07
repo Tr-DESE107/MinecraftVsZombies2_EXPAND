@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
+            entity.UpdateShineRing();
             entity.SetAnimationBool("Upgraded", GetUpgraded(entity));
         }
 

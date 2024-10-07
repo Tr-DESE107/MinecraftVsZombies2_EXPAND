@@ -42,8 +42,15 @@ namespace MVZ2.GameContent.Enemies
             Vector3 pos = entity.Position;
             pos.x = Mathf.Min(pos.x, BuiltinLevel.GetEnemyRightBorderX());
             entity.Position = pos;
-            entity.SetAnimationFloat("AttackSpeed", entity.GetAttackSpeed());
-            entity.SetAnimationFloat("MoveSpeed", entity.GetSpeed());
+            var attackSpeed = entity.GetAttackSpeed();
+            var speed = entity.GetSpeed();
+            if (entity.IsAIFrozen())
+            {
+                attackSpeed = 0;
+                speed = 0;
+            }
+            entity.SetAnimationFloat("AttackSpeed", attackSpeed);
+            entity.SetAnimationFloat("MoveSpeed", speed);
         }
         protected virtual void UpdateAI(Entity entity)
         {

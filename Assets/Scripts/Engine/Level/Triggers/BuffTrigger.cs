@@ -12,7 +12,10 @@ namespace PVZEngine.Level.Triggers
         }
         public override object Invoke(params object[] args)
         {
-            return Action.DynamicInvoke(buff, args);
+            var arguments = new object[args.Length + 1];
+            arguments[0] = buff;
+            args.CopyTo(arguments, 1);
+            return Action.DynamicInvoke(arguments);
         }
         public Buff buff;
     }

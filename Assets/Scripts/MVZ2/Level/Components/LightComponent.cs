@@ -14,6 +14,28 @@ namespace MVZ2.Level.Components
         public LightComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
+        public override void Update()
+        {
+            base.Update();
+            UpdateLighting();
+        }
+        public override ISerializableLevelComponent ToSerializable()
+        {
+            return new SerializableLightComponent()
+            {
+                lightSourceInfo = lightSourceInfo.Values.Select(v => new SerializableLightSourceInfo(v)).ToArray()
+            };
+        }
+        public override void LoadSerializable(ISerializableLevelComponent seri)
+        {
+            base.LoadSerializable(seri);
+            if (seri is not SerializableLightComponent serializable)
+                return;
+            foreach (var info in serializable.lightSourceInfo)
+            {
+                lightSourceInfo.Add(info.id, info.ToDeserialized());
+            }
+        }
         public bool IsIlluminated(Entity entity)
         {
             foreach (var pair in lightSourceInfo)
@@ -88,10 +110,25 @@ namespace MVZ2.Level.Components
             lightRange.y -= minComp;
             lightRange.z -= minComp;
 
-            var hitbox = new RoundCube(entity.GetBoundsCenter(), lightRange, minComp * 0.5f);
+            var center = entity.GetBoundsCenter();
+            var size = lightRange;
+            var radius = minComp * 0.5f;
+            var maxBounds = new Bounds(center, size + Vector3.one * minComp);
 
-            info.illuminatingEntities.Clear();
-            info.illuminatingEntities.AddRange(allEntities.Where(e => MathTool.CollideBetweenCudeAndRoundCube(hitbox, e.GetBounds())).Select(e => e.ID));
+            foreach (var target in allEntities)
+            {
+                var bounds = target.GetBounds();
+                bool inLight = maxBounds.Intersects(bounds) && MathTool.CollideBetweenCudeAndRoundCube(center, size, radius, bounds.center, bounds.size);
+                var id = target.ID;
+                if (inLight)
+                {
+                    info.illuminatingEntities.Add(id);
+                }
+                else
+                {
+                    info.illuminatingEntities.Remove(id);
+                }
+            }
         }
         private bool RemoveLightSourceInfo(Entity entity)
         {
@@ -100,10 +137,33 @@ namespace MVZ2.Level.Components
         private Dictionary<long, LightSourceInfo> lightSourceInfo = new Dictionary<long, LightSourceInfo>();
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "lighting");
     }
-    [Serializable]
     public class LightSourceInfo
     {
         public long id;
-        public List<long> illuminatingEntities = new List<long>();
+        public HashSet<long> illuminatingEntities = new HashSet<long>();
+    }
+    [Serializable]
+    public class SerializableLightComponent: ISerializableLevelComponent
+    {
+        public SerializableLightSourceInfo[] lightSourceInfo;
+    }
+    [Serializable]
+    public class SerializableLightSourceInfo
+    {
+        public SerializableLightSourceInfo(LightSourceInfo info)
+        {
+            id = info.id;
+            illuminatingEntities = info.illuminatingEntities.ToArray();
+        }
+        public LightSourceInfo ToDeserialized()
+        {
+            return new LightSourceInfo()
+            {
+                id = id,
+                illuminatingEntities = illuminatingEntities.ToHashSet()
+            };
+        }
+        public long id;
+        public long[] illuminatingEntities;
     }
 }

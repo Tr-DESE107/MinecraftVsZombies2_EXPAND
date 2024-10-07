@@ -45,6 +45,13 @@ namespace PVZEngine.Level
             }
             LevelCallbacks.PostEntityUpdate.RunFiltered(Type, this);
         }
+        public void UpdateHitbox()
+        {
+            var center = Position + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
+            Vector3 size = this.GetSize();
+            size.Scale(Scale);
+            HitboxCache = new Bounds(center, size);
+        }
         public void SetParent(Entity parent)
         {
             var oldParent = Parent;
@@ -188,17 +195,15 @@ namespace PVZEngine.Level
         #region 体积
         public Vector3 GetBoundsCenter()
         {
-            return Position + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
+            return HitboxCache.center;
         }
         public Bounds GetBounds()
         {
-            return new Bounds(GetBoundsCenter(), GetScaledSize());
+            return HitboxCache;
         }
         public Vector3 GetScaledSize()
         {
-            Vector3 size = this.GetSize();
-            size.Scale(Scale);
-            return size;
+            return HitboxCache.size;
         }
         public Vector3 GetScaledBoundsOffset()
         {
@@ -476,6 +481,7 @@ namespace PVZEngine.Level
             collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
+            UpdateHitbox();
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
@@ -487,10 +493,12 @@ namespace PVZEngine.Level
         private void OnInit(Entity spawner)
         {
             Health = this.GetMaxHealth();
+            UpdateHitbox();
         }
         private void OnUpdate()
         {
             UpdatePhysics(1);
+            UpdateHitbox();
         }
         private void OnContactGround()
         {
@@ -542,6 +550,7 @@ namespace PVZEngine.Level
         public Vector3 Position { get; set; }
         public Vector3 Velocity { get; set; }
         public Vector3 Scale { get; set; } = Vector3.one;
+        public Bounds HitboxCache { get; private set; }
         public int CollisionMask { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
         public Vector3 RenderScale { get; set; } = Vector3.one;

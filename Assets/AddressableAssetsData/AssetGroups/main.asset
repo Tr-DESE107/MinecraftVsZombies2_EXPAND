@@ -17,6 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
     m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
     m_ReadOnly: 0
@@ -199,6 +211,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caad8c3049dedbb4796afa81b872ead5
     m_Address: mvz2:entity/contraption/mine_dirt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b11711b1da870544827beb40076b98b
+    m_Address: mvz2:entity/contraption/glowstone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -641,6 +659,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b9310b7e61da30448b5d9b66c4cf9f3
+    m_Address: mvz2:entity/enemies/ghost_tail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7667a381c5230374d9c5b5a7bf629dd9
+    m_Address: mvz2:entity/enemies/ghost_headwear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a517e81da420e4941880bb250f059923
     m_Address: mvz2:entity/enemies/bow_texture
     m_ReadOnly: 0
@@ -655,6 +685,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9274a6de61534f940b4da30c3fffcb67
     m_Address: mvz2:entity/effects/star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fd484fcbd2c9ed4dbad79aa98011525
+    m_Address: mvz2:entity/effects/shine_ring
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2099,6 +2135,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c5cc48f60d7d3e4f81a1b121d8fdde2
+    m_Address: mvz2:enemy/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2fee4be52329b84cad8cea5bb42445a
     m_Address: mvz2:enemy/leather_capped_zombie
     m_ReadOnly: 0
@@ -2107,6 +2149,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7e28eba85b9ce64cbb6eb3254ad851b
     m_Address: mvz2:enemy/iron_helmetted_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 475484a654e7e3142b61bcf6e3583f4d
+    m_Address: mvz2:enemy/ghost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c2f6b07a5190204eb3005831fac183a
+    m_Address: mvz2:enemy/gargoyle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2123,6 +2177,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 111b8a1b7b5a2be4c9f3830f3523485b
+    m_Address: mvz2:effect/stun_stars
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b559c020339362849b5c76dce17cdd39
+    m_Address: mvz2:effect/stunning_flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62fbd37ba015ce149b39c20b3fe2f457
     m_Address: mvz2:effect/star_particles
     m_ReadOnly: 0
@@ -2131,6 +2197,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48284edfb09923e4aa51df2b3b66a8ab
     m_Address: mvz2:effect/smoke
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8dfc340d86d05145af208e89a9521d5
+    m_Address: mvz2:effect/shine_ring
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2179,6 +2251,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63a05174c3979bc4997142266dc829d8
     m_Address: mvz2:contraption/mine_tnt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12fd293e156720148baa1a954afeec65
+    m_Address: mvz2:contraption/glowstone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3082,18 +3160,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
     m_Address: Main

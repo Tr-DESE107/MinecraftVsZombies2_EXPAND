@@ -44,6 +44,10 @@ namespace PVZEngine.Level
         {
             return triggers.ToArray();
         }
+        public Entity GetEntity()
+        {
+            return Target?.GetEntity();
+        }
         internal void AddToTarget(IBuffTarget target)
         {
             if (Target != null)

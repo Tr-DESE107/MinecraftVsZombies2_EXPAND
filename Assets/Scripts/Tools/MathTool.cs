@@ -79,6 +79,18 @@ namespace Tools.Mathematics
 
         }
 
+        public static bool DoRectsOverlap(Vector2 rectCenter1, Vector2 rectSize1, Vector2 rectCenter2, Vector2 rectSize2)
+        {
+            var rect1ExtentX = rectSize1.x * 0.5f;
+            var rect1ExtentY = rectSize1.y * 0.5f;
+            var rect2ExtentX = rectSize2.x * 0.5f;
+            var rect2ExtentY = rectSize2.y * 0.5f;
+            if (!DoRangesIntersect(rectCenter1.x - rect1ExtentX, rectCenter1.x + rect1ExtentX, rectCenter2.x - rect2ExtentX, rectCenter2.x + rect2ExtentX))
+                return false;
+            if (!DoRangesIntersect(rectCenter1.y - rect1ExtentY, rectCenter1.y + rect1ExtentY, rectCenter2.y - rect2ExtentY, rectCenter2.y + rect2ExtentY))
+                return false;
+            return true;
+        }
 
         private static bool DoLineAndRayIntersect(Vector2 line1, Vector2 line2, Vector2 point, Vector2 dir, out Vector2 intersection)
         {
@@ -344,6 +356,10 @@ namespace Tools.Mathematics
         }
         public static bool CollideBetweenCudeAndRoundCube(RoundCube roundCube, Bounds cube)
         {
+            return CollideBetweenCudeAndRoundCube(roundCube.center, roundCube.size, roundCube.radius, cube.center, cube.size);
+        }
+        public static bool CollideBetweenCudeAndRoundCube(Vector3 roundCubeCenter, Vector3 roundCubeSize, float roundCubeRadius, Vector3 cubeCenter, Vector3 cubeSize)
+        {
             // 检测x-y平面和x-z平面的投影相交。
             for (int i = 0; i < 2; i++)
             {
@@ -353,14 +369,12 @@ namespace Tools.Mathematics
                 {
                     comp2 = 2;
                 }
-                var roundCenter = new Vector2(roundCube.center[comp1], roundCube.center[comp2]);
-                var roundSize = new Vector2(roundCube.size[comp1], roundCube.size[comp2]);
-                var xyRoundRect = new RoundRect(roundCenter, roundSize, roundCube.radius);
+                var roundCenter = new Vector2(roundCubeCenter[comp1], roundCubeCenter[comp2]);
+                var roundSize = new Vector2(roundCubeSize[comp1], roundCubeSize[comp2]);
 
-                var rectCenter = new Vector2(cube.center[comp1], cube.center[comp2]);
-                var rectSize = new Vector2(cube.size[comp1], cube.size[comp2]);
-                var xyRect = new Rect(rectCenter, rectSize);
-                if (CollideBetweenRectangleAndRoundRectangle(xyRoundRect, xyRect))
+                var rectCenter = new Vector2(cubeCenter[comp1], cubeCenter[comp2]);
+                var rectSize = new Vector2(cubeSize[comp1], cubeSize[comp2]);
+                if (CollideBetweenRectangleAndRoundRectangle(roundCenter, roundSize, roundCubeRadius, rectCenter, rectSize))
                     return true;
             }
             return false;
@@ -453,6 +467,32 @@ namespace Tools.Mathematics
                 var y = (i & 2) == 2 ? roundRectCenter.yMax : roundRectCenter.yMin;
                 var corner = new Vector2(x, y);
                 if (CollideBetweenRectangleAndCircle(corner, roundRect.radius, rectangle.center, rectangle.size))
+                    return true;
+            }
+            return false;
+        }
+        public static bool CollideBetweenRectangleAndRoundRectangle(Vector2 roundRectCenter, Vector2 roundRectSize, float roundRectRadius, Vector2 rectangleCenter, Vector2 rectangleSize)
+        {
+            if (roundRectRadius <= 0)
+                return DoRectsOverlap(roundRectCenter, roundRectSize, rectangleCenter, rectangleSize);
+
+            // 水平相交
+            var roundSizeHori = roundRectSize + Vector2.right * roundRectRadius * 2;
+            if (DoRectsOverlap(roundRectCenter, roundSizeHori, rectangleCenter, rectangleSize))
+                return true;
+
+            // 垂直相交
+            var roundSizeVert = roundRectSize + Vector2.up * roundRectRadius * 2;
+            if (DoRectsOverlap(roundRectCenter, roundSizeVert, rectangleCenter, rectangleSize))
+                return true;
+
+            // 圆角相交
+            for (int i = 0; i < 4; i++)
+            {
+                var x = roundRectCenter.x + roundRectSize.x * ((i & 1) == 1 ? -0.5f : 0.5f);
+                var y = roundRectCenter.y + roundRectSize.y * ((i & 2) == 2 ? -0.5f : 0.5f);
+                var corner = new Vector2(x, y);
+                if (CollideBetweenRectangleAndCircle(corner, roundRectRadius, rectangleCenter, rectangleSize))
                     return true;
             }
             return false;

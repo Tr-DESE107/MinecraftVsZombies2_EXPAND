@@ -118,6 +118,9 @@
         <sample path="mvz2:random/glass_break2" weight="1" />
         <sample path="mvz2:random/glass_break3" weight="1" />
     </sound>
+    <sound name="glowstone">
+        <sample path="mvz2:glowstone" weight="1" />
+    </sound>
     <sound name="grass">
         <sample path="mvz2:random/grass1" weight="1" />
         <sample path="mvz2:random/grass2" weight="1" />
@@ -261,6 +264,9 @@
         <sample path="mvz2:random/stone2" weight="1" />
         <sample path="mvz2:random/stone3" weight="1" />
         <sample path="mvz2:random/stone4" weight="1" />
+    </sound>
+    <sound name="stunned">
+        <sample path="mvz2:stunned" weight="1" />
     </sound>
     <sound name="tap" priority="64">
         <sample path="mvz2:tap" weight="1" />

@@ -24,5 +24,13 @@ namespace PVZEngine.Modifiers
         }
         public BlendOperator SrcOperator { get; private set; }
         public BlendOperator DstOperator { get; private set; }
+        public static ColorModifier Multiply(string propertyName, Color valueConst)
+        {
+            return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, valueConst);
+        }
+        public static ColorModifier Multiply(string propertyName, string buffPropertyName)
+        {
+            return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, buffPropertyName);
+        }
     }
 }

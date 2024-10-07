@@ -39,4 +39,12 @@
             <color hex="#282217" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="glowstone">
+        <colorKeys>
+            <color hex="#FFFFFF" time="0.15"/>
+            <color hex="#CE8452" time="0.30"/>
+            <color hex="#FFDE73" time="0.50"/>
+            <color hex="#6B4221" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

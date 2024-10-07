@@ -1,4 +1,5 @@
 ﻿using MVZ2.Extensions;
+using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla;
 using PVZEngine.Level;
 
@@ -15,15 +16,27 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             entity.PlaySound(SoundID.glowstone);
-            var ring = entity.Level.Spawn(VanillaEffectID.shineRing, entity.Position, entity);
-            ring.SetParent(entity);
+            entity.UpdateShineRing();
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.UpdateShineRing();
         }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
+            entity.AddBuff<GlowstoneEvokeBuff>();
+            entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetBoundsCenter(), entity);
+            bool stunned = false;
             foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(entity)))
             {
                 enemy.Stun(150);
+                stunned = true;
+            }
+            if (stunned)
+            {
+                entity.PlaySound(SoundID.stunned);
             }
         }
     }

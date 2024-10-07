@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla
         }
         public Entity Detect(Entity self)
         {
-            return DetectMutiple(self).FirstOrDefault();
+            return self.Level.FindFirstEntity(e => Validate(self, e));
         }
         public Entity[] DetectMutiple(Entity self)
         {

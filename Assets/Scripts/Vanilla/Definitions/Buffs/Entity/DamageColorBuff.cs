@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs
         public override void PostUpdate(Buff buff)
         {
             base.PostUpdate(buff);
-            var entity = buff.Target.GetEntity();
+            var entity = buff.GetEntity();
             if (entity == null)
                 return;
             if (!entity.IsDead)

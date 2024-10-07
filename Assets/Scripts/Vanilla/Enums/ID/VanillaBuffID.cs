@@ -12,6 +12,7 @@ namespace MVZ2.GameContent
         public const string obsidianArmor = "obsidian_armor";
         public const string moonlightSensorLaunching = "moonlight_sensor_launching";
         public const string moonlightSensorEvoked = "moonlight_sensor_evoked";
+        public const string glowstoneEvoke = "glowstone_evoke";
         // Enemy
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Triggers;
 
 namespace PVZEngine.Level
@@ -30,7 +31,7 @@ namespace PVZEngine.Level
         public int RemoveTriggers(IEnumerable<Trigger> triggers)
         {
             int value = 0;
-            foreach (var trigger in triggers)
+            foreach (var trigger in triggers.ToArray())
             {
                 value += RemoveTrigger(trigger) ? 1 : 0;
             }

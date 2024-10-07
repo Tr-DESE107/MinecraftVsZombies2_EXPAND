@@ -79,7 +79,7 @@ namespace MVZ2.GameContent
 
         public override bool? PreCollect(Entity pickup)
         {
-            if (pickup.Level.GetStarshardCount() > pickup.Level.GetStarshardSlotCount())
+            if (pickup.Level.GetStarshardCount() >= pickup.Level.GetStarshardSlotCount())
             {
                 pickup.PlaySound(SoundID.buzzer);
                 return false;

@@ -19,7 +19,11 @@ namespace PVZEngine.Level
         }
         public Entity GetEntity(LevelEngine game)
         {
-            return game.FindEntityByID(ID);
+            if (entityCache == null)
+            {
+                entityCache = game.FindEntityByID(ID);
+            }
+            return entityCache;
         }
         public override bool Equals(object obj)
         {
@@ -47,5 +51,8 @@ namespace PVZEngine.Level
         public long ID => id;
         [BsonElement("id")]
         private long id;
+
+        [BsonIgnore]
+        private Entity entityCache;
     }
 }

@@ -31,7 +31,7 @@ namespace MVZ2.Vanilla.Buffs
             time++;
             time %= MAX_TIME;
             var alpha = 1 - (Mathf.Cos((float)time / MAX_TIME * 360 * Mathf.Deg2Rad) + 1) / 2;
-            alpha *= 0.5f;
+            alpha *= 0.8f;
             buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, 1, 0, alpha));
             buff.SetProperty(PROP_TIME, time);
         }

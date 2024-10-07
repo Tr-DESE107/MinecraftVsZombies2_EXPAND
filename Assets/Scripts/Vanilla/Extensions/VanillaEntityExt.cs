@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net.NetworkInformation;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Enemies;
@@ -9,6 +10,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla
 {
@@ -192,6 +194,22 @@ namespace MVZ2.Vanilla
                 return;
             var buff = entity.AddBuff<StunBuff>();
             buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
+        }
+        public static void UpdateShineRing(this Entity entity)
+        {
+            var lightSource = entity.IsLightSource();
+            if (!lightSource)
+                return;
+            var shineRingID = entity.GetProperty<EntityID>("LightShineRing");
+            var shineRing = shineRingID?.GetEntity(entity.Level);
+            if (shineRing != null && shineRing.Exists())
+                return;
+            shineRing = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEffectID.shineRing) && e.Parent == entity);
+            if (shineRing != null && shineRing.Exists())
+                return;
+            shineRing = entity.Level.Spawn(VanillaEffectID.shineRing, entity.Position, entity);
+            shineRing.SetParent(entity);
+            entity.SetProperty("LightShineRing", new EntityID(shineRing));
         }
 
     }

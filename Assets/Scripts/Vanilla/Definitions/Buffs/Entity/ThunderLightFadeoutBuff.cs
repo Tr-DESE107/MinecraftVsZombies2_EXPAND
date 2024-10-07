@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public ThunderLightFadeoutBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(BuiltinEntityProps.LIGHT_COLOR, BlendOperator.DstColor, BlendOperator.Zero, PROP_COLOR_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(BuiltinEntityProps.LIGHT_COLOR, PROP_COLOR_MULTIPLIER));
         }
         public override void PostAdd(Buff buff)
         {
@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Buffs
         }
         private void UpdateMultiplier(Buff buff)
         {
-            var entity = buff.Target.GetEntity();
+            var entity = buff.GetEntity();
             if (entity == null)
                 return;
             var alpha = Mathf.Clamp01(entity.Timeout / 30f);

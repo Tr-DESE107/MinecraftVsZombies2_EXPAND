@@ -47,6 +47,9 @@
     <model name="smoke" type="entity" path="mvz2:effect/smoke" width="160" height="160" xOffset="0" yOffset="30"/>
     <model name="thunder_bolt" type="entity" path="mvz2:effect/thunder_bolt" width="120" height="550" xOffset="0" yOffset="0"/>
     <model name="evocation_star" type="entity" path="mvz2:effect/evocation_star" width="240" height="240" xOffset="0" yOffset="120"/>
+    <model name="shine_ring" type="entity" path="mvz2:effect/shine_ring" width="100" height="100" xOffset="0" yOffset="0"/>
+    <model name="stun_stars" type="entity" path="mvz2:effect/stun_stars" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="stunning_flash" type="entity" path="mvz2:effect/stunning_flash" width="120" height="120" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>

@@ -15,14 +15,14 @@ namespace PVZEngine.Level
         }
         public void CollisionUpdate(Entity ent1, int mask, Entity[] entities)
         {
-            var bounds = GetCachedBounds(ent1);
+            var bounds = ent1.GetBounds();
             foreach (var ent2 in entities)
             {
                 if (ent1 == ent2)
                     continue;
                 if (!EntityCollision.CanCollide(mask, ent2))
                     continue;
-                if (!bounds.Intersects(GetCachedBounds(ent2)))
+                if (!bounds.Intersects(ent2.GetBounds()))
                     continue;
                 ent1.Collide(ent2);
             }
@@ -70,13 +70,29 @@ namespace PVZEngine.Level
         }
         public Entity[] FindEntities(NamespaceID id)
         {
-            if (id == null)
+            if (!NamespaceID.IsValid(id))
                 return Array.Empty<Entity>();
             return FindEntities(e => e.IsEntityOf(id));
         }
         public Entity[] FindEntities(Func<Entity, bool> predicate)
         {
             return entities.Where(predicate).ToArray();
+        }
+        public Entity FindFirstEntity(EntityDefinition def)
+        {
+            if (def == null)
+                return null;
+            return FindFirstEntity(e => e.Definition == def);
+        }
+        public Entity FindFirstEntity(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            return FindFirstEntity(e => e.IsEntityOf(id));
+        }
+        public Entity FindFirstEntity(Func<Entity, bool> predicate)
+        {
+            return entities.FirstOrDefault(predicate);
         }
         public bool EntityExists(EntityDefinition def)
         {
@@ -90,15 +106,6 @@ namespace PVZEngine.Level
         {
             return entities.Exists(predicate);
         }
-        private Bounds GetCachedBounds(Entity entity)
-        {
-            if (!collisionCachedBounds.TryGetValue(entity.ID, out var bounds))
-            {
-                bounds = entity.GetBounds();
-                collisionCachedBounds.Add(entity.ID, bounds);
-            }
-            return bounds;
-        }
         private long AllocEntityID()
         {
             long id = currentEntityID;
@@ -111,6 +118,5 @@ namespace PVZEngine.Level
         #endregion
         private long currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
-        private Dictionary<long, Bounds> collisionCachedBounds = new Dictionary<long, Bounds>();
     }
 }

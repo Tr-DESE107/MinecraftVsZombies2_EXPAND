@@ -109,11 +109,13 @@ namespace PVZEngine.Level
         {
             UpdateSeedPacks();
             UpdateDelayedEnergyEntities();
-            collisionCachedBounds.Clear();
             var entities = GetEntities();
             foreach (var entity in entities)
             {
                 entity.Update();
+            }
+            foreach (var entity in entities)
+            {
                 CollisionUpdate(entity, entity.CollisionMask, entities);
             }
             foreach (var buff in buffs.GetAllBuffs())
