@@ -10,6 +10,8 @@ namespace MVZ2.Save
         void SetMoney(int value);
         int GetBlueprintSlots();
         void SetBlueprintSlots(int slots);
+        int GetStarshardSlots();
+        void SetStarshardSlots(int slots);
 
     }
 }

@@ -71,6 +71,14 @@ namespace MVZ2.Vanilla
         {
             game.SetStarshardCount(GetStarshardCount(game) + value);
         }
+        public static int GetStarshardSlotCount(this LevelEngine game)
+        {
+            return game.GetProperty<int>(BuiltinLevelProps.STARSHARD_SLOT_COUNT);
+        }
+        public static void SetStarshardSlotCount(this LevelEngine game, int value)
+        {
+            game.SetProperty(BuiltinLevelProps.STARSHARD_SLOT_COUNT, value);
+        }
         public static bool IsPickaxeDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(BuiltinLevelProps.PICKAXE_DISABLED);

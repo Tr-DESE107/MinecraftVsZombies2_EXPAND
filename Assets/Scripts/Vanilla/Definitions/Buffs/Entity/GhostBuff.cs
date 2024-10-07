@@ -13,7 +13,7 @@ namespace MVZ2.Vanilla.Buffs
         {
             AddModifier(new ColorModifier(EngineEntityProps.TINT, BlendOperator.DstColor, BlendOperator.Zero, PROP_TINT_MULTIPLIER));
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
-            AddTrigger<PreTakeDamage>(VanillaLevelCallbacks.PreEntityTakeDamage, PreEntityTakeDamageCallback);
+            AddTrigger<PreTakeDamage>(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
         }
         public override void PostAdd(Buff buff)
         {

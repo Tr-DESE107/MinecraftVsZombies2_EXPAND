@@ -47,6 +47,10 @@ namespace MVZ2.Vanilla
             pos.x = Mathf.Clamp(pos.x, BuiltinLevel.GetPickupBorderX(false), BuiltinLevel.GetPickupBorderX(true));
             entity.Position = pos;
         }
+        public virtual bool? PreCollect(Entity pickup)
+        {
+            return null;
+        }
         public virtual void PostCollect(Entity pickup)
         {
             if (pickup.RemoveOnCollect())

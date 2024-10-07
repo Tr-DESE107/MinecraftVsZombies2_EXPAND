@@ -18,6 +18,7 @@ namespace MVZ2.Vanilla.Save
                 mapTalkID = MapTalkID,
                 money = money,
                 blueprintSlots = blueprintSlots,
+                starshardSlots = starshardSlots,
             };
         }
         public void LoadSerializable(SerializableVanillaSaveData serializable)
@@ -27,6 +28,7 @@ namespace MVZ2.Vanilla.Save
             MapTalkID = serializable.mapTalkID;
             money = serializable.money;
             blueprintSlots = Mathf.Max(MIN_BLUEPRINT_SLOTS, serializable.blueprintSlots);
+            starshardSlots = Mathf.Max(MIN_STARSHARD_SLOTS, serializable.starshardSlots);
         }
 
         public int GetMoney()
@@ -45,11 +47,21 @@ namespace MVZ2.Vanilla.Save
         {
             blueprintSlots = value;
         }
+        public int GetStarshardSlots()
+        {
+            return starshardSlots;
+        }
+        public void SetStarshardSlots(int value)
+        {
+            starshardSlots = value;
+        }
         public const int MIN_BLUEPRINT_SLOTS = 6;
+        public const int MIN_STARSHARD_SLOTS = 3;
         public NamespaceID LastMapID { get; set; }
         public NamespaceID MapTalkID { get; set; }
         private int money;
         private int blueprintSlots = MIN_BLUEPRINT_SLOTS;
+        private int starshardSlots = MIN_STARSHARD_SLOTS;
     }
     [Serializable]
     public class SerializableVanillaSaveData : SerializableModSaveData
@@ -64,5 +76,6 @@ namespace MVZ2.Vanilla.Save
         public NamespaceID mapTalkID;
         public int money;
         public int blueprintSlots;
+        public int starshardSlots;
     }
 }

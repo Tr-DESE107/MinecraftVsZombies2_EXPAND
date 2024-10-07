@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent;
 using PVZEngine.Level;
+using UnityEngine.SocialPlatforms;
 
 namespace MVZ2.Vanilla
 {
@@ -8,12 +9,6 @@ namespace MVZ2.Vanilla
         public static bool IsCollected(this Entity entity)
         {
             return entity.State == EntityStates.COLLECTED;
-        }
-        public static void Collect(this Entity pickup)
-        {
-            pickup.State = EntityStates.COLLECTED;
-            if (pickup.Definition is ICollectiblePickup collectible)
-                collectible.PostCollect(pickup);
         }
         public static bool IsImportantPickup(this Entity entity)
         {

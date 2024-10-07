@@ -83,7 +83,7 @@ namespace MVZ2.Vanilla
         }
         private static bool PreTakeDamage(DamageInfo damageInfo)
         {
-            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PreEntityTakeDamage);
+            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
             foreach (var trigger in triggers)
             {
                 trigger.Invoke(damageInfo);

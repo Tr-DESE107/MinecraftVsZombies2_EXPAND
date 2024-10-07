@@ -100,8 +100,12 @@ namespace MVZ2.Level
 
             UpdateDifficulty();
             UpdateEnergy();
+
             var seedSlots = Main.SaveManager.GetBlueprintSlots();
+            var starshardSlots = Main.SaveManager.GetStarshardSlots();
             level.SetSeedSlotCount(seedSlots);
+            level.SetStarshardSlotCount(starshardSlots);
+
             var unlocked = Main.SaveManager.GetUnlockedContraptions();
 
             if (unlocked.Length > seedSlots)

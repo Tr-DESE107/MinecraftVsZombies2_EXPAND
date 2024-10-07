@@ -76,6 +76,16 @@ namespace MVZ2.GameContent
             color.a = alpha;
             pickup.SetTint(color);
         }
+
+        public override bool? PreCollect(Entity pickup)
+        {
+            if (pickup.Level.GetStarshardCount() > pickup.Level.GetStarshardSlotCount())
+            {
+                pickup.PlaySound(SoundID.buzzer);
+                return false;
+            }
+            return base.PreCollect(pickup);
+        }
         public override void PostCollect(Entity pickup)
         {
             base.PostCollect(pickup);

@@ -61,8 +61,22 @@ namespace MVZ2.Extensions
         {
             var saveData = save.GetBuiltinSaveData();
             if (saveData == null)
-                return 0;
+                return 6;
             return saveData.GetBlueprintSlots();
+        }
+        public static int GetStarshardSlots(this ISaveDataProvider save)
+        {
+            var saveData = save.GetBuiltinSaveData();
+            if (saveData == null)
+                return 3;
+            return saveData.GetStarshardSlots();
+        }
+        public static void SetStarshardSlots(this ISaveDataProvider save, int slots)
+        {
+            var saveData = save.GetBuiltinSaveData();
+            if (saveData == null)
+                return;
+            saveData.SetStarshardSlots(slots);
         }
         public static bool IsLevelCleared(this ISaveDataProvider save, NamespaceID stageID)
         {
