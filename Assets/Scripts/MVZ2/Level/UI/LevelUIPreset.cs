@@ -29,11 +29,18 @@ namespace MVZ2.Level.UI
             animator.Update(deltaTime);
             float targetSideUIBlend = sideUIVisible ? 1 : 0;
             float targetBlueprintChooseBlend = blueprintChooseVisible ? 1 : 0;
-            const float blendSpeed = 1;
+            const float blendSpeed = 10;
             float sideUIBlendAddition = (targetSideUIBlend - sideUIBlend) * blendSpeed * deltaTime;
             float blueprintChooseAddition = (targetBlueprintChooseBlend - blueprintChooseBlend) * blendSpeed * deltaTime;
             SetSideUIBlend(sideUIBlend + sideUIBlendAddition);
             SetBlueprintChooseBlend(blueprintChooseBlend + blueprintChooseAddition);
+        }
+        public void SetBlockRaycasts(bool value)
+        {
+            foreach (var group in canvasGroups)
+            {
+                group.blocksRaycasts = value;
+            }
         }
         #endregion
 
@@ -47,50 +54,54 @@ namespace MVZ2.Level.UI
         #region À¶Í¼
         public void SetBlueprintsActive(bool visible)
         {
-            animator.SetBool("Blueprints", visible);
+            blueprintsObj.SetActive(visible);
         }
-        public void SetBlueprintCount(int count)
+        public void SetBlueprintSlotCount(int count)
         {
-            blueprints.SetBlueprintCount(count);
+            blueprints.SetSlotCount(count);
         }
-        public void SetBlueprintAt(int index, BlueprintViewData viewData)
+        public Blueprint CreateBlueprint()
         {
-            var blueprint = blueprints.GetBlueprintAt(index);
-            if (!blueprint)
-                return;
-            blueprint.UpdateView(viewData);
+            return blueprints.CreateBlueprint();
         }
-        public void SetBlueprintRecharge(int index, float recharge)
+        public void AddBlueprint(Blueprint blueprint)
         {
-            var blueprint = blueprints.GetBlueprintAt(index);
-            if (!blueprint)
-                return;
-            blueprint.SetRecharge(recharge);
+            blueprints.AddBlueprint(blueprint);
         }
-        public void SetBlueprintDisabled(int index, bool value)
+        public void InsertBlueprint(int index, Blueprint blueprint)
         {
-            var blueprint = blueprints.GetBlueprintAt(index);
-            if (!blueprint)
-                return;
-            blueprint.SetDisabled(value);
+            blueprints.InsertBlueprint(index, blueprint);
         }
-        public void SetBlueprintSelected(int index, bool value)
+        public void ForceAlignBlueprint(int index)
         {
-            var blueprint = blueprints.GetBlueprintAt(index);
-            if (!blueprint)
-                return;
-            blueprint.SetSelected(value);
+            blueprints.ForceAlign(index);
         }
-        public void SetBlueprintTwinkle(int index, bool twinkle)
+        public bool RemoveBlueprint(Blueprint blueprint)
         {
-            var blueprint = GetBlueprintAt(index);
-            if (!blueprint)
-                return;
-            blueprint.SetTwinkling(twinkle);
+            return blueprints.RemoveBlueprint(blueprint);
+        }
+        public void RemoveBlueprintAt(int index)
+        {
+            blueprints.RemoveBlueprintAt(index);
         }
         public Blueprint GetBlueprintAt(int index)
         {
             return blueprints.GetBlueprintAt(index);
+        }
+        public Vector3 GetBlueprintPosition(int index)
+        {
+            return blueprints.GetBlueprintPosition(index);
+        }
+        #endregion
+
+        #region ÒÆ¶¯À¶Í¼
+        public MovingBlueprint CreateMovingBlueprint()
+        {
+            return movingBlueprints.CreateMovingBlueprint();
+        }
+        public void RemoveMovingBlueprint(MovingBlueprint blueprint)
+        {
+            movingBlueprints.RemoveMovingBlueprint(blueprint);
         }
         #endregion
 
@@ -113,6 +124,14 @@ namespace MVZ2.Level.UI
             blueprintChooseBlend = blend;
             animator.SetFloat("BlueprintChooseBlend", blend);
         }
+        public void SetBlueprintChooseViewAlmanacButtonActive(bool active)
+        {
+            choosingViewAlmanacButton.gameObject.SetActive(active);
+        }
+        public void SetBlueprintChooseViewStoreButtonActive(bool active)
+        {
+            choosingViewStoreButton.gameObject.SetActive(active);
+        }
         public void ResetBlueprintChooseArtifactCount(int count)
         {
             blueprintChoosePanel.ResetArtifactCount(count);
@@ -125,16 +144,20 @@ namespace MVZ2.Level.UI
         {
             blueprintChoosePanel.UpdateElements(viewData);
         }
-        public void UpdateBlueprintChooseItems(BlueprintViewData[] viewDatas)
+        public void UpdateBlueprintChooseItems(ChoosingBlueprintViewData[] viewDatas)
         {
             blueprintChoosePanel.UpdateItems(viewDatas);
+        }
+        public Blueprint GetBlueprintChooseItem(int index)
+        {
+            return blueprintChoosePanel.GetItem(index);
         }
         #endregion
 
         #region Ìú¸ä
         public void SetPickaxeActive(bool visible)
         {
-            animator.SetBool("Pickaxe", visible);
+            pickaxeSlotObj.SetActive(visible);
         }
         public void SetPickaxeVisible(bool visible)
         {
@@ -164,7 +187,7 @@ namespace MVZ2.Level.UI
         #region ÐÇÖ®ËéÆ¬
         public void SetStarshardActive(bool visible)
         {
-            animator.SetBool("Starshard", visible);
+            starshardPanelObj.SetActive(visible);
         }
         public void SetStarshardCount(int count, int maxCount)
         {
@@ -175,7 +198,7 @@ namespace MVZ2.Level.UI
         #region ´¥·¢
         public void SetTriggerActive(bool visible)
         {
-            animator.SetBool("TriggerSlot", visible);
+            triggerSlotObj.SetActive(visible);
         }
         #endregion
 
@@ -366,6 +389,9 @@ namespace MVZ2.Level.UI
             blueprintChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintChooseBlueprintPointerExit?.Invoke(index, data);
             blueprintChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintChooseBlueprintPointerDown?.Invoke(index, data);
 
+            choosingViewAlmanacButton.onClick.AddListener(() => OnBlueprintChooseViewAlmanacClick?.Invoke());
+            choosingViewStoreButton.onClick.AddListener(() => OnBlueprintChooseViewStoreClick?.Invoke());
+
             pickaxeSlot.OnPointerEnter += (data) => OnPickaxePointerEnter?.Invoke(data);
             pickaxeSlot.OnPointerExit += (data) => OnPickaxePointerExit?.Invoke(data);
             pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
@@ -427,6 +453,9 @@ namespace MVZ2.Level.UI
         public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerDown;
 
+        public event Action OnBlueprintChooseViewAlmanacClick;
+        public event Action OnBlueprintChooseViewStoreClick;
+
         public event Action<PointerEventData> OnPickaxePointerEnter;
         public event Action<PointerEventData> OnPickaxePointerExit;
         public event Action<PointerEventData> OnPickaxePointerDown;
@@ -445,6 +474,19 @@ namespace MVZ2.Level.UI
         Animator animator;
         [SerializeField]
         GraphicRaycaster[] raycasters;
+        [SerializeField]
+        CanvasGroup[] canvasGroups;
+
+
+        [Header("Enabling")]
+        [SerializeField]
+        GameObject pickaxeSlotObj;
+        [SerializeField]
+        GameObject starshardPanelObj;
+        [SerializeField]
+        GameObject triggerSlotObj;
+        [SerializeField]
+        GameObject blueprintsObj;
 
         [Header("Blueprints")]
         [SerializeField]
@@ -455,10 +497,16 @@ namespace MVZ2.Level.UI
         BlueprintList blueprints;
         [SerializeField]
         PickaxeSlot pickaxeSlot;
+        [SerializeField]
+        MovingBlueprintList movingBlueprints;
 
         [Header("Blueprint Choose")]
         [SerializeField]
         BlueprintChoosePanel blueprintChoosePanel;
+        [SerializeField]
+        Button choosingViewAlmanacButton;
+        [SerializeField]
+        Button choosingViewStoreButton;
         [SerializeField]
         bool sideUIVisible = true;
         float sideUIBlend = 1;

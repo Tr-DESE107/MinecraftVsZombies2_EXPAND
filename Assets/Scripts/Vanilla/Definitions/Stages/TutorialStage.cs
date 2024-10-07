@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Stages
             level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
             level.SetProperty(PROP_TUTORIAL_RNG, level.CreateRNG());
             level.SetEnergy(150);
-            level.SetSeedPackCount(4);
+            level.SetSeedSlotCount(4);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.dispenser,

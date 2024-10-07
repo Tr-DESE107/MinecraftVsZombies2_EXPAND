@@ -744,7 +744,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5479422884749862217}
-  - component: {fileID: 6295727893919373989}
   - component: {fileID: 1050604688452448979}
   m_Layer: 5
   m_Name: BlueprintChoosingPanelMobile
@@ -760,7 +759,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602259480579486101}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -779,29 +778,6 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 500, y: -60}
   m_Pivot: {x: 0, y: 0}
---- !u!223 &6295727893919373989
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7602259480579486101}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1816132019
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!114 &1050604688452448979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +797,6 @@ MonoBehaviour:
   artifactRoot: {fileID: 848709839083733144}
   artifactList: {fileID: 1033593996839654139}
   blueprintList: {fileID: 9177964086333064964}
-  countPerRow: 4
 --- !u!1 &8308045072318395397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,11 +1527,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1056501050438266100, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1056501050438266100, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1056501050438266100, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_AnchorMax.x

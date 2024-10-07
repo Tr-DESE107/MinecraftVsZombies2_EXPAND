@@ -325,7 +325,7 @@ namespace MVZ2.Vanilla
                 {
                     case 0:
                         game.AddMoney(-750);
-                        level.SetSeedPackCount(7);
+                        level.SetSeedSlotCount(7);
                         game.SetBlueprintSlots(7);
                         system.StartSection(3);
                         break;

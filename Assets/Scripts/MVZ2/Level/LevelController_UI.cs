@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using MukioI18n;
 using MVZ2.Definitions;
 using MVZ2.Extensions;
@@ -86,6 +87,15 @@ namespace MVZ2.Level
         {
             ShowLevelErrorLoadingDialog(Main.LanguageManager._(ERROR_LOAD_LEVEL_EXCEPTION, e.Message));
         }
+        public bool IsChoosingBlueprints()
+        {
+            return isChoosingBlueprints;
+        }
+        public void UpdateDifficulty()
+        {
+            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
+            UpdateDifficultyName();
+        }
 
         #endregion
 
@@ -120,6 +130,16 @@ namespace MVZ2.Level
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
+            uiPreset.OnBlueprintChooseArtifactClick += UI_OnBlueprintChooseArtifactClickCallback;
+            uiPreset.OnBlueprintChooseBlueprintPointerEnter += UI_OnBlueprintChooseBlueprintPointerEnterCallback;
+            uiPreset.OnBlueprintChooseBlueprintPointerExit += UI_OnBlueprintChooseBlueprintPointerExitCallback;
+            uiPreset.OnBlueprintChooseBlueprintPointerDown += UI_OnBlueprintChooseBlueprintPointerDownCallback;
+            uiPreset.OnBlueprintChooseCommandBlockClick += UI_OnBlueprintChooseCommandBlockClickCallback;
+            uiPreset.OnBlueprintChooseStartClick += UI_OnBlueprintChooseStartClickCallback;
+            uiPreset.OnBlueprintChooseViewLawnClick += UI_OnBlueprintChooseViewLawnClickCallback;
+            uiPreset.OnBlueprintChooseViewAlmanacClick += UI_OnBlueprintChooseViewAlmanacClickCallback;
+            uiPreset.OnBlueprintChooseViewStoreClick += UI_OnBlueprintChooseViewStoreClickCallback;
+
             uiPreset.HideMoney();
             uiPreset.SetProgressVisible(false);
             uiPreset.HideTooltip();
@@ -133,11 +153,15 @@ namespace MVZ2.Level
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
+            if (!IsGameStarted())
+                return;
 
             ClickOnReceiver(receiver);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
+            if (!IsGameStarted())
+                return;
             var levelUI = GetUIPreset();
             var viewData = new TooltipViewData()
             {
@@ -156,12 +180,17 @@ namespace MVZ2.Level
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
+            if (!IsGameStarted())
+                return;
             ClickPickaxe();
         }
         private void UI_OnMenuButtonClickCallback()
         {
-            Pause();
-            level.PlaySound(SoundID.pause);
+            if (IsGameRunning())
+            {
+                Pause();
+                level.PlaySound(SoundID.pause);
+            }
             ShowOptionsDialog();
         }
         private void UI_OnOptionsMenuCloseCallback()
@@ -176,11 +205,15 @@ namespace MVZ2.Level
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
+            if (!IsGameStarted())
+                return;
             ClickStarshard();
         }
         private void UI_OnTriggerPointerDownCallback(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+            if (!IsGameStarted())
                 return;
         }
         private void UI_OnPauseDialogResumeClickedCallback()
@@ -226,6 +259,93 @@ namespace MVZ2.Level
             }
         }
 
+        #endregion
+
+        #region 蓝图选择
+        private async void UI_OnBlueprintChooseStartClickCallback()
+        {
+            if (chosenBlueprints.Count < level.GetSeedSlotCount())
+            {
+                var title = Main.LanguageManager._(StringTable.WARNING);
+                var desc = Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL);
+                var result = await Main.Scene.ShowDialogConfirmAsync(title, desc);
+                if (!result)
+                    return;
+            }
+            isChoosingBlueprints = false;
+            StartCoroutine(BlueprintChosenTransition());
+        }
+        private void UI_OnBlueprintChooseViewLawnClickCallback()
+        {
+
+        }
+        private void UI_OnBlueprintChooseCommandBlockClickCallback()
+        {
+
+        }
+        private void UI_OnBlueprintChooseViewAlmanacClickCallback()
+        {
+
+        }
+        private void UI_OnBlueprintChooseViewStoreClickCallback()
+        {
+
+        }
+        private void UI_OnBlueprintChooseBlueprintPointerEnterCallback(int index, PointerEventData eventData)
+        {
+
+        }
+        private void UI_OnBlueprintChooseBlueprintPointerExitCallback(int index, PointerEventData eventData)
+        {
+
+        }
+        private void UI_OnBlueprintChooseBlueprintPointerDownCallback(int index, PointerEventData eventData)
+        {
+            var seedSlots = level.GetSeedSlotCount();
+            var seedPackIndex = chosenBlueprints.Count;
+            if (seedPackIndex >= seedSlots)
+                return;
+            if (chosenBlueprints.Contains(index))
+                return;
+            chosenBlueprints.Add(index);
+
+            // 更新UI。
+            var uiPreset = GetUIPreset();
+            UpdateBlueprintChooseItem(index);
+
+            // 更新蓝图贴图。
+            var seedID = choosingBlueprints[index];
+            var seedDef = Game.GetSeedDefinition(seedID);
+            var blueprint = uiPreset.CreateBlueprint();
+            var blueprintViewData = Main.ResourceManager.GetBlueprintViewData(seedDef);
+            blueprint.UpdateView(blueprintViewData);
+            blueprint.SetDisabled(false);
+            blueprint.SetRecharge(0);
+            blueprint.SetSelected(false);
+            blueprint.SetTwinkling(false);
+
+            // 将蓝图移动到目标位置。
+            var choosingBlueprintItem = uiPreset.GetBlueprintChooseItem(index);
+            blueprint.transform.position = choosingBlueprintItem.transform.position;
+            var startPos = blueprint.transform.position;
+            var targetPos = uiPreset.GetBlueprintPosition(seedPackIndex);
+            var movingBlueprint = uiPreset.CreateMovingBlueprint();
+            movingBlueprint.transform.position = startPos;
+            movingBlueprint.SetBlueprint(blueprint);
+            movingBlueprint.SetMotion(startPos, targetPos);
+            movingBlueprint.OnMotionFinished += () =>
+            {
+                uiPreset.InsertBlueprint(seedPackIndex, blueprint);
+                uiPreset.RemoveMovingBlueprint(movingBlueprint);
+            };
+
+            // 播放音效。
+            level.PlaySound(SoundID.tap);
+        }
+        private void UI_OnBlueprintChooseArtifactClickCallback(int index)
+        {
+
+        }
         #endregion
 
         #endregion
@@ -363,7 +483,7 @@ namespace MVZ2.Level
             }
             for (int i = 0; i < bannerProgresses.Length; i++)
             {
-                float value = (level.CurrentWave >= i * level.GetWavesPerFlag()) ? deltaTime : -deltaTime;
+                float value = (level.CurrentWave >= (totalFlags - i) * level.GetWavesPerFlag()) ? deltaTime : -deltaTime;
                 bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + value);
             }
             int totalWaveCount = level.GetTotalWaveCount();
@@ -387,12 +507,17 @@ namespace MVZ2.Level
         private void UpdateLevelUI()
         {
             var ui = GetUIPreset();
-            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
             ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
             ui.SetPickaxeVisible(!level.IsHoldingPickaxe());
+            UpdateEnergy();
             UpdateLevelProgress();
             UpdateBlueprintsState();
             UpdateStarshards();
+        }
+        private void UpdateEnergy()
+        {
+            var ui = GetUIPreset();
+            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
         }
         private void UpdateLevelProgress()
         {
@@ -456,21 +581,85 @@ namespace MVZ2.Level
                 canViewLawn = level.CurrentFlag > 0,
                 hasCommandBlock = false,
             };
-            var blueprintViewDatas = blueprints.Select(b =>
+            var almanacIndexes = blueprints.Select(id => (id, Main.ResourceManager.GetAlmanacMetaEntry(AlmanacCategories.CONTRAPTIONS, id).index));
+            var maxAlmanacIndex = almanacIndexes.Max(tuple => tuple.index);
+            var ordererBlueprints = new NamespaceID[maxAlmanacIndex + 1];
+            for (int i = 0; i < ordererBlueprints.Length; i++)
             {
-                if (!NamespaceID.IsValid(b))
-                    return BlueprintViewData.Empty;
-                var blueprintDef = Game.GetSeedDefinition(b);
-                return Main.ResourceManager.GetSeedDefinitionViewData(blueprintDef);
+                var tuple = almanacIndexes.FirstOrDefault(tuple => tuple.index == i);
+                ordererBlueprints[i] = tuple.id;
+            }
+            // 进行布局压缩。
+            int countPerRow = Main.IsMobile() ? blueprintChooseCountPerRowMobile : blueprintChooseCountPerRowStandalone;
+            var groups = ordererBlueprints
+                .Select((v, i) => (v, i))
+                .GroupBy(p => p.i / countPerRow);
+            ordererBlueprints = groups
+                .Where(g => !g.All(p => !NamespaceID.IsValid(p.v)))
+                .SelectMany(g => g.Select(p => p.v))
+                .ToArray();
+
+            var blueprintViewDatas = ordererBlueprints.Select(id =>
+            {
+                if (!NamespaceID.IsValid(id))
+                    return ChoosingBlueprintViewData.Empty;
+                var blueprintDef = Game.GetSeedDefinition(id);
+                return new ChoosingBlueprintViewData()
+                {
+                    blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef),
+                    disabled = false,
+                };
             }).ToArray();
+            isChoosingBlueprints = true;
+            choosingBlueprints = ordererBlueprints.ToArray();
 
             var uiPreset = GetUIPreset();
+            uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Main.SaveManager.IsAlmanacUnlocked());
+            uiPreset.SetBlueprintChooseViewStoreButtonActive(Main.SaveManager.IsStoreUnlocked());
             uiPreset.SetSideUIVisible(true);
             uiPreset.SetBlueprintsChooseVisible(true);
             uiPreset.ResetBlueprintChooseArtifactCount(3);
             uiPreset.UpdateBlueprintChooseElements(panelViewData);
             uiPreset.UpdateBlueprintChooseItems(blueprintViewDatas);
             uiPreset.SetUIVisibleState(VisibleState.ChoosingBlueprints);
+
+            UpdateChosenBlueprints();
+        }
+        private void UpdateChosenBlueprints()
+        {
+            var uiPreset = GetUIPreset();
+            var slotCount = level.GetSeedSlotCount();
+            for (int i = 0; i < slotCount; i++)
+            {
+                BlueprintViewData viewData = BlueprintViewData.Empty;
+                if (i < chosenBlueprints.Count)
+                {
+                    var blueprintIndex = chosenBlueprints[i];
+                    var blueprint = choosingBlueprints[blueprintIndex];
+                    var seedDef = Game.GetSeedDefinition(blueprint);
+                    if (seedDef != null)
+                    {
+                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef);
+                    }
+                }
+                var blueprintUI = uiPreset.GetBlueprintAt(i);
+                if (blueprintUI)
+                {
+                    blueprintUI.UpdateView(viewData);
+                    blueprintUI.SetDisabled(false);
+                    blueprintUI.SetRecharge(0);
+                    blueprintUI.SetSelected(false);
+                    blueprintUI.SetTwinkling(false);
+                }
+            }
+        }
+        private void UpdateBlueprintChooseItem(int index)
+        {
+            var uiPreset = GetUIPreset();
+            var blueprintChooseItem = uiPreset.GetBlueprintChooseItem(index);
+            bool selected = chosenBlueprints.Contains(index);
+            blueprintChooseItem.SetDisabled(selected);
+            blueprintChooseItem.SetRecharge(selected ? 1 : 0);
         }
 
         #endregion
@@ -483,6 +672,8 @@ namespace MVZ2.Level
         public const string ERROR_LOAD_LEVEL_EXCEPTION = "加载关卡失败，出现错误：{0}";
         [TranslateMsg("对话框内容")]
         public const string ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH = "加载关卡失败，存档状态和当前游戏状态不匹配。";
+        [TranslateMsg("对话框内容")]
+        public const string WARNING_SELECTED_BLUEPRINTS_NOT_FULL = "你没有携带满蓝图，确认要继续吗？";
 
         #region 保存属性
         private float levelProgress;
@@ -492,6 +683,9 @@ namespace MVZ2.Level
         public RandomGenerator RNG => rng;
         private RandomGenerator rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
         private OptionsLogicLevel optionsLogic;
+        private bool isChoosingBlueprints;
+        private List<int> chosenBlueprints = new List<int>();
+        private NamespaceID[] choosingBlueprints;
 
         [Header("UI")]
         [SerializeField]
@@ -504,6 +698,10 @@ namespace MVZ2.Level
         private List<Sprite> pauseImages = new List<Sprite>();
         [SerializeField]
         private Sprite pickaxeSprite;
+        [SerializeField]
+        private int blueprintChooseCountPerRowStandalone = 8;
+        [SerializeField]
+        private int blueprintChooseCountPerRowMobile = 4;
         #endregion
     }
 }

@@ -61,6 +61,7 @@ namespace MVZ2.Level.Components
         int GetDelayedMoney();
         void AddDelayedMoney(Entity entity, int value);
         bool RemoveDelayedMoney(Entity entity);
+        void ClearDelayedMoney();
     }
     public interface ILightComponent : ILevelComponent
     {

@@ -9,19 +9,14 @@ namespace MVZ2.Level.UI
 {
     public class BlueprintChoosePanelMobile : BlueprintChoosePanel
     {
-        public override void UpdateItems(BlueprintViewData[] viewDatas)
+        public override void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {
-            var groups = viewDatas
-                .Select((v, i) => (v, i))
-                .GroupBy(p => p.i / countPerRow);
-            var validViewDatas = groups
-                .Where(g => !g.All(p => p.v.empty))
-                .SelectMany(g => g.Select(p => p.v))
-                .ToArray();
             blueprintList.updateList(viewDatas.Length, (i, rect) =>
             {
-                var page = rect.GetComponent<Blueprint>();
-                page.UpdateView(validViewDatas[i]);
+                var blueprint = rect.GetComponent<Blueprint>();
+                blueprint.UpdateView(viewDatas[i].blueprint);
+                blueprint.SetDisabled(viewDatas[i].disabled || viewDatas[i].selected);
+                blueprint.SetRecharge(viewDatas[i].selected ? 1 : 0);
             },
             rect =>
             {
@@ -38,6 +33,10 @@ namespace MVZ2.Level.UI
                 page.OnPointerDown -= OnBlueprintPointerDownCallback;
             });
         }
+        public override Blueprint GetItem(int index)
+        {
+            return blueprintList.getElement<Blueprint>(index);
+        }
         private void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData eventData)
         {
             CallBlueprintPointerEnter(blueprintList.indexOf(blueprint), eventData);
@@ -52,8 +51,6 @@ namespace MVZ2.Level.UI
         }
         [Header("Mobile")]
         [SerializeField]
-        ElementList blueprintList;
-        [SerializeField]
-        int countPerRow = 4;
+        ElementListUI blueprintList;
     }
 }

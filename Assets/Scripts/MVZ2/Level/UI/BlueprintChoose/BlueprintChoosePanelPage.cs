@@ -7,12 +7,14 @@ namespace MVZ2.Level.UI
 {
     public class BlueprintChoosePanelPage : MonoBehaviour
     {
-        public void UpdateItems(BlueprintViewData[] viewDatas)
+        public void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {
             blueprintList.updateList(viewDatas.Length, (i, rect) =>
             {
                 var blueprint = rect.GetComponent<Blueprint>();
-                blueprint.UpdateView(viewDatas[i]);
+                blueprint.UpdateView(viewDatas[i].blueprint);
+                blueprint.SetDisabled(viewDatas[i].disabled || viewDatas[i].selected);
+                blueprint.SetRecharge(viewDatas[i].selected ? 1 : 0);
             },
             rect =>
             {
@@ -28,6 +30,10 @@ namespace MVZ2.Level.UI
                 blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
                 blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
             });
+        }
+        public Blueprint GetItem(int index)
+        {
+            return blueprintList.getElement<Blueprint>(index);
         }
         private void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData eventData)
         {
@@ -45,6 +51,6 @@ namespace MVZ2.Level.UI
         public event Action<BlueprintChoosePanelPage, int, PointerEventData> OnBlueprintPointerExit;
         public event Action<BlueprintChoosePanelPage, int, PointerEventData> OnBlueprintPointerDown;
         [SerializeField]
-        ElementList blueprintList;
+        ElementListUI blueprintList;
     }
 }

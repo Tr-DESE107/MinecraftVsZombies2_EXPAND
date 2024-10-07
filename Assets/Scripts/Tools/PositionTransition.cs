@@ -17,7 +17,7 @@ namespace Tools
         }
         public void setStartPosition(Vector3 globalPosition)
         {
-            if (_isLocalMode)
+            if (isLocalMode)
             {
                 _startPosition = globalToLocalPoint(globalPosition);
             }
@@ -28,7 +28,7 @@ namespace Tools
         }
         public void setStartLocalPosition(Vector3 localPosition)
         {
-            if (_isLocalMode)
+            if (isLocalMode)
             {
                 _startPosition = localPosition;
             }
@@ -78,7 +78,7 @@ namespace Tools
         public void setPositionByTime(float time)
         {
             Vector3 targetPosition = targetTransform ? targetTransform.position : _targetPosition;
-            if (_isLocalMode)
+            if (isLocalMode)
             {
                 Vector3 globalStartPosition;
                 Vector3 localStartPosition;
@@ -128,10 +128,7 @@ namespace Tools
         }
         protected void LateUpdate()
         {
-            //不能将位置的更新放在LateUpdate中，LateUpdate中TargetTransform的位置与Update中的不同，可能与动画和Layout有关，此时处于没有计算Layout的状态。
-            //也不能在Update中获取位置，然后在LateUpdate中更新位置，更新的位置仍然是错的。
-            // 不过在场景重做为Mesh之后好像就没有这个问题了
-            setPositionByTime(_time);
+            setPositionByTime(time);
         }
         #endregion
 
@@ -164,9 +161,9 @@ namespace Tools
         public Transform targetTransform => _targetTransform;
         [Range(0, 1)]
         [SerializeField]
-        public float _time;
+        public float time;
         [SerializeField]
-        public bool _isLocalMode;
+        bool isLocalMode;
         [SerializeField]
         Transform _startTransform;
         [SerializeField]
@@ -177,10 +174,10 @@ namespace Tools
         Vector3 _startPosition;
         [SerializeField]
         Vector3 _targetPosition;
-        public bool isLocalMode
+        public bool IsLocalMode
         {
-            get => _isLocalMode;
-            set => _isLocalMode = value;
+            get => isLocalMode;
+            set => isLocalMode = value;
         }
         public Vector3 startPosition
         {

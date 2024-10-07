@@ -20,35 +20,44 @@ namespace MVZ2.UI
 
             base.InitDialog();
 
-            bool isInLevel = Level.IsGameStarted() && Level.GetCurrentFlag() <= 0;
+            bool isInLevel = Level.IsGameStarted() || Level.GetCurrentFlag() > 0;
             dialog.SetButtonActive(ButtonType.Difficulty, !isInLevel);
             dialog.SetButtonActive(ButtonType.Restart, isInLevel);
 
             dialog.SetButtonActive(ButtonType.MoreOptions, false);
             dialog.SetButtonActive(ButtonType.LeaveLevel, true);
         }
-        protected override void OnButtonClickCallback(ButtonType type)
+        protected override async void OnButtonClickCallback(ButtonType type)
         {
             base.OnButtonClickCallback(type);
             switch (type)
             {
                 case ButtonType.LeaveLevel:
                     {
-                        var title = Main.LanguageManager._(StringTable.BACK);
-                        var desc = Main.LanguageManager._(DIALOG_DESC_LEAVE_LEVEL);
-                        Main.Scene.ShowDialogConfirm(title, desc, async (confirm) =>
+                        if (Level.IsGameStarted() || Level.GetCurrentFlag() > 0)
                         {
-                            if (confirm)
-                            {
-                                Main.LevelManager.SaveLevel();
-                                await Level.ExitLevel();
-                            }
-                        });
+                            var title = Main.LanguageManager._(StringTable.BACK);
+                            var desc = Main.LanguageManager._(DIALOG_DESC_LEAVE_LEVEL);
+
+                            var result = await Main.Scene.ShowDialogConfirmAsync(title, desc);
+                            if (!result)
+                                break;
+                        }
+                        if (Level.IsGameStarted())
+                        {
+                            Main.LevelManager.SaveLevel();
+                        }
+                        await Level.ExitLevel();
                     }
                     break;
                 case ButtonType.Restart:
                     {
                         Level.ShowRestartConfirmDialog();
+                    }
+                    break;
+                case ButtonType.Difficulty:
+                    {
+                        Level.UpdateDifficulty();
                     }
                     break;
             }

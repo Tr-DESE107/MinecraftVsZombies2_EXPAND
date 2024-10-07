@@ -18,7 +18,8 @@ namespace MVZ2.Level.UI
             commandBlockRoot.SetActive(viewData.hasCommandBlock);
             artifactRoot.SetActive(viewData.hasArtifacts);
         }
-        public abstract void UpdateItems(BlueprintViewData[] viewDatas);
+        public abstract void UpdateItems(ChoosingBlueprintViewData[] viewDatas);
+        public abstract Blueprint GetItem(int index);
         public void ResetArtifactCount(int count)
         {
             artifactList.updateList(count, (i ,rect) =>
@@ -84,12 +85,23 @@ namespace MVZ2.Level.UI
         [SerializeField]
         GameObject artifactRoot;
         [SerializeField]
-        ElementList artifactList;
+        ElementListUI artifactList;
     }
     public struct BlueprintChoosePanelViewData
     {
         public bool canViewLawn;
         public bool hasCommandBlock;
         public bool hasArtifacts;
+    }
+    public struct ChoosingBlueprintViewData
+    {
+        public BlueprintViewData blueprint;
+        public bool disabled;
+        public bool selected;
+
+        public static readonly ChoosingBlueprintViewData Empty = new ChoosingBlueprintViewData()
+        {
+            blueprint = BlueprintViewData.Empty
+        };
     }
 }

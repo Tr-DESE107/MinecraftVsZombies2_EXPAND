@@ -20,7 +20,7 @@ namespace MVZ2.Level.UI
         }
 
         [SerializeField]
-        private ElementList flags;
+        private ElementListUI flags;
         [SerializeField]
         private Slider slider;
     }

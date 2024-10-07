@@ -71,7 +71,7 @@ namespace MVZ2.Mainmenu.UI
         private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
 
         [SerializeField]
-        private ElementList userList;
+        private ElementListUI userList;
         [SerializeField]
         private Button createNewUserButton;
         [SerializeField]

@@ -17,6 +17,7 @@ namespace MVZ2.Resources
                 for (int j = 0; j < categoryEntries.Length; j++)
                 {
                     categoryEntries[j] = AlmanacMetaEntry.FromXmlNode(categoryNode.ChildNodes[j], defaultNsp);
+                    categoryEntries[j].index = j;
                 }
                 entries.Add(typeName, categoryEntries);
             }

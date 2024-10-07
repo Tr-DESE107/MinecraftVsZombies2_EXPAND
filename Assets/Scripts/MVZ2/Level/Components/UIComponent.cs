@@ -103,7 +103,7 @@ namespace MVZ2.Level.Components
                 case HintArrowTargetType.Blueprint:
                     {
                         var index = (int)TargetID;
-                        if (index < 0 || index >= Level.GetSeedPackCount())
+                        if (index < 0 || index >= Level.GetSeedSlotCount())
                             break;
                         SetHintArrowPointToBlueprint(index);
                     }

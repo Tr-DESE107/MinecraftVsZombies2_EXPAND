@@ -19,7 +19,7 @@ namespace MVZ2.UI
         }
         public void SetEmpty(bool empty)
         {
-            emptyImageObj.SetActive(empty);
+            emptyObj.SetActive(empty);
             rootObj.SetActive(!empty);
         }
         public void SetIcon(Sprite sprite)
@@ -74,7 +74,7 @@ namespace MVZ2.UI
         [SerializeField]
         private Animator animator;
         [SerializeField]
-        private GameObject emptyImageObj;
+        private GameObject emptyObj;
         [SerializeField]
         private GameObject rootObj;
         [SerializeField]

@@ -33,7 +33,7 @@ namespace MVZ2.UI
         [SerializeField]
         private TextMeshProUGUI desc;
         [SerializeField]
-        private ElementList buttonList;
+        private ElementListUI buttonList;
 
     }
 }

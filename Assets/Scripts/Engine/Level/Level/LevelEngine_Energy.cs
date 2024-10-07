@@ -26,6 +26,10 @@ namespace PVZEngine.Level
         {
             return delayedEnergyEntities.Remove(entity);
         }
+        public void ClearEnergyDelayedEntities()
+        {
+            delayedEnergyEntities.Clear();
+        }
         public float GetDelayedEnergy()
         {
             return delayedEnergyEntities.Values.Sum();

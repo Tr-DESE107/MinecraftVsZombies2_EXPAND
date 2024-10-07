@@ -8,18 +8,37 @@ namespace PVZEngine.Level
     public partial class LevelEngine
     {
         #region 公有方法
-        public int GetSeedPackCount(bool ignoreEmpty = false)
+
+        #region 种子包
+        public void InsertSeedPackAt(int index, NamespaceID id)
         {
-            if (ignoreEmpty)
-                return seedPacks.Count(s => s != null);
-            return seedPacks.Length;
+            if (id == null)
+                return;
+            if (index < 0 || index >= seedPacks.Length)
+                return;
+            if (seedPacks[index] != null)
+                return;
+            var seedPack = PopSeedPackFromPool(id);
+            seedPacks[index] = seedPack;
+            NotifySeedPackChange(index);
         }
-        public void SetSeedPackCount(int count)
+        public bool RemoveSeedPackAt(int index)
         {
-            var oldSeedPacks = seedPacks.ToArray();
-            seedPacks = new SeedPack[count];
-            OnSeedPackCountChanged?.Invoke(count);
-            ReplaceSeedPacks(oldSeedPacks);
+            if (index < 0 || index >= seedPacks.Length)
+                return false;
+            if (seedPacks[index] == null)
+                return false;
+            PushSeedPackToPool(seedPacks[index]);
+            seedPacks[index] = null;
+            NotifySeedPackChange(index);
+            return true;
+        }
+        public void ReplaceSeedPackAt(int index, NamespaceID id)
+        {
+            if (index < 0 || index >= seedPacks.Length)
+                return;
+            RemoveSeedPackAt(index);
+            InsertSeedPackAt(index, id);
         }
         public void ClearSeedPacks()
         {
@@ -30,52 +49,67 @@ namespace PVZEngine.Level
         }
         public void ReplaceSeedPacks(IEnumerable<NamespaceID> targetsID)
         {
-            ReplaceSeedPacks(targetsID.Select(t => CreateSeedPack(t)));
-        }
-        public void ReplaceSeedPacks(IEnumerable<SeedPack> targetPacks)
-        {
-            var targetCount = targetPacks.Count();
+            var targetCount = targetsID.Count();
             for (int i = 0; i < seedPacks.Length; i++)
             {
-                var seed = i < targetCount ? targetPacks.ElementAt(i) : null;
-                SetSeedPackAt(i, seed);
+                var seed = i < targetCount ? targetsID.ElementAt(i) : null;
+                ReplaceSeedPackAt(i, seed);
             }
         }
         public int GetSeedPackIndex(SeedPack seed)
         {
             return Array.IndexOf(seedPacks, seed);
         }
+        public int GetSeedPackIndex(NamespaceID id)
+        {
+            return Array.FindIndex(seedPacks, s => s.GetDefinitionID() == id);
+        }
+        public int GetSeedPackCount()
+        {
+            return seedPacks.Count(s => s != null);
+        }
         public SeedPack[] GetAllSeedPacks()
         {
             return seedPacks.ToArray();
+        }
+        public NamespaceID GetSeedPackIDAt(int index)
+        {
+            return seedPacks[index]?.GetDefinitionID();
         }
         public SeedPack GetSeedPackAt(int index)
         {
             return seedPacks[index];
         }
-        public void SetSeedPackAt(int index, NamespaceID seedID)
-        {
-            var seed = CreateSeedPack(seedID);
-            SetSeedPackAt(index, seedID);
-        }
-        public void SetSeedPackAt(int index, SeedPack seed)
-        {
-            if (index < 0 || index >= seedPacks.Length)
-                return;
-            seedPacks[index] = seed;
-            NotifySeedPackChange(index);
-        }
-        public void RemoveSeedPackAt(int index)
-        {
-            if (index < 0 || index >= seedPacks.Length)
-                return;
-            seedPacks[index] = null;
-            NotifySeedPackChange(index);
-        }
         public SeedPack GetSeedPack(NamespaceID seedRef)
         {
-            return seedPacks.FirstOrDefault(r => r != null && r.Definition.GetID() == seedRef);
+            return seedPacks.FirstOrDefault(r => r != null && r.GetDefinitionID() == seedRef);
         }
+        #endregion
+
+        #region 种子栏位
+        public int GetSeedSlotCount()
+        {
+            return seedPacks.Length;
+        }
+        public void SetSeedSlotCount(int count)
+        {
+            var oldSeedPacks = seedPacks.ToArray();
+            seedPacks = new SeedPack[count];
+            OnSeedSlotCountChanged?.Invoke(count);
+
+            ClearSeedPacks();
+            ReplaceSeedPacks(oldSeedPacks.Select(s => s.GetDefinitionID()));
+        }
+        #endregion
+
+        #region 种子池
+        public SeedPack[] GetSeedPackPool()
+        {
+            return seedPackPool.ToArray();
+        }
+        #endregion
+
+        #region 充能
         /// <summary>
         /// 将卡牌的重装载时间设置为初始。
         /// </summary>
@@ -108,6 +142,8 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        #endregion
+
         #region 私有方法
         private void NotifySeedPackChange(int index)
         {
@@ -121,28 +157,50 @@ namespace PVZEngine.Level
                     continue;
                 seedPack.Update(RechargeSpeed);
             }
+            foreach (var seedPack in seedPackPool)
+            {
+                if (seedPack == null)
+                    continue;
+                seedPack.Update(RechargeSpeed);
+            }
         }
 
-        private SeedPack CreateSeedPack(NamespaceID seedRef)
+        #region 种子池
+        private SeedPack PopSeedPackFromPool(NamespaceID seedRef)
         {
             if (seedRef == null)
                 return null;
             SeedDefinition seedDefinition = ContentProvider.GetSeedDefinition(seedRef);
             if (seedDefinition == null)
                 return null;
-            var seedPack = new SeedPack(this, seedDefinition);
-            seedPack.SetStartRecharge(true);
-            return seedPack;
+            var seedPack = seedPackPool.FirstOrDefault(s => s.Definition.GetID() == seedRef);
+            if (seedPack != null)
+            {
+                seedPackPool.Remove(seedPack);
+                return seedPack;
+            }
+            else
+            {
+                seedPack = new SeedPack(this, seedDefinition);
+                seedPack.SetStartRecharge(true);
+                return seedPack;
+            }
         }
+        private void PushSeedPackToPool(SeedPack seed)
+        {
+            seedPackPool.Add(seed);
+        }
+        #endregion
 
         #endregion
 
-        public event Action<int> OnSeedPackCountChanged;
+        public event Action<int> OnSeedSlotCountChanged;
         public event Action<int> OnSeedPackChanged;
         #region 属性字段
         public float RechargeSpeed { get; set; } = 1;
         public float RechargeTimeMultiplier { get; set; } = 1;
         private SeedPack[] seedPacks = Array.Empty<SeedPack>();
+        private List<SeedPack> seedPackPool = new List<SeedPack>();
         #endregion
     }
 }

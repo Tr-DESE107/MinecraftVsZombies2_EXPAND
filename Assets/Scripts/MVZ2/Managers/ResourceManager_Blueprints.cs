@@ -12,11 +12,11 @@ namespace MVZ2.Managers
         {
             if (seed == null)
                 return BlueprintViewData.Empty;
-            var viewData = GetSeedDefinitionViewData(seed.Definition);
+            var viewData = GetBlueprintViewData(seed.Definition);
             viewData.cost = seed.GetCost().ToString();
             return viewData;
         }
-        public BlueprintViewData GetSeedDefinitionViewData(SeedDefinition seedDef)
+        public BlueprintViewData GetBlueprintViewData(SeedDefinition seedDef)
         {
             if (seedDef == null)
             {

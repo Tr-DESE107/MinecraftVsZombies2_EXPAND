@@ -7,6 +7,7 @@ namespace MVZ2.Resources
     {
         public NamespaceID id;
         public string text;
+        public int index = -1;
         public static AlmanacMetaEntry FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);

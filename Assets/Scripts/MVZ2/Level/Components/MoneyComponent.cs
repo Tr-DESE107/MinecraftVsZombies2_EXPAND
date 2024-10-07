@@ -39,6 +39,10 @@ namespace MVZ2.Level.Components
         {
             return delayedMoneyEntities.Remove(entity);
         }
+        public void ClearDelayedMoney()
+        {
+            delayedMoneyEntities.Clear();
+        }
         public override void Update()
         {
             base.Update();

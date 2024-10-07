@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
@@ -14,6 +15,7 @@ namespace MVZ2.Level
     {
         #region 私有方法
 
+        #region 移动相机
         private void SetCameraPosition(LevelCameraPosition position)
         {
             var pos = cameraHousePosition;
@@ -58,7 +60,10 @@ namespace MVZ2.Level
         {
             return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
         }
-        private void GameInstantTransition()
+        #endregion
+
+        #region 游戏开始
+        private void GameStartInstantTransition()
         {
             SetCameraPosition(LevelCameraPosition.Lawn);
             StartGame();
@@ -93,9 +98,10 @@ namespace MVZ2.Level
         {
             yield return GameStartToPreviewTransition();
 
-            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
+            UpdateDifficulty();
+            UpdateEnergy();
             var seedSlots = Main.SaveManager.GetBlueprintSlots();
-            level.SetSeedPackCount(seedSlots);
+            level.SetSeedSlotCount(seedSlots);
             var unlocked = Main.SaveManager.GetUnlockedContraptions();
 
             if (unlocked.Length > seedSlots)
@@ -105,6 +111,9 @@ namespace MVZ2.Level
                 uiPreset.SetSideUIBlend(0);
                 uiPreset.SetBlueprintChooseBlend(0);
                 ShowBlueprintChoosePanel(unlocked);
+                uiPreset.SetBlockRaycasts(false);
+                yield return new WaitForSeconds(0.5f);
+                uiPreset.SetBlockRaycasts(true);
             }
             else
             {
@@ -113,6 +122,18 @@ namespace MVZ2.Level
                 yield return GameStartToLawnTransition();
             }
         }
+        private IEnumerator BlueprintChosenTransition()
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.SetBlueprintsChooseVisible(false);
+            uiPreset.SetBlockRaycasts(false);
+
+            yield return new WaitForSeconds(1);
+            yield return GameStartToLawnTransition();
+        }
+        #endregion
+
+        #region 游戏结束
         private IEnumerator GameOverByEnemyTransition()
         {
             Main.MusicManager.Stop();
@@ -138,6 +159,9 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
         }
+        #endregion
+
+        #region 退出关卡
         private IEnumerator ExitLevelTransition(float delay)
         {
             yield return new WaitForSeconds(delay);
@@ -166,6 +190,8 @@ namespace MVZ2.Level
                 StartCoroutine(ExitLevelTransition(delay));
             }
         }
+        #endregion
+
         #endregion
 
         #region 属性字段

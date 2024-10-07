@@ -25,7 +25,7 @@ namespace MVZ2.Level.UI
             var button = isNextPage ? nextPageButton : previousPageButton;
             button.interactable = interactable;
         }
-        public override void UpdateItems(BlueprintViewData[] viewDatas)
+        public override void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {
             var pageCount = Mathf.CeilToInt(viewDatas.Length / (float)maxCountPerPage);
             pageList.updateList(pageCount, (i, rect) =>
@@ -48,6 +48,15 @@ namespace MVZ2.Level.UI
                 page.OnBlueprintPointerDown -= OnBlueprintPointerDownCallback;
             });
             SetCurrentPage(0, pageCount);
+            pageRoot.SetActive(pageCount > 1);
+        }
+        public override Blueprint GetItem(int index)
+        {
+            var pageNum = Mathf.FloorToInt(index / (float)maxCountPerPage);
+            var page = pageList.getElement<BlueprintChoosePanelPage>(pageNum);
+            if (page == null)
+                return null;
+            return page.GetItem(index % maxCountPerPage);
         }
         private void OnBlueprintPointerEnterCallback(BlueprintChoosePanelPage page, int indexInPage, PointerEventData eventData)
         {
@@ -63,9 +72,11 @@ namespace MVZ2.Level.UI
         }
         [Header("Standalone")]
         [SerializeField]
+        GameObject pageRoot;
+        [SerializeField]
         TextMeshProUGUI pageText;
         [SerializeField]
-        ElementList pageList;
+        ElementListUI pageList;
         [SerializeField]
         Button previousPageButton;
         [SerializeField]

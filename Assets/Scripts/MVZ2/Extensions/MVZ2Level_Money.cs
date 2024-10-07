@@ -34,5 +34,10 @@ namespace MVZ2.Extensions
             var component = level.GetMoneyComponent();
             return component.GetDelayedMoney();
         }
+        public static void ClearDelayedMoney(this LevelEngine level)
+        {
+            var component = level.GetMoneyComponent();
+            component.ClearDelayedMoney();
+        }
     }
 }

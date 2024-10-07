@@ -29,6 +29,12 @@ namespace MVZ2
                 main.LanguageManager._(StringTable.NO),
             }, (index) => onSelect?.Invoke(index == 0));
         }
+        public Task<bool> ShowDialogConfirmAsync(string title, string desc)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            ShowDialogConfirm(title, desc, (result) => tcs.SetResult(result));
+            return tcs.Task;
+        }
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
         {
             ui.ShowDialog(title, desc, options, onSelect);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
@@ -75,83 +76,51 @@ namespace MVZ2.Level
 
         private void UpdateBlueprintCount()
         {
-            var count = level.GetSeedPackCount();
+            var count = level.GetSeedSlotCount();
             var levelUI = GetUIPreset();
-            levelUI.SetBlueprintCount(count);
+            levelUI.SetBlueprintSlotCount(count);
         }
         private void UpdateBlueprint(int index)
         {
             var seed = level.GetSeedPackAt(index);
+            var uiPreset = GetUIPreset();
+            var blueprint = uiPreset.GetBlueprintAt(index);
+            if (!blueprint)
+            {
+                blueprint = uiPreset.CreateBlueprint();
+                uiPreset.InsertBlueprint(index, blueprint);
+                uiPreset.ForceAlignBlueprint(index);
+            }
             BlueprintViewData viewData = Main.ResourceManager.GetBlueprintViewData(seed);
-            var levelUI = GetUIPreset();
-            levelUI.SetBlueprintAt(index, viewData);
+            blueprint.UpdateView(viewData);
         }
         private void UpdateBlueprintsView()
         {
-            var count = level.GetSeedPackCount();
+            var count = level.GetSeedSlotCount();
             var levelUI = GetUIPreset();
-            levelUI.SetBlueprintCount(count);
+            levelUI.SetBlueprintSlotCount(count);
             for (int i = 0; i < count; i++)
             {
-                var seed = level.GetSeedPackAt(i);
-                BlueprintViewData viewData = Main.ResourceManager.GetBlueprintViewData(seed);
-                levelUI.SetBlueprintAt(i, viewData);
+                UpdateBlueprint(i);
             }
         }
         private void UpdateBlueprintsState()
         {
-            UpdateBlueprintRecharges();
-            UpdateBlueprintDisabled();
-            UpdateBlueprintSelected();
-            UpdateBlueprintTwinkle();
-        }
-        private void UpdateBlueprintRecharges()
-        {
             var levelUI = GetUIPreset();
             var seeds = level.GetAllSeedPacks();
             for (int i = 0; i < seeds.Length; i++)
             {
                 var seed = seeds[i];
                 if (seed == null)
+                    continue;
+                var blueprint = levelUI.GetBlueprintAt(i);
+                if (!blueprint)
                     continue;
                 var maxCharge = seed.GetMaxRecharge();
-                levelUI.SetBlueprintRecharge(i, maxCharge == 0 ? 0 : 1 - seed.GetRecharge() / maxCharge);
-            }
-        }
-        private void UpdateBlueprintDisabled()
-        {
-            var levelUI = GetUIPreset();
-            var seeds = level.GetAllSeedPacks();
-            for (int i = 0; i < seeds.Length; i++)
-            {
-                var seed = seeds[i];
-                if (seed == null)
-                    continue;
-                levelUI.SetBlueprintDisabled(i, !CanPickBlueprint(seed));
-            }
-        }
-        private void UpdateBlueprintSelected()
-        {
-            var levelUI = GetUIPreset();
-            var seeds = level.GetAllSeedPacks();
-            for (int i = 0; i < seeds.Length; i++)
-            {
-                var seed = seeds[i];
-                if (seed == null)
-                    continue;
-                levelUI.SetBlueprintSelected(i, level.IsHoldingBlueprint(i));
-            }
-        }
-        private void UpdateBlueprintTwinkle()
-        {
-            var levelUI = GetUIPreset();
-            var seeds = level.GetAllSeedPacks();
-            for (int i = 0; i < seeds.Length; i++)
-            {
-                var seed = seeds[i];
-                if (seed == null)
-                    continue;
-                levelUI.SetBlueprintTwinkle(i, seed.IsTwinkling());
+                blueprint.SetRecharge(maxCharge == 0 ? 0 : 1 - seed.GetRecharge() / maxCharge);
+                blueprint.SetDisabled(!CanPickBlueprint(seed));
+                blueprint.SetSelected(level.IsHoldingBlueprint(i));
+                blueprint.SetTwinkling(seed.IsTwinkling());
             }
         }
         private bool CanPickBlueprint(SeedPack seed)
@@ -197,6 +166,31 @@ namespace MVZ2.Level
         }
         private void ClickBlueprint(int index)
         {
+            if (IsChoosingBlueprints())
+            {
+                var choosingIndex = chosenBlueprints[index];
+                chosenBlueprints.RemoveAt(index);
+
+                var uiPreset = GetUIPreset();
+                var blueprint = uiPreset.GetBlueprintAt(index);
+                uiPreset.RemoveBlueprintAt(index);
+
+                var startPos = blueprint.transform.position;
+                var targetBlueprint = uiPreset.GetBlueprintChooseItem(choosingIndex);
+                var movingBlueprint = uiPreset.CreateMovingBlueprint();
+                movingBlueprint.transform.position = startPos;
+                movingBlueprint.SetBlueprint(blueprint);
+                movingBlueprint.SetMotion(startPos, targetBlueprint.transform);
+                movingBlueprint.OnMotionFinished += () =>
+                {
+                    UpdateBlueprintChooseItem(choosingIndex);
+                    uiPreset.RemoveMovingBlueprint(movingBlueprint);
+                };
+
+                level.PlaySound(SoundID.tap);
+                return;
+            }
+
             if (level.IsHoldingItem())
             {
                 if (level.CancelHeldItem())

@@ -17,6 +17,10 @@ namespace PVZEngine.Level
         {
             return Level.GetSeedPackIndex(this);
         }
+        public NamespaceID GetDefinitionID()
+        {
+            return Definition?.GetID();
+        }
         #region 属性
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {

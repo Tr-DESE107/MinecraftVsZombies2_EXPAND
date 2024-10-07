@@ -136,7 +136,7 @@ namespace MVZ2.Level
             level.OnGameOver += Engine_OnGameOverCallback;
 
             level.OnSeedPackChanged += Engine_OnSeedPackChangedCallback;
-            level.OnSeedPackCountChanged += Engine_OnSeedPackCountChangedCallback;
+            level.OnSeedSlotCountChanged += Engine_OnSeedPackCountChangedCallback;
 
             level.OnClear += Engine_OnClearCallback;
 

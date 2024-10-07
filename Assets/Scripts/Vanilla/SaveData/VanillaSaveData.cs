@@ -1,6 +1,7 @@
 ﻿using System;
 using MVZ2.Save;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Save
 {
@@ -25,7 +26,7 @@ namespace MVZ2.Vanilla.Save
             LastMapID = serializable.lastMapID;
             MapTalkID = serializable.mapTalkID;
             money = serializable.money;
-            blueprintSlots = serializable.blueprintSlots;
+            blueprintSlots = Mathf.Max(MIN_BLUEPRINT_SLOTS, serializable.blueprintSlots);
         }
 
         public int GetMoney()
@@ -44,10 +45,11 @@ namespace MVZ2.Vanilla.Save
         {
             blueprintSlots = value;
         }
+        public const int MIN_BLUEPRINT_SLOTS = 6;
         public NamespaceID LastMapID { get; set; }
         public NamespaceID MapTalkID { get; set; }
         private int money;
-        private int blueprintSlots = 6;
+        private int blueprintSlots = MIN_BLUEPRINT_SLOTS;
     }
     [Serializable]
     public class SerializableVanillaSaveData : SerializableModSaveData

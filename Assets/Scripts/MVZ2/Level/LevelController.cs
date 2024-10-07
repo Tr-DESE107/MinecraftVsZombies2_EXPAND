@@ -13,6 +13,7 @@ using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEditor.Presets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -48,6 +49,10 @@ namespace MVZ2.Level
             };
             level.Init(areaID, stageID, option);
             level.SetupArea();
+
+            var uiPreset = GetUIPreset();
+            uiPreset.UpdateFrame(0);
+            SetUnlockedUIVisible();
         }
         public void StartLevelIntro(float delay)
         {
@@ -65,7 +70,7 @@ namespace MVZ2.Level
             string transition = level.StageDefinition.GetStartTransition() ?? LevelTransitions.DEFAULT;
             if (transition == LevelTransitions.INSTANT)
             {
-                GameInstantTransition();
+                GameStartInstantTransition();
             }
             else if (transition == LevelTransitions.TO_LAWN)
             {
@@ -86,23 +91,30 @@ namespace MVZ2.Level
                 preview.RemovePreviewEnemies(level);
             }
 
+            for (int i = 0; i < chosenBlueprints.Count; i++)
+            {
+                var index = chosenBlueprints[i];
+                var blueprintID = choosingBlueprints[index];
+                level.ReplaceSeedPackAt(i, blueprintID);
+            }
+            chosenBlueprints.Clear();
+            choosingBlueprints = null;
+
             Main.MusicManager.Play(level.GetMusicID());
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
-
-            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
-
-            //level.SetEnergy(9990);
-            //level.RechargeSpeed = 99;
 
             SetUIVisibleState(VisibleState.InLevel);
             SetUnlockedUIVisible();
 
             UpdateBlueprintCount();
             UpdateLevelName();
-            UpdateDifficultyName();
+            UpdateDifficulty();
             UpdateLevelUI();
+
+            var uiPreset = GetUIPreset();
+            uiPreset.SetBlockRaycasts(true);
 
             level.Start();
 
@@ -145,6 +157,8 @@ namespace MVZ2.Level
             SetUIVisibleState(VisibleState.Nothing);
             pointingGridLane = -1;
             pointingGridColumn = -1;
+            level.ClearEnergyDelayedEntities();
+            level.ClearDelayedMoney();
             UpdateGridHighlight();
             isGameStarted = false;
             Main.SaveManager.SaveModDatas();

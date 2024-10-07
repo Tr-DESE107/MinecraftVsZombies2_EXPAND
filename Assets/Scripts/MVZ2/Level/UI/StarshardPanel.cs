@@ -28,6 +28,6 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private StarshardPanelIcon icon;
         [SerializeField]
-        private ElementList pointsList;
+        private ElementListUI pointsList;
     }
 }
