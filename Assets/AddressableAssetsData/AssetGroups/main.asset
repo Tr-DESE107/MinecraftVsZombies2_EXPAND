@@ -2117,7 +2117,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6680241eb2835d849b88849e175d87da
+  - m_GUID: 05624204036a01c4f82c858e3fedfb18
     m_Address: mvz2:pickup/blueprint_pickup
     m_ReadOnly: 0
     m_SerializedLabels:

@@ -1,8 +1,8 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.Managers;
+using MVZ2.UI;
 using PVZEngine;
 using PVZEngine.Level;
-using TMPro;
 using UnityEngine;
 
 namespace MVZ2.Rendering
@@ -15,47 +15,45 @@ namespace MVZ2.Rendering
             var blueprintID = Model.GetProperty<NamespaceID>("BlueprintID");
             if (lastID != blueprintID)
             {
+                var main = MainManager.Instance;
                 lastID = blueprintID;
-                if (blueprintID != null)
+                var resourceManager = main.ResourceManager;
+                BlueprintViewData viewData = new BlueprintViewData()
                 {
-                    var resourceManager = MainManager.Instance.ResourceManager;
-                    var entityID = blueprintID;
-                    var modelID = entityID.ToModelID(EngineModelID.TYPE_ENTITY);
-                    var modelIcon = resourceManager.GetModelIcon(modelID) ?? resourceManager.GetDefaultSprite();
-                    iconSprite.sprite = modelIcon;
-
-                    var spriteScale = 64f / Mathf.Max(modelIcon.rect.width, modelIcon.rect.height);
-                    iconSprite.transform.localScale = Vector3.one * spriteScale;
-
-                    var definition = MainManager.Instance.Game.GetSeedDefinition(blueprintID);
-                    if (definition == null)
+                    triggerActive = false,
+                    cost = "0",
+                    triggerCost = "0",
+                    icon = resourceManager.GetDefaultSprite()
+                };
+                if (NamespaceID.IsValid(blueprintID))
+                {
+                    var definition = main.Game.GetSeedDefinition(blueprintID);
+                    if (definition != null)
                     {
-                        costText.text = "0";
-                        triggerCostText.text = "0";
-                        triggerCostText.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        costText.text = definition.GetCost().ToString();
-                        triggerCostText.text = definition.GetTriggerCost().ToString();
-                        triggerCostText.gameObject.SetActive(definition.IsTriggerActive());
+                        viewData.icon = resourceManager.GetBlueprintIcon(definition);
+                        viewData.cost = definition.GetCost().ToString();
+                        viewData.triggerCost = definition.GetTriggerCost().ToString();
+                        viewData.triggerActive = definition.IsTriggerActive();
                     }
                 }
-                else
-                {
-                    iconSprite.sprite = null;
-                    costText.text = null;
-                    triggerCostText.text = null;
-                    triggerCostText.gameObject.SetActive(false);
-                }
+                bool isMobile = main.IsMobile();
+                var blueprintSprite = isMobile ? blueprintSpriteMobile : blueprintSpriteStandalone;
+                blueprintSpriteStandalone.gameObject.SetActive(!isMobile);
+                blueprintSpriteMobile.gameObject.SetActive(isMobile);
+                blueprintSprite.UpdateView(viewData);
+
+                colliderStandalone.SetActive(!isMobile);
+                colliderMobile.SetActive(isMobile);
             }
         }
         [SerializeField]
-        private SpriteRenderer iconSprite;
+        private GameObject colliderStandalone;
         [SerializeField]
-        private TextMeshPro costText;
+        private GameObject colliderMobile;
         [SerializeField]
-        private TextMeshPro triggerCostText;
+        private BlueprintSprite blueprintSpriteStandalone;
+        [SerializeField]
+        private BlueprintSprite blueprintSpriteMobile;
         private NamespaceID lastID;
     }
 }
