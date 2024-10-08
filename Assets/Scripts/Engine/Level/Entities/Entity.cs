@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Definitions;
+using PVZEngine.Level.Buffs;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
@@ -167,6 +168,18 @@ namespace PVZEngine.Level
         #endregion
 
         #region 增益
+        public Buff CreateBuff<T>() where T : BuffDefinition
+        {
+            return Level.CreateBuff<T>(AllocBuffID());
+        }
+        public Buff CreateBuff(BuffDefinition buffDefinition)
+        {
+            return Level.CreateBuff(buffDefinition, AllocBuffID());
+        }
+        public Buff CreateBuff(NamespaceID id)
+        {
+            return Level.CreateBuff(id, AllocBuffID());
+        }
         public bool AddBuff(Buff buff)
         {
             if (buffs.AddBuff(buff))
@@ -178,7 +191,7 @@ namespace PVZEngine.Level
         }
         public Buff AddBuff<T>() where T : BuffDefinition
         {
-            var buff = Level.CreateBuff<T>();
+            var buff = CreateBuff<T>();
             AddBuff(buff);
             return buff;
         }
@@ -188,6 +201,11 @@ namespace PVZEngine.Level
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceEntity(ID);
+        private long AllocBuffID()
+        {
+            return currentBuffID++;
+        }
         #endregion
 
         #region 物理
@@ -437,6 +455,7 @@ namespace PVZEngine.Level
             seri.isDead = IsDead;
             seri.health = Health;
             seri.isOnGround = isOnGround;
+            seri.currentBuffID = currentBuffID;
             seri.propertyDict = propertyDict.Serialize();
             seri.buffs = buffs.ToSerializable();
             seri.collisionThisTick = collisionThisTick.ConvertAll(e => e?.ID ?? 0);
@@ -475,6 +494,7 @@ namespace PVZEngine.Level
             IsDead = seri.isDead;
             Health = seri.health;
             isOnGround = seri.isOnGround;
+            currentBuffID = seri.currentBuffID;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             buffs = BuffList.FromSerializable(seri.buffs, Level, this);
             collisionThisTick = seri.collisionThisTick.ConvertAll(e => Level.FindEntityByID(e));
@@ -499,6 +519,7 @@ namespace PVZEngine.Level
         {
             UpdatePhysics(1);
             UpdateHitbox();
+            Health = Mathf.Min(Health, this.GetMaxHealth());
         }
         private void OnContactGround()
         {
@@ -518,6 +539,7 @@ namespace PVZEngine.Level
         }
 
         Entity IBuffTarget.GetEntity() => this;
+        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         #endregion
 
         #region 事件
@@ -567,6 +589,7 @@ namespace PVZEngine.Level
         private PropertyDictionary propertyDict = new PropertyDictionary();
 
         private bool isOnGround = true;
+        private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private List<Entity> collisionThisTick = new List<Entity>();
         private List<Entity> collisionList = new List<Entity>();

@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
 
-            var buff = entity.Level.CreateBuff<RandomEnemySpeedBuff>();
+            var buff = entity.CreateBuff<RandomEnemySpeedBuff>();
             buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, GetRandomSpeedMultiplier(entity));
             entity.AddBuff(buff);
 

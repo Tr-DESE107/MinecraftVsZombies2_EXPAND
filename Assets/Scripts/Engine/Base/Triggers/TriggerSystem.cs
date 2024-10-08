@@ -91,7 +91,10 @@ namespace PVZEngine.Triggers
         {
             Invoke(args);
         }
-        public abstract object Invoke(params object[] args);
+        public virtual object Invoke(params object[] args)
+        {
+            return Action?.DynamicInvoke(args);
+        }
         public NamespaceID CallbackID { get; }
         public Delegate Action { get; }
         public int Priority { get; }

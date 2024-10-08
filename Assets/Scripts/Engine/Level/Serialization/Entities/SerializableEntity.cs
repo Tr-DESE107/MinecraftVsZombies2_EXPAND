@@ -40,6 +40,7 @@ namespace PVZEngine.Serialization
         public bool isDead;
         public float health;
         public bool isOnGround;
+        public long currentBuffID;
         public SerializablePropertyDictionary propertyDict;
         public SerializableBuffList buffs;
         public List<long> collisionThisTick;

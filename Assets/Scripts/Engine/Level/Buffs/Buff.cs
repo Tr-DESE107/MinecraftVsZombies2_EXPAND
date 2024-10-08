@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Auras;
 using PVZEngine.Definitions;
 using PVZEngine.Level.Triggers;
 using PVZEngine.Modifiers;
@@ -11,14 +12,23 @@ namespace PVZEngine.Level
 {
     public class Buff
     {
-        public Buff(LevelEngine level, BuffDefinition definition)
+        public Buff(LevelEngine level, BuffDefinition definition, long id)
         {
+            ID = id;
             Level = level;
             Definition = definition;
             triggers.AddRange(definition.GetTriggerCaches().Select(t => new BuffTrigger(this, t)));
+
+            var auraDefs = definition.GetAuras();
+            for (int i = 0; i < auraDefs.Length; i++)
+            {
+                var auraDef = auraDefs[i];
+                auras.Add(level, new AuraEffect(auraDef, i));
+            }
         }
         public void Update()
         {
+            auras.Update(Level);
             if (Definition != null)
             {
                 Definition.PostUpdate(this);
@@ -81,21 +91,25 @@ namespace PVZEngine.Level
             return new SerializableBuff()
             {
                 definitionID = Definition.GetID(),
-                propertyDict = propertyDict.Serialize()
+                propertyDict = propertyDict.Serialize(),
+                auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
             };
         }
         public static Buff Deserialize(SerializableBuff seri, LevelEngine level, IBuffTarget target)
         {
             var definition = level.ContentProvider.GetBuffDefinition(seri.definitionID);
-            var buff = new Buff(level, definition);
+            var buff = new Buff(level, definition, seri.id);
             buff.Target = target;
             buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            buff.auras.LoadFromSerializable(level, seri.auras);
             return buff;
         }
+        public long ID { get; }
         public LevelEngine Level { get; }
         public BuffDefinition Definition { get; }
         public IBuffTarget Target { get; private set; }
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private List<BuffTrigger> triggers = new List<BuffTrigger>();
+        private AuraEffectList auras = new AuraEffectList();
     }
 }

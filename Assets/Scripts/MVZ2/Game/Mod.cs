@@ -6,6 +6,8 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Level.Triggers;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Modding
 {
@@ -56,8 +58,23 @@ namespace MVZ2.Modding
         {
             registry.RemoveCallbacks();
         }
+        public void AddTrigger<T>(NamespaceID callbackID, T action, int priority = 0, object filterValue = null) where T : Delegate
+        {
+            Global.Game.AddTrigger(new ModTrigger(callbackID, action, priority, filterValue));
+        }
         public string Namespace { get; }
-        private GameDefinitionGroup definitionGroup = new GameDefinitionGroup();
+        private DefinitionGroup definitionGroup = new DefinitionGroup();
         private CallbackRegistry registry = new CallbackRegistry();
+    }
+    public class ModTrigger : Trigger
+    {
+        public ModTrigger(NamespaceID callbackID, Delegate action, int priority = 0, object filterValue = null) : base(callbackID, action, priority, filterValue)
+        {
+        }
+
+        public override object Invoke(params object[] args)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

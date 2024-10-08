@@ -7,10 +7,15 @@ namespace PVZEngine.Level
         public const string RECHARGE_ID = "rechargeID";
         public const string COST = "cost";
 
+        public const string RECHARGE_SPEED = "rechargeSpeed";
         public const string RECHARGE = "recharge";
         public const string IS_START_RECHARGE = "isStartRecharge";
         public const string DISABLED = "disabled";
         public const string DISABLE_MESSAGE = "disableMessage";
+        public static float GetRechargeSpeed(this SeedPack seed)
+        {
+            return seed.GetProperty<float>(RECHARGE_SPEED);
+        }
         public static float GetRecharge(this SeedPack seed)
         {
             return seed.GetProperty<float>(RECHARGE);

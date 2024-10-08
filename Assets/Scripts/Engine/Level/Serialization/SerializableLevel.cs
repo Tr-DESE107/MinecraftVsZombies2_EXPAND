@@ -42,6 +42,8 @@ namespace PVZEngine.Serialization
         public SerializableSeedPack[] seedPackPool;
         public bool requireCards;
         public long currentEntityID = 1;
+        public long currentBuffID;
+        public int currentSeedPackID;
         public List<SerializableEntity> entities;
         public float energy;
         public SerializableDelayedEnergy[] delayedEnergyEntities;

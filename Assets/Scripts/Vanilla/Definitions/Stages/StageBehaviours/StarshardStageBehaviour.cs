@@ -22,7 +22,12 @@ namespace MVZ2.Vanilla
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            level.AddStarshardChance(STARSHARD_INCREAMENT);
+            var increament = STARSHARD_INCREAMENT;
+            if (level.Difficulty == VanillaDifficulties.easy)
+            {
+                increament *= 2;
+            }
+            level.AddStarshardChance(increament);
         }
         public override void PostEnemySpawned(Entity entity)
         {

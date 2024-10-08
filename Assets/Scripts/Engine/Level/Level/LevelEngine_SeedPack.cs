@@ -84,6 +84,10 @@ namespace PVZEngine.Level
         {
             return seedPacks.FirstOrDefault(r => r != null && r.GetDefinitionID() == seedRef);
         }
+        public SeedPack GetSeedPackByID(int id)
+        {
+            return seedPacks.FirstOrDefault(s => s.ID == id) ?? seedPackPool.FirstOrDefault(s => s.ID == id);
+        }
         #endregion
 
         #region 种子栏位
@@ -181,7 +185,7 @@ namespace PVZEngine.Level
             }
             else
             {
-                seedPack = new SeedPack(this, seedDefinition);
+                seedPack = new SeedPack(this, seedDefinition, currentSeedPackID++);
                 seedPack.SetStartRecharge(true);
                 return seedPack;
             }
@@ -199,6 +203,7 @@ namespace PVZEngine.Level
         #region 属性字段
         public float RechargeSpeed { get; set; } = 1;
         public float RechargeTimeMultiplier { get; set; } = 1;
+        private int currentSeedPackID = 1;
         private SeedPack[] seedPacks = Array.Empty<SeedPack>();
         private List<SeedPack> seedPackPool = new List<SeedPack>();
         #endregion

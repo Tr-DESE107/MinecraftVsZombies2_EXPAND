@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Level;
 
 namespace PVZEngine.Definitions
 {
@@ -6,6 +7,7 @@ namespace PVZEngine.Definitions
     {
         public SeedDefinition(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(EngineSeedProps.RECHARGE_SPEED, 1);
         }
     }
 }

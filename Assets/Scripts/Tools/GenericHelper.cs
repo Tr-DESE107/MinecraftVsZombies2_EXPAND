@@ -12,8 +12,7 @@
         {
             if (value == null)
             {
-                result = default;
-                return !typeof(T).IsValueType;
+                value = default(T);
             }
             if (value is T tProp)
             {

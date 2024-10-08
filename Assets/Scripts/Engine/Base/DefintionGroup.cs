@@ -5,7 +5,7 @@ using PVZEngine.Base;
 
 namespace PVZEngine
 {
-    public abstract class DefinitionGroup
+    public class DefinitionGroup
     {
         public DefinitionGroup()
         {
@@ -20,6 +20,9 @@ namespace PVZEngine
                     return;
                 }
             }
+            var newList = new DefinitionList<T>();
+            lists.Add(newList);
+            newList.Add(definition);
         }
         public T GetDefinition<T>(NamespaceID id) where T : Definition
         {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Definitions;
+using PVZEngine.Level.Buffs;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
@@ -272,29 +273,42 @@ namespace PVZEngine.Level
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(CreateBuff<T>());
+            AddBuff(CreateBuff<T>(AllocBuffID()));
         }
+        public void AddBuff(BuffDefinition buffDef) => buffs.AddBuff(CreateBuff(buffDef, AllocBuffID()));
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
+        public int RemoveBuffs(BuffDefinition buffDef) => RemoveBuffs(GetBuffs(buffDef));
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
+        public bool HasBuff(BuffDefinition buffDef) => buffs.HasBuff(buffDef);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
+        public Buff[] GetBuffs(BuffDefinition buffDef) => buffs.GetBuffs(buffDef);
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceLevel();
+        private long AllocBuffID()
+        {
+            long id = currentBuffID;
+            currentBuffID++;
+            return id;
+        }
         #endregion
 
-        public Buff CreateBuff<T>() where T : BuffDefinition
+        public Buff CreateBuff<T>(long buffID) where T : BuffDefinition
         {
             var buffDefinition = ContentProvider.GetBuffDefinition<T>();
-            if (buffDefinition == null)
-                return null;
-            return new Buff(this, buffDefinition);
+            return CreateBuff(buffDefinition, buffID);
         }
-        public Buff CreateBuff(NamespaceID id)
+        public Buff CreateBuff(NamespaceID id, long buffID)
         {
             var buffDefinition = ContentProvider.GetBuffDefinition(id);
-            if (buffDefinition == null)
+            return CreateBuff(buffDefinition, buffID);
+        }
+        public Buff CreateBuff(BuffDefinition buffDef, long buffID)
+        {
+            if (buffDef == null)
                 return null;
-            return new Buff(this, buffDefinition);
+            return new Buff(this, buffDef, buffID);
         }
 
         public RandomGenerator CreateRNG()
@@ -330,6 +344,8 @@ namespace PVZEngine.Level
                 seedPackPool = seedPackPool.Select(g => g != null ? g.Serialize() : null).ToArray(),
 
                 currentEntityID = currentEntityID,
+                currentBuffID = currentBuffID,
+                currentSeedPackID = currentSeedPackID,
                 entities = entities.ConvertAll(e => e.Serialize()),
 
                 energy = Energy,
@@ -369,7 +385,6 @@ namespace PVZEngine.Level
             level.Option = LevelOption.Deserialize(seri.Option);
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
             level.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
@@ -377,6 +392,8 @@ namespace PVZEngine.Level
             level.seedPackPool = seri.seedPackPool.Select(g => g != null ? SeedPack.Deserialize(g, level) : null).ToList();
 
             level.currentEntityID = seri.currentEntityID;
+            level.currentBuffID = seri.currentBuffID;
+            level.currentSeedPackID = seri.currentSeedPackID;
 
 
             level.CurrentWave = seri.currentWave;
@@ -395,6 +412,7 @@ namespace PVZEngine.Level
             // 在实体加载后面
             level.Energy = seri.energy;
             level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
+            level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
 
             return level;
         }
@@ -422,6 +440,9 @@ namespace PVZEngine.Level
             maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
         }
         Entity IBuffTarget.GetEntity() => null;
+        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        Buff IBuffTarget.CreateBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());
+        bool IBuffTarget.Exists() => true;
         #endregion
 
         public event Action OnClear;
@@ -455,6 +476,7 @@ namespace PVZEngine.Level
 
         private RandomGenerator miscRandom;
 
+        private long currentBuffID = 1;
         private string deathMessage;
 
         private PropertyDictionary propertyDict = new PropertyDictionary();

@@ -25,6 +25,6 @@ namespace MVZ2.Games
                 definitionGroup.Add(def);
             }
         }
-        private GameDefinitionGroup definitionGroup = new GameDefinitionGroup();
+        private DefinitionGroup definitionGroup = new DefinitionGroup();
     }
 }

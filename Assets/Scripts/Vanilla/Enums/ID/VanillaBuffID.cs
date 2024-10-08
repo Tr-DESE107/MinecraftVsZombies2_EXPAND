@@ -27,12 +27,20 @@ namespace MVZ2.GameContent
         // Cart
         public const string cartFadeIn = "cart_fade_in";
 
+        // Difficulty
+        public const string easyContraption = "easy_contraption";
+        public const string easyArmor = "easy_armor";
+        public const string hardEnemy = "hard_enemy";
+
         public static class SeedPack
         {
             public const string tutorialDisable = "tutorial_disable";
+            public const string easyBlueprint = "easy_blueprint";
         }
         public static class Level
         {
+            public const string levelEasy = "level_easy";
+            public const string levelHard = "level_hard";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
         }
     }
@@ -48,9 +56,23 @@ namespace MVZ2.GameContent
         public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.temporaryUpdateBeforeGame);
         public static readonly NamespaceID thunderLightFadeout = Get(VanillaBuffNames.thunderLightFadeout);
         public static readonly NamespaceID cartFadeIn = Get(VanillaBuffNames.cartFadeIn);
+        public static readonly NamespaceID easyContraption = Get(VanillaBuffNames.easyContraption);
+        public static readonly NamespaceID easyArmor = Get(VanillaBuffNames.easyArmor);
+        public static readonly NamespaceID hardEnemy = Get(VanillaBuffNames.hardEnemy);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
+        }
+        public static class SeedPack
+        {
+            public static readonly NamespaceID tutorialDisable = Get(VanillaBuffNames.SeedPack.tutorialDisable);
+            public static readonly NamespaceID easyBlueprint = Get(VanillaBuffNames.SeedPack.easyBlueprint);
+        }
+        public static class Level
+        {
+            public static readonly NamespaceID levelEasy = Get(VanillaBuffNames.Level.levelEasy);
+            public static readonly NamespaceID levelHard = Get(VanillaBuffNames.Level.levelHard);
+            public static readonly NamespaceID tutorialPickaxeDisable = Get(VanillaBuffNames.Level.tutorialPickaxeDisable);
         }
     }
 }

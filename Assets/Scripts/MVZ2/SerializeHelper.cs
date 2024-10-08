@@ -14,6 +14,7 @@ using MVZ2.Save;
 using PVZEngine;
 using PVZEngine.BsonSerializers;
 using PVZEngine.Level;
+using PVZEngine.Level.Buffs;
 using PVZEngine.Serialization;
 using Tools;
 using Tools.BsonSerializers;
@@ -44,6 +45,13 @@ namespace MVZ2.Serialization
             // PVZEngine.Level
             RegisterClass<EntityReferenceChain>();
             RegisterClass<EntityID>();
+
+            RegisterClass<BuffReference>();
+            RegisterClass<BuffReferenceEntity>();
+            RegisterClass<BuffReferenceArmor>();
+            RegisterClass<BuffReferenceLevel>();
+            RegisterClass<BuffReferenceSeedPack>();
+
             RegisterClass<SerializableEntity>();
             RegisterClass<SerializableArmor>();
             RegisterClass<SerializableBuff>();

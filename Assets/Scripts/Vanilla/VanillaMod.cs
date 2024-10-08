@@ -37,6 +37,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StarshardSpawnImplements());
             ImplementCallbacks(new EntityImplements());
+            ImplementCallbacks(new DifficultyImplements());
         }
         public override void PostGameInit()
         {

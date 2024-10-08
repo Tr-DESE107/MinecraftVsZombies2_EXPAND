@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using PVZEngine.Definitions;
+using PVZEngine.Level.Buffs;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
@@ -8,8 +9,9 @@ namespace PVZEngine.Level
 {
     public class SeedPack : IBuffTarget
     {
-        public SeedPack(LevelEngine level, SeedDefinition definition)
+        public SeedPack(LevelEngine level, SeedDefinition definition, int id)
         {
+            ID = id;
             Level = level;
             Definition = definition;
         }
@@ -47,6 +49,18 @@ namespace PVZEngine.Level
         #endregion
 
         #region 增益
+        public Buff CreateBuff<T>() where T : BuffDefinition
+        {
+            return Level.CreateBuff<T>(AllocBuffID());
+        }
+        public Buff CreateBuff(BuffDefinition buffDef)
+        {
+            return Level.CreateBuff(buffDef, AllocBuffID());
+        }
+        public Buff CreateBuff(NamespaceID id)
+        {
+            return Level.CreateBuff(id, AllocBuffID());
+        }
         public bool AddBuff(Buff buff)
         {
             if (buffs.AddBuff(buff))
@@ -58,7 +72,7 @@ namespace PVZEngine.Level
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(Level.CreateBuff<T>());
+            AddBuff(CreateBuff<T>());
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
@@ -66,6 +80,11 @@ namespace PVZEngine.Level
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceSeedPack(ID);
+        private long AllocBuffID()
+        {
+            return currentBuffID++;
+        }
         #endregion
 
         #region 消耗
@@ -104,7 +123,7 @@ namespace PVZEngine.Level
             if (!this.IsCharged())
             {
                 var recharge = this.GetRecharge();
-                recharge += rechargeSpeed;
+                recharge += rechargeSpeed * this.GetRechargeSpeed();
                 recharge = Mathf.Min(this.GetMaxRecharge(), recharge);
                 this.SetRecharge(recharge);
             }
@@ -120,28 +139,35 @@ namespace PVZEngine.Level
         {
             return new SerializableSeedPack()
             {
+                id = ID,
                 seedID = Definition.GetID(),
                 propertyDict = propertyDict.Serialize(),
-                buffs = buffs.ToSerializable()
+                buffs = buffs.ToSerializable(),
+                currentBuffID = currentBuffID,
             };
         }
         public static SeedPack Deserialize(SerializableSeedPack seri, LevelEngine level)
         {
             var definition = level.ContentProvider.GetSeedDefinition(seri.seedID);
-            var seedPack = new SeedPack(level, definition)
+            var seedPack = new SeedPack(level, definition, seri.id)
             {
-                propertyDict = PropertyDictionary.Deserialize(seri.propertyDict)
+                propertyDict = PropertyDictionary.Deserialize(seri.propertyDict),
+                currentBuffID = seri.currentBuffID
             };
             seedPack.buffs = BuffList.FromSerializable(seri.buffs, level, seedPack);
             return seedPack;
         }
         #endregion
 
+        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IBuffTarget.GetEntity() => null;
+        bool IBuffTarget.Exists() => true;
 
         #region 属性字段
+        public int ID { get; }
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
+        private long currentBuffID = 1;
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private BuffList buffs = new BuffList();
         #endregion

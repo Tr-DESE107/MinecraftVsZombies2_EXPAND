@@ -70,12 +70,7 @@ namespace MVZ2.GameContent
             pickup.Velocity = Vector3.zero;
             float value = ENERGY_VALUE;
 
-            var game = pickup.Level;
-            if (game.Difficulty == VanillaDifficulties.easy)
-            {
-                value += 25;
-            }
-            game.AddEnergyDelayed(pickup, value);
+            pickup.Level.AddEnergyDelayed(pickup, value);
             pickup.SetGravity(0);
 
             pickup.PlaySound(pickup.GetCollectSound(), Random.Range(0.95f, 1.5f));

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Level;
 using PVZEngine.Level.Triggers;
@@ -21,6 +22,10 @@ namespace PVZEngine.Definitions
         {
             return modifiers.Where(e => e.PropertyName == propName).ToArray();
         }
+        public AuraEffectDefinition[] GetAuras()
+        {
+            return auraDefinitions.ToArray();
+        }
         public TriggerCache[] GetTriggerCaches()
         {
             return triggerCaches.GetTriggerCaches();
@@ -32,11 +37,16 @@ namespace PVZEngine.Definitions
         {
             modifiers.Add(modifier);
         }
+        protected void AddAura(AuraEffectDefinition aura)
+        {
+            auraDefinitions.Add(aura);
+        }
         public void AddTrigger<T>(NamespaceID callbackID, T action, int priority = 0, object filterValue = null) where T : Delegate
         {
             triggerCaches.Add(new TriggerCache(callbackID, action, priority, filterValue));
         }
         private List<PropertyModifier> modifiers = new List<PropertyModifier>();
+        private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
         protected TriggerCacheList triggerCaches = new TriggerCacheList();
     }
 }

@@ -44,6 +44,10 @@ namespace PVZEngine.Level
         {
             return buffs.Any(b => b.Definition is T);
         }
+        public bool HasBuff(BuffDefinition buffDef)
+        {
+            return buffs.Any(b => b.Definition == buffDef);
+        }
         public bool HasBuff(Buff buff)
         {
             return buffs.Contains(buff);
@@ -51,6 +55,10 @@ namespace PVZEngine.Level
         public Buff[] GetBuffs<T>() where T : BuffDefinition
         {
             return buffs.Where(b => b.Definition is T).ToArray();
+        }
+        public Buff[] GetBuffs(BuffDefinition buffDef)
+        {
+            return buffs.Where(b => b.Definition == buffDef).ToArray();
         }
         public Buff[] GetAllBuffs()
         {

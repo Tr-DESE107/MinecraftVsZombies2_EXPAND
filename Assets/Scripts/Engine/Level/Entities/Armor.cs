@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PVZEngine.Definitions;
+using PVZEngine.Level.Buffs;
 using PVZEngine.Serialization;
 using Tools;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace PVZEngine.Level
         }
         public void Update()
         {
+            Health = Mathf.Min(Health, this.GetMaxHealth());
             if (Definition != null)
                 Definition.PostUpdate(this);
             foreach (var buff in buffs.GetAllBuffs())
@@ -60,6 +62,18 @@ namespace PVZEngine.Level
         #endregion
 
         #region 增益
+        public Buff CreateBuff<T>() where T : BuffDefinition
+        {
+            return Level.CreateBuff<T>(AllocBuffID());
+        }
+        public Buff CreateBuff(BuffDefinition buffDef)
+        {
+            return Level.CreateBuff(buffDef, AllocBuffID());
+        }
+        public Buff CreateBuff(NamespaceID id)
+        {
+            return Level.CreateBuff(id, AllocBuffID());
+        }
         public bool AddBuff(Buff buff)
         {
             if (buffs.AddBuff(buff))
@@ -71,7 +85,7 @@ namespace PVZEngine.Level
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(Level.CreateBuff<T>());
+            AddBuff(CreateBuff<T>());
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
@@ -79,6 +93,11 @@ namespace PVZEngine.Level
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID);
+        private long AllocBuffID()
+        {
+            return currentBuffID++;
+        }
         #endregion
         public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
         {
@@ -130,6 +149,7 @@ namespace PVZEngine.Level
             return new SerializableArmor()
             {
                 health = Health,
+                currentBuffID = currentBuffID,
                 definitionID = Definition.GetID(),
                 buffs = buffs.ToSerializable(),
                 propertyDict = propertyDict.Serialize()
@@ -142,17 +162,21 @@ namespace PVZEngine.Level
             armor.Owner = owner;
             armor.Definition = definition;
             armor.Health = seri.health;
+            armor.currentBuffID = seri.currentBuffID;
             armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
             armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             return armor;
         }
         Entity IBuffTarget.GetEntity() => Owner;
+        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.EquipedArmor == this;
 
         #region 属性字段
         public LevelEngine Level => Owner?.Level;
         public Entity Owner { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
+        private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private PropertyDictionary propertyDict = new PropertyDictionary();
         #endregion

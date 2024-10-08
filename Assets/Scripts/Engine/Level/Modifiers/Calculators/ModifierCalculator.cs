@@ -20,9 +20,7 @@ namespace PVZEngine.Modifiers
     {
         public override sealed object Calculate(object value, IEnumerable<BuffModifierItem> modifiers)
         {
-            if (value is null)
-                value = default(TValue);
-            if (value is not TValue tValue)
+            if (!value.TryToGeneric<TValue>(out var tValue))
                 return value;
             return CalculateGeneric(tValue, modifiers.OfType<BuffModifierItem>());
         }
