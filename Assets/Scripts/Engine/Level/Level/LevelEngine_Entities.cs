@@ -94,6 +94,10 @@ namespace PVZEngine.Level
         {
             return entities.FirstOrDefault(predicate);
         }
+        public bool EntityExists(long id)
+        {
+            return entities.Exists(e => e.ID == id);
+        }
         public bool EntityExists(EntityDefinition def)
         {
             return entities.Exists(e => e.Definition == def);

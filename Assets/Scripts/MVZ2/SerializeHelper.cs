@@ -62,6 +62,7 @@ namespace MVZ2.Serialization
             RegisterClass<SerializableUserStatEntry>();
             RegisterClass<SerializableLevelDifficultyRecord>();
             RegisterClass<SerializableAdviceComponent>();
+            RegisterClass<SerializableLightComponent>();
             RegisterClass<SerializableUIComponent>();
             RegisterClass<EmptySerializableLevelComponent>();
 

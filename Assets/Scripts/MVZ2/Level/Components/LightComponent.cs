@@ -4,6 +4,7 @@ using System.Linq;
 using MVZ2.GameContent;
 using PVZEngine;
 using PVZEngine.Level;
+using Tools;
 using Tools.Mathematics;
 using UnityEngine;
 
@@ -17,12 +18,18 @@ namespace MVZ2.Level.Components
         public override void Update()
         {
             base.Update();
-            UpdateLighting();
+            checkTimer.Run();
+            if (checkTimer.Expired)
+            {
+                checkTimer.Reset();
+                UpdateLighting();
+            }
         }
         public override ISerializableLevelComponent ToSerializable()
         {
             return new SerializableLightComponent()
             {
+                checkTimer = checkTimer,
                 lightSourceInfo = lightSourceInfo.Values.Select(v => new SerializableLightSourceInfo(v)).ToArray()
             };
         }
@@ -31,6 +38,7 @@ namespace MVZ2.Level.Components
             base.LoadSerializable(seri);
             if (seri is not SerializableLightComponent serializable)
                 return;
+            checkTimer = serializable.checkTimer;
             foreach (var info in serializable.lightSourceInfo)
             {
                 lightSourceInfo.Add(info.id, info.ToDeserialized());
@@ -68,6 +76,11 @@ namespace MVZ2.Level.Components
             foreach (var entity in entities)
             {
                 UpdateEntityLightSource(entity, entities);
+            }
+            var missingEntities = lightSourceInfo.Keys.Where(id => !Level.EntityExists(id)).ToArray();
+            foreach (var missing in missingEntities)
+            {
+                lightSourceInfo.Remove(missing);
             }
         }
         private void UpdateEntityLightSource(Entity entity, Entity[] allEntities)
@@ -134,6 +147,7 @@ namespace MVZ2.Level.Components
         {
             return lightSourceInfo.Remove(entity.ID);
         }
+        private FrameTimer checkTimer = new FrameTimer(4);
         private Dictionary<long, LightSourceInfo> lightSourceInfo = new Dictionary<long, LightSourceInfo>();
         public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "lighting");
     }
@@ -145,6 +159,7 @@ namespace MVZ2.Level.Components
     [Serializable]
     public class SerializableLightComponent: ISerializableLevelComponent
     {
+        public FrameTimer checkTimer;
         public SerializableLightSourceInfo[] lightSourceInfo;
     }
     [Serializable]
