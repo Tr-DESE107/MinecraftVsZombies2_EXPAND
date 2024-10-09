@@ -73,3 +73,4 @@ InitTestScene*.unity
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
 .vscode
+/ProjectSettings/ProjectVersion.txt

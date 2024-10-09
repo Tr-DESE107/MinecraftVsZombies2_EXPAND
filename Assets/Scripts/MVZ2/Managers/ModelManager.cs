@@ -32,7 +32,7 @@ namespace MVZ2.Managers
             modelShotCamera.Render();
 
             // 从Render Texture读取像素并保存为图片
-            Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            Texture2D texture = new Texture2D(width, height);
             RenderTexture.active = renderTexture;
             texture.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
             texture.Apply();

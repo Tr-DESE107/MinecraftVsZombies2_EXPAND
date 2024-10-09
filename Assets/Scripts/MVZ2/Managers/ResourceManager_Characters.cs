@@ -58,7 +58,7 @@ namespace MVZ2.Managers
             GetCharacterVariantProperties(info, variantInfo, layers, out float pivotX, out float pivotY, out int width, out int height);
             Vector2 spritePivot = new Vector2(pivotX, pivotY);
 
-            var imageTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            var imageTexture = new Texture2D(width, height);
             imageTexture.name = $"{character}({variantID})";
             foreach (TalkCharacterLayer layer in layers)
             {

@@ -51,7 +51,7 @@ namespace MVZ2.Tests
         }
         private Texture2D GrabTexture(RenderTexture renderTexture, string pictureName)
         {
-            Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            Texture2D texture = new Texture2D(width, height);
             RenderTexture.active = renderTexture;
             texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
             texture.Apply();
