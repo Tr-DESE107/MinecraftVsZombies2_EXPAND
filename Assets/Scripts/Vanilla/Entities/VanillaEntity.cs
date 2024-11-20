@@ -33,7 +33,7 @@ namespace MVZ2.Vanilla.Entities
             entity.RemoveArmor();
             var effect = entity.Level.Spawn<BrokenArmor>(GetArmorPosition(entity), entity);
             var sourcePosition = damage?.Source?.GetEntity(entity.Level)?.Position;
-            var moveDirection = entity.IsFacingLeft() ? Vector3.right : Vector3.left;
+            var moveDirection = entity.GetFacingDirection();
             if (sourcePosition.HasValue)
             {
                 moveDirection = (entity.Position - sourcePosition.Value).normalized;

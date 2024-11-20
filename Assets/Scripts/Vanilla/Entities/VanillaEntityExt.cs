@@ -19,6 +19,14 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityExt
     {
+        public static float GetFacingX(this Entity entity)
+        {
+            return entity.IsFacingLeft() ? -1 : 1;
+        }
+        public static Vector3 GetFacingDirection(this Entity entity)
+        {
+            return entity.IsFacingLeft() ? Vector3.left : Vector3.right;
+        }
         public static int GetHealthState(this Entity entity, int stateCount)
         {
             float maxHP = entity.GetMaxHealth();

@@ -197,6 +197,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f821b6a9d26a8a643b60d869c28ce5fd
+    m_Address: mvz2:entity/contraption/punchton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86a0b0aabb4ceca42a409ee8c656695a
     m_Address: mvz2:entity/contraption/obsidian
     m_ReadOnly: 0
@@ -211,12 +217,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caad8c3049dedbb4796afa81b872ead5
     m_Address: mvz2:entity/contraption/mine_dirt
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b11711b1da870544827beb40076b98b
-    m_Address: mvz2:entity/contraption/glowstone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -731,8 +731,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d00aabb5514ee4743a361ad46e38de95
+    m_Address: mvz2:entity/contraptions/punchton_arm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cd67e193c23b1f46ae2e123c4a0bd3a
     m_Address: mvz2:entity/contraptions/pressure_plate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b11711b1da870544827beb40076b98b
+    m_Address: mvz2:entity/contraptions/glowstone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1667,6 +1679,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 682a1f5ec6af4b54d81d95c0fcf56384
+    m_Address: mvz2:mobile_blueprint/leather_capped_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2c663f155f7ff44eb88ea0b4b0a285e
+    m_Address: mvz2:mobile_blueprint/iron_helmetted_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ad59fee145905345a3241aca0804d48
     m_Address: mvz2:mobile_blueprint/infectenser
     m_ReadOnly: 0
@@ -1693,6 +1717,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f25d2b94a621a1e4d8cd823493b4a29f
     m_Address: mvz2:mobile_blueprint/force_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4756509eba10d744bb3323a794303f92
+    m_Address: mvz2:mobile_blueprint/flag_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2207,6 +2237,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc62e3f34140da245aa3e98b56f5e578
+    m_Address: mvz2:effect/piston_palm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7bda5fabb0661c49a162fd25d0bb0f5
     m_Address: mvz2:effect/mine_debris
     m_ReadOnly: 0
@@ -2233,6 +2269,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c737bd83286c3b4982889d6ae8d53ec
     m_Address: mvz2:contraption/small_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e851dc827c8f314388c4b8d31edba82
+    m_Address: mvz2:contraption/punchton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

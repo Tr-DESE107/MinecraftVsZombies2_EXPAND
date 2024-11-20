@@ -87,7 +87,7 @@ namespace MVZ2.Vanilla.Enemies
             {
                 float min = Mathf.Min(speed, -speed);
                 float max = Mathf.Max(speed, -speed);
-                float direciton = enemy.IsFacingLeft() ? -1 : 1;
+                float direciton = enemy.GetFacingX();
                 velocity.x += speed * direciton;
                 velocity.x = Mathf.Clamp(velocity.x, min, max);
             }

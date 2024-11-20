@@ -26,6 +26,14 @@ namespace PVZEngine.Entities
         {
             return GetID().ToModelID(EngineModelID.TYPE_ENTITY);
         }
+        public T GetEntityProperty<T>(Entity entity, string name)
+        {
+            return entity.GetProperty<T>($"{GetID()}/{name}");
+        }
+        public void SetEntityProperty(Entity entity, string name, object value)
+        {
+            entity.SetProperty($"{GetID()}/{name}", value);
+        }
         public abstract int Type { get; }
     }
 }

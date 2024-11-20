@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3554911469464139119}
   - {fileID: 253191266560798948}
   m_Father: {fileID: 303959657157909876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,7 +137,8 @@ MonoBehaviour:
   lightController: {fileID: 2506431363863272896}
   animators:
   - {fileID: 547804964397208255}
-  elements: []
+  transforms: []
+  renderers: []
   particles: []
 --- !u!1 &6576236377435692889
 GameObject:
@@ -198,8 +200,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3554911469464139119}
+  m_Children: []
   m_Father: {fileID: 2811163713146360984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9154751202496077164
@@ -239,7 +240,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 253191266560798948}
+    m_TransformParent: {fileID: 2811163713146360984}
     m_Modifications:
     - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Name

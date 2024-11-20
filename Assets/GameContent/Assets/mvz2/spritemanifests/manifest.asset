@@ -47,6 +47,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4b5d435139279434d9a7cc073987d99f, type: 3}
   - name: mobile_blueprint/drivenser
     sprite: {fileID: 21300000, guid: dc3f43337866cef4c94af92af1159b8f, type: 3}
+  - name: mobile_blueprint/flag_zombie
+    sprite: {fileID: 21300000, guid: 4756509eba10d744bb3323a794303f92, type: 3}
   - name: mobile_blueprint/force_pad
     sprite: {fileID: 21300000, guid: f25d2b94a621a1e4d8cd823493b4a29f, type: 3}
   - name: mobile_blueprint/furnace
@@ -57,6 +59,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b362171cd0a32824e9b3ac7c42f24dd7, type: 3}
   - name: mobile_blueprint/infectenser
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
+  - name: mobile_blueprint/iron_helmetted_zombie
+    sprite: {fileID: 21300000, guid: a2c663f155f7ff44eb88ea0b4b0a285e, type: 3}
+  - name: mobile_blueprint/leather_capped_zombie
+    sprite: {fileID: 21300000, guid: 682a1f5ec6af4b54d81d95c0fcf56384, type: 3}
   - name: mobile_blueprint/lengthen_board
     sprite: {fileID: 21300000, guid: 2c0f3cc55c6401d458ad5611a9d70c0e, type: 3}
   - name: mobile_blueprint/lily_pad
@@ -107,8 +113,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8f85d3d605c8bf34b9c860577f50ba8c, type: 3}
   - name: note/prologue
     sprite: {fileID: 21300000, guid: 32f36e28f5381c345b9988e80c40ee5a, type: 3}
+  - name: starshards/default
+    sprite: {fileID: 21300000, guid: 5fe877b614795e144996e5d0ede65e81, type: 3}
   - name: starshards/halloween
     sprite: {fileID: 21300000, guid: ead2b534e897e48469cac6037a937e50, type: 3}
+  - name: starshard_rings/default
+    sprite: {fileID: 21300000, guid: a87b33e84a23ca14eb7f301beca38504, type: 3}
   - name: starshard_rings/halloween
     sprite: {fileID: 21300000, guid: b71a3502ba3935b49a514559f8734478, type: 3}
   - name: talk/speech_bubble
@@ -137,8 +147,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3d9178829e9e3e340b9f8df54bfcbbb5, type: 3}
   - name: entity/carts/pumpkin_carriage
     sprite: {fileID: 21300000, guid: 65b141497a801624881cf387625a6801, type: 3}
+  - name: entity/contraptions/glowstone
+    sprite: {fileID: 21300000, guid: 9b11711b1da870544827beb40076b98b, type: 3}
   - name: entity/contraptions/pressure_plate
     sprite: {fileID: 21300000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
+  - name: entity/contraptions/punchton_arm
+    sprite: {fileID: 21300000, guid: d00aabb5514ee4743a361ad46e38de95, type: 3}
   - name: entity/contraptions/tnt
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
   - name: entity/effects/boom
@@ -151,12 +165,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a86b26689fa937a498456ef9f0f05b95, type: 3}
   - name: entity/effects/mine_debris
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
+  - name: entity/effects/shine_ring
+    sprite: {fileID: 21300000, guid: 0fd484fcbd2c9ed4dbad79aa98011525, type: 3}
   - name: entity/effects/star
     sprite: {fileID: 21300000, guid: 9274a6de61534f940b4da30c3fffcb67, type: 3}
   - name: entity/effects/thunder_bolt
     sprite: {fileID: 21300000, guid: 498cfe5e32569bc43ae84fc47f7622ce, type: 3}
   - name: entity/enemies/bow_texture
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
+  - name: entity/enemies/ghost_headwear
+    sprite: {fileID: 21300000, guid: 7667a381c5230374d9c5b5a7bf629dd9, type: 3}
+  - name: entity/enemies/ghost_tail
+    sprite: {fileID: 21300000, guid: 8b9310b7e61da30448b5d9b66c4cf9f3, type: 3}
   - name: entity/pickups/almanac_book
     sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: entity/pickups/diamond
@@ -503,6 +523,11 @@ MonoBehaviour:
     - {fileID: 751217537, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
     - {fileID: 1641298299, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
     - {fileID: -790591850, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
+  - name: entity/contraption/punchton
+    spritesheet:
+    - {fileID: 343615464, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
+    - {fileID: -2069167506, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
+    - {fileID: -171399702, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
   - name: entity/effect/filled_smoke
     spritesheet:
     - {fileID: 7218315893489315805, guid: 700aed4be18069141a38feb57b823f77, type: 3}

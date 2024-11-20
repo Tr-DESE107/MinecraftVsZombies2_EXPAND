@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Detections
     {
         public override bool IsInRange(Entity self, Entity target)
         {
-            var targetSize = target.GetSize();
+            var targetSize = target.GetScaledSize();
             float enemyHeight = targetSize.y;
 
             var projectileID = self.GetProjectileID();

@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID emerald = Get("emerald", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID ruby = Get("ruby", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID diamond = Get("diamond", EngineModelID.TYPE_ENTITY);
+        public static readonly NamespaceID pistonPalm = Get("piston_palm", EngineModelID.TYPE_ENTITY);
         private static NamespaceID Get(string name, string type)
         {
             return new NamespaceID(VanillaMod.spaceName, name).ToModelID(type);

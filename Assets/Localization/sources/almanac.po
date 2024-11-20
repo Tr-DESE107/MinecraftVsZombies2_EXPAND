@@ -609,11 +609,11 @@ msgstr ""
 "Punchton the piston, or One Punch Piston, punched a punch using a punch of tons."
 
 msgctxt "entity.description"
-msgid "冲击活塞能够击退前方的敌人，并击碎石制品。"
+msgid "冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。"
 msgstr "Punchtons can knock back enemies, and crush hard objects."
 
 msgctxt "entity.description"
-msgid "技能：延长活塞臂，击退前方的敌人"
+msgid "技能：延长活塞臂，击退前方的所有敌人。"
 msgstr "Evocation: Extend piston arm and knock back all enemies in front"
 
 msgctxt "entity.name"
