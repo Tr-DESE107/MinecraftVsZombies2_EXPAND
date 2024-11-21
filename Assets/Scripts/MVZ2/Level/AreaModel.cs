@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using MVZ2.Logic.Models;
+using UnityEngine;
 
 namespace MVZ2.Level
 {
-    public class AreaModel : MonoBehaviour
+    public class AreaModel : MonoBehaviour, IAreaModel
     {
         public void SetDoorVisible(bool visible)
         {

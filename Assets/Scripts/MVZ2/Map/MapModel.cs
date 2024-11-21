@@ -1,11 +1,12 @@
 using System;
 using System.Linq;
+using MVZ2.Logic.Models;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Map
 {
-    public class MapModel : MonoBehaviour
+    public class MapModel : MonoBehaviour, IMapModel
     {
         public int GetMapButtonCount()
         {

@@ -2,6 +2,7 @@
 using MVZ2.Definitions;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
+using MVZ2.HeldItems;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;

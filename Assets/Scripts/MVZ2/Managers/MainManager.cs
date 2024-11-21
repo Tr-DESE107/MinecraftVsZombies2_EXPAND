@@ -4,7 +4,10 @@ using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Level;
+using MVZ2.Level.Components;
+using MVZ2.Logic.Scenes;
 using MVZ2.Rendering;
+using MVZ2.Save;
 using MVZ2.Serialization;
 using UnityEngine;
 
@@ -15,7 +18,16 @@ namespace MVZ2.Managers
         public async Task Initialize()
         {
             Application.targetFrameRate = 60;
+
             SerializeHelper.init(BuiltinNamespace);
+            // MVZ2
+            SerializeHelper.RegisterClass<SerializableUserDataList>();
+            SerializeHelper.RegisterClass<SerializableSaveDataMeta>();
+            SerializeHelper.RegisterClass<SerializableAdviceComponent>();
+            SerializeHelper.RegisterClass<SerializableLightComponent>();
+            SerializeHelper.RegisterClass<SerializableUIComponent>();
+            SerializeHelper.RegisterClass<EmptySerializableLevelComponent>();
+
             ModifierHelper.Init();
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);

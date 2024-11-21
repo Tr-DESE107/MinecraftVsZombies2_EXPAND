@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.Logic.Models;
 using MVZ2.Rendering;
 using MVZ2.Resources;
 using PVZEngine;
@@ -38,11 +39,11 @@ namespace MVZ2.Managers
         #endregion
 
         #region 模型
-        public Model GetModel(string nsp, string path)
+        public IModel GetModel(string nsp, string path)
         {
             return GetModel(new NamespaceID(nsp, path));
         }
-        public Model GetModel(NamespaceID id)
+        public IModel GetModel(NamespaceID id)
         {
             return FindInMods(id, mod => mod.Models);
         }

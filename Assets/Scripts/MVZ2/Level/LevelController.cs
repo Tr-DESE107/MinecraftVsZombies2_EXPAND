@@ -434,7 +434,7 @@ namespace MVZ2.Level
         private void Engine_OnClearCallback()
         {
             Main.LevelManager.RemoveLevelState(StartStageID);
-            Main.SaveManager.Unlock(LevelManager.GetLevelClearUnlockID(level.StageID));
+            Main.SaveManager.Unlock(MVZ2Save.GetLevelClearUnlockID(level.StageID));
             Main.SaveManager.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Main.SaveManager.SaveModDatas();
             Main.SaveManager.SetMapTalk(level.GetMapTalk());
@@ -685,6 +685,8 @@ namespace MVZ2.Level
             if (areaMeta == null)
                 return;
             var modelPrefab = Main.ResourceManager.GetAreaModel(areaMeta.model);
+            if (modelPrefab == null)
+                return;
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<AreaModel>();
         }
         private IEnumerator StartLevelIntroDelayed(float delay)

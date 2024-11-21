@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Level;
+using MVZ2.Logic.Models;
 using MVZ2.Rendering;
 using MVZ2.Resources;
 using MVZ2.Talk;
@@ -36,11 +37,11 @@ namespace MVZ2.Managers
             return stageMetalist.metas.FirstOrDefault(m => m.id == mapID.path);
         }
         #region 模型
-        public AreaModel GetAreaModel(string nsp, string path)
+        public IAreaModel GetAreaModel(string nsp, string path)
         {
             return GetAreaModel(new NamespaceID(nsp, path));
         }
-        public AreaModel GetAreaModel(NamespaceID id)
+        public IAreaModel GetAreaModel(NamespaceID id)
         {
             return FindInMods(id, mod => mod.AreaModels);
         }

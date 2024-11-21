@@ -5,6 +5,7 @@ using System.Reflection;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Level.UI;
+using MVZ2.Logic.Level;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
@@ -218,11 +219,5 @@ namespace MVZ2.Level
         [SerializeField]
         private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
         #endregion
-    }
-    public enum LevelCameraPosition
-    {
-        House,
-        Lawn,
-        Choose,
     }
 }

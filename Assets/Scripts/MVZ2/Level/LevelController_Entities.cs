@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Extensions;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using PVZEngine.Entities;
 using Tools;

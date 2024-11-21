@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
+using MVZ2.Logic.Scenes;
 using MVZ2.Managers;
 using MVZ2.Resources;
 using MVZ2.Talk;

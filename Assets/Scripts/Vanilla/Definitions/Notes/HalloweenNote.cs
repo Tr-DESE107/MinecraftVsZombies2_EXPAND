@@ -1,5 +1,4 @@
-﻿using MVZ2.ChapterTransition;
-using MVZ2.Definitions;
+﻿using MVZ2.Definitions;
 using MVZ2.GameContent;
 using MVZ2.Note;
 

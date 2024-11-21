@@ -1,0 +1,22 @@
+{
+    "name": "MVZ2.Logic",
+    "rootNamespace": "MVZ2.Logic",
+    "references": [
+        "GUID:a11d485a6c1d60b4c92e5c68af305aaa",
+        "GUID:4f9765a07f207e1409c08135e58b0219",
+        "GUID:22176648926941143911458f1e23c75d",
+        "GUID:bb0e45f4ddb54a84dab05f6352bb916c",
+        "GUID:6ed5dbd086df79a4e99899b2ad0cc5aa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

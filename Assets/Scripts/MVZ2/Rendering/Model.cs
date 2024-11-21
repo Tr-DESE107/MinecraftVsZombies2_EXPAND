@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using MVZ2.GameContent;
 using MVZ2.Level;
+using MVZ2.Logic.Models;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Rendering
 {
     [DisallowMultipleComponent]
-    public sealed class Model : MonoBehaviour
+    public sealed class Model : MonoBehaviour, IModel
     {
         #region 公有方法
         public void UpdateFixed()

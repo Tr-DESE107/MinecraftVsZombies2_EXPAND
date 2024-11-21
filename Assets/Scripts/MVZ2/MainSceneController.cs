@@ -7,6 +7,7 @@ using MVZ2.ChapterTransition;
 using MVZ2.GameContent;
 using MVZ2.Landing;
 using MVZ2.Localization;
+using MVZ2.Logic.Scenes;
 using MVZ2.Mainmenu;
 using MVZ2.Managers;
 using MVZ2.Map;
@@ -123,13 +124,5 @@ namespace MVZ2
         private PortalController portal;
         [SerializeField]
         private ChapterTransitionController chapterTransition;
-    }
-    public enum MainScenePageType
-    {
-        Landing,
-        Titlescreen,
-        Mainmenu,
-        Note,
-        Map
     }
 }

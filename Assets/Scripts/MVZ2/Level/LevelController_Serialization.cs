@@ -6,6 +6,7 @@ using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
+using MVZ2.Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
 using Tools;

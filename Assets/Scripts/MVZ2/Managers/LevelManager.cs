@@ -118,10 +118,6 @@ namespace MVZ2.Level
             await Scene.UnloadSceneAsync(sceneName);
             controller = null;
         }
-        public static NamespaceID GetLevelClearUnlockID(NamespaceID stageID)
-        {
-            return new NamespaceID(stageID.spacename, $"level.{stageID.path}");
-        }
         public const int CURRENT_DATA_VERSION = 0;
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;

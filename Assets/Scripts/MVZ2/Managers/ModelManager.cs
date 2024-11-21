@@ -1,4 +1,5 @@
-﻿using MVZ2.Rendering;
+﻿using MVZ2.Logic.Models;
+using MVZ2.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -6,14 +7,14 @@ namespace MVZ2.Managers
 {
     public class ModelManager : MonoBehaviour
     {
-        public Sprite ShotIcon(Model model, int width, int height, Vector2 modelOffset, string name = null)
+        public Sprite ShotIcon(IModel model, int width, int height, Vector2 modelOffset, string name = null)
         {
             var pictureName = name ?? "ModelIcon";
             //激活摄像机与灯光
             modelShotRoot.gameObject.SetActive(true);
 
             //设置模型
-            var modelInstance = Instantiate(model, modelShotPositionTransform);
+            var modelInstance = Instantiate(model.gameObject, modelShotPositionTransform);
             modelInstance.transform.localPosition = Vector3.zero;
 
             //创建一个用于渲染图片的RenderTexture
@@ -40,7 +41,7 @@ namespace MVZ2.Managers
             RenderTexture.active = null; // 重置活动的Render Texture
             modelShotCamera.targetTexture = null;
             renderTexture.Release();
-            DestroyImmediate(modelInstance.gameObject);
+            DestroyImmediate(modelInstance);
 
             // 创建Sprite。
             Sprite sprite = main.ResourceManager.CreateSprite(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f, pictureName, "modelIcon");

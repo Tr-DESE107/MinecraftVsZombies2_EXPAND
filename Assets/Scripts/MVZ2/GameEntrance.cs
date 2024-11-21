@@ -3,6 +3,7 @@ using System.IO;
 using MukioI18n;
 using MVZ2.GameContent;
 using MVZ2.Localization;
+using MVZ2.Logic.Scenes;
 using MVZ2.Managers;
 using UnityEngine;
 

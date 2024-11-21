@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
+using MVZ2.HeldItems;
 using MVZ2.Managers;
 using MVZ2.Rendering;
 using MVZ2.Vanilla;
