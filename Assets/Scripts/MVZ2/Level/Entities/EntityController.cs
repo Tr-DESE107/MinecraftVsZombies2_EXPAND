@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
-using MVZ2.HeldItems;
 using MVZ2.Managers;
 using MVZ2.Rendering;
-using MVZ2.Vanilla;
+using MVZ2Logic.Entities;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
@@ -13,7 +12,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Level
 {

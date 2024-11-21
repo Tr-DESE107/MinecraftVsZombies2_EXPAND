@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent;
-using MVZ2.Games;
-using MVZ2.Modding;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;

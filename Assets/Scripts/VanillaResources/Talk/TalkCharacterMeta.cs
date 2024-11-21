@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
-using MVZ2.Resources;
 using PVZEngine;
 
-namespace MVZ2.Talk
+namespace MVZ2Logic.Talk
 {
     public class TalkCharacterMetaList
     {

@@ -1,9 +1,9 @@
-using MVZ2.Modding;
-using MVZ2.Resources;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine;
-using PVZEngine.Base;
 
-namespace MVZ2.Games
+namespace MVZ2Logic.Games
 {
     public partial class Game
     {

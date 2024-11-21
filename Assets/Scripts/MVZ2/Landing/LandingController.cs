@@ -1,5 +1,5 @@
-using MVZ2.Logic.Scenes;
 using MVZ2.Managers;
+using MVZ2Logic.Scenes;
 
 namespace MVZ2.Landing
 {

@@ -1,4 +1,6 @@
 ﻿using MVZ2.GameContent;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;

@@ -1,7 +1,7 @@
 ﻿using System;
-using MVZ2.Extensions;
-using MVZ2.HeldItems;
-using MVZ2.Localization;
+using MVZ2Logic;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

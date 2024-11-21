@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.Serialization;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
-using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
-using MVZ2.Logic.Level;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Games;
+using MVZ2Logic.Level;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Level;
 using Tools;

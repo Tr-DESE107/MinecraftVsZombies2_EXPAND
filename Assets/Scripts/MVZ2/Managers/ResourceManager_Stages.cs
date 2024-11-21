@@ -1,6 +1,5 @@
 ﻿using System.Linq;
-using MVZ2.Resources;
-using MVZ2.Talk;
+using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 

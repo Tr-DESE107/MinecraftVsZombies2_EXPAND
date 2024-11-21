@@ -1,10 +1,6 @@
 ﻿using System.Linq;
-using MVZ2.GameContent;
-using MVZ2.Resources;
-using MVZ2.UI;
+using MVZ2Logic.Almanacs;
 using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Managers

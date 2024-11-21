@@ -1,8 +1,8 @@
 ﻿using System;
 using MukioI18n;
-using MVZ2.Extensions;
-using MVZ2.Localization;
 using MVZ2.Managers;
+using MVZ2Logic;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
 

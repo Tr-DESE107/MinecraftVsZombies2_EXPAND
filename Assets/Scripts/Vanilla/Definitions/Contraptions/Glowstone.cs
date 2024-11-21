@@ -1,6 +1,8 @@
-﻿using MVZ2.Extensions;
+﻿using MVZ2Logic.Level;
 using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions

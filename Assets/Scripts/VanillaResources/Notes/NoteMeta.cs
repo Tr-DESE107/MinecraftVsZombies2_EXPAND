@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using PVZEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Notes
 {
     public class NoteMeta
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MVZ2;
-using MVZ2.Games;
+using MVZ2Logic.Games;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
 using UnityEngine;

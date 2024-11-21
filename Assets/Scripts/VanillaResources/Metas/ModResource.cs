@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
-using MVZ2.Logic.Models;
-using MVZ2.Talk;
+using MVZ2Logic.Almanacs;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
+using MVZ2Logic.Map;
+using MVZ2Logic.Models;
+using MVZ2Logic.Notes;
+using MVZ2Logic.Talk;
 using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Modding
 {
     public class ModResource
     {

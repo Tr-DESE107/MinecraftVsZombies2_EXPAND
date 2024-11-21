@@ -1,4 +1,5 @@
 using MVZ2.Vanilla;
+using MVZ2Logic.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent

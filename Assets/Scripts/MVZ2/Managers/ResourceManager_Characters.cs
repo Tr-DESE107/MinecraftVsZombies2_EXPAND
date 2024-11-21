@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Talk;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 

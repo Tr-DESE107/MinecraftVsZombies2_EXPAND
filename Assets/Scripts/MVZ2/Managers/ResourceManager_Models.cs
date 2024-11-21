@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using MVZ2.Logic.Models;
 using MVZ2.Rendering;
-using MVZ2.Resources;
+using MVZ2Logic.Models;
 using PVZEngine;
 using UnityEngine;
 

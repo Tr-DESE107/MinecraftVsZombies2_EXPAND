@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MVZ2.Resources;
-using PVZEngine;
-using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2Logic
 {
     public static class ParseHelper
     {

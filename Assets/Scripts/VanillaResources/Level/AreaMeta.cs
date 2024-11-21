@@ -1,8 +1,7 @@
 ﻿using System.Xml;
 using PVZEngine;
-using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Level
 {
     public class AreaMeta
     {

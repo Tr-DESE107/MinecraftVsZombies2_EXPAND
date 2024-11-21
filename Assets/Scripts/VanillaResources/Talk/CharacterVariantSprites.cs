@@ -1,7 +1,7 @@
 ﻿using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Talk
+namespace MVZ2Logic.Talk
 {
     public class CharacterVariantSprite
     {

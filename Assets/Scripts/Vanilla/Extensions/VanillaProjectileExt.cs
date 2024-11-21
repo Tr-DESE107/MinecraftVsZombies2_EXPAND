@@ -1,5 +1,6 @@
 ﻿using System;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;

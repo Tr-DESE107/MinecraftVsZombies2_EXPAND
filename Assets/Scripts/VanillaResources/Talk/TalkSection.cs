@@ -3,7 +3,7 @@ using System.Linq;
 using System.Xml;
 using PVZEngine;
 
-namespace MVZ2.Talk
+namespace MVZ2Logic.Talk
 {
     public class TalkSection
     {

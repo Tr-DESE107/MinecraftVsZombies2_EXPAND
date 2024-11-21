@@ -1,9 +1,8 @@
 ﻿using MukioI18n;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
 using MVZ2.Level;
-using MVZ2.Localization;
-using PVZEngine;
+using MVZ2Logic;
+using MVZ2Logic.Level;
+using MVZ2Logic.Saves;
 
 namespace MVZ2.UI
 {

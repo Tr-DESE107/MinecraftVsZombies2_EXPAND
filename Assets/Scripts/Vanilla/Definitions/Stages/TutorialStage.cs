@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Buffs.SeedPack;
 using MVZ2.Vanilla;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Definitions;

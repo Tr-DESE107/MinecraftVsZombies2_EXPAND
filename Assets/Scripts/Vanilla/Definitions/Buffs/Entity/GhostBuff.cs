@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

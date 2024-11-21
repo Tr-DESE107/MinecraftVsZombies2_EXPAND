@@ -1,9 +1,8 @@
 ﻿using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 
-namespace MVZ2.Vanilla
+namespace MVZ2Logic.Grids
 {
     public static class BuiltinGrid
     {

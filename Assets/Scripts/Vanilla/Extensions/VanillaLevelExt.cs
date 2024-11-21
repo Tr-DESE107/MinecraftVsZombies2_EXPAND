@@ -1,6 +1,7 @@
 ﻿using System.Linq;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
+using MVZ2Logic.Level;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

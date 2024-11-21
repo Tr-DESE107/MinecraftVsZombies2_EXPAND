@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent;
+using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -158,7 +160,7 @@ namespace MVZ2.Level.Components
         public HashSet<long> illuminatingEntities = new HashSet<long>();
     }
     [Serializable]
-    public class SerializableLightComponent: ISerializableLevelComponent
+    public class SerializableLightComponent : ISerializableLevelComponent
     {
         public FrameTimer checkTimer;
         public SerializableLightSourceInfo[] lightSourceInfo;

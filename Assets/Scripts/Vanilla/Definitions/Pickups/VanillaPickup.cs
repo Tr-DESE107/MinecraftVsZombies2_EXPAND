@@ -1,6 +1,8 @@
-﻿using MVZ2.Extensions;
+﻿using MVZ2Logic.Level;
 using MVZ2.GameContent;
-using MVZ2.Games;
+using MVZ2Logic.Games;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Models;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;

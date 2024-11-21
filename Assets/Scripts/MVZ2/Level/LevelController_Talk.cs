@@ -1,8 +1,7 @@
 ﻿using System;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
-using MVZ2.Games;
 using MVZ2.Talk;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 

@@ -8,8 +8,7 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
-using MVZ2.Level.Components;
-using MVZ2.Save;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.BsonSerializers;
@@ -22,7 +21,7 @@ using Tools;
 using Tools.BsonSerializers;
 using UnityEngine;
 
-namespace MVZ2.Serialization
+namespace MVZ2Logic
 {
     public static class SerializeHelper
     {
@@ -30,11 +29,11 @@ namespace MVZ2.Serialization
         {
             if (isInited)
                 return;
-            RegisterSerializer<Vector2>(new Vector2Serializer());
-            RegisterSerializer<Vector3>(new Vector3Serializer());
-            RegisterSerializer<Color>(new ColorSerializer());
-            RegisterSerializer<RandomGenerator>(new RandomGeneratorSerializer());
-            RegisterSerializer<NamespaceID>(new NamespaceIDSerializer(defaultNsp));
+            RegisterSerializer(new Vector2Serializer());
+            RegisterSerializer(new Vector3Serializer());
+            RegisterSerializer(new ColorSerializer());
+            RegisterSerializer(new RandomGeneratorSerializer());
+            RegisterSerializer(new NamespaceIDSerializer(defaultNsp));
 
             // Tools
             RegisterClass<FrameTimer>();
@@ -135,7 +134,7 @@ namespace MVZ2.Serialization
         }
         public static void RegisterSerializer<T>(IBsonSerializer<T> serializer)
         {
-            BsonSerializer.RegisterSerializer<T>(serializer);
+            BsonSerializer.RegisterSerializer(serializer);
         }
         public static void RegisterClass<T>()
         {

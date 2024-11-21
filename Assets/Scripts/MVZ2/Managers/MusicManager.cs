@@ -1,5 +1,6 @@
 ﻿using MVZ2.Resources;
 using MVZ2.UI;
+using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;

@@ -1,11 +1,12 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent;
 using PVZEngine.Definitions;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using MVZ2Logic.Entities;
 
 namespace MVZ2.Vanilla
 {

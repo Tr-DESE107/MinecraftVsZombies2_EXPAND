@@ -1,5 +1,6 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;

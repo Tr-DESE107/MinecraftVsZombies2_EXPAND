@@ -1,7 +1,7 @@
 ﻿using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Level
 {
     public interface IPreviewStage
     {

@@ -4,7 +4,7 @@ using System.Xml;
 using PVZEngine;
 using PVZEngine.Entities;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Entities
 {
     public class EntityMeta
     {

@@ -1,6 +1,6 @@
 ﻿using PVZEngine.Entities;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Entities
 {
     public interface IEvokableContraption
     {

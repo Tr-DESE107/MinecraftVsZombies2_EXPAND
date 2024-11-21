@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 
-namespace MVZ2.Talk
+namespace MVZ2Logic.Talk
 {
     public class TalkMeta
     {

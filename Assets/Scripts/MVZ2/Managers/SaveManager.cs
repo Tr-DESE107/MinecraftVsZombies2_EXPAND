@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MVZ2.Save;
-using MVZ2.Serialization;
+using MVZ2Logic;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;

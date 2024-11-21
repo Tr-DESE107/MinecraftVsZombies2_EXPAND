@@ -1,30 +1,11 @@
-﻿using MVZ2.Extensions;
-using MVZ2.GameContent;
-using PVZEngine;
+﻿using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.Vanilla
+namespace MVZ2Logic.Entities
 {
     public static class BuiltinCart
     {
-        //public void TurnToMoney()
-        //{
-        //    Id moneyId;
-        //    if (Level.Difficulty == GameDifficulty.Easy)
-        //    {
-        //        moneyId = DropID.emerald;
-        //    }
-        //    else
-        //    {
-        //        moneyId = DropID.ruby;
-        //    }
-
-        //    Pickup money = CreateDrop(moneyId, Pos, Vector3.zero);
-        //    money.Collect();
-
-        //    Remove();
-        //}
         public static NamespaceID GetCartTriggerSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(BuiltinCartProps.CART_TRIGGER_SOUND);

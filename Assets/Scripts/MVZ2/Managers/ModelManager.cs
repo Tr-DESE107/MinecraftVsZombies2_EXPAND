@@ -1,5 +1,4 @@
-﻿using MVZ2.Logic.Models;
-using MVZ2.Rendering;
+﻿using MVZ2Logic.Models;
 using UnityEngine;
 using UnityEngine.Rendering;
 

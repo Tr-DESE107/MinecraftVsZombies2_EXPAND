@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using MVZ2.GameContent;
-using MVZ2.Level;
-using MVZ2.Logic.Models;
+﻿using System.Collections.Generic;
+using MVZ2Logic.Models;
 using PVZEngine;
 using UnityEngine;
 

@@ -1,13 +1,32 @@
-﻿using MVZ2.GameContent;
+﻿using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.Vanilla
+namespace MVZ2Logic.Entities
 {
     public static class BuiltinEntity
     {
+        public static void PlaySound(this Entity entity, NamespaceID soundID, float pitch = 1)
+        {
+            entity.Level.PlaySound(soundID, entity.Position, pitch);
+        }
+        public static int GetSortingLayer(this Entity entity)
+        {
+            return entity.GetProperty<int>(BuiltinEntityProps.SORTING_LAYER);
+        }
+        public static void SetSortingLayer(this Entity entity, int layer)
+        {
+            entity.SetProperty(BuiltinEntityProps.SORTING_LAYER, layer);
+        }
+        public static int GetSortingOrder(this Entity entity)
+        {
+            return entity.GetProperty<int>(BuiltinEntityProps.SORTING_ORDER);
+        }
+        public static void SetSortingOrder(this Entity entity, int layer)
+        {
+            entity.SetProperty(BuiltinEntityProps.SORTING_ORDER, layer);
+        }
         public static NamespaceID GetPlaceSound(this EntityDefinition definition)
         {
             return definition.GetProperty<NamespaceID>(BuiltinEntityProps.PLACE_SOUND);

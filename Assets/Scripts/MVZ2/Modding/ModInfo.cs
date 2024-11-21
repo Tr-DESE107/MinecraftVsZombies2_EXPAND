@@ -1,4 +1,5 @@
-﻿using UnityEngine.AddressableAssets.ResourceLocators;
+﻿using MVZ2Logic.Modding;
+using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace MVZ2.Modding
 {

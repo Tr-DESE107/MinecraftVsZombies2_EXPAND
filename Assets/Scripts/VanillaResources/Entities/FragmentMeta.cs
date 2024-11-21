@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Entities
 {
     public class FragmentMeta
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Resources;
+using MVZ2Logic.Notes;
 using PVZEngine;
 using UnityEngine;
 

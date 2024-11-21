@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Vanilla;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;

@@ -1,4 +1,4 @@
-﻿namespace MVZ2.GameContent
+﻿namespace MVZ2Logic.Entities
 {
     public static class BuiltinPickupProps
     {

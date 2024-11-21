@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
-using MVZ2.Games;
 using MVZ2.Level;
 using MVZ2.Level.Components;
-using MVZ2.Logic.Scenes;
 using MVZ2.Rendering;
 using MVZ2.Save;
-using MVZ2.Serialization;
+using MVZ2Logic;
+using MVZ2Logic.Games;
+using MVZ2Logic.Level;
+using MVZ2Logic.Saves;
+using MVZ2Logic.Scenes;
 using UnityEngine;
 
 namespace MVZ2.Managers

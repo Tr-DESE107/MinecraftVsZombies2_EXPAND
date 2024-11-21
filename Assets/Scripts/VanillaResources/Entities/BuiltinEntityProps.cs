@@ -1,8 +1,7 @@
-﻿using PVZEngine.Definitions;
-using PVZEngine.Entities;
+﻿using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Entities
 {
     public static class BuiltinEntityProps
     {

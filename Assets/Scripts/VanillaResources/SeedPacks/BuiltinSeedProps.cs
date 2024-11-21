@@ -1,4 +1,4 @@
-﻿namespace MVZ2.GameContent
+﻿namespace MVZ2Logic.SeedPacks
 {
     public static class BuiltinSeedProps
     {

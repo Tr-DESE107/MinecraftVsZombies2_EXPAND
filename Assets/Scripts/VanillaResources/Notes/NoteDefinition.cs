@@ -1,7 +1,6 @@
-﻿using MVZ2.Note;
-using PVZEngine.Base;
+﻿using PVZEngine.Base;
 
-namespace MVZ2.Definitions
+namespace MVZ2Logic.Notes
 {
     public abstract class NoteDefinition : Definition
     {

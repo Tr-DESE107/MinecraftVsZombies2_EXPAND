@@ -1,9 +1,8 @@
-﻿using MVZ2.Resources;
-using MVZ2.Save;
+﻿using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Level;
 
-namespace MVZ2.Games
+namespace MVZ2Logic.Games
 {
     public interface IGame : IContentProvider, ITranslator, ISaveDataProvider, IMetaProvider
     {

@@ -1,4 +1,4 @@
-﻿using MVZ2.Modding;
+﻿using MVZ2Logic.Modding;
 
 namespace MVZ2.Vanilla
 {

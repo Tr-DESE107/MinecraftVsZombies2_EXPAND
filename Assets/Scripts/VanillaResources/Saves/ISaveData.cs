@@ -1,4 +1,4 @@
-﻿namespace MVZ2.Save
+﻿namespace MVZ2Logic.Saves
 {
     public interface ISaveData
     {

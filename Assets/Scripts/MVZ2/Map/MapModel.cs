@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using MVZ2.Logic.Models;
+using MVZ2Logic.Models;
 using PVZEngine;
 using UnityEngine;
 

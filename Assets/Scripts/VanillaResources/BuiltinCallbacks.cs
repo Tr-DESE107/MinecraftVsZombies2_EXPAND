@@ -1,8 +1,9 @@
-﻿using PVZEngine;
+﻿using MVZ2Logic.Talk;
+using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Callbacks
 {
     public static class BuiltinCallbacks
     {

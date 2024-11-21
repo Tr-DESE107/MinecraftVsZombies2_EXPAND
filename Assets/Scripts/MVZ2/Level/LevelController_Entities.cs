@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Extensions;
-using MVZ2.HeldItems;
-using MVZ2.Vanilla;
+using MVZ2Logic.Entities;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;

@@ -1,8 +1,7 @@
 ﻿using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.SeedPacks
 {
     public static class BuiltinSeed
     {

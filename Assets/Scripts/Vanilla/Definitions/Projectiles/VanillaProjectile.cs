@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Projectiles;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

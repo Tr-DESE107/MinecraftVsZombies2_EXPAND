@@ -1,7 +1,7 @@
-﻿using MVZ2.Save;
+﻿using MVZ2Logic.Saves;
 using PVZEngine;
 
-namespace MVZ2.Modding
+namespace MVZ2Logic.Modding
 {
     public interface IModLogic : IContentProvider
     {

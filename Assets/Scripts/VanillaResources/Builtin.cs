@@ -1,4 +1,4 @@
-﻿namespace MVZ2.GameContent
+﻿namespace MVZ2Logic
 {
     public static class Builtin
     {

@@ -1,10 +1,9 @@
-﻿using MVZ2.HeldItems;
-using PVZEngine.Base;
+﻿using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 
-namespace MVZ2.Definitions
+namespace MVZ2Logic.HeldItems
 {
     public abstract class HeldItemDefinition : Definition
     {

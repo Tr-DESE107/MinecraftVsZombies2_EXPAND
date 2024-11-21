@@ -1,6 +1,5 @@
-﻿using MVZ2.Definitions;
-using MVZ2.GameContent;
-using MVZ2.HeldItems;
+﻿using MVZ2Logic.Entities;
+using MVZ2Logic.HeldItems;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 

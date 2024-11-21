@@ -1,4 +1,4 @@
-﻿using MVZ2.Logic.Models;
+﻿using MVZ2Logic.Models;
 using UnityEngine;
 
 namespace MVZ2.Level

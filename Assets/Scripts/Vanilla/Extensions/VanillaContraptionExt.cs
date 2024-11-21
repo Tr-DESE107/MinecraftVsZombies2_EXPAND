@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
+using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla

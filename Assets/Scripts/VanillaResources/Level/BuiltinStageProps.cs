@@ -1,7 +1,7 @@
 ﻿using PVZEngine;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Level
 {
     public static class BuiltinStageProps
     {

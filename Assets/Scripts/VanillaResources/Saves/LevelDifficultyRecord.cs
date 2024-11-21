@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine;
 
-namespace MVZ2.Save
+namespace MVZ2Logic.Saves
 {
     public class LevelDifficultyRecord
     {

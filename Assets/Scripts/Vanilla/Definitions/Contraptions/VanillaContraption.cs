@@ -1,8 +1,9 @@
 ﻿using System.Linq;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
+using MVZ2Logic.Entities;
 using PVZEngine.Base;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;

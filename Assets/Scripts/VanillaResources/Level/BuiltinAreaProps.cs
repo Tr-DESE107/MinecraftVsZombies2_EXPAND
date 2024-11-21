@@ -1,7 +1,6 @@
-﻿using PVZEngine.Definitions;
-using PVZEngine.Level;
+﻿using PVZEngine.Level;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Level
 {
     public static class BuiltinAreaProps
     {

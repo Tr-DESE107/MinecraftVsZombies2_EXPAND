@@ -1,6 +1,6 @@
 ﻿using MukioI18n;
 
-namespace MVZ2.Localization
+namespace MVZ2Logic
 {
     public static class StringTable
     {

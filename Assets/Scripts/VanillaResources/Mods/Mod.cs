@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
-using System;
-using MVZ2.Games;
-using MVZ2.Save;
+﻿using System;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Callbacks;
-using PVZEngine.Level;
 using PVZEngine.Triggers;
 
-namespace MVZ2.Modding
+namespace MVZ2Logic.Modding
 {
     public abstract class Mod : IContentProvider, IModLogic
     {

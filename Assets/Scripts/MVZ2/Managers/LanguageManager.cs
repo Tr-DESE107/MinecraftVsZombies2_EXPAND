@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using MVZ2.Localization;
-using MVZ2.Resources;
+using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 

@@ -2,11 +2,10 @@
 using System.IO;
 using System.Linq;
 using System.Xml;
-using MVZ2.Resources;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2Logic
 {
     public static class XMLHelper
     {

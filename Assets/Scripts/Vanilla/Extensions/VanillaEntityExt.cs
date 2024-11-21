@@ -1,10 +1,12 @@
 ﻿using System.Linq;
 using System.Net.NetworkInformation;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Buffs;
+using MVZ2Logic;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;

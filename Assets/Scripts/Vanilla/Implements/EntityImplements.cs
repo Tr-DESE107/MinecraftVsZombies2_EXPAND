@@ -1,6 +1,8 @@
-﻿using MVZ2.Extensions;
+﻿using MVZ2Logic.Level;
 using MVZ2.GameContent;
-using MVZ2.Modding;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

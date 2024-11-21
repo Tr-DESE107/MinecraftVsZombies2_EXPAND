@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
-using MVZ2.Games;
-using MVZ2.Logic.Scenes;
+using MVZ2Logic.Games;
+using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2Logic
 {
     public static class Global
     {

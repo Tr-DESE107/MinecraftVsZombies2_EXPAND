@@ -1,6 +1,9 @@
 ﻿using System.Linq;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Definitions;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MVZ2.Logic.Models
+namespace MVZ2Logic.Models
 {
     public interface IAreaModel
     {

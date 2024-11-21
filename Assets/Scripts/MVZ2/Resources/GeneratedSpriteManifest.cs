@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MVZ2.Resources
@@ -14,7 +12,7 @@ namespace MVZ2.Resources
         {
             categories.Clear();
         }
-        public void AddSprite(string category, Sprite sprite) 
+        public void AddSprite(string category, Sprite sprite)
         {
             var cat = categories.FirstOrDefault(c => c.name == category);
             if (cat == null)

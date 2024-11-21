@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using PVZEngine;
 using PVZEngine.Triggers;
 
-namespace MVZ2.Games
+namespace MVZ2Logic.Games
 {
     public partial class Game : ITriggerProvider
     {

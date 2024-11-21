@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace MVZ2.Talk
+namespace MVZ2Logic.Talk
 {
     public class TalkScript
     {

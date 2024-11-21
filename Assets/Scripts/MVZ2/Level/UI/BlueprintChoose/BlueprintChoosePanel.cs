@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,16 +18,16 @@ namespace MVZ2.Level.UI
         public abstract Blueprint GetItem(int index);
         public void ResetArtifactCount(int count)
         {
-            artifactList.updateList(count, (i ,rect) =>
+            artifactList.updateList(count, (i, rect) =>
             {
                 var artifactIcon = rect.GetComponent<ArtifactSlot>();
                 artifactIcon.ResetView();
-            }, 
+            },
             rect =>
             {
                 var artifactIcon = rect.GetComponent<ArtifactSlot>();
                 artifactIcon.OnClick += OnArtifactIconClickCallback;
-            }, 
+            },
             rect =>
             {
                 var artifactIcon = rect.GetComponent<ArtifactSlot>();

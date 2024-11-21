@@ -1,8 +1,11 @@
 ﻿using System.Linq;
-using MVZ2.Definitions;
-using MVZ2.Extensions;
+using MVZ2Logic.Level;
 using MVZ2.GameContent;
-using MVZ2.HeldItems;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;

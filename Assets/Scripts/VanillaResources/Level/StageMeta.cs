@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
-using MVZ2.GameContent;
-using MVZ2.Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Level
 {
     public class StageMeta
     {

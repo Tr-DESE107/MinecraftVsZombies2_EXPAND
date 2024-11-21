@@ -1,5 +1,5 @@
 ﻿using MukioI18n;
-using MVZ2.Localization;
+using MVZ2Logic;
 
 namespace MVZ2.Vanilla
 {

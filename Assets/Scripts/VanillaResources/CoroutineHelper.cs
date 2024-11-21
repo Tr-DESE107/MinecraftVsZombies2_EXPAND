@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
 
-namespace MVZ2
+namespace MVZ2Logic
 {
     public static class CoroutineHelper
     {

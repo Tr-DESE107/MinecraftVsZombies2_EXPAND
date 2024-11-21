@@ -1,6 +1,9 @@
-﻿using PVZEngine;
+﻿using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
+using MVZ2Logic.Models;
+using PVZEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Games
 {
     public interface IMetaProvider
     {

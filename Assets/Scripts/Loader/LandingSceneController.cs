@@ -1,4 +1,4 @@
-using MVZ2.Games;
+using MVZ2Logic.Games;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
 using UnityEngine;

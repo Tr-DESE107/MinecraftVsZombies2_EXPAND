@@ -1,6 +1,6 @@
 ﻿using PVZEngine;
 
-namespace MVZ2.GameContent
+namespace MVZ2Logic.Notes
 {
     public static class BuiltinNoteNames
     {

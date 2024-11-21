@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine;
 
-namespace MVZ2.Save
+namespace MVZ2Logic.Saves
 {
     public abstract class ModSaveData
     {
@@ -89,7 +89,7 @@ namespace MVZ2.Save
         }
         private MapPresetConfig GetMapPresetConfig(string mapId)
         {
-            return mapPresetConfigs.FirstOrDefault(r => r.ID == mapId); 
+            return mapPresetConfigs.FirstOrDefault(r => r.ID == mapId);
         }
         #endregion
 

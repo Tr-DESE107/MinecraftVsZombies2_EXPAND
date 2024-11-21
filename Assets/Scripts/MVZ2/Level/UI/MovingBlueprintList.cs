@@ -1,6 +1,3 @@
-using System;
-using MVZ2.UI;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.Level.UI

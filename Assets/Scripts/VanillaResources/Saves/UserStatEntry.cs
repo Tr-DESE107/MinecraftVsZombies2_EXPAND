@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MVZ2.Save
+namespace MVZ2Logic.Saves
 {
     public class UserStatEntry
     {

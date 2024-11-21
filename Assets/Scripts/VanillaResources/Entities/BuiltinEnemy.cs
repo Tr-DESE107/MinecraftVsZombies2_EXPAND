@@ -1,8 +1,7 @@
-﻿using MVZ2.GameContent.Enemies;
-using PVZEngine;
+﻿using PVZEngine;
 using PVZEngine.Entities;
 
-namespace MVZ2.Vanilla
+namespace MVZ2Logic.Entities
 {
     public static class BuiltinEnemy
     {

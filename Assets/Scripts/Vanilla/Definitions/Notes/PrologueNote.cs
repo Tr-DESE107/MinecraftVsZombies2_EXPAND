@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using MVZ2.Definitions;
 using MVZ2.GameContent;
-using MVZ2.Note;
+using MVZ2Logic;
+using MVZ2Logic.Notes;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

@@ -1,4 +1,4 @@
-﻿namespace MVZ2.Resources
+﻿namespace MVZ2Logic.Games
 {
     public enum ResourceType
     {

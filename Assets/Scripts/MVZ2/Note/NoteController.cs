@@ -1,9 +1,8 @@
-﻿using MVZ2.Definitions;
-using MVZ2.Extensions;
-using MVZ2.GameContent;
-using MVZ2.Managers;
-using MVZ2.Resources;
+﻿using MVZ2.Managers;
 using MVZ2.Talk;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Notes;
 using PVZEngine;
 using UnityEngine;
 

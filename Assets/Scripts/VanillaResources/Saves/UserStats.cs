@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MVZ2.Save
+namespace MVZ2Logic.Saves
 {
     public class UserStats
     {

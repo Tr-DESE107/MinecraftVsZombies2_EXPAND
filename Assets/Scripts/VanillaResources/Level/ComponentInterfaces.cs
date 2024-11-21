@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2.Level.Components
+namespace MVZ2Logic.Level.Components
 {
     public interface IAdviceComponent : ILevelComponent
     {

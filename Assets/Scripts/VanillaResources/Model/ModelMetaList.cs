@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace MVZ2.Resources
+namespace MVZ2Logic.Models
 {
     public class ModelMetaList
     {

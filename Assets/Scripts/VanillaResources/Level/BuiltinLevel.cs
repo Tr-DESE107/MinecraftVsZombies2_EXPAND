@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using MVZ2.GameContent;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2.Vanilla
+namespace MVZ2Logic.Level
 {
     public static class BuiltinLevel
     {
@@ -70,7 +70,7 @@ namespace MVZ2.Vanilla
         }
         public static void AddStarshardCount(this LevelEngine game, int value)
         {
-            game.SetStarshardCount(GetStarshardCount(game) + value);
+            game.SetStarshardCount(game.GetStarshardCount() + value);
         }
         public static int GetStarshardSlotCount(this LevelEngine game)
         {
