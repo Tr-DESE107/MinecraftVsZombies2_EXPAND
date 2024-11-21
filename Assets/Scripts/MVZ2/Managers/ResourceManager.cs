@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Modding;
+using MVZ2.Resources;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
@@ -119,7 +120,7 @@ namespace MVZ2.Managers
             if (metaPath.StartsWith(talksDirectory))
             {
                 var talkRelativePath = metaPath.Substring(talksDirectory.Length);
-                var meta = TalkMeta.FromXmlDocument(document, defaultNsp);
+                var meta = document.ToTalkMeta(defaultNsp);
                 modResource.TalkMetas.Add(talkRelativePath, meta);
             }
             else
