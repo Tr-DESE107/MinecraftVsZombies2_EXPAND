@@ -6,6 +6,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;

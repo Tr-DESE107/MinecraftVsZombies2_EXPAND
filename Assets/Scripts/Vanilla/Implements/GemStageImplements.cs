@@ -6,6 +6,7 @@ using MVZ2.GameContent;
 using MVZ2.Games;
 using MVZ2.Modding;
 using PVZEngine;
+using PVZEngine.Damage;
 using PVZEngine.Level;
 using Tools;
 

@@ -2,6 +2,7 @@
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using PVZEngine;
+using PVZEngine.Damage;
 using PVZEngine.Level;
 using UnityEngine;
 

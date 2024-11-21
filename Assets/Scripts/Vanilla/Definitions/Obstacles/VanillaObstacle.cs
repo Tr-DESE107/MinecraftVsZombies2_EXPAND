@@ -5,6 +5,7 @@ using PVZEngine.Level;
 using MVZ2.Extensions;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
+using PVZEngine.Damage;
 
 namespace MVZ2.Vanilla
 {

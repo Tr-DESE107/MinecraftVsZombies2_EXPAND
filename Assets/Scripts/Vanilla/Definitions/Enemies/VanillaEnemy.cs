@@ -1,6 +1,7 @@
 using MVZ2.Extensions;
 using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;

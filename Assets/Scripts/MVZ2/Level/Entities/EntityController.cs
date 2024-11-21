@@ -6,6 +6,7 @@ using MVZ2.Managers;
 using MVZ2.Rendering;
 using MVZ2.Vanilla;
 using PVZEngine;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;

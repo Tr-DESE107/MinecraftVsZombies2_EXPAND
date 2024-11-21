@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;

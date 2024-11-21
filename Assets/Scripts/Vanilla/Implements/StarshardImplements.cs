@@ -7,6 +7,7 @@ using MVZ2.Games;
 using MVZ2.Modding;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine;
+using PVZEngine.Damage;
 using PVZEngine.Level;
 
 namespace MVZ2.Vanilla

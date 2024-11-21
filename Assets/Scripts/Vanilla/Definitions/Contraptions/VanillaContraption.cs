@@ -4,6 +4,7 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using PVZEngine.Base;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;

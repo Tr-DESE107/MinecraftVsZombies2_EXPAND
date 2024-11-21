@@ -1,5 +1,6 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
+using PVZEngine.Damage;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies

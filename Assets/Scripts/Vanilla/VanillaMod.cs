@@ -13,6 +13,7 @@ using MVZ2.Serialization;
 using MVZ2.Vanilla.Save;
 using PVZEngine;
 using PVZEngine.Base;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;

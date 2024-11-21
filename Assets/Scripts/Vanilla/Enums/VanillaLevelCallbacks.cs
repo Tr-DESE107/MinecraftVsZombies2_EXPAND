@@ -1,5 +1,6 @@
 ﻿using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Damage;
 using PVZEngine.Level;
 
 namespace MVZ2.Vanilla

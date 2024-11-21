@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Damage;
 using PVZEngine.Definitions;
 using PVZEngine.Level.Buffs;
 using PVZEngine.Serialization;

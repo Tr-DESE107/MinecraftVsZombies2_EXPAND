@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MVZ2.GameContent;
 using MVZ2.GameContent.Effects;
+using PVZEngine.Damage;
 using PVZEngine.Level;
 
 namespace MVZ2.Vanilla
