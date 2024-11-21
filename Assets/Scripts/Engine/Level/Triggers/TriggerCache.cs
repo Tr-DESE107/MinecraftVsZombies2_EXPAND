@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PVZEngine.Level.Triggers
+namespace PVZEngine.Triggers
 {
     public class TriggerCache
     {

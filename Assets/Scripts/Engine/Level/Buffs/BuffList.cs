@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Definitions;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using PVZEngine.Serialization;
 
-namespace PVZEngine.Level
+namespace PVZEngine.Buffs
 {
     public class BuffList
     {
@@ -102,6 +101,10 @@ namespace PVZEngine.Level
         }
         private List<Buff> buffs = new List<Buff>();
     }
+}
+
+namespace PVZEngine.Level
+{
     public class MultipleValueModifierException : Exception
     {
         public MultipleValueModifierException(string message) : base(message)

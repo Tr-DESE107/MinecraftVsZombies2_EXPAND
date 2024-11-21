@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Auras;
-using PVZEngine.Definitions;
-using PVZEngine.Level.Triggers;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using PVZEngine.Serialization;
 using PVZEngine.Triggers;
 
-namespace PVZEngine.Level
+namespace PVZEngine.Buffs
 {
     public class Buff
     {

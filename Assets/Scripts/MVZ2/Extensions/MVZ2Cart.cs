@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.Vanilla;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Extensions

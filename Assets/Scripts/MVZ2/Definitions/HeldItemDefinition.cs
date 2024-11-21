@@ -1,5 +1,7 @@
 ﻿using MVZ2.Extensions;
 using PVZEngine.Base;
+using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 
 namespace MVZ2.Definitions

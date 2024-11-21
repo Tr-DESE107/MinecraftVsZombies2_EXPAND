@@ -4,6 +4,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 

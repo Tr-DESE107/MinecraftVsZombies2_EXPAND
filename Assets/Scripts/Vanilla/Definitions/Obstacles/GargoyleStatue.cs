@@ -1,8 +1,8 @@
 ﻿using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Vanilla.Buffs;
-using PVZEngine.Damage;
-using PVZEngine.Level;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla
 {

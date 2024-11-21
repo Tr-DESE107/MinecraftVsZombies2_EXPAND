@@ -5,9 +5,10 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
-using PVZEngine.Damage;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Entities;
+using PVZEngine.Grids;
 using Tools;
 using UnityEngine;
 

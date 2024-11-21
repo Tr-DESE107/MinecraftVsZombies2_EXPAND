@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using PVZEngine.Triggers;
+﻿using System.Collections.Generic;
 
-namespace PVZEngine.Level.Triggers
+namespace PVZEngine.Triggers
 {
     public class TriggerCacheList
     {

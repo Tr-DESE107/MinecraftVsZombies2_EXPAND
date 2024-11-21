@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent;
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using Tools.Mathematics;

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Xml;
 using PVZEngine;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 
 namespace MVZ2.Resources
 {

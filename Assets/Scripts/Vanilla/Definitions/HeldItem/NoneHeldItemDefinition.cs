@@ -1,7 +1,8 @@
 ﻿using MVZ2.Definitions;
 using MVZ2.Extensions;
 using MVZ2.GameContent;
-using PVZEngine.Level;
+using PVZEngine.Entities;
+using PVZEngine.Grids;
 
 namespace MVZ2.Vanilla
 {

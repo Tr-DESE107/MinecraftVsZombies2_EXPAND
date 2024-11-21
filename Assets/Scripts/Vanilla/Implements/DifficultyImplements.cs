@@ -2,6 +2,8 @@
 using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Modding;
+using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using UnityEngine;
 

@@ -1,5 +1,5 @@
 ﻿using MVZ2.Vanilla;
-using PVZEngine.Definitions;
+using PVZEngine.Armors;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors

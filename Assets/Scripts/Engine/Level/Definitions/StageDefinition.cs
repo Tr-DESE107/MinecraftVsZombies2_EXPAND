@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Base;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace PVZEngine.Definitions

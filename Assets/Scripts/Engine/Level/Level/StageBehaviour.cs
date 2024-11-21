@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Definitions;
+using PVZEngine.Entities;
 
 namespace PVZEngine.Level
 {

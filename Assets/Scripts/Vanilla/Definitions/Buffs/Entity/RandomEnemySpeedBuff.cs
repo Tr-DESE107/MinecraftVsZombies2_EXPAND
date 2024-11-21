@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
-using PVZEngine.Definitions;
+using PVZEngine.Buffs;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs

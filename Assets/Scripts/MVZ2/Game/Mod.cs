@@ -6,7 +6,6 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
-using PVZEngine.Level.Triggers;
 using PVZEngine.Triggers;
 
 namespace MVZ2.Modding

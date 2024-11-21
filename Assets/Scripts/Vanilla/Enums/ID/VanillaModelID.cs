@@ -1,6 +1,5 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent
 {

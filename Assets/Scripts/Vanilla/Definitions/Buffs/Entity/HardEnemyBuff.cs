@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.Vanilla;
-using PVZEngine.Definitions;
+using PVZEngine.Buffs;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.Vanilla

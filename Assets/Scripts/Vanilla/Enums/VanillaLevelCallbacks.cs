@@ -1,7 +1,7 @@
 ﻿using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Damage;
-using PVZEngine.Level;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla
 {

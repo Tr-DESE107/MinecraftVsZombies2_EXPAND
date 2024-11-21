@@ -1,6 +1,5 @@
 ﻿using MVZ2.Vanilla;
-using PVZEngine.Damage;
-using PVZEngine.Definitions;
+using PVZEngine.Damages;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Shells

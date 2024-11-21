@@ -5,7 +5,7 @@ namespace PVZEngine.Modifiers
 {
     public static class ModifierMap
     {
-        public static void AddCalculator<T>(ModifierCalculator calculator) where T: PropertyModifier
+        public static void AddCalculator<T>(ModifierCalculator calculator) where T : PropertyModifier
         {
             AddCalculator(typeof(T), calculator);
         }

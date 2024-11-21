@@ -1,5 +1,5 @@
 ﻿using MVZ2.Vanilla;
-using PVZEngine.Definitions;
+using PVZEngine.Grids;
 
 namespace MVZ2.GameContent.Grids
 {

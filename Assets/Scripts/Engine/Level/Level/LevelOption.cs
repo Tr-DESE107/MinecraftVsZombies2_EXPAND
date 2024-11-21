@@ -1,6 +1,4 @@
-﻿using PVZEngine.Serialization;
-
-namespace PVZEngine.Level
+﻿namespace PVZEngine.Level
 {
     public class LevelOption
     {

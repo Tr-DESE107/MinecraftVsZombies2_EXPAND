@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Definitions;
-using PVZEngine.Level.Buffs;
+using PVZEngine.Entities;
 
-namespace PVZEngine.Level
+namespace PVZEngine.Buffs
 {
     public interface IBuffTarget
     {

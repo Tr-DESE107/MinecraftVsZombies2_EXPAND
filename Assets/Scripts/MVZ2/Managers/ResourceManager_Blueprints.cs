@@ -1,7 +1,9 @@
 ﻿using MVZ2.GameContent;
 using MVZ2.UI;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 using UnityEngine;
 
 namespace MVZ2.Managers

@@ -1,7 +1,7 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Buffs;
+using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs

@@ -1,7 +1,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
 using PVZEngine;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects

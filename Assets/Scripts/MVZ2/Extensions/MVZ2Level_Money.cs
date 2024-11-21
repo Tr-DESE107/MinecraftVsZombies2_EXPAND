@@ -1,4 +1,5 @@
 ﻿using MVZ2.Level.Components;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.Extensions

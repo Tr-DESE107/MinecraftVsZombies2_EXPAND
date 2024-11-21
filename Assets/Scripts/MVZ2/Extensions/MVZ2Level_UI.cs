@@ -3,6 +3,7 @@ using MVZ2.GameContent;
 using MVZ2.Level.Components;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 

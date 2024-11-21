@@ -5,7 +5,7 @@ using System.Linq;
 using MVZ2.Save;
 using MVZ2.Serialization;
 using PVZEngine;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Managers

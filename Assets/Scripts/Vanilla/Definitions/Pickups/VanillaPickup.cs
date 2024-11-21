@@ -2,7 +2,7 @@
 using MVZ2.GameContent;
 using MVZ2.Games;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

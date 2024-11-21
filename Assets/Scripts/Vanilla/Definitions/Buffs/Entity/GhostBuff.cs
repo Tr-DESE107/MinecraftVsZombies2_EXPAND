@@ -1,7 +1,7 @@
 ﻿using MVZ2.GameContent;
-using PVZEngine.Damage;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using UnityEngine;
 

@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Damage;
-using PVZEngine.Definitions;
-using PVZEngine.Level.Buffs;
-using PVZEngine.Serialization;
+using PVZEngine.Armors;
+using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
+using PVZEngine.Grids;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
-namespace PVZEngine.Level
+namespace PVZEngine.Entities
 {
     public sealed class Entity : IBuffTarget
     {
@@ -284,7 +286,7 @@ namespace PVZEngine.Level
 
             float groundHeight = GetGroundHeight();
             float relativeY = nextPos.y - groundHeight;
-            bool leavingGround = relativeY > 0 || (relativeY == 0 && nextVelocity.y >= 0);
+            bool leavingGround = relativeY > 0 || relativeY == 0 && nextVelocity.y >= 0;
             if (leavingGround)
             {
                 if (isOnGround)
@@ -598,6 +600,10 @@ namespace PVZEngine.Level
         private List<Entity> children = new List<Entity>();
         #endregion
     }
+}
+
+namespace PVZEngine.Level
+{
     public enum EntityAnimationTarget
     {
         Entity,

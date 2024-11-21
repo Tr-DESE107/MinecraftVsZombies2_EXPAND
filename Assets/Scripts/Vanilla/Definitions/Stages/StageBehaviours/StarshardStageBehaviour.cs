@@ -2,6 +2,7 @@
 using MVZ2.GameContent;
 using MVZ2.Vanilla.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;

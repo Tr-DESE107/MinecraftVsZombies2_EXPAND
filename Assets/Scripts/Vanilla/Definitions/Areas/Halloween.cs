@@ -2,6 +2,8 @@
 using System.Linq;
 using MVZ2.Vanilla;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;

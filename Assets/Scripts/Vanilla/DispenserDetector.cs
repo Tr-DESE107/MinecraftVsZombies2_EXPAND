@@ -1,5 +1,5 @@
 ﻿using PVZEngine;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

@@ -1,4 +1,6 @@
-﻿namespace PVZEngine.Level
+﻿using PVZEngine.Level;
+
+namespace PVZEngine.Entities
 {
     public class EntityReferenceChain
     {

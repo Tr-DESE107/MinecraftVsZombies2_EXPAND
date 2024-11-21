@@ -1,6 +1,6 @@
 ﻿using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla
 {

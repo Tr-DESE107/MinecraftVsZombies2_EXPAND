@@ -1,7 +1,8 @@
 ﻿using System;
 using MongoDB.Bson.Serialization.Attributes;
+using PVZEngine.Level;
 
-namespace PVZEngine.Level
+namespace PVZEngine.Entities
 {
     [Serializable]
     public class EntityID

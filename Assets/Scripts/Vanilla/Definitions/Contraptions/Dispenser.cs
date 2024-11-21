@@ -1,5 +1,5 @@
 ﻿using MVZ2.Vanilla;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions

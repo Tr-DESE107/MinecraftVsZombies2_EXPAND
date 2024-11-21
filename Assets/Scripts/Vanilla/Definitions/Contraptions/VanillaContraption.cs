@@ -4,9 +4,9 @@ using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using PVZEngine.Base;
-using PVZEngine.Damage;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

@@ -2,6 +2,7 @@
 using MVZ2.Vanilla;
 using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 

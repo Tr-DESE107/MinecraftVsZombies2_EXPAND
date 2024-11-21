@@ -1,6 +1,7 @@
 using System;
 using MVZ2.GameContent;
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.Level.Components

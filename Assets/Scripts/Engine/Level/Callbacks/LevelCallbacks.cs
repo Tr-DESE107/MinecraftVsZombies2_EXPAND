@@ -1,9 +1,10 @@
-﻿using PVZEngine.Callbacks;
-using PVZEngine.Damage;
-using PVZEngine.Level.Triggers;
+﻿using PVZEngine.Armors;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
-namespace PVZEngine.Level
+namespace PVZEngine.Callbacks
 {
     public static class LevelCallbacks
     {

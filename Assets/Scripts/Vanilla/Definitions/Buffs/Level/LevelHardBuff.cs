@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent;
 using PVZEngine.Auras;
-using PVZEngine.Definitions;
+using PVZEngine.Buffs;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.Vanilla

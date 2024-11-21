@@ -1,8 +1,9 @@
 ﻿using MVZ2.Extensions;
 using MVZ2.GameContent;
 using MVZ2.Modding;
-using PVZEngine.Damage;
-using PVZEngine.Level;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Vanilla

@@ -1,4 +1,4 @@
-﻿namespace PVZEngine.Level
+﻿namespace PVZEngine.Entities
 {
     public static class EntityTypes
     {

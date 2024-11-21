@@ -1,6 +1,4 @@
-﻿using PVZEngine.Level;
-
-namespace PVZEngine.Modifiers
+﻿namespace PVZEngine.Modifiers
 {
     public class FloatModifier : NumberModifier<float>
     {

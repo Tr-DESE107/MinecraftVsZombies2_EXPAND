@@ -1,7 +1,7 @@
 ﻿using System;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 
-namespace PVZEngine.Damage
+namespace PVZEngine.Damages
 {
     public class DamageInfo
     {

@@ -6,7 +6,9 @@ using MVZ2.Extensions;
 using MVZ2.GameContent.Buffs.SeedPack;
 using MVZ2.Vanilla;
 using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 

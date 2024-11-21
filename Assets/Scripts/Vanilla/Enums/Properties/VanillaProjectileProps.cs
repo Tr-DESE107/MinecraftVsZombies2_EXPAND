@@ -1,7 +1,8 @@
 ﻿using MVZ2.Vanilla;
 using System.Collections.Generic;
-using PVZEngine.Level;
 using PVZEngine;
+using PVZEngine.Entities;
+using PVZEngine.Armors;
 
 namespace MVZ2.GameContent.Projectiles
 {

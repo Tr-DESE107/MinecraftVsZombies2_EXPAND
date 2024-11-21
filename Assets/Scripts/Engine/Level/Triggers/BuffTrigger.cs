@@ -1,8 +1,6 @@
-﻿using System;
-using PVZEngine.Callbacks;
-using PVZEngine.Triggers;
+﻿using PVZEngine.Buffs;
 
-namespace PVZEngine.Level.Triggers
+namespace PVZEngine.Triggers
 {
     public class BuffTrigger : Trigger
     {

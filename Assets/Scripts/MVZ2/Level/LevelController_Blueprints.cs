@@ -7,6 +7,7 @@ using MVZ2.Localization;
 using MVZ2.UI;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

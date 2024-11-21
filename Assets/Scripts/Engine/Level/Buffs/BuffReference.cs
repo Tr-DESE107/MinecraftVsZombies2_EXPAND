@@ -1,6 +1,7 @@
 ﻿using System;
+using PVZEngine.Level;
 
-namespace PVZEngine.Level.Buffs
+namespace PVZEngine.Buffs
 {
     [Serializable]
     public abstract class BuffReference

@@ -1,4 +1,4 @@
-﻿using PVZEngine.Level;
+﻿using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions
 {

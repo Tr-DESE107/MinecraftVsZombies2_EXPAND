@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
-using PVZEngine.Definitions;
+using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 

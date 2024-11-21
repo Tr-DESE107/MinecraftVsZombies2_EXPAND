@@ -1,8 +1,13 @@
 ﻿using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Base;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using PVZEngine.Grids;
 
-namespace PVZEngine.Level
+namespace PVZEngine
 {
     public static class ContentProviderHelper
     {

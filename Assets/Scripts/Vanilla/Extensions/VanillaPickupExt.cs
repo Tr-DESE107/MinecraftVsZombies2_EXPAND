@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MVZ2.GameContent;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla
 {

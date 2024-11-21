@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla
 {

@@ -1,7 +1,7 @@
 ﻿using MVZ2.Vanilla;
-using PVZEngine.Damage;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
