@@ -1,6 +1,4 @@
-﻿using System.Xml;
-
-namespace MVZ2Logic.Map
+﻿namespace MVZ2Logic.Map
 {
     public class MapMetaList
     {

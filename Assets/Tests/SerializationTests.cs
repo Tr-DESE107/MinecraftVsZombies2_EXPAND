@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Threading.Tasks;
-using MVZ2.GameContent;
 using MVZ2.GameContent.Contraptions;
 using MVZ2Logic.Games;
 using MVZ2.Level;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using NUnit.Framework;
@@ -17,6 +15,10 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
+using MVZ2.Vanilla.Entities;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Stages;
 
 namespace MVZ2.Tests
 {
@@ -26,8 +28,8 @@ namespace MVZ2.Tests
         [UnityTest]
         public static IEnumerator EntityReferenceTest()
         {
-            var areaId = BuiltinAreaID.day;
-            var stageId = BuiltinStageID.prologue;
+            var areaId = VanillaAreaID.day;
+            var stageId = VanillaStageID.prologue;
             yield return Init();
             yield return GotoLevel();
             var levelController = GetLevelController();
@@ -48,8 +50,8 @@ namespace MVZ2.Tests
         [UnityTest]
         public static IEnumerator EntitySerializationTest()
         {
-            var areaId = BuiltinAreaID.day;
-            var stageId = BuiltinStageID.prologue;
+            var areaId = VanillaAreaID.day;
+            var stageId = VanillaStageID.prologue;
             yield return Init();
             yield return GotoLevel();
             var levelController = GetLevelController();
@@ -74,8 +76,8 @@ namespace MVZ2.Tests
         [UnityTest]
         public static IEnumerator LevelSerializationTest()
         {
-            var areaId = BuiltinAreaID.day;
-            var stageId = BuiltinStageID.prologue;
+            var areaId = VanillaAreaID.day;
+            var stageId = VanillaStageID.prologue;
             yield return Init();
             yield return GotoLevel();
             var levelController = GetLevelController();
@@ -105,8 +107,8 @@ namespace MVZ2.Tests
         [UnityTest]
         public static IEnumerator LevelSerializationTestPrologue()
         {
-            var areaId = BuiltinAreaID.day;
-            var stageId = BuiltinStageID.prologue;
+            var areaId = VanillaAreaID.day;
+            var stageId = VanillaStageID.prologue;
             yield return Init();
             yield return GotoLevel();
             var levelController = GetLevelController();

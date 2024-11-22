@@ -1,4 +1,5 @@
 ﻿using MVZ2.UI;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;

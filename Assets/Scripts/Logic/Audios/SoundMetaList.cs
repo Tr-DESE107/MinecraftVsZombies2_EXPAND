@@ -1,6 +1,4 @@
-﻿using System.Xml;
-
-namespace MVZ2Logic.Audios
+﻿namespace MVZ2Logic.Audios
 {
     public class SoundMetaList
     {

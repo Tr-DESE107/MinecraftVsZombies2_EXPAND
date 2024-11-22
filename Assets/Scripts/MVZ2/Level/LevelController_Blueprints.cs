@@ -1,9 +1,12 @@
 ﻿using System;
 using MVZ2.Level.UI;
 using MVZ2.UI;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
-using MVZ2Logic.Audios;
-using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine.Level;
@@ -137,12 +140,12 @@ namespace MVZ2.Level
             }
             if (!seed.IsCharged())
             {
-                errorMessage = StringTable.TOOLTIP_RECHARGING;
+                errorMessage = Vanilla.VanillaStrings.TOOLTIP_RECHARGING;
                 return false;
             }
             if (level.Energy < seed.GetCost())
             {
-                errorMessage = StringTable.TOOLTIP_NOT_ENOUGH_ENERGY;
+                errorMessage = Vanilla.VanillaStrings.TOOLTIP_NOT_ENOUGH_ENERGY;
                 return false;
             }
             if (seed.IsDisabled())
@@ -188,7 +191,7 @@ namespace MVZ2.Level
                     uiPreset.RemoveMovingBlueprint(movingBlueprint);
                 };
 
-                level.PlaySound(SoundID.tap);
+                level.PlaySound(VanillaSoundID.tap);
                 return;
             }
 
@@ -196,21 +199,21 @@ namespace MVZ2.Level
             {
                 if (level.CancelHeldItem())
                 {
-                    level.PlaySound(SoundID.tap);
+                    level.PlaySound(VanillaSoundID.tap);
                 }
                 return;
             }
             if (!CanPickBlueprint(level.GetSeedPackAt(index)))
             {
-                level.PlaySound(SoundID.buzzer);
+                level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            level.PlaySound(SoundID.pick);
+            level.PlaySound(VanillaSoundID.pick);
             SelectBlueprint(index);
         }
         private void SelectBlueprint(int index)
         {
-            level.SetHeldItem(HeldTypes.blueprint, index, 0);
+            level.SetHeldItem(BuiltinHeldTypes.blueprint, index, 0);
         }
 
         #endregion

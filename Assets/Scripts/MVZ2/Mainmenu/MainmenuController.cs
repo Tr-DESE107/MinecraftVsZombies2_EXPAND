@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Notes;
+using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.UI;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
-using MVZ2Logic.Audios;
 using MVZ2Logic.Level;
 using MVZ2Logic.Notes;
-using MVZ2Logic.Saves;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu
@@ -33,9 +37,9 @@ namespace MVZ2.Mainmenu
             ui.SetUserManageDialogVisible(false);
             ui.SetRayblockerActive(true);
 
-            if (!main.MusicManager.IsPlaying(MusicID.mainmenu))
+            if (!main.MusicManager.IsPlaying(VanillaMusicID.mainmenu))
             {
-                main.MusicManager.Play(MusicID.mainmenu);
+                main.MusicManager.Play(VanillaMusicID.mainmenu);
             }
             ui.SetUserName(main.SaveManager.GetCurrentUserName());
         }
@@ -98,10 +102,10 @@ namespace MVZ2.Mainmenu
         }
         private void OnHelpButtonClickCallback()
         {
-            main.SoundManager.Play2D(SoundID.paper);
+            main.SoundManager.Play2D(VanillaSoundID.paper);
             main.MusicManager.Stop();
-            var buttonText = main.LanguageManager._(StringTable.BACK);
-            main.Scene.DisplayNote(BuiltinNoteID.help, buttonText);
+            var buttonText = main.LanguageManager._(Vanilla.VanillaStrings.BACK);
+            main.Scene.DisplayNote(VanillaNoteID.help, buttonText);
         }
         private void OnUserManageButtonClickCallback()
         {
@@ -110,7 +114,7 @@ namespace MVZ2.Mainmenu
         }
         private void OnQuitButtonClickCallback()
         {
-            var title = main.LanguageManager._(StringTable.QUIT);
+            var title = main.LanguageManager._(Vanilla.VanillaStrings.QUIT);
             var desc = main.LanguageManager._(QUIT_DESC);
             main.Scene.ShowDialogConfirm(title, desc, (value) =>
             {
@@ -204,7 +208,7 @@ namespace MVZ2.Mainmenu
                 case UserManageDialog.ButtonType.Delete:
                     {
                         var userIndex = GetSelectedUserIndex();
-                        var title = main.LanguageManager._(StringTable.WARNING);
+                        var title = main.LanguageManager._(Vanilla.VanillaStrings.WARNING);
                         var desc = main.LanguageManager._(WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
                         main.Scene.ShowDialogConfirm(title, desc, (value) =>
                         {
@@ -237,7 +241,7 @@ namespace MVZ2.Mainmenu
             {
                 ui.SetBackgroundDark(true);
                 main.MusicManager.Stop();
-                main.SoundManager.Play2D(SoundID.loseMusic);
+                main.SoundManager.Play2D(VanillaSoundID.loseMusic);
 
                 foreach (var button in GetAllButtons())
                 {
@@ -246,7 +250,7 @@ namespace MVZ2.Mainmenu
 
                 yield return new WaitForSeconds(6);
             }
-            if (main.SaveManager.IsLevelCleared(BuiltinStageID.prologue))
+            if (main.SaveManager.IsLevelCleared(VanillaStageID.prologue))
             {
                 var lastMapID = main.SaveManager.GetLastMapID() ?? main.ResourceManager.GetFirstMapID();
                 main.Scene.DisplayMap(lastMapID);
@@ -267,7 +271,7 @@ namespace MVZ2.Mainmenu
         private async Task GotoLevel()
         {
             await main.LevelManager.GotoLevelSceneAsync();
-            main.LevelManager.InitLevel(BuiltinAreaID.day, BuiltinStageID.prologue);
+            main.LevelManager.InitLevel(VanillaAreaID.day, VanillaStageID.prologue);
             Hide();
         }
         #region 输入用户名

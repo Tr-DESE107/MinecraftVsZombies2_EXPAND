@@ -6,11 +6,11 @@ using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Talk;
 using MVZ2.UI;
-using MVZ2Logic.Audios;
-using MVZ2Logic.Callbacks;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Level;
 using MVZ2Logic.Map;
-using MVZ2Logic.Saves;
 using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
@@ -31,9 +31,9 @@ namespace MVZ2.Map
             ui.SetDragRootVisible(false);
             ui.SetOptionsDialogActive(false);
             ui.SetRaycastBlockerActive(false);
-            if (!Main.SoundManager.IsPlaying(SoundID.travel))
+            if (!Main.SoundManager.IsPlaying(VanillaSoundID.travel))
             {
-                Main.SoundManager.Play2D(SoundID.travel);
+                Main.SoundManager.Play2D(VanillaSoundID.travel);
             }
             Main.Scene.ShowPortal();
         }
@@ -133,7 +133,7 @@ namespace MVZ2.Map
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            BuiltinCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
+            VanillaCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
         }
         private void OnTalkEndCallback()
         {
@@ -364,7 +364,7 @@ namespace MVZ2.Map
             ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
             ui.SetRaycastBlockerActive(true);
             Main.MusicManager.Stop();
-            Main.SoundManager.Play2D(SoundID.spring);
+            Main.SoundManager.Play2D(VanillaSoundID.spring);
             yield return new WaitForSeconds(1);
             var task = GotoLevelAsync(index);
             while (!task.IsCompleted)

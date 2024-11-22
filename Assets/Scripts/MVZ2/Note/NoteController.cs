@@ -1,6 +1,6 @@
 ﻿using MVZ2.Managers;
 using MVZ2.Talk;
-using MVZ2Logic.Audios;
+using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Notes;
 using PVZEngine;
@@ -47,7 +47,7 @@ namespace MVZ2.Note
         private void OnNoteFlipClickCallback()
         {
             isFlipped = !isFlipped;
-            main.SoundManager.Play2D(SoundID.paper);
+            main.SoundManager.Play2D(VanillaSoundID.paper);
             var sprRef = isFlipped ? meta.flipSprite : meta.sprite;
             ui.SetNoteSprite(main.LanguageManager.GetSprite(sprRef));
             ui.SetFlipAtLeft(isFlipped);

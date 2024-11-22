@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using MVZ2Logic.Entities;
+using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using UnityEngine;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
 using PVZEngine;
@@ -43,11 +44,11 @@ namespace MVZ2.Managers
             var meta = GetEntityMeta(entityID);
             if (meta == null)
                 return entityID.ToString();
-            return Main.LanguageManager._p(StringTable.CONTEXT_ENTITY_NAME, meta.name);
+            return Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ENTITY_NAME, meta.name);
         }
         public string GetEntityDeathMessage(NamespaceID entityID)
         {
-            string key = StringTable.DEATH_MESSAGE_UNKNOWN;
+            string key = Vanilla.VanillaStrings.DEATH_MESSAGE_UNKNOWN;
             if (entityID != null)
             {
                 var meta = GetEntityMeta(entityID);
@@ -56,7 +57,7 @@ namespace MVZ2.Managers
                     key = meta.deathMessage;
                 }
             }
-            return Main.LanguageManager._p(StringTable.CONTEXT_DEATH_MESSAGE, key);
+            return Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_DEATH_MESSAGE, key);
         }
         public string GetEntityTooltip(NamespaceID entityID)
         {
@@ -65,7 +66,7 @@ namespace MVZ2.Managers
             var meta = GetEntityMeta(entityID);
             if (meta == null)
                 return entityID.ToString();
-            return Main.LanguageManager._p(StringTable.CONTEXT_ENTITY_TOOLTIP, meta.tooltip);
+            return Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ENTITY_TOOLTIP, meta.tooltip);
         }
         #endregion
 

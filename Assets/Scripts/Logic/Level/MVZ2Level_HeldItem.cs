@@ -118,23 +118,6 @@ namespace MVZ2Logic.Level
         {
             level.UseOnLawn(area, level.GetHeldItemType(), level.GetHeldItemID());
         }
-        public static bool IsHoldingItem(this LevelEngine level)
-        {
-            var type = level.GetHeldItemType();
-            return NamespaceID.IsValid(type) && type != HeldTypes.none;
-        }
-        public static bool IsHoldingPickaxe(this LevelEngine level)
-        {
-            return level.GetHeldItemType() == HeldTypes.pickaxe;
-        }
-        public static bool IsHoldingStarshard(this LevelEngine level)
-        {
-            return level.GetHeldItemType() == HeldTypes.starshard;
-        }
-        public static bool IsHoldingBlueprint(this LevelEngine level, int i)
-        {
-            return level.GetHeldItemType() == HeldTypes.blueprint && level.GetHeldItemID() == i;
-        }
         #endregion
     }
 }

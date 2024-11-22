@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Linq;
 using MVZ2.Level.UI;
-using MVZ2Logic.Audios;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -70,10 +72,10 @@ namespace MVZ2.Level
         }
         private IEnumerator GameStartToPreviewTransition()
         {
-            Main.MusicManager.Play(MusicID.choosing);
+            Main.MusicManager.Play(VanillaMusicID.choosing);
             if (level.StageDefinition is IPreviewStage preview)
             {
-                preview.CreatePreviewEnemies(level, BuiltinLevel.GetEnemySpawnRect());
+                preview.CreatePreviewEnemies(level, VanillaLevelExt.GetEnemySpawnRect());
             }
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
@@ -88,7 +90,7 @@ namespace MVZ2.Level
         }
         private IEnumerator GameStartToLawnInstantTransition()
         {
-            Main.MusicManager.Play(MusicID.choosing);
+            Main.MusicManager.Play(VanillaMusicID.choosing);
             yield return new WaitForSeconds(1);
             yield return MoveCameraToLawn();
             yield return new WaitForSeconds(0.5f);
@@ -144,13 +146,13 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(1);
             yield return MoveCameraToHouse();
             yield return new WaitForSeconds(3);
-            level.PlaySound(SoundID.hit);
+            level.PlaySound(VanillaSoundID.hit);
             yield return new WaitForSeconds(0.5f);
-            level.PlaySound(SoundID.hit);
+            level.PlaySound(VanillaSoundID.hit);
             yield return new WaitForSeconds(0.5f);
-            level.PlaySound(SoundID.hit);
+            level.PlaySound(VanillaSoundID.hit);
             yield return new WaitForSeconds(0.5f);
-            level.PlaySound(SoundID.scream);
+            level.PlaySound(VanillaSoundID.scream);
             ui.ShowYouDied();
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
@@ -158,7 +160,7 @@ namespace MVZ2.Level
         private IEnumerator GameOverNoEnemyTransition()
         {
             Main.MusicManager.Stop();
-            level.PlaySound(SoundID.scream);
+            level.PlaySound(VanillaSoundID.scream);
             ui.ShowYouDied();
             yield return new WaitForSeconds(4);
             ShowGameOverDialog();
@@ -169,7 +171,7 @@ namespace MVZ2.Level
         private IEnumerator ExitLevelTransition(float delay)
         {
             yield return new WaitForSeconds(delay);
-            Main.SoundManager.Play2D(SoundID.travel);
+            Main.SoundManager.Play2D(VanillaSoundID.travel);
             Main.Scene.SetPortalFadeIn(async () =>
             {
                 await ExitLevel();

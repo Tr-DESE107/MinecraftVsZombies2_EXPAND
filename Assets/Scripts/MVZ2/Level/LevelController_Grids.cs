@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
@@ -64,7 +65,7 @@ namespace MVZ2.Level
                 var errorMessage = level.GetHeldErrorMessageOnGrid(grid);
                 if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    level.ShowAdvice(StringTable.CONTEXT_ADVICE_ERROR, errorMessage, 0, 150);
+                    level.ShowAdvice(Vanilla.VanillaStrings.CONTEXT_ADVICE_ERROR, errorMessage, 0, 150);
                 }
             }
             if (reset)

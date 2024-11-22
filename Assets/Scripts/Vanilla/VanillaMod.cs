@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using MVZ2Logic.Level;
-using MVZ2.GameContent;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla.Save;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Saves;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
-using MVZ2Logic.Audios;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
+using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
@@ -39,7 +45,7 @@ namespace MVZ2.Vanilla
             RegisterCallback(LevelCallbacks.PostEntityUpdate, ChangeLaneUpdate);
             RegisterCallback(LevelCallbacks.PostLevelClear, PostLevelClear);
             RegisterCallback(LevelCallbacks.PostEntityUpdate, CartUpdate, filter: EntityTypes.CART);
-            RegisterCallback(BuiltinCallbacks.TalkAction, TalkAction);
+            RegisterCallback(VanillaCallbacks.TalkAction, TalkAction);
 
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StarshardSpawnImplements());
@@ -92,7 +98,7 @@ namespace MVZ2.Vanilla
                         if (spawnDefAttr != null)
                         {
                             var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
-                            spawnDef.SetProperty(BuiltinSpawnProps.PREVIEW_COUNT, spawnDefAttr.PreviewCount);
+                            spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, spawnDefAttr.PreviewCount);
                             AddDefinition(spawnDef);
                         }
                     }
@@ -126,16 +132,16 @@ namespace MVZ2.Vanilla
                 stage.SetLevelName(meta.name);
                 stage.SetDayNumber(meta.dayNumber);
 
-                stage.SetProperty(BuiltinStageProps.START_TALK, meta.startTalk);
-                stage.SetProperty(BuiltinStageProps.END_TALK, meta.endTalk);
-                stage.SetProperty(BuiltinStageProps.MAP_TALK, meta.mapTalk);
+                stage.SetProperty(VanillaStageProps.START_TALK, meta.startTalk);
+                stage.SetProperty(VanillaStageProps.END_TALK, meta.endTalk);
+                stage.SetProperty(VanillaStageProps.MAP_TALK, meta.mapTalk);
 
-                stage.SetProperty(BuiltinStageProps.CLEAR_PICKUP_MODEL, meta.clearPickupModel);
-                stage.SetProperty(BuiltinStageProps.CLEAR_PICKUP_BLUEPRINT, meta.clearPickupBlueprint);
-                stage.SetProperty(BuiltinStageProps.END_NOTE_ID, meta.endNote);
+                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.clearPickupModel);
+                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_BLUEPRINT, meta.clearPickupBlueprint);
+                stage.SetProperty(VanillaStageProps.END_NOTE_ID, meta.endNote);
 
-                stage.SetProperty(BuiltinStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
-                stage.SetProperty(BuiltinStageProps.START_TRANSITION, meta.startTransition);
+                stage.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
+                stage.SetProperty(VanillaStageProps.START_TRANSITION, meta.startTransition);
 
                 stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.totalFlags);
                 stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.firstWaveTime);
@@ -256,7 +262,7 @@ namespace MVZ2.Vanilla
                     gemType = GemEffect.GemType.Emerald;
                 }
                 var gemEffect = GemEffect.SpawnGemEffect(level, gemType, entity.Position, entity, true);
-                gemEffect.PlaySound(SoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
+                gemEffect.PlaySound(VanillaSoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
                 level.ShowMoney();
                 entity.Remove();
             }
@@ -320,12 +326,12 @@ namespace MVZ2.Vanilla
                 return;
             }
 
-            var title = game.GetText(TextID.UI_PURCHASE);
-            var desc = game.GetText(TextID.UI_CONFIRM_BUY_7TH_SLOT);
+            var title = game.GetText(VanillaStrings.UI_PURCHASE);
+            var desc = game.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
             var options = new string[]
             {
-                game.GetText(TextID.UI_YES),
-                game.GetText(TextID.UI_NO)
+                game.GetText(VanillaStrings.UI_YES),
+                game.GetText(VanillaStrings.UI_NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {
@@ -357,12 +363,12 @@ namespace MVZ2.Vanilla
                 return;
             }
 
-            var title = game.GetText(TextID.UI_TUTORIAL);
-            var desc = game.GetText(TextID.UI_CONFIRM_TUTORIAL);
+            var title = game.GetText(VanillaStrings.UI_TUTORIAL);
+            var desc = game.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
             var options = new string[]
             {
-                game.GetText(TextID.UI_YES),
-                game.GetText(TextID.UI_NO)
+                game.GetText(VanillaStrings.UI_YES),
+                game.GetText(VanillaStrings.UI_NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {

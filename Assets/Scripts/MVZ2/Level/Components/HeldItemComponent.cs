@@ -1,6 +1,6 @@
 using System;
+using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic;
-using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -14,7 +14,7 @@ namespace MVZ2.Level.Components
         }
         public bool IsHoldingItem()
         {
-            return NamespaceID.IsValid(heldItemType) && heldItemType != HeldTypes.none;
+            return NamespaceID.IsValid(heldItemType) && heldItemType != BuiltinHeldTypes.none;
         }
         public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
         {
@@ -28,7 +28,7 @@ namespace MVZ2.Level.Components
         }
         public void ResetHeldItem()
         {
-            SetHeldItem(HeldTypes.none, 0, 0, false);
+            SetHeldItem(BuiltinHeldTypes.none, 0, 0, false);
         }
         public bool CancelHeldItem()
         {

@@ -1,6 +1,4 @@
-﻿using System.Xml;
-
-namespace MVZ2Logic.Notes
+﻿namespace MVZ2Logic.Notes
 {
     public class NoteMetaList
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -31,8 +32,8 @@ namespace MVZ2.Managers
         public string GetDifficultyName(NamespaceID difficulty)
         {
             var diffMeta = main.ResourceManager.GetDifficultyMeta(difficulty);
-            string name = diffMeta != null ? diffMeta.name : StringTable.DIFFICULTY_UNKNOWN;
-            return main.LanguageManager._p(StringTable.CONTEXT_DIFFICULTY, name);
+            string name = diffMeta != null ? diffMeta.name : Vanilla.VanillaStrings.DIFFICULTY_UNKNOWN;
+            return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_DIFFICULTY, name);
         }
         public NamespaceID[] GetAllDifficulties()
         {

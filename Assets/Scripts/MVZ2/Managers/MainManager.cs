@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MVZ2.GameContent.Stages;
 using MVZ2.Level;
 using MVZ2.Level.Components;
 using MVZ2.Rendering;
 using MVZ2.Save;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
-using MVZ2Logic.Saves;
 using MVZ2Logic.Scenes;
 using UnityEngine;
 
@@ -77,7 +78,7 @@ namespace MVZ2.Managers
         }
         public void GotoMapOrMainmenu()
         {
-            if (SaveManager.IsLevelCleared(BuiltinStageID.prologue))
+            if (SaveManager.IsLevelCleared(VanillaStageID.prologue))
             {
                 var lastMapID = SaveManager.GetLastMapID() ?? ResourceManager.GetFirstMapID();
                 Scene.DisplayMap(lastMapID);

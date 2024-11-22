@@ -3,10 +3,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
-using MVZ2Logic.Callbacks;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
-using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Level;
 using Tools;
@@ -140,8 +140,8 @@ namespace MVZ2.Level
 
             level.OnClear += Engine_OnClearCallback;
 
-            BuiltinCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
-            BuiltinCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
+            VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
+            VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
         }
         private void ApplyComponents(LevelEngine level)
         {

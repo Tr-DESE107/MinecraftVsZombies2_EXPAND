@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.Managers;
 using MVZ2.UI;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
-using MVZ2Logic.Audios;
-using MVZ2Logic.Callbacks;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
-using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -165,8 +167,8 @@ namespace MVZ2.Level
         }
         public void Dispose()
         {
-            BuiltinCallbacks.PostHugeWaveApproach.Remove(PostHugeWaveApproachCallback);
-            BuiltinCallbacks.PostFinalWave.Remove(PostFinalWaveCallback);
+            VanillaCallbacks.PostHugeWaveApproach.Remove(PostHugeWaveApproachCallback);
+            VanillaCallbacks.PostFinalWave.Remove(PostFinalWaveCallback);
 
             if (optionsLogic != null)
             {
@@ -178,8 +180,8 @@ namespace MVZ2.Level
         public async Task ExitLevelToNote(NamespaceID id)
         {
             await ExitScene();
-            var buttonText = Main.LanguageManager._(StringTable.CONTINUE);
-            Main.SoundManager.Play2D(SoundID.paper);
+            var buttonText = Main.LanguageManager._(Vanilla.VanillaStrings.CONTINUE);
+            Main.SoundManager.Play2D(VanillaSoundID.paper);
             Main.Scene.DisplayNote(id, buttonText);
         }
         public async Task ExitLevel()
@@ -433,7 +435,7 @@ namespace MVZ2.Level
         private void Engine_OnClearCallback()
         {
             Main.LevelManager.RemoveLevelState(StartStageID);
-            Main.SaveManager.Unlock(MVZ2Save.GetLevelClearUnlockID(level.StageID));
+            Main.SaveManager.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
             Main.SaveManager.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Main.SaveManager.SaveModDatas();
             Main.SaveManager.SetMapTalk(level.GetMapTalk());
@@ -489,7 +491,7 @@ namespace MVZ2.Level
         private void SetGameOver()
         {
             isGameOver = true;
-            level.PlaySound(SoundID.loseMusic);
+            level.PlaySound(VanillaSoundID.loseMusic);
             model.SetDoorVisible(false);
             level.HideAdvice();
             SetUIVisibleState(VisibleState.Nothing);
@@ -500,7 +502,7 @@ namespace MVZ2.Level
         {
             speedUp = !speedUp;
             GetUIPreset().SetSpeedUp(speedUp);
-            level.PlaySound(speedUp ? SoundID.fastForward : SoundID.slowDown);
+            level.PlaySound(speedUp ? VanillaSoundID.fastForward : VanillaSoundID.slowDown);
         }
 
         private async Task ExitScene()
@@ -613,7 +615,7 @@ namespace MVZ2.Level
                         if (!isPaused)
                         {
                             Pause();
-                            level.PlaySound(SoundID.pause);
+                            level.PlaySound(VanillaSoundID.pause);
                             ShowPausedDialog();
                         }
                         else
@@ -626,7 +628,7 @@ namespace MVZ2.Level
                         if (!isPaused)
                         {
                             Pause();
-                            level.PlaySound(SoundID.pause);
+                            level.PlaySound(VanillaSoundID.pause);
                             ShowOptionsDialog();
                         }
                         else
@@ -648,7 +650,7 @@ namespace MVZ2.Level
                 {
                     if (level.CancelHeldItem())
                     {
-                        level.PlaySound(SoundID.tap);
+                        level.PlaySound(VanillaSoundID.tap);
                     }
                 }
                 for (int i = 0; i < 10; i++)
@@ -698,7 +700,7 @@ namespace MVZ2.Level
             var startTalk = level.GetStartTalk() ?? level.StageID;
             if (!level.IsRerun && talkController.CanStartTalk(startTalk))
             {
-                Main.MusicManager.Play(MusicID.mainmenu);
+                Main.MusicManager.Play(VanillaMusicID.mainmenu);
                 StartTalk(startTalk, 0, 2);
             }
             else

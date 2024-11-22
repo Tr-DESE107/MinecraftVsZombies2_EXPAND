@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Xml;
 using PVZEngine;
-using PVZEngine.Entities;
 
 namespace MVZ2Logic.Entities
 {

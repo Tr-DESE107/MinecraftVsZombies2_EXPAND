@@ -1,0 +1,22 @@
+﻿using MVZ2.Vanilla;
+using PVZEngine.Armors;
+using PVZEngine.Buffs;
+using PVZEngine.Modifiers;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Buffs.Armors
+{
+    [Definition(VanillaBuffNames.armorDamageColor)]
+    public class ArmorDamageColorBuff : BuffDefinition
+    {
+        public ArmorDamageColorBuff(string nsp, string name) : base(nsp, name)
+        {
+            AddModifier(new ColorModifier(EngineArmorProps.COLOR_OFFSET, new Color(1, 0, 0, 0.5f)));
+        }
+        public override void PostUpdate(Buff buff)
+        {
+            base.PostUpdate(buff);
+            buff.Remove();
+        }
+    }
+}
