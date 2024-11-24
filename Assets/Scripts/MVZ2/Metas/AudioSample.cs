@@ -1,7 +1,8 @@
 ﻿using System.Xml;
+using MVZ2Logic;
 using PVZEngine;
 
-namespace MVZ2Logic.Audios
+namespace MVZ2.Metas
 {
     public class AudioSample
     {

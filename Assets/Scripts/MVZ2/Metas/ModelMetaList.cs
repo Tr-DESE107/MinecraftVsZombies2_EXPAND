@@ -1,5 +1,4 @@
 ﻿using System.Xml;
-using MVZ2Logic.Models;
 
 namespace MVZ2.Metas
 {

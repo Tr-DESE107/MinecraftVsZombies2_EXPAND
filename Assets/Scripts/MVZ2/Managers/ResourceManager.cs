@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2.Modding;
+using MVZ2.TalkData;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
@@ -122,7 +123,7 @@ namespace MVZ2.Managers
             if (metaPath.StartsWith(talksDirectory))
             {
                 var talkRelativePath = metaPath.Substring(talksDirectory.Length);
-                var meta = document.ToTalkMeta(defaultNsp);
+                var meta = TalkMeta.FromXmlNode(document, defaultNsp);
                 modResource.TalkMetas.Add(talkRelativePath, meta);
             }
             else

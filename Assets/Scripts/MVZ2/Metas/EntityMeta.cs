@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2.Metas;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 
-namespace MVZ2Logic.Entities
+namespace MVZ2.Metas
 {
     public class EntityMeta : IEntityMeta
     {

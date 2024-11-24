@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Metas;
+using MVZ2Logic.Fragments;
 using PVZEngine;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace MVZ2.Managers
             var meta = GetFragmentMetaList(id.spacename);
             if (meta == null)
                 return null;
-            return meta.metas.FirstOrDefault(m => m.name == id.path)?.gradient;
+            return meta.metas.FirstOrDefault(m => m.Name == id.path)?.Gradient;
         }
         #endregion
     }

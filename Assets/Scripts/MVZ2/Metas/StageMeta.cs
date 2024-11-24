@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
+using MVZ2Logic.Level;
 using PVZEngine;
 
-namespace MVZ2Logic.Level
+namespace MVZ2.Metas
 {
     public class StageMeta : IStageMeta
     {
@@ -104,8 +105,8 @@ namespace MVZ2Logic.Level
         public int EarliestFlag { get; }
         public EnemySpawnEntry(NamespaceID spawnRef, int earliestFlag = 0)
         {
-            this.SpawnRef = spawnRef;
-            this.EarliestFlag = earliestFlag;
+            SpawnRef = spawnRef;
+            EarliestFlag = earliestFlag;
         }
         public static EnemySpawnEntry FromXmlNode(XmlNode node, string defaultNsp)
         {

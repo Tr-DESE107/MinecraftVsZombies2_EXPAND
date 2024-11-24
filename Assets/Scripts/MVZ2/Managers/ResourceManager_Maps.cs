@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MVZ2.Map;
 using MVZ2.Metas;
-using MVZ2Logic.Map;
 using PVZEngine;
 using UnityEngine;
 
