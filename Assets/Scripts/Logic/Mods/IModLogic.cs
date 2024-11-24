@@ -3,7 +3,7 @@ using PVZEngine;
 
 namespace MVZ2Logic.Modding
 {
-    public interface IModLogic : IContentProvider
+    public interface IModLogic : IGameContent
     {
         void Load();
         void Unload();

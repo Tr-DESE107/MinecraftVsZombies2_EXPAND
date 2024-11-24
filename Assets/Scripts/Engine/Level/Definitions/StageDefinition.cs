@@ -54,10 +54,6 @@ namespace PVZEngine.Definitions
         public virtual void OnPostHugeWave(LevelEngine level) { }
         public virtual void OnPostFinalWave(LevelEngine level) { }
         public virtual void OnPostEnemySpawned(Entity entity) { }
-        public virtual IEnumerable<IEnemySpawnEntry> GetEnemyPool()
-        {
-            yield break;
-        }
         protected void AddBehaviour(StageBehaviour behaviour)
         {
             behaviours.Add(behaviour);

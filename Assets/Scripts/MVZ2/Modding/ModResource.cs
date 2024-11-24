@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Xml;
+using MVZ2.Level;
+using MVZ2.Map;
+using MVZ2.Metas;
+using MVZ2.Models;
+using MVZ2.TalkData;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Almanacs;
-using MVZ2Logic.Audios;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Level;
-using MVZ2Logic.Map;
-using MVZ2Logic.Models;
-using MVZ2Logic.Notes;
-using MVZ2Logic.Talk;
 using UnityEngine;
 
-namespace MVZ2Logic.Modding
+namespace MVZ2.Modding
 {
     public class ModResource
     {
@@ -33,9 +29,9 @@ namespace MVZ2Logic.Modding
         public Dictionary<string, Sprite> Sprites = new();
         public Dictionary<string, CharacterVariantSprite[]> CharacterVariantSprites = new();
         public Dictionary<string, TalkMeta> TalkMetas = new();
-        public Dictionary<string, IMapModel> MapModels = new();
-        public Dictionary<string, IAreaModel> AreaModels = new();
-        public Dictionary<string, IModel> Models = new();
+        public Dictionary<string, MapModel> MapModels = new();
+        public Dictionary<string, AreaModel> AreaModels = new();
+        public Dictionary<string, Model> Models = new();
         public Dictionary<string, Sprite> ModelIcons = new();
         public ModResource(string spaceName)
         {

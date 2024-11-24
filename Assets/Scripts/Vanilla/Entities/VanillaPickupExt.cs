@@ -28,8 +28,7 @@ namespace MVZ2.Vanilla.Entities
                     return false;
                 }
             }
-            var game = Global.Game;
-            var triggers = game.GetTriggers(VanillaLevelCallbacks.PRE_PICKUP_COLLECT);
+            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PRE_PICKUP_COLLECT);
             foreach (var trigger in triggers)
             {
                 var result = trigger.Invoke(entity);
@@ -46,11 +45,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity Produce(this Entity entity, NamespaceID pickupID)
         {
-            return entity.Produce(entity.Level.ContentProvider.GetEntityDefinition(pickupID));
+            return entity.Produce(entity.Level.Content.GetEntityDefinition(pickupID));
         }
         public static Entity Produce<T>(this Entity entity) where T : EntityDefinition
         {
-            return entity.Produce(entity.Level.ContentProvider.GetEntityDefinition<T>());
+            return entity.Produce(entity.Level.Content.GetEntityDefinition<T>());
         }
         public static Entity Produce(this Entity entity, EntityDefinition pickupDef)
         {
@@ -58,11 +57,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity spawner)
         {
-            return level.Produce(level.ContentProvider.GetEntityDefinition(pickupID), position, spawner);
+            return level.Produce(level.Content.GetEntityDefinition(pickupID), position, spawner);
         }
         public static Entity Produce<T>(this LevelEngine level, Vector3 position, Entity spawner) where T : EntityDefinition
         {
-            return level.Produce(level.ContentProvider.GetEntityDefinition<T>(), position, spawner);
+            return level.Produce(level.Content.GetEntityDefinition<T>(), position, spawner);
         }
         public static Entity Produce(this LevelEngine level, EntityDefinition pickupDef, Vector3 position, Entity spawner)
         {

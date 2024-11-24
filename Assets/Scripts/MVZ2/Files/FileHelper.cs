@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MVZ2
+namespace MVZ2.IO
 {
     public static class FileHelper
     {

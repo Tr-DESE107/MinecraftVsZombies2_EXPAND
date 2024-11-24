@@ -9,12 +9,12 @@ namespace PVZEngine.Level
         #region 公有方法
         public void AddTrigger(Trigger trigger)
         {
-            TriggerProvider.AddTrigger(trigger);
+            Triggers.AddTrigger(trigger);
             addedTriggers.Add(trigger);
         }
         public bool RemoveTrigger(Trigger trigger)
         {
-            if (TriggerProvider.RemoveTrigger(trigger))
+            if (Triggers.RemoveTrigger(trigger))
             {
                 addedTriggers.Remove(trigger);
                 return true;
@@ -40,7 +40,7 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性字段
-        public ITriggerProvider TriggerProvider { get; }
+        public IGameTriggerSystem Triggers { get; }
         private List<Trigger> addedTriggers = new List<Trigger>();
         #endregion
     }

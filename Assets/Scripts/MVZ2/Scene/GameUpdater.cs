@@ -1,7 +1,7 @@
 ﻿using MVZ2.Managers;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Scenes
 {
     public class GameUpdater : MonoBehaviour
     {

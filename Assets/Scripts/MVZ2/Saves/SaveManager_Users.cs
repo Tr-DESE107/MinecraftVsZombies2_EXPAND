@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
+using MVZ2.IO;
 using MVZ2.Save;
 using MVZ2Logic;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Saves
 {
     public partial class SaveManager : MonoBehaviour
     {

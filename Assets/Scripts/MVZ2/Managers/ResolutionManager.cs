@@ -1,8 +1,9 @@
 ﻿using System;
 using MukioI18n;
+using MVZ2.Managers;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Cameras
 {
     [ExecuteAlways]
     public class ResolutionManager : MonoBehaviour

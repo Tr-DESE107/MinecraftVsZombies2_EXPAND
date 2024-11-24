@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MVZ2.IO;
+using MVZ2.Managers;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Saves
 {
-    public partial class SaveManager : MonoBehaviour, ISaveDataProvider
+    public partial class SaveManager : MonoBehaviour, IGameSaveData
     {
         #region 保存
         public void SaveModDatas()
@@ -219,13 +222,13 @@ namespace MVZ2.Managers
                 var meta = resourceManager.GetEntityMeta(id);
                 if (meta == null)
                     continue;
-                if (NamespaceID.IsValid(meta.unlock) && !IsUnlocked(meta.unlock))
+                if (NamespaceID.IsValid(meta.Unlock) && !IsUnlocked(meta.Unlock))
                     continue;
-                if (meta.type == EntityTypes.PLANT)
+                if (meta.Type == EntityTypes.PLANT)
                 {
                     unlockedContraptionsCache.Add(id);
                 }
-                else if (meta.type == EntityTypes.ENEMY)
+                else if (meta.Type == EntityTypes.ENEMY)
                 {
                     unlockedEnemiesCache.Add(id);
                 }

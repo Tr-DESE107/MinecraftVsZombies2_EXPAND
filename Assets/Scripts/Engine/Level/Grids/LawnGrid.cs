@@ -59,7 +59,7 @@ namespace PVZEngine.Grids
         }
         public static LawnGrid Deserialize(SerializableGrid seri, LevelEngine level)
         {
-            var definition = level.ContentProvider.GetGridDefinition(seri.definitionID);
+            var definition = level.Content.GetGridDefinition(seri.definitionID);
             var grid = new LawnGrid(level, definition, seri.lane, seri.column);
             return grid;
         }

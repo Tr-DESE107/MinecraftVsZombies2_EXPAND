@@ -175,7 +175,7 @@ namespace PVZEngine.Level
         {
             if (seedRef == null)
                 return null;
-            SeedDefinition seedDefinition = ContentProvider.GetSeedDefinition(seedRef);
+            SeedDefinition seedDefinition = Content.GetSeedDefinition(seedRef);
             if (seedDefinition == null)
                 return null;
             var seedPack = seedPackPool.FirstOrDefault(s => s.Definition.GetID() == seedRef);

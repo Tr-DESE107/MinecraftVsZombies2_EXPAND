@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using MVZ2.Rendering;
+using MVZ2.Metas;
+using MVZ2.Models;
 using MVZ2Logic.Models;
 using PVZEngine;
 using UnityEngine;
@@ -33,16 +34,16 @@ namespace MVZ2.Managers
             var meta = GetModelMetaList(id.spacename);
             if (meta == null)
                 return null;
-            return meta.metas.FirstOrDefault(m => EngineModelID.ConcatName(m.type, m.name) == id.path);
+            return meta.metas.FirstOrDefault(m => EngineModelID.ConcatName(m.Type, m.Name) == id.path);
         }
         #endregion
 
         #region 模型
-        public IModel GetModel(string nsp, string path)
+        public Model GetModel(string nsp, string path)
         {
             return GetModel(new NamespaceID(nsp, path));
         }
-        public IModel GetModel(NamespaceID id)
+        public Model GetModel(NamespaceID id)
         {
             return FindInMods(id, mod => mod.Models);
         }
@@ -79,12 +80,12 @@ namespace MVZ2.Managers
                 return;
             foreach (var meta in metaList.metas)
             {
-                var model = GetModel(meta.path);
-                var metaPath = EngineModelID.ConcatName(meta.type, meta.name);
+                var model = GetModel(meta.Path);
+                var metaPath = EngineModelID.ConcatName(meta.Type, meta.Name);
                 var metaID = new NamespaceID(metaNamespace, metaPath);
                 if (model != null)
                 {
-                    var sprite = main.ModelManager.ShotIcon(model, meta.width, meta.height, new Vector2(meta.xOffset, meta.yOffset), metaID.ToString());
+                    var sprite = main.ModelManager.ShotIcon(model, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
                     modResource.ModelIcons.Add(metaPath, sprite);
                 }
                 else

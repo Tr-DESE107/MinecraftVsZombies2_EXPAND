@@ -1,3 +1,4 @@
+using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
@@ -18,6 +19,6 @@ namespace MVZ2.Level.Components
         {
             Controller.StopLevel();
         }
-        public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "logic");
+        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "logic");
     }
 }

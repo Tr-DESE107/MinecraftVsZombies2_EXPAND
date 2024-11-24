@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2.Sprites
 {
     [CreateAssetMenu(fileName = "NewGeneratedSpriteManifest", menuName = "MVZ2/Generated Sprite Manifest")]
     public class GeneratedSpriteManifest : ScriptableObject

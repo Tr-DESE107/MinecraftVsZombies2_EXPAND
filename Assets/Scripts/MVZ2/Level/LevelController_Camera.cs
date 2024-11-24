@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using MVZ2.Level.UI;
-using MVZ2.Vanilla;
+using MVZ2.Cameras;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
@@ -73,10 +71,7 @@ namespace MVZ2.Level
         private IEnumerator GameStartToPreviewTransition()
         {
             Main.MusicManager.Play(VanillaMusicID.choosing);
-            if (level.StageDefinition is IPreviewStage preview)
-            {
-                preview.CreatePreviewEnemies(level, VanillaLevelExt.GetEnemySpawnRect());
-            }
+            level.CreatePreviewEnemies(VanillaLevelExt.GetEnemySpawnRect());
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
             yield return new WaitForSeconds(1);

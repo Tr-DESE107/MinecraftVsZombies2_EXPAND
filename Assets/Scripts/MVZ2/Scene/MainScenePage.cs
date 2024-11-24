@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Scenes
 {
     public class MainScenePage : MonoBehaviour
     {

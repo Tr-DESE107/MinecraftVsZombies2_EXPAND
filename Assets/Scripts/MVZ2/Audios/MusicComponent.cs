@@ -1,4 +1,4 @@
-using MVZ2Logic;
+using MVZ2.Vanilla;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -18,6 +18,6 @@ namespace MVZ2.Level.Components
         {
             Main.MusicManager.Stop();
         }
-        public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "music");
+        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "music");
     }
 }

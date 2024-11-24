@@ -15,11 +15,11 @@ namespace PVZEngine.Level
     public partial class LevelEngine : IBuffTarget, IDisposable
     {
         #region 公有方法
-        public LevelEngine(IContentProvider contentProvider, ITranslator translator, ITriggerProvider triggers)
+        public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers)
         {
-            ContentProvider = contentProvider;
-            Translator = translator;
-            TriggerProvider = triggers;
+            Content = contentProvider;
+            Localization = translator;
+            Triggers = triggers;
         }
 
         public void Dispose()
@@ -77,7 +77,7 @@ namespace PVZEngine.Level
 
             grids = new LawnGrid[maxColumn * maxLane];
 
-            var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => ContentProvider.GetGridDefinition(i)).ToArray();
+            var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => Content.GetGridDefinition(i)).ToArray();
             for (int i = 0; i < gridDefinitions.Length; i++)
             {
                 var definition = gridDefinitions[i];
@@ -102,12 +102,12 @@ namespace PVZEngine.Level
         public void ChangeStage(NamespaceID stageId)
         {
             StageID = stageId;
-            StageDefinition = ContentProvider.GetStageDefinition(stageId);
+            StageDefinition = Content.GetStageDefinition(stageId);
         }
         public void ChangeArea(NamespaceID areaId)
         {
             AreaID = areaId;
-            AreaDefinition = ContentProvider.GetAreaDefinition(areaId);
+            AreaDefinition = Content.GetAreaDefinition(areaId);
         }
         public void Update()
         {
@@ -299,12 +299,12 @@ namespace PVZEngine.Level
 
         public Buff CreateBuff<T>(long buffID) where T : BuffDefinition
         {
-            var buffDefinition = ContentProvider.GetBuffDefinition<T>();
+            var buffDefinition = Content.GetBuffDefinition<T>();
             return CreateBuff(buffDefinition, buffID);
         }
         public Buff CreateBuff(NamespaceID id, long buffID)
         {
-            var buffDefinition = ContentProvider.GetBuffDefinition(id);
+            var buffDefinition = Content.GetBuffDefinition(id);
             return CreateBuff(buffDefinition, buffID);
         }
         public Buff CreateBuff(BuffDefinition buffDef, long buffID)
@@ -366,7 +366,7 @@ namespace PVZEngine.Level
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IContentProvider provider, ITranslator translator, ITriggerProvider triggers)
+        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers)
         {
             var level = new LevelEngine(provider, translator, triggers);
             level.Seed = seri.seed;
@@ -451,8 +451,8 @@ namespace PVZEngine.Level
         public event Action OnClear;
 
         #region 属性字段
-        public IContentProvider ContentProvider { get; private set; }
-        public ITranslator Translator { get; private set; }
+        public IGameContent Content { get; private set; }
+        public IGameLocalization Localization { get; private set; }
         public int Seed { get; private set; }
         public bool IsRerun { get; set; }
         public bool IsCleared { get; private set; }

@@ -1,4 +1,5 @@
-﻿using MVZ2.Managers;
+﻿using MVZ2.Cameras;
+using MVZ2.Managers;
 using UnityEngine;
 
 namespace MVZ2.Level.UI

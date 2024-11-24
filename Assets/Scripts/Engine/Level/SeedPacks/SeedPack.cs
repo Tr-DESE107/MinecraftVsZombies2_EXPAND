@@ -103,7 +103,7 @@ namespace PVZEngine.SeedPacks
             var rechargeID = this.GetRechargeID();
             if (rechargeID == null)
                 return null;
-            return Level.ContentProvider.GetRechargeDefinition(rechargeID);
+            return Level.Content.GetRechargeDefinition(rechargeID);
         }
         public int GetStartMaxRecharge()
         {
@@ -149,7 +149,7 @@ namespace PVZEngine.SeedPacks
         }
         public static SeedPack Deserialize(SerializableSeedPack seri, LevelEngine level)
         {
-            var definition = level.ContentProvider.GetSeedDefinition(seri.seedID);
+            var definition = level.Content.GetSeedDefinition(seri.seedID);
             var seedPack = new SeedPack(level, definition, seri.id)
             {
                 propertyDict = PropertyDictionary.Deserialize(seri.propertyDict),

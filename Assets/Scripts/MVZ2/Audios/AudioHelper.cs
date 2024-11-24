@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2.Audios
 {
     public class AudioHelper
     {

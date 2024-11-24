@@ -1,5 +1,5 @@
 ﻿using System;
-using MVZ2Logic;
+using MVZ2.Vanilla;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -72,13 +72,13 @@ namespace MVZ2.Level.Components
         }
         public string GetAdvice()
         {
-            return Level.Translator.GetTextParticular(AdviceKey, AdviceContext);
+            return Level.Localization.GetTextParticular(AdviceKey, AdviceContext);
         }
         public string AdviceContext { get; private set; }
         public string AdviceKey { get; private set; }
         public int AdvicePriority { get; private set; }
         public int AdviceTimeout { get; private set; }
-        public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "advice");
+        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "advice");
     }
     [Serializable]
     public class SerializableAdviceComponent : ISerializableLevelComponent

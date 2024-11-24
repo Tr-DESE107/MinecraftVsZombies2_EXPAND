@@ -95,7 +95,7 @@ namespace PVZEngine.Buffs
         }
         public static Buff Deserialize(SerializableBuff seri, LevelEngine level, IBuffTarget target)
         {
-            var definition = level.ContentProvider.GetBuffDefinition(seri.definitionID);
+            var definition = level.Content.GetBuffDefinition(seri.definitionID);
             var buff = new Buff(level, definition, seri.id);
             buff.Target = target;
             buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);

@@ -1,13 +1,13 @@
 ﻿using System;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.UI
+namespace MVZ2.Options
 {
     using static MVZ2.UI.OptionsDialog;
     public abstract class OptionsLogic : IDisposable
@@ -107,7 +107,7 @@ namespace MVZ2.UI
         }
         protected string GetValueText(bool value)
         {
-            return Main.LanguageManager._(value ? Vanilla.VanillaStrings.YES : Vanilla.VanillaStrings.NO);
+            return Main.LanguageManager._(value ? VanillaStrings.YES : VanillaStrings.NO);
         }
         protected string GetDifficultyText(NamespaceID id)
         {

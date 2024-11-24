@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Implements
         {
             var difficulty = level.Difficulty;
             bool easy = difficulty == VanillaDifficulties.easy;
-            var easyDef = level.ContentProvider.GetBuffDefinition(VanillaBuffID.Level.levelEasy);
+            var easyDef = level.Content.GetBuffDefinition(VanillaBuffID.Level.levelEasy);
             if (easy != level.HasBuff(easyDef))
             {
                 if (easy)
@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Implements
                     level.RemoveBuffs(easyDef);
             }
             bool hard = difficulty == VanillaDifficulties.hard;
-            var hardDef = level.ContentProvider.GetBuffDefinition(VanillaBuffID.Level.levelHard);
+            var hardDef = level.Content.GetBuffDefinition(VanillaBuffID.Level.levelHard);
             if (hard != level.HasBuff(hardDef))
             {
                 if (hard)

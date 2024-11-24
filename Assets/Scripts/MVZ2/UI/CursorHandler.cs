@@ -1,4 +1,4 @@
-﻿using MVZ2.Rendering;
+﻿using MVZ2.Cursors;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

@@ -8,7 +8,7 @@ using MVZ2Logic;
 using MVZ2Logic.Scenes;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Scenes
 {
     public class GameEntrance : MonoBehaviour
     {
@@ -38,20 +38,20 @@ namespace MVZ2
             switch (e)
             {
                 case DirectoryNotFoundException dirNotFound:
-                    return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ERROR, ERROR_DIRECTORY_NOT_FOUND);
+                    return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_DIRECTORY_NOT_FOUND);
                 case FileNotFoundException fileNotFound:
-                    return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ERROR, ERROR_FILE_NOT_FOUND);
+                    return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_FILE_NOT_FOUND);
                 case IOException io:
                     if (io.Message.Contains("Sharing Violation"))
                     {
-                        return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ERROR, ERROR_SHARING_VIOLATION);
+                        return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_SHARING_VIOLATION);
                     }
                     else
                     {
-                        return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ERROR, ERROR_FAILED_TO_LOAD_FILE);
+                        return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_FAILED_TO_LOAD_FILE);
                     }
                 case FormatException format:
-                    return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ERROR, ERROR_INCORRECT_FILE_FORMAT);
+                    return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_INCORRECT_FILE_FORMAT);
                 default:
                     return e.Message;
             }
@@ -60,11 +60,11 @@ namespace MVZ2
         {
             Debug.LogException(e);
             var innerMessage = GetErrorMessage(e);
-            var title = main.LanguageManager._(Vanilla.VanillaStrings.ERROR);
-            var message = main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ERROR, ERROR_FAILED_TO_INITIALIZE, innerMessage);
+            var title = main.LanguageManager._(VanillaStrings.ERROR);
+            var message = main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_FAILED_TO_INITIALIZE, innerMessage);
             var options = new string[]
             {
-                main.LanguageManager._(Vanilla.VanillaStrings.QUIT)
+                main.LanguageManager._(VanillaStrings.QUIT)
             };
             main.Scene.ShowDialog(title, message, options, i =>
             {

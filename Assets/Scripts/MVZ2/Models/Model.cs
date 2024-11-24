@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using MVZ2Logic.Models;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Rendering
+namespace MVZ2.Models
 {
     [DisallowMultipleComponent]
-    public sealed class Model : MonoBehaviour, IModel
+    public sealed class Model : MonoBehaviour
     {
         #region 公有方法
         public void UpdateFixed()

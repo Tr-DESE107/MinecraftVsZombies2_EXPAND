@@ -1,4 +1,4 @@
-using MVZ2.Resources;
+using MVZ2.Sprites;
 using UnityEditor;
 using UnityEngine;
 

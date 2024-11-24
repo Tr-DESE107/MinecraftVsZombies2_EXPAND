@@ -7,7 +7,7 @@ using PVZEngine.Triggers;
 
 namespace MVZ2Logic.Modding
 {
-    public abstract class Mod : IContentProvider, IModLogic
+    public abstract class Mod : IGameContent, IModLogic
     {
         public Mod(string nsp)
         {

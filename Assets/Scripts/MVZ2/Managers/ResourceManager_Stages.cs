@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.Metas;
 using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace MVZ2.Managers
             var stageMetalist = GetStageMetaList(stageID.spacename);
             if (stageMetalist == null)
                 return null;
-            return stageMetalist.metas.FirstOrDefault(m => m.id == stageID.path);
+            return stageMetalist.metas.FirstOrDefault(m => m.ID == stageID.path);
         }
     }
 }

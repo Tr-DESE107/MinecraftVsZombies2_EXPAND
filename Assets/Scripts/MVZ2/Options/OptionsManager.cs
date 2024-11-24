@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
+using MVZ2.Localization;
+using MVZ2.Managers;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Options
 {
     public class OptionsManager : MonoBehaviour
     {

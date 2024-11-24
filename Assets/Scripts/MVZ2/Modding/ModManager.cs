@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.Games;
 using MVZ2.Level;
-using MVZ2.Modding;
-using MVZ2Logic.Games;
+using MVZ2.Managers;
 using MVZ2Logic.Modding;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace MVZ2.Managers
+namespace MVZ2.Modding
 {
     public class ModManager : MonoBehaviour, IModManager
     {

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using MukioI18n;
-using MVZ2.Managers;
+using MVZ2.Cameras;
+using MVZ2.UI;
 using UnityEngine;
 
-namespace MVZ2.UI
+namespace MVZ2.Options
 {
     using static MVZ2.UI.OptionsDialog;
     public class OptionsLogicMap : OptionsLogic

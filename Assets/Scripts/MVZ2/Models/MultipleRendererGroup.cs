@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace MVZ2.Rendering
+namespace MVZ2.Models
 {
     [RequireComponent(typeof(SortingGroup))]
     public class MultipleRendererGroup : MonoBehaviour

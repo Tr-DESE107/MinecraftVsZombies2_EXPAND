@@ -29,7 +29,6 @@ namespace MVZ2.GameContent.Pickups
             var level = entity.Level;
             if (modelID == VanillaModelID.blueprintPickup)
             {
-                var game = Global.Game;
                 var blueprintID = level.GetClearPickupBlueprint();
                 if (NamespaceID.IsValid(blueprintID))
                     entity.SetModelProperty("BlueprintID", blueprintID);
@@ -114,7 +113,6 @@ namespace MVZ2.GameContent.Pickups
         }
         private NamespaceID GetPickupModelID(Entity entity)
         {
-            var game = Global.Game;
             var level = entity.Level;
             if (level.IsRerun)
                 return VanillaModelID.moneyChest;

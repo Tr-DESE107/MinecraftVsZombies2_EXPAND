@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using MVZ2.Resources;
+using MVZ2.Sprites;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;

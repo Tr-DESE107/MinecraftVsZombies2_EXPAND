@@ -11,49 +11,10 @@ namespace PVZEngine.Level
 {
     public partial class LevelEngine
     {
-        public void NextWave()
-        {
-            if (this.IsHugeWave(CurrentWave))
-            {
-                CurrentFlag++;
-            }
-            CurrentWave++;
-            SpawnWaveEnemies(CurrentWave);
-            PostWave(CurrentWave);
-        }
         public void PrepareForBattle()
         {
             StageDefinition.PrepareForBattle(this);
             LevelCallbacks.PostPrepareForBattle.Run(this);
-        }
-        public void SpawnWaveEnemies(int wave)
-        {
-            var totalEnergy = Mathf.Ceil(wave / 3f);
-            if (this.IsHugeWave(wave))
-            {
-                totalEnergy *= 2.5f;
-            }
-            var pool = GetEnemyPool();
-            var spawnDefs = pool.Where(e => e.CanSpawn(this)).Select(e => e.GetSpawnDefinition(ContentProvider));
-            while (totalEnergy > 0)
-            {
-                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalEnergy);
-                if (validSpawnDefs.Count() <= 0)
-                    break;
-                var spawnDef = validSpawnDefs.Random(spawnRandom);
-                SpawnEnemyAtRandomLane(spawnDef);
-                totalEnergy -= spawnDef.SpawnCost;
-            }
-
-            if (this.IsFinalWave(wave))
-            {
-                var poolSpawnDefs = pool.Select(e => e.GetSpawnDefinition(ContentProvider));
-                var notSpawnedDefs = poolSpawnDefs.Where(def => !spawnedID.Contains(def.GetID()));
-                foreach (var notSpawnedDef in notSpawnedDefs)
-                {
-                    SpawnEnemyAtRandomLane(notSpawnedDef);
-                }
-            }
         }
         public void RunFinalWaveEvent()
         {
@@ -65,20 +26,31 @@ namespace PVZEngine.Level
             StageDefinition.PostHugeWaveEvent(this);
             LevelCallbacks.PostHugeWaveEvent.Run(this);
         }
+        public RandomGenerator GetSpawnRNG()
+        {
+            return spawnRandom;
+        }
+        public void AddSpawnedEnemyID(NamespaceID enemyId)
+        {
+            if (IsEnemySpawned(enemyId))
+                return;
+            spawnedID.Add(enemyId);
+        }
+        public bool RemoveSpawnedEnemyID(NamespaceID enemyId)
+        {
+            return spawnedID.Remove(enemyId);
+        }
+        public bool IsEnemySpawned(NamespaceID enemyId)
+        {
+            return spawnedID.Contains(enemyId);
+        }
+        public NamespaceID[] GetSpawnedEnemiesID()
+        {
+            return spawnedID.ToArray();
+        }
         public int GetEnemySpawnX()
         {
             return GetProperty<int>(EngineAreaProps.ENEMY_SPAWN_X);
-        }
-        public IEnumerable<IEnemySpawnEntry> GetEnemyPool()
-        {
-            return StageDefinition.GetEnemyPool();
-        }
-        public bool WillEnemySpawn(NamespaceID spawnRef)
-        {
-            var pool = GetEnemyPool();
-            if (pool == null)
-                return false;
-            return pool.Any(e => e.GetSpawnDefinition(ContentProvider).GetID() == spawnRef);
         }
         public Entity SpawnEnemyAtRandomLane(SpawnDefinition spawnDef)
         {
@@ -141,10 +113,5 @@ namespace PVZEngine.Level
         public bool LevelProgressVisible { get; set; }
         private List<int> spawnedLanes = new List<int>();
         private List<NamespaceID> spawnedID = new List<NamespaceID>();
-    }
-    public interface IEnemySpawnEntry
-    {
-        bool CanSpawn(LevelEngine game);
-        SpawnDefinition GetSpawnDefinition(IContentProvider game);
     }
 }

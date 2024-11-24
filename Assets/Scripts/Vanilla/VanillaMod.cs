@@ -11,12 +11,12 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
-using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
@@ -114,39 +114,39 @@ namespace MVZ2.Vanilla
             AddStage(new TutorialStage(spaceName, VanillaStageNames.tutorial));
             AddStage(new StarshardTutorialStage(spaceName, VanillaStageNames.starshardTutorial));
 
-            foreach (var meta in Global.Game.GetModStageMetas(spaceName).Where(m => m.type == StageMeta.TYPE_NORMAL))
+            foreach (var meta in Global.Game.GetModStageMetas(spaceName).Where(m => m.Type == StageTypes.TYPE_NORMAL))
             {
                 if (meta == null)
                     continue;
-                var stage = new ClassicStage(spaceName, meta.id);
-                stage.SetSpawnEntries(meta.spawns);
+                var stage = new ClassicStage(spaceName, meta.ID);
+                stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
                 AddStage(stage);
             }
             foreach (var meta in Global.Game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
                     continue;
-                var stage = GetDefinition<StageDefinition>(new NamespaceID(spaceName, meta.id));
+                var stage = GetDefinition<StageDefinition>(new NamespaceID(spaceName, meta.ID));
                 if (stage == null)
                     continue;
-                stage.SetLevelName(meta.name);
-                stage.SetDayNumber(meta.dayNumber);
+                stage.SetLevelName(meta.Name);
+                stage.SetDayNumber(meta.DayNumber);
 
-                stage.SetProperty(VanillaStageProps.START_TALK, meta.startTalk);
-                stage.SetProperty(VanillaStageProps.END_TALK, meta.endTalk);
-                stage.SetProperty(VanillaStageProps.MAP_TALK, meta.mapTalk);
+                stage.SetProperty(VanillaStageProps.START_TALK, meta.StartTalk);
+                stage.SetProperty(VanillaStageProps.END_TALK, meta.EndTalk);
+                stage.SetProperty(VanillaStageProps.MAP_TALK, meta.MapTalk);
 
-                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.clearPickupModel);
-                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_BLUEPRINT, meta.clearPickupBlueprint);
-                stage.SetProperty(VanillaStageProps.END_NOTE_ID, meta.endNote);
+                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
+                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_BLUEPRINT, meta.ClearPickupBlueprint);
+                stage.SetProperty(VanillaStageProps.END_NOTE_ID, meta.EndNote);
 
-                stage.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.startCameraPosition);
-                stage.SetProperty(VanillaStageProps.START_TRANSITION, meta.startTransition);
+                stage.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.StartCameraPosition);
+                stage.SetProperty(VanillaStageProps.START_TRANSITION, meta.StartTransition);
 
-                stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.totalFlags);
-                stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.firstWaveTime);
+                stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
+                stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
 
-                foreach (var pair in meta.properties)
+                foreach (var pair in meta.Properties)
                 {
                     stage.SetProperty(pair.Key, pair.Value);
                 }
@@ -154,14 +154,14 @@ namespace MVZ2.Vanilla
         }
         private void LoadEntityProperties()
         {
-            foreach (EntityMeta meta in Global.Game.GetModEntityMetas(spaceName))
+            foreach (IEntityMeta meta in Global.Game.GetModEntityMetas(spaceName))
             {
                 if (meta == null)
                     continue;
-                var entity = GetDefinition<EntityDefinition>(new NamespaceID(spaceName, meta.id));
+                var entity = GetDefinition<EntityDefinition>(new NamespaceID(spaceName, meta.ID));
                 if (entity == null)
                     continue;
-                foreach (var pair in meta.properties)
+                foreach (var pair in meta.Properties)
                 {
                     entity.SetProperty(pair.Key, pair.Value);
                 }

@@ -3,10 +3,11 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
+using MVZ2.Sprites;
 using NGettext;
 using UnityEngine;
 
-namespace MVZ2.Resources
+namespace MVZ2.IO
 {
     public static class ZipArchiveHelper
     {

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.IO;
+using MVZ2.Metas;
 using MVZ2.Modding;
-using MVZ2.Resources;
-using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
-using MVZ2Logic.Modding;
-using MVZ2Logic.Talk;
+using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -17,7 +19,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace MVZ2.Managers
 {
-    public partial class ResourceManager : MonoBehaviour, IMetaProvider
+    public partial class ResourceManager : MonoBehaviour, IGameMetas
     {
         #region 公有方法
 
@@ -96,7 +98,7 @@ namespace MVZ2.Managers
 
             foreach (var meta in modResource.EntityMetaList.metas)
             {
-                entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.id), meta);
+                entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             foreach (var meta in modResource.DifficultyMetaList.metas)
             {
@@ -220,6 +222,20 @@ namespace MVZ2.Managers
                 return default;
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
+        #region 接口实现
+        IStageMeta IGameMetas.GetStageMeta(NamespaceID stageID) => GetStageMeta(stageID);
+
+        IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
+
+        IEntityMeta IGameMetas.GetEntityMeta(NamespaceID id) => GetEntityMeta(id);
+
+        IEntityMeta[] IGameMetas.GetModEntityMetas(string spaceName) => GetModEntityMetas(spaceName);
+
+        IModelMeta IGameMetas.GetModelMeta(NamespaceID id) => GetModelMeta(id);
+
+        IModelMeta[] IGameMetas.GetModModelMetas(string spaceName) => GetModModelMetas(spaceName);
+        #endregion
+
         #endregion
         public MainManager Main => main;
         [SerializeField]

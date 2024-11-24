@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Entities;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;

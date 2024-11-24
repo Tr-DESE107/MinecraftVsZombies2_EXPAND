@@ -9,13 +9,11 @@ using MVZ2.GameContent.Notes;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
-using MVZ2.UI;
-using MVZ2.Vanilla;
+using MVZ2.Options;
+using MVZ2.Saves;
+using MVZ2.Scenes;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
-using MVZ2Logic.Level;
-using MVZ2Logic.Notes;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu

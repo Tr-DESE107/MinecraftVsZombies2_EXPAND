@@ -1,5 +1,4 @@
 using System;
-using MVZ2Logic;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -124,7 +123,7 @@ namespace MVZ2.Level.Components
         }
         public HintArrowTargetType TargetType { get; private set; }
         public long TargetID { get; private set; }
-        public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "ui");
+        public static readonly NamespaceID componentID = new NamespaceID(Vanilla.VanillaMod.spaceName, "ui");
     }
     [Serializable]
     public class SerializableUIComponent : ISerializableLevelComponent

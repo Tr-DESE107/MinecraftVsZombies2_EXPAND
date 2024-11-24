@@ -1,7 +1,7 @@
 ﻿using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Assets.Scripts.MVZ2.Managers
+namespace MVZ2.Audios
 {
     public class SoundSource : MonoBehaviour
     {

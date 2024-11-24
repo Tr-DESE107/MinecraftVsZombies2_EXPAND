@@ -1,12 +1,12 @@
-﻿using MVZ2Logic.Models;
+﻿using MVZ2.Managers;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace MVZ2.Managers
+namespace MVZ2.Models
 {
     public class ModelManager : MonoBehaviour
     {
-        public Sprite ShotIcon(IModel model, int width, int height, Vector2 modelOffset, string name = null)
+        public Sprite ShotIcon(Model model, int width, int height, Vector2 modelOffset, string name = null)
         {
             var pictureName = name ?? "ModelIcon";
             //激活摄像机与灯光

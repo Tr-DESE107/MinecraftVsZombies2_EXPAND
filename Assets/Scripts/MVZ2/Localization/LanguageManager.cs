@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using MVZ2.Managers;
 using MVZ2.Vanilla;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Localization
 {
-    public partial class LanguageManager : MonoBehaviour, ITranslator
+    public partial class LanguageManager : MonoBehaviour, IGameLocalization
     {
         public string _(string text, params object[] args)
         {
@@ -145,11 +146,11 @@ namespace MVZ2.Managers
         {
             return allLanguages.ToArray();
         }
-        string ITranslator.GetText(string textKey, params string[] args)
+        string IGameLocalization.GetText(string textKey, params string[] args)
         {
             return _(textKey, args);
         }
-        string ITranslator.GetTextParticular(string textKey, string context, params string[] args)
+        string IGameLocalization.GetTextParticular(string textKey, string context, params string[] args)
         {
             return _p(context, textKey, args);
         }

@@ -1,7 +1,7 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Grids;
+using MVZ2.Vanilla.Grids;
 using PVZEngine.Entities;
 using UnityEngine;
 

@@ -1,4 +1,4 @@
-using MVZ2Logic;
+using MVZ2.Vanilla;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -14,6 +14,6 @@ namespace MVZ2.Level.Components
         {
             Controller.StartTalk(id, section, delay);
         }
-        public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "talk");
+        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "talk");
     }
 }

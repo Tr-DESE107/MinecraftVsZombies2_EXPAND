@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MVZ2.Resources;
+using MVZ2.Sprites;
 using UnityEditor;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;

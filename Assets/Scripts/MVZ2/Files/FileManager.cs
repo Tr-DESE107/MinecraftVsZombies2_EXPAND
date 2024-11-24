@@ -2,7 +2,7 @@
 using MVZ2Logic;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.IO
 {
     public class FileManager : MonoBehaviour
     {

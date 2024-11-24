@@ -1,11 +1,11 @@
-﻿using MVZ2.Resources;
+﻿using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace MVZ2.Managers
+namespace MVZ2.Audios
 {
     public class MusicManager : MonoBehaviour, IMusicManager
     {

@@ -138,7 +138,7 @@ namespace MVZ2.Vanilla.Entities
         {
             var entity = info.Entity;
             var shellRef = entity.GetShellID();
-            var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
+            var shell = entity.Level.Content.GetShellDefinition(shellRef);
             if (shell != null)
             {
                 shell.EvaluateDamage(info);

@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-namespace MVZ2.Managers
+namespace MVZ2.Scenes
 {
     public class SceneLoadingManager : MonoBehaviour
     {

@@ -10,9 +10,11 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
@@ -81,7 +83,7 @@ namespace MVZ2.Vanilla.Level
             List<NamespaceID> enemyIDToCreate = new List<NamespaceID>();
             foreach (var id in validEnemies)
             {
-                var spawnDefinition = level.ContentProvider.GetSpawnDefinition(id);
+                var spawnDefinition = level.Content.GetSpawnDefinition(id);
                 int count = spawnDefinition.GetPreviewCount();
 
                 for (int i = 0; i < count; i++)
@@ -114,6 +116,65 @@ namespace MVZ2.Vanilla.Level
                 radius--;
             }
         }
+        #region Waves
+        public static void NextWave(this LevelEngine level)
+        {
+            if (level.IsHugeWave(level.CurrentWave))
+            {
+                level.CurrentFlag++;
+            }
+            level.CurrentWave++;
+            level.SpawnWaveEnemies(level.CurrentWave);
+
+            var wave = level.CurrentWave;
+            level.StageDefinition.PostWave(level, wave);
+            LevelCallbacks.PostWave.Run(level, wave);
+        }
+        public static void SpawnWaveEnemies(this LevelEngine level, int wave)
+        {
+            var totalEnergy = Mathf.Ceil(wave / 3f);
+            if (level.IsHugeWave(wave))
+            {
+                totalEnergy *= 2.5f;
+            }
+            var pool = level.GetEnemyPool();
+            var spawnDefs = pool.Where(e => e.CanSpawn(level)).Select(e => e.GetSpawnDefinition(level.Content));
+            while (totalEnergy > 0)
+            {
+                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalEnergy);
+                if (validSpawnDefs.Count() <= 0)
+                    break;
+                var spawnDef = validSpawnDefs.Random(level.GetSpawnRNG());
+                level.SpawnEnemyAtRandomLane(spawnDef);
+                totalEnergy -= spawnDef.SpawnCost;
+            }
+
+            if (level.IsFinalWave(wave))
+            {
+                var poolSpawnDefs = pool.Select(e => e.GetSpawnDefinition(level.Content));
+                var notSpawnedDefs = poolSpawnDefs.Where(def => !level.IsEnemySpawned(def.GetID()));
+                foreach (var notSpawnedDef in notSpawnedDefs)
+                {
+                    level.SpawnEnemyAtRandomLane(notSpawnedDef);
+                }
+            }
+        }
+        public static bool WillEnemySpawn(this LevelEngine level, NamespaceID spawnRef)
+        {
+            var pool = level.GetEnemyPool();
+            if (pool == null)
+                return false;
+            return pool.Any(e => e.GetSpawnDefinition(level.Content).GetID() == spawnRef);
+        }
+        #endregion
+
+        #region 预览敌人
+        public static void CreatePreviewEnemies(this LevelEngine level, Rect region)
+        {
+            var pool = level.GetEnemyPool();
+            var validEnemies = pool.Select(e => e.GetSpawnDefinition(level.Content)?.EntityID);
+            level.CreatePreviewEnemies(validEnemies, region);
+        }
         public static void RemovePreviewEnemies(this LevelEngine level)
         {
             foreach (var enemy in level.FindEntities(e => e.IsPreviewEnemy()))
@@ -121,6 +182,7 @@ namespace MVZ2.Vanilla.Level
                 enemy.Remove();
             }
         }
+        #endregion
 
         #region Positions
 

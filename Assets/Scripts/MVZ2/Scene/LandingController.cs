@@ -1,7 +1,7 @@
 using MVZ2.Managers;
 using MVZ2Logic.Scenes;
 
-namespace MVZ2.Landing
+namespace MVZ2.Scenes
 {
     public class LandingController : MainScenePage
     {

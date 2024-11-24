@@ -2,16 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVZ2.Entities;
+using MVZ2.Games;
+using MVZ2.Grids;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
-using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -88,10 +88,7 @@ namespace MVZ2.Level
             if (isGameStarted)
                 return;
             level.ResetHeldItem();
-            if (level.StageDefinition is IPreviewStage preview)
-            {
-                preview.RemovePreviewEnemies(level);
-            }
+            level.RemovePreviewEnemies();
 
             for (int i = 0; i < chosenBlueprints.Count; i++)
             {

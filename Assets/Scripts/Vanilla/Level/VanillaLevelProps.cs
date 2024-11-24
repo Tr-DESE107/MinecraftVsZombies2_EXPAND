@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -7,12 +8,21 @@ namespace MVZ2.Vanilla.Level
 {
     public static class VanillaLevelProps
     {
+        public const string ENEMY_POOL = "enemyPool";
         public const string LAST_ENEMY_POSITION = "lastEnemyPosition";
         public const string STARSHARD_COUNT = "starshardCount";
         public const string STARSHARD_SLOT_COUNT = "starshardSlotCount";
         public const string MUSIC_ID = "musicID";
         public const string PICKAXE_DISABLED = "pickaxeDisabled";
         public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
+        public static IEnemySpawnEntry[] GetEnemyPool(this LevelEngine game)
+        {
+            return game.GetProperty<IEnemySpawnEntry[]>(ENEMY_POOL);
+        }
+        public static void SetEnemyPool(this LevelEngine game, IEnemySpawnEntry[] value)
+        {
+            game.SetProperty(ENEMY_POOL, value);
+        }
         public static int GetStarshardSlotCount(this LevelEngine game)
         {
             return game.GetProperty<int>(STARSHARD_SLOT_COUNT);

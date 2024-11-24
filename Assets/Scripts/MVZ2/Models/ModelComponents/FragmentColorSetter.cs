@@ -2,7 +2,7 @@
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Rendering
+namespace MVZ2.Models
 {
     public class FragmentColorSetter : ModelComponent
     {

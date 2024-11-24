@@ -40,14 +40,14 @@ namespace PVZEngine.Level
         }
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner)
         {
-            var entityDef = ContentProvider.GetEntityDefinition(entityRef);
+            var entityDef = Content.GetEntityDefinition(entityRef);
             if (entityDef == null)
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
         public Entity Spawn<T>(Vector3 pos, Entity spawner) where T : EntityDefinition
         {
-            var entityDef = ContentProvider.GetEntityDefinition<T>();
+            var entityDef = Content.GetEntityDefinition<T>();
             if (entityDef == null)
                 return null;
             return Spawn(entityDef, pos, spawner);

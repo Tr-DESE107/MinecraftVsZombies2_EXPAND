@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.ChapterTransition;
-using MVZ2.Landing;
 using MVZ2.Mainmenu;
 using MVZ2.Managers;
 using MVZ2.Map;
@@ -15,7 +14,7 @@ using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Scenes
 {
     public class MainSceneController : MonoBehaviour, ISceneController
     {
@@ -23,8 +22,8 @@ namespace MVZ2
         {
             ShowDialog(title, desc, new string[]
             {
-                main.LanguageManager._(Vanilla.VanillaStrings.YES),
-                main.LanguageManager._(Vanilla.VanillaStrings.NO),
+                main.LanguageManager._(VanillaStrings.YES),
+                main.LanguageManager._(VanillaStrings.NO),
             }, (index) => onSelect?.Invoke(index == 0));
         }
         public Task<bool> ShowDialogConfirmAsync(string title, string desc)

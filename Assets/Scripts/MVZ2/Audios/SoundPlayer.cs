@@ -2,7 +2,7 @@
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Sounds
+namespace MVZ2.Audios
 {
     public class SoundPlayer : MonoBehaviour
     {

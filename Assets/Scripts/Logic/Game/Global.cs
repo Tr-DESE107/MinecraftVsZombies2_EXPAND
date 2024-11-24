@@ -72,7 +72,7 @@ namespace MVZ2Logic
 
         private static IMainManager Main { get; set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
-        public static Game Game => Main.Game;
+        public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
         private static IMusicManager Music => Main.Music;
         private static ILevelManager Level => Main.Level;
@@ -82,7 +82,7 @@ namespace MVZ2Logic
         bool IsMobile();
         Coroutine StartCoroutine(IEnumerator enumerator);
         void GotoMapOrMainmenu();
-        Game Game { get; }
+        IGame Game { get; }
         ISceneController Scene { get; }
         IMusicManager Music { get; }
         ILevelManager Level { get; }

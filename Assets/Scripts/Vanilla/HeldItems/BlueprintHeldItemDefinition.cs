@@ -2,8 +2,8 @@
 using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
@@ -58,7 +58,7 @@ namespace MVZ2.Vanilla.HeldItems
 
                 var position = new Vector3(x, y, z);
                 var entityID = seedDef.GetSeedEntityID();
-                var entityDef = level.ContentProvider.GetEntityDefinition(entityID);
+                var entityDef = level.Content.GetEntityDefinition(entityID);
                 level.Spawn(entityID, position, null);
                 level.AddEnergy(-seedDef.GetCost());
                 level.SetRechargeTimeToUsed(seed);
@@ -89,7 +89,7 @@ namespace MVZ2.Vanilla.HeldItems
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
-                var entityDef = level.ContentProvider.GetEntityDefinition(entityID);
+                var entityDef = level.Content.GetEntityDefinition(entityID);
                 if (entityDef.Type == EntityTypes.PLANT)
                 {
                     if (!grid.CanPlace(entityDef))

@@ -132,7 +132,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_PLACE_DISPENSER_TO_KILL_ZOMBIE:
                     {
-                        var spawnDef = level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.zombie);
+                        var spawnDef = level.Content.GetSpawnDefinition(VanillaEnemyID.zombie);
                         var lane = GetLaneWithoutDispensers(level);
                         level.SpawnEnemy(spawnDef, lane);
                     }
@@ -166,7 +166,7 @@ namespace MVZ2.GameContent.Stages
                         }
 
                         int maxLane = level.GetMaxLaneCount();
-                        var spawnDef = level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.ironHelmettedZombie);
+                        var spawnDef = level.Content.GetSpawnDefinition(VanillaEnemyID.ironHelmettedZombie);
                         var dispensers = level.FindEntities(VanillaContraptionID.dispenser);
                         int lane;
                         if (dispensers.Count() <= 0)
@@ -202,7 +202,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         level.GetSeedPack(VanillaContraptionID.mineTNT)?.SetTwinkling(false);
                         level.HideHintArrow();
-                        var spawnDef = level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.ironHelmettedZombie);
+                        var spawnDef = level.Content.GetSpawnDefinition(VanillaEnemyID.ironHelmettedZombie);
                         var lane = GetLaneWithoutDispensers(level);
                         level.SpawnEnemy(spawnDef, lane);
                     }

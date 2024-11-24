@@ -4,7 +4,7 @@ using System.Linq;
 using MVZ2.Managers;
 using UnityEngine;
 
-namespace MVZ2.Rendering
+namespace MVZ2.Cursors
 {
     public class CursorManager : MonoBehaviour
     {

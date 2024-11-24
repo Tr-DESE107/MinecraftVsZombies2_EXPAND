@@ -169,7 +169,7 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(VanillaSoundID.siren);
                 level.WaveState = STATE_STARTED;
                 NextWave(level);
-                level.SpawnEnemyAtRandomLane(level.ContentProvider.GetSpawnDefinition(VanillaEnemyID.flagZombie));
+                level.SpawnEnemyAtRandomLane(level.Content.GetSpawnDefinition(VanillaEnemyID.flagZombie));
                 level.RunHugeWaveEvent();
             }
         }

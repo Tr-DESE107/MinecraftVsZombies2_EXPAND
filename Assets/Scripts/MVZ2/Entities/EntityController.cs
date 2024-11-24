@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using MVZ2.Cursors;
+using MVZ2.Level;
 using MVZ2.Managers;
-using MVZ2.Rendering;
+using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
@@ -15,15 +17,15 @@ using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.Level
+namespace MVZ2.Entities
 {
     public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         #region 公有方法
         public void Init(LevelController level, Entity entity)
         {
-            this.Level = level;
-            this.Entity = entity;
+            Level = level;
+            Entity = entity;
             gameObject.name = entity.Definition.GetID().ToString();
             entity.PostInit += PostInitCallback;
             entity.OnTriggerAnimation += OnTriggerAnimationCallback;
@@ -145,9 +147,9 @@ namespace MVZ2.Level
                 startY = (Entity.Position.y + scaledBoundsOffset.y) * pixelUnit,
                 startZ = (Entity.Position.z + scaledBoundsOffset.z) * pixelUnit;
             Gizmos.color = new Color(
-                ((Entity.CollisionMask >> 0) & 7) / 7f,
-                ((Entity.CollisionMask >> 3) & 7) / 7f,
-                ((Entity.CollisionMask >> 6) & 3) / 3f, 1);
+                (Entity.CollisionMask >> 0 & 7) / 7f,
+                (Entity.CollisionMask >> 3 & 7) / 7f,
+                (Entity.CollisionMask >> 6 & 3) / 3f, 1);
             for (int i = 0; i < 12; i++)
             {
                 int axe = i >> 2;
@@ -364,7 +366,7 @@ namespace MVZ2.Level
             var modelMeta = res.GetModelMeta(id);
             if (modelMeta == null)
                 return null;
-            var modelTemplate = res.GetModel(modelMeta.path);
+            var modelTemplate = res.GetModel(modelMeta.Path);
             if (modelTemplate == null)
                 return null;
             return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();

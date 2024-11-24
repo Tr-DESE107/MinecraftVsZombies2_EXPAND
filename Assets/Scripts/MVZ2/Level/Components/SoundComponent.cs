@@ -1,4 +1,4 @@
-using MVZ2Logic;
+using MVZ2.Vanilla;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -19,6 +19,6 @@ namespace MVZ2.Level.Components
         {
             Main.SoundManager.Play(id, Vector3.zero, pitch, 0);
         }
-        public static readonly NamespaceID componentID = new NamespaceID(Builtin.spaceName, "sound");
+        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "sound");
     }
 }

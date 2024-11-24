@@ -1,12 +1,10 @@
 ﻿using System;
 using MVZ2.Level.UI;
 using MVZ2.UI;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine.Level;

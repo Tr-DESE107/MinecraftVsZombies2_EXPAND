@@ -1,5 +1,5 @@
 using System;
-using MVZ2.Rendering;
+using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;

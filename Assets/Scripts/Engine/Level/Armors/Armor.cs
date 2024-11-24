@@ -111,7 +111,7 @@ namespace PVZEngine.Armors
             if (!Exists(armor))
                 return null;
             var shellRef = armor.GetProperty<NamespaceID>(EngineArmorProps.SHELL);
-            var shell = entity.Level.ContentProvider.GetShellDefinition(shellRef);
+            var shell = entity.Level.Content.GetShellDefinition(shellRef);
             if (shell != null)
             {
                 shell.EvaluateDamage(info);
@@ -158,7 +158,7 @@ namespace PVZEngine.Armors
         }
         public static Armor Deserialize(SerializableArmor seri, Entity owner)
         {
-            var definition = owner.Level.ContentProvider.GetArmorDefinition(seri.definitionID);
+            var definition = owner.Level.Content.GetArmorDefinition(seri.definitionID);
             var armor = new Armor();
             armor.Owner = owner;
             armor.Definition = definition;

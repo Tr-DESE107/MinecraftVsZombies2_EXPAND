@@ -6,7 +6,7 @@ using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.IO
 {
     public static class XMLHelper
     {

@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Threading.Tasks;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
-using MVZ2Logic.Games;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Stages;
 using MVZ2.Level;
 using MVZ2.Managers;
+using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
-using MVZ2Logic.Level;
+using MVZ2Logic.Games;
 using NUnit.Framework;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
-using MVZ2.Vanilla.Entities;
-using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Stages;
 
 namespace MVZ2.Tests
 {
@@ -234,7 +232,7 @@ namespace MVZ2.Tests
             await entrance.Init();
             inited = true;
         }
-        private static Game GetGame()
+        private static IGame GetGame()
         {
             return Global.Game;
         }
@@ -248,12 +246,12 @@ namespace MVZ2.Tests
         }
         private static void InitLevel(LevelController level, NamespaceID areaId, NamespaceID stageId)
         {
-            level.InitLevel(Global.Game, areaId, stageId);
+            level.InitLevel(Main.Game, areaId, stageId);
             level.StartGame();
         }
         private static void LoadLevel(LevelController level, SerializableLevelController seri, NamespaceID areaId, NamespaceID stageId)
         {
-            level.LoadGame(seri, Global.Game, areaId, stageId);
+            level.LoadGame(seri, Main.Game, areaId, stageId);
             level.Resume();
         }
         private static IEnumerator GotoLevel()

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2.Scenes;
 using MVZ2.Talk;
-using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
@@ -194,14 +195,14 @@ namespace MVZ2.Map
             var stageMeta = GetStageMeta(index);
             if (stageMeta == null)
                 return false;
-            return stageMeta.type == StageMeta.TYPE_MINIGAME;
+            return stageMeta.Type == StageTypes.TYPE_MINIGAME;
         }
         private bool IsLevelUnlocked(int index)
         {
             var stageMeta = GetStageMeta(index);
             if (stageMeta == null)
                 return false;
-            return Main.SaveManager.IsUnlocked(stageMeta.unlock);
+            return Main.SaveManager.IsUnlocked(stageMeta.Unlock);
         }
         private bool IsEndlessUnlocked()
         {

@@ -49,10 +49,9 @@ namespace MVZ2.GameContent.Implements
             var level = pickup.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
                 return;
-            Game game = Global.Game;
-            if (!game.IsUnlocked(VanillaUnlockID.money))
+            if (!Global.Game.IsUnlocked(VanillaUnlockID.money))
             {
-                game.Unlock(VanillaUnlockID.money);
+                Global.Game.Unlock(VanillaUnlockID.money);
                 level.SetHintArrowPointToEntity(pickup);
                 level.SetProperty(VanillaLevelProps.FIRST_GEM, new EntityID(pickup));
                 var adviceContext = CONTEXT_ADVICE_COLLECT_MONEY;
@@ -65,9 +64,8 @@ namespace MVZ2.GameContent.Implements
             var level = enemy.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
                 return;
-            Game game = Global.Game;
             bool spawnGem = false;
-            if (game.IsUnlocked(VanillaUnlockID.money))
+            if (Global.Game.IsUnlocked(VanillaUnlockID.money))
             {
                 spawnGem = enemy.DropRNG.Next(10) < 1;
             }

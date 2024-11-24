@@ -382,7 +382,7 @@ namespace PVZEngine.Entities
         #region 护甲
         public void EquipArmor<T>() where T : ArmorDefinition
         {
-            EquipArmor(new Armor(this, Level.ContentProvider.GetArmorDefinition<T>()));
+            EquipArmor(new Armor(this, Level.Content.GetArmorDefinition<T>()));
         }
         public void EquipArmor(ArmorDefinition definition)
         {
@@ -480,7 +480,7 @@ namespace PVZEngine.Entities
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 
-            Definition = Level.ContentProvider.GetEntityDefinition(seri.definitionID);
+            Definition = Level.Content.GetEntityDefinition(seri.definitionID);
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
