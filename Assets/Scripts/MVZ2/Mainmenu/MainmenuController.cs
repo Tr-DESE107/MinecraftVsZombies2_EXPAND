@@ -77,6 +77,16 @@ namespace MVZ2.Mainmenu
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
             ui.OnUserManageDialogUserSelect += OnUserManageUserSelectCallback;
         }
+        private void Update()
+        {
+            if (Application.isEditor)
+            {
+                if (Input.GetKeyDown(KeyCode.F1))
+                {
+                    StartCoroutine(GotoDebugStage());
+                }
+            }
+        }
         #endregion
 
         #region 事件回调
@@ -255,7 +265,7 @@ namespace MVZ2.Mainmenu
             }
             else
             {
-                var task = GotoLevel();
+                var task = GotoPrologue();
                 while (!task.IsCompleted)
                 {
                     yield return null;
@@ -266,11 +276,19 @@ namespace MVZ2.Mainmenu
         {
             return ui.GetAllButtons();
         }
-        private async Task GotoLevel()
+        private async Task GotoPrologue()
         {
             await main.LevelManager.GotoLevelSceneAsync();
             main.LevelManager.InitLevel(VanillaAreaID.day, VanillaStageID.prologue);
             Hide();
+        }
+        private IEnumerator GotoDebugStage()
+        {
+            var task = main.LevelManager.GotoLevelSceneAsync();
+            while (!task.IsCompleted)
+                yield return null;
+            Hide();
+            main.LevelManager.InitLevel(VanillaAreaID.halloween, VanillaStageID.debug);
         }
         #region 输入用户名
         private void ShowInputNameDialog(InputNameType type)

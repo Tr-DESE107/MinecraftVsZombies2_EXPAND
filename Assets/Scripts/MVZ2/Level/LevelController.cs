@@ -708,7 +708,7 @@ namespace MVZ2.Level
             }
             else
             {
-                StartLevelTransition();
+                level.BeginLevel();
             }
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
         }

@@ -5,6 +5,7 @@ namespace MVZ2.GameContent.Stages
 {
     public static class VanillaStageNames
     {
+        public const string debug = "debug";
         public const string tutorial = "tutorial";
         public const string starshardTutorial = "starshard_tutorial";
         public const string trigger_tutorial = "trigger_tutorial";
@@ -15,6 +16,7 @@ namespace MVZ2.GameContent.Stages
     }
     public static class VanillaStageID
     {
+        public static readonly NamespaceID debug = Get(VanillaStageNames.debug);
         public static readonly NamespaceID prologue = Get(VanillaStageNames.prologue);
         public static readonly NamespaceID tutorial = Get(VanillaStageNames.tutorial);
         public static readonly NamespaceID starshard_tutorial = Get(VanillaStageNames.starshardTutorial);

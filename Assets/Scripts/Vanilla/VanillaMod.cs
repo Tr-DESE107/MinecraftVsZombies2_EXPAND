@@ -111,6 +111,7 @@ namespace MVZ2.Vanilla
         }
         private void LoadStages()
         {
+            AddStage(new DebugStage(spaceName, VanillaStageNames.debug));
             AddStage(new TutorialStage(spaceName, VanillaStageNames.tutorial));
             AddStage(new StarshardTutorialStage(spaceName, VanillaStageNames.starshardTutorial));
 
