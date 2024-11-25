@@ -24,7 +24,7 @@ namespace MVZ2.TalkData
         }
         public static TalkMeta FromXmlDocument(XmlDocument document, string defaultNsp)
         {
-            return TalkMeta.FromXmlNode(document, defaultNsp);
+            return TalkMeta.FromXmlNode(document["talks"], defaultNsp);
         }
         public static TalkMeta FromXmlNode(XmlNode node, string defaultNsp)
         {

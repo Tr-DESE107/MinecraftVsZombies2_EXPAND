@@ -123,7 +123,7 @@ namespace MVZ2.Managers
             if (metaPath.StartsWith(talksDirectory))
             {
                 var talkRelativePath = metaPath.Substring(talksDirectory.Length);
-                var meta = TalkMeta.FromXmlNode(document, defaultNsp);
+                var meta = TalkMeta.FromXmlDocument(document, defaultNsp);
                 modResource.TalkMetas.Add(talkRelativePath, meta);
             }
             else
