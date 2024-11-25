@@ -34,8 +34,7 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     Shoot(entity);
                 }
-                shootTimer.MaxFrame = GetTimerTime(entity);
-                shootTimer.Reset();
+                shootTimer.ResetTime(GetTimerTime(entity));
             }
         }
         public virtual Entity Shoot(Entity entity)

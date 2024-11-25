@@ -35,8 +35,7 @@ namespace MVZ2.GameContent.Effects
                 {
                     entity.Produce(VanillaPickupID.redstone);
                     entity.PlaySound(VanillaSoundID.throwSound);
-                    timer.MaxFrame = PRODUCE_TIME;
-                    timer.Reset();
+                    timer.ResetTime(PRODUCE_TIME);
                 }
                 entity.SetAnimationBool("Open", true);
             }

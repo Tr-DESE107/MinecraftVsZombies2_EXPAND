@@ -100,8 +100,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.Produce<Redstone>();
                 entity.PlaySound(VanillaSoundID.throwSound);
-                productionTimer.MaxFrame = 720;
-                productionTimer.Reset();
+                productionTimer.ResetTime(720);
             }
         }
         private void EvokedUpdate(Entity entity)

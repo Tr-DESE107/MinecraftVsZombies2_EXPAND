@@ -7,6 +7,9 @@ namespace Tools
     [Serializable]
     public class FrameTimer : Timer
     {
+        public FrameTimer() : this(0)
+        {
+        }
         public FrameTimer(int time)
         {
             MaxFrame = time;
@@ -51,6 +54,11 @@ namespace Tools
             LastFrame = MaxFrame;
             Frame = MaxFrame;
             FrameModular = 0;
+        }
+        public void ResetTime(int time)
+        {
+            MaxFrame = time;
+            Reset();
         }
         public override bool Expired => Frame <= 0;
         [BsonElement("maxFrame")]

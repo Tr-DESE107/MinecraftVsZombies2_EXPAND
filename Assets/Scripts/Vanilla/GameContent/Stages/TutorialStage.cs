@@ -54,8 +54,7 @@ namespace MVZ2.GameContent.Stages
         private void StartTimer(LevelEngine level, int timeout)
         {
             var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
-            timer.MaxFrame = timeout;
-            timer.Reset();
+            timer.ResetTime(timeout);
         }
         private void RunTimer(LevelEngine level)
         {
