@@ -26,7 +26,7 @@ namespace MVZ2.Vanilla.Level
             var carts = game.GetEntities(EntityTypes.CART);
             for (int i = 0; i < game.GetMaxLaneCount(); i++)
             {
-                if (carts.Any(c => c.GetLane() == i && c.State == EntityStates.IDLE))
+                if (carts.Any(c => c.GetLane() == i && c.State == VanillaEntityStates.IDLE))
                     continue;
                 Entity cart = game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }

@@ -23,7 +23,7 @@ namespace MVZ2.Vanilla.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            if (entity.State == EntityStates.DEAD)
+            if (entity.State == VanillaEntityStates.DEAD)
             {
                 UpdateStateDead(entity);
             }
@@ -45,19 +45,19 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (enemy.IsDead)
             {
-                return EntityStates.DEAD;
+                return VanillaEntityStates.DEAD;
             }
             else if (enemy.IsPreviewEnemy())
             {
-                return EntityStates.IDLE;
+                return VanillaEntityStates.IDLE;
             }
             else if (enemy.Target != null)
             {
-                return EntityStates.ATTACK;
+                return VanillaEntityStates.ATTACK;
             }
             else
             {
-                return EntityStates.WALK;
+                return VanillaEntityStates.WALK;
             }
         }
         protected virtual void UpdateActionState(Entity enemy, int state)
@@ -65,16 +65,16 @@ namespace MVZ2.Vanilla.Enemies
             enemy.SetAnimationInt("State", state);
             switch (state)
             {
-                case EntityStates.WALK:
+                case VanillaEntityStates.WALK:
                     UpdateStateWalk(enemy);
                     break;
-                case EntityStates.ATTACK:
+                case VanillaEntityStates.ATTACK:
                     UpdateStateAttack(enemy);
                     break;
-                case EntityStates.CAST:
+                case VanillaEntityStates.ENEMY_CAST:
                     UpdateStateCast(enemy);
                     break;
-                case EntityStates.IDLE:
+                case VanillaEntityStates.IDLE:
                     UpdateStateIdle(enemy);
                     break;
             }

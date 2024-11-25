@@ -15,7 +15,7 @@ namespace MVZ2.Vanilla.Entities
         {
             if (!PreCollect(pickup))
                 return;
-            pickup.State = EntityStates.COLLECTED;
+            pickup.State = VanillaEntityStates.PICKUP_COLLECTED;
             if (pickup.Definition is ICollectiblePickup collectible)
                 collectible.PostCollect(pickup);
         }
@@ -41,7 +41,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool IsCollected(this Entity entity)
         {
-            return entity.State == EntityStates.COLLECTED;
+            return entity.State == VanillaEntityStates.PICKUP_COLLECTED;
         }
         public static Entity Produce(this Entity entity, NamespaceID pickupID)
         {

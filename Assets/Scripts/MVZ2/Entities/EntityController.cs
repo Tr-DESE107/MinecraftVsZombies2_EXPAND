@@ -389,7 +389,7 @@ namespace MVZ2.Entities
 
             if (Level.IsGameOver() && (Entity.Type == EntityTypes.ENEMY || Entity.Type == EntityTypes.BOSS))
             {
-                Model.SetAnimatorInt("State", EntityStates.WALK);
+                Model.SetAnimatorInt("State", VanillaEntityStates.WALK);
             }
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundHeight();

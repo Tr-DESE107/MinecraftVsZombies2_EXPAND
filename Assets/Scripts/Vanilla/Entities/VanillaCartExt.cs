@@ -20,11 +20,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool IsCartTriggered(this Entity entity)
         {
-            return entity.State == EntityStates.CART_TRIGGERED;
+            return entity.State == VanillaEntityStates.CART_TRIGGERED;
         }
         public static void TriggerCart(this Entity entity)
         {
-            entity.State = EntityStates.CART_TRIGGERED;
+            entity.State = VanillaEntityStates.CART_TRIGGERED;
             entity.Velocity = Vector3.right * 10;
             entity.PlaySound(entity.GetCartTriggerSound());
             entity.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, false);

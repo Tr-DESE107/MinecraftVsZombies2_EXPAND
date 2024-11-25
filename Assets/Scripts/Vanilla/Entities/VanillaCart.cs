@@ -47,7 +47,7 @@ namespace MVZ2.Vanilla.Entities
                         entity.TriggerCart();
                     }
                     break;
-                case EntityStates.CART_TRIGGERED:
+                case VanillaEntityStates.CART_TRIGGERED:
                     entity.Velocity = Vector3.right * 10;
                     // 获取所有接触到的僵尸。
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
