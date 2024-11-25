@@ -18,15 +18,25 @@ namespace PVZEngine.Modifiers
                 var srcOp = modifier.SrcOperator;
                 var dstOp = modifier.DstOperator;
 
-
-                for (int i = 0; i < 4; i++)
-                {
-                    value[i] = src[i] * GetBlendedComponent(src, dst, srcOp, i) + dst[i] * GetBlendedComponent(src, dst, dstOp, i);
-                }
+                value = Blend(src, dst, srcOp, dstOp);
             }
             return value;
         }
-        private float GetBlendedComponent(Color src, Color dst, BlendOperator op, int compIndex)
+        public static Color Blend(Color src, Color dst, BlendOperator srcOp, BlendOperator dstOp)
+        {
+            return Blend(src, dst, srcOp, dstOp, srcOp, dstOp);
+        }
+        public static Color Blend(Color src, Color dst, BlendOperator srcOp, BlendOperator dstOp, BlendOperator srcAOp, BlendOperator dstAOp)
+        {
+            Color value = Color.black;
+            for (int i = 0; i < 3; i++)
+            {
+                value[i] = src[i] * GetBlendedComponent(src, dst, srcOp, i) + dst[i] * GetBlendedComponent(src, dst, dstOp, i);
+            }
+            value.a = src.a * GetBlendedComponent(src, dst, srcAOp, 3) + dst.a * GetBlendedComponent(src, dst, dstAOp, 3);
+            return value;
+        }
+        public static float GetBlendedComponent(Color src, Color dst, BlendOperator op, int compIndex)
         {
             switch (op)
             {

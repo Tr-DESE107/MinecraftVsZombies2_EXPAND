@@ -14,6 +14,7 @@ using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -418,7 +419,7 @@ namespace MVZ2.Entities
             var color = Entity.GetColorOffset();
             if (isHovered && Entity.Level.IsHoldingItem() && Entity.Level.GetHeldFlagsOnEntity(Entity).HasFlag(HeldFlags.Valid))
             {
-                color += new Color(0.5f, 0.5f, 0.5f, 0);
+                color = ColorCalculator.Blend(new Color(1, 1, 1, 0.5f), color, BlendOperator.SrcAlpha, BlendOperator.OneMinusSrcAlpha);
             }
             return color;
         }
