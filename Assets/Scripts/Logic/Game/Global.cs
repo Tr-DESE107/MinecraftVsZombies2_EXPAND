@@ -42,7 +42,7 @@ namespace MVZ2Logic
 
         public static void GotoMainmenuOrMap()
         {
-            Main.GotoMapOrMainmenu();
+            Scene.GotoMapOrMainmenu();
         }
         public static IEnumerator GotoLevel()
         {
@@ -81,7 +81,6 @@ namespace MVZ2Logic
     {
         bool IsMobile();
         Coroutine StartCoroutine(IEnumerator enumerator);
-        void GotoMapOrMainmenu();
         IGame Game { get; }
         ISceneController Scene { get; }
         IMusicManager Music { get; }
@@ -89,6 +88,7 @@ namespace MVZ2Logic
     }
     public interface ISceneController
     {
+        void GotoMapOrMainmenu();
         void DisplayPage(MainScenePageType type);
         void HidePages();
         void FadeBlackScreen(float target, float duration);

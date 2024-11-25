@@ -48,12 +48,12 @@ namespace MVZ2.Level
             if (seedDef == null || seedDef.GetSeedType() != SeedTypes.ENTITY)
                 return;
             var entityID = seedDef.GetSeedEntityID();
-            var name = Main.ResourceManager.GetEntityName(entityID);
-            var tooltip = Main.ResourceManager.GetEntityTooltip(entityID);
+            var name = Resources.GetEntityName(entityID);
+            var tooltip = Resources.GetEntityTooltip(entityID);
             string error = null;
             if (!CanPickBlueprint(seedPack, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
             {
-                error = Main.LanguageManager._(errorMessage);
+                error = Localization._(errorMessage);
             }
             var viewData = new TooltipViewData()
             {
@@ -93,7 +93,7 @@ namespace MVZ2.Level
                 uiPreset.InsertBlueprint(index, blueprint);
                 uiPreset.ForceAlignBlueprint(index);
             }
-            BlueprintViewData viewData = Main.ResourceManager.GetBlueprintViewData(seed);
+            BlueprintViewData viewData = Resources.GetBlueprintViewData(seed);
             blueprint.UpdateView(viewData);
         }
         private void UpdateBlueprintsView()
@@ -164,7 +164,7 @@ namespace MVZ2.Level
         {
             if (seed == null)
                 return null;
-            return Main.ResourceManager.GetBlueprintIcon(seed.Definition);
+            return Resources.GetBlueprintIcon(seed.Definition);
         }
         private void ClickBlueprint(int index)
         {

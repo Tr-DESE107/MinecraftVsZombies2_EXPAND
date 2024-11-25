@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.ChapterTransition;
+using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu;
 using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.Note;
+using MVZ2.Saves;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Scenes;
 using PVZEngine;
@@ -18,6 +21,18 @@ namespace MVZ2.Scenes
 {
     public class MainSceneController : MonoBehaviour, ISceneController
     {
+        public void GotoMapOrMainmenu()
+        {
+            if (main.SaveManager.IsLevelCleared(VanillaStageID.prologue))
+            {
+                var lastMapID = main.SaveManager.GetLastMapID() ?? main.ResourceManager.GetFirstMapID();
+                DisplayMap(lastMapID);
+            }
+            else
+            {
+                DisplayPage(MainScenePageType.Mainmenu);
+            }
+        }
         public void ShowDialogConfirm(string title, string desc, Action<bool> onSelect = null)
         {
             ShowDialog(title, desc, new string[]

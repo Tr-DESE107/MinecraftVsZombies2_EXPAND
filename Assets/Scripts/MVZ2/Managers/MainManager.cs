@@ -86,18 +86,6 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
-        public void GotoMapOrMainmenu()
-        {
-            if (SaveManager.IsLevelCleared(VanillaStageID.prologue))
-            {
-                var lastMapID = SaveManager.GetLastMapID() ?? ResourceManager.GetFirstMapID();
-                Scene.DisplayMap(lastMapID);
-            }
-            else
-            {
-                Scene.DisplayPage(MainScenePageType.Mainmenu);
-            }
-        }
         private void Awake()
         {
             if (!Instance)

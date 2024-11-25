@@ -23,7 +23,7 @@ namespace MVZ2.Level
         {
             return new SerializableLevelController()
             {
-                identifiers = Main.LevelManager.GetLevelStateIdentifierList(),
+                identifiers = LevelManager.GetLevelStateIdentifierList(),
 
                 bannerProgresses = bannerProgresses?.ToArray(),
                 levelProgress = levelProgress,
@@ -48,7 +48,7 @@ namespace MVZ2.Level
         }
         public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
         {
-            if (!Main.LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers))
+            if (!LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers))
             {
                 ShowLevelErrorLoadingDialog();
                 return;
@@ -59,7 +59,7 @@ namespace MVZ2.Level
                 level = DeserializeLevel(seri.level, game);
                 AddLevelCallbacks();
                 CreateLevelModel(level.AreaID);
-                level.IsRerun = Main.SaveManager.IsLevelCleared(stageID);
+                level.IsRerun = Saves.IsLevelCleared(stageID);
 
                 bannerProgresses = seri.bannerProgresses?.ToArray();
                 levelProgress = seri.levelProgress;

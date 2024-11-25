@@ -2,10 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVZ2.Audios;
+using MVZ2.Cameras;
 using MVZ2.Entities;
 using MVZ2.Games;
 using MVZ2.Grids;
+using MVZ2.Localization;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2.Saves;
+using MVZ2.Scenes;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -37,7 +43,7 @@ namespace MVZ2.Level
             game.SetLevel(level);
 
             AddLevelCallbacks();
-            level.IsRerun = Main.SaveManager.IsLevelCleared(stageID);
+            level.IsRerun = Saves.IsLevelCleared(stageID);
 
             var option = new LevelOption()
             {
@@ -99,7 +105,7 @@ namespace MVZ2.Level
             chosenBlueprints.Clear();
             choosingBlueprints = null;
 
-            Main.MusicManager.Play(level.GetMusicID());
+            Music.Play(level.GetMusicID());
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
@@ -127,10 +133,10 @@ namespace MVZ2.Level
         }
         public async Task ReloadLevel()
         {
-            Main.SaveManager.SaveModDatas();
+            Saves.SaveModDatas();
             Dispose();
-            await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.InitLevel(StartAreaID, StartStageID);
+            await LevelManager.GotoLevelSceneAsync();
+            LevelManager.InitLevel(StartAreaID, StartStageID);
         }
         public void GameOver(Entity killer)
         {
@@ -160,7 +166,7 @@ namespace MVZ2.Level
             level.ClearDelayedMoney();
             UpdateGridHighlight();
             isGameStarted = false;
-            Main.SaveManager.SaveModDatas();
+            Saves.SaveModDatas();
         }
         public void Dispose()
         {
@@ -177,9 +183,9 @@ namespace MVZ2.Level
         public async Task ExitLevelToNote(NamespaceID id)
         {
             await ExitScene();
-            var buttonText = Main.LanguageManager._(Vanilla.VanillaStrings.CONTINUE);
-            Main.SoundManager.Play2D(VanillaSoundID.paper);
-            Main.Scene.DisplayNote(id, buttonText);
+            var buttonText = Localization._(Vanilla.VanillaStrings.CONTINUE);
+            Sounds.Play2D(VanillaSoundID.paper);
+            Scene.DisplayNote(id, buttonText);
         }
         public async Task ExitLevel()
         {
@@ -188,7 +194,7 @@ namespace MVZ2.Level
         }
         public void BackToMapOrMainmenu()
         {
-            Main.GotoMapOrMainmenu();
+            Scene.GotoMapOrMainmenu();
         }
         public bool IsGameRunning()
         {
@@ -235,7 +241,7 @@ namespace MVZ2.Level
         }
         public void RemoveLevelState()
         {
-            Main.LevelManager.RemoveLevelState(StartStageID);
+            LevelManager.RemoveLevelState(StartStageID);
         }
         public NamespaceID GetStartAreaID()
         {
@@ -342,7 +348,7 @@ namespace MVZ2.Level
                     ui.SetHeldItemPosition(heldItemPosition);
                     UpdateLevelUI();
 
-                    levelCamera.ShakeOffset = (Vector3)Main.ShakeManager.GetShake2D();
+                    levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
                 }
             }
             if (isPaused)
@@ -363,12 +369,12 @@ namespace MVZ2.Level
         public void Pause()
         {
             isPaused = true;
-            Main.MusicManager.Pause();
+            Music.Pause();
         }
         public void Resume()
         {
             isPaused = false;
-            Main.MusicManager.Resume();
+            Music.Resume();
 
             if (optionsLogic != null)
             {
@@ -431,11 +437,11 @@ namespace MVZ2.Level
         }
         private void Engine_OnClearCallback()
         {
-            Main.LevelManager.RemoveLevelState(StartStageID);
-            Main.SaveManager.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
-            Main.SaveManager.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
-            Main.SaveManager.SaveModDatas();
-            Main.SaveManager.SetMapTalk(level.GetMapTalk());
+            LevelManager.RemoveLevelState(StartStageID);
+            Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
+            Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
+            Saves.SaveModDatas();
+            Saves.SetMapTalk(level.GetMapTalk());
 
             isInputDisabled = true;
 
@@ -476,7 +482,7 @@ namespace MVZ2.Level
                 return;
             if (focus)
                 return;
-            if (!Main.OptionsManager.GetPauseOnFocusLost())
+            if (!Options.GetPauseOnFocusLost())
                 return;
 
             Pause();
@@ -504,9 +510,9 @@ namespace MVZ2.Level
 
         private async Task ExitScene()
         {
-            Main.SaveManager.SaveModDatas();
+            Saves.SaveModDatas();
             Dispose();
-            await Main.LevelManager.ExitLevelSceneAsync();
+            await LevelManager.ExitLevelSceneAsync();
         }
         private void UpdateInput()
         {
@@ -593,7 +599,7 @@ namespace MVZ2.Level
             {
                 if (Input.GetKeyDown(KeyCode.F2))
                 {
-                    Main.LevelManager.SaveLevel();
+                    LevelManager.SaveLevel();
                     Debug.Log("Game Saved!");
                 }
                 if (Input.GetKeyDown(KeyCode.F3))
@@ -679,10 +685,10 @@ namespace MVZ2.Level
 
         private void CreateLevelModel(NamespaceID areaId)
         {
-            var areaMeta = Main.ResourceManager.GetAreaMeta(areaId);
+            var areaMeta = Resources.GetAreaMeta(areaId);
             if (areaMeta == null)
                 return;
-            var modelPrefab = Main.ResourceManager.GetAreaModel(areaMeta.model);
+            var modelPrefab = Resources.GetAreaModel(areaMeta.model);
             if (modelPrefab == null)
                 return;
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<AreaModel>();
@@ -697,7 +703,7 @@ namespace MVZ2.Level
             var startTalk = level.GetStartTalk() ?? level.StageID;
             if (!level.IsRerun && talkController.CanStartTalk(startTalk))
             {
-                Main.MusicManager.Play(VanillaMusicID.mainmenu);
+                Music.Play(VanillaMusicID.mainmenu);
                 StartTalk(startTalk, 0, 2);
             }
             else
@@ -709,10 +715,19 @@ namespace MVZ2.Level
         #endregion
 
         #region 属性字段
-        public float LawnToTransScale => Main.LevelManager.LawnToTransScale;
-        public float TransToLawnScale => Main.LevelManager.TransToLawnScale;
+        public float LawnToTransScale => LevelManager.LawnToTransScale;
+        public float TransToLawnScale => LevelManager.TransToLawnScale;
         public Game Game => Main.Game;
         private MainManager Main => MainManager.Instance;
+        private SaveManager Saves => Main.SaveManager;
+        private MusicManager Music => Main.MusicManager;
+        private LevelManager LevelManager => Main.LevelManager;
+        private LanguageManager Localization => Main.LanguageManager;
+        private ResourceManager Resources => Main.ResourceManager;
+        private SoundManager Sounds => Main.SoundManager;
+        private MainSceneController Scene => Main.Scene;
+        private OptionsManager Options => Main.OptionsManager;
+        private ShakeManager Shakes => Main.ShakeManager;
         private LevelEngine level;
         private bool isPaused = false;
         private bool levelLoaded = false;
@@ -732,13 +747,13 @@ namespace MVZ2.Level
         #region 保存属性
         public NamespaceID CurrentMusic
         {
-            get => Main.MusicManager.GetCurrentMusicID();
-            set => Main.MusicManager.Play(value);
+            get => Music.GetCurrentMusicID();
+            set => Music.Play(value);
         }
         public float MusicTime
         {
-            get => Main.MusicManager.Time;
-            set => Main.MusicManager.Time = value;
+            get => Music.Time;
+            set => Music.Time = value;
         }
         public bool BlueprintsActive
         {

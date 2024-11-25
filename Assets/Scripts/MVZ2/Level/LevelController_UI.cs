@@ -36,11 +36,11 @@ namespace MVZ2.Level
             }
             else if (heldType == VanillaHeldTypes.pickaxe)
             {
-                icon = Main.LanguageManager.GetSprite(pickaxeSprite);
+                icon = Localization.GetSprite(pickaxeSprite);
             }
             else if (heldType == VanillaHeldTypes.starshard)
             {
-                icon = Main.LanguageManager.GetSprite(GetStarshardIcon(level.AreaDefinition.GetID()));
+                icon = Localization.GetSprite(GetStarshardIcon(level.AreaDefinition.GetID()));
             }
             ui.SetHeldItemIcon(icon);
 
@@ -75,9 +75,9 @@ namespace MVZ2.Level
         }
         public void ShowRestartConfirmDialog()
         {
-            var title = Main.LanguageManager._(Vanilla.VanillaStrings.RESTART);
-            var desc = Main.LanguageManager._(DIALOG_DESC_RESTART);
-            Main.Scene.ShowDialogConfirm(title, desc, async (confirm) =>
+            var title = Localization._(Vanilla.VanillaStrings.RESTART);
+            var desc = Localization._(DIALOG_DESC_RESTART);
+            Scene.ShowDialogConfirm(title, desc, async (confirm) =>
             {
                 if (confirm)
                 {
@@ -87,7 +87,7 @@ namespace MVZ2.Level
         }
         public void ShowLevelErrorLoadingDialog(Exception e)
         {
-            ShowLevelErrorLoadingDialog(Main.LanguageManager._(ERROR_LOAD_LEVEL_EXCEPTION, e.Message));
+            ShowLevelErrorLoadingDialog(Localization._(ERROR_LOAD_LEVEL_EXCEPTION, e.Message));
         }
         public bool IsChoosingBlueprints()
         {
@@ -95,7 +95,7 @@ namespace MVZ2.Level
         }
         public void UpdateDifficulty()
         {
-            level.SetDifficulty(Main.OptionsManager.GetDifficulty());
+            level.SetDifficulty(Options.GetDifficulty());
             UpdateDifficultyName();
         }
 
@@ -167,8 +167,8 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             var viewData = new TooltipViewData()
             {
-                name = Main.LanguageManager._(Vanilla.VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
-                error = level.IsPickaxeDisabled() ? Main.LanguageManager._(level.GetPickaxeDisableMessage()) : null,
+                name = Localization._(Vanilla.VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
+                error = level.IsPickaxeDisabled() ? Localization._(level.GetPickaxeDisableMessage()) : null,
                 description = null
             };
             levelUI.ShowTooltipOnPickaxe(viewData);
@@ -268,9 +268,9 @@ namespace MVZ2.Level
         {
             if (chosenBlueprints.Count < level.GetSeedSlotCount())
             {
-                var title = Main.LanguageManager._(Vanilla.VanillaStrings.WARNING);
-                var desc = Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL);
-                var result = await Main.Scene.ShowDialogConfirmAsync(title, desc);
+                var title = Localization._(Vanilla.VanillaStrings.WARNING);
+                var desc = Localization._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL);
+                var result = await Scene.ShowDialogConfirmAsync(title, desc);
                 if (!result)
                     return;
             }
@@ -319,7 +319,7 @@ namespace MVZ2.Level
             var seedID = choosingBlueprints[index];
             var seedDef = Game.GetSeedDefinition(seedID);
             var blueprint = uiPreset.CreateBlueprint();
-            var blueprintViewData = Main.ResourceManager.GetBlueprintViewData(seedDef);
+            var blueprintViewData = Resources.GetBlueprintViewData(seedDef);
             blueprint.UpdateView(blueprintViewData);
             blueprint.SetDisabled(false);
             blueprint.SetRecharge(0);
@@ -365,21 +365,21 @@ namespace MVZ2.Level
         {
             var spriteReference = pauseImages.Random(rng);
             ui.SetPauseDialogActive(true);
-            ui.SetPauseDialogImage(Main.LanguageManager.GetSprite(spriteReference));
+            ui.SetPauseDialogImage(Localization.GetSprite(spriteReference));
         }
         private void ShowGameOverDialog()
         {
             string message;
             if (killerID != null)
             {
-                message = Main.ResourceManager.GetEntityDeathMessage(killerID);
+                message = Resources.GetEntityDeathMessage(killerID);
             }
             else
             {
                 message = deathMessage;
             }
             ui.SetGameOverDialogActive(true);
-            ui.SetGameOverDialogMessage(Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_DEATH_MESSAGE, message));
+            ui.SetGameOverDialogMessage(Localization._p(Vanilla.VanillaStrings.CONTEXT_DEATH_MESSAGE, message));
         }
         private void ShowLevelErrorLoadingDialog(string desc)
         {
@@ -388,7 +388,7 @@ namespace MVZ2.Level
         }
         private void ShowLevelErrorLoadingDialog()
         {
-            ShowLevelErrorLoadingDialog(Main.LanguageManager._(ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH));
+            ShowLevelErrorLoadingDialog(Localization._(ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH));
         }
         private void ShowLevelLoadedDialog()
         {
@@ -408,7 +408,7 @@ namespace MVZ2.Level
             if (seed == null)
                 return null;
             var seedDef = seed.Definition;
-            return Main.ResourceManager.GetBlueprintIconStandalone(seedDef);
+            return Resources.GetBlueprintIconStandalone(seedDef);
         }
         #endregion
         private void ClickPickaxe()
@@ -537,10 +537,10 @@ namespace MVZ2.Level
                 name = Vanilla.VanillaStrings.LEVEL_NAME_UNKNOWN;
             }
             var levelUI = GetUIPreset();
-            var levelName = Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_LEVEL_NAME, name);
+            var levelName = Localization._p(Vanilla.VanillaStrings.CONTEXT_LEVEL_NAME, name);
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_LEVEL_NAME, Vanilla.VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+                levelName = Localization._p(Vanilla.VanillaStrings.CONTEXT_LEVEL_NAME, Vanilla.VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
             }
             levelUI.SetLevelName(levelName);
         }
@@ -551,7 +551,7 @@ namespace MVZ2.Level
         }
         private void UpdateDifficultyName()
         {
-            var difficultyName = Main.ResourceManager.GetDifficultyName(level.Difficulty);
+            var difficultyName = Resources.GetDifficultyName(level.Difficulty);
             var levelUI = GetUIPreset();
             levelUI.SetDifficulty(difficultyName);
         }
@@ -563,13 +563,13 @@ namespace MVZ2.Level
         private void SetUnlockedUIVisible()
         {
             var levelUI = GetUIPreset();
-            StarshardActive = Main.SaveManager.IsStarshardUnlocked();
-            TriggerActive = Main.SaveManager.IsTriggerUnlocked();
+            StarshardActive = Saves.IsStarshardUnlocked();
+            TriggerActive = Saves.IsTriggerUnlocked();
         }
         private NamespaceID GetStarshardIcon(NamespaceID areaID)
         {
             var spriteID = new NamespaceID(areaID.spacename, $"starshards/{areaID.path}");
-            if (!Main.ResourceManager.GetSprite(spriteID))
+            if (!Resources.GetSprite(spriteID))
             {
                 spriteID = new NamespaceID(areaID.spacename, $"starshards/default");
             }
@@ -583,7 +583,7 @@ namespace MVZ2.Level
                 canViewLawn = level.CurrentFlag > 0,
                 hasCommandBlock = false,
             };
-            var almanacIndexes = blueprints.Select(id => (id, Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.CONTRAPTIONS, id).index));
+            var almanacIndexes = blueprints.Select(id => (id, Resources.GetAlmanacMetaEntry(VanillaAlmanacCategories.CONTRAPTIONS, id).index));
             var maxAlmanacIndex = almanacIndexes.Max(tuple => tuple.index);
             var ordererBlueprints = new NamespaceID[maxAlmanacIndex + 1];
             for (int i = 0; i < ordererBlueprints.Length; i++)
@@ -608,7 +608,7 @@ namespace MVZ2.Level
                 var blueprintDef = Game.GetSeedDefinition(id);
                 return new ChoosingBlueprintViewData()
                 {
-                    blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef),
+                    blueprint = Resources.GetBlueprintViewData(blueprintDef),
                     disabled = false,
                 };
             }).ToArray();
@@ -616,8 +616,8 @@ namespace MVZ2.Level
             choosingBlueprints = ordererBlueprints.ToArray();
 
             var uiPreset = GetUIPreset();
-            uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Main.SaveManager.IsAlmanacUnlocked());
-            uiPreset.SetBlueprintChooseViewStoreButtonActive(Main.SaveManager.IsStoreUnlocked());
+            uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Saves.IsAlmanacUnlocked());
+            uiPreset.SetBlueprintChooseViewStoreButtonActive(Saves.IsStoreUnlocked());
             uiPreset.SetSideUIVisible(true);
             uiPreset.SetBlueprintsChooseVisible(true);
             uiPreset.ResetBlueprintChooseArtifactCount(3);
@@ -641,7 +641,7 @@ namespace MVZ2.Level
                     var seedDef = Game.GetSeedDefinition(blueprint);
                     if (seedDef != null)
                     {
-                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef);
+                        viewData = Resources.GetBlueprintViewData(seedDef);
                     }
                 }
                 var blueprintUI = uiPreset.GetBlueprintAt(i);
