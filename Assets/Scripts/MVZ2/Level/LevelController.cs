@@ -700,6 +700,8 @@ namespace MVZ2.Level
         }
         private void StartLevelIntroInstant()
         {
+            SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
+
             var startTalk = level.GetStartTalk() ?? level.StageID;
             if (!level.IsRerun && talkController.CanStartTalk(startTalk))
             {
@@ -710,7 +712,6 @@ namespace MVZ2.Level
             {
                 level.BeginLevel();
             }
-            SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
         }
         #endregion
 
