@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 
@@ -35,18 +36,9 @@ namespace MVZ2.Managers
         {
             return entitiesCacheDict.TryGetValue(entityID, out var meta) ? meta : null;
         }
-        public string GetEntityName(NamespaceID entityID)
-        {
-            if (entityID == null)
-                return "null";
-            var meta = GetEntityMeta(entityID);
-            if (meta == null)
-                return entityID.ToString();
-            return Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ENTITY_NAME, meta.Name);
-        }
         public string GetEntityDeathMessage(NamespaceID entityID)
         {
-            string key = Vanilla.VanillaStrings.DEATH_MESSAGE_UNKNOWN;
+            string key = VanillaStrings.DEATH_MESSAGE_UNKNOWN;
             if (entityID != null)
             {
                 var meta = GetEntityMeta(entityID);
@@ -55,7 +47,17 @@ namespace MVZ2.Managers
                     key = meta.DeathMessage;
                 }
             }
-            return Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_DEATH_MESSAGE, key);
+            return Main.LanguageManager._p(VanillaStrings.CONTEXT_DEATH_MESSAGE, key);
+        }
+        public string GetEntityName(NamespaceID entityID)
+        {
+            if (entityID == null)
+                return "null";
+            var meta = GetEntityMeta(entityID);
+            if (meta == null)
+                return entityID.ToString();
+            var name = meta.Name ?? VanillaStrings.UNKNOWN_ENTITY_NAME;
+            return Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, name);
         }
         public string GetEntityTooltip(NamespaceID entityID)
         {
@@ -64,7 +66,8 @@ namespace MVZ2.Managers
             var meta = GetEntityMeta(entityID);
             if (meta == null)
                 return entityID.ToString();
-            return Main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_ENTITY_TOOLTIP, meta.Tooltip);
+            var tooltip = meta.Tooltip ?? VanillaStrings.UNKNOWN_ENTITY_TOOLTIP;
+            return Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, tooltip);
         }
         #endregion
 

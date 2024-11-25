@@ -80,6 +80,12 @@ namespace MVZ2.Vanilla
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
 
+        [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
+        public const string UNKNOWN_ENTITY_NAME = "？？？";
+
+        [TranslateMsg("实体说明-未知", CONTEXT_ENTITY_TOOLTIP)]
+        public const string UNKNOWN_ENTITY_TOOLTIP = "？？？";
+
         public const string CONTEXT_ADVICE_ERROR = "advice.error";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
