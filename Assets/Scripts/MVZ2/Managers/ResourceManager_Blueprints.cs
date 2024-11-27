@@ -1,7 +1,9 @@
 ﻿using MVZ2.UI;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -28,17 +30,36 @@ namespace MVZ2.Managers
                     icon = GetDefaultSprite(),
                     cost = "0",
                     triggerActive = false,
-                    triggerCost = "0",
                 };
             }
             var sprite = GetBlueprintIcon(seedDef);
+            var entityID = seedDef.GetSeedEntityID();
+            var triggerActive = false;
+            if (NamespaceID.IsValid(entityID))
+            {
+                var entityDef = main.Game.GetEntityDefinition(entityID);
+                triggerActive = entityDef.IsTriggerActive();
+            }
             return new BlueprintViewData()
             {
                 icon = sprite,
                 cost = seedDef.GetCost().ToString(),
-                triggerActive = seedDef.IsTriggerActive(),
-                triggerCost = seedDef.GetTriggerCost().ToString(),
+                triggerActive = triggerActive,
             };
+        }
+        public BlueprintViewData GetBlueprintViewData(NamespaceID seedID)
+        {
+            if (!NamespaceID.IsValid(seedID))
+            {
+                return new BlueprintViewData()
+                {
+                    triggerActive = false,
+                    cost = "0",
+                    icon = GetDefaultSprite()
+                };
+            }
+            var definition = main.Game.GetSeedDefinition(seedID);
+            return GetBlueprintViewData(definition);
         }
         public Sprite GetBlueprintIconMobile(SeedDefinition seedDef)
         {

@@ -89,9 +89,7 @@ namespace MVZ2.Vanilla
                                 Namespace,
                                 name,
                                 seedEntityAttr.Cost,
-                                seedEntityAttr.RechargeID,
-                                seedEntityAttr.TriggerActive,
-                                seedEntityAttr.TriggerCost);
+                                seedEntityAttr.RechargeID);
                             AddDefinition(seedDef);
                         }
                         var spawnDefAttr = type.GetCustomAttribute<SpawnDefinitionAttribute>();

@@ -15,7 +15,6 @@ namespace MVZ2.UI
             SetCost(viewData.cost);
             SetIcon(viewData.icon);
             SetTriggerActive(viewData.triggerActive);
-            SetTriggerCost(viewData.triggerCost);
         }
         public void SetEmpty(bool empty)
         {
@@ -34,10 +33,6 @@ namespace MVZ2.UI
         public void SetTriggerActive(bool active)
         {
             triggerCostObject.SetActive(active);
-        }
-        public void SetTriggerCost(string cost)
-        {
-            triggerCostText.text = cost;
         }
         public void SetRecharge(float charge)
         {
@@ -90,8 +85,6 @@ namespace MVZ2.UI
         [SerializeField]
         private GameObject triggerCostObject;
         [SerializeField]
-        private TextMeshProUGUI triggerCostText;
-        [SerializeField]
         private TooltipAnchor tooltipAnchor;
 
     }
@@ -101,7 +94,6 @@ namespace MVZ2.UI
         public string cost;
         public Sprite icon;
         public bool triggerActive;
-        public string triggerCost;
         public static readonly BlueprintViewData Empty = new BlueprintViewData { empty = true };
     }
 }

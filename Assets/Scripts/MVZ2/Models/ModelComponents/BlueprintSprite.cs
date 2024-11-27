@@ -11,7 +11,6 @@ namespace MVZ2.Models
             iconRenderer.sprite = viewData.icon;
             costText.text = viewData.cost;
             triggerCostRoot.SetActive(viewData.triggerActive);
-            triggerCostText.text = viewData.triggerCost;
             UpdateIcon();
         }
         protected void UpdateIcon()
@@ -36,8 +35,6 @@ namespace MVZ2.Models
         protected GameObject triggerCostRoot;
         [SerializeField]
         protected TextMeshPro costText;
-        [SerializeField]
-        protected TextMeshPro triggerCostText;
         [SerializeField]
         protected Vector2 iconSpriteSize;
         [SerializeField]

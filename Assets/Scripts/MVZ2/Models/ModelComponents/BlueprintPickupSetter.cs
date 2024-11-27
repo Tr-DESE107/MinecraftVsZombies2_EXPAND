@@ -18,24 +18,7 @@ namespace MVZ2.Models
                 var main = MainManager.Instance;
                 lastID = blueprintID;
                 var resourceManager = main.ResourceManager;
-                BlueprintViewData viewData = new BlueprintViewData()
-                {
-                    triggerActive = false,
-                    cost = "0",
-                    triggerCost = "0",
-                    icon = resourceManager.GetDefaultSprite()
-                };
-                if (NamespaceID.IsValid(blueprintID))
-                {
-                    var definition = main.Game.GetSeedDefinition(blueprintID);
-                    if (definition != null)
-                    {
-                        viewData.icon = resourceManager.GetBlueprintIcon(definition);
-                        viewData.cost = definition.GetCost().ToString();
-                        viewData.triggerCost = definition.GetTriggerCost().ToString();
-                        viewData.triggerActive = definition.IsTriggerActive();
-                    }
-                }
+                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID);
                 bool isMobile = main.IsMobile();
                 var blueprintSprite = isMobile ? blueprintSpriteMobile : blueprintSpriteStandalone;
                 blueprintSpriteStandalone.gameObject.SetActive(!isMobile);
