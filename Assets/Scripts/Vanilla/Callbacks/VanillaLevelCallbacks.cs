@@ -9,6 +9,7 @@ namespace MVZ2.Vanilla.Callbacks
     {
         public readonly static NamespaceID PRE_ENTITY_TAKE_DAMAGE = Get("pre_entity_take_damage");
         public readonly static NamespaceID PRE_PICKUP_COLLECT = Get("pre_pickup_collect");
+        public readonly static NamespaceID POST_CONTRAPTION_TRIGGER = Get("post_contraption_trigger");
         public readonly static CallbackActionList<Entity> PostContraptionEvoked = new();
         public readonly static CallbackActionList<DamageResult, DamageResult> PostEntityTakeDamage = new();
         private static NamespaceID Get(string path)

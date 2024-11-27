@@ -2,7 +2,10 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2Logic;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -23,6 +26,26 @@ namespace MVZ2.Vanilla.Entities
                 evokable.Evoke(contraption);
             }
             VanillaLevelCallbacks.PostContraptionEvoked.Run(contraption);
+        }
+        public static bool CanTrigger(this Entity contraption)
+        {
+            if (contraption.Definition is ITriggerableContraption triggerable)
+            {
+                return triggerable.CanTrigger(contraption);
+            }
+            return false;
+        }
+        public static void Trigger(this Entity contraption)
+        {
+            if (contraption.Definition is ITriggerableContraption triggerable)
+            {
+                triggerable.Trigger(contraption);
+            }
+            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER);
+            foreach (var trigger in triggers)
+            {
+                trigger.Invoke(contraption);
+            }
         }
         public static bool IsEvoked(this Entity contraption)
         {

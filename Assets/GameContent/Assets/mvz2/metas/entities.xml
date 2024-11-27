@@ -97,6 +97,8 @@
             <vector3 name="size" x="48" y="48" z="48"/>
         </contraption>
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备">
+            <float name="damage" value="1800"/>
+            <float name="range" value="40"/>
             <id name="placeSound" value="mvz2:grass"/>
             <id name="shell" value="mvz2:grass"/>
             <id name="deathSound" value="mvz2:grass"/>
@@ -128,6 +130,16 @@
             <float name="range" value="120"/>
             <vector3 name="size" x="32" y="48" z="32"/>
             <id name="fragmentID" value="mvz2:dispenser"/>
+        </contraption>
+        <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
+            <float name="damage" value="1800"/>
+            <float name="range" value="120"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <id name="fragmentID" value="mvz2:mine_tnt"/>
+            <id name="placeSound" value="mvz2:grass"/>
+            <id name="shell" value="mvz2:grass"/>
+            <id name="deathSound" value="mvz2:grass"/>
+            <bool name="triggerActive" value="true" />
         </contraption>
 
         <!-- Enemies Start -->
@@ -197,6 +209,7 @@
         <pickup id="clear_pickup" name="通关掉落物">
             <bool name="important" value="true"/>
             <id name="collectSound" value="mvz2:win_music"/>
+            <id name="modelID" value="mvz2:entity.money_chest"/>
         </pickup>
         <pickup id="starshard" name="星之碎片">
             <bool name="canUnderGround" value="true"/>
@@ -204,6 +217,7 @@
             <float name="friction" value="0"/>
             <float name="gravity" value="0"/>
             <id name="collectSound" value="mvz2:starshard_use"/>
+            <id name="modelID" value="mvz2:entity.starshard.default"/>
         </pickup>
 
         <!-- Projectiles -->
@@ -225,6 +239,15 @@
             <vector3 name="size" x="24" y="24" z="24" />
             <idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
         </projectile>
+        <projectile id="flying_tnt">
+            <bool name="noHitEntities" value="true"/>
+            <float name="gravity" value="1"/>
+            <float name="damage" value="1800"/>
+            <float name="range" value="120"/>
+            <vector3 name="size" x="48" y="48" z="48" />
+            <vector3 name="shadowScale" x="1" y="1" z="1"/>
+            <id name="modelID" value="mvz2:entity.tnt"/>
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -243,5 +266,8 @@
         <effect id="shine_ring" />
         <effect id="stun_stars" />
         <effect id="stunning_flash" />
+        <effect id="explosion">
+            <vector3 name="size" x="240" y="240" z="240" />
+        </effect>
     </entries>
 </entities>

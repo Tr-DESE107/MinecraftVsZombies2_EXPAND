@@ -270,7 +270,7 @@ namespace PVZEngine.Entities
             // Friction.
             float magnitude = velocity.magnitude;
             Vector3 normalized = velocity.normalized;
-            velocity = normalized * Math.Max(0, magnitude * (1 - simulationSpeed * this.GetFriction()));
+            velocity = normalized * Math.Max(0, magnitude * Mathf.Pow(1 - this.GetFriction(), simulationSpeed));
 
             // Gravity.
             velocity.y -= this.GetGravity() * simulationSpeed;
@@ -281,26 +281,34 @@ namespace PVZEngine.Entities
         {
             Vector3 nextVelocity = GetNextVelocity(simulationSpeed);
             Vector3 nextPos = GetNextPosition(simulationSpeed);
+
+            float groundHeight = Level.GetGroundY(nextPos.x, nextPos.z);
+            float relativeY = nextPos.y - groundHeight;
+            bool leavingGround = relativeY > 0 || (relativeY == 0 && nextVelocity.y >= 0);
+
+            if (!GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND))
+            {
+                if (nextPos.y <= groundHeight && nextVelocity.y < 0)
+                {
+                    nextVelocity.y = 0;
+                }
+            }
             Position = nextPos;
             Velocity = nextVelocity;
-
-            float groundHeight = GetGroundHeight();
-            float relativeY = nextPos.y - groundHeight;
-            bool leavingGround = relativeY > 0 || relativeY == 0 && nextVelocity.y >= 0;
             if (leavingGround)
             {
-                if (isOnGround)
+                if (IsOnGround)
                 {
                     OnLeaveGround();
-                    isOnGround = false;
+                    IsOnGround = false;
                 }
             }
             else
             {
-                if (!isOnGround)
+                if (!IsOnGround)
                 {
                     OnContactGround();
-                    isOnGround = true;
+                    IsOnGround = true;
                 }
             }
         }
@@ -457,7 +465,7 @@ namespace PVZEngine.Entities
 
             seri.isDead = IsDead;
             seri.health = Health;
-            seri.isOnGround = isOnGround;
+            seri.isOnGround = IsOnGround;
             seri.currentBuffID = currentBuffID;
             seri.propertyDict = propertyDict.Serialize();
             seri.buffs = buffs.ToSerializable();
@@ -496,7 +504,7 @@ namespace PVZEngine.Entities
 
             IsDead = seri.isDead;
             Health = seri.health;
-            isOnGround = seri.isOnGround;
+            IsOnGround = seri.isOnGround;
             currentBuffID = seri.currentBuffID;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             buffs = BuffList.FromSerializable(seri.buffs, Level, this);
@@ -588,10 +596,9 @@ namespace PVZEngine.Entities
         public int Type { get; }
         public int State { get; set; }
         public Entity Target { get; set; }
+        public bool IsOnGround { get; private set; } = true;
 
         private PropertyDictionary propertyDict = new PropertyDictionary();
-
-        private bool isOnGround = true;
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private List<Entity> collisionThisTick = new List<Entity>();

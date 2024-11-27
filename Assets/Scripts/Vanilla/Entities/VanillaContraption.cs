@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class VanillaContraption : VanillaEntity, IEvokableContraption
+    public abstract class VanillaContraption : VanillaEntity, IEvokableContraption, ITriggerableContraption
     {
         public VanillaContraption(string nsp, string name) : base(nsp, name)
         {
@@ -67,6 +67,18 @@ namespace MVZ2.Vanilla.Entities
             pos.z = entity.Position.z;
             entity.Level.Spawn(VanillaEffectID.evocationStar, pos, entity);
             OnEvoke(entity);
+        }
+        public virtual bool CanTrigger(Entity entity)
+        {
+            return entity.IsTriggerActive();
+        }
+        public virtual void Trigger(Entity entity)
+        {
+            OnTrigger(entity);
+        }
+        protected virtual void OnTrigger(Entity entity)
+        {
+
         }
         protected virtual void OnEvoke(Entity entity)
         {

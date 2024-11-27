@@ -5,6 +5,8 @@ namespace MVZ2.GameContent.Buffs
 {
     public static class VanillaBuffNames
     {
+        // Entities
+        public const string entityPhysics = "entity_physics";
 
         // Contraption
         public const string productionColor = "production_color";
@@ -13,6 +15,7 @@ namespace MVZ2.GameContent.Buffs
         public const string moonlightSensorLaunching = "moonlight_sensor_launching";
         public const string moonlightSensorEvoked = "moonlight_sensor_evoked";
         public const string glowstoneEvoke = "glowstone_evoke";
+        public const string tntIgnited = "tnt_ignited";
         // Enemy
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";

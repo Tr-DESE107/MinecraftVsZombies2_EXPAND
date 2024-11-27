@@ -37,7 +37,7 @@ namespace MVZ2.Models
                 emission.SetBurst(i, burst);
             }
         }
-        private ParticleSystem.MinMaxCurve MultiplyCurve(ParticleSystem.MinMaxCurve curve, float multiplier)
+        public static ParticleSystem.MinMaxCurve MultiplyCurve(ParticleSystem.MinMaxCurve curve, float multiplier)
         {
             switch (curve.mode)
             {

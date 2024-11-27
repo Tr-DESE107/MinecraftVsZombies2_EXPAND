@@ -79,6 +79,9 @@
     <sound name="final_wave" maxCount="1" priority="64">
         <sample path="mvz2:final_wave" weight="1" />
     </sound>
+    <sound name="fuse">
+        <sample path="mvz2:fuse" weight="1" />
+    </sound>
     <sound name="gargoyle_cry">
         <sample path="mvz2:entity/gargoyle/gargoyle1" weight="1" />
         <sample path="mvz2:entity/gargoyle/gargoyle2" weight="1" />

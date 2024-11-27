@@ -77,6 +77,15 @@
             <p/>
             <p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
         </entry>
+        <entry id="mvz2:tnt">"
+            <p>TNT在触发后能炸飞周围的敌人。</p>
+            <p/>
+            <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+            <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+            <p>技能：炸出4个TNT分身。</p>
+            <p/>
+            <p>注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。</p>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

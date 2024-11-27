@@ -35,6 +35,10 @@ namespace MVZ2.Level.Components
         {
             Controller.StarshardActive = visible;
         }
+        public void SetTriggerActive(bool visible)
+        {
+            Controller.TriggerActive = visible;
+        }
         public void SetHintArrowPointToBlueprint(int index)
         {
             var levelUI = Controller.GetUIPreset();

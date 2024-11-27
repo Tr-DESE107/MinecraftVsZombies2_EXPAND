@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -26,13 +27,14 @@ namespace MVZ2.GameContent.Stages
 
                 VanillaContraptionID.smallDispenser,
                 VanillaContraptionID.moonlightSensor,
-                VanillaContraptionID.punchton,
+                VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.leatherCappedZombie,
                 VanillaEnemyID.ironHelmettedZombie,
             });
             level.RechargeSpeed = 9999999;
+            level.SetTriggerActive(true);
         }
         public override void OnUpdate(LevelEngine level)
         {

@@ -36,6 +36,11 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.SetStarshardActive(visible);
         }
+        public static void SetTriggerActive(this LevelEngine level, bool visible)
+        {
+            var component = level.GetUIComponent();
+            component.SetTriggerActive(visible);
+        }
         public static void ShakeScreen(this LevelEngine level, float startAmplitude, float endAmplitude, int time)
         {
             var component = level.GetUIComponent();

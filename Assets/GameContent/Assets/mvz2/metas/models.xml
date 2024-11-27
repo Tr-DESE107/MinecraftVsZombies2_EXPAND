@@ -10,6 +10,7 @@
     <model name="moonlight_sensor" type="entity" path="mvz2:contraption/moonlight_sensor" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="glowstone" type="entity" path="mvz2:contraption/glowstone" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="punchton" type="entity" path="mvz2:contraption/punchton" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="tnt" type="entity" path="mvz2:contraption/tnt" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="4"/>
@@ -52,6 +53,7 @@
     <model name="stun_stars" type="entity" path="mvz2:effect/stun_stars" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="stunning_flash" type="entity" path="mvz2:effect/stunning_flash" width="120" height="120" xOffset="0" yOffset="60"/>
     <model name="piston_palm" type="entity" path="mvz2:effect/piston_palm" width="32" height="64" xOffset="0" yOffset="4"/>
+    <model name="explosion" type="entity" path="mvz2:effect/explosion" width="160" height="160" xOffset="0" yOffset="30"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>

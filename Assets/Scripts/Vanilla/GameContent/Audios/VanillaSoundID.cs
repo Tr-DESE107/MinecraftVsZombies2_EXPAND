@@ -13,10 +13,12 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID coin = Get("coin");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
+        public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID finalWave = Get("final_wave");
+        public readonly static NamespaceID fuse = Get("fuse");
         public readonly static NamespaceID glowstone = Get("glowstone");
         public readonly static NamespaceID grass = Get("grass");
         public readonly static NamespaceID grind = Get("grind");

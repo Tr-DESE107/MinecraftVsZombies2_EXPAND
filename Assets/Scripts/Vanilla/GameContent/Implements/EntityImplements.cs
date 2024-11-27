@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Damages;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -16,8 +17,13 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
+            mod.RegisterCallback(LevelCallbacks.PostEntityInit, PostEntityInitCallback);
             mod.RegisterCallback(LevelCallbacks.PostEntityContactGround, PostContactGroundCallback);
             mod.RegisterCallback(VanillaLevelCallbacks.PostEntityTakeDamage, PostEnemyTakeDamageCallback);
+        }
+        private void PostEntityInitCallback(Entity entity)
+        {
+            entity.AddBuff<EntityPhysicsBuff>();
         }
         private void PostContactGroundCallback(Entity entity, Vector3 velocity)
         {

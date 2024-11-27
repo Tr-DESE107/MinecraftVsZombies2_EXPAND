@@ -42,6 +42,10 @@ namespace MVZ2.Level
             {
                 icon = Localization.GetSprite(GetStarshardIcon(level.AreaDefinition.GetID()));
             }
+            else if (heldType == VanillaHeldTypes.trigger)
+            {
+                icon = Localization.GetSprite(triggerSprite);
+            }
             ui.SetHeldItemIcon(icon);
 
 
@@ -217,6 +221,7 @@ namespace MVZ2.Level
                 return;
             if (!IsGameStarted())
                 return;
+            ClickTrigger();
         }
         private void UI_OnPauseDialogResumeClickedCallback()
         {
@@ -446,6 +451,20 @@ namespace MVZ2.Level
                 return;
             }
             level.SetHeldItem(VanillaHeldTypes.starshard, 0, 0);
+        }
+        private void ClickTrigger()
+        {
+            if (!TriggerActive)
+                return;
+            if (level.IsHoldingItem())
+            {
+                if (level.CancelHeldItem())
+                {
+                    level.PlaySound(VanillaSoundID.tap);
+                }
+                return;
+            }
+            level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
         }
         private void ClickOnReceiver(RaycastReceiver receiver)
         {
@@ -700,6 +719,8 @@ namespace MVZ2.Level
         private List<Sprite> pauseImages = new List<Sprite>();
         [SerializeField]
         private Sprite pickaxeSprite;
+        [SerializeField]
+        private Sprite triggerSprite;
         [SerializeField]
         private int blueprintChooseCountPerRowStandalone = 8;
         [SerializeField]

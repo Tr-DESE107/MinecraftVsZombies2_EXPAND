@@ -20,6 +20,8 @@ namespace PVZEngine.Entities
         public const string FACTION = "faction";
         public const string INVINCIBLE = "invincible";
 
+        public const string MODEL_ID = "modelID";
+
         public static bool IsInvincible(this Entity entity)
         {
             return entity.GetProperty<bool>(INVINCIBLE);

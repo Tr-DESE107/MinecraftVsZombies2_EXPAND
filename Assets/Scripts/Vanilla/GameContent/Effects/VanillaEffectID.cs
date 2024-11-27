@@ -17,6 +17,7 @@ namespace MVZ2.GameContent.Effects
         public const string shineRing = "shine_ring";
         public const string stunStars = "stun_stars";
         public const string stunningFlash = "stunning_flash";
+        public const string explosion = "explosion";
     }
     public static class VanillaEffectID
     {
@@ -32,6 +33,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID shineRing = Get(VanillaEffectNames.shineRing);
         public static readonly NamespaceID stunStars = Get(VanillaEffectNames.stunStars);
         public static readonly NamespaceID stunningFlash = Get(VanillaEffectNames.stunningFlash);
+        public static readonly NamespaceID explosion = Get(VanillaEffectNames.explosion);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

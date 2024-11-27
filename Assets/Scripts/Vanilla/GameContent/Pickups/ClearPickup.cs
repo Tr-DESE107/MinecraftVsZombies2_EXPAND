@@ -39,10 +39,6 @@ namespace MVZ2.GameContent.Pickups
                 entity.SetProperty(VanillaPickupProps.REMOVE_ON_COLLECT, true);
             }
         }
-        public override NamespaceID GetModelID(LevelEngine level)
-        {
-            return VanillaModelID.moneyChest;
-        }
         public override void Update(Entity pickup)
         {
             base.Update(pickup);

@@ -672,6 +672,10 @@ namespace MVZ2.Level
                 {
                     ClickStarshard();
                 }
+                if (Input.GetKeyDown(KeyCode.BackQuote))
+                {
+                    ClickTrigger();
+                }
             }
         }
         private bool CanUpdateBeforeGameStart(Entity entity)

@@ -39,15 +39,18 @@ namespace MVZ2.Vanilla.Level
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
             }
         }
-        public static void Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static Entity[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
+            List<Entity> damageEntities = new List<Entity>();
             foreach (Entity entity in level.GetEntities())
             {
                 if (entity.IsEnemy(faction) && Detection.IsInSphere(entity, center, radius))
                 {
                     entity.TakeDamage(amount, effects, source);
+                    damageEntities.Add(entity);
                 }
             }
+            return damageEntities.ToArray();
         }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
@@ -77,6 +80,10 @@ namespace MVZ2.Vanilla.Level
         public static bool IsHoldingBlueprint(this LevelEngine level, int i)
         {
             return level.GetHeldItemType() == BuiltinHeldTypes.blueprint && level.GetHeldItemID() == i;
+        }
+        public static bool IsHoldingTrigger(this LevelEngine level)
+        {
+            return level.GetHeldItemType() == VanillaHeldTypes.trigger;
         }
         public static void CreatePreviewEnemies(this LevelEngine level, IEnumerable<NamespaceID> validEnemies, Rect region)
         {

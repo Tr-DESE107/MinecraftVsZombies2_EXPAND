@@ -49,6 +49,7 @@ namespace MVZ2Logic.Level.Components
         void SetBlueprintsActive(bool visible);
         void SetPickaxeActive(bool visible);
         void SetStarshardActive(bool visible);
+        void SetTriggerActive(bool visible);
         void SetHintArrowPointToBlueprint(int index);
         void SetHintArrowPointToPickaxe();
         void SetHintArrowPointToStarshard();
