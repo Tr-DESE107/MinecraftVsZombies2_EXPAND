@@ -32,12 +32,15 @@ namespace MVZ2.Audios
             var sample = meta.GetRandomSample();
             if (sample == null)
                 return null;
-            var maxCount = meta.maxCount;
             var clip = main.ResourceManager.GetSoundClip(sample.path);
-            if (maxCount > 0 && soundSources.Count(s => s.SoundID == id) >= maxCount)
-                return null;
             if (!clip)
                 return null;
+            var maxCount = meta.maxCount;
+            var sameSoundSources = soundSources.Where(s => s.SoundID == id);
+            if (maxCount > 0 && sameSoundSources.Count() >= maxCount)
+            {
+                removeSoundSource(soundSources.FirstOrDefault());
+            }
             var source = Instantiate(soundTemplate, pos, Quaternion.identity, soundSourceRoot);
             source.SoundID = id;
 
@@ -56,10 +59,14 @@ namespace MVZ2.Audios
             {
                 if (!source.AudioSource.isPlaying)
                 {
-                    soundSources.Remove(source);
-                    Destroy(source.gameObject);
+                    removeSoundSource(source);
                 }
             }
+        }
+        private void removeSoundSource(SoundSource source)
+        {
+            soundSources.Remove(source);
+            Destroy(source.gameObject);
         }
         public MainManager Main => main;
         [SerializeField]

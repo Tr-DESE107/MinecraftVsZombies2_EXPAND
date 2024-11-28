@@ -140,7 +140,7 @@ namespace MVZ2.Level
         }
         public void GameOver(Entity killer)
         {
-            killerID = killer.Definition.GetID();
+            killerID = killer.GetDefinitionID();
             killerEntity = GetEntityController(killer);
             SetGameOver();
             StartCoroutine(GameOverByEnemyTransition());

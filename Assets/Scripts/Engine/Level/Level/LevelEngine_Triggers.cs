@@ -40,7 +40,7 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性字段
-        public IGameTriggerSystem Triggers { get; }
+        private IGameTriggerSystem Triggers { get; }
         private List<Trigger> addedTriggers = new List<Trigger>();
         #endregion
     }

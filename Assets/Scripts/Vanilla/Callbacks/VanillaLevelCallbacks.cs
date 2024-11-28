@@ -1,7 +1,9 @@
-﻿using PVZEngine;
+﻿using System;
+using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Callbacks
 {
@@ -15,12 +17,20 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static NamespaceID CAN_CONTRAPTION_SACRIFICE = Get("can_contraption_sacrifice");
         public readonly static NamespaceID GET_CONTRAPTION_SACRIFICE_FUEL = Get("get_contraption_sacrifice_fuel");
         public readonly static NamespaceID PRE_CONTRAPTION_SACRIFICE = Get("pre_contraption_sacrifice");
-        public readonly static NamespaceID POST_CONTRAPTION_SACRIFICE = Get("post_contraption_sacrifice");
+
+        public delegate void PostContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
+        public readonly static CallbackReference<PostContraptionSacrifice> POST_CONTRAPTION_SACRIFICE = GetReference<PostContraptionSacrifice>("post_contraption_sacrifice");
+
+
         public readonly static CallbackActionList<Entity> PostContraptionEvoked = new();
         public readonly static CallbackActionList<DamageResult, DamageResult> PostEntityTakeDamage = new();
         private static NamespaceID Get(string path)
         {
             return new NamespaceID("mvz2", path);
+        }
+        private static CallbackReference<T> GetReference<T>(string path) where T : Delegate
+        {
+            return new CallbackReference<T>(new NamespaceID("mvz2", path));
         }
     }
 }

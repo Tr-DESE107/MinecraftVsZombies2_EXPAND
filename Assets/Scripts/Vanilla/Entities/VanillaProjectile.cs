@@ -115,7 +115,7 @@ namespace MVZ2.Vanilla.Entities
             entity.AddProjectileCollidingEntity(other);
 
             PostHitEntity(entity, other);
-            Global.Game.RunTriggers(VanillaLevelCallbacks.POST_PROJECTILE_HIT, entity, other);
+            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, entity.GetDefinitionID(), entity, other);
 
             if (!entity.CanPierce(other))
             {

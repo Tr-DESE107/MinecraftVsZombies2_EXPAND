@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
+﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Recharges;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Game;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 using Tools;
 using UnityEngine;
 
@@ -26,6 +25,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public TNT(string nsp, string name) : base(nsp, name)
         {
+            Global.Game.AddCallback(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, PostSacrificeCallback, filterValue: VanillaContraptionID.tnt);
         }
         public override void Init(Entity entity)
         {
@@ -119,6 +119,13 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 entity.Remove();
             }
+        }
+        private void PostSacrificeCallback(Entity entity, Entity soulFurnace, int fuel)
+        {
+            var range = entity.GetRange();
+            var damage = entity.GetDamage();
+            Explode(entity, range, damage);
+            entity.Remove();
         }
     }
 }

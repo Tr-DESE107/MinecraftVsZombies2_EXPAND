@@ -35,13 +35,13 @@ namespace MVZ2.Games
         {
             return triggerSystem.GetTriggers(callbackID);
         }
-        public void RunCallback(NamespaceID callbackID)
+        public void RunCallback(NamespaceID callbackID, params object[] parameters)
         {
-            triggerSystem.RunCallback(callbackID);
+            triggerSystem.RunCallback(callbackID, parameters);
         }
-        public void RunCallbackFiltered(NamespaceID callbackID, object filterValue)
+        public void RunCallbackFiltered(NamespaceID callbackID, object filterValue, params object[] parameters)
         {
-            triggerSystem.RunCallbackFiltered(callbackID, filterValue);
+            triggerSystem.RunCallbackFiltered(callbackID, filterValue, parameters);
         }
         #endregion
 

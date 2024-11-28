@@ -58,9 +58,9 @@ namespace PVZEngine.Triggers
                 return;
             foreach (var trigger in triggerList.triggers)
             {
-                if (trigger.FilterValue != null && trigger.FilterValue != filterValue)
+                if (trigger.FilterValue != null && !trigger.FilterValue.Equals(filterValue))
                     continue;
-                trigger.Invoke(args);
+                trigger.Run(args);
             }
         }
         private EventTriggerList GetTriggerList(NamespaceID callbackID)

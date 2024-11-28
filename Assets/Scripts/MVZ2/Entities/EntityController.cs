@@ -27,7 +27,7 @@ namespace MVZ2.Entities
         {
             Level = level;
             Entity = entity;
-            gameObject.name = entity.Definition.GetID().ToString();
+            gameObject.name = entity.GetDefinitionID().ToString();
             entity.PostInit += PostInitCallback;
             entity.OnTriggerAnimation += OnTriggerAnimationCallback;
             entity.OnSetAnimationBool += OnSetAnimationBoolCallback;

@@ -21,19 +21,6 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityExt
     {
-        public static void SetBehaviourProperty(this Entity entity, NamespaceID id, string name, object value)
-        {
-            entity.SetProperty($"{id}/{name}", value);
-        }
-        public static T GetBehaviourProperty<T>(this Entity entity, NamespaceID id, string name)
-        {
-            return entity.GetProperty<T>($"{id}/{name}");
-        }
-        public static ShellDefinition GetShellDefinition(this Entity entity)
-        {
-            var shellID = entity.GetShellID();
-            return entity.Level.Content.GetShellDefinition(shellID);
-        }
         public static float GetFacingX(this Entity entity)
         {
             return entity.IsFacingLeft() ? -1 : 1;
@@ -79,7 +66,7 @@ namespace MVZ2.Vanilla.Entities
         public static EntitySeed GetSeedDefinition(this Entity entity)
         {
             var game = Global.Game;
-            var seedDef = game.GetSeedDefinition(entity.Definition.GetID());
+            var seedDef = game.GetSeedDefinition(entity.GetDefinitionID());
             if (seedDef is EntitySeed entitySeed)
                 return entitySeed;
             return null;

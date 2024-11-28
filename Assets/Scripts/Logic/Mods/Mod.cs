@@ -67,10 +67,5 @@ namespace MVZ2Logic.Modding
         public ModTrigger(NamespaceID callbackID, Delegate action, int priority = 0, object filterValue = null) : base(callbackID, action, priority, filterValue)
         {
         }
-
-        public override object Invoke(params object[] args)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
