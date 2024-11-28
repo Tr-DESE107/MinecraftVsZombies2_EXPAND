@@ -11,6 +11,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID chime = Get("chime");
         public readonly static NamespaceID coin = Get("coin");
+        public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
+        public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
         public readonly static NamespaceID explosion = Get("explosion");
@@ -18,6 +20,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID finalWave = Get("final_wave");
+        public readonly static NamespaceID fizz = Get("fizz");
         public readonly static NamespaceID fuse = Get("fuse");
         public readonly static NamespaceID glowstone = Get("glowstone");
         public readonly static NamespaceID grass = Get("grass");
@@ -38,6 +41,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID pickaxe = Get("pickaxe");
         public readonly static NamespaceID potion = Get("potion");
         public readonly static NamespaceID punch = Get("punch");
+        public readonly static NamespaceID refuel = Get("refuel");
         public readonly static NamespaceID scream = Get("scream");
         public readonly static NamespaceID screw = Get("screw");
         public readonly static NamespaceID shot = Get("shot");
@@ -59,6 +63,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID throwSound = Get("throw");
         public readonly static NamespaceID travel = Get("travel");
         public readonly static NamespaceID winMusic = Get("win_music");
+        public readonly static NamespaceID wood = Get("wood");
         public readonly static NamespaceID zombieCry = Get("zombie_cry");
         public readonly static NamespaceID zombieDeath = Get("zombie_death");
         private static NamespaceID Get(string name)

@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Shells
         public const string stone = "stone";
         public const string grass = "grass";
         public const string metal = "metal";
+        public const string wood = "wood";
     }
     public static class VanillaShellID
     {
@@ -20,6 +21,7 @@ namespace MVZ2.GameContent.Shells
         public static readonly NamespaceID stone = Get(VanillaShellNames.stone);
         public static readonly NamespaceID grass = Get(VanillaShellNames.grass);
         public static readonly NamespaceID metal = Get(VanillaShellNames.metal);
+        public static readonly NamespaceID wood = Get(VanillaShellNames.wood);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

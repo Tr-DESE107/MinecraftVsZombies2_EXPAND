@@ -438,6 +438,18 @@ namespace PVZEngine.Entities
         {
             OnSetModelProperty?.Invoke(name, value);
         }
+        public void SetShaderInt(string name, int value)
+        {
+            OnSetShaderInt?.Invoke(name, value);
+        }
+        public void SetShaderFloat(string name, float value)
+        {
+            OnSetShaderFloat?.Invoke(name, value);
+        }
+        public void SetShaderColor(string name, Color value)
+        {
+            OnSetShaderColor?.Invoke(name, value);
+        }
         public SerializableEntity Serialize()
         {
             var seri = new SerializableEntity();
@@ -567,6 +579,9 @@ namespace PVZEngine.Entities
 
         public event Action<NamespaceID> OnModelChanged;
         public event Action<string, object> OnSetModelProperty;
+        public event Action<string, int> OnSetShaderInt;
+        public event Action<string, float> OnSetShaderFloat;
+        public event Action<string, Color> OnSetShaderColor;
         #endregion
 
         #region 属性字段

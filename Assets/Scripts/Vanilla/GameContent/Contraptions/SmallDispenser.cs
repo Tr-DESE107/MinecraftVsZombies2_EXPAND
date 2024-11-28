@@ -42,7 +42,12 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
-            entity.ShootProjectile(VanillaProjectileID.largeSnowball, new Vector3(3, 0, 0));
+            var velocity = Vector3.right * 3;
+            if (entity.IsFacingLeft())
+            {
+                velocity.x *= -1;
+            }
+            entity.ShootProjectile(VanillaProjectileID.largeSnowball, velocity);
             entity.PlaySound(VanillaSoundID.odd);
         }
     }

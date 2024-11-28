@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
+using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -88,6 +90,10 @@ namespace MVZ2.Vanilla.Entities
                 position.y > 1000 ||
                 position.y < -1000;
         }
+        protected virtual void PostHitEntity(Entity entity, Entity other)
+        {
+
+        }
         private void UnitCollide(Entity entity, Entity other)
         {
             // 是否可以击中发射者。
@@ -107,6 +113,10 @@ namespace MVZ2.Vanilla.Entities
             other.TakeDamage(entity.GetDamage(), effects, new EntityReferenceChain(entity));
 
             entity.AddProjectileCollidingEntity(other);
+
+            PostHitEntity(entity, other);
+            Global.Game.RunTriggers(VanillaLevelCallbacks.POST_PROJECTILE_HIT, entity, other);
+
             if (!entity.CanPierce(other))
             {
                 entity.Remove();

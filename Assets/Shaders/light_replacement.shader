@@ -4,6 +4,13 @@
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
+
+		[Header(Burn)]
+		[Toggle(BURN_ON)]
+		_Burn("Can Burn", Int) = 0
+		_BurnNoise("Noise Tex", 2D) = "white"{}
+		_BurnValue("Value", Range(0, 1)) = 0
+		_BurnEdgeThreshold("Edge Threshold", Float) = 0.2
 	}
 	
 	SubShader
@@ -36,40 +43,14 @@
 		Pass
 		{
 			CGPROGRAM
-			#pragma vertex vert
+			#include "cg/entity.cginc"
+			#pragma shader_feature_local _ BURN_ON
+			#pragma vertex EntityVert
 			#pragma fragment frag
-			#include "UnitySprites.cginc"
 
-
-			struct appdata_masking
+			fixed4 frag(v2f i) : SV_Target
 			{
-				float4 vertex : POSITION;
-				fixed4 color : COLOR;
-				half2 texcoord : TEXCOORD0;
-			};
-
-			struct v2f_masking
-			{
-				float4 pos : SV_POSITION;
-				half2 uv : TEXCOORD0;
-				fixed4 color : COLOR;
-			};
-
-			v2f_masking vert(appdata_masking IN)
-			{
-				v2f_masking OUT;
-
-				OUT.pos = UnityObjectToClipPos(IN.vertex);
-				OUT.uv = IN.texcoord;
-				OUT.color = IN.color * _Color;
-
-				return OUT;
-			}
-
-
-			fixed4 frag(v2f_masking IN) : SV_Target
-			{
-				fixed4 c = SampleSpriteTexture(IN.uv) * IN.color;
+				fixed4 c = EntityFrag(i);
 				c.rgb = 0;
 				return c;
 			}

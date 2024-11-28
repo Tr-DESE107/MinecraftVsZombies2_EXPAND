@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -20,19 +21,23 @@ namespace MVZ2.Vanilla.Entities
             var game = entity.Level;
             entity.PlaySound(entity.GetShootSound());
 
-            Vector3 offset = entity.GetShotOffset();
-            if (entity.IsFacingLeft())
-            {
-                offset.x *= -1;
-                velocity.x *= -1;
-            }
+            Vector3 shootPoint = entity.GetShootPoint();
             velocity = entity.ModifyProjectileVelocity(velocity);
 
-            var projectile = game.Spawn(projectileID, entity.Position + offset, entity);
+            var projectile = game.Spawn(projectileID, shootPoint, entity);
             projectile.SetDamage(entity.GetDamage());
             projectile.SetFaction(entity.GetFaction());
             projectile.Velocity = velocity;
             return projectile;
+        }
+        public static Vector3 GetShootPoint(this Entity entity)
+        {
+            Vector3 offset = entity.GetShotOffset();
+            if (entity.IsFacingLeft())
+            {
+                offset.x *= -1;
+            }
+            return entity.Position + offset;
         }
         public static Vector3 GetLobVelocity(Vector3 source, Vector3 target, float maxY, float gravity, bool passesMaxY = true)
         {

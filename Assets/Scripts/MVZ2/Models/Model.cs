@@ -125,6 +125,21 @@ namespace MVZ2.Models
         }
         #endregion
 
+        #region 着色器属性
+        public void SetShaderFloat(string name, float value)
+        {
+            rendererGroup.SetPropertyFloat(name, value);
+        }
+        public void SetShaderInt(string name, int value)
+        {
+            rendererGroup.SetPropertyInt(name, value);
+        }
+        public void SetShaderColor(string name, Color value)
+        {
+            rendererGroup.SetPropertyColor(name, value);
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -134,6 +149,7 @@ namespace MVZ2.Models
             foreach (var comp in modelComponents)
             {
                 comp.Model = this;
+                comp.Init();
             }
         }
         private void TriggerEvent(string name)

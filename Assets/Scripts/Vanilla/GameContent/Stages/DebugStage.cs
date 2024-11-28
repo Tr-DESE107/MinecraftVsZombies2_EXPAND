@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.mineTNT,
 
                 VanillaContraptionID.smallDispenser,
-                VanillaContraptionID.moonlightSensor,
+                VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,

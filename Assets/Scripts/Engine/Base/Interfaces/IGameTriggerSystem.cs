@@ -7,5 +7,12 @@ namespace PVZEngine
         void AddTrigger(Trigger trigger);
         bool RemoveTrigger(Trigger trigger);
         Trigger[] GetTriggers(NamespaceID callbackID);
+        public void RunTriggers(NamespaceID callbackID, params object[] parameters)
+        {
+            foreach (var trigger in GetTriggers(callbackID))
+            {
+                trigger.Run(parameters);
+            }
+        }
     }
 }

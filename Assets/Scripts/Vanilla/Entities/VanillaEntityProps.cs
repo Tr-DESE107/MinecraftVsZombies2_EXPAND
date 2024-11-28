@@ -105,9 +105,17 @@ namespace MVZ2.Vanilla.Entities
         public const string IS_LIGHT_SOURCE = "isLightSource";
         public const string LIGHT_RANGE = "lightRange";
         public const string LIGHT_COLOR = "lightColor";
+        public static void SetLightSource(this Entity entity, bool value)
+        {
+            entity.SetProperty(IS_LIGHT_SOURCE, value);
+        }
         public static bool IsLightSource(this Entity entity)
         {
             return entity.GetProperty<bool>(IS_LIGHT_SOURCE);
+        }
+        public static void SetLightRange(this Entity entity, Vector3 value)
+        {
+            entity.SetProperty(LIGHT_RANGE, value);
         }
         public static Vector3 GetLightRange(this Entity entity)
         {

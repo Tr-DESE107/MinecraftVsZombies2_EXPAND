@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - _BlackAlpha: 0
     - _Burn: 1
-    - _BurnEdgeThreshold: 0.2
+    - _BurnEdgeThreshold: 0.1
     - _BurnValue: 0
     - _CircleClockwise: 0
     - _CircleFill: 0
@@ -57,4 +57,5 @@ Material:
     - _BurnEdgeColor: {r: 0, g: 0.5, b: 0.5, a: 1}
     - _BurnFireColor: {r: 0, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorOffset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

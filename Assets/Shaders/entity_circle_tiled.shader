@@ -10,6 +10,7 @@
 		_ColorOffset("Color Offset", Color) = (0,0,0,0)
 		
 		[Header(Circle)]
+		_LocalRect("Local Rect", Vector) = (0,0,1,1)
 		_CircleFill("Fill", Range(0, 1)) = 1
 		[KeywordEnum(Right, Down, Left, Up)]
 		_CircleStart("Start", Range(0, 3)) = 0
@@ -50,11 +51,15 @@
 			#pragma shader_feature_local _ COLORED_ON
 			#pragma vertex EntityVert
 			#pragma fragment frag
+
+			fixed4 _LocalRect;
 			fixed4 frag(v2f i) :SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
 				col = col + _ColorOffset;
-				col = CircleTile(col, i.uv);
+
+				float2 circleUV = (i.uv - _LocalRect.xy) / (_LocalRect.zw - _LocalRect.xy);
+				col = CircleTile(col, circleUV);
 				#if BURN_ON
 				col = Burn(col, i);
 				#endif

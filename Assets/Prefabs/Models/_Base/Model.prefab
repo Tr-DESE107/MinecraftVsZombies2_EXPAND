@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rendererGroup: {fileID: 3485482240055686899}
   rootTransform: {fileID: 303959657157909876}
-  centerTransform: {fileID: 253191266560798948}
+  centerTransform: {fileID: 2811163713146360984}
   armorTransform: {fileID: 0}
   armorModel: {fileID: 0}
   modelComponents: []

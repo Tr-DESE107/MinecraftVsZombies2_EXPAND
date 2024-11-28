@@ -1,4 +1,6 @@
-﻿using MVZ2.GameContent.Effects;
+﻿using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -21,7 +23,7 @@ namespace MVZ2.Vanilla.Entities
         public override sealed void Update(Entity entity)
         {
             base.Update(entity);
-            if (!entity.IsAIFrozen())
+            if (!entity.IsAIFrozen() && !entity.IsDead)
             {
                 UpdateAI(entity);
             }
@@ -43,10 +45,17 @@ namespace MVZ2.Vanilla.Entities
         public override void PostDeath(Entity entity, DamageInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            entity.PostFragmentDeath(damageInfo);
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.SACRIFICE))
+            {
+                entity.AddBuff<SacrificedBuff>();
+            }
+            else
+            {
+                entity.PostFragmentDeath(damageInfo);
 
-            entity.PlaySound(entity.GetDeathSound());
-            entity.Remove();
+                entity.PlaySound(entity.GetDeathSound());
+                entity.Remove();
+            }
         }
         public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
         {

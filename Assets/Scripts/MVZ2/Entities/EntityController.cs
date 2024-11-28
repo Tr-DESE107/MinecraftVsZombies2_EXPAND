@@ -40,7 +40,13 @@ namespace MVZ2.Entities
 
             entity.OnModelChanged += OnModelChangedCallback;
             entity.OnSetModelProperty += OnSetModelPropertyCallback;
+            entity.OnSetShaderInt += OnSetShaderIntCallback;
+            entity.OnSetShaderFloat += OnSetShaderFloatCallback;
+            entity.OnSetShaderColor += OnSetShaderColorCallback;
             SetModel(Entity.ModelID);
+
+            transform.position = Level.LawnToTrans(Entity.Position);
+            lastPosition = transform.position;
         }
         #region 模型
         public void SetModel(NamespaceID modelId)
@@ -72,7 +78,13 @@ namespace MVZ2.Entities
         #region 更新
         public void UpdateFixed()
         {
-            movementTransitionTime = 0;
+            var posOffset = GetTransformOffset();
+
+            var pos = Entity.Position;
+            var currentTransPos = Level.LawnToTrans(pos);
+            transform.position = Vector3.Lerp(lastPosition, currentTransPos, 0.5f);
+
+            UpdateShadow(posOffset);
             if (Model)
             {
                 Model.UpdateFixed();
@@ -80,9 +92,13 @@ namespace MVZ2.Entities
         }
         public void UpdateFrame(float deltaTime)
         {
-            movementTransitionTime += deltaTime;
             var posOffset = GetTransformOffset();
-            UpdateTransform(posOffset);
+
+            var pos = Entity.Position;
+            var currentTransPos = Level.LawnToTrans(pos);
+            transform.position = Vector3.Lerp(lastPosition, currentTransPos, 0.5f);
+            lastPosition = transform.position;
+
             UpdateShadow(posOffset);
             if (Model)
             {
@@ -260,6 +276,24 @@ namespace MVZ2.Entities
                 return;
             Model.SetProperty(name, value);
         }
+        private void OnSetShaderFloatCallback(string name, float value)
+        {
+            if (!Model)
+                return;
+            Model.SetShaderFloat(name, value);
+        }
+        private void OnSetShaderIntCallback(string name, int value)
+        {
+            if (!Model)
+                return;
+            Model.SetShaderInt(name, value);
+        }
+        private void OnSetShaderColorCallback(string name, Color value)
+        {
+            if (!Model)
+                return;
+            Model.SetShaderColor(name, value);
+        }
         #endregion
 
         #region 接口实现
@@ -278,12 +312,6 @@ namespace MVZ2.Entities
         #endregion
 
         #region 位置
-        protected void UpdateTransform(Vector3 posOffset)
-        {
-            var pos = Entity.Position;
-            var currentTransPos = Level.LawnToTrans(pos);
-            transform.position = currentTransPos + posOffset;
-        }
         protected void UpdateShadow(Vector3 posOffset)
         {
             var shadowPos = Entity.Position;
@@ -297,19 +325,6 @@ namespace MVZ2.Entities
             Shadow.gameObject.SetActive(!Entity.IsShadowHidden());
             Shadow.SetAlpha(Entity.GetShadowAlpha() * alpha);
         }
-        protected Vector3 GetTransitionOffset()
-        {
-            var pos = Entity.Position;
-            var nextPos = Entity.GetNextPosition();
-            var nextTransPos = Level.LawnToTrans(nextPos);
-            var currentTransPos = Level.LawnToTrans(pos);
-
-            var passedTime = movementTransitionTime;
-            var passedTicks = passedTime * Entity.Level.TPS;
-            var targetTransPos = Vector3.Lerp(currentTransPos, nextTransPos, passedTicks);
-            var transitionOffset = targetTransPos - currentTransPos;
-            return transitionOffset;
-        }
         protected float GetZOffset()
         {
             float zOffset = 0;
@@ -321,9 +336,8 @@ namespace MVZ2.Entities
         }
         protected Vector3 GetTransformOffset()
         {
-            var transitionOffset = GetTransitionOffset();
             float zOffset = GetZOffset();
-            return transitionOffset + Vector3.back * zOffset;
+            return Vector3.back * zOffset;
         }
         #endregion
 
@@ -473,11 +487,11 @@ namespace MVZ2.Entities
         public LevelController Level { get; private set; }
         private bool isHovered;
         private EntityCursorSource _cursorSource;
-        private float movementTransitionTime;
-        #region shader相关属性
-        protected MaterialPropertyBlock propertyBlock;
+        private Vector3 lastPosition;
         [SerializeField]
         private ShadowController shadow;
+        #region shader相关属性
+        protected MaterialPropertyBlock propertyBlock;
         #endregion shader相关属性
 
         #endregion

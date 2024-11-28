@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PVZEngine.Modifiers
@@ -10,6 +11,8 @@ namespace PVZEngine.Modifiers
             var addValue = value;
             var multiple = GetDefaultMultiple();
             var multiply = GetDefaultMultiple();
+            bool hasForceSet = false;
+            T forceSet = default;
             foreach (var modi in modifiers)
             {
                 var buff = modi.buff;
@@ -27,11 +30,22 @@ namespace PVZEngine.Modifiers
                     case NumberOperator.Multiply:
                         multiply = MultiplyValue(multiply, modifierValue);
                         break;
+                    case NumberOperator.ForceSet:
+                        hasForceSet = true;
+                        forceSet = modifierValue;
+                        break;
                 }
             }
-            value = addValue;
-            value = MultiplyValue(value, multiple);
-            value = MultiplyValue(value, multiply);
+            if (hasForceSet)
+            {
+                value = forceSet;
+            }
+            else
+            {
+                value = addValue;
+                value = MultiplyValue(value, multiple);
+                value = MultiplyValue(value, multiply);
+            }
             return value;
         }
         protected abstract T GetDefaultMultiple();

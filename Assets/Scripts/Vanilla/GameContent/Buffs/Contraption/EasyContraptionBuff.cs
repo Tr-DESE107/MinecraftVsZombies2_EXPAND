@@ -4,7 +4,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.SeedPacks
+namespace MVZ2.GameContent.Buffs.Contraptions
 {
     [Definition(VanillaBuffNames.easyContraption)]
     public class EasyContraptionBuff : BuffDefinition

@@ -17,18 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
     m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
     m_ReadOnly: 0
@@ -545,6 +533,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e623a643b588284a9d22ed7fc755230
+    m_Address: mvz2:entity/projectiles/soulfire_ball_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a84ced210884b2b4cac4a4b7d7f4f6a6
     m_Address: mvz2:entity/projectiles/soulfire_ball
     m_ReadOnly: 0
@@ -701,6 +695,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f3395beab3ab1e48af75779a006eae7
+    m_Address: mvz2:entity/effects/soulfire_particle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fd484fcbd2c9ed4dbad79aa98011525
     m_Address: mvz2:entity/effects/shine_ring
     m_ReadOnly: 0
@@ -739,6 +739,24 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f0a8eaf9b153b3429a373a0155f968f
     m_Address: mvz2:entity/contraptions/tnt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d04fa54aea815bb44be98b8a3bb2ed5b
+    m_Address: mvz2:entity/contraptions/soul_furnace_light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6af7dae5c4c813148a830a41c92b2706
+    m_Address: mvz2:entity/contraptions/soul_furnace_fuel_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24543ba35a4b2b248b19964dc8587095
+    m_Address: mvz2:entity/contraptions/soul_furnace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2099,6 +2117,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc72cbbb5be7e854aa7c3ffe31234464
+    m_Address: mvz2:projectile/soulfire_ball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f293cc88afd3740aefda42f8b3dfcf
     m_Address: mvz2:projectile/snowball
     m_ReadOnly: 0
@@ -2237,6 +2261,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d79144cd6ccffb845af7e2890fbf8742
+    m_Address: mvz2:effect/soulfire_burn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2044f7fe14b6814d8a3c3cde1ff9c74
+    m_Address: mvz2:effect/soulfire_blast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f374918b2db34c4fa889b94f3ec7490
+    m_Address: mvz2:effect/soulfire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48284edfb09923e4aa51df2b3b66a8ab
     m_Address: mvz2:effect/smoke
     m_ReadOnly: 0
@@ -2287,6 +2329,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82c51c2dae5da77488e453f5d663c144
     m_Address: mvz2:contraption/tnt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d739121b6e9cdf499acc37d584df332
+    m_Address: mvz2:contraption/soul_furnace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2921,6 +2969,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65f5a79b8f9519a4280b272150a69514
+    m_Address: mvz2:fizz
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f5e236374b253e42aef461b398f82a2
     m_Address: mvz2:fire_charge
     m_ReadOnly: 0
@@ -3226,6 +3280,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

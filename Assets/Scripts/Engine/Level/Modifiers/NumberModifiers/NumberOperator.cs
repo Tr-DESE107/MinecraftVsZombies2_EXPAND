@@ -4,6 +4,7 @@
     {
         Add,
         AddMultiplie,
-        Multiply
+        Multiply,
+        ForceSet
     }
 }

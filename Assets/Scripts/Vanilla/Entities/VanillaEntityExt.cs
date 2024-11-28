@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -11,6 +12,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -19,6 +21,19 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityExt
     {
+        public static void SetBehaviourProperty(this Entity entity, NamespaceID id, string name, object value)
+        {
+            entity.SetProperty($"{id}/{name}", value);
+        }
+        public static T GetBehaviourProperty<T>(this Entity entity, NamespaceID id, string name)
+        {
+            return entity.GetProperty<T>($"{id}/{name}");
+        }
+        public static ShellDefinition GetShellDefinition(this Entity entity)
+        {
+            var shellID = entity.GetShellID();
+            return entity.Level.Content.GetShellDefinition(shellID);
+        }
         public static float GetFacingX(this Entity entity)
         {
             return entity.IsFacingLeft() ? -1 : 1;
@@ -38,7 +53,7 @@ namespace MVZ2.Vanilla.Entities
             if (entity == null || shell == null)
                 return;
             var level = entity.Level;
-            var blocksFire = shell.GetProperty<bool>(VanillaShellProps.BLOCKS_FIRE);
+            var blocksFire = shell.BlocksFire();
             var hitSound = shell.GetProperty<NamespaceID>(VanillaShellProps.HIT_SOUND);
             if (damageEffects.HasEffect(VanillaDamageEffects.FIRE) && !blocksFire)
             {
@@ -60,6 +75,14 @@ namespace MVZ2.Vanilla.Entities
         public static bool IsAliveEnemy(this Entity entity)
         {
             return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.GetProperty<bool>(VanillaEnemyProps.HARMLESS) && entity.IsEnemy(entity.Level.Option.LeftFaction);
+        }
+        public static EntitySeed GetSeedDefinition(this Entity entity)
+        {
+            var game = Global.Game;
+            var seedDef = game.GetSeedDefinition(entity.Definition.GetID());
+            if (seedDef is EntitySeed entitySeed)
+                return entitySeed;
+            return null;
         }
         public static DamageResult TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source)
         {

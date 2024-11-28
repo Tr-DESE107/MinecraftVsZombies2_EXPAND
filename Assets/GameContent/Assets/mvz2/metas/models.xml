@@ -11,6 +11,7 @@
     <model name="glowstone" type="entity" path="mvz2:contraption/glowstone" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="punchton" type="entity" path="mvz2:contraption/punchton" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="tnt" type="entity" path="mvz2:contraption/tnt" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="soul_furnace" type="entity" path="mvz2:contraption/soul_furnace" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="4"/>
@@ -54,12 +55,16 @@
     <model name="stunning_flash" type="entity" path="mvz2:effect/stunning_flash" width="120" height="120" xOffset="0" yOffset="60"/>
     <model name="piston_palm" type="entity" path="mvz2:effect/piston_palm" width="32" height="64" xOffset="0" yOffset="4"/>
     <model name="explosion" type="entity" path="mvz2:effect/explosion" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="soulfire" type="entity" path="mvz2:effect/soulfire" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="soulfire_burn" type="entity" path="mvz2:effect/soulfire_burn" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="soulfire_blast" type="entity" path="mvz2:effect/soulfire_blast" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>
     <model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="32"/>
     <model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="16"/>
     <model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="4"/>
+    <model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="16"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="7"/>

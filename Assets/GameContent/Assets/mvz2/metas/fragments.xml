@@ -47,4 +47,11 @@
             <color hex="#6B4221" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="soul_furnace">
+        <colorKeys>
+            <color hex="#9F5A10" time="0.35"/>
+            <color hex="#733808" time="0.70"/>
+            <color hex="#4E1D00" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>
