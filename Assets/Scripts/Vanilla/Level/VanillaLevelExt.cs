@@ -135,7 +135,7 @@ namespace MVZ2.Vanilla.Level
 
             var wave = level.CurrentWave;
             level.StageDefinition.PostWave(level, wave);
-            LevelCallbacks.PostWave.Run(level, wave);
+            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, level, wave);
         }
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {

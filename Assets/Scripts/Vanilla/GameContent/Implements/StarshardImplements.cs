@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.RegisterCallback(LevelCallbacks.PostEntityDeath, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
         private void PostEnemyDeathCallback(Entity enemy, DamageInfo info)
         {

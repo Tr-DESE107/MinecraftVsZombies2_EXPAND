@@ -23,14 +23,14 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.obsidian,
-                VanillaContraptionID.mineTNT,
+                VanillaContraptionID.punchton,
 
                 VanillaContraptionID.smallDispenser,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.leatherCappedZombie,
+                VanillaEnemyID.ghost,
                 VanillaEnemyID.ironHelmettedZombie,
             });
             level.RechargeSpeed = 9999999;

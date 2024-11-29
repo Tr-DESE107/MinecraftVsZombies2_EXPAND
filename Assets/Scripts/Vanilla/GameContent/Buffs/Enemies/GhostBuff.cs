@@ -1,4 +1,6 @@
-﻿using MVZ2.Vanilla;
+﻿using System.Linq;
+using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
@@ -17,7 +19,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
             AddModifier(new FloatModifier(VanillaEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
-            AddTrigger<PreTakeDamage>(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
         }
         public override void PostAdd(Buff buff)
         {
@@ -32,11 +34,12 @@ namespace MVZ2.GameContent.Buffs.Enemies
             base.PostUpdate(buff);
             UpdateIllumination(buff);
         }
-        private void PreEntityTakeDamageCallback(Buff buff, DamageInfo damageInfo)
+        private void PreEntityTakeDamageCallback(DamageInfo damageInfo)
         {
-            if (damageInfo.Entity != buff.Target)
+            var buffs = damageInfo.Entity.GetBuffs<GhostBuff>();
+            if (buffs.Length <= 0)
                 return;
-            if (buff.GetProperty<bool>(PROP_ETHEREAL))
+            if (buffs.Any(b => b.GetProperty<bool>(PROP_ETHEREAL)))
             {
                 damageInfo.Multiply(0.1f);
             }
@@ -70,6 +73,5 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public const float SHADOW_ALPHA_MIN = 0;
         public const float SHADOW_ALPHA_MAX = 1;
         public const float SHADOW_ALPHA_SPEED = 0.04f;
-        private delegate void PreTakeDamage(Buff buff, DamageInfo info);
     }
 }

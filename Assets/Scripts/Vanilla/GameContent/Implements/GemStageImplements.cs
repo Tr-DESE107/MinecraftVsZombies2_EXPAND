@@ -23,9 +23,9 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.RegisterCallback(LevelCallbacks.PostEntityInit, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
-            mod.RegisterCallback(LevelCallbacks.PostLevelUpdate, Gem_PostUpdateCallback);
-            mod.RegisterCallback(LevelCallbacks.PostEntityDeath, Gem_PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
+            mod.AddTrigger(LevelCallbacks.POST_LEVEL_UPDATE, Gem_PostUpdateCallback);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, Gem_PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
         private void Gem_PostUpdateCallback(LevelEngine level)
         {

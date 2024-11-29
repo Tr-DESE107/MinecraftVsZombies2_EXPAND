@@ -93,7 +93,7 @@ namespace PVZEngine.Level
         public void Start()
         {
             StageDefinition.Start(this);
-            LevelCallbacks.PostLevelStart.Run(this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_START, this);
         }
         public void SetDifficulty(NamespaceID difficulty)
         {
@@ -131,13 +131,13 @@ namespace PVZEngine.Level
                 component.Update();
             }
             StageDefinition.Update(this);
-            LevelCallbacks.PostLevelUpdate.Run(this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, this);
         }
         public void Clear()
         {
             IsCleared = true;
             OnClear?.Invoke();
-            LevelCallbacks.PostLevelClear.Run(this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, this);
         }
         #endregion
 

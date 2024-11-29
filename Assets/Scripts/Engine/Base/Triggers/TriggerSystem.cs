@@ -34,14 +34,14 @@ namespace PVZEngine.Triggers
             }
             return removed;
         }
-        public Trigger[] GetTriggers(NamespaceID callbackID)
+        public Trigger[] GetTriggers(CallbackReference callbackID)
         {
             var triggerList = GetTriggerList(callbackID);
             if (triggerList == null)
                 return Array.Empty<Trigger>();
             return triggerList.triggers.ToArray();
         }
-        public void RunCallback(NamespaceID callbackID, params object[] args)
+        public void RunCallback(CallbackReference callbackID, params object[] args)
         {
             var triggerList = GetTriggerList(callbackID);
             if (triggerList == null)
@@ -51,7 +51,7 @@ namespace PVZEngine.Triggers
                 trigger.Run(args);
             }
         }
-        public void RunCallbackFiltered(NamespaceID callbackID, object filterValue, params object[] args)
+        public void RunCallbackFiltered(CallbackReference callbackID, object filterValue, params object[] args)
         {
             var triggerList = GetTriggerList(callbackID);
             if (triggerList == null)
@@ -63,24 +63,24 @@ namespace PVZEngine.Triggers
                 trigger.Run(args);
             }
         }
-        private EventTriggerList GetTriggerList(NamespaceID callbackID)
+        private EventTriggerList GetTriggerList(CallbackReference callbackID)
         {
             return triggerLists.Find(l => l.callbackID == callbackID);
         }
         private List<EventTriggerList> triggerLists = new List<EventTriggerList>();
         private class EventTriggerList
         {
-            public EventTriggerList(NamespaceID callbackID)
+            public EventTriggerList(CallbackReference callbackID)
             {
                 this.callbackID = callbackID;
             }
-            public NamespaceID callbackID;
+            public CallbackReference callbackID;
             public List<Trigger> triggers = new List<Trigger>();
         }
     }
-    public abstract class Trigger
+    public class Trigger
     {
-        public Trigger(NamespaceID callbackID, Delegate action, int priorty = 0, object filterValue = null)
+        public Trigger(CallbackReference callbackID, Delegate action, int priorty = 0, object filterValue = null)
         {
             CallbackID = callbackID;
             Action = action;
@@ -95,7 +95,7 @@ namespace PVZEngine.Triggers
         {
             return Action?.DynamicInvoke(args);
         }
-        public NamespaceID CallbackID { get; }
+        public CallbackReference CallbackID { get; }
         public Delegate Action { get; }
         public int Priority { get; }
         public object FilterValue { get; }

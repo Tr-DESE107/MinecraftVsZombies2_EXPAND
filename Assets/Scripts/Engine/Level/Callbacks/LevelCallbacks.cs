@@ -2,32 +2,53 @@
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace PVZEngine.Callbacks
 {
     public static class LevelCallbacks
     {
-        public readonly static CallbackActionList<Entity> PostEntityInit = new();
-        public readonly static CallbackActionList<Entity> PostEntityUpdate = new();
-        public readonly static CallbackActionList<Entity, Vector3> PostEntityContactGround = new();
-        public readonly static CallbackActionList<Entity> PostEntityLeaveGround = new();
-        public readonly static CallbackActionList<Entity, Entity, int> PostEntityCollision = new();
-        public readonly static CallbackActionList<Entity, DamageInfo> PostEntityDeath = new();
-        public readonly static CallbackActionList<Entity> PostEntityRemove = new();
-        public readonly static CallbackActionList<Entity, Armor> PostEquipArmor = new();
-        public readonly static CallbackActionList<Entity, Armor, DamageResult> PostDestroyArmor = new();
-        public readonly static CallbackActionList<Entity, Armor> PostRemoveArmor = new();
+
+        public delegate void PostEntityInit(Entity entity);
+        public delegate void PostEntityUpdate(Entity entity);
+        public delegate void PostEntityContactGround(Entity entity, Vector3 Velocity);
+        public delegate void PostEntityLeaveGround(Entity entity);
+        public delegate void PostEntityCollision(Entity entity, Entity other, int state);
+        public delegate void PostEntityDeath(Entity entity, DamageInfo damageInfo);
+        public delegate void PostEntityRemove(Entity entity);
+        public delegate void PostEquipArmor(Entity entity, Armor armor);
+        public delegate void PostDestroyArmor(Entity entity, Armor armor, DamageResult damageResult);
+        public delegate void PostRemoveArmor(Entity entity, Armor armor);
+
+        public delegate void PostLevelStart(LevelEngine level);
+        public delegate void PostLevelUpdate(LevelEngine level);
+        public delegate void PostLevelClear(LevelEngine level);
+        public delegate void PostPrepareForBattle(LevelEngine level);
+        public delegate void PostWave(LevelEngine level, int wave);
+        public delegate void PostHugeWaveEvent(LevelEngine level);
+        public delegate void PostFinalWaveEvent(LevelEngine level);
+        public delegate void PostEnemySpawned(Entity entity);
+
+        public readonly static CallbackReference<PostEntityInit> POST_ENTITY_INIT = new();
+        public readonly static CallbackReference<PostEntityUpdate> POST_ENTITY_UPDATE = new();
+        public readonly static CallbackReference<PostEntityContactGround> POST_ENTITY_CONTACT_GROUND = new();
+        public readonly static CallbackReference<PostEntityLeaveGround> POST_ENTITY_LEAVE_GROUND = new();
+        public readonly static CallbackReference<PostEntityCollision> POST_ENTITY_COLLISION = new();
+        public readonly static CallbackReference<PostEntityDeath> POST_ENTITY_DEATH = new();
+        public readonly static CallbackReference<PostEntityRemove> POST_ENTITY_REMOVE = new();
+        public readonly static CallbackReference<PostEquipArmor> POST_EQUIP_ARMOR = new();
+        public readonly static CallbackReference<PostDestroyArmor> POST_DESTROY_ARMOR = new();
+        public readonly static CallbackReference<PostRemoveArmor> POST_REMOVE_ARMOR = new();
 
 
-        public readonly static CallbackActionList<LevelEngine> PostLevelStart = new();
-        public readonly static CallbackActionList<LevelEngine> PostLevelUpdate = new();
-        public readonly static CallbackActionList<LevelEngine> PostLevelClear = new();
-        public readonly static CallbackActionList<LevelEngine> PostPrepareForBattle = new();
-        public readonly static CallbackActionList<LevelEngine, int> PostWave = new();
-        public readonly static CallbackActionList<LevelEngine> PostHugeWaveEvent = new();
-        public readonly static CallbackActionList<LevelEngine> PostFinalWaveEvent = new();
-
-        public readonly static CallbackActionList<Entity> PostEnemySpawned = new();
+        public readonly static CallbackReference<PostLevelStart> POST_LEVEL_START = new();
+        public readonly static CallbackReference<PostLevelUpdate> POST_LEVEL_UPDATE = new();
+        public readonly static CallbackReference<PostLevelClear> POST_LEVEL_CLEAR = new();
+        public readonly static CallbackReference<PostPrepareForBattle> POST_PREPARE_FOR_BATTLE = new();
+        public readonly static CallbackReference<PostWave> POST_WAVE = new();
+        public readonly static CallbackReference<PostHugeWaveEvent> POST_HUGE_WAVE_EVENT = new();
+        public readonly static CallbackReference<PostFinalWaveEvent> POST_FINAL_WAVE_EVENT = new();
+        public readonly static CallbackReference<PostEnemySpawned> POST_ENEMY_SPAWNED = new();
     }
 }

@@ -118,7 +118,7 @@ namespace MVZ2.GameContent.Stages
             level.WaveState = STATE_HUGE_WAVE_APPROACHING;
             var waveTimer = GetWaveTimer(level);
             waveTimer.ResetTime(180);
-            VanillaCallbacks.PostHugeWaveApproach.Run(level);
+            level.Triggers.RunCallback(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, level);
         }
         private void NextWave(LevelEngine level)
         {
@@ -128,7 +128,7 @@ namespace MVZ2.GameContent.Stages
             waveTimer.ResetTime(GetWaveMaxTime(level));
             if (level.IsFinalWave(level.CurrentWave))
             {
-                VanillaCallbacks.PostFinalWave.Run(level);
+                level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, level);
                 level.WaveState = STATE_FINAL_WAVE;
                 SetFinalWaveEventTimer(level, new FrameTimer(60));
             }

@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -141,8 +142,8 @@ namespace MVZ2.Level
 
             level.OnClear += Engine_OnClearCallback;
 
-            VanillaCallbacks.PostHugeWaveApproach.Add(PostHugeWaveApproachCallback);
-            VanillaCallbacks.PostFinalWave.Add(PostFinalWaveCallback);
+            level.AddTrigger(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
+            level.AddTrigger(VanillaCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
         }
         private void ApplyComponents(LevelEngine level)
         {

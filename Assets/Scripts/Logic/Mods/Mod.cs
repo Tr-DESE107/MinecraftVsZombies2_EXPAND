@@ -2,7 +2,6 @@
 using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Base;
-using PVZEngine.Callbacks;
 using PVZEngine.Triggers;
 
 namespace MVZ2Logic.Modding
@@ -12,14 +11,15 @@ namespace MVZ2Logic.Modding
         public Mod(string nsp)
         {
             Namespace = nsp;
+            triggers = new CallbackRegistry(Global.Game);
         }
         public void Load()
         {
-            AddCallbacks();
+            ApplyCallbacks();
         }
         public void Unload()
         {
-            RemoveCallbacks();
+            RevertCallbacks();
         }
         public virtual void PostGameInit() { }
         public abstract ModSaveData CreateSaveData();
@@ -27,6 +27,10 @@ namespace MVZ2Logic.Modding
         protected void AddDefinition(Definition def)
         {
             definitionGroup.Add(def);
+            foreach (var trigger in def.GetTriggers())
+            {
+                triggers.AddTrigger(trigger);
+            }
         }
         public T GetDefinition<T>(NamespaceID defRef) where T : Definition
         {
@@ -40,32 +44,20 @@ namespace MVZ2Logic.Modding
         {
             return definitionGroup.GetDefinitions();
         }
-        public void RegisterCallback<TEntry, TDelegate>(CallbackListBase<TEntry, TDelegate> callbackList, TDelegate action, int priority = 0, object filter = null)
-            where TDelegate : Delegate
-            where TEntry : CallbackActionBase<TDelegate>, new()
+        private void ApplyCallbacks()
         {
-            registry.RegisterCallback(callbackList, action, priority, filter);
+            triggers.ApplyCallbacks();
         }
-        private void AddCallbacks()
+        private void RevertCallbacks()
         {
-            registry.AddCallbacks();
+            triggers.RevertCallbacks();
         }
-        private void RemoveCallbacks()
+        public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
         {
-            registry.RemoveCallbacks();
-        }
-        public void AddTrigger<T>(NamespaceID callbackID, T action, int priority = 0, object filterValue = null) where T : Delegate
-        {
-            Global.Game.AddTrigger(new ModTrigger(callbackID, action, priority, filterValue));
+            triggers.AddTrigger(new Trigger(callbackID, action, priority, filter));
         }
         public string Namespace { get; }
         private DefinitionGroup definitionGroup = new DefinitionGroup();
-        private CallbackRegistry registry = new CallbackRegistry();
-    }
-    public class ModTrigger : Trigger
-    {
-        public ModTrigger(NamespaceID callbackID, Delegate action, int priority = 0, object filterValue = null) : base(callbackID, action, priority, filterValue)
-        {
-        }
+        protected CallbackRegistry triggers;
     }
 }

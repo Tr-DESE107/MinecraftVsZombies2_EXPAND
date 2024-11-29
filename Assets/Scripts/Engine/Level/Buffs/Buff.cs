@@ -15,7 +15,6 @@ namespace PVZEngine.Buffs
             ID = id;
             Level = level;
             Definition = definition;
-            triggers.AddRange(definition.GetTriggerCaches().Select(t => new BuffTrigger(this, t)));
 
             var auraDefs = definition.GetAuras();
             for (int i = 0; i < auraDefs.Length; i++)
@@ -47,10 +46,6 @@ namespace PVZEngine.Buffs
         public PropertyModifier[] GetModifiers(string propName)
         {
             return Definition.GetModifiers(propName);
-        }
-        public BuffTrigger[] GetTriggers()
-        {
-            return triggers.ToArray();
         }
         public Entity GetEntity()
         {
@@ -107,7 +102,6 @@ namespace PVZEngine.Buffs
         public BuffDefinition Definition { get; }
         public IBuffTarget Target { get; private set; }
         private PropertyDictionary propertyDict = new PropertyDictionary();
-        private List<BuffTrigger> triggers = new List<BuffTrigger>();
         private AuraEffectList auras = new AuraEffectList();
     }
 }

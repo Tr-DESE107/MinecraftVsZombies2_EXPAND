@@ -24,8 +24,8 @@ namespace MVZ2.Vanilla.Entities
             if (contraption.Definition is IEvokableContraption evokable)
             {
                 evokable.Evoke(contraption);
+                contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), contraption);
             }
-            VanillaLevelCallbacks.PostContraptionEvoked.Run(contraption);
         }
         public static bool CanTrigger(this Entity contraption)
         {

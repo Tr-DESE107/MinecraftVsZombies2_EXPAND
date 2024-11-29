@@ -11,6 +11,7 @@ using MVZ2.Talk;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Scenes;
 using PVZEngine;
@@ -134,7 +135,7 @@ namespace MVZ2.Map
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            VanillaCallbacks.TalkAction.RunFiltered(cmd, talkController, cmd, parameters);
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkController, cmd, parameters);
         }
         private void OnTalkEndCallback()
         {

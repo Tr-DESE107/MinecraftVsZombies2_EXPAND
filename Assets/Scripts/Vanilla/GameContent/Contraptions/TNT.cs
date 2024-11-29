@@ -12,6 +12,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
+using MVZ2Logic.Modding;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
@@ -25,7 +26,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public TNT(string nsp, string name) : base(nsp, name)
         {
-            Global.Game.AddCallback(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, PostSacrificeCallback, filterValue: VanillaContraptionID.tnt);
+            AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, PostSacrificeCallback, filter: VanillaContraptionID.tnt);
         }
         public override void Init(Entity entity)
         {

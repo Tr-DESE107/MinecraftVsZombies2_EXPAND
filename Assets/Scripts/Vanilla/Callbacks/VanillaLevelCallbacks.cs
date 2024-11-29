@@ -1,7 +1,4 @@
-﻿using System;
-using PVZEngine;
-using PVZEngine.Callbacks;
-using PVZEngine.Damages;
+﻿using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
 
@@ -9,28 +6,29 @@ namespace MVZ2.Vanilla.Callbacks
 {
     public static class VanillaLevelCallbacks
     {
-        public readonly static NamespaceID PRE_ENTITY_TAKE_DAMAGE = Get("pre_entity_take_damage");
-        public readonly static NamespaceID PRE_PICKUP_COLLECT = Get("pre_pickup_collect");
-        public readonly static NamespaceID POST_PROJECTILE_HIT = Get("post_projectile_hit");
-        public readonly static NamespaceID POST_CONTRAPTION_TRIGGER = Get("post_contraption_trigger");
+        public delegate void PreEntityTakeDamage(DamageInfo damageInfo);
+        public delegate void PostEntityTakeDamage(DamageResult bodyResult, DamageResult armorResult);
+        public delegate void PrePickupCollect(Entity entity);
+        public delegate void PostProjectileHit(Entity entity, Entity other);
+        public delegate void PostContraptionTrigger(Entity entity);
+        public delegate void PostContraptionEvoke(Entity entity);
 
-        public readonly static NamespaceID CAN_CONTRAPTION_SACRIFICE = Get("can_contraption_sacrifice");
-        public readonly static NamespaceID GET_CONTRAPTION_SACRIFICE_FUEL = Get("get_contraption_sacrifice_fuel");
-        public readonly static NamespaceID PRE_CONTRAPTION_SACRIFICE = Get("pre_contraption_sacrifice");
-
+        public delegate bool CanContraptionSacrifice(Entity entity, Entity soulFurnace);
+        public delegate int GetContraptionSacrificeFuel(Entity entity, Entity soulFurnace);
+        public delegate void PreContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
         public delegate void PostContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
-        public readonly static CallbackReference<PostContraptionSacrifice> POST_CONTRAPTION_SACRIFICE = GetReference<PostContraptionSacrifice>("post_contraption_sacrifice");
 
+        public readonly static CallbackReference<PreEntityTakeDamage> PRE_ENTITY_TAKE_DAMAGE = new();
+        public readonly static CallbackReference<PostEntityTakeDamage> POST_ENTITY_TAKE_DAMAGE = new();
 
-        public readonly static CallbackActionList<Entity> PostContraptionEvoked = new();
-        public readonly static CallbackActionList<DamageResult, DamageResult> PostEntityTakeDamage = new();
-        private static NamespaceID Get(string path)
-        {
-            return new NamespaceID("mvz2", path);
-        }
-        private static CallbackReference<T> GetReference<T>(string path) where T : Delegate
-        {
-            return new CallbackReference<T>(new NamespaceID("mvz2", path));
-        }
+        public readonly static CallbackReference<PrePickupCollect> PRE_PICKUP_COLLECT = new();
+        public readonly static CallbackReference<PostProjectileHit> POST_PROJECTILE_HIT = new();
+        public readonly static CallbackReference<PostContraptionTrigger> POST_CONTRAPTION_TRIGGER = new();
+        public readonly static CallbackReference<PostContraptionEvoke> POST_CONTRAPTION_EVOKE = new();
+
+        public readonly static CallbackReference<CanContraptionSacrifice> CAN_CONTRAPTION_SACRIFICE = new();
+        public readonly static CallbackReference<GetContraptionSacrificeFuel> GET_CONTRAPTION_SACRIFICE_FUEL = new();
+        public readonly static CallbackReference<PreContraptionSacrifice> PRE_CONTRAPTION_SACRIFICE = new();
+        public readonly static CallbackReference<PostContraptionSacrifice> POST_CONTRAPTION_SACRIFICE = new();
     }
 }

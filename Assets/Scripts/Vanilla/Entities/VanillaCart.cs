@@ -1,10 +1,15 @@
 using System.Linq;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -61,6 +66,28 @@ namespace MVZ2.Vanilla.Entities
                         entity.Remove();
                     }
                     break;
+            }
+            TurnToMoneyUpdate(entity);
+        }
+
+        private void TurnToMoneyUpdate(Entity entity)
+        {
+            FrameTimer timer = entity.GetTurnToMoneyTimer();
+            if (timer == null)
+                return;
+            timer.Run();
+            if (timer.Expired)
+            {
+                var level = entity.Level;
+                var gemType = GemEffect.GemType.Ruby;
+                if (level.Difficulty == VanillaDifficulties.easy)
+                {
+                    gemType = GemEffect.GemType.Emerald;
+                }
+                var gemEffect = GemEffect.SpawnGemEffect(level, gemType, entity.Position, entity, true);
+                gemEffect.PlaySound(VanillaSoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
+                level.ShowMoney();
+                entity.Remove();
             }
         }
         public override int Type => EntityTypes.CART;

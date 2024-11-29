@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.RegisterCallback(LevelCallbacks.PostLevelStart, PostLevelStartCallback);
+            mod.AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
         }
         public void PostLevelStartCallback(LevelEngine level)
         {

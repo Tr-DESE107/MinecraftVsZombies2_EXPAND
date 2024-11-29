@@ -34,7 +34,7 @@ namespace PVZEngine.Entities
         {
             OnInit(spawner);
             Definition.Init(this);
-            LevelCallbacks.PostEntityInit.RunFiltered(Type, this);
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, Type, this);
             PostInit?.Invoke();
         }
         public void Update()
@@ -47,7 +47,7 @@ namespace PVZEngine.Entities
             {
                 buff.Update();
             }
-            LevelCallbacks.PostEntityUpdate.RunFiltered(Type, this);
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
         }
         public void UpdateHitbox()
         {
@@ -84,7 +84,7 @@ namespace PVZEngine.Entities
                 Removed = true;
                 Level.RemoveEntity(this);
                 Definition.PostRemove(this);
-                LevelCallbacks.PostEntityRemove.Run(this);
+                Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_REMOVE, this);
             }
         }
         public bool IsEntityOf(NamespaceID id)
@@ -122,7 +122,7 @@ namespace PVZEngine.Entities
             info = info ?? new DamageInfo(0, new DamageEffectList(), this, new EntityReferenceChain(null));
             IsDead = true;
             Definition.PostDeath(this, info);
-            LevelCallbacks.PostEntityDeath.RunFiltered(Type, this, info);
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, this, info);
         }
         #endregion
 
@@ -407,13 +407,13 @@ namespace PVZEngine.Entities
             EquipedArmor = armor;
 
             Definition.PostEquipArmor(this, armor);
-            LevelCallbacks.PostEquipArmor.Run(this, armor);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, this, armor);
             OnEquipArmor?.Invoke(armor);
         }
         public void DestroyArmor(Armor armor, DamageResult result)
         {
             Definition.PostDestroyArmor(this, armor, result);
-            LevelCallbacks.PostDestroyArmor.Run(this, armor, result);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, this, armor, result);
             OnDestroyArmor?.Invoke(armor, result);
         }
         public void RemoveArmor()
@@ -423,7 +423,7 @@ namespace PVZEngine.Entities
                 return;
             EquipedArmor = null;
             Definition.PostRemoveArmor(this, armor);
-            LevelCallbacks.PostRemoveArmor.Run(this, armor);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, this, armor);
             OnRemoveArmor?.Invoke(armor);
         }
         #endregion
@@ -548,17 +548,17 @@ namespace PVZEngine.Entities
         {
             var velocity = Velocity;
             Definition.PostContactGround(this, velocity);
-            LevelCallbacks.PostEntityContactGround.Run(this, velocity);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, this, velocity);
         }
         private void OnLeaveGround()
         {
             Definition.PostLeaveGround(this);
-            LevelCallbacks.PostEntityLeaveGround.Run(this);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, this);
         }
         private void PostCollision(Entity other, int state)
         {
             Definition.PostCollision(this, other, state);
-            LevelCallbacks.PostEntityCollision.Run(this, other, state);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, this, other, state);
         }
 
         Entity IBuffTarget.GetEntity() => this;

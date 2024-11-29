@@ -25,10 +25,6 @@ namespace PVZEngine.Buffs
         {
             return auraDefinitions.ToArray();
         }
-        public TriggerCache[] GetTriggerCaches()
-        {
-            return triggerCaches.GetTriggerCaches();
-        }
         public virtual void PostAdd(Buff buff) { }
         public virtual void PostRemove(Buff buff) { }
         public virtual void PostUpdate(Buff buff) { }
@@ -40,12 +36,7 @@ namespace PVZEngine.Buffs
         {
             auraDefinitions.Add(aura);
         }
-        public void AddTrigger<T>(NamespaceID callbackID, T action, int priority = 0, object filterValue = null) where T : Delegate
-        {
-            triggerCaches.Add(new TriggerCache(callbackID, action, priority, filterValue));
-        }
         private List<PropertyModifier> modifiers = new List<PropertyModifier>();
         private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
-        protected TriggerCacheList triggerCaches = new TriggerCacheList();
     }
 }

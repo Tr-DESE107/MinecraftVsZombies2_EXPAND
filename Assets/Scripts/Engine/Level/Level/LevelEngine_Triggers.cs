@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Triggers;
 
@@ -11,6 +12,10 @@ namespace PVZEngine.Level
         {
             Triggers.AddTrigger(trigger);
             addedTriggers.Add(trigger);
+        }
+        public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
+        {
+            AddTrigger(new Trigger(callbackID, action, priority, filter));
         }
         public bool RemoveTrigger(Trigger trigger)
         {
@@ -40,7 +45,7 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性字段
-        private IGameTriggerSystem Triggers { get; }
+        public IGameTriggerSystem Triggers { get; }
         private List<Trigger> addedTriggers = new List<Trigger>();
         #endregion
     }

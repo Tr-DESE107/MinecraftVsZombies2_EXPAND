@@ -1,5 +1,8 @@
 ﻿using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -10,6 +13,7 @@ namespace MVZ2.GameContent.Projectiles
     {
         public LargeSnowball(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostEnemyTakeDamageCallback);
         }
         public override void Init(Entity entity)
         {
@@ -33,6 +37,19 @@ namespace MVZ2.GameContent.Projectiles
             projectile.RenderScale = scaleVector;
             projectile.SetShadowScale(scaleVector * 0.5f);
             projectile.SetDamage(Mathf.Max(0, (scale - 1) * 300));
+        }
+        private void PostEnemyTakeDamageCallback(DamageResult bodyResult, DamageResult armorResult)
+        {
+            if (bodyResult == null)
+                return;
+            var entity = bodyResult.Entity;
+            var source = bodyResult.Source?.GetEntity(entity.Level);
+            if (source == null)
+                return;
+            if (bodyResult.Fatal && source.IsEntityOf(VanillaProjectileID.largeSnowball))
+            {
+                source.PlaySound(VanillaSoundID.grind);
+            }
         }
         public const string PROP_SNOWBALL_SCALE = "SnowballScale";
         public const float MIN_SCALE = 1;

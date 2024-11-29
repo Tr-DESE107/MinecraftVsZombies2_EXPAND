@@ -16,6 +16,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -106,7 +107,7 @@ namespace MVZ2.Vanilla.Entities
         }
         private static bool PreTakeDamage(DamageInfo damageInfo)
         {
-            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
+            var triggers = damageInfo.Entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
             foreach (var trigger in triggers)
             {
                 trigger.Invoke(damageInfo);
@@ -131,7 +132,7 @@ namespace MVZ2.Vanilla.Entities
             if (entity == null)
                 return;
             entity.Definition.PostTakeDamage(bodyResult, armorResult);
-            VanillaLevelCallbacks.PostEntityTakeDamage.Run(bodyResult, armorResult);
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, bodyResult, armorResult);
         }
         private static DamageResult ArmoredTakeDamage(DamageInfo info, out DamageResult armorResult)
         {

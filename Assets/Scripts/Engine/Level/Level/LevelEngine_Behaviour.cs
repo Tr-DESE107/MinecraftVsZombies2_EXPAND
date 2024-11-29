@@ -14,17 +14,17 @@ namespace PVZEngine.Level
         public void PrepareForBattle()
         {
             StageDefinition.PrepareForBattle(this);
-            LevelCallbacks.PostPrepareForBattle.Run(this);
+            Triggers.RunCallback(LevelCallbacks.POST_PREPARE_FOR_BATTLE, this);
         }
         public void RunFinalWaveEvent()
         {
             StageDefinition.PostFinalWaveEvent(this);
-            LevelCallbacks.PostFinalWaveEvent.Run(this);
+            Triggers.RunCallback(LevelCallbacks.POST_FINAL_WAVE_EVENT, this);
         }
         public void RunHugeWaveEvent()
         {
             StageDefinition.PostHugeWaveEvent(this);
-            LevelCallbacks.PostHugeWaveEvent.Run(this);
+            Triggers.RunCallback(LevelCallbacks.POST_HUGE_WAVE_EVENT, this);
         }
         public RandomGenerator GetSpawnRNG()
         {
@@ -76,15 +76,10 @@ namespace PVZEngine.Level
         {
             OnGameOver?.Invoke(type, killer, message);
         }
-        private void PostWave(int wave)
-        {
-            StageDefinition.PostWave(this, wave);
-            LevelCallbacks.PostWave.Run(this, wave);
-        }
         private void PostEnemySpawned(Entity enemy)
         {
             StageDefinition.PostEnemySpawned(enemy);
-            LevelCallbacks.PostEnemySpawned.Run(enemy);
+            Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, enemy);
         }
         public int GetRandomEnemySpawnLane()
         {

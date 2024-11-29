@@ -15,31 +15,15 @@ namespace MVZ2.Games
         {
             return triggerSystem.RemoveTrigger(trigger);
         }
-        public void AddTriggers(IEnumerable<Trigger> triggers)
-        {
-            foreach (var trigger in triggers)
-            {
-                AddTrigger(trigger);
-            }
-        }
-        public int RemoveTriggers(IEnumerable<Trigger> triggers)
-        {
-            int value = 0;
-            foreach (var trigger in triggers)
-            {
-                value += RemoveTrigger(trigger) ? 1 : 0;
-            }
-            return value;
-        }
-        public Trigger[] GetTriggers(NamespaceID callbackID)
+        public Trigger[] GetTriggers(CallbackReference callbackID)
         {
             return triggerSystem.GetTriggers(callbackID);
         }
-        public void RunCallback(NamespaceID callbackID, params object[] parameters)
+        public void RunCallback(CallbackReference callbackID, params object[] parameters)
         {
             triggerSystem.RunCallback(callbackID, parameters);
         }
-        public void RunCallbackFiltered(NamespaceID callbackID, object filterValue, params object[] parameters)
+        public void RunCallbackFiltered(CallbackReference callbackID, object filterValue, params object[] parameters)
         {
             triggerSystem.RunCallbackFiltered(callbackID, filterValue, parameters);
         }

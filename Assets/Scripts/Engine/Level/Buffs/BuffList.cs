@@ -13,7 +13,6 @@ namespace PVZEngine.Buffs
             if (buff == null)
                 return false;
             buffs.Add(buff);
-            buff.Level.AddTriggers(buff.GetTriggers());
             return true;
         }
         public bool RemoveBuff(Buff buff)
@@ -23,7 +22,6 @@ namespace PVZEngine.Buffs
             if (buffs.Remove(buff))
             {
                 buff.RemoveFromTarget();
-                buff.Level.RemoveTriggers(buff.GetTriggers());
                 return true;
             }
             return false;

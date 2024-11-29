@@ -1,7 +1,6 @@
-﻿using PVZEngine.Callbacks;
-using System;
+﻿using PVZEngine.Triggers;
 using System.Collections.Generic;
-using UnityEngine.SocialPlatforms;
+using System;
 
 namespace PVZEngine.Base
 {
@@ -32,8 +31,17 @@ namespace PVZEngine.Base
         {
             return propertyDict.GetPropertyNames();
         }
+        public Trigger[] GetTriggers()
+        {
+            return triggers.ToArray();
+        }
+        public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
+        {
+            triggers.Add(new Trigger(callbackID, action, priority, filter));
+        }
         public string Namespace { get; set; }
         public string Name { get; set; }
         protected PropertyDictionary propertyDict = new PropertyDictionary();
+        protected List<Trigger> triggers = new List<Trigger>();
     }
 }

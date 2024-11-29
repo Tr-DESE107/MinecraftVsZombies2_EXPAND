@@ -17,9 +17,10 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.RegisterCallback(LevelCallbacks.PostEntityInit, PostEntityInitCallback);
-            mod.RegisterCallback(LevelCallbacks.PostEntityContactGround, PostContactGroundCallback);
-            mod.RegisterCallback(VanillaLevelCallbacks.PostEntityTakeDamage, PostEnemyTakeDamageCallback);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PlayHitSoundCallback);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, ChangeLaneUpdateCallback);
         }
         private void PostEntityInitCallback(Entity entity)
         {
@@ -37,17 +38,71 @@ namespace MVZ2.GameContent.Implements
                 entity.TakeDamage(fallDamage, effects, new EntityReferenceChain(null));
             }
         }
-        private void PostEnemyTakeDamageCallback(DamageResult bodyResult, DamageResult armorResult)
+        private void PlayHitSoundCallback(DamageResult bodyResult, DamageResult armorResult)
         {
-            if (bodyResult == null)
-                return;
-            var entity = bodyResult.Entity;
-            var source = bodyResult.Source?.GetEntity(entity.Level);
-            if (source == null)
-                return;
-            if (bodyResult.Fatal && source.IsEntityOf(VanillaProjectileID.largeSnowball))
+            if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
-                source.PlaySound(VanillaSoundID.grind);
+                var entity = armorResult.Entity;
+                var shellDefinition = armorResult.ShellDefinition;
+                entity.PlayHitSound(armorResult.Effects, shellDefinition);
+            }
+            if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            {
+                var entity = bodyResult.Entity;
+                var shellDefinition = bodyResult.ShellDefinition;
+                entity.PlayHitSound(bodyResult.Effects, shellDefinition);
+            }
+        }
+        private void ChangeLaneUpdateCallback(Entity entity)
+        {
+            if (entity.Definition is not IChangeLaneEntity changeLane)
+                return;
+            if (!changeLane.IsChangingLane(entity))
+                return;
+            var targetLane = changeLane.GetChangeLaneTarget(entity);
+            if (targetLane < 0 || targetLane > entity.Level.GetMaxLaneCount())
+                return;
+            var sourceLane = changeLane.GetChangeLaneSource(entity);
+
+            float targetZ = entity.Level.GetEntityLaneZ(targetLane);
+            bool passed;
+            // Warp upwards.
+            if (sourceLane > targetLane)
+            {
+                passed = entity.Position.z >= targetZ - 0.03f;
+            }
+            // Warp downwards.
+            else
+            {
+                passed = entity.Position.z <= targetZ + 0.03f;
+            }
+
+            if (!passed)
+            {
+                Vector3 velocity = entity.Velocity;
+                float warpSpeed = changeLane.GetChangeLaneSpeed(entity);
+
+                // Warp upwards.
+                if (sourceLane > targetLane)
+                {
+                    velocity.z = Mathf.Max(warpSpeed, entity.Velocity.z);
+                }
+                // Warp downwards.
+                else
+                {
+                    velocity.z = Mathf.Min(-warpSpeed, entity.Velocity.z);
+                }
+                entity.Velocity = velocity;
+            }
+            else
+            {
+                if (Mathf.Abs(entity.Position.z - targetZ) <= 0.05f)
+                {
+                    var pos = entity.Position;
+                    pos.z = targetZ;
+                    entity.Position = pos;
+                }
+                entity.StopChangingLane();
             }
         }
     }

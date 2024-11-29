@@ -170,9 +170,6 @@ namespace MVZ2.Level
         }
         public void Dispose()
         {
-            VanillaCallbacks.PostHugeWaveApproach.Remove(PostHugeWaveApproachCallback);
-            VanillaCallbacks.PostFinalWave.Remove(PostFinalWaveCallback);
-
             if (optionsLogic != null)
             {
                 optionsLogic.Dispose();
