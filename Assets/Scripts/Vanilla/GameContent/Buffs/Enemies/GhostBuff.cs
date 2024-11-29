@@ -39,6 +39,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var buffs = damageInfo.Entity.GetBuffs<GhostBuff>();
             if (buffs.Length <= 0)
                 return;
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))
+            {
+                foreach (var buff in buffs)
+                {
+                    buff.SetProperty(PROP_ETHEREAL, false);
+                }
+            }
             if (buffs.Any(b => b.GetProperty<bool>(PROP_ETHEREAL)))
             {
                 damageInfo.Multiply(0.1f);
@@ -50,6 +57,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity == null)
                 return;
             bool illuminated = entity.IsIlluminated() || entity.IsAIFrozen();
+            SetIlluminated(buff, illuminated);
+        }
+        public static void SetIlluminated(Buff buff, bool illuminated)
+        {
+            var entity = buff.GetEntity();
+            if (entity == null)
+                return;
             float tintSpeed = illuminated ? TINT_SPEED : -TINT_SPEED;
             float shadowSpeed = illuminated ? SHADOW_ALPHA_SPEED : -SHADOW_ALPHA_SPEED;
             bool ethereal = illuminated ? false : true;
