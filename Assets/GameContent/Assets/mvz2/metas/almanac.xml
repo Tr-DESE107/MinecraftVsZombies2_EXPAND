@@ -51,7 +51,7 @@
             <p/>
             <p>雪球里包着石头，别问了。</p>
         </entry>
-        <entry id="mvz2:moonlight_sensor">"
+        <entry id="mvz2:moonlight_sensor">
             <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
             <p/>
             <p><![CDATA[<color=blue>白天失效</color>]]></p>
@@ -60,7 +60,7 @@
             <p/>
             <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
         </entry>
-        <entry id="mvz2:glowstone">"
+        <entry id="mvz2:glowstone">
             <p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
             <p/>
             <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
@@ -68,7 +68,7 @@
             <p/>
             <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
         </entry>
-        <entry id="mvz2:punchton">"
+        <entry id="mvz2:punchton">
             <p>冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。</p>
             <p/>
             <p>伤害：<![CDATA[<color=red>100</color>]]>，无视护甲</p>
@@ -77,7 +77,7 @@
             <p/>
             <p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
         </entry>
-        <entry id="mvz2:tnt">"
+        <entry id="mvz2:tnt">
             <p>TNT在触发后能炸飞周围的敌人。</p>
             <p/>
             <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
@@ -85,6 +85,17 @@
             <p>技能：炸出4个TNT分身。</p>
             <p/>
             <p>注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。</p>
+        </entry>
+        <entry id="mvz2:soul_furnace">
+            <p>灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。</p>
+            <p/>
+            <p><![CDATA[<color=blue>白天失效</color>]]></p>
+            <p>伤害：<![CDATA[<color=red>60</color>]]></p>
+            <p>特点：需要烧毁器械补充燃料</p>
+            <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
+            <p>技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。</p>
+            <p/>
+            <p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
         </entry>
     </contraptions>
     <enemies>
