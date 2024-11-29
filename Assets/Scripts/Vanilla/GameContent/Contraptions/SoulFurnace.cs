@@ -184,6 +184,7 @@ namespace MVZ2.GameContent.Contraptions
         private bool IsEvocationEnemy(Entity entity, Entity target)
         {
             return entity.IsEnemy(target) &&
+                !target.IsDead &&
                 Detection.IsInFrontOf(entity, target, 0) &&
                 Detection.CoincidesYDown(target, entity.GetBounds().max.y);
         }
