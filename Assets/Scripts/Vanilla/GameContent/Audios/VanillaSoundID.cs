@@ -37,6 +37,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID paper = Get("paper");
         public readonly static NamespaceID pause = Get("pause");
         public readonly static NamespaceID points = Get("points");
+        public readonly static NamespaceID poisonCast = Get("poison_cast");
         public readonly static NamespaceID pick = Get("pick");
         public readonly static NamespaceID pickaxe = Get("pickaxe");
         public readonly static NamespaceID potion = Get("potion");

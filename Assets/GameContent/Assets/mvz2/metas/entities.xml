@@ -5,6 +5,7 @@
             <float name="shadowAlpha" value="1"/>
             <vector3 name="shadowScale" x="1" y="1" z="1"/>
             <id name="placeSound" value="mvz2:grass"/>
+            <color name="tint" value="#FFFFFF"/>
         </entity>
         <contraption id="1" parent="entity">
             <float name="maxHealth" value="300"/>
@@ -30,6 +31,7 @@
             <id name="crySound" value="mvz2:zombie_cry"/>
             <id name="deathSound" value="mvz2:zombie_death"/>
             <bool name="faceLeftAtDefault" value="true"/>
+            <bool name="undead" value="true"/>
             <vector3 name="size" x="32" y="86" z="32"/>
         </enemy>
         <obstacle id="3" parent="entity">
@@ -64,6 +66,7 @@
             <float name="changeLaneSpeed" value="10"/>
         </projectile>
         <effect id="8" parent="entity">
+            <int name="maxTimeout" value="-1"/>
             <bool name="shadowHidden" value="true"/>
         </effect>
 
@@ -91,6 +94,7 @@
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="80" y="80" z="80"/>
             <color name="lightColor" value="#FFAA00"/>
+            <bool name="isFire" value="true" />
         </contraption>
         <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械">
             <float name="maxHealth" value="4000"/>
@@ -173,6 +177,7 @@
             <id name="deathSound" value="mvz2:skeleton_death"/>
         </enemy>
         <enemy id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。" noEndless="true">
+            <bool name="undead" value="false"/>
             <float name="maxHealth" value="900"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="crySound" value="mvz2:gargoyle_cry"/>
@@ -184,6 +189,11 @@
             <id name="shell" value="mvz2:bone"/>
             <id name="crySound" value="mvz2:ghost_cry"/>
             <id name="deathSound" value="mvz2:ghost_death"/>
+        </enemy>
+        <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子" unlock="mvz2:level.halloween_6">
+            <id name="shell" value="mvz2:mummy"/>
+            <id name="crySound" value="mvz2:mummy_cry"/>
+            <id name="deathSound" value="mvz2:mummy_death"/>
         </enemy>
 
         <!-- Obstacles -->
@@ -268,34 +278,77 @@
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="80" y="80" z="80"/>
             <color name="lightColor" value="#00FFFF"/>
+            <bool name="isFire" value="true" />
         </projectile>
 
         <!-- Effects -->
         <effect id="miner">
             <bool name="shadowHidden" value="false"/>
         </effect>
-        <effect id="mine_debris" />
-        <effect id="fragment" />
-        <effect id="star_particles" />
-        <effect id="smoke" />
+        <effect id="mine_debris">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="fragment">
+            <int name="maxTimeout" value="60"/>
+        </effect>
+        <effect id="star_particles">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="smoke">
+            <int name="maxTimeout" value="30"/>
+        </effect>
         <effect id="broken_armor">
+            <int name="maxTimeout" value="60"/>
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>
         </effect>
         <effect id="thunder_bolt">
+            <int name="maxTimeout" value="30"/>
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="3000" y="3000" z="3000"/>
             <color name="lightColor" value="#FF00FF"/>
         </effect>
-        <effect id="evocation_star" />
+        <effect id="evocation_star" >
+            <int name="maxTimeout" value="45"/>
+        </effect>
         <effect id="shine_ring" />
         <effect id="stun_stars" />
-        <effect id="stunning_flash" />
+        <effect id="stunning_flash">
+            <int name="maxTimeout" value="15"/>
+        </effect>
         <effect id="explosion">
+            <int name="maxTimeout" value="30"/>
             <vector3 name="size" x="240" y="240" z="240" />
         </effect>
-        <effect id="soulfire" />
-        <effect id="soulfire_burn" />
-        <effect id="soulfire_blast" />
+        <effect id="soulfire" >
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="soulfire_burn" >
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="45"/>
+        </effect>
+        <effect id="soulfire_blast" >
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="mummy_gas">
+            <int name="maxTimeout" value="270"/>
+            <float name="damage" value="1" />
+            <color name="tint" value="#FF60FF" />
+            <vector3 name="size" x="240" y="40" z="40" />
+            <id name="modelID" value="mvz2:entity.gas" />
+        </effect>
+        <effect id="burning_gas">
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="45"/>
+            <vector3 name="size" x="240" y="40" z="40" />
+        </effect>
+        <effect id="heal_particles">
+            <int name="maxTimeout" value="35"/>
+            <color name="tint" value="#00FF00" />
+            <vector3 name="size" x="40" y="40" z="40" />
+            <id name="modelID" value="mvz2:entity.magic_stars" />
+        </effect>
     </entries>
 </entities>

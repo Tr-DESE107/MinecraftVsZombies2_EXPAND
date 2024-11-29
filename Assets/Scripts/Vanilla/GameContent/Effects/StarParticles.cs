@@ -12,11 +12,6 @@ namespace MVZ2.GameContent.Effects
         public StarParticles(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.Timeout = 30;
-        }
         #endregion
     }
 }

@@ -8,7 +8,7 @@ namespace MVZ2.Models
         public override void UpdateLogic()
         {
             base.UpdateLogic();
-            var modified = emitCount * Model.GetProperty<float>("EmitSpeed");
+            var modified = emitSpeedMultiplier * Model.GetProperty<float>("EmitSpeed");
             modified *= MainManager.Instance.OptionsManager.GetParticleAmount();
             var count = (int)modified;
             modular += modified - count;
@@ -22,7 +22,7 @@ namespace MVZ2.Models
         [SerializeField]
         private ParticleSystem particles;
         [SerializeField]
-        private float emitCount = 1;
+        private float emitSpeedMultiplier = 0.1f;
         private float modular = 0;
     }
 }

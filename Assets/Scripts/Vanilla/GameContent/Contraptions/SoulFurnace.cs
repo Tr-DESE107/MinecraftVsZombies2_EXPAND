@@ -63,6 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetAnimationFloat("Light", light);
             entity.SetAnimationFloat("Bar", bar);
 
+            entity.SetIsFire(fuel > 0);
             entity.SetLightSource(fuel > 0);
             entity.SetLightRange(Vector3.one * (240 * light));
         }
@@ -183,7 +184,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private bool IsEvocationEnemy(Entity entity, Entity target)
         {
-            return entity.IsEnemy(target) &&
+            return entity.IsHostile(target) &&
                 !target.IsDead &&
                 Detection.IsInFrontOf(entity, target, 0) &&
                 Detection.CoincidesYDown(target, entity.GetBounds().max.y);

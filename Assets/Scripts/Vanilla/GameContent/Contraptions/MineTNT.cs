@@ -108,7 +108,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (!EntityTypes.IsDamagable(entity.Type))
                 return;
-            if (!entity.IsEnemy(other))
+            if (!entity.IsHostile(other))
                 return;
             var riseTimer = GetRiseTimer(entity);
             if (riseTimer == null || !riseTimer.Expired)

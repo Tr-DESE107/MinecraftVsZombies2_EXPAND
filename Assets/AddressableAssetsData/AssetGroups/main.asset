@@ -149,6 +149,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb1d4fd287008034c97609f5686628e6
+    m_Address: mvz2:entity/enemy/mummy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7379af57c598c9a438cfd765804f71e3
     m_Address: mvz2:entity/enemy/gargoyle
     m_ReadOnly: 0
@@ -713,6 +719,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a6baf812492dec40ba2154d360755bb
+    m_Address: mvz2:entity/effects/magic_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5e566d19ad3e024c8c3e91f928d8be1
+    m_Address: mvz2:entity/effects/gas_diffusion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a86b26689fa937a498456ef9f0f05b95
     m_Address: mvz2:entity/effects/fragment
     m_ReadOnly: 0
@@ -721,6 +739,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f1e8833ddcff2246a43e4d3b98c6fc4
+    m_Address: mvz2:entity/effects/fire_particle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2207,6 +2231,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf07278ba3ead524cbc99190282cd556
+    m_Address: mvz2:enemy/mummy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2fee4be52329b84cad8cea5bb42445a
     m_Address: mvz2:enemy/leather_capped_zombie
     m_ReadOnly: 0
@@ -2309,6 +2339,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae53b18b9d39d3f4e86f2a75e0d7e479
+    m_Address: mvz2:effect/magic_stars
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f77f74f52e5407f41a2a580c09dca22a
+    m_Address: mvz2:effect/gas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdd0e6446538d484b9e6fb81268f0a8a
     m_Address: mvz2:effect/fragment
     m_ReadOnly: 0
@@ -2323,6 +2365,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a56647610464c8445b41721cad686444
     m_Address: mvz2:effect/evocation_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5941984467fb3b47acd928d4b2b9fe3
+    m_Address: mvz2:effect/burning_gas
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

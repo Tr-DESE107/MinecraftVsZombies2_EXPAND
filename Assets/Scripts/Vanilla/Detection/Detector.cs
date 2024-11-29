@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using System;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 
@@ -24,11 +25,13 @@ namespace MVZ2.Vanilla.Detections
                 return false;
             if (target.IsDead)
                 return false;
-            if (!self.IsEnemy(target))
+            if (!self.IsHostile(target))
                 return false;
             if (ignoreBoss && target.Type == EntityTypes.BOSS)
                 return false;
             if (!canDetectInvisible && target.IsInvisible())
+                return false;
+            if (!target.IsVulnerableEntity() && (invulnerableFilter == null || !invulnerableFilter(self, target)))
                 return false;
             return IsInRange(self, target);
         }
@@ -39,5 +42,6 @@ namespace MVZ2.Vanilla.Detections
         }
         public bool canDetectInvisible;
         public bool ignoreBoss;
+        public Func<Entity, Entity, bool> invulnerableFilter;
     }
 }

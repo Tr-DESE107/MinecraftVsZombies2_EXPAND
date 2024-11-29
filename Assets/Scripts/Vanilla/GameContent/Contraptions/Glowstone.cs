@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetBoundsCenter(), entity);
             bool stunned = false;
-            foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(entity)))
+            foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsHostile(entity)))
             {
                 enemy.Stun(150);
                 stunned = true;

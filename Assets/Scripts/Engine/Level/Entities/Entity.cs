@@ -28,7 +28,6 @@ namespace PVZEngine.Entities
             ModelID = definition.GetModelID(level);
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
-            this.SetTint(Color.white);
         }
         public void Init(Entity spawner)
         {
@@ -127,14 +126,24 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 阵营
-        public bool IsEnemy(Entity entity)
+        public bool IsFriendly(Entity entity)
         {
             if (entity == null)
                 return false;
-            return IsEnemy(entity.GetFaction());
+            return IsFriendly(entity.GetFaction());
+        }
+        public bool IsFriendly(int faction)
+        {
+            return this.GetFaction() == faction;
+        }
+        public bool IsHostile(Entity entity)
+        {
+            if (entity == null)
+                return false;
+            return IsHostile(entity.GetFaction());
         }
 
-        public bool IsEnemy(int faction)
+        public bool IsHostile(int faction)
         {
             return this.GetFaction() != faction;
         }
@@ -146,14 +155,26 @@ namespace PVZEngine.Entities
         #endregion 魅惑
 
         #region 属性
+        private object GetBaseProperty(string name, bool ignoreDefinition = false)
+        {
+            if (propertyDict.TryGetProperty(name, out var prop))
+                return prop;
+
+            if (ignoreDefinition)
+                return null;
+
+            if (Definition != null && Definition.TryGetProperty<object>(name, out var defProp))
+                return defProp;
+
+            var behaviour = Definition.GetBehaviour();
+            if (behaviour == null)
+                return null;
+
+            return behaviour.GetProperty<object>(name);
+        }
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
-            object result = null;
-            if (propertyDict.TryGetProperty(name, out var prop))
-                result = prop;
-            else if (!ignoreDefinition)
-                result = Definition.GetProperty<object>(name);
-
+            object result = GetBaseProperty(name, ignoreDefinition);
             if (!ignoreBuffs)
             {
                 result = buffs.CalculateProperty(name, result);
@@ -362,16 +383,20 @@ namespace PVZEngine.Entities
         #region 碰撞
         public void Collide(Entity other)
         {
-            if (collisionList.Contains(other))
+            if (!collisionList.Contains(other))
             {
                 PostCollision(other, EntityCollision.STATE_ENTER);
+                collisionList.Add(other);
             }
             else
             {
                 PostCollision(other, EntityCollision.STATE_STAY);
-                collisionList.Add(other);
             }
             collisionThisTick.Add(other);
+        }
+        public Entity[] GetCollisionEntities()
+        {
+            return collisionList.ToArray();
         }
         public void ClearCollision()
         {
@@ -384,6 +409,7 @@ namespace PVZEngine.Entities
                 }
                 collisionList.Remove(ent);
             }
+            collisionThisTick.Clear();
         }
         #endregion
 

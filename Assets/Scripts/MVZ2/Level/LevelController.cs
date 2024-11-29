@@ -587,7 +587,7 @@ namespace MVZ2.Level
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F1))
             {
-                foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsEnemy(SelfFaction) && !e.IsDead))
+                foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsHostile(SelfFaction) && !e.IsDead))
                 {
                     enemy.Die();
                 }

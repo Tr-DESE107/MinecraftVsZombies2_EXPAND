@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Stages
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.ghost,
-                VanillaEnemyID.ironHelmettedZombie,
+                VanillaEnemyID.mummy,
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

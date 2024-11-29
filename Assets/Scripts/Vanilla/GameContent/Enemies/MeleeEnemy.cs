@@ -43,7 +43,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (target == null || !target.Exists() || target.IsDead)
                 return false;
-            if (!enemy.IsEnemy(target))
+            if (!enemy.IsHostile(target))
                 return false;
             if (!Detection.IsInSameRow(enemy, target))
                 return false;

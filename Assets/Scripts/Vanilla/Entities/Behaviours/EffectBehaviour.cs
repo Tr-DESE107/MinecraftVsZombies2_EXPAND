@@ -7,6 +7,11 @@ namespace MVZ2.Vanilla.Entities
         protected EffectBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.Timeout = entity.GetMaxTimeout();
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);

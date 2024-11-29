@@ -10,6 +10,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -21,6 +22,7 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PlayHitSoundCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, ChangeLaneUpdateCallback);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, HealParticlesUpdateCallback);
         }
         private void PostEntityInitCallback(Entity entity)
         {
@@ -105,6 +107,10 @@ namespace MVZ2.GameContent.Implements
                 }
                 entity.StopChangingLane();
             }
+        }
+        private void HealParticlesUpdateCallback(Entity entity)
+        {
+            entity.UpdateHealParticles();
         }
     }
 }

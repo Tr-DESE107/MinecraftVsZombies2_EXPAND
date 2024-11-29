@@ -11,17 +11,13 @@ namespace PVZEngine.Base
             Namespace = nsp;
             Name = name;
         }
-        public bool TryGetProperty<T>(string name, out T value)
+        public virtual bool TryGetProperty<T>(string name, out T value)
         {
             return propertyDict.TryGetProperty<T>(name, out value);
         }
-        public T GetProperty<T>(string name)
+        public virtual T GetProperty<T>(string name)
         {
             return propertyDict.GetProperty<T>(name);
-        }
-        public NamespaceID GetID()
-        {
-            return new NamespaceID(Namespace, Name);
         }
         public void SetProperty(string name, object value)
         {
@@ -38,6 +34,10 @@ namespace PVZEngine.Base
         public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
         {
             triggers.Add(new Trigger(callbackID, action, priority, filter));
+        }
+        public NamespaceID GetID()
+        {
+            return new NamespaceID(Namespace, Name);
         }
         public override string ToString()
         {

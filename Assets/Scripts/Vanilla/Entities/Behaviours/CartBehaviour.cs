@@ -46,7 +46,7 @@ namespace MVZ2.Vanilla.Entities
                     }
 
                     bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
-                        .Any(e => !e.IsDead && entity.IsEnemy(e) && e.GetLane() == entity.GetLane() && e.Position.x <= entity.Position.x + TRIGGER_DISTANCE);
+                        .Any(e => !e.IsDead && entity.IsHostile(e) && e.GetLane() == entity.GetLane() && e.Position.x <= entity.Position.x + TRIGGER_DISTANCE);
                     if (triggered)
                     {
                         entity.TriggerCart();

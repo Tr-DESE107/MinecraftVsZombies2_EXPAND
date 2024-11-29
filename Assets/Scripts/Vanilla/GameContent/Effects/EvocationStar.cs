@@ -17,7 +17,6 @@ namespace MVZ2.GameContent.Effects
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.Timeout = 45;
             entity.Level.PlaySound(VanillaSoundID.evocation);
         }
         public override void Update(Entity entity)

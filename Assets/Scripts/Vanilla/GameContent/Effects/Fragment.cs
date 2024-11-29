@@ -14,11 +14,6 @@ namespace MVZ2.GameContent.Effects
         public Fragment(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.Timeout = 60;
-        }
         public override void Update(Entity entity)
         {
             base.Update(entity);

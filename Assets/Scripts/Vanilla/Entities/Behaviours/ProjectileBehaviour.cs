@@ -102,7 +102,7 @@ namespace MVZ2.Vanilla.Entities
                 return;
 
             var collided = entity.GetProjectileCollidingEntities();
-            if (entity.Removed || !entity.IsEnemy(other) || collided != null && collided.Any(c => c.ID == other.ID) || other.IsDead)
+            if (entity.Removed || !entity.IsHostile(other) || collided != null && collided.Any(c => c.ID == other.ID) || other.IsDead)
                 return;
 
             if (!Detection.IsZCoincide(entity.Position.z, entity.GetScaledSize().z, other.Position.z, other.GetScaledSize().z))

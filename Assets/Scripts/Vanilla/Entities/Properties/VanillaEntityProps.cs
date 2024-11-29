@@ -18,6 +18,7 @@ namespace MVZ2.Vanilla.Entities
         public const string ETHEREAL = "ethereal";
         public const string FALL_DAMAGE = "fallDamage";
         public const string CAN_DISABLE = "canDisable";
+        public const string NO_TARGET = "noTarget";
         public const string INVISIBLE = "invisible";
         public const string AI_FROZEN = "aiFrozen";
 
@@ -94,13 +95,66 @@ namespace MVZ2.Vanilla.Entities
         public const string SORTING_LAYER = "sortingLayer";
         public const string SORTING_ORDER = "sortingOrder";
 
+        #region 显示
+        public static int GetSortingLayer(this Entity entity)
+        {
+            return entity.GetProperty<int>(VanillaEntityProps.SORTING_LAYER);
+        }
+        public static void SetSortingLayer(this Entity entity, int layer)
+        {
+            entity.SetProperty(VanillaEntityProps.SORTING_LAYER, layer);
+        }
+        public static int GetSortingOrder(this Entity entity)
+        {
+            return entity.GetProperty<int>(VanillaEntityProps.SORTING_ORDER);
+        }
+        public static void SetSortingOrder(this Entity entity, int layer)
+        {
+            entity.SetProperty(VanillaEntityProps.SORTING_ORDER, layer);
+        }
+        #endregion
+
         public const string UPDATE_BEFORE_GAME = "updateBeforeGame";
+
+        #region 影子
+        public static bool IsShadowHidden(this Entity entity) => entity.GetProperty<bool>(VanillaEntityProps.SHADOW_HIDDEN);
+        public static void SetShadowHidden(this Entity entity, bool value) => entity.SetProperty(VanillaEntityProps.SHADOW_HIDDEN, value);
+        public static float GetShadowAlpha(this Entity entity) => entity.GetProperty<float>(VanillaEntityProps.SHADOW_ALPHA);
+        public static void SetShadowAlpha(this Entity entity, float value) => entity.SetProperty(VanillaEntityProps.SHADOW_ALPHA, value);
+        public static Vector3 GetShadowScale(this Entity entity) => entity.GetProperty<Vector3>(VanillaEntityProps.SHADOW_SCALE);
+        public static void SetShadowScale(this Entity entity, Vector3 value) => entity.SetProperty(VanillaEntityProps.SHADOW_SCALE, value);
+        public static Vector3 GetShadowOffset(this Entity entity) => entity.GetProperty<Vector3>(VanillaEntityProps.SHADOW_OFFSET);
+        public static void SetShadowOffset(this Entity entity, Vector3 value) => entity.SetProperty(VanillaEntityProps.SHADOW_OFFSET, value);
+        #endregion
+        public static int GetMaxTimeout(this Entity entity)
+        {
+            return entity.GetProperty<int>(MAX_TIMEOUT);
+        }
 
         public static bool CanUpdateBeforeGameStart(this Entity entity)
         {
             return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
         }
 
+        public const string IS_UNDEAD = "undead";
+        public static void SetIsUndead(this Entity entity, bool value)
+        {
+            entity.SetProperty(IS_UNDEAD, value);
+        }
+        public static bool IsUndead(this Entity entity)
+        {
+            return entity.GetProperty<bool>(IS_UNDEAD);
+        }
+
+        public const string IS_FIRE = "isFire";
+        public static void SetIsFire(this Entity entity, bool value)
+        {
+            entity.SetProperty(IS_FIRE, value);
+        }
+        public static bool IsFire(this Entity entity)
+        {
+            return entity.GetProperty<bool>(IS_FIRE);
+        }
 
         public const string IS_LIGHT_SOURCE = "isLightSource";
         public const string LIGHT_RANGE = "lightRange";

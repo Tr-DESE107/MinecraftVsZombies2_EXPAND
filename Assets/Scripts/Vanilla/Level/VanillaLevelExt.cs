@@ -44,7 +44,7 @@ namespace MVZ2.Vanilla.Level
             List<Entity> damageEntities = new List<Entity>();
             foreach (Entity entity in level.GetEntities())
             {
-                if (entity.IsEnemy(faction) && Detection.IsInSphere(entity, center, radius))
+                if (entity.IsHostile(faction) && Detection.IsInSphere(entity, center, radius))
                 {
                     entity.TakeDamage(amount, effects, source);
                     damageEntities.Add(entity);

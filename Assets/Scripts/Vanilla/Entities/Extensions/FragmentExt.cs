@@ -7,6 +7,7 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class FragmentExt
     {
+        #region 碎片
         public static void InitFragment(this Entity entity)
         {
             var fragment = entity.CreateFragment();
@@ -16,7 +17,7 @@ namespace MVZ2.Vanilla.Entities
         public static void UpdateFragment(this Entity entity)
         {
             var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, entity.GetFragmentTickDamage() * 0.1f);
+            Fragment.AddEmitSpeed(fragment, entity.GetFragmentTickDamage());
             entity.SetFragmentTickDamage(0);
         }
         public static void PostFragmentDeath(this Entity entity, DamageInfo damageInfo)
@@ -64,5 +65,57 @@ namespace MVZ2.Vanilla.Entities
             }
             return fragment;
         }
+        #endregion
+
+        #region 治疗粒子
+        public static Entity CreateHealParticles(this Entity entity)
+        {
+            var particles = entity.Level.Spawn(VanillaEffectID.healParticles, entity.Position, entity);
+            particles.SetParent(entity);
+            var fragmentRef = new EntityID(particles);
+            entity.SetHealParticles(fragmentRef);
+            return particles;
+        }
+        public static void UpdateHealParticles(this Entity entity)
+        {
+            var healing = entity.GetTickHealing();
+            if (healing > 0)
+            {
+                var fragment = entity.GetOrCreateHealParticles();
+                HealParticles.AddEmitSpeed(fragment, entity.GetTickHealing());
+                entity.SetTickHealing(0);
+            }
+        }
+        public static Entity GetOrCreateHealParticles(this Entity entity)
+        {
+            var reference = entity.GetHealParticles();
+            var particles = reference?.GetEntity(entity.Level);
+            if (particles == null || !particles.Exists())
+            {
+                particles = entity.CreateHealParticles();
+            }
+            return particles;
+        }
+        public static float GetTickHealing(this Entity entity)
+        {
+            return entity.GetProperty<float>("TickHealing");
+        }
+        public static void SetTickHealing(this Entity entity, float value)
+        {
+            entity.SetProperty("TickHealing", value);
+        }
+        public static void AddTickHealing(this Entity entity, float value)
+        {
+            entity.SetTickHealing(entity.GetTickHealing() + value);
+        }
+        public static EntityID GetHealParticles(this Entity entity)
+        {
+            return entity.GetProperty<EntityID>("HealingParticles");
+        }
+        public static void SetHealParticles(this Entity entity, EntityID value)
+        {
+            entity.SetProperty("HealingParticles", value);
+        }
+        #endregion
     }
 }

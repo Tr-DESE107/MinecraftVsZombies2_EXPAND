@@ -50,6 +50,10 @@ namespace MVZ2.UI
         {
             animator.SetBool("Twinkling", twinkling);
         }
+        private void Awake()
+        {
+            animator.logWarnings = false;
+        }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
             OnPointerDown?.Invoke(this, eventData);

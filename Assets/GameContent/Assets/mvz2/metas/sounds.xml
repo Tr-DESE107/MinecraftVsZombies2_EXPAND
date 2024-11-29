@@ -201,6 +201,9 @@
     <sound name="points" priority="64">
         <sample path="mvz2:points" weight="1" />
     </sound>
+    <sound name="poison_cast">
+        <sample path="mvz2:poison_cast" weight="1" />
+    </sound>
     <sound name="poison_gas" maxCount="1">
         <sample path="mvz2:poison_gas" weight="1" />
     </sound>
