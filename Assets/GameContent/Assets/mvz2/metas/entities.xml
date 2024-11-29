@@ -84,7 +84,7 @@
         </gem>
     </templates>
     <entries>
-        <!-- Contraption Start -->
+        <!-- Contraptions -->
         <dispenser id="dispenser" name="发射器" tooltip="向敌人射出箭" />
         <contraption id="furnace" name="熔炉" tooltip="提供给你额外的红石">
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -105,6 +105,7 @@
             <vector3 name="size" x="48" y="24" z="48"/>
         </contraption>
 
+        <!-- Halloween Contraptions -->
         <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1">
             <float name="range" value="255"/>
             <id name="projectileID" value="mvz2:snowball"/>
@@ -155,15 +156,13 @@
             <vector3 name="size" x="32" y="48" z="32"/>
         </contraption>
 
-        <!-- Enemies Start -->
-        <!-- Prologue Start -->
-        <!-- Zombie -->
+        <!-- Enemies -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
         <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
         <enemy id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有"/>
 
-        <!-- Halloween Start -->
+        <!-- Halloween Enemies -->
         <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
             <float name="range" value="800"/>
             <vector3 name="shotOffset" x="10" y="40" z="0"/>
@@ -187,13 +186,14 @@
             <id name="deathSound" value="mvz2:ghost_death"/>
         </enemy>
 
-
+        <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">
             <float name="maxHealth" value="1800"/>
             <vector3 name="size" x="48" y="96" z="48"/>
             <id name="fragmentID" value="mvz2:furnace"/>
         </obstacle>
 
+        <!-- Carts -->
         <cart id="minecart" name="矿车"/>
         <cart id="pumpkin_carriage" name="南瓜马车">
             <id name="cartTriggerSound" value="mvz2:horse_angry"/>
@@ -202,6 +202,7 @@
             <color name="lightColor" value="#00FF00"/>
         </cart>
 
+        <!-- Pickups -->
         <pickup id="redstone" name="红石">
             <id name="collectSound" value="mvz2:points"/>
         </pickup>
@@ -273,6 +274,10 @@
         <effect id="miner">
             <bool name="shadowHidden" value="false"/>
         </effect>
+        <effect id="mine_debris" />
+        <effect id="fragment" />
+        <effect id="star_particles" />
+        <effect id="smoke" />
         <effect id="broken_armor">
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>

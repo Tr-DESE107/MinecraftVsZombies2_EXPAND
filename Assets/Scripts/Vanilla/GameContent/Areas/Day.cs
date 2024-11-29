@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Areas
         }
         public override void Setup(LevelEngine level)
         {
-            level.Spawn<Miner>(new Vector3(600, 0, 60), null);
+            level.Spawn(VanillaEffectID.miner, new Vector3(600, 0, 60), null);
         }
     }
 }

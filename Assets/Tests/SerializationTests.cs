@@ -36,7 +36,7 @@ namespace MVZ2.Tests
             var game = GetGame();
             var level = GetLevel();
 
-            var definition = game.GetEntityDefinition<Dispenser>();
+            var definition = game.GetEntityDefinition(VanillaContraptionID.dispenser);
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
             EntityID id = entity.GetFragment();
@@ -58,7 +58,7 @@ namespace MVZ2.Tests
             var game = GetGame();
             var level = GetLevel();
 
-            var definition = game.GetEntityDefinition<Dispenser>();
+            var definition = game.GetEntityDefinition(VanillaContraptionID.dispenser);
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
             SerializableEntity seriEnt = entity.Serialize();
@@ -84,7 +84,7 @@ namespace MVZ2.Tests
             var game = GetGame();
             var level = GetLevel();
 
-            var definition = game.GetEntityDefinition<Dispenser>();
+            var definition = game.GetEntityDefinition(VanillaContraptionID.dispenser);
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
             SerializableLevelController seriLevel = levelController.SaveGame();
@@ -119,10 +119,10 @@ namespace MVZ2.Tests
             level.Start();
 
             // 生成器械
-            var dispenser = game.GetEntityDefinition<Dispenser>();
-            var furnace = game.GetEntityDefinition<Furnace>();
-            var obsidian = game.GetEntityDefinition<Obsidian>();
-            var mineTNT = game.GetEntityDefinition<MineTNT>();
+            var dispenser = game.GetEntityDefinition(VanillaContraptionID.dispenser);
+            var furnace = game.GetEntityDefinition(VanillaContraptionID.furnace);
+            var obsidian = game.GetEntityDefinition(VanillaContraptionID.obsidian);
+            var mineTNT = game.GetEntityDefinition(VanillaContraptionID.mineTNT);
             for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
             {
                 for (int column = 0; column < 7; column++)

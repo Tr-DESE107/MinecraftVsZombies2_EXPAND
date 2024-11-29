@@ -8,7 +8,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.thunderBolt)]
-    public class ThunderBolt : VanillaEffect
+    public class ThunderBolt : EffectBehaviour
     {
 
         #region 公有方法

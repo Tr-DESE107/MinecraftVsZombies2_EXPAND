@@ -13,7 +13,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [Definition(VanillaProjectileNames.soulfireBall)]
-    public class SoulfireBall : VanillaProjectile
+    public class SoulfireBall : ProjectileBehaviour
     {
         public SoulfireBall(string nsp, string name) : base(nsp, name)
         {

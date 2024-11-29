@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.soulfireBurn)]
-    public class SoulfireBurn : VanillaEffect
+    public class SoulfireBurn : EffectBehaviour
     {
 
         #region 公有方法

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    public abstract class StateEnemy : VanillaEnemy
+    public abstract class StateEnemy : EnemyBehaviour
     {
         protected StateEnemy(string nsp, string name) : base(nsp, name)
         {

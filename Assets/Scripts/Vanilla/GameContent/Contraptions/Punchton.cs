@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.punchton)]
     [EntitySeedDefinition(75, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
-    public class Punchton : VanillaContraption
+    public class Punchton : ContraptionBehaviour
     {
         public Punchton(string nsp, string name) : base(nsp, name)
         {

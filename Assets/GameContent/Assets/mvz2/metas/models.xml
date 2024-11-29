@@ -45,19 +45,19 @@
     <!-- Effects -->
     <model name="miner" type="entity" path="mvz2:effect/miner" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mine_debris" type="entity" path="mvz2:effect/mine_debris" width="150" height="100" xOffset="0" yOffset="30"/>
-    <model name="fragment" type="entity" path="mvz2:effect/fragment" width="160" height="160" xOffset="0" yOffset="30"/>
-    <model name="star_particles" type="entity" path="mvz2:effect/star_particles" width="160" height="160" xOffset="0" yOffset="30"/>
-    <model name="smoke" type="entity" path="mvz2:effect/smoke" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="fragment" type="entity" path="mvz2:effect/fragment" shot="false" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="star_particles" type="entity" path="mvz2:effect/star_particles" shot="false" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="smoke" type="entity" path="mvz2:effect/smoke" width="160" shot="false" height="160" xOffset="0" yOffset="30"/>
     <model name="thunder_bolt" type="entity" path="mvz2:effect/thunder_bolt" width="120" height="550" xOffset="0" yOffset="0"/>
     <model name="evocation_star" type="entity" path="mvz2:effect/evocation_star" width="240" height="240" xOffset="0" yOffset="120"/>
-    <model name="shine_ring" type="entity" path="mvz2:effect/shine_ring" width="100" height="100" xOffset="0" yOffset="0"/>
-    <model name="stun_stars" type="entity" path="mvz2:effect/stun_stars" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="stunning_flash" type="entity" path="mvz2:effect/stunning_flash" width="120" height="120" xOffset="0" yOffset="60"/>
-    <model name="piston_palm" type="entity" path="mvz2:effect/piston_palm" width="32" height="64" xOffset="0" yOffset="4"/>
-    <model name="explosion" type="entity" path="mvz2:effect/explosion" width="160" height="160" xOffset="0" yOffset="30"/>
-    <model name="soulfire" type="entity" path="mvz2:effect/soulfire" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="soulfire_burn" type="entity" path="mvz2:effect/soulfire_burn" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="soulfire_blast" type="entity" path="mvz2:effect/soulfire_blast" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="shine_ring" type="entity" path="mvz2:effect/shine_ring" shot="false" width="100" height="100" xOffset="0" yOffset="0"/>
+    <model name="stun_stars" type="entity" path="mvz2:effect/stun_stars" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="stunning_flash" type="entity" path="mvz2:effect/stunning_flash" shot="false" width="120" height="120" xOffset="0" yOffset="60"/>
+    <model name="piston_palm" type="entity" path="mvz2:effect/piston_palm" width="32" height="64" xOffset="-16" yOffset="16"/>
+    <model name="explosion" type="entity" path="mvz2:effect/explosion" shot="false" width="160" height="160" xOffset="0" yOffset="30"/>
+    <model name="soulfire" type="entity" path="mvz2:effect/soulfire" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="soulfire_burn" type="entity" path="mvz2:effect/soulfire_burn" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="soulfire_blast" type="entity" path="mvz2:effect/soulfire_blast" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>

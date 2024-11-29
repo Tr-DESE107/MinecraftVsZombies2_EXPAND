@@ -9,7 +9,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [Definition(VanillaProjectileNames.largeSnowball)]
-    public class LargeSnowball : VanillaProjectile
+    public class LargeSnowball : ProjectileBehaviour
     {
         public LargeSnowball(string nsp, string name) : base(nsp, name)
         {

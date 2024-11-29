@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.stunStars)]
-    public class StunStars : VanillaEffect
+    public class StunStars : EffectBehaviour
     {
         #region 公有方法
         public StunStars(string nsp, string name) : base(nsp, name)

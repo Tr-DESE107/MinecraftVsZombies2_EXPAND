@@ -7,7 +7,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.fragment)]
-    public class Fragment : VanillaEffect
+    public class Fragment : EffectBehaviour
     {
 
         #region 公有方法

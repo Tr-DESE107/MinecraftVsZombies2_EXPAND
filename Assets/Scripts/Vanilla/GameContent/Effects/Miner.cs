@@ -10,7 +10,7 @@ using Tools;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.miner)]
-    public class Miner : VanillaEffect
+    public class Miner : EffectBehaviour
     {
         #region 公有方法
         public Miner(string nsp, string name) : base(nsp, name)

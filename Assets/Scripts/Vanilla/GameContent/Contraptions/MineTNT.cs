@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.mineTNT)]
     [EntitySeedDefinition(25, VanillaMod.spaceName, VanillaRechargeNames.longTime)]
-    public class MineTNT : VanillaContraption
+    public class MineTNT : ContraptionBehaviour
     {
         public MineTNT(string nsp, string name) : base(nsp, name)
         {
@@ -115,7 +115,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.EXPLOSION);
             entity.Level.Explode(entity.Position, entity.GetRange(), entity.GetFaction(), entity.GetDamage(), damageEffects, new EntityReferenceChain(entity));
-            entity.Level.Spawn<MineDebris>(entity.Position, entity);
+            entity.Level.Spawn(VanillaEffectID.mineDebris, entity.Position, entity);
             entity.Remove();
             entity.PlaySound(VanillaSoundID.mineExplode);
             entity.Level.ShakeScreen(10, 0, 15);
@@ -124,7 +124,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var level = contraption.Level;
 
-            var seed = level.Spawn<MineTNTSeed>(contraption.Position, contraption);
+            var seed = level.Spawn(VanillaProjectileID.mineTNTSeed, contraption.Position, contraption);
 
             var x = level.GetEntityColumnX(grid.Column);
             var z = level.GetEntityLaneZ(grid.Lane);

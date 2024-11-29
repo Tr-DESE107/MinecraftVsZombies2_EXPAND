@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.smoke)]
-    public class Smoke : VanillaEffect
+    public class Smoke : EffectBehaviour
     {
 
         #region 公有方法

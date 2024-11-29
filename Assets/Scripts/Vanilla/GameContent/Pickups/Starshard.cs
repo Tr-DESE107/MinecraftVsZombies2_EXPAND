@@ -12,7 +12,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Pickups
 {
     [Definition(VanillaPickupNames.starshard)]
-    public class Starshard : VanillaPickup
+    public class Starshard : PickupBehaviour
     {
         public Starshard(string nsp, string name) : base(nsp, name)
         {
@@ -127,13 +127,13 @@ namespace MVZ2.GameContent.Pickups
         {
             return VanillaLevelExt.SCREEN_HEIGHT - 120;
         }
-        public override NamespaceID GetModelID(LevelEngine level)
+        public override NamespaceID GetModelID(LevelEngine level, NamespaceID origin)
         {
             var areaID = level.AreaID;
             var modelId = new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(EngineModelID.TYPE_ENTITY);
             if (Global.Game.GetModelMeta(modelId) == null)
             {
-                return base.GetModelID(level);
+                return origin;
             }
             return modelId;
         }

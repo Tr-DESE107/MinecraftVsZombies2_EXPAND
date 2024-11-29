@@ -8,7 +8,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Pickups
 {
     [Definition(VanillaPickupNames.redstone)]
-    public class Redstone : VanillaPickup
+    public class Redstone : PickupBehaviour
     {
         public Redstone(string nsp, string name) : base(nsp, name)
         {

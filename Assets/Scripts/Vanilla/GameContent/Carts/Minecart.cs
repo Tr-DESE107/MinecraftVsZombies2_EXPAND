@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Entities;
 namespace MVZ2.GameContent.Carts
 {
     [Definition(VanillaCartNames.minecart)]
-    public class Minecart : VanillaCart
+    public class Minecart : CartBehaviour
     {
         public Minecart(string nsp, string name) : base(nsp, name)
         {

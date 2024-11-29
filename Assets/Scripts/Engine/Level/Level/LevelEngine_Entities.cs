@@ -45,13 +45,6 @@ namespace PVZEngine.Level
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
-        public Entity Spawn<T>(Vector3 pos, Entity spawner) where T : EntityDefinition
-        {
-            var entityDef = Content.GetEntityDefinition<T>();
-            if (entityDef == null)
-                return null;
-            return Spawn(entityDef, pos, spawner);
-        }
         public Entity FindEntityByID(long id)
         {
             return entities.FirstOrDefault(e => e.ID == id);

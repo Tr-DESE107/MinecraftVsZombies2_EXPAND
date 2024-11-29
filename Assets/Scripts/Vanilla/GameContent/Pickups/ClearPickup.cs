@@ -15,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Pickups
 {
     [Definition(VanillaPickupNames.clearPickup)]
-    public class ClearPickup : VanillaPickup
+    public class ClearPickup : PickupBehaviour
     {
         public ClearPickup(string nsp, string name) : base(nsp, name)
         {

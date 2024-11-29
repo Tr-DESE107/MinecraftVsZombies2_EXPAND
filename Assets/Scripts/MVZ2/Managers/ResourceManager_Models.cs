@@ -84,13 +84,21 @@ namespace MVZ2.Managers
                 var metaID = new NamespaceID(metaNamespace, metaPath);
                 if (model != null)
                 {
-                    var sprite = main.ModelManager.ShotIcon(model, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
+                    Sprite sprite;
+                    if (meta.Shot)
+                    {
+                        sprite = main.ModelManager.ShotIcon(model, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
+                    }
+                    else
+                    {
+                        sprite = GetDefaultSpriteClone();
+                    }
                     modResource.ModelIcons.Add(metaPath, sprite);
                 }
                 else
                 {
                     modResource.ModelIcons.Add(metaPath, GetDefaultSpriteClone());
-                    Debug.LogWarning($"Model {metaID} is missing.");
+                    Debug.LogWarning($"Model prefab {metaID} is missing.");
                 }
             }
         }

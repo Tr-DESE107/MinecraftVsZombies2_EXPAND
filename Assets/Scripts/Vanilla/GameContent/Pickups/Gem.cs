@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    public abstract class Gem : VanillaPickup
+    public abstract class Gem : PickupBehaviour
     {
         public Gem(string nsp, string name) : base(nsp, name)
         {

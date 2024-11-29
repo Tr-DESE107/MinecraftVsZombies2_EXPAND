@@ -8,7 +8,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [Definition(VanillaProjectileNames.mineTNTSeed)]
-    public class MineTNTSeed : VanillaProjectile
+    public class MineTNTSeed : ProjectileBehaviour
     {
         public MineTNTSeed(string nsp, string name) : base(nsp, name)
         {

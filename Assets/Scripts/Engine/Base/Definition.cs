@@ -39,6 +39,10 @@ namespace PVZEngine.Base
         {
             triggers.Add(new Trigger(callbackID, action, priority, filter));
         }
+        public override string ToString()
+        {
+            return GetID().ToString();
+        }
         public string Namespace { get; set; }
         public string Name { get; set; }
         protected PropertyDictionary propertyDict = new PropertyDictionary();

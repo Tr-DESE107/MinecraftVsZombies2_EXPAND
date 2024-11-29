@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.stunningFlash)]
-    public class StunningFlash : VanillaEffect
+    public class StunningFlash : EffectBehaviour
     {
         #region 公有方法
         public StunningFlash(string nsp, string name) : base(nsp, name)

@@ -530,6 +530,10 @@ namespace PVZEngine.Entities
         {
             return new Entity(level, seri.type, seri.id, seri.spawnerReference);
         }
+        public override string ToString()
+        {
+            return $"{ID}({this.Definition.GetID()})";
+        }
         #endregion
 
         #region 私有方法

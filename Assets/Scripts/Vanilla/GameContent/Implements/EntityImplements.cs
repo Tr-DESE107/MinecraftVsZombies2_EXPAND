@@ -55,7 +55,8 @@ namespace MVZ2.GameContent.Implements
         }
         private void ChangeLaneUpdateCallback(Entity entity)
         {
-            if (entity.Definition is not IChangeLaneEntity changeLane)
+            var changeLane = entity.Definition.GetBehaviour<IChangeLaneEntity>();
+            if (changeLane == null)
                 return;
             if (!changeLane.IsChangingLane(entity))
                 return;

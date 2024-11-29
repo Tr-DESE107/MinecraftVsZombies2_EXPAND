@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.explosion)]
-    public class Explosion : VanillaEffect
+    public class Explosion : EffectBehaviour
     {
 
         #region 公有方法

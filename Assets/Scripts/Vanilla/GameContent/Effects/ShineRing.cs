@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.shineRing)]
-    public class ShineRing : VanillaEffect
+    public class ShineRing : EffectBehaviour
     {
         #region 公有方法
         public ShineRing(string nsp, string name) : base(nsp, name)

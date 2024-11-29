@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.starParticles)]
-    public class StarParticles : VanillaEffect
+    public class StarParticles : EffectBehaviour
     {
 
         #region 公有方法

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.brokenArmor)]
-    public class BrokenArmor : VanillaEffect
+    public class BrokenArmor : EffectBehaviour
     {
         #region 公有方法
         public BrokenArmor(string nsp, string name) : base(nsp, name)

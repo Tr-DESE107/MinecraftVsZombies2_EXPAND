@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.glowstone)]
     [EntitySeedDefinition(25, VanillaMod.spaceName, VanillaRechargeNames.longTime)]
-    public class Glowstone : VanillaContraption
+    public class Glowstone : ContraptionBehaviour
     {
         public Glowstone(string nsp, string name) : base(nsp, name)
         {

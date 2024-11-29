@@ -8,7 +8,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.evocationStar)]
-    public class EvocationStar : VanillaEffect
+    public class EvocationStar : EffectBehaviour
     {
         #region 公有方法
         public EvocationStar(string nsp, string name) : base(nsp, name)

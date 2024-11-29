@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.mineDebris)]
-    public class MineDebris : VanillaEffect
+    public class MineDebris : EffectBehaviour
     {
         #region 公有方法
         public MineDebris(string nsp, string name) : base(nsp, name)

@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.furnace)]
     [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
-    public class Furnace : VanillaContraption
+    public class Furnace : ContraptionBehaviour
     {
         public Furnace(string nsp, string name) : base(nsp, name)
         {
@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             if (productionTimer.Expired)
             {
-                entity.Produce<Redstone>();
+                entity.Produce(VanillaPickupID.redstone);
                 entity.PlaySound(VanillaSoundID.throwSound);
                 productionTimer.ResetTime(720);
             }
@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Run();
             if (evocationTimer.PassedInterval(5))
             {
-                entity.Produce<Redstone>();
+                entity.Produce(VanillaPickupID.redstone);
                 entity.PlaySound(VanillaSoundID.potion);
             }
             if (evocationTimer.Expired)

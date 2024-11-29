@@ -8,7 +8,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 namespace MVZ2.GameContent.Projectiles
 {
     [Definition(VanillaProjectileNames.flyingTNT)]
-    public class FlyingTNT : VanillaProjectile
+    public class FlyingTNT : ProjectileBehaviour
     {
         public FlyingTNT(string nsp, string name) : base(nsp, name)
         {

@@ -15,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [Definition(VanillaEffectNames.gemEffect)]
-    public class GemEffect : VanillaEffect
+    public class GemEffect : EffectBehaviour
     {
         #region 公有方法
         public GemEffect(string nsp, string name) : base(nsp, name)

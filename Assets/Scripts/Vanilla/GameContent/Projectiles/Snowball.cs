@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [Definition(VanillaProjectileNames.snowball)]
-    public class Snowball : VanillaProjectile
+    public class Snowball : ProjectileBehaviour
     {
         public Snowball(string nsp, string name) : base(nsp, name)
         {

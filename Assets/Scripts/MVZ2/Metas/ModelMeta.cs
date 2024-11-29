@@ -10,6 +10,7 @@ namespace MVZ2.Metas
         public string Name { get; private set; }
         public string Type { get; private set; }
         public NamespaceID Path { get; private set; }
+        public bool Shot { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public float XOffset { get; private set; }
@@ -19,6 +20,7 @@ namespace MVZ2.Metas
             var name = node.GetAttribute("name");
             var type = node.GetAttribute("type");
             var path = node.GetAttribute("path");
+            var shot = node.GetAttributeBool("shot") ?? true;
             var width = node.GetAttributeInt("width") ?? 64;
             var height = node.GetAttributeInt("height") ?? 64;
             var xOffset = node.GetAttributeFloat("xOffset") ?? 0;
@@ -27,6 +29,7 @@ namespace MVZ2.Metas
             {
                 Name = name,
                 Type = type,
+                Shot = shot,
                 Path = NamespaceID.Parse(path, defaultNsp),
                 Width = width,
                 Height = height,

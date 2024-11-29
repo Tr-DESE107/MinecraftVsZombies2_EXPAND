@@ -9,7 +9,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Obstacles
 {
     [Definition(VanillaObstacleNames.gargoyleStatue)]
-    public class GargoyleStatue : VanillaObstacle
+    public class GargoyleStatue : ObstacleBehaviour
     {
         public GargoyleStatue(string nsp, string name) : base(nsp, name)
         {

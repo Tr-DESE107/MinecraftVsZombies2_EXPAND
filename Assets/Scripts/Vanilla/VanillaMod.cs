@@ -37,9 +37,10 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod() : base(spaceName)
         {
-            LoadStages();
-            LoadFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
             LoadEntityMetas();
+            LoadStages();
+            LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
+            AddEntityBehaviours();
 
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StarshardSpawnImplements());
@@ -65,6 +66,20 @@ namespace MVZ2.Vanilla
         private void ImplementCallbacks(VanillaImplements implements)
         {
             implements.Implement(this);
+        }
+        private void LoadEntityMetas()
+        {
+            foreach (IEntityMeta meta in Global.Game.GetModEntityMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var entity = new MetaEntityDefinition(meta.Type, spaceName, meta.ID);
+                foreach (var pair in meta.Properties)
+                {
+                    entity.SetProperty(pair.Key, pair.Value);
+                }
+                AddDefinition(entity);
+            }
         }
         private void LoadStages()
         {
@@ -110,58 +125,58 @@ namespace MVZ2.Vanilla
                 }
             }
         }
-        protected void LoadFromAssemblies(Assembly[] assemblies)
+        protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
         {
             foreach (var assembly in assemblies)
             {
                 foreach (var type in assembly.GetTypes())
                 {
                     var definitionAttr = type.GetCustomAttribute<DefinitionAttribute>();
-                    if (definitionAttr != null && !type.IsAbstract)
+                    if (definitionAttr == null || type.IsAbstract)
+                        continue;
+
+                    var name = definitionAttr.Name;
+                    var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
+                    var definitionObj = constructor?.Invoke(new object[] { Namespace, name });
+                    if (definitionObj is Definition def)
                     {
-                        var name = definitionAttr.Name;
-                        var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
-                        var definitionObj = constructor?.Invoke(new object[] { Namespace, name });
-                        if (definitionObj is Definition def)
-                        {
-                            AddDefinition(def);
-                        }
-                        var seedEntityAttr = type.GetCustomAttribute<EntitySeedDefinitionAttribute>();
-                        if (seedEntityAttr != null)
-                        {
-                            var seedDef = new EntitySeed(
-                                Namespace,
-                                name,
-                                seedEntityAttr.Cost,
-                                seedEntityAttr.RechargeID);
-                            AddDefinition(seedDef);
-                        }
-                        var spawnDefAttr = type.GetCustomAttribute<SpawnDefinitionAttribute>();
-                        if (spawnDefAttr != null)
-                        {
-                            var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
-                            spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, spawnDefAttr.PreviewCount);
-                            AddDefinition(spawnDef);
-                        }
+                        AddDefinition(def);
+                    }
+                    var seedEntityAttr = type.GetCustomAttribute<EntitySeedDefinitionAttribute>();
+                    if (seedEntityAttr != null)
+                    {
+                        var seedDef = new EntitySeed(
+                            Namespace,
+                            name,
+                            seedEntityAttr.Cost,
+                            seedEntityAttr.RechargeID);
+                        AddDefinition(seedDef);
+                    }
+                    var spawnDefAttr = type.GetCustomAttribute<SpawnDefinitionAttribute>();
+                    if (spawnDefAttr != null)
+                    {
+                        var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
+                        spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, spawnDefAttr.PreviewCount);
+                        AddDefinition(spawnDef);
                     }
                 }
             }
         }
-        private void LoadEntityMetas()
+        private void AddEntityBehaviours()
         {
-            foreach (IEntityMeta meta in Global.Game.GetModEntityMetas(spaceName))
+            foreach (var behaviour in GetDefinitions<EntityBehaviourDefinition>())
             {
-                if (meta == null)
-                    continue;
-                var entity = GetDefinition<EntityDefinition>(new NamespaceID(spaceName, meta.ID));
+                var entity = GetDefinition<EntityDefinition>(behaviour.GetMatchEntityID());
                 if (entity == null)
                     continue;
-                foreach (var pair in meta.Properties)
+                if (entity.GetBehaviour() != null)
                 {
-                    entity.SetProperty(pair.Key, pair.Value);
+                    Debug.LogWarning($"Entity {entity.GetID()} has multiple Entity Behaviours.");
                 }
+                entity.SetBehaviour(behaviour);
             }
         }
+
         public const string spaceName = "mvz2";
     }
 }

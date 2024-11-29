@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    public abstract class DispenserFamily : VanillaContraption
+    public abstract class DispenserFamily : ContraptionBehaviour
     {
         public DispenserFamily(string nsp, string name) : base(nsp, name)
         {

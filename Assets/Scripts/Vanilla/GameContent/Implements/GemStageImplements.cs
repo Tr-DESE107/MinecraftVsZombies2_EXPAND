@@ -44,7 +44,8 @@ namespace MVZ2.GameContent.Implements
         }
         private void Gem_PostPickupInitCallback(Entity pickup)
         {
-            if (pickup.Definition is not Gem gem)
+            var gem = pickup.Definition.GetBehaviour<Gem>();
+            if (gem == null)
                 return;
             var level = pickup.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())

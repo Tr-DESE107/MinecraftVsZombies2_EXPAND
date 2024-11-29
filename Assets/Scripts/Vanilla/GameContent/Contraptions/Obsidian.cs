@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.obsidian)]
     [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.longTime)]
-    public class Obsidian : VanillaContraption
+    public class Obsidian : ContraptionBehaviour
     {
         public Obsidian(string nsp, string name) : base(nsp, name)
         {
