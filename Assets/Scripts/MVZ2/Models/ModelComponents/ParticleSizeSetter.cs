@@ -11,11 +11,11 @@ namespace MVZ2.Models
             var size = Model.GetProperty<Vector3>("Size");
             size *= MainManager.Instance.LevelManager.LawnToTransScale;
 
-            var shape = particles.shape;
+            var shape = particles.Particles.shape;
             shape.scale = size;
             shape.position = Vector2.up * size.y * 0.5f;
         }
         [SerializeField]
-        private ParticleSystem particles;
+        private ParticlePlayer particles;
     }
 }

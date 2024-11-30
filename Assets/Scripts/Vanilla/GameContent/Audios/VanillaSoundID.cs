@@ -7,6 +7,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
         public readonly static NamespaceID boneHit = Get("bone_hit");
+        public readonly static NamespaceID boneWallBuild = Get("bone_wall_build"); 
         public readonly static NamespaceID bow = Get("bow");
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID chime = Get("chime");
@@ -43,6 +44,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID potion = Get("potion");
         public readonly static NamespaceID punch = Get("punch");
         public readonly static NamespaceID refuel = Get("refuel");
+        public readonly static NamespaceID reviveCast = Get("revive_cast");
         public readonly static NamespaceID scream = Get("scream");
         public readonly static NamespaceID screw = Get("screw");
         public readonly static NamespaceID shot = Get("shot");

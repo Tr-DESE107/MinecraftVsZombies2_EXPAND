@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla.Entities
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
             var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, 50);
+            Fragment.AddEmitSpeed(fragment, 500);
         }
         public static EntityID GetFragment(this Entity entity)
         {

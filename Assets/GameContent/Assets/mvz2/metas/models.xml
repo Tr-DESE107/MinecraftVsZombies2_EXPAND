@@ -23,6 +23,9 @@
     <model name="gargoyle" type="entity" path="mvz2:enemy/gargoyle" width="64" height="96" xOffset="10" yOffset="4"/>
     <model name="ghost" type="entity" path="mvz2:enemy/ghost" width="64" height="96" xOffset="10" yOffset="4"/>
     <model name="mummy" type="entity" path="mvz2:enemy/mummy" width="64" height="96" xOffset="10" yOffset="4"/>
+    <model name="necromancer" type="entity" path="mvz2:enemy/necromancer" width="64" height="96" xOffset="10" yOffset="4"/>
+
+    <model name="bone_wall" type="entity" path="mvz2:enemy/bone_wall" width="80" height="80" xOffset="0" yOffset="0"/>
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="4"/>
@@ -62,6 +65,7 @@
     <model name="gas" type="entity" path="mvz2:effect/gas" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="burning_gas" type="entity" path="mvz2:effect/burning_gas" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="magic_stars" type="entity" path="mvz2:effect/magic_stars" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="bone_particles" type="entity" path="mvz2:effect/bone_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>

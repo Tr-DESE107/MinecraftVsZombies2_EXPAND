@@ -20,9 +20,14 @@ namespace MVZ2.Models
         {
             serializable.Load(Particles);
         }
+        public float GetAmountMultiplier()
+        {
+            var multiplier = MainManager.Instance.OptionsManager.GetParticleAmount();
+            return multiplier * (1 - minAmount) + minAmount;
+        }
         private void Awake()
         {
-            float multiplier = MainManager.Instance.OptionsManager.GetParticleAmount();
+            float multiplier = GetAmountMultiplier();
 
             var main = Particles.main;
             main.maxParticles = Mathf.RoundToInt(main.maxParticles * multiplier);
@@ -72,7 +77,7 @@ namespace MVZ2.Models
             }
             return curve;
         }
-        private ParticleSystem Particles
+        public ParticleSystem Particles
         {
             get
             {
@@ -82,6 +87,8 @@ namespace MVZ2.Models
             }
         }
         private ParticleSystem particles;
+        [SerializeField]
+        private float minAmount = 0;
     }
     public class SerializableParticleSystem
     {

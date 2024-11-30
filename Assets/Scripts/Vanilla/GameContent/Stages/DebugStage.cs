@@ -30,8 +30,8 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.ghost,
-                VanillaEnemyID.mummy,
+                VanillaEnemyID.necromancer,
+                VanillaEnemyID.boneWall,
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

@@ -13,16 +13,18 @@ namespace MVZ2.Models
             Model.SetProperty(PROP_EMITTED, true);
             var size = Model.GetProperty<Vector3>("Size");
             size *= MainManager.Instance.LevelManager.LawnToTransScale;
-            var shape = particles.shape;
-            int volume = Mathf.CeilToInt(100 * size.x * size.y * size.z);
+            float volume = size.x * size.y * size.z;
+
+            var ps = particles.Particles;
+            var shape = ps.shape;
             var scale = size;
             scale.y *= 0.333333f;
             shape.scale = scale;
             shape.position = Vector2.up * scale.y * 0.5f;
-            particles.Emit(volume);
+            ps.Emit(Mathf.CeilToInt(100 * volume * particles.GetAmountMultiplier()));
         }
         [SerializeField]
-        private ParticleSystem particles;
+        private ParticlePlayer particles;
         public const string PROP_EMITTED = "Emitted";
     }
 }

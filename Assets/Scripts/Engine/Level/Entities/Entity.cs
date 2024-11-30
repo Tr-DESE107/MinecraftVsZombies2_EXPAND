@@ -289,9 +289,8 @@ namespace PVZEngine.Entities
             Vector3 velocity = Velocity;
 
             // Friction.
-            float magnitude = velocity.magnitude;
-            Vector3 normalized = velocity.normalized;
-            velocity = normalized * Math.Max(0, magnitude * Mathf.Pow(1 - this.GetFriction(), simulationSpeed));
+            var frictionMulti = Mathf.Pow(Mathf.Max(0, 1 - this.GetFriction()), simulationSpeed);
+            velocity = new Vector3(velocity.x * frictionMulti, velocity.y, velocity.z * frictionMulti);
 
             // Gravity.
             velocity.y -= this.GetGravity() * simulationSpeed;

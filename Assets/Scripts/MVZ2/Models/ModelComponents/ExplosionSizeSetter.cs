@@ -19,18 +19,22 @@ namespace MVZ2.Models
             float maxRadius = Mathf.Max(size.x, size.z);
 
 
-            var explosionShape = explosionParticles.shape;
-            explosionShape.scale = size;
-            explosionParticles.Emit(Mathf.CeilToInt(explosionParticleCount * volume));
+            var explosionPs = explosionParticles.Particles;
+            var smokePs = smokeParticles.Particles;
 
-            var smokeMain = smokeParticles.main;
-            smokeMain.startSpeed = ParticlePlayer.MultiplyCurve(smokeMain.startSpeed, maxRadius * smokeSpeedMultiplier);
-            smokeParticles.Emit(Mathf.CeilToInt(smokeParticleCount * volume));
+            var explosionShape = explosionPs.shape;
+            var smokeMain = smokePs.main;
+
+            explosionShape.scale = size;
+            explosionPs.Emit(Mathf.CeilToInt(explosionParticleCount * volume * explosionParticles.GetAmountMultiplier()));
+
+            smokeMain.startSpeedMultiplier = maxRadius * smokeSpeedMultiplier;
+            smokePs.Emit(Mathf.CeilToInt(smokeParticleCount * volume * smokeParticles.GetAmountMultiplier()));
         }
         [SerializeField]
-        private ParticleSystem explosionParticles;
+        private ParticlePlayer explosionParticles;
         [SerializeField]
-        private ParticleSystem smokeParticles;
+        private ParticlePlayer smokeParticles;
         [SerializeField]
         private float explosionParticleCount = 5;
         [SerializeField]

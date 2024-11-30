@@ -15,19 +15,20 @@ namespace MVZ2.Models
             var timeout = Model.GetProperty<int>("Timeout");
             var percentage = Mathf.Clamp01((maxTime - timeout) / (float)expandTime);
 
-            var fireEmission = fires.emission;
-            var fireShape = fires.shape;
-            fireEmission.rateOverTime = volume * ratePerVolume * percentage;
+            var firePS = fires.Particles;
+            var fireEmission = firePS.emission;
+            var fireShape = firePS.shape;
+            fireEmission.rateOverTimeMultiplier *= volume * multiplierPerVolume * percentage;
             fireShape.scale = new Vector3(size.x, size.y + size.z, 1) * percentage;
         }
         [SerializeField]
-        private ParticleSystem fires;
+        private ParticlePlayer fires;
         [SerializeField]
         private int expandTime = 15;
         [SerializeField]
         private int maxTime = 45;
         [SerializeField]
-        private float ratePerVolume = 100;
+        private float multiplierPerVolume = 1;
         public const string PROP_STOPPED = "Stopped";
     }
 }

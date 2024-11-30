@@ -13,7 +13,7 @@ namespace MVZ2.Models
             if (lastID != fragID)
             {
                 lastID = fragID;
-                var main = particles.main;
+                var main = particles.Particles.main;
                 var gradient = defaultGradient;
                 if (fragID != null)
                 {
@@ -37,7 +37,7 @@ namespace MVZ2.Models
             }
         };
         [SerializeField]
-        private ParticleSystem particles;
+        private ParticlePlayer particles;
         private NamespaceID lastID;
     }
 }

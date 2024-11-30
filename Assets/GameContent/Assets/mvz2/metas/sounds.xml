@@ -11,10 +11,13 @@
         <sample path="mvz2:damage/bone/bone_hit2" weight="1" />
         <sample path="mvz2:damage/bone/bone_hit3" weight="1" />
     </sound>
-    <sound name="bone_wall_build">
+    <sound name="bone_wall_build" maxCount="1">
         <sample path="mvz2:entity/bone_wall/bone_wall_build1" weight="1" />
         <sample path="mvz2:entity/bone_wall/bone_wall_build2" weight="1" />
         <sample path="mvz2:entity/bone_wall/bone_wall_build3" weight="1" />
+    </sound>
+    <sound name="bone_wall_destroyed">
+        <sample path="mvz2:entity/bone_wall/bone_wall_destroyed" weight="1" />
     </sound>
     <sound name="bow">
         <sample path="mvz2:bow" weight="1" />
@@ -225,6 +228,9 @@
     </sound>
     <sound name="refuel">
         <sample path="mvz2:refuel" weight="1" />
+    </sound>
+    <sound name="revive_cast">
+        <sample path="mvz2:revive_cast" weight="1" />
     </sound>
     <sound name="shell_case" maxCount="4">
         <sample path="mvz2:shell_case_drop" weight="1" />

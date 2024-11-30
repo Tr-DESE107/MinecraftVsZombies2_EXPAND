@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Effects
         public const string mummyGas = "mummy_gas";
         public const string burningGas = "burning_gas";
         public const string healParticles = "heal_particles";
+        public const string boneParticles = "bone_particles";
     }
     public static class VanillaEffectID
     {
@@ -46,6 +47,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID mummyGas = Get(VanillaEffectNames.mummyGas);
         public static readonly NamespaceID burningGas = Get(VanillaEffectNames.burningGas);
         public static readonly NamespaceID healParticles = Get(VanillaEffectNames.healParticles);
+        public static readonly NamespaceID boneParticles = Get(VanillaEffectNames.boneParticles);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

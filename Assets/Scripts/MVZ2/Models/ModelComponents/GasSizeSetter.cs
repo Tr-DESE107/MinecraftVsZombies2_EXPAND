@@ -12,46 +12,50 @@ namespace MVZ2.Models
             size *= MainManager.Instance.LevelManager.LawnToTransScale;
             var volume = size.x * (size.y + size.z);
 
-            var gasLightEmission = gasLight.emission;
-            var gasEmission = gas.emission;
-            gasEmission.rateOverTime = volume * ratePerVolume;
-            gasLightEmission.rateOverTime = volume * ratePerVolume;
+            var gasPS = gas.Particles;
+            var gasLightPS = gasLight.Particles;
+            var smokePS = smoke.Particles;
 
-            var gasLightShape = gasLight.shape;
-            var gasShape = gas.shape;
+            var gasLightEmission = gasLightPS.emission;
+            var gasLightShape = gasLightPS.shape;
+            var gasEmission = gasPS.emission;
+            var gasShape = gasPS.shape;
+            var smokeShape = smokePS.shape;
+            gasEmission.rateOverTimeMultiplier *= volume * rateMultiplierPerVolume;
+            gasLightEmission.rateOverTimeMultiplier *= volume * rateMultiplierPerVolume;
+
             gasShape.scale = new Vector3(size.x, size.y + size.z, 1);
             gasLightShape.scale = new Vector3(size.x, size.y + size.z, 1);
 
-            var smokeShape = smoke.shape;
             smokeShape.scale = new Vector3(size.x, 1, 0.1f);
 
             if (Model.GetProperty<bool>(PROP_STOPPED))
             {
-                if (gas.isEmitting)
-                    gas.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                if (gasLight.isEmitting)
-                    gasLight.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                if (smoke.isEmitting)
-                    smoke.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                if (gasPS.isEmitting)
+                    gasPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                if (gasLightPS.isEmitting)
+                    gasLightPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                if (smokePS.isEmitting)
+                    smokePS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
             else
             {
-                if (!gas.isEmitting)
-                    gas.Play(true);
-                if (!gasLight.isEmitting)
-                    gasLight.Play(true);
-                if (!smoke.isEmitting)
-                    smoke.Play(true);
+                if (!gasPS.isEmitting)
+                    gasPS.Play(true);
+                if (!gasLightPS.isEmitting)
+                    gasLightPS.Play(true);
+                if (!smokePS.isEmitting)
+                    smokePS.Play(true);
             }
         }
         [SerializeField]
-        private ParticleSystem gasLight;
+        private ParticlePlayer gasLight;
         [SerializeField]
-        private ParticleSystem gas;
+        private ParticlePlayer gas;
         [SerializeField]
-        private ParticleSystem smoke;
+        private ParticlePlayer smoke;
         [SerializeField]
-        private float ratePerVolume = 20;
+        private float rateMultiplierPerVolume = 1;
         public const string PROP_STOPPED = "Stopped";
     }
 }

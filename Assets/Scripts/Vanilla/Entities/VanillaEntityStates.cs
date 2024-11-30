@@ -28,5 +28,6 @@ namespace MVZ2.Vanilla.Entities
         public const int PUNCHTON_BROKEN = CONTRAPTION_COOLDOWN;
 
 
+        public const int NECROMANCER_CAST = ENEMY_CAST;
     }
 }

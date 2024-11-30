@@ -190,10 +190,28 @@
             <id name="crySound" value="mvz2:ghost_cry"/>
             <id name="deathSound" value="mvz2:ghost_death"/>
         </enemy>
-        <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子" unlock="mvz2:level.halloween_6">
+        <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
             <id name="shell" value="mvz2:mummy"/>
             <id name="crySound" value="mvz2:mummy_cry"/>
             <id name="deathSound" value="mvz2:mummy_death"/>
+        </enemy>
+        <enemy id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值" unlock="mvz2:level.halloween_8">
+            <id name="shell" value="mvz2:bone"/>
+            <id name="crySound" value="mvz2:skeleton_cry"/>
+            <id name="deathSound" value="mvz2:skeleton_death"/>
+        </enemy>
+
+        <!-- Token Enemies-->
+        <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
+            <bool name="harmless" value="true"/>
+            <int name="maxTimeout" value="240"/>
+            <float name="friction" value="1"/>
+            <float name="speed" value="0"/>
+            <float name="maxHealth" value="350"/>
+            <vector3 name="size" x="80" y="80" z="60"/>
+            <id name="shell" value="mvz2:bone"/>
+            <id name="crySound" null="true"/>
+            <id name="deathSound" value="mvz2:bone_wall_destroyed"/>
         </enemy>
 
         <!-- Obstacles -->
@@ -349,6 +367,9 @@
             <color name="tint" value="#00FF00" />
             <vector3 name="size" x="40" y="40" z="40" />
             <id name="modelID" value="mvz2:entity.magic_stars" />
+        </effect>
+        <effect id="bone_particles">
+            <int name="maxTimeout" value="30"/>
         </effect>
     </entries>
 </entities>
