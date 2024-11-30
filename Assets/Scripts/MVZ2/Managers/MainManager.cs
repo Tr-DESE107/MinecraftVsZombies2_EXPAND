@@ -37,6 +37,7 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableAdviceComponent>();
             SerializeHelper.RegisterClass<SerializableLightComponent>();
             SerializeHelper.RegisterClass<SerializableUIComponent>();
+            SerializeHelper.RegisterClass<SerializableSoundComponent>();
             SerializeHelper.RegisterClass<EmptySerializableLevelComponent>();
 
             ModifierHelper.Init();

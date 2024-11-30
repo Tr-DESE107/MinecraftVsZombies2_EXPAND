@@ -55,10 +55,10 @@
         <sample path="mvz2:random/crystal/crystal_place3" weight="1" />
         <sample path="mvz2:random/crystal/crystal_place4" weight="1" />
     </sound>
-    <sound name="dark_skies_cast" maxCount="3">
+    <sound name="dark_skies_cast" maxCount="10">
         <sample path="mvz2:dark_skies_cast" weight="1" />
     </sound>
-    <sound name="dark_skies_impact" maxCount="3">
+    <sound name="dark_skies_impact" maxCount="10">
         <sample path="mvz2:dark_skies_impact" weight="1" />
     </sound>
     <sound name="diamond" maxCount="3">
@@ -103,7 +103,7 @@
         <sample path="mvz2:entity/gargoyle/gargoyle3" weight="1" />
         <sample path="mvz2:entity/gargoyle/gargoyle4" weight="1" />
     </sound>
-    <sound name="gargoyle_death" maxCount="3">
+    <sound name="gargoyle_death">
         <sample path="mvz2:entity/gargoyle/gargoyle_death" weight="1" />
     </sound>
     <sound name="ghast_cry">
@@ -120,7 +120,7 @@
         <sample path="mvz2:entity/ghost/ghost_cry2" weight="1" />
         <sample path="mvz2:entity/ghost/ghost_cry3" weight="1" />
     </sound>
-    <sound name="ghost_death" maxCount="3">
+    <sound name="ghost_death">
         <sample path="mvz2:entity/ghost/ghost_death" weight="1" />
     </sound>
     <sound name="glass">
@@ -183,7 +183,7 @@
         <sample path="mvz2:entity/mummy/mummy2" weight="1" />
         <sample path="mvz2:entity/mummy/mummy3" weight="1" />
     </sound>
-    <sound name="mummy_death" maxCount="3">
+    <sound name="mummy_death">
         <sample path="mvz2:entity/mummy/mummy_death" weight="1" />
     </sound>
     <sound name="odd">
@@ -217,7 +217,7 @@
         <sample path="mvz2:entity/pot/pot_break4" weight="1" />
         <sample path="mvz2:entity/pot/pot_break5" weight="1" />
     </sound>
-    <sound name="potion">
+    <sound name="potion" maxCount="3">
         <sample path="mvz2:potion" weight="1" />
     </sound>
     <sound name="punch">
@@ -250,7 +250,7 @@
         <sample path="mvz2:entity/skeleton/skeleton_cry2" weight="1" />
         <sample path="mvz2:entity/skeleton/skeleton_cry3" weight="1" />
     </sound>
-    <sound name="skeleton_death" maxCount="3">
+    <sound name="skeleton_death">
         <sample path="mvz2:entity/skeleton/skeleton_death" weight="1" />
     </sound>
     <sound name="slice">
@@ -283,7 +283,7 @@
     <sound name="spring" priority="64">
         <sample path="mvz2:spring" weight="1" />
     </sound>
-    <sound name="starshard_appear" maxCount="3">
+    <sound name="starshard_appear">
         <sample path="mvz2:starshard_appear" weight="1" />
     </sound>
     <sound name="starshard_use">
@@ -372,7 +372,7 @@
         <sample path="mvz2:entity/zombie/zombie_cry2" weight="1" />
         <sample path="mvz2:entity/zombie/zombie_cry3" weight="1" />
     </sound>
-    <sound name="zombie_death" maxCount="3">
+    <sound name="zombie_death">
         <sample path="mvz2:entity/zombie/zombie_death" weight="1" />
     </sound>
 </sounds>

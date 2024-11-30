@@ -177,6 +177,7 @@ namespace MVZ2.Level
                 optionsLogic = null;
             }
             level?.Dispose();
+            level.StopAllLoopSounds();
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {

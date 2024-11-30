@@ -3,6 +3,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 
@@ -26,6 +27,7 @@ namespace MVZ2.GameContent.Effects
                 EntityCollision.MASK_OBSTACLE |
                 EntityCollision.MASK_PROJECTILE |
                 EntityCollision.MASK_EFFECT;
+            entity.Level.AddLoopSoundEntity(VanillaSoundID.poisonGas, entity.ID);
         }
         public override void Update(Entity entity)
         {

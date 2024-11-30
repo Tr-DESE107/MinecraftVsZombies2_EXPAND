@@ -36,6 +36,12 @@ namespace MVZ2Logic.Level.Components
     {
         void PlaySound(NamespaceID id, Vector3 position, float pitch = 1);
         void PlaySound(NamespaceID id, float pitch = 1);
+        void StopAllLoopSounds();
+        bool IsPlayingLoopSound(NamespaceID id);
+        bool AddLoopSoundEntity(NamespaceID id, long entityId);
+        bool RemoveLoopSoundEntity(NamespaceID id, long entityId);
+        bool HasLoopSoundEntities(NamespaceID id);
+        NamespaceID[] GetLoopSounds();
     }
     public interface ITalkComponent : ILevelComponent
     {
