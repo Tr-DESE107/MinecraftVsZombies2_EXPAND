@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Recharges;
@@ -25,6 +26,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public SoulFurnace(string nsp, string name) : base(nsp, name)
         {
+            evocationDetector = new SoulFurnaceEvocationDetector();
         }
 
         public override void Init(Entity entity)
@@ -184,10 +186,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private bool IsEvocationEnemy(Entity entity, Entity target)
         {
-            return entity.IsHostile(target) &&
-                !target.IsDead &&
-                Detection.IsInFrontOf(entity, target, 0) &&
-                Detection.CoincidesYDown(target, entity.GetBounds().max.y);
+            return evocationDetector.Validate(entity, target);
         }
         private void EvokedUpdate(Entity entity)
         {
@@ -222,5 +221,6 @@ namespace MVZ2.GameContent.Contraptions
 
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
+        private Detector evocationDetector;
     }
 }
