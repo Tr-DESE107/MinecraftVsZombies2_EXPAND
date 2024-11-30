@@ -21,8 +21,8 @@ namespace MVZ2.Models
             var gasEmission = gasPS.emission;
             var gasShape = gasPS.shape;
             var smokeShape = smokePS.shape;
-            gasEmission.rateOverTimeMultiplier *= volume * rateMultiplierPerVolume;
-            gasLightEmission.rateOverTimeMultiplier *= volume * rateMultiplierPerVolume;
+            gas.OverrideRateOverTime(volume * ratePerVolume);
+            gasLight.OverrideRateOverTime(volume * ratePerVolume);
 
             gasShape.scale = new Vector3(size.x, size.y + size.z, 1);
             gasLightShape.scale = new Vector3(size.x, size.y + size.z, 1);
@@ -55,7 +55,7 @@ namespace MVZ2.Models
         [SerializeField]
         private ParticlePlayer smoke;
         [SerializeField]
-        private float rateMultiplierPerVolume = 1;
+        private float ratePerVolume = 20;
         public const string PROP_STOPPED = "Stopped";
     }
 }

@@ -143,7 +143,7 @@ MonoBehaviour:
   gasLight: {fileID: 1938399993437993420}
   gas: {fileID: 4632064489056528365}
   smoke: {fileID: 4019434943150148812}
-  rateMultiplierPerVolume: 1
+  ratePerVolume: 20
 --- !u!1001 &1856376231247235435
 PrefabInstance:
   m_ObjectHideFlags: 0

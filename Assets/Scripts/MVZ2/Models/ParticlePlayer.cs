@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Reflection;
 using MVZ2.Managers;
 using UnityEngine;
 
@@ -41,6 +42,27 @@ namespace MVZ2.Models
                 burst.count = MultiplyCurve(burst.count, multiplier);
                 emission.SetBurst(i, burst);
             }
+        }
+        public void OverrideRateOverTime(float rate)
+        {
+            var emission = Particles.emission;
+            emission.rateOverTimeMultiplier = rate * GetAmountMultiplier();
+        }
+        public void OverrideRateOverDistance(float rate)
+        {
+            var emission = Particles.emission;
+            emission.rateOverDistanceMultiplier = rate * GetAmountMultiplier();
+        }
+        public void Emit(float count)
+        {
+            var intCount = (int)(count * GetAmountMultiplier());
+            emitModular += count - intCount;
+            if (emitModular > 1)
+            {
+                intCount += (int)emitModular;
+                emitModular %= 1;
+            }
+            Particles.Emit(intCount);
         }
         public static ParticleSystem.MinMaxCurve MultiplyCurve(ParticleSystem.MinMaxCurve curve, float multiplier)
         {
@@ -89,6 +111,7 @@ namespace MVZ2.Models
         private ParticleSystem particles;
         [SerializeField]
         private float minAmount = 0;
+        private float emitModular = 0;
     }
     public class SerializableParticleSystem
     {

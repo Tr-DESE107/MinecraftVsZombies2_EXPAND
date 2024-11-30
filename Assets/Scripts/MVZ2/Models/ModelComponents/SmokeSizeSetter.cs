@@ -21,7 +21,7 @@ namespace MVZ2.Models
             scale.y *= 0.333333f;
             shape.scale = scale;
             shape.position = Vector2.up * scale.y * 0.5f;
-            ps.Emit(Mathf.CeilToInt(100 * volume * particles.GetAmountMultiplier()));
+            particles.Emit(100 * volume);
         }
         [SerializeField]
         private ParticlePlayer particles;

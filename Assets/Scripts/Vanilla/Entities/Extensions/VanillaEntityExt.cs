@@ -220,7 +220,6 @@ namespace MVZ2.Vanilla.Entities
                 return;
             var level = entity.Level;
             var blocksFire = shell.BlocksFire();
-            var hitSound = shell.GetProperty<NamespaceID>(VanillaShellProps.HIT_SOUND);
             if (damageEffects.HasEffect(VanillaDamageEffects.FIRE) && !blocksFire)
             {
                 entity.PlaySound(VanillaSoundID.fire);
@@ -231,16 +230,17 @@ namespace MVZ2.Vanilla.Entities
             }
             else
             {
-                entity.PlaySound(hitSound);
+                var hitSound = entity.GetHitSound();
+                if (NamespaceID.IsValid(hitSound))
+                {
+                    entity.PlaySound(hitSound);
+                }
+                else
+                {
+                    var shellHitSound = shell.GetProperty<NamespaceID>(VanillaShellProps.HIT_SOUND);
+                    entity.PlaySound(shellHitSound);
+                }
             }
-        }
-        public static NamespaceID GetPlaceSound(this EntityDefinition definition)
-        {
-            return definition.GetProperty<NamespaceID>(VanillaEntityProps.PLACE_SOUND);
-        }
-        public static NamespaceID GetDeathSound(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID>(VanillaEntityProps.DEATH_SOUND);
         }
 
         #endregion

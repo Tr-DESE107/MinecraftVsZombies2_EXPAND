@@ -16,9 +16,8 @@ namespace MVZ2.Models
             var percentage = Mathf.Clamp01((maxTime - timeout) / (float)expandTime);
 
             var firePS = fires.Particles;
-            var fireEmission = firePS.emission;
             var fireShape = firePS.shape;
-            fireEmission.rateOverTimeMultiplier *= volume * multiplierPerVolume * percentage;
+            fires.OverrideRateOverTime(volume * ratePerVolume * percentage);
             fireShape.scale = new Vector3(size.x, size.y + size.z, 1) * percentage;
         }
         [SerializeField]
@@ -28,7 +27,7 @@ namespace MVZ2.Models
         [SerializeField]
         private int maxTime = 45;
         [SerializeField]
-        private float multiplierPerVolume = 1;
+        private float ratePerVolume = 200;
         public const string PROP_STOPPED = "Stopped";
     }
 }

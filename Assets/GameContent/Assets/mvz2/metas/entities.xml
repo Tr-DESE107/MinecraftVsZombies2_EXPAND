@@ -149,8 +149,8 @@
         <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料" unlock="mvz2:level.halloween_7">
             <float name="damage" value="60"/>
             <float name="range" value="800"/>
-            <id name="placeSound" value="mvz2:wood"/>
             <id name="shell" value="mvz2:wood"/>
+            <id name="placeSound" value="mvz2:wood"/>
             <id name="deathSound" value="mvz2:wood"/>
             <id name="projectileID" value="mvz2:soulfire_ball"/>
             <id name="shootSound" value="mvz2:fire"/>
@@ -191,7 +191,8 @@
             <id name="deathSound" value="mvz2:ghost_death"/>
         </enemy>
         <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
-            <id name="shell" value="mvz2:mummy"/>
+            <id name="shell" value="mvz2:grass"/>
+            <id name="hitSound" value="mvz2:splat"/>
             <id name="crySound" value="mvz2:mummy_cry"/>
             <id name="deathSound" value="mvz2:mummy_death"/>
         </enemy>

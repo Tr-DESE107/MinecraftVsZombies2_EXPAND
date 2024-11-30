@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 1252887519594754336}
-  emitSpeedMultiplier: 0.1
+  emitSpeedMultiplier: 0.5
 --- !u!114 &8313819654742950868
 MonoBehaviour:
   m_ObjectHideFlags: 0

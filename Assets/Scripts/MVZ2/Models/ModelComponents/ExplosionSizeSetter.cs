@@ -26,10 +26,10 @@ namespace MVZ2.Models
             var smokeMain = smokePs.main;
 
             explosionShape.scale = size;
-            explosionPs.Emit(Mathf.CeilToInt(explosionParticleCount * volume * explosionParticles.GetAmountMultiplier()));
+            explosionParticles.Emit(explosionParticleCount * volume);
 
             smokeMain.startSpeedMultiplier = maxRadius * smokeSpeedMultiplier;
-            smokePs.Emit(Mathf.CeilToInt(smokeParticleCount * volume * smokeParticles.GetAmountMultiplier()));
+            smokeParticles.Emit(smokeParticleCount * volume);
         }
         [SerializeField]
         private ParticlePlayer explosionParticles;

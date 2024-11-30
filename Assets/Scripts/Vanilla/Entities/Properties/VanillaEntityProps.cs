@@ -78,8 +78,22 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(AI_FROZEN);
         }
+        public const string HIT_SOUND = "hitSound";
         public const string DEATH_SOUND = "deathSound";
         public const string PLACE_SOUND = "placeSound";
+        public static NamespaceID GetHitSound(this Entity entity)
+        {
+            return entity.GetProperty<NamespaceID>(HIT_SOUND);
+        }
+        public static NamespaceID GetPlaceSound(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(PLACE_SOUND);
+        }
+        public static NamespaceID GetDeathSound(this Entity entity)
+        {
+            return entity.GetProperty<NamespaceID>(DEATH_SOUND);
+        }
+
         public const string MAX_TIMEOUT = "maxTimeout";
 
         public const string CHANGING_LANE = "isChangingLane";

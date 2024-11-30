@@ -14,7 +14,21 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID)
         {
-            return entity.ShootProjectile(projectileID, entity.GetShotVelocity());
+            var velocity = entity.GetShotVelocity();
+            if (entity.IsFacingLeft())
+            {
+                velocity.x *= -1;
+            }
+            return entity.ShootProjectile(projectileID, velocity);
+        }
+        public static Vector3 GetShootPoint(this Entity entity)
+        {
+            Vector3 offset = entity.GetShotOffset();
+            if (entity.IsFacingLeft())
+            {
+                offset.x *= -1;
+            }
+            return entity.Position + offset;
         }
         public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID, Vector3 velocity)
         {
@@ -29,15 +43,6 @@ namespace MVZ2.Vanilla.Entities
             projectile.SetFaction(entity.GetFaction());
             projectile.Velocity = velocity;
             return projectile;
-        }
-        public static Vector3 GetShootPoint(this Entity entity)
-        {
-            Vector3 offset = entity.GetShotOffset();
-            if (entity.IsFacingLeft())
-            {
-                offset.x *= -1;
-            }
-            return entity.Position + offset;
         }
         public static Vector3 GetLobVelocity(Vector3 source, Vector3 target, float maxY, float gravity, bool passesMaxY = true)
         {
