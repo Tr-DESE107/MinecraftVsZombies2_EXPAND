@@ -1,10 +1,14 @@
 using System;
+using MVZ2.Level;
+using MVZ2Logic.HeldItems;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace MVZ2.Grids
 {
-    public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ILevelRaycastReceiver
     {
         public void SetColor(Color color)
         {
@@ -25,6 +29,13 @@ namespace MVZ2.Grids
         void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
         {
             OnPointerUp?.Invoke(eventData);
+        }
+        bool ILevelRaycastReceiver.IsValidHeldItem(LevelEngine level, HeldItemDefinition definition, long id)
+        {
+            if (!definition.IsForGrid())
+                return false;
+            var flags = definition.GetHeldFlagsOnGrid(level.GetGrid(Column, Lane), id);
+            return flags.HasFlag(HeldFlags.Valid);
         }
         public event Action<PointerEventData> OnPointerEnter;
         public event Action<PointerEventData> OnPointerExit;

@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -63,10 +64,12 @@ namespace MVZ2.Level
             {
                 layers.Add(Layers.PICKUP);
             }
+            var definition = Game.GetHeldItemDefinition(heldType);
             LayerMask layerMask = Layers.GetMask(layers.ToArray());
             var uiPreset = GetUIPreset();
             uiPreset.SetRaycasterMask(layerMask);
-            raycaster.eventMask = layerMask;
+            levelRaycaster.eventMask = layerMask;
+            levelRaycaster.SetHeldItem(definition, id);
         }
         public void ShowMoney()
         {
@@ -710,7 +713,7 @@ namespace MVZ2.Level
 
         [Header("UI")]
         [SerializeField]
-        private Physics2DRaycaster raycaster;
+        private LevelRaycaster levelRaycaster;
         [SerializeField]
         private LevelUIPreset standaloneUI;
         [SerializeField]

@@ -167,6 +167,7 @@ namespace MVZ2.Level
             ApplyComponents(level);
             level.DeserializeComponents(seri);
             game.SetLevel(level);
+            levelRaycaster.Init(level);
             return level;
         }
         #endregion

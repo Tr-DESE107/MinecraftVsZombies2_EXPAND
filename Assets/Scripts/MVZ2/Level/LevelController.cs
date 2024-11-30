@@ -41,6 +41,7 @@ namespace MVZ2.Level
 
             ApplyComponents(level);
             game.SetLevel(level);
+            levelRaycaster.Init(level);
 
             AddLevelCallbacks();
             level.IsRerun = Saves.IsLevelCleared(stageID);
@@ -533,20 +534,6 @@ namespace MVZ2.Level
                     OnLeftPointerUp(touch.position);
                 }
             }
-        }
-        private T GetRaycastComponent<T>(Vector2 screenPosition) where T : Component
-        {
-            List<RaycastResult> raycastResults = new List<RaycastResult>();
-            raycaster.Raycast(new PointerEventData(EventSystem.current) { position = screenPosition }, raycastResults);
-            foreach (var raycastResult in raycastResults)
-            {
-                if (!raycastResult.isValid)
-                    continue;
-                var grid = raycastResult.gameObject.GetComponentInParent<T>();
-                if (grid)
-                    return grid;
-            }
-            return null;
         }
         private GameObject GetRaycastGameObject(Vector2 screenPosition)
         {

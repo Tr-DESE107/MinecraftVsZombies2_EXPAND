@@ -225,7 +225,7 @@ MonoBehaviour:
   gridColorTransparent: {r: 1, g: 1, b: 1, a: 0.5}
   gridLayout: {fileID: 3480427647060660223}
   talkController: {fileID: 7008064119095903814}
-  raycaster: {fileID: 8799896041568311218}
+  levelRaycaster: {fileID: 3990864811830621097}
   standaloneUI: {fileID: 1587674339041403651}
   mobileUI: {fileID: 6042123331359194785}
   pauseImages:
@@ -1014,6 +1014,7 @@ GameObject:
   - component: {fileID: 5688558009243481780}
   - component: {fileID: 7497802751953653736}
   - component: {fileID: 8799896041568311218}
+  - component: {fileID: 3990864811830621097}
   - component: {fileID: 8565073089687882276}
   - component: {fileID: 7788294606768908441}
   m_Layer: 0
@@ -1111,7 +1112,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 31670
+  m_MaxRayIntersections: 0
+--- !u!114 &3990864811830621097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580299581115580701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe86d971646c2a64f90e0e8f745c66d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 1089
   m_MaxRayIntersections: 0
 --- !u!114 &8565073089687882276
 MonoBehaviour:

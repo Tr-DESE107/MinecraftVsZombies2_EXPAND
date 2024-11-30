@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
 using MVZ2.Level;
+using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
@@ -17,10 +18,11 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Entities
 {
-    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, ILevelRaycastReceiver
     {
         #region 公有方法
         public void Init(LevelController level, Entity entity)
@@ -136,7 +138,7 @@ namespace MVZ2.Entities
         private void Update()
         {
             var engine = Entity.Level;
-            bool cursorValid = isHovered && Level.IsGameRunning() && !engine.IsHoldingItem() && engine.GetHeldFlagsOnEntity(Entity).HasFlag(HeldFlags.Valid);
+            bool cursorValid = isHovered && Level.IsGameRunning() && !engine.IsHoldingItem();
             if (cursorValid)
             {
                 if (_cursorSource == null)
@@ -309,6 +311,21 @@ namespace MVZ2.Entities
         {
             OnPointerDown?.Invoke(this, eventData);
         }
+        bool ILevelRaycastReceiver.IsValidHeldItem(LevelEngine level, HeldItemDefinition definition, long id)
+        {
+            if (Entity.Type == EntityTypes.PICKUP)
+            {
+                if (!definition.IsForPickup())
+                    return false;
+            }
+            else
+            {
+                if (!definition.IsForEntity())
+                    return false;
+            }
+            var flags = definition.GetHeldFlagsOnEntity(Entity, id);
+            return flags.HasFlag(HeldFlags.Valid);
+        }
         #endregion
 
         #region 位置
@@ -431,7 +448,7 @@ namespace MVZ2.Entities
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
-            if (isHovered && Entity.Level.IsHoldingItem() && Entity.Level.GetHeldFlagsOnEntity(Entity).HasFlag(HeldFlags.Valid))
+            if (isHovered && Entity.Level.IsHoldingItem())
             {
                 color = ColorCalculator.Blend(new Color(1, 1, 1, 0.5f), color, BlendOperator.SrcAlpha, BlendOperator.OneMinusSrcAlpha);
             }
