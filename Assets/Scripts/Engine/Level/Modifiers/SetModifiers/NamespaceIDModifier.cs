@@ -9,5 +9,9 @@
         public NamespaceIDModifier(string propertyName, string buffPropertyName) : base(propertyName, buffPropertyName)
         {
         }
+        public override ModifierCalculator GetCalculator()
+        {
+            return CalculatorMap.namespaceIDCalculator;
+        }
     }
 }

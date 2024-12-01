@@ -13,6 +13,7 @@ namespace PVZEngine.Buffs
             if (buff == null)
                 return false;
             buffs.Add(buff);
+            AddModifierCaches(buff);
             return true;
         }
         public bool RemoveBuff(Buff buff)
@@ -22,6 +23,7 @@ namespace PVZEngine.Buffs
             if (buffs.Remove(buff))
             {
                 buff.RemoveFromTarget();
+                RemoveModifierCaches(buff);
                 return true;
             }
             return false;
@@ -66,21 +68,20 @@ namespace PVZEngine.Buffs
             if (buffs.Count == 0)
                 return value;
 
-            var modifiers = buffs.SelectMany(buff => buff.GetModifiers(name).Select(modifier => new BuffModifierItem(buff, modifier)));
-            if (modifiers.Count() == 0)
+            var modifiers = GetModifierCaches(name);
+            if (modifiers == null || modifiers.Count == 0)
                 return value;
 
-            var modifierTypes = modifiers.Select(p => p.modifier.GetType()).Distinct();
-
-            if (modifierTypes.Count() > 1)
-                throw new MultipleValueModifierException($"Modifiers of property {name} has multiple modifiers with different types : {string.Join(',', modifierTypes)}");
-
-            var modifierType = modifierTypes.First();
-            var calculator = ModifierMap.GetCalculator(modifierType);
-
+            var calculators = modifiers.Select(p => p.modifier.GetCalculator()).Where(p => p != null).Distinct();
+            ModifierCalculator calculator = null;
+            foreach (var calc in calculators)
+            {
+                if (calculator != null)
+                    throw new MultipleValueModifierException($"Modifiers of property {name} has multiple different calculators: {string.Join(',', calculators)}");
+                calculator = calc;
+            }
             if (calculator == null)
-                throw new NullReferenceException($"Calculator for modifier type {modifierType} does not exists.");
-
+                throw new NullReferenceException($"Calculator for property {name} does not exists.");
             return calculator.Calculate(value, modifiers);
         }
         public SerializableBuffList ToSerializable()
@@ -90,19 +91,54 @@ namespace PVZEngine.Buffs
                 buffs = buffs.ConvertAll(b => b.Serialize())
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList buffList, LevelEngine level, IBuffTarget target)
+        private void AddModifierCaches(Buff buff)
         {
-            return new BuffList()
+            foreach (var modifier in buff.GetModifiers())
             {
-                buffs = buffList.buffs.ConvertAll(b => Buff.Deserialize(b, level, target))
+                var name = modifier.PropertyName;
+                if (!modifierCaches.TryGetValue(name, out var list))
+                {
+                    list = new List<BuffModifierItem>();
+                    modifierCaches.Add(name, list);
+                }
+                list.Add(new BuffModifierItem(buff, modifier));
+            }
+        }
+        private void RemoveModifierCaches(Buff buff)
+        {
+            foreach (var modifier in buff.GetModifiers())
+            {
+                var name = modifier.PropertyName;
+                if (!modifierCaches.TryGetValue(name, out var list))
+                    continue;
+                list.RemoveAll(b => b.buff == buff);
+            }
+        }
+        private void UpdateModifierCaches()
+        {
+            foreach (var buff in buffs)
+            {
+                AddModifierCaches(buff);
+            }
+        }
+        private List<BuffModifierItem> GetModifierCaches(string name)
+        {
+            if (modifierCaches.TryGetValue(name, out var list))
+                return list;
+            return null;
+        }
+        public static BuffList FromSerializable(SerializableBuffList serializable, LevelEngine level, IBuffTarget target)
+        {
+            var buffList = new BuffList()
+            {
+                buffs = serializable.buffs.ConvertAll(b => Buff.Deserialize(b, level, target))
             };
+            buffList.UpdateModifierCaches();
+            return buffList;
         }
         private List<Buff> buffs = new List<Buff>();
+        private Dictionary<string, List<BuffModifierItem>> modifierCaches = new Dictionary<string, List<BuffModifierItem>>();
     }
-}
-
-namespace PVZEngine.Level
-{
     public class MultipleValueModifierException : Exception
     {
         public MultipleValueModifierException(string message) : base(message)

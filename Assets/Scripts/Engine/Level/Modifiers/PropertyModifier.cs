@@ -37,6 +37,7 @@ namespace PVZEngine.Modifiers
                 return ConstValue;
             }
         }
+        public abstract ModifierCalculator GetCalculator();
         public string PropertyName { get; set; }
         public object ConstValue { get; set; }
         public string UsingBuffPropertyName { get; set; }

@@ -9,5 +9,9 @@
         public FloatModifier(string propertyName, NumberOperator op, string buffPropertyName) : base(propertyName, op, buffPropertyName)
         {
         }
+        public override ModifierCalculator GetCalculator()
+        {
+            return CalculatorMap.floatCalculator;
+        }
     }
 }

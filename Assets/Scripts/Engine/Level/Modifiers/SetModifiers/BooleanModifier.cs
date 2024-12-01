@@ -9,5 +9,9 @@
         public BooleanModifier(string propertyName, string buffPropertyName) : base(propertyName, buffPropertyName)
         {
         }
+        public override ModifierCalculator GetCalculator()
+        {
+            return CalculatorMap.booleanCalculator;
+        }
     }
 }

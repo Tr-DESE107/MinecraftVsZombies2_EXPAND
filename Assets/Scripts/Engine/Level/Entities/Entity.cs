@@ -19,6 +19,7 @@ namespace PVZEngine.Entities
         {
             Level = level;
             Type = type;
+            TypeCollisionFlag = EntityCollision.GetTypeMask(type);
             ID = id;
             SpawnerReference = spawnerReference;
         }
@@ -641,6 +642,7 @@ namespace PVZEngine.Entities
         public int State { get; set; }
         public Entity Target { get; set; }
         public bool IsOnGround { get; private set; } = true;
+        internal int TypeCollisionFlag { get; }
 
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private long currentBuffID = 1;

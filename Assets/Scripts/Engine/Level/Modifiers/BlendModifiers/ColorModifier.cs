@@ -31,5 +31,9 @@ namespace PVZEngine.Modifiers
         {
             return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, buffPropertyName);
         }
+        public override ModifierCalculator GetCalculator()
+        {
+            return CalculatorMap.colorCalculator;
+        }
     }
 }

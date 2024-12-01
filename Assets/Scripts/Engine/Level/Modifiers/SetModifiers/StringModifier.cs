@@ -13,5 +13,9 @@
                 UsingBuffPropertyName = buffPropertyName
             };
         }
+        public override ModifierCalculator GetCalculator()
+        {
+            return CalculatorMap.stringCalculator;
+        }
     }
 }

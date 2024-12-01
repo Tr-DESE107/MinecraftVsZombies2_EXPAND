@@ -1,4 +1,6 @@
-﻿namespace PVZEngine.Entities
+﻿using System.Collections.Generic;
+
+namespace PVZEngine.Entities
 {
     public static class EntityCollision
     {
@@ -14,33 +16,26 @@
         public const int STATE_ENTER = 0;
         public const int STATE_STAY = 1;
         public const int STATE_EXIT = 2;
-        public static bool CanCollide(int mask, Entity other)
+        public static bool CanCollide(int collisionMask, Entity entity)
         {
-            int typeMask = GetTypeMask(other.Type);
-            return (mask & typeMask) > 0;
+            return (collisionMask & entity.TypeCollisionFlag) > 0;
         }
-        private static int GetTypeMask(int type)
+        public static int GetTypeMask(int type)
         {
-            switch (type)
-            {
-                case EntityTypes.PLANT:
-                    return MASK_PLANT;
-                case EntityTypes.ENEMY:
-                    return MASK_ENEMY;
-                case EntityTypes.OBSTACLE:
-                    return MASK_OBSTACLE;
-                case EntityTypes.BOSS:
-                    return MASK_BOSS;
-                case EntityTypes.CART:
-                    return MASK_CART;
-                case EntityTypes.PICKUP:
-                    return MASK_PICKUP;
-                case EntityTypes.PROJECTILE:
-                    return MASK_PROJECTILE;
-                case EntityTypes.EFFECT:
-                    return MASK_EFFECT;
-            }
+            if (typeMaskDict.TryGetValue(type, out var mask))
+                return mask;
             return 0;
         }
+        private static Dictionary<int, int> typeMaskDict = new Dictionary<int, int>()
+        {
+            { EntityTypes.PLANT, MASK_PLANT },
+            { EntityTypes.ENEMY, MASK_ENEMY },
+            { EntityTypes.OBSTACLE, MASK_OBSTACLE },
+            { EntityTypes.BOSS, MASK_BOSS },
+            { EntityTypes.CART, MASK_CART },
+            { EntityTypes.PICKUP, MASK_PICKUP },
+            { EntityTypes.PROJECTILE, MASK_PROJECTILE },
+            { EntityTypes.EFFECT, MASK_EFFECT },
+        };
     }
 }
