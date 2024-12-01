@@ -34,6 +34,11 @@ namespace MVZ2.GameContent.Enemies
             }
             return base.GetActionState(enemy);
         }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
+        }
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
