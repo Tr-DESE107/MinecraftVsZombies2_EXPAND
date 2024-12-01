@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string punchton = "punchton";
         public const string tnt = "tnt";
         public const string soulFurnace = "soul_furnace";
+        public const string silvenser = "silvenser";
 
         public const string lilyPad = "lily_pad";
     }
@@ -32,6 +33,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID punchton = Get(VanillaContraptionNames.punchton);
         public static readonly NamespaceID tnt = Get(VanillaContraptionNames.tnt);
         public static readonly NamespaceID soulFurnace = Get(VanillaContraptionNames.soulFurnace);
+        public static readonly NamespaceID silvenser = Get(VanillaContraptionNames.silvenser);
 
         public static readonly NamespaceID lilyPad = Get(VanillaContraptionNames.lilyPad);
         private static NamespaceID Get(string name)

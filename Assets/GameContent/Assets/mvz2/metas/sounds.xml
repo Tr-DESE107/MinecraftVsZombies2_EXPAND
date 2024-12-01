@@ -269,6 +269,9 @@
     <sound name="sparkle">
         <sample path="mvz2:sparkle" weight="1" />
     </sound>
+    <sound name="spell_card">
+        <sample path="mvz2:spell_card" weight="1" />
+    </sound>
     <sound name="spider_cry">
         <sample path="mvz2:spider_cry1" weight="1" />
         <sample path="mvz2:spider_cry2" weight="1" />

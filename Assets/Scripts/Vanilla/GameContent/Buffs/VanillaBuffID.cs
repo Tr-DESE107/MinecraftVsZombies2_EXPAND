@@ -28,6 +28,9 @@ namespace MVZ2.GameContent.Buffs
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
 
+        // Projectile
+        public const string projectileWait = "projectile_wait";
+
         // Cart
         public const string cartFadeIn = "cart_fade_in";
 

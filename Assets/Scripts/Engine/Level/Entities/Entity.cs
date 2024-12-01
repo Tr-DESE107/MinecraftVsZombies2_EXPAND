@@ -276,6 +276,7 @@ namespace PVZEngine.Entities
         public Vector3 GetNextPosition(float simulationSpeed = 1)
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
+            velocity.Scale(Vector3.one - this.GetVelocityDampen());
             var nextPos = Position + velocity * simulationSpeed;
             if (!GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND))
             {

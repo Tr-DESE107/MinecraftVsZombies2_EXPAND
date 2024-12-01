@@ -10,16 +10,22 @@ namespace Tools
         public FrameTimer() : this(0)
         {
         }
-        public FrameTimer(int time)
+        public FrameTimer(int time) : this(time, DEFAULT_PRECISION)
         {
             MaxFrame = time;
-            LastFrame = time;
             Frame = time;
-            FrameModular = 0;
+            FrameFraction = 0;
+            LastFrame = time;
+            LastFrameFraction = FrameFraction;
+        }
+        public FrameTimer(int time, int precision)
+        {
+            Precision = precision;
         }
         public override void Run(float speed)
         {
             LastFrame = Frame;
+            LastFrameFraction = FrameFraction;
             if (Expired)
                 return;
             int integer = (int)speed;
@@ -28,32 +34,35 @@ namespace Tools
 
             if (modular > 0)
             {
-                int neededFrame = Mathf.CeilToInt(1 / modular);
-                FrameModular++;
-                if (FrameModular >= neededFrame)
+                FrameFraction += Mathf.FloorToInt(modular * Precision);
+                if (FrameFraction >= Precision)
                 {
-                    FrameModular = 0;
+                    FrameFraction -= Precision;
                     Frame--;
                 }
             }
         }
         public bool PassedInterval(int interval)
         {
-            var lastPassed = MaxFrame - LastFrame;
-            var passed = MaxFrame - Frame;
-            return lastPassed / interval != passed / interval;
+            return PassedIntervalCount(interval) != 0;
+        }
+        public int PassedIntervalCount(int interval)
+        {
+            return Mathf.CeilToInt(LastFrame / interval) - Mathf.CeilToInt(Frame / interval);
         }
         public void Stop()
         {
-            LastFrame = 0;
             Frame = 0;
-            FrameModular = 0;
+            FrameFraction = 0;
+            LastFrame = 0;
+            LastFrameFraction = 0;
         }
         public void Reset()
         {
-            LastFrame = MaxFrame;
             Frame = MaxFrame;
-            FrameModular = 0;
+            FrameFraction = 0;
+            LastFrame = MaxFrame;
+            LastFrameFraction = 0;
         }
         public void ResetTime(int time)
         {
@@ -65,9 +74,15 @@ namespace Tools
         public int MaxFrame { get; set; }
         [BsonElement("lastFrame")]
         public int LastFrame { get; set; }
+        [BsonElement("lastFrameFraction")]
+        public int LastFrameFraction { get; set; }
         [BsonElement("frame")]
         public int Frame { get; set; }
-        [BsonElement("frameModular")]
-        public int FrameModular { get; set; }
+        [BsonElement("frameFraction")]
+        public int FrameFraction { get; set; }
+        [BsonElement("precision")]
+        public int Precision { get; private set; }
+
+        public const int DEFAULT_PRECISION = 2048;
     }
 }

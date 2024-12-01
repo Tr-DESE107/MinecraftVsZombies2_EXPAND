@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Shells
         public MetalShell(string nsp, string name) : base(nsp, name)
         {
             SetProperty(VanillaShellProps.HIT_SOUND, VanillaSoundID.shieldHit);
+            SetProperty(VanillaShellProps.BLOCKS_SLICE, true);
         }
     }
 }

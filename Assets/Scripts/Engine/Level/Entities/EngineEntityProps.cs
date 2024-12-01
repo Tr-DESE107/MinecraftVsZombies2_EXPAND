@@ -10,6 +10,7 @@ namespace PVZEngine.Entities
 
         public const string FRICTION = "friction";
         public const string GRAVITY = "gravity";
+        public const string VELOCITY_DAMPEN = "velocityDampen";
         public const string SIZE = "size";
         public const string CAN_UNDER_GROUND = "canUnderGround";
 
@@ -33,6 +34,14 @@ namespace PVZEngine.Entities
         public static void SetGravity(this Entity entity, float value)
         {
             entity.SetProperty(GRAVITY, value);
+        }
+        public static Vector3 GetVelocityDampen(this Entity entity)
+        {
+            return entity.GetProperty<Vector3>(VELOCITY_DAMPEN);
+        }
+        public static void SetVelocityDampen(this Entity entity, Vector3 value)
+        {
+            entity.SetProperty(VELOCITY_DAMPEN, value);
         }
         public static float GetFriction(this Entity entity)
         {

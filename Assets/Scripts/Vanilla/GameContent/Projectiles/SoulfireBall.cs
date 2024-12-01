@@ -18,10 +18,18 @@ namespace MVZ2.GameContent.Projectiles
         public SoulfireBall(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void PostHitEntity(Entity entity, Entity other)
+        protected override void PostHitEntity(ProjectileHitResult hitResult, DamageResult bodyResult, DamageResult armorResult)
         {
-            base.PostHitEntity(entity, other);
-            var blocksFire = other.GetShellDefinition()?.BlocksFire() ?? false;
+            base.PostHitEntity(hitResult, bodyResult, armorResult);
+            var entity = hitResult.Projectile;
+            var other = hitResult.Other;
+
+            var bodyShell = bodyResult?.ShellDefinition;
+            var armorShell = armorResult?.ShellDefinition;
+            var bodyBlocksFire = bodyShell != null ? bodyShell.BlocksFire() : false;
+            var armorBlocksFire = armorShell != null ? armorShell.BlocksFire() : false;
+            var blocksFire = bodyBlocksFire || armorBlocksFire;
+
             var blast = IsBlast(entity);
             if (blast)
             {

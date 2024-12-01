@@ -1,178 +1,279 @@
 <almanac>
     <contraptions>
         <entry id="mvz2:dispenser">
-            <p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
-            <p/>
-            <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-            <p>伤害：每枚箭矢<![CDATA[<color=red>20</color>]]></p>
-            <p>技能：快速发射60支箭矢</p>
-            <p/>
-            <p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
+            <header>
+                <p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>伤害：每枚箭矢<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：快速发射60支箭矢</p>
+            </properties>
+            <flavor>
+                <p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
+            </flavor>
         </entry>
         <entry id="mvz2:furnace">
-            <p>熔炉能为你提供额外的红石。</p>
-            <p/>
-            <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
-            <p>提供能量：每枚红石<![CDATA[<color=red>25</color>]]></p>
-            <p>技能：瞬间生成12枚红石</p>
-            <p/>
-            <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
+            <header>
+                <p>熔炉能为你提供额外的红石。</p>
+            </header>
+            <properties>
+                <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
+                <p>提供能量：每枚红石<![CDATA[<color=red>25</color>]]></p>
+                <p>技能：瞬间生成12枚红石</p>
+            </properties>
+            <flavor>
+                <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:obsidian">
-            <p>黑曜石的强力装甲能够抵御敌人的攻击。</p>
-            <p/>
-            <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
-            <p>技能：获得下界合金装甲，耐久提高至<![CDATA[<color=red>10000</color>]]></p>
-            <p/>
-            <p>听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？</p>
-            <p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/>
-            <p>恭喜你被耍了</p>
+            <header>
+                <p>黑曜石的强力装甲能够抵御敌人的攻击。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+                <p>技能：获得下界合金装甲，耐久提高至<![CDATA[<color=red>10000</color>]]></p>
+            </properties>
+            <flavor>
+                <p>听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？</p>
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p />
+                <p>恭喜你被耍了</p>
+            </flavor>
         </entry>
         <entry id="mvz2:mine_tnt">
-            <p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
-            <p/>
-            <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
-            <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
-            <p>技能：立即准备完毕，并向最前方投掷两个新的地雷TNT</p>
-            <p/>
-            <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”</p>
+            <header>
+                <p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
+            </header>
+            <properties>
+                <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+                <p>技能：立即准备完毕，并向最前方投掷两个新的地雷TNT</p>
+            </properties>
+            <flavor>
+                <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”</p>
+            </flavor>
         </entry>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
         <entry id="mvz2:small_dispenser">
-            <p>小型发射器能发射短距离的雪球。</p>
-            <p/>
-            <p><![CDATA[<color=blue>白天失效</color>]]></p>
-            <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-            <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-            <p>技能：射出一个越滚越大的雪球</p>
-            <p/>
-            <p>雪球里包着石头，别问了。</p>
+            <header>
+                <p>小型发射器能发射短距离的雪球。</p>
+            </header>
+            <properties>
+                <p><![CDATA[<color=blue>白天失效</color>]]></p>
+                <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：射出一个越滚越大的雪球</p>
+            </properties>
+            <flavor>
+                <p>雪球里包着石头，别问了。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:moonlight_sensor">
-            <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
-            <p/>
-            <p><![CDATA[<color=blue>白天失效</color>]]></p>
-            <p>提供能量：<![CDATA[<color=red>1点/1.6秒</color>]]>，而后<![CDATA[<color=red>1点/1秒</color>]]></p>
-            <p>技能：立即升级，发出蓝光，并使生产量变为<![CDATA[<color=red>2.5</color>]]>倍</p>
-            <p/>
-            <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
+            <header>
+                <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
+            </header>
+            <properties>
+                <p><![CDATA[<color=blue>白天失效</color>]]></p>
+                <p>提供能量：<![CDATA[<color=red>1点/1.6秒</color>]]>，而后<![CDATA[<color=red>1点/1秒</color>]]></p>
+                <p>技能：立即升级，发出蓝光，并使生产量变为<![CDATA[<color=red>2.5</color>]]>倍</p>
+            </properties>
+            <flavor>
+                <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:glowstone">
-            <p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
-            <p/>
-            <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
-            <p>技能：眩晕所有敌人<![CDATA[<color=red>5秒</color>]]>秒</p>
-            <p/>
-            <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
+            <header>
+                <p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
+            </header>
+            <properties>
+                <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
+                <p>技能：眩晕所有敌人<![CDATA[<color=red>5秒</color>]]>秒</p>
+            </properties>
+            <flavor>
+                <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:punchton">
-            <p>冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。</p>
-            <p/>
-            <p>伤害：<![CDATA[<color=red>100</color>]]>，无视护甲</p>
-            <p>修复时间：<![CDATA[<color=red>20秒</color>]]></p>
-            <p>技能：对前方的所有敌人造成<![CDATA[<color=red>500</color>]]>点伤害，并将其击退至最右侧。</p>
-            <p/>
-            <p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
+            <header>
+                <p>冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>100</color>]]>，无视护甲</p>
+                <p>修复时间：<![CDATA[<color=red>20秒</color>]]></p>
+                <p>技能：对前方的所有敌人造成<![CDATA[<color=red>500</color>]]>点伤害，并将其击退至最右侧。</p>
+            </properties>
+            <flavor>
+                <p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:tnt">
-            <p>TNT在触发后能炸飞周围的敌人。</p>
-            <p/>
-            <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
-            <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
-            <p>技能：炸出4个TNT分身。</p>
-            <p/>
-            <p>注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。</p>
+            <header>
+                <p>TNT在触发后能炸飞周围的敌人。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+                <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+                <p>技能：炸出4个TNT分身。</p>
+            </properties>
+            <flavor>
+                <p>注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:soul_furnace">
-            <p>灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。</p>
-            <p/>
-            <p><![CDATA[<color=blue>白天失效</color>]]></p>
-            <p>伤害：<![CDATA[<color=red>60</color>]]></p>
-            <p>特点：需要烧毁器械补充燃料</p>
-            <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
-            <p>技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。</p>
-            <p/>
-            <p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
+            <header>
+                <p>灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。</p>
+            </header>
+            <properties>
+                <p><![CDATA[<color=blue>白天失效</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>60</color>]]></p>
+                <p>特点：需要烧毁器械补充燃料</p>
+                <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
+                <p>技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。</p>
+            </properties>
+            <flavor>
+                <p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
+            </flavor>
         </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">
-            <p>僵尸会在死掉之前一直冲向你的脑子。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            <p>速度：<![CDATA[<color=red>1</color>]]></p>
-            <p/>
-            <p>在上一次尸界大战失败后，僵尸在墙角里做了三天三夜的反省。后来他开始锻炼自己，想让自己变得更强以吃到更多的脑子。现在的他看起来……好吧还是没变。</p>
+            <header>
+                <p>僵尸会在死掉之前一直冲向你的脑子。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            </properties>
+            <flavor>
+                <p>在上一次尸界大战失败后，僵尸在墙角里做了三天三夜的反省。后来他开始锻炼自己，想让自己变得更强以吃到更多的脑子。现在的他看起来……好吧还是没变。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:leather_capped_zombie">
-            <p>皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200+370</color>]]></p>
-            <p>速度：<![CDATA[<color=red>1</color>]]></p>
-            <p/>
-            <p>随着时代的发展，皮帽已经逐渐淡出了人们的视线。但仍有一些僵尸在坚守着皮帽。当问及为什么时，他们总会说：“玩个游戏还BB啥！”</p>
+            <header>
+                <p>皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+370</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            </properties>
+            <flavor>
+                <p>随着时代的发展，皮帽已经逐渐淡出了人们的视线。但仍有一些僵尸在坚守着皮帽。当问及为什么时，他们总会说：“玩个游戏还BB啥！”</p>
+            </flavor>
         </entry>
         <entry id="mvz2:iron_helmeted_zombie">
-            <p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
-            <p>速度：<![CDATA[<color=red>1</color>]]></p>
-            <p/>
-            <p>戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。</p>
+            <header>
+                <p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            </properties>
+            <flavor>
+                <p>戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:flag_zombie">
-            <p>旗帜僵尸的出现标志着一大波怪物的到来。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            <p>速度：<![CDATA[<color=red>2</color>]]></p>
-            <p/>
-            <p>当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
+            <header>
+                <p>旗帜僵尸的出现标志着一大波怪物的到来。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+            </properties>
+            <flavor>
+                <p>当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
+            </flavor>
         </entry>
-        <entry/>
+        <entry />
         <entry id="mvz2:skeleton">
-            <p>骷髅能够在前线朝你的器械射击。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            <p>箭矢伤害：<![CDATA[<color=red>每发100</color>]]></p>
-            <p>箭矢伤害：<![CDATA[<color=red>无法射中并无视低矮器械</color>]]></p>
-            <p/>
-            <p>骷髅一族拥有着很高的箭术造诣，我曾亲眼看见一只骷髅射中几十米外的狼群中的一头熟睡的狼。没射死，倒把它们射醒了。</p>
+            <header>
+                <p>骷髅能够在前线朝你的器械射击。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>箭矢伤害：<![CDATA[<color=red>每发100</color>]]></p>
+                <p>箭矢伤害：<![CDATA[<color=red>无法射中并无视低矮器械</color>]]></p>
+            </properties>
+            <flavor>
+                <p>骷髅一族拥有着很高的箭术造诣，我曾亲眼看见一只骷髅射中几十米外的狼群中的一头熟睡的狼。没射死，倒把它们射醒了。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:gargoyle">
-            <p>石像鬼会在最后一波到来时复苏并进攻你的房子。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>900</color>]]></p>
-            <p>弱点：<![CDATA[<color=red>冲击活塞</color>]]></p>
-            <p/>
-            <p>石像鬼和他的妈妈住在山上的一间小屋中。石像鬼画画，玩玩具，妈妈就在电视上看广播。生活很简单，他们也很幸福。直到有一天石像鬼的妈妈从天上听到了雷声……</p>
+            <header>
+                <p>石像鬼会在最后一波到来时复苏并进攻你的房子。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>900</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>冲击活塞</color>]]></p>
+            </properties>
+            <flavor>
+                <p>石像鬼和他的妈妈住在山上的一间小屋中。石像鬼画画，玩玩具，妈妈就在电视上看广播。生活很简单，他们也很幸福。直到有一天石像鬼的妈妈从天上听到了雷声……</p>
+            </flavor>
         </entry>
         <entry id="mvz2:ghost">
-            <p>幽灵能够在虚无的情况下极大降低受到的伤害。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            <p>抗性：虚无状态下减少<![CDATA[<color=red>90%</color>]]>受到的伤害</p>
-            <p>弱点：<![CDATA[<color=red>被光照到时会失去虚无效果</color>]]></p>
-            <p/>
-            <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。</p>
+            <header>
+                <p>幽灵能够在虚无的情况下极大降低受到的伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>抗性：虚无状态下减少<![CDATA[<color=red>90%</color>]]>受到的伤害</p>
+                <p>弱点：<![CDATA[<color=red>被光照到时会失去虚无效果</color>]]></p>
+            </properties>
+            <flavor>
+                <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:mummy">
-            <p>木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            <p>弱点：<![CDATA[<color=red>火，毒雾可以被火烧掉</color>]]></p>
-            <p/>
-            <p>就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。</p>
+            <header>
+                <p>木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>火，毒雾可以被火烧掉</color>]]></p>
+            </properties>
+            <flavor>
+                <p>就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。</p>
+            </flavor>
         </entry>
         <entry id="mvz2:necromancer">
-            <p>死灵法师会生成临时的骨墙阻挡子弹。</p>
-            <p/>
-            <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            <p>骨墙生命：<![CDATA[<color=red>350</color>]]></p>
-            <p/>
-            <p>死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。</p>
+            <header>
+                <p>死灵法师会生成临时的骨墙阻挡子弹。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>骨墙生命：<![CDATA[<color=red>350</color>]]></p>
+            </properties>
+            <flavor>
+                <p>死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。</p>
+            </flavor>
         </entry>
     </enemies>
 </almanac>

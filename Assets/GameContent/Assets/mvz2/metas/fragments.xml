@@ -54,4 +54,10 @@
             <color hex="#4E1D00" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="silvenser">
+        <colorKeys>
+            <color hex="#0012FE" time="0.4"/>
+            <color hex="#FFFFFF" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

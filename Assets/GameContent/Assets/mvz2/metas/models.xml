@@ -12,6 +12,7 @@
     <model name="punchton" type="entity" path="mvz2:contraption/punchton" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="tnt" type="entity" path="mvz2:contraption/tnt" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="soul_furnace" type="entity" path="mvz2:contraption/soul_furnace" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="silvenser" type="entity" path="mvz2:contraption/silvenser" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="4"/>
@@ -66,6 +67,7 @@
     <model name="burning_gas" type="entity" path="mvz2:effect/burning_gas" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="magic_stars" type="entity" path="mvz2:effect/magic_stars" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="bone_particles" type="entity" path="mvz2:effect/bone_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="blood_particles" type="entity" path="mvz2:effect/blood_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>
@@ -73,6 +75,7 @@
     <model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="16"/>
     <model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="4"/>
     <model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="16"/>
+    <model name="knife" type="entity" path="mvz2:projectile/knife" width="32" height="10" xOffset="0" yOffset="5"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="7"/>

@@ -12,7 +12,6 @@ namespace MVZ2.GameContent.Shells
         public FleshShell(string nsp, string name) : base(nsp, name)
         {
             SetProperty(VanillaShellProps.SLICE_CRITICAL, true);
-            SetProperty(VanillaShellProps.SLICE_BLOOD, true);
             SetProperty(VanillaShellProps.HIT_SOUND, VanillaSoundID.splat);
         }
         public override void EvaluateDamage(DamageInfo damageInfo)

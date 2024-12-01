@@ -56,6 +56,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID skeletonDeath = Get("skeleton_death");
         public readonly static NamespaceID slowDown = Get("slow_down");
         public readonly static NamespaceID sparkle = Get("sparkle");
+        public readonly static NamespaceID spellCard = Get("spell_card");
         public readonly static NamespaceID splat = Get("splat");
         public readonly static NamespaceID spring = Get("spring");
         public readonly static NamespaceID starshardAppear = Get("starshard_appear");

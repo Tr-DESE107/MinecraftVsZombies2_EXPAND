@@ -36,6 +36,8 @@
             <bool name="faceLeftAtDefault" value="true"/>
             <bool name="undead" value="true"/>
             <vector3 name="size" x="32" y="86" z="32"/>
+            <color name="bloodColor" value="#7F0000FF"/>
+            <color name="bloodColorCensored" value="#00007FFF"/>
 
             <int name="spawnCost" value="1"/>
             <int name="previewCount" value="1"/>
@@ -197,6 +199,14 @@
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
+        <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀" >
+            <float name="damage" value="15"/>
+            <id name="projectileId" value="mvz2:knife"/>
+            <id name="shell" value="mvz2:metal"/>
+
+            <int name="cost" value="175" />
+            <id name="rechargeId" value="mvz2:short" />
+        </dispenser>
 
         <!-- Enemies -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -263,6 +273,8 @@
             <id name="hitSound" value="mvz2:splat"/>
             <id name="crySound" value="mvz2:mummy_cry"/>
             <id name="deathSound" value="mvz2:mummy_death"/>
+            <color name="bloodColor" value="#7F000F00"/>
+            <color name="bloodColorCensored" value="#00007F00"/>
 
             <int name="cost" value="75" />
             
@@ -377,6 +389,11 @@
             <color name="lightColor" value="#00FFFF"/>
             <bool name="isFire" value="true" />
         </projectile>
+        <projectile id="knife">
+            <bool name="pointToDirection" value="true" />
+            <vector3 name="size" x="32" y="6" z="2" />
+            <idArray name="damageEffects" value="mvz2:slice" />
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -448,6 +465,9 @@
             <id name="modelId" value="mvz2:entity.magic_stars" />
         </effect>
         <effect id="bone_particles">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="blood_particles">
             <int name="maxTimeout" value="30"/>
         </effect>
     </entries>

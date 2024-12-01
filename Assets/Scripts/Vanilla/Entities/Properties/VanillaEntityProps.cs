@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2Logic;
+using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -176,6 +177,7 @@ namespace MVZ2.Vanilla.Entities
             return entity.GetProperty<bool>(IS_FIRE);
         }
 
+        #region 光照
         public const string IS_LIGHT_SOURCE = "isLightSource";
         public const string LIGHT_RANGE = "lightRange";
         public const string LIGHT_COLOR = "lightColor";
@@ -199,6 +201,26 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<Color>(LIGHT_COLOR);
         }
+        #endregion
+
+        #region 光照
+        public const string BLOOD_COLOR = "bloodColor";
+        public const string BLOOD_COLOR_CENSORED = "bloodColorCensored";
+        public static Color GetBloodColorNormal(this Entity entity)
+        {
+            return entity.GetProperty<Color>(BLOOD_COLOR);
+        }
+        public static Color GetBloodColorCensored(this Entity entity)
+        {
+            return entity.GetProperty<Color>(BLOOD_COLOR_CENSORED);
+        }
+        public static Color GetBloodColor(this Entity entity)
+        {
+            return Global.HasBloodAndGore() ? entity.GetBloodColorNormal() : entity.GetBloodColorCensored();
+        }
+        #endregion
+
+        #region 蓝图
         public static int GetCost(this Entity entity)
         {
             return entity.GetProperty<int>(COST);
@@ -215,6 +237,8 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<NamespaceID>(RECHARGE_ID);
         }
+        #endregion
+
         public static int GetSpawnCost(this EntityDefinition entity)
         {
             return entity.GetProperty<int>(SPAWN_COST);

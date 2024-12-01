@@ -1,4 +1,5 @@
-﻿using PVZEngine.Damages;
+﻿using MVZ2.Vanilla.Entities;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
 
@@ -11,7 +12,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreEntityHeal(HealInfo info);
         public delegate void PostEntityHeal(HealResult result);
         public delegate void PrePickupCollect(Entity entity);
-        public delegate void PostProjectileHit(Entity entity, Entity other);
+        public delegate void PostProjectileHit(ProjectileHitResult hitResult, DamageResult bodyResult, DamageResult armorResult);
         public delegate void PostContraptionTrigger(Entity entity);
         public delegate void PostContraptionEvoke(Entity entity);
 

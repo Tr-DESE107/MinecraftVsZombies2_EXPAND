@@ -70,12 +70,19 @@ namespace MVZ2Logic
             Scene.FadeBlackScreen(target, duration);
         }
 
+        #region 选项
+        public static bool HasBloodAndGore()
+        {
+            return Options.HasBloodAndGore();
+        }
+        #endregion
         private static IMainManager Main { get; set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
         private static IMusicManager Music => Main.Music;
         private static ILevelManager Level => Main.Level;
+        private static IOptionsManager Options => Main.Options;
     }
     public interface IMainManager
     {
@@ -85,6 +92,7 @@ namespace MVZ2Logic
         ISceneController Scene { get; }
         IMusicManager Music { get; }
         ILevelManager Level { get; }
+        IOptionsManager Options { get; }
     }
     public interface ISceneController
     {
@@ -105,5 +113,9 @@ namespace MVZ2Logic
     {
         void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0);
         Task GotoLevelSceneAsync();
+    }
+    public interface IOptionsManager
+    {
+        bool HasBloodAndGore();
     }
 }

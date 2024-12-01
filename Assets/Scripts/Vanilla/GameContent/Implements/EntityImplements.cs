@@ -4,6 +4,7 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Shells;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
@@ -48,11 +49,18 @@ namespace MVZ2.GameContent.Implements
                 var shellDefinition = armorResult.ShellDefinition;
                 entity.PlayHitSound(armorResult.Effects, shellDefinition);
             }
-            if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            if (bodyResult != null)
             {
                 var entity = bodyResult.Entity;
                 var shellDefinition = bodyResult.ShellDefinition;
-                entity.PlayHitSound(bodyResult.Effects, shellDefinition);
+                if (!bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
+                {
+                    entity.PlayHitSound(bodyResult.Effects, shellDefinition);
+                }
+                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.SLICE) && shellDefinition.IsSliceCritical())
+                {
+                    entity.EmitBlood();
+                }
             }
         }
         private void ChangeLaneUpdateCallback(Entity entity)

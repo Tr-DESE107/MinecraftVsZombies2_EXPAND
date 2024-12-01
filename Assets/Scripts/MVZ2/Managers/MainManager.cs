@@ -11,7 +11,6 @@ using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Modding;
 using MVZ2.Models;
-using MVZ2.Modifiers;
 using MVZ2.Options;
 using MVZ2.Save;
 using MVZ2.Saves;
@@ -40,7 +39,6 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableSoundComponent>();
             SerializeHelper.RegisterClass<EmptySerializableLevelComponent>();
 
-            ModifierHelper.Init();
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
 
@@ -125,6 +123,7 @@ namespace MVZ2.Managers
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
         ILevelManager IMainManager.Level => level;
+        IOptionsManager IMainManager.Options => options;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]

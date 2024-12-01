@@ -2,12 +2,13 @@
 using System.Globalization;
 using MVZ2.Localization;
 using MVZ2.Managers;
+using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Options
 {
-    public class OptionsManager : MonoBehaviour
+    public class OptionsManager : MonoBehaviour, IOptionsManager
     {
         public void InitOptions()
         {

@@ -12,6 +12,7 @@ namespace MVZ2.GameContent.Shells
         public StoneShell(string nsp, string name) : base(nsp, name)
         {
             SetProperty(VanillaShellProps.HIT_SOUND, VanillaSoundID.stone);
+            SetProperty(VanillaShellProps.BLOCKS_SLICE, true);
         }
         public override void EvaluateDamage(DamageInfo damageInfo)
         {

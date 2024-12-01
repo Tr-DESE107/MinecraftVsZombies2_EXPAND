@@ -224,7 +224,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 entity.PlaySound(VanillaSoundID.fire);
             }
-            else if (damageEffects.HasEffect(VanillaDamageEffects.SLICE) && shell.GetProperty<bool>(VanillaShellProps.SLICE_CRITICAL))
+            else if (damageEffects.HasEffect(VanillaDamageEffects.SLICE) && shell.IsSliceCritical())
             {
                 entity.PlaySound(VanillaSoundID.slice);
             }
@@ -242,7 +242,12 @@ namespace MVZ2.Vanilla.Entities
                 }
             }
         }
-
+        public static void EmitBlood(this Entity entity)
+        {
+            var bloodColor = entity.GetBloodColor();
+            var blood = entity.Level.Spawn(VanillaEffectID.bloodParticles, entity.GetBoundsCenter(), entity);
+            blood.SetTint(bloodColor);
+        }
         #endregion
 
         #region 换行

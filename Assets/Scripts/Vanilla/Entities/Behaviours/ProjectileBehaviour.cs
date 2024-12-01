@@ -90,7 +90,7 @@ namespace MVZ2.Vanilla.Entities
                 position.y > 1000 ||
                 position.y < -1000;
         }
-        protected virtual void PostHitEntity(Entity entity, Entity other)
+        protected virtual void PostHitEntity(ProjectileHitResult hitResult, DamageResult bodyResult, DamageResult armorResult)
         {
 
         }
@@ -110,14 +110,20 @@ namespace MVZ2.Vanilla.Entities
 
             var damageEffects = entity.GetDamageEffects();
             DamageEffectList effects = new DamageEffectList(damageEffects ?? Array.Empty<NamespaceID>());
-            other.TakeDamage(entity.GetDamage(), effects, new EntityReferenceChain(entity));
+            var bodyResult = other.TakeDamage(entity.GetDamage(), effects, new EntityReferenceChain(entity), out var armorResult);
 
             entity.AddProjectileCollidingEntity(other);
 
-            PostHitEntity(entity, other);
-            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, entity.GetDefinitionID(), entity, other);
+            var hitResult = new ProjectileHitResult()
+            {
+                Projectile = entity,
+                Other = other,
+                Pierce = entity.CanPierce(other)
+            };
+            PostHitEntity(hitResult, bodyResult, armorResult);
+            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, entity.GetDefinitionID(), hitResult, bodyResult, armorResult);
 
-            if (!entity.CanPierce(other))
+            if (!hitResult.Pierce)
             {
                 entity.Remove();
                 return;
