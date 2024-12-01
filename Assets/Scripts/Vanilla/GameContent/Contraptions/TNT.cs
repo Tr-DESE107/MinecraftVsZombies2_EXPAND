@@ -21,7 +21,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.tnt)]
-    [EntitySeedDefinition(150, VanillaMod.spaceName, VanillaRechargeNames.veryLongTime)]
     public class TNT : ContraptionBehaviour
     {
         public TNT(string nsp, string name) : base(nsp, name)

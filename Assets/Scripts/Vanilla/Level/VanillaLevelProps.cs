@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla.Level
         public const string LAST_ENEMY_POSITION = "lastEnemyPosition";
         public const string STARSHARD_COUNT = "starshardCount";
         public const string STARSHARD_SLOT_COUNT = "starshardSlotCount";
-        public const string MUSIC_ID = "musicID";
+        public const string MUSIC_ID = "musicId";
         public const string PICKAXE_DISABLED = "pickaxeDisabled";
         public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
         public static IEnemySpawnEntry[] GetEnemyPool(this LevelEngine game)

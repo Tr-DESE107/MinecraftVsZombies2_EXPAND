@@ -11,7 +11,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.smallDispenser)]
-    [EntitySeedDefinition(0, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class SmallDispenser : DispenserFamily
     {
         public SmallDispenser(string nsp, string name) : base(nsp, name)

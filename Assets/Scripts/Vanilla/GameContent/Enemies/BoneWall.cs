@@ -12,7 +12,6 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(VanillaEnemyNames.boneWall)]
-    [EntitySeedDefinition(25, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class BoneWall : StateEnemy
     {
         public BoneWall(string nsp, string name) : base(nsp, name)

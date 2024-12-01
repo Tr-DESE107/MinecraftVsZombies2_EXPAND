@@ -127,8 +127,13 @@ namespace MVZ2.GameContent.Pickups
         {
             return VanillaLevelExt.SCREEN_HEIGHT - 120;
         }
-        public override NamespaceID GetModelID(LevelEngine level, NamespaceID origin)
+        public override NamespaceID GetModelID(NamespaceID origin)
         {
+            var game = Global.Game;
+            if (!game.IsInLevel())
+                return origin;
+
+            var level = game.GetLevel();
             var areaID = level.AreaID;
             var modelId = new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(EngineModelID.TYPE_ENTITY);
             if (Global.Game.GetModelMeta(modelId) == null)

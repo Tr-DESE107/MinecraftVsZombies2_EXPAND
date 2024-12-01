@@ -36,7 +36,7 @@ namespace PVZEngine.Entities
         public void PostEquipArmor(Entity entity, Armor armor) { behaviour?.PostEquipArmor(entity, armor); }
         public void PostDestroyArmor(Entity entity, Armor armor, DamageResult damage) { behaviour?.PostDestroyArmor(entity, armor, damage); }
         public void PostRemoveArmor(Entity entity, Armor armor) { behaviour?.PostRemoveArmor(entity, armor); }
-        public NamespaceID GetModelID(LevelEngine level)
+        public NamespaceID GetModelID()
         {
             NamespaceID id;
             if (!TryGetProperty<NamespaceID>(EngineEntityProps.MODEL_ID, out id) || !NamespaceID.IsValid(id))
@@ -45,7 +45,7 @@ namespace PVZEngine.Entities
             }
             if (behaviour != null)
             {
-                id = behaviour.GetModelID(level, id);
+                id = behaviour.GetModelID(id);
             }
             return id;
         }

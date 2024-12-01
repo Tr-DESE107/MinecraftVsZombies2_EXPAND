@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using MVZ2.GameContent.Recharges;
 using MVZ2.IO;
 using MVZ2Logic.Entities;
 using PVZEngine;
@@ -25,6 +26,8 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var deathMessage = node.GetAttribute("deathMessage");
+            var cost = node.GetAttributeInt("cost") ?? 0;
+            var recharge = node.GetAttributeNamespaceID("recharge", defaultNsp) ?? VanillaRechargeID.none;
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var tooltip = node.GetAttribute("tooltip");
 

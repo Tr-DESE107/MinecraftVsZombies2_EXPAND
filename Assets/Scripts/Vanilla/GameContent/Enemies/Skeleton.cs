@@ -13,8 +13,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(VanillaEnemyNames.skeleton)]
-    [SpawnDefinition(2)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Skeleton : StateEnemy
     {
         public Skeleton(string nsp, string name) : base(nsp, name)

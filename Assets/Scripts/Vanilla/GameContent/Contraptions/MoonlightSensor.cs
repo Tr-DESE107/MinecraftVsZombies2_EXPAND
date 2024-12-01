@@ -13,7 +13,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.moonlightSensor)]
-    [EntitySeedDefinition(25, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class MoonlightSensor : ContraptionBehaviour
     {
         public MoonlightSensor(string nsp, string name) : base(nsp, name)

@@ -8,7 +8,7 @@ namespace MVZ2.Vanilla.Contraptions
         public const string PLACE_ON_WATER = "placeOnWater";
         public const string PLACE_ON_LILY = "placeOnLily";
         public const string IS_FLOOR = "isFloor";
-        public const string FRAGMENT_ID = "fragmentID";
+        public const string FRAGMENT_ID = "fragmentId";
         public const string TRIGGER_ACTIVE = "triggerActive";
         public static bool IsFloor(this Entity contraption)
         {

@@ -5,7 +5,7 @@ namespace PVZEngine.Level
 {
     public static class EngineSeedProps
     {
-        public const string RECHARGE_ID = "rechargeID";
+        public const string RECHARGE_ID = "rechargeId";
         public const string COST = "cost";
 
         public const string RECHARGE_SPEED = "rechargeSpeed";
@@ -31,11 +31,11 @@ namespace PVZEngine.Level
         }
         public static NamespaceID GetRechargeID(this SeedDefinition definition)
         {
-            return definition.GetProperty<NamespaceID>(EngineSeedProps.RECHARGE_ID);
+            return definition.GetProperty<NamespaceID>(RECHARGE_ID);
         }
         public static int GetCost(this SeedDefinition definition)
         {
-            return definition.GetProperty<int>(EngineSeedProps.COST);
+            return definition.GetProperty<int>(COST);
         }
         public static bool IsStartRecharge(this SeedPack seed)
         {

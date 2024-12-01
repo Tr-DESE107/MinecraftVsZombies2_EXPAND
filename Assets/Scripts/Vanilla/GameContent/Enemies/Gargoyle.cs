@@ -11,8 +11,6 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(VanillaEnemyNames.gargoyle)]
-    [SpawnDefinition(0)]
-    [EntitySeedDefinition(100, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Gargoyle : MeleeEnemy
     {
         public Gargoyle(string nsp, string name) : base(nsp, name)

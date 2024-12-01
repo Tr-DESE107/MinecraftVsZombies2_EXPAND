@@ -10,6 +10,7 @@ using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
@@ -73,12 +74,24 @@ namespace MVZ2.Vanilla
             {
                 if (meta == null)
                     continue;
-                var entity = new MetaEntityDefinition(meta.Type, spaceName, meta.ID);
+                var name = meta.ID;
+                var entityDefinition = new MetaEntityDefinition(meta.Type, spaceName, name);
                 foreach (var pair in meta.Properties)
                 {
-                    entity.SetProperty(pair.Key, pair.Value);
+                    entityDefinition.SetProperty(pair.Key, pair.Value);
                 }
-                AddDefinition(entity);
+                AddDefinition(entityDefinition);
+
+                var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), entityDefinition.IsTriggerActive());
+                AddDefinition(seedDef);
+
+                var spawnCost = entityDefinition.GetSpawnCost();
+                if (spawnCost > 0)
+                {
+                    var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name));
+                    spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
+                    AddDefinition(spawnDef);
+                }
             }
         }
         private void LoadStages()
@@ -141,23 +154,6 @@ namespace MVZ2.Vanilla
                     if (definitionObj is Definition def)
                     {
                         AddDefinition(def);
-                    }
-                    var seedEntityAttr = type.GetCustomAttribute<EntitySeedDefinitionAttribute>();
-                    if (seedEntityAttr != null)
-                    {
-                        var seedDef = new EntitySeed(
-                            Namespace,
-                            name,
-                            seedEntityAttr.Cost,
-                            seedEntityAttr.RechargeID);
-                        AddDefinition(seedDef);
-                    }
-                    var spawnDefAttr = type.GetCustomAttribute<SpawnDefinitionAttribute>();
-                    if (spawnDefAttr != null)
-                    {
-                        var spawnDef = new SpawnDefinition(Namespace, name, spawnDefAttr.SpawnCost, new NamespaceID(Namespace, name));
-                        spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, spawnDefAttr.PreviewCount);
-                        AddDefinition(spawnDef);
                     }
                 }
             }

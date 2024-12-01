@@ -21,7 +21,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.soulFurnace)]
-    [EntitySeedDefinition(150, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class SoulFurnace : DispenserFamily
     {
         public SoulFurnace(string nsp, string name) : base(nsp, name)
@@ -131,22 +130,17 @@ namespace MVZ2.GameContent.Contraptions
             int fuel = 5;
 
             var game = Global.Game;
-            SeedDefinition blueprintDef = entity.GetSeedDefinition();
+            int cost = entity.GetCost();
+            var rechargeID = entity.GetRechargeID();
 
-            if (blueprintDef != null)
+            float fuelMultiplier = 1;
+            var rechargeDef = game.GetRechargeDefinition(rechargeID);
+            if (rechargeDef != null)
             {
-
-                int cost = blueprintDef.GetCost();
-                float fuelMultiplier = 1;
-                var rechargeID = blueprintDef.GetRechargeID();
-                var rechargeDef = game.GetRechargeDefinition(rechargeID);
-                if (rechargeDef != null)
-                {
-                    fuelMultiplier = rechargeDef.GetQuality();
-                }
-
-                fuel = Mathf.CeilToInt((fuel + cost / 6f) * fuelMultiplier);
+                fuelMultiplier = rechargeDef.GetQuality();
             }
+
+            fuel = Mathf.CeilToInt((fuel + cost / 6f) * fuelMultiplier);
             foreach (var trigger in Global.Game.GetTriggers(VanillaLevelCallbacks.GET_CONTRAPTION_SACRIFICE_FUEL))
             {
                 var result = trigger.Invoke(entity, soulFurnace, fuel);

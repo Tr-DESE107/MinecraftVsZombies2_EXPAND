@@ -279,7 +279,7 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.GetProperty<bool>(VanillaEnemyProps.HARMLESS) && entity.IsHostile(entity.Level.Option.LeftFaction);
         }
-        public static EntitySeed GetSeedDefinition(this Entity entity)
+        public static EntitySeed GetEntitySeedDefinition(this Entity entity)
         {
             var game = Global.Game;
             var seedDef = game.GetSeedDefinition(entity.GetDefinitionID());

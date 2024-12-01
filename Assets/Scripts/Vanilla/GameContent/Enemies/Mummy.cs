@@ -14,8 +14,6 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(VanillaEnemyNames.mummy)]
-    [SpawnDefinition(2, previewCount: 3)]
-    [EntitySeedDefinition(75, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Mummy : MeleeEnemy
     {
         public Mummy(string nsp, string name) : base(nsp, name)

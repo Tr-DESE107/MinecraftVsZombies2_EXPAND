@@ -33,18 +33,11 @@ namespace MVZ2.Managers
                 };
             }
             var sprite = GetBlueprintIcon(seedDef);
-            var entityID = seedDef.GetSeedEntityID();
-            var triggerActive = false;
-            if (NamespaceID.IsValid(entityID))
-            {
-                var entityDef = main.Game.GetEntityDefinition(entityID);
-                triggerActive = entityDef.IsTriggerActive();
-            }
             return new BlueprintViewData()
             {
                 icon = sprite,
                 cost = seedDef.GetCost().ToString(),
-                triggerActive = triggerActive,
+                triggerActive = seedDef.IsTriggerActive(),
             };
         }
         public BlueprintViewData GetBlueprintViewData(NamespaceID seedID)
@@ -65,24 +58,25 @@ namespace MVZ2.Managers
         {
             if (seedDef == null)
                 return GetDefaultSprite();
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-            {
-                var entityID = seedDef.GetSeedEntityID();
-                return Main.ResourceManager.GetSprite(entityID.spacename, $"mobile_blueprint/{entityID.path}");
-            }
-            return GetDefaultSprite();
+            if (seedDef.GetSeedType() != SeedTypes.ENTITY)
+                return GetDefaultSprite();
+            var entityID = seedDef.GetSeedEntityID();
+            return Main.ResourceManager.GetSprite(entityID.spacename, $"mobile_blueprint/{entityID.path}");
         }
         public Sprite GetBlueprintIconStandalone(SeedDefinition seedDef)
         {
             if (seedDef == null)
                 return GetDefaultSprite();
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-            {
-                var entityID = seedDef.GetSeedEntityID();
-                var modelID = entityID.ToModelID(EngineModelID.TYPE_ENTITY);
-                return Main.ResourceManager.GetModelIcon(modelID);
-            }
-            return GetDefaultSprite();
+            if (seedDef.GetSeedType() != SeedTypes.ENTITY)
+                return GetDefaultSprite();
+            var entityID = seedDef.GetSeedEntityID();
+            if (!NamespaceID.IsValid(entityID))
+                return GetDefaultSprite();
+            var entityDef = Main.Game.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return GetDefaultSprite();
+            var modelID = entityDef.GetModelID();
+            return Main.ResourceManager.GetModelIcon(modelID);
         }
         public Sprite GetBlueprintIcon(SeedDefinition seedDef)
         {

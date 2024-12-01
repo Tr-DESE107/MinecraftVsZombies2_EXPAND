@@ -11,8 +11,6 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(VanillaEnemyNames.ghost)]
-    [SpawnDefinition(2)]
-    [EntitySeedDefinition(100, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Ghost : MeleeEnemy
     {
         public Ghost(string nsp, string name) : base(nsp, name)

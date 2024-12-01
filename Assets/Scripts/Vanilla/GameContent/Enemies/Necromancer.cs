@@ -15,8 +15,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [Definition(VanillaEnemyNames.necromancer)]
-    [SpawnDefinition(3)]
-    [EntitySeedDefinition(100, VanillaMod.spaceName, VanillaRechargeNames.none)]
     public class Necromancer : MeleeEnemy
     {
         public Necromancer(string nsp, string name) : base(nsp, name)

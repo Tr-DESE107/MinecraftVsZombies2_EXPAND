@@ -14,7 +14,6 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.furnace)]
-    [EntitySeedDefinition(50, VanillaMod.spaceName, VanillaRechargeNames.shortTime)]
     public class Furnace : ContraptionBehaviour
     {
         public Furnace(string nsp, string name) : base(nsp, name)

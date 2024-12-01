@@ -10,7 +10,7 @@ namespace MVZ2.Vanilla.Entities
         public const string SHOT_VELOCITY = "shotVelocity";
         public const string SHOT_OFFSET = "shotOffset";
         public const string SHOOT_SOUND = "shootSound";
-        public const string PROJECTILE_ID = "projectileID";
+        public const string PROJECTILE_ID = "projectileId";
 
         public const string DAMAGE = "damage";
         public const string ATTACK_SPEED = "attackSpeed";
@@ -21,6 +21,12 @@ namespace MVZ2.Vanilla.Entities
         public const string NO_TARGET = "noTarget";
         public const string INVISIBLE = "invisible";
         public const string AI_FROZEN = "aiFrozen";
+
+        public const string COST = "cost";
+        public const string RECHARGE_ID = "rechargeId";
+
+        public const string SPAWN_COST = "spawnCost";
+        public const string PREVIEW_COUNT = "previewCount";
 
         public static float GetFallDamage(this Entity entity)
         {
@@ -192,6 +198,30 @@ namespace MVZ2.Vanilla.Entities
         public static Color GetLightColor(this Entity entity)
         {
             return entity.GetProperty<Color>(LIGHT_COLOR);
+        }
+        public static int GetCost(this Entity entity)
+        {
+            return entity.GetProperty<int>(COST);
+        }
+        public static int GetCost(this EntityDefinition entity)
+        {
+            return entity.GetProperty<int>(COST);
+        }
+        public static NamespaceID GetRechargeID(this Entity entity)
+        {
+            return entity.GetProperty<NamespaceID>(RECHARGE_ID);
+        }
+        public static NamespaceID GetRechargeID(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(RECHARGE_ID);
+        }
+        public static int GetSpawnCost(this EntityDefinition entity)
+        {
+            return entity.GetProperty<int>(SPAWN_COST);
+        }
+        public static NamespaceID GetPreviewCount(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(PREVIEW_COUNT);
         }
     }
 }
