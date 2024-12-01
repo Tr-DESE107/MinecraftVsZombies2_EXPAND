@@ -6,19 +6,19 @@ using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Shells
 {
-    [Definition(VanillaShellNames.wood)]
-    public class WoodShell : ShellDefinition
+    [Definition(VanillaShellNames.nether)]
+    public class NetherShell : ShellDefinition
     {
-        public WoodShell(string nsp, string name) : base(nsp, name)
+        public NetherShell(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaShellProps.HIT_SOUND, VanillaSoundID.wood);
+            SetProperty(VanillaShellProps.HIT_SOUND, VanillaSoundID.splat);
         }
         public override void EvaluateDamage(DamageInfo damageInfo)
         {
             base.EvaluateDamage(damageInfo);
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))
             {
-                damageInfo.Multiply(2);
+                damageInfo.Multiply(0);
             }
         }
     }

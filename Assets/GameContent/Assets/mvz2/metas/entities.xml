@@ -183,7 +183,8 @@
         <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料" unlock="mvz2:level.halloween_7">
             <float name="damage" value="60"/>
             <float name="range" value="800"/>
-            <id name="shell" value="mvz2:wood"/>
+            <id name="shell" value="mvz2:nether"/>
+            <id name="hitSound" value="mvz2:wood"/>
             <id name="placeSound" value="mvz2:wood"/>
             <id name="deathSound" value="mvz2:wood"/>
             <id name="projectileId" value="mvz2:soulfire_ball"/>
