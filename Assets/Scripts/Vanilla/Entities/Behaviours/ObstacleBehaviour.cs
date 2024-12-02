@@ -17,9 +17,10 @@ namespace MVZ2.Vanilla.Entities
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.RightFaction);
         }
-        public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        public override void PostTakeDamage(DamageOutput result)
         {
-            base.PostTakeDamage(bodyResult, armorResult);
+            base.PostTakeDamage(result);
+            var bodyResult = result.BodyResult;
             if (bodyResult != null)
             {
                 var entity = bodyResult.Entity;
@@ -27,7 +28,7 @@ namespace MVZ2.Vanilla.Entities
                     entity.AddBuff<DamageColorBuff>();
             }
         }
-        public override void PostDeath(Entity entity, DamageInfo damageInfo)
+        public override void PostDeath(Entity entity, DamageInput damageInfo)
         {
             base.PostDeath(entity, damageInfo);
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))

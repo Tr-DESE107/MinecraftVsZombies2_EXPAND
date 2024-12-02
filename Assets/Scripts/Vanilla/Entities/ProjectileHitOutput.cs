@@ -7,7 +7,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public class ProjectileHitResult
+    public class ProjectileHitOutput
     {
         public Entity Projectile { get; set; }
         public Entity Other { get; set; }

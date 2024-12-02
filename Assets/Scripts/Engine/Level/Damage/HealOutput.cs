@@ -4,7 +4,7 @@ using PVZEngine.Entities;
 
 namespace PVZEngine.Damages
 {
-    public class HealResult
+    public class HealOutput
     {
         public EntityReferenceChain Source { get; set; }
         public Entity Entity { get; set; }

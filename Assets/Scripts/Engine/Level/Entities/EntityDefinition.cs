@@ -27,14 +27,14 @@ namespace PVZEngine.Entities
         }
         public void Init(Entity entity) { behaviour?.Init(entity); }
         public void Update(Entity entity) { behaviour?.Update(entity); }
-        public void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult) { behaviour?.PostTakeDamage(bodyResult, armorResult); }
+        public void PostTakeDamage(DamageOutput result) { behaviour?.PostTakeDamage(result); }
         public void PostContactGround(Entity entity, Vector3 velocity) { behaviour?.PostContactGround(entity, velocity); }
         public void PostLeaveGround(Entity entity) { behaviour?.PostLeaveGround(entity); }
         public void PostCollision(Entity entity, Entity other, int state) { behaviour?.PostCollision(entity, other, state); }
-        public void PostDeath(Entity entity, DamageInfo damageInfo) { behaviour?.PostDeath(entity, damageInfo); }
+        public void PostDeath(Entity entity, DamageInput damageInfo) { behaviour?.PostDeath(entity, damageInfo); }
         public void PostRemove(Entity entity) { behaviour?.PostRemove(entity); }
         public void PostEquipArmor(Entity entity, Armor armor) { behaviour?.PostEquipArmor(entity, armor); }
-        public void PostDestroyArmor(Entity entity, Armor armor, DamageResult damage) { behaviour?.PostDestroyArmor(entity, armor, damage); }
+        public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage) { behaviour?.PostDestroyArmor(entity, armor, damage); }
         public void PostRemoveArmor(Entity entity, Armor armor) { behaviour?.PostRemoveArmor(entity, armor); }
         public NamespaceID GetModelID()
         {

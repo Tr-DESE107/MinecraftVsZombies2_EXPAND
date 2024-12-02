@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Effects
                     if (entity.IsHostile(entity))
                         continue;
                     var damageEffectList = new DamageEffectList(VanillaDamageEffects.FIRE);
-                    ent.TakeDamage(100, damageEffectList, new EntityReferenceChain(entity));
+                    ent.TakeDamage(100, damageEffectList, entity);
                 }
                 return;
             }
@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Effects
             else if (entity.IsHostile(other))
             {
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE);
-                other.TakeDamage(entity.GetDamage(), damageEffects, new EntityReferenceChain(entity));
+                other.TakeDamage(entity.GetDamage(), damageEffects, entity);
             }
         }
         #endregion

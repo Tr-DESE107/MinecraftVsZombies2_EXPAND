@@ -39,6 +39,10 @@ namespace MVZ2.Vanilla.Level
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
             }
         }
+        public static Entity[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        {
+            return level.Explode(center, radius, faction, amount, effects, new EntityReferenceChain(source));
+        }
         public static Entity[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
             List<Entity> damageEntities = new List<Entity>();

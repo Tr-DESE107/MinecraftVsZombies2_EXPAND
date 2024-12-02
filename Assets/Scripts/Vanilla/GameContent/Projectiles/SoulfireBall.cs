@@ -18,9 +18,12 @@ namespace MVZ2.GameContent.Projectiles
         public SoulfireBall(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void PostHitEntity(ProjectileHitResult hitResult, DamageResult bodyResult, DamageResult armorResult)
+        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput result)
         {
-            base.PostHitEntity(hitResult, bodyResult, armorResult);
+            base.PostHitEntity(hitResult, result);
+            var bodyResult = result.BodyResult;
+            var armorResult = result.ArmorResult;
+
             var entity = hitResult.Projectile;
             var other = hitResult.Other;
 
@@ -45,7 +48,7 @@ namespace MVZ2.GameContent.Projectiles
             if (!blocksFire || blast)
             {
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
-                entity.Level.Explode(entity.Position, 40, entity.GetFaction(), entity.GetDamage() / 3f, damageEffects, new EntityReferenceChain(entity));
+                entity.Level.Explode(entity.Position, 40, entity.GetFaction(), entity.GetDamage() / 3f, damageEffects, entity);
             }
         }
         public static void SetBlast(Entity entity, bool value)

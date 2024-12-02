@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Shells
         {
             SetProperty(VanillaShellProps.HIT_SOUND, VanillaSoundID.wood);
         }
-        public override void EvaluateDamage(DamageInfo damageInfo)
+        public override void EvaluateDamage(DamageInput damageInfo)
         {
             base.EvaluateDamage(damageInfo);
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))

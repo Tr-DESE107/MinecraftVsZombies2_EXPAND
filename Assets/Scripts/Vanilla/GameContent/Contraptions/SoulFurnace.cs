@@ -156,7 +156,7 @@ namespace MVZ2.GameContent.Contraptions
             Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.PRE_CONTRAPTION_SACRIFICE, entity.GetDefinitionID(), entity, soulFurnace, fuel);
 
             var effects = new DamageEffectList(VanillaDamageEffects.SACRIFICE);
-            entity.Die(new DamageInfo(0, effects, entity, new EntityReferenceChain(soulFurnace)));
+            entity.Die(new DamageInput(0, effects, entity, new EntityReferenceChain(soulFurnace)));
             AddFuel(soulFurnace, fuel);
             entity.Level.Spawn(VanillaEffectID.soulfireBurn, entity.GetBoundsCenter(), soulFurnace);
             entity.PlaySound(VanillaSoundID.refuel);

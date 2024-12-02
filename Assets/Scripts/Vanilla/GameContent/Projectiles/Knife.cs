@@ -13,9 +13,11 @@ namespace MVZ2.GameContent.Projectiles
         public Knife(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void PostHitEntity(ProjectileHitResult hitResult, DamageResult bodyResult, DamageResult armorResult)
+        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput result)
         {
-            base.PostHitEntity(hitResult, bodyResult, armorResult);
+            base.PostHitEntity(hitResult, result);
+            var bodyResult = result.BodyResult;
+            var armorResult = result.ArmorResult;
             var bodyShell = bodyResult?.ShellDefinition;
             var armorShell = armorResult?.ShellDefinition;
             var bodyBlocksSlice = bodyShell != null ? bodyShell.BlocksSlice() : false;

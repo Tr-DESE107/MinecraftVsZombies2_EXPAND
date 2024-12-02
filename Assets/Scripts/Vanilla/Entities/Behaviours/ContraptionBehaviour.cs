@@ -42,7 +42,7 @@ namespace MVZ2.Vanilla.Entities
             base.PostRemove(entity);
             entity.ClearTakenGrids();
         }
-        public override void PostDeath(Entity entity, DamageInfo damageInfo)
+        public override void PostDeath(Entity entity, DamageInput damageInfo)
         {
             base.PostDeath(entity, damageInfo);
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.SACRIFICE))
@@ -57,9 +57,10 @@ namespace MVZ2.Vanilla.Entities
                 entity.Remove();
             }
         }
-        public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        public override void PostTakeDamage(DamageOutput result)
         {
-            base.PostTakeDamage(bodyResult, armorResult);
+            base.PostTakeDamage(result);
+            var bodyResult = result.BodyResult;
             if (bodyResult != null)
             {
                 bodyResult.Entity.AddFragmentTickDamage(bodyResult.Amount);

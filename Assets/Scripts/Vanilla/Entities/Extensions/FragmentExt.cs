@@ -20,7 +20,7 @@ namespace MVZ2.Vanilla.Entities
             Fragment.AddEmitSpeed(fragment, entity.GetFragmentTickDamage());
             entity.SetFragmentTickDamage(0);
         }
-        public static void PostFragmentDeath(this Entity entity, DamageInfo damageInfo)
+        public static void PostFragmentDeath(this Entity entity, DamageInput damageInfo)
         {
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;

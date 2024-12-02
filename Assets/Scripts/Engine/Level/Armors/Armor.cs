@@ -32,7 +32,7 @@ namespace PVZEngine.Armors
                 buff.Update();
             }
         }
-        public void Destroy(DamageResult result)
+        public void Destroy(ArmorDamageResult result)
         {
             Owner.DestroyArmor(this, result);
         }
@@ -100,11 +100,11 @@ namespace PVZEngine.Armors
             return currentBuffID++;
         }
         #endregion
-        public DamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
+        public ArmorDamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
         {
-            return TakeDamage(new DamageInfo(amount, effects, Owner, source));
+            return TakeDamage(new DamageInput(amount, effects, Owner, source));
         }
-        public static DamageResult TakeDamage(DamageInfo info)
+        public static ArmorDamageResult TakeDamage(DamageInput info)
         {
             var entity = info.Entity;
             var armor = entity.EquipedArmor;
@@ -118,20 +118,21 @@ namespace PVZEngine.Armors
             }
             // Apply Damage
             float hpBefore = armor.Health;
-            if (info.Amount > 0)
+            var amount = info.Amount;
+            if (amount > 0)
             {
-                armor.Health -= info.Amount;
+                armor.Health -= amount;
             }
             bool fatal = hpBefore > 0 && armor.Health <= 0;
-            var damageResult = new DamageResult()
+            var damageResult = new ArmorDamageResult()
             {
-                OriginalDamage = info.OriginalDamage,
-                Amount = info.Amount,
-                UsedDamage = info.GetUsedDamage(),
+                OriginalAmount = info.OriginalAmount,
+                Amount = amount,
+                Armor = armor,
+                Effects = info.Effects,
                 Entity = entity,
                 Source = info.Source,
-                Effects = info.Effects,
-                Armor = armor,
+                SpendAmount = Mathf.Min(hpBefore, amount),
                 ShellDefinition = shell,
                 Fatal = fatal
             };

@@ -40,40 +40,42 @@ namespace MVZ2.Vanilla.Entities
             float stateHP = maxHP / stateCount;
             return Mathf.CeilToInt(entity.Health / stateHP) - 1;
         }
-        public static DamageResult TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects)
         {
-            return entity.TakeDamage(amount, effects, source, out _);
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null));
         }
-        public static DamageResult TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, out DamageResult armorResult)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source)
         {
-            return TakeDamage(new DamageInfo(amount, effects, entity, source), out armorResult);
+            return entity.TakeDamage(amount, effects, source);
         }
-        public static DamageResult TakeDamage(DamageInfo info)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
-            return TakeDamage(info, out _);
+            return TakeDamage(new DamageInput(amount, effects, entity, source));
         }
-        public static DamageResult TakeDamage(DamageInfo info, out DamageResult armorResult)
+        public static DamageOutput TakeDamage(DamageInput info)
         {
-            armorResult = null;
             if (info.Entity.IsInvincible() || info.Entity.IsDead)
                 return null;
             if (!PreTakeDamage(info))
                 return null;
             if (info.Amount <= 0)
                 return null;
-            DamageResult bodyResult;
+            var result = new DamageOutput()
+            {
+                Entity = info.Entity
+            };
             if (Armor.Exists(info.Entity.EquipedArmor) && !info.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
             {
-                bodyResult = ArmoredTakeDamage(info, out armorResult);
+                ArmoredTakeDamage(info, result);
             }
             else
             {
-                bodyResult = BodyTakeDamage(info);
+                result.BodyResult = BodyTakeDamage(info);
             }
-            PostTakeDamage(bodyResult, armorResult);
-            return bodyResult;
+            PostTakeDamage(result);
+            return result;
         }
-        private static bool PreTakeDamage(DamageInfo damageInfo)
+        private static bool PreTakeDamage(DamageInput damageInfo)
         {
             var triggers = damageInfo.Entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
             foreach (var trigger in triggers)
@@ -86,42 +88,35 @@ namespace MVZ2.Vanilla.Entities
             }
             return true;
         }
-        private static void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        private static void PostTakeDamage(DamageOutput result)
         {
-            Entity entity = null;
-            if (bodyResult != null)
-            {
-                entity = bodyResult.Entity;
-            }
-            else if (armorResult != null)
-            {
-                entity = armorResult.Entity;
-            }
+            Entity entity = result.Entity;
             if (entity == null)
                 return;
-            entity.Definition.PostTakeDamage(bodyResult, armorResult);
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, bodyResult, armorResult);
+            entity.Definition.PostTakeDamage(result);
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, result);
         }
-        private static DamageResult ArmoredTakeDamage(DamageInfo info, out DamageResult armorResult)
+        private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
         {
             var entity = info.Entity;
-            armorResult = Armor.TakeDamage(info);
+            var armorResult = Armor.TakeDamage(info);
+            result.ArmorResult = armorResult;
             if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY))
             {
-                return BodyTakeDamage(info);
+                result.BodyResult = BodyTakeDamage(info);
             }
             else if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
             {
-                float overkillDamage = armorResult != null ? info.Amount - armorResult.UsedDamage : info.Amount;
+                var armorSpendAmount = armorResult?.SpendAmount ?? 0;
+                float overkillDamage = info.Amount - armorSpendAmount;
                 if (overkillDamage > 0)
                 {
-                    var overkillInfo = new DamageInfo(overkillDamage, info.Effects, entity, info.Source);
-                    return BodyTakeDamage(overkillInfo);
+                    var overkillInfo = new DamageInput(overkillDamage, info.Effects, entity, info.Source);
+                    result.BodyResult = BodyTakeDamage(overkillInfo);
                 }
             }
-            return null;
         }
-        private static DamageResult BodyTakeDamage(DamageInfo info)
+        private static BodyDamageResult BodyTakeDamage(DamageInput info)
         {
             var entity = info.Entity;
             var shellRef = entity.GetShellID();
@@ -131,10 +126,6 @@ namespace MVZ2.Vanilla.Entities
                 shell.EvaluateDamage(info);
             }
 
-
-            // Calculate used damage.
-            float usedDamage = info.GetUsedDamage();
-
             // Apply Damage.
             float hpBefore = entity.Health;
             entity.Health -= info.Amount;
@@ -143,16 +134,16 @@ namespace MVZ2.Vanilla.Entities
                 entity.Die(info);
             }
 
-            return new DamageResult()
+            return new BodyDamageResult()
             {
-                OriginalDamage = info.OriginalDamage,
+                OriginalAmount = info.OriginalAmount,
                 Amount = info.Amount,
-                UsedDamage = info.GetUsedDamage(),
+                SpendAmount = Mathf.Min(hpBefore, info.OriginalAmount),
                 Entity = entity,
                 Effects = info.Effects,
                 Source = info.Source,
                 ShellDefinition = shell,
-                Fatal = hpBefore > 0 && entity.Health <= 0
+                Fatal = hpBefore > 0 && entity.Health <= 0,
             };
         }
         #endregion
@@ -301,7 +292,7 @@ namespace MVZ2.Vanilla.Entities
         }
 
         #region 治疗
-        public static HealResult HealEffects(this Entity entity, float amount, Entity source)
+        public static HealOutput HealEffects(this Entity entity, float amount, Entity source)
         {
             var result = entity.Heal(amount, source);
             if (result.RealAmount >= 0)
@@ -310,26 +301,26 @@ namespace MVZ2.Vanilla.Entities
             }
             return result;
         }
-        public static HealResult Heal(this Entity entity, float amount, Entity source)
+        public static HealOutput Heal(this Entity entity, float amount, Entity source)
         {
             return entity.Heal(amount, new EntityReferenceChain(source));
         }
-        public static HealResult Heal(this Entity entity, float amount, EntityReferenceChain source)
+        public static HealOutput Heal(this Entity entity, float amount, EntityReferenceChain source)
         {
-            return Heal(new HealInfo(amount, entity, source));
+            return Heal(new HealInput(amount, entity, source));
         }
-        public static HealResult HealArmor(this Entity entity, float amount, Entity source)
+        public static HealOutput HealArmor(this Entity entity, float amount, Entity source)
         {
             return entity.HealArmor(amount, new EntityReferenceChain(source));
         }
-        public static HealResult HealArmor(this Entity entity, float amount, EntityReferenceChain source)
+        public static HealOutput HealArmor(this Entity entity, float amount, EntityReferenceChain source)
         {
             var armor = entity.EquipedArmor;
             if (armor == null)
                 return null;
-            return Heal(new HealInfo(amount, entity, armor, source));
+            return Heal(new HealInput(amount, entity, armor, source));
         }
-        public static HealResult Heal(HealInfo info)
+        public static HealOutput Heal(HealInput info)
         {
             if (info.Entity.IsDead)
                 return null;
@@ -337,7 +328,7 @@ namespace MVZ2.Vanilla.Entities
                 return null;
             if (info.Amount <= 0)
                 return null;
-            HealResult result;
+            HealOutput result;
             if (info.ToArmor)
             {
                 result = ArmorHeal(info);
@@ -349,7 +340,7 @@ namespace MVZ2.Vanilla.Entities
             PostHeal(result);
             return result;
         }
-        private static bool PreHeal(HealInfo info)
+        private static bool PreHeal(HealInput info)
         {
             var entity = info.Entity;
             if (entity == null)
@@ -365,14 +356,14 @@ namespace MVZ2.Vanilla.Entities
             }
             return true;
         }
-        private static void PostHeal(HealResult result)
+        private static void PostHeal(HealOutput result)
         {
             var entity = result.Entity;
             if (entity == null)
                 return;
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, result);
         }
-        private static HealResult ArmorHeal(HealInfo info)
+        private static HealOutput ArmorHeal(HealInput info)
         {
             var armor = info.Armor;
             // Apply Healing.
@@ -383,7 +374,7 @@ namespace MVZ2.Vanilla.Entities
                 armor.Health = Mathf.Min(armor.Health + info.Amount, maxHealth);
             }
 
-            return new HealResult()
+            return new HealOutput()
             {
                 OriginalAmount = info.OriginalAmount,
                 Amount = info.Amount,
@@ -394,7 +385,7 @@ namespace MVZ2.Vanilla.Entities
                 Source = info.Source,
             };
         }
-        private static HealResult BodyHeal(HealInfo info)
+        private static HealOutput BodyHeal(HealInput info)
         {
             var entity = info.Entity;
 
@@ -406,7 +397,7 @@ namespace MVZ2.Vanilla.Entities
                 entity.Health = Mathf.Min(entity.Health + info.Amount, maxHealth);
             }
 
-            return new HealResult()
+            return new HealOutput()
             {
                 OriginalAmount = info.OriginalAmount,
                 Amount = info.Amount,

@@ -123,7 +123,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.punch);
             foreach (var ent in detector.DetectMutiple(entity))
             {
-                ent.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), new EntityReferenceChain(entity));
+                ent.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
                 ent.Velocity += entity.GetFacingDirection() * 20;
             }
         }
@@ -165,7 +165,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.punch);
             foreach (var ent in evokedDetector.DetectMutiple(entity))
             {
-                ent.TakeDamage(entity.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), new EntityReferenceChain(entity));
+                ent.TakeDamage(entity.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
                 if (ent.Type == EntityTypes.ENEMY)
                 {
                     var pos = ent.Position;

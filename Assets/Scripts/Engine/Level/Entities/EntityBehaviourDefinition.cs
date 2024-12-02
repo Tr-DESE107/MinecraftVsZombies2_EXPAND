@@ -13,14 +13,14 @@ namespace PVZEngine.Entities
         }
         public virtual void Init(Entity entity) { }
         public virtual void Update(Entity entity) { }
-        public virtual void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult) { }
+        public virtual void PostTakeDamage(DamageOutput result) { }
         public virtual void PostContactGround(Entity entity, Vector3 velocity) { }
         public virtual void PostLeaveGround(Entity entity) { }
         public virtual void PostCollision(Entity entity, Entity other, int state) { }
-        public virtual void PostDeath(Entity entity, DamageInfo damageInfo) { }
+        public virtual void PostDeath(Entity entity, DamageInput damageInfo) { }
         public virtual void PostRemove(Entity entity) { }
         public virtual void PostEquipArmor(Entity entity, Armor slot) { }
-        public virtual void PostDestroyArmor(Entity entity, Armor slot, DamageResult damage) { }
+        public virtual void PostDestroyArmor(Entity entity, Armor slot, ArmorDamageResult result) { }
         public virtual void PostRemoveArmor(Entity entity, Armor slot) { }
         public virtual NamespaceID GetModelID(NamespaceID origin)
         {

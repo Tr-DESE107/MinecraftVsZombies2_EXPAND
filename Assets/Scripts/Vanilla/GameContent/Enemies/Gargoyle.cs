@@ -27,15 +27,16 @@ namespace MVZ2.GameContent.Enemies
             entity.UpdateFragment();
             entity.SetAnimationInt("HealthState", entity.GetHealthState(3));
         }
-        public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        public override void PostTakeDamage(DamageOutput result)
         {
-            base.PostTakeDamage(bodyResult, armorResult);
+            base.PostTakeDamage(result);
+            var bodyResult = result.BodyResult;
             if (bodyResult != null)
             {
                 bodyResult.Entity.AddFragmentTickDamage(bodyResult.Amount);
             }
         }
-        public override void PostDeath(Entity entity, DamageInfo info)
+        public override void PostDeath(Entity entity, DamageInput info)
         {
             base.PostDeath(entity, info);
             entity.PostFragmentDeath(info);

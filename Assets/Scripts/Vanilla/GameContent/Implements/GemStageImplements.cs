@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Implements
                 level.ShowAdvice(adviceContext, adviceText, 1000, -1);
             }
         }
-        private void Gem_PostEnemyDeathCallback(Entity enemy, DamageInfo info)
+        private void Gem_PostEnemyDeathCallback(Entity enemy, DamageInput info)
         {
             var level = enemy.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())

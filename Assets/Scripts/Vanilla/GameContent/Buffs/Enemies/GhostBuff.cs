@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             base.PostUpdate(buff);
             UpdateIllumination(buff);
         }
-        private void PreEntityTakeDamageCallback(DamageInfo damageInfo)
+        private void PreEntityTakeDamageCallback(DamageInput damageInfo)
         {
             var buffs = damageInfo.Entity.GetBuffs<GhostBuff>();
             if (buffs.Length <= 0)

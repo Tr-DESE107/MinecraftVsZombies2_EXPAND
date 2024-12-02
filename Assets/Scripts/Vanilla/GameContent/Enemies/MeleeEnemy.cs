@@ -70,7 +70,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (target == null)
                 return;
-            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(VanillaDamageEffects.MUTE), new EntityReferenceChain(enemy));
+            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(VanillaDamageEffects.MUTE), enemy);
         }
     }
 

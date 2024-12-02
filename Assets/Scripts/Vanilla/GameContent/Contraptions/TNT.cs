@@ -77,7 +77,7 @@ namespace MVZ2.GameContent.Contraptions
         public static Entity[] Explode(Entity entity, float range, float damage)
         {
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.EXPLOSION);
-            var entities = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, new EntityReferenceChain(entity));
+            var entities = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
             foreach (var e in entities)
             {
                 if (e.IsDead)

@@ -261,7 +261,7 @@ namespace MVZ2.Entities
         {
             CreateArmorModel(armor);
         }
-        private void OnArmorDestroyCallback(Armor armor, DamageResult result)
+        private void OnArmorDestroyCallback(Armor armor, ArmorDamageResult result)
         {
         }
         private void OnArmorRemoveCallback(Armor armor)

@@ -38,15 +38,17 @@ namespace MVZ2.GameContent.Implements
             if (fallDamage > 0)
             {
                 var effects = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.FALL_DAMAGE);
-                entity.TakeDamage(fallDamage, effects, new EntityReferenceChain(null));
+                entity.TakeDamage(fallDamage, effects, entity);
             }
         }
-        private void PlayHitSoundCallback(DamageResult bodyResult, DamageResult armorResult)
+        private void PlayHitSoundCallback(DamageOutput result)
         {
+            var bodyResult = result.BodyResult;
+            var armorResult = result.ArmorResult;
             if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
-                var entity = armorResult.Entity;
                 var shellDefinition = armorResult.ShellDefinition;
+                var entity = result.Entity;
                 entity.PlayHitSound(armorResult.Effects, shellDefinition);
             }
             if (bodyResult != null)

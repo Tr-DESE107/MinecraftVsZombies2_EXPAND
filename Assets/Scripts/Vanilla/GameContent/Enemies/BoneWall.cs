@@ -31,11 +31,11 @@ namespace MVZ2.GameContent.Enemies
                 entity.Timeout--;
                 if (entity.Timeout <= 0)
                 {
-                    entity.Die(new DamageInfo(0, new DamageEffectList(), entity, new EntityReferenceChain(entity)));
+                    entity.Die(new DamageInput(0, new DamageEffectList(), entity, new EntityReferenceChain(entity)));
                 }
             }
         }
-        public override void PostDeath(Entity entity, DamageInfo info)
+        public override void PostDeath(Entity entity, DamageInput info)
         {
             base.PostDeath(entity, info);
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))

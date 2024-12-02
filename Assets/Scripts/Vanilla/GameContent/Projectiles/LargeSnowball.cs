@@ -38,8 +38,9 @@ namespace MVZ2.GameContent.Projectiles
             projectile.SetShadowScale(scaleVector * 0.5f);
             projectile.SetDamage(Mathf.Max(0, (scale - 1) * 300));
         }
-        private void PostEnemyTakeDamageCallback(DamageResult bodyResult, DamageResult armorResult)
+        private void PostEnemyTakeDamageCallback(DamageOutput result)
         {
+            var bodyResult = result.BodyResult;
             if (bodyResult == null)
                 return;
             var entity = bodyResult.Entity;

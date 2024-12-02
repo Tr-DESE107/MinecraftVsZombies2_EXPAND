@@ -117,9 +117,9 @@ namespace PVZEngine.Entities
 
         #region 伤害
 
-        public void Die(DamageInfo info = null)
+        public void Die(DamageInput info = null)
         {
-            info = info ?? new DamageInfo(0, new DamageEffectList(), this, new EntityReferenceChain(null));
+            info = info ?? new DamageInput(0, new DamageEffectList(), this, new EntityReferenceChain(null));
             IsDead = true;
             Definition.PostDeath(this, info);
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, this, info);
@@ -437,7 +437,7 @@ namespace PVZEngine.Entities
             Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, this, armor);
             OnEquipArmor?.Invoke(armor);
         }
-        public void DestroyArmor(Armor armor, DamageResult result)
+        public void DestroyArmor(Armor armor, ArmorDamageResult result)
         {
             Definition.PostDestroyArmor(this, armor, result);
             Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, this, armor, result);
@@ -605,7 +605,7 @@ namespace PVZEngine.Entities
         public event Action<string, EntityAnimationTarget, float> OnSetAnimationFloat;
 
         public event Action<Armor> OnEquipArmor;
-        public event Action<Armor, DamageResult> OnDestroyArmor;
+        public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
         public event Action<Armor> OnRemoveArmor;
 
         public event Action<NamespaceID> OnModelChanged;

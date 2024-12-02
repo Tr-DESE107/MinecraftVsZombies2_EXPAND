@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
         }
-        public override void PostDeath(Entity entity, DamageInfo info)
+        public override void PostDeath(Entity entity, DamageInput info)
         {
             base.PostDeath(entity, info);
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))

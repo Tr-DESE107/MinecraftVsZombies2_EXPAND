@@ -17,9 +17,10 @@ namespace MVZ2.Vanilla.Entities
         {
             SetProperty(VanillaEntityProps.SORTING_LAYER, SortingLayers.entities);
         }
-        public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        public override void PostTakeDamage(DamageOutput result)
         {
-            base.PostTakeDamage(bodyResult, armorResult);
+            base.PostTakeDamage(result);
+            var armorResult = result.ArmorResult;
             if (armorResult != null)
             {
                 var armor = armorResult.Armor;
@@ -27,12 +28,12 @@ namespace MVZ2.Vanilla.Entities
                     armor.AddBuff<ArmorDamageColorBuff>();
             }
         }
-        public override void PostDestroyArmor(Entity entity, Armor armor, DamageResult damage)
+        public override void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult result)
         {
-            base.PostDestroyArmor(entity, armor, damage);
+            base.PostDestroyArmor(entity, armor, result);
             entity.RemoveArmor();
             var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, GetArmorPosition(entity), entity);
-            var sourcePosition = damage?.Source?.GetEntity(entity.Level)?.Position;
+            var sourcePosition = result?.Source?.GetEntity(entity.Level)?.Position;
             var moveDirection = entity.GetFacingDirection();
             if (sourcePosition.HasValue)
             {

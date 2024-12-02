@@ -28,15 +28,16 @@ namespace MVZ2.GameContent.Obstacles
                 contraption.Die();
             }
         }
-        public override void PostTakeDamage(DamageResult bodyResult, DamageResult armorResult)
+        public override void PostTakeDamage(DamageOutput result)
         {
-            base.PostTakeDamage(bodyResult, armorResult);
+            base.PostTakeDamage(result);
+            var bodyResult = result.BodyResult;
             if (bodyResult != null)
             {
                 bodyResult.Entity.AddFragmentTickDamage(bodyResult.Amount);
             }
         }
-        public override void PostDeath(Entity entity, DamageInfo damageInfo)
+        public override void PostDeath(Entity entity, DamageInput damageInfo)
         {
             base.PostDeath(entity, damageInfo);
             entity.PostFragmentDeath(damageInfo);

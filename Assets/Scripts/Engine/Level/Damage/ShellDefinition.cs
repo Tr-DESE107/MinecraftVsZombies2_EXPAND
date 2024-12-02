@@ -7,7 +7,7 @@ namespace PVZEngine.Damages
         public ShellDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public virtual void EvaluateDamage(DamageInfo damageInfo)
+        public virtual void EvaluateDamage(DamageInput damageInfo)
         {
         }
     }

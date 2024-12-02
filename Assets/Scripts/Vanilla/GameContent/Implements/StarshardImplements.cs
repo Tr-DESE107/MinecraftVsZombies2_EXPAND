@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
-        private void PostEnemyDeathCallback(Entity enemy, DamageInfo info)
+        private void PostEnemyDeathCallback(Entity enemy, DamageInput info)
         {
             var buffs = enemy.GetBuffs<StarshardCarrierBuff>();
             foreach (var buff in buffs)
