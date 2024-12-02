@@ -201,13 +201,23 @@
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
-        <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀" >
+        <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀"  unlock="mvz2:level.halloween_8">
             <float name="damage" value="15"/>
             <id name="projectileId" value="mvz2:knife"/>
             <id name="shell" value="mvz2:metal"/>
 
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:short" />
+        </dispenser>
+        <dispenser id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片"  unlock="mvz2:level.halloween_9">
+            <float name="range" value="120"/>
+            <id name="shell" value="mvz2:wood"/>
+            <id name="placeSound" value="mvz2:wood"/>
+            <id name="deathSound" value="mvz2:wood"/>
+            <vector3 name="size" x="32" y="48" z="32"/>
+
+            <int name="cost" value="150" />
+            <id name="rechargeId" value="mvz2:long" />
         </dispenser>
 
         <!-- Enemies -->
@@ -470,6 +480,9 @@
             <int name="maxTimeout" value="30"/>
         </effect>
         <effect id="blood_particles">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="smoke_cluster">
             <int name="maxTimeout" value="30"/>
         </effect>
     </entries>

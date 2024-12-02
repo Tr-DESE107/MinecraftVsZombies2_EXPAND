@@ -99,7 +99,7 @@ namespace MVZ2.GameContent.Contraptions
                     var position = entity.Position + direction * extension;
                     var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, position, entity);
                     effect.Velocity = direction * -5;
-                    effect.RenderScale = entity.RenderScale;
+                    effect.SetDisplayScale(entity.GetDisplayScale());
                     effect.ChangeModel(VanillaModelID.pistonPalm);
                 }
             }

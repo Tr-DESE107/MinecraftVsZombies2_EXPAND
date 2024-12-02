@@ -60,4 +60,11 @@
             <color hex="#FFFFFF" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="magichest">
+        <colorKeys>
+            <color hex="#0000FF" time="0.3"/>
+            <color hex="#FF0000" time="0.6"/>
+            <color hex="#FFFFFF" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

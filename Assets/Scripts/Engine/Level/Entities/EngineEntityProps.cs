@@ -8,6 +8,8 @@ namespace PVZEngine.Entities
 
         public const string SHELL = "shell";
 
+        public const string SCALE = "scale";
+        public const string DISPLAY_SCALE = "displayScale";
         public const string FRICTION = "friction";
         public const string GRAVITY = "gravity";
         public const string VELOCITY_DAMPEN = "velocityDampen";
@@ -34,6 +36,22 @@ namespace PVZEngine.Entities
         public static void SetGravity(this Entity entity, float value)
         {
             entity.SetProperty(GRAVITY, value);
+        }
+        public static Vector3 GetScale(this Entity entity)
+        {
+            return entity.GetProperty<Vector3>(SCALE);
+        }
+        public static void SetScale(this Entity entity, Vector3 value)
+        {
+            entity.SetProperty(SCALE, value);
+        }
+        public static Vector3 GetDisplayScale(this Entity entity)
+        {
+            return entity.GetProperty<Vector3>(DISPLAY_SCALE);
+        }
+        public static void SetDisplayScale(this Entity entity, Vector3 value)
+        {
+            entity.SetProperty(DISPLAY_SCALE, value);
         }
         public static Vector3 GetVelocityDampen(this Entity entity)
         {

@@ -14,7 +14,7 @@ namespace MVZ2.Models
 
 
             var size = Model.GetProperty<Vector3>("Size");
-            size *= MainManager.Instance.LevelManager.LawnToTransScale;
+            size = Lawn2TransScale(size);
             float volume = size.x * size.z;
             float maxRadius = Mathf.Max(size.x, size.z);
 

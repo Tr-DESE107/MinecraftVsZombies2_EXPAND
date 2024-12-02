@@ -72,10 +72,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual void Evoke(Entity entity)
         {
-            var bounds = entity.GetBounds();
-            var pos = bounds.center;
-            pos.z = entity.Position.z;
-            entity.Level.Spawn(VanillaEffectID.evocationStar, pos, entity);
+            entity.Level.Spawn(VanillaEffectID.evocationStar, entity.GetCenter(), entity);
             OnEvoke(entity);
         }
         public virtual bool CanTrigger(Entity entity)

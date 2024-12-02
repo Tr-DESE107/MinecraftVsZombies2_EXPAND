@@ -440,7 +440,7 @@ namespace MVZ2.Entities
             rendererGroup.SetColorOffset(GetColorOffset());
             rendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
-            Model.transform.localScale = Entity.RenderScale;
+            Model.transform.localScale = Entity.GetDisplayScale();
             Model.RendererGroup.SortingLayerID = Entity.GetSortingLayer();
             Model.RendererGroup.SortingOrder = Entity.GetSortingOrder();
 

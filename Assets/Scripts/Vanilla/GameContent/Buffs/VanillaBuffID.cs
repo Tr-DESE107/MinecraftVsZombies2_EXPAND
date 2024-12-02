@@ -17,6 +17,7 @@ namespace MVZ2.GameContent.Buffs
         public const string glowstoneEvoke = "glowstone_evoke";
         public const string tntIgnited = "tnt_ignited";
         public const string sacrificed = "sacrificed";
+        public const string magichestInvincible = "magichest_invincible";
         // Enemy
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";

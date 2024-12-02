@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.silvenser,
                 VanillaContraptionID.punchton,
 
-                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.magichest,
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.gargoyle,

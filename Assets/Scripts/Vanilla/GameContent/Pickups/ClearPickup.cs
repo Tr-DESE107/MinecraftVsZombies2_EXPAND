@@ -51,8 +51,8 @@ namespace MVZ2.GameContent.Pickups
                 float timePercent = collectedTime / (float)moveTime;
                 var targetPos = GetMoveTargetPosition(pickup);
                 pickup.Velocity = (targetPos - pickup.Position) * 0.05f;
-                pickup.Scale = Vector3.one * Mathf.Lerp(1, 3, timePercent);
-                pickup.RenderScale = Vector3.one * Mathf.Lerp(1, 3, timePercent);
+                pickup.SetScale(Vector3.one * Mathf.Lerp(1, 3, timePercent));
+                pickup.SetDisplayScale(Vector3.one * Mathf.Lerp(1, 3, timePercent));
 
                 shadowAlpha = 0;
             }
@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Pickups
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
             var level = entity.Level;
-            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.RenderScale.y * 0.5f);
+            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.GetDisplayScale().y * 0.5f);
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
         private NamespaceID GetPickupModelID(Entity entity)

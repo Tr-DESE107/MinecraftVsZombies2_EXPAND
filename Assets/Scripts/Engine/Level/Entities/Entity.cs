@@ -708,11 +708,9 @@ namespace PVZEngine.Entities
         public LevelEngine Level { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Position { get; set; }
-        public Vector3 Scale { get; set; } = Vector3.one;
         public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
-        public Vector3 RenderScale { get; set; } = Vector3.one;
-        public bool FlipX => Scale.x < 0;
+        public bool FlipX => this.GetScale().x < 0;
         #region Collision
         public int CollisionMaskHostile { get; set; }
         public int CollisionMaskFriendly { get; set; }

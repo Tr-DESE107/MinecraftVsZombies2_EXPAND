@@ -10,7 +10,7 @@ namespace PVZEngine.Entities
         }
         public void Update()
         {
-            var scale = Entity.Scale;
+            var scale = Entity.GetScale();
 
             Vector3 offset = GetOffset();
             offset.Scale(scale);
@@ -19,6 +19,10 @@ namespace PVZEngine.Entities
             size.Scale(scale);
 
             var center = Entity.Position + Vector3.up * (0.5f * size.y) + offset;
+
+            size.x = Mathf.Abs(size.x);
+            size.y = Mathf.Abs(size.y);
+            size.z = Mathf.Abs(size.z);
             cache = new Bounds(center, size);
         }
         public Vector3 GetBoundsCenter()

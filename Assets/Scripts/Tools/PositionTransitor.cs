@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 namespace Tools
 {
-    [ExecuteInEditMode]
-    public class PositionTransition : MonoBehaviour
+    [DisallowMultipleComponent]
+    public abstract class PositionTransitor : MonoBehaviour
     {
         #region 公有方法
 
@@ -14,6 +14,7 @@ namespace Tools
         public void setStartTransform(Transform transform)
         {
             _startTransform = transform;
+            updatePosition();
         }
         public void setStartPosition(Vector3 globalPosition)
         {
@@ -25,6 +26,7 @@ namespace Tools
             {
                 _startPosition = globalPosition;
             }
+            updatePosition();
         }
         public void setStartLocalPosition(Vector3 localPosition)
         {
@@ -36,21 +38,22 @@ namespace Tools
             {
                 _startPosition = localToGlobalPoint(localPosition);
             }
+            updatePosition();
         }
         #endregion
 
         #region 目标位置
-        public void setTargetTransform(Transform target, float stopDistance = 0)
+        public void setTargetTransform(Transform target)
         {
             _targetTransform = target;
             _targetPosition = Vector3.zero;
-            _stopDistance = stopDistance;
+            updatePosition();
         }
-        public void setTargetPosition(Vector3 targetPos, float stopDistance = 0)
+        public void setTargetPosition(Vector3 targetPos)
         {
             _targetTransform = null;
             _targetPosition = targetPos;
-            _stopDistance = stopDistance;
+            updatePosition();
         }
         public void setTargetPositionToCurrent()
         {
@@ -77,9 +80,9 @@ namespace Tools
         }
         public void setPositionByTime(float time)
         {
-            Vector3 targetPosition = targetTransform ? targetTransform.position : _targetPosition;
             if (isLocalMode)
             {
+                Vector3 targetPosition = targetTransform ? targetTransform.position : _targetPosition;
                 Vector3 globalStartPosition;
                 Vector3 localStartPosition;
                 if (startTransform)
@@ -92,24 +95,27 @@ namespace Tools
                     globalStartPosition = localToGlobalPoint(_startPosition);
                     localStartPosition = _startPosition;
                 }
-                Vector3 stoppedPosition = Vector3.MoveTowards(targetPosition, globalStartPosition, _stopDistance);
-                stoppedPosition = globalToLocalPoint(stoppedPosition);
+                targetPosition = globalToLocalPoint(targetPosition);
 
-                var position = Vector3.Lerp(localStartPosition, stoppedPosition, time);
+                var position = Transit(localStartPosition, targetPosition, time);
                 setLocalPosition(position);
             }
             else
             {
                 Vector3 startPosition = startTransform ? startTransform.position : _startPosition;
-                Vector3 stoppedPosition = Vector3.MoveTowards(targetPosition, startPosition, _stopDistance);
+                Vector3 targetPosition = targetTransform ? targetTransform.position : _targetPosition;
 
-                var position = Vector3.Lerp(startPosition, stoppedPosition, time);
+                var position = Transit(startPosition, targetPosition, time);
                 setWorldPosition(position);
             }
         }
         public void setPositionToStart()
         {
             setPositionByTime(0);
+        }
+        public void updatePosition()
+        {
+            setPositionByTime(time);
         }
         #endregion
 
@@ -128,10 +134,11 @@ namespace Tools
         }
         protected void LateUpdate()
         {
-            setPositionByTime(time);
+            updatePosition();
         }
         #endregion
 
+        protected abstract Vector3 Transit(Vector3 start, Vector3 end, float time);
         private void initStartPosition()
         {
             if (!Application.isPlaying)
@@ -168,8 +175,6 @@ namespace Tools
         Transform _startTransform;
         [SerializeField]
         Transform _targetTransform;
-        [SerializeField]
-        float _stopDistance;
         [SerializeField]
         Vector3 _startPosition;
         [SerializeField]

@@ -28,6 +28,12 @@
     <sound name="chapter_transition" maxCount="1" priority="0">
         <sample path="mvz2:chapter_transition" weight="1" />
     </sound>
+    <sound name="chest_open">
+        <sample path="mvz2:chest_open" weight="1" />
+    </sound>
+    <sound name="chest_close">
+        <sample path="mvz2:chest_close" weight="1" />
+    </sound>
     <sound name="chime" maxCount="1" priority="64">
         <sample path="mvz2:chime" weight="1" />
     </sound>
@@ -90,6 +96,9 @@
     </sound>
     <sound name="fire">
         <sample path="mvz2:fire" weight="1" />
+    </sound>
+    <sound name="fire_charge">
+        <sample path="mvz2:fire_charge" weight="1" />
     </sound>
     <sound name="fizz">
         <sample path="mvz2:fizz" weight="1" />
@@ -168,6 +177,9 @@
     </sound>
     <sound name="lose_music" priority="0">
         <sample path="mvz2:lose_music" weight="1" />
+    </sound>
+    <sound name="magical">
+        <sample path="mvz2:magical" weight="1" />
     </sound>
     <sound name="mine_explode">
         <sample path="mvz2:mine_explode" weight="1" />

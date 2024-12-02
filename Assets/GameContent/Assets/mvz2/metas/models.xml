@@ -13,6 +13,7 @@
     <model name="tnt" type="entity" path="mvz2:contraption/tnt" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="soul_furnace" type="entity" path="mvz2:contraption/soul_furnace" width="64" height="64" xOffset="0" yOffset="4"/>
     <model name="silvenser" type="entity" path="mvz2:contraption/silvenser" width="64" height="64" xOffset="0" yOffset="4"/>
+    <model name="magichest" type="entity" path="mvz2:contraption/magichest" width="64" height="64" xOffset="0" yOffset="4"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="4"/>
@@ -68,6 +69,7 @@
     <model name="magic_stars" type="entity" path="mvz2:effect/magic_stars" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="bone_particles" type="entity" path="mvz2:effect/bone_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="blood_particles" type="entity" path="mvz2:effect/blood_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="smoke_cluster" type="entity" path="mvz2:effect/smoke_cluster" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="5"/>

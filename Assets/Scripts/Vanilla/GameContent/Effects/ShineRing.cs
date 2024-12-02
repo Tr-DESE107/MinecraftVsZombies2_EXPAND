@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Effects
             entity.SetTint(color);
             var lightRange = parent.GetLightRange() / 100f;
             lightRange.y = lightRange.z;
-            entity.RenderScale = lightRange;
+            entity.SetDisplayScale(lightRange);
         }
         #endregion
     }

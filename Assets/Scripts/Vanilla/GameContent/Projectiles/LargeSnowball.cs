@@ -33,8 +33,8 @@ namespace MVZ2.GameContent.Projectiles
             projectile.RenderRotation += Vector3.forward * angleSpeed;
 
             Vector3 scaleVector = new Vector3(scale, scale, 1);
-            projectile.Scale = scaleVector;
-            projectile.RenderScale = scaleVector;
+            projectile.SetScale(scaleVector);
+            projectile.SetDisplayScale(scaleVector);
             projectile.SetShadowScale(scaleVector * 0.5f);
             projectile.SetDamage(Mathf.Max(0, (scale - 1) * 300));
         }

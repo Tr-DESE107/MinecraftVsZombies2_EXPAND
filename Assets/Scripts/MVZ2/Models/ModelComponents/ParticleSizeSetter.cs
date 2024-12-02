@@ -9,7 +9,7 @@ namespace MVZ2.Models
         {
             base.UpdateLogic();
             var size = Model.GetProperty<Vector3>("Size");
-            size *= MainManager.Instance.LevelManager.LawnToTransScale;
+            size = Lawn2TransScale(size);
 
             var shape = particles.Particles.shape;
             shape.scale = size;

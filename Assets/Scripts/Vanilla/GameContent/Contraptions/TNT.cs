@@ -101,7 +101,7 @@ namespace MVZ2.GameContent.Contraptions
 
             if (timer.Frame < 5)
             {
-                entity.RenderScale = Vector3.one * Mathf.Lerp(2, 1, timer.Frame / 5f);
+                entity.SetDisplayScale(Vector3.one * Mathf.Lerp(2, 1, timer.Frame / 5f));
             }
             if (timer.Expired)
             {

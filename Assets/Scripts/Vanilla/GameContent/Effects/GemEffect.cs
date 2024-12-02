@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Effects
                 }
 
                 var vanishLerp = 1 - timeout / (float)vanishTime;
-                entity.RenderScale = Vector3.Lerp(Vector3.one, Vector3.one * 0.5f, vanishLerp);
+                entity.SetDisplayScale(Vector3.one * Mathf.Lerp(1, 0.5f, vanishLerp));
                 alpha = Mathf.Lerp(1, 0, vanishLerp);
             }
             var color = entity.GetTint(true);

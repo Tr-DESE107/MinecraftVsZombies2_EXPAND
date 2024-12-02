@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.RenderScale = Vector3.one * entity.Timeout;
+            entity.SetDisplayScale(Vector3.one * entity.Timeout);
         }
         #endregion
     }

@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             var scale = entity.RNG.Next(0.98f, 1.12f);
-            entity.RenderScale = Vector3.one * scale;
+            entity.SetDisplayScale(Vector3.one * scale);
         }
         #endregion
     }

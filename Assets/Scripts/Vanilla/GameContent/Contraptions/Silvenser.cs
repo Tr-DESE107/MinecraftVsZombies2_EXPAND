@@ -71,7 +71,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             int knivesPerEnemy = MAX_EVOCATION_KNIFE_COUNT / evocationPositions.Length;
-            int layers = Mathf.CeilToInt(knivesPerEnemy / 60f);
+            int layers = Mathf.CeilToInt(knivesPerEnemy / (float)EVOCATION_KNIVES_PER_LAYER);
             int knivesPerLayer = knivesPerEnemy / layers;
 
             float interval = (float)EVOCATION_DURATION / knivesPerLayer;
@@ -101,7 +101,7 @@ namespace MVZ2.GameContent.Contraptions
                             Vector3 knifePos = target + posOffset;
 
                             var projectile = entity.Level.Spawn(entity.GetProjectileID(), knifePos, entity);
-                            projectile.SetDamage(entity.GetDamage());
+                            projectile.SetDamage(entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
                             projectile.SetFaction(entity.GetFaction());
                             projectile.Velocity = direction * -10;
 
@@ -117,9 +117,11 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
         public const int EVOCATION_MAX_TARGET_COUNT = 10;
-        public const int MAX_EVOCATION_KNIFE_COUNT = 90;
+        public const int MAX_EVOCATION_KNIFE_COUNT = 45;
         public const int EVOCATION_DURATION = 30;
+        public const int EVOCATION_KNIVES_PER_LAYER = 30;
         public const float EVOCATION_RADIUS = 100;
+        public const float EVOCATION_DAMAGE_MULTIPLIER = 2;
 
         public static readonly NamespaceID ID = VanillaContraptionID.silvenser;
     }

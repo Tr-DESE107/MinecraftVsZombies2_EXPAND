@@ -12,7 +12,7 @@ namespace MVZ2.Models
                 return;
             Model.SetProperty(PROP_EMITTED, true);
             var size = Model.GetProperty<Vector3>("Size");
-            size *= MainManager.Instance.LevelManager.LawnToTransScale;
+            size = Lawn2TransScale(size);
             float volume = size.x * size.y * size.z;
 
             var ps = particles.Particles;

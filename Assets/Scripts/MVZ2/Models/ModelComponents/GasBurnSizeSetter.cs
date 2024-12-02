@@ -9,7 +9,7 @@ namespace MVZ2.Models
         {
             base.UpdateLogic();
             var size = Model.GetProperty<Vector3>("Size");
-            size *= MainManager.Instance.LevelManager.LawnToTransScale;
+            size = Lawn2TransScale(size);
             var volume = size.x * (size.y + size.z);
 
             var timeout = Model.GetProperty<int>("Timeout");

@@ -251,6 +251,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a8e7dd36e83bd041a7b0fd5acce604b
+    m_Address: mvz2:entity/contraption/magichest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5005bdd978e5a304a871e9d6929ee180
+    m_Address: mvz2:entity/contraption/loms
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 516d74eccaaf1e24fb1a0ab53d0f2657
     m_Address: mvz2:entity/contraption/furnace
     m_ReadOnly: 0
@@ -823,6 +835,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cd67e193c23b1f46ae2e123c4a0bd3a
     m_Address: mvz2:entity/contraptions/pressure_plate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab1cac139d76a6f478c12842a619042d
+    m_Address: mvz2:entity/contraptions/magichest_flash
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2387,6 +2405,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8e910a2acb46bc4aaec7d950dd8845b
+    m_Address: mvz2:effect/smoke_cluster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48284edfb09923e4aa51df2b3b66a8ab
     m_Address: mvz2:effect/smoke
     m_ReadOnly: 0
@@ -2509,6 +2533,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63a05174c3979bc4997142266dc829d8
     m_Address: mvz2:contraption/mine_tnt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6176e54de579baa4cb9c4d14d9af422e
+    m_Address: mvz2:contraption/magichest
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

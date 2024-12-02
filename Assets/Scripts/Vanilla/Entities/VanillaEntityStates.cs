@@ -16,6 +16,7 @@ namespace MVZ2.Vanilla.Entities
         public const int DEAD = 3;
 
         public const int CONTRAPTION_COOLDOWN = 101;
+        public const int CONTRAPTION_SPECIAL = 102;
 
         public const int ENEMY_CAST = 200;
 
@@ -27,6 +28,11 @@ namespace MVZ2.Vanilla.Entities
         public const int PUNCHTON_PUNCH = ATTACK;
         public const int PUNCHTON_BROKEN = CONTRAPTION_COOLDOWN;
 
+        public const int MAGICHEST_IDLE = IDLE;
+        public const int MAGICHEST_OPEN = ATTACK;
+        public const int MAGICHEST_EAT = CONTRAPTION_SPECIAL;
+        public const int MAGICHEST_LOMS = CONTRAPTION_SPECIAL;
+        public const int MAGICHEST_CLOSE = CONTRAPTION_COOLDOWN;
 
         public const int NECROMANCER_CAST = ENEMY_CAST;
     }

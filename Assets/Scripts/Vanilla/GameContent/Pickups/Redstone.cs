@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Pickups
                     }
 
                     var vanishLerp = (collectedTime - moveTime) / (float)(vanishTime - moveTime);
-                    pickup.RenderScale = Vector3.Lerp(Vector3.one, Vector3.one * 0.5f, vanishLerp);
+                    pickup.SetDisplayScale(Vector3.one * Mathf.Lerp(1, 0.5f, vanishLerp));
                     alpha = Mathf.Lerp(1, 0, vanishLerp);
                     if (collectedTime == vanishTime)
                     {

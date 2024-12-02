@@ -42,6 +42,10 @@ namespace Tools
                 }
             }
         }
+        public bool PassedFrame(int frame)
+        {
+            return LastFrame > frame && Frame <= frame ;
+        }
         public bool PassedInterval(int interval)
         {
             return PassedIntervalCount(interval) != 0;

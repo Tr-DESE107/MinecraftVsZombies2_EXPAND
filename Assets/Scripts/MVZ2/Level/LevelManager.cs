@@ -91,6 +91,25 @@ namespace MVZ2.Level
             return new LevelDataIdentifierList(mods.Select(m => new LevelDataIdentifier(m.Namespace, m.LevelDataVersion)));
         }
         #endregion
+        public Vector3 LawnToTrans(Vector3 pos)
+        {
+            if (controller)
+            {
+                return controller.LawnToTrans(pos);
+            }
+            pos *= LawnToTransScale;
+            return new Vector3(pos.x, pos.z + pos.y, pos.z);
+        }
+        public Vector3 TransToLawn(Vector3 pos)
+        {
+            if (controller)
+            {
+                return controller.TransToLawn(pos);
+            }
+            Vector3 vector = new Vector3(pos.x, pos.y - pos.z, pos.z);
+            vector *= TransToLawnScale;
+            return vector;
+        }
         public async Task GotoLevelSceneAsync()
         {
             var sceneName = "Level";

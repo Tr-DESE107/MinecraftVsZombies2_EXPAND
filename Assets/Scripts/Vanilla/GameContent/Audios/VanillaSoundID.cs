@@ -10,6 +10,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID boneWallBuild = Get("bone_wall_build"); 
         public readonly static NamespaceID bow = Get("bow");
         public readonly static NamespaceID buzzer = Get("buzzer");
+        public readonly static NamespaceID chestOpen = Get("chest_open");
+        public readonly static NamespaceID chestClose = Get("chest_close");
         public readonly static NamespaceID chime = Get("chime");
         public readonly static NamespaceID coin = Get("coin");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
@@ -20,6 +22,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
+        public readonly static NamespaceID fireCharge = Get("fire_charge");
         public readonly static NamespaceID finalWave = Get("final_wave");
         public readonly static NamespaceID fizz = Get("fizz");
         public readonly static NamespaceID fuse = Get("fuse");
@@ -31,6 +34,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID hugeWave = Get("huge_wave");
         public readonly static NamespaceID leatherHit = Get("leather_hit");
         public readonly static NamespaceID loseMusic = Get("lose_music");
+        public readonly static NamespaceID magical = Get("magical");
         public readonly static NamespaceID mineExplode = Get("mine_explode");
         public readonly static NamespaceID minecart = Get("minecart");
         public readonly static NamespaceID moneyFall = Get("money_fall");
