@@ -2,14 +2,11 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
 using MVZ2.Level;
-using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
-using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
@@ -18,7 +15,6 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Entities
 {
@@ -159,67 +155,81 @@ namespace MVZ2.Entities
         private void OnDrawGizmos()
         {
             float pixelUnit = Level?.LawnToTransScale ?? 0.01f;
-            Vector3 size = Entity.GetScaledSize() * pixelUnit;
-            float startX = Entity.Position.x * pixelUnit;
-            float startY = Entity.Position.y * pixelUnit;
-            float startZ = Entity.Position.z * pixelUnit;
-            var collisionMask = Entity.CollisionMaskHostile | Entity.CollisionMaskFriendly;
-            Gizmos.color = new Color(
-                (collisionMask >> 0 & 7) / 7f,
-                (collisionMask >> 3 & 7) / 7f,
-                (collisionMask >> 6 & 3) / 3f, 1);
-            for (int i = 0; i < 12; i++)
+
+            foreach (var collider in Entity.GetEnabledColliders())
             {
-                int axe = i >> 2;
-                bool bit1 = (i & 1) != 0;
-                bool bit2 = (i & 2) != 0;
-                float offset1 = bit1 ? 0.5f : -0.5f;
-                float offset2 = bit2 ? 0.5f : -0.5f;
-                Vector3 dir = Vector3.right;
-
-                float x = startX, y = startY, z = startZ;
-
-                switch (axe)
+                for (int h = 0; h < collider.GetHitboxCount(); h++) 
                 {
-                    case 0:
-                        x += -size.x * 0.5f;
-                        y += size.y * (offset1 + 0.5f);
-                        z += size.z * offset2;
-                        dir = new Vector3(size.x, 0, 0);
-                        break;
-                    case 1:
-                        x += size.x * offset1;
-                        y += 0;
-                        z += size.z * offset2;
-                        dir = new Vector3(0, size.y, 0);
-                        break;
-                    case 2:
-                        x += size.x * offset1;
-                        y += size.y * (offset2 + 0.5f);
-                        z += -size.z * 0.5f;
-                        dir = new Vector3(0, 0, size.z);
-                        break;
+                    var hitbox = collider.GetHitbox(h);
+
+                    Vector3 size = hitbox.GetBoundsSize() * pixelUnit;
+                    var offset = hitbox.GetOffset();
+                    var position = Entity.Position + offset;
+                    float startX = position.x * pixelUnit;
+                    float startY = position.y * pixelUnit;
+                    float startZ = position.z * pixelUnit;
+                    var collisionMask = Entity.CollisionMaskHostile | Entity.CollisionMaskFriendly;
+                    Gizmos.color = new Color(
+                        (collisionMask >> 0 & 7) / 7f,
+                        (collisionMask >> 3 & 7) / 7f,
+                        (collisionMask >> 6 & 3) / 3f, 1);
+                    for (int i = 0; i < 12; i++)
+                    {
+                        int axe = i >> 2;
+                        bool bit1 = (i & 1) != 0;
+                        bool bit2 = (i & 2) != 0;
+                        float offset1 = bit1 ? 0.5f : -0.5f;
+                        float offset2 = bit2 ? 0.5f : -0.5f;
+                        Vector3 dir = Vector3.right;
+
+                        float x = startX, y = startY, z = startZ;
+
+                        switch (axe)
+                        {
+                            // x-axis.
+                            case 0:
+                                x += -size.x * 0.5f;
+                                y += size.y * (offset1 + 0.5f);
+                                z += size.z * offset2;
+                                dir = new Vector3(size.x, 0, 0);
+                                break;
+                            // y-axis.
+                            case 1:
+                                x += size.x * offset1;
+                                y += 0;
+                                z += size.z * offset2;
+                                dir = new Vector3(0, size.y, 0);
+                                break;
+                            // z-axis.
+                            case 2:
+                                x += size.x * offset1;
+                                y += size.y * (offset2 + 0.5f);
+                                z += -size.z * 0.5f;
+                                dir = new Vector3(0, 0, size.z);
+                                break;
+                        }
+                        Vector3 start = new Vector3(x, z, -y);
+                        Vector3 end = start + new Vector3(dir.x, dir.z, -dir.y);
+                        Gizmos.DrawLine(start, end);
+                    }
+
+                    // Render Center.
+                    Vector3 centerStart;
+                    Vector3 centerEnd;
+                    float centerLength = 0.05f;
+                    centerStart = new Vector3(startX - centerLength, startZ, startY);
+                    centerEnd = new Vector3(startX + centerLength, startZ, startY);
+                    Gizmos.DrawLine(centerStart, centerEnd);
+
+                    centerStart = new Vector3(startX, startZ - centerLength, startY);
+                    centerEnd = new Vector3(startX, startZ + centerLength, startY);
+                    Gizmos.DrawLine(centerStart, centerEnd);
+
+                    centerStart = new Vector3(startX, startZ, startY - centerLength);
+                    centerEnd = new Vector3(startX, startZ, startY + centerLength);
+                    Gizmos.DrawLine(centerStart, centerEnd);
                 }
-                Vector3 start = new Vector3(x, z, -y);
-                Vector3 end = start + new Vector3(dir.x, dir.z, -dir.y);
-                Gizmos.DrawLine(start, end);
             }
-
-            // Render Center.
-            Vector3 centerStart;
-            Vector3 centerEnd;
-            float centerLength = 0.05f;
-            centerStart = new Vector3(startX - centerLength, startZ, startY);
-            centerEnd = new Vector3(startX + centerLength, startZ, startY);
-            Gizmos.DrawLine(centerStart, centerEnd);
-
-            centerStart = new Vector3(startX, startZ - centerLength, startY);
-            centerEnd = new Vector3(startX, startZ + centerLength, startY);
-            Gizmos.DrawLine(centerStart, centerEnd);
-
-            centerStart = new Vector3(startX, startZ, startY - centerLength);
-            centerEnd = new Vector3(startX, startZ, startY + centerLength);
-            Gizmos.DrawLine(centerStart, centerEnd);
         }
         #endregion
 

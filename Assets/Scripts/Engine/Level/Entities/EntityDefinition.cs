@@ -1,4 +1,5 @@
-﻿using PVZEngine.Armors;
+﻿using System.Collections.Generic;
+using PVZEngine.Armors;
 using PVZEngine.Base;
 using PVZEngine.Damages;
 using PVZEngine.Level;
@@ -30,7 +31,7 @@ namespace PVZEngine.Entities
         public void PostTakeDamage(DamageOutput result) { behaviour?.PostTakeDamage(result); }
         public void PostContactGround(Entity entity, Vector3 velocity) { behaviour?.PostContactGround(entity, velocity); }
         public void PostLeaveGround(Entity entity) { behaviour?.PostLeaveGround(entity); }
-        public void PostCollision(Entity entity, Entity other, int state) { behaviour?.PostCollision(entity, other, state); }
+        public void PostCollision(EntityCollision collision, int state) { behaviour?.PostCollision(collision, state); }
         public void PostDeath(Entity entity, DamageInput damageInfo) { behaviour?.PostDeath(entity, damageInfo); }
         public void PostRemove(Entity entity) { behaviour?.PostRemove(entity); }
         public void PostEquipArmor(Entity entity, Armor armor) { behaviour?.PostEquipArmor(entity, armor); }

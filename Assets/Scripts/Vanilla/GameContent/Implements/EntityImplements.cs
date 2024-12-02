@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Implements
         }
         private void PostContactGroundCallback(Entity entity, Vector3 velocity)
         {
-            if (!EntityTypes.IsDamagable(entity.Type))
+            if (!entity.IsVulnerableEntity())
                 return;
             float fallHeight = Mathf.Max(0, entity.GetFallDamage() - velocity.y * 5);
             float fallDamage = Mathf.Pow(fallHeight, 2);

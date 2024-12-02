@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = new FrameTimer(450);
             SetRiseTimer(entity, riseTimer);
 
-            entity.CollisionMaskHostile |= EntityCollision.MASK_ENEMY;
+            entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_ENEMY;
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -100,24 +100,29 @@ namespace MVZ2.GameContent.Contraptions
                     entity.RemoveBuffs(entity.GetBuffs<MineTNTInvincibleBuff>());
             }
         }
-        public override void PostCollision(Entity entity, Entity other, int state)
+        public override void PostCollision(EntityCollision collision, int state)
         {
-            base.PostCollision(entity, other, state);
-            if (state == EntityCollision.STATE_EXIT)
+            base.PostCollision(collision, state);
+            if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
-            if (!EntityTypes.IsDamagable(entity.Type))
+            var other = collision.Other;
+            if (!other.IsVulnerableEntity())
                 return;
-            if (!entity.IsHostile(other))
+            var self = collision.Entity;
+            if (!self.IsHostile(other))
                 return;
-            var riseTimer = GetRiseTimer(entity);
+            var otherCollider = collision.OtherCollider;
+            if (!otherCollider.IsMain())
+                return;
+            var riseTimer = GetRiseTimer(self);
             if (riseTimer == null || !riseTimer.Expired)
                 return;
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.EXPLOSION);
-            entity.Level.Explode(entity.Position, entity.GetRange(), entity.GetFaction(), entity.GetDamage(), damageEffects, entity);
-            entity.Level.Spawn(VanillaEffectID.mineDebris, entity.Position, entity);
-            entity.Remove();
-            entity.PlaySound(VanillaSoundID.mineExplode);
-            entity.Level.ShakeScreen(10, 0, 15);
+            self.Level.Explode(self.Position, self.GetRange(), self.GetFaction(), self.GetDamage(), damageEffects, self);
+            self.Level.Spawn(VanillaEffectID.mineDebris, self.Position, self);
+            self.Remove();
+            self.PlaySound(VanillaSoundID.mineExplode);
+            self.Level.ShakeScreen(10, 0, 15);
         }
         private static Entity FireSeed(Entity contraption, LawnGrid grid)
         {

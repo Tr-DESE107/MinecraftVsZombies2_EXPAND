@@ -74,24 +74,25 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetProperty("ExplosionTimer", timer);
         }
-        public static Entity[] Explode(Entity entity, float range, float damage)
+        public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.EXPLOSION);
-            var entities = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
-            foreach (var e in entities)
+            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
+            foreach (var output in damageOutputs)
             {
-                if (e.IsDead)
+                if (output.BodyResult.Fatal)
                 {
-                    var distance = (e.Position - entity.Position).magnitude;
+                    var target = output.Entity;
+                    var distance = (target.Position - entity.Position).magnitude;
                     var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
-                    e.Velocity = e.Velocity + Vector3.up * speed;
+                    target.Velocity = target.Velocity + Vector3.up * speed;
                 }
             }
-            var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetBoundsCenter(), entity);
+            var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
             explosion.SetSize(Vector3.one * (range * 2));
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
-            return entities;
+            return damageOutputs;
         }
         private void IgnitedUpdate(Entity entity)
         {

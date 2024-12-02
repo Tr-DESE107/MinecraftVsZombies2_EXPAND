@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -21,19 +22,19 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.CollisionMaskHostile |=
-                EntityCollision.MASK_PLANT |
-                EntityCollision.MASK_ENEMY |
-                EntityCollision.MASK_BOSS |
-                EntityCollision.MASK_OBSTACLE |
-                EntityCollision.MASK_PROJECTILE |
-                EntityCollision.MASK_EFFECT;
+                EntityCollisionHelper.MASK_PLANT |
+                EntityCollisionHelper.MASK_ENEMY |
+                EntityCollisionHelper.MASK_BOSS |
+                EntityCollisionHelper.MASK_OBSTACLE |
+                EntityCollisionHelper.MASK_PROJECTILE |
+                EntityCollisionHelper.MASK_EFFECT;
             entity.CollisionMaskFriendly |=
-                EntityCollision.MASK_PLANT |
-                EntityCollision.MASK_ENEMY |
-                EntityCollision.MASK_BOSS |
-                EntityCollision.MASK_OBSTACLE |
-                EntityCollision.MASK_PROJECTILE |
-                EntityCollision.MASK_EFFECT;
+                EntityCollisionHelper.MASK_PLANT |
+                EntityCollisionHelper.MASK_ENEMY |
+                EntityCollisionHelper.MASK_BOSS |
+                EntityCollisionHelper.MASK_OBSTACLE |
+                EntityCollisionHelper.MASK_PROJECTILE |
+                EntityCollisionHelper.MASK_EFFECT;
             entity.Level.AddLoopSoundEntity(VanillaSoundID.poisonGas, entity.ID);
         }
         public override void Update(Entity entity)
@@ -42,10 +43,12 @@ namespace MVZ2.GameContent.Effects
             entity.SetModelProperty("Size", entity.GetScaledSize());
             entity.SetModelProperty("Stopped", entity.Timeout <= DISAPPEAR_TIMEOUT);
         }
-        public override void PostCollision(Entity entity, Entity other, int state)
+        public override void PostCollision(EntityCollision collision, int state)
         {
-            base.PostCollision(entity, other, state);
-            if (state == EntityCollision.STATE_EXIT)
+            base.PostCollision(collision, state);
+            var entity = collision.Entity;
+            var other = collision.Other;
+            if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
             if (entity.Timeout <= DISAPPEAR_TIMEOUT)
                 return;
@@ -56,13 +59,7 @@ namespace MVZ2.GameContent.Effects
                 var burning = entity.Level.Spawn(VanillaEffectID.burningGas, entity.Position, entity);
                 burning.SetSize(entity.GetSize());
 
-                foreach (var ent in entity.GetCollisionEntities())
-                {
-                    if (entity.IsHostile(entity))
-                        continue;
-                    var damageEffectList = new DamageEffectList(VanillaDamageEffects.FIRE);
-                    ent.TakeDamage(100, damageEffectList, entity);
-                }
+                Burn(entity);
                 return;
             }
             if (other.IsDead)
@@ -75,6 +72,18 @@ namespace MVZ2.GameContent.Effects
             {
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE);
                 other.TakeDamage(entity.GetDamage(), damageEffects, entity);
+            }
+        }
+        private void Burn(Entity gas)
+        {
+            foreach (var collision in gas.GetCurrentCollisions())
+            {
+                if (gas.IsHostile(collision.Entity))
+                    continue;
+                var damageEffectList = new DamageEffectList(VanillaDamageEffects.FIRE);
+                var other = collision.Other;
+                var otherCollider = collision.OtherCollider;
+                otherCollider.TakeDamage(100, damageEffectList, gas);
             }
         }
         #endregion

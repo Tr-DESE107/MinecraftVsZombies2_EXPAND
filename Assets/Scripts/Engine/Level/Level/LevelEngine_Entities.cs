@@ -15,7 +15,6 @@ namespace PVZEngine.Level
         }
         public void CollisionUpdate(Entity ent1, Entity[] entities)
         {
-            var bounds = ent1.GetBounds();
             int maskHostile = ent1.CollisionMaskHostile;
             int maskFriendly = ent1.CollisionMaskFriendly;
             int faction = ent1.Cache.Faction;
@@ -24,13 +23,18 @@ namespace PVZEngine.Level
                 if (ent1 == ent2)
                     continue;
                 var mask = ent2.IsHostile(faction, true) ? maskHostile : maskFriendly;
-                if (!EntityCollision.CanCollide(mask, ent2))
+                if (!EntityCollisionHelper.CanCollide(mask, ent2))
                     continue;
-                if (!bounds.Intersects(ent2.GetBounds()))
+                var collisionCount = ent1.CheckContacts(ent2, collisionBuffer);
+                if (collisionCount <= 0)
                     continue;
-                ent1.Collide(ent2);
+                for (int i = 0; i < collisionCount; i++)
+                {
+                    var collision = collisionBuffer[i];
+                    collision.Collider.Collide(collision);
+                }
             }
-            ent1.ClearCollision();
+            ent1.ExitCollision(this);
         }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
         {
@@ -119,5 +123,6 @@ namespace PVZEngine.Level
         #endregion
         private long currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
+        private EntityCollision[] collisionBuffer = new EntityCollision[256];
     }
 }

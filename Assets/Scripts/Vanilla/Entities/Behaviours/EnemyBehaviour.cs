@@ -23,10 +23,10 @@ namespace MVZ2.Vanilla.Entities
 
             entity.SetFaction(entity.Level.Option.RightFaction);
 
-            entity.CollisionMaskHostile = EntityCollision.MASK_PLANT
-                | EntityCollision.MASK_ENEMY
-                | EntityCollision.MASK_OBSTACLE
-                | EntityCollision.MASK_BOSS;
+            entity.CollisionMaskHostile = EntityCollisionHelper.MASK_PLANT
+                | EntityCollisionHelper.MASK_ENEMY
+                | EntityCollisionHelper.MASK_OBSTACLE
+                | EntityCollisionHelper.MASK_BOSS;
         }
         public override sealed void Update(Entity entity)
         {

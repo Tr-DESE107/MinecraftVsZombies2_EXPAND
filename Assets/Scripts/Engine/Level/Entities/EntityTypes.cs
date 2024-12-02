@@ -10,10 +10,5 @@
         public const int PICKUP = 6;
         public const int PROJECTILE = 7;
         public const int EFFECT = 8;
-
-        public static bool IsDamagable(int type)
-        {
-            return type <= BOSS;
-        }
     }
 }

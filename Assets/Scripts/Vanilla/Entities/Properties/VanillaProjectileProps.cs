@@ -39,35 +39,30 @@ namespace MVZ2.Vanilla.Entities
         {
             projectile.SetProperty(CAN_HIT_SPAWNER, value);
         }
-        public static List<EntityID> GetProjectileCollidingEntities(this Entity projectile)
+        public static List<EntityColliderReference> GetProjectileCollidingColliders(this Entity projectile)
         {
-            return projectile.GetProperty<List<EntityID>>(COLLIDING_ENTITIES);
+            return projectile.GetProperty<List<EntityColliderReference>>(COLLIDING_ENTITIES);
         }
-        public static void SetProjectileCollidingEntities(this Entity projectile, List<EntityID> value)
+        public static void SetProjectileCollidingEntities(this Entity projectile, List<EntityColliderReference> value)
         {
             projectile.SetProperty(COLLIDING_ENTITIES, value);
         }
-        public static void AddProjectileCollidingEntity(this Entity projectile, Entity entity)
+        public static void AddProjectileCollidingEntity(this Entity projectile, EntityColliderReference reference)
         {
-            var entities = projectile.GetProjectileCollidingEntities();
+            var entities = projectile.GetProjectileCollidingColliders();
             if (entities == null)
             {
-                entities = new List<EntityID>();
+                entities = new List<EntityColliderReference>();
                 projectile.SetProjectileCollidingEntities(entities);
             }
-            entities.Add(new EntityID(entity));
+            entities.Add(reference);
         }
-        public static bool RemoveProjectileCollidingEntity(this Entity projectile, Entity entity)
+        public static bool RemoveProjectileCollidingEntity(this Entity projectile, EntityColliderReference reference)
         {
-            var entities = projectile.GetProjectileCollidingEntities();
+            var entities = projectile.GetProjectileCollidingColliders();
             if (entities == null)
                 return false;
-            return entities.RemoveAll(e => e.ID == entity.ID) > 0;
-        }
-        public static bool CanPierce(this Entity projectile, Entity other)
-        {
-            bool ethereal = Armor.Exists(other.EquipedArmor) ? false : other.IsEthereal();
-            return ethereal || projectile.IsPiercing();
+            return entities.RemoveAll(e => e == reference) > 0;
         }
     }
 }

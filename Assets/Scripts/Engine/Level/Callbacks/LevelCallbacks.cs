@@ -14,7 +14,7 @@ namespace PVZEngine.Callbacks
         public delegate void PostEntityUpdate(Entity entity);
         public delegate void PostEntityContactGround(Entity entity, Vector3 Velocity);
         public delegate void PostEntityLeaveGround(Entity entity);
-        public delegate void PostEntityCollision(Entity entity, Entity other, int state);
+        public delegate void PostEntityCollision(EntityCollision collision, int state);
         public delegate void PostEntityDeath(Entity entity, DamageInput damageInfo);
         public delegate void PostEntityRemove(Entity entity);
         public delegate void PostEquipArmor(Entity entity, Armor armor);

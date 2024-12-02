@@ -26,9 +26,9 @@ namespace PVZEngine.Entities
         public Vector3 scale;
         public int collisionMaskHostile;
         public int collisionMaskFriendly;
+        public SerializableEntityCollider[] colliders;
         public Vector3 renderRotation;
         public Vector3 renderScale;
-        public Vector3 boundsOffset;
         public int poolCount;
         public int timeout;
 
@@ -45,8 +45,6 @@ namespace PVZEngine.Entities
         public long currentBuffID;
         public SerializablePropertyDictionary propertyDict;
         public SerializableBuffList buffs;
-        public List<long> collisionThisTick;
-        public List<long> collisionList;
         public List<long> children;
         public List<int> takenGrids;
     }

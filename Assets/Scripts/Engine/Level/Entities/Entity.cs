@@ -15,21 +15,23 @@ namespace PVZEngine.Entities
     public sealed class Entity : IBuffTarget
     {
         #region 公有方法
-        internal Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
-        {
-            Level = level;
-            Type = type;
-            TypeCollisionFlag = EntityCollision.GetTypeMask(type);
-            ID = id;
-            SpawnerReference = spawnerReference;
-            Cache = new EntityCache();
-        }
+
         public Entity(LevelEngine level, long id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
         {
             Definition = definition;
             ModelID = definition.GetModelID();
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
+        }
+        private Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
+        {
+            Level = level;
+            Type = type;
+            TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(type);
+            ID = id;
+            SpawnerReference = spawnerReference;
+            MainHitbox = new EntityHitbox(this);
+            Cache = new EntityCache();
         }
         public void Init(Entity spawner)
         {
@@ -53,15 +55,21 @@ namespace PVZEngine.Entities
         private void UpdateCache()
         {
             Cache.Update(this);
-            UpdateHitbox();
+            UpdateColliders();
         }
 
-        private void UpdateHitbox()
+        private void UpdateColliders()
         {
-            var center = Position + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
-            Vector3 size = this.GetSize();
-            size.Scale(Scale);
-            HitboxCache = new Bounds(center, size);
+            enabledColliders.Clear();
+            MainHitbox.Update();
+            foreach (var collider in colliders)
+            {
+                if (collider.Enabled)
+                {
+                    collider.Update();
+                    enabledColliders.Add(collider);
+                }
+            }
         }
         public void SetParent(Entity parent)
         {
@@ -244,23 +252,17 @@ namespace PVZEngine.Entities
         #region 物理
 
         #region 体积
-        public Vector3 GetBoundsCenter()
+        public Vector3 GetCenter()
         {
-            return HitboxCache.center;
+            return MainHitbox.GetBoundsCenter();
         }
         public Bounds GetBounds()
         {
-            return HitboxCache;
+            return MainHitbox.GetBounds();
         }
         public Vector3 GetScaledSize()
         {
-            return HitboxCache.size;
-        }
-        public Vector3 GetScaledBoundsOffset()
-        {
-            Vector3 offset = BoundsOffset;
-            offset.Scale(Scale);
-            return offset;
+            return MainHitbox.GetBoundsSize();
         }
         #endregion
 
@@ -390,35 +392,81 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 碰撞
-        public void Collide(Entity other)
+        public void AddCollider(EntityCollider collider)
         {
-            if (!collisionList.Contains(other))
-            {
-                PostCollision(other, EntityCollision.STATE_ENTER);
-                collisionList.Add(other);
-            }
-            else
-            {
-                PostCollision(other, EntityCollision.STATE_STAY);
-            }
-            collisionThisTick.Add(other);
+            if (GetCollider(collider.Name) != null)
+                throw new ArgumentException($"Attempting to add a collider with name \"{collider.Name}\" to an entity while it already has a collider with the same name.");
+            colliders.Add(collider);
+            collider.PostCollision += PostCollisionCallback;
         }
-        public Entity[] GetCollisionEntities()
+        public bool RemoveCollider(EntityCollider collider)
         {
-            return collisionList.ToArray();
-        }
-        public void ClearCollision()
-        {
-            var notCollided = collisionList.Except(collisionThisTick).ToArray();
-            foreach (var ent in notCollided)
+            if (colliders.Remove(collider))
             {
-                if (ent != null)
+                collider.PostCollision -= PostCollisionCallback;
+                return true;
+            }
+            return false;
+        }
+        public EntityCollider GetCollider(string name)
+        {
+            return colliders.FirstOrDefault(h => h.Name == name);
+        }
+        public EntityCollider[] GetAllColliders()
+        {
+            return colliders.ToArray();
+        }
+        public EntityCollider[] GetEnabledColliders()
+        {
+            return enabledColliders.ToArray();
+        }
+        public bool CheckCollisionWith(Entity other)
+        {
+            foreach (var group1 in GetEnabledColliders())
+            {
+                foreach (var group2 in other.GetEnabledColliders())
                 {
-                    PostCollision(ent, EntityCollision.STATE_EXIT);
+                    if (group1.Intersects(group2))
+                        return true;
                 }
-                collisionList.Remove(ent);
             }
-            collisionThisTick.Clear();
+            return false;
+        }
+        public int CheckContacts(Entity other, EntityCollision[] buffer)
+        {
+            int index = 0;
+            foreach (var collider1 in enabledColliders)
+            {
+                foreach (var collider2 in other.enabledColliders)
+                {
+                    if (collider1.Intersects(collider2))
+                    {
+                        var collision = new EntityCollision(collider1, collider2);
+                        buffer[index] = collision;
+                        index++;
+                        if (index >= buffer.Length)
+                            return index;
+                    }
+                }
+            }
+            return index;
+        }
+        public IEnumerable<EntityCollision> GetCurrentCollisions()
+        {
+            foreach (var unit in colliders)
+            {
+                foreach (var reference in unit.GetCollisions())
+                {
+                    yield return reference;
+                }
+            }
+        }
+        public void ExitCollision(LevelEngine level)
+        {
+            foreach (var unit in colliders)
+            {
+                unit.ExitCollision(level);
+            }
         }
         #endregion
 
@@ -460,6 +508,10 @@ namespace PVZEngine.Entities
             Definition.PostRemoveArmor(this, armor);
             Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, this, armor);
             OnRemoveArmor?.Invoke(armor);
+        }
+        public Armor GetShield()
+        {
+            return null;
         }
         #endregion
         public bool IsFacingLeft() => GetProperty<bool>(EngineEntityProps.FACE_LEFT_AT_DEFAULT) != FlipX;
@@ -507,9 +559,9 @@ namespace PVZEngine.Entities
             seri.collisionMaskFriendly = CollisionMaskFriendly;
             seri.renderRotation = RenderRotation;
             seri.renderScale = RenderScale;
-            seri.boundsOffset = BoundsOffset;
             seri.poolCount = PoolCount;
             seri.timeout = Timeout;
+            seri.colliders = colliders.ConvertAll(g => g.ToSerializable()).ToArray();
 
             seri.isDead = IsDead;
             seri.health = Health;
@@ -517,8 +569,6 @@ namespace PVZEngine.Entities
             seri.currentBuffID = currentBuffID;
             seri.propertyDict = propertyDict.Serialize();
             seri.buffs = buffs.ToSerializable();
-            seri.collisionThisTick = collisionThisTick.ConvertAll(e => e?.ID ?? 0);
-            seri.collisionList = collisionList.ConvertAll(e => e?.ID ?? 0);
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
             seri.takenGrids = takenGrids.ConvertAll(g => g.GetIndex());
             return seri;
@@ -547,7 +597,6 @@ namespace PVZEngine.Entities
             CollisionMaskFriendly = seri.collisionMaskFriendly;
             RenderRotation = seri.renderRotation;
             RenderScale = seri.renderScale;
-            BoundsOffset = seri.boundsOffset;
             PoolCount = seri.poolCount;
             Timeout = seri.timeout;
 
@@ -557,15 +606,25 @@ namespace PVZEngine.Entities
             currentBuffID = seri.currentBuffID;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
             buffs = BuffList.FromSerializable(seri.buffs, Level, this);
-            collisionThisTick = seri.collisionThisTick.ConvertAll(e => Level.FindEntityByID(e));
-            collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
+            for (int i = 0; i < colliders.Count; i++)
+            {
+                var collider = colliders[i];
+                var seriCollider = seri.colliders[i];
+                collider.LoadCollisions(Level, seriCollider);
+            }
             UpdateCache();
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
-            return new Entity(level, seri.type, seri.id, seri.spawnerReference);
+            var entity = new Entity(level, seri.type, seri.id, seri.spawnerReference);
+
+            foreach (var collider in seri.colliders.Select(s => EntityCollider.FromSerializable(s, entity)))
+            {
+                entity.AddCollider(collider);
+            }
+            return entity;
         }
         public override string ToString()
         {
@@ -577,6 +636,8 @@ namespace PVZEngine.Entities
         private void OnInit(Entity spawner)
         {
             Health = this.GetMaxHealth();
+            var collider = new EntityCollider(this, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(this));
+            AddCollider(collider);
             UpdateCache();
         }
         private void OnUpdate()
@@ -596,10 +657,10 @@ namespace PVZEngine.Entities
             Definition.PostLeaveGround(this);
             Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, this);
         }
-        private void PostCollision(Entity other, int state)
+        private void PostCollisionCallback(EntityCollision collision, int state)
         {
-            Definition.PostCollision(this, other, state);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, this, other, state);
+            Definition.PostCollision(collision, state);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, collision, state);
         }
 
         Entity IBuffTarget.GetEntity() => this;
@@ -637,16 +698,18 @@ namespace PVZEngine.Entities
         public LevelEngine Level { get; private set; }
         public Armor EquipedArmor { get; private set; }
         public Vector3 Position { get; set; }
-        public Vector3 Velocity { get; set; }
         public Vector3 Scale { get; set; } = Vector3.one;
-        public Bounds HitboxCache { get; private set; }
-        public int CollisionMask { get; set; }
+        public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
         public Vector3 RenderScale { get; set; } = Vector3.one;
         public bool FlipX => Scale.x < 0;
-        public Vector3 BoundsOffset { get; set; }
+        #region Collision
         public int CollisionMaskHostile { get; set; }
         public int CollisionMaskFriendly { get; set; }
+        public Hitbox MainHitbox { get; private set; }
+        private List<EntityCollider> colliders = new List<EntityCollider>();
+        private List<EntityCollider> enabledColliders = new List<EntityCollider>();
+        #endregion
         public int PoolCount { get; set; }
         public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
@@ -661,8 +724,6 @@ namespace PVZEngine.Entities
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
-        private List<Entity> collisionThisTick = new List<Entity>();
-        private List<Entity> collisionList = new List<Entity>();
         private List<LawnGrid> takenGrids = new List<LawnGrid>();
         private List<Entity> children = new List<Entity>();
         #endregion

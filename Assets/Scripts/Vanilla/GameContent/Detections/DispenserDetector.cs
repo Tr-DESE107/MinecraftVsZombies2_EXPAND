@@ -29,14 +29,14 @@ namespace MVZ2.GameContent.Detections
                     }
                     else
                     {
-                        return target.CoincidesYDown(self.Position.y + shootOffset.y + projectileSize.y);
+                        return target.MainHitbox.CoincidesYDown(self.Position.y + shootOffset.y + projectileSize.y);
                     }
                 }
                 else
                 {
                     if (ignoreLowEnemy)
                     {
-                        return target.CoincidesYUp(self.Position.y + shootOffset.y);
+                        return target.MainHitbox.CoincidesYUp(self.Position.y + shootOffset.y);
                     }
                     else
                     {

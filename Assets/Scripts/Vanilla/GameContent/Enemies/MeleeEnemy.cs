@@ -19,15 +19,19 @@ namespace MVZ2.Vanilla.Enemies
                 enemy.Target = null;
             base.UpdateAI(enemy);
         }
-        public override void PostCollision(Entity enemy, Entity other, int state)
+        public override void PostCollision(EntityCollision collision, int state)
         {
-            if (state != EntityCollision.STATE_EXIT)
+            if (!collision.Collider.IsMain())
+                return;
+            if (!collision.OtherCollider.IsMain())
+                return;
+            if (state != EntityCollisionHelper.STATE_EXIT)
             {
-                MeleeCollision(enemy, other);
+                MeleeCollision(collision.Entity, collision.Other);
             }
             else
             {
-                CancelMeleeAttack(enemy, other);
+                CancelMeleeAttack(collision.Entity, collision.Other);
             }
         }
         protected void MeleeCollision(Entity enemy, Entity other)

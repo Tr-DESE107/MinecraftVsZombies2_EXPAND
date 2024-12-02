@@ -39,22 +39,28 @@ namespace MVZ2.Vanilla.Level
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
             }
         }
-        public static Entity[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
         {
             return level.Explode(center, radius, faction, amount, effects, new EntityReferenceChain(source));
         }
-        public static Entity[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
-            List<Entity> damageEntities = new List<Entity>();
+            List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (Entity entity in level.GetEntities())
             {
-                if (entity.IsHostile(faction) && Detection.IsInSphere(entity, center, radius))
+                if (!entity.IsHostile(faction))
+                    continue;
+                foreach (var collider in entity.GetCollidersInSphere(center, radius))
                 {
-                    entity.TakeDamage(amount, effects, source);
-                    damageEntities.Add(entity);
+                    var ent = collider.Entity;
+                    var damageOutput = collider.TakeDamage(amount, effects, source);
+                    if (damageOutput != null)
+                    {
+                        damageOutputs.Add(damageOutput);
+                    }
                 }
             }
-            return damageEntities.ToArray();
+            return damageOutputs.ToArray();
         }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {

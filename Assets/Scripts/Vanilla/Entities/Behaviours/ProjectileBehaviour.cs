@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2Logic;
 using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -21,10 +22,10 @@ namespace MVZ2.Vanilla.Entities
             base.Init(entity);
             entity.SetShadowScale(new Vector3(0.5f, 0.5f, 1));
             entity.Timeout = entity.GetMaxTimeout();
-            entity.CollisionMaskHostile = EntityCollision.MASK_PLANT
-                | EntityCollision.MASK_ENEMY
-                | EntityCollision.MASK_OBSTACLE
-                | EntityCollision.MASK_BOSS;
+            entity.CollisionMaskHostile = EntityCollisionHelper.MASK_PLANT
+                | EntityCollisionHelper.MASK_ENEMY
+                | EntityCollisionHelper.MASK_OBSTACLE
+                | EntityCollisionHelper.MASK_BOSS;
             if (entity.PointsTowardDirection())
             {
                 var vel = new Vector2(entity.Velocity.x, entity.Velocity.y + entity.Velocity.z);
@@ -52,23 +53,24 @@ namespace MVZ2.Vanilla.Entities
                 projectile.RenderRotation = Vector3.forward * Vector2.SignedAngle(Vector2.right, vel);
             }
         }
-        public override void PostCollision(Entity entity, Entity other, int state)
+        public override void PostCollision(EntityCollision collision, int state)
         {
-            base.PostCollision(entity, other, state);
+            base.PostCollision(collision, state);
+            var entity = collision.Entity;
             if (entity.GetProperty<bool>(VanillaProjectileProps.NO_HIT_ENTITIES))
                 return;
-            if (state != EntityCollision.STATE_EXIT)
+            if (state == EntityCollisionHelper.STATE_EXIT)
             {
-                UnitCollide(entity, other);
-            }
-            else
-            {
-                UnitExit(entity, other);
+                UnitExit(collision);
                 var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
-                if (other == spawner)
+                if (collision.Other == spawner)
                 {
                     entity.SetCanHitSpawner(true);
                 }
+            }
+            else
+            {
+                UnitCollide(collision);
             }
         }
 
@@ -92,46 +94,62 @@ namespace MVZ2.Vanilla.Entities
         }
         protected virtual void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput result)
         {
-
         }
-        private void UnitCollide(Entity entity, Entity other)
+        private void UnitCollide(EntityCollision collision)
         {
+            var projectile = collision.Entity;
+            if (projectile.Removed)
+                return;
+            var other = collision.Other;
+            if (other.IsDead)
+                return;
             // 是否可以击中发射者。
-            var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
-            if (other == spawner && !entity.CanHitSpawner())
+            var spawner = projectile.SpawnerReference?.GetEntity(projectile.Level);
+            if (other == spawner && !projectile.CanHitSpawner())
+                return;
+            if (!projectile.IsHostile(other))
+                return;
+            var otherCollider = collision.OtherCollider;
+            var collided = projectile.GetProjectileCollidingColliders();
+            var otherReference = otherCollider.ToReference();
+            if (collided != null && collided.Contains(otherReference))
                 return;
 
-            var collided = entity.GetProjectileCollidingEntities();
-            if (entity.Removed || !entity.IsHostile(other) || collided != null && collided.Any(c => c.ID == other.ID) || other.IsDead)
-                return;
-
-            if (!Detection.IsZCoincide(entity.Position.z, entity.GetScaledSize().z, other.Position.z, other.GetScaledSize().z))
-                return;
-
-            var damageEffects = entity.GetDamageEffects();
+            bool canPierce = false;
+            var damageEffects = projectile.GetDamageEffects();
             DamageEffectList effects = new DamageEffectList(damageEffects ?? Array.Empty<NamespaceID>());
-            var damageResult = other.TakeDamage(entity.GetDamage(), effects, entity);
+            DamageOutput damageResult = otherCollider.TakeDamage(projectile.GetDamage(), effects, projectile);
 
-            entity.AddProjectileCollidingEntity(other);
-
-            var hitResult = new ProjectileHitOutput()
+            ProjectileHitOutput hitResult = new ProjectileHitOutput()
             {
-                Projectile = entity,
+                Projectile = projectile,
                 Other = other,
-                Pierce = entity.CanPierce(other)
+                Pierce = canPierce
             };
+            if (damageResult.ShieldResult != null)
+            {
+                hitResult.Shield = damageResult.ShieldResult.Armor;
+                canPierce = projectile.IsPiercing();
+            }
+            else
+            {
+                bool ethereal = damageResult.ArmorResult != null ? false : other.IsEthereal();
+                canPierce = ethereal || projectile.IsPiercing();
+            }
+
+            projectile.AddProjectileCollidingEntity(otherReference);
             PostHitEntity(hitResult, damageResult);
-            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, entity.GetDefinitionID(), hitResult, damageResult);
+            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, projectile.GetDefinitionID(), hitResult, damageResult);
 
             if (!hitResult.Pierce)
             {
-                entity.Remove();
+                projectile.Remove();
                 return;
             }
         }
-        private void UnitExit(Entity entity, Entity other)
+        private void UnitExit(EntityCollision collision)
         {
-            entity.RemoveProjectileCollidingEntity(other);
+            collision.Entity.RemoveProjectileCollidingEntity(collision.OtherCollider.ToReference());
         }
     }
 }

@@ -1,13 +1,16 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using Tools.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Vanilla.Detections
 {
     public static class Detection
     {
-        public static bool Intersects(Entity self, Entity other)
+        public static bool Intersects(this Hitbox self, Hitbox other)
         {
             Bounds selfBounds = self.GetBounds();
             Bounds otherBounds = other.GetBounds();
@@ -22,14 +25,14 @@ namespace MVZ2.Vanilla.Detections
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset)
         {
             return IsInFrontOf(self, target) &&
-                target.CoincidesYDown(self.Position.y + heightOffset) &&
+                target.MainHitbox.CoincidesYDown(self.Position.y + heightOffset) &&
                 IsZCoincide(self.Position.z, projectileZSpan, target.Position.z, target.GetSize().z);
         }
 
         public static bool InFrontShooterRange(Entity self, Entity target, float projectileZSpan, float heightOffset, float frontRange)
         {
             return IsInFrontOf(self, target, 0, frontRange) &&
-                target.CoincidesYDown(self.Position.y + heightOffset) &&
+                target.MainHitbox.CoincidesYDown(self.Position.y + heightOffset) &&
                 IsZCoincide(self.Position.z, projectileZSpan, target.Position.z, target.GetSize().z);
         }
 
@@ -74,14 +77,14 @@ namespace MVZ2.Vanilla.Detections
         #endregion
 
         #region Y related
-        public static bool CoincidesYDown(this Entity entity, float y)
+        public static bool CoincidesYDown(this Hitbox hitbox, float y)
         {
-            return entity.GetBounds().min.y < y;
+            return hitbox.GetBounds().min.y < y;
         }
 
-        public static bool CoincidesYUp(this Entity entity, float y)
+        public static bool CoincidesYUp(this Hitbox hitbox, float y)
         {
-            return entity.GetBounds().max.y > y;
+            return hitbox.GetBounds().max.y > y;
         }
 
         public static bool IsYCoincide(float y1, float yLength1, float y2, float yLength2)
@@ -103,10 +106,24 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        public static bool IsInSphere(Entity entity, Vector3 center, float radius)
+        public static bool IsInSphere(this Hitbox hitbox, Vector3 center, float radius)
         {
-            var bounds = entity.GetBounds();
+            var bounds = hitbox.GetBounds();
             return MathTool.CollideBetweenCubeAndSphere(center, radius, bounds.center, bounds.size);
+        }
+        public static bool IsInSphere(this EntityCollider collider, Vector3 center, float radius)
+        {
+            for (int i = 0; i < collider.GetHitboxCount(); i++)
+            {
+                var hitbox = collider.GetHitbox(i);
+                if (hitbox.IsInSphere(center, radius))
+                    return true;
+            }
+            return false;
+        }
+        public static IEnumerable<EntityCollider> GetCollidersInSphere(this Entity entity, Vector3 center, float radius)
+        {
+            return entity.GetEnabledColliders().Where(g => g.IsInSphere(center, radius));
         }
     }
 }

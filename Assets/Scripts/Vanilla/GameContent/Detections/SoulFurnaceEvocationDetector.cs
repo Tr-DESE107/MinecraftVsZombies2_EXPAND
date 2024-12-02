@@ -8,7 +8,7 @@ namespace MVZ2.GameContent.Detections
         public override bool IsInRange(Entity self, Entity target)
         {
             return Detection.IsInFrontOf(self, target, 0) &&
-                Detection.CoincidesYDown(target, self.GetBounds().max.y);
+                Detection.CoincidesYDown(target.MainHitbox, self.GetBounds().max.y);
         }
     }
 }

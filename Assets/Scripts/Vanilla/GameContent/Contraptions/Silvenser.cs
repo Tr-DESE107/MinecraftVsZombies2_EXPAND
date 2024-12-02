@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var entities = entity.Level.FindEntities(e => e.IsVulnerableEntity() && !e.IsDead && !e.IsInvisible() && e.IsHostile(entity)).RandomTake(EVOCATION_MAX_TARGET_COUNT, entity.RNG);
-            var positions = entities.Select(e => e.GetBoundsCenter()).ToArray();
+            var positions = entities.Select(e => e.GetCenter()).ToArray();
             if (positions.Length > 0)
             {
                 var evocationTimer = GetEvocationTimer(entity);

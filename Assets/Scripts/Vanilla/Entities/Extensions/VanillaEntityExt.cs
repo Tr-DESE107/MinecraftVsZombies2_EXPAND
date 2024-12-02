@@ -15,8 +15,6 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -40,38 +38,50 @@ namespace MVZ2.Vanilla.Entities
             float stateHP = maxHP / stateCount;
             return Mathf.CeilToInt(entity.Health / stateHP) - 1;
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, bool toBody = true, bool toShield = false)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null));
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), toBody, toShield);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, bool toBody = true, bool toShield = false)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source));
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source), toBody, toShield);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, bool toBody = true, bool toShield = false)
         {
-            return TakeDamage(new DamageInput(amount, effects, entity, source));
+            return TakeDamage(new DamageInput(amount, effects, entity, source, toBody, toShield));
         }
-        public static DamageOutput TakeDamage(DamageInput info)
+        public static DamageOutput TakeDamage(DamageInput input)
         {
-            if (info.Entity.IsInvincible() || info.Entity.IsDead)
+            if (input.Entity.IsInvincible() || input.Entity.IsDead)
                 return null;
-            if (!PreTakeDamage(info))
+            if (!PreTakeDamage(input))
                 return null;
-            if (info.Amount <= 0)
+            if (input.Amount <= 0)
                 return null;
             var result = new DamageOutput()
             {
-                Entity = info.Entity
+                Entity = input.Entity
             };
-            if (Armor.Exists(info.Entity.EquipedArmor) && !info.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
+            if (input.ToShield)
             {
-                ArmoredTakeDamage(info, result);
+                var shield = input.Entity.GetShield();
+                if (Armor.Exists(shield))
+                {
+                    result.ShieldResult = Armor.TakeDamage(input);
+                }
             }
-            else
+            if (input.ToBody)
             {
-                result.BodyResult = BodyTakeDamage(info);
+                if (Armor.Exists(input.Entity.EquipedArmor) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
+                {
+                    ArmoredTakeDamage(input, result);
+                }
+                else
+                {
+                    result.BodyResult = BodyTakeDamage(input);
+                }
             }
+
             PostTakeDamage(result);
             return result;
         }
@@ -236,7 +246,7 @@ namespace MVZ2.Vanilla.Entities
         public static void EmitBlood(this Entity entity)
         {
             var bloodColor = entity.GetBloodColor();
-            var blood = entity.Level.Spawn(VanillaEffectID.bloodParticles, entity.GetBoundsCenter(), entity);
+            var blood = entity.Level.Spawn(VanillaEffectID.bloodParticles, entity.GetCenter(), entity);
             blood.SetTint(bloodColor);
         }
         #endregion

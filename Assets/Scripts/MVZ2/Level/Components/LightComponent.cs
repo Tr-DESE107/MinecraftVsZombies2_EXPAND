@@ -126,7 +126,7 @@ namespace MVZ2.Level.Components
             lightRange.y -= minComp;
             lightRange.z -= minComp;
 
-            var center = entity.GetBoundsCenter();
+            var center = entity.GetCenter();
             var size = lightRange;
             var radius = minComp * 0.5f;
             var maxBounds = new Bounds(center, size + Vector3.one * minComp);

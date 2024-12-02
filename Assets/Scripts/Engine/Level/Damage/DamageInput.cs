@@ -1,4 +1,5 @@
 ﻿using System;
+using PVZEngine.Armors;
 using PVZEngine.Entities;
 
 namespace PVZEngine.Damages
@@ -9,16 +10,20 @@ namespace PVZEngine.Damages
         public float Amount { get; private set; }
         public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; private set; }
+        public bool ToBody { get; private set; }
+        public bool ToShield { get; private set; }
         public EntityReferenceChain Source { get; set; }
         public bool Canceled { get; private set; }
 
-        public DamageInput(float amount, DamageEffectList effects, Entity entity, EntityReferenceChain source)
+        public DamageInput(float amount, DamageEffectList effects, Entity entity, EntityReferenceChain source, bool toBody = true, bool toShield = false)
         {
             OriginalAmount = amount;
             Amount = amount;
             Effects = effects;
             Entity = entity;
             Source = source;
+            ToBody = toBody;
+            ToShield = toShield;
         }
         public void Add(float value)
         {

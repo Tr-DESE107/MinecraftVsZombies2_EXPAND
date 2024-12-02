@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Effects
                 entity.Remove();
                 return;
             }
-            entity.Position = parent.GetBoundsCenter();
+            entity.Position = parent.GetCenter();
             var color = parent.GetLightColor();
             color.a *= 0.3f;
             entity.SetTint(color);
