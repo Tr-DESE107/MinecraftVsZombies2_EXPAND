@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Entities;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
 using MVZ2.Grids;
 using MVZ2.Localization;
@@ -176,8 +177,8 @@ namespace MVZ2.Level
                 optionsLogic.Dispose();
                 optionsLogic = null;
             }
-            level?.Dispose();
             level.StopAllLoopSounds();
+            level?.Dispose();
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
@@ -591,6 +592,14 @@ namespace MVZ2.Level
                 {
                     Debug.Log("Restarting Game...");
                     _ = ReloadLevel();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                var spawnDef = level.Content.GetSpawnDefinition(VanillaEnemyID.zombie);
+                for (int i = 0; i < 30; i++)
+                {
+                    level.SpawnEnemy(spawnDef, 2);
                 }
             }
 #endif
