@@ -65,7 +65,12 @@ namespace PVZEngine.Triggers
         }
         private EventTriggerList GetTriggerList(CallbackReference callbackID)
         {
-            return triggerLists.Find(l => l.callbackID == callbackID);
+            foreach (var triggerList in triggerLists)
+            {
+                if (triggerList.callbackID == callbackID)
+                    return triggerList;
+            }
+            return null;
         }
         private List<EventTriggerList> triggerLists = new List<EventTriggerList>();
         private class EventTriggerList
