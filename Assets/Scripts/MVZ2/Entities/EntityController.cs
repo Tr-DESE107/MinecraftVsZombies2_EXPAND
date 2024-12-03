@@ -24,7 +24,7 @@ namespace MVZ2.Entities
 {
     public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, ILevelRaycastReceiver
     {
-        #region ¹«ÓĞ·½·¨
+        #region å…¬æœ‰æ–¹æ³•
         public void Init(LevelController level, Entity entity)
         {
             Level = level;
@@ -50,7 +50,7 @@ namespace MVZ2.Entities
             transform.position = Level.LawnToTrans(Entity.Position);
             lastPosition = transform.position;
         }
-        #region Ä£ĞÍ
+        #region æ¨¡å‹
         public void SetModel(NamespaceID modelId)
         {
             SetModel(CreateModel(modelId));
@@ -77,7 +77,7 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region ¸üĞÂ
+        #region æ›´æ–°
         public void UpdateFixed()
         {
             var posOffset = GetTransformOffset();
@@ -132,9 +132,9 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region Ë½ÓĞ·½·¨
+        #region ç§æœ‰æ–¹æ³•
 
-        #region ÉúÃüÖÜÆÚ
+        #region ç”Ÿå‘½å‘¨æœŸ
         private void Update()
         {
             var engine = Entity.Level;
@@ -160,15 +160,14 @@ namespace MVZ2.Entities
         {
             float pixelUnit = Level?.LawnToTransScale ?? 0.01f;
             Vector3 size = Entity.GetScaledSize() * pixelUnit;
-            var scaledBoundsOffset = Entity.GetScaledBoundsOffset();
-            float
-                startX = (Entity.Position.x + scaledBoundsOffset.x) * pixelUnit,
-                startY = (Entity.Position.y + scaledBoundsOffset.y) * pixelUnit,
-                startZ = (Entity.Position.z + scaledBoundsOffset.z) * pixelUnit;
+            float startX = Entity.Position.x * pixelUnit;
+            float startY = Entity.Position.y * pixelUnit;
+            float startZ = Entity.Position.z * pixelUnit;
+            var collisionMask = Entity.CollisionMaskHostile | Entity.CollisionMaskFriendly;
             Gizmos.color = new Color(
-                (Entity.CollisionMask >> 0 & 7) / 7f,
-                (Entity.CollisionMask >> 3 & 7) / 7f,
-                (Entity.CollisionMask >> 6 & 3) / 3f, 1);
+                (collisionMask >> 0 & 7) / 7f,
+                (collisionMask >> 3 & 7) / 7f,
+                (collisionMask >> 6 & 3) / 3f, 1);
             for (int i = 0; i < 12; i++)
             {
                 int axe = i >> 2;
@@ -224,7 +223,7 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region ÊÂ¼ş»Øµ÷
+        #region äº‹ä»¶å›è°ƒ
         private void PostInitCallback()
         {
             UpdateFrame(0);
@@ -298,7 +297,7 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region ½Ó¿ÚÊµÏÖ
+        #region æ¥å£å®ç°
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
             OnPointerEnter?.Invoke(this, eventData);
@@ -328,7 +327,7 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region Î»ÖÃ
+        #region ä½ç½®
         protected void UpdateShadow(Vector3 posOffset)
         {
             var shadowPos = Entity.Position;
@@ -358,7 +357,7 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region »¤¼×
+        #region æŠ¤ç”²
         private void CreateArmorModel(Armor armor)
         {
             if (!Model)
@@ -391,7 +390,7 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region Ä£ĞÍ
+        #region æ¨¡å‹
         private Model CreateModel(NamespaceID id)
         {
             var res = Main.ResourceManager;
@@ -479,13 +478,13 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        #region ÊÂ¼ş
+        #region äº‹ä»¶
         public event Action<EntityController, PointerEventData> OnPointerEnter;
         public event Action<EntityController, PointerEventData> OnPointerExit;
         public event Action<EntityController, PointerEventData> OnPointerDown;
         #endregion
 
-        #region ÊôĞÔ×Ö¶Î
+        #region å±æ€§å­—æ®µ
         public static readonly Dictionary<int, float> zOffsetDict = new Dictionary<int, float>()
         {
             { EntityTypes.PLANT, 0 },
@@ -507,9 +506,9 @@ namespace MVZ2.Entities
         private Vector3 lastPosition;
         [SerializeField]
         private ShadowController shadow;
-        #region shaderÏà¹ØÊôĞÔ
+        #region shaderç›¸å…³å±æ€§
         protected MaterialPropertyBlock propertyBlock;
-        #endregion shaderÏà¹ØÊôĞÔ
+        #endregion shaderç›¸å…³å±æ€§
 
         #endregion
     }

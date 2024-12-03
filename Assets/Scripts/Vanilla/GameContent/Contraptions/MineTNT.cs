@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = new FrameTimer(450);
             SetRiseTimer(entity, riseTimer);
 
-            entity.CollisionMask |= EntityCollision.MASK_ENEMY;
+            entity.CollisionMaskHostile |= EntityCollision.MASK_ENEMY;
         }
         protected override void UpdateAI(Entity entity)
         {

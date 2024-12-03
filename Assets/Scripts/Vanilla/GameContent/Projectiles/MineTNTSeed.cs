@@ -16,7 +16,8 @@ namespace MVZ2.GameContent.Projectiles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.CollisionMask = 0;
+            entity.CollisionMaskHostile = 0;
+            entity.CollisionMaskFriendly = 0;
         }
         public override void PostContactGround(Entity entity, Vector3 velocity)
         {

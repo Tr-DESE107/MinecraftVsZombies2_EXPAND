@@ -22,6 +22,7 @@ namespace PVZEngine.Entities
             TypeCollisionFlag = EntityCollision.GetTypeMask(type);
             ID = id;
             SpawnerReference = spawnerReference;
+            Cache = new EntityCache();
         }
         public Entity(LevelEngine level, long id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
         {
@@ -49,7 +50,13 @@ namespace PVZEngine.Entities
             }
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
         }
-        public void UpdateHitbox()
+        private void UpdateCache()
+        {
+            Cache.Update(this);
+            UpdateHitbox();
+        }
+
+        private void UpdateHitbox()
         {
             var center = Position + GetScaledBoundsOffset() + 0.5f * GetScaledSize().y * Vector3.up;
             Vector3 size = this.GetSize();
@@ -137,16 +144,17 @@ namespace PVZEngine.Entities
         {
             return this.GetFaction() == faction;
         }
-        public bool IsHostile(Entity entity)
+        public bool IsHostile(Entity entity, bool cache = false)
         {
             if (entity == null)
                 return false;
-            return IsHostile(entity.GetFaction());
+            return IsHostile(entity.GetFaction(cache), cache);
         }
 
-        public bool IsHostile(int faction)
+        public bool IsHostile(int faction, bool cache = false)
         {
-            return this.GetFaction() != faction;
+            var selfFaction = cache ? Cache.Faction : this.GetFaction();
+            return selfFaction != faction;
         }
         public bool IsActiveEntity(bool includeDead = false)
         {
@@ -495,7 +503,8 @@ namespace PVZEngine.Entities
             seri.position = Position;
             seri.velocity = Velocity;
             seri.scale = Scale;
-            seri.collisionMask = CollisionMask;
+            seri.collisionMaskHostile = CollisionMaskHostile;
+            seri.collisionMaskFriendly = CollisionMaskFriendly;
             seri.renderRotation = RenderRotation;
             seri.renderScale = RenderScale;
             seri.boundsOffset = BoundsOffset;
@@ -534,7 +543,8 @@ namespace PVZEngine.Entities
             Position = seri.position;
             Velocity = seri.velocity;
             Scale = seri.scale;
-            CollisionMask = seri.collisionMask;
+            CollisionMaskHostile = seri.collisionMaskHostile;
+            CollisionMaskFriendly = seri.collisionMaskFriendly;
             RenderRotation = seri.renderRotation;
             RenderScale = seri.renderScale;
             BoundsOffset = seri.boundsOffset;
@@ -551,7 +561,7 @@ namespace PVZEngine.Entities
             collisionList = seri.collisionList.ConvertAll(e => Level.FindEntityByID(e));
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
-            UpdateHitbox();
+            UpdateCache();
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
@@ -567,12 +577,12 @@ namespace PVZEngine.Entities
         private void OnInit(Entity spawner)
         {
             Health = this.GetMaxHealth();
-            UpdateHitbox();
+            UpdateCache();
         }
         private void OnUpdate()
         {
             UpdatePhysics(1);
-            UpdateHitbox();
+            UpdateCache();
             Health = Mathf.Min(Health, this.GetMaxHealth());
         }
         private void OnContactGround()
@@ -635,6 +645,8 @@ namespace PVZEngine.Entities
         public Vector3 RenderScale { get; set; } = Vector3.one;
         public bool FlipX => Scale.x < 0;
         public Vector3 BoundsOffset { get; set; }
+        public int CollisionMaskHostile { get; set; }
+        public int CollisionMaskFriendly { get; set; }
         public int PoolCount { get; set; }
         public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
@@ -643,6 +655,7 @@ namespace PVZEngine.Entities
         public int State { get; set; }
         public Entity Target { get; set; }
         public bool IsOnGround { get; private set; } = true;
+        public EntityCache Cache { get; }
         internal int TypeCollisionFlag { get; }
 
         private PropertyDictionary propertyDict = new PropertyDictionary();

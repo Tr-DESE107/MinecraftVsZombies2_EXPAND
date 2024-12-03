@@ -46,7 +46,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source)
         {
-            return entity.TakeDamage(amount, effects, source);
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source));
         }
         public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source)
         {

@@ -13,13 +13,17 @@ namespace PVZEngine.Level
             entities.Remove(entity);
             OnEntityRemove?.Invoke(entity);
         }
-        public void CollisionUpdate(Entity ent1, int mask, Entity[] entities)
+        public void CollisionUpdate(Entity ent1, Entity[] entities)
         {
             var bounds = ent1.GetBounds();
+            int maskHostile = ent1.CollisionMaskHostile;
+            int maskFriendly = ent1.CollisionMaskFriendly;
+            int faction = ent1.Cache.Faction;
             foreach (var ent2 in entities)
             {
                 if (ent1 == ent2)
                     continue;
+                var mask = ent2.IsHostile(faction, true) ? maskHostile : maskFriendly;
                 if (!EntityCollision.CanCollide(mask, ent2))
                     continue;
                 if (!bounds.Intersects(ent2.GetBounds()))

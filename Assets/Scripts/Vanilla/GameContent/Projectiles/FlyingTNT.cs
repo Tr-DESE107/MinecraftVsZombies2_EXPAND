@@ -2,8 +2,6 @@
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
-using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -16,7 +14,8 @@ namespace MVZ2.GameContent.Projectiles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.CollisionMask = 0;
+            entity.CollisionMaskHostile = 0;
+            entity.CollisionMaskFriendly = 0;
         }
         public override void Update(Entity projectile)
         {

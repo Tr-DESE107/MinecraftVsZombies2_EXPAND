@@ -24,7 +24,8 @@ namespace PVZEngine.Entities
         public Vector3 position;
         public Vector3 velocity;
         public Vector3 scale;
-        public int collisionMask;
+        public int collisionMaskHostile;
+        public int collisionMaskFriendly;
         public Vector3 renderRotation;
         public Vector3 renderScale;
         public Vector3 boundsOffset;

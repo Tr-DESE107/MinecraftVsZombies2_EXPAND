@@ -20,7 +20,14 @@ namespace MVZ2.GameContent.Effects
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.CollisionMask |=
+            entity.CollisionMaskHostile |=
+                EntityCollision.MASK_PLANT |
+                EntityCollision.MASK_ENEMY |
+                EntityCollision.MASK_BOSS |
+                EntityCollision.MASK_OBSTACLE |
+                EntityCollision.MASK_PROJECTILE |
+                EntityCollision.MASK_EFFECT;
+            entity.CollisionMaskFriendly |=
                 EntityCollision.MASK_PLANT |
                 EntityCollision.MASK_ENEMY |
                 EntityCollision.MASK_BOSS |

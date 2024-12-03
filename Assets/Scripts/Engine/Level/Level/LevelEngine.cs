@@ -120,7 +120,7 @@ namespace PVZEngine.Level
             }
             foreach (var entity in entities)
             {
-                CollisionUpdate(entity, entity.CollisionMask, entities);
+                CollisionUpdate(entity, entities);
             }
             foreach (var buff in buffs.GetAllBuffs())
             {
