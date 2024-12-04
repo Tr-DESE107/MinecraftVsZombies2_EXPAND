@@ -10,6 +10,8 @@ namespace PVZEngine.Buffs
         public Buff GetBuff(LevelEngine level)
         {
             var target = GetTarget(level);
+            if (target == null)
+                return null;
             return target.GetBuff(buffId);
         }
         public int buffId;

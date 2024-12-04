@@ -93,9 +93,9 @@ namespace PVZEngine.Auras
         }
         private bool RemoveEntityBuff(IBuffTarget entity, Buff buff)
         {
-            if (entity.RemoveBuff(buff))
+            if (buffDict.Remove(entity))
             {
-                buffDict.Remove(entity);
+                entity.RemoveBuff(buff);
                 return true;
             }
             return false;
