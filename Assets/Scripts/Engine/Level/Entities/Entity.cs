@@ -32,6 +32,7 @@ namespace PVZEngine.Entities
             SpawnerReference = spawnerReference;
             MainHitbox = new EntityHitbox(this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
+            Cache = new EntityCache();
         }
         public void Init(Entity spawner)
         {
@@ -145,7 +146,7 @@ namespace PVZEngine.Entities
         }
         public bool IsFriendly(int faction)
         {
-            return this.GetFaction() == faction;
+            return Cache.Faction == faction;
         }
         public bool IsHostile(Entity entity)
         {
@@ -156,7 +157,7 @@ namespace PVZEngine.Entities
 
         public bool IsHostile(int faction)
         {
-            return this.GetFaction() != faction;
+            return Cache.Faction != faction;
         }
         public bool IsActiveEntity(bool includeDead = false)
         {
@@ -210,6 +211,7 @@ namespace PVZEngine.Entities
             var baseValue = GetProperty(name, ignoreBuffs: true);
             var value = buffs.CalculateProperty(name, baseValue);
             buffedProperties.SetProperty(name, value);
+            Cache.UpdateProperty(this, name, value);
         }
         #endregion
 
@@ -291,9 +293,9 @@ namespace PVZEngine.Entities
         public Vector3 GetNextPosition(float simulationSpeed = 1)
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
-            velocity.Scale(Vector3.one - this.GetVelocityDampen());
+            velocity.Scale(Vector3.one - Cache.VelocityDampen);
             var nextPos = Position + velocity * simulationSpeed;
-            if (!GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND))
+            if (!Cache.CanUnderGround)
             {
                 nextPos.y = Mathf.Max(GetGroundHeight(), nextPos.y);
             }
@@ -306,11 +308,11 @@ namespace PVZEngine.Entities
             Vector3 velocity = Velocity;
 
             // Friction.
-            var frictionMulti = Mathf.Pow(Mathf.Max(0, 1 - this.GetFriction()), simulationSpeed);
+            var frictionMulti = Mathf.Pow(Mathf.Max(0, 1 - Cache.Friction), simulationSpeed);
             velocity = new Vector3(velocity.x * frictionMulti, velocity.y, velocity.z * frictionMulti);
 
             // Gravity.
-            velocity.y -= this.GetGravity() * simulationSpeed;
+            velocity.y -= Cache.Gravity * simulationSpeed;
 
             return velocity;
         }
@@ -559,11 +561,9 @@ namespace PVZEngine.Entities
             seri.EquipedArmor = EquipedArmor?.Serialize();
             seri.position = Position;
             seri.velocity = Velocity;
-            seri.scale = Scale;
             seri.collisionMaskHostile = CollisionMaskHostile;
             seri.collisionMaskFriendly = CollisionMaskFriendly;
             seri.renderRotation = RenderRotation;
-            seri.renderScale = RenderScale;
             seri.poolCount = PoolCount;
             seri.timeout = Timeout;
             seri.colliders = colliders.ConvertAll(g => g.ToSerializable()).ToArray();
@@ -597,11 +597,9 @@ namespace PVZEngine.Entities
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
             Position = seri.position;
             Velocity = seri.velocity;
-            Scale = seri.scale;
             CollisionMaskHostile = seri.collisionMaskHostile;
             CollisionMaskFriendly = seri.collisionMaskFriendly;
             RenderRotation = seri.renderRotation;
-            RenderScale = seri.renderScale;
             PoolCount = seri.poolCount;
             Timeout = seri.timeout;
 
@@ -623,6 +621,7 @@ namespace PVZEngine.Entities
                 collider.LoadCollisions(Level, seriCollider);
             }
             UpdateAllBuffedProperties();
+            Cache.UpdateAll(this);
             UpdateColliders();
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
@@ -648,6 +647,7 @@ namespace PVZEngine.Entities
             var collider = new EntityCollider(this, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(this));
             AddCollider(collider);
             UpdateAllBuffedProperties();
+            Cache.UpdateAll(this);
             UpdateColliders();
         }
         private void OnUpdate()
@@ -729,6 +729,7 @@ namespace PVZEngine.Entities
         public Entity Target { get; set; }
         public bool IsOnGround { get; private set; } = true;
         internal int TypeCollisionFlag { get; }
+        internal EntityCache Cache { get; }
 
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private PropertyDictionary buffedProperties = new PropertyDictionary();

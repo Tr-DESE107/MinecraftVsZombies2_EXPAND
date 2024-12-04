@@ -4,6 +4,8 @@
             <float name="changeLaneSpeed" value="2.5"/>
             <float name="shadowAlpha" value="1"/>
             <vector3 name="shadowScale" x="1" y="1" z="1"/>
+            <vector3 name="scale" x="1" y="1" z="1"/>
+            <vector3 name="displayScale" x="1" y="1" z="1"/>
             <id name="placeSound" value="mvz2:grass"/>
             <color name="tint" value="#FFFFFF"/>
 

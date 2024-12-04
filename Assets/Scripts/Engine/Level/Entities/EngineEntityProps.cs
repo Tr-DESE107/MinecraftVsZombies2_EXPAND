@@ -75,6 +75,10 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(FACTION, value);
         }
+        public static bool CanUnderGround(this Entity entity)
+        {
+            return entity.GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND);
+        }
         public static Vector3 GetSize(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<Vector3>(SIZE, ignoreBuffs: ignoreBuffs);

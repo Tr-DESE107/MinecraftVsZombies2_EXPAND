@@ -17,12 +17,12 @@ namespace PVZEngine.Level
         {
             int maskHostile = ent1.CollisionMaskHostile;
             int maskFriendly = ent1.CollisionMaskFriendly;
-            int faction = ent1.GetFaction();
+            int ent1Faction = ent1.Cache.Faction;
             foreach (var ent2 in entities)
             {
                 if (ent1 == ent2)
                     continue;
-                var mask = ent2.IsHostile(faction) ? maskHostile : maskFriendly;
+                var mask = ent2.IsHostile(ent1Faction) ? maskHostile : maskFriendly;
                 if (!EntityCollisionHelper.CanCollide(mask, ent2))
                     continue;
                 var collisionCount = ent1.CheckContacts(ent2, collisionBuffer);
