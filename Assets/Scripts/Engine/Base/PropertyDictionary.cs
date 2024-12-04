@@ -8,6 +8,7 @@ namespace PVZEngine
     {
         public bool SetProperty(string name, object value)
         {
+            name = string.Intern(name);
             if (value == null)
             {
                 if (!propertyDict.TryGetValue(name, out var valueBefore) || valueBefore == null)
@@ -29,7 +30,7 @@ namespace PVZEngine
         }
         public bool TryGetProperty(string name, out object value)
         {
-            return propertyDict.TryGetValue(name, out value);
+            return propertyDict.TryGetValue(string.Intern(name), out value);
         }
         public T GetProperty<T>(string name)
         {
@@ -62,7 +63,7 @@ namespace PVZEngine
         {
             return new PropertyDictionary()
             {
-                propertyDict = seri.ToDictionary(p => p.Key, p => p.Value)
+                propertyDict = seri.ToDictionary(p => string.Intern(p.Key), p => p.Value)
             };
         }
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
