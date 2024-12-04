@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -20,6 +21,7 @@ namespace PVZEngine.Level
             Content = contentProvider;
             Localization = translator;
             Triggers = triggers;
+            buffs.OnPropertyChanged += UpdateBuffedProperty;
         }
 
         public void Dispose()
@@ -145,9 +147,15 @@ namespace PVZEngine.Level
         public void SetProperty(string name, object value)
         {
             propertyDict.SetProperty(name, value);
+            UpdateBuffedProperty(name);
         }
         public object GetProperty(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false, bool ignoreBuffs = false)
         {
+            if (!ignoreBuffs)
+            {
+                if (buffedProperties.TryGetProperty(name, out var v))
+                    return v;
+            }
             object result = null;
             if (propertyDict.TryGetProperty(name, out var value))
                 result = value;
@@ -155,16 +163,25 @@ namespace PVZEngine.Level
                 result = stageProp;
             else if (!ignoreAreaDefinition && AreaDefinition.TryGetProperty<object>(name, out var areaProp))
                 result = areaProp;
-
-            if (!ignoreBuffs)
-            {
-                result = buffs.CalculateProperty(name, result);
-            }
             return result;
         }
         public T GetProperty<T>(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
         {
             return GetProperty(name, ignoreStageDefinition, ignoreAreaDefinition).ToGeneric<T>();
+        }
+        private void UpdateAllBuffedProperties()
+        {
+            var propertyNames = buffs.GetModifierPropertyNames();
+            foreach (var name in propertyNames)
+            {
+                UpdateBuffedProperty(name);
+            }
+        }
+        private void UpdateBuffedProperty(string name)
+        {
+            var baseValue = GetProperty(name, ignoreBuffs: true);
+            var value = buffs.CalculateProperty(name, baseValue);
+            buffedProperties.SetProperty(name, value);
         }
         #endregion
 
@@ -416,6 +433,8 @@ namespace PVZEngine.Level
             level.Energy = seri.energy;
             level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
             level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
+            level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
+            level.UpdateAllBuffedProperties();
 
             return level;
         }
@@ -482,6 +501,7 @@ namespace PVZEngine.Level
         private long currentBuffID = 1;
         private string deathMessage;
 
+        private PropertyDictionary buffedProperties = new PropertyDictionary();
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private LawnGrid[] grids;
         private BuffList buffs = new BuffList();

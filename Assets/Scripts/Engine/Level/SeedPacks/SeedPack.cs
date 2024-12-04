@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -15,6 +16,7 @@ namespace PVZEngine.SeedPacks
             ID = id;
             Level = level;
             Definition = definition;
+            buffs.OnPropertyChanged += UpdateBuffedProperty;
         }
         public int GetIndex()
         {
@@ -27,16 +29,16 @@ namespace PVZEngine.SeedPacks
         #region 属性
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
+            if (!ignoreBuffs)
+            {
+                if (buffedProperties.TryGetProperty(name, out var v))
+                    return v;
+            }
             object result = null;
             if (propertyDict.TryGetProperty(name, out var prop))
                 result = prop;
             else if (!ignoreDefinition)
                 result = Definition.GetProperty<object>(name);
-
-            if (!ignoreBuffs)
-            {
-                result = buffs.CalculateProperty(name, result);
-            }
             return result;
         }
         public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
@@ -46,6 +48,21 @@ namespace PVZEngine.SeedPacks
         public void SetProperty(string name, object value)
         {
             propertyDict.SetProperty(name, value);
+            UpdateBuffedProperty(name);
+        }
+        private void UpdateAllBuffedProperties()
+        {
+            var propertyNames = buffs.GetModifierPropertyNames();
+            foreach (var name in propertyNames)
+            {
+                UpdateBuffedProperty(name);
+            }
+        }
+        private void UpdateBuffedProperty(string name)
+        {
+            var baseValue = GetProperty(name, ignoreBuffs: true);
+            var value = buffs.CalculateProperty(name, baseValue);
+            buffedProperties.SetProperty(name, value);
         }
         #endregion
 
@@ -155,7 +172,9 @@ namespace PVZEngine.SeedPacks
                 propertyDict = PropertyDictionary.Deserialize(seri.propertyDict),
                 currentBuffID = seri.currentBuffID
             };
-            seedPack.buffs = BuffList.FromSerializable(seri.buffs, level, seedPack);
+            seedPack.buffs = BuffList.FromSerializable(seri.buffs, level, seedPack); ;
+            seedPack.buffs.OnPropertyChanged += seedPack.UpdateBuffedProperty;
+            seedPack.UpdateAllBuffedProperties();
             return seedPack;
         }
         #endregion
@@ -169,6 +188,7 @@ namespace PVZEngine.SeedPacks
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
         private long currentBuffID = 1;
+        private PropertyDictionary buffedProperties = new PropertyDictionary();
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private BuffList buffs = new BuffList();
         #endregion

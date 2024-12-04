@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Entities;
@@ -37,7 +38,17 @@ namespace PVZEngine.Buffs
         }
         public void SetProperty(string name, object value)
         {
-            propertyDict.SetProperty(name, value);
+            if (propertyDict.SetProperty(name, value))
+            {
+                // 增益属性更改时，如果有利用该增益属性修改属性的修改器，调用一次属性更改时事件。
+                foreach (var modifier in GetModifiers())
+                {
+                    if (modifier.UsingBuffPropertyName == name)
+                    {
+                        CallPropertyChanged(modifier.PropertyName);
+                    }
+                }
+            }
         }
         public PropertyModifier[] GetModifiers()
         {
@@ -97,6 +108,11 @@ namespace PVZEngine.Buffs
             buff.auras.LoadFromSerializable(level, seri.auras);
             return buff;
         }
+        private void CallPropertyChanged(string name)
+        {
+            OnPropertyChanged?.Invoke(name);
+        }
+        public event Action<string> OnPropertyChanged;
         public long ID { get; }
         public LevelEngine Level { get; }
         public BuffDefinition Definition { get; }

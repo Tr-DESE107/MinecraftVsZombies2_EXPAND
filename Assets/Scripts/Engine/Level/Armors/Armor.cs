@@ -12,9 +12,9 @@ namespace PVZEngine.Armors
     {
         private Armor()
         {
-
+            buffs.OnPropertyChanged += UpdateBuffedProperty;
         }
-        public Armor(Entity owner, ArmorDefinition definition)
+        public Armor(Entity owner, ArmorDefinition definition) : this()
         {
             Owner = owner;
             Definition = definition;
@@ -40,16 +40,16 @@ namespace PVZEngine.Armors
         #region 属性
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
+            if (!ignoreBuffs)
+            {
+                if (buffedProperties.TryGetProperty(name, out var value))
+                    return value;
+            }
             object result = null;
             if (propertyDict.TryGetProperty(name, out var prop))
                 result = prop;
             else if (!ignoreDefinition && Definition != null)
                 result = Definition.GetProperty<object>(name);
-
-            if (!ignoreBuffs)
-            {
-                result = buffs.CalculateProperty(name, result);
-            }
             return result;
         }
         public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
@@ -59,6 +59,21 @@ namespace PVZEngine.Armors
         public void SetProperty(string name, object value)
         {
             propertyDict.SetProperty(name, value);
+            UpdateBuffedProperty(name);
+        }
+        private void UpdateAllBuffedProperties()
+        {
+            var propertyNames = buffs.GetModifierPropertyNames();
+            foreach (var name in propertyNames)
+            {
+                UpdateBuffedProperty(name);
+            }
+        }
+        private void UpdateBuffedProperty(string name)
+        {
+            var baseValue = GetProperty(name, ignoreBuffs: true);
+            var value = buffs.CalculateProperty(name, baseValue);
+            buffedProperties.SetProperty(name, value);
         }
         #endregion
 
@@ -166,7 +181,9 @@ namespace PVZEngine.Armors
             armor.Health = seri.health;
             armor.currentBuffID = seri.currentBuffID;
             armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
+            armor.buffs.OnPropertyChanged += armor.UpdateBuffedProperty;
             armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            armor.UpdateAllBuffedProperties();
             return armor;
         }
         Entity IBuffTarget.GetEntity() => Owner;
@@ -180,6 +197,7 @@ namespace PVZEngine.Armors
         public float Health { get; set; }
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
+        private PropertyDictionary buffedProperties = new PropertyDictionary();
         private PropertyDictionary propertyDict = new PropertyDictionary();
         #endregion
     }

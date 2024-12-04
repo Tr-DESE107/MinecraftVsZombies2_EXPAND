@@ -6,9 +6,20 @@ namespace PVZEngine
 {
     public class PropertyDictionary
     {
-        public void SetProperty(string name, object value)
+        public bool SetProperty(string name, object value)
         {
+            if (value == null)
+            {
+                if (!propertyDict.TryGetValue(name, out var valueBefore) || valueBefore == null)
+                    return false;
+            }
+            else
+            {
+                if (propertyDict.TryGetValue(name, out var valueBefore) && value.Equals(valueBefore))
+                    return false;
+            }
             propertyDict[name] = value;
+            return true;
         }
         public object GetProperty(string name)
         {

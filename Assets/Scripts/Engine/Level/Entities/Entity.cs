@@ -31,7 +31,7 @@ namespace PVZEngine.Entities
             ID = id;
             SpawnerReference = spawnerReference;
             MainHitbox = new EntityHitbox(this);
-            Cache = new EntityCache();
+            buffs.OnPropertyChanged += UpdateBuffedProperty;
         }
         public void Init(Entity spawner)
         {
@@ -51,11 +51,6 @@ namespace PVZEngine.Entities
                 buff.Update();
             }
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
-        }
-        private void UpdateCache()
-        {
-            Cache.Update(this);
-            UpdateColliders();
         }
 
         private void UpdateColliders()
@@ -152,17 +147,16 @@ namespace PVZEngine.Entities
         {
             return this.GetFaction() == faction;
         }
-        public bool IsHostile(Entity entity, bool cache = false)
+        public bool IsHostile(Entity entity)
         {
             if (entity == null)
                 return false;
-            return IsHostile(entity.GetFaction(cache), cache);
+            return IsHostile(entity.GetFaction());
         }
 
-        public bool IsHostile(int faction, bool cache = false)
+        public bool IsHostile(int faction)
         {
-            var selfFaction = cache ? Cache.Faction : this.GetFaction();
-            return selfFaction != faction;
+            return this.GetFaction() != faction;
         }
         public bool IsActiveEntity(bool includeDead = false)
         {
@@ -172,8 +166,13 @@ namespace PVZEngine.Entities
         #endregion 魅惑
 
         #region 属性
-        private object GetBaseProperty(string name, bool ignoreDefinition = false)
+        public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
+            if (!ignoreBuffs)
+            {
+                if (buffedProperties.TryGetProperty(name, out var value))
+                    return value;
+            }
             if (propertyDict.TryGetProperty(name, out var prop))
                 return prop;
 
@@ -189,15 +188,6 @@ namespace PVZEngine.Entities
 
             return behaviour.GetProperty<object>(name);
         }
-        public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
-        {
-            object result = GetBaseProperty(name, ignoreDefinition);
-            if (!ignoreBuffs)
-            {
-                result = buffs.CalculateProperty(name, result);
-            }
-            return result;
-        }
         public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
             return GetProperty(name, ignoreDefinition, ignoreBuffs).ToGeneric<T>();
@@ -205,6 +195,21 @@ namespace PVZEngine.Entities
         public void SetProperty(string name, object value)
         {
             propertyDict.SetProperty(name, value);
+            UpdateBuffedProperty(name);
+        }
+        private void UpdateAllBuffedProperties()
+        {
+            var propertyNames = buffs.GetModifierPropertyNames();
+            foreach (var name in propertyNames)
+            {
+                UpdateBuffedProperty(name);
+            }
+        }
+        private void UpdateBuffedProperty(string name)
+        {
+            var baseValue = GetProperty(name, ignoreBuffs: true);
+            var value = buffs.CalculateProperty(name, baseValue);
+            buffedProperties.SetProperty(name, value);
         }
         #endregion
 
@@ -605,7 +610,10 @@ namespace PVZEngine.Entities
             IsOnGround = seri.isOnGround;
             currentBuffID = seri.currentBuffID;
             propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+
             buffs = BuffList.FromSerializable(seri.buffs, Level, this);
+            buffs.OnPropertyChanged += UpdateBuffedProperty;
+
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
             for (int i = 0; i < colliders.Count; i++)
@@ -614,7 +622,8 @@ namespace PVZEngine.Entities
                 var seriCollider = seri.colliders[i];
                 collider.LoadCollisions(Level, seriCollider);
             }
-            UpdateCache();
+            UpdateAllBuffedProperties();
+            UpdateColliders();
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
@@ -638,12 +647,13 @@ namespace PVZEngine.Entities
             Health = this.GetMaxHealth();
             var collider = new EntityCollider(this, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(this));
             AddCollider(collider);
-            UpdateCache();
+            UpdateAllBuffedProperties();
+            UpdateColliders();
         }
         private void OnUpdate()
         {
             UpdatePhysics(1);
-            UpdateCache();
+            UpdateColliders();
             Health = Mathf.Min(Health, this.GetMaxHealth());
         }
         private void OnContactGround()
@@ -718,10 +728,10 @@ namespace PVZEngine.Entities
         public int State { get; set; }
         public Entity Target { get; set; }
         public bool IsOnGround { get; private set; } = true;
-        public EntityCache Cache { get; }
         internal int TypeCollisionFlag { get; }
 
         private PropertyDictionary propertyDict = new PropertyDictionary();
+        private PropertyDictionary buffedProperties = new PropertyDictionary();
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private List<LawnGrid> takenGrids = new List<LawnGrid>();
