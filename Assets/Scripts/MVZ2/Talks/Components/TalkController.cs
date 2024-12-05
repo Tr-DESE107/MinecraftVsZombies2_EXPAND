@@ -456,6 +456,12 @@ namespace MVZ2.Talk
                 var character = dialogCharacters[charId];
                 character.SetSpeaking(speakerID == charId);
             }
+            if (NamespaceID.IsValid(sentence.variant))
+            {
+                var character = dialogCharacters[speakerID];
+                var sprite = Main.ResourceManager.GetCharacterSprite(speakerID, sentence.variant);
+                character.SetCharacter(sprite);
+            }
             SpeechBubbleDirection bubbleDirection = SpeechBubbleDirection.Up;
             if (speechBubbleDirDict.TryGetValue(speakerID, out var p))
             {

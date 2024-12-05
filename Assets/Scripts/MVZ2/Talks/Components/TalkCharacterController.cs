@@ -33,7 +33,6 @@ namespace MVZ2.Talk
         public void SetCharacter(Sprite spr)
         {
             image.sprite = spr;
-            image.SetNativeSize();
             imageRectTransform.pivot = spr.pivot / spr.rect.size;
         }
         private void Update()

@@ -70,7 +70,7 @@ namespace MVZ2.Managers
                 var layerHeight = (int)sourceRect.height;
                 var colors = sourceTex.GetPixels((int)sourceRect.xMin, (int)sourceRect.yMin, layerWidth, layerHeight);
 
-                imageTexture.SetPixels(layer.positionX, layer.positionY, layerWidth, layerHeight, colors);
+                imageTexture.SetPixels(layer.positionX, height - layer.positionY - layerHeight, layerWidth, layerHeight, colors);
             }
 
             imageTexture.Apply();

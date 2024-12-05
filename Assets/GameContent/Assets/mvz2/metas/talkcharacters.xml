@@ -5,14 +5,14 @@
         </variant>
     </character>
     <character name="orant">
-        <variant id="mvz2:normal" width="524" height="1280" pivotX="0.5" pivotY="0.5">
+        <variant id="mvz2:normal" width="418" height="1280" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/orant[0]" />
         </variant>
         <variant id="mvz2:close_eye" parent="normal">
-            <layer sprite="mvz2:characters/orant[1]" positionX="137" positionY="213" />
+            <layer sprite="mvz2:characters/orant[1]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:warning" parent="normal">
-            <layer sprite="mvz2:characters/orant[2]" positionX="137" positionY="213" />
+            <layer sprite="mvz2:characters/orant[2]" positionX="0" positionY="0" />
         </variant>
     </character>
     <character name="doremy">

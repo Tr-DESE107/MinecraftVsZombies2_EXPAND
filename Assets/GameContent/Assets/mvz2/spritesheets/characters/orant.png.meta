@@ -1,31 +1,7 @@
 fileFormatVersion: 2
 guid: 403593c82a7adb74b8cc7ce5e0a7e925
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: orant_0
-  - first:
-      213: 21300002
-    second: orant_1
-  - first:
-      213: -8790997297214412796
-    second: orant_0
-  - first:
-      213: 3024353898917797550
-    second: orant_1
-  - first:
-      213: -6315324016660247411
-    second: orant_2
-  - first:
-      213: -4301141960525120990
-    second: character.orant_0
-  - first:
-      213: 3401998254539367339
-    second: character.orant_1
-  - first:
-      213: 3531380952668401483
-    second: character.orant_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -139,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 524
+        width: 418
         height: 1280
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -148,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5c0aa3fe28172146a0dc1540218f525
-      internalID: 943903670
+      spriteID: 6ec8c25e3ee16a04bb1115cc2308215c
+      internalID: -337755752
       vertices: []
       indices: 
       edges: []
@@ -158,10 +134,10 @@ TextureImporter:
       name: orant_1
       rect:
         serializedVersion: 2
-        x: 525
-        y: 1192
-        width: 130
-        height: 88
+        x: 418
+        y: 980
+        width: 418
+        height: 300
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00fc397022e522c4495218e1ea0c3d21
-      internalID: 958738424
+      spriteID: daad7c8df0ee7b54b94b33b55a25c538
+      internalID: -665028044
       vertices: []
       indices: 
       edges: []
@@ -179,10 +155,10 @@ TextureImporter:
       name: orant_2
       rect:
         serializedVersion: 2
-        x: 525
-        y: 1103
-        width: 130
-        height: 88
+        x: 418
+        y: 679
+        width: 418
+        height: 300
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e872d10323d9f6a4aa01882a744b1825
-      internalID: 965969729
+      spriteID: 0810912d15b2a2345a017936e7a69617
+      internalID: 180654886
       vertices: []
       indices: 
       edges: []
@@ -207,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      orant_0: 943903670
-      orant_1: 958738424
-      orant_2: 965969729
+      orant_0: -337755752
+      orant_1: -665028044
+      orant_2: 180654886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
