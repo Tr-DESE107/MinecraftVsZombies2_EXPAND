@@ -1,5 +1,5 @@
 <difficulties>
-    <difficulty id="easy" name="简单"/>
-    <difficulty id="normal" name="普通"/>
-    <difficulty id="hard" name="困难"/>
+    <difficulty id="easy" name="简单" value="-1"/>
+    <difficulty id="normal" name="普通" value="0"/>
+    <difficulty id="hard" name="困难" value="1"/>
 </difficulties>

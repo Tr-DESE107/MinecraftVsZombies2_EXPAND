@@ -74,6 +74,7 @@ namespace MVZ2.Map
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
 
             UpdateModelButtons();
+            UpdateModelElements();
             SetCameraBackgroundColor(mapPreset.backgroundColor);
             Main.MusicManager.Play(mapPreset.music);
 
@@ -184,9 +185,13 @@ namespace MVZ2.Map
         #endregion
 
         #region 关卡
+        private NamespaceID GetStageID(int index)
+        {
+            return mapMeta.stages[index];
+        }
         private StageMeta GetStageMeta(int index)
         {
-            var stageID = mapMeta.stages[index];
+            var stageID = GetStageID(index);
             if (stageID == null)
                 return null;
             return Main.ResourceManager.GetStageMeta(stageID);
@@ -204,6 +209,19 @@ namespace MVZ2.Map
             if (stageMeta == null)
                 return false;
             return Main.SaveManager.IsUnlocked(stageMeta.Unlock);
+        }
+        private NamespaceID GetLevelDifficulty(int index)
+        {
+            var stageID = GetStageID(index);
+            if (!NamespaceID.IsValid(stageID))
+                return null;
+            var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
+            return records.OrderByDescending(r => {
+                var meta = Main.ResourceManager.GetDifficultyMeta(r);
+                if (meta == null)
+                    return int.MinValue;
+                return meta.value;
+            }).FirstOrDefault();
         }
         private bool IsEndlessUnlocked()
         {
@@ -402,6 +420,7 @@ namespace MVZ2.Map
                 model.SetMapButtonInteractable(i, unlocked);
                 model.SetMapButtonColor(i, color);
                 model.SetMapButtonText(i, (i + 1).ToString());
+                model.SetMapButtonDifficulty(i, GetLevelDifficulty(i));
             }
             var endlessColor = buttonColorCleared;
             var endlessUnlocked = IsEndlessUnlocked();
@@ -421,6 +440,15 @@ namespace MVZ2.Map
                     pos.z = mapCamera.transform.position.z;
                     mapCamera.transform.position = pos;
                 }
+            }
+        }
+        private void UpdateModelElements()
+        {
+            var unlocks = model.GetMapElementUnlocks();
+            for (int i = 0; i < unlocks.Length; i++)
+            {
+                var unlock = unlocks[i];
+                model.SetMapElementUnlocked(unlock, Main.SaveManager.IsUnlocked(unlock));
             }
         }
 

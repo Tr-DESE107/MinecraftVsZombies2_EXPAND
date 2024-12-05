@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using PVZEngine;
 using TMPro;
 using UnityEngine;
@@ -19,9 +20,20 @@ namespace MVZ2.Map
         }
         public void SetDifficulty(NamespaceID difficulty)
         {
-            foreach (var border in borders)
+            var border = borders.Where(b => b.difficulty == difficulty).FirstOrDefault();
+            bool hasActive = false;
+            foreach (var b in borders)
             {
-                border.borderObj.SetActive(border.difficulty == difficulty);
+                bool active = b == border;
+                b.SetActive(active);
+                if (active)
+                {
+                    hasActive = true;
+                }
+            }
+            if (!hasActive)
+            {
+                defaultBorder.SetActive(true);
             }
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
@@ -79,12 +91,8 @@ namespace MVZ2.Map
         [SerializeField]
         private TextMeshPro buttonText;
         [SerializeField]
-        private MapBorder[] borders;
-    }
-    [Serializable]
-    public class MapBorder
-    {
-        public NamespaceID difficulty;
-        public GameObject borderObj;
+        private MapButtonBorder defaultBorder;
+        [SerializeField]
+        private MapButtonBorder[] borders;
     }
 }

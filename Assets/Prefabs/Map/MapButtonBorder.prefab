@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1091189037285701475}
+  - component: {fileID: 7755669360379865090}
   m_Layer: 0
   m_Name: MapButtonBorder
   m_TagString: Untagged
@@ -118,6 +119,21 @@ Transform:
   - {fileID: 6287724464217850542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7755669360379865090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116369900608033494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7f4b8d31929c747914e75a2fd09fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty:
+    spacename: mvz2
+    path: 
 --- !u!1 &3769765396395189720
 GameObject:
   m_ObjectHideFlags: 0

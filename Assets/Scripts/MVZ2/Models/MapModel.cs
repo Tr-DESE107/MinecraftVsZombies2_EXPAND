@@ -66,7 +66,7 @@ namespace MVZ2.Map
             var element = mapElements.FirstOrDefault(e => e.unlock == unlock);
             if (element == null)
                 return;
-            element.gameObject.SetActive(unlocked);
+            element.SetActive(unlocked);
         }
         private void Awake()
         {
@@ -85,11 +85,5 @@ namespace MVZ2.Map
         private MapButton[] mapButtons;
         [SerializeField]
         private MapElement[] mapElements;
-    }
-    [Serializable]
-    public class MapElement
-    {
-        public NamespaceID unlock;
-        public GameObject gameObject;
     }
 }
