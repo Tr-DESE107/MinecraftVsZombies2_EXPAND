@@ -162,6 +162,31 @@
                 <p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:silvenser">
+            <header>
+                <p>银质发射器能发射穿透血肉之躯的飞刀。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>15</color>]]>，对肉体<![CDATA[<color=red>30</color>]]></p>
+                <p>特点：穿透多个敌人，但无法穿透硬物</p>
+                <p>技能：以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行。</p>
+            </properties>
+            <flavor>
+                <p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:magichest">
+            <header>
+                <p>魔术箱在吞掉前面的僵尸后会变成一个星之碎片。</p>
+            </header>
+            <properties>
+                <p>技能：召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏。</p>
+            </properties>
+            <flavor>
+                <p>它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。</p>
+                <p>还有，别他妈再吃骨墙了。</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">
