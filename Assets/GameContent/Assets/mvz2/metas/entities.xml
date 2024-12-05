@@ -322,6 +322,7 @@
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
             <bool name="harmless" value="true"/>
+            <bool name="noReward" value="true"/>
             <int name="maxTimeout" value="240"/>
             <float name="friction" value="1"/>
             <float name="speed" value="0"/>

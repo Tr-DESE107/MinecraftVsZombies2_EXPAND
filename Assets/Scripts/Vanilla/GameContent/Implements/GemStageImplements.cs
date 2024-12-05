@@ -65,6 +65,8 @@ namespace MVZ2.GameContent.Implements
             var level = enemy.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
                 return;
+            if (enemy.HasNoReward())
+                return;
             bool spawnGem = false;
             if (Global.Game.IsUnlocked(VanillaUnlockID.money))
             {

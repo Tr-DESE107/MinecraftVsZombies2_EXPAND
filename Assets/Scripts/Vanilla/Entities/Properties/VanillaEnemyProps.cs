@@ -10,6 +10,7 @@ namespace MVZ2.Vanilla.Entities
         public const string MAX_ATTACK_HEIGHT = "maxAttackHeight";
         public const string PREVIEW_ENEMY = "previewEnemy";
         public const string CRY_SOUND = "crySound";
+        public const string NO_REWARD = "noReward";
         /// <summary>
         /// 是否无害。如果为true，则无法进屋，也不会被关卡快进计时器计数。
         /// </summary>
@@ -26,6 +27,10 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID GetCrySound(this Entity enemy)
         {
             return enemy.GetProperty<NamespaceID>(CRY_SOUND);
+        }
+        public static bool HasNoReward(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(NO_REWARD);
         }
         public static void SetPreviewEnemy(this Entity enemy, bool value)
         {
