@@ -71,6 +71,9 @@ TagManager:
   - name: Money
     uniqueID: 3947008057
     locked: 0
+  - name: Almanac
+    uniqueID: 1742501395
+    locked: 0
   - name: Dialog
     uniqueID: 2478835277
     locked: 0
