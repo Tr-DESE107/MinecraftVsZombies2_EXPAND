@@ -39,9 +39,20 @@ namespace MVZ2.Vanilla.Entities
         }
         protected virtual void UpdateLogic(Entity entity)
         {
-            Vector3 pos = entity.Position;
-            pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
-            entity.Position = pos;
+            if (entity.IsFriendlyEnemy())
+            {
+                if (IsOutsideView(entity))
+                {
+                    entity.Remove();
+                    return;
+                }
+            }
+            else
+            {
+                Vector3 pos = entity.Position;
+                pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
+                entity.Position = pos;
+            }
             var attackSpeed = entity.GetAttackSpeed();
             var speed = entity.GetSpeed();
             if (entity.IsAIFrozen())
@@ -75,6 +86,13 @@ namespace MVZ2.Vanilla.Entities
                 return;
             }
             entity.PlaySound(entity.GetDeathSound());
+        }
+        protected virtual bool IsOutsideView(Entity enemy)
+        {
+            var bounds = enemy.GetBounds();
+            var position = enemy.Position;
+            return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER ||
+                bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER;
         }
         protected virtual float GetRandomSpeedMultiplier(Entity entity)
         {

@@ -79,7 +79,7 @@ namespace MVZ2.Vanilla.Enemies
                     break;
             }
         }
-        protected virtual void UpdateStateWalk(Entity enemy)
+        protected virtual void WalkUpdate(Entity enemy)
         {
             var velocity = enemy.Velocity;
             var speed = enemy.GetSpeed() * 0.4f;
@@ -92,6 +92,10 @@ namespace MVZ2.Vanilla.Enemies
                 velocity.x = Mathf.Clamp(velocity.x, min, max);
             }
             enemy.Velocity = velocity;
+        }
+        protected virtual void UpdateStateWalk(Entity enemy)
+        {
+            WalkUpdate(enemy);
         }
         protected virtual void UpdateStateDead(Entity enemy)
         {

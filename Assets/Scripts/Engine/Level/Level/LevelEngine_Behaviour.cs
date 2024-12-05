@@ -74,6 +74,7 @@ namespace PVZEngine.Level
         }
         public void GameOver(int type, Entity killer, string message)
         {
+            KillerEnemy = killer;
             OnGameOver?.Invoke(type, killer, message);
         }
         private void PostEnemySpawned(Entity enemy)

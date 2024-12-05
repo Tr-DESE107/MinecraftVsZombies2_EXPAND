@@ -284,7 +284,17 @@ namespace MVZ2.Vanilla.Level
         public const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
         public const float ATTACK_LEFT_BORDER = LEFT_BORDER;
         public const float ATTACK_RIGHT_BORDER = RIGHT_BORDER;
+
+        public const float ENEMY_LEFT_BORDER = LEFT_BORDER - 60;
         public const float ENEMY_RIGHT_BORDER = RIGHT_BORDER + 60;
+
+
+        public const float PROJECTILE_LEFT_BORDER = LEFT_BORDER - 40;
+        public const float PROJECTILE_RIGHT_BORDER = RIGHT_BORDER + 40;
+        public const float PROJECTILE_UP_BORDER = 540;
+        public const float PROJECTILE_DOWN_BORDER = -40;
+        public const float PROJECTILE_TOP_BORDER = 1000;
+        public const float PROJECTILE_BOTTOM_BORDER = -1000;
         #endregion
     }
 }

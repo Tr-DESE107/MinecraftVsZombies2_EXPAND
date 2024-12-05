@@ -15,6 +15,10 @@ namespace MVZ2.Vanilla.Detections
         {
             return self.Level.FindFirstEntity(e => Validate(self, e));
         }
+        public Entity DetectOrderBy<TKey>(Entity self, Func<Entity, TKey> keySelector)
+        {
+            return self.Level.FindFirstEntityOrderBy(e => Validate(self, e), keySelector);
+        }
         public Entity[] DetectMutiple(Entity self)
         {
             return self.Level.FindEntities(e => Validate(self, e));

@@ -12,7 +12,8 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreEntityHeal(HealInput info);
         public delegate void PostEntityHeal(HealOutput result);
         public delegate void PrePickupCollect(Entity entity);
-        public delegate void PostProjectileHit(ProjectileHitOutput hitResult, DamageOutput result);
+        public delegate void PreProjectileHit(ProjectileHitInput hit, DamageInput damage);
+        public delegate void PostProjectileHit(ProjectileHitOutput hit, DamageOutput damage);
         public delegate void PostContraptionTrigger(Entity entity);
         public delegate void PostContraptionEvoke(Entity entity);
 
@@ -27,6 +28,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<PostEntityHeal> POST_ENTITY_HEAL = new();
 
         public readonly static CallbackReference<PrePickupCollect> PRE_PICKUP_COLLECT = new();
+        public readonly static CallbackReference<PreProjectileHit> PRE_PROJECTILE_HIT = new();
         public readonly static CallbackReference<PostProjectileHit> POST_PROJECTILE_HIT = new();
         public readonly static CallbackReference<PostContraptionTrigger> POST_CONTRAPTION_TRIGGER = new();
         public readonly static CallbackReference<PostContraptionEvoke> POST_CONTRAPTION_EVOKE = new();

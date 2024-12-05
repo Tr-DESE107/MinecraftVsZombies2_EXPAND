@@ -124,6 +124,12 @@
         <sample path="mvz2:entity/ghast/ghast6" weight="1" />
         <sample path="mvz2:entity/ghast/ghast7" weight="1" />
     </sound>
+    <sound name="ghast_fire">
+        <sample path="mvz2:entity/ghast/ghast_fire" weight="1" />
+    </sound>
+    <sound name="ghast_death">
+        <sample path="mvz2:entity/ghast/ghast_death" weight="1" />
+    </sound>
     <sound name="ghost_cry">
         <sample path="mvz2:entity/ghost/ghost_cry1" weight="1" />
         <sample path="mvz2:entity/ghost/ghost_cry2" weight="1" />

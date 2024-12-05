@@ -27,6 +27,8 @@
     <model name="mummy" type="entity" path="mvz2:enemy/mummy" width="64" height="96" xOffset="10" yOffset="4"/>
     <model name="necromancer" type="entity" path="mvz2:enemy/necromancer" width="64" height="96" xOffset="10" yOffset="4"/>
 
+    <model name="ghast" type="entity" path="mvz2:enemy/ghast" width="64" height="64" xOffset="0" yOffset="4"/>
+
     <model name="bone_wall" type="entity" path="mvz2:enemy/bone_wall" width="80" height="80" xOffset="0" yOffset="0"/>
 
     <!-- Obstacles -->
@@ -78,6 +80,7 @@
     <model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="4"/>
     <model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="16"/>
     <model name="knife" type="entity" path="mvz2:projectile/knife" width="32" height="10" xOffset="0" yOffset="5"/>
+    <model name="fire_charge" type="entity" path="mvz2:projectile/fire_charge" width="32" height="32" xOffset="0" yOffset="16"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="7"/>

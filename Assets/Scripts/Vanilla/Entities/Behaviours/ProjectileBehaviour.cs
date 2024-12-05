@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -85,14 +86,17 @@ namespace MVZ2.Vanilla.Entities
         {
             var bounds = proj.GetBounds();
             var position = proj.Position;
-            return position.x < 180 - bounds.extents.x ||
-                position.x > 1100 + bounds.extents.x ||
-                position.z > 550 ||
-                position.z < -50 ||
-                position.y > 1000 ||
-                position.y < -1000;
+            return bounds.max.x < VanillaLevelExt.PROJECTILE_LEFT_BORDER ||
+                bounds.min.x > VanillaLevelExt.PROJECTILE_RIGHT_BORDER ||
+                position.z > VanillaLevelExt.PROJECTILE_UP_BORDER ||
+                position.z < VanillaLevelExt.PROJECTILE_DOWN_BORDER ||
+                position.y > VanillaLevelExt.PROJECTILE_TOP_BORDER ||
+                position.y < VanillaLevelExt.PROJECTILE_BOTTOM_BORDER;
         }
-        protected virtual void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput result)
+        protected virtual void PreHitEntity(ProjectileHitInput hit, DamageInput damage)
+        {
+        }
+        protected virtual void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
         {
         }
         private void UnitCollide(EntityCollision collision)
@@ -100,48 +104,76 @@ namespace MVZ2.Vanilla.Entities
             var projectile = collision.Entity;
             if (projectile.Removed)
                 return;
+
+            // 不能击中死亡的实体。
             var other = collision.Other;
             if (other.IsDead)
                 return;
-            // 是否可以击中发射者。
+
+            // 不能击中发射者。
             var spawner = projectile.SpawnerReference?.GetEntity(projectile.Level);
             if (other == spawner && !projectile.CanHitSpawner())
                 return;
+
+            // 不是敌方
             if (!projectile.IsHostile(other))
                 return;
+
+            // 已经击中过对方
             var otherCollider = collision.OtherCollider;
             var collided = projectile.GetProjectileCollidingColliders();
             var otherReference = otherCollider.ToReference();
             if (collided != null && collided.Contains(otherReference))
                 return;
 
-            bool canPierce = false;
-            var damageEffects = projectile.GetDamageEffects();
-            DamageEffectList effects = new DamageEffectList(damageEffects ?? Array.Empty<NamespaceID>());
-            DamageOutput damageResult = otherCollider.TakeDamage(projectile.GetDamage(), effects, projectile);
 
-            ProjectileHitOutput hitResult = new ProjectileHitOutput()
+            // 击中敌人前
+            var hitInput = new ProjectileHitInput()
             {
                 Projectile = projectile,
                 Other = other,
-                Pierce = canPierce
+                Pierce = projectile.IsPiercing()
             };
-            if (damageResult.ShieldResult != null)
-            {
-                hitResult.Shield = damageResult.ShieldResult.Armor;
-                canPierce = projectile.IsPiercing();
-            }
-            else
-            {
-                bool ethereal = damageResult.ArmorResult != null ? false : other.IsEthereal();
-                canPierce = ethereal || projectile.IsPiercing();
-            }
+            var damageEffects = projectile.GetDamageEffects();
+            DamageEffectList effects = new DamageEffectList(damageEffects ?? Array.Empty<NamespaceID>());
+            var damageInput = otherCollider.GetDamageInput(projectile.GetDamage(), effects, projectile);
+            if (damageInput == null)
+                return;
 
+            // 触发击中前回调。
+            PreHitEntity(hitInput, damageInput);
+            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, projectile.GetDefinitionID(), hitInput, damageInput);
+
+            // 对敌人造成伤害
+            DamageOutput damageOutput = VanillaEntityExt.TakeDamage(damageInput);
+
+            // 击中敌人后
+            ProjectileHitOutput hitOutput = new ProjectileHitOutput()
+            {
+                Projectile = hitInput.Projectile,
+                Other = hitInput.Other,
+                Pierce = hitInput.Pierce
+            };
+            if (damageOutput != null)
+            {
+                if (damageOutput.ShieldResult != null)
+                {
+                    hitOutput.Shield = damageOutput.ShieldResult.Armor;
+                }
+                else
+                {
+                    bool ethereal = damageOutput.ArmorResult != null ? false : other.IsEthereal();
+                    hitOutput.Pierce = ethereal || hitOutput.Pierce;
+                }
+            }
+            // 将碰撞箱加入到已被碰撞的的列表。
             projectile.AddProjectileCollidingEntity(otherReference);
-            PostHitEntity(hitResult, damageResult);
-            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, projectile.GetDefinitionID(), hitResult, damageResult);
 
-            if (!hitResult.Pierce)
+            // 触发击中后回调。
+            PostHitEntity(hitOutput, damageOutput);
+            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, projectile.GetDefinitionID(), hitOutput, damageOutput);
+
+            if (!hitOutput.Pierce)
             {
                 projectile.Remove();
                 return;

@@ -302,6 +302,23 @@
             <int name="spawnCost" value="3"/>
         </enemy>
 
+        <!-- Dream Enemies -->
+        <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
+            <float name="maxHealth" value="100"/>
+            <float name="damage" value="100"/>
+            <float name="range" value="800"/>
+            <vector3 name="size" x="64" y="64" z="64"/>
+            <vector3 name="shotOffset" x="10" y="10" z="0"/>
+            <vector3 name="shotVelocity" x="10" y="0" z="0"/>
+            <id name="shell" value="mvz2:nether"/>
+            <id name="projectileId" value="mvz2:fire_charge"/>
+            <id name="crySound" value="mvz2:ghast_cry"/>
+            <id name="deathSound" value="mvz2:ghast_death"/>
+
+            <int name="cost" value="125" />
+            <int name="spawnCost" value="3"/>
+        </enemy>
+
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
             <bool name="harmless" value="true"/>
@@ -405,6 +422,10 @@
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="32" y="6" z="2" />
             <idArray name="damageEffects" value="mvz2:slice" />
+        </projectile>
+        <projectile id="fire_charge">
+            <float name="range" value="40"/>
+            <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
 
         <!-- Effects -->

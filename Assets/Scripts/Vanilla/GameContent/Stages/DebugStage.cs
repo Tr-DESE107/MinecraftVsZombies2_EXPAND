@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.gargoyle,
-                VanillaEnemyID.ironHelmettedZombie,
+                VanillaEnemyID.ghast,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.necromancer,
             });
@@ -41,6 +41,7 @@ namespace MVZ2.GameContent.Stages
             base.OnUpdate(level);
             level.SetStarshardSlotCount(5);
             level.SetStarshardCount(5);
+            level.CheckGameOver();
         }
     }
 }

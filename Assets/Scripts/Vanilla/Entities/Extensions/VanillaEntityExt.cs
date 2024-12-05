@@ -52,6 +52,8 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamage(DamageInput input)
         {
+            if (input == null)
+                return null;
             if (input.Entity.IsInvincible() || input.Entity.IsDead)
                 return null;
             if (!PreTakeDamage(input))
@@ -284,6 +286,10 @@ namespace MVZ2.Vanilla.Entities
         public static bool IsAliveEnemy(this Entity entity)
         {
             return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.GetProperty<bool>(VanillaEnemyProps.HARMLESS) && entity.IsHostile(entity.Level.Option.LeftFaction);
+        }
+        public static bool IsFriendlyEnemy(this Entity entity)
+        {
+            return entity.IsFriendly(entity.Level.Option.LeftFaction);
         }
         public static EntitySeed GetEntitySeedDefinition(this Entity entity)
         {

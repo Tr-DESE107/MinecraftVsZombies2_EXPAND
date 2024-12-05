@@ -16,6 +16,8 @@ namespace MVZ2.GameContent.Enemies
         public const string mummy = "mummy";
         public const string necromancer = "necromancer";
 
+        public const string ghast = "ghast";
+
         public const string boneWall = "bone_wall";
     }
     public static class VanillaEnemyID
@@ -30,6 +32,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ghost = Get(VanillaEnemyNames.ghost);
         public static readonly NamespaceID mummy = Get(VanillaEnemyNames.mummy);
         public static readonly NamespaceID necromancer = Get(VanillaEnemyNames.necromancer);
+
+        public static readonly NamespaceID ghast = Get(VanillaEnemyNames.ghast);
 
         public static readonly NamespaceID boneWall = Get(VanillaEnemyNames.boneWall);
         private static NamespaceID Get(string name)
