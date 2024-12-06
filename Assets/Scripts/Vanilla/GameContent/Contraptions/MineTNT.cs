@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Contraptions
 
             var riseTimer = new FrameTimer(450);
             SetRiseTimer(entity, riseTimer);
+            entity.SetAnimationBool("Ready", riseTimer.Frame < 30);
 
             entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_ENEMY;
         }
@@ -85,10 +86,6 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.PlaySound(VanillaSoundID.dirtRise);
             }
-            if (riseTimer.Frame < 30)
-            {
-                entity.SetAnimationBool("Ready", true);
-            }
             if (riseTimer.Frame < 30 && !riseTimer.Expired)
             {
                 if (!entity.HasBuff<MineTNTInvincibleBuff>())
@@ -99,6 +96,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (entity.HasBuff<MineTNTInvincibleBuff>())
                     entity.RemoveBuffs(entity.GetBuffs<MineTNTInvincibleBuff>());
             }
+            entity.SetAnimationBool("Ready", riseTimer.Frame < 30);
         }
         public override void PostCollision(EntityCollision collision, int state)
         {

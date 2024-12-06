@@ -14,6 +14,7 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Scenes;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu
@@ -27,7 +28,7 @@ namespace MVZ2.Mainmenu
             {
                 button.Interactable = true;
             }
-            ui.SetButtonActive(MainmenuButtonType.Almanac, false);
+            ui.SetButtonActive(MainmenuButtonType.Almanac, true);
             ui.SetButtonActive(MainmenuButtonType.Store, false);
             ui.SetBackgroundDark(false);
             ui.SetOptionsDialogVisible(false);
@@ -131,7 +132,10 @@ namespace MVZ2.Mainmenu
             });
         }
 
-        private void OnAlmanacButtonClickCallback() { }
+        private void OnAlmanacButtonClickCallback() 
+        {
+            main.Scene.DisplayAlmanac(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+        }
         private void OnStoreButtonClickCallback() { }
         private void OnMoreMenuButtonClickCallback() { }
 

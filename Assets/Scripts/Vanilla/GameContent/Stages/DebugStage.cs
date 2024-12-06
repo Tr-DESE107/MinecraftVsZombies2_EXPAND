@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.furnace,
-                VanillaContraptionID.silvenser,
+                VanillaContraptionID.mineTNT,
                 VanillaContraptionID.punchton,
 
                 VanillaContraptionID.magichest,

@@ -1,13 +1,13 @@
 ﻿using System.Linq;
-using MVZ2.UI;
+using MVZ2.Level.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace MVZ2.Level.UI
+namespace MVZ2.UI
 {
-    public class BlueprintChoosePanelStandalone : BlueprintChoosePanel
+    public class BlueprintDisplayerStandalone : BlueprintDisplayer
     {
         public void SetCurrentPage(int index, int maxPages)
         {
@@ -30,19 +30,19 @@ namespace MVZ2.Level.UI
             var pageCount = Mathf.CeilToInt(viewDatas.Length / (float)maxCountPerPage);
             pageList.updateList(pageCount, (i, rect) =>
             {
-                var page = rect.GetComponent<BlueprintChoosePanelPage>();
+                var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
                 page.UpdateItems(viewDatas.Skip(i * maxCountPerPage).Take(maxCountPerPage).ToArray());
             },
             rect =>
             {
-                var page = rect.GetComponent<BlueprintChoosePanelPage>();
+                var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
                 page.OnBlueprintPointerEnter += OnBlueprintPointerEnterCallback;
                 page.OnBlueprintPointerExit += OnBlueprintPointerExitCallback;
                 page.OnBlueprintPointerDown += OnBlueprintPointerDownCallback;
             },
             rect =>
             {
-                var page = rect.GetComponent<BlueprintChoosePanelPage>();
+                var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
                 page.OnBlueprintPointerEnter -= OnBlueprintPointerEnterCallback;
                 page.OnBlueprintPointerExit -= OnBlueprintPointerExitCallback;
                 page.OnBlueprintPointerDown -= OnBlueprintPointerDownCallback;
@@ -53,20 +53,20 @@ namespace MVZ2.Level.UI
         public override Blueprint GetItem(int index)
         {
             var pageNum = Mathf.FloorToInt(index / (float)maxCountPerPage);
-            var page = pageList.getElement<BlueprintChoosePanelPage>(pageNum);
+            var page = pageList.getElement<BlueprintDisplayerStandalonePage>(pageNum);
             if (page == null)
                 return null;
             return page.GetItem(index % maxCountPerPage);
         }
-        private void OnBlueprintPointerEnterCallback(BlueprintChoosePanelPage page, int indexInPage, PointerEventData eventData)
+        private void OnBlueprintPointerEnterCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
         {
             CallBlueprintPointerEnter(pageList.indexOf(page) * maxCountPerPage + indexInPage, eventData);
         }
-        private void OnBlueprintPointerExitCallback(BlueprintChoosePanelPage page, int indexInPage, PointerEventData eventData)
+        private void OnBlueprintPointerExitCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
         {
             CallBlueprintPointerExit(pageList.indexOf(page) * maxCountPerPage + indexInPage, eventData);
         }
-        private void OnBlueprintPointerDownCallback(BlueprintChoosePanelPage page, int indexInPage, PointerEventData eventData)
+        private void OnBlueprintPointerDownCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
         {
             CallBlueprintPointerDown(pageList.indexOf(page) * maxCountPerPage + indexInPage, eventData);
         }

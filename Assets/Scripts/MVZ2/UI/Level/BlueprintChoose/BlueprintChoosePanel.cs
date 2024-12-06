@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,16 +7,22 @@ using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
-    public abstract class BlueprintChoosePanel : MonoBehaviour
+    public class BlueprintChoosePanel : MonoBehaviour
     {
         public void UpdateElements(BlueprintChoosePanelViewData viewData)
         {
             viewLawnButton.gameObject.SetActive(viewData.canViewLawn);
-            commandBlockRoot.SetActive(viewData.hasCommandBlock);
+            displayer.SetCommandBlockActive(viewData.hasCommandBlock);
             artifactRoot.SetActive(viewData.hasArtifacts);
         }
-        public abstract void UpdateItems(ChoosingBlueprintViewData[] viewDatas);
-        public abstract Blueprint GetItem(int index);
+        public void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
+        {
+            displayer.UpdateItems(viewDatas);
+        }
+        public Blueprint GetItem(int index)
+        {
+            return displayer.GetItem(index);
+        }
         public void ResetArtifactCount(int count)
         {
             artifactList.updateList(count, (i, rect) =>
@@ -45,7 +52,10 @@ namespace MVZ2.Level.UI
         {
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
             viewLawnButton.onClick.AddListener(() => OnViewLawnButtonClick?.Invoke());
-            commandBlockBlueprint.OnPointerDown += (blueprint, eventData) => OnCommandBlockBlueprintClick?.Invoke();
+            displayer.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
+            displayer.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
+            displayer.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
+            displayer.OnCommandBlockBlueprintClick += () => OnCommandBlockBlueprintClick?.Invoke();
         }
         private void OnArtifactIconClickCallback(ArtifactSlot icon)
         {
@@ -75,9 +85,7 @@ namespace MVZ2.Level.UI
         [SerializeField]
         Button viewLawnButton;
         [SerializeField]
-        GameObject commandBlockRoot;
-        [SerializeField]
-        Blueprint commandBlockBlueprint;
+        BlueprintDisplayer displayer;
         [SerializeField]
         GameObject artifactRoot;
         [SerializeField]
@@ -88,16 +96,5 @@ namespace MVZ2.Level.UI
         public bool canViewLawn;
         public bool hasCommandBlock;
         public bool hasArtifacts;
-    }
-    public struct ChoosingBlueprintViewData
-    {
-        public BlueprintViewData blueprint;
-        public bool disabled;
-        public bool selected;
-
-        public static readonly ChoosingBlueprintViewData Empty = new ChoosingBlueprintViewData()
-        {
-            blueprint = BlueprintViewData.Empty
-        };
     }
 }

@@ -213,7 +213,7 @@
                 <p>随着时代的发展，皮帽已经逐渐淡出了人们的视线。但仍有一些僵尸在坚守着皮帽。当问及为什么时，他们总会说：“玩个游戏还BB啥！”</p>
             </flavor>
         </entry>
-        <entry id="mvz2:iron_helmeted_zombie">
+        <entry id="mvz2:iron_helmetted_zombie">
             <header>
                 <p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
             </header>
@@ -245,7 +245,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>箭矢伤害：<![CDATA[<color=red>每发100</color>]]></p>
-                <p>箭矢伤害：<![CDATA[<color=red>无法射中并无视低矮器械</color>]]></p>
+                <p>特点：<![CDATA[<color=red>无法射中并无视低矮器械</color>]]></p>
             </properties>
             <flavor>
                 <p>骷髅一族拥有着很高的箭术造诣，我曾亲眼看见一只骷髅射中几十米外的狼群中的一头熟睡的狼。没射死，倒把它们射醒了。</p>

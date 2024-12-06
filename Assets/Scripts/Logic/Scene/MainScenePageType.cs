@@ -6,6 +6,7 @@
         Titlescreen,
         Mainmenu,
         Note,
-        Map
+        Map,
+        Almanac
     }
 }

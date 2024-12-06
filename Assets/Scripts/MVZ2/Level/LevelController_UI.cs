@@ -605,37 +605,11 @@ namespace MVZ2.Level
                 canViewLawn = level.CurrentFlag > 0,
                 hasCommandBlock = false,
             };
-            var almanacIndexes = blueprints.Select(id => (id, Resources.GetAlmanacMetaEntry(VanillaAlmanacCategories.CONTRAPTIONS, id).index));
-            var maxAlmanacIndex = almanacIndexes.Max(tuple => tuple.index);
-            var ordererBlueprints = new NamespaceID[maxAlmanacIndex + 1];
-            for (int i = 0; i < ordererBlueprints.Length; i++)
-            {
-                var tuple = almanacIndexes.FirstOrDefault(tuple => tuple.index == i);
-                ordererBlueprints[i] = tuple.id;
-            }
-            // 进行布局压缩。
-            int countPerRow = Main.IsMobile() ? blueprintChooseCountPerRowMobile : blueprintChooseCountPerRowStandalone;
-            var groups = ordererBlueprints
-                .Select((v, i) => (v, i))
-                .GroupBy(p => p.i / countPerRow);
-            ordererBlueprints = groups
-                .Where(g => !g.All(p => !NamespaceID.IsValid(p.v)))
-                .SelectMany(g => g.Select(p => p.v))
-                .ToArray();
-
-            var blueprintViewDatas = ordererBlueprints.Select(id =>
-            {
-                if (!NamespaceID.IsValid(id))
-                    return ChoosingBlueprintViewData.Empty;
-                var blueprintDef = Game.GetSeedDefinition(id);
-                return new ChoosingBlueprintViewData()
-                {
-                    blueprint = Resources.GetBlueprintViewData(blueprintDef),
-                    disabled = false,
-                };
-            }).ToArray();
+            var orderedBlueprints = new List<NamespaceID>();
+            Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
+            var blueprintViewDatas = blueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
             isChoosingBlueprints = true;
-            choosingBlueprints = ordererBlueprints.ToArray();
+            choosingBlueprints = orderedBlueprints.ToArray();
 
             var uiPreset = GetUIPreset();
             uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Saves.IsAlmanacUnlocked());
@@ -724,10 +698,6 @@ namespace MVZ2.Level
         private Sprite pickaxeSprite;
         [SerializeField]
         private Sprite triggerSprite;
-        [SerializeField]
-        private int blueprintChooseCountPerRowStandalone = 8;
-        [SerializeField]
-        private int blueprintChooseCountPerRowMobile = 4;
         #endregion
     }
 }

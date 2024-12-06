@@ -1,10 +1,10 @@
-﻿using MVZ2.UI;
+﻿using MVZ2.Level.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.Level.UI
+namespace MVZ2.UI
 {
-    public class BlueprintChoosePanelMobile : BlueprintChoosePanel
+    public class BlueprintDisplayerMobile : BlueprintDisplayer
     {
         public override void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {

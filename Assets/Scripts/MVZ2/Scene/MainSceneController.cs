@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVZ2.Almanacs;
 using MVZ2.ChapterTransition;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu;
@@ -93,6 +94,16 @@ namespace MVZ2.Scenes
             note.SetNote(id);
             note.SetButtonText(buttonText);
         }
+        public void DisplayAlmanac(Action onReturn)
+        {
+            DisplayPage(MainScenePageType.Almanac);
+            almanac.OnReturnClick += OnReturn;
+            void OnReturn()
+            {
+                onReturn?.Invoke();
+                almanac.OnReturnClick -= OnReturn;
+            }
+        }
         public Task DisplayChapterTransitionAsync(NamespaceID id)
         {
             return chapterTransition.DisplayAsync(id);
@@ -116,6 +127,7 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Mainmenu, mainmenu);
             pages.Add(MainScenePageType.Note, note);
             pages.Add(MainScenePageType.Map, map);
+            pages.Add(MainScenePageType.Almanac, almanac);
         }
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, MainScenePage> pages = new Dictionary<MainScenePageType, MainScenePage>();
@@ -135,5 +147,7 @@ namespace MVZ2.Scenes
         private PortalController portal;
         [SerializeField]
         private ChapterTransitionController chapterTransition;
+        [SerializeField]
+        private AlmanacController almanac;
     }
 }

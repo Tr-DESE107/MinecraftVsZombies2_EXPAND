@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Level.UI
 {
-    public class BlueprintChoosePanelPage : MonoBehaviour
+    public class BlueprintDisplayerStandalonePage : MonoBehaviour
     {
         public void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {
@@ -47,9 +47,9 @@ namespace MVZ2.Level.UI
         {
             OnBlueprintPointerDown?.Invoke(this, blueprintList.indexOf(blueprint), eventData);
         }
-        public event Action<BlueprintChoosePanelPage, int, PointerEventData> OnBlueprintPointerEnter;
-        public event Action<BlueprintChoosePanelPage, int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<BlueprintChoosePanelPage, int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintPointerEnter;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintPointerExit;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintPointerDown;
         [SerializeField]
         ElementListUI blueprintList;
     }

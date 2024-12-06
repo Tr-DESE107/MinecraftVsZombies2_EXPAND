@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MVZ2.Almanacs;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Cursors;
-using MVZ2.GameContent.Stages;
 using MVZ2.Games;
 using MVZ2.IO;
 using MVZ2.Level;
@@ -15,10 +15,8 @@ using MVZ2.Options;
 using MVZ2.Save;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Games;
-using MVZ2Logic.Scenes;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -119,6 +117,7 @@ namespace MVZ2.Managers
         public OptionsManager OptionsManager => options;
         public ResolutionManager ResolutionManager => resolution;
         public SceneLoadingManager SceneManager => sceneLoadingManager;
+        public AlmanacManager AlmanacManager => almanacManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -160,6 +159,8 @@ namespace MVZ2.Managers
         private ResolutionManager resolution;
         [SerializeField]
         private SceneLoadingManager sceneLoadingManager;
+        [SerializeField]
+        private AlmanacManager almanacManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

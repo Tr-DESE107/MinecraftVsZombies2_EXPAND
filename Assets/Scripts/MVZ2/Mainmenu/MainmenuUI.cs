@@ -53,8 +53,15 @@ namespace MVZ2.Mainmenu.UI
         }
         public void SetButtonActive(MainmenuButtonType type, bool active)
         {
-            almanacButton.gameObject.SetActive(false);
-            storeButton.gameObject.SetActive(false);
+            switch (type)
+            {
+                case MainmenuButtonType.Almanac:
+                    almanacButton.gameObject.SetActive(active);
+                    break;
+                case MainmenuButtonType.Store:
+                    storeButton.gameObject.SetActive(active);
+                    break;
+            }
         }
         public void SetRayblockerActive(bool active)
         {

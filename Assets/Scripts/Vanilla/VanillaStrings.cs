@@ -90,6 +90,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
+        public const string CONTEXT_ENTITY_DESCRIPTION = "entity.description";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
     }
 }

@@ -1,0 +1,29 @@
+﻿using MVZ2.Models;
+using UnityEngine;
+
+namespace MVZ2.Almanacs
+{
+    public class AlmanacModel : MonoBehaviour
+    {
+        public void ChangeModel(Model prefab)
+        {
+            if (model)
+            {
+                Destroy(model.gameObject);
+                model = null;
+                updater.model = null;
+            }
+            if (prefab)
+            {
+                model = Instantiate(prefab.gameObject, rootTransform).GetComponent<Model>();
+                updater.model = model;
+            }
+        }
+        [SerializeField]
+        private Transform rootTransform;
+        [SerializeField]
+        private ModelUpdater updater;
+        [SerializeField]
+        private Model model;
+    }
+}
