@@ -9,8 +9,17 @@ namespace MVZ2.Almanacs
         public void UpdateEntry(AlmanacEntryViewData viewData)
         {
             rootObject.SetActive(!viewData.empty);
-            icon.sprite = viewData.sprite;
-            icon.enabled = icon.sprite;
+            var sprite = viewData.sprite;
+            icon.sprite = sprite;
+            icon.enabled = sprite;
+            if (sprite)
+            {
+                ratioFitter.aspectRatio = sprite.rect.width / sprite.rect.height;
+            }
+            else
+            {
+                ratioFitter.aspectRatio = 1;
+            }
         }
         private void Awake()
         {
@@ -23,6 +32,8 @@ namespace MVZ2.Almanacs
         private Button button;
         [SerializeField]
         private Image icon;
+        [SerializeField]
+        private AspectRatioFitter ratioFitter;
     }
     public struct AlmanacEntryViewData
     {

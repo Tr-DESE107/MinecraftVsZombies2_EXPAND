@@ -29,9 +29,9 @@ namespace MVZ2.Almanacs
         {
             characters.SetEntries(entries);
         }
-        public void SetMiscEntries(AlmanacEntryViewData[] entries)
+        public void SetMiscGroups(AlmanacEntryGroupViewData[] groups)
         {
-            miscs.SetEntries(entries);
+            miscs.SetGroups(groups);
         }
         public void SetActiveContraptionEntry(Model prefab, string name, string description, string cost, string recharge)
         {
@@ -61,7 +61,7 @@ namespace MVZ2.Almanacs
             mobileContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
             enemies.OnEntryClick += index => OnEnemyEntryClick?.Invoke(index);
             characters.OnEntryClick += index => OnCharacterEntryClick?.Invoke(index);
-            miscs.OnEntryClick += index => OnMiscEntryClick?.Invoke(index);
+            miscs.OnGroupEntryClick += (groupIndex, entryIndex) => OnMiscGroupEntryClick?.Invoke(groupIndex, entryIndex);
 
             indexUI.OnReturnClick += () => OnIndexReturnClick?.Invoke();
             standaloneContraptions.OnReturnClick += () => OnPageReturnClick?.Invoke();
@@ -76,7 +76,7 @@ namespace MVZ2.Almanacs
         public event Action<int> OnContraptionEntryClick;
         public event Action<int> OnEnemyEntryClick;
         public event Action<int> OnCharacterEntryClick;
-        public event Action<int> OnMiscEntryClick;
+        public event Action<int, int> OnMiscGroupEntryClick;
         [SerializeField]
         private IndexAlmanacPage indexUI;
         [SerializeField]

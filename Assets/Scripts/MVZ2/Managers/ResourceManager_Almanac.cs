@@ -21,9 +21,9 @@ namespace MVZ2.Managers
             var metaList = GetAlmanacMetaList(id.spacename);
             if (metaList == null)
                 return null;
-            if (!metaList.entries.TryGetValue(type, out var entries))
+            if (!metaList.TryGetCategory(type, out var entries))
                 return null;
-            return entries.FirstOrDefault(e => e.id == id);
+            return entries.entries.FirstOrDefault(e => e.id == id);
         }
     }
 }

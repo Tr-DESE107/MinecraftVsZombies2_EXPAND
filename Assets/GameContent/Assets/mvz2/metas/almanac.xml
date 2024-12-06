@@ -301,33 +301,246 @@
             </flavor>
         </entry>
     </enemies>
+    <artifacts>
+    </artifacts>
     <misc>
-        <entry id="mvz2:villager" group="mvz2:characters">
-            <header>
-                <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
-            </header>
-            <flavor>
-                <p>史蒂夫从小到大的抚养者，在几年前突然变得疯狂，言行举止无法被人理解。</p>
-                <p>常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:doremy" group="mvz2:characters">
-            <header>
-                <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
-            </header>
-            <flavor>
-                <p>看管着梦境世界的貘妖怪，能够观察、改变或吞食人的梦境。</p>
-                <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:orant" group="mvz2:characters">
-            <header>
-                <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
-            </header>
-            <flavor>
-                <p>她不想让你知道她太多的事情。</p>
-                <p>只需要知道她常和灵魂与恐惧作伴就可以了。</p>
-            </flavor>
-        </entry>
+        <!-- Bosses -->
+        <group id="mvz2:bosses" name="头目" order="100">
+            <entry id="mvz2:frankenstein" name="科学怪人" unlock="mvz2:level.halloween_11">
+                <header>
+                    <p>尸块组成的怪物，科幻小说中的杀人魔。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red>25000</color>]]></p>
+                    <p>特殊：<![CDATA[<color=red>放电攻击总是瞄准TNT；钢铁身躯反弹特定子弹</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>由于欧兰特设置了权限，本条目的部分内容不予显示。</p>
+                    <p>她的过去与你无关。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:nightmare_boss" name="梦魇" unlock="mvz2:level.dream_11">
+                <header>
+                    <p>梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。</p>
+                </header>
+                <flavor>
+                    <p>从前，有个国王做了一场噩梦。梦里他看到一个来自星空的，扭曲而无形的怪物。它化作一匹马在他的土地上狂奔，污染身后的土地。</p>
+                    <p>国王醒来后立刻找来了占卜师，占卜师称：“这是相当不祥的噩兆。这匹怪物化作的马预示着国家会被怪物入侵并毁灭。因此，必须消灭国家周遭的一切怪物。”</p>
+                    <p>国王发布了悬赏，召集勇者清除王国领土旁的所有怪物。很快，一位骑士请求参战。国王给了他上好的装备和马匹，骑士便出发了。</p>
+                </flavor>
+            </entry>
+        </group>
+        <!-- Misc Entities -->
+        <group id="mvz2:misc_entities" name="杂项实体" order="200">
+            <entry id="mvz2:miner" name="矿场" model="mvz2:entity.miner">
+                <header>
+                    <p>史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。</p>
+                </header>
+                <flavor>
+                    <p>史蒂夫精通机械，这台自动矿场出自他的手中。依靠太阳能工作，自动寻找地下存储的红石矿，然后将其运输到地表。</p>
+                    <p>……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:minecart" name="矿车" model="mvz2:entity.minecart">
+                <header>
+                    <p>史蒂夫家里的最后防线，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
+                </header>
+                <flavor>
+                    <p>“爷爷，这个上面有个熔炉的矿车是什么啊？”</p>
+                    <p>“孩子，坐下，让我给你讲个故事。”</p>
+                    <p>“那是我年轻的时候的故事……”</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:gargoyle_statue" name="石像鬼雕像" model="mvz2:entity.gargoyle_statue">
+                <header>
+                    <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
+                </header>
+                <flavor>
+                    <p>永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:pumpkin_carriage" name="南瓜马车" model="mvz2:entity.pumpkin_carriage">
+                <header>
+                    <p>永夜沼泽的最后防线，会发出绿色光芒，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
+                </header>
+                <flavor>
+                    <p>南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:napstablook" name="小幽灵" unlock="mvz2:level.halloween_6">
+                <header>
+                    <p>小幽灵会在你使用铁剑击中时生气，然后麻痹你的剑。</p>
+                </header>
+                <flavor>
+                    <p>只是个路过的幽灵而已。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:nyan_cat" name="彩虹猫" unlock="mvz2:level.dream_1">
+                <header>
+                    <p>彩虹猫能萌死任何接触到的敌人。</p>
+                </header>
+                <flavor>
+                    <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:nyaightmare" name="噩梦猫" unlock="mvz2:level.dream_7">
+                <header>
+                    <p>噩梦猫会刺死任何它所恨的人。</p>
+                </header>
+                <flavor>
+                    <p>“我恨你。”</p>
+                </flavor>
+            </entry>
+        </group>
+        <!-- Characters -->
+        <group id="mvz2:characters" name="人物" order="300">
+            <entry id="mvz2:villager" name="村民" sprite="mvz2:characters/crazy_villager[0]">
+                <header>
+                    <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
+                </header>
+                <flavor>
+                    <p>史蒂夫从小到大的抚养者，在几年前突然变得疯狂，言行举止无法被人理解。</p>
+                    <p>常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:orant" name="欧兰特" sprite="mvz2:characters/orant[0]">
+                <header>
+                    <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
+                </header>
+                <flavor>
+                    <p>她不想让你知道她太多的事情。</p>
+                    <p>只需要知道她常和灵魂与恐惧作伴就可以了。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:doremy" name="哆来咪·苏伊特" sprite="mvz2:characters/doremy[0]" unlock="mvz2:level.dream_1">
+                <header>
+                    <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
+                </header>
+                <flavor>
+                    <p>看管着梦境世界的貘妖怪，能够观察、改变或吞食人的梦境。</p>
+                    <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
+                </flavor>
+            </entry>
+        </group>
+        <!-- Areas -->
+        <group id="mvz2:areas" name="地点" order="400">
+            <entry id="mvz2:steves_house" name="史蒂夫的家" sprite="mvz2:misc/steves_house">
+                <header>
+                    <p>这里是史蒂夫和坑爹村民住的地方。</p>
+                </header>
+                <flavor>
+                    <p>坑爹村民的村庄之前遭受了僵尸的攻击而导致毁灭，于是他们搬到了公路附近的一片广阔平原上，开始了新的生活。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:eternal_night_swamp" name="永夜沼泽" sprite="mvz2:misc/eternal_night_swamp">
+                <header>
+                    <p>时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。</p>
+                </header>
+                <flavor>
+                    <p>由于欧兰特设置了权限，本条目的部分内容不予显示。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:dream_world" name="梦境世界" unlock="mvz2:level.dream_1">
+                <header>
+                    <p>梦境世界是由哆来咪管理的，所有人的梦境所处的地方。</p>
+                </header>
+                <flavor>
+                    <p>所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。</p>
+                    <p>哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。</p>
+                    <p>史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:dream_world" name="噩梦世界" unlock="mvz2:level.dream_7">
+                <header>
+                    <p>噩梦世界是被梦魇所腐化的梦境世界。</p>
+                </header>
+                <flavor>
+                    <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
+                </flavor>
+            </entry>
+        </group>
+        <!-- Starshards -->
+        <group id="mvz2:starshards" name="星之碎片" order="500">
+            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：神奇糖果" model="mvz2:entity.starshard.halloween">
+                <header>
+                    <p>星之碎片会唤醒你的器械，爆发出真正的潜力。</p>
+                </header>
+                <flavor>
+                    <p>未知人士留下了一些记录。</p>
+                    <p>星之记录 其一：</p>
+                    <p>自那件事以来，每当我沉睡于梦中，总会在深不可测的黑暗中看到一个物体，它闪着星形的光，随之它便离我远去。</p>
+                    <p>我并不理解这是什么意思。后来即使不在梦中，我也总是能看到类似的物体，这十分反常。</p>
+                    <p>当我离开不属于我的那片土地时，我在一片沼泽中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" unlock="mvz2:level.dream_1">
+                <header>
+                    <p>星之碎片会唤醒你的器械，爆发出真正的潜力。</p>
+                </header>
+                <flavor>
+                    <p>未知人士留下了一些记录。</p>
+                    <p>星之记录 其二：</p>
+                    <p>我做了一个很古怪的梦。</p>
+                    <p>我梦见我在一个满是眼睛的紫色空间中，不断漂浮沉沦。我看到一个黄色头发的少女，持着紫色的阳伞坐在空中。</p>
+                    <p>她似乎正忙于干自己的事情，并没有发现我的存在。我便如此坠入无底的深渊。</p>
+                    <p>我睁开眼睛，发现自己正在一片粉色花朵的树环绕的空地上。</p>
+                </flavor>
+            </entry>
+        </group>
+        <!-- Important Items -->
+        <group id="mvz2:important" name="重要物品" order="600">
+            <entry id="mvz2:almanac" name="图鉴" model="mvz2:entity.almanac_pickup">
+                <header>
+                    <p>欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。</p>
+                </header>
+                <flavor>
+                    <p>这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。</p>
+                    <p>当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。</p>
+                    <p>你该学学语文了。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:dream_key" name="梦境钥匙" unlock="mvz2:level.halloween_11">
+                <header>
+                    <p>欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。</p>
+                </header>
+                <flavor>
+                    <p>能够打开一道通向其他世界的大门的，充满魔力的钥匙。\n但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。</p>
+                    <p>钥匙上刻着古文：</p>
+                    <p>于残酷的现实睡去</p>
+                    <p>于幻想之地</p>
+                    <p>于光明的尽头</p>
+                    <p>于梦的苏醒</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:nightmare_box" name="梦魇魔盒" unlock="mvz2:level.dream_11">
+                <header>
+                    <p>梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。</p>
+                </header>
+                <flavor>
+                    <p>梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。</p>
+                </flavor>
+            </entry>
+        </group>
+        <!-- Lore -->
+        <group id="mvz2:lore" name="剧情" order="700">
+            <entry id="mvz2:blurred_note" name="模糊的字条" unlock="mvz2:level.dream_10">
+                <header>
+                    <p>？？？</p>
+                </header>
+                <flavor>
+                    <p>？？？</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" unlock="mvz2:level.dream_11">
+                <header>
+                    <p>哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
+                </header>
+                <flavor>
+                    <p>史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被戴夫所抚养。</p>
+                    <p>史蒂夫并不是和村民一样的方块生物，因此常常受到歧视和嘲笑，史蒂夫也因此特别想知道自己的父母是谁。</p>
+                    <p>似乎，这个谜就要从这场冒险中解开了。</p>
+                </flavor>
+            </entry>
+        </group>
     </misc>
 </almanac>

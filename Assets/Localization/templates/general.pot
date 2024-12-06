@@ -3,13 +3,99 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-06 03:50+0800\n"
+"POT-Creation-Date: 2024-12-06 10:16+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/TopRight/MenuButton/Text
+msgid "菜单"
+msgstr ""
+
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
+msgid "选择你的蓝图"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+msgid "一起摇滚吧！"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+msgid "查看战场"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+msgid "查看图鉴"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+msgid "进入商店"
+msgstr ""
+
+#. 对话跳过按钮
+#: /Level/UI/Talk/SkipButton/Text
+msgid "跳过"
+msgstr ""
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
+msgstr ""
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "返回游戏"
+msgstr ""
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
+msgstr ""
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/RetryButton/Text
+msgid "重新开始"
+msgstr ""
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/BackButton/Text
+msgid "返回"
+msgstr ""
+
+#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
+msgid "更多选项"
+msgstr ""
+
+#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
+msgid "语言"
+msgstr ""
+
+#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
+msgid "分辨率"
+msgstr ""
+
+#. 读取游戏对话框的标题
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
+msgid "继续"
+msgstr ""
+
+#. 读取游戏对话框的描述
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
+msgid "是否继续上一次的进度？"
+msgstr ""
+
+#. 读取游戏失败对话框的标题
+#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
+msgid "错误"
+msgstr ""
 
 #. 初始界面的作者标识
 #: /MainGame/MainScene/Landing/Canvas/Creator
@@ -66,11 +152,6 @@ msgstr ""
 msgid "确定"
 msgstr ""
 
-#. 用户管理界面按钮
-#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/BackButton/Text
-msgid "返回"
-msgstr ""
-
 #. 输入名称对话框的标题
 #: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/TitleArea/Title
 msgid "请输入用户名"
@@ -85,31 +166,9 @@ msgstr ""
 msgid "取消"
 msgstr ""
 
-#. 菜单对话框的标题
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
-msgid "菜单"
-msgstr ""
-
-#. 关卡内菜单选项
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
-msgid "重新开始"
-msgstr ""
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
-msgid "更多选项"
-msgstr ""
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
-msgid "语言"
-msgstr ""
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
-msgid "分辨率"
-msgstr ""
-
-#. 对话跳过按钮
-#: /MainGame/MainScene/Note/Talk/SkipButton/Text
-msgid "跳过"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Top/Title/Text (TMP)
+msgctxt "almanac"
+msgid "图鉴"
 msgstr ""
 
 #. 图鉴按钮
@@ -146,60 +205,6 @@ msgstr ""
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Miscs/Center/Entries/Title
 msgid "杂项图鉴"
-msgstr ""
-
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
-msgid "选择你的蓝图"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
-msgid "一起摇滚吧！"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
-msgid "查看战场"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
-msgid "查看图鉴"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
-msgid "进入商店"
-msgstr ""
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
-msgid "游戏暂停"
-msgstr ""
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
-msgid "返回游戏"
-msgstr ""
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
-msgid "游戏结束"
-msgstr ""
-
-#. 读取游戏对话框的标题
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
-msgid "继续"
-msgstr ""
-
-#. 读取游戏对话框的描述
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
-msgid "是否继续上一次的进度？"
-msgstr ""
-
-#. 读取游戏失败对话框的标题
-#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
-msgid "错误"
 msgstr ""
 
 # 教程关指引
@@ -419,16 +424,6 @@ msgstr ""
 msgid "否"
 msgstr ""
 
-# 通用的返回
-#: Scripts\Vanilla\VanillaStrings.cs:36
-msgid "返回"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:38
-msgid "重新开始"
-msgstr ""
-
 # 通用文本
 #: Scripts\Vanilla\VanillaStrings.cs:40
 msgid "返回地图"
@@ -440,11 +435,6 @@ msgid "返回主菜单"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:44
-msgid "错误"
-msgstr ""
-
-# 通用文本
 #: Scripts\Vanilla\VanillaStrings.cs:46
 msgid "警告"
 msgstr ""
@@ -452,11 +442,6 @@ msgstr ""
 # 通用文本
 #: Scripts\Vanilla\VanillaStrings.cs:48
 msgid "退出"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:50
-msgid "继续"
 msgstr ""
 
 # 游戏内文本提示
@@ -712,25 +697,14 @@ msgstr ""
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
-# 图鉴描述模板，{0}为开头段，{1}为属性段，{2}为趣文段
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:179
-msgctxt "almanac"
-msgid ""
-"{0}\n"
-"\n"
-"{1}\n"
-"\n"
-"{2}"
-msgstr ""
-
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:181
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:223
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:183
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:225
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""

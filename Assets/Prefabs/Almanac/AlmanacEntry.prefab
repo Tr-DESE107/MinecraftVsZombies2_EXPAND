@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8271310135709646690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 393674775449620013}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -368,6 +368,7 @@ MonoBehaviour:
   rootObject: {fileID: 1782417174934947624}
   button: {fileID: 6334385118769728034}
   icon: {fileID: 2788842467358015792}
+  ratioFitter: {fileID: 1302801097931955432}
 --- !u!1 &9083223014876422776
 GameObject:
   m_ObjectHideFlags: 0

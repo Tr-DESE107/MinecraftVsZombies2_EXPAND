@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Games;
 using MVZ2.Managers;
+using MVZ2.Metas;
 using MVZ2.UI;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using PVZEngine;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Almanacs
 {
@@ -22,6 +26,17 @@ namespace MVZ2.Almanacs
             var idList = GetIDListByAlmanacOrder(enemiesID, VanillaAlmanacCategories.ENEMIES);
             var ordered = CompressLayout(idList, GetEnemyCountPerRow());
             appendList.AddRange(ordered);
+        }
+        public void GetUnlockedMiscGroups(List<AlmanacEntryGroup> appendList)
+        {
+            var metaList = Main.ResourceManager.GetAlmanacMetaList(Main.BuiltinNamespace);
+            var category = metaList.GetCategory(VanillaAlmanacCategories.MISC);
+            var groups = category.groups.Select(g => new AlmanacEntryGroup()
+            {
+                name = g.name,
+                entries = g.entries.Where(e => !NamespaceID.IsValid(e.unlock) || Main.SaveManager.IsUnlocked(e.unlock)).ToArray()
+            }).Where(g => g != null && g.entries.Count() > 0);
+            appendList.AddRange(groups);
         }
         public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID id)
         {
@@ -46,6 +61,30 @@ namespace MVZ2.Almanacs
             var modelID = def.GetModelID();
             var modelIcon = Main.ResourceManager.GetModelIcon(modelID);
             return new AlmanacEntryViewData() { sprite = modelIcon };
+        }
+        public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
+        {
+            return new AlmanacEntryGroupViewData()
+            {
+                name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
+                entries = group.entries.Select(e => {
+                    var spriteID = e.sprite;
+                    var modelID = e.model;
+                    Sprite sprite;
+                    if (NamespaceID.IsValid(modelID))
+                    {
+                        sprite = Main.ResourceManager.GetModelIcon(modelID);
+                    }
+                    else
+                    {
+                        sprite = Main.ResourceManager.GetSprite(spriteID);
+                    }
+                    return new AlmanacEntryViewData()
+                    {
+                        sprite = sprite
+                    };
+                }).ToArray()
+            };
         }
         private NamespaceID[] GetIDListByAlmanacOrder(IEnumerable<NamespaceID> idList, string category)
         {
@@ -77,6 +116,10 @@ namespace MVZ2.Almanacs
         {
             return enemyCountPerRow;
         }
+        public int GetMiscCountPerRow()
+        {
+            return miscCountPerRow;
+        }
         public MainManager Main => MainManager.Instance;
         [SerializeField]
         private int blueprintCountPerRowStandalone = 8;
@@ -84,5 +127,12 @@ namespace MVZ2.Almanacs
         private int blueprintCountPerRowMobile = 4;
         [SerializeField]
         private int enemyCountPerRow = 5;
+        [SerializeField]
+        private int miscCountPerRow = 5;
+    }
+    public class AlmanacEntryGroup
+    {
+        public string name;
+        public AlmanacMetaEntry[] entries;
     }
 }

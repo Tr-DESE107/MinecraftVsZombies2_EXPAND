@@ -1,19 +1,14 @@
-﻿using System.CodeDom;
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
-using System.Xml;
+using System.Runtime.Remoting.Contexts;
 using MukioI18n;
 using MVZ2.IO;
-using MVZ2.Managers;
 using MVZ2.Metas;
-using MVZ2.Modding;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
-using UnityEditor.Experimental.GraphView;
 using UnityEditor.SceneManagement;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -81,25 +76,28 @@ namespace MVZ2.Editor
             var almanacReference = "Almanac meta file";
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
-            foreach (var pair in almanacEntryList.entries)
+            foreach (var category in almanacEntryList.categories)
             {
-                var category = pair.Key;
-                var entries = pair.Value;
-                foreach (var entry in entries)
+                var categoryName = category.name;
+                foreach (var group in category.groups)
                 {
-                    AddTranslation(entry.name, almanacReference, $"Name for {category} {entry.id}", $"{category}.name");
-                    var context = VanillaStrings.GetAlmanacDescriptionContext(category);
-                    AddTranslation(entry.header, almanacReference, $"Header for {category} {entry.id}", context);
-                    AddTranslation(entry.properties, almanacReference, $"Properties for {category} {entry.id}", context);
-                    AddTranslation(entry.flavor, almanacReference, $"Flavor for {category} {entry.id}", context);
+                    AddTranslation(group.name, almanacReference, $"Name for almanac group {group.id}", VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME);
+                    foreach (var entry in group.entries)
+                    {
+                        AddAlmanacEntryTranslation(entry, categoryName);
+                    }
+                }
+                foreach (var entry in category.entries)
+                {
+                    AddAlmanacEntryTranslation(entry, categoryName);
                 }
             }
             foreach (var meta in entitiesList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(meta.Name, entitiesReference, $"Header for entity {id}", $"entity.name");
-                AddTranslation(meta.Tooltip, entitiesReference, $"Properties for entity {id}", $"entity.tooltip");
-                AddTranslation(meta.DeathMessage, entitiesReference, $"Death message for entity {id}", $"death_message");
+                AddTranslation(meta.Name, entitiesReference, $"Header for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(meta.Tooltip, entitiesReference, $"Properties for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
             }
             foreach (var meta in characterList.metas)
             {
@@ -108,7 +106,14 @@ namespace MVZ2.Editor
             }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
-
+            void AddAlmanacEntryTranslation(AlmanacMetaEntry entry, string categoryName)
+            {
+                AddTranslation(entry.name, almanacReference, $"Name for {categoryName} {entry.id}", VanillaStrings.GetAlmanacNameContext(categoryName));
+                var context = VanillaStrings.GetAlmanacDescriptionContext(categoryName);
+                AddTranslation(entry.header, almanacReference, $"Header for {categoryName} {entry.id}", context);
+                AddTranslation(entry.properties, almanacReference, $"Properties for {categoryName} {entry.id}", context);
+                AddTranslation(entry.flavor, almanacReference, $"Flavor for {categoryName} {entry.id}", context);
+            }
             void AddTranslation(string text, string reference = null, string comment = null, string context = null)
             {
                 if (string.IsNullOrEmpty(text))

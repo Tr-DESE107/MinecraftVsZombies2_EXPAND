@@ -56,6 +56,16 @@ namespace MVZ2Logic
             }
             throw new FormatException($"Invalid SpriteReference {str}.");
         }
+        public static bool IsValid(SpriteReference sprRef)
+        {
+            if (sprRef == null)
+                return false;
+            if (!NamespaceID.IsValid(sprRef.id))
+                return false;
+            if (sprRef.index < 0)
+                return false;
+            return true;
+        }
         public override int GetHashCode()
         {
             var hash = id.GetHashCode();

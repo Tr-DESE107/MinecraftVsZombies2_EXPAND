@@ -19,12 +19,14 @@ namespace MVZ2.Managers
         }
         public Sprite GetSprite(SpriteReference spriteRef)
         {
-            if (spriteRef == null)
+            if (!SpriteReference.IsValid(spriteRef))
                 return null;
             if (spriteRef.isSheet)
             {
                 var sheet = GetSpriteSheet(spriteRef.id);
                 if (sheet == null)
+                    return null;
+                if (spriteRef.index >= sheet.Length)
                     return null;
                 return sheet[spriteRef.index];
             }

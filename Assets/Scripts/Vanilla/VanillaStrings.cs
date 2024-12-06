@@ -86,7 +86,10 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("实体说明-未知", CONTEXT_ENTITY_TOOLTIP)]
         public const string UNKNOWN_ENTITY_TOOLTIP = "？？？";
-
+        public static string GetAlmanacNameContext(string category)
+        {
+            return $"{category}.name";
+        }
         public static string GetAlmanacDescriptionContext(string category)
         {
             return $"{category}.description";
@@ -96,6 +99,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
         public const string CONTEXT_ALMANAC = "almanac";
+        public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
     }
