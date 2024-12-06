@@ -8,6 +8,7 @@ namespace MVZ2.Metas
     public class AlmanacMetaEntry
     {
         public NamespaceID id;
+        public string name;
         public string header;
         public string properties;
         public string flavor;
@@ -15,6 +16,7 @@ namespace MVZ2.Metas
         public static AlmanacMetaEntry FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            var name = node.GetAttribute("name");
             var headerNode = node["header"];
             var propertiesNode = node["properties"];
             var flavorNode = node["flavor"];
@@ -24,6 +26,7 @@ namespace MVZ2.Metas
             return new AlmanacMetaEntry()
             {
                 id = id,
+                name = name,
                 header = header,
                 properties = properties,
                 flavor = flavor,
@@ -37,12 +40,18 @@ namespace MVZ2.Metas
         {
             var lineNodes = node.ChildNodes;
             var sb = new StringBuilder();
+            bool first = true;
             for (int i = 0; i < lineNodes.Count; i++)
             {
                 var lineNode = lineNodes[i];
                 if (lineNode.Name == "p")
                 {
-                    sb.AppendLine(lineNodes[i].InnerText);
+                    if (!first)
+                    {
+                        sb.Append("\n");
+                    }
+                    first = false;
+                    sb.Append(lineNodes[i].InnerText);
                 }
             }
             return sb.ToString();

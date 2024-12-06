@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:01+0800\n"
-"PO-Revision-Date: 2024-09-16 19:38+0800\n"
+"POT-Creation-Date: 2024-12-06 01:56+0800\n"
+"PO-Revision-Date: 2024-12-06 13:56+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -13,491 +13,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.5\n"
 
-msgctxt "almanac"
-msgid "返回索引"
-msgstr "Back to Index"
+#. Header for contraptions mvz2:dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "发射器是你的第一道防线，它们发射箭来保卫你的房子。"
+msgstr "Dispensers are your first line of defense, they shoot arrows at incoming enemies."
 
-msgctxt "almanac"
-msgid "查看图鉴"
-msgstr "View Almanac"
-
-msgctxt "almanac"
-msgid "查看人物"
-msgstr "View Characters"
-
-msgctxt "almanac"
-msgid "查看器械"
-msgstr "View Contraptions"
-
-msgctxt "almanac"
-msgid "查看敌人"
-msgstr "View Enemies"
-
-msgctxt "almanac"
-msgid "查看杂项"
-msgstr "View Misc"
-
-msgctxt "character.description"
+#. Properties for contraptions mvz2:dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"史蒂夫从小到大的抚养者，在几年前突然变得疯狂，言行举止无法被人理解。\n"
-"常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。"
-msgstr ""
-"Steve's caregiver since he was young, suddenly went crazy a few years ago and couldn't be understood.\n"
-"Often discussed with Steve about Gensokyo, and finally embarked on their journey today."
-
-msgctxt "character.description"
-msgid "与史蒂夫共同生活的白衣村民，原名艾哈迈德·戴夫。"
-msgstr "A crazy villager in a white outfit who lives together with Steve. His name is Ahmed Dave."
-
-msgctxt "character.name"
-msgid "村民"
-msgstr "Villager"
-
-msgctxt "character.description"
-msgid ""
-"看管着梦境世界的貘妖怪，能够观察、改变或吞食人的梦境。\n"
-"被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。"
-msgstr ""
-"A baku who administers the Dream World, has the ability to observe, change and consume others' dreams.\n"
-"Was shocked by Steve and Villager who arrived in their physical bodies, but she seems to have seen some interesting dreams from Steve."
-
-msgctxt "character.description"
-msgid "哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。"
-msgstr "Doremy Sweet is the administrator of Dream World, and manages everyone's dreams."
-
-msgctxt "character.name"
-msgid "哆来咪"
-msgstr "Doremy"
-
-msgctxt "character.description"
-msgid ""
-"她不想让你知道她的事情——她一直很内向。\n"
-"只需要知道她常和灵魂与恐惧作伴就可以了。"
-msgstr ""
-"She doesn't want you to know things about her - she has always been introversive.\n"
-"Just keep in mind that she is a friend of souls and fear."
-
-msgctxt "character.description"
-msgid "欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。"
-msgstr "Orant is a soul sorceress, can manipulate fear and souls."
-
-msgctxt "character.name"
-msgid "欧兰特"
-msgstr "Orant"
-
-msgctxt "character.name"
-msgid "史蒂夫"
-msgstr "Steve"
-
-msgctxt "entity.description"
-msgid ""
-"生命：<color=red>中高</color>\n"
-"\n"
-"终于有人能发现我的描述了！"
-msgstr ""
-"Health: <color=red>Medium-High</color>\n"
-"\n"
-"Finally someone found my description!"
-
-msgctxt "entity.description"
-msgid "铁砧会砸死下方的怪物，并作为临时屏障。"
-msgstr "Anvil crushes enemies below it and acts as a temporary barrier."
-
-msgctxt "entity.name"
-msgid "铁砧"
-msgstr "Anvil"
-
-msgctxt "entity.tooltip"
-msgid "从天而降砸死下方的僵尸，并作为临时屏障"
-msgstr "Fall from the sky to crush enemies, also a barrier"
-
-msgctxt "almanac"
-msgid "花费"
-msgstr "Energy Cost"
-
-msgctxt "entity.description"
-msgid ""
-"发射器是你的第一道防线，它们发射箭来保卫你的房子。\n"
-"\n"
 "发射速度：<color=red>1.5秒</color>\n"
 "伤害：每枚箭矢<color=red>20</color>\n"
-"技能：快速发射60支箭矢\n"
-"\n"
-"“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的"
-"弓附有耐久450和无限I。啥？你问我为啥会说话？”"
+"技能：快速发射60支箭矢"
 msgstr ""
-"Dispensers are your first line of defense, they shoot arrows at incoming enemies.\n"
-"\n"
 "Fire rate: <color=red>1.5 second</color>\n"
 "Damage: <color=red>20</color>\n"
-"Evocation: Rapidly shoot 60 arrows\n"
-"\n"
+"Evocation: Rapidly shoot 60 arrows"
+
+#. Flavor for contraptions mvz2:dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓"
+"附有耐久450和无限I。啥？你问我为啥会说话？”"
+msgstr ""
 "\"People usually ask me how I can shoot an infinite amount of arrows, and without redstone.\" said Dispenser. \"First, my fence is "
 "connected to a redstone pulse. Second, I am enchanted with Unbreaking III and Infinity. What? How can I talk?\""
 
-msgctxt "entity.name"
-msgid "发射器"
-msgstr "Dispenser"
-
-msgctxt "entity.tooltip"
-msgid "向敌人射出箭"
-msgstr "Shoot arrows towards enemies"
-
-msgctxt "entity.description"
-msgid ""
-"耐久：<color=red>稍高</color>\n"
-"特点：能够自我修复\n"
-"\n"
-"化学课就像是：\n"
-"“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二"
-"氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”"
-msgstr ""
-"Toughness: <color=red>Slightly high</color>\n"
-"Special: Regenerate health\n"
-"\n"
-"\"Hi, this is Villager from Gear Ear Mech Co, and I'll show you the super strong, zombie-proof crystal, that can instantly patch, "
-"bond, seal and repair! Dream Crystal is no ordinary crystal. Leaky contraptions can cause MAJOR DAMAGE, but Dream Crystal grips on "
-"tight and bonds instantly. Plus, Dream Crystal is so strong, it even works underwater! To show you the power of Dream Crystal, I SAWED "
-"THIS OBSIDIAN IN HALF, and repaired it with ONLY Dream Crystal!\""
-
-msgctxt "entity.description"
-msgid "技能：进入无敌状态，并为周围的器械恢复生命值"
-msgstr "Evocation: Become invincible, regenerate health for surrounding contraptions"
-
-msgctxt "entity.description"
-msgid "梦境结晶会慢慢地恢复自己的生命。"
-msgstr "Dream Crystals slowly regenerate their health."
-
-msgctxt "entity.name"
-msgid "梦境结晶"
-msgstr "Dream Crystal"
-
-msgctxt "entity.tooltip"
-msgid "能够自我修复的障碍墙"
-msgstr "Barrier with regeneration"
-
-msgctxt "entity.description"
-msgid ""
-"特点：一次性使用\n"
-"\n"
-"美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
-msgstr ""
-"Special: single use\n"
-"\n"
-"Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
-"because of this."
-
-msgctxt "entity.description"
-msgid "技能：无"
-msgstr "Evocation: None"
-
-msgctxt "entity.description"
-msgid "美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。"
-msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starshard appear."
-
-msgctxt "entity.name"
-msgid "美梦丝"
-msgstr "Dream Silk"
-
-msgctxt "entity.tooltip"
-msgid "让一个器械睡着，醒来后生成一个星之碎片"
-msgstr "Make a contraption sleep, create a Starshard when it wakes up"
-
-msgctxt "entity.description"
-msgid ""
-"特点：只能升级四次\n"
-"\n"
-"驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸"
-"之间的战争，但有人已经抢先了。"
-msgstr ""
-"Special: Can only be upgraded 4 times\n"
-"Drivenser is a technical nerd. He knows how to assemble a computer, properties of different softwares and hardwares, different coding "
-"languages, etc. Recently he wants to compile a game to re-tell this war with the zombies, but someone's already ahead of him."
-
-msgctxt "entity.description"
-msgid "技能：发射五支大箭矢"
-msgstr "Evocation: Shoot five large arrows"
-
-msgctxt "entity.description"
-msgid "在一个驱动发射器上再放置一个驱动发射器能够增加驱动发射器每次发射的箭。"
-msgstr "Place another Drivenser on an existing one to increase the number of arrows per shot."
-
-msgctxt "entity.name"
-msgid "驱动发射器"
-msgstr "Drivenser"
-
-msgctxt "entity.tooltip"
-msgid "能够堆叠放置，堆叠后一次射出的箭会增加"
-msgstr "Stackable, add arrows per shot after stacked"
-
-msgctxt "entity.description"
-msgid ""
-"<color=red>必须放置在重力板上</color>\n"
-"用途：\n"
-"上下方向：<color=red>转移物体</color>\n"
-"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人。</color>\n"
-"\n"
-"和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫"
-"使某些人做出改变，这就由不得他了。"
-msgstr ""
-"<color=red>Must be placed on Gravity Pad</color>\n"
-"Usage: \n"
-"Up/Down: <color=red>Change objects' lanes.</color>\n"
-"Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
-"\n"
-"Contrary to what people think, Force Pad doesn't like forcing others to do things, he believes that everyone should follow their own "
-"will, and have the right to do whatever they want. But sometimes, he is forced to force some people to change their decision, and he "
-"can't do anything about it."
-
-msgctxt "entity.description"
-msgid "技能：将周围的敌人移动到一个指定的位置。"
-msgstr "Evocation: Move nearby enemies to a certain spot."
-
-msgctxt "entity.description"
-msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
-msgstr ""
-"The direction of Force Pads can be changed by triggering. Take advantage of this to change the movement of medium height objects above "
-"it, and boost projectiles."
-
-msgctxt "entity.name"
-msgid "传动力板"
-msgstr "Force Pad"
-
-msgctxt "entity.tooltip"
-msgid ""
-"（需要重力板）\n"
-"改变上方物体的力"
-msgstr ""
-"(Requires Gravity Pad)\n"
-"Change the force of objects above it"
-
-msgctxt "entity.description"
-msgid ""
-"提供能量：<color=red>中等</color>\n"
-"\n"
-"有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。"
-msgstr ""
-"Energy production: <color=red>Medium</color>\n"
-"\n"
-"Someone was so lazy that they installed a dropper attached to the mine under it. Oh and that mine uses geothermal energy."
-
-msgctxt "entity.description"
-msgid "技能：生成大量红石"
-msgstr "Evocation: Rapidly generate a large amount of redstone"
-
-msgctxt "entity.description"
+#. Header for contraptions mvz2:furnace
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid "熔炉能为你提供额外的红石。"
 msgstr "Furnaces are essential for you to generate extra redstone which can be converted to energy. Try placing as many as you can!"
 
-msgctxt "entity.name"
-msgid "熔炉"
-msgstr "Furnace"
-
-msgctxt "entity.tooltip"
-msgid "提供给你额外的红石"
-msgstr "Provide additional redstone"
-
-msgctxt "entity.description"
+#. Properties for contraptions mvz2:furnace
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下"
-"去了。"
+"生产速度：<color=red>24秒</color>\n"
+"提供能量：每枚红石<color=red>25</color>\n"
+"技能：瞬间生成12枚红石"
 msgstr ""
-"And God said: Let there be light, and there were torches. And God said: Let there be solid light, and there were Glowstones. And God "
-"said: Let there be controllable solid light, and there was Redstone Light. God said: Ok that's enough"
+"Produce time: <color=red>24 seconds</color>\n"
+"Energy production: <color=red>25</color> per redstone\n"
+"Evocation: Rapidly generate 12 redstones"
 
-msgctxt "entity.description"
-msgid "技能：眩晕所有敌人"
-msgstr "Evocation: Stun all enemies"
+#. Flavor for contraptions mvz2:furnace
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。"
+msgstr "Someone was so lazy that they installed a dropper attached to the mine under it. Oh and that mine uses geothermal energy."
 
-msgctxt "entity.description"
-msgid "荧石发出的光芒能驱散迷雾和发现幽灵，同时还能预防器械的反叛。"
-msgstr "The light of Glowstones can clear fog, reveal ghosts and prevent contraptions from rebelling."
+#. Header for contraptions mvz2:obsidian
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "黑曜石的强力装甲能够抵御敌人的攻击。"
+msgstr "Obsidians are hard materials which you can use to prevent monsters from advancing and protect your other contraptions."
 
-msgctxt "entity.name"
-msgid "荧石"
-msgstr "Glowstone"
-
-msgctxt "entity.tooltip"
-msgid "照亮周围的区域，能够发现幽灵、预防器械的反叛和照亮迷雾"
-msgstr "Light an area, clear fog and reveal ghosts"
-
-msgctxt "entity.description"
+#. Properties for contraptions mvz2:obsidian
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"特点：敌人无法发现\n"
-"\n"
-"从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。"
+"耐久：<color=red>4000</color>\n"
+"技能：获得下界合金装甲，耐久提高至<color=red>10000</color>"
 msgstr ""
-"Special: Cannot be eaten by enemies\n"
-"\n"
-"Once upon a time, Gravity Block was sitting under an apple tree, when all of a sudden an apple fell on its head, smashing it flat - it "
-"was a Golden Apple."
+"Toughness: <color=red>4000</color>\n"
+"Evocation: Gain netherite armor, increase toughness into <color=red>10000</color>"
 
-msgctxt "entity.description"
-msgid "技能：铁砧从天而降，砸伤敌人并阻挡前进"
-msgstr "Evocation: Anvil falls from the sky, crushes enemies and stops them"
-
-msgctxt "entity.description"
-msgid "重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。"
-msgstr "Gravity Pads can lower the height of medium height objects above it, and make enemies on it unable to climb or jump."
-
-msgctxt "entity.name"
-msgid "重力板"
-msgstr "Gravity Pad"
-
-msgctxt "entity.tooltip"
-msgid "增强上方物体的重力"
-msgstr "Increase the gravity of objects above it"
-
-msgctxt "entity.description"
+#. Flavor for contraptions mvz2:obsidian
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>中等</color>\n"
-"<color=red>只能放置在小型发射器上</color>\n"
-"<color=blue>白天失效</color>\n"
-"\n"
-"传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。"
-msgstr ""
-"Damage: <color=red>Medium</color>\n"
-"<color=red>Must be placed on Small Dispenser</color>\n"
-"<color=blue>Can only be used at night</color>\n"
-"\n"
-"Infectenser has won the Disbel Prize in virology, but due to the epidemic situation, the award ceremony couldn't be held."
-
-msgctxt "entity.description"
-msgid "技能：使所有寄生中的机器人自爆。"
-msgstr "Evocation: Make all parasitizing parabots self-destruct."
-
-msgctxt "entity.description"
-msgid "传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。"
-msgstr ""
-"Infectenser can shoot parabots which both deal damage and parasitize enemies. Parasitized enemies will shoot new parabots to other "
-"enemies around them."
-
-msgctxt "entity.name"
-msgid "传染发射器"
-msgstr "Infectenser"
-
-msgctxt "entity.tooltip"
-msgid ""
-"（需要小型发射器）\n"
-"发射在敌人之间传播的寄生机器人"
-msgstr ""
-"(Requires Small Dispenser)\n"
-"Shoot parabots which spread between enemies"
-
-msgctxt "entity.description"
-msgid ""
-"继古明地 觉被不断迫害后，\n"
-"我们又迎来了宇佐见 莲子。"
-msgstr ""
-"<color=blue>Must be placed in water</color>\n"
-"\n"
-"\"Why are you making me a gift for Sakuya?! I am NOT a lily chest pad!\""
-
-msgctxt "entity.description"
-msgid "技能：在上下左右四个方向召唤四个分身"
-msgstr "Evocation: Summon four copies in four directions"
-
-msgctxt "entity.description"
-msgid ""
-"睡莲允许你在水上放置器械。\n"
-"<color=blue>只能放在水上</color>"
-msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
-
-msgctxt "entity.tooltip"
-msgid "让你能把非水生器械放在上面"
-msgstr "Allow you to place contraptions on water"
-
-msgctxt "entity.name"
-msgid "睡莲"
-msgstr "Lily Pad"
-
-msgctxt "entity.description"
-msgid ""
-"魔术箱在吞掉前面的僵尸后会变成一个星之碎片。\n"
-"\n"
-"技能：召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏。\n"
-"\n"
-"它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。\n"
-"还有别他妈再吃骨墙了。"
-msgstr ""
-"Magichests transform into a Starshard after swallowing an enemy whole.\n"
-"\n"
-"Evocation: Summon a Ghast to memorialize a game my good friend made before."
-"\n"
-"It will let the zombies know what's YMCA! What's YMCA? Well, \"Yummy Magic Chest Absorb\".\n"
-"Also, STOP EATING F*#KING BONE WALLS."
-
-msgctxt "entity.name"
-msgid "魔术箱"
-msgstr "Magichest"
-
-msgctxt "entity.tooltip"
-msgid "吃掉一个僵尸，并变成一个星之碎片"
-msgstr "Swallow an enemy, then transform into a Starshard"
-
-msgctxt "entity.description"
-msgid ""
-"伤害：<color=red>极高</color>\n"
-"\n"
-"地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”"
-msgstr ""
-"Damage: <color=red>Extremely high</color>\n"
-"\n"
-"Why do Mine TNTs need time to arm themselves? It's been an enigma for years. What can go wrong if he can be instantly armed? It's a "
-"normal thing for him however. He was asleep."
-
-msgctxt "entity.description"
-msgid "地雷TNT在一定时间的装填后能够炸飞接近的僵尸。"
-msgstr "Mine TNTs cause a great deal of damage, but they need a while to arm themselves."
-
-msgctxt "entity.description"
-msgid "技能：立即准备完毕，并向最前方播种自身的两个复制"
-msgstr "Evocation: Instantly arm itself, then place two copies of itself on the rightmost column."
-
-msgctxt "entity.tooltip"
-msgid "接触时爆炸，但需要时间准备"
-msgstr "Explode on contact, but take time to arm itself"
-
-msgctxt "entity.name"
-msgid "地雷TNT"
-msgstr "Mine TNT"
-
-msgctxt "entity.description"
-msgid ""
-"提供能量：<color=red>低</color>，而后<color=red>中等</color>\n"
-"<color=blue>白天失效</color>\n"
-"\n"
-"有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。"
-msgstr ""
-"Energy production: <color=red>Low</color>, then <color=red>Medium</color>\n"
-"<color=blue>Can only be used at night</color>\n"
-"\n"
-"Maybe you're asking why it isn't a Daylight Sensor. It moonlights as a Moonlight Sensor, and it loves the job so much."
-
-msgctxt "entity.description"
-msgid "技能：立即升级，发出蓝光，并使生产量变为2.5倍"
-msgstr "Evocation: Instantly upgrade, glow with blue light and increase its yield by 2.5 times."
-
-msgctxt "entity.description"
-msgid "月光传感器可以在晚上提供能量，并在一段时间后提升生产量。"
-msgstr "Moonlight Sensors provide energy at night, and increase the yield after a while."
-
-msgctxt "entity.name"
-msgid "月光传感器"
-msgstr "Moonlight Sensor"
-
-msgctxt "entity.tooltip"
-msgid "自动提供能量，一段时间后提升生产量"
-msgstr "Automatically provides energy, increases the yield after a while"
-
-msgctxt "entity.description"
-msgid "技能：恢复所有生命值，并获得更加坚硬的护甲"
-msgstr "Evocation: Restore health completely, gain Netherite Armor"
-
-msgctxt "entity.description"
-msgid ""
-"生命：<color=red>高</color>\n"
-"\n"
 "听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？\n"
 "\n"
 "\n"
@@ -527,10 +114,8 @@ msgid ""
 "\n"
 "恭喜你被耍了"
 msgstr ""
-"Toughness: <color=red>High</color>\n"
-"\n"
-"It is said that there's an Easter egg that can be found after forming the shape of a Nether portal with Obsidians and placing a "
-"Furnace in the middle. Would you like to try?\n"
+"It is said that there's an Easter egg that can be found after forming the shape of a Nether portal with Obsidians and placing a Furnace "
+"in the middle. Would you like to try?\n"
 "\n"
 "\n"
 "\n"
@@ -559,937 +144,1567 @@ msgstr ""
 "\n"
 "Congratulations, you've been fooled"
 
-msgctxt "entity.description"
-msgid "黑曜石的强力装甲能够抵御僵尸的攻击。"
-msgstr "Obsidians are hard materials which you can use to prevent monsters from advancing and protect your other contraptions."
+#. Header for contraptions mvz2:mine_tnt
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "地雷TNT在一定时间的准备后能够炸飞接近的敌人。"
+msgstr "Mine TNTs cause a great deal of damage, but they need a while to arm themselves."
 
-msgctxt "entity.name"
-msgid "黑曜石"
-msgstr "Obsidian"
-
-msgctxt "entity.tooltip"
-msgid "阻碍敌人的前进，并保护背后的其他器械"
-msgstr "Protect your other contraptions"
-
-msgctxt "entity.description"
+#. Properties for contraptions mvz2:mine_tnt
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"特点：能够攻击高处的敌人\n"
-"\n"
-"活塞发射器曾经有一段不光彩的历史，那时候他的头顶有个绿色的斑，于是他的朋友就嘲笑他是绿帽子。现在他把那一块换成了针刺球的发射口，顺便开"
-"了一下脑洞。他一直很满意这个头型，直到他有一天被水淹没……"
+"准备时间：<color=red>15秒</color>\n"
+"伤害：<color=red>1800</color>\n"
+"技能：立即准备完毕，并向最前方投掷两个新的地雷TNT"
 msgstr ""
-"Special: Can attack enemies on air\n"
-"\n"
-"\"It's over zombies, I have the high ground!\" Those were his last words before a Ghast burns his leg- uhh, neck off."
+"Time to arm: <color=red>15 seconds</color>\n"
+"Damage: <color=red>1800</color>\n"
+"Evocation: Instantly arm itself, then place two copies of itself on the rightmost column."
 
-msgctxt "entity.description"
-msgid "技能：向至多10个敌人发射穿甲的巨型尖刺"
-msgstr "Evocation: Shoot seeds of giant armor-piercing spikes at up to 10 enemies"
-
-msgctxt "entity.description"
-msgid "活塞发射器能够伸长自己来攻击高处的敌人。"
-msgstr "Pistensers can stretch themselves to attack enemies in the air."
-
-msgctxt "entity.name"
-msgid "活塞发射器"
-msgstr "Pistenser"
-
-msgctxt "entity.tooltip"
-msgid "能够伸长自己来攻击空中敌人"
-msgstr "Stretch itself to attack enemies in the air"
-
-msgctxt "entity.description"
-msgid ""
-"攻击：<color=red>较高</color>，并<color=red>无视护甲</color>\n"
-"\n"
-"快！快！快！冲！冲！冲！四驱活塞在行动！"
+#. Flavor for contraptions mvz2:mine_tnt
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”"
 msgstr ""
-"Damage: <color=red>Slightly High</color>, and <color=red>Ignore Armors</color>\n"
-"\n"
-"Punchton the piston, or One Punch Piston, punched a punch using a punch of tons."
+"Why do Mine TNTs need time to arm themselves? It's been an enigma for years. What can go wrong if he can be instantly armed? It's a "
+"normal thing for him however. He was asleep."
 
-msgctxt "entity.description"
-msgid "冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。"
-msgstr "Punchtons can knock back enemies, and crush hard objects."
-
-msgctxt "entity.description"
-msgid "技能：延长活塞臂，击退前方的所有敌人。"
-msgstr "Evocation: Extend piston arm and knock back all enemies in front"
-
-msgctxt "entity.name"
-msgid "冲击活塞"
-msgstr "Punchton"
-
-msgctxt "entity.tooltip"
-msgid "击退前方的敌人并击碎石制品"
-msgstr "Knock back enemies and crush hard objects"
-
-msgctxt "entity.name"
-msgid "随机瓷器"
-msgstr "Random China"
-
-msgctxt "entity.tooltip"
-msgid "摧毁后随机生成器械"
-msgstr "Spawn a random contraption upon destroyed"
-
-msgctxt "recharge_time"
-msgid "长"
-msgstr "Slow"
-
-msgctxt "recharge_time"
-msgid "短"
-msgstr "Fast"
-
-msgctxt "recharge_time"
-msgid "很长"
-msgstr "Very Slow"
-
-msgctxt "entity.description"
-msgid ""
-"银质发射器能发射穿透血肉之躯的飞刀。\n"
-"\n"
-"伤害：<color=red>15</color>，对肉体<color=red>30</color>\n"
-"特点：穿透多个敌人，但无法穿透硬物\n"
-"技能：以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行。\n"
-"\n"
-"\"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……\"\"你到底想说什么！\"\"我不发射箭了，发发！\""
-msgstr ""
-"Silvensers shoot piercing knives which can slice the flesh.\n"
-"\n"
-"Damage: <color=red>15</color>, <color=red>30</color> against flesh\n"
-"Special: Knives pierce enemies, but are blocked by hard objects\n"
-"Evocation: Create circles of knives with at most 10 enemies as the centers, knives start flying after a few seconds.\n"
-"\n"
-"\"DiDi, I've learned something... The more arrows you shoot, the more unexpected events come along. As long as you cannot go beyond "
-"your arrows...\"\"What? What do you mean?!\"\"I reject my arrows, DiDi!\""
-
-msgctxt "entity.name"
-msgid "银质发射器"
-msgstr "Silvenser"
-
-msgctxt "entity.tooltip"
-msgid "射出穿透肉体的飞刀"
-msgstr "Shoot knives which pierce the flesh"
-
-msgctxt "entity.description"
-msgid ""
-"伤害：<color=red>中等</color>\n"
-"<color=blue>白天失效</color>\n"
-"\n"
-"雪球里包着石头，别问了。"
-msgstr ""
-"Damage: <color=red>Medium</color>\n"
-"<color=blue>Can only be used at night</color>\n"
-"\n"
-"There are rocks in the snowballs, stop asking."
-
-msgctxt "entity.description"
-msgid "技能：射出一个越滚越大的雪球"
-msgstr "Evocation: Shoot a snowball that gets bigger and bigger"
-
-msgctxt "entity.description"
+#. Header for contraptions mvz2:small_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid "小型发射器能发射短距离的雪球。"
 msgstr "Small Dispensers can shoot short-ranged snowballs."
 
-msgctxt "entity.name"
-msgid "小型发射器"
-msgstr "Small Dispenser"
-
-msgctxt "entity.tooltip"
-msgid "发射短距离雪球"
-msgstr "Shoot short-ranged snowballs"
-
-msgctxt "entity.description"
+#. Properties for contraptions mvz2:small_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。\n"
-"\n"
-"伤害：<color=red>60</color>\n"
-"特点：需要烧毁器械补充燃料\n"
-"技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。\n"
 "<color=blue>白天失效</color>\n"
-"\n"
-"灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。"
+"射程：<color=red>3.5格</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：射出一个越滚越大的雪球"
 msgstr ""
-"Soul Furances shoot terrifying soulfires, but will burn the contraption in front as its fuel.\n"
-"\n"
-"Damage: <color=red>High</color>\n"
-"Special: Need to be fueled by burning other contraptions\n"
-"Evocation: Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies.\n"
 "<color=blue>Can only be used at night</color>\n"
-"\n"
-"What is it burning inside the Soul Furnace? Sinners' soul? Slags of Hell? Don't think too much. It's just an ordinary jack o' lantern."
+"Range: <color=red>3.5 grids</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: Shoot a snowball that gets bigger and bigger"
 
-msgctxt "entity.name"
-msgid "灵魂熔炉"
-msgstr "Soul Furance"
+#. Flavor for contraptions mvz2:small_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "雪球里包着石头，别问了。"
+msgstr "There are rocks in the snowballs, stop asking."
 
-msgctxt "entity.tooltip"
-msgid "射出强力的魂火，但会烧毁前方的器械"
-msgstr "Shoot strong soulfires, but burn the contraption in front"
+#. Header for contraptions mvz2:moonlight_sensor
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "月光传感器可以在晚上提供能量，并在一段时间后提升生产量。"
+msgstr "Moonlight Sensors provide energy at night, and increase the yield after a while."
 
-msgctxt "entity.description"
+#. Properties for contraptions mvz2:moonlight_sensor
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"TNT在触发后能炸飞周围的敌人。\n"
-"\n"
+"<color=blue>白天失效</color>\n"
+"提供能量：<color=red>1点/1.6秒</color>，而后<color=red>1点/1秒</color>\n"
+"技能：立即升级，发出蓝光，并使生产量变为<color=red>2.5</color>倍"
+msgstr ""
+"<color=blue>Can only be used at night</color>\n"
+"Energy production: <color=red>1/1.6 secs</color>, then <color=red>1/1 sec</color>\n"
+"Evocation: Instantly upgrade, glow with blue light and increase its yield by <color=red>2.5</color> times."
+
+#. Flavor for contraptions mvz2:moonlight_sensor
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。"
+msgstr "Maybe you're asking why it isn't a Daylight Sensor. It moonlights as a Moonlight Sensor, and it loves the job so much."
+
+#. Header for contraptions mvz2:glowstone
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "荧石发出的光芒能驱散迷雾，并发现周围的幽灵。"
+msgstr "The light of Glowstones can clear fog and reveal ghosts."
+
+#. Properties for contraptions mvz2:glowstone
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"照明半径：<color=red>1.5格</color>\n"
+"技能：眩晕所有敌人<color=red>5秒</color>秒"
+msgstr ""
+"Radius: <color=red>1.5 grids</color>\n"
+"Evocation: Stun all enemies for <color=red></color> seconds"
+
+#. Flavor for contraptions mvz2:glowstone
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去"
+"了。"
+msgstr ""
+"And God said: Let there be light, and there were torches. And God said: Let there be solid light, and there were Glowstones. And God "
+"said: Let there be controllable solid light, and there was Redstone Light. God said: Ok that's enough"
+
+#. Header for contraptions mvz2:punchton
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。"
+msgstr "Punchtons can knock back enemies and crush hard objects, but they need time to repair themselves after that."
+
+#. Properties for contraptions mvz2:punchton
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>100</color>，无视护甲\n"
+"修复时间：<color=red>20秒</color>\n"
+"技能：对前方的所有敌人造成<color=red>500</color>点伤害，并将其击退至最右侧。"
+msgstr ""
+"Damage: <color=red>100</color>, Ignore Armors\n"
+"Time to repair: <color=red>20 seconds</color>\n"
+"Evocation: Deal <color=red>500</color> damage to all enemies in front and knock back them to the rightest"
+
+#. Flavor for contraptions mvz2:punchton
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。"
+msgstr "This would have been a very impactful description, but unfortunately it is still under repair."
+
+#. Header for contraptions mvz2:tnt
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "TNT在触发后能炸飞周围的敌人。"
+msgstr "TNTs deal huge damage to surrounding enemies after being triggered."
+
+#. Properties for contraptions mvz2:tnt
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
 "伤害：<color=red>1800</color>\n"
 "半径：<color=red>1.5格</color>\n"
-"技能：炸出4个TNT分身。\n"
-"\n"
-"注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。"
+"技能：炸出4个TNT分身。"
 msgstr ""
-"TNTs deal huge damage to surrounding enemies after being triggered.\n"
-"\n"
 "Damage: <color=red>1800</color>\n"
 "Radius: <color=red>1.5 grids</color>\n"
-"Evocation: Blast into 4 flying copies of itself that explode on impact\n"
-"\n"
-"Note: It cannot be used to treat Nobel's heart disease, nor can it be used to award the Nobel Prize for being able to treat heart disease a hundred years later."
+"Evocation: Blast into 4 flying copies of itself that explode on impact"
 
-msgctxt "entity.name"
-msgid "TNT"
-msgstr "TNT"
-
-msgctxt "entity.tooltip"
-msgid "触发后会对周围的怪物造成巨大伤害"
-msgstr "Blow up surrounding enemies after being triggered"
-
-msgctxt "entity.description"
-msgid ""
-"特点：飞镖上的箭毒会让敌人肌肉松弛，降低攻击力\n"
-"\n"
-"图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。"
-"人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。"
+#. Flavor for contraptions mvz2:tnt
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。"
 msgstr ""
-"Special: Poison on its dart decrease enemies' damage\n"
-"\n"
-"What god does Totenser believe in? According to the history of Contraption Intelligence, It may believe in various mechanic gods. Some "
-"people say that it actually believes in the human inventor who made the machine, and some even say that it believes in the mechanic "
-"old gods. People's discussion went on for decades, but the truth is, it just put his faith in his waifus."
+"Note: It cannot be used to treat Nobel's heart disease, nor can it be used to award the Nobel Prize for being able to treat heart disease "
+"a hundred years later."
 
-msgctxt "entity.description"
-msgid "技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。"
-msgstr "Evocation: Throw a spear which pierces through enemies, and leave a trail of weakening gas"
+#. Header for contraptions mvz2:soul_furnace
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。"
+msgstr "Soul Furances shoot terrifying soulfires, but will burn the contraption in front as its fuel."
 
-msgctxt "entity.description"
-msgid "图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。"
-msgstr "Totensers shoot poisonous darts and burn nearby enemies with fire."
-
-msgctxt "entity.name"
-msgid "图腾发射器"
-msgstr "Totenser"
-
-msgctxt "entity.tooltip"
-msgid "发射虚弱的飞镖并灼烧前方的敌人"
-msgstr "Shoot weakening darts and burn nearby enemies"
-
-msgctxt "entity.description"
+#. Properties for contraptions mvz2:soul_furnace
+#: Almanac meta file
+msgctxt "contraptions.description"
 msgid ""
-"<color=blue>只能放在水上</color>\n"
-"\n"
-"他无聊的时候经常把自己当陀螺抽。"
+"<color=blue>白天失效</color>\n"
+"伤害：<color=red>60</color>\n"
+"特点：需要烧毁器械补充燃料\n"
+"燃料上限：<color=red>60</color>\n"
+"技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。"
 msgstr ""
-"<color=blue>Must be placed in water</color>\n"
-"\n"
-"As for his favorite pastime, he likes to spin himself as a spinning top while singing \"KU-KURU KURU KURU KURU KURUUU\"."
+"<color=blue>Can only be used at night</color>\n"
+"Damage: <color=red>60</color>\n"
+"Special: Need to be fueled by burning other contraptions\n"
+"Evocation: Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies."
 
-msgctxt "entity.description"
-msgid "技能：将更大范围的敌人拉入水底"
-msgstr "Evocation: Drag enemies in a wider range underwater"
+#. Flavor for contraptions mvz2:soul_furnace
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。"
+msgstr ""
+"What is it burning inside the Soul Furnace? Sinners' soul? Slags of Hell? Don't think too much. It's just an ordinary jack o' lantern."
 
-msgctxt "entity.description"
-msgid "漩涡漏斗在旋转时会把接近它的所有敌人拖入水底。"
-msgstr "Vortex Hoppers drag all enemies close to it underwater when spinning."
+#. Header for contraptions mvz2:silvenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "银质发射器能发射穿透血肉之躯的飞刀。"
+msgstr "Silvensers shoot piercing knives which can slice the flesh."
 
-msgctxt "entity.name"
-msgid "漩涡漏斗"
-msgstr "Vortex Hopper"
+#. Properties for contraptions mvz2:silvenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>15</color>，对肉体<color=red>30</color>\n"
+"特点：穿透多个敌人，但无法穿透硬物\n"
+"技能：以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行。"
+msgstr ""
+"Damage: <color=red>15</color>, <color=red>30</color> against flesh\n"
+"Special: Knives pierce enemies, but are blocked by hard objects\n"
+"Evocation: Create circles of knives with at most 10 enemies as the centers, knives start flying after a few seconds."
 
-msgctxt "entity.tooltip"
-msgid "把附近的敌人拉入水底"
-msgstr "Drag enemies close to it underwater"
+#. Flavor for contraptions mvz2:silvenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "\"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……\"\"你到底想说什么！\"\"我不发射箭了，发发！\""
+msgstr ""
+"\"DiDi, I've learned something... The more arrows you shoot, the more unexpected events come along. As long as you cannot go beyond your "
+"arrows...\"\"What? What do you mean?!\"\"I reject my arrows, DiDi!\""
 
-msgctxt "entity.name"
-msgid "红石"
-msgstr "Redstone"
+#. Header for contraptions mvz2:magichest
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "魔术箱在吞掉前面的僵尸后会变成一个星之碎片。"
+msgstr "Magichests transform into a Starshard after swallowing an enemy whole."
 
-msgctxt "entity.name"
-msgid "星之碎片"
-msgstr "Starshard"
+#. Properties for contraptions mvz2:magichest
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏。"
+msgstr "Evocation: Summon a Ghast to memorialize a game my good friend made before."
 
-msgctxt "entity.name"
-msgid "骨墙"
-msgstr "Bone Wall"
+#. Flavor for contraptions mvz2:magichest
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。\n"
+"还有，别他妈再吃骨墙了。"
+msgstr ""
+"It will let the zombies know what's YMCA! What's YMCA? Well, \"Yummy Magic Chest Absorb\".\n"
+"Also, STOP EATING F*#KING BONE WALLS."
 
-msgctxt "entity.description"
+#. Header for enemies mvz2:zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "僵尸会在死掉之前一直冲向你的脑子。"
+msgstr "Zombies will run towards your house until they're defeated."
+
+#. Properties for enemies mvz2:zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Speed: <color=red>1</color>"
+
+#. Flavor for enemies mvz2:zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"在上一次尸界大战失败后，僵尸在墙角里做了三天三夜的反省。后来他开始锻炼自己，想让自己变得更强以吃到更多的脑子。现在的他看起来……好吧还是没"
+"变。"
+msgstr ""
+"After the failure of the last Zombie War, the Zombie self-reflected in the corner for three days three nights. Later, he began to "
+"exercise himself, trying to be stronger to eat more brains. Now he looks... Well, he hasn't changed a bit."
+
+#. Header for enemies mvz2:leather_capped_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "皮帽僵尸拥有能抵抗子弹的皮帽护甲。"
+msgstr "Leather Cap Zombies have leather cap armors that resist bullets."
+
+#. Properties for enemies mvz2:leather_capped_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+370</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+"Toughness: <color=red>200+370</color>\n"
+"Speed: <color=red>1</color>"
+
+#. Flavor for enemies mvz2:leather_capped_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
 msgid "随着时代的发展，皮帽已经逐渐淡出了人们的视线。但仍有一些僵尸在坚守着皮帽。当问及为什么时，他们总会说：“玩个游戏还BB啥！”"
 msgstr ""
 "As time goes by, leather caps have gradually faded out of people's sights. But there are still some zombies holding onto their leather "
 "caps. When asked why, they always say, \"No leather caps no pp\""
 
-msgctxt "entity.description"
+#. Header for enemies mvz2:iron_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "铁盔僵尸的铁盔给他提供了极高的防护。"
+msgstr "The iron helmet of the Iron Helmet Zombie provides him with extremely high protection."
+
+#. Properties for enemies mvz2:iron_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
 msgid ""
-"皮帽僵尸拥有能抵抗子弹的皮帽护甲。\n"
-"\n"
-"耐久：<color=red>中等</color>\n"
-"速度：<color=red>中等</color>"
+"生命：<color=red>200+1100</color>\n"
+"速度：<color=red>1</color>"
 msgstr ""
-"Leather Cap Zombies have leather cap armors that resist bullets.\n"
-"\n"
-"Toughness: <color=red>Medium</color>\n"
-"Speed: <color=red>Medium</color>"
+"Toughness: <color=red>200+1100</color>\n"
+"Speed: <color=red>1</color>"
 
-msgctxt "entity.name"
-msgid "皮帽僵尸"
-msgstr "Leather Cap Zombie"
+#. Flavor for enemies mvz2:iron_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。"
+msgstr "From that helmet, one may assume he used to be a warrior in his lifetime, but it's not like that, he just has more IQ."
 
-msgctxt "entity.description"
-msgid "曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。"
-msgstr "It has won the \"Spidernet Surfing Competition\" many times, just because the other spiders can't swim."
+#. Header for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "旗帜僵尸的出现标志着一大波怪物的到来。"
+msgstr "The appearance of flag-holding zombies marks the arrival of a large wave of zombies."
 
-msgctxt "entity.description"
+#. Properties for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
 msgid ""
-"洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。\n"
-"\n"
-"耐久：<color=red>极低</color>\n"
-"速度：<color=red>快</color>\n"
-"特点：<color=red>不会被普通高度的子弹打中</color>"
+"生命：<color=red>200</color>\n"
+"速度：<color=red>2</color>"
 msgstr ""
-"Cave Spiders cannot climb over contraptions, but they can swim and cannot be hit by medium height projectiles or higher.\n"
-"\n"
-"Toughness: <color=red>Very low</color>\n"
-"Speed: <color=red>Fast</color>\n"
-"Special: <color=red>Will not be hit by medium height projectiles or higher</color>"
+"Toughness: <color=red>200</color>\n"
+"Speed: <color=red>2</color>"
 
-msgctxt "entity.name"
-msgid "洞穴蜘蛛"
-msgstr "Cave Spider"
-
-msgctxt "entity.description"
+#. Flavor for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
 msgid ""
-"当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人"
-"在嘲笑他是个肉盾。"
+"当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲"
+"笑他是个肉盾。"
 msgstr ""
 "When he was awarded the flag, he felt extremely honored and proud. He felt as if he was the leader of the zombies, he had the supreme "
 "position, and he fluttered all the time. However, he didn't know how many zombies behind were laughing at him as a meatshield."
 
-msgctxt "entity.description"
+#. Header for enemies mvz2:skeleton
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "骷髅能够在前线朝你的器械射击。"
+msgstr "Skeletons can shoot arrows at your rightmost."
+
+#. Properties for enemies mvz2:skeleton
+#: Almanac meta file
+msgctxt "enemies.description"
 msgid ""
-"摇旗僵尸的出现标志着一大波怪物的到来。\n"
-"\n"
-"耐久：<color=red>低</color>"
-msgstr ""
-"The appearance of flag-holding zombies marks the arrival of a large wave of zombies.\n"
-"\n"
-"Toughness: <color=red>Low</color>"
-
-msgctxt "entity.name"
-msgid "旗帜僵尸"
-msgstr "Flag Zombie"
-
-msgctxt "entity.description"
-msgid ""
-"石像鬼会在最后一波到来时复苏并进攻你的房子。\n"
-"\n"
-"耐久：<color=red>900</color>\n"
-"弱点：<color=red>冲击活塞</color>"
-"\n"
-"石像鬼和他的妈妈住在山上的一间小屋中。石像鬼画画，玩玩具，妈妈就在电视上看广播。生活很简单，他们也很幸福。直到有一天石像鬼的妈妈从天上"
-"听到了雷声……"
-msgstr ""
-"Gargoyles will be revived from statues when the final wave comes.\n"
-"\n"
-"Toughness: <color=red>900</color>\n"
-"\n"
-"Weakness: <color=red>Punchtons</color>"
-"\n"
-"These guys usually stay silent as statues all the time, but they're actually just saving up their energy for another stormy night - "
-"which is when they party."
-
-msgctxt "entity.name"
-msgid "石像鬼"
-msgstr "Gargoyle"
-
-msgctxt "entity.description"
-msgid ""
-"########公告########\n"
-"·本地狱生物展览馆收录各种样式的地狱生物，包括恶魂、僵尸猪人（缺货）、凋灵骷髅等。\n"
-"·禁止以一切方式触摸地狱生物\n"
-"·禁止拍照\n"
-"·禁止向恶魂投食钻石头盔"
-msgstr ""
-"########ANNOUNCEMENT########\n"
-"· Local Hell Creature Exhibition Hall contains various types of hell creatures, including ghasts, zombified piglins (out of stock), "
-"wither skeletons, etc.\n"
-"· Touching hell creatures is prohibited by all means\n"
-"· No photography\n"
-"· Do not feed diamond helmets to ghasts"
-
-msgctxt "entity.description"
-msgid ""
-"恶魂能够飞在天上并对你的器械进行轰炸。\n"
-"\n"
-"耐久：<color=red>低</color>\n"
-"速度：<color=red>中等</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>"
-msgstr ""
-"Ghasts can fly in the sky and bombard your contraptions.\n"
-"\n"
-"Toughness: <color=red>Low</color>\n"
-"Speed: <color=red>Average</color>\n"
-"Features: <color=red>Will not be hit by medium height projectiles or lower</color>"
-
-msgctxt "entity.description"
-msgid "当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。"
-msgstr ""
-"When you walk at night and hear someone calling your name, don't look back, otherwise there'll be ghosts - and you'll scare them to "
-"death."
-
-msgctxt "entity.name"
-msgid "恶魂"
-msgstr "Ghast"
-
-msgctxt "entity.description"
-msgid ""
-"幽灵能够在虚无的情况下极大降低受到的伤害。\n"
-"\n"
-"耐久：<color=red>极高</color>，被照亮后<color=red>低</color>\n"
-"特点：<color=red>虚无状态下极大降低受到的伤害</color>\n"
-"弱点：<color=red>被光照到时会失去虚无效果</color>"
-msgstr ""
-"Ghosts can reduce most taken damage in ethereal form.\n"
-"\n"
-"Toughness: <color=red>Extremely high</color>, <color=red>Low</color> after being illuminated\n"
-"Special: <color=red>reduces most taken damage in ethereal form</color>\n"
-"Weakness: <color=red>Lose ethereality when illuminated</color>"
-
-msgctxt "entity.name"
-msgid "幽灵"
-msgstr "Ghost"
-
-msgctxt "entity.description"
-msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。"
-msgstr "From that helmet, one may assume he used to be a warrior in his lifetime, but it's not like that, he just has more IQ."
-
-msgctxt "entity.description"
-msgid ""
-"铁盔僵尸的铁盔给他提供了极高的防护。\n"
-"\n"
-"耐久：<color=red>高</color>"
-msgstr ""
-"The iron helmet of the Iron Helmet Zombie provides him with extremely high protection.\n"
-"\n"
-"Toughness: <color=red>High</color>"
-
-msgctxt "entity.name"
-msgid "铁盔僵尸"
-msgstr "Iron Helmet Zombie"
-
-msgctxt "entity.description"
-msgid "擅长在网络文件中捆绑流氓软件和BUG。"
-msgstr "Good at inserting bugs into network files."
-
-msgctxt "entity.description"
-msgid ""
-"恐怖之母会向血肉之躯寄生虫卵。\n"
-"\n"
-"耐久：<color=red>中等</color>\n"
-"速度：<color=red>快</color>，而后<color=red>很慢（产卵后）</color>\n"
-"特点：<color=red>碰到的血肉之躯会被寄生</color>"
-msgstr ""
-"Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs.\n"
-"\n"
-"Toughness: <color=red>Medium</color>\n"
-"Speed: <color=red>Fast</color>, then <color=red>Very slow (After laying eggs)</color>\n"
-"Special: <color=red>flesh bodies will get parasitized upon contact</color>"
-
-msgctxt "entity.name"
-msgid "恐怖之母"
-msgstr "Mother Terror"
-
-msgctxt "entity.description"
-msgid ""
-"木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾。\n"
-"\n"
-"生命：<color=red>200</color>\n"
-"弱点：<color=red>火，毒雾可以被火烧掉</color>\n"
-"\n"
-"就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。"
-msgstr ""
-"Mummies will release gas after they die, which can heal the undead and damage contraptions.\n"
-"\n"
-"Toughness: <color=red>200</color>\n"
-"Weakness：<color=red>Fire can burn its gas</color>\n"
-"\n"
-"Just like everyone's mummy, mummies like perfumes. They're fanatic enough to carve the fragrance into the bones, putting people around "
-"them to death. They died from mummies, so they're called... \"Deaddies\"."
-
-msgctxt "entity.name"
-msgid "木乃伊"
-msgstr "Mummy"
-
-msgctxt "entity.name"
-msgid "纳普斯特"
-msgstr "Napstablook"
-
-msgctxt "entity.description"
-msgid ""
-"死灵法师会生成临时的骨墙阻挡子弹。\n"
-"\n"
-"耐久：<color=red>200</color>\n"
-"骨墙耐久：<color=red>350</color>\n"
-"\n"
-"死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。"
-msgstr ""
-"Necromancer can build temporary bone walls to block bullets.\n"
-"\n"
-"Toughness: <color=red>200</color>\n"
-"Bone Wall Toughness: <color=red>350</color>\n"
-"\n"
-"The Necromancers can’t figure out why they have to deal with others overtaxing them or calling them evil witches because they raise "
-"the dead. They just want to build a wall."
-
-msgctxt "entity.name"
-msgid "死灵法师"
-msgstr "Necromancer"
-
-msgctxt "entity.description"
-msgid "它还没想好自己的网络冷笑话该怎么写。"
-msgstr "It hasn't figured out how to write its own network jokes."
-
-msgctxt "entity.description"
-msgid ""
-"恐怖寄生虫会在宿主死亡或者成长到极限后撕碎身体并钻出来。\n"
-"\n"
-"耐久：<color=red>极低-非常低（变化）</color>\n"
-"速度：<color=red>非常快</color>"
-msgstr ""
-"Parasite Terrors shred the hosts' body and come out after they mature.\n"
-"\n"
-"Toughness: <color=red>Extremely low - Very low (Variable)</color>\n"
-"Speed: <color=red>Very fast</color>"
-
-msgctxt "entity.name"
-msgid "恐怖寄生虫"
-msgstr "Parasite Terror"
-
-msgctxt "entity.description"
-msgid "骷髅能够在前线朝你的器械射击。\n"
-"\n"
 "生命：<color=red>200</color>\n"
 "箭矢伤害：<color=red>每发100</color>\n"
-"箭矢伤害：<color=red>无法射中并无视低矮器械</color>\n"
-"\n"
-"骷髅一族拥有着很高的箭术造诣，我曾亲眼看见一只骷髅射中几十米外的狼群中的一头熟睡的狼。没射死，倒把它们射醒了。"
-msgstr "Skeletons can shoot arrows at your rightmost \n"
-"\n"
+"特点：<color=red>无法射中并无视低矮器械</color>"
+msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Arrow Damage: <color=red>100 per arrow</color>\n"
 "Special: <color=red>unable to shoot and ignore low-height contraptions</color>"
-"\n"
-"Skeletons possess high archery accomplishments, people saw with their own eyes that one of them shot a sleeping wolf in a wolf pack from several tens of meters away. It didn't die though, it WOKE."
 
+#. Flavor for enemies mvz2:skeleton
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "骷髅一族拥有着很高的箭术造诣，我曾亲眼看见一只骷髅射中几十米外的狼群中的一头熟睡的狼。没射死，倒把它们射醒了。"
+msgstr ""
+"Skeletons possess high archery accomplishments, people saw with their own eyes that one of them shot a sleeping wolf in a wolf pack from "
+"several tens of meters away. It didn't die though, it WOKE."
+
+#. Header for enemies mvz2:gargoyle
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "石像鬼会在最后一波到来时复苏并进攻你的房子。"
+msgstr "Gargoyles will be revived from statues when the final wave comes."
+
+#. Properties for enemies mvz2:gargoyle
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>900</color>\n"
+"弱点：<color=red>冲击活塞</color>"
+msgstr ""
+"Toughness: <color=red>900</color>\n"
+"Weakness: <color=red>Punchtons</color>"
+
+#. Flavor for enemies mvz2:gargoyle
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"石像鬼和他的妈妈住在山上的一间小屋中。石像鬼画画，玩玩具，妈妈就在电视上看广播。生活很简单，他们也很幸福。直到有一天石像鬼的妈妈从天上听到"
+"了雷声……"
+msgstr ""
+"These guys usually stay silent as statues all the time, but they're actually just saving up their energy for another stormy night - which "
+"is when they party."
+
+#. Header for enemies mvz2:ghost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "幽灵能够在虚无的情况下极大降低受到的伤害。"
+msgstr "Ghosts can reduce most taken damage in ethereal form."
+
+#. Properties for enemies mvz2:ghost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"抗性：虚无状态下减少<color=red>90%</color>受到的伤害\n"
+"弱点：<color=red>被光照到时会失去虚无效果</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Resistance: Reduces <color=red>90%</color> taken damage in ethereal form\n"
+"Weakness: <color=red>Lose ethereality when illuminated</color>"
+
+#. Flavor for enemies mvz2:ghost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。"
+msgstr ""
+"When you walk at night and hear someone calling your name, don't look back, otherwise there'll be ghosts - and you'll scare them to death."
+
+#. Header for enemies mvz2:mummy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾。"
+msgstr "Mummies will release gas after they die, which can heal the undead and damage contraptions."
+
+#. Properties for enemies mvz2:mummy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"弱点：<color=red>火，毒雾可以被火烧掉</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Weakness：<color=red>Fire can burn its gas</color>"
+
+#. Flavor for enemies mvz2:mummy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。"
+msgstr ""
+"Just like everyone's mummy, mummies like perfumes. They're fanatic enough to carve the fragrance into the bones, putting people around "
+"them to death. They died from mummies, so they're called... \"Deaddies\"."
+
+#. Header for enemies mvz2:necromancer
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "死灵法师会生成临时的骨墙阻挡子弹。"
+msgstr "Necromancer can build temporary bone walls to block bullets."
+
+#. Properties for enemies mvz2:necromancer
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"骨墙生命：<color=red>350</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Bone Wall Toughness: <color=red>350</color>"
+
+#. Flavor for enemies mvz2:necromancer
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。"
+msgstr ""
+"The Necromancers can’t figure out why they have to deal with others overtaxing them or calling them evil witches because they raise the "
+"dead. They just want to build a wall."
+
+#. Header for misc mvz2:villager
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "与史蒂夫共同生活的白衣村民，原名戴夫。"
+msgstr "A crazy villager in a white outfit who lives together with Steve. His name is Dave."
+
+#. Flavor for misc mvz2:villager
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫从小到大的抚养者，在几年前突然变得疯狂，言行举止无法被人理解。\n"
+"常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。"
+msgstr ""
+"Steve's caregiver since he was young, suddenly went crazy a few years ago and couldn't be understood.\n"
+"Often discussed with Steve about Gensokyo, and finally embarked on their journey today."
+
+#. Header for misc mvz2:doremy
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。"
+msgstr "Doremy Sweet is the administrator of Dream World, and manages everyone's dreams."
+
+#. Flavor for misc mvz2:doremy
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"看管着梦境世界的貘妖怪，能够观察、改变或吞食人的梦境。\n"
+"被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。"
+msgstr ""
+"A baku who administers the Dream World, has the ability to observe, change and consume others' dreams.\n"
+"Was shocked by Steve and Villager who arrived in their physical bodies, but she seems to have seen some interesting dreams from Steve."
+
+#. Header for misc mvz2:orant
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。"
+msgstr "Orant is a soul sorceress, can manipulate fear and souls."
+
+#. Flavor for misc mvz2:orant
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"她不想让你知道她太多的事情。\n"
+"只需要知道她常和灵魂与恐惧作伴就可以了。"
+msgstr ""
+"She doesn't want you to know things about her - she has always been introversive.\n"
+"Just keep in mind that she is a friend of souls and fear."
+
+#. Header for entity mvz2:dispenser
+#: Entity meta file
 msgctxt "entity.name"
-msgid "骷髅"
-msgstr "Skeleton"
+msgid "发射器"
+msgstr "Dispenser"
 
-msgctxt "entity.description"
-msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
-msgstr "The Internet bars opened by Spiders are quite profitable, because everyone is stuck in the net."
+#. Properties for entity mvz2:dispenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "向敌人射出箭"
+msgstr "Shoot arrows towards enemies"
 
-msgctxt "entity.description"
-msgid ""
-"蜘蛛可以爬过你的防御。\n"
-"\n"
-"耐久：<color=red>低</color>\n"
-"速度：<color=red>快</color>\n"
-"特点：<color=red>可以爬上并越过防御性器械</color>"
-msgstr ""
-"Spiders can climb over your defenses.\n"
-"\n"
-"Toughness: <color=red>Low</color>\n"
-"Speed: <color=red>Fast</color>\n"
-"Special: <color=red>Can climb over defensive contraptions</color>"
-
+#. Header for entity mvz2:furnace
+#: Entity meta file
 msgctxt "entity.name"
-msgid "蜘蛛"
-msgstr "Spider"
+msgid "熔炉"
+msgstr "Furnace"
 
-msgctxt "almanac"
-msgid "（还没有遇到）"
-msgstr "(Not encountered yet)"
+#. Properties for entity mvz2:furnace
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "提供给你额外的红石"
+msgstr "Provide additional redstone"
 
-msgctxt "entity.description"
-msgid ""
-"在上一次尸界大战失败后，僵尸在墙角里做了三天三夜的反省。后来他开始锻炼自己，想让自己变得更强以吃到更多的脑子。现在的他看起来……好吧还是"
-"没变。"
-msgstr ""
-"After the failure of the last Zombie War, the Zombie self-reflected in the corner for three days three nights. Later, he began to "
-"exercise himself, trying to be stronger to eat more brains. Now he looks... Well, he hasn't changed a bit."
+#. Header for entity mvz2:obsidian
+#: Entity meta file
+msgctxt "entity.name"
+msgid "黑曜石"
+msgstr "Obsidian"
 
-msgctxt "entity.description"
-msgid ""
-"僵尸会在死掉之前一直冲向你的脑子。\n"
-"\n"
-"耐久：<color=red>低</color>\n"
-"速度：<color=red>中等</color>"
-msgstr ""
-"Zombies will run towards your house until they're defeated.\n"
-"\n"
-"Toughness: <color=red>Low</color>\n"
-"Speed: <color=red>Medium</color>"
+#. Properties for entity mvz2:obsidian
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "阻碍敌人的前进，并保护背后的其他器械"
+msgstr "Protect your other contraptions"
 
+#. Header for entity mvz2:mine_tnt
+#: Entity meta file
+msgctxt "entity.name"
+msgid "地雷TNT"
+msgstr "Mine TNT"
+
+#. Properties for entity mvz2:mine_tnt
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "接触时爆炸，但需要时间准备"
+msgstr "Explode on contact, but take time to arm itself"
+
+#. Header for entity mvz2:small_dispenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "小型发射器"
+msgstr "Small Dispenser"
+
+#. Properties for entity mvz2:small_dispenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射短距离雪球"
+msgstr "Shoot short-ranged snowballs"
+
+#. Header for entity mvz2:moonlight_sensor
+#: Entity meta file
+msgctxt "entity.name"
+msgid "月光传感器"
+msgstr "Moonlight Sensor"
+
+#. Properties for entity mvz2:moonlight_sensor
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "自动提供能量，一段时间后提升生产量"
+msgstr "Automatically provides energy, increases the yield after a while"
+
+#. Header for entity mvz2:glowstone
+#: Entity meta file
+msgctxt "entity.name"
+msgid "荧石"
+msgstr "Glowstone"
+
+#. Properties for entity mvz2:glowstone
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "照亮周围范围"
+msgstr "Light an area"
+
+#. Header for entity mvz2:punchton
+#: Entity meta file
+msgctxt "entity.name"
+msgid "冲击活塞"
+msgstr "Punchton"
+
+#. Properties for entity mvz2:punchton
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "冲击前方敌人，需要时间再次准备"
+msgstr "Impacts enemies, take time to repair itself"
+
+#. Header for entity mvz2:tnt
+#: Entity meta file
+msgctxt "entity.name"
+msgid "TNT"
+msgstr "TNT"
+
+#. Properties for entity mvz2:tnt
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "触发后炸飞周围敌人"
+msgstr "Blow up surrounding enemies after being triggered"
+
+#. Header for entity mvz2:soul_furnace
+#: Entity meta file
+msgctxt "entity.name"
+msgid "灵魂熔炉"
+msgstr "Soul Furance"
+
+#. Properties for entity mvz2:soul_furnace
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射火球，但需要献祭前方的器械作为燃料"
+msgstr "Shoot strong soulfires, but burn the contraption in front as its fuel"
+
+#. Header for entity mvz2:silvenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "银质发射器"
+msgstr "Silvenser"
+
+#. Properties for entity mvz2:silvenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "射出穿透肉体的飞刀"
+msgstr "Shoot knives which pierce the flesh"
+
+#. Header for entity mvz2:magichest
+#: Entity meta file
+msgctxt "entity.name"
+msgid "魔术箱"
+msgstr "Magichest"
+
+#. Properties for entity mvz2:magichest
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "将一个怪物变为星之碎片"
+msgstr "Transform an enemy into a Starshard"
+
+#. Header for entity mvz2:zombie
+#: Entity meta file
 msgctxt "entity.name"
 msgid "僵尸"
 msgstr "Zombie"
 
-msgctxt "misc.description"
-msgid ""
-"这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
-"当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
-"你该学学语文了。"
-msgstr ""
-"The book is written in this book, and you are reading an entry in this book about the book itself described by this book.\n"
-"When you look at the entry of the book in this book and feel dizzy, you feel dizzy reading the description by this book for the book "
-"in this book.\n"
-"Time for you to revise your English."
+#. Death message for entity mvz2:zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "脑子是好的，但不是每个人都有"
+msgstr "I'm gonna eat your brains. We're the undead!"
 
-msgctxt "misc.description"
-msgid "欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。"
-msgstr "A magical almanac, once owned by Orant, will automatically record everything that you come across."
-
-msgctxt "misc.name"
-msgid "图鉴"
-msgstr "Almanac"
-
-msgctxt "almanac"
-msgid "？？？"
-msgstr "???"
-
-msgctxt "misc.name"
-msgid "模糊的字条"
-msgstr "Blurred Note"
-
-msgctxt "misc.description"
-msgid ""
-"能够打开一道通向其他世界的大门的，充满魔力的钥匙。\n"
-"但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。\n"
-"钥匙上刻着古文：\n"
-"于残酷的现实睡去\n"
-"于幻想之地\n"
-"于光明的尽头\n"
-"于梦的苏醒"
-msgstr ""
-"A key filled with magic that is able to open a doorway to other worlds.\n"
-"It can only be used to access the dreams of other worlds however. The reality of the corresponding world cannot be approached via its "
-"dream without permission from certain “administrators.”\n"
-"There is an ancient inscription engraved on the key:\n"
-"To fall asleep in the harsh reality\n"
-"To the land of fantasy\n"
-"To the end of the light\n"
-"To the dream's awakening"
-
-msgctxt "misc.description"
-msgid "欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。"
-msgstr "A key used to open gates towards the dreamland of other worlds, allowing people to enter, held by Orant."
-
-msgctxt "misc.name"
-msgid "梦境钥匙"
-msgstr "Dream Key"
-
-msgctxt "misc.description"
-msgid ""
-"所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。\n"
-"哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。\n"
-"史蒂夫和村民来到梦境世界后，呈现出了水池草坪的模样，而这里就是他们的主战场。"
-msgstr ""
-"The dreams of all creatures are interconnected, and the Dream World is where these dreams are located.\n"
-"Doremy watches and manages the Dream World, as well as prevents anyone who attempts to use the Dream World to disrupt its order and "
-"interfere with the reality world.\n"
-"After Steve and Villager came to the dream world, the Dream World showed the shape of a pool lawn, which became their main battlefield."
-
-msgctxt "misc.description"
-msgid "梦境世界是哆来咪管理的，所有人的梦境所处的地方。"
-msgstr "Dream World is the world of everyone's dreams. It is administrated by Doremy."
-
-msgctxt "misc.name"
-msgid "梦境世界"
-msgstr "Dream World"
-
-msgctxt "misc.description"
-msgid "由于欧兰特设置了权限，本条目的部分内容不予显示。"
-msgstr "Some contents of this entry will not be displayed due to the restrictions set by Orant."
-
-msgctxt "misc.description"
-msgid "时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。  "
-msgstr "Time has stopped on Halloween's eve in this cursed swamp, where Orant, the soul sorceress lives.  "
-
-msgctxt "misc.name"
-msgid "永夜沼泽"
-msgstr "Eternal Night Swamp"
-
-msgctxt "entity.description"
-msgid "尸块组成的怪物，科幻小说中的杀人魔。"
-msgstr "A monster made up of corpses, famously known to be responsible for a number of death cases in science fiction."
-
-msgctxt "entity.description"
-msgid ""
-"由于欧兰特设置了权限，本条目的部分内容不予显示。\n"
-"她的过去与你无关。"
-msgstr ""
-"Special: <color=red>Lightning attacks always target TNTs; steel body deflect certain projectiles</color>\n"
-"People around here are actually not too keen on novels. Whether Frankenstein is the name of the creator or the monster remains a "
-"mystery. As a result, both are called Frankenstein.\n"
-"Some contents of this entry will not be displayed due to the restrictions set by Orant."
-
+#. Header for entity mvz2:leather_capped_zombie
+#: Entity meta file
 msgctxt "entity.name"
-msgid "科学怪人"
-msgstr "Frankenstein"
+msgid "皮帽僵尸"
+msgstr "Leather Cap Zombie"
 
-msgctxt "misc.description"
+#. Header for entity mvz2:iron_helmetted_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "铁盔僵尸"
+msgstr "Iron Helmet Zombie"
+
+#. Header for entity mvz2:flag_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "旗帜僵尸"
+msgstr "Flag Zombie"
+
+#. Header for entity mvz2:skeleton
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骷髅"
+msgstr "Skeleton"
+
+#. Death message for entity mvz2:skeleton
+#: Entity meta file
+msgctxt "death_message"
+msgid "被射成刺猬了！"
+msgstr "What a spooky scary skeleton!"
+
+#. Header for entity mvz2:gargoyle
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石像鬼"
+msgstr "Gargoyle"
+
+#. Death message for entity mvz2:gargoyle
+#: Entity meta file
+msgctxt "death_message"
+msgid "亲爱的日记：今天我死了。"
+msgstr "Job's done, back to vibing as a statue."
+
+#. Header for entity mvz2:ghost
+#: Entity meta file
+msgctxt "entity.name"
+msgid "幽灵"
+msgstr "Ghost"
+
+#. Death message for entity mvz2:ghost
+#: Entity meta file
+msgctxt "death_message"
+msgid "现在有伴了。"
+msgstr "Boo."
+
+#. Header for entity mvz2:mummy
+#: Entity meta file
+msgctxt "entity.name"
+msgid "木乃伊"
+msgstr "Mummy"
+
+#. Death message for entity mvz2:mummy
+#: Entity meta file
+msgctxt "death_message"
+msgid "裹成个粽子。"
+msgstr "Are you winning, son? - ur mum"
+
+#. Header for entity mvz2:necromancer
+#: Entity meta file
+msgctxt "entity.name"
+msgid "死灵法师"
+msgstr "Necromancer"
+
+#. Death message for entity mvz2:necromancer
+#: Entity meta file
+msgctxt "death_message"
 msgid ""
-"永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变"
-"成活物。"
+"你挂了\n"
+"死亡带走了12450金币和经验值"
 msgstr ""
-"The curse of Eternal Night Swamp doesn't only freeze the time of the midnight sky. It also shapes the stones underground into statues, "
-"and make them rise from the ground. Once the enchanted lightning strikes these statues, they will be given life and become living "
-"creatures."
+"You Died\n"
+"Death took 42690 gold and some XP away"
 
-msgctxt "misc.description"
-msgid "石像鬼雕像会在最后一波时变成石像鬼。"
-msgstr "Gargoyle Statues will become Gargoyles at the final wave."
+#. Header for entity mvz2:ghast
+#: Entity meta file
+msgctxt "entity.name"
+msgid "恶魂"
+msgstr "Ghast"
 
-msgctxt "misc.name"
+#. Death message for entity mvz2:ghast
+#: Entity meta file
+msgctxt "death_message"
+msgid "快拿棒球棒！"
+msgstr "Burn Baby Burn"
+
+#. Header for entity mvz2:bone_wall
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骨墙"
+msgstr "Bone Wall"
+
+#. Death message for entity mvz2:bone_wall
+#: Entity meta file
+msgctxt "death_message"
+msgid "你是怎么做到的？"
+msgstr "How did you do that?"
+
+#. Header for entity mvz2:gargoyle_statue
+#: Entity meta file
+msgctxt "entity.name"
 msgid "石像鬼雕像"
 msgstr "Gargoyle Statue"
 
-msgctxt "misc.description"
-msgid ""
-"史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被戴夫所抚养。\n"
-"史蒂夫并不是和村民一样的方块生物，因此常常受到歧视和嘲笑，史蒂夫也因此特别想知道自己的父母是谁。\n"
-"似乎，这个谜就要从这场冒险中解开了。"
-msgstr ""
-"Steve had no parents from the very start of his life. He was unknowingly transferred to the village and was raised by Dave.\n"
-"Steve was not a blocky creature like the Villager, so he was often discriminated against and ridiculed, while wanting to know who his "
-"parents were.\n"
-"It seems that this mystery will be solved in this adventure."
-
-msgctxt "misc.description"
-msgid "哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。"
-msgstr "Doremy mentioned that Steve had seen a grave in his dream, and it was the one Steve had seen when he was very young."
-
-msgctxt "misc.name"
-msgid "梦境中的坟墓"
-msgstr "Grave in Dream"
-
-msgctxt "misc.description"
-msgid ""
-"“爷爷，这个上面有个熔炉的矿车是什么啊？”\n"
-"“孩子，坐下，让我给你讲个故事。”\n"
-"“那是我年轻的时候用动力矿车运送村民的故事……”"
-msgstr ""
-"There was a time when Minecarts with Furnaces were a thing.\n"
-"Only the cool kids will remember this."
-
-msgctxt "misc.description"
-msgid "史蒂夫家里的最后防线，当敌人突破器械阵线后会碾压前方一行的敌人。"
-msgstr "Steve’s House’s last line of defense. It will crush all enemies in the lane when they get too close to the house."
-
-msgctxt "misc.name"
+#. Header for entity mvz2:minecart
+#: Entity meta file
+msgctxt "entity.name"
 msgid "矿车"
 msgstr "Minecart"
 
-msgctxt "misc.description"
-msgid "史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。"
-msgstr "Steve's automated miner, which automatically digs for redstone during the day."
-
-msgctxt "misc.description"
-msgid ""
-"史蒂夫精通机械，这台自动矿场出自他的手中。依靠太阳能工作，自动寻找地下存储的红石矿，然后将其运输到地表。\n"
-"……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？"
-msgstr ""
-"Steve is good at mechanics, and this miner is built by him. With the help of solar energy, it can automatically find the underground "
-"deposits of redstone ore, and then transport it to the surface for energy.\n"
-"...But since it needs solar energy, why not directly turn solar energy into energy?"
-
-msgctxt "misc.name"
-msgid "矿场"
-msgstr "Miner"
-
-msgctxt "misc.description"
-msgid "只是个路过的幽灵而已。"
-msgstr "Just a ghost passing by."
-
-msgctxt "misc.name"
-msgid "小幽灵"
-msgstr "Napstablook"
-
-msgctxt "misc.description"
-msgid "小幽灵会在你使用铁剑击中时生气，然后麻痹你的剑。"
-msgstr "Napstablook will get ANGERY when you hit it with your sword, paralyzing the sword for a short while."
-
-msgctxt "entity.description"
-msgid ""
-"梦魇是从虚空中诞生的上古之神所抛弃的残滓，它们成群地漂浮于深邃的宇宙之中，被恐惧所诱惑，吞噬并腐化碰到的所有东西，是既不受上古之神欢"
-"迎，也不被生命所接纳的怪物。\n"
-"宇宙中的梦魇成千上万，唯有这一只嗅到了梦境世界的恐惧气息而降落于此。为了保护自己初期弱小的身躯，它伪装成一匹马骗过梦境的管理者，随后开"
-"始在不为人知的情况下腐蚀整个梦境，将整个梦境世界据为己有。\n"
-"作为古神的残滓，其力量仍不可小觑。精神脆弱的人类无法察觉它那令人不安的、不可言状的外观，为了保护自己的精神，便会将其视作自身可以接受的"
-"事物，但仍面目可惧。"
-msgstr ""
-"Nightmares are the residues abandoned by the old gods born from the void. They float in groups in the deep universe, tempted by fear, "
-"devouring and corrupting everything they encounter. They are monsters that are neither welcomed by the old gods nor accepted by life.\n"
-"There are thousands of Nightmares in the universe. Only this one smelled the traces of fear in the Dream World and landed there. In "
-"order to protect its weak body in its early development stage, it disguised as a horse to deceive the dream manager, and then began to "
-"corrupt the whole dream without anyone knowing, taking the whole Dream World as its own.\n"
-"As the residue of old gods, its power cannot be underestimated. Human beings with fragile minds cannot perceive its disturbing and "
-"unspeakable appearance. In order to protect their minds, they will normally perceive it as something they can accept, but still has a "
-"frightening appearance."
-
-msgctxt "misc.description"
-msgid "梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。"
-msgstr "The Nightmare Box no longer contains any harmful magic. All it can do now is projecting the Nightmare World's image."
-
-msgctxt "entity.description"
-msgid "梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。"
-msgstr "Nightmare is a terrible monster that is able to deceive senses and corrosion, with countless incarnations."
-
+#. Header for entity mvz2:pumpkin_carriage
+#: Entity meta file
 msgctxt "entity.name"
-msgid "梦魇"
-msgstr "Nightmare"
-
-msgctxt "misc.description"
-msgid "梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。"
-msgstr ""
-"The Nightmare Box is a container made by collecting dark magic from Nightmare, and can turn the Dream World into Nightmare World."
-
-msgctxt "misc.name"
-msgid "梦魇魔盒"
-msgstr "Nightmare Box"
-
-msgctxt "misc.description"
-msgid ""
-"哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来"
-"咪。\n"
-"现在你看到的就是梦境世界的真正模样。"
-msgstr ""
-"Doremy had seen a black horse in the Dream World a few months ago, which was Nightmare in disguise. Nightmare then began its "
-"corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
-"What you now see is the true appearance of the Dream World."
-
-msgctxt "misc.description"
-msgid "噩梦世界是被梦魇所腐化的梦境世界。"
-msgstr "Nightmare World is the Dream World corrupted by Nightmare."
-
-msgctxt "misc.name"
-msgid "噩梦世界"
-msgstr "Nightmare World"
-
-msgctxt "misc.description"
-msgid "“我恨你。”"
-msgstr "\"I HATE YOU.\""
-
-msgctxt "misc.description"
-msgid "噩梦猫会刺死任何它所恨的人。"
-msgstr "Nyaightmares will pierce anyone it hates to death."
-
-msgctxt "misc.name"
-msgid "噩梦猫"
-msgstr "Nyaightmare"
-
-msgctxt "misc.description"
-msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
-msgstr "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
-
-msgctxt "misc.description"
-msgid "彩虹猫能萌死任何接触到的敌人。"
-msgstr "Nyan Cats are soooo cute that they make any enemy touching it die."
-
-msgctxt "misc.name"
-msgid "彩虹猫"
-msgstr "Nyan Cat"
-
-msgctxt "misc.description"
-msgid "永夜沼泽的最后防线，会发出绿色光芒，当敌人突破器械阵线后会碾压前方一行的敌人。"
-msgstr ""
-"The last line of defense in the Swamp. It emits a green glow, and will crush all enemies in the lane when they get too close to the "
-"house."
-
-msgctxt "misc.description"
-msgid "南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。"
-msgstr ""
-"The eternal flame inside the pumpkins cannot be extinguished by water, blown away by wind or affected by chemical reactions. But some "
-"people just can't sleep with it - it shines so bright and you literally can’t turn this thing off."
-
-msgctxt "misc.name"
 msgid "南瓜马车"
 msgstr "Pumpkin Carriage"
 
-msgctxt "misc.description"
-msgid ""
-"未知人士留下了一些记录。\n"
-"星之记录 其二：\n"
-"我做了一个很古怪的梦。\n"
-"我梦见我在一个满是眼睛的紫色空间中，不断漂浮沉沦。我看到一个黄色头发的少女，持着紫色的阳伞坐在空中。\n"
-"她似乎正忙于干自己的事情，并没有发现我的存在。我便如此坠入无底的深渊。\n"
-"我睁开眼睛，发现自己正在一片粉色花朵的树环绕的空地上。"
-msgstr ""
-"Records left by an anonymous person.\n"
-"\n"
-"Star Record 2:\n"
-"I had a very strange dream.\n"
-"I dreamed that I was floating and sinking in a purple space full of eyes. I saw a girl with yellow hair sitting in the air with a "
-"purple parasol.\n"
-"She seemed to be busy with her own business and didn't notice me. Then I fell into a bottomless abyss.\n"
-"I opened my eyes and found myself in a plain field, surrounded by trees with pink flowers."
+#. Header for entity mvz2:redstone
+#: Entity meta file
+msgctxt "entity.name"
+msgid "红石"
+msgstr "Redstone"
 
-msgctxt "misc.description"
-msgid "星之碎片会唤醒你的器械，爆发出真正的潜力。"
-msgstr "Starshards can evoke your contraptions, and make your contraptions burst with superpower."
+#. Header for entity mvz2:emerald
+#: Entity meta file
+msgctxt "entity.name"
+msgid "绿宝石"
+msgstr "Emerald"
 
-msgctxt "misc.name"
-msgid "星之碎片：清明梦"
-msgstr "Starshard: Lucid Dream"
+#. Header for entity mvz2:ruby
+#: Entity meta file
+msgctxt "entity.name"
+msgid "红宝石"
+msgstr "Ruby"
 
-msgctxt "misc.description"
-msgid ""
-"未知人士留下了一些记录。\n"
-"星之记录 其一：\n"
-"自那件事以来，每当我沉睡于梦中，总会在深不可测的黑暗中看到一个物体，它闪着星形的光，随之它便离我远去。\n"
-"我并不理解这是什么意思。后来即使不在梦中，我也总是能看到类似的物体，这十分反常。\n"
-"当我离开不属于我的那片土地时，我在一片沼泽中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。"
-msgstr ""
-"Records left by an anonymous person.\n"
-"Star Record 1:\n"
-"Since then, whenever I slept, I would always dream of an object in an unfathomable darkness, it shone in the shape of a star, and then "
-"went away from me.\n"
-"I didn't understand what it means. Later, even when I wasn't dreaming, I could still often see similar objects, which is very "
-"abnormal.\n"
-"When I left the land that I don't belong to, I saw a rainbow-colored candy in a swamp. It was very similar to those stars, but I was "
-"still not sure what they were."
+#. Header for entity mvz2:diamond
+#: Entity meta file
+msgctxt "entity.name"
+msgid "钻石"
+msgstr "Diamond"
 
-msgctxt "misc.name"
-msgid "星之碎片：神奇糖果"
-msgstr "Starshard: Magic Candy"
+#. Header for entity mvz2:clear_pickup
+#: Entity meta file
+msgctxt "entity.name"
+msgid "通关掉落物"
+msgstr "Clear Pickup"
 
-msgctxt "misc.description"
-msgid "坑爹村民的村庄之前遭受了僵尸的攻击而导致毁灭，于是他们搬到了公路附近的一片广阔平原上，开始了新的生活。"
-msgstr ""
-"Crazy Villager's Village has previously been ruined by a raid from zombies, so they moved to a wide plain near the road, and started a "
-"new life."
+#. Header for entity mvz2:starshard
+#: Entity meta file
+msgctxt "entity.name"
+msgid "星之碎片"
+msgstr "Starshard"
 
-msgctxt "misc.description"
-msgid "这里是史蒂夫和坑爹村民住的地方。"
-msgstr "Steve and Crazy Villager live here."
+#. Name for character mvz2:crazy_villager
+#: Character meta file
+msgctxt "character.name"
+msgid "村民"
+msgstr "Villager"
 
-msgctxt "misc.name"
-msgid "史蒂夫的家"
-msgstr "Steve's House"
+#. Name for character mvz2:orant
+#: Character meta file
+msgctxt "character.name"
+msgid "欧兰特"
+msgstr "Orant"
 
-#~ msgctxt "entity.description"
-#~ msgid "发射器是你的第一道防线，它们发射箭来保卫你的房子。"
-#~ msgstr "Dispensers are your first line of defense, they shoot arrows at incoming enemies."
+#. Name for character mvz2:doremy
+#: Character meta file
+msgctxt "character.name"
+msgid "哆来咪"
+msgstr "Doremy"
 
-#~ msgctxt "entity.description"
+#~ msgid "史蒂夫"
+#~ msgstr "Steve"
+
+#~ msgid ""
+#~ "生命：<color=red>中高</color>\n"
+#~ "\n"
+#~ "终于有人能发现我的描述了！"
+#~ msgstr ""
+#~ "Health: <color=red>Medium-High</color>\n"
+#~ "\n"
+#~ "Finally someone found my description!"
+
+#~ msgid "铁砧会砸死下方的怪物，并作为临时屏障。"
+#~ msgstr "Anvil crushes enemies below it and acts as a temporary barrier."
+
+#~ msgid "铁砧"
+#~ msgstr "Anvil"
+
+#~ msgid "从天而降砸死下方的僵尸，并作为临时屏障"
+#~ msgstr "Fall from the sky to crush enemies, also a barrier"
+
+#~ msgid ""
+#~ "耐久：<color=red>稍高</color>\n"
+#~ "特点：能够自我修复\n"
+#~ "\n"
+#~ "化学课就像是：\n"
+#~ "“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二"
+#~ "氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”"
+#~ msgstr ""
+#~ "Toughness: <color=red>Slightly high</color>\n"
+#~ "Special: Regenerate health\n"
+#~ "\n"
+#~ "\"Hi, this is Villager from Gear Ear Mech Co, and I'll show you the super strong, zombie-proof crystal, that can instantly patch, "
+#~ "bond, seal and repair! Dream Crystal is no ordinary crystal. Leaky contraptions can cause MAJOR DAMAGE, but Dream Crystal grips on "
+#~ "tight and bonds instantly. Plus, Dream Crystal is so strong, it even works underwater! To show you the power of Dream Crystal, I SAWED "
+#~ "THIS OBSIDIAN IN HALF, and repaired it with ONLY Dream Crystal!\""
+
+#~ msgid "技能：进入无敌状态，并为周围的器械恢复生命值"
+#~ msgstr "Evocation: Become invincible, regenerate health for surrounding contraptions"
+
+#~ msgid "梦境结晶会慢慢地恢复自己的生命。"
+#~ msgstr "Dream Crystals slowly regenerate their health."
+
+#~ msgid "梦境结晶"
+#~ msgstr "Dream Crystal"
+
+#~ msgid "能够自我修复的障碍墙"
+#~ msgstr "Barrier with regeneration"
+
+#~ msgid ""
+#~ "特点：一次性使用\n"
+#~ "\n"
+#~ "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
+#~ msgstr ""
+#~ "Special: single use\n"
+#~ "\n"
+#~ "Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
+#~ "because of this."
+
+#~ msgid "技能：无"
+#~ msgstr "Evocation: None"
+
+#~ msgid "美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。"
+#~ msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starshard appear."
+
+#~ msgid "美梦丝"
+#~ msgstr "Dream Silk"
+
+#~ msgid "让一个器械睡着，醒来后生成一个星之碎片"
+#~ msgstr "Make a contraption sleep, create a Starshard when it wakes up"
+
+#~ msgid ""
+#~ "特点：只能升级四次\n"
+#~ "\n"
+#~ "驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸"
+#~ "之间的战争，但有人已经抢先了。"
+#~ msgstr ""
+#~ "Special: Can only be upgraded 4 times\n"
+#~ "Drivenser is a technical nerd. He knows how to assemble a computer, properties of different softwares and hardwares, different coding "
+#~ "languages, etc. Recently he wants to compile a game to re-tell this war with the zombies, but someone's already ahead of him."
+
+#~ msgid "技能：发射五支大箭矢"
+#~ msgstr "Evocation: Shoot five large arrows"
+
+#~ msgid "在一个驱动发射器上再放置一个驱动发射器能够增加驱动发射器每次发射的箭。"
+#~ msgstr "Place another Drivenser on an existing one to increase the number of arrows per shot."
+
+#~ msgid "驱动发射器"
+#~ msgstr "Drivenser"
+
+#~ msgid "能够堆叠放置，堆叠后一次射出的箭会增加"
+#~ msgstr "Stackable, add arrows per shot after stacked"
+
+#~ msgid ""
+#~ "<color=red>必须放置在重力板上</color>\n"
+#~ "用途：\n"
+#~ "上下方向：<color=red>转移物体</color>\n"
+#~ "前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人。</color>\n"
+#~ "\n"
+#~ "和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫"
+#~ "使某些人做出改变，这就由不得他了。"
+#~ msgstr ""
+#~ "<color=red>Must be placed on Gravity Pad</color>\n"
+#~ "Usage: \n"
+#~ "Up/Down: <color=red>Change objects' lanes.</color>\n"
+#~ "Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
+#~ "\n"
+#~ "Contrary to what people think, Force Pad doesn't like forcing others to do things, he believes that everyone should follow their own "
+#~ "will, and have the right to do whatever they want. But sometimes, he is forced to force some people to change their decision, and he "
+#~ "can't do anything about it."
+
+#~ msgid "技能：将周围的敌人移动到一个指定的位置。"
+#~ msgstr "Evocation: Move nearby enemies to a certain spot."
+
+#~ msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
+#~ msgstr ""
+#~ "The direction of Force Pads can be changed by triggering. Take advantage of this to change the movement of medium height objects above "
+#~ "it, and boost projectiles."
+
+#~ msgid "传动力板"
+#~ msgstr "Force Pad"
+
+#~ msgid ""
+#~ "（需要重力板）\n"
+#~ "改变上方物体的力"
+#~ msgstr ""
+#~ "(Requires Gravity Pad)\n"
+#~ "Change the force of objects above it"
+
+#~ msgid "技能：生成大量红石"
+#~ msgstr "Evocation: Rapidly generate a large amount of redstone"
+
+#~ msgid "技能：眩晕所有敌人"
+#~ msgstr "Evocation: Stun all enemies"
+
+#~ msgid "照亮周围的区域，能够发现幽灵、预防器械的反叛和照亮迷雾"
+#~ msgstr "Light an area, clear fog and reveal ghosts"
+
+#~ msgid ""
+#~ "特点：敌人无法发现\n"
+#~ "\n"
+#~ "从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。"
+#~ msgstr ""
+#~ "Special: Cannot be eaten by enemies\n"
+#~ "\n"
+#~ "Once upon a time, Gravity Block was sitting under an apple tree, when all of a sudden an apple fell on its head, smashing it flat - it "
+#~ "was a Golden Apple."
+
+#~ msgid "技能：铁砧从天而降，砸伤敌人并阻挡前进"
+#~ msgstr "Evocation: Anvil falls from the sky, crushes enemies and stops them"
+
+#~ msgid "重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。"
+#~ msgstr "Gravity Pads can lower the height of medium height objects above it, and make enemies on it unable to climb or jump."
+
+#~ msgid "重力板"
+#~ msgstr "Gravity Pad"
+
+#~ msgid "增强上方物体的重力"
+#~ msgstr "Increase the gravity of objects above it"
+
+#~ msgid ""
+#~ "伤害：<color=red>中等</color>\n"
+#~ "<color=red>只能放置在小型发射器上</color>\n"
+#~ "<color=blue>白天失效</color>\n"
+#~ "\n"
+#~ "传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。"
+#~ msgstr ""
+#~ "Damage: <color=red>Medium</color>\n"
+#~ "<color=red>Must be placed on Small Dispenser</color>\n"
+#~ "<color=blue>Can only be used at night</color>\n"
+#~ "\n"
+#~ "Infectenser has won the Disbel Prize in virology, but due to the epidemic situation, the award ceremony couldn't be held."
+
+#~ msgid "技能：使所有寄生中的机器人自爆。"
+#~ msgstr "Evocation: Make all parasitizing parabots self-destruct."
+
+#~ msgid "传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。"
+#~ msgstr ""
+#~ "Infectenser can shoot parabots which both deal damage and parasitize enemies. Parasitized enemies will shoot new parabots to other "
+#~ "enemies around them."
+
+#~ msgid "传染发射器"
+#~ msgstr "Infectenser"
+
+#~ msgid ""
+#~ "（需要小型发射器）\n"
+#~ "发射在敌人之间传播的寄生机器人"
+#~ msgstr ""
+#~ "(Requires Small Dispenser)\n"
+#~ "Shoot parabots which spread between enemies"
+
+#~ msgid ""
+#~ "继古明地 觉被不断迫害后，\n"
+#~ "我们又迎来了宇佐见 莲子。"
+#~ msgstr ""
+#~ "<color=blue>Must be placed in water</color>\n"
+#~ "\n"
+#~ "\"Why are you making me a gift for Sakuya?! I am NOT a lily chest pad!\""
+
+#~ msgid "技能：在上下左右四个方向召唤四个分身"
+#~ msgstr "Evocation: Summon four copies in four directions"
+
+#~ msgid ""
+#~ "睡莲允许你在水上放置器械。\n"
+#~ "<color=blue>只能放在水上</color>"
+#~ msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
+
+#~ msgid "让你能把非水生器械放在上面"
+#~ msgstr "Allow you to place contraptions on water"
+
+#~ msgid "睡莲"
+#~ msgstr "Lily Pad"
+
+#~ msgid "技能：立即准备完毕，并向最前方播种自身的两个复制"
+#~ msgstr "Evocation: Instantly arm itself, then place two copies of itself on the rightmost column."
+
+#~ msgid "技能：立即升级，发出蓝光，并使生产量变为2.5倍"
+#~ msgstr "Evocation: Instantly upgrade, glow with blue light and increase its yield by 2.5 times."
+
+#~ msgid "技能：恢复所有生命值，并获得更加坚硬的护甲"
+#~ msgstr "Evocation: Restore health completely, gain Netherite Armor"
+
+#~ msgid ""
+#~ "特点：能够攻击高处的敌人\n"
+#~ "\n"
+#~ "活塞发射器曾经有一段不光彩的历史，那时候他的头顶有个绿色的斑，于是他的朋友就嘲笑他是绿帽子。现在他把那一块换成了针刺球的发射口，顺便开"
+#~ "了一下脑洞。他一直很满意这个头型，直到他有一天被水淹没……"
+#~ msgstr ""
+#~ "Special: Can attack enemies on air\n"
+#~ "\n"
+#~ "\"It's over zombies, I have the high ground!\" Those were his last words before a Ghast burns his leg- uhh, neck off."
+
+#~ msgid "技能：向至多10个敌人发射穿甲的巨型尖刺"
+#~ msgstr "Evocation: Shoot seeds of giant armor-piercing spikes at up to 10 enemies"
+
+#~ msgid "活塞发射器能够伸长自己来攻击高处的敌人。"
+#~ msgstr "Pistensers can stretch themselves to attack enemies in the air."
+
+#~ msgid "活塞发射器"
+#~ msgstr "Pistenser"
+
+#~ msgid "能够伸长自己来攻击空中敌人"
+#~ msgstr "Stretch itself to attack enemies in the air"
+
+#~ msgid ""
+#~ "攻击：<color=red>较高</color>，并<color=red>无视护甲</color>\n"
+#~ "\n"
+#~ "快！快！快！冲！冲！冲！四驱活塞在行动！"
+#~ msgstr ""
+#~ "Damage: <color=red>Slightly High</color>, and <color=red>Ignore Armors</color>\n"
+#~ "\n"
+#~ "Punchton the piston, or One Punch Piston, punched a punch using a punch of tons."
+
+#~ msgid "技能：延长活塞臂，击退前方的所有敌人。"
+#~ msgstr "Evocation: Extend piston arm and knock back all enemies in front"
+
+#~ msgid "击退前方的敌人并击碎石制品"
+#~ msgstr "Knock back enemies and crush hard objects"
+
+#~ msgid "随机瓷器"
+#~ msgstr "Random China"
+
+#~ msgid "摧毁后随机生成器械"
+#~ msgstr "Spawn a random contraption upon destroyed"
+
+#~ msgid "长"
+#~ msgstr "Slow"
+
+#~ msgid "短"
+#~ msgstr "Fast"
+
+#~ msgid "很长"
+#~ msgstr "Very Slow"
+
+#~ msgid ""
+#~ "伤害：<color=red>中等</color>\n"
+#~ "<color=blue>白天失效</color>\n"
+#~ "\n"
+#~ "雪球里包着石头，别问了。"
+#~ msgstr ""
+#~ "Damage: <color=red>Medium</color>\n"
+#~ "<color=blue>Can only be used at night</color>\n"
+#~ "\n"
+#~ "There are rocks in the snowballs, stop asking."
+
+#~ msgid "技能：射出一个越滚越大的雪球"
+#~ msgstr "Evocation: Shoot a snowball that gets bigger and bigger"
+
+#~ msgid ""
+#~ "灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。\n"
+#~ "\n"
+#~ "伤害：<color=red>60</color>\n"
+#~ "特点：需要烧毁器械补充燃料\n"
+#~ "技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。\n"
+#~ "<color=blue>白天失效</color>\n"
+#~ "\n"
+#~ "灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。"
+#~ msgstr ""
+#~ "Soul Furances shoot terrifying soulfires, but will burn the contraption in front as its fuel.\n"
+#~ "\n"
+#~ "Damage: <color=red>High</color>\n"
+#~ "Special: Need to be fueled by burning other contraptions\n"
+#~ "Evocation: Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies.\n"
+#~ "<color=blue>Can only be used at night</color>\n"
+#~ "\n"
+#~ "What is it burning inside the Soul Furnace? Sinners' soul? Slags of Hell? Don't think too much. It's just an ordinary jack o' lantern."
+
+#~ msgid "触发后会对周围的怪物造成巨大伤害"
+#~ msgstr "Blow up surrounding enemies after being triggered"
+
+#~ msgid ""
+#~ "特点：飞镖上的箭毒会让敌人肌肉松弛，降低攻击力\n"
+#~ "\n"
+#~ "图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。"
+#~ "人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。"
+#~ msgstr ""
+#~ "Special: Poison on its dart decrease enemies' damage\n"
+#~ "\n"
+#~ "What god does Totenser believe in? According to the history of Contraption Intelligence, It may believe in various mechanic gods. Some "
+#~ "people say that it actually believes in the human inventor who made the machine, and some even say that it believes in the mechanic "
+#~ "old gods. People's discussion went on for decades, but the truth is, it just put his faith in his waifus."
+
+#~ msgid "技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。"
+#~ msgstr "Evocation: Throw a spear which pierces through enemies, and leave a trail of weakening gas"
+
+#~ msgid "图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。"
+#~ msgstr "Totensers shoot poisonous darts and burn nearby enemies with fire."
+
+#~ msgid "图腾发射器"
+#~ msgstr "Totenser"
+
+#~ msgid "发射虚弱的飞镖并灼烧前方的敌人"
+#~ msgstr "Shoot weakening darts and burn nearby enemies"
+
+#~ msgid ""
+#~ "<color=blue>只能放在水上</color>\n"
+#~ "\n"
+#~ "他无聊的时候经常把自己当陀螺抽。"
+#~ msgstr ""
+#~ "<color=blue>Must be placed in water</color>\n"
+#~ "\n"
+#~ "As for his favorite pastime, he likes to spin himself as a spinning top while singing \"KU-KURU KURU KURU KURU KURUUU\"."
+
+#~ msgid "技能：将更大范围的敌人拉入水底"
+#~ msgstr "Evocation: Drag enemies in a wider range underwater"
+
+#~ msgid "漩涡漏斗在旋转时会把接近它的所有敌人拖入水底。"
+#~ msgstr "Vortex Hoppers drag all enemies close to it underwater when spinning."
+
+#~ msgid "漩涡漏斗"
+#~ msgstr "Vortex Hopper"
+
+#~ msgid "把附近的敌人拉入水底"
+#~ msgstr "Drag enemies close to it underwater"
+
+#~ msgid ""
+#~ "皮帽僵尸拥有能抵抗子弹的皮帽护甲。\n"
+#~ "\n"
+#~ "耐久：<color=red>中等</color>\n"
+#~ "速度：<color=red>中等</color>"
+#~ msgstr ""
+#~ "Leather Cap Zombies have leather cap armors that resist bullets.\n"
+#~ "\n"
+#~ "Toughness: <color=red>Medium</color>\n"
+#~ "Speed: <color=red>Medium</color>"
+
+#~ msgid "曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。"
+#~ msgstr "It has won the \"Spidernet Surfing Competition\" many times, just because the other spiders can't swim."
+
+#~ msgid ""
+#~ "洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。\n"
+#~ "\n"
+#~ "耐久：<color=red>极低</color>\n"
+#~ "速度：<color=red>快</color>\n"
+#~ "特点：<color=red>不会被普通高度的子弹打中</color>"
+#~ msgstr ""
+#~ "Cave Spiders cannot climb over contraptions, but they can swim and cannot be hit by medium height projectiles or higher.\n"
+#~ "\n"
+#~ "Toughness: <color=red>Very low</color>\n"
+#~ "Speed: <color=red>Fast</color>\n"
+#~ "Special: <color=red>Will not be hit by medium height projectiles or higher</color>"
+
+#~ msgid "洞穴蜘蛛"
+#~ msgstr "Cave Spider"
+
+#~ msgid ""
+#~ "########公告########\n"
+#~ "·本地狱生物展览馆收录各种样式的地狱生物，包括恶魂、僵尸猪人（缺货）、凋灵骷髅等。\n"
+#~ "·禁止以一切方式触摸地狱生物\n"
+#~ "·禁止拍照\n"
+#~ "·禁止向恶魂投食钻石头盔"
+#~ msgstr ""
+#~ "########ANNOUNCEMENT########\n"
+#~ "· Local Hell Creature Exhibition Hall contains various types of hell creatures, including ghasts, zombified piglins (out of stock), "
+#~ "wither skeletons, etc.\n"
+#~ "· Touching hell creatures is prohibited by all means\n"
+#~ "· No photography\n"
+#~ "· Do not feed diamond helmets to ghasts"
+
+#~ msgid ""
+#~ "恶魂能够飞在天上并对你的器械进行轰炸。\n"
+#~ "\n"
+#~ "耐久：<color=red>低</color>\n"
+#~ "速度：<color=red>中等</color>\n"
+#~ "特点：<color=red>不会被一般高度的子弹打中</color>"
+#~ msgstr ""
+#~ "Ghasts can fly in the sky and bombard your contraptions.\n"
+#~ "\n"
+#~ "Toughness: <color=red>Low</color>\n"
+#~ "Speed: <color=red>Average</color>\n"
+#~ "Features: <color=red>Will not be hit by medium height projectiles or lower</color>"
+
+#~ msgid "擅长在网络文件中捆绑流氓软件和BUG。"
+#~ msgstr "Good at inserting bugs into network files."
+
+#~ msgid ""
+#~ "恐怖之母会向血肉之躯寄生虫卵。\n"
+#~ "\n"
+#~ "耐久：<color=red>中等</color>\n"
+#~ "速度：<color=red>快</color>，而后<color=red>很慢（产卵后）</color>\n"
+#~ "特点：<color=red>碰到的血肉之躯会被寄生</color>"
+#~ msgstr ""
+#~ "Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs.\n"
+#~ "\n"
+#~ "Toughness: <color=red>Medium</color>\n"
+#~ "Speed: <color=red>Fast</color>, then <color=red>Very slow (After laying eggs)</color>\n"
+#~ "Special: <color=red>flesh bodies will get parasitized upon contact</color>"
+
+#~ msgid "恐怖之母"
+#~ msgstr "Mother Terror"
+
+#~ msgid "纳普斯特"
+#~ msgstr "Napstablook"
+
+#~ msgid "它还没想好自己的网络冷笑话该怎么写。"
+#~ msgstr "It hasn't figured out how to write its own network jokes."
+
+#~ msgid ""
+#~ "恐怖寄生虫会在宿主死亡或者成长到极限后撕碎身体并钻出来。\n"
+#~ "\n"
+#~ "耐久：<color=red>极低-非常低（变化）</color>\n"
+#~ "速度：<color=red>非常快</color>"
+#~ msgstr ""
+#~ "Parasite Terrors shred the hosts' body and come out after they mature.\n"
+#~ "\n"
+#~ "Toughness: <color=red>Extremely low - Very low (Variable)</color>\n"
+#~ "Speed: <color=red>Very fast</color>"
+
+#~ msgid "恐怖寄生虫"
+#~ msgstr "Parasite Terror"
+
+#~ msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
+#~ msgstr "The Internet bars opened by Spiders are quite profitable, because everyone is stuck in the net."
+
+#~ msgid "蜘蛛"
+#~ msgstr "Spider"
+
+#~ msgid ""
+#~ "这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
+#~ "当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
+#~ "你该学学语文了。"
+#~ msgstr ""
+#~ "The book is written in this book, and you are reading an entry in this book about the book itself described by this book.\n"
+#~ "When you look at the entry of the book in this book and feel dizzy, you feel dizzy reading the description by this book for the book "
+#~ "in this book.\n"
+#~ "Time for you to revise your English."
+
+#~ msgid "欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。"
+#~ msgstr "A magical almanac, once owned by Orant, will automatically record everything that you come across."
+
+#~ msgid "图鉴"
+#~ msgstr "Almanac"
+
+#~ msgid "模糊的字条"
+#~ msgstr "Blurred Note"
+
+#~ msgid ""
+#~ "能够打开一道通向其他世界的大门的，充满魔力的钥匙。\n"
+#~ "但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。\n"
+#~ "钥匙上刻着古文：\n"
+#~ "于残酷的现实睡去\n"
+#~ "于幻想之地\n"
+#~ "于光明的尽头\n"
+#~ "于梦的苏醒"
+#~ msgstr ""
+#~ "A key filled with magic that is able to open a doorway to other worlds.\n"
+#~ "It can only be used to access the dreams of other worlds however. The reality of the corresponding world cannot be approached via its "
+#~ "dream without permission from certain “administrators.”\n"
+#~ "There is an ancient inscription engraved on the key:\n"
+#~ "To fall asleep in the harsh reality\n"
+#~ "To the land of fantasy\n"
+#~ "To the end of the light\n"
+#~ "To the dream's awakening"
+
+#~ msgid "欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。"
+#~ msgstr "A key used to open gates towards the dreamland of other worlds, allowing people to enter, held by Orant."
+
+#~ msgid "梦境钥匙"
+#~ msgstr "Dream Key"
+
+#~ msgid ""
+#~ "所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。\n"
+#~ "哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。\n"
+#~ "史蒂夫和村民来到梦境世界后，呈现出了水池草坪的模样，而这里就是他们的主战场。"
+#~ msgstr ""
+#~ "The dreams of all creatures are interconnected, and the Dream World is where these dreams are located.\n"
+#~ "Doremy watches and manages the Dream World, as well as prevents anyone who attempts to use the Dream World to disrupt its order and "
+#~ "interfere with the reality world.\n"
+#~ "After Steve and Villager came to the dream world, the Dream World showed the shape of a pool lawn, which became their main battlefield."
+
+#~ msgid "梦境世界是哆来咪管理的，所有人的梦境所处的地方。"
+#~ msgstr "Dream World is the world of everyone's dreams. It is administrated by Doremy."
+
+#~ msgid "梦境世界"
+#~ msgstr "Dream World"
+
+#~ msgid "由于欧兰特设置了权限，本条目的部分内容不予显示。"
+#~ msgstr "Some contents of this entry will not be displayed due to the restrictions set by Orant."
+
+#~ msgid "时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。  "
+#~ msgstr "Time has stopped on Halloween's eve in this cursed swamp, where Orant, the soul sorceress lives.  "
+
+#~ msgid "永夜沼泽"
+#~ msgstr "Eternal Night Swamp"
+
+#~ msgid "尸块组成的怪物，科幻小说中的杀人魔。"
+#~ msgstr "A monster made up of corpses, famously known to be responsible for a number of death cases in science fiction."
+
+#~ msgid ""
+#~ "由于欧兰特设置了权限，本条目的部分内容不予显示。\n"
+#~ "她的过去与你无关。"
+#~ msgstr ""
+#~ "Special: <color=red>Lightning attacks always target TNTs; steel body deflect certain projectiles</color>\n"
+#~ "People around here are actually not too keen on novels. Whether Frankenstein is the name of the creator or the monster remains a "
+#~ "mystery. As a result, both are called Frankenstein.\n"
+#~ "Some contents of this entry will not be displayed due to the restrictions set by Orant."
+
+#~ msgid "科学怪人"
+#~ msgstr "Frankenstein"
+
+#~ msgid ""
+#~ "永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变"
+#~ "成活物。"
+#~ msgstr ""
+#~ "The curse of Eternal Night Swamp doesn't only freeze the time of the midnight sky. It also shapes the stones underground into statues, "
+#~ "and make them rise from the ground. Once the enchanted lightning strikes these statues, they will be given life and become living "
+#~ "creatures."
+
+#~ msgid ""
+#~ "史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被戴夫所抚养。\n"
+#~ "史蒂夫并不是和村民一样的方块生物，因此常常受到歧视和嘲笑，史蒂夫也因此特别想知道自己的父母是谁。\n"
+#~ "似乎，这个谜就要从这场冒险中解开了。"
+#~ msgstr ""
+#~ "Steve had no parents from the very start of his life. He was unknowingly transferred to the village and was raised by Dave.\n"
+#~ "Steve was not a blocky creature like the Villager, so he was often discriminated against and ridiculed, while wanting to know who his "
+#~ "parents were.\n"
+#~ "It seems that this mystery will be solved in this adventure."
+
+#~ msgid "哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。"
+#~ msgstr "Doremy mentioned that Steve had seen a grave in his dream, and it was the one Steve had seen when he was very young."
+
+#~ msgid "梦境中的坟墓"
+#~ msgstr "Grave in Dream"
+
+#~ msgid ""
+#~ "“爷爷，这个上面有个熔炉的矿车是什么啊？”\n"
+#~ "“孩子，坐下，让我给你讲个故事。”\n"
+#~ "“那是我年轻的时候用动力矿车运送村民的故事……”"
+#~ msgstr ""
+#~ "There was a time when Minecarts with Furnaces were a thing.\n"
+#~ "Only the cool kids will remember this."
+
+#~ msgid "史蒂夫家里的最后防线，当敌人突破器械阵线后会碾压前方一行的敌人。"
+#~ msgstr "Steve’s House’s last line of defense. It will crush all enemies in the lane when they get too close to the house."
+
+#~ msgid "史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。"
+#~ msgstr "Steve's automated miner, which automatically digs for redstone during the day."
+
+#~ msgid ""
+#~ "史蒂夫精通机械，这台自动矿场出自他的手中。依靠太阳能工作，自动寻找地下存储的红石矿，然后将其运输到地表。\n"
+#~ "……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？"
+#~ msgstr ""
+#~ "Steve is good at mechanics, and this miner is built by him. With the help of solar energy, it can automatically find the underground "
+#~ "deposits of redstone ore, and then transport it to the surface for energy.\n"
+#~ "...But since it needs solar energy, why not directly turn solar energy into energy?"
+
+#~ msgid "矿场"
+#~ msgstr "Miner"
+
+#~ msgid "只是个路过的幽灵而已。"
+#~ msgstr "Just a ghost passing by."
+
+#~ msgid "小幽灵"
+#~ msgstr "Napstablook"
+
+#~ msgid "小幽灵会在你使用铁剑击中时生气，然后麻痹你的剑。"
+#~ msgstr "Napstablook will get ANGERY when you hit it with your sword, paralyzing the sword for a short while."
+
+#~ msgid ""
+#~ "梦魇是从虚空中诞生的上古之神所抛弃的残滓，它们成群地漂浮于深邃的宇宙之中，被恐惧所诱惑，吞噬并腐化碰到的所有东西，是既不受上古之神欢"
+#~ "迎，也不被生命所接纳的怪物。\n"
+#~ "宇宙中的梦魇成千上万，唯有这一只嗅到了梦境世界的恐惧气息而降落于此。为了保护自己初期弱小的身躯，它伪装成一匹马骗过梦境的管理者，随后开"
+#~ "始在不为人知的情况下腐蚀整个梦境，将整个梦境世界据为己有。\n"
+#~ "作为古神的残滓，其力量仍不可小觑。精神脆弱的人类无法察觉它那令人不安的、不可言状的外观，为了保护自己的精神，便会将其视作自身可以接受的"
+#~ "事物，但仍面目可惧。"
+#~ msgstr ""
+#~ "Nightmares are the residues abandoned by the old gods born from the void. They float in groups in the deep universe, tempted by fear, "
+#~ "devouring and corrupting everything they encounter. They are monsters that are neither welcomed by the old gods nor accepted by life.\n"
+#~ "There are thousands of Nightmares in the universe. Only this one smelled the traces of fear in the Dream World and landed there. In "
+#~ "order to protect its weak body in its early development stage, it disguised as a horse to deceive the dream manager, and then began to "
+#~ "corrupt the whole dream without anyone knowing, taking the whole Dream World as its own.\n"
+#~ "As the residue of old gods, its power cannot be underestimated. Human beings with fragile minds cannot perceive its disturbing and "
+#~ "unspeakable appearance. In order to protect their minds, they will normally perceive it as something they can accept, but still has a "
+#~ "frightening appearance."
+
+#~ msgid "梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。"
+#~ msgstr "The Nightmare Box no longer contains any harmful magic. All it can do now is projecting the Nightmare World's image."
+
+#~ msgid "梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。"
+#~ msgstr "Nightmare is a terrible monster that is able to deceive senses and corrosion, with countless incarnations."
+
+#~ msgid "梦魇"
+#~ msgstr "Nightmare"
+
+#~ msgid "梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。"
+#~ msgstr ""
+#~ "The Nightmare Box is a container made by collecting dark magic from Nightmare, and can turn the Dream World into Nightmare World."
+
+#~ msgid "梦魇魔盒"
+#~ msgstr "Nightmare Box"
+
+#~ msgid ""
+#~ "哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来"
+#~ "咪。\n"
+#~ "现在你看到的就是梦境世界的真正模样。"
+#~ msgstr ""
+#~ "Doremy had seen a black horse in the Dream World a few months ago, which was Nightmare in disguise. Nightmare then began its "
+#~ "corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
+#~ "What you now see is the true appearance of the Dream World."
+
+#~ msgid "噩梦世界是被梦魇所腐化的梦境世界。"
+#~ msgstr "Nightmare World is the Dream World corrupted by Nightmare."
+
+#~ msgid "噩梦世界"
+#~ msgstr "Nightmare World"
+
+#~ msgid "“我恨你。”"
+#~ msgstr "\"I HATE YOU.\""
+
+#~ msgid "噩梦猫会刺死任何它所恨的人。"
+#~ msgstr "Nyaightmares will pierce anyone it hates to death."
+
+#~ msgid "噩梦猫"
+#~ msgstr "Nyaightmare"
+
+#~ msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
+#~ msgstr "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
+
+#~ msgid "彩虹猫能萌死任何接触到的敌人。"
+#~ msgstr "Nyan Cats are soooo cute that they make any enemy touching it die."
+
+#~ msgid "彩虹猫"
+#~ msgstr "Nyan Cat"
+
+#~ msgid "永夜沼泽的最后防线，会发出绿色光芒，当敌人突破器械阵线后会碾压前方一行的敌人。"
+#~ msgstr ""
+#~ "The last line of defense in the Swamp. It emits a green glow, and will crush all enemies in the lane when they get too close to the "
+#~ "house."
+
+#~ msgid "南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。"
+#~ msgstr ""
+#~ "The eternal flame inside the pumpkins cannot be extinguished by water, blown away by wind or affected by chemical reactions. But some "
+#~ "people just can't sleep with it - it shines so bright and you literally can’t turn this thing off."
+
+#~ msgid ""
+#~ "未知人士留下了一些记录。\n"
+#~ "星之记录 其二：\n"
+#~ "我做了一个很古怪的梦。\n"
+#~ "我梦见我在一个满是眼睛的紫色空间中，不断漂浮沉沦。我看到一个黄色头发的少女，持着紫色的阳伞坐在空中。\n"
+#~ "她似乎正忙于干自己的事情，并没有发现我的存在。我便如此坠入无底的深渊。\n"
+#~ "我睁开眼睛，发现自己正在一片粉色花朵的树环绕的空地上。"
+#~ msgstr ""
+#~ "Records left by an anonymous person.\n"
+#~ "\n"
+#~ "Star Record 2:\n"
+#~ "I had a very strange dream.\n"
+#~ "I dreamed that I was floating and sinking in a purple space full of eyes. I saw a girl with yellow hair sitting in the air with a "
+#~ "purple parasol.\n"
+#~ "She seemed to be busy with her own business and didn't notice me. Then I fell into a bottomless abyss.\n"
+#~ "I opened my eyes and found myself in a plain field, surrounded by trees with pink flowers."
+
+#~ msgid "星之碎片会唤醒你的器械，爆发出真正的潜力。"
+#~ msgstr "Starshards can evoke your contraptions, and make your contraptions burst with superpower."
+
+#~ msgid "星之碎片：清明梦"
+#~ msgstr "Starshard: Lucid Dream"
+
+#~ msgid ""
+#~ "未知人士留下了一些记录。\n"
+#~ "星之记录 其一：\n"
+#~ "自那件事以来，每当我沉睡于梦中，总会在深不可测的黑暗中看到一个物体，它闪着星形的光，随之它便离我远去。\n"
+#~ "我并不理解这是什么意思。后来即使不在梦中，我也总是能看到类似的物体，这十分反常。\n"
+#~ "当我离开不属于我的那片土地时，我在一片沼泽中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。"
+#~ msgstr ""
+#~ "Records left by an anonymous person.\n"
+#~ "Star Record 1:\n"
+#~ "Since then, whenever I slept, I would always dream of an object in an unfathomable darkness, it shone in the shape of a star, and then "
+#~ "went away from me.\n"
+#~ "I didn't understand what it means. Later, even when I wasn't dreaming, I could still often see similar objects, which is very "
+#~ "abnormal.\n"
+#~ "When I left the land that I don't belong to, I saw a rainbow-colored candy in a swamp. It was very similar to those stars, but I was "
+#~ "still not sure what they were."
+
+#~ msgid "星之碎片：神奇糖果"
+#~ msgstr "Starshard: Magic Candy"
+
+#~ msgid "坑爹村民的村庄之前遭受了僵尸的攻击而导致毁灭，于是他们搬到了公路附近的一片广阔平原上，开始了新的生活。"
+#~ msgstr ""
+#~ "Crazy Villager's Village has previously been ruined by a raid from zombies, so they moved to a wide plain near the road, and started a "
+#~ "new life."
+
+#~ msgid "这里是史蒂夫和坑爹村民住的地方。"
+#~ msgstr "Steve and Crazy Villager live here."
+
+#~ msgid "史蒂夫的家"
+#~ msgstr "Steve's House"
+
 #~ msgid "技能：朝前方发射大量箭矢"
 #~ msgstr "Evocation: Rapidly shoot a large amount of arrows"
 

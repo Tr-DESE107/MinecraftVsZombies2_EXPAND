@@ -183,6 +183,14 @@ namespace MVZ2.Options
         public const string OPTION_SOUND = "音效音量：{0}";
         [TranslateMsg("值，{0}为百分数")]
         public const string OPTION_VALUE_PERCENT = "{0}%";
+
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_BLOOD_AND_GORE = "血与碎块：{0}";
+
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_PARTICLE_AMOUNT = "粒子数量：{0}";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_SHAKE_AMOUNT = "屏幕震动：{0}";
         protected MainManager Main => MainManager.Instance;
         protected OptionsDialog dialog;
     }

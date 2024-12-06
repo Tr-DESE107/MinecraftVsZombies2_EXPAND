@@ -25,6 +25,7 @@ namespace MVZ2.Metas
 
     public class TalkCharacterMeta
     {
+        public string id;
         public string name;
         public NamespaceID unlockCondition;
         public List<TalkCharacterVariant> variants = new List<TalkCharacterVariant>();
@@ -36,6 +37,7 @@ namespace MVZ2.Metas
         public static TalkCharacterMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var meta = new TalkCharacterMeta();
+            meta.id = node.GetAttribute("id");
             meta.name = node.GetAttribute("name");
             meta.unlockCondition = node.GetAttributeNamespaceID("unlock", defaultNsp);
 

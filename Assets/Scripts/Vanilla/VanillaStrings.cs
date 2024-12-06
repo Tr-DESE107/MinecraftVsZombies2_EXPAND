@@ -18,10 +18,16 @@ namespace MVZ2.Vanilla
         public const string UI_CONFIRM_TUTORIAL = "是否进行新手教程？";
         [TranslateMsg]
         public const string UI_TUTORIAL = "新手教程";
-        [TranslateMsg]
-        public const string UI_YES = "是";
-        [TranslateMsg]
-        public const string UI_NO = "否";
+
+
+        [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_NONE = "无";
+        [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_SHORT = "短";
+        [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_LONG = "长";
+        [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_VERY_LONG = "很长";
 
         [TranslateMsg("通用的是")]
         public const string YES = "是";
@@ -43,11 +49,6 @@ namespace MVZ2.Vanilla
         public const string QUIT = "退出";
         [TranslateMsg("通用文本")]
         public const string CONTINUE = "继续";
-
-        [TranslateMsg("按钮文本")]
-        public const string BUTTON_TEXT_BACK_TO_MAP = "返回地图";
-        [TranslateMsg("按钮文本")]
-        public const string BUTTON_TEXT_BACK_TO_MAINMENU = "返回主菜单";
 
         [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_NOT_ENOUGH_ENERGY = "能量不足";
@@ -86,11 +87,16 @@ namespace MVZ2.Vanilla
         [TranslateMsg("实体说明-未知", CONTEXT_ENTITY_TOOLTIP)]
         public const string UNKNOWN_ENTITY_TOOLTIP = "？？？";
 
+        public static string GetAlmanacDescriptionContext(string category)
+        {
+            return $"{category}.description";
+        }
         public const string CONTEXT_ADVICE_ERROR = "advice.error";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
-        public const string CONTEXT_ENTITY_DESCRIPTION = "entity.description";
+        public const string CONTEXT_ALMANAC = "almanac";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
+        public const string CONTEXT_RECHARGE_TIME = "recharge_time";
     }
 }

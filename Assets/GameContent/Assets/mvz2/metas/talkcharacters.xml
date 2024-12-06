@@ -1,10 +1,10 @@
 <characters>
-    <character name="crazy_villager">
+    <character id="crazy_villager" name="村民">
         <variant id="mvz2:normal" width="488" height="1000" pivotX="0.5" pivotY="0.5">
             <layer sprite="mvz2:characters/crazy_villager[0]" />
         </variant>
     </character>
-    <character name="orant">
+    <character id="orant" name="欧兰特">
         <variant id="mvz2:normal" width="418" height="1280" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/orant[0]" />
         </variant>
@@ -15,7 +15,7 @@
             <layer sprite="mvz2:characters/orant[2]" positionX="0" positionY="0" />
         </variant>
     </character>
-    <character name="doremy">
+    <character id="doremy" name="哆来咪">
         <variant id="mvz2:normal" width="641" height="1280" pivotX="0.5" pivotY="0.5">
             <layer sprite="mvz2:characters/doremy[0]" />
         </variant>

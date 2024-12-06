@@ -1,11 +1,22 @@
-﻿using System.IO;
+﻿using System.CodeDom;
+using System.IO;
 using System.IO.Compression;
+using System.Xml;
 using MukioI18n;
 using MVZ2.IO;
+using MVZ2.Managers;
+using MVZ2.Metas;
+using MVZ2.Modding;
+using MVZ2.Vanilla;
+using PVZEngine;
 using UnityEditor;
+using UnityEditor.AddressableAssets;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.SceneManagement;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Editor
 {
@@ -17,27 +28,93 @@ namespace MVZ2.Editor
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
             var active = SceneManager.GetActiveScene().path;
 
-            foreach (var scene in EditorBuildSettings.scenes)
+            var settings = AddressableAssetSettingsDefaultObject.Settings;
+            foreach (var group in settings.groups)
             {
-                if (!scene.enabled)
-                    continue;
-
-                var sc = EditorSceneManager.OpenScene(scene.path);
-                if (sc == null)
-                    continue;
-
-                var objects = sc.GetRootGameObjects();
-                foreach (var item in objects)
+                foreach (var entry in group.entries)
                 {
-                    SearchObject(item.transform, potGenerator);
+                    if (!entry.IsScene)
+                        continue;
+                    var scenePath = entry.AssetPath;
+
+                    var sc = EditorSceneManager.OpenScene(scenePath);
+                    if (sc == null)
+                        continue;
+
+                    var objects = sc.GetRootGameObjects();
+                    foreach (var item in objects)
+                    {
+                        SearchObject(item.transform, potGenerator);
+                    }
                 }
             }
 
             TranslateMsgAttributeFinder.FindAll(potGenerator);
 
-            potGenerator.WriteOut(GetPoTemplatePath("mvz2.pot"));
+            potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");
             EditorSceneManager.OpenScene(active);
+        }
+        [MenuItem("Custom/Assets/Localization/Update Almanac Translations")]
+        public static void UpdateAlmanacTranslations()
+        {
+            var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
+
+            var spaceName = "mvz2";
+            var metaDirectory = Path.Combine(Application.dataPath, "GameContent", "Assets", spaceName, "metas");
+            var almanacPath = Path.Combine(metaDirectory, "almanac.xml");
+            var entitiesPath = Path.Combine(metaDirectory, "entities.xml");
+            var charactersPath = Path.Combine(metaDirectory, "talkcharacters.xml");
+
+            using FileStream almanacStream = File.Open(almanacPath, FileMode.Open);
+            using FileStream entitiesStream = File.Open(entitiesPath, FileMode.Open);
+            using FileStream talkcharactersStream = File.Open(charactersPath, FileMode.Open);
+
+            var almanacDocument = almanacStream.ReadXmlDocument();
+            var entitiesDocument = entitiesStream.ReadXmlDocument();
+            var talkcharacterDocument = talkcharactersStream.ReadXmlDocument();
+
+            var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
+            var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
+            var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
+
+            var almanacReference = "Almanac meta file";
+            var entitiesReference = "Entity meta file";
+            var characterReference = "Character meta file";
+            foreach (var pair in almanacEntryList.entries)
+            {
+                var category = pair.Key;
+                var entries = pair.Value;
+                foreach (var entry in entries)
+                {
+                    AddTranslation(entry.name, almanacReference, $"Name for {category} {entry.id}", $"{category}.name");
+                    var context = VanillaStrings.GetAlmanacDescriptionContext(category);
+                    AddTranslation(entry.header, almanacReference, $"Header for {category} {entry.id}", context);
+                    AddTranslation(entry.properties, almanacReference, $"Properties for {category} {entry.id}", context);
+                    AddTranslation(entry.flavor, almanacReference, $"Flavor for {category} {entry.id}", context);
+                }
+            }
+            foreach (var meta in entitiesList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(meta.Name, entitiesReference, $"Header for entity {id}", $"entity.name");
+                AddTranslation(meta.Tooltip, entitiesReference, $"Properties for entity {id}", $"entity.tooltip");
+                AddTranslation(meta.DeathMessage, entitiesReference, $"Death message for entity {id}", $"death_message");
+            }
+            foreach (var meta in characterList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.id);
+                AddTranslation(meta.name, characterReference, $"Name for character {id}", $"character.name");
+            }
+            potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
+            Debug.Log("Almanac Translations Updated.");
+
+            void AddTranslation(string text, string reference = null, string comment = null, string context = null)
+            {
+                if (string.IsNullOrEmpty(text))
+                    return;
+                potGenerator.AddString(new PotTranslate(text, reference, comment, context));
+            }
         }
         [MenuItem("Custom/Assets/Localization/Compress Langauge Pack")]
         public static void CompressLanguagePack()
@@ -99,7 +176,7 @@ namespace MVZ2.Editor
         }
         private static string GetPoTemplatePath(string fileName)
         {
-            return Path.Combine(Application.dataPath, "Localization", fileName);
+            return Path.Combine(Application.dataPath, "Localization", "templates", fileName);
         }
     }
 }

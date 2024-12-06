@@ -301,4 +301,33 @@
             </flavor>
         </entry>
     </enemies>
+    <misc>
+        <entry id="mvz2:villager" group="mvz2:characters">
+            <header>
+                <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
+            </header>
+            <flavor>
+                <p>史蒂夫从小到大的抚养者，在几年前突然变得疯狂，言行举止无法被人理解。</p>
+                <p>常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:doremy" group="mvz2:characters">
+            <header>
+                <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
+            </header>
+            <flavor>
+                <p>看管着梦境世界的貘妖怪，能够观察、改变或吞食人的梦境。</p>
+                <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:orant" group="mvz2:characters">
+            <header>
+                <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
+            </header>
+            <flavor>
+                <p>她不想让你知道她太多的事情。</p>
+                <p>只需要知道她常和灵魂与恐惧作伴就可以了。</p>
+            </flavor>
+        </entry>
+    </misc>
 </almanac>

@@ -1,929 +1,737 @@
-
-#, fuzzy
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-22 16:12+0800\n"
-"PO-Revision-Date: 2024-09-10 20:50+0800\n"
-"Last-Translator: \n"
-"Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/general/en_US/>\n"
-"Language: en_US\n"
-"MIME-Version: 1.0\n"
+
+"Project-Id-Version: MinecraftVSZombies2\n"
+"POT-Creation-Date: 2024-12-06 03:50+0800\n"
+"Language-Team: Cuerzor\n"
+"Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
 
-msgid "错误"
-msgstr ""
-
-msgid "警告"
-msgstr ""
-
-msgid "游戏加载失败：\n"
-"{0}"
-msgstr ""
-
-msgid "文件目录丢失"
-msgstr ""
-
-msgid "文件丢失"
-msgstr ""
-
-msgid "文件被占用"
-msgstr ""
-
-msgid "文件读取失败"
-msgstr ""
-
-msgid "文件格式错误"
-msgstr ""
-
+#. 初始界面的作者标识
+#: /MainGame/MainScene/Landing/Canvas/Creator
 msgid "Cuerzor制作"
 msgstr ""
 
-msgid "版本{0}"
-msgstr ""
-
-msgid "退出"
-msgstr ""
-
-msgid "加载中……"
-msgstr ""
-
-msgid "输入文字……"
-msgstr ""
-
-msgid "选择您的偏好语言"
-msgstr ""
-
+#. 标题界面按钮文本
+#: /MainGame/MainScene/Titlescreen/Canvas/StartButton/Text
 msgid "点击以开始！"
 msgstr ""
 
-msgid "触摸以开始！"
-msgstr ""
-
-msgid "确定"
-msgstr ""
-
-msgid "返回"
-msgstr ""
-
-msgid "返回列表"
-msgstr ""
-
-msgid "返回主菜单"
-msgstr ""
-
-msgid "返回地图"
-msgstr ""
-
-msgid "血与碎块：{0}"
-msgstr ""
-
-msgid "取消"
-msgstr ""
-
-msgid "第一次游戏必须输入用户名"
-msgstr ""
-
-msgid "您通关了这一章节。\n"
-"下一章节目前还在进行新版本的开发。\n"
-"或许……您可以试试无尽模式？"
-msgstr ""
-
-msgid "确认删除用户{0}吗？\n"
-"该用户所有的数据都将被删除！"
-msgstr ""
-
-msgid "选择你的蓝图"
-msgstr ""
-
-msgid "确认要返回吗？\n"
-"你的进度会被保存。"
-msgstr ""
-
-msgid "加载关卡失败，出现错误：{0}"
-msgstr ""
-
-msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
-msgstr ""
-
-msgid "购买第七个器械槽位？"
-msgstr ""
-
-msgid "确认要退出吗？"
-msgstr ""
-
-msgid "是否进行新手教程？"
-msgstr ""
-
-msgid "恭喜！"
-msgstr ""
-
-msgid "继续"
-msgstr ""
-
-msgid "是否继续上一次的进度？"
-msgstr ""
-
-msgid "（新建用户）"
-msgstr ""
-
-msgid "自定义"
-msgstr ""
-
-msgid "删除"
-msgstr ""
-
-msgid "已经存在该用户名"
-msgstr ""
-
-msgid "进入商店"
-msgstr ""
-
-msgid "删除用户"
-msgstr ""
-
-msgid "难度：{0}"
-msgstr ""
-
-msgid "后台暂停：{0}"
-msgstr ""
-
-msgid "正在进入关卡……"
-msgstr ""
-
-msgid "尸潮"
-msgstr ""
-
-msgid "黑太阳"
-msgstr ""
-
-msgid "成真"
-msgstr ""
-
-msgid "衰老"
-msgstr ""
-
-msgid "疯狂"
-msgstr ""
-
-msgid "潘多拉的魔盒"
-msgstr ""
-
-msgid "深潜者"
-msgstr ""
-
-msgid "选吧。"
-msgstr ""
-
-msgid "选择你的命运"
-msgstr ""
-
-msgid "轮数"
-msgstr ""
-
-msgid "高"
-msgstr ""
-
-msgid "全屏：{0}"
-msgstr ""
-
-msgid "游戏结束"
-msgstr ""
-
-msgid "输入……"
-msgstr ""
-
-msgid "请输入用户名"
-msgstr ""
-
-msgid "语言"
-msgstr ""
-
-msgid "一起摇滚吧！"
-msgstr ""
-
-msgid "当前关卡正在开发！\n"
-"请在以后的版本中游玩。"
-msgstr ""
-
-msgid "按住右键拖动以移动视图\n"
-"滚轮以缩放视图"
-msgstr ""
-
-msgid "单指拖动以移动视图\n"
-"双指触摸以缩放视图"
-msgstr ""
-
-msgid "菜单"
-msgstr ""
-
-msgid "更多选项"
-msgstr ""
-
-msgid "音乐音量：{0}"
-msgstr ""
-
-msgid "否"
-msgstr ""
-
-msgid "用户名不能为空"
-msgstr ""
-
-msgid "不建议在这关使用"
-msgstr ""
-
-msgid "夜用型 - 白天失效"
-msgstr ""
-
-msgid "关"
-msgstr ""
-
-msgid "游戏暂停"
-msgstr ""
-
-msgid "播放"
-msgstr ""
-
-msgid "好"
-msgstr ""
-
-msgid "开"
-msgstr ""
-
-msgid "粒子数量：{0}"
-msgstr ""
-
-msgid "购买"
-msgstr ""
-
-msgid "退出"
-msgstr ""
-
-msgid "列"
-msgstr ""
-
-msgid "重命名"
-msgstr ""
-
-msgid "分辨率"
-msgstr ""
-
-msgid "重新开始"
-msgstr ""
-
-msgid "确认要重新开始关卡吗？\n"
-"本关的进度都将丢失。"
-msgstr ""
-
-msgid "返回游戏"
-msgstr ""
-
-msgid "再试一次"
-msgstr ""
-
-msgid "行"
-msgstr ""
-
-msgid "设备震动：{0}"
-msgstr ""
-
-msgid "音效音量：{0}"
-msgstr ""
-
-msgid "交换触发"
-msgstr ""
-
-msgid "新手教程"
-msgstr ""
-
-msgid "你无法删除唯一一个用户"
-msgstr ""
-
-msgid "屏幕震动：{0}"
-msgstr ""
-
-msgid "查看草坪"
-msgstr ""
-
-msgid "查看图鉴"
-msgstr ""
-
-msgid "我是谁？"
-msgstr ""
-
-msgid "是"
-msgstr ""
-
-msgctxt "achievement"
-msgid "解锁成就！"
-msgstr ""
-
-msgctxt "achievement"
-msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
-msgstr ""
-
-msgctxt "achievement"
-msgid "活塞递推"
-msgstr ""
-
-msgctxt "achievement"
-msgid "已解锁！"
-msgstr ""
-
-msgctxt "achievement"
-msgid "在不照亮任何一次的情况下消灭一个幽灵。"
-msgstr ""
-
-msgctxt "achievement"
-msgid "捉鬼敢死队"
-msgstr ""
-
-msgctxt "achievement"
-msgid "用一个火焰弹消灭一只恶魂。"
-msgstr ""
-
-msgctxt "achievement"
-msgid "见鬼去吧"
-msgstr ""
-
-msgctxt "achievement"
-msgid "让一个没有船的僵尸走进水上并沉没。"
-msgstr ""
-
-msgctxt "achievement"
-msgid "永远不会让你Swim"
-msgstr ""
-
-msgctxt "archive"
-msgid "如果成交"
-msgstr ""
-
-msgctxt "archive"
-msgid "教程完成后"
-msgstr ""
-
-msgctxt "archive"
-msgid "背景"
-msgstr ""
-
-msgctxt "archive"
-msgid "（哆来咪出现）"
-msgstr ""
-
-msgctxt "archive"
-msgid "（哆来咪倒地）"
-msgstr ""
-
-msgctxt "archive"
-msgid "（哆来咪睁开了她失明的双眼）"
-msgstr ""
-
-msgctxt "archive"
-msgid "（哆来咪双手抱头痛苦不堪）"
-msgstr ""
-
-msgctxt "archive"
-msgid "筛选"
-msgstr ""
-
-msgctxt "archive"
-msgid "（史蒂夫和村民前往了梦境世界。）"
-msgstr ""
-
-msgctxt "archive"
-msgid "是否有足够的金钱？"
-msgstr ""
-
-msgctxt "archive"
-msgid "如果金钱不够"
-msgstr ""
-
-msgctxt "archive"
-msgid "如果金钱足够"
-msgstr ""
-
-msgctxt "archive"
-msgid "音乐"
-msgstr ""
-
-msgctxt "archive"
-msgid "（噩梦世界展现了出来）"
-msgstr ""
-
-msgctxt "archive"
-msgid "（欧兰特出现）"
-msgstr ""
-
-msgctxt "archive"
-msgid "剧情分支"
-msgstr ""
-
-msgctxt "archive"
-msgid "如果拒绝"
-msgstr ""
-
-msgctxt "archive"
-msgid "播放结束"
-msgstr ""
-
-msgctxt "archive"
-msgid "是否再次播放？"
-msgstr ""
-
-msgctxt "archive"
-msgid "搜索"
-msgstr ""
-
-msgctxt "archive"
-msgid "段落{0}"
-msgstr ""
-
-msgctxt "archive"
-msgid "段落"
-msgstr ""
-
-msgctxt "archive"
-msgid "片段"
-msgstr ""
-
-msgctxt "archive"
-msgid "如果不进行教程"
-msgstr ""
-
-msgctxt "archive"
-msgid "开始序章"
-msgstr ""
-
-msgctxt "archive"
-msgid "开始段落"
-msgstr ""
-
-msgctxt "archive"
-msgid "梦境世界"
-msgstr ""
-
-msgctxt "archive"
-msgid "万圣夜"
-msgstr ""
-
-msgctxt "archive"
-msgid "序章"
-msgstr ""
-
-msgctxt "archive"
-msgid "标签"
-msgstr ""
-
-msgctxt "archive"
-msgid "如果进行教程"
-msgstr ""
-
-msgid "成就"
-msgstr ""
-
-msgid "对话档案"
-msgstr ""
-
-msgid "冒险模式"
-msgstr ""
-
+#. 主界面文字
+#: /MainGame/MainScene/Mainmenu/Elements/Labels/YourName/Label
 msgid "你的名字是："
 msgstr ""
 
-msgctxt "music"
-msgid "选择你的种子"
+#. 主界面文字
+#: /MainGame/MainScene/Mainmenu/Elements/Labels/Adventure
+msgid "冒险模式"
 msgstr ""
 
-msgctxt "music"
-msgid "草地行走"
+#. 主界面文字
+#: /MainGame/MainScene/Mainmenu/Elements/Labels/Archive
+msgid "对话档案"
 msgstr ""
 
-msgctxt "music"
-msgid "破碎的童话-关卡"
+#. 主界面文字
+#: /MainGame/MainScene/Mainmenu/Elements/Labels/Achievement
+msgid "成就"
 msgstr ""
 
-msgctxt "music"
-msgid "破碎的童话-地图"
+#. 菜单对话框的标题
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/TitleArea/Title
+msgid "我是谁？"
 msgstr ""
 
-msgctxt "music"
-msgid "莱克死灵之书-关卡"
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Users/CreateNewUserButton/Name
+msgid "（新建用户）"
 msgstr ""
 
-msgctxt "music"
-msgid "莱克死灵之书-首领"
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Middle/RenameButton/Text
+msgid "重命名"
 msgstr ""
 
-msgctxt "music"
-msgid "莱克死灵之书-地图"
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Middle/DeleteButton/Text
+msgid "删除"
 msgstr ""
 
-msgctxt "music"
-msgid "疯狂戴夫"
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/SwitchButton/Text
+msgid "确定"
 msgstr ""
 
-msgctxt "music"
-msgid "狂人的愉悦"
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/BackButton/Text
+msgid "返回"
 msgstr ""
 
-msgctxt "music"
-msgid "猩红之地"
+#. 输入名称对话框的标题
+#: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/TitleArea/Title
+msgid "请输入用户名"
 msgstr ""
 
-msgctxt "music"
-msgid "终极之战"
+#. 输入框默认文字
+#: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/InputField/Text Area/Placeholder
+msgid "输入文字……"
 msgstr ""
 
-msgctxt "music"
-msgid "无"
+#: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/Buttons/CancelButton/Text
+msgid "取消"
 msgstr ""
 
-msgid "商店"
+#. 菜单对话框的标题
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
+msgid "菜单"
 msgstr ""
 
-msgid "{0} 槽"
+#. 关卡内菜单选项
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
+msgid "重新开始"
 msgstr ""
 
-msgid "确定以${0:N0}的价格买下这个物品？"
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
+msgid "更多选项"
 msgstr ""
 
-msgid "我吃地上的东西！"
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
+msgid "语言"
 msgstr ""
 
-msgid "Whaddaya Buyin'?"
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
+msgid "分辨率"
 msgstr ""
 
-msgid "倒吊人今天会带给你好运！"
+#. 对话跳过按钮
+#: /MainGame/MainScene/Note/Talk/SkipButton/Text
+msgid "跳过"
 msgstr ""
 
-msgid "你根本不知道在海的这边泥土有多值钱！"
+#. 图鉴按钮
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewContraptionRegion/Button/Text
+msgid "查看器械"
 msgstr ""
 
-msgid "哼！我是说——哼！"
+#. 图鉴按钮
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewCharactersRegion/Button/Text
+msgid "查看人物"
 msgstr ""
 
-msgid "一次购买多张蓝图会发生可怕的事情！我骗你的！"
+#. 图鉴按钮
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewEnemyRegion/Button/Text
+msgid "查看怪物"
 msgstr ""
 
-msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
+#. 图鉴按钮
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewMiscRegion/Button/Text
+msgid "查看杂项"
 msgstr ""
 
-msgid "把传动力板放在重力板上，让它能够操纵上方子弹和敌人的位置！"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/ContraptionsStandalone/Center/BlueprintList/Title
+msgid "器械图鉴"
 msgstr ""
 
-msgid "把传染发射器放在小型发射器上，让它发射的子弹能够在敌人之间传播！"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Enemies/Center/Entries/Title
+msgid "敌人图鉴"
 msgstr ""
 
-msgid "更多的碎片槽！让你的器械爆发吧！"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Characters/Center/Entries/Title
+msgid "人物图鉴"
 msgstr ""
 
-msgid "你没有足够的金钱！"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Miscs/Center/Entries/Title
+msgid "杂项图鉴"
 msgstr ""
 
-msgid "页面{0}/{1}"
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
+msgid "选择你的蓝图"
 msgstr ""
 
-msgid "售罄"
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+msgid "一起摇滚吧！"
 msgstr ""
 
-msgctxt "levelname"
-msgid "测试关"
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+msgid "查看战场"
 msgstr ""
 
-msgctxt "levelname"
-msgid "{0} - 第{1}天"
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+msgid "查看图鉴"
 msgstr ""
 
-msgctxt "levelname"
-msgid "梦境世界"
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+msgid "进入商店"
 msgstr ""
 
-msgctxt "levelname"
-msgid "{0}(无尽版)"
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
 msgstr ""
 
-msgctxt "levelname"
-msgid "{0} - 第{1}轮"
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "返回游戏"
 msgstr ""
 
-msgctxt "levelname"
-msgid "万圣夜"
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
 msgstr ""
 
-msgctxt "levelname"
-msgid "序章"
+#. 读取游戏对话框的标题
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
+msgid "继续"
 msgstr ""
 
-msgctxt "levelname"
-msgid "教程关"
+#. 读取游戏对话框的描述
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
+msgid "是否继续上一次的进度？"
 msgstr ""
 
-msgctxt "levelname"
-msgid "未知关卡"
+#. 读取游戏失败对话框的标题
+#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
+msgid "错误"
 msgstr ""
 
-msgctxt "advice"
-msgid "点击以继续"
-msgstr ""
-
-msgctxt "advice.collect_money"
-msgid "点击收集宝石！"
-msgstr ""
-
-msgctxt "advice.collect_money"
-msgid "收集宝石来获得更酷的道具吧！"
-msgstr ""
-
-msgctxt "advice"
-msgid "更多的敌人要来了！"
-msgstr ""
-
-msgctxt "advice.error"
-msgid "请先放睡莲"
-msgstr ""
-
-msgctxt "advice.error"
-msgid "你不能在雕像上放置器械"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "方片A"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "瓷器小镇"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "手套响指"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "地狱金属"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "黑曜石囚牢"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "红石俱备"
-msgstr ""
-
-msgctxt "advice.random_china"
-msgid "塔 - XVI"
-msgstr ""
-
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:200
 msgctxt "advice.starshard_tutorial.0"
-msgid "点击星之碎片槽选中星之碎片！"
+msgid "点击星之碎片槽选中星之碎片！！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:202
 msgctxt "advice.starshard_tutorial.1"
 msgid "点击发射器！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:204
 msgctxt "advice.starshard_tutorial.2"
 msgid "干得漂亮！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:206
 msgctxt "advice.starshard_tutorial.3"
 msgid "绿色的怪物会携带星之碎片！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:208
 msgctxt "advice.starshard_tutorial.4"
 msgid "点击收集星之碎片！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:210
 msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr ""
 
-msgctxt "advice.trigger_tutorial.0"
-msgid "点击并放置TNT！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.1"
-msgid "点击能量面板选中触发器！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.10"
-msgid "祝你好运！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.2"
-msgid "点击以触发TNT！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.3"
-msgid "干得漂亮！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.4"
-msgid "选中触发器！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.5"
-msgid "点击TNT蓝图！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.6"
-msgid "放置TNT，它会立即被触发！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.7"
-msgid "干得好！"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.8"
-msgid "立即触发只限于一次性消耗类型的器械。"
-msgstr ""
-
-msgctxt "advice.trigger_tutorial.9"
-msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
-msgstr ""
-
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:431
 msgctxt "advice.tutorial.0"
-msgid "点击器械卡牌选中器械！"
+msgid "左键点击器械卡牌选中器械！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:433
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:435
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:437
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:439
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:441
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:443
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:445
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:447
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:449
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr ""
 
-msgctxt "advice.tutorial.12"
-msgid "干得漂亮！"
-msgstr ""
-
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:451
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:453
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:455
+msgctxt "advice.tutorial.12"
+msgid "干得漂亮！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:457
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:459
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:461
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:463
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr ""
 
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:465
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr ""
 
-msgctxt "death_message"
-msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
+# 拾取宝石的帮助提示
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
+msgctxt "advice.collect_money"
+msgid "点击收集宝石！"
 msgstr ""
 
-msgctxt "death_message"
-msgid "<color=red>来 到 我 们 之 中 吧</color>"
+# 拾取宝石的帮助提示
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:95
+msgctxt "advice.collect_money"
+msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
-msgctxt "death_message"
-msgid "亲爱的日记：今天我死了。"
+# 教程无法使用提示
+#: Scripts\Vanilla\VanillaStrings.cs:7
+msgid "无法使用"
 msgstr ""
 
-msgctxt "death_message"
-msgid "快拿出棒球棍！"
+# 不能在雕像上放置器械提示
+#: Scripts\Vanilla\VanillaStrings.cs:10
+msgctxt "advice.error"
+msgid "你不能在雕像上放置器械"
 msgstr ""
 
-msgctxt "death_message"
-msgid "我们现在，都是幽灵了。"
+#: Scripts\Vanilla\VanillaStrings.cs:13
+msgid "购买"
 msgstr ""
 
-msgctxt "death_message"
-msgid "你去告诉作者，说他忘了设置死亡信息了。"
+#: Scripts\Vanilla\VanillaStrings.cs:15
+msgid "购买第七个器械槽位？"
 msgstr ""
 
-msgctxt "death_message"
-msgid "隔离！"
+#: Scripts\Vanilla\VanillaStrings.cs:17
+msgid "是否进行新手教程？"
 msgstr ""
 
-msgctxt "death_message"
-msgid "没有坟墓能束缚我！没有坟墓能束缚我！"
+#: Scripts\Vanilla\VanillaStrings.cs:19
+msgid "新手教程"
 msgstr ""
 
-msgctxt "death_message"
-msgid "你挂了\n"
-"死亡带走了12450金币和经验值"
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:23
+msgctxt "recharge_time"
+msgid "无"
 msgstr ""
 
-msgctxt "death_message"
-msgid "恐怖寄生虫 已消灭世界上的所有……"
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:25
+msgctxt "recharge_time"
+msgid "短"
 msgstr ""
 
-msgctxt "death_message"
-msgid "被射成刺猬了！"
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:27
+msgctxt "recharge_time"
+msgid "长"
 msgstr ""
 
-msgctxt "death_message"
-msgid "我的蜘蛛感应又有反应了。"
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:29
+msgctxt "recharge_time"
+msgid "很长"
 msgstr ""
 
-msgctxt "death_message"
-msgid "脑子是好的，但不是每个人都有"
+# 通用的是
+#: Scripts\Vanilla\VanillaStrings.cs:32
+msgid "是"
 msgstr ""
 
-msgctxt "death_message"
-msgid "你死了！"
+# 通用的否
+#: Scripts\Vanilla\VanillaStrings.cs:34
+msgid "否"
 msgstr ""
 
+# 通用的返回
+#: Scripts\Vanilla\VanillaStrings.cs:36
+msgid "返回"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:38
+msgid "重新开始"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:40
+msgid "返回地图"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:42
+msgid "返回主菜单"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:44
+msgid "错误"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:46
+msgid "警告"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:48
+msgid "退出"
+msgstr ""
+
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:50
+msgid "继续"
+msgstr ""
+
+# 游戏内文本提示
+#: Scripts\Vanilla\VanillaStrings.cs:53
+msgid "能量不足"
+msgstr ""
+
+# 游戏内文本提示
+#: Scripts\Vanilla\VanillaStrings.cs:55
+msgid "重新充能中…"
+msgstr ""
+
+# 游戏内文本提示
+#: Scripts\Vanilla\VanillaStrings.cs:57
+msgid "挖掉器械"
+msgstr ""
+
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgctxt "difficulty"
 msgid "简单"
 msgstr ""
 
-msgctxt "difficulty"
-msgid "困难"
-msgstr ""
-
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "difficulty"
 msgid "普通"
 msgstr ""
 
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:65
+msgctxt "difficulty"
+msgid "困难"
+msgstr ""
+
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:67
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr ""
 
-msgid "挖掉器械"
+# 关卡名称
+#: Scripts\Vanilla\VanillaStrings.cs:71
+msgctxt "levelname"
+msgid "未知关卡"
 msgstr ""
 
-msgid "无法使用"
+# 关卡名称
+#: Scripts\Vanilla\VanillaStrings.cs:73
+msgctxt "levelname"
+msgid "序章"
 msgstr ""
 
-msgid "已锁定"
+# 关卡名称
+#: Scripts\Vanilla\VanillaStrings.cs:75
+msgctxt "levelname"
+msgid "万圣夜"
 msgstr ""
 
-msgid "能量不足"
+# 关卡名称，{0}为关卡名，{1}为冒险模式天数
+#: Scripts\Vanilla\VanillaStrings.cs:77
+msgctxt "levelname"
+msgid "{0} - 第{1}天"
 msgstr ""
 
-msgid "触发器械"
+# 死亡信息-未知
+#: Scripts\Vanilla\VanillaStrings.cs:81
+msgctxt "death_message"
+msgid "你死了！"
 msgstr ""
 
-msgid "重新充能中…"
+# 实体名称-未知
+#: Scripts\Vanilla\VanillaStrings.cs:84
+msgctxt "entity.name"
+msgid "？？？"
 msgstr ""
 
-msgctxt "blueprint"
-msgid "增加弹珠"
+# 实体说明-未知
+#: Scripts\Vanilla\VanillaStrings.cs:87
+msgctxt "entity.tooltip"
+msgid "？？？"
 msgstr ""
 
-msgctxt "blueprint"
-msgid "增长挡板"
+# 标题页面的版本号文本，{0}为版本号
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:37
+msgid "版本{0}"
 msgstr ""
 
-msgctxt "blueprint"
-msgid "返回弹珠"
+# 开始游戏时读取出错，对话框的描述，{0}为错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:81
+msgid ""
+"游戏加载失败：\n"
+"{0}"
 msgstr ""
 
-msgid "点击继续"
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:83
+msgid "文件目录丢失"
 msgstr ""
 
-msgid "跳过"
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:85
+msgid "文件丢失"
 msgstr ""
+
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:87
+msgid "文件被占用"
+msgstr ""
+
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:89
+msgid "文件读取失败"
+msgstr ""
+
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:91
+msgid "文件格式错误"
+msgstr ""
+
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:168
+msgid "交换触发：{0}"
+msgstr ""
+
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:170
+msgid "全屏：{0}"
+msgstr ""
+
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:172
+msgid "设备震动：{0}"
+msgstr ""
+
+# 选项，{0}为难度
+#: Scripts\MVZ2\Options\OptionsLogic.cs:174
+msgid "难度：{0}"
+msgstr ""
+
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:176
+msgid "后台暂停：{0}"
+msgstr ""
+
+# 选项，{0}为量
+#: Scripts\MVZ2\Options\OptionsLogic.cs:180
+msgid "音乐音量：{0}"
+msgstr ""
+
+# 选项，{0}为量
+#: Scripts\MVZ2\Options\OptionsLogic.cs:182
+msgid "音效音量：{0}"
+msgstr ""
+
+# 值，{0}为百分数
+#: Scripts\MVZ2\Options\OptionsLogic.cs:184
+msgid "{0}%"
+msgstr ""
+
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:187
+msgid "血与碎块：{0}"
+msgstr ""
+
+# 选项，{0}为量
+#: Scripts\MVZ2\Options\OptionsLogic.cs:190
+msgid "粒子数量：{0}"
+msgstr ""
+
+# 选项，{0}为量
+#: Scripts\MVZ2\Options\OptionsLogic.cs:192
+msgid "屏幕震动：{0}"
+msgstr ""
+
+# 对话框内容
+#: Scripts\MVZ2\Options\OptionsLogicLevel.cs:73
+msgid ""
+"确认要返回吗？\n"
+"你的进度会被保存。"
+msgstr ""
+
+# 地图的提示文本
+#: Scripts\MVZ2\Map\MapController.cs:457
+msgid ""
+"按住右键拖动以移动视图\n"
+"滚轮以缩放视图"
+msgstr ""
+
+# 地图的提示文本
+#: Scripts\MVZ2\Map\MapController.cs:459
+msgid ""
+"单指拖动以移动视图\n"
+"双指触摸以缩放视图"
+msgstr ""
+
+# 地图的提示文本
+#: Scripts\MVZ2\Map\MapController.cs:461
+msgid "正在进入关卡……"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:401
+msgid "第一次游戏必须输入用户名"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:403
+msgid "用户名不能为空"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:405
+msgid "已经存在该用户名"
+msgstr ""
+
+# 删除用户时的警告，{0}为名称
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:407
+msgid ""
+"确认删除用户{0}吗？\n"
+"该用户所有的数据都将被删除！"
+msgstr ""
+
+# 退出对话框的描述
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:409
+msgid "确认要退出吗？"
+msgstr ""
+
+# 分辨率名，{0}为宽，{1}为高
+#: Scripts\MVZ2\Managers\ResolutionManager.cs:63
+msgid "{0}x{1}"
+msgstr ""
+
+# 对话框内容
+#: Scripts\MVZ2\Level\LevelController_UI.cs:667
+msgid ""
+"确认要重新开始关卡吗？\n"
+"本关的进度都将丢失。"
+msgstr ""
+
+# 对话框内容，{0}为错误信息
+#: Scripts\MVZ2\Level\LevelController_UI.cs:669
+msgid "加载关卡失败，出现错误：{0}"
+msgstr ""
+
+# 对话框内容
+#: Scripts\MVZ2\Level\LevelController_UI.cs:671
+msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
+msgstr ""
+
+# 对话框内容
+#: Scripts\MVZ2\Level\LevelController_UI.cs:673
+msgid "你没有携带满蓝图，确认要继续吗？"
+msgstr ""
+
+# 图鉴描述模板，{0}为开头段，{1}为属性段，{2}为趣文段
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:179
+msgctxt "almanac"
+msgid ""
+"{0}\n"
+"\n"
+"{1}\n"
+"\n"
+"{2}"
+msgstr ""
+
+# 图鉴描述模板，{0}为能量
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:181
+msgctxt "almanac"
+msgid "花费：<color=red>{0}</color>"
+msgstr ""
+
+# 图鉴描述模板，{0}为冷却时间
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:183
+msgctxt "almanac"
+msgid "冷却时间：<color=red>{0}</color>"
+msgstr ""
+

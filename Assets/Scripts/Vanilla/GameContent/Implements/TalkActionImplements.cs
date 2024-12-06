@@ -82,8 +82,8 @@ namespace MVZ2.GameContent.Implements
             var desc = game.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
             var options = new string[]
             {
-                game.GetText(VanillaStrings.UI_YES),
-                game.GetText(VanillaStrings.UI_NO)
+                game.GetText(VanillaStrings.YES),
+                game.GetText(VanillaStrings.NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {
@@ -119,8 +119,8 @@ namespace MVZ2.GameContent.Implements
             var desc = game.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
             var options = new string[]
             {
-                game.GetText(VanillaStrings.UI_YES),
-                game.GetText(VanillaStrings.UI_NO)
+                game.GetText(VanillaStrings.YES),
+                game.GetText(VanillaStrings.NO)
             };
             level.ShowDialog(title, desc, options, (index) =>
             {

@@ -7,6 +7,7 @@ namespace PVZEngine.Level
         public const string START_MAX_RECHARGE = "startMaxRecharge";
         public const string MAX_RECHARGE = "maxRecharge";
         public const string QUALITY = "quality";
+        public const string NAME = "name";
         public static int GetStartMaxRecharge(this RechargeDefinition def)
         {
             return def.GetProperty<int>(EngineRechargeProps.START_MAX_RECHARGE);
@@ -18,6 +19,10 @@ namespace PVZEngine.Level
         public static int GetQuality(this RechargeDefinition def)
         {
             return def.GetProperty<int>(EngineRechargeProps.QUALITY);
+        }
+        public static string GetName(this RechargeDefinition def)
+        {
+            return def.GetProperty<string>(EngineRechargeProps.NAME);
         }
     }
 }

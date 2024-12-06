@@ -33,10 +33,10 @@ namespace MVZ2.Almanacs
         {
             miscs.SetEntries(entries);
         }
-        public void SetActiveContraptionEntry(Model prefab, string name, string description)
+        public void SetActiveContraptionEntry(Model prefab, string name, string description, string cost, string recharge)
         {
-            standaloneContraptions.SetActiveEntry(prefab, name, description);
-            mobileContraptions.SetActiveEntry(prefab, name, description);
+            standaloneContraptions.SetActiveEntry(prefab, name, description, cost, recharge);
+            mobileContraptions.SetActiveEntry(prefab, name, description, cost, recharge);
         }
         public void SetActiveEnemyEntry(Model prefab, string name, string description)
         {

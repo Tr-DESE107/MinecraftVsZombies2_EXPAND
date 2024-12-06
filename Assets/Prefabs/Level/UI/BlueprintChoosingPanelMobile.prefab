@@ -583,7 +583,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 728924887225125977, guid: 552829bfaf9bb6d47bd946f1bdaac889, type: 3}
       propertyPath: m_text
-      value: "\u9009\u62E9\u4F60\u7684\u84DD\u56FE\n"
+      value: "\u9009\u62E9\u4F60\u7684\u84DD\u56FE"
       objectReference: {fileID: 0}
     - target: {fileID: 1420572105187288077, guid: 552829bfaf9bb6d47bd946f1bdaac889, type: 3}
       propertyPath: m_SizeDelta.y

@@ -388,6 +388,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   safeAspectMin: 1.333333
   safeAspectMax: 1.7
+  safeAspectMinMobile: 1.7
+  safeAspectMaxMobile: 1.7
   _camera: {fileID: 4006126727555552210}
 --- !u!1 &7258987971377796364
 GameObject:
@@ -488,7 +490,6 @@ GameObject:
   - component: {fileID: 7029855736728354577}
   - component: {fileID: 8760905991471731679}
   - component: {fileID: 7300844707247305688}
-  - component: {fileID: 4134896997408684913}
   m_Layer: 0
   m_Name: VersionText
   m_TagString: Untagged
@@ -612,20 +613,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4134896997408684913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7804059612856476490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac39d519d5b7564dbf3a99440d3aae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: 
-  comment: "\u6807\u9898\u754C\u9762\u6309\u94AE\u6587\u672C"
 --- !u!1 &7988055541035696181
 GameObject:
   m_ObjectHideFlags: 0

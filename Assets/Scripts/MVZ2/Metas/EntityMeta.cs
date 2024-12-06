@@ -25,7 +25,7 @@ namespace MVZ2.Metas
             var template = templates.FirstOrDefault(t => t.name == node.Name);
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
-            var deathMessage = node.GetAttribute("deathMessage");
+            var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n");
             var cost = node.GetAttributeInt("cost") ?? 0;
             var recharge = node.GetAttributeNamespaceID("recharge", defaultNsp) ?? VanillaRechargeID.none;
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);

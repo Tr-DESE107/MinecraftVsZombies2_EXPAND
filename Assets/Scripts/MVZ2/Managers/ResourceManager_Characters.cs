@@ -25,7 +25,7 @@ namespace MVZ2.Managers
             var modResource = main.ResourceManager.GetModResource(characterID.spacename);
             if (modResource == null)
                 return null;
-            return modResource.TalkCharacterMetaList.metas.FirstOrDefault(m => m.name == characterID.path);
+            return modResource.TalkCharacterMetaList.metas.FirstOrDefault(m => m.id == characterID.path);
         }
         #endregion
 
@@ -110,7 +110,7 @@ namespace MVZ2.Managers
                 return;
             foreach (var meta in metaList.metas)
             {
-                var characterID = new NamespaceID(nsp, meta.name);
+                var characterID = new NamespaceID(nsp, meta.id);
                 List<CharacterVariantSprite> sprites = new List<CharacterVariantSprite>();
                 foreach (var variant in meta.variants)
                 {
@@ -122,7 +122,7 @@ namespace MVZ2.Managers
                     };
                     sprites.Add(cvs);
                 }
-                modResource.CharacterVariantSprites.Add(meta.name, sprites.ToArray());
+                modResource.CharacterVariantSprites.Add(meta.id, sprites.ToArray());
             }
         }
         #endregion

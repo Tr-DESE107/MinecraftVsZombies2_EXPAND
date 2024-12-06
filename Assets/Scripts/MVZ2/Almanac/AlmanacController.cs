@@ -8,7 +8,10 @@ using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Almanacs
@@ -97,7 +100,23 @@ namespace MVZ2.Almanacs
             if (!NamespaceID.IsValid(contraptionID))
                 return;
             GetEntityAlmanacInfos(contraptionID, VanillaAlmanacCategories.CONTRAPTIONS, out var model, out var name, out var description);
-            ui.SetActiveContraptionEntry(model, name, description);
+
+            int cost = 0;
+            string recharge = string.Empty;
+            var definition = Main.Game.GetEntityDefinition(contraptionID);
+            if (definition != null)
+            {
+                cost = definition.GetCost();
+                var rechargeID = definition.GetRechargeID();
+                var rechargeDefinition = Main.Game.GetRechargeDefinition(rechargeID);
+                if (rechargeDefinition != null)
+                {
+                    recharge = Main.LanguageManager._p(VanillaStrings.CONTEXT_RECHARGE_TIME, rechargeDefinition.GetName());
+                }
+            }
+            var costText = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, COST_LABEL, cost);
+            var rechargeText = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, RECHARGE_LABEL, recharge);
+            ui.SetActiveContraptionEntry(model, name, description, costText, rechargeText);
         }
         private void SetActiveEnemyEntry(NamespaceID enemyID)
         {
@@ -114,21 +133,30 @@ namespace MVZ2.Almanacs
             if (!NamespaceID.IsValid(entityID))
                 return;
             var definition = Main.Game.GetEntityDefinition(entityID);
-            var modelID = definition.GetModelID();
-            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
-            model = Main.ResourceManager.GetModel(modelMeta.Path);
+            if (definition == null)
+                return;
             name = Main.ResourceManager.GetEntityName(entityID);
             var almanacMeta = Main.ResourceManager.GetAlmanacMetaEntry(almanacCategory, entityID);
             if (almanacMeta == null)
             {
                 description = string.Empty;
-                return;
+            }
+            else
+            {
+                var context = VanillaStrings.GetAlmanacDescriptionContext(almanacCategory);
+                var header = Main.LanguageManager._p(context, almanacMeta.header);
+                var properties = Main.LanguageManager._p(context, almanacMeta.properties);
+                var flavor = Main.LanguageManager._p(context, almanacMeta.flavor);
+                description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, DESCRIPTION_TEMPLATE, header, properties, flavor);
             }
 
-            var header = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_DESCRIPTION, almanacMeta.header);
-            var properties = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_DESCRIPTION, almanacMeta.properties);
-            var flavor = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_DESCRIPTION, almanacMeta.flavor);
-            description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_DESCRIPTION, DESCRIPTION_TEMPLATE, header, properties, flavor);
+
+            var modelID = definition.GetModelID();
+            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
+            if (modelMeta != null)
+            {
+                model = Main.ResourceManager.GetModel(modelMeta.Path);
+            }
         }
         private void UpdateEntries()
         {
@@ -148,8 +176,12 @@ namespace MVZ2.Almanacs
             ui.SetEnemyEntries(enemyViewDatas);
         }
         public event Action OnReturnClick;
-        [TranslateMsg("图鉴描述模板，{0}为开头段，{1}为属性段，{2}为趣文段", VanillaStrings.CONTEXT_ENTITY_DESCRIPTION)]
-        public const string DESCRIPTION_TEMPLATE = "{0}\n{1}\n{2}";
+        [TranslateMsg("图鉴描述模板，{0}为开头段，{1}为属性段，{2}为趣文段", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string DESCRIPTION_TEMPLATE = "{0}\n\n{1}\n\n{2}";
+        [TranslateMsg("图鉴描述模板，{0}为能量", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string COST_LABEL = "花费：<color=red>{0}</color>";
+        [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string RECHARGE_LABEL = "冷却时间：<color=red>{0}</color>";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> contraptionEntries = new List<NamespaceID>();
         private List<NamespaceID> enemyEntries = new List<NamespaceID>();

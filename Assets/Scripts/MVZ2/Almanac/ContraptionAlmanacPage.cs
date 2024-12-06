@@ -16,12 +16,14 @@ namespace MVZ2.Almanacs
             blueprintDisplayer.UpdateItems(entries);
             blueprintDisplayer.SetCommandBlockActive(commandBlockVisible);
         }
-        public void SetActiveEntry(Model prefab, string name, string description)
+        public void SetActiveEntry(Model prefab, string name, string description, string cost, string recharge)
         {
             entryModel.ChangeModel(prefab);
             nameText.text = name;
             descriptionText.text = description;
             descriptionScrollRect.verticalNormalizedPosition = 1;
+            costText.text = cost;
+            rechargeText.text = recharge;
         }
         protected override void Awake()
         {
@@ -43,5 +45,9 @@ namespace MVZ2.Almanacs
         private TextMeshProUGUI nameText;
         [SerializeField]
         private TextMeshProUGUI descriptionText;
+        [SerializeField]
+        private TextMeshProUGUI costText;
+        [SerializeField]
+        private TextMeshProUGUI rechargeText;
     }
 }
