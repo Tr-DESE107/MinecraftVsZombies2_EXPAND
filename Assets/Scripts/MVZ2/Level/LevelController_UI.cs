@@ -172,10 +172,19 @@ namespace MVZ2.Level
             if (!IsGameStarted())
                 return;
             var levelUI = GetUIPreset();
+            string error = null;
+            if (level.IsPickaxeDisabled())
+            {
+                var message = level.GetPickaxeDisableMessage();
+                if (!string.IsNullOrEmpty(message))
+                {
+                    error = Localization._(message);
+                }
+            }
             var viewData = new TooltipViewData()
             {
                 name = Localization._(Vanilla.VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
-                error = level.IsPickaxeDisabled() ? Localization._(level.GetPickaxeDisableMessage()) : null,
+                error = error,
                 description = null
             };
             levelUI.ShowTooltipOnPickaxe(viewData);
@@ -686,7 +695,7 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             levelUI.SetUIVisibleState(state);
         }
-        private void SetUnlockedUIVisible()
+        private void SetUnlockedUIActive()
         {
             var levelUI = GetUIPreset();
             StarshardActive = Saves.IsStarshardUnlocked();

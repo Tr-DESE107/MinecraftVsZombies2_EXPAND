@@ -105,7 +105,6 @@ namespace MVZ2.Level
             UpdateDifficultyName();
             UpdateLevelUI();
             SetUIVisibleState(VisibleState.InLevel);
-            SetUnlockedUIVisible();
             ShowMoney();
 
             SetCameraPosition(LevelCameraPosition.Lawn);

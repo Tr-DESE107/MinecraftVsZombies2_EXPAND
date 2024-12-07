@@ -103,7 +103,7 @@ namespace PVZEngine.Level
             OnSeedSlotCountChanged?.Invoke(count);
 
             ClearSeedPacks();
-            ReplaceSeedPacks(oldSeedPacks.Select(s => s.GetDefinitionID()));
+            ReplaceSeedPacks(oldSeedPacks.Select(s => s?.GetDefinitionID()));
         }
         #endregion
 

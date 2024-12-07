@@ -12,7 +12,8 @@
         {
             if (value == null)
             {
-                value = default(T);
+                result = default(T);
+                return true;
             }
             if (value is T tProp)
             {

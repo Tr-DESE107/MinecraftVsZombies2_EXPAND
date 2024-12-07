@@ -17,6 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
     m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
     m_ReadOnly: 0
@@ -469,6 +481,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb748549348de4d458c512aac07bb380
     m_Address: mvz2:ui/almanac/background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac1f70b601142f7408e769da02898fc5
+    m_Address: mvz2:ui/achievements/achievement.pop_up_frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e4506b73a85267499be23c6916344ef
+    m_Address: mvz2:ui/achievements/achievement.frame
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1469,6 +1493,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0560677ce3ebb444a8893193b27d43fc
+    m_Address: mvz2:mainmenu/stats
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 246bf4383058f29459ba61df6b57ff55
     m_Address: mvz2:mainmenu/quit
     m_ReadOnly: 0
@@ -1483,6 +1513,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b183abb28c7b13c4995d0fc7bfaa8299
     m_Address: mvz2:mainmenu/more_menus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a02daf75bb803ad4a9a1307f593ad6a1
+    m_Address: mvz2:mainmenu/mods
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -2023,6 +2059,30 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34e619cc0502d6c499f470950cf5acec
     m_Address: mvz2:artifacts/dream_key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da694241d06a5a0429d9929813653171
+    m_Address: mvz2:achievements/achievement.rickroll_drown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9dd31bf028bdda498cb850149535586
+    m_Address: mvz2:achievements/achievement.return_to_sender
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd6294e0e010f934b90fb1f9ca35e623
+    m_Address: mvz2:achievements/achievement.ghost_buster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2becb83796290cb438ce963aff698ae4
+    m_Address: mvz2:achievements/achievement.double_trouble
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3460,6 +3520,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cb472c3c1348464db552f84dadec941
+    m_Address: mvz2:stats
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67e48334d4595cf49923ddb4b0725fff
     m_Address: mvz2:stages
     m_ReadOnly: 0
@@ -3549,18 +3615,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

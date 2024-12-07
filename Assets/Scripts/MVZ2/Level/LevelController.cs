@@ -61,7 +61,7 @@ namespace MVZ2.Level
 
             var uiPreset = GetUIPreset();
             uiPreset.UpdateFrame(0);
-            SetUnlockedUIVisible();
+            SetUnlockedUIActive();
         }
         public void StartLevelIntro(float delay)
         {
@@ -112,7 +112,7 @@ namespace MVZ2.Level
             bannerProgresses = new float[level.GetTotalFlags()];
 
             SetUIVisibleState(VisibleState.InLevel);
-            SetUnlockedUIVisible();
+            SetUnlockedUIActive();
 
             UpdateBlueprintCount();
             UpdateLevelName();

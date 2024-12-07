@@ -139,7 +139,6 @@ namespace MVZ2.GameContent.Stages
                 case STATE_ZOMBIE_KILLED:
                 case STATE_FURNACE_PLACED:
                 case STATE_FURNACE_PLACED_2:
-                case STATE_HELMET_ZOMBIE_KILLED:
                 case STATE_HELMET_ZOMBIE_BLOWEN_UP:
                     StartTimer(level, 90);
                     break;
@@ -183,6 +182,16 @@ namespace MVZ2.GameContent.Stages
                         {
                             armor.Health = armor.GetMaxHealth() * 0.5f;
                         }
+                    }
+                    break;
+                case STATE_HELMET_ZOMBIE_KILLED:
+                    {
+                        var obsidian = level.GetSeedPack(VanillaContraptionID.obsidian);
+                        if (obsidian != null)
+                        {
+                            obsidian.SetTwinkling(false);
+                        }
+                        StartTimer(level, 90);
                     }
                     break;
                 case STATE_CLICK_MINE_TNT:
@@ -350,6 +359,14 @@ namespace MVZ2.GameContent.Stages
                         level.SetNoProduction(false);
                         level.ChangeStage(VanillaStageID.prologue);
                         level.StartTalk(VanillaTalkID.tutorial, 3, 2);
+                        for (int i = 0; i < level.GetSeedSlotCount(); i++)
+                        {
+                            var seedPack = level.GetSeedPackAt(i);
+                            if (seedPack != null)
+                            {
+                                seedPack.SetTwinkling(false);
+                            }
+                        }
                     }
                     break;
             }
