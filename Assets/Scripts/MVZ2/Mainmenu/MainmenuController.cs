@@ -12,6 +12,7 @@ using MVZ2.Managers;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Scenes;
@@ -125,7 +126,7 @@ namespace MVZ2.Mainmenu
         {
             var title = main.LanguageManager._(Vanilla.VanillaStrings.QUIT);
             var desc = main.LanguageManager._(QUIT_DESC);
-            main.Scene.ShowDialogConfirm(title, desc, (value) =>
+            main.Scene.ShowDialogSelect(title, desc, (value) =>
             {
                 if (value)
                     Application.Quit();
@@ -222,7 +223,7 @@ namespace MVZ2.Mainmenu
                         var userIndex = GetSelectedUserIndex();
                         var title = main.LanguageManager._(Vanilla.VanillaStrings.WARNING);
                         var desc = main.LanguageManager._(WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
-                        main.Scene.ShowDialogConfirm(title, desc, (value) =>
+                        main.Scene.ShowDialogSelect(title, desc, (value) =>
                         {
                             if (value)
                             {
@@ -327,20 +328,30 @@ namespace MVZ2.Mainmenu
         #region 用户管理
         private void DeleteUser(int userIndex)
         {
-            var currentUserIndex = main.SaveManager.GetCurrentUserIndex();
-            var nextUserIndex = managingUserIndexes.FirstOrDefault(u => u != userIndex);
-            main.SaveManager.DeleteUser(userIndex);
-            if (userIndex == currentUserIndex)
+            try 
             {
-                main.SaveManager.SetCurrentUserIndex(nextUserIndex);
-                HideUserManageDialog();
-                Reload();
+                var currentUserIndex = main.SaveManager.GetCurrentUserIndex();
+                var nextUserIndex = managingUserIndexes.FirstOrDefault(u => u != userIndex);
+                if (userIndex == currentUserIndex)
+                {
+                    main.SaveManager.SetCurrentUserIndex(nextUserIndex);
+                    HideUserManageDialog();
+                    Reload();
+                }
+                else
+                {
+                    RefreshUserManageDialog();
+                }
+                main.SaveManager.DeleteUser(userIndex);
+                main.SaveManager.SaveUserList();
             }
-            else
+            catch (Exception e)
             {
-                RefreshUserManageDialog();
+                var title = main.LanguageManager._(VanillaStrings.ERROR);
+                var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_DELETE_USER, e.Message);
+                main.Scene.ShowDialogMessage(title, desc);
+                Debug.LogError($"Unable to delete user{userIndex}'s save data : {e}");
             }
-            main.SaveManager.SaveUserList();
         }
         private void RenameUser(int userIndex, string name)
         {
@@ -355,11 +366,21 @@ namespace MVZ2.Mainmenu
         }
         private void SwitchUser(int userIndex)
         {
-            main.SaveManager.SaveModDatas();
-            main.SaveManager.SetCurrentUserIndex(userIndex);
-            main.SaveManager.SaveUserList();
-            HideUserManageDialog();
-            Reload();
+            try
+            {
+                main.SaveManager.SaveModDatas();
+                main.SaveManager.SetCurrentUserIndex(userIndex);
+                main.SaveManager.SaveUserList();
+                HideUserManageDialog();
+                Reload();
+            }
+            catch (Exception e)
+            {
+                var title = main.LanguageManager._(VanillaStrings.ERROR);
+                var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_SWITCH_TO_USER, e.Message);
+                main.Scene.ShowDialogMessage(title, desc);
+                Debug.LogError($"Unable to switch to user{userIndex}'s save data : {e}");
+            }
         }
         private int GetSelectedUserIndex()
         {
@@ -404,6 +425,10 @@ namespace MVZ2.Mainmenu
         public const string ERROR_MESSAGE_NAME_EMPTY = "用户名不能为空";
         [TranslateMsg("输入名称对话框的错误信息")]
         public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
+        [TranslateMsg("删除用户时的错误信息，{0}为错误信息")]
+        public const string ERROR_MESSAGE_UNABLE_TO_DELETE_USER = "无法删除用户：{0}";
+        [TranslateMsg("切换用户时的错误信息，{0}为错误信息")]
+        public const string ERROR_MESSAGE_UNABLE_TO_SWITCH_TO_USER = "无法切换至用户：{0}";
         [TranslateMsg("删除用户时的警告，{0}为名称")]
         public const string WARNING_DELETE_USER = "确认删除用户{0}吗？\n该用户所有的数据都将被删除！";
         [TranslateMsg("退出对话框的描述")]

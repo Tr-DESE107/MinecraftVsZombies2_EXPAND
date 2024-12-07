@@ -32,6 +32,8 @@ namespace MVZ2.Saves
             var path = GetUserModSaveDataPath(userIndex, spaceName);
             FileHelper.ValidateDirectory(path);
             var modSaveData = GetModSaveData(spaceName);
+            if (modSaveData == null)
+                return;
             var serializable = modSaveData.ToSerializable();
             var metaJson = serializable.ToBson();
             Main.FileManager.WriteJsonFile(path, metaJson);
@@ -42,14 +44,14 @@ namespace MVZ2.Saves
         public void Load()
         {
             LoadUserList();
-            ReloadCurrentUserData();
+            LoadUserData(userDataList.CurrentUserIndex);
         }
-        public void ReloadCurrentUserData()
+        public void LoadUserData(int index)
         {
             modSaveDatas.Clear();
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
-                LoadModData(userDataList.CurrentUserIndex, mod.Namespace);
+                LoadModData(index, mod.Namespace);
             }
             EvaluateUnlocks();
         }
@@ -66,16 +68,8 @@ namespace MVZ2.Saves
             }
             else
             {
-                try
-                {
-                    var saveDataJson = Main.FileManager.ReadJsonFile(path);
-                    saveData = modInfo.Logic.LoadSaveData(saveDataJson);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"Error loading user{userIndex}'s {spaceName} mod save data : {e}");
-                    saveData = modInfo.Logic.CreateSaveData();
-                }
+                var saveDataJson = Main.FileManager.ReadJsonFile(path);
+                saveData = modInfo.Logic.LoadSaveData(saveDataJson);
             }
             modSaveDatas.Add(saveData);
         }

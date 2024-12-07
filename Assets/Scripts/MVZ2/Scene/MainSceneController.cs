@@ -34,7 +34,20 @@ namespace MVZ2.Scenes
                 DisplayPage(MainScenePageType.Mainmenu);
             }
         }
-        public void ShowDialogConfirm(string title, string desc, Action<bool> onSelect = null)
+        public void ShowDialogMessage(string title, string desc, Action onSelect = null)
+        {
+            ShowDialog(title, desc, new string[]
+            {
+                main.LanguageManager._(VanillaStrings.CONFIRM),
+            }, (index) => onSelect?.Invoke());
+        }
+        public Task ShowDialogMessageAsync(string title, string desc)
+        {
+            var tcs = new TaskCompletionSource<object>();
+            ShowDialogMessage(title, desc, () => tcs.SetResult(null));
+            return tcs.Task;
+        }
+        public void ShowDialogSelect(string title, string desc, Action<bool> onSelect = null)
         {
             ShowDialog(title, desc, new string[]
             {
@@ -42,10 +55,10 @@ namespace MVZ2.Scenes
                 main.LanguageManager._(VanillaStrings.NO),
             }, (index) => onSelect?.Invoke(index == 0));
         }
-        public Task<bool> ShowDialogConfirmAsync(string title, string desc)
+        public Task<bool> ShowDialogSelectAsync(string title, string desc)
         {
             var tcs = new TaskCompletionSource<bool>();
-            ShowDialogConfirm(title, desc, (result) => tcs.SetResult(result));
+            ShowDialogSelect(title, desc, (result) => tcs.SetResult(result));
             return tcs.Task;
         }
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)

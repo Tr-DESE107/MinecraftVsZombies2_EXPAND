@@ -85,7 +85,7 @@ namespace MVZ2.Level
         {
             var title = Localization._(Vanilla.VanillaStrings.RESTART);
             var desc = Localization._(DIALOG_DESC_RESTART);
-            Scene.ShowDialogConfirm(title, desc, async (confirm) =>
+            Scene.ShowDialogSelect(title, desc, async (confirm) =>
             {
                 if (confirm)
                 {
@@ -279,7 +279,7 @@ namespace MVZ2.Level
             {
                 var title = Localization._(Vanilla.VanillaStrings.WARNING);
                 var desc = Localization._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL);
-                var result = await Scene.ShowDialogConfirmAsync(title, desc);
+                var result = await Scene.ShowDialogSelectAsync(title, desc);
                 if (!result)
                     return;
             }

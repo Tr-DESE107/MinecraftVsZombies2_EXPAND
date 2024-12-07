@@ -39,7 +39,7 @@ namespace MVZ2.Options
                             var title = Main.LanguageManager._(VanillaStrings.BACK);
                             var desc = Main.LanguageManager._(DIALOG_DESC_LEAVE_LEVEL);
 
-                            var result = await Main.Scene.ShowDialogConfirmAsync(title, desc);
+                            var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
                             if (!result)
                                 break;
                         }

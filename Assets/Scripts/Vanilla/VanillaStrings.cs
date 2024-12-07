@@ -49,6 +49,8 @@ namespace MVZ2.Vanilla
         public const string QUIT = "退出";
         [TranslateMsg("通用文本")]
         public const string CONTINUE = "继续";
+        [TranslateMsg("通用文本")]
+        public const string CONFIRM = "确认";
 
         [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_NOT_ENOUGH_ENERGY = "能量不足";
@@ -92,6 +94,10 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("制品说明-未知", CONTEXT_ARTIFACT_TOOLTIP)]
         public const string UNKNOWN_ARTIFACT_TOOLTIP = "？？？";
+
+        [TranslateMsg("怪物说明-还没有遇到", CONTEXT_ALMANAC)]
+        public const string NOT_ENCOUNTERED_YET = "（还没有遇到）";
+        
         public static string GetAlmanacNameContext(string category)
         {
             return $"{category}.name";

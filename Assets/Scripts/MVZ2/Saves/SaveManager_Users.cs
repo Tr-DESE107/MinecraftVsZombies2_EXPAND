@@ -21,8 +21,8 @@ namespace MVZ2.Saves
         }
         public void SetCurrentUserIndex(int index)
         {
+            LoadUserData(index);
             userDataList.CurrentUserIndex = index;
-            ReloadCurrentUserData();
         }
         public int CreateNewUser(string name)
         {
