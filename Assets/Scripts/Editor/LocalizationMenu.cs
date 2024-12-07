@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.IO.Compression;
 using System.Runtime.Remoting.Contexts;
+using System.Xml;
 using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
@@ -57,25 +58,21 @@ namespace MVZ2.Editor
 
             var spaceName = "mvz2";
             var metaDirectory = Path.Combine(Application.dataPath, "GameContent", "Assets", spaceName, "metas");
-            var almanacPath = Path.Combine(metaDirectory, "almanac.xml");
-            var entitiesPath = Path.Combine(metaDirectory, "entities.xml");
-            var charactersPath = Path.Combine(metaDirectory, "talkcharacters.xml");
 
-            using FileStream almanacStream = File.Open(almanacPath, FileMode.Open);
-            using FileStream entitiesStream = File.Open(entitiesPath, FileMode.Open);
-            using FileStream talkcharactersStream = File.Open(charactersPath, FileMode.Open);
-
-            var almanacDocument = almanacStream.ReadXmlDocument();
-            var entitiesDocument = entitiesStream.ReadXmlDocument();
-            var talkcharacterDocument = talkcharactersStream.ReadXmlDocument();
+            var almanacDocument = LoadXmlDocument("almanac.xml");
+            var entitiesDocument = LoadXmlDocument("entities.xml");
+            var talkcharacterDocument = LoadXmlDocument("talkcharacters.xml");
+            var artifactsDocument = LoadXmlDocument("artifacts.xml");
 
             var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
             var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
+            var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
 
             var almanacReference = "Almanac meta file";
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
+            var artifactsReference = "Artifact meta file";
             foreach (var category in almanacEntryList.categories)
             {
                 var categoryName = category.name;
@@ -104,8 +101,21 @@ namespace MVZ2.Editor
                 var id = new NamespaceID(spaceName, meta.id);
                 AddTranslation(meta.name, characterReference, $"Name for character {id}", $"character.name");
             }
+            foreach (var meta in artifactsList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
+                AddTranslation(meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+            }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
+
+            XmlDocument LoadXmlDocument(string path)
+            {
+                var absPath = Path.Combine(metaDirectory, path);
+                using FileStream stream = File.Open(absPath, FileMode.Open);
+                return stream.ReadXmlDocument();
+            }
             void AddAlmanacEntryTranslation(AlmanacMetaEntry entry, string categoryName)
             {
                 AddTranslation(entry.name, almanacReference, $"Name for {categoryName} {entry.id}", VanillaStrings.GetAlmanacNameContext(categoryName));

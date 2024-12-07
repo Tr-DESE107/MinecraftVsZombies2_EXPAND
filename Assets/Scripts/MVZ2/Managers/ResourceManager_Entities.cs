@@ -71,6 +71,6 @@ namespace MVZ2.Managers
         }
         #endregion
 
-        private static readonly Dictionary<NamespaceID, EntityMeta> entitiesCacheDict = new Dictionary<NamespaceID, EntityMeta>();
+        private Dictionary<NamespaceID, EntityMeta> entitiesCacheDict = new Dictionary<NamespaceID, EntityMeta>();
     }
 }

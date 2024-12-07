@@ -7,7 +7,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
-namespace MVZ2.Vanilla.Entities
+namespace MVZ2Logic.Entities
 {
     public class MetaEntityDefinition : EntityDefinition
     {

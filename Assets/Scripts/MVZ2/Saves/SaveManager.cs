@@ -51,7 +51,7 @@ namespace MVZ2.Saves
             {
                 LoadModData(userDataList.CurrentUserIndex, mod.Namespace);
             }
-            EvaluateUnlockedEntities();
+            EvaluateUnlocks();
         }
         private void LoadModData(int userIndex, string spaceName)
         {
@@ -132,6 +132,10 @@ namespace MVZ2.Saves
         {
             return unlockedEnemiesCache.ToArray();
         }
+        public NamespaceID[] GetUnlockedArtifacts()
+        {
+            return unlockedArtifactsCache.ToArray();
+        }
         public NamespaceID GetMapPresetID(NamespaceID mapId)
         {
             if (mapId == null)
@@ -152,7 +156,7 @@ namespace MVZ2.Saves
             if (modSaveData == null)
                 return;
             modSaveData.Unlock(unlockId.path);
-            EvaluateUnlockedEntities();
+            EvaluateUnlocks();
         }
         public void AddLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
         {
@@ -211,6 +215,26 @@ namespace MVZ2.Saves
         #endregion
 
         #region 私有方法
+        private void EvaluateUnlocks()
+        {
+            EvaluateUnlockedEntities();
+            EvaluateUnlockedArtifacts();
+        }
+        private void EvaluateUnlockedArtifacts()
+        {
+            unlockedArtifactsCache.Clear();
+            var resourceManager = Main.ResourceManager;
+            var artifactsID = resourceManager.GetAllArtifactsID();
+            foreach (var id in artifactsID)
+            {
+                var meta = resourceManager.GetArtifactMeta(id);
+                if (meta == null)
+                    continue;
+                if (NamespaceID.IsValid(meta.Unlock) && !IsUnlocked(meta.Unlock))
+                    continue;
+                unlockedArtifactsCache.Add(id);
+            }
+        }
         private void EvaluateUnlockedEntities()
         {
             unlockedContraptionsCache.Clear();
@@ -241,6 +265,7 @@ namespace MVZ2.Saves
         private List<ModSaveData> modSaveDatas = new List<ModSaveData>();
         private List<NamespaceID> unlockedContraptionsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedEnemiesCache = new List<NamespaceID>();
+        private List<NamespaceID> unlockedArtifactsCache = new List<NamespaceID>();
         #endregion
     }
 }

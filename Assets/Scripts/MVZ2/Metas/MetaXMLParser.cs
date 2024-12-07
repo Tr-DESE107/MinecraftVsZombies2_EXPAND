@@ -28,6 +28,9 @@ namespace MVZ2.Metas
                 case "entities":
                     resource.EntityMetaList = EntityMetaList.FromXmlNode(document["entities"], defaultNsp);
                     break;
+                case "artifacts":
+                    resource.ArtifactMetaList = ArtifactMetaList.FromXmlNode(document["artifacts"], defaultNsp);
+                    break;
                 case "almanac":
                     resource.AlmanacMetaList = AlmanacMetaList.FromXmlNode(document["almanac"], defaultNsp);
                     break;

@@ -39,6 +39,7 @@ namespace MVZ2.Vanilla
         public VanillaMod() : base(spaceName)
         {
             LoadEntityMetas();
+            LoadArtifactMetas();
             LoadStages();
             LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
             AddEntityBehaviours();
@@ -92,6 +93,17 @@ namespace MVZ2.Vanilla
                     spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
                     AddDefinition(spawnDef);
                 }
+            }
+        }
+        private void LoadArtifactMetas()
+        {
+            foreach (IArtifactMeta meta in Global.Game.GetModArtifactMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var definition = new MetaArtifactDefinition(meta, spaceName, name);
+                AddDefinition(definition);
             }
         }
         private void LoadStages()

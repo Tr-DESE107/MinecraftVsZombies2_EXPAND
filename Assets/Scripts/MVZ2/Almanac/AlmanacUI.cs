@@ -13,8 +13,12 @@ namespace MVZ2.Almanacs
             standaloneContraptions.SetActive(page == AlmanacPage.ContraptionsStandalone);
             mobileContraptions.SetActive(page == AlmanacPage.ContraptionsMobile);
             enemies.SetActive(page == AlmanacPage.Enemies);
-            characters.SetActive(page == AlmanacPage.Characters);
+            artifacts.SetActive(page == AlmanacPage.Artifacts);
             miscs.SetActive(page == AlmanacPage.Miscs);
+        }
+        public void SetIndexArtifactVisible(bool visible)
+        {
+            indexUI.SetArtifactVisible(visible);
         }
         public void SetContraptionEntries(ChoosingBlueprintViewData[] entries, bool commandBlockVisible)
         {
@@ -25,9 +29,9 @@ namespace MVZ2.Almanacs
         {
             enemies.SetEntries(entries);
         }
-        public void SetCharacterEntries(AlmanacEntryViewData[] entries)
+        public void SetArtifactEntries(AlmanacEntryViewData[] entries)
         {
-            characters.SetEntries(entries);
+            artifacts.SetEntries(entries);
         }
         public void SetMiscGroups(AlmanacEntryGroupViewData[] groups)
         {
@@ -42,9 +46,9 @@ namespace MVZ2.Almanacs
         {
             enemies.SetActiveEntry(prefab, name, description);
         }
-        public void SetActiveCharacterEntry(Sprite sprite, string name, string description)
+        public void SetActiveArtifactEntry(Sprite sprite, string name, string description)
         {
-            characters.SetActiveEntry(sprite, name, description);
+            artifacts.SetActiveEntry(sprite, name, description);
         }
         public void SetActiveMiscEntry(Sprite sprite, string name, string description)
         {
@@ -60,14 +64,14 @@ namespace MVZ2.Almanacs
             standaloneContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
             mobileContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
             enemies.OnEntryClick += index => OnEnemyEntryClick?.Invoke(index);
-            characters.OnEntryClick += index => OnCharacterEntryClick?.Invoke(index);
+            artifacts.OnEntryClick += index => OnArtifactEntryClick?.Invoke(index);
             miscs.OnGroupEntryClick += (groupIndex, entryIndex) => OnMiscGroupEntryClick?.Invoke(groupIndex, entryIndex);
 
             indexUI.OnReturnClick += () => OnIndexReturnClick?.Invoke();
             standaloneContraptions.OnReturnClick += () => OnPageReturnClick?.Invoke();
             mobileContraptions.OnReturnClick += () => OnPageReturnClick?.Invoke();
             enemies.OnReturnClick += () => OnPageReturnClick?.Invoke();
-            characters.OnReturnClick += () => OnPageReturnClick?.Invoke();
+            artifacts.OnReturnClick += () => OnPageReturnClick?.Invoke();
             miscs.OnReturnClick += () => OnPageReturnClick?.Invoke();
         }
         public event Action OnIndexReturnClick;
@@ -75,7 +79,7 @@ namespace MVZ2.Almanacs
         public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
         public event Action<int> OnContraptionEntryClick;
         public event Action<int> OnEnemyEntryClick;
-        public event Action<int> OnCharacterEntryClick;
+        public event Action<int> OnArtifactEntryClick;
         public event Action<int, int> OnMiscGroupEntryClick;
         [SerializeField]
         private IndexAlmanacPage indexUI;
@@ -86,7 +90,7 @@ namespace MVZ2.Almanacs
         [SerializeField]
         private MiscAlmanacPage enemies;
         [SerializeField]
-        private MiscAlmanacPage characters;
+        private MiscAlmanacPage artifacts;
         [SerializeField]
         private MiscAlmanacPage miscs;
         public enum AlmanacPage
@@ -95,7 +99,7 @@ namespace MVZ2.Almanacs
             ContraptionsStandalone,
             ContraptionsMobile,
             Enemies,
-            Characters,
+            Artifacts,
             Miscs
         }
     }

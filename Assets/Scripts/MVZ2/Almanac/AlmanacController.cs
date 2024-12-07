@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace MVZ2.Almanacs
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
             ui.OnContraptionEntryClick += OnContraptionEntryClickCallback;
             ui.OnEnemyEntryClick += OnEnemyEntryClickCallback;
-            ui.OnCharacterEntryClick += OnCharacterEntryClickCallback;
+            ui.OnArtifactEntryClick += OnCharacterEntryClickCallback;
             ui.OnMiscGroupEntryClick += OnMiscGroupEntryClickCallback;
         }
         private void OnIndexReturnClickCallback()
@@ -55,8 +56,8 @@ namespace MVZ2.Almanacs
                 case IndexAlmanacPage.ButtonType.ViewEnemy:
                     ViewEnemies();
                     break;
-                case IndexAlmanacPage.ButtonType.ViewCharacter:
-                    ViewCharacter();
+                case IndexAlmanacPage.ButtonType.ViewArtifact:
+                    ViewArtifacts();
                     break;
                 case IndexAlmanacPage.ButtonType.ViewMisc:
                     ViewMisc();
@@ -92,8 +93,10 @@ namespace MVZ2.Almanacs
             ui.DisplayPage(AlmanacUI.AlmanacPage.Enemies);
             SetActiveEnemyEntry(enemyEntries.FirstOrDefault());
         }
-        private void ViewCharacter()
+        private void ViewArtifacts()
         {
+            ui.DisplayPage(AlmanacUI.AlmanacPage.Artifacts);
+            SetActiveArtifactEntry(artifactEntries.FirstOrDefault());
         }
         private void ViewMisc()
         {
@@ -130,6 +133,13 @@ namespace MVZ2.Almanacs
             GetEntityAlmanacInfos(enemyID, VanillaAlmanacCategories.ENEMIES, out var model, out var name, out var description);
             ui.SetActiveEnemyEntry(model, name, description);
         }
+        private void SetActiveArtifactEntry(NamespaceID artifactID)
+        {
+            if (!NamespaceID.IsValid(artifactID))
+                return;
+            GetArtifactAlmanacInfos(artifactID, VanillaAlmanacCategories.ARTIFACTS, out var sprite, out var name, out var description);
+            ui.SetActiveArtifactEntry(sprite, name, description);
+        }
         private void SetActiveMiscEntry(AlmanacMetaEntry entry)
         {
             if (entry == null)
@@ -163,14 +173,44 @@ namespace MVZ2.Almanacs
             description = null;
             if (!NamespaceID.IsValid(entityID))
                 return;
+            name = Main.ResourceManager.GetEntityName(entityID);
+            description = GetAlmanacDescription(entityID, almanacCategory);
+
             var definition = Main.Game.GetEntityDefinition(entityID);
             if (definition == null)
                 return;
-            name = Main.ResourceManager.GetEntityName(entityID);
-            var almanacMeta = Main.ResourceManager.GetAlmanacMetaEntry(almanacCategory, entityID);
+            var modelID = definition.GetModelID();
+            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
+            if (modelMeta != null)
+            {
+                model = Main.ResourceManager.GetModel(modelMeta.Path);
+            }
+        }
+        private void GetArtifactAlmanacInfos(NamespaceID entityID, string almanacCategory, out Sprite sprite, out string name, out string description)
+        {
+            sprite = null;
+            name = null;
+            description = null;
+            if (!NamespaceID.IsValid(entityID))
+                return;
+            name = Main.ResourceManager.GetArtifactName(entityID);
+            description = GetAlmanacDescription(entityID, almanacCategory);
+
+
+            var definition = Main.Game.GetArtifactDefinition(entityID);
+            if (definition == null)
+                return;
+            var spriteReference = definition.GetSpriteReference();
+            sprite = Main.ResourceManager.GetSprite(spriteReference);
+        }
+        private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory)
+        {
+            if (!NamespaceID.IsValid(almanacID))
+                return string.Empty;
+            var almanacMeta = Main.ResourceManager.GetAlmanacMetaEntry(almanacCategory, almanacID);
             if (almanacMeta == null)
             {
-                description = string.Empty;
+                return string.Empty;
             }
             else
             {
@@ -179,15 +219,7 @@ namespace MVZ2.Almanacs
                 var properties = GetTranslatedString(context, almanacMeta.properties);
                 var flavor = GetTranslatedString(context, almanacMeta.flavor);
                 var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
-                description = string.Join("\n\n", strings);
-            }
-
-
-            var modelID = definition.GetModelID();
-            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
-            if (modelMeta != null)
-            {
-                model = Main.ResourceManager.GetModel(modelMeta.Path);
+                return string.Join("\n\n", strings);
             }
         }
         private void UpdateEntries()
@@ -200,6 +232,10 @@ namespace MVZ2.Almanacs
             var enemies = Main.SaveManager.GetUnlockedEnemies();
             Main.AlmanacManager.GetOrderedEnemies(enemies, enemyEntries);
 
+            artifactEntries.Clear();
+            var artifacts = Main.SaveManager.GetUnlockedArtifacts();
+            Main.AlmanacManager.GetOrderedArtifacts(artifacts, artifactEntries);
+
             miscGroups.Clear();
             Main.AlmanacManager.GetUnlockedMiscGroups(miscGroups);
 
@@ -207,8 +243,12 @@ namespace MVZ2.Almanacs
             var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c)).ToArray();
             ui.SetContraptionEntries(contraptionViewDatas, false);
 
-            var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyViewData(c)).ToArray();
+            var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyEntryViewData(c)).ToArray();
             ui.SetEnemyEntries(enemyViewDatas);
+
+            var artifactViewDatas = artifactEntries.Select(c => Main.AlmanacManager.GetArtifactEntryViewData(c)).ToArray();
+            ui.SetArtifactEntries(artifactViewDatas);
+            ui.SetIndexArtifactVisible(artifactEntries.Count > 0);
 
             var miscViewDatas = miscGroups.Select(c => Main.AlmanacManager.GetMiscGroupViewData(c)).ToArray();
             ui.SetMiscGroups(miscViewDatas);
@@ -227,17 +267,9 @@ namespace MVZ2.Almanacs
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> contraptionEntries = new List<NamespaceID>();
         private List<NamespaceID> enemyEntries = new List<NamespaceID>();
-        private List<NamespaceID> characterEntries = new List<NamespaceID>();
+        private List<NamespaceID> artifactEntries = new List<NamespaceID>();
         private List<AlmanacEntryGroup> miscGroups = new List<AlmanacEntryGroup>();
-        private MiscType miscType;
         [SerializeField]
         private AlmanacUI ui;
-
-        public enum MiscType
-        {
-            Enemy,
-            Character,
-            Misc
-        }
     }
 }

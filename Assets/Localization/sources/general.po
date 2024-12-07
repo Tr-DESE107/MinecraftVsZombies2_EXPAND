@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 10:16+0800\n"
-"PO-Revision-Date: 2024-12-06 22:29+0800\n"
+"POT-Creation-Date: 2024-12-07 12:13+0800\n"
+"PO-Revision-Date: 2024-12-07 12:17+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -181,9 +181,9 @@ msgid "查看器械"
 msgstr "View Contraptions"
 
 #. 图鉴按钮
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewCharactersRegion/Button/Text
-msgid "查看人物"
-msgstr "View Characters"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewArtifactsRegion/Button/Text
+msgid "查看制品"
+msgstr "View Artifacts"
 
 #. 图鉴按钮
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewEnemyRegion/Button/Text
@@ -203,9 +203,9 @@ msgstr "Contraptions"
 msgid "敌人图鉴"
 msgstr "Enemies"
 
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Characters/Center/Entries/Title
-msgid "人物图鉴"
-msgstr "Characters"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Artifacts/Center/Entries/Title
+msgid "制品图鉴"
+msgstr "Artifacts"
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Miscs/Center/Entries/Title
 msgid "杂项图鉴"
@@ -480,6 +480,16 @@ msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
+#: Scripts\Vanilla\VanillaStrings.cs:90
+msgctxt "artifact.name"
+msgid "？？？"
+msgstr "???"
+
+#: Scripts\Vanilla\VanillaStrings.cs:93
+msgctxt "artifact.tooltip"
+msgid "？？？"
+msgstr "???"
+
 #: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:37
 msgid "版本{0}"
 msgstr "Version {0}"
@@ -638,16 +648,22 @@ msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:223
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:263
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:225
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:265
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
+
+#~ msgid "查看人物"
+#~ msgstr "View Characters"
+
+#~ msgid "人物图鉴"
+#~ msgstr "Characters"
 
 # 图鉴描述模板，{0}为开头段，{1}为属性段，{2}为趣文段
 #~ msgctxt "almanac"

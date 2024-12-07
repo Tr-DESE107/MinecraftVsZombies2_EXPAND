@@ -26,8 +26,6 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n");
-            var cost = node.GetAttributeInt("cost") ?? 0;
-            var recharge = node.GetAttributeNamespaceID("recharge", defaultNsp) ?? VanillaRechargeID.none;
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var tooltip = node.GetAttribute("tooltip");
 

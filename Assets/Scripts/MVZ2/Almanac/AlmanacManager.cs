@@ -1,15 +1,14 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
+using MVZ2Logic.Callbacks;
 using PVZEngine;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Almanacs
 {
@@ -25,6 +24,12 @@ namespace MVZ2.Almanacs
         {
             var idList = GetIDListByAlmanacOrder(enemiesID, VanillaAlmanacCategories.ENEMIES);
             var ordered = CompressLayout(idList, GetEnemyCountPerRow());
+            appendList.AddRange(ordered);
+        }
+        public void GetOrderedArtifacts(IEnumerable<NamespaceID> artifactID, List<NamespaceID> appendList)
+        {
+            var idList = GetIDListByAlmanacOrder(artifactID, VanillaAlmanacCategories.ARTIFACTS);
+            var ordered = CompressLayout(idList, GetMiscCountPerRow());
             appendList.AddRange(ordered);
         }
         public void GetUnlockedMiscGroups(List<AlmanacEntryGroup> appendList)
@@ -51,7 +56,7 @@ namespace MVZ2.Almanacs
                 disabled = false
             };
         }
-        public AlmanacEntryViewData GetEnemyViewData(NamespaceID id)
+        public AlmanacEntryViewData GetEnemyEntryViewData(NamespaceID id)
         {
             if (!NamespaceID.IsValid(id))
                 return AlmanacEntryViewData.Empty;
@@ -62,12 +67,24 @@ namespace MVZ2.Almanacs
             var modelIcon = Main.ResourceManager.GetModelIcon(modelID);
             return new AlmanacEntryViewData() { sprite = modelIcon };
         }
+        public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return AlmanacEntryViewData.Empty;
+            var def = Main.Game.GetArtifactDefinition(id);
+            if (def == null)
+                return AlmanacEntryViewData.Empty;
+            var spriteRef = def.GetSpriteReference();
+            var sprite = Main.ResourceManager.GetSprite(spriteRef);
+            return new AlmanacEntryViewData() { sprite = sprite };
+        }
         public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
         {
             return new AlmanacEntryGroupViewData()
             {
                 name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
-                entries = group.entries.Select(e => {
+                entries = group.entries.Select(e =>
+                {
                     var spriteID = e.sprite;
                     var modelID = e.model;
                     Sprite sprite;
@@ -88,6 +105,8 @@ namespace MVZ2.Almanacs
         }
         private NamespaceID[] GetIDListByAlmanacOrder(IEnumerable<NamespaceID> idList, string category)
         {
+            if (idList == null || idList.Count() == 0)
+                return Array.Empty<NamespaceID>();
             var almanacIndexes = idList.Select(id => (id, index: Main.ResourceManager.GetAlmanacMetaEntry(category, id)?.index ?? 0));
             var maxAlmanacIndex = almanacIndexes.Max(tuple => tuple.index);
             var ordered = new NamespaceID[maxAlmanacIndex + 1];

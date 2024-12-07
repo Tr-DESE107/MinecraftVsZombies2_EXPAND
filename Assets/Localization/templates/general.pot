@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-06 10:16+0800\n"
+"POT-Creation-Date: 2024-12-07 12:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -177,8 +177,8 @@ msgid "查看器械"
 msgstr ""
 
 #. 图鉴按钮
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewCharactersRegion/Button/Text
-msgid "查看人物"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewArtifactsRegion/Button/Text
+msgid "查看制品"
 msgstr ""
 
 #. 图鉴按钮
@@ -199,8 +199,8 @@ msgstr ""
 msgid "敌人图鉴"
 msgstr ""
 
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Characters/Center/Entries/Title
-msgid "人物图鉴"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Artifacts/Center/Entries/Title
+msgid "制品图鉴"
 msgstr ""
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Miscs/Center/Entries/Title
@@ -525,6 +525,18 @@ msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
+# 制品名称-未知
+#: Scripts\Vanilla\VanillaStrings.cs:90
+msgctxt "artifact.name"
+msgid "？？？"
+msgstr ""
+
+# 制品说明-未知
+#: Scripts\Vanilla\VanillaStrings.cs:93
+msgctxt "artifact.tooltip"
+msgid "？？？"
+msgstr ""
+
 # 标题页面的版本号文本，{0}为版本号
 #: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:37
 msgid "版本{0}"
@@ -698,13 +710,13 @@ msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:223
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:263
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:225
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:265
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""

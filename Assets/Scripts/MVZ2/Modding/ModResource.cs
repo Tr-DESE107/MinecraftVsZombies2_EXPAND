@@ -18,6 +18,7 @@ namespace MVZ2.Modding
         public TalkCharacterMetaList TalkCharacterMetaList { get; set; }
         public DifficultyMetaList DifficultyMetaList { get; set; }
         public EntityMetaList EntityMetaList { get; set; }
+        public ArtifactMetaList ArtifactMetaList { get; set; }
         public AlmanacMetaList AlmanacMetaList { get; set; }
         public NoteMetaList NoteMetaList { get; set; }
         public StageMetaList StageMetaList { get; set; }

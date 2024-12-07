@@ -1,0 +1,3 @@
+<artifacts>
+    <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有生命值，并在此期间无敌" sprite="mvz2:artifacts/dream_key" buffId="mvz2:dream_key" unlock="mvz2:level.halloween_11" />
+</artifacts>

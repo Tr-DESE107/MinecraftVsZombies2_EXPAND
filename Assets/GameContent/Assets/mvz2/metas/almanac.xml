@@ -302,6 +302,23 @@
         </entry>
     </enemies>
     <artifacts>
+        <entry id="mvz2:dream_key" name="梦境钥匙">
+            <header>
+                <p>欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>对器械使用星之碎片会为其恢复所有生命值，并在此期间无敌。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>能够打开一道通向其他世界的大门的，充满魔力的钥匙。</p>
+                <p>但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。</p>
+                <p>钥匙上刻着古文：</p>
+                <p>于残酷的现实睡去</p>
+                <p>于幻想之地</p>
+                <p>于光明的尽头</p>
+                <p>于梦的苏醒</p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->
@@ -497,19 +514,6 @@
                     <p>这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。</p>
                     <p>当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。</p>
                     <p>你该学学语文了。</p>
-                </flavor>
-            </entry>
-            <entry id="mvz2:dream_key" name="梦境钥匙" unlock="mvz2:level.halloween_11">
-                <header>
-                    <p>欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。</p>
-                </header>
-                <flavor>
-                    <p>能够打开一道通向其他世界的大门的，充满魔力的钥匙。\n但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。</p>
-                    <p>钥匙上刻着古文：</p>
-                    <p>于残酷的现实睡去</p>
-                    <p>于幻想之地</p>
-                    <p>于光明的尽头</p>
-                    <p>于梦的苏醒</p>
                 </flavor>
             </entry>
             <entry id="mvz2:nightmare_box" name="梦魇魔盒" unlock="mvz2:level.dream_11">
