@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
 using MVZ2.Level;
+using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
@@ -18,7 +19,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Entities
 {
-    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, ILevelRaycastReceiver
+    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, ILevelRaycastReceiver, ITooltipTarget
     {
         #region 公有方法
         public void Init(LevelController level, Entity entity)
@@ -320,8 +321,12 @@ namespace MVZ2.Entities
         {
             OnPointerDown?.Invoke(this, eventData);
         }
-        bool ILevelRaycastReceiver.IsValidHeldItem(LevelEngine level, HeldItemDefinition definition, long id)
+        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, long id)
         {
+            if (Entity.IsPreviewEnemy())
+                return true;
+            if (definition == null)
+                return false;
             if (Entity.Type == EntityTypes.PICKUP)
             {
                 if (!definition.IsForPickup())
@@ -516,9 +521,13 @@ namespace MVZ2.Entities
         private Vector3 lastPosition;
         [SerializeField]
         private ShadowController shadow;
+        [SerializeField]
+        private TooltipAnchor tooltipAnchor;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
         #endregion shader相关属性
+
+        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
 
         #endregion
     }

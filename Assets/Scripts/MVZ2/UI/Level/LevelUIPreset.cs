@@ -1,4 +1,5 @@
 using System;
+using MVZ2.Entities;
 using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;
@@ -314,14 +315,23 @@ namespace MVZ2.Level.UI
                 return;
             ShowTooltipOnComponent(blueprint, viewData);
         }
+        public void ShowTooltipOnChoosingBlueprint(int index, TooltipViewData viewData)
+        {
+            var blueprint = GetBlueprintChooseItem(index);
+            if (!blueprint)
+                return;
+            ShowTooltipOnComponent(blueprint, viewData);
+        }
         public void ShowTooltipOnPickaxe(TooltipViewData viewData)
         {
             ShowTooltipOnComponent(pickaxeSlot, viewData);
         }
-        public void ShowTooltipOnComponent(Component component, TooltipViewData viewData)
+        public void ShowTooltipOnEntity(EntityController entity, TooltipViewData viewData)
         {
-            if (component is not ITooltipUI ui)
-                return;
+            ShowTooltipOnComponent(entity, viewData);
+        }
+        public void ShowTooltipOnComponent(ITooltipTarget ui, TooltipViewData viewData)
+        {
             var anchor = ui.Anchor;
             if (anchor.IsDisabled)
                 return;

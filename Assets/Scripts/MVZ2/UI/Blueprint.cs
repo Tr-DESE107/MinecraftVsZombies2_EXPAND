@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class Blueprint : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, ITooltipUI
+    public class Blueprint : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, ITooltipTarget
     {
         public void UpdateView(BlueprintViewData viewData)
         {
@@ -69,7 +69,7 @@ namespace MVZ2.UI
         public event Action<Blueprint, PointerEventData> OnPointerDown;
         public event Action<Blueprint, PointerEventData> OnPointerEnter;
         public event Action<Blueprint, PointerEventData> OnPointerExit;
-        TooltipAnchor ITooltipUI.Anchor => tooltipAnchor;
+        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         [SerializeField]
         private Animator animator;
         [SerializeField]

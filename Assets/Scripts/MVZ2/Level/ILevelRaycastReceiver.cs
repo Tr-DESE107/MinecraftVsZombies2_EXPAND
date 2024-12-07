@@ -5,6 +5,6 @@ namespace MVZ2.Level
 {
     public interface ILevelRaycastReceiver
     {
-        bool IsValidHeldItem(LevelEngine level, HeldItemDefinition definition, long id);
+        bool IsValidReceiver(LevelEngine level, HeldItemDefinition definition, long id);
     }
 }

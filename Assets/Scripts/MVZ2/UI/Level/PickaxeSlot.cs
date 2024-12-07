@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
-    public class PickaxeSlot : LevelUIUnit, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, ITooltipUI
+    public class PickaxeSlot : LevelUIUnit, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, ITooltipTarget
     {
         public void SetPickaxeVisible(bool visible)
         {
@@ -31,7 +31,7 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData> OnPointerEnter;
         public event Action<PointerEventData> OnPointerExit;
         public event Action<PointerEventData> OnPointerDown;
-        TooltipAnchor ITooltipUI.Anchor => tooltipAnchor;
+        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         [SerializeField]
         private Image image;
         [SerializeField]

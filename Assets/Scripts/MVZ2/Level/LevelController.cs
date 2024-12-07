@@ -177,7 +177,7 @@ namespace MVZ2.Level
                 optionsLogic.Dispose();
                 optionsLogic = null;
             }
-            level.StopAllLoopSounds();
+            level?.StopAllLoopSounds();
             level?.Dispose();
         }
         public async Task ExitLevelToNote(NamespaceID id)
@@ -443,8 +443,6 @@ namespace MVZ2.Level
             Saves.SaveModDatas();
             Saves.SetMapTalk(level.GetMapTalk());
 
-            isInputDisabled = true;
-
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
             if (!level.IsRerun && talkController.CanStartTalk(endTalk))
@@ -678,7 +676,7 @@ namespace MVZ2.Level
         }
         private bool IsInputDisabled()
         {
-            return isInputDisabled;
+            return level == null || level.IsCleared || isOpeningAlmanac;
         }
 
         private void CreateLevelModel(NamespaceID areaId)
@@ -732,7 +730,7 @@ namespace MVZ2.Level
         private bool levelLoaded = false;
         private bool isGameStarted;
         private bool isGameOver;
-        private bool isInputDisabled;
+        private bool isOpeningAlmanac;
         private bool speedUp;
         private float gameRunTimeModular;
         private NamespaceID killerID;

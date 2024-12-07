@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MukioI18n;
 using MVZ2.Entities;
+using MVZ2.Level.UI;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
@@ -60,35 +65,73 @@ namespace MVZ2.Level
         private void UI_OnEntityPointerEnterCallback(EntityController entity, PointerEventData eventData)
         {
             entity.SetHovered(true);
-            if (!IsGameRunning())
-                return;
-            if (Input.GetMouseButton((int)MouseButton.LeftMouse))
+            if (IsGameRunning()) 
             {
-                level.HoverOnEntity(entity.Entity);
+                // 自动拾取
+                if (Input.GetMouseButton((int)MouseButton.LeftMouse))
+                {
+                    level.HoverOnEntity(entity.Entity);
+                }
+            }
+            else
+            {
+                // 显示查看图鉴提示
+                if (entity.Entity.IsPreviewEnemy() && IsChoosingBlueprints())
+                {
+                    var name = Main.ResourceManager.GetEntityName(entity.Entity.GetDefinitionID());
+                    var description = string.Empty;
+                    if (Main.SaveManager.IsAlmanacUnlocked())
+                    {
+                        description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
+                    }
+                    var uiPreset = GetUIPreset();
+                    uiPreset.ShowTooltipOnComponent(entity, new TooltipViewData()
+                    {
+                        name = name,
+                        description = description
+                    });
+                }
             }
         }
         private void UI_OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
         {
             entity.SetHovered(false);
+            // 隐藏查看图鉴提示
+            if (entity.Entity.IsPreviewEnemy())
+            {
+                var uiPreset = GetUIPreset();
+                uiPreset.HideTooltip();
+            }
         }
         private void UI_OnEntityPointerDownCallback(EntityController entityCtrl, PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
 
-            if (!IsGameRunning())
-                return;
-
             var entity = entityCtrl.Entity;
-            var heldFlags = level.GetHeldFlagsOnEntity(entity);
-            bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
-            if (heldFlags.HasFlag(HeldFlags.Valid))
+            if (IsGameRunning())
             {
-                reset = level.UseOnEntity(entity);
+                var heldFlags = level.GetHeldFlagsOnEntity(entity);
+                bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
+                if (heldFlags.HasFlag(HeldFlags.Valid))
+                {
+                    reset = level.UseOnEntity(entity);
+                }
+                if (reset)
+                {
+                    level.ResetHeldItem();
+                }
             }
-            if (reset)
+            else
             {
-                level.ResetHeldItem();
+                // 打开图鉴
+                if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && IsChoosingBlueprints())
+                {
+                    var uiPreset = GetUIPreset();
+                    uiPreset.HideTooltip();
+                    OpenEnemyAlmanac(entity.GetDefinitionID());
+                    Main.SoundManager.Play2D(VanillaSoundID.tap);
+                }
             }
         }
         #endregion
@@ -135,6 +178,9 @@ namespace MVZ2.Level
         public const int MaxEnemyCryCount = 20;
         public const int MinCryInterval = 60;
         public const int MaxCryInterval = 300;
+
+        [TranslateMsg("实体提示", VanillaStrings.CONTEXT_ENTITY_TOOLTIP)]
+        public const string VIEW_IN_ALMANAC = "在图鉴中查看";
 
         private List<EntityController> entities = new List<EntityController>();
 

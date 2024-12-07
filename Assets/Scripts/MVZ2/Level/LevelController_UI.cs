@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.Almanacs;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Options;
@@ -295,7 +296,7 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintChooseViewAlmanacClickCallback()
         {
-
+            OpenAlmanac(AlmanacUI.AlmanacPage.Index);
         }
         private void UI_OnBlueprintChooseViewStoreClickCallback()
         {
@@ -303,11 +304,26 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintChooseBlueprintPointerEnterCallback(int index, PointerEventData eventData)
         {
-
+            var uiPreset = GetUIPreset();
+            var blueprintID = choosingBlueprints[index];
+            GetBlueprintTooltip(blueprintID, out var name, out var tooltip);
+            string error = null;
+            if (!IsChoosingBlueprintError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+            {
+                error = Localization._(errorMessage);
+            }
+            var viewData = new TooltipViewData()
+            {
+                name = name,
+                error = error,
+                description = tooltip
+            };
+            uiPreset.ShowTooltipOnChoosingBlueprint(index, viewData);
         }
         private void UI_OnBlueprintChooseBlueprintPointerExitCallback(int index, PointerEventData eventData)
         {
-
+            var uiPreset = GetUIPreset();
+            uiPreset.HideTooltip();
         }
         private void UI_OnBlueprintChooseBlueprintPointerDownCallback(int index, PointerEventData eventData)
         {
@@ -419,6 +435,95 @@ namespace MVZ2.Level
             return Resources.GetBlueprintIconStandalone(seedDef);
         }
         #endregion
+
+        #region 选择蓝图
+        private void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
+        {
+            var panelViewData = new BlueprintChoosePanelViewData()
+            {
+                hasArtifacts = false,
+                canViewLawn = level.CurrentFlag > 0,
+                hasCommandBlock = false,
+            };
+            var orderedBlueprints = new List<NamespaceID>();
+            Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
+            var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
+            isChoosingBlueprints = true;
+            choosingBlueprints = orderedBlueprints.ToArray();
+
+            var uiPreset = GetUIPreset();
+            uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Saves.IsAlmanacUnlocked());
+            uiPreset.SetBlueprintChooseViewStoreButtonActive(Saves.IsStoreUnlocked());
+            uiPreset.SetSideUIVisible(true);
+            uiPreset.SetBlueprintsChooseVisible(true);
+            uiPreset.ResetBlueprintChooseArtifactCount(3);
+            uiPreset.UpdateBlueprintChooseElements(panelViewData);
+            uiPreset.UpdateBlueprintChooseItems(blueprintViewDatas);
+            uiPreset.SetUIVisibleState(VisibleState.ChoosingBlueprints);
+
+            UpdateChosenBlueprints();
+        }
+        private void UpdateChosenBlueprints()
+        {
+            var uiPreset = GetUIPreset();
+            var slotCount = level.GetSeedSlotCount();
+            for (int i = 0; i < slotCount; i++)
+            {
+                BlueprintViewData viewData = BlueprintViewData.Empty;
+                if (i < chosenBlueprints.Count)
+                {
+                    var blueprintIndex = chosenBlueprints[i];
+                    var blueprint = choosingBlueprints[blueprintIndex];
+                    var seedDef = Game.GetSeedDefinition(blueprint);
+                    if (seedDef != null)
+                    {
+                        viewData = Resources.GetBlueprintViewData(seedDef);
+                    }
+                }
+                var blueprintUI = uiPreset.GetBlueprintAt(i);
+                if (blueprintUI)
+                {
+                    blueprintUI.UpdateView(viewData);
+                    blueprintUI.SetDisabled(false);
+                    blueprintUI.SetRecharge(0);
+                    blueprintUI.SetSelected(false);
+                    blueprintUI.SetTwinkling(false);
+                }
+            }
+        }
+        private void UpdateBlueprintChooseItem(int index)
+        {
+            var uiPreset = GetUIPreset();
+            var blueprintChooseItem = uiPreset.GetBlueprintChooseItem(index);
+            bool selected = chosenBlueprints.Contains(index);
+            blueprintChooseItem.SetDisabled(selected);
+            blueprintChooseItem.SetRecharge(selected ? 1 : 0);
+        }
+        private bool IsChoosingBlueprintError(NamespaceID id, out string errorMessage)
+        {
+            errorMessage = null;
+            return true;
+        }
+        #endregion
+
+        #region 图鉴
+        private void OpenAlmanac(AlmanacUI.AlmanacPage page)
+        {
+            isOpeningAlmanac = true;
+            levelCamera.gameObject.SetActive(false);
+            Main.Scene.DisplayAlmanac(() =>
+            {
+                isOpeningAlmanac = false;
+                levelCamera.gameObject.SetActive(true);
+            });
+        }
+        private void OpenEnemyAlmanac(NamespaceID enemyID)
+        {
+            OpenAlmanac(AlmanacUI.AlmanacPage.Enemies);
+            Main.Scene.DisplayEnemyAlmanac(enemyID);
+        }
+        #endregion
+
         private void ClickPickaxe()
         {
             if (!PickaxeActive)
@@ -596,68 +701,6 @@ namespace MVZ2.Level
                 spriteID = new NamespaceID(areaID.spacename, $"starshards/default");
             }
             return spriteID;
-        }
-        private void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
-        {
-            var panelViewData = new BlueprintChoosePanelViewData()
-            {
-                hasArtifacts = false,
-                canViewLawn = level.CurrentFlag > 0,
-                hasCommandBlock = false,
-            };
-            var orderedBlueprints = new List<NamespaceID>();
-            Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
-            var blueprintViewDatas = blueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
-            isChoosingBlueprints = true;
-            choosingBlueprints = orderedBlueprints.ToArray();
-
-            var uiPreset = GetUIPreset();
-            uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Saves.IsAlmanacUnlocked());
-            uiPreset.SetBlueprintChooseViewStoreButtonActive(Saves.IsStoreUnlocked());
-            uiPreset.SetSideUIVisible(true);
-            uiPreset.SetBlueprintsChooseVisible(true);
-            uiPreset.ResetBlueprintChooseArtifactCount(3);
-            uiPreset.UpdateBlueprintChooseElements(panelViewData);
-            uiPreset.UpdateBlueprintChooseItems(blueprintViewDatas);
-            uiPreset.SetUIVisibleState(VisibleState.ChoosingBlueprints);
-
-            UpdateChosenBlueprints();
-        }
-        private void UpdateChosenBlueprints()
-        {
-            var uiPreset = GetUIPreset();
-            var slotCount = level.GetSeedSlotCount();
-            for (int i = 0; i < slotCount; i++)
-            {
-                BlueprintViewData viewData = BlueprintViewData.Empty;
-                if (i < chosenBlueprints.Count)
-                {
-                    var blueprintIndex = chosenBlueprints[i];
-                    var blueprint = choosingBlueprints[blueprintIndex];
-                    var seedDef = Game.GetSeedDefinition(blueprint);
-                    if (seedDef != null)
-                    {
-                        viewData = Resources.GetBlueprintViewData(seedDef);
-                    }
-                }
-                var blueprintUI = uiPreset.GetBlueprintAt(i);
-                if (blueprintUI)
-                {
-                    blueprintUI.UpdateView(viewData);
-                    blueprintUI.SetDisabled(false);
-                    blueprintUI.SetRecharge(0);
-                    blueprintUI.SetSelected(false);
-                    blueprintUI.SetTwinkling(false);
-                }
-            }
-        }
-        private void UpdateBlueprintChooseItem(int index)
-        {
-            var uiPreset = GetUIPreset();
-            var blueprintChooseItem = uiPreset.GetBlueprintChooseItem(index);
-            bool selected = chosenBlueprints.Contains(index);
-            blueprintChooseItem.SetDisabled(selected);
-            blueprintChooseItem.SetRecharge(selected ? 1 : 0);
         }
 
         #endregion

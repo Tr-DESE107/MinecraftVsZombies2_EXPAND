@@ -104,6 +104,10 @@ namespace MVZ2.Scenes
                 almanac.OnReturnClick -= OnReturn;
             }
         }
+        public void DisplayEnemyAlmanac(NamespaceID enemyID)
+        {
+            almanac.OpenEnemyAlmanac(enemyID);
+        }
         public Task DisplayChapterTransitionAsync(NamespaceID id)
         {
             return chapterTransition.DisplayAsync(id);

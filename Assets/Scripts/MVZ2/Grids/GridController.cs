@@ -30,9 +30,9 @@ namespace MVZ2.Grids
         {
             OnPointerUp?.Invoke(eventData);
         }
-        bool ILevelRaycastReceiver.IsValidHeldItem(LevelEngine level, HeldItemDefinition definition, long id)
+        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, long id)
         {
-            if (!definition.IsForGrid())
+            if (definition == null || definition.IsForGrid())
                 return false;
             var flags = definition.GetHeldFlagsOnGrid(level.GetGrid(Column, Lane), id);
             return flags.HasFlag(HeldFlags.Valid);

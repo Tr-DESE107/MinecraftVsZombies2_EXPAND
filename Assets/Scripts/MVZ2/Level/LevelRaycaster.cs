@@ -35,9 +35,6 @@ namespace MVZ2.Level
         /// </summary>
         public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList)
         {
-            if (heldItemDefinition == null)
-                return;
-
             Ray ray = new Ray();
             float distanceToClipPlane = 0;
             int displayIndex = 0;
@@ -69,8 +66,8 @@ namespace MVZ2.Level
             {
                 var hit = m_Hits[b];
                 var go = hit.collider.gameObject;
-                var receiver = go.GetComponentInParent<ILevelRaycastReceiver>();
-                if (!receiver.IsValidHeldItem(level, heldItemDefinition, heldItemId))
+
+                if (!IsGameObjectValid(go))
                     continue;
 
                 var result = new RaycastResult
@@ -87,6 +84,13 @@ namespace MVZ2.Level
 
                 resultAppendList.Add(result);
             }
+        }
+        private bool IsGameObjectValid(GameObject go)
+        {
+            var receiver = go.GetComponentInParent<ILevelRaycastReceiver>();
+            if (receiver == null)
+                return false;
+            return receiver.IsValidReceiver(level, heldItemDefinition, heldItemId);
         }
         public override int sortOrderPriority => 0;
         RaycastHit2D[] m_Hits;

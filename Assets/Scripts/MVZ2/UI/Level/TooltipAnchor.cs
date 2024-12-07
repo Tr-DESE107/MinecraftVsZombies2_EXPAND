@@ -11,7 +11,7 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private Vector2 pivot = new Vector2(0.5f, 0.5f);
     }
-    public interface ITooltipUI
+    public interface ITooltipTarget
     {
         TooltipAnchor Anchor { get; }
     }

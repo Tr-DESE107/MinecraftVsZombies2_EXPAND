@@ -28,8 +28,8 @@ namespace MVZ2.Mainmenu
             {
                 button.Interactable = true;
             }
-            ui.SetButtonActive(MainmenuButtonType.Almanac, true);
-            ui.SetButtonActive(MainmenuButtonType.Store, false);
+            ui.SetButtonActive(MainmenuButtonType.Almanac, main.SaveManager.IsAlmanacUnlocked());
+            ui.SetButtonActive(MainmenuButtonType.Store, main.SaveManager.IsStoreUnlocked());
             ui.SetBackgroundDark(false);
             ui.SetOptionsDialogVisible(false);
             ui.SetInputNameDialogVisible(false);

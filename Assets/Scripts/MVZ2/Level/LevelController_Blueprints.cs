@@ -7,6 +7,8 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
+using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using UnityEngine;
@@ -41,19 +43,29 @@ namespace MVZ2.Level
         private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData)
         {
             var levelUI = GetUIPreset();
-            var seedPack = level.GetSeedPackAt(index);
-            if (seedPack == null)
-                return;
-            var seedDef = seedPack.Definition;
-            if (seedDef == null || seedDef.GetSeedType() != SeedTypes.ENTITY)
-                return;
-            var entityID = seedDef.GetSeedEntityID();
-            var name = Resources.GetEntityName(entityID);
-            var tooltip = Resources.GetEntityTooltip(entityID);
+            string name;
+            string tooltip;
             string error = null;
-            if (!CanPickBlueprint(seedPack, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+            if (IsGameStarted())
             {
-                error = Localization._(errorMessage);
+                var seedPack = level.GetSeedPackAt(index);
+                if (seedPack == null)
+                    return;
+                GetBlueprintTooltip(seedPack.Definition, out name, out tooltip);
+                if (!CanPickBlueprint(seedPack, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+                {
+                    error = Localization._(errorMessage);
+                }
+            }
+            else 
+            {
+                var chosenIndex = chosenBlueprints[index];
+                var blueprintID = choosingBlueprints[chosenIndex];
+                GetBlueprintTooltip(blueprintID, out name, out tooltip);
+                if (!IsChoosingBlueprintError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+                {
+                    error = Localization._(errorMessage);
+                }
             }
             var viewData = new TooltipViewData()
             {
@@ -166,6 +178,21 @@ namespace MVZ2.Level
                 return null;
             return Resources.GetBlueprintIcon(seed.Definition);
         }
+        private void GetBlueprintTooltip(NamespaceID blueprintID, out string name, out string tooltip)
+        {
+            var definition = Main.Game.GetSeedDefinition(blueprintID);
+            GetBlueprintTooltip(definition, out name, out tooltip);
+        }
+        private void GetBlueprintTooltip(SeedDefinition definition, out string name, out string tooltip)
+        {
+            name = string.Empty;
+            tooltip = string.Empty;
+            if (definition == null || definition.GetSeedType() != SeedTypes.ENTITY)
+                return;
+            var entityID = definition.GetSeedEntityID();
+            name = Resources.GetEntityName(entityID);
+            tooltip = Resources.GetEntityTooltip(entityID);
+        }
         private void ClickBlueprint(int index)
         {
             if (IsChoosingBlueprints())
@@ -190,6 +217,7 @@ namespace MVZ2.Level
                 };
 
                 level.PlaySound(VanillaSoundID.tap);
+                uiPreset.HideTooltip();
                 return;
             }
 

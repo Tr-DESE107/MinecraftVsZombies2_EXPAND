@@ -25,7 +25,20 @@ namespace MVZ2.Almanacs
             base.Display();
             ui.DisplayPage(AlmanacUI.AlmanacPage.Index);
             UpdateEntries();
-            Main.MusicManager.Play(VanillaMusicID.choosing);
+            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
+                Main.MusicManager.Play(VanillaMusicID.choosing);
+        }
+        public void OpenEnemyAlmanac(NamespaceID id)
+        {
+            ui.DisplayPage(AlmanacUI.AlmanacPage.Enemies);
+            if (enemyEntries.Contains(id))
+            {
+                SetActiveEnemyEntry(id);
+            }
+            else
+            {
+                SetActiveEnemyEntry(enemyEntries.FirstOrDefault());
+            }
         }
         private void Awake()
         {
@@ -40,6 +53,7 @@ namespace MVZ2.Almanacs
         }
         private void OnIndexReturnClickCallback()
         {
+            Hide();
             OnReturnClick?.Invoke();
         }
         private void OnPageReturnClickCallback()

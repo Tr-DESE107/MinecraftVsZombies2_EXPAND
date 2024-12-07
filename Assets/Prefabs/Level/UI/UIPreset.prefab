@@ -656,8 +656,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1816132019
-  m_SortingOrder: -100
+  m_SortingLayerID: -184251447
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!114 &2536398662654184778
 MonoBehaviour:
@@ -1032,9 +1032,9 @@ MonoBehaviour:
   isLocalMode: 0
   _startTransform: {fileID: 0}
   _targetTransform: {fileID: 0}
-  _stopDistance: 0
   _startPosition: {x: 0, y: 0, z: 0}
   _targetPosition: {x: 0, y: 0, z: 0}
+  _stopDistance: 0
 --- !u!1 &6843956400872168580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,19 +1891,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7671611398742841095, guid: cb1cd08fc3eeb78489f9e7dc88df493d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4287232298969115366}
   m_SourcePrefab: {fileID: 100100000, guid: cb1cd08fc3eeb78489f9e7dc88df493d, type: 3}
 --- !u!224 &423625654259554376 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5635239084631611310, guid: cb1cd08fc3eeb78489f9e7dc88df493d, type: 3}
   m_PrefabInstance: {fileID: 5464380781524635622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2423614677634832609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7671611398742841095, guid: cb1cd08fc3eeb78489f9e7dc88df493d, type: 3}
+  m_PrefabInstance: {fileID: 5464380781524635622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &4287232298969115366
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423614677634832609}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: -184251447
+  m_SortingOrder: 300
+  m_TargetDisplay: 0
 --- !u!114 &5451030630377925896 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 31685883783308014, guid: cb1cd08fc3eeb78489f9e7dc88df493d, type: 3}
   m_PrefabInstance: {fileID: 5464380781524635622}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2423614677634832609}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8d93fdba079384caf6cc18707bec94, type: 3}

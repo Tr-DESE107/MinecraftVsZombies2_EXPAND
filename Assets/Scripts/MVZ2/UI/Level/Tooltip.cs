@@ -2,6 +2,7 @@
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
@@ -26,6 +27,7 @@ namespace MVZ2.Level.UI
             var rootCanvas = rectTransform.GetRootCanvasNonAlloc(canvasListCache);
             if (rootCanvas)
             {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
                 rectTransform.LimitInsideScreen(rootCanvas.transform, rootTransform.rect.size);
             }
         }
