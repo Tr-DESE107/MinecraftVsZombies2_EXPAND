@@ -46,6 +46,9 @@ namespace MVZ2.Metas
                 case "areas":
                     resource.AreaMetaList = AreaMetaList.FromXmlNode(document["areas"], defaultNsp);
                     break;
+                case "stats":
+                    resource.StatMetaList = StatMetaList.FromXmlNode(document["stats"], defaultNsp);
+                    break;
             }
         }
     }

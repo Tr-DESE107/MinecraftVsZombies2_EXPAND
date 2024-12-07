@@ -26,6 +26,10 @@ namespace MVZ2Logic.Saves
         {
             return categories.Exists(e => e.Name == name);
         }
+        public UserStatCategory[] GetAllCategories()
+        {
+            return categories.ToArray();
+        }
         public SerializableUserStats ToSerializable()
         {
             return new SerializableUserStats()

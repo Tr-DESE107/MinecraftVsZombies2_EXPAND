@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-07 12:13+0800\n"
-"PO-Revision-Date: 2024-12-07 12:17+0800\n"
+"POT-Creation-Date: 2024-12-07 09:13+0800\n"
+"PO-Revision-Date: 2024-12-07 21:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -126,9 +126,19 @@ msgid "对话档案"
 msgstr "Archives"
 
 #. 主界面文字
+#: /MainGame/MainScene/Mainmenu/Elements/Labels/Stats
+msgid "统计"
+msgstr "Stats"
+
+#. 主界面文字
 #: /MainGame/MainScene/Mainmenu/Elements/Labels/Achievement
 msgid "成就"
 msgstr "Achievements"
+
+#: /MainGame/MainScene/Mainmenu/Elements/Buttons/Achievements/Region/Scroll
+#: View/Viewport/Content/Entry/Texts/TitleRegion/Earned
+msgid "已完成！"
+msgstr "Earned!"
 
 #. 菜单对话框的标题
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/TitleArea/Title
@@ -181,14 +191,14 @@ msgid "查看器械"
 msgstr "View Contraptions"
 
 #. 图鉴按钮
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewArtifactsRegion/Button/Text
-msgid "查看制品"
-msgstr "View Artifacts"
-
-#. 图鉴按钮
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewEnemyRegion/Button/Text
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewEnemyRegion/Button/Text
 msgid "查看怪物"
 msgstr "View Enemies"
+
+#. 图鉴按钮
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewArtifactsRegion/Button/Text
+msgid "查看制品"
+msgstr "View Artifacts"
 
 #. 图鉴按钮
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewMiscRegion/Button/Text
@@ -331,12 +341,12 @@ msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr "Click to collect the gem!"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:95
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:92
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
@@ -413,82 +423,91 @@ msgstr "Warning"
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:53
+#: Scripts\Vanilla\VanillaStrings.cs:52
+msgid "确认"
+msgstr "Accept"
+
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:55
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:65
+#: Scripts\Vanilla\VanillaStrings.cs:67
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:71
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "levelname"
 msgid "序章"
 msgstr "Prologue"
 
-#: Scripts\Vanilla\VanillaStrings.cs:75
+#: Scripts\Vanilla\VanillaStrings.cs:77
 msgctxt "levelname"
 msgid "万圣夜"
 msgstr "Halloween"
 
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:79
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:81
+#: Scripts\Vanilla\VanillaStrings.cs:83
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:84
+#: Scripts\Vanilla\VanillaStrings.cs:86
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:90
+#: Scripts\Vanilla\VanillaStrings.cs:92
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
+
+#: Scripts\Vanilla\VanillaStrings.cs:98
+msgctxt "almanac"
+msgid "（还没有遇到）"
+msgstr "(Not encountered yet)"
 
 #: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:37
 msgid "版本{0}"
@@ -595,19 +614,28 @@ msgstr ""
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:401
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:516
 msgid "第一次游戏必须输入用户名"
 msgstr "Username must be set when starting the game for the first time"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:403
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:518
 msgid "用户名不能为空"
 msgstr "Username cannot be empty"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:405
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:520
 msgid "已经存在该用户名"
 msgstr "This username already exists"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:407
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:522
+msgid "无法删除用户：{0}"
+msgstr "Cannot delete user: {0}"
+
+# 切换用户时的错误信息，{0}为错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:524
+msgid "无法切换至用户：{0}"
+msgstr "Cannot switch to user: {0}"
+
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:526
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
@@ -615,7 +643,7 @@ msgstr ""
 "Delete User {0}?\n"
 "This user's data will be all deleted!"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:409
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:528
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
@@ -624,7 +652,12 @@ msgstr "Quit?"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:667
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:182
+msgctxt "entity.tooltip"
+msgid "在图鉴中查看"
+msgstr "View in Almanac"
+
+#: Scripts\MVZ2\Level\LevelController_UI.cs:710
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -632,32 +665,62 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:669
+#: Scripts\MVZ2\Level\LevelController_UI.cs:712
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:671
+#: Scripts\MVZ2\Level\LevelController_UI.cs:714
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
 "game state."
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:673
+#: Scripts\MVZ2\Level\LevelController_UI.cs:716
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:263
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:283
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:265
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:285
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
+
+#. Name for stat category mvz2:contraption_place
+#: Stats meta file
+msgctxt "stat_category"
+msgid "放置器械"
+msgstr "Placed contraptions"
+
+#. Name for stat category mvz2:contraption_destroy
+#: Stats meta file
+msgctxt "stat_category"
+msgid "器械被摧毁"
+msgstr "Destroyed contraptions"
+
+#. Name for stat category mvz2:enemy_spawn
+#: Stats meta file
+msgctxt "stat_category"
+msgid "敌人生成"
+msgstr "Spawned enemies"
+
+#. Name for stat category mvz2:enemy_neutralize
+#: Stats meta file
+msgctxt "stat_category"
+msgid "消灭敌人"
+msgstr "Neutralized enemies"
+
+#. Name for stat category mvz2:enemy_gameover
+#: Stats meta file
+msgctxt "stat_category"
+msgid "被敌人击杀"
+msgstr "Killed by enemies"
 
 #~ msgid "查看人物"
 #~ msgstr "View Characters"
@@ -722,9 +785,6 @@ msgstr "Recharge: <color=red>{0}</color>"
 
 #~ msgid "自定义"
 #~ msgstr "Custom"
-
-#~ msgid "删除用户"
-#~ msgstr "Delete User"
 
 #~ msgid "尸潮"
 #~ msgstr "Biohazard"
@@ -801,9 +861,6 @@ msgstr "Recharge: <color=red>{0}</color>"
 
 #~ msgid "查看草坪"
 #~ msgstr "View Lawn"
-
-#~ msgid "在图鉴中查看"
-#~ msgstr "View in Almanac"
 
 #~ msgctxt "achievement"
 #~ msgid "解锁成就！"
@@ -1254,9 +1311,6 @@ msgstr "Recharge: <color=red>{0}</color>"
 
 #~ msgid "查看敌人"
 #~ msgstr "View Enemies"
-
-#~ msgid "（还没有遇到）"
-#~ msgstr "(Not encountered yet)"
 
 #~ msgid ""
 #~ "确认要退出吗？\n"

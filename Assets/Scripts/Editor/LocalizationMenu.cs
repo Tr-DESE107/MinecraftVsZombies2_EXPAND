@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.IO.Compression;
-using System.Runtime.Remoting.Contexts;
 using System.Xml;
 using MukioI18n;
 using MVZ2.IO;
@@ -12,7 +11,6 @@ using UnityEditor.AddressableAssets;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Editor
 {
@@ -22,8 +20,9 @@ namespace MVZ2.Editor
         public static void UpdateTranslations()
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
-            var active = SceneManager.GetActiveScene().path;
 
+            // 场景
+            var active = SceneManager.GetActiveScene().path;
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             foreach (var group in settings.groups)
             {
@@ -44,8 +43,19 @@ namespace MVZ2.Editor
                     }
                 }
             }
-
+            // 代码
             TranslateMsgAttributeFinder.FindAll(potGenerator);
+
+            // 统计
+            var spaceName = "mvz2";
+            var statsDocument = LoadMetaXmlDocument(spaceName, "stats.xml");
+            var statsEntryList = StatMetaList.FromXmlNode(statsDocument["stats"], spaceName);
+            var statsReference = "Stats meta file";
+            foreach (var category in statsEntryList.categories)
+            {
+                var id = new NamespaceID(spaceName, category.ID);
+                AddTranslation(potGenerator, category.Name, statsReference, $"Name for stat category {id}", VanillaStrings.CONTEXT_STAT_CATEGORY);
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");
@@ -57,19 +67,17 @@ namespace MVZ2.Editor
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
 
             var spaceName = "mvz2";
-            var metaDirectory = Path.Combine(Application.dataPath, "GameContent", "Assets", spaceName, "metas");
 
-            var almanacDocument = LoadXmlDocument("almanac.xml");
-            var entitiesDocument = LoadXmlDocument("entities.xml");
-            var talkcharacterDocument = LoadXmlDocument("talkcharacters.xml");
-            var artifactsDocument = LoadXmlDocument("artifacts.xml");
+            var almanacDocument = LoadMetaXmlDocument(spaceName, "almanac.xml");
+            var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
+            var talkcharacterDocument = LoadMetaXmlDocument(spaceName, "talkcharacters.xml");
+            var artifactsDocument = LoadMetaXmlDocument(spaceName, "artifacts.xml");
 
             var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
             var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
             var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
 
-            var almanacReference = "Almanac meta file";
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
             var artifactsReference = "Artifact meta file";
@@ -78,58 +86,37 @@ namespace MVZ2.Editor
                 var categoryName = category.name;
                 foreach (var group in category.groups)
                 {
-                    AddTranslation(group.name, almanacReference, $"Name for almanac group {group.id}", VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME);
+                    AddTranslation(potGenerator, group.name, almanacReference, $"Name for almanac group {group.id}", VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME);
                     foreach (var entry in group.entries)
                     {
-                        AddAlmanacEntryTranslation(entry, categoryName);
+                        AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
                     }
                 }
                 foreach (var entry in category.entries)
                 {
-                    AddAlmanacEntryTranslation(entry, categoryName);
+                    AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
                 }
             }
             foreach (var meta in entitiesList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(meta.Name, entitiesReference, $"Header for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(meta.Tooltip, entitiesReference, $"Properties for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
-                AddTranslation(meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Header for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Properties for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
             }
             foreach (var meta in characterList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.id);
-                AddTranslation(meta.name, characterReference, $"Name for character {id}", $"character.name");
+                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", $"character.name");
             }
             foreach (var meta in artifactsList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
-                AddTranslation(meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
             }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
-
-            XmlDocument LoadXmlDocument(string path)
-            {
-                var absPath = Path.Combine(metaDirectory, path);
-                using FileStream stream = File.Open(absPath, FileMode.Open);
-                return stream.ReadXmlDocument();
-            }
-            void AddAlmanacEntryTranslation(AlmanacMetaEntry entry, string categoryName)
-            {
-                AddTranslation(entry.name, almanacReference, $"Name for {categoryName} {entry.id}", VanillaStrings.GetAlmanacNameContext(categoryName));
-                var context = VanillaStrings.GetAlmanacDescriptionContext(categoryName);
-                AddTranslation(entry.header, almanacReference, $"Header for {categoryName} {entry.id}", context);
-                AddTranslation(entry.properties, almanacReference, $"Properties for {categoryName} {entry.id}", context);
-                AddTranslation(entry.flavor, almanacReference, $"Flavor for {categoryName} {entry.id}", context);
-            }
-            void AddTranslation(string text, string reference = null, string comment = null, string context = null)
-            {
-                if (string.IsNullOrEmpty(text))
-                    return;
-                potGenerator.AddString(new PotTranslate(text, reference, comment, context));
-            }
         }
         [MenuItem("Custom/Assets/Localization/Compress Langauge Pack")]
         public static void CompressLanguagePack()
@@ -193,5 +180,32 @@ namespace MVZ2.Editor
         {
             return Path.Combine(Application.dataPath, "Localization", "templates", fileName);
         }
+
+        private static string GetMetaDirectory(string nsp)
+        {
+            return Path.Combine(Application.dataPath, "GameContent", "Assets", nsp, "metas");
+        }
+        private static XmlDocument LoadMetaXmlDocument(string nsp, string path)
+        {
+            var metaDirectory = GetMetaDirectory(nsp);
+            var absPath = Path.Combine(metaDirectory, path);
+            using FileStream stream = File.Open(absPath, FileMode.Open);
+            return stream.ReadXmlDocument();
+        }
+        private static void AddAlmanacEntryTranslation(MukioPotGenerator potGenerator, AlmanacMetaEntry entry, string categoryName)
+        {
+            AddTranslation(potGenerator, entry.name, almanacReference, $"Name for {categoryName} {entry.id}", VanillaStrings.GetAlmanacNameContext(categoryName));
+            var context = VanillaStrings.GetAlmanacDescriptionContext(categoryName);
+            AddTranslation(potGenerator, entry.header, almanacReference, $"Header for {categoryName} {entry.id}", context);
+            AddTranslation(potGenerator, entry.properties, almanacReference, $"Properties for {categoryName} {entry.id}", context);
+            AddTranslation(potGenerator, entry.flavor, almanacReference, $"Flavor for {categoryName} {entry.id}", context);
+        }
+        private static void AddTranslation(MukioPotGenerator potGenerator, string text, string reference = null, string comment = null, string context = null)
+        {
+            if (string.IsNullOrEmpty(text))
+                return;
+            potGenerator.AddString(new PotTranslate(text, reference, comment, context));
+        }
+        private static string almanacReference = "Almanac meta file";
     }
 }

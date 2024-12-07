@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-07 12:13+0800\n"
+"POT-Creation-Date: 2024-12-07 09:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,8 +123,17 @@ msgid "对话档案"
 msgstr ""
 
 #. 主界面文字
+#: /MainGame/MainScene/Mainmenu/Elements/Labels/Stats
+msgid "统计"
+msgstr ""
+
+#. 主界面文字
 #: /MainGame/MainScene/Mainmenu/Elements/Labels/Achievement
 msgid "成就"
+msgstr ""
+
+#: /MainGame/MainScene/Mainmenu/Elements/Buttons/Achievements/Region/Scroll View/Viewport/Content/Entry/Texts/TitleRegion/Earned
+msgid "已完成！"
 msgstr ""
 
 #. 菜单对话框的标题
@@ -177,13 +186,13 @@ msgid "查看器械"
 msgstr ""
 
 #. 图鉴按钮
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewArtifactsRegion/Button/Text
-msgid "查看制品"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Left/Regions/ViewEnemyRegion/Button/Text
+msgid "查看怪物"
 msgstr ""
 
 #. 图鉴按钮
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewEnemyRegion/Button/Text
-msgid "查看怪物"
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewArtifactsRegion/Button/Text
+msgid "查看制品"
 msgstr ""
 
 #. 图鉴按钮
@@ -352,13 +361,13 @@ msgid "试着挖掉所有器械！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:95
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:92
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
@@ -444,97 +453,108 @@ msgstr ""
 msgid "退出"
 msgstr ""
 
-# 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:53
-msgid "能量不足"
+# 通用文本
+#: Scripts\Vanilla\VanillaStrings.cs:52
+msgid "确认"
 msgstr ""
 
 # 游戏内文本提示
 #: Scripts\Vanilla\VanillaStrings.cs:55
-msgid "重新充能中…"
+msgid "能量不足"
 msgstr ""
 
 # 游戏内文本提示
 #: Scripts\Vanilla\VanillaStrings.cs:57
-msgid "挖掉器械"
+msgid "重新充能中…"
 msgstr ""
 
-# 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:61
-msgctxt "difficulty"
-msgid "简单"
+# 游戏内文本提示
+#: Scripts\Vanilla\VanillaStrings.cs:59
+msgid "挖掉器械"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "difficulty"
-msgid "普通"
+msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:65
 msgctxt "difficulty"
-msgid "困难"
+msgid "普通"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:67
 msgctxt "difficulty"
-msgid "未知难度"
+msgid "困难"
 msgstr ""
 
-# 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:71
-msgctxt "levelname"
-msgid "未知关卡"
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:69
+msgctxt "difficulty"
+msgid "未知难度"
 msgstr ""
 
 # 关卡名称
 #: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "levelname"
-msgid "序章"
+msgid "未知关卡"
 msgstr ""
 
 # 关卡名称
 #: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "levelname"
+msgid "序章"
+msgstr ""
+
+# 关卡名称
+#: Scripts\Vanilla\VanillaStrings.cs:77
+msgctxt "levelname"
 msgid "万圣夜"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:79
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:81
+#: Scripts\Vanilla\VanillaStrings.cs:83
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:84
+#: Scripts\Vanilla\VanillaStrings.cs:86
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:90
+#: Scripts\Vanilla\VanillaStrings.cs:92
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgctxt "artifact.tooltip"
 msgid "？？？"
+msgstr ""
+
+# 怪物说明-还没有遇到
+#: Scripts\Vanilla\VanillaStrings.cs:98
+msgctxt "almanac"
+msgid "（还没有遇到）"
 msgstr ""
 
 # 标题页面的版本号文本，{0}为版本号
@@ -656,29 +676,39 @@ msgid "正在进入关卡……"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:401
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:516
 msgid "第一次游戏必须输入用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:403
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:518
 msgid "用户名不能为空"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:405
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:520
 msgid "已经存在该用户名"
 msgstr ""
 
+# 删除用户时的错误信息，{0}为错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:522
+msgid "无法删除用户：{0}"
+msgstr ""
+
+# 切换用户时的错误信息，{0}为错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:524
+msgid "无法切换至用户：{0}"
+msgstr ""
+
 # 删除用户时的警告，{0}为名称
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:407
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:526
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:409
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:528
 msgid "确认要退出吗？"
 msgstr ""
 
@@ -687,37 +717,73 @@ msgstr ""
 msgid "{0}x{1}"
 msgstr ""
 
+# 实体提示
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:182
+msgctxt "entity.tooltip"
+msgid "在图鉴中查看"
+msgstr ""
+
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:667
+#: Scripts\MVZ2\Level\LevelController_UI.cs:710
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:669
+#: Scripts\MVZ2\Level\LevelController_UI.cs:712
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:671
+#: Scripts\MVZ2\Level\LevelController_UI.cs:714
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:673
+#: Scripts\MVZ2\Level\LevelController_UI.cs:716
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:263
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:283
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:265
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:285
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
+msgstr ""
+
+#. Name for stat category mvz2:contraption_place
+#: Stats meta file
+msgctxt "stat_category"
+msgid "放置器械"
+msgstr ""
+
+#. Name for stat category mvz2:contraption_destroy
+#: Stats meta file
+msgctxt "stat_category"
+msgid "器械被摧毁"
+msgstr ""
+
+#. Name for stat category mvz2:enemy_spawn
+#: Stats meta file
+msgctxt "stat_category"
+msgid "敌人生成"
+msgstr ""
+
+#. Name for stat category mvz2:enemy_neutralize
+#: Stats meta file
+msgctxt "stat_category"
+msgid "消灭敌人"
+msgstr ""
+
+#. Name for stat category mvz2:enemy_gameover
+#: Stats meta file
+msgctxt "stat_category"
+msgid "被敌人击杀"
 msgstr ""
 

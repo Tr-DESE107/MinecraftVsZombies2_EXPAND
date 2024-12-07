@@ -24,6 +24,7 @@ namespace MVZ2.Modding
         public StageMetaList StageMetaList { get; set; }
         public MapMetaList MapMetaList { get; set; }
         public AreaMetaList AreaMetaList { get; set; }
+        public StatMetaList StatMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Sprite[]> SpriteSheets = new();

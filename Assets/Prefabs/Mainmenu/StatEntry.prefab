@@ -278,6 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1993081351490365679}
   - component: {fileID: 3426514590051985583}
+  - component: {fileID: 1662170091148476739}
   m_Layer: 0
   m_Name: StatEntry
   m_TagString: Untagged
@@ -333,6 +334,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1662170091148476739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787386796461650928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5217c3bdf53444d9dcb6ee3024d6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 3700316048742533961}
+  countText: {fileID: 1916177496817489421}
 --- !u!1 &5516435368266996240
 GameObject:
   m_ObjectHideFlags: 0

@@ -497,6 +497,28 @@ namespace Tools.Mathematics
             }
             return false;
         }
+        public static float EaseIn(float x)
+        {
+            x = Mathf.Clamp01(x);
+            return Mathf.Pow(x, 2);
+        }
+        public static float EaseOut(float x)
+        {
+            x = Mathf.Clamp01(x);
+            return 1 - Mathf.Pow(x - 1, 2);
+        }
+        public static float EaseInAndOut(float x)
+        {
+            x = Mathf.Clamp01(x);
+            if (x < 0.5f)
+            {
+                return EaseIn(2 * x) * 0.5f;
+            }
+            else
+            {
+                return EaseOut((2 * x - 1)) * 0.5f + 0.5f;
+            }
+        }
 
     }
     public enum Axis

@@ -56,7 +56,7 @@ namespace PVZEngine.Level
         {
             KillerEnemy = killer;
             OnGameOver?.Invoke(type, killer, message);
-            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, type, type, killer, message);
+            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, type, this, type, killer, message);
         }
         public int GetRandomEnemySpawnLane()
         {

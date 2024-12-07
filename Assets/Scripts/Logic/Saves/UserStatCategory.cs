@@ -29,6 +29,16 @@ namespace MVZ2Logic.Saves
         {
             return entries.Exists(e => e.ID == id);
         }
+        public UserStatEntry[] GetAllEntries()
+        {
+            return entries.ToArray();
+        }
+        public long GetSum()
+        {
+            if (entries.Count <= 0)
+                return 0;
+            return entries.Sum(e => e.Value);
+        }
         public SerializableUserStatCategory ToSerializable()
         {
             return new SerializableUserStatCategory()

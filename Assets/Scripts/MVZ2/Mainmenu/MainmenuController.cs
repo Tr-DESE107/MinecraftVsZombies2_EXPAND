@@ -9,14 +9,19 @@ using MVZ2.GameContent.Notes;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
+using MVZ2.Metas;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Scenes;
+using PVZEngine;
+using Tools.Mathematics;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Mainmenu
 {
@@ -70,6 +75,7 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.MoreMenu, OnMoreMenuButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.BackToMenu, OnBackToMenuButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Archive, OnArchiveButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Stats, OnStatsButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
@@ -78,6 +84,8 @@ namespace MVZ2.Mainmenu
 
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
             ui.OnUserManageDialogUserSelect += OnUserManageUserSelectCallback;
+
+            ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
         }
         private void Update()
         {
@@ -87,6 +95,18 @@ namespace MVZ2.Mainmenu
                 {
                     StartCoroutine(GotoDebugStage());
                 }
+            }
+            if (animatorBlendTimeout > 0)
+            {
+                animatorBlendTimeout -= Time.deltaTime;
+                if (animatorBlendTimeout <= 0)
+                {
+                    animatorBlendTimeout = 0;
+                    ui.SetRayblockerActive(false);
+                }
+                var blend = GetCurrentAnimatorBlend();
+                animator.SetFloat("BlendX", blend.x);
+                animator.SetFloat("BlendY", blend.y);
             }
         }
         #endregion
@@ -138,11 +158,25 @@ namespace MVZ2.Mainmenu
             main.Scene.DisplayAlmanac(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
         }
         private void OnStoreButtonClickCallback() { }
-        private void OnMoreMenuButtonClickCallback() { }
+        private void OnMoreMenuButtonClickCallback() 
+        {
+            StartAnimatorTransition(new Vector2(0, -1));
+        }
 
-        private void OnBackToMenuButtonClickCallback() { }
+        private void OnBackToMenuButtonClickCallback()
+        {
+            StartAnimatorTransition(new Vector2(0, 0));
+        }
         private void OnArchiveButtonClickCallback() { }
-        private void OnAchievementButtonClickCallback() { }
+        private void OnStatsButtonClickCallback()
+        {
+            ReloadStats();
+            StartAnimatorTransition(new Vector2(-1, -1));
+        }
+        private void OnAchievementButtonClickCallback() 
+        {
+            //StartAnimatorTransition(new Vector2(1, -1));
+        }
 
         private void OnOptionsCloseClickCallback()
         {
@@ -158,6 +192,7 @@ namespace MVZ2.Mainmenu
             optionsLogic.OnClose -= OnOptionsCloseClickCallback;
             optionsLogic.Dispose();
         }
+
         #region 输入用户名
         private void OnInputNameConfirmCallback(string name)
         {
@@ -244,6 +279,13 @@ namespace MVZ2.Mainmenu
                     }
                     break;
             }
+        }
+        #endregion
+
+        #region 统计
+        private void OnStatsReturnClickCallback()
+        {
+            StartAnimatorTransition(new Vector2(0, -1));
         }
         #endregion
 
@@ -418,6 +460,58 @@ namespace MVZ2.Mainmenu
         }
         #endregion
 
+        private void StartAnimatorTransition(Vector2 target)
+        {
+            animatorBlendStart = GetCurrentAnimatorBlend();
+            animatorBlendEnd = target;
+            animatorBlendTimeout = transitionTime;
+            ui.SetRayblockerActive(true);
+        }
+        private Vector2 GetCurrentAnimatorBlend()
+        {
+            return Vector2.Lerp(animatorBlendStart, animatorBlendEnd, MathTool.EaseInAndOut((transitionTime - animatorBlendTimeout) / transitionTime));
+        }
+
+        #region 统计
+        private void ReloadStats()
+        {
+            var nsp = main.BuiltinNamespace;
+            UserStats stats = main.SaveManager.GetUserStats(nsp);
+            var categories = stats.GetAllCategories();
+            var viewDatas = new StatCategoryViewData[categories.Length];
+            for (int i = 0; i < viewDatas.Length; i++)
+            {
+                var category = categories[i];
+                var meta = main.ResourceManager.GetStatCategoryMeta(new NamespaceID(nsp, category.Name));
+                var metaName = meta?.Name ?? category.Name;
+                var metaType = meta?.Type ?? StatCategoryType.Entity;
+
+                var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
+                var sum = category.GetSum();
+                var entries = category.GetAllEntries();
+                var entriesViewData = new StatEntryViewData[entries.Length];
+                for (int j = 0; j < entriesViewData.Length; j++)
+                {
+                    var entry = entries[j];
+                    var name = main.ResourceManager.GetStatEntryName(entry.ID, metaType);
+                    var count = entry.Value.ToString();
+                    entriesViewData[j] = new StatEntryViewData()
+                    {
+                        name = name,
+                        count = count
+                    };
+                }
+                viewDatas[i] = new StatCategoryViewData()
+                {
+                    entries = entriesViewData,
+                    sum = sum.ToString(),
+                    title = title
+                };
+            }
+            ui.UpdateStats(viewDatas);
+        }
+        #endregion
+
         #region 属性字段
         [TranslateMsg("输入名称对话框的错误信息")]
         public const string ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT = "第一次游戏必须输入用户名";
@@ -438,12 +532,20 @@ namespace MVZ2.Mainmenu
         private MainManager main => MainManager.Instance;
         [SerializeField]
         private MainmenuUI ui;
+        [SerializeField]
+        private Animator animator;
+        [SerializeField]
+        private float transitionTime = 1;
 
         private OptionsLogicMainmenu optionsLogic;
         private int[] managingUserIndexes;
         private int selectedUserArrayIndex = -1;
         private int renamingUserIndex = -1;
         private InputNameType inputNameType;
+
+        private Vector2 animatorBlendStart;
+        private Vector2 animatorBlendEnd;
+        private float animatorBlendTimeout;
         #endregion
 
         #region 内嵌类

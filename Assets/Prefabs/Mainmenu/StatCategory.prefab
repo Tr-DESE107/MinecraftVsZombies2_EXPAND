@@ -165,6 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9092377418024676366}
   - component: {fileID: 7359574241874240271}
+  - component: {fileID: 5746364845981431306}
   m_Layer: 0
   m_Name: StatCategory
   m_TagString: Untagged
@@ -219,6 +220,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5746364845981431306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756547978618279685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c95961f21681e41864ce1fc10298fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entryList: {fileID: 3399346935314159884}
+  titleText: {fileID: 2841130123635682662}
+  sumText: {fileID: 8212486483146276363}
 --- !u!1 &4286861487752314044
 GameObject:
   m_ObjectHideFlags: 0

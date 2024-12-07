@@ -141,6 +141,13 @@ namespace MVZ2.Saves
         }
 
         #region 统计
+        public UserStats GetUserStats(string nsp)
+        {
+            var saveData = GetModSaveData(nsp);
+            if (saveData == null)
+                return null;
+            return saveData.GetAllStats();
+        }
         public long GetSaveStat(NamespaceID category, NamespaceID entry)
         {
             var saveData = GetModSaveData(category.spacename);

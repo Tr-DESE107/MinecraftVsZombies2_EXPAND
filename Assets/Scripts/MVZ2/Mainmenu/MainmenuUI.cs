@@ -67,6 +67,10 @@ namespace MVZ2.Mainmenu.UI
         {
             rayblocker.SetActive(active);
         }
+        public void UpdateStats(StatCategoryViewData[] viewDatas)
+        {
+            stats.UpdateStats(viewDatas);
+        }
         public IEnumerable<MainmenuButton> GetAllButtons()
         {
             return mainmenuButtonDict.Values;
@@ -83,6 +87,7 @@ namespace MVZ2.Mainmenu.UI
             mainmenuButtonDict.Add(MainmenuButtonType.MoreMenu, moreMenuButton);
             mainmenuButtonDict.Add(MainmenuButtonType.BackToMenu, backToMenuButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Archive, archiveButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Stats, statsButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Achievement, achievementButton);
 
             foreach (var pair in mainmenuButtonDict)
@@ -96,6 +101,8 @@ namespace MVZ2.Mainmenu.UI
 
             userManageDialog.OnButtonClick += type => OnUserManageDialogButtonClick?.Invoke(type);
             userManageDialog.OnUserSelect += index => OnUserManageDialogUserSelect?.Invoke(index);
+
+            stats.OnReturnClick += () => OnStatsReturnButtonClick?.Invoke();
         }
         private void OnInputNameConfirmCallback(string name)
         {
@@ -110,6 +117,7 @@ namespace MVZ2.Mainmenu.UI
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
         public event Action<UserManageDialog.ButtonType> OnUserManageDialogButtonClick;
         public event Action<int> OnUserManageDialogUserSelect;
+        public event Action OnStatsReturnButtonClick;
 
 
         public OptionsDialog OptionsDialog => optionsDialog;
@@ -117,6 +125,8 @@ namespace MVZ2.Mainmenu.UI
 
         [SerializeField]
         private GameObject rayblocker;
+        [SerializeField]
+        private StatsUI stats;
 
         [Header("Backgrounds")]
         [SerializeField]
@@ -156,6 +166,8 @@ namespace MVZ2.Mainmenu.UI
         [SerializeField]
         private MainmenuButton archiveButton;
         [SerializeField]
+        private MainmenuButton statsButton;
+        [SerializeField]
         private MainmenuButton achievementButton;
     }
     public enum MainmenuButtonType
@@ -170,6 +182,7 @@ namespace MVZ2.Mainmenu.UI
         MoreMenu,
         BackToMenu,
         Archive,
+        Stats,
         Achievement
     }
 }

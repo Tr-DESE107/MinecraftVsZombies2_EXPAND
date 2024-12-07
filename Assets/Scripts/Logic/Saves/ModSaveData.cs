@@ -106,6 +106,7 @@ namespace MVZ2Logic.Saves
         {
             SetStat(category, entry, GetStat(category, entry) + value);
         }
+        public UserStats GetAllStats() => stats;
         #endregion
 
         public SerializableModSaveData ToSerializable()
