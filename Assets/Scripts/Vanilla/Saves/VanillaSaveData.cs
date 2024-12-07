@@ -14,6 +14,7 @@ namespace MVZ2.Vanilla.Saves
         {
             return new SerializableVanillaSaveData()
             {
+                version = 0,
                 lastMapID = LastMapID,
                 mapTalkID = MapTalkID,
                 money = money,

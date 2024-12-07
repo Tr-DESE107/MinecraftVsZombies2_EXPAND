@@ -76,6 +76,17 @@ namespace MVZ2Logic
             return Options.HasBloodAndGore();
         }
         #endregion
+
+        #region 统计
+        public static long GetSaveStat(NamespaceID category, NamespaceID entry)
+        {
+            return Saves.GetSaveStat(category, entry);
+        }
+        public static void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
+        {
+            Saves.AddSaveStat(category, entry, value);
+        }
+        #endregion
         private static IMainManager Main { get; set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
@@ -83,6 +94,7 @@ namespace MVZ2Logic
         private static IMusicManager Music => Main.Music;
         private static ILevelManager Level => Main.Level;
         private static IOptionsManager Options => Main.Options;
+        private static IGlobalSave Saves => Main.Saves;
     }
     public interface IMainManager
     {
@@ -93,6 +105,7 @@ namespace MVZ2Logic
         IMusicManager Music { get; }
         ILevelManager Level { get; }
         IOptionsManager Options { get; }
+        IGlobalSave Saves { get; }
     }
     public interface ISceneController
     {
@@ -117,5 +130,10 @@ namespace MVZ2Logic
     public interface IOptionsManager
     {
         bool HasBloodAndGore();
+    }
+    public interface IGlobalSave
+    {
+        long GetSaveStat(NamespaceID category, NamespaceID entry);
+        void AddSaveStat(NamespaceID category, NamespaceID entry, long value);
     }
 }

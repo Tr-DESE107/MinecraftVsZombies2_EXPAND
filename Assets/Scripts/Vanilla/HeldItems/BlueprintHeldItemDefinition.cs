@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.SeedPacks;
@@ -59,11 +60,15 @@ namespace MVZ2.Vanilla.HeldItems
                 var position = new Vector3(x, y, z);
                 var entityID = seedDef.GetSeedEntityID();
                 var entityDef = level.Content.GetEntityDefinition(entityID);
-                level.Spawn(entityID, position, null);
+                var entity = level.Spawn(entityID, position, null);
                 level.AddEnergy(-seedDef.GetCost());
                 level.SetRechargeTimeToUsed(seed);
                 seed.ResetRecharge();
                 level.PlaySound(entityDef.GetPlaceSound(), position);
+                if (entity.Type == EntityTypes.PLANT)
+                {
+                    level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_PLACE, entityID, entity);
+                }
                 return true;
             }
             return false;

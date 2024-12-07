@@ -1,10 +1,11 @@
 ﻿using System;
+using PVZEngine;
 
 namespace MVZ2Logic.Saves
 {
     public class UserStatEntry
     {
-        public UserStatEntry(string id)
+        public UserStatEntry(NamespaceID id)
         {
             ID = id;
         }
@@ -23,13 +24,13 @@ namespace MVZ2Logic.Saves
                 Value = serializable.value
             };
         }
-        public string ID { get; private set; }
+        public NamespaceID ID { get; private set; }
         public long Value { get; set; }
     }
     [Serializable]
     public class SerializableUserStatEntry
     {
-        public string id;
+        public NamespaceID id;
         public long value;
     }
 }

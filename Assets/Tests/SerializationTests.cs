@@ -8,6 +8,7 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Level;
 using MVZ2.Managers;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using NUnit.Framework;

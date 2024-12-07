@@ -93,6 +93,21 @@ namespace MVZ2Logic.Saves
         }
         #endregion
 
+        #region 统计
+        public void SetStat(string category, NamespaceID entry, long value)
+        {
+            stats.SetStatValue(category, entry, value);
+        }
+        public long GetStat(string category, NamespaceID entry)
+        {
+            return stats.GetStatValue(category, entry);
+        }
+        public void AddStat(string category, NamespaceID entry, long value)
+        {
+            SetStat(category, entry, GetStat(category, entry) + value);
+        }
+        #endregion
+
         public SerializableModSaveData ToSerializable()
         {
             var serializable = CreateSerializable();
@@ -119,6 +134,7 @@ namespace MVZ2Logic.Saves
     }
     public abstract class SerializableModSaveData
     {
+        public int version;
         public string spaceName;
         public SerializableUserStats stats;
         public SerializableLevelDifficultyRecord[] levelDifficultyRecords;

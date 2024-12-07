@@ -52,35 +52,11 @@ namespace PVZEngine.Level
         {
             return GetProperty<int>(EngineAreaProps.ENEMY_SPAWN_X);
         }
-        public Entity SpawnEnemyAtRandomLane(SpawnDefinition spawnDef)
-        {
-            if (spawnDef == null)
-                return null;
-            var lane = GetRandomEnemySpawnLane();
-            return SpawnEnemy(spawnDef, lane);
-        }
-        public Entity SpawnEnemy(SpawnDefinition spawnDef, int lane)
-        {
-            if (spawnDef == null)
-                return null;
-            var x = GetEnemySpawnX();
-            var z = GetEntityLaneZ(lane);
-            var y = GetGroundY(x, z);
-            var pos = new Vector3(x, y, z);
-            var enemy = Spawn(spawnDef.EntityID, pos, null);
-            spawnedID.Add(spawnDef.GetID());
-            PostEnemySpawned(enemy);
-            return enemy;
-        }
         public void GameOver(int type, Entity killer, string message)
         {
             KillerEnemy = killer;
             OnGameOver?.Invoke(type, killer, message);
-        }
-        private void PostEnemySpawned(Entity enemy)
-        {
-            StageDefinition.PostEnemySpawned(enemy);
-            Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, enemy);
+            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, type, type, killer, message);
         }
         public int GetRandomEnemySpawnLane()
         {

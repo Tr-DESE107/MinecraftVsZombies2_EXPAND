@@ -46,6 +46,7 @@ namespace MVZ2.Vanilla
 
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StarshardSpawnImplements());
+            ImplementCallbacks(new StatsImplements());
             ImplementCallbacks(new EntityImplements());
             ImplementCallbacks(new DifficultyImplements());
             ImplementCallbacks(new CartToMoneyImplements());

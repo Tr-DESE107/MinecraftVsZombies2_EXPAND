@@ -123,6 +123,7 @@ namespace MVZ2.Managers
         IMusicManager IMainManager.Music => music;
         ILevelManager IMainManager.Level => level;
         IOptionsManager IMainManager.Options => options;
+        IGlobalSave IMainManager.Saves => save;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]

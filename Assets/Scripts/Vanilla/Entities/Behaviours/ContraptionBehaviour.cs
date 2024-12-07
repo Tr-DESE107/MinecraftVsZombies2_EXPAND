@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -55,6 +56,10 @@ namespace MVZ2.Vanilla.Entities
 
                 entity.PlaySound(entity.GetDeathSound());
                 entity.Remove();
+            }
+            if (!damageInfo.Effects.HasEffect(VanillaDamageEffects.SELF_DAMAGE))
+            {
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, entity.GetDefinitionID(), entity);
             }
         }
         public override void PostTakeDamage(DamageOutput result)

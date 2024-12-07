@@ -28,6 +28,7 @@ namespace PVZEngine.Callbacks
         public delegate void PostWave(LevelEngine level, int wave);
         public delegate void PostHugeWaveEvent(LevelEngine level);
         public delegate void PostFinalWaveEvent(LevelEngine level);
+        public delegate void PostGameOver(LevelEngine level, int type, Entity killer, string message);
         public delegate void PostEnemySpawned(Entity entity);
 
         public readonly static CallbackReference<PostEntityInit> POST_ENTITY_INIT = new();
@@ -49,6 +50,7 @@ namespace PVZEngine.Callbacks
         public readonly static CallbackReference<PostWave> POST_WAVE = new();
         public readonly static CallbackReference<PostHugeWaveEvent> POST_HUGE_WAVE_EVENT = new();
         public readonly static CallbackReference<PostFinalWaveEvent> POST_FINAL_WAVE_EVENT = new();
+        public readonly static CallbackReference<PostGameOver> POST_GAME_OVER = new();
         public readonly static CallbackReference<PostEnemySpawned> POST_ENEMY_SPAWNED = new();
     }
 }

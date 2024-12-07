@@ -70,6 +70,7 @@ namespace MVZ2Logic
             // MVZ2.Logic
             RegisterClass<SerializableModSaveData>();
             RegisterClass<SerializableUserStats>();
+            RegisterClass<SerializableUserStatCategory>();
             RegisterClass<SerializableUserStatEntry>();
             RegisterClass<SerializableLevelDifficultyRecord>();
 

@@ -1,61 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Bson.Serialization.Attributes;
+using PVZEngine;
 
 namespace MVZ2Logic.Saves
 {
     public class UserStats
     {
-        public long GetStatValue(string id)
+        public long GetStatValue(string category, NamespaceID entry)
         {
-            var entry = GetEntry(id);
-            if (entry == null)
+            var cate = GetCategory(category);
+            if (cate == null)
                 return 0;
-            return entry.Value;
+            return cate.GetStatValue(entry);
         }
-        public void SetStatValue(string id, long value)
+        public void SetStatValue(string category, NamespaceID entry, long value)
         {
-            var entry = GetEntry(id);
-            if (entry == null)
-                entry = CreateEntry(id);
-            entry.Value = value;
+            var cate = GetCategory(category);
+            if (cate == null)
+                cate = CreateCategory(category);
+            cate.SetStatValue(entry, value);
         }
-        public bool HasStat(string id)
+        public bool HasCategory(string name)
         {
-            return entries.Exists(e => e.ID == id);
+            return categories.Exists(e => e.Name == name);
         }
         public SerializableUserStats ToSerializable()
         {
             return new SerializableUserStats()
             {
-                entries = entries.Select(e => e.ToSerializable()).ToArray()
+                categories = categories.Select(e => e.ToSerializable()).ToArray()
             };
         }
         public static UserStats FromSerializable(SerializableUserStats serializable)
         {
             var stats = new UserStats();
-            stats.entries.AddRange(serializable.entries.Select(e => UserStatEntry.FromSerializable(e)));
+            if (serializable.categories != null)
+                stats.categories.AddRange(serializable.categories.Select(e => UserStatCategory.FromSerializable(e)));
             return stats;
         }
-        private string[] GetAllEntriesID()
+        private string[] GetAllCategoryNames()
         {
-            return entries.Select(e => e.ID).ToArray();
+            return categories.Select(e => e.Name).ToArray();
         }
-        private UserStatEntry GetEntry(string id)
+        private UserStatCategory GetCategory(string name)
         {
-            return entries.FirstOrDefault(e => e.ID == id);
+            return categories.FirstOrDefault(e => e.Name == name);
         }
-        private UserStatEntry CreateEntry(string id)
+        private UserStatCategory CreateCategory(string name)
         {
-            var entry = new UserStatEntry(id);
-            entries.Add(entry);
+            var entry = new UserStatCategory(name);
+            categories.Add(entry);
             return entry;
         }
-        private List<UserStatEntry> entries = new List<UserStatEntry>();
+        private List<UserStatCategory> categories = new List<UserStatCategory>();
     }
     [Serializable]
     public class SerializableUserStats
     {
+        public SerializableUserStatCategory[] categories;
+        [Obsolete]
+        [BsonIgnoreIfNull]
         public SerializableUserStatEntry[] entries;
     }
 }

@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace MVZ2.Saves
 {
-    public partial class SaveManager : MonoBehaviour, IGameSaveData
+    public partial class SaveManager : MonoBehaviour, IGameSaveData, IGlobalSave
     {
         #region 保存
         public void SaveModDatas()
@@ -145,6 +145,24 @@ namespace MVZ2.Saves
                 return null;
             return modSaveData.GetMapPresetID(mapId.path);
         }
+
+        #region 统计
+        public long GetSaveStat(NamespaceID category, NamespaceID entry)
+        {
+            var saveData = GetModSaveData(category.spacename);
+            if (saveData == null)
+                return 0;
+            return saveData.GetStat(category.path, entry);
+        }
+        public void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
+        {
+            var saveData = GetModSaveData(category.spacename);
+            if (saveData == null)
+                return;
+            saveData.AddStat(category.path, entry, value);
+        }
+        #endregion
+
         #endregion
 
         #region 修改

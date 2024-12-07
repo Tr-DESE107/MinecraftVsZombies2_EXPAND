@@ -12,8 +12,10 @@ using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -182,6 +184,27 @@ namespace MVZ2.Vanilla.Level
             if (pool == null)
                 return false;
             return pool.Any(e => e.GetSpawnDefinition(level.Content).GetID() == spawnRef);
+        }
+        public static Entity SpawnEnemyAtRandomLane(this LevelEngine level, SpawnDefinition spawnDef)
+        {
+            if (spawnDef == null)
+                return null;
+            var lane = level.GetRandomEnemySpawnLane();
+            return level.SpawnEnemy(spawnDef, lane);
+        }
+        public static Entity SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
+        {
+            if (spawnDef == null)
+                return null;
+            var x = level.GetEnemySpawnX();
+            var z = level.GetEntityLaneZ(lane);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            var enemy = level.Spawn(spawnDef.EntityID, pos, null);
+            level.AddSpawnedEnemyID(spawnDef.GetID());
+            level.StageDefinition.PostEnemySpawned(enemy);
+            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, enemy);
+            return enemy;
         }
         #endregion
 

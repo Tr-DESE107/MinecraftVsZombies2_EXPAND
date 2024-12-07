@@ -16,6 +16,7 @@ namespace MVZ2.Vanilla.Entities
         /// </summary>
         public const string HARMLESS = "harmless";
         public const string DEATH_MESSAGE = "deathMessage";
+        public const string IS_NEUTRALIZED = "isNeutralized";
         public static float GetSpeed(this Entity enemy)
         {
             return enemy.GetProperty<float>(SPEED);
@@ -39,6 +40,14 @@ namespace MVZ2.Vanilla.Entities
         public static bool IsPreviewEnemy(this Entity enemy)
         {
             return enemy.GetProperty<bool>(PREVIEW_ENEMY);
+        }
+        public static void SetNeutralized(this Entity enemy, bool value)
+        {
+            enemy.SetProperty(IS_NEUTRALIZED, value);
+        }
+        public static bool IsNeutralized(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(IS_NEUTRALIZED);
         }
     }
 }

@@ -4,15 +4,14 @@ using MukioI18n;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
-using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -25,7 +24,7 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_UPDATE, Gem_PostUpdateCallback);
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, Gem_PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            mod.AddTrigger(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, Gem_PostEnemyDropRewardCallback);
         }
         private void Gem_PostUpdateCallback(LevelEngine level)
         {
@@ -60,12 +59,10 @@ namespace MVZ2.GameContent.Implements
                 level.ShowAdvice(adviceContext, adviceText, 1000, -1);
             }
         }
-        private void Gem_PostEnemyDeathCallback(Entity enemy, DamageInput info)
+        private void Gem_PostEnemyDropRewardCallback(Entity enemy)
         {
             var level = enemy.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
-                return;
-            if (enemy.HasNoReward())
                 return;
             bool spawnGem = false;
             if (Global.Game.IsUnlocked(VanillaUnlockID.money))

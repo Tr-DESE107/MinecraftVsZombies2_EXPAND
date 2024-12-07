@@ -1,9 +1,11 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -36,7 +38,8 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    entity.Die();
+                    var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
+                    entity.Die(new DamageInput(0, effects, entity, new EntityReferenceChain(null)));
                     return true;
             }
             return false;
