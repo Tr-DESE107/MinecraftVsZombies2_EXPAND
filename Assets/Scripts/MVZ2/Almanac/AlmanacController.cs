@@ -10,6 +10,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
@@ -145,6 +146,11 @@ namespace MVZ2.Almanacs
             if (!NamespaceID.IsValid(enemyID))
                 return;
             GetEntityAlmanacInfos(enemyID, VanillaAlmanacCategories.ENEMIES, out var model, out var name, out var description);
+            if (Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) <= 0)
+            {
+                name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, VanillaStrings.UNKNOWN_ENTITY_NAME);
+                description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, VanillaStrings.NOT_ENCOUNTERED_YET);
+            }
             ui.SetActiveEnemyEntry(model, name, description);
         }
         private void SetActiveArtifactEntry(NamespaceID artifactID)
