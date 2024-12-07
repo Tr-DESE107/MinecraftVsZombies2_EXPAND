@@ -1,5 +1,4 @@
-﻿using PVZEngine.Definitions;
-using PVZEngine.Entities;
+﻿using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Contraptions
 {

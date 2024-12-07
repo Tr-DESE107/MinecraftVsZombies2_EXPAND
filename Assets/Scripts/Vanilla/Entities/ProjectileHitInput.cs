@@ -1,5 +1,4 @@
-﻿using PVZEngine.Armors;
-using PVZEngine.Entities;
+﻿using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {

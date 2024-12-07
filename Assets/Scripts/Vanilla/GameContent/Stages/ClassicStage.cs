@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic.Level;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
-using UnityEngine;
+﻿using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {

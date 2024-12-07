@@ -6,7 +6,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
@@ -15,7 +14,6 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 

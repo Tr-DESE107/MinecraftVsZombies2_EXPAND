@@ -4,7 +4,6 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Shells;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;

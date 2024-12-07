@@ -1,5 +1,4 @@
 ﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.SeedPacks;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PVZEngine;
-using PVZEngine.Armors;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities

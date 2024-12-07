@@ -21,7 +21,6 @@ using MVZ2Logic.Scenes;
 using PVZEngine;
 using Tools.Mathematics;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Mainmenu
 {
@@ -153,12 +152,12 @@ namespace MVZ2.Mainmenu
             });
         }
 
-        private void OnAlmanacButtonClickCallback() 
+        private void OnAlmanacButtonClickCallback()
         {
             main.Scene.DisplayAlmanac(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
         }
         private void OnStoreButtonClickCallback() { }
-        private void OnMoreMenuButtonClickCallback() 
+        private void OnMoreMenuButtonClickCallback()
         {
             StartAnimatorTransition(new Vector2(0, -1));
         }
@@ -173,7 +172,7 @@ namespace MVZ2.Mainmenu
             ReloadStats();
             StartAnimatorTransition(new Vector2(-1, -1));
         }
-        private void OnAchievementButtonClickCallback() 
+        private void OnAchievementButtonClickCallback()
         {
             //StartAnimatorTransition(new Vector2(1, -1));
         }
@@ -370,7 +369,7 @@ namespace MVZ2.Mainmenu
         #region 用户管理
         private void DeleteUser(int userIndex)
         {
-            try 
+            try
             {
                 var currentUserIndex = main.SaveManager.GetCurrentUserIndex();
                 var nextUserIndex = managingUserIndexes.FirstOrDefault(u => u != userIndex);

@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using Tools.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Vanilla.Detections
 {

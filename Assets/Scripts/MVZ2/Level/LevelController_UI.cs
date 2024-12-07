@@ -7,7 +7,6 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Options;
 using MVZ2.UI;
-using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;

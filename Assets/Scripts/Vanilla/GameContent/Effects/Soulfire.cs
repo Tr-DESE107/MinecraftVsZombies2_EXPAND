@@ -1,6 +1,5 @@
 ﻿using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Effects
 {

@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
+using MVZ2.TalkData;
 using MVZ2.UI;
 using MVZ2Logic;
-using MVZ2.TalkData;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using MVZ2Logic.Talk;
 
 namespace MVZ2.Talk
 {

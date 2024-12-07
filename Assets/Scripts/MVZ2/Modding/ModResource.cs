@@ -4,7 +4,6 @@ using MVZ2.Map;
 using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.TalkData;
-using MVZ2Logic.Fragments;
 using UnityEngine;
 
 namespace MVZ2.Modding

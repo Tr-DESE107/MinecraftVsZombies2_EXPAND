@@ -1,8 +1,5 @@
 ﻿using PVZEngine;
 using PVZEngine.Base;
-using PVZEngine.Entities;
-using PVZEngine.Grids;
-using PVZEngine.Level;
 
 namespace MVZ2Logic.Artifacts
 {

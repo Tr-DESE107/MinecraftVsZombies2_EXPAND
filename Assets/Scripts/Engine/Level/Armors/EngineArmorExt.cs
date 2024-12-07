@@ -1,5 +1,4 @@
 ﻿using PVZEngine.Damages;
-using PVZEngine.Entities;
 
 namespace PVZEngine.Armors
 {

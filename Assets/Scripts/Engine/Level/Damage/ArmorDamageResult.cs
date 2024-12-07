@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using PVZEngine.Armors;
-using PVZEngine.Entities;
+﻿using PVZEngine.Armors;
 
 namespace PVZEngine.Damages
 {

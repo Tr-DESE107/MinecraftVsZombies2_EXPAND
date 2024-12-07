@@ -1,5 +1,4 @@
-﻿using MVZ2.Level.UI;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace MVZ2.UI

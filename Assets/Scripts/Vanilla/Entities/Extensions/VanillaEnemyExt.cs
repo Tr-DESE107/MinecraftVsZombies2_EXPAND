@@ -1,5 +1,4 @@
 ﻿using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities

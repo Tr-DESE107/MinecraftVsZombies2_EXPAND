@@ -57,7 +57,7 @@ namespace MVZ2.Level
                     error = Localization._(errorMessage);
                 }
             }
-            else 
+            else
             {
                 var chosenIndex = chosenBlueprints[index];
                 var blueprintID = choosingBlueprints[chosenIndex];

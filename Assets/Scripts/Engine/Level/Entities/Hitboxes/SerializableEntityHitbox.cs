@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-namespace PVZEngine.Entities
+﻿namespace PVZEngine.Entities
 {
     public class SerializableEntityHitbox : SerializableHitbox
     {

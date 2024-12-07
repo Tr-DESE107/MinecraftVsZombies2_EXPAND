@@ -1,7 +1,6 @@
 ﻿using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;

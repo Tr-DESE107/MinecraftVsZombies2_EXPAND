@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using PVZEngine;
+﻿using PVZEngine;
 
 namespace MVZ2Logic.Entities
 {

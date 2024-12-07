@@ -8,7 +8,6 @@ using MVZ2.Mainmenu;
 using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.Note;
-using MVZ2.Saves;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;

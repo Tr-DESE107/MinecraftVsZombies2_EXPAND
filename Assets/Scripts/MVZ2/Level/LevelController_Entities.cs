@@ -65,7 +65,7 @@ namespace MVZ2.Level
         private void UI_OnEntityPointerEnterCallback(EntityController entity, PointerEventData eventData)
         {
             entity.SetHovered(true);
-            if (IsGameRunning()) 
+            if (IsGameRunning())
             {
                 // 自动拾取
                 if (Input.GetMouseButton((int)MouseButton.LeftMouse))

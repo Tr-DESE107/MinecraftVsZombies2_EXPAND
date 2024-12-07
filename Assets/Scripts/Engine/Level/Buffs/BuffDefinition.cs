@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Modifiers;
-using PVZEngine.Triggers;
 
 namespace PVZEngine.Buffs
 {

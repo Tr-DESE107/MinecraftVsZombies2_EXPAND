@@ -15,7 +15,6 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;

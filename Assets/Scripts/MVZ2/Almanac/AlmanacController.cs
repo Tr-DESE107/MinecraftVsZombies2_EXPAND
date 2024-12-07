@@ -11,7 +11,6 @@ using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Stats;
-using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
 using PVZEngine.Level;

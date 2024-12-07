@@ -1,11 +1,6 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
-using MVZ2.Level;
 using MVZ2.Metas;
-using MVZ2.Vanilla;
-using MVZ2Logic.Models;
 using PVZEngine;
-using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Managers

@@ -3,9 +3,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2Logic;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Entities
 {

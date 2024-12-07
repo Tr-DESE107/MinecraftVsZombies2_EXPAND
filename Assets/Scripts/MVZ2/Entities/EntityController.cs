@@ -159,7 +159,7 @@ namespace MVZ2.Entities
 
             foreach (var collider in Entity.GetEnabledColliders())
             {
-                for (int h = 0; h < collider.GetHitboxCount(); h++) 
+                for (int h = 0; h < collider.GetHitboxCount(); h++)
                 {
                     var hitbox = collider.GetHitbox(h);
 

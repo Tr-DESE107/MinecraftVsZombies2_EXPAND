@@ -2,19 +2,14 @@
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.GameContent.Recharges;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.Entities;
-using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -80,7 +75,7 @@ namespace MVZ2.GameContent.Contraptions
                     entity.State = VanillaEntityStates.PUNCHTON_PUNCH;
                     Punch(entity);
                 }
-            } 
+            }
             else if (entity.State == VanillaEntityStates.PUNCHTON_PUNCH)
             {
                 var extension = GetArmExtension(entity);

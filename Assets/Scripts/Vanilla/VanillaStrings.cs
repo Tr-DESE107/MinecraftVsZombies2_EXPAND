@@ -97,7 +97,7 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("怪物说明-还没有遇到", CONTEXT_ALMANAC)]
         public const string NOT_ENCOUNTERED_YET = "（还没有遇到）";
-        
+
         public static string GetAlmanacNameContext(string category)
         {
             return $"{category}.name";
@@ -116,6 +116,6 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
-        public const string CONTEXT_STAT_CATEGORY = "stat_category"; 
+        public const string CONTEXT_STAT_CATEGORY = "stat_category";
     }
 }

@@ -1,7 +1,6 @@
 ﻿using MVZ2.UI;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MVZ2.Mainmenu
 {

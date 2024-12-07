@@ -1,6 +1,5 @@
 ﻿using MVZ2.Managers;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 namespace MVZ2.Models
 {

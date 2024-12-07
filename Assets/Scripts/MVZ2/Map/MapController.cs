@@ -216,7 +216,8 @@ namespace MVZ2.Map
             if (!NamespaceID.IsValid(stageID))
                 return null;
             var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
-            return records.OrderByDescending(r => {
+            return records.OrderByDescending(r =>
+            {
                 var meta = Main.ResourceManager.GetDifficultyMeta(r);
                 if (meta == null)
                     return int.MinValue;

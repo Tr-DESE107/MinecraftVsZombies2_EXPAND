@@ -1,5 +1,4 @@
 ﻿using System.Xml;
-using MVZ2.IO;
 using MVZ2.Modding;
 
 namespace MVZ2.Metas

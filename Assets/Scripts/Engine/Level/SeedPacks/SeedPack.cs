@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

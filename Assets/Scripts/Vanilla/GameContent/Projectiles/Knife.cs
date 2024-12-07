@@ -1,9 +1,7 @@
 ﻿using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
-using PVZEngine.Armors;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Projectiles
 {

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
