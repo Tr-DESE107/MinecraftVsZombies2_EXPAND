@@ -22,9 +22,11 @@ namespace MVZ2.Saves
             {
                 SaveCurrentModData(mod.Namespace);
             }
-        }
+        } 
         public void SaveCurrentModData(string spaceName)
         {
+            if (userDataList == null)
+                return;
             SaveModData(userDataList.CurrentUserIndex, spaceName);
         }
         public void SaveModData(int userIndex, string spaceName)
@@ -44,7 +46,7 @@ namespace MVZ2.Saves
         public void Load()
         {
             LoadUserList();
-            LoadUserData(userDataList.CurrentUserIndex);
+            LoadInitialUserData();
         }
         public void LoadUserData(int index)
         {
@@ -54,6 +56,50 @@ namespace MVZ2.Saves
                 LoadModData(index, mod.Namespace);
             }
             EvaluateUnlocks();
+        }
+        public SaveDataStatus GetSaveDataStatus()
+        {
+            return status;
+        }
+        private void LoadInitialUserData()
+        {
+            // 预备一个所有存档的列表。
+            var userIndexes = userDataList.GetAllUsers().Where(u => u != null).Select((u, i) => i).ToList();
+            // 将当前存档索引调至第一位。
+            userIndexes.Remove(userDataList.CurrentUserIndex);
+            userIndexes.Insert(0, userDataList.CurrentUserIndex);
+
+            // 按照顺序加载所有存档。
+            foreach (var index in userIndexes)
+            {
+                try
+                {
+                    // 加载用户存档。
+                    LoadUserData(index);
+                    // 加载存档成功，将当前用户索引设置为该存档的索引，然后跳出。
+                    userDataList.CurrentUserIndex = index;
+                    SaveUserList();
+                    return;
+                }
+                catch (Exception e)
+                {
+                    // 加载存档失败，弹出警告。
+                    status.AddCorruptedUserIndex(index);
+                    status.State = SaveDataState.SomeCorrupted;
+                    Debug.LogWarning($"存档加载失败：{e}");
+                }
+            }
+            // 没有存档有效。
+            if (userIndexes.Count < MAX_USER_COUNT)
+            {
+                // 尝试创建一个存档。
+                status.State = SaveDataState.AllCorrupted;
+            }
+            else
+            {
+                // 如果存档栏位都满了，强制要求玩家删除一个。
+                status.State = SaveDataState.FullCorrupted;
+            }
         }
         private void LoadModData(int userIndex, string spaceName)
         {
@@ -281,10 +327,31 @@ namespace MVZ2.Saves
 
         #region 属性字段
         public MainManager Main => MainManager.Instance;
+        private SaveDataStatus status = new SaveDataStatus();
         private List<ModSaveData> modSaveDatas = new List<ModSaveData>();
         private List<NamespaceID> unlockedContraptionsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedEnemiesCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedArtifactsCache = new List<NamespaceID>();
         #endregion
+    }
+    public class SaveDataStatus
+    {
+        public SaveDataState State { get; set; } = SaveDataState.Success;
+        public void AddCorruptedUserIndex(int index)
+        {
+            corruptedIndexes.Add(index);
+        }
+        public int[] GetCorruptedUserIndexes()
+        {
+            return corruptedIndexes.ToArray();
+        }
+        private List<int> corruptedIndexes = new List<int>();
+    }
+    public enum SaveDataState
+    {
+        Success,
+        SomeCorrupted,
+        AllCorrupted,
+        FullCorrupted
     }
 }

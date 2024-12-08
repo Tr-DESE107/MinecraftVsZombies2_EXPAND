@@ -1,7 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
+using MVZ2.Saves;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Scenes;
@@ -22,15 +26,8 @@ namespace MVZ2.Scenes
                 ShowErrorDialog(e);
                 return;
             }
-            main.MusicManager.Play(VanillaMusicID.mainmenu);
-            if (main.IsFastMode())
-            {
-                main.Scene.DisplayPage(MainScenePageType.Mainmenu);
-            }
-            else
-            {
-                main.Scene.DisplayPage(MainScenePageType.Landing);
-            }
+            await CheckSaveDataStatus();
+            StartGame();
         }
         private string GetErrorMessage(Exception e)
         {
@@ -70,6 +67,65 @@ namespace MVZ2.Scenes
                 Quit();
             });
         }
+        private async Task CheckSaveDataStatus()
+        {
+            var status = main.SaveManager.GetSaveDataStatus();
+            switch (status.State)
+            {
+                case SaveDataState.SomeCorrupted:
+                    {
+                        var corruptedIndexes = status.GetCorruptedUserIndexes();
+                        var corruptedUserNames = corruptedIndexes.Select(i => main.SaveManager.GetUserName(i));
+                        var names = string.Join(", ", corruptedUserNames);
+                        var currentName = main.SaveManager.GetCurrentUserName();
+                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var desc = main.LanguageManager._(ERROR_SOME_USERS_CORRUPTED, currentName, names);
+                        await main.Scene.ShowDialogMessageAsync(title, desc);
+                    }
+                    break;
+                case SaveDataState.AllCorrupted:
+                    {
+                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var desc = main.LanguageManager._(ERROR_ALL_USERS_CORRUPTED);
+                        await main.Scene.ShowDialogMessageAsync(title, desc);
+
+                        var result = await main.Scene.ShowInputNameDialogAsync(InputNameType.Initialize);
+                        var newIndex = main.SaveManager.CreateNewUser(result);
+                        main.SaveManager.SetCurrentUserIndex(newIndex);
+                        main.SaveManager.SaveUserList();
+                    }
+                    break;
+                case SaveDataState.FullCorrupted:
+                    {
+                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var desc = main.LanguageManager._(ERROR_FULL_USERS_CORRUPTED);
+                        await main.Scene.ShowDialogMessageAsync(title, desc);
+
+                        var users = main.SaveManager.GetAllUsers();
+                        var deleteIndex = await main.Scene.ShowDeleteUserDialogAsync(users);
+                        main.SaveManager.DeleteUser(deleteIndex);
+                        main.SaveManager.SaveUserList();
+
+                        var result = await main.Scene.ShowInputNameDialogAsync(InputNameType.Initialize);
+                        var newIndex = main.SaveManager.CreateNewUser(result);
+                        main.SaveManager.SetCurrentUserIndex(newIndex);
+                        main.SaveManager.SaveUserList();
+                    }
+                    break;
+            }
+        }
+        private void StartGame()
+        {
+            main.MusicManager.Play(VanillaMusicID.mainmenu);
+            if (main.IsFastMode())
+            {
+                main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+            }
+            else
+            {
+                main.Scene.DisplayPage(MainScenePageType.Landing);
+            }
+        }
         private void Quit()
         {
             Application.Quit();
@@ -89,6 +145,12 @@ namespace MVZ2.Scenes
         public const string ERROR_FAILED_TO_LOAD_FILE = "文件读取失败";
         [TranslateMsg("开始游戏时读取出错，对话框的错误信息")]
         public const string ERROR_INCORRECT_FILE_FORMAT = "文件格式错误";
+        [TranslateMsg("开始游戏时读取出错，对话框的错误信息，{0}为新使用的存档，{1}为存档列表")]
+        public const string ERROR_SOME_USERS_CORRUPTED = "部分存档无法读取，将使用存档{0}开始游戏。\n无法读取的存档：\n{1}";
+        [TranslateMsg("开始游戏时读取出错，对话框的错误信息")]
+        public const string ERROR_ALL_USERS_CORRUPTED = "所有存档均无法读取，文件可能已损坏。\n必须新建存档以继续游戏。";
+        [TranslateMsg("开始游戏时读取出错，对话框的错误信息")]
+        public const string ERROR_FULL_USERS_CORRUPTED = "所有存档均无法读取，文件可能已损坏。\n必须删除一个存档，并新建存档以继续游戏。";
         [SerializeField]
         private MainManager main;
     }

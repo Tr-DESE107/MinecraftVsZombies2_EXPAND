@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 2
+  trackSelectable: {fileID: 0}
 --- !u!1 &1776373148741039430
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 507562909952838372}
   - component: {fileID: 6586301635785813289}
+  - component: {fileID: 8491097613711611371}
   m_Layer: 0
   m_Name: InputNameDialog
   m_TagString: Untagged
@@ -618,6 +620,19 @@ MonoBehaviour:
   inputField: {fileID: 6038492825642214860}
   confirmButton: {fileID: 481022202502989522}
   cancelButton: {fileID: 622008773546556205}
+--- !u!114 &8491097613711611371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804193100319736664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3545ef6540755954bba04ad1c3a3e798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 0}
 --- !u!1 &8102488389706803331
 GameObject:
   m_ObjectHideFlags: 0

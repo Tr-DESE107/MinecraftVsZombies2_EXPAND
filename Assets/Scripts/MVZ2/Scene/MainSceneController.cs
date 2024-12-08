@@ -5,9 +5,11 @@ using MVZ2.Almanacs;
 using MVZ2.ChapterTransition;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu;
+using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.Note;
+using MVZ2.Save;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -33,6 +35,7 @@ namespace MVZ2.Scenes
                 DisplayPage(MainScenePageType.Mainmenu);
             }
         }
+        #region 对话框
         public void ShowDialogMessage(string title, string desc, Action onSelect = null)
         {
             ShowDialog(title, desc, new string[]
@@ -64,6 +67,19 @@ namespace MVZ2.Scenes
         {
             ui.ShowDialog(title, desc, options, onSelect);
         }
+        public Task<string> ShowInputNameDialogAsync(InputNameType type)
+        {
+            return inputNameDialog.Show(type);
+        }
+        public Task<string> ShowInputNameDialogRenameAsync(int index)
+        {
+            return inputNameDialog.ShowRename(index);
+        }
+        public Task<int> ShowDeleteUserDialogAsync(IEnumerable<UserDataItem> users)
+        {
+            return deleteUserDialog.Show(users);
+        }
+        #endregion
         public void ShowPortal()
         {
             portal.Fadeout();
@@ -165,5 +181,9 @@ namespace MVZ2.Scenes
         private ChapterTransitionController chapterTransition;
         [SerializeField]
         private AlmanacController almanac;
+        [SerializeField]
+        private InputNameDialogController inputNameDialog;
+        [SerializeField]
+        private DeleteUserDialogController deleteUserDialog;
     }
 }

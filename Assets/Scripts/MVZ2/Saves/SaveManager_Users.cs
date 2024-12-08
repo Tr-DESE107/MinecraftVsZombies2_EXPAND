@@ -28,6 +28,11 @@ namespace MVZ2.Saves
         {
             var index = FindFreeUserIndex();
             SetUserName(index, name);
+            var directory = GetUserSaveDataDirectory(index);
+            if (Directory.Exists(directory))
+            {
+                Directory.Delete(directory, true);
+            }
             return index;
         }
         public void DeleteUser(int index)

@@ -19,8 +19,8 @@ namespace MVZ2.UI
             dialog.gameObject.SetActive(true);
             dialog.SetDialog(title, desc, options, (i) =>
             {
-                onSelect?.Invoke(i);
                 dialog.gameObject.SetActive(false);
+                onSelect?.Invoke(i);
             });
             dialog.ResetPosition();
         }

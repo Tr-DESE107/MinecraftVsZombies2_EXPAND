@@ -37,7 +37,6 @@ namespace MVZ2.Mainmenu
             ui.SetButtonActive(MainmenuButtonType.Store, main.SaveManager.IsStoreUnlocked());
             ui.SetBackgroundDark(false);
             ui.SetOptionsDialogVisible(false);
-            ui.SetInputNameDialogVisible(false);
             ui.SetUserManageDialogVisible(false);
             ui.SetRayblockerActive(true);
 
@@ -52,12 +51,16 @@ namespace MVZ2.Mainmenu
             Hide();
             Display();
         }
-        public void Init()
+        public async void Init()
         {
             var userName = main.SaveManager.GetCurrentUserName();
             if (string.IsNullOrEmpty(userName))
             {
-                ShowInputNameDialog(InputNameType.Initialize);
+                var result = await main.Scene.ShowInputNameDialogAsync(InputNameType.Initialize);
+                if (!string.IsNullOrEmpty(result))
+                {
+                    RenameUser(main.SaveManager.GetCurrentUserIndex(), result);
+                }
             }
             ui.SetRayblockerActive(false);
         }
@@ -78,11 +81,9 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
-            ui.OnInputNameConfirm += OnInputNameConfirmCallback;
-            ui.OnInputNameCancel += OnInputNameCancelCallback;
-
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
             ui.OnUserManageDialogUserSelect += OnUserManageUserSelectCallback;
+            ui.OnUserManageDialogCreateNewUserButtonClick += OnUserManageCreateNewUserButtonClickCallback;
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
         }
@@ -192,71 +193,41 @@ namespace MVZ2.Mainmenu
             optionsLogic.Dispose();
         }
 
-        #region 输入用户名
-        private void OnInputNameConfirmCallback(string name)
-        {
-            if (!ValidateUserName(name, out var message))
-            {
-                var error = main.LanguageManager._(message);
-                ui.SetInputNameDialogError(error);
-                return;
-            }
-
-            switch (inputNameType)
-            {
-                case InputNameType.Initialize:
-                    RenameUser(main.SaveManager.GetCurrentUserIndex(), name);
-                    break;
-                case InputNameType.CreateNewUser:
-                    main.SaveManager.CreateNewUser(name);
-                    main.SaveManager.SaveUserList();
-                    RefreshUserManageDialog();
-                    break;
-                case InputNameType.Rename:
-                    RenameUser(renamingUserIndex, name);
-                    break;
-            }
-            HideInputNameDialog();
-        }
-        private void OnInputNameCancelCallback()
-        {
-            if (inputNameType == InputNameType.Initialize)
-            {
-                var error = main.LanguageManager._(ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT);
-                ui.SetInputNameDialogError(error);
-                return;
-            }
-            HideInputNameDialog();
-        }
-        #endregion
-
         #region 用户管理
         private void OnUserManageUserSelectCallback(int index)
         {
             selectedUserArrayIndex = index;
             UpdateUserManageButtons();
         }
-        private void OnUserManageButtonClickCallback(UserManageDialog.ButtonType type)
+        private async void OnUserManageCreateNewUserButtonClickCallback()
+        {
+            string result = await main.Scene.ShowInputNameDialogAsync(InputNameType.CreateNewUser);
+            if (!string.IsNullOrEmpty(result))
+            {
+                main.SaveManager.CreateNewUser(result);
+                main.SaveManager.SaveUserList();
+                RefreshUserManageDialog();
+            }
+        }
+        private async void OnUserManageButtonClickCallback(UserManageDialog.ButtonType type)
         {
             switch (type)
             {
-                case UserManageDialog.ButtonType.CreateNewUser:
-                    {
-                        ShowInputNameDialog(InputNameType.CreateNewUser);
-                    }
-                    break;
                 case UserManageDialog.ButtonType.Rename:
                     {
                         var userIndex = GetSelectedUserIndex();
-                        renamingUserIndex = userIndex;
-                        ShowInputNameDialog(InputNameType.Rename);
+                        string result = await main.Scene.ShowInputNameDialogRenameAsync(userIndex);
+                        if (!string.IsNullOrEmpty(result))
+                        {
+                            RenameUser(userIndex, result);
+                        }
                     }
                     break;
                 case UserManageDialog.ButtonType.Delete:
                     {
                         var userIndex = GetSelectedUserIndex();
-                        var title = main.LanguageManager._(Vanilla.VanillaStrings.WARNING);
-                        var desc = main.LanguageManager._(WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
+                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var desc = main.LanguageManager._(VanillaStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
                         main.Scene.ShowDialogSelect(title, desc, (value) =>
                         {
                             if (value)
@@ -336,35 +307,6 @@ namespace MVZ2.Mainmenu
             Hide();
             main.LevelManager.InitLevel(VanillaAreaID.halloween, VanillaStageID.debug);
         }
-        #region 输入用户名
-        private void ShowInputNameDialog(InputNameType type)
-        {
-            ui.SetInputNameDialogVisible(true);
-            inputNameType = type;
-        }
-        private bool ValidateUserName(string name, out string message)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                message = ERROR_MESSAGE_NAME_EMPTY;
-                return false;
-            }
-
-            if (main.SaveManager.HasDuplicateUserName(name, main.SaveManager.GetCurrentUserIndex()))
-            {
-                message = ERROR_MESSAGE_NAME_DUPLICATE;
-                return false;
-            }
-            message = null;
-            return true;
-        }
-        private void HideInputNameDialog()
-        {
-            ui.SetInputNameDialogVisible(false);
-            inputNameType = InputNameType.None;
-            renamingUserIndex = -1;
-        }
-        #endregion
 
         #region 用户管理
         private void DeleteUser(int userIndex)
@@ -372,18 +314,20 @@ namespace MVZ2.Mainmenu
             try
             {
                 var currentUserIndex = main.SaveManager.GetCurrentUserIndex();
-                var nextUserIndex = managingUserIndexes.FirstOrDefault(u => u != userIndex);
                 if (userIndex == currentUserIndex)
                 {
-                    main.SaveManager.SetCurrentUserIndex(nextUserIndex);
+                    // 要删除当前存档，需要切换至其他存档。
+                    SwitchToOtherUserBeforeDelete(userIndex);
+                    // 切换成功。
                     HideUserManageDialog();
                     Reload();
+                    main.SaveManager.DeleteUser(userIndex);
                 }
                 else
                 {
+                    main.SaveManager.DeleteUser(userIndex);
                     RefreshUserManageDialog();
                 }
-                main.SaveManager.DeleteUser(userIndex);
                 main.SaveManager.SaveUserList();
             }
             catch (Exception e)
@@ -421,6 +365,39 @@ namespace MVZ2.Mainmenu
                 var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_SWITCH_TO_USER, e.Message);
                 main.Scene.ShowDialogMessage(title, desc);
                 Debug.LogError($"Unable to switch to user{userIndex}'s save data : {e}");
+            }
+        }
+        private void SwitchToOtherUserBeforeDelete(int currentIndex)
+        {
+            // 先保存当前存档，以防出现错误。
+            main.SaveManager.SaveModDatas();
+            // 获取所有后备的可选其他存档。
+            var backupUserIndexes = managingUserIndexes.Where(u => u != currentIndex);
+            bool success = false;
+            foreach (var nextUserIndex in backupUserIndexes)
+            {
+                try
+                {
+                    // 切换至其他存档。
+                    main.SaveManager.SetCurrentUserIndex(nextUserIndex);
+                    // 切换成功。
+                    success = true;
+                    break;
+                }
+                catch (Exception e)
+                {
+                    // 切换失败，换下一个。
+                    Debug.LogError($"Unable to switch to user{nextUserIndex}'s save data while deleting user{currentIndex} : {e}");
+                }
+            }
+            // 切换成功，或者全部切换失败。
+            if (!success)
+            {
+                // 全部切换失败，重新读取当前存档，防止出现错误。
+                main.SaveManager.LoadUserData(currentIndex);
+                // 报错。
+                var message = main.LanguageManager._(ERROR_MESSAGE_NO_SPARE_USERS_TO_SWITCH);
+                throw new InvalidOperationException(message);
             }
         }
         private int GetSelectedUserIndex()
@@ -512,18 +489,12 @@ namespace MVZ2.Mainmenu
         #endregion
 
         #region 属性字段
-        [TranslateMsg("输入名称对话框的错误信息")]
-        public const string ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT = "第一次游戏必须输入用户名";
-        [TranslateMsg("输入名称对话框的错误信息")]
-        public const string ERROR_MESSAGE_NAME_EMPTY = "用户名不能为空";
-        [TranslateMsg("输入名称对话框的错误信息")]
-        public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
         [TranslateMsg("删除用户时的错误信息，{0}为错误信息")]
         public const string ERROR_MESSAGE_UNABLE_TO_DELETE_USER = "无法删除用户：{0}";
         [TranslateMsg("切换用户时的错误信息，{0}为错误信息")]
         public const string ERROR_MESSAGE_UNABLE_TO_SWITCH_TO_USER = "无法切换至用户：{0}";
-        [TranslateMsg("删除用户时的警告，{0}为名称")]
-        public const string WARNING_DELETE_USER = "确认删除用户{0}吗？\n该用户所有的数据都将被删除！";
+        [TranslateMsg("删除用户时的错误信息")]
+        public const string ERROR_MESSAGE_NO_SPARE_USERS_TO_SWITCH = "没有其他有效的用户可供切换。";
         [TranslateMsg("退出对话框的描述")]
         public const string QUIT_DESC = "确认要退出吗？";
 
@@ -539,22 +510,10 @@ namespace MVZ2.Mainmenu
         private OptionsLogicMainmenu optionsLogic;
         private int[] managingUserIndexes;
         private int selectedUserArrayIndex = -1;
-        private int renamingUserIndex = -1;
-        private InputNameType inputNameType;
 
         private Vector2 animatorBlendStart;
         private Vector2 animatorBlendEnd;
         private float animatorBlendTimeout;
-        #endregion
-
-        #region 内嵌类
-        public enum InputNameType
-        {
-            None,
-            Initialize,
-            CreateNewUser,
-            Rename
-        }
         #endregion
     }
 }

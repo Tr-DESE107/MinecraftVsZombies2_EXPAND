@@ -35,17 +35,6 @@ namespace MVZ2.Mainmenu.UI
         {
             userManageDialog.SetCreateNewUserActive(active);
         }
-        public void SetInputNameDialogVisible(bool visible)
-        {
-            SetInputNameDialogError(string.Empty);
-            inputNameDialog.gameObject.SetActive(visible);
-            inputNameDialog.ResetPosition();
-            inputNameDialog.ClearContent();
-        }
-        public void SetInputNameDialogError(string message)
-        {
-            inputNameDialog.SetErrorMessage(message);
-        }
         public void SetBackgroundDark(bool dark)
         {
             backgroundLight.gameObject.SetActive(!dark);
@@ -96,25 +85,14 @@ namespace MVZ2.Mainmenu.UI
                 pair.Value.OnClick += () => OnMainmenuButtonClick?.Invoke(type);
             }
 
-            inputNameDialog.OnConfirm += OnInputNameConfirmCallback;
-            inputNameDialog.OnCancel += OnInputNameCancelCallback;
-
+            userManageDialog.OnCreateNewUserButtonClick += () => OnUserManageDialogCreateNewUserButtonClick?.Invoke();
             userManageDialog.OnButtonClick += type => OnUserManageDialogButtonClick?.Invoke(type);
             userManageDialog.OnUserSelect += index => OnUserManageDialogUserSelect?.Invoke(index);
 
             stats.OnReturnClick += () => OnStatsReturnButtonClick?.Invoke();
         }
-        private void OnInputNameConfirmCallback(string name)
-        {
-            OnInputNameConfirm?.Invoke(name);
-        }
-        private void OnInputNameCancelCallback()
-        {
-            OnInputNameCancel?.Invoke();
-        }
-        public event Action<string> OnInputNameConfirm;
-        public event Action OnInputNameCancel;
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
+        public event Action OnUserManageDialogCreateNewUserButtonClick;
         public event Action<UserManageDialog.ButtonType> OnUserManageDialogButtonClick;
         public event Action<int> OnUserManageDialogUserSelect;
         public event Action OnStatsReturnButtonClick;
@@ -137,8 +115,6 @@ namespace MVZ2.Mainmenu.UI
         private TextMeshPro userNameText;
 
         [Header("Dialogs")]
-        [SerializeField]
-        private InputNameDialog inputNameDialog;
         [SerializeField]
         private OptionsDialog optionsDialog;
         [SerializeField]

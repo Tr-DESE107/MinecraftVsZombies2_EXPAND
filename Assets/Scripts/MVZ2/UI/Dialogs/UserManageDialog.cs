@@ -10,29 +10,15 @@ namespace MVZ2.Mainmenu.UI
     {
         public void UpdateUsers(string[] names)
         {
-            userList.updateList(names.Length, (i, rect) =>
-            {
-                var item = rect.GetComponent<UserManageItem>();
-                item.SetName(names[i]);
-            },
-            rect =>
-            {
-                var item = rect.GetComponent<UserManageItem>();
-                item.OnValueChanged += OnItemValueChangedCallback;
-            },
-            rect =>
-            {
-                var item = rect.GetComponent<UserManageItem>();
-                item.OnValueChanged -= OnItemValueChangedCallback;
-            });
+            userList.UpdateUsers(names);
         }
         public void SelectUser(int index)
         {
-            foreach (var user in userList.getElements<UserManageItem>())
-            {
-                var i = userList.indexOf(user);
-                user.SetIsOn(i == index);
-            }
+            userList.SelectUser(index);
+        }
+        public void SetCreateNewUserActive(bool active)
+        {
+            userList.SetCreateNewUserActive(active);
         }
         public void SetButtonInteractable(ButtonType type, bool interactable)
         {
@@ -41,39 +27,30 @@ namespace MVZ2.Mainmenu.UI
                 button.interactable = interactable;
             }
         }
-        public void SetCreateNewUserActive(bool active)
-        {
-            createNewUserButton.gameObject.SetActive(active);
-        }
         private void Awake()
         {
-            buttonDict.Add(ButtonType.CreateNewUser, createNewUserButton);
             buttonDict.Add(ButtonType.Rename, renameButton);
             buttonDict.Add(ButtonType.Delete, deleteButton);
             buttonDict.Add(ButtonType.Switch, switchButton);
             buttonDict.Add(ButtonType.Back, backButton);
-
 
             foreach (var pair in buttonDict)
             {
                 var type = pair.Key;
                 pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(type));
             }
-        }
-        private void OnItemValueChangedCallback(UserManageItem item, bool value)
-        {
-            if (value)
-                OnUserSelect?.Invoke(userList.indexOf(item));
+
+            userList.OnUserSelect += (index) => OnUserSelect?.Invoke(index);
+            userList.OnCreateNewUserButtonClick += () => OnCreateNewUserButtonClick?.Invoke();
         }
         public event Action<int> OnUserSelect;
+        public event Action OnCreateNewUserButtonClick;
         public event Action<ButtonType> OnButtonClick;
 
         private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
 
         [SerializeField]
-        private ElementListUI userList;
-        [SerializeField]
-        private Button createNewUserButton;
+        private UserManageList userList;
         [SerializeField]
         private Button renameButton;
         [SerializeField]
@@ -84,7 +61,6 @@ namespace MVZ2.Mainmenu.UI
         private Button backButton;
         public enum ButtonType
         {
-            CreateNewUser,
             Rename,
             Delete,
             Switch,

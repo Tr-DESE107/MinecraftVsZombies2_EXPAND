@@ -19,6 +19,15 @@ namespace MVZ2.Vanilla
         [TranslateMsg]
         public const string UI_TUTORIAL = "新手教程";
 
+        [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_NAME_EMPTY = "用户名不能为空";
+        [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
+        [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT = "第一次游戏必须输入用户名";
+        [TranslateMsg("删除用户时的警告，{0}为名称")]
+        public const string WARNING_DELETE_USER = "确认删除用户{0}吗？\n该用户所有的数据都将被删除！";
+
 
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_NONE = "无";

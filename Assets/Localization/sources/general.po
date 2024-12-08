@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-07 09:13+0800\n"
-"PO-Revision-Date: 2024-12-07 21:15+0800\n"
+"POT-Creation-Date: 2024-12-08 12:24+0800\n"
+"PO-Revision-Date: 2024-12-08 12:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -13,92 +13,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.5\n"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/TopRight/MenuButton/Text
-msgid "菜单"
-msgstr "Menu"
-
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
-msgid "选择你的蓝图"
-msgstr "Choose your blueprints"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
-msgid "一起摇滚吧！"
-msgstr "Let's rock!"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
-msgid "查看战场"
-msgstr "View Battlefield"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
-msgid "查看图鉴"
-msgstr "View Almanac"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
-msgid "进入商店"
-msgstr "Enter Store"
-
-#. 对话跳过按钮
-#: /Level/UI/Talk/SkipButton/Text
-msgid "跳过"
-msgstr "Skip"
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
-msgid "游戏暂停"
-msgstr "Paused"
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
-msgid "返回游戏"
-msgstr "Resume"
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
-msgid "游戏结束"
-msgstr "Game Over"
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/RetryButton/Text
-msgid "重新开始"
-msgstr "Restart"
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/BackButton/Text
-msgid "返回"
-msgstr "Back"
-
-#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
-msgid "更多选项"
-msgstr "More Options"
-
-#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
-msgid "语言"
-msgstr "Language"
-
-#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
-msgid "分辨率"
-msgstr "Resolution"
-
-#. 读取游戏对话框的标题
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
-msgid "继续"
-msgstr "Continue"
-
-#. 读取游戏对话框的描述
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
-msgid "是否继续上一次的进度？"
-msgstr "Do you want to continue with the latest progress?"
-
-#. 读取游戏失败对话框的标题
-#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
-msgid "错误"
-msgstr "Error"
 
 #. 初始界面的作者标识
 #: /MainGame/MainScene/Landing/Canvas/Creator
@@ -135,6 +49,10 @@ msgstr "Stats"
 msgid "成就"
 msgstr "Achievements"
 
+#: /MainGame/MainScene/Mainmenu/Elements/Buttons/Stats/ReturnButton/Text
+msgid "返回"
+msgstr "Back"
+
 #: /MainGame/MainScene/Mainmenu/Elements/Buttons/Achievements/Region/Scroll
 #: View/Viewport/Content/Entry/Texts/TitleRegion/Earned
 msgid "已完成！"
@@ -165,20 +83,32 @@ msgstr "Delete"
 msgid "确定"
 msgstr "Accept"
 
-#. 输入名称对话框的标题
-#: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/TitleArea/Title
-msgid "请输入用户名"
-msgstr "Please input your name"
+#. 菜单对话框的标题
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
+msgid "菜单"
+msgstr "Menu"
 
-#. 输入框默认文字
-#: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/InputField/Text
-#: Area/Placeholder
-msgid "输入文字……"
-msgstr "Input text..."
+#. 关卡内菜单选项
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
+msgid "重新开始"
+msgstr "Restart"
 
-#: /MainGame/MainScene/Mainmenu/Canvas/InputNameDialog/Dialog/Buttons/CancelButton/Text
-msgid "取消"
-msgstr "Cancel"
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
+msgid "更多选项"
+msgstr "More Options"
+
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
+msgid "语言"
+msgstr "Language"
+
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
+msgid "分辨率"
+msgstr "Resolution"
+
+#. 对话跳过按钮
+#: /MainGame/MainScene/Note/Talk/SkipButton/Text
+msgid "跳过"
+msgstr "Skip"
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Top/Title/Text (TMP)
 msgctxt "almanac"
@@ -221,6 +151,80 @@ msgstr "Artifacts"
 msgid "杂项图鉴"
 msgstr "Misc"
 
+#. 菜单对话框的标题
+#: /MainGame/MainScene/GlobalUICanvas/Dialogs/DeleteUserDialog/Dialog/TitleArea/Title
+msgid "删除存档"
+msgstr "Delete User"
+
+#. 输入名称对话框的标题
+#: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/TitleArea/Title
+msgid "请输入用户名"
+msgstr "Please input your name"
+
+#. 输入框默认文字
+#: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/InputField/Text
+#: Area/Placeholder
+msgid "输入文字……"
+msgstr "Input text..."
+
+#: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/Buttons/CancelButton/Text
+msgid "取消"
+msgstr "Cancel"
+
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
+msgid "选择你的蓝图"
+msgstr "Choose your blueprints"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+msgid "一起摇滚吧！"
+msgstr "Let's rock!"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+msgid "查看战场"
+msgstr "View Battlefield"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+msgid "查看图鉴"
+msgstr "View Almanac"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+msgid "进入商店"
+msgstr "Enter Store"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
+msgstr "Paused"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "返回游戏"
+msgstr "Resume"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
+msgstr "Game Over"
+
+#. 读取游戏对话框的标题
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
+msgid "继续"
+msgstr "Continue"
+
+#. 读取游戏对话框的描述
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
+msgid "是否继续上一次的进度？"
+msgstr "Do you want to continue with the latest progress?"
+
+#. 读取游戏失败对话框的标题
+#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
+msgid "错误"
+msgstr "Error"
+
 #: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:200
 msgctxt "advice.starshard_tutorial.0"
 msgid "点击星之碎片槽选中星之碎片！！"
@@ -251,92 +255,92 @@ msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr "Now defeat the Iron Helmet Zombie!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:431
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:448
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
 msgstr "Click a blueprint to choose a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:433
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:450
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr "Click the lawn to place a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:435
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:452
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr "Nicely done!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:437
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:454
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr "Click redstone to collect energy!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:439
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:456
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr "Collect enough energy to place contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:441
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:458
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr "Defeat the zombie with your Dispenser!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:443
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:460
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr "Well done!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:445
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:462
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr "Select Furnace and place it!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:447
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:464
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr "Furnaces can provide you additional redstone!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:449
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:466
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr "The more Furnaces you have, the faster you can build!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:451
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:468
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr "Place at least three Furnaces!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:453
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:470
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr "Block the zombie with Obsidian!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:455
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:472
 msgctxt "advice.tutorial.12"
 msgid "干得漂亮！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:457
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:474
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr "Mine TNTs can blow up enemies after arming itself!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:459
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:476
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr "Blow up the Iron Helmet Zombie with Mine TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:461
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:478
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:463
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:480
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr "Finally, the pickaxe can dig out placed contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:465
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:482
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
@@ -376,135 +380,155 @@ msgstr "Do you want to have a tutorial?"
 msgid "新手教程"
 msgstr "Tutorial"
 
-#: Scripts\Vanilla\VanillaStrings.cs:23
+#: Scripts\Vanilla\VanillaStrings.cs:22
+msgid "用户名不能为空"
+msgstr "Username cannot be empty"
+
+#: Scripts\Vanilla\VanillaStrings.cs:24
+msgid "已经存在该用户名"
+msgstr "This username already exists"
+
+#: Scripts\Vanilla\VanillaStrings.cs:26
+msgid "第一次游戏必须输入用户名"
+msgstr "Username must be set when starting the game for the first time"
+
+#: Scripts\Vanilla\VanillaStrings.cs:28
+msgid ""
+"确认删除用户{0}吗？\n"
+"该用户所有的数据都将被删除！"
+msgstr ""
+"Delete User {0}?\n"
+"This user's data will be all deleted!"
+
+#: Scripts\Vanilla\VanillaStrings.cs:32
 msgctxt "recharge_time"
 msgid "无"
 msgstr "None"
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:25
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgctxt "recharge_time"
 msgid "短"
 msgstr "Short"
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:27
+#: Scripts\Vanilla\VanillaStrings.cs:36
 msgctxt "recharge_time"
 msgid "长"
 msgstr "Long"
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:29
+#: Scripts\Vanilla\VanillaStrings.cs:38
 msgctxt "recharge_time"
 msgid "很长"
 msgstr "Very Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:41
 msgid "是"
 msgstr "Yes"
 
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:43
 msgid "否"
 msgstr "No"
 
-#: Scripts\Vanilla\VanillaStrings.cs:40
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "返回地图"
 msgstr "Back to map"
 
-#: Scripts\Vanilla\VanillaStrings.cs:42
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:46
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid "警告"
 msgstr "Warning"
 
-#: Scripts\Vanilla\VanillaStrings.cs:48
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:52
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgid "确认"
 msgstr "Accept"
 
-#: Scripts\Vanilla\VanillaStrings.cs:55
+#: Scripts\Vanilla\VanillaStrings.cs:64
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:66
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:68
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:72
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:65
+#: Scripts\Vanilla\VanillaStrings.cs:74
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:76
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:69
+#: Scripts\Vanilla\VanillaStrings.cs:78
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:82
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:75
+#: Scripts\Vanilla\VanillaStrings.cs:84
 msgctxt "levelname"
 msgid "序章"
 msgstr "Prologue"
 
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:86
 msgctxt "levelname"
 msgid "万圣夜"
 msgstr "Halloween"
 
-#: Scripts\Vanilla\VanillaStrings.cs:79
+#: Scripts\Vanilla\VanillaStrings.cs:88
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:83
+#: Scripts\Vanilla\VanillaStrings.cs:92
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:86
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:89
+#: Scripts\Vanilla\VanillaStrings.cs:98
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:92
+#: Scripts\Vanilla\VanillaStrings.cs:101
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:95
+#: Scripts\Vanilla\VanillaStrings.cs:104
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:98
+#: Scripts\Vanilla\VanillaStrings.cs:107
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
@@ -513,7 +537,7 @@ msgstr "(Not encountered yet)"
 msgid "版本{0}"
 msgstr "Version {0}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:81
+#: Scripts\MVZ2\Scene\GameEntrance.cs:136
 msgid ""
 "游戏加载失败：\n"
 "{0}"
@@ -521,25 +545,54 @@ msgstr ""
 "Failed to initialize:\n"
 "{0}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:83
+#: Scripts\MVZ2\Scene\GameEntrance.cs:138
 msgid "文件目录丢失"
 msgstr "Directory not found"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:85
+#: Scripts\MVZ2\Scene\GameEntrance.cs:140
 msgid "文件丢失"
 msgstr "File not found"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:87
+#: Scripts\MVZ2\Scene\GameEntrance.cs:142
 msgid "文件被占用"
 msgstr "A file is occupied by other program"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:89
+#: Scripts\MVZ2\Scene\GameEntrance.cs:144
 msgid "文件读取失败"
 msgstr "Failed to load a file"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:91
+#: Scripts\MVZ2\Scene\GameEntrance.cs:146
 msgid "文件格式错误"
 msgstr "Wrong file format"
+
+# 开始游戏时读取出错，对话框的错误信息，{0}为新使用的存档，{1}为存档列表
+#: Scripts\MVZ2\Scene\GameEntrance.cs:148
+msgid ""
+"部分存档无法读取，将使用存档{0}开始游戏。\n"
+"无法读取的存档：\n"
+"{1}"
+msgstr ""
+"Some users cannot be loaded, starting with user {0}.\n"
+"Users that cannot be loaded:\n"
+"{1}"
+
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:150
+msgid ""
+"所有存档均无法读取，文件可能已损坏。\n"
+"必须新建存档以继续游戏。"
+msgstr ""
+"All users cannot be loaded, the files may be corrupted.\n"
+"You have to create a new user to continue."
+
+# 开始游戏时读取出错，对话框的错误信息
+#: Scripts\MVZ2\Scene\GameEntrance.cs:152
+msgid ""
+"所有存档均无法读取，文件可能已损坏。\n"
+"必须删除一个存档，并新建存档以继续游戏。"
+msgstr ""
+"All users cannot be loaded, the files may be corrupted.\n"
+"You have to delete a user and create a new one to continue."
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:168
 msgid "交换触发：{0}"
@@ -594,7 +647,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:457
+#: Scripts\MVZ2\Map\MapController.cs:458
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -602,7 +655,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:459
+#: Scripts\MVZ2\Map\MapController.cs:460
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -610,40 +663,25 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:461
+#: Scripts\MVZ2\Map\MapController.cs:462
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:516
-msgid "第一次游戏必须输入用户名"
-msgstr "Username must be set when starting the game for the first time"
-
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:518
-msgid "用户名不能为空"
-msgstr "Username cannot be empty"
-
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:520
-msgid "已经存在该用户名"
-msgstr "This username already exists"
-
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:522
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:492
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:524
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:494
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:526
-msgid ""
-"确认删除用户{0}吗？\n"
-"该用户所有的数据都将被删除！"
-msgstr ""
-"Delete User {0}?\n"
-"This user's data will be all deleted!"
+# 删除用户时的错误信息
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:496
+msgid "没有其他有效的用户可供切换。"
+msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:528
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:498
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
@@ -657,7 +695,7 @@ msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:710
+#: Scripts\MVZ2\Level\LevelController_UI.cs:718
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -665,29 +703,29 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:712
+#: Scripts\MVZ2\Level\LevelController_UI.cs:720
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:714
+#: Scripts\MVZ2\Level\LevelController_UI.cs:722
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
 "game state."
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:716
+#: Scripts\MVZ2\Level\LevelController_UI.cs:724
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:283
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:282
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:285
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:284
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
