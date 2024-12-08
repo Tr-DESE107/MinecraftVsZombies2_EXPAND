@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-08 03:41+0800\n"
+"POT-Creation-Date: 2024-12-08 03:51+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -833,7 +833,7 @@ msgstr ""
 #. Description for achievement mvz2:ghost_buster
 #: Achievements meta file
 msgctxt "achievement"
-msgid "在不照亮任何一次的情况下消灭一个幽灵。"
+msgid "在不照亮任何一次的情况下杀死一个幽灵。"
 msgstr ""
 
 #. Name for achievement mvz2:double_trouble
@@ -857,7 +857,7 @@ msgstr ""
 #. Description for achievement mvz2:rickroll_drown
 #: Achievements meta file
 msgctxt "achievement"
-msgid "让一个没有船的僵尸走进水上并沉没。"
+msgid "让一只没有船的僵尸走进水中并沉没。"
 msgstr ""
 
 #. Name for achievement mvz2:return_to_sender
@@ -869,6 +869,6 @@ msgstr ""
 #. Description for achievement mvz2:return_to_sender
 #: Achievements meta file
 msgctxt "achievement"
-msgid "用一个火焰弹消灭一只恶魂。"
+msgid "用一枚火焰弹杀死一只恶魂。"
 msgstr ""
 

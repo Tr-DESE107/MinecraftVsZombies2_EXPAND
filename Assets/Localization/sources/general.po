@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-08 03:41+0800\n"
-"PO-Revision-Date: 2024-12-08 15:42+0800\n"
+"POT-Creation-Date: 2024-12-08 03:51+0800\n"
+"PO-Revision-Date: 2024-12-08 15:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -775,8 +775,8 @@ msgstr "Ghost Buster"
 #. Description for achievement mvz2:ghost_buster
 #: Achievements meta file
 msgctxt "achievement"
-msgid "在不照亮任何一次的情况下消灭一个幽灵。"
-msgstr "Defeat a ghost without illuminating it at all."
+msgid "在不照亮任何一次的情况下杀死一个幽灵。"
+msgstr "Kill a ghost without illuminating it at all."
 
 #. Name for achievement mvz2:double_trouble
 #: Achievements meta file
@@ -799,7 +799,7 @@ msgstr "Never gonna let you drown"
 #. Description for achievement mvz2:rickroll_drown
 #: Achievements meta file
 msgctxt "achievement"
-msgid "让一个没有船的僵尸走进水上并沉没。"
+msgid "让一只没有船的僵尸走进水中并沉没。"
 msgstr "Make a zombie without boat walk into water and sink."
 
 #. Name for achievement mvz2:return_to_sender
@@ -811,8 +811,8 @@ msgstr "Return to Sender"
 #. Description for achievement mvz2:return_to_sender
 #: Achievements meta file
 msgctxt "achievement"
-msgid "用一个火焰弹消灭一只恶魂。"
-msgstr "Defeat a ghast using a fireball."
+msgid "用一枚火焰弹杀死一只恶魂。"
+msgstr "Kill a ghast using a fire charge."
 
 #~ msgid "查看人物"
 #~ msgstr "View Characters"
