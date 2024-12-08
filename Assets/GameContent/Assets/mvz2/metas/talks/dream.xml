@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks>
-  <group name="dream_1" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_1" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第1天入场" background="mvz2:misc/dream" unlock="mvz2:level.dream_1" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -15,7 +16,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_1_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_1_over" tags="mvz2:dream">
+    <archive name="梦境世界第1天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_1" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -24,13 +26,14 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">啊哈！这是睡莲！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">你可以把非水生器械放在它的上面！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">也就是说，你现在可以在水上布置战线了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;createcharacter mvz2:doremy right;delay 0.5;next">可惜它不能像它的祖先一样把船撞碎！</sentence>
-        <sentence speaker="mvz2:doremy" description="mvz2:archive.doremy_appears" sounds="mvz2:talk">外界的人类啊，让我看看你做了什么梦……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character create mvz2:doremy right;delay 0.5;next">可惜它不能像它的祖先一样把船撞碎！</sentence>
+        <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">外界的人类啊，让我看看你做了什么梦……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_cut" variant="mvz2:open_mouth" onStart="shake 0.1 0.5" onClick="end">等……等等！你是真身？</sentence>
       </sentences>
     </section>
   </group>
-  <group name="dream_1_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_1_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第1天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_1" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -50,7 +53,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_2" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_2" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第2天入场" background="mvz2:misc/dream" unlock="mvz2:level.dream_2" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -66,7 +70,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_2_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_2_over" tags="mvz2:dream">
+    <archive name="梦境世界第2天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_2" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -80,7 +85,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_2_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_2_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第2天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_2" />
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -95,14 +101,15 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_weird">史蒂夫是吧？我听说过你的名字。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">幻想乡里某个人的梦境里有出现过你，梦中的那个长得的确是一模一样。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">哇哦，你在幻想乡里居然有女朋友！是哪个妖怪呢？</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_explosive" onStart="variant mvz2:doremy mvz2:open_mouth;shake;music volume 0">没有！你为啥会这么想啊！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_explosive" onStart="character variant mvz2:doremy mvz2:open_mouth;shake;music volume 0">没有！你为啥会这么想啊！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:dialog_weird">哇，说话了！我还以为你是哑巴呢！</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake;variant mvz2:doremy mvz2:normal">&lt;color=blue&gt;（谁是哑巴啊！）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake;character variant mvz2:doremy mvz2:normal">&lt;color=blue&gt;（谁是哑巴啊！）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1" onClick="end">史蒂夫，还有村民，是吧？欢迎你们的到来。</sentence>
       </sentences>
     </section>
   </group>
-  <group name="dream_3" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_3" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第3天入场" background="mvz2:misc/dream" unlock="mvz2:level.dream_3" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -115,7 +122,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_3_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_3_over" tags="mvz2:dream">
+    <archive name="梦境世界第3天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_3" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -128,7 +136,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_3_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_3_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第3天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_3" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -147,7 +156,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_4_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_4_over" tags="mvz2:dream">
+    <archive name="梦境世界第4天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_4" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -159,7 +169,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_4_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_4_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第4天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_4" />
     <section>
       <characters>
         <character id="mvz2:doremy" variant="mvz2:read_smile" side="right" />
@@ -185,7 +196,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_5_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_5_over" tags="mvz2:dream">
+    <archive name="梦境世界第5天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_5" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -198,7 +210,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_5_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_5_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第5天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_5" />
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -229,7 +242,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_6" background="mvz2:dream" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_6" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第6天入场" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -243,7 +257,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_6_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_6_over" tags="mvz2:dream">
+    <archive name="梦境世界第6天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -255,31 +270,33 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_6_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
-    <section onSkip="end;music volume 1;screen black set 1;screen black fade -1;action show_nightmare;music play mvz2:nightmare_map">
+  <group id="dream_6_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第6天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
+    <section onSkip="end;music volume 1;forecolor fade black #0000 1;action show_nightmare;music play mvz2:nightmare_map">
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:doremy" variant="mvz2:suffering" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" description="mvz2:archive.doremy_suffering" sounds="mvz2:dialog_cut" onStart="shake;music fade 0 0.5">哆、哆来咪，你怎么了？！</sentence>
+        <sentence speaker="mvz2:crazy_villager" description="（哆来咪双手抱头痛苦不堪）" sounds="mvz2:dialog_cut" onStart="shake;music fade 0 0.5">哆、哆来咪，你怎么了？！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1;music play mvz2:suspension">你……你们快走……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那家伙……要来了……</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake">是、是谁把你变成这样的！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;music fade 0 0.5;faint mvz2:doremy 0.5;delay 0.5;shake;playsound mvz2:dialog_faint;delay 1;next">是……梦……魇……</sentence>
-        <sentence speaker="mvz2:crazy_villager" description="mvz2:archive.doremy_faint" sounds="mvz2:dialog_judge" onStart="shake" onClick="bubble hide;music play mvz2:suspension;music fade 1;screen black fade 0.5;delay 3;next">哆来咪！</sentence>
+        <sentence speaker="mvz2:crazy_villager" description="（哆来咪倒地）" sounds="mvz2:dialog_judge" onStart="shake" onClick="bubble hide;music play mvz2:suspension;music fade 1;forecolor fade #0000 2;delay 3;next">哆来咪！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（那一瞬间，整个梦境世界都失去了色彩。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（这里的东西开始溶解、脱落，狞笑着向我们展示着，它们真正的样子。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（那是我一生都无法遗忘的场面。）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="bubble hide;music fade 0 0.5;playsound mvz2:dialog_flashback;action show_nightmare;screen white fade 2;delay 1;screen black set 0;screen white set 0;shake;playsound mvz2:dialog_bang;music fade 0;music volume 1;music play mvz2:nightmare_map;delay 1;next">&lt;color=blue&gt;（那时候，我才明白，哆来咪口中的“噩梦”，到底是什么。）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:self" description="mvz2:archive.nightmare_show" sounds="mvz2:dialog_cut" onStart="shake">……这、这是怎么回事！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="bubble hide;music fade 0 0.5;playsound mvz2:dialog_flashback;action show_nightmare;forecolor fade white 0.5;delay 1;forecolor set #0000;shake;playsound mvz2:dialog_bang;music fade 0;music volume 1;music play mvz2:nightmare_map;delay 1;next">&lt;color=blue&gt;（那时候，我才明白，哆来咪口中的“噩梦”，到底是什么。）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" description="（噩梦世界展现了出来）" sounds="mvz2:dialog_cut" onStart="shake">……这、这是怎么回事！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">这里……为什么会变成这样啊！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">所以，那些东西只是障眼法吗？！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_bang" onStart="shake" onClick="end">这个地方……原来早就已经是这样子了？！</sentence>
       </sentences>
     </section>
   </group>
-  <group name="dream_7" background="mvz2:nightmare" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_7" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第7天入场" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_7" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -292,7 +309,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_7_over" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group id="dream_7_over" tags="mvz2:dream">
+    <archive name="梦境世界第7天结束" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_7" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -305,7 +323,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_7_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_7_map" music="mvz2:nightmare_map" tags="mvz2:dream">
+    <archive name="梦境世界第7天地图" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_7" />
     <section onSkip="end;foreground alpha 0;music fade 0;music volume 1">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -317,7 +336,7 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你们是……？史蒂夫他们吗？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">是的。哆来咪，你感觉如何？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……</sentence>
-        <sentence speaker="mvz2:doremy" description="mvz2:archive.doremy_open_eyes" sounds="mvz2:dialog_weird" variant="mvz2:cursed" onStart="music fade 0 0.5;screen white set 1;delay 0.1;screen white set 0">我为什么，什么也看不见？</sentence>
+        <sentence speaker="mvz2:doremy" description="（哆来咪睁开了她失明的双眼）" sounds="mvz2:dialog_weird" variant="mvz2:cursed" onStart="music fade 0 0.5;forecolor set white;delay 0.1;forecolor set #0000">我为什么，什么也看不见？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_surprised">！是诅咒吗？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……什么都看不到……你们在哪儿？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……</sentence>
@@ -349,7 +368,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_8" background="mvz2:nightmare" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_8" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第8天入场" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_8" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -367,7 +387,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_8_over" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group id="dream_8_over" tags="mvz2:dream">
+    <archive name="梦境世界第8天结束" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_8" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -380,7 +401,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_8_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_8_map" music="mvz2:nightmare_map" tags="mvz2:dream">
+    <archive name="梦境世界第8天地图" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_8" />
     <section onSkip="end;music fade 1 0">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -421,7 +443,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_9" background="mvz2:nightmare" music="mvz2:mainmenu" tags="mvz2:archive.tag.dream">
+  <group id="dream_9" music="mvz2:mainmenu" tags="mvz2:dream">
+    <archive name="梦境世界第9天入场" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_9" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -436,7 +459,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_9_over" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group id="dream_9_over" tags="mvz2:dream">
+    <archive name="梦境世界第9天结束" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_9" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -449,7 +473,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_9_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_9_map" music="mvz2:nightmare_map" tags="mvz2:dream">
+    <archive name="梦境世界第9天地图" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_9" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -467,7 +492,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_note" background="mvz2:archive.dream_note" tags="mvz2:archive.tag.dream">
+  <group id="dream_note" tags="mvz2:dream">
+    <archive name="？？？" background="mvz2:archive/dream_note" unlock="mvz2:level.dream_10" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -480,7 +506,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_10_map" background="mvz2:nightmare" music="mvz2:nightmare_map" tags="mvz2:archive.tag.dream">
+  <group id="dream_10_map" music="mvz2:nightmare_map" tags="mvz2:dream">
+    <archive name="梦境世界第10天地图" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_10" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -499,7 +526,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_11" background="mvz2:nightmare" tags="mvz2:archive.tag.dream">
+  <group id="dream_11" tags="mvz2:dream">
+    <archive name="梦境世界第11天入场" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_11" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -513,7 +541,8 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_11_over" background="mvz2:dream" tags="mvz2:archive.tag.dream">
+  <group id="dream_11_over" tags="mvz2:dream">
+    <archive name="梦境世界第11天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_11" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -521,8 +550,8 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">Ohhhhhhhhh！真没想到你做到了！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……梦魇他……死了吗？！</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;createcharacter mvz2:doremy right mvz2:cured;delay 0.5;next">那，哆来咪小姐她现在怎么样？！</sentence>
-        <sentence speaker="mvz2:doremy" description="mvz2:archive.doremy_appears" sounds="mvz2:talk">我……我能看见了？</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;character create mvz2:doremy right mvz2:cured;delay 0.5;next">那，哆来咪小姐她现在怎么样？！</sentence>
+        <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">我……我能看见了？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而且……我的生命力回来了！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake">哆来咪小姐！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……您没事实在是太好了！</sentence>
@@ -530,8 +559,9 @@
       </sentences>
     </section>
   </group>
-  <group name="dream_11_map" background="mvz2:dream" music="mvz2:dream_map" tags="mvz2:archive.tag.dream">
-    <section onSkip="end;music fade 1 0;screen black fade -1">
+  <group id="dream_11_map" music="mvz2:dream_map" tags="mvz2:dream">
+    <archive name="梦境世界第11天地图" background="mvz2:misc/dream" unlock="mvz2:level.dream_11" />
+    <section onSkip="end;music fade 1 0;forecolor fade #0000 1">
       <characters>
         <character id="mvz2:crazy_villager" />
         <character id="mvz2:doremy" side="right" />
@@ -547,22 +577,22 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">肯定是在说我吧！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（这家伙也回来了……）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你还记得，关于你梦中的那个墓吗？</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_surprised" onStart="screen white set 1;screen white fade -100;music volume 0">！墓……？</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_surprised" onStart="forecolor fade white #FFF0 0.01;music volume 0">！墓……？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">我之前仔细查询了一下，发现，那个墓其实是在你很小的时候就见过的一座墓。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book">那时候，我还没来得及告诉你，就被卷入了梦魇的阴谋中。现在该告诉你了。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">我很小时候的墓……？但是，我不记得戴夫家附近有什么墓啊。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">那是更早之前的事了。那时，你还是个婴儿。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake" onClick="bubble hide;screen black fade 1;delay 1;next">婴……婴儿？！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake" onClick="bubble hide;forecolor fade #0000 black 1;delay 1;next">婴……婴儿？！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（我小时候的记忆，只停留到大约两三岁时候的事情。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（那个时候，我没有父亲，也没有母亲，只有作为养父的戴夫抚养着我。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（但是，我并不是像戴夫一样的方块生物，因此常常被当作异类对待。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（因此，我很在意，我的亲生父亲和母亲，到底是谁。）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake;screen black set 0;screen black fade 0">那、那到底是谁的墓！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake;forecolor set #0000;">那、那到底是谁的墓！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird">不清楚。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">诶？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book">你的记忆似乎到此为止，连这梦中的人的模样都记不得了。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:sad">我只能说很遗憾。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="variant mvz2:doremy mvz2:normal">……是这样吗。还是多谢了，哆来咪小姐。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="character variant mvz2:doremy mvz2:normal">……是这样吗。还是多谢了，哆来咪小姐。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="music fade 1">我其实曾经是个孤儿，是戴夫一直以来抚养着我。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">这些年来，我一直都很想知道自己的亲生父母到底是谁。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">这样子啊。不过，我们以后大概还会再见的。</sentence>

@@ -18,10 +18,13 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -35,16 +38,9 @@ namespace MVZ2.Level
         #region 游戏流程
         public void InitLevel(Game game, NamespaceID areaID, NamespaceID stageID)
         {
-            CreateLevelModel(areaID);
 
             level = new LevelEngine(game, game, game);
-
-            ApplyComponents(level);
-            game.SetLevel(level);
-            levelRaycaster.Init(level);
-
-            AddLevelCallbacks();
-            level.IsRerun = Saves.IsLevelCleared(stageID);
+            InitLevelEngine(level, game, areaID, stageID);
 
             var option = new LevelOption()
             {
@@ -707,6 +703,18 @@ namespace MVZ2.Level
             {
                 level.BeginLevel();
             }
+        }
+        private void InitLevelEngine(LevelEngine level, Game game, NamespaceID areaID, NamespaceID stageID)
+        {
+            ApplyComponents(level);
+            game.SetLevel(level);
+
+            levelRaycaster.Init(level);
+            AddLevelCallbacks();
+            CreateLevelModel(areaID);
+            talkSystem = new LevelTalkSystem(level, talkController);
+
+            level.IsRerun = Saves.IsLevelCleared(stageID);
         }
         #endregion
 

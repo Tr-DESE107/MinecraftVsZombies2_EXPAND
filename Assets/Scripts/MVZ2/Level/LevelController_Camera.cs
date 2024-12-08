@@ -167,10 +167,10 @@ namespace MVZ2.Level
         {
             yield return new WaitForSeconds(delay);
             Sounds.Play2D(VanillaSoundID.travel);
-            Scene.SetPortalFadeIn(async () =>
+            Scene.PortalFadeIn(async () =>
             {
                 await ExitLevel();
-                Scene.SetPortalFadeOut();
+                Scene.PortalFadeOut();
             });
         }
         private IEnumerator ExitLevelToNoteTransition(NamespaceID noteID, float delay)

@@ -1,10 +1,14 @@
 ﻿using MVZ2.Managers;
+using MVZ2.Map;
 using MVZ2.Metas;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Notes;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 
@@ -42,6 +46,7 @@ namespace MVZ2.Note
             ui.OnButtonClick += OnButtonClickCallback;
             talkController.OnTalkAction += OnTalkActionCallback;
             talkController.OnTalkEnd += OnTalkEndCallback;
+            talkSystem = new NoteTalkSystem(talkController);
         }
         #endregion
 
@@ -58,9 +63,9 @@ namespace MVZ2.Note
         {
             definition?.OnBack(this);
         }
-        private void OnTalkActionCallback(string action, string[] param)
+        private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
         }
         private void OnTalkEndCallback()
         {
@@ -77,6 +82,7 @@ namespace MVZ2.Note
         private MainManager main => MainManager.Instance;
         private NoteMeta meta;
         private NoteDefinition definition;
+        private ITalkSystem talkSystem;
         private bool isFlipped;
         [SerializeField]
         private TalkController talkController;

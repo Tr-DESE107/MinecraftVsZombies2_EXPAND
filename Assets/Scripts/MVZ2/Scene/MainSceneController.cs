@@ -25,18 +25,6 @@ namespace MVZ2.Scenes
 {
     public class MainSceneController : MonoBehaviour, ISceneController
     {
-        public void GotoMapOrMainmenu()
-        {
-            if (main.SaveManager.IsLevelCleared(VanillaStageID.prologue))
-            {
-                var lastMapID = main.SaveManager.GetLastMapID() ?? main.ResourceManager.GetFirstMapID();
-                DisplayMap(lastMapID);
-            }
-            else
-            {
-                DisplayPage(MainScenePageType.Mainmenu);
-            }
-        }
         public void Init()
         {
             achievementHint.gameObject.SetActive(true);
@@ -86,6 +74,8 @@ namespace MVZ2.Scenes
             return deleteUserDialog.Show(users);
         }
         #endregion
+
+        #region 成就
         public void ShowAchievementEarnTips(IEnumerable<NamespaceID> achievements)
         {
             achievementHint.Show(achievements);
@@ -94,20 +84,45 @@ namespace MVZ2.Scenes
                 main.SoundManager.Play2D(VanillaSoundID.achievement);
             }
         }
-        public void ShowPortal()
+        #endregion
+
+        #region 传送门
+        public void PortalFadeIn(Action OnFadeIn)
         {
-            portal.Fadeout();
+            StartPortalFade(1, 2);
+            portal.OnFadeFinished += OnFinished;
+            void OnFinished(float value)
+            {
+                OnFadeIn?.Invoke();
+                portal.OnFadeFinished -= OnFinished;
+            }
         }
-        public void SetPortalFadeIn(Action OnFadeIn)
+        public void PortalFadeOut()
         {
-            portal.SetDisplay(true);
-            portal.OnFadeIn += OnFadeIn;
+            StartPortalFade(0, 2);
         }
-        public void SetPortalFadeOut()
+        public void SetPortalAlpha(float alpha)
         {
-            portal.SetDisplay(false);
-            portal.ResetFadeout();
+            portal.SetAlpha(1);
         }
+        public void StartPortalFade(float target, float duration)
+        {
+            portal.StartFade(target, duration);
+        }
+        #endregion
+
+        #region 黑屏
+        public void SetBlackScreen(float value)
+        {
+            ui.SetBlackScreen(value);
+        }
+        public void FadeBlackScreen(float target, float duration)
+        {
+            ui.FadeBlackScreen(target, duration);
+        }
+        #endregion
+
+        #region 页面
         public void DisplayPage(MainScenePageType type)
         {
             foreach (var pair in pages)
@@ -158,14 +173,21 @@ namespace MVZ2.Scenes
         {
             chapterTransition.Hide();
         }
-        public void SetBlackScreen(float value)
+        #endregion
+        public void GotoMapOrMainmenu()
         {
-            ui.SetBlackScreen(value);
+            if (main.SaveManager.IsLevelCleared(VanillaStageID.prologue))
+            {
+                var lastMapID = main.SaveManager.GetLastMapID() ?? main.ResourceManager.GetFirstMapID();
+                DisplayMap(lastMapID);
+            }
+            else
+            {
+                DisplayPage(MainScenePageType.Mainmenu);
+            }
         }
-        public void FadeBlackScreen(float target, float duration)
-        {
-            ui.FadeBlackScreen(target, duration);
-        }
+
+        #region 生命周期
         private void Awake()
         {
             pages.Add(MainScenePageType.Landing, landing);
@@ -175,6 +197,9 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Map, map);
             pages.Add(MainScenePageType.Almanac, almanac);
         }
+        #endregion
+
+        #region 属性字段
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, MainScenePage> pages = new Dictionary<MainScenePageType, MainScenePage>();
         [SerializeField]
@@ -201,5 +226,6 @@ namespace MVZ2.Scenes
         private DeleteUserDialogController deleteUserDialog;
         [SerializeField]
         private AchievementHintController achievementHint;
+        #endregion
     }
 }

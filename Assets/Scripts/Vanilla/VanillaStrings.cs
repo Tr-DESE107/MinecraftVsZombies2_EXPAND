@@ -1,4 +1,5 @@
 ﻿using MukioI18n;
+using PVZEngine;
 
 namespace MVZ2.Vanilla
 {
@@ -37,6 +38,13 @@ namespace MVZ2.Vanilla
         public const string RECHARGE_LONG = "长";
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_VERY_LONG = "很长";
+
+
+        [TranslateMsg("对话档案对话框标题", CONTEXT_ARCHIVE)]
+        public const string ARCHIVE_BRANCH = "剧情分支";
+        [TranslateMsg("对话档案对话框标题", CONTEXT_ARCHIVE)]
+        public const string ARCHIVE_WHETHER_HAS_ENOUGH_MONEY = "是否拥有足够的金钱？";
+
 
         [TranslateMsg("通用的是")]
         public const string YES = "是";
@@ -115,7 +123,12 @@ namespace MVZ2.Vanilla
         {
             return $"{category}.description";
         }
+        public static string GetTalkTextContext(NamespaceID groupID)
+        {
+            return $"talk-{groupID.spacename}:{groupID.path}";
+        }
         public const string CONTEXT_ACHIEVEMENT = "achievement";
+        public const string CONTEXT_ARCHIVE = "archive";
         public const string CONTEXT_ADVICE_ERROR = "advice.error";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";

@@ -9,8 +9,8 @@ namespace MVZ2.TalkData
     public class TalkSentence
     {
         public string text;
+        public string description;
         public NamespaceID speaker;
-        public NamespaceID descriptionId;
         public List<NamespaceID> sounds;
         public NamespaceID variant;
         public List<TalkScript> startScripts;
@@ -21,7 +21,7 @@ namespace MVZ2.TalkData
             var textNode = document.CreateTextNode(text);
             node.AppendChild(textNode);
             node.CreateAttribute("speaker", speaker?.ToString());
-            node.CreateAttribute("description", descriptionId?.ToString());
+            node.CreateAttribute("description", description);
             node.CreateAttribute("sounds", sounds != null ? string.Join(";", sounds.Select(s => s.ToString())) : null);
             node.CreateAttribute("variant", variant?.ToString());
             node.CreateAttribute("onStart", startScripts != null ? string.Join(";", startScripts.Where(s => s != null).Select(s => s.ToString())) : null);
@@ -31,7 +31,7 @@ namespace MVZ2.TalkData
         public static TalkSentence FromXmlNode(XmlNode node, string defaultNsp)
         {
             var speaker = node.GetAttributeNamespaceID("speaker", defaultNsp);
-            var description = node.GetAttributeNamespaceID("description", defaultNsp);
+            var description = node.GetAttribute("description");
             var sounds = node.GetAttribute("sounds")?.Split(';')?.Select(s => NamespaceID.Parse(s, defaultNsp)).ToList();
             var variant = node.GetAttributeNamespaceID("variant", defaultNsp);
             var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
@@ -40,7 +40,7 @@ namespace MVZ2.TalkData
             return new TalkSentence()
             {
                 speaker = speaker,
-                descriptionId = description,
+                description = description,
                 sounds = sounds,
                 variant = variant,
                 text = text,

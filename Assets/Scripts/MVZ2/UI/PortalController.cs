@@ -1,29 +1,42 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
     public class PortalController : MonoBehaviour
     {
-        public void SetDisplay(bool display)
+        public void SetAlpha(float value)
         {
-            animator.SetBool("Display", display);
+            fader.Value = value;
         }
-        public void Fadeout()
+        public void StartFade(float target, float duration)
         {
-            animator.SetTrigger("Fadeout");
+            fader.StartFade(target, duration);
         }
-        public void ResetFadeout()
+        private void Awake()
         {
-            animator.ResetTrigger("Fadeout");
+            fader.OnValueChanged += OnValueChangedCallback;
+            fader.OnFadeFinished += OnFadeFinishedCallback;
         }
-        public void CallFadeIn()
+        private void Update()
         {
-            OnFadeIn?.Invoke();
-            OnFadeIn = null;
+            raycastBlocker.raycastTarget = fader.EndValue > fader.StartValue || fader.Value > 0.85f;
         }
-        public event Action OnFadeIn;
+        private void OnValueChangedCallback(float value)
+        {
+            animator.SetFloat("Blend", value);
+        }
+        private void OnFadeFinishedCallback(float value)
+        {
+            OnFadeFinished?.Invoke(value);
+        }
+        public event Action<float> OnFadeFinished;
         [SerializeField]
-        public Animator animator;
+        private Animator animator;
+        [SerializeField]
+        private Image raycastBlocker;
+        [SerializeField]
+        private FloatFader fader;
     }
 }

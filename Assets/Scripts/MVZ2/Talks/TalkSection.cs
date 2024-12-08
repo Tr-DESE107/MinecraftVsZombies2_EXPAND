@@ -8,7 +8,7 @@ namespace MVZ2.TalkData
 {
     public class TalkSection
     {
-        public NamespaceID nameId;
+        public string archiveText;
         public List<TalkScript> startScripts;
         public List<TalkScript> skipScripts;
         public List<TalkCharacter> characters;
@@ -16,9 +16,15 @@ namespace MVZ2.TalkData
         public XmlNode ToXmlNode(XmlDocument document)
         {
             XmlNode node = document.CreateElement("section");
-            node.CreateAttribute("nameID", nameId?.ToString());
             node.CreateAttribute("onStart", startScripts != null ? string.Join(";", startScripts.Where(s => s != null).Select(s => s.ToString())) : null);
             node.CreateAttribute("onSkip", skipScripts != null ? string.Join(";", skipScripts.Where(s => s != null).Select(s => s.ToString())) : null);
+
+            if (!string.IsNullOrEmpty(archiveText))
+            {
+                var textNode = document.CreateElement("text");
+                textNode.InnerText = archiveText;
+                node.AppendChild(textNode);
+            }
 
             if (characters != null)
             {
@@ -45,9 +51,15 @@ namespace MVZ2.TalkData
         }
         public static TalkSection FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var nameID = node.GetAttributeNamespaceID("nameID", defaultNsp);
             var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
             var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip"))?.ToList();
+
+            var textNode = node["text"];
+            string archiveText = string.Empty;
+            if (textNode != null)
+            {
+                archiveText = textNode.InnerText;
+            }
 
             var charactersNode = node["characters"];
             List<TalkCharacter> characters = null;
@@ -75,7 +87,7 @@ namespace MVZ2.TalkData
             }
             return new TalkSection()
             {
-                nameId = nameID,
+                archiveText = archiveText,
                 startScripts = startScripts,
                 skipScripts = skipScripts,
                 characters = characters,

@@ -16,7 +16,7 @@ namespace MVZ2.Managers
                 return null;
             foreach (var meta in modResource.TalkMetas.Values)
             {
-                var group = meta.groups.FirstOrDefault(g => g.name == groupID.path);
+                var group = meta.groups.FirstOrDefault(g => g.id == groupID.path);
                 if (group != null)
                     return group;
             }

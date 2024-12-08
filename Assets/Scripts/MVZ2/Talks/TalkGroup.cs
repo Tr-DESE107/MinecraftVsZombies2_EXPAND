@@ -2,29 +2,30 @@
 using System.Linq;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic;
 using PVZEngine;
 
 namespace MVZ2.TalkData
 {
     public class TalkGroup
     {
-        public string name;
+        public string id;
         public NamespaceID requires;
         public NamespaceID requiresNot;
-        public SpriteReference archiveBackground;
         public NamespaceID music;
         public List<NamespaceID> tags;
+
+        public TalkGroupArchiveInfo archive;
         public List<TalkSection> sections;
         public XmlNode ToXmlNode(XmlDocument document)
         {
             XmlNode node = document.CreateElement("group");
-            node.CreateAttribute("name", name);
+            node.CreateAttribute("id", id);
             node.CreateAttribute("requires", requires?.ToString());
             node.CreateAttribute("requiresNot", requiresNot?.ToString());
-            node.CreateAttribute("background", archiveBackground?.ToString());
             node.CreateAttribute("music", music?.ToString());
             node.CreateAttribute("tags", tags != null ? string.Join(";", tags.Select(t => t.ToString())) : null);
+            var archiveNode = archive.ToXmlNode(document);
+            node.AppendChild(archiveNode);
             foreach (var section in sections)
             {
                 var child = section.ToXmlNode(document);
@@ -34,28 +35,43 @@ namespace MVZ2.TalkData
         }
         public static TalkGroup FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var name = node.GetAttribute("name");
+            var id = node.GetAttribute("id");
             var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
             var requiresNot = node.GetAttributeNamespaceID("requiresNot", defaultNsp);
-            var background = node.GetAttributeSpriteReference("background", defaultNsp);
             var music = node.GetAttributeNamespaceID("music", defaultNsp);
             var tags = node.GetAttribute("tags")?.Split(';')?.Select(t => NamespaceID.Parse(t, defaultNsp))?.ToList();
 
             var children = node.ChildNodes;
+
+
+            TalkGroupArchiveInfo archive = null;
             var sections = new List<TalkSection>();
             for (int i = 0; i < children.Count; i++)
             {
                 var child = children[i];
-                sections.Add(TalkSection.FromXmlNode(child, defaultNsp));
+                switch (child.Name)
+                {
+                    case "section":
+                        sections.Add(TalkSection.FromXmlNode(child, defaultNsp));
+                        break;
+                    case "archive":
+                        archive = TalkGroupArchiveInfo.FromXmlNode(child, defaultNsp);
+                        break;
+                }
+            }
+            if (archive == null)
+            {
+                archive = new TalkGroupArchiveInfo();
             }
             return new TalkGroup()
             {
-                name = name,
+                id = id,
                 requires = requires,
                 requiresNot = requiresNot,
-                archiveBackground = background,
                 music = music,
                 tags = tags,
+
+                archive = archive,
                 sections = sections,
             };
         }

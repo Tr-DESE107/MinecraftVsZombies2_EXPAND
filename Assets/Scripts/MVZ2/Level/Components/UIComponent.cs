@@ -15,10 +15,6 @@ namespace MVZ2.Level.Components
         {
             Main.ShakeManager.AddShake(startAmplitude * Controller.LawnToTransScale, endAmplitude * Controller.LawnToTransScale, time / (float)Level.TPS);
         }
-        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect)
-        {
-            Main.Scene.ShowDialog(title, desc, options, onSelect);
-        }
         public void ShowMoney()
         {
             Controller.ShowMoney();

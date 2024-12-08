@@ -4,6 +4,7 @@ using System.Xml;
 using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
+using MVZ2.TalkData;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEditor;
@@ -129,15 +130,64 @@ namespace MVZ2.Editor
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
         }
+        [MenuItem("Custom/Assets/Localization/Update Talk Translations")]
+        public static void UpdateTalkTranslations()
+        {
+            var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
+
+            var spaceName = "mvz2";
+
+            var talkDir = Path.Combine(GetMetaDirectory(spaceName), "talks");
+            foreach (var filePath in Directory.GetFiles(talkDir, "*.xml", SearchOption.TopDirectoryOnly))
+            {
+                using FileStream stream = File.Open(filePath, FileMode.Open);
+                var document = stream.ReadXmlDocument();
+                var metaList = TalkMeta.FromXmlDocument(document, spaceName);
+                var reference = "Talk meta file";
+                foreach (var group in metaList.groups)
+                {
+                    var groupName = group.archive.name;
+                    var groupID = new NamespaceID(spaceName, group.id);
+                    var groupContext = VanillaStrings.GetTalkTextContext(groupID);
+                    AddTranslation(potGenerator, groupName, reference, $"Archive name for talk group {group.id}", VanillaStrings.CONTEXT_ARCHIVE);
+                    for (int i = 0; i < group.sections.Count; i++)
+                    {
+                        var section = group.sections[i];
+                        AddTranslation(potGenerator, section.archiveText, reference, $"Archive text for talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE);
+                        for (int j = 0; j < section.sentences.Count; j++)
+                        {
+                            var sentence = section.sentences[j];
+                            AddTranslation(potGenerator, sentence.text, reference, $"Text for talk sentence {j} in talk group {group.id}'s section {i}", groupContext);
+                            AddTranslation(potGenerator, sentence.description, reference, $"Description for talk sentence {j} in talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE); 
+                        }
+                    }
+                }
+            }
+            potGenerator.WriteOut(GetPoTemplatePath("talk.pot"));
+            Debug.Log("Talk Translations Updated.");
+        }
         [MenuItem("Custom/Assets/Localization/Compress Langauge Pack")]
         public static void CompressLanguagePack()
         {
+            MoveMOFiles();
+
             var path = GetLanguagePackDirectory();
             var dirPath = Path.Combine(Application.dataPath, "Localization", "pack");
             var destPath = Path.Combine(path, "builtin.bytes");
             CompressLanguagePack(dirPath, destPath);
             AssetDatabase.Refresh();
             Debug.Log("Langauge Pack Compressed.");
+        }
+        private static void MoveMOFiles()
+        {
+            var sourceDir = Path.Combine(Application.dataPath, "Localization", "sources");
+            var targetDir = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2");
+            foreach (var file in Directory.GetFiles(sourceDir, "*.mo", SearchOption.AllDirectories))
+            {
+                var relativePath = Path.GetRelativePath(sourceDir, file);
+                var destFile = Path.Combine(targetDir, relativePath);
+                File.Copy(file, destFile, true);
+            }
         }
         public static void CompressLanguagePack(string sourceDirectory, string destPath)
         {

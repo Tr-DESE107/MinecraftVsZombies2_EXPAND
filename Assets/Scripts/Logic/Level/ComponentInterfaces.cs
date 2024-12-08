@@ -50,7 +50,6 @@ namespace MVZ2Logic.Level.Components
     public interface IUIComponent : ILevelComponent
     {
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
-        void ShowDialog(string title, string desc, string[] options, Action<int> onSelect);
         void ShowMoney();
         void SetBlueprintsActive(bool visible);
         void SetPickaxeActive(bool visible);

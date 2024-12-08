@@ -49,7 +49,7 @@ namespace MVZ2.Audios
         }
         public void SetVolume(float volume)
         {
-            musicSource.volume = volume;
+            volumeFader.Value = volume;
         }
         public void SetGlobalVolume(float volume)
         {

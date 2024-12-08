@@ -1,8 +1,14 @@
-﻿namespace MVZ2Logic.Talk
+﻿using MVZ2Logic.Scenes;
+using PVZEngine.Level;
+
+namespace MVZ2Logic.Talk
 {
-    public interface ITalkSystem
+    public interface ITalkSystem : IDialogDisplayer
     {
         void StartSection(int section);
+        bool IsInArchive();
+        bool IsInLevel() => GetLevel() != null;
+        LevelEngine GetLevel();
     }
 
 }

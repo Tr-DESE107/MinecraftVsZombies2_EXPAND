@@ -56,11 +56,10 @@ namespace MVZ2.Level
 
             try
             {
-                level = DeserializeLevel(seri.level, game);
-                AddLevelCallbacks();
-                CreateLevelModel(level.AreaID);
-                level.IsRerun = Saves.IsLevelCleared(stageID);
+                level = LevelEngine.Deserialize(seri.level, game, game, game);
+                InitLevelEngine(level, game, areaID, stageID);
 
+                level.DeserializeComponents(seri.level);
                 bannerProgresses = seri.bannerProgresses?.ToArray();
                 levelProgress = seri.levelProgress;
 
@@ -158,15 +157,6 @@ namespace MVZ2.Level
         private SerializableLevel SerializeLevel()
         {
             return level.Serialize();
-        }
-        private LevelEngine DeserializeLevel(SerializableLevel seri, Game game)
-        {
-            var level = LevelEngine.Deserialize(seri, game, game, game);
-            ApplyComponents(level);
-            level.DeserializeComponents(seri);
-            game.SetLevel(level);
-            levelRaycaster.Init(level);
-            return level;
         }
         #endregion
 

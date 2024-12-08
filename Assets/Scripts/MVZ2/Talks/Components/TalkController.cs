@@ -5,6 +5,7 @@ using System.Linq;
 using MVZ2.Managers;
 using MVZ2.TalkData;
 using MVZ2.UI;
+using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Talk;
 using PVZEngine;
@@ -14,7 +15,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.Talk
 {
-    public class TalkController : MonoBehaviour, ITalkSystem
+    public class TalkController : MonoBehaviour
     {
         #region 公有方法
         /// <summary>
@@ -156,162 +157,262 @@ namespace MVZ2.Talk
         {
             return side == "right" ? CharacterSide.Right : CharacterSide.Left;
         }
-
+        private void FadeArgumentsColor(ColorFader fader, string[] args)
+        {
+            if (args.Length >= 3)
+            {
+                fader.Value = ParseArgumentColor(args[0]);
+                fader.StartFade(ParseArgumentColor(args[1]), ParseArgumentFloat(args[2]));
+            }
+            else if (args.Length == 2)
+            {
+                fader.StartFade(ParseArgumentColor(args[0]), ParseArgumentFloat(args[1]));
+            }
+            else if (args.Length == 1)
+            {
+                fader.StartFade(ParseArgumentColor(args[0]), 1);
+            }
+        }
+        private void FadeArgumentsFloat(FloatFader fader, string[] args)
+        {
+            if (args.Length >= 4)
+            {
+                fader.Value = ParseArgumentFloat(args[1]);
+                fader.StartFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
+            }
+            else if (args.Length == 3)
+            {
+                fader.StartFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
+            }
+            else if (args.Length == 2)
+            {
+                fader.StartFade(ParseArgumentFloat(args[1]), 1);
+            }
+        }
         /// <summary>
         /// 执行脚本。
         /// </summary>
         /// <param name="script">对话脚本。</param>
         private IEnumerator ExecuteScript(TalkScript script)
         {
+            var args = script.arguments;
             switch (script.function)
             {
-                case "action":
-                    ExecuteAction(script.arguments);
-                    break;
-
-                case "bubble":
-                    speechBubble.SetShowing(script.arguments[0] != "hide");
-                    break;
-
-                case "changecharacter":
-                    {
-                        var chr = dialogCharacters[ParseArgumentNamespaceID(script.arguments[0])];
-                        var characterId = ParseArgumentNamespaceID(script.arguments[1]);
-                        var variant = ParseArgumentNamespaceID(script.arguments[2]);
-
-                        var sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
-                        chr.SetCharacter(sprite);
-                    }
-                    break;
-
-                case "variant":
-                    {
-                        var characterId = ParseArgumentNamespaceID(script.arguments[0]);
-                        var chr = dialogCharacters[characterId];
-                        var variant = ParseArgumentNamespaceID(script.arguments[1]);
-
-                        var sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
-                        chr.SetCharacter(sprite);
-                    }
-                    break;
-
-                case "delay":
-                    yield return new WaitForSeconds(ParseArgumentFloat(script.arguments[0]));
-                    break;
-
-                case "createcharacter":
-                    {
-                        var characterId = ParseArgumentNamespaceID(script.arguments[0]);
-                        CharacterSide side = ParseCharacterSide(script.arguments[1]);
-                        var variant = script.arguments.Length > 2 ? ParseArgumentNamespaceID(script.arguments[2]) : DEFAULT_VARIANT_ID;
-
-                        CreateCharacter(characterId, variant, side);
-                    }
-                    break;
-
-                case "leave":
-                    {
-                        var characterId = ParseArgumentNamespaceID(script.arguments[0]);
-                        dialogCharacters[characterId].SetLeaving(true);
-                        dialogCharacters.Remove(characterId);
-                    }
-                    break;
-                case "faint":
-                    {
-                        var characterId = ParseArgumentNamespaceID(script.arguments[0]);
-                        var chr = dialogCharacters[characterId];
-                        chr.SetDisappear(true);
-                        chr.SetDisappearSpeed(1 / ParseArgumentFloat(script.arguments[1]));
-                    }
-                    break;
-                case "foreground":
-                    {
-                        switch (script.arguments[0])
-                        {
-                            case "change":
-                                foregroundImage.sprite = Main.LanguageManager.GetSprite(ParseArgumentSpriteReference(script.arguments[1]));
-                                break;
-                            case "alpha":
-                                foregroundFader.Value = ParseArgumentFloat(script.arguments[1]);
-                                break;
-                            case "fade":
-                                foregroundFader.StartFade(ParseArgumentFloat(script.arguments[1]), script.arguments.Length > 2 ? ParseArgumentFloat(script.arguments[2]) : 1);
-                                break;
-                        }
-                    }
-                    break;
-                case "music":
-                    switch (script.arguments[0])
-                    {
-                        case "fade":
-                            float target = ParseArgumentFloat(script.arguments[1]);
-                            float duration = script.arguments.Length > 2 ? ParseArgumentFloat(script.arguments[2]) : 1;
-                            Main.MusicManager.StartFade(target, duration);
-                            break;
-                        case "volume":
-                            float volume = ParseArgumentFloat(script.arguments[1]);
-                            Main.MusicManager.SetVolume(volume);
-                            break;
-                        case "play":
-                            NamespaceID musicId = ParseArgumentNamespaceID(script.arguments[1]);
-                            Main.MusicManager.Play(musicId);
-                            break;
-                    }
-                    break;
+                #region 流程控制
                 case "next":
                     NextSentence();
                     break;
-                case "playsound":
-                    {
-                        Main.SoundManager.Play2D(ParseArgumentNamespaceID(script.arguments[0]));
-                    }
-                    break;
-                case "forecolor":
-                    {
-                        ColorFader fader = forecolorFader;
-                        switch (script.arguments[0])
-                        {
-                            case "set":
-                                fader.Value = ParseArgumentColor(script.arguments[1]);
-                                break;
-                            case "fade":
-                                fader.StartFade(ParseArgumentColor(script.arguments[1]), script.arguments.Length > 2 ? ParseArgumentFloat(script.arguments[2]) : 1);
-                                break;
-                        }
-                    }
-                    break;
-                case "shake":
-                    {
-                        float shakeAmp = 0.1f;
-                        float shakeTime = 0.5f;
-                        float endAmp = 0;
-                        if (script.arguments.Length > 0)
-                        {
-                            shakeAmp = ParseArgumentFloat(script.arguments[0]);
-                        }
-                        if (script.arguments.Length > 1)
-                        {
-                            shakeTime = ParseArgumentFloat(script.arguments[1]);
-                        }
-                        if (script.arguments.Length > 2)
-                        {
-                            endAmp = ParseArgumentFloat(script.arguments[2]);
-                        }
-                        Main.ShakeManager.AddShake(shakeAmp, endAmp, shakeTime);
-                    }
-                    break;
 
                 case "section":
-                    StartSection(ParseArgumentInt(script.arguments[0]));
+                    StartSection(ParseArgumentInt(args[0]));
                     break;
 
                 case "sentence":
-                    SetSentence(ParseArgumentInt(script.arguments[0]));
+                    SetSentence(ParseArgumentInt(args[0]));
                     break;
 
                 case "end":
                     EndTalk();
                     break;
+                #endregion
+
+                #region 人物相关
+                case "character":
+                    {
+                        switch (args[0])
+                        {
+                            case "create":
+                                {
+                                    var characterId = ParseArgumentNamespaceID(args[1]);
+                                    CharacterSide side = ParseCharacterSide(args[2]);
+                                    var variant = DEFAULT_VARIANT_ID;
+                                    if (args.Length > 3)
+                                    {
+                                        variant = ParseArgumentNamespaceID(args[3]);
+                                    }
+                                    CreateCharacter(characterId, variant, side);
+                                }
+                                break;
+                            case "change":
+                                {
+                                    var character = dialogCharacters[ParseArgumentNamespaceID(args[1])];
+                                    var targetCharacter = ParseArgumentNamespaceID(args[2]);
+                                    var variant = ParseArgumentNamespaceID(args[3]);
+
+                                    var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
+                                    character.SetCharacter(sprite);
+                                }
+                                break;
+                            case "variant":
+                                {
+                                    var targetCharacter = ParseArgumentNamespaceID(args[1]);
+                                    var character = dialogCharacters[targetCharacter];
+                                    var variant = ParseArgumentNamespaceID(args[2]);
+
+                                    var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
+                                    character.SetCharacter(sprite);
+                                }
+                                break;
+                            case "leave":
+                                {
+                                    var characterId = ParseArgumentNamespaceID(args[1]);
+                                    dialogCharacters[characterId].SetLeaving(true);
+                                    dialogCharacters.Remove(characterId);
+                                }
+                                break;
+                            case "faint":
+                                {
+                                    var characterId = ParseArgumentNamespaceID(args[1]);
+                                    var duration = 1f;
+                                    if (args.Length > 2)
+                                    {
+                                        duration = ParseArgumentFloat(args[2]);
+                                    }
+
+                                    var chr = dialogCharacters[characterId];
+                                    chr.SetDisappear(true);
+                                    chr.SetDisappearSpeed(1 / duration);
+                                }
+                                break;
+                        }
+                    }
+                    break;
+                #endregion
+
+                #region 贴图
+                case "foreground":
+                    {
+                        switch (args[0])
+                        {
+                            case "change":
+                                foregroundImage.sprite = Main.LanguageManager.GetSprite(ParseArgumentSpriteReference(args[1]));
+                                break;
+                            case "alpha":
+                                foregroundFader.Value = ParseArgumentFloat(args[1]);
+                                break;
+                            case "fade":
+                                FadeArgumentsFloat(foregroundFader, args.Skip(1).ToArray());
+                                break;
+                        }
+                    }
+                    break;
+                case "portal":
+                    {
+                        switch (args[0])
+                        {
+                            case "set":
+                                Main.Scene.SetPortalAlpha(ParseArgumentFloat(args[1]));
+                                break;
+                            case "fade":
+                                {
+                                    var fadeArgs = args.Skip(1).ToArray();
+                                    if (fadeArgs.Length >= 3)
+                                    {
+                                        Main.Scene.SetPortalAlpha(ParseArgumentFloat(fadeArgs[0]));
+                                        Main.Scene.StartPortalFade(ParseArgumentFloat(fadeArgs[1]), ParseArgumentFloat(fadeArgs[2]));
+                                    }
+                                    else if (fadeArgs.Length == 2)
+                                    {
+                                        Main.Scene.StartPortalFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                    }
+                                    else if (fadeArgs.Length == 1)
+                                    {
+                                        Main.Scene.StartPortalFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                    break;
+                case "forecolor":
+                    {
+                        ColorFader fader = forecolorFader;
+                        switch (args[0])
+                        {
+                            case "set":
+                                fader.Value = ParseArgumentColor(args[1]);
+                                break;
+                            case "fade":
+                                FadeArgumentsColor(fader, args.Skip(1).ToArray());
+                                break;
+                        }
+                    }
+                    break;
+
+                case "shake":
+                    {
+                        float shakeAmp = 0.1f;
+                        float shakeTime = 0.5f;
+                        float endAmp = 0;
+                        if (args.Length > 0)
+                        {
+                            shakeAmp = ParseArgumentFloat(args[0]);
+                        }
+                        if (args.Length > 1)
+                        {
+                            shakeTime = ParseArgumentFloat(args[1]);
+                        }
+                        if (args.Length > 2)
+                        {
+                            endAmp = ParseArgumentFloat(args[2]);
+                        }
+                        Main.ShakeManager.AddShake(shakeAmp, endAmp, shakeTime);
+                    }
+                    break;
+                #endregion
+
+                #region 音频
+                case "music":
+                    switch (args[0])
+                    {
+                        case "fade":
+                            {
+                                var fadeArgs = args.Skip(1).ToArray();
+                                if (fadeArgs.Length >= 3)
+                                {
+                                    Main.MusicManager.SetVolume(ParseArgumentFloat(fadeArgs[0]));
+                                    Main.MusicManager.StartFade(ParseArgumentFloat(fadeArgs[1]), ParseArgumentFloat(fadeArgs[2]));
+                                }
+                                else if (fadeArgs.Length == 2)
+                                {
+                                    Main.MusicManager.StartFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                }
+                                else if (fadeArgs.Length == 1)
+                                {
+                                    Main.MusicManager.StartFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                }
+                            }
+                            break;
+                        case "volume":
+                            float volume = ParseArgumentFloat(args[1]);
+                            Main.MusicManager.SetVolume(volume);
+                            break;
+                        case "play":
+                            NamespaceID musicId = ParseArgumentNamespaceID(args[1]);
+                            Main.MusicManager.Play(musicId);
+                            break;
+                    }
+                    break;
+                case "playsound":
+                    {
+                        Main.SoundManager.Play2D(ParseArgumentNamespaceID(args[0]));
+                    }
+                    break;
+                #endregion
+
+                #region 其他
+                case "action":
+                    ExecuteAction(args);
+                    break;
+
+                case "bubble":
+                    speechBubble.SetShowing(args[0] != "hide");
+                    break;
+
+                case "delay":
+                    yield return new WaitForSeconds(ParseArgumentFloat(args[0]));
+                    break;
+                #endregion
             }
         }
 
@@ -351,11 +452,6 @@ namespace MVZ2.Talk
             {
                 Debug.Log($"动作\"{func}\"的参数数组大小({actionArgs.Length})不足：" + e);
             }
-        }
-
-        void ITalkSystem.StartSection(int section)
-        {
-            StartSection(section);
         }
 
 
@@ -407,7 +503,7 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始区间。
         /// </summary>
-        private void StartSection(int index)
+        public void StartSection(int index)
         {
             sectionIndex = index;
             sentenceIndex = 0;
@@ -472,7 +568,7 @@ namespace MVZ2.Talk
                 bubbleDirection = chr.IsLeft() ? SpeechBubbleDirection.Left : SpeechBubbleDirection.Right;
             }
 
-            var context = GetCurrentTextContext();
+            var context = VanillaStrings.GetTalkTextContext(groupID);
             var textKey = sentence.text;
             speechBubble.SetText(Main.LanguageManager._p(context, textKey));
             speechBubble.UpdateBubble(bubbleDirection);
@@ -517,10 +613,6 @@ namespace MVZ2.Talk
                 Destroy(character.gameObject);
             }
             dialogCharacters.Clear();
-        }
-        private string GetCurrentTextContext()
-        {
-            return $"talk-{groupID.spacename}:{groupID.path}";
         }
         #endregion
 

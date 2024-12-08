@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1779626133220756337}
   - component: {fileID: 5765279527064944623}
   - component: {fileID: 3293219314265993408}
+  - component: {fileID: 7721226786433973523}
   m_Layer: 5
   m_Name: Portal
   m_TagString: Untagged
@@ -111,3 +112,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5765279527064944623}
+  raycastBlocker: {fileID: 1779626133220756337}
+  fader: {fileID: 7721226786433973523}
+--- !u!114 &7721226786433973523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2155061187156302096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbde7b08383e8074a9147fda9c6862f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

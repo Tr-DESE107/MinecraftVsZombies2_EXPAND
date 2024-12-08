@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks>
-  <group name="tutorial" background="mvz2:steves_house" music="mvz2:mainmenu" tags="mvz2:archive.tag.prologue">
-    <section nameID="mvz2:archive.start_section" onSkip="sentence 3;action create_tutorial_form">
+  <group id="tutorial" music="mvz2:mainmenu" tags="mvz2:prologue">
+    <archive name="教程" background="mvz2:misc/steves_house" unlock="mvz2:level.prologue" />
+    <section onSkip="sentence 3;action create_tutorial_form">
+      <text>开始段落</text>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -12,7 +14,8 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action create_tutorial_form">差不多快忘了吧？要不要复习一下呢？</sentence>
       </sentences>
     </section>
-    <section nameID="mvz2:archive.take_tutorial" onSkip="action start_tutorial;end">
+    <section onSkip="action start_tutorial;end">
+      <text>如果进行教程</text>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -20,7 +23,8 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="action start_tutorial;end">好了，现在开始吧！</sentence>
       </sentences>
     </section>
-    <section nameID="mvz2:archive.skip_tutorial">
+    <section>
+      <text>如果不进行教程</text>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -28,7 +32,8 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4">记性不错嘛！朋友！</sentence>
       </sentences>
     </section>
-    <section nameID="mvz2:archive.after_tutorial">
+    <section>
+      <text>教程完成后</text>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -37,7 +42,8 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="section 4">以至于我还什么都没说，你就已经完成教程了！</sentence>
       </sentences>
     </section>
-    <section nameID="mvz2:archive.start_prologue">
+    <section>
+      <text>开始序章</text>
       <characters>
         <character id="mvz2:crazy_villager" />
       </characters>
@@ -47,7 +53,8 @@
       </sentences>
     </section>
   </group>
-  <group name="prologue_note" background="mvz2:archive.prologue_note" tags="mvz2:archive.tag.prologue">
+  <group id="prologue_note" tags="mvz2:prologue">
+    <archive name="藏宝图？" background="mvz2:archive/prologue_note" unlock="mvz2:level.prologue" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />

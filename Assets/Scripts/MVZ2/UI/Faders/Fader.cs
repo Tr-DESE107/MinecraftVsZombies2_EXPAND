@@ -19,6 +19,7 @@ namespace MVZ2.UI
         public float Time { get; private set; }
         public float Duration { get; private set; } = -1;
         public event Action<T> OnValueChanged;
+        public event Action<T> OnFadeFinished;
         private T _value;
         public bool IsFading()
         {
@@ -47,6 +48,7 @@ namespace MVZ2.UI
                 if (Duration == 0)
                 {
                     Value = EndValue;
+                    OnFadeFinished?.Invoke(Value);
                     StopFade();
                 }
                 else
@@ -55,6 +57,7 @@ namespace MVZ2.UI
                     Value = LerpValue(StartValue, EndValue, Time / Duration);
                     if (Time >= Duration)
                     {
+                        OnFadeFinished?.Invoke(Value);
                         StopFade();
                     }
                 }

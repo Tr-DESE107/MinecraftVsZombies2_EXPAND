@@ -14,6 +14,7 @@ using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Scenes;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -37,7 +38,8 @@ namespace MVZ2.Map
             {
                 Main.SoundManager.Play2D(VanillaSoundID.travel);
             }
-            Main.Scene.ShowPortal();
+            Main.Scene.SetPortalAlpha(1);
+            Main.Scene.PortalFadeOut();
         }
         public override void Hide()
         {
@@ -94,6 +96,8 @@ namespace MVZ2.Map
             ui.OnButtonClick += OnButtonClickCallback;
             talkController.OnTalkAction += OnTalkActionCallback;
             talkController.OnTalkEnd += OnTalkEndCallback;
+
+            talkSystem = new MapTalkSystem(talkController);
         }
         private void Update()
         {
@@ -136,7 +140,7 @@ namespace MVZ2.Map
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkController, cmd, parameters);
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
         }
         private void OnTalkEndCallback()
         {
@@ -470,6 +474,7 @@ namespace MVZ2.Map
         private OptionsLogicMap optionsLogic;
         private List<RaycastResult> raycastResultCache = new List<RaycastResult>();
         private List<TouchData> touchDatas = new List<TouchData>();
+        private ITalkSystem talkSystem;
         public NamespaceID MapID { get; private set; }
         [SerializeField]
         private MapUI ui;
