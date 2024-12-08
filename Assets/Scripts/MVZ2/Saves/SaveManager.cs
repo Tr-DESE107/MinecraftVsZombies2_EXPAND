@@ -22,7 +22,7 @@ namespace MVZ2.Saves
             {
                 SaveCurrentModData(mod.Namespace);
             }
-        } 
+        }
         public void SaveCurrentModData(string spaceName)
         {
             if (userDataList == null)
@@ -55,7 +55,7 @@ namespace MVZ2.Saves
             {
                 LoadModData(index, mod.Namespace);
             }
-            EvaluateUnlocks();
+            EvaluateUnlocks(true);
         }
         public SaveDataStatus GetSaveDataStatus()
         {
@@ -186,30 +186,6 @@ namespace MVZ2.Saves
             return modSaveData.GetMapPresetID(mapId.path);
         }
 
-        #region 统计
-        public UserStats GetUserStats(string nsp)
-        {
-            var saveData = GetModSaveData(nsp);
-            if (saveData == null)
-                return null;
-            return saveData.GetAllStats();
-        }
-        public long GetSaveStat(NamespaceID category, NamespaceID entry)
-        {
-            var saveData = GetModSaveData(category.spacename);
-            if (saveData == null)
-                return 0;
-            return saveData.GetStat(category.path, entry);
-        }
-        public void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
-        {
-            var saveData = GetModSaveData(category.spacename);
-            if (saveData == null)
-                return;
-            saveData.AddStat(category.path, entry, value);
-        }
-        #endregion
-
         #endregion
 
         #region 修改
@@ -221,7 +197,7 @@ namespace MVZ2.Saves
             if (modSaveData == null)
                 return;
             modSaveData.Unlock(unlockId.path);
-            EvaluateUnlocks();
+            EvaluateUnlocks(false);
         }
         public void AddLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
         {
@@ -279,11 +255,47 @@ namespace MVZ2.Saves
         }
         #endregion
 
+        #region 统计
+        public UserStats GetUserStats(string nsp)
+        {
+            var saveData = GetModSaveData(nsp);
+            if (saveData == null)
+                return null;
+            return saveData.GetAllStats();
+        }
+        public long GetSaveStat(NamespaceID category, NamespaceID entry)
+        {
+            var saveData = GetModSaveData(category.spacename);
+            if (saveData == null)
+                return 0;
+            return saveData.GetStat(category.path, entry);
+        }
+        public void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
+        {
+            var saveData = GetModSaveData(category.spacename);
+            if (saveData == null)
+                return;
+            saveData.AddStat(category.path, entry, value);
+        }
+        #endregion
+
+        #region 成就
+        public bool IsAchievementEarned(NamespaceID achievementID)
+        {
+            var resourceManager = Main.ResourceManager;
+            var meta = resourceManager.GetAchievementMeta(achievementID);
+            if (meta == null)
+                return false;
+            return !NamespaceID.IsValid(meta.Unlock) || IsUnlocked(meta.Unlock);
+        }
+        #endregion
+
         #region 私有方法
-        private void EvaluateUnlocks()
+        private void EvaluateUnlocks(bool initial)
         {
             EvaluateUnlockedEntities();
             EvaluateUnlockedArtifacts();
+            EvaluateUnlockedAchievements(initial);
         }
         private void EvaluateUnlockedArtifacts()
         {
@@ -323,6 +335,18 @@ namespace MVZ2.Saves
                 }
             }
         }
+        private void EvaluateUnlockedAchievements(bool initial)
+        {
+            var resourceManager = Main.ResourceManager;
+            var achievementsID = resourceManager.GetAllAchievements();
+            var newAchievements = achievementsID.Where(id => IsAchievementEarned(id));
+            if (!initial)
+            {
+                Main.Scene.ShowAchievementEarnTips(newAchievements.Where(id => !unlockedAchievementsCache.Contains(id)));
+            }
+            unlockedAchievementsCache.Clear();
+            unlockedAchievementsCache.AddRange(newAchievements);
+        }
         #endregion
 
         #region 属性字段
@@ -332,6 +356,7 @@ namespace MVZ2.Saves
         private List<NamespaceID> unlockedContraptionsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedEnemiesCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedArtifactsCache = new List<NamespaceID>();
+        private List<NamespaceID> unlockedAchievementsCache = new List<NamespaceID>();
         #endregion
     }
     public class SaveDataStatus

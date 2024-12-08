@@ -48,6 +48,7 @@ namespace MVZ2.Editor
 
             // 统计
             var spaceName = "mvz2";
+            // 统计
             var statsDocument = LoadMetaXmlDocument(spaceName, "stats.xml");
             var statsEntryList = StatMetaList.FromXmlNode(statsDocument["stats"], spaceName);
             var statsReference = "Stats meta file";
@@ -55,6 +56,16 @@ namespace MVZ2.Editor
             {
                 var id = new NamespaceID(spaceName, category.ID);
                 AddTranslation(potGenerator, category.Name, statsReference, $"Name for stat category {id}", VanillaStrings.CONTEXT_STAT_CATEGORY);
+            }
+            // 成就
+            var achievementsDocument = LoadMetaXmlDocument(spaceName, "achievements.xml");
+            var achievementList = AchievementMetaList.FromXmlNode(achievementsDocument["achievements"], spaceName);
+            var achievementsReference = "Achievements meta file";
+            foreach (var achievement in achievementList.metas)
+            {
+                var id = new NamespaceID(spaceName, achievement.ID);
+                AddTranslation(potGenerator, achievement.Name, achievementsReference, $"Name for achievement {id}", VanillaStrings.CONTEXT_ACHIEVEMENT);
+                AddTranslation(potGenerator, achievement.Description, achievementsReference, $"Description for achievement {id}", VanillaStrings.CONTEXT_ACHIEVEMENT);
             }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-08 12:24+0800\n"
-"PO-Revision-Date: 2024-12-08 12:28+0800\n"
+"POT-Creation-Date: 2024-12-08 03:41+0800\n"
+"PO-Revision-Date: 2024-12-08 15:42+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -13,6 +13,92 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.5\n"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/TopRight/MenuButton/Text
+msgid "菜单"
+msgstr "Menu"
+
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
+msgid "选择你的蓝图"
+msgstr "Choose your blueprints"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+msgid "一起摇滚吧！"
+msgstr "Let's rock!"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+msgid "查看战场"
+msgstr "View Battlefield"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+msgid "查看图鉴"
+msgstr "View Almanac"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+msgid "进入商店"
+msgstr "Enter Store"
+
+#. 对话跳过按钮
+#: /Level/UI/Talk/SkipButton/Text
+msgid "跳过"
+msgstr "Skip"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
+msgstr "Paused"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "返回游戏"
+msgstr "Resume"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
+msgstr "Game Over"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/RetryButton/Text
+msgid "重新开始"
+msgstr "Restart"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/BackButton/Text
+msgid "返回"
+msgstr "Back"
+
+#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
+msgid "更多选项"
+msgstr "More Options"
+
+#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
+msgid "语言"
+msgstr "Language"
+
+#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
+msgid "分辨率"
+msgstr "Resolution"
+
+#. 读取游戏对话框的标题
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
+msgid "继续"
+msgstr "Continue"
+
+#. 读取游戏对话框的描述
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
+msgid "是否继续上一次的进度？"
+msgstr "Do you want to continue with the latest progress?"
+
+#. 读取游戏失败对话框的标题
+#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
+msgid "错误"
+msgstr "Error"
 
 #. 初始界面的作者标识
 #: /MainGame/MainScene/Landing/Canvas/Creator
@@ -49,10 +135,6 @@ msgstr "Stats"
 msgid "成就"
 msgstr "Achievements"
 
-#: /MainGame/MainScene/Mainmenu/Elements/Buttons/Stats/ReturnButton/Text
-msgid "返回"
-msgstr "Back"
-
 #: /MainGame/MainScene/Mainmenu/Elements/Buttons/Achievements/Region/Scroll
 #: View/Viewport/Content/Entry/Texts/TitleRegion/Earned
 msgid "已完成！"
@@ -82,33 +164,6 @@ msgstr "Delete"
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/SwitchButton/Text
 msgid "确定"
 msgstr "Accept"
-
-#. 菜单对话框的标题
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
-msgid "菜单"
-msgstr "Menu"
-
-#. 关卡内菜单选项
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
-msgid "重新开始"
-msgstr "Restart"
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
-msgid "更多选项"
-msgstr "More Options"
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
-msgid "语言"
-msgstr "Language"
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
-msgid "分辨率"
-msgstr "Resolution"
-
-#. 对话跳过按钮
-#: /MainGame/MainScene/Note/Talk/SkipButton/Text
-msgid "跳过"
-msgstr "Skip"
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Top/Title/Text (TMP)
 msgctxt "almanac"
@@ -151,6 +206,11 @@ msgstr "Artifacts"
 msgid "杂项图鉴"
 msgstr "Misc"
 
+#. 成就完成提示
+#: /MainGame/MainScene/GlobalUICanvas/AchievementHint/Root/Region/Texts/Earned
+msgid "完成成就！"
+msgstr "Achievement Earned!"
+
 #. 菜单对话框的标题
 #: /MainGame/MainScene/GlobalUICanvas/Dialogs/DeleteUserDialog/Dialog/TitleArea/Title
 msgid "删除存档"
@@ -170,60 +230,6 @@ msgstr "Input text..."
 #: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/Buttons/CancelButton/Text
 msgid "取消"
 msgstr "Cancel"
-
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
-msgid "选择你的蓝图"
-msgstr "Choose your blueprints"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
-msgid "一起摇滚吧！"
-msgstr "Let's rock!"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
-msgid "查看战场"
-msgstr "View Battlefield"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
-msgid "查看图鉴"
-msgstr "View Almanac"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
-msgid "进入商店"
-msgstr "Enter Store"
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
-msgid "游戏暂停"
-msgstr "Paused"
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
-msgid "返回游戏"
-msgstr "Resume"
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
-msgid "游戏结束"
-msgstr "Game Over"
-
-#. 读取游戏对话框的标题
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
-msgid "继续"
-msgstr "Continue"
-
-#. 读取游戏对话框的描述
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
-msgid "是否继续上一次的进度？"
-msgstr "Do you want to continue with the latest progress?"
-
-#. 读取游戏失败对话框的标题
-#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
-msgid "错误"
-msgstr "Error"
 
 #: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:200
 msgctxt "advice.starshard_tutorial.0"
@@ -667,21 +673,21 @@ msgstr ""
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:492
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:531
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:494
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:533
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:496
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:535
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:498
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:537
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
@@ -759,6 +765,54 @@ msgstr "Neutralized enemies"
 msgctxt "stat_category"
 msgid "被敌人击杀"
 msgstr "Killed by enemies"
+
+#. Name for achievement mvz2:ghost_buster
+#: Achievements meta file
+msgctxt "achievement"
+msgid "捉鬼敢死队"
+msgstr "Ghost Buster"
+
+#. Description for achievement mvz2:ghost_buster
+#: Achievements meta file
+msgctxt "achievement"
+msgid "在不照亮任何一次的情况下消灭一个幽灵。"
+msgstr "Defeat a ghost without illuminating it at all."
+
+#. Name for achievement mvz2:double_trouble
+#: Achievements meta file
+msgctxt "achievement"
+msgid "活塞递推"
+msgstr "Double Trouble"
+
+#. Description for achievement mvz2:double_trouble
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
+msgstr "Push an enemy using a Punchton to the front of another Punchton."
+
+#. Name for achievement mvz2:rickroll_drown
+#: Achievements meta file
+msgctxt "achievement"
+msgid "永远不会让你Swim"
+msgstr "Never gonna let you drown"
+
+#. Description for achievement mvz2:rickroll_drown
+#: Achievements meta file
+msgctxt "achievement"
+msgid "让一个没有船的僵尸走进水上并沉没。"
+msgstr "Make a zombie without boat walk into water and sink."
+
+#. Name for achievement mvz2:return_to_sender
+#: Achievements meta file
+msgctxt "achievement"
+msgid "见鬼去吧"
+msgstr "Return to Sender"
+
+#. Description for achievement mvz2:return_to_sender
+#: Achievements meta file
+msgctxt "achievement"
+msgid "用一个火焰弹消灭一只恶魂。"
+msgstr "Defeat a ghast using a fireball."
 
 #~ msgid "查看人物"
 #~ msgstr "View Characters"
@@ -905,40 +959,8 @@ msgstr "Killed by enemies"
 #~ msgstr "Achievement Unlocked!"
 
 #~ msgctxt "achievement"
-#~ msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
-#~ msgstr "Push an enemy using a Punchton to the front of another Punchton."
-
-#~ msgctxt "achievement"
-#~ msgid "活塞递推"
-#~ msgstr "Double Trouble"
-
-#~ msgctxt "achievement"
 #~ msgid "已解锁！"
 #~ msgstr "Unlocked!"
-
-#~ msgctxt "achievement"
-#~ msgid "在不照亮任何一次的情况下消灭一个幽灵。"
-#~ msgstr "Defeat a ghost without illuminating it at all."
-
-#~ msgctxt "achievement"
-#~ msgid "捉鬼敢死队"
-#~ msgstr "Ghost Buster"
-
-#~ msgctxt "achievement"
-#~ msgid "用一个火焰弹消灭一只恶魂。"
-#~ msgstr "Defeat a ghast using a fireball."
-
-#~ msgctxt "achievement"
-#~ msgid "见鬼去吧"
-#~ msgstr "Return to Sender"
-
-#~ msgctxt "achievement"
-#~ msgid "让一个没有船的僵尸走进水上并沉没。"
-#~ msgstr "Make a zombie without boat walk into water and sink."
-
-#~ msgctxt "achievement"
-#~ msgid "永远不会让你Swim"
-#~ msgstr "Never gonna let you drown"
 
 #~ msgctxt "archive"
 #~ msgid "如果成交"

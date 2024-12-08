@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Almanacs;
 using MVZ2.ChapterTransition;
@@ -13,6 +14,7 @@ using MVZ2.Save;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Scenes;
@@ -34,6 +36,10 @@ namespace MVZ2.Scenes
             {
                 DisplayPage(MainScenePageType.Mainmenu);
             }
+        }
+        public void Init()
+        {
+            achievementHint.gameObject.SetActive(true);
         }
         #region 对话框
         public void ShowDialogMessage(string title, string desc, Action onSelect = null)
@@ -80,6 +86,14 @@ namespace MVZ2.Scenes
             return deleteUserDialog.Show(users);
         }
         #endregion
+        public void ShowAchievementEarnTips(IEnumerable<NamespaceID> achievements)
+        {
+            achievementHint.Show(achievements);
+            if (achievements.Count() > 0)
+            {
+                main.SoundManager.Play2D(VanillaSoundID.achievement);
+            }
+        }
         public void ShowPortal()
         {
             portal.Fadeout();
@@ -185,5 +199,7 @@ namespace MVZ2.Scenes
         private InputNameDialogController inputNameDialog;
         [SerializeField]
         private DeleteUserDialogController deleteUserDialog;
+        [SerializeField]
+        private AchievementHintController achievementHint;
     }
 }

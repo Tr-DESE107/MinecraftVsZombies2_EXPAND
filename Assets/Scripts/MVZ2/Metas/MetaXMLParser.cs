@@ -48,6 +48,9 @@ namespace MVZ2.Metas
                 case "stats":
                     resource.StatMetaList = StatMetaList.FromXmlNode(document["stats"], defaultNsp);
                     break;
+                case "achievements":
+                    resource.AchievementMetaList = AchievementMetaList.FromXmlNode(document["achievements"], defaultNsp);
+                    break;
             }
         }
     }

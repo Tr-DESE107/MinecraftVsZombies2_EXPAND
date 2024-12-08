@@ -17,12 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level
     m_ReadOnly: 0
@@ -2064,25 +2058,25 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da694241d06a5a0429d9929813653171
-    m_Address: mvz2:achievements/achievement.rickroll_drown
+    m_Address: mvz2:achievements/rickroll_drown
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9dd31bf028bdda498cb850149535586
-    m_Address: mvz2:achievements/achievement.return_to_sender
+    m_Address: mvz2:achievements/return_to_sender
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd6294e0e010f934b90fb1f9ca35e623
-    m_Address: mvz2:achievements/achievement.ghost_buster
+    m_Address: mvz2:achievements/ghost_buster
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2becb83796290cb438ce963aff698ae4
-    m_Address: mvz2:achievements/achievement.double_trouble
+    m_Address: mvz2:achievements/double_trouble
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3598,6 +3592,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b8f9b60cb93b264999ef94bc554c64b
+    m_Address: mvz2:achievements
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c5027fb3c5657e43b4b4ba9d36deefe
     m_Address: mvz2:halloween
     m_ReadOnly: 0
@@ -3615,6 +3615,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

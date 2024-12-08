@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Damages;
+﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
@@ -7,6 +8,8 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
@@ -120,6 +123,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 ent.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
                 ent.Velocity += entity.GetFacingDirection() * 20;
+                CheckAchievement(ent);
             }
         }
         private void EvokedUpdate(Entity entity)
@@ -192,6 +196,19 @@ namespace MVZ2.GameContent.Contraptions
         public void SetStateTimer(Entity entity, FrameTimer timer)
         {
             SetEntityProperty(entity, "StateTimer", timer);
+        }
+        private void CheckAchievement(Entity entity)
+        {
+            if (entity.Type != EntityTypes.ENEMY)
+                return;
+            if (entity.HasBuff<PunchtonAchievementBuff>())
+            {
+                Global.Game.Unlock(VanillaUnlockID.doubleTrouble);
+            }
+            else
+            {
+                entity.AddBuff<PunchtonAchievementBuff>();
+            }
         }
         public const int RESTORE_TIME = 600;
         public const float EVOKED_DAMAGE_MULTIPLIER = 5;

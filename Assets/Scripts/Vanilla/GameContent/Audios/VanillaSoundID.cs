@@ -4,6 +4,7 @@ namespace MVZ2.Vanilla.Audios
 {
     public static class VanillaSoundID
     {
+        public readonly static NamespaceID achievement = Get("achievement");
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
         public readonly static NamespaceID boneHit = Get("bone_hit");

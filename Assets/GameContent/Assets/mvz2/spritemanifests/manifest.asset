@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: manifest
   m_EditorClassIdentifier: 
   spriteEntries:
-  - name: achievements/achievement.double_trouble
+  - name: achievements/double_trouble
     sprite: {fileID: 21300000, guid: 2becb83796290cb438ce963aff698ae4, type: 3}
-  - name: achievements/achievement.ghost_buster
+  - name: achievements/ghost_buster
     sprite: {fileID: 21300000, guid: cd6294e0e010f934b90fb1f9ca35e623, type: 3}
-  - name: achievements/achievement.return_to_sender
+  - name: achievements/return_to_sender
     sprite: {fileID: 21300000, guid: d9dd31bf028bdda498cb850149535586, type: 3}
-  - name: achievements/achievement.rickroll_drown
+  - name: achievements/rickroll_drown
     sprite: {fileID: 21300000, guid: da694241d06a5a0429d9929813653171, type: 3}
   - name: artifacts/dream_key
     sprite: {fileID: 21300000, guid: 34e619cc0502d6c499f470950cf5acec, type: 3}
@@ -313,9 +313,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f5346a49dd46a2a4194dcbca45d9a022, type: 3}
   - name: map/halloween/map
     sprite: {fileID: 21300000, guid: 18170164ed705914ebb03c0ee8ca6ef9, type: 3}
-  - name: ui/achievements/achievement.frame
+  - name: ui/achievements/frame
     sprite: {fileID: 21300000, guid: 8e4506b73a85267499be23c6916344ef, type: 3}
-  - name: ui/achievements/achievement.pop_up_frame
+  - name: ui/achievements/pop_up_frame
     sprite: {fileID: 21300000, guid: ac1f70b601142f7408e769da02898fc5, type: 3}
   - name: ui/almanac/background
     sprite: {fileID: 21300000, guid: eb748549348de4d458c512aac07bb380, type: 3}

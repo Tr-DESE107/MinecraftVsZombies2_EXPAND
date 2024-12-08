@@ -55,6 +55,8 @@ namespace MVZ2.Managers
             // 在MOD逻辑加载之后
             SaveManager.Load();
 
+            Scene.Init();
+
             ModManager.PostGameInit();
         }
         public bool IsMobile()

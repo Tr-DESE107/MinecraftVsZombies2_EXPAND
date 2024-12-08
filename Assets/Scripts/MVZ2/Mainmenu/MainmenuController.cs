@@ -45,6 +45,8 @@ namespace MVZ2.Mainmenu
                 main.MusicManager.Play(VanillaMusicID.mainmenu);
             }
             ui.SetUserName(main.SaveManager.GetCurrentUserName());
+            animatorBlendStart = Vector2.zero;
+            animatorBlendEnd = Vector2.zero;
         }
         public void Reload()
         {
@@ -86,6 +88,7 @@ namespace MVZ2.Mainmenu
             ui.OnUserManageDialogCreateNewUserButtonClick += OnUserManageCreateNewUserButtonClickCallback;
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
+            ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
         }
         private void Update()
         {
@@ -175,7 +178,8 @@ namespace MVZ2.Mainmenu
         }
         private void OnAchievementButtonClickCallback()
         {
-            //StartAnimatorTransition(new Vector2(1, -1));
+            ReloadAchievements();
+            StartAnimatorTransition(new Vector2(1, -1));
         }
 
         private void OnOptionsCloseClickCallback()
@@ -254,6 +258,10 @@ namespace MVZ2.Mainmenu
 
         #region 统计
         private void OnStatsReturnClickCallback()
+        {
+            StartAnimatorTransition(new Vector2(0, -1));
+        }
+        private void OnAchievementsReturnClickCallback()
         {
             StartAnimatorTransition(new Vector2(0, -1));
         }
@@ -485,6 +493,37 @@ namespace MVZ2.Mainmenu
                 };
             }
             ui.UpdateStats(viewDatas);
+        }
+        #endregion
+
+        #region 成就
+        private void ReloadAchievements()
+        {
+            var nsp = main.BuiltinNamespace;
+            var metas = main.ResourceManager.GetModAchievementMetas(nsp);
+            var viewDatas = new AchievementEntryViewData[metas.Length];
+            for (int i = 0; i < viewDatas.Length; i++)
+            {
+                var meta = metas[i];
+                if (meta == null)
+                    continue;
+                var iconRef = meta.Icon;
+                var metaName = meta.Name;
+                var metaDescription = meta.Description;
+
+                var icon = main.ResourceManager.GetSprite(iconRef);
+                var name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaName);
+                var earned = main.SaveManager.IsAchievementEarned(new NamespaceID(nsp, meta.ID));
+                var description = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaDescription);
+                viewDatas[i] = new AchievementEntryViewData()
+                {
+                    icon = icon,
+                    name = name,
+                    earned = earned,
+                    description = description
+                };
+            }
+            ui.UpdateAchievements(viewDatas);
         }
         #endregion
 

@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Damages
         public readonly static NamespaceID IGNORE_ARMOR = Get("ignore_armor");
         public readonly static NamespaceID FALL_DAMAGE = Get("fall_damage");
         public static readonly NamespaceID FIRE = Get("fire");
+        public static readonly NamespaceID DROWN = Get("drown");
         public static readonly NamespaceID SLICE = Get("slice");
         public static readonly NamespaceID PUNCH = Get("punch");
         public static readonly NamespaceID MUTE = Get("mute");

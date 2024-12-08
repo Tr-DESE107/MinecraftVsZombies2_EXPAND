@@ -60,6 +60,10 @@ namespace MVZ2.Mainmenu.UI
         {
             stats.UpdateStats(viewDatas);
         }
+        public void UpdateAchievements(AchievementEntryViewData[] viewDatas)
+        {
+            achievements.UpdateAchievements(viewDatas);
+        }
         public IEnumerable<MainmenuButton> GetAllButtons()
         {
             return mainmenuButtonDict.Values;
@@ -90,12 +94,14 @@ namespace MVZ2.Mainmenu.UI
             userManageDialog.OnUserSelect += index => OnUserManageDialogUserSelect?.Invoke(index);
 
             stats.OnReturnClick += () => OnStatsReturnButtonClick?.Invoke();
+            achievements.OnReturnClick += () => OnAchievementsReturnButtonClick?.Invoke();
         }
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
         public event Action OnUserManageDialogCreateNewUserButtonClick;
         public event Action<UserManageDialog.ButtonType> OnUserManageDialogButtonClick;
         public event Action<int> OnUserManageDialogUserSelect;
         public event Action OnStatsReturnButtonClick;
+        public event Action OnAchievementsReturnButtonClick;
 
 
         public OptionsDialog OptionsDialog => optionsDialog;
@@ -105,6 +111,8 @@ namespace MVZ2.Mainmenu.UI
         private GameObject rayblocker;
         [SerializeField]
         private StatsUI stats;
+        [SerializeField]
+        private AchievementsUI achievements;
 
         [Header("Backgrounds")]
         [SerializeField]

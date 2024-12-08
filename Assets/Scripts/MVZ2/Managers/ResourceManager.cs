@@ -69,6 +69,7 @@ namespace MVZ2.Managers
             modResources.Clear();
             spriteReferenceCacheDict.Clear();
             entitiesCacheDict.Clear();
+            achievementCacheDict.Clear();
             artifactsCacheDict.Clear();
             difficultyCache.Clear();
             noteCache.Clear();
@@ -100,6 +101,10 @@ namespace MVZ2.Managers
             foreach (var meta in modResource.EntityMetaList.metas)
             {
                 entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+            }
+            foreach (var meta in modResource.AchievementMetaList.metas)
+            {
+                achievementCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             foreach (var meta in modResource.ArtifactMetaList.metas)
             {

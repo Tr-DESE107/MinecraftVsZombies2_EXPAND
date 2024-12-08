@@ -1,0 +1,6 @@
+<achievements>
+    <achievement id="ghost_buster" name="捉鬼敢死队" description="在不照亮任何一次的情况下消灭一个幽灵。" icon="mvz2:achievements/ghost_buster" unlock="mvz2:achievement.ghost_buster"/>
+    <achievement id="double_trouble" name="活塞递推" description="使用冲击活塞将一个敌人推到另一个冲击活塞面前。" icon="mvz2:achievements/double_trouble" unlock="mvz2:achievement.double_trouble"/>
+    <achievement id="rickroll_drown" name="永远不会让你Swim" description="让一个没有船的僵尸走进水上并沉没。" icon="mvz2:achievements/rickroll_drown" unlock="mvz2:achievement.rickroll_drown"/>
+    <achievement id="return_to_sender" name="见鬼去吧" description="用一个火焰弹消灭一只恶魂。" icon="mvz2:achievements/return_to_sender" unlock="mvz2:achievement.return_to_sender"/>
+</achievements>

@@ -11,6 +11,7 @@ namespace MVZ2Logic.Saves
         {
             Namespace = spaceName;
         }
+        #region 解锁
         public void Unlock(string unlockID)
         {
             unlocks.Add(unlockID);
@@ -19,6 +20,8 @@ namespace MVZ2Logic.Saves
         {
             return unlocks.Contains(unlockID);
         }
+        #endregion
+
         #region 关卡难度记录
         public void AddLevelDifficultyRecord(string levelID, NamespaceID difficulty)
         {

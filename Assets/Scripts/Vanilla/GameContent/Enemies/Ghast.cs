@@ -1,11 +1,14 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using PVZEngine;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 
@@ -67,6 +70,14 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
             base.UpdateAI(enemy);
+        }
+        public override void PostDeath(Entity entity, DamageInput info)
+        {
+            base.PostDeath(entity, info);
+            if (info.Source.DefinitionID == VanillaProjectileID.fireCharge)
+            {
+                Global.Game.Unlock(VanillaUnlockID.returnToSender);
+            }
         }
         public static FrameTimer GetStateTimer(Entity enemy)
         {

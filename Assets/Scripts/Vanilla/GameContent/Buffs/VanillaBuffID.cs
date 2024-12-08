@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Buffs
         public const string sacrificed = "sacrificed";
         public const string magichestInvincible = "magichest_invincible";
         // Enemy
+        public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";
         public const string armorDamageColor = "armor_damage_color";

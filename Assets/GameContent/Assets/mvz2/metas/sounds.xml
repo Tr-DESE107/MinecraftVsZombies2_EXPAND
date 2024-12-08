@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sounds>
-    <sound name="awooga">
-        <sample path="mvz2:awooga" weight="1" />
+    <sound name="achievement">
+        <sample path="mvz2:achievement" weight="1" />
     </sound>
     <sound name="armor_up">
         <sample path="mvz2:armor_up" weight="1" />
+    </sound>
+    <sound name="awooga">
+        <sample path="mvz2:awooga" weight="1" />
     </sound>
     <sound name="bone_hit">
         <sample path="mvz2:damage/bone/bone_hit1" weight="1" />

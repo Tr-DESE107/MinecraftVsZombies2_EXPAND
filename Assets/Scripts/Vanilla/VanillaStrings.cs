@@ -115,6 +115,7 @@ namespace MVZ2.Vanilla
         {
             return $"{category}.description";
         }
+        public const string CONTEXT_ACHIEVEMENT = "achievement";
         public const string CONTEXT_ADVICE_ERROR = "advice.error";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
