@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-08 03:51+0800\n"
+"POT-Creation-Date: 2024-12-09 12:57+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -162,7 +162,6 @@ msgid "确定"
 msgstr ""
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Top/Title/Text (TMP)
-msgctxt "almanac"
 msgid "图鉴"
 msgstr ""
 
@@ -202,6 +201,56 @@ msgstr ""
 msgid "杂项图鉴"
 msgstr ""
 
+#. 对话档案标题
+#: /MainGame/MainScene/Archive/Canvas/Index/Center/Filter/Contents/Title
+msgid "筛选"
+msgstr ""
+
+#. 对话档案筛选项
+#: /MainGame/MainScene/Archive/Canvas/Index/Center/Filter/Contents/Search/Title
+msgid "搜索"
+msgstr ""
+
+#. 输入框默认文字
+#: /MainGame/MainScene/Archive/Canvas/Index/Center/Filter/Contents/Search/InputField/Text Area/Placeholder
+msgid "输入文字……"
+msgstr ""
+
+#. 对话档案筛选项
+#: /MainGame/MainScene/Archive/Canvas/Index/Center/Filter/Contents/Tags/Title
+msgid "标签"
+msgstr ""
+
+#. 对话档案标题
+#: /MainGame/MainScene/Archive/Canvas/Index/Center/List/Contents/Title
+msgid "列表"
+msgstr ""
+
+#. 对话档案属性
+#: /MainGame/MainScene/Archive/Canvas/Talk/Center/LeftBook/Region/BackgroundRegion/Label
+msgid "背景："
+msgstr ""
+
+#. 对话档案属性
+#: /MainGame/MainScene/Archive/Canvas/Talk/Center/LeftBook/Region/SegmentRegion/Label
+msgid "段落："
+msgstr ""
+
+#. 对话档案属性
+#: /MainGame/MainScene/Archive/Canvas/Talk/Center/LeftBook/Region/MusicRegion/Label
+msgid "音乐："
+msgstr ""
+
+#. 对话档案属性
+#: /MainGame/MainScene/Archive/Canvas/Talk/Center/LeftBook/Region/TagsRegion/Label
+msgid "标签："
+msgstr ""
+
+#. 对话档案的播放按钮文本
+#: /MainGame/MainScene/Archive/Canvas/Talk/Center/LeftBook/Region/PlayRegion/PlayButton/Text
+msgid "播放"
+msgstr ""
+
 #. 成就完成提示
 #: /MainGame/MainScene/GlobalUICanvas/AchievementHint/Root/Region/Texts/Earned
 msgid "完成成就！"
@@ -215,11 +264,6 @@ msgstr ""
 #. 输入名称对话框的标题
 #: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/TitleArea/Title
 msgid "请输入用户名"
-msgstr ""
-
-#. 输入框默认文字
-#: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/InputField/Text Area/Placeholder
-msgid "输入文字……"
 msgstr ""
 
 #: /MainGame/MainScene/GlobalUICanvas/Dialogs/InputNameDialog/Dialog/Buttons/CancelButton/Text
@@ -383,210 +427,228 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 教程无法使用提示
-#: Scripts\Vanilla\VanillaStrings.cs:7
+#: Scripts\Vanilla\VanillaStrings.cs:8
 msgid "无法使用"
 msgstr ""
 
 # 不能在雕像上放置器械提示
-#: Scripts\Vanilla\VanillaStrings.cs:10
+#: Scripts\Vanilla\VanillaStrings.cs:11
 msgctxt "advice.error"
 msgid "你不能在雕像上放置器械"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:13
+#: Scripts\Vanilla\VanillaStrings.cs:14
 msgid "购买"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:15
+#: Scripts\Vanilla\VanillaStrings.cs:16
 msgid "购买第七个器械槽位？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:17
+#: Scripts\Vanilla\VanillaStrings.cs:18
 msgid "是否进行新手教程？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:19
+#: Scripts\Vanilla\VanillaStrings.cs:20
 msgid "新手教程"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:22
+#: Scripts\Vanilla\VanillaStrings.cs:23
 msgid "用户名不能为空"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:24
+#: Scripts\Vanilla\VanillaStrings.cs:25
 msgid "已经存在该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:26
+#: Scripts\Vanilla\VanillaStrings.cs:27
 msgid "第一次游戏必须输入用户名"
 msgstr ""
 
 # 删除用户时的警告，{0}为名称
-#: Scripts\Vanilla\VanillaStrings.cs:28
+#: Scripts\Vanilla\VanillaStrings.cs:29
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:33
 msgctxt "recharge_time"
 msgid "无"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:35
 msgctxt "recharge_time"
 msgid "短"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:36
+#: Scripts\Vanilla\VanillaStrings.cs:37
 msgctxt "recharge_time"
 msgid "长"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:38
+#: Scripts\Vanilla\VanillaStrings.cs:39
 msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
+# 对话档案对话框标题
+#: Scripts\Vanilla\VanillaStrings.cs:43
+msgctxt "archive"
+msgid "剧情分支"
+msgstr ""
+
+# 对话档案对话框标题
+#: Scripts\Vanilla\VanillaStrings.cs:45
+msgctxt "archive"
+msgid "是否拥有足够的金钱？"
+msgstr ""
+
 # 通用的是
-#: Scripts\Vanilla\VanillaStrings.cs:41
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "是"
 msgstr ""
 
 # 通用的否
-#: Scripts\Vanilla\VanillaStrings.cs:43
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid "否"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:49
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgid "返回地图"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgid "返回主菜单"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:55
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgid "警告"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgid "退出"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgid "确认"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:64
+#: Scripts\Vanilla\VanillaStrings.cs:72
 msgid "能量不足"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:66
+#: Scripts\Vanilla\VanillaStrings.cs:74
 msgid "重新充能中…"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:68
+#: Scripts\Vanilla\VanillaStrings.cs:76
 msgid "挖掉器械"
 msgstr ""
 
 # 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:72
+#: Scripts\Vanilla\VanillaStrings.cs:80
 msgctxt "difficulty"
 msgid "简单"
 msgstr ""
 
 # 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:74
+#: Scripts\Vanilla\VanillaStrings.cs:82
 msgctxt "difficulty"
 msgid "普通"
 msgstr ""
 
 # 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:76
+#: Scripts\Vanilla\VanillaStrings.cs:84
 msgctxt "difficulty"
 msgid "困难"
 msgstr ""
 
 # 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:78
+#: Scripts\Vanilla\VanillaStrings.cs:86
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:82
+#: Scripts\Vanilla\VanillaStrings.cs:90
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:84
+#: Scripts\Vanilla\VanillaStrings.cs:92
 msgctxt "levelname"
 msgid "序章"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:86
+#: Scripts\Vanilla\VanillaStrings.cs:94
 msgctxt "levelname"
 msgid "万圣夜"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:88
+#: Scripts\Vanilla\VanillaStrings.cs:96
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:92
+#: Scripts\Vanilla\VanillaStrings.cs:100
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:95
+#: Scripts\Vanilla\VanillaStrings.cs:103
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:98
+#: Scripts\Vanilla\VanillaStrings.cs:106
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:101
+#: Scripts\Vanilla\VanillaStrings.cs:109
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:104
+#: Scripts\Vanilla\VanillaStrings.cs:112
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:107
+#: Scripts\Vanilla\VanillaStrings.cs:115
 msgctxt "almanac"
 msgid "（还没有遇到）"
+msgstr ""
+
+# 音乐名-无
+#: Scripts\Vanilla\VanillaStrings.cs:119
+msgctxt "music.name"
+msgid "无"
 msgstr ""
 
 # 标题页面的版本号文本，{0}为版本号
@@ -711,41 +773,41 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:458
+#: Scripts\MVZ2\Map\MapController.cs:462
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:460
+#: Scripts\MVZ2\Map\MapController.cs:464
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:462
+#: Scripts\MVZ2\Map\MapController.cs:466
 msgid "正在进入关卡……"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:531
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:534
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:533
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:536
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:535
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:538
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:537
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:540
 msgid "确认要退出吗？"
 msgstr ""
 
@@ -780,6 +842,18 @@ msgstr ""
 # 对话框内容
 #: Scripts\MVZ2\Level\LevelController_UI.cs:724
 msgid "你没有携带满蓝图，确认要继续吗？"
+msgstr ""
+
+# 对话档案中语句的模板，{0}为人物，{1}为语句内容
+#: Scripts\MVZ2\Archive\ArchiveController.cs:163
+msgid "<b>[{0}]</b> {1}"
+msgstr ""
+
+# 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
+#: Scripts\MVZ2\Archive\ArchiveController.cs:165
+msgid ""
+"<color=blue>{0}</color>\n"
+"<b>[{1}]</b> {2}"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
@@ -870,5 +944,131 @@ msgstr ""
 #: Achievements meta file
 msgctxt "achievement"
 msgid "用一枚火焰弹杀死一只恶魂。"
+msgstr ""
+
+#. Name for music mvz2:choosing
+#: Music meta file
+msgctxt "music.name"
+msgid "选择你的种子"
+msgstr ""
+
+#. Name for music mvz2:day
+#: Music meta file
+msgctxt "music.name"
+msgid "草地行走"
+msgstr ""
+
+#. Name for music mvz2:dream_level
+#: Music meta file
+msgctxt "music.name"
+msgid "破碎的童话-关卡"
+msgstr ""
+
+#. Name for music mvz2:dream_map
+#: Music meta file
+msgctxt "music.name"
+msgid "破碎的童话-地图"
+msgstr ""
+
+#. Name for music mvz2:halloween
+#: Music meta file
+msgctxt "music.name"
+msgid "莱克死灵之书-关卡"
+msgstr ""
+
+#. Name for music mvz2:halloween_boss
+#: Music meta file
+msgctxt "music.name"
+msgid "莱克死灵之书-首领"
+msgstr ""
+
+#. Name for music mvz2:halloween_map
+#: Music meta file
+msgctxt "music.name"
+msgid "莱克死灵之书-地图"
+msgstr ""
+
+#. Name for music mvz2:mainmenu
+#: Music meta file
+msgctxt "music.name"
+msgid "疯狂戴夫"
+msgstr ""
+
+#. Name for music mvz2:minigame
+#: Music meta file
+msgctxt "music.name"
+msgid "狂人的愉悦"
+msgstr ""
+
+#. Name for music mvz2:nightmare_map
+#: Music meta file
+msgctxt "music.name"
+msgid "猩红之地"
+msgstr ""
+
+#. Name for music mvz2:suspension
+#: Music meta file
+msgctxt "music.name"
+msgid "悬念"
+msgstr ""
+
+#. Name for music mvz2:ultimate_battle
+#: Music meta file
+msgctxt "music.name"
+msgid "终极之战"
+msgstr ""
+
+#. Name for archive tag mvz2:prologue
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "序章"
+msgstr ""
+
+#. Name for archive tag mvz2:halloween
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "万圣夜"
+msgstr ""
+
+#. Name for archive tag mvz2:dream
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "梦境世界"
+msgstr ""
+
+#. Name for archive tag mvz2:tutorial
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "教程"
+msgstr ""
+
+#. Name for archive tag mvz2:note
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "纸条"
+msgstr ""
+
+#. Name for archive tag mvz2:special
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "特殊"
+msgstr ""
+
+#. Name for archive tag mvz2:intro
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "入场对话"
+msgstr ""
+
+#. Name for archive tag mvz2:over
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "结束对话"
+msgstr ""
+
+#. Name for archive tag mvz2:map
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "地图对话"
 msgstr ""
 

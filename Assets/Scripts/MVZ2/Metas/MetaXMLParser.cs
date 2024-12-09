@@ -51,6 +51,12 @@ namespace MVZ2.Metas
                 case "achievements":
                     resource.AchievementMetaList = AchievementMetaList.FromXmlNode(document["achievements"], defaultNsp);
                     break;
+                case "archive":
+                    resource.ArchiveMetaList = ArchiveMetaList.FromXmlNode(document["archive"], defaultNsp);
+                    break;
+                case "musics":
+                    resource.MusicMetaList = MusicMetaList.FromXmlNode(document["musics"], defaultNsp);
+                    break; 
             }
         }
     }

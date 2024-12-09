@@ -2,6 +2,7 @@
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.TalkData;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 
@@ -29,6 +30,13 @@ namespace MVZ2.Managers
         }
         #endregion
 
+        public string GetCharacterName(NamespaceID characterID)
+        {
+            var character = GetCharacterMeta(characterID);
+            if (character?.name == null) 
+                return string.Empty;
+            return main.LanguageManager._p(VanillaStrings.CONTEXT_CHARACTER_NAME, character.name);
+        }
         public Sprite GetCharacterSprite(NamespaceID characterID)
         {
             var variants = FindInMods(characterID, mr => mr.CharacterVariantSprites);

@@ -170,7 +170,10 @@ namespace MVZ2.Mainmenu
         {
             StartAnimatorTransition(new Vector2(0, 0));
         }
-        private void OnArchiveButtonClickCallback() { }
+        private void OnArchiveButtonClickCallback()
+        {
+            main.Scene.DisplayArchive(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+        }
         private void OnStatsButtonClickCallback()
         {
             ReloadStats();

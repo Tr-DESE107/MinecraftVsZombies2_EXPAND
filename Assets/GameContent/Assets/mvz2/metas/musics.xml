@@ -1,4 +1,14 @@
 <musics>
-    <music name="suspension" loopSectionStart="7.5" />
-    <music name="ultimate_battle" loopSectionStart="10" />
+    <music id="choosing" path="mvz2:choosing" name="选择你的种子" />
+    <music id="day" path="mvz2:day" name="草地行走" />
+    <music id="dream_level" path="mvz2:dream_level" name="破碎的童话-关卡" />
+    <music id="dream_map" path="mvz2:dream_map" name="破碎的童话-地图" />
+    <music id="halloween" path="mvz2:halloween" name="莱克死灵之书-关卡" />
+    <music id="halloween_boss" path="mvz2:halloween_boss" name="莱克死灵之书-首领" />
+    <music id="halloween_map" path="mvz2:halloween_map" name="莱克死灵之书-地图" />
+    <music id="mainmenu" path="mvz2:mainmenu" name="疯狂戴夫" />
+    <music id="minigame" path="mvz2:minigame" name="狂人的愉悦" />
+    <music id="nightmare_map" path="mvz2:nightmare_map" name="猩红之地" />
+    <music id="suspension" path="mvz2:suspension" name="悬念" loopSectionStart="7.5" />
+    <music id="ultimate_battle" path="mvz2:ultimate_battle" name="终极之战" loopSectionStart="10" />
 </musics>

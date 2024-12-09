@@ -7,6 +7,7 @@
         Mainmenu,
         Note,
         Map,
-        Almanac
+        Almanac,
+        Archive
     }
 }

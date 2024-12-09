@@ -68,6 +68,24 @@ namespace MVZ2.Editor
                 AddTranslation(potGenerator, achievement.Name, achievementsReference, $"Name for achievement {id}", VanillaStrings.CONTEXT_ACHIEVEMENT);
                 AddTranslation(potGenerator, achievement.Description, achievementsReference, $"Description for achievement {id}", VanillaStrings.CONTEXT_ACHIEVEMENT);
             }
+            // 音乐
+            var musicsDocument = LoadMetaXmlDocument(spaceName, "musics.xml");
+            var musicsList = MusicMetaList.FromXmlNode(musicsDocument["musics"], spaceName);
+            var musicsReference = "Music meta file";
+            foreach (var music in musicsList.metas)
+            {
+                var id = new NamespaceID(spaceName, music.ID);
+                AddTranslation(potGenerator, music.Name, musicsReference, $"Name for music {id}", VanillaStrings.CONTEXT_MUSIC_NAME);
+            }
+            // 档案
+            var archiveDocument = LoadMetaXmlDocument(spaceName, "archive.xml");
+            var archiveList = ArchiveMetaList.FromXmlNode(archiveDocument["archive"], spaceName);
+            var archiveReference = "Archive meta file";
+            foreach (var tag in archiveList.Tags)
+            {
+                var id = new NamespaceID(spaceName, tag.ID);
+                AddTranslation(potGenerator, tag.Name, archiveReference, $"Name for archive tag {id}", VanillaStrings.CONTEXT_ARCHIVE_TAG_NAME);
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");
@@ -119,7 +137,7 @@ namespace MVZ2.Editor
             foreach (var meta in characterList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.id);
-                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", $"character.name");
+                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", VanillaStrings.CONTEXT_CHARACTER_NAME);
             }
             foreach (var meta in artifactsList.metas)
             {

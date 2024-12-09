@@ -25,6 +25,8 @@ namespace MVZ2.Modding
         public AreaMetaList AreaMetaList { get; set; }
         public StatMetaList StatMetaList { get; set; }
         public AchievementMetaList AchievementMetaList { get; set; }
+        public MusicMetaList MusicMetaList { get; set; }
+        public ArchiveMetaList ArchiveMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Sprite[]> SpriteSheets = new();

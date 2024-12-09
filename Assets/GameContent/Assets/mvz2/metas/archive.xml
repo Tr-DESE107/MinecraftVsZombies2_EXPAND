@@ -1,0 +1,13 @@
+<archive>
+    <tags>
+        <tag id="prologue" name="序章" priority="0"/>
+        <tag id="halloween" name="万圣夜" priority="1"/>
+        <tag id="dream" name="梦境世界" priority="2"/>
+        <tag id="tutorial" name="教程" priority="100"/>
+        <tag id="note" name="纸条" priority="100"/>
+        <tag id="special" name="特殊" priority="100"/>
+        <tag id="intro" name="入场对话" priority="110"/>
+        <tag id="over" name="结束对话" priority="110"/>
+        <tag id="map" name="地图对话" priority="110"/>
+    </tags>
+</archive>

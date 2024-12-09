@@ -11,7 +11,6 @@ namespace MVZ2.TalkData
         public string id;
         public NamespaceID requires;
         public NamespaceID requiresNot;
-        public NamespaceID music;
         public List<NamespaceID> tags;
 
         public TalkGroupArchiveInfo archive;
@@ -22,7 +21,6 @@ namespace MVZ2.TalkData
             node.CreateAttribute("id", id);
             node.CreateAttribute("requires", requires?.ToString());
             node.CreateAttribute("requiresNot", requiresNot?.ToString());
-            node.CreateAttribute("music", music?.ToString());
             node.CreateAttribute("tags", tags != null ? string.Join(";", tags.Select(t => t.ToString())) : null);
             var archiveNode = archive.ToXmlNode(document);
             node.AppendChild(archiveNode);
@@ -38,7 +36,6 @@ namespace MVZ2.TalkData
             var id = node.GetAttribute("id");
             var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
             var requiresNot = node.GetAttributeNamespaceID("requiresNot", defaultNsp);
-            var music = node.GetAttributeNamespaceID("music", defaultNsp);
             var tags = node.GetAttribute("tags")?.Split(';')?.Select(t => NamespaceID.Parse(t, defaultNsp))?.ToList();
 
             var children = node.ChildNodes;
@@ -68,7 +65,6 @@ namespace MVZ2.TalkData
                 id = id,
                 requires = requires,
                 requiresNot = requiresNot,
-                music = music,
                 tags = tags,
 
                 archive = archive,

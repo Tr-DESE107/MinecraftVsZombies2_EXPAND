@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks>
-  <group id="tutorial" music="mvz2:mainmenu" tags="mvz2:prologue">
-    <archive name="教程" background="mvz2:misc/steves_house" unlock="mvz2:level.prologue" />
+  <group id="tutorial" tags="mvz2:prologue;mvz2:tutorial">
+    <archive name="教程" music="mvz2:mainmenu" background="mvz2:misc/steves_house" unlock="mvz2:level.prologue" />
     <section onSkip="sentence 3;action create_tutorial_form">
       <text>开始段落</text>
       <characters>
@@ -53,7 +53,7 @@
       </sentences>
     </section>
   </group>
-  <group id="prologue_note" tags="mvz2:prologue">
+  <group id="prologue_note" tags="mvz2:prologue;mvz2:note">
     <archive name="藏宝图？" background="mvz2:archive/prologue_note" unlock="mvz2:level.prologue" />
     <section>
       <characters>

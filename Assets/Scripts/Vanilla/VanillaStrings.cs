@@ -115,6 +115,10 @@ namespace MVZ2.Vanilla
         [TranslateMsg("怪物说明-还没有遇到", CONTEXT_ALMANAC)]
         public const string NOT_ENCOUNTERED_YET = "（还没有遇到）";
 
+
+        [TranslateMsg("音乐名-无", CONTEXT_MUSIC_NAME)]
+        public const string MUSIC_NAME_NONE = "无";
+
         public static string GetAlmanacNameContext(string category)
         {
             return $"{category}.name";
@@ -129,9 +133,12 @@ namespace MVZ2.Vanilla
         }
         public const string CONTEXT_ACHIEVEMENT = "achievement";
         public const string CONTEXT_ARCHIVE = "archive";
+        public const string CONTEXT_ARCHIVE_TAG_NAME = "archive.tagname";
         public const string CONTEXT_ADVICE_ERROR = "advice.error";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
+        public const string CONTEXT_CHARACTER_NAME = "character.name";
+        public const string CONTEXT_MUSIC_NAME = "music.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
         public const string CONTEXT_ARTIFACT_NAME = "artifact.name";
         public const string CONTEXT_ARTIFACT_TOOLTIP = "artifact.tooltip";

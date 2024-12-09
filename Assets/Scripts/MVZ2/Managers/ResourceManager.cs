@@ -69,6 +69,7 @@ namespace MVZ2.Managers
             modResources.Clear();
             spriteReferenceCacheDict.Clear();
             entitiesCacheDict.Clear();
+            talksCacheDict.Clear();
             achievementCacheDict.Clear();
             artifactsCacheDict.Clear();
             difficultyCache.Clear();
@@ -117,6 +118,13 @@ namespace MVZ2.Managers
             foreach (var meta in modResource.NoteMetaList.metas)
             {
                 noteCache.Add(new NamespaceID(modNamespace, meta.id));
+            }
+            foreach (var pair in modResource.TalkMetas)
+            {
+                foreach (var group in pair.Value.groups)
+                {
+                    talksCacheDict.Add(new NamespaceID(modNamespace, group.id), group);
+                }
             }
 
             return modResource;

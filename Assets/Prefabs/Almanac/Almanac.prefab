@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac39d519d5b7564dbf3a99440d3aae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: almanac
+  context: 
   comment: 
 --- !u!1 &798296355880788742
 GameObject:

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks>
-  <group id="halloween_1" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第1天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_1" />
+  <group id="halloween_1" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第1天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_1" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -19,7 +19,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_1_over" tags="mvz2:halloween">
+  <group id="halloween_1_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第1天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_1" />
     <section>
       <characters>
@@ -34,8 +34,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_1_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第1天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_1" />
+  <group id="halloween_1_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第1天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_1" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -53,8 +53,8 @@
       </sentences>
     </section>
   </group>
-  <group id="starshard_tutorial" requiresNot="mvz2:starshard" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="星之碎片教程" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:starshard" />
+  <group id="starshard_tutorial" requiresNot="mvz2:starshard" tags="mvz2:halloween;mvz2:tutorial">
+    <archive name="星之碎片教程" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:starshard" />
     <section onStart="action prepare_starshard_tutorial" onSkip="action start_starshard_tutorial;end">
       <text>开始段落</text>
       <characters>
@@ -79,7 +79,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_2_over" tags="mvz2:halloween">
+  <group id="halloween_2_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第2天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_2" />
     <section>
       <characters>
@@ -92,8 +92,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_2_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第2天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_2" />
+  <group id="halloween_2_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第2天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_2" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -113,8 +113,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_3" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第3天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_3" />
+  <group id="halloween_3" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第3天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_3" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -130,7 +130,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_3_over" tags="mvz2:halloween">
+  <group id="halloween_3_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第3天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_3" />
     <section>
       <characters>
@@ -143,8 +143,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_3_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第3天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_3" />
+  <group id="halloween_3_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第3天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_3" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -159,8 +159,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_4" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第4天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_4" />
+  <group id="halloween_4" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第4天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_4" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -177,7 +177,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_4_over" tags="mvz2:halloween">
+  <group id="halloween_4_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第4天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_4" />
     <section>
       <characters>
@@ -191,8 +191,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_4_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第4天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_4" />
+  <group id="halloween_4_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第4天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_4" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -209,7 +209,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_5_over" tags="mvz2:halloween">
+  <group id="halloween_5_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第5天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_5" />
     <section>
       <characters>
@@ -228,8 +228,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_5_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第5天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_5" />
+  <group id="halloween_5_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第5天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_5" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -251,8 +251,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_6" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第6天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_6" />
+  <group id="halloween_6" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第6天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_6" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -267,7 +267,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_6_over" tags="mvz2:halloween">
+  <group id="halloween_6_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第6天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_6" />
     <section>
       <characters>
@@ -281,8 +281,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_6_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第6天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_6" />
+  <group id="halloween_6_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第6天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_6" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -299,8 +299,8 @@
       </sentences>
     </section>
   </group>
-  <group id="trigger_tutorial" requiresNot="mvz2:trigger" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="触发教程" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:trigger" />
+  <group id="trigger_tutorial" requiresNot="mvz2:trigger" tags="mvz2:halloween;mvz2:tutorial">
+    <archive name="触发教程" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:trigger" />
     <section onSkip="action start_trigger_tutorial;end">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -311,8 +311,8 @@
       </sentences>
     </section>
   </group>
-  <group id="seventh_slot" requiresNot="mvz2:blueprint_slot.7" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="蓝图槽位交易" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:blueprint_slot.7" />
+  <group id="seventh_slot" requiresNot="mvz2:blueprint_slot.7" tags="mvz2:halloween;mvz2:special">
+    <archive name="蓝图槽位交易" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:blueprint_slot.7" />
     <section onSkip="action try_buy_seventh_slot">
       <text>开始段落</text>
       <characters>
@@ -360,7 +360,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_7_over" tags="mvz2:halloween">
+  <group id="halloween_7_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第7天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
     <section>
       <characters>
@@ -374,8 +374,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_7_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第7天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
+  <group id="halloween_7_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第7天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -391,8 +391,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_8" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第8天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_8" />
+  <group id="halloween_8" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第8天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_8" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -404,7 +404,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_8_over" tags="mvz2:halloween">
+  <group id="halloween_8_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第8天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_8" />
     <section>
       <characters>
@@ -417,8 +417,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_9" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第9天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_9" />
+  <group id="halloween_9" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第9天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_9" />
     <section>
       <characters>
         <character id="mvz2:orant" variant="mvz2:warning" side="right" />
@@ -431,7 +431,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_9_over" tags="mvz2:halloween">
+  <group id="halloween_9_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第9天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_9" />
     <section>
       <characters>
@@ -444,7 +444,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_note" tags="mvz2:halloween">
+  <group id="halloween_note" tags="mvz2:halloween;mvz2:note">
     <archive name="万圣节邀请函" background="mvz2:archive/halloween_note" unlock="mvz2:level.halloween_10" />
     <section>
       <characters>
@@ -460,8 +460,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_11" music="mvz2:mainmenu" tags="mvz2:halloween">
-    <archive name="万圣夜第11天入场" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_11" />
+  <group id="halloween_11" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第11天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_11" />
     <section>
       <characters>
         <character id="mvz2:orant" variant="mvz2:warning" side="right" />
@@ -477,7 +477,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_11_over" tags="mvz2:halloween">
+  <group id="halloween_11_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第11天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_11" />
     <section>
       <characters>
@@ -492,8 +492,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_11_map" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜第11天地图" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_11" />
+  <group id="halloween_11_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第11天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_11" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -515,8 +515,8 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_final" music="mvz2:halloween_map" tags="mvz2:halloween">
-    <archive name="万圣夜临别" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:entered_dream" />
+  <group id="halloween_final" tags="mvz2:halloween;mvz2:special">
+    <archive name="万圣夜临别" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:entered_dream" />
     <section onSkip="end;action goto_dream">
       <characters>
         <character id="mvz2:crazy_villager" />
@@ -526,7 +526,7 @@
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">传送门已经准备好了，已经可以出发了。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye">那……祝你们好运。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，邻居！我们终于可以去到幻想乡了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;leave mvz2:crazy_villager;action warp;delay 5;next">一起来吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character leave mvz2:crazy_villager;action warp;delay 5;next">一起来吧！</sentence>
         <sentence speaker="mvz2:orant" description="（史蒂夫和村民前往了梦境世界。）" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end;action goto_dream">该你出场的时候了，朋友。</sentence>
       </sentences>

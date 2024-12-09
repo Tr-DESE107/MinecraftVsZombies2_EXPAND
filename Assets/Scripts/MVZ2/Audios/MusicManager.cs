@@ -11,7 +11,10 @@ namespace MVZ2.Audios
     {
         public void Play(NamespaceID id)
         {
-            var clip = main.ResourceManager.GetMusicClip(id);
+            var meta = main.ResourceManager.GetMusicMeta(id);
+            if (meta == null)
+                return;
+            var clip = main.ResourceManager.GetMusicClip(meta.Path);
             Play(clip);
             musicID = id;
         }

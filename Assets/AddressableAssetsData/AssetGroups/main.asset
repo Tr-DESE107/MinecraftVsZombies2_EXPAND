@@ -480,13 +480,13 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac1f70b601142f7408e769da02898fc5
-    m_Address: mvz2:ui/achievements/achievement.pop_up_frame
+    m_Address: mvz2:ui/achievements/pop_up_frame
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e4506b73a85267499be23c6916344ef
-    m_Address: mvz2:ui/achievements/achievement.frame
+    m_Address: mvz2:ui/achievements/frame
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3582,6 +3582,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51b5678df05eb434f9dc35d0069a9c08
     m_Address: mvz2:areas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79c9b442bcec07f4c8e4327a27c716c8
+    m_Address: mvz2:archive
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta

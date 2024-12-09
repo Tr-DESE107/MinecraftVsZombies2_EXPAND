@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using MVZ2.Metas;
+using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
 
@@ -6,17 +9,48 @@ namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {
+        #region 元数据列表
+        public MusicMetaList GetMusicMetaList(string nsp)
+        {
+            var modResource = main.ResourceManager.GetModResource(nsp);
+            if (modResource == null)
+                return null;
+            return modResource.MusicMetaList;
+        }
+        #endregion
+
+        #region 元数据
+        public MusicMeta GetMusicMeta(NamespaceID music)
+        {
+            var modResource = main.ResourceManager.GetModResource(music.spacename);
+            if (modResource == null)
+                return null;
+            return modResource.MusicMetaList.metas.FirstOrDefault(m => m.ID == music.path);
+        }
+        #endregion
 
         #region 音频片段
         public AudioClip GetMusicClip(string nsp, string path)
         {
             return GetMusicClip(new NamespaceID(nsp, path));
         }
-        public AudioClip GetMusicClip(NamespaceID id)
+        public AudioClip GetMusicClip(NamespaceID path)
         {
-            return FindInMods(id, mod => mod.Musics);
+            return FindInMods(path, mod => mod.Musics);
         }
         #endregion
+        public string GetMusicName(NamespaceID musicID)
+        {
+            if (NamespaceID.IsValid(musicID))
+            {
+                var meta = GetMusicMeta(musicID);
+                if (meta != null)
+                {
+                    return main.LanguageManager._p(VanillaStrings.CONTEXT_MUSIC_NAME, meta.Name);
+                }
+            }
+            return main.LanguageManager._p(VanillaStrings.CONTEXT_MUSIC_NAME, VanillaStrings.MUSIC_NAME_NONE);
+        }
 
         #region 私有方法
         private async Task LoadModMusicClips(string nsp)

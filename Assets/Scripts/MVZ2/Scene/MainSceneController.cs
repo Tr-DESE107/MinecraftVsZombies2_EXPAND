@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Almanacs;
+using MVZ2.Archives;
 using MVZ2.ChapterTransition;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu;
@@ -161,6 +162,16 @@ namespace MVZ2.Scenes
                 almanac.OnReturnClick -= OnReturn;
             }
         }
+        public void DisplayArchive(Action onReturn)
+        {
+            DisplayPage(MainScenePageType.Archive);
+            archive.OnReturnClick += OnReturn;
+            void OnReturn()
+            {
+                onReturn?.Invoke();
+                archive.OnReturnClick -= OnReturn;
+            }
+        }
         public void DisplayEnemyAlmanac(NamespaceID enemyID)
         {
             almanac.OpenEnemyAlmanac(enemyID);
@@ -196,6 +207,7 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Note, note);
             pages.Add(MainScenePageType.Map, map);
             pages.Add(MainScenePageType.Almanac, almanac);
+            pages.Add(MainScenePageType.Archive, archive);
         }
         #endregion
 
@@ -220,6 +232,8 @@ namespace MVZ2.Scenes
         private ChapterTransitionController chapterTransition;
         [SerializeField]
         private AlmanacController almanac;
+        [SerializeField]
+        private ArchiveController archive;
         [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]
