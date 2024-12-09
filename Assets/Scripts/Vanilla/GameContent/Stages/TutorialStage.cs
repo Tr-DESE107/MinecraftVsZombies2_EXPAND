@@ -10,6 +10,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Talk;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -24,6 +25,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
+    [Definition(VanillaStageNames.tutorial)]
     public class TutorialStage : StageDefinition
     {
         public TutorialStage(string nsp, string name) : base(nsp, name)
@@ -358,7 +360,6 @@ namespace MVZ2.GameContent.Stages
                         level.ClearSeedPacks();
                         level.SetNoProduction(false);
                         level.ChangeStage(VanillaStageID.prologue);
-                        level.StartTalk(VanillaTalkID.tutorial, 3, 2);
                         for (int i = 0; i < level.GetSeedSlotCount(); i++)
                         {
                             var seedPack = level.GetSeedPackAt(i);
@@ -367,6 +368,11 @@ namespace MVZ2.GameContent.Stages
                                 seedPack.SetTwinkling(false);
                             }
                         }
+                        level.TryStartTalk(VanillaTalkID.tutorial, 3, 2, played =>
+                        {
+                            if (!played)
+                                level.BeginLevel();
+                        });
                     }
                     break;
             }

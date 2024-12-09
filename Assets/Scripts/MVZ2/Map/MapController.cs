@@ -81,7 +81,11 @@ namespace MVZ2.Map
             Main.MusicManager.Play(mapPreset.music);
 
             var mapTalk = Main.SaveManager.GetMapTalk();
-            talkController.TryStartTalk(mapTalk, 0, 3);
+            talkController.TryStartTalk(mapTalk, 0, 3, (played) =>
+            {
+                if (!played)
+                    Main.SaveManager.SetMapTalk(null);
+            });
         }
         #endregion
 

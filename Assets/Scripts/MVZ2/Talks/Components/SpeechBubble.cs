@@ -13,7 +13,7 @@ namespace MVZ2.Talk
         {
             animator.SetTrigger("Reshow");
         }
-        public void UpdateBubble(SpeechBubbleDirection direction)
+        public void SetDirection(SpeechBubbleDirection direction)
         {
             animator.SetInteger("Direction", (int)direction);
         }

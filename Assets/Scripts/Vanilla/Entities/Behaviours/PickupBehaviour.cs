@@ -54,7 +54,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 pickup.Remove();
             }
-            pickup.SetSortingLayer(SortingLayers.frontUI);
+            pickup.SetSortingLayer(SortingLayers.money);
             pickup.SetSortingOrder(9999);
         }
     }

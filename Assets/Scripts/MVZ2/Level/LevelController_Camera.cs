@@ -99,9 +99,7 @@ namespace MVZ2.Level
             UpdateEnergy();
 
             var seedSlots = Saves.GetBlueprintSlots();
-            var starshardSlots = Saves.GetStarshardSlots();
             level.SetSeedSlotCount(seedSlots);
-            level.SetStarshardSlotCount(starshardSlots);
 
             var unlocked = Saves.GetUnlockedContraptions();
 

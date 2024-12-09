@@ -221,6 +221,8 @@ namespace MVZ2.Level
                 return;
             }
 
+            if (index < 0 || index >= level.GetSeedPackCount())
+                return;
             if (level.IsHoldingItem())
             {
                 if (level.CancelHeldItem())

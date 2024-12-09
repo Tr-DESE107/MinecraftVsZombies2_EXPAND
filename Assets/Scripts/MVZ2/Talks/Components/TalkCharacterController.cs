@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,14 @@ namespace MVZ2.Talk
     public class TalkCharacterController : MonoBehaviour
     {
         #region 公有方法
+        public void UpdateCharacter(TalkCharacterViewData viewData)
+        {
+            var xScale = viewData.side == CharacterSide.Left ? -1 : 1;
+            var scale = new Vector3(xScale, 1, 1);
+            SetScale(scale);
+            SetCharacter(viewData.sprite);
+            gameObject.name = viewData.name;
+        }
         public void SetScale(Vector3 scale)
         {
             transform.localScale = scale;
@@ -26,7 +35,7 @@ namespace MVZ2.Talk
         {
             _animator.SetFloat("DisappearSpeed", value);
         }
-        public bool IsLeft()
+        public bool IsAtLeft()
         {
             return transform.localScale.x < 0;
         }
@@ -50,6 +59,10 @@ namespace MVZ2.Talk
                 blendValue = Mathf.Lerp(blendValue, idleBlendValue, idleBlendFactor);
             }
             _animator.SetFloat("Blend", blendValue);
+            if (leaving && blendValue <= 0.01f)
+            {
+                Destroy(gameObject);
+            }
         }
         #endregion
 
@@ -85,5 +98,11 @@ namespace MVZ2.Talk
         Speaking,
         Leaving,
         Disappear,
+    }
+    public struct TalkCharacterViewData
+    {
+        public string name;
+        public Sprite sprite;
+        public CharacterSide side;
     }
 }

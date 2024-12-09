@@ -442,6 +442,8 @@
         <effect id="star_particles">
             <int name="maxTimeout" value="30"/>
         </effect>
+        <effect id="gem_effect">
+        </effect>
         <effect id="smoke">
             <int name="maxTimeout" value="30"/>
         </effect>

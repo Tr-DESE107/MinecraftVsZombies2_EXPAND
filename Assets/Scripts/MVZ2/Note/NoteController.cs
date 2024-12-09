@@ -25,10 +25,11 @@ namespace MVZ2.Note
             ui.SetCanFlip(meta.canFlip);
             ui.SetFlipAtLeft(isFlipped);
             var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
-            if (talkController.TryStartTalk(startTalk, 0, 3))
+            talkController.TryStartTalk(startTalk, 0, 3, played =>
             {
-                SetInteractable(false);
-            }
+                if (played)
+                    SetInteractable(false);
+            });
         }
         public void SetButtonText(string text)
         {

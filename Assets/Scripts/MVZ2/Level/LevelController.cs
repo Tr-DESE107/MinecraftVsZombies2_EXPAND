@@ -92,6 +92,8 @@ namespace MVZ2.Level
                 return;
             level.ResetHeldItem();
             level.RemovePreviewEnemies();
+            var starshardSlots = Saves.GetStarshardSlots();
+            level.SetStarshardSlotCount(starshardSlots);
 
             for (int i = 0; i < chosenBlueprints.Count; i++)
             {
@@ -440,12 +442,15 @@ namespace MVZ2.Level
 
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
-            bool played = false;
-            if (!level.IsRerun && talkController.CanStartTalk(endTalk))
+            if (!level.IsRerun)
             {
-                played = talkController.TryStartTalk(endTalk, 0, 5);
+                talkController.TryStartTalk(endTalk, 0, 5, (played) =>
+                {
+                    if (!played)
+                        StartExitLevelTransition(3);
+                });
             }
-            if (!played)
+            else
             {
                 StartExitLevelTransition(3);
             }
@@ -695,18 +700,19 @@ namespace MVZ2.Level
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
             var startTalk = level.GetStartTalk() ?? level.StageID;
-            bool played = false;
-            if (!level.IsRerun && talkController.CanStartTalk(startTalk))
+            if (level.IsRerun)
             {
-                played = talkController.TryStartTalk(startTalk, 0, 2);
-            }
-            if (played)
-            {
-                Music.Play(VanillaMusicID.mainmenu);
+                level.BeginLevel();
             }
             else
             {
-                level.BeginLevel();
+                talkController.TryStartTalk(startTalk, 0, 2, (played) =>
+                {
+                    if (played)
+                        Music.Play(VanillaMusicID.mainmenu);
+                    else
+                        level.BeginLevel();
+                });
             }
         }
         private void InitLevelEngine(LevelEngine level, Game game, NamespaceID areaID, NamespaceID stageID)

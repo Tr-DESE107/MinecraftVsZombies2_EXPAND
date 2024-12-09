@@ -102,6 +102,7 @@ namespace MVZ2.GameContent.Effects
         public static Entity SpawnGemEffect(LevelEngine level, GemType type, Vector3 position, Entity spawner, bool mute = false)
         {
             var effect = level.Spawn(VanillaEffectID.gemEffect, position, spawner);
+            level.ShowMoney();
             level.AddDelayedMoney(effect, gemMoneyDict[type]);
             effect.ChangeModel(gemModelDict[type]);
             if (!mute)

@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -8,6 +9,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
+    [Definition(VanillaStageNames.debug)]
     public partial class DebugStage : StageDefinition
     {
         public DebugStage(string nsp, string name) : base(nsp, name)

@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconRenderer: {fileID: 8362367246606338062}
-  triggerCostRoot: {fileID: 0}
+  triggerCostRoot: {fileID: 1169204643148896585}
   costText: {fileID: 4971732631287067978}
   iconSpriteSize: {x: 64, y: 64}
   lockAspect: 1

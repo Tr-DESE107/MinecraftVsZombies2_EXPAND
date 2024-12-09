@@ -18,6 +18,10 @@ namespace MVZ2.Level
         {
             talkController.StartTalk(groupId, section, delay);
         }
+        public void TryStartTalk(NamespaceID groupId, int section, float delay = 0, Action<bool> onFinished = null)
+        {
+            talkController.TryStartTalk(groupId, section, delay, onFinished);
+        }
         #endregion
 
         #endregion

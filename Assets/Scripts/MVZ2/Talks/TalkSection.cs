@@ -9,6 +9,7 @@ namespace MVZ2.TalkData
     public class TalkSection
     {
         public string archiveText;
+        public bool canAutoSkip;
         public List<TalkScript> startScripts;
         public List<TalkScript> skipScripts;
         public List<TalkCharacter> characters;
@@ -16,6 +17,7 @@ namespace MVZ2.TalkData
         public XmlNode ToXmlNode(XmlDocument document)
         {
             XmlNode node = document.CreateElement("section");
+            node.CreateAttribute("canAutoSkip", canAutoSkip.ToString());
             node.CreateAttribute("onStart", startScripts != null ? string.Join(";", startScripts.Where(s => s != null).Select(s => s.ToString())) : null);
             node.CreateAttribute("onSkip", skipScripts != null ? string.Join(";", skipScripts.Where(s => s != null).Select(s => s.ToString())) : null);
 
@@ -51,6 +53,8 @@ namespace MVZ2.TalkData
         }
         public static TalkSection FromXmlNode(XmlNode node, string defaultNsp)
         {
+            var canAutoSkip = node.GetAttributeBool("canAutoSkip") ?? true;
+
             var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
             var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip"))?.ToList();
 
@@ -87,6 +91,7 @@ namespace MVZ2.TalkData
             }
             return new TalkSection()
             {
+                canAutoSkip = canAutoSkip,
                 archiveText = archiveText,
                 startScripts = startScripts,
                 skipScripts = skipScripts,

@@ -29,8 +29,9 @@ namespace MVZ2.Vanilla
         {
             LoadEntityMetas();
             LoadArtifactMetas();
-            LoadStages();
+            LoadStageMetas();
             LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
+            LoadStageProperties();
             AddEntityBehaviours();
 
             ImplementCallbacks(new GemStageImplements());
@@ -96,12 +97,8 @@ namespace MVZ2.Vanilla
                 AddDefinition(definition);
             }
         }
-        private void LoadStages()
+        private void LoadStageMetas()
         {
-            AddDefinition(new DebugStage(spaceName, VanillaStageNames.debug));
-            AddDefinition(new TutorialStage(spaceName, VanillaStageNames.tutorial));
-            AddDefinition(new StarshardTutorialStage(spaceName, VanillaStageNames.starshardTutorial));
-
             foreach (var meta in Global.Game.GetModStageMetas(spaceName).Where(m => m.Type == StageTypes.TYPE_NORMAL))
             {
                 if (meta == null)
@@ -110,6 +107,29 @@ namespace MVZ2.Vanilla
                 stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
                 AddDefinition(stage);
             }
+        }
+        protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
+        {
+            foreach (var assembly in assemblies)
+            {
+                foreach (var type in assembly.GetTypes())
+                {
+                    var definitionAttr = type.GetCustomAttribute<DefinitionAttribute>();
+                    if (definitionAttr == null || type.IsAbstract)
+                        continue;
+
+                    var name = definitionAttr.Name;
+                    var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
+                    var definitionObj = constructor?.Invoke(new object[] { Namespace, name });
+                    if (definitionObj is Definition def)
+                    {
+                        AddDefinition(def);
+                    }
+                }
+            }
+        }
+        private void LoadStageProperties()
+        {
             foreach (var meta in Global.Game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
@@ -137,26 +157,6 @@ namespace MVZ2.Vanilla
                 foreach (var pair in meta.Properties)
                 {
                     stage.SetProperty(pair.Key, pair.Value);
-                }
-            }
-        }
-        protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
-        {
-            foreach (var assembly in assemblies)
-            {
-                foreach (var type in assembly.GetTypes())
-                {
-                    var definitionAttr = type.GetCustomAttribute<DefinitionAttribute>();
-                    if (definitionAttr == null || type.IsAbstract)
-                        continue;
-
-                    var name = definitionAttr.Name;
-                    var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
-                    var definitionObj = constructor?.Invoke(new object[] { Namespace, name });
-                    if (definitionObj is Definition def)
-                    {
-                        AddDefinition(def);
-                    }
                 }
             }
         }

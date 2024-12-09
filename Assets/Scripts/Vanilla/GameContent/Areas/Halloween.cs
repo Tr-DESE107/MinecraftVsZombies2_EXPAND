@@ -43,6 +43,9 @@ namespace MVZ2.GameContent.Areas
         }
         public override void PostHugeWaveEvent(LevelEngine level)
         {
+            base.PostHugeWaveEvent(level);
+            if (level.GetStatueCount() <= 0)
+                return;
             SpawnStatues(level, 2);
         }
         public override void PostFinalWaveEvent(LevelEngine level)

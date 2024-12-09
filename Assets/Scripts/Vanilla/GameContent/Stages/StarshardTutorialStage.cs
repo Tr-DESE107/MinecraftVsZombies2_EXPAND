@@ -19,6 +19,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
+    [Definition(VanillaStageNames.starshardTutorial)]
     public class StarshardTutorialStage : StageDefinition
     {
         public StarshardTutorialStage(string nsp, string name) : base(nsp, name)
@@ -150,11 +151,15 @@ namespace MVZ2.GameContent.Stages
                         level.SetEnergy(level.Option.StartEnergy);
                         level.ClearSeedPacks();
                         level.ChangeStage(VanillaStageID.halloween2);
-                        level.StartTalk(VanillaTalkID.starshardTutorial, 1, 2);
                         level.SetBlueprintsActive(true);
                         level.SetPickaxeActive(true);
                         level.SetStarshardActive(true);
                         Global.Game.Unlock(VanillaUnlockID.starshard);
+                        level.TryStartTalk(VanillaTalkID.starshardTutorial, 1, 2, played =>
+                        {
+                            if (!played)
+                                level.BeginLevel();
+                        });
                     }
                     break;
             }

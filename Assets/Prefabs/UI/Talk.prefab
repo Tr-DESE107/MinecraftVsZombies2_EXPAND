@@ -285,8 +285,9 @@ GameObject:
   - component: {fileID: 869672360984362390}
   - component: {fileID: 2123900138864289957}
   - component: {fileID: 7091951316979885043}
-  - component: {fileID: 3856315457389709807}
   - component: {fileID: 2859383188669150939}
+  - component: {fileID: 3856315457389709807}
+  - component: {fileID: 3890889062314327334}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
@@ -365,29 +366,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &3856315457389709807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5352697095018158009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b232a97df3137748bf2e8e41658dfb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 2123900138864289957}
-  characterTemplate: {fileID: 6118960760530396046}
-  characterRoot: {fileID: 5127972757061456310}
-  speechBubble: {fileID: 301830664417264965}
-  skipButton: {fileID: 9140636767159794115}
-  raycastReceiver: {fileID: 7834968819404388587}
-  blockerObject: {fileID: 8562295504330421035}
-  foregroundImage: {fileID: 4078748948085694105}
-  foregroundCanvasGroup: {fileID: 4372977444566867777}
-  foregroundFader: {fileID: 3567761593372130009}
-  forecolorFader: {fileID: 6308243753151705679}
 --- !u!114 &2859383188669150939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +383,42 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3856315457389709807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352697095018158009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b232a97df3137748bf2e8e41658dfb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 3890889062314327334}
+--- !u!114 &3890889062314327334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352697095018158009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670a5206d1cc7904c82ab54a9630a7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 2123900138864289957}
+  characterTemplate: {fileID: 6118960760530396046}
+  characterRoot: {fileID: 5127972757061456310}
+  speechBubble: {fileID: 301830664417264965}
+  skipButton: {fileID: 9140636767159794115}
+  raycastReceiver: {fileID: 7834968819404388587}
+  blockerObject: {fileID: 8562295504330421035}
+  foregroundImage: {fileID: 4078748948085694105}
+  foregroundCanvasGroup: {fileID: 4372977444566867777}
+  foregroundFader: {fileID: 3567761593372130009}
+  forecolorFader: {fileID: 6308243753151705679}
 --- !u!1 &8240618892827598349
 GameObject:
   m_ObjectHideFlags: 0

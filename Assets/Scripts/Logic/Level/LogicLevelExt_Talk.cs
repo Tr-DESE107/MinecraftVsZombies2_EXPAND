@@ -1,4 +1,5 @@
-﻿using MVZ2Logic.Level.Components;
+﻿using System;
+using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
 
@@ -14,6 +15,11 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetTalkComponent();
             component.StartTalk(groupId, section, delay);
+        }
+        public static void TryStartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0, Action<bool> onFinished = null)
+        {
+            var component = level.GetTalkComponent();
+            component.TryStartTalk(groupId, section, delay, onFinished);
         }
     }
 }

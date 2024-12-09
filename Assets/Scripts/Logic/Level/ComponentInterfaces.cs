@@ -46,6 +46,7 @@ namespace MVZ2Logic.Level.Components
     public interface ITalkComponent : ILevelComponent
     {
         void StartTalk(NamespaceID id, int section, float delay = 1);
+        void TryStartTalk(NamespaceID id, int section, float delay = 1, Action<bool> onFinished = null);
     }
     public interface IUIComponent : ILevelComponent
     {

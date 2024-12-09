@@ -25,6 +25,7 @@ namespace MVZ2.Managers
     {
         public async Task Initialize()
         {
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
 
             SerializeHelper.init(BuiltinNamespace);
@@ -99,6 +100,28 @@ namespace MVZ2.Managers
         private void OnApplicationQuit()
         {
             SaveManager.SaveModDatas();
+        }
+        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            if (e.Exception == null)
+            {
+                Debug.LogError(e);
+                return;
+            }
+            if (e.Exception.InnerException != null)
+            {
+                Debug.LogError(e.Exception.InnerException);
+                return;
+            }
+            if (e.Exception.InnerExceptions != null)
+            {
+                foreach (var exception in e.Exception.InnerExceptions)
+                {
+                    Debug.LogError(exception);
+                }
+                return;
+            }
+            Debug.LogError(e.Exception);
         }
         IGame IMainManager.Game => Game;
         public static MainManager Instance { get; private set; }

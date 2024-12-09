@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using MVZ2.Managers;
 using MVZ2.TalkData;
 using MVZ2.UI;
@@ -20,7 +21,7 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始进行对话。
         /// </summary>
-        public void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0)
+        public async void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupId);
             if (group == null)
@@ -31,61 +32,52 @@ namespace MVZ2.Talk
             this.sectionIndex = sectionIndex;
             sentenceIndex = 0;
 
-            speechBubble.SetShowing(false);
-            blockerObject.SetActive(true);
-            raycastReceiver.gameObject.SetActive(true);
+            ui.SetSpeechBubbleShowing(false);
+            ui.SetBlockerActive(true);
+            ui.SetRaycastReceiverActive(true);
             ClearCharacters();
 
             var section = group.sections[sectionIndex];
-            StartCoroutine(ExecuteScripts(section.startScripts));
+            await ExecuteScriptsAsync(section.startScripts);
 
-            StartCoroutine(DelayedStart(delay));
+            _ = DelayedStart(delay);
         }
-        public bool TryStartTalk(NamespaceID groupId, int sectionIndex, float delay = 0)
+        public void TryStartTalk(NamespaceID groupId, int sectionIndex, float delay = 0, Action<bool> onFinished = null)
         {
-            bool played = false;
-            if (CanStartTalk(groupId))
+            if (!CanStartTalk(groupId))
             {
-                if (!WillSkipTalk(groupId))
+                onFinished?.Invoke(false);
+                return;
+            }
+
+            if (WillSkipTalk(groupId, sectionIndex))
+            {
+                var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
+                if (section == null)
                 {
-                    StartTalk(groupId, sectionIndex, delay);
-                    played = true;
+                    onFinished?.Invoke(false);
                 }
                 else
                 {
-                    RunSkipScripts(groupId);
-                }
-            }
-            return played;
-        }
-        public TalkCharacterController CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
-        {
-            TalkCharacterController chr = Instantiate(characterTemplate, characterRoot).GetComponent<TalkCharacterController>();
-            var xScale = side == CharacterSide.Left ? -1 : 1;
-            var scale = new Vector3(xScale, 1, 1);
-            chr.SetScale(scale);
+                    StartCoroutine(routine());
 
-            Sprite sprite;
-            if (!NamespaceID.IsValid(variant))
-            {
-                sprite = Main.ResourceManager.GetCharacterSprite(characterId);
+                    IEnumerator routine()
+                    {
+                        var task1 = ExecuteScriptsAsync(section.startScripts);
+                        while (!task1.IsCompleted)
+                            yield return null;
+                        var task2 = ExecuteScriptsAsync(section.skipScripts);
+                        while (!task2.IsCompleted)
+                            yield return null;
+                        onFinished?.Invoke(false);
+                    }
+                }
             }
             else
             {
-                sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
+                StartTalk(groupId, sectionIndex, delay);
+                onFinished?.Invoke(true);
             }
-            chr.SetCharacter(sprite);
-            chr.gameObject.SetActive(true);
-            chr.gameObject.name = characterId.ToString();
-            dialogCharacters.Add(characterId, chr);
-            return chr;
-        }
-        public void RunSkipScripts(NamespaceID groupId)
-        {
-            var group = Main.ResourceManager.GetTalkGroup(groupId);
-            if (group == null)
-                return;
-            StartCoroutine(ExecuteScripts(group.skipScripts));
         }
         public bool CanStartTalk(NamespaceID groupId)
         {
@@ -98,14 +90,14 @@ namespace MVZ2.Talk
                 return false;
             return true;
         }
-        public bool WillSkipTalk(NamespaceID groupId)
+        public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
         {
             if (!Main.OptionsManager.SkipAllTalks())
                 return false;
-            var group = Main.ResourceManager.GetTalkGroup(groupId);
-            if (group == null)
+            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
+            if (section == null)
                 return false;
-            if (!group.canSkip)
+            if (!section.canAutoSkip)
                 return false;
             return true;
         }
@@ -116,16 +108,8 @@ namespace MVZ2.Talk
         #region 生命周期
         private void Awake()
         {
-            characterTemplate.gameObject.SetActive(false);
-            skipButton.gameObject.SetActive(false);
-            blockerObject.SetActive(false);
-            raycastReceiver.gameObject.SetActive(false);
-            SetSkipButtonActive(false);
-
-            skipButton.onClick.AddListener(OnSkipClicked);
-            raycastReceiver.OnPointerDown += OnClick;
-            foregroundFader.OnValueChanged += OnForegroundAlphaChanged;
-            forecolorFader.OnValueChanged += OnForegroundColorChanged;
+            ui.OnSkipClick += OnSkipClickedCallback;
+            ui.OnClick += OnClickCallback;
         }
         private void OnDisable()
         {
@@ -135,33 +119,21 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件回调
-        private void OnClick(PointerEventData eventData)
+        private void OnClickCallback()
         {
             var sentence = GetTalkSentence();
             IEnumerable<TalkScript> scripts = sentence.clickScripts != null ? sentence.clickScripts : defaultClickScripts;
-            StartCoroutine(ExecuteScripts(scripts));
+            _ = ExecuteScriptsAsync(scripts);
         }
-        private void OnForegroundAlphaChanged(float value)
-        {
-            foregroundCanvasGroup.alpha = value;
-        }
-        private void OnForegroundColorChanged(Color value)
-        {
-            var color = foregroundImage.color;
-            color.r = value.r;
-            color.g = value.g;
-            color.b = value.b;
-            foregroundImage.color = color;
-        }
-        private void OnSkipClicked()
+        private void OnSkipClickedCallback()
         {
             var section = GetTalkSection();
             IEnumerable<TalkScript> scripts = section.skipScripts != null ? section.skipScripts : defaultSkipScripts;
-            StartCoroutine(ExecuteScripts(scripts));
+            _ = ExecuteScriptsAsync(scripts);
         }
         #endregion
 
-        #region 脚本
+        #region 参数
         private int ParseArgumentInt(string str)
         {
             return ParseHelper.ParseInt(str);
@@ -206,27 +178,10 @@ namespace MVZ2.Talk
                 fader.StartFade(ParseArgumentColor(args[0]), 1);
             }
         }
-        private void FadeArgumentsFloat(FloatFader fader, string[] args)
-        {
-            if (args.Length >= 4)
-            {
-                fader.Value = ParseArgumentFloat(args[1]);
-                fader.StartFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
-            }
-            else if (args.Length == 3)
-            {
-                fader.StartFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
-            }
-            else if (args.Length == 2)
-            {
-                fader.StartFade(ParseArgumentFloat(args[1]), 1);
-            }
-        }
-        /// <summary>
-        /// 执行脚本。
-        /// </summary>
-        /// <param name="script">对话脚本。</param>
-        private IEnumerator ExecuteScript(TalkScript script)
+        #endregion
+
+        #region 脚本
+        private void ExecuteScriptSync(TalkScript script)
         {
             var args = script.arguments;
             switch (script.function)
@@ -268,29 +223,32 @@ namespace MVZ2.Talk
                                 break;
                             case "change":
                                 {
-                                    var character = dialogCharacters[ParseArgumentNamespaceID(args[1])];
+                                    var characterIndex = GetCharacterIndex(ParseArgumentNamespaceID(args[1]));
+                                    if (characterIndex < 0)
+                                        break;
                                     var targetCharacter = ParseArgumentNamespaceID(args[2]);
                                     var variant = ParseArgumentNamespaceID(args[3]);
 
                                     var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
-                                    character.SetCharacter(sprite);
+                                    ui.SetCharacterSprite(characterIndex, sprite);
                                 }
                                 break;
                             case "variant":
                                 {
                                     var targetCharacter = ParseArgumentNamespaceID(args[1]);
-                                    var character = dialogCharacters[targetCharacter];
+                                    var characterIndex = GetCharacterIndex(targetCharacter);
+                                    if (characterIndex < 0)
+                                        break;
                                     var variant = ParseArgumentNamespaceID(args[2]);
 
                                     var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
-                                    character.SetCharacter(sprite);
+                                    ui.SetCharacterSprite(characterIndex, sprite);
                                 }
                                 break;
                             case "leave":
                                 {
                                     var characterId = ParseArgumentNamespaceID(args[1]);
-                                    dialogCharacters[characterId].SetLeaving(true);
-                                    dialogCharacters.Remove(characterId);
+                                    LeaveCharacter(characterId);
                                 }
                                 break;
                             case "faint":
@@ -302,9 +260,10 @@ namespace MVZ2.Talk
                                         duration = ParseArgumentFloat(args[2]);
                                     }
 
-                                    var chr = dialogCharacters[characterId];
-                                    chr.SetDisappear(true);
-                                    chr.SetDisappearSpeed(1 / duration);
+                                    var characterIndex = GetCharacterIndex(characterId);
+                                    if (characterIndex < 0)
+                                        break;
+                                    ui.CharacterDisappear(characterIndex, 1 / duration);
                                 }
                                 break;
                         }
@@ -318,13 +277,25 @@ namespace MVZ2.Talk
                         switch (args[0])
                         {
                             case "change":
-                                foregroundImage.sprite = Main.LanguageManager.GetSprite(ParseArgumentSpriteReference(args[1]));
+                                ui.SetForegroundSprite(Main.LanguageManager.GetSprite(ParseArgumentSpriteReference(args[1])));
                                 break;
                             case "alpha":
-                                foregroundFader.Value = ParseArgumentFloat(args[1]);
+                                ui.SetForegroundAlpha(ParseArgumentFloat(args[1]));
                                 break;
                             case "fade":
-                                FadeArgumentsFloat(foregroundFader, args.Skip(1).ToArray());
+                                if (args.Length >= 4)
+                                {
+                                    ui.SetForegroundAlpha(ParseArgumentFloat(args[1]));
+                                    ui.StartForegroundFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
+                                }
+                                else if (args.Length == 3)
+                                {
+                                    ui.StartForegroundFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
+                                }
+                                else if (args.Length == 2)
+                                {
+                                    ui.StartForegroundFade(ParseArgumentFloat(args[1]), 1);
+                                }
                                 break;
                         }
                     }
@@ -338,19 +309,18 @@ namespace MVZ2.Talk
                                 break;
                             case "fade":
                                 {
-                                    var fadeArgs = args.Skip(1).ToArray();
-                                    if (fadeArgs.Length >= 3)
+                                    if (args.Length >= 4)
                                     {
-                                        Main.Scene.SetPortalAlpha(ParseArgumentFloat(fadeArgs[0]));
-                                        Main.Scene.StartPortalFade(ParseArgumentFloat(fadeArgs[1]), ParseArgumentFloat(fadeArgs[2]));
+                                        Main.Scene.SetPortalAlpha(ParseArgumentFloat(args[1]));
+                                        Main.Scene.StartPortalFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
                                     }
-                                    else if (fadeArgs.Length == 2)
+                                    else if (args.Length == 3)
                                     {
-                                        Main.Scene.StartPortalFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                        Main.Scene.StartPortalFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
                                     }
-                                    else if (fadeArgs.Length == 1)
+                                    else if (args.Length == 2)
                                     {
-                                        Main.Scene.StartPortalFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                        Main.Scene.StartPortalFade(ParseArgumentFloat(args[1]), 1);
                                     }
                                 }
                                 break;
@@ -359,14 +329,27 @@ namespace MVZ2.Talk
                     break;
                 case "forecolor":
                     {
-                        ColorFader fader = forecolorFader;
                         switch (args[0])
                         {
                             case "set":
-                                fader.Value = ParseArgumentColor(args[1]);
+                                ui.SetForecolor(ParseArgumentColor(args[1]));
                                 break;
                             case "fade":
-                                FadeArgumentsColor(fader, args.Skip(1).ToArray());
+                                {
+                                    if (args.Length >= 4)
+                                    {
+                                        ui.SetForecolor(ParseArgumentColor(args[1]));
+                                        ui.StartForecolorFade(ParseArgumentColor(args[2]), ParseArgumentFloat(args[3]));
+                                    }
+                                    else if (args.Length == 3)
+                                    {
+                                        ui.StartForecolorFade(ParseArgumentColor(args[1]), ParseArgumentFloat(args[2]));
+                                    }
+                                    else if (args.Length == 2)
+                                    {
+                                        ui.StartForecolorFade(ParseArgumentColor(args[1]), 1);
+                                    }
+                                }
                                 break;
                         }
                     }
@@ -439,34 +422,53 @@ namespace MVZ2.Talk
                     break;
 
                 case "bubble":
-                    speechBubble.SetShowing(args[0] != "hide");
-                    break;
-
-                case "delay":
-                    yield return new WaitForSeconds(ParseArgumentFloat(args[0]));
+                    ui.SetSpeechBubbleShowing(args[0] != "hide");
                     break;
                     #endregion
             }
         }
-
-        private IEnumerator ExecuteScripts(IEnumerable<TalkScript> scripts)
+        /// <summary>
+        /// 执行脚本。
+        /// </summary>
+        /// <param name="script">对话脚本。</param>
+        private async Task ExecuteScriptAsync(TalkScript script)
+        {
+            var args = script.arguments;
+            switch (script.function)
+            {
+                case "delay":
+                    await Task.Delay((int)(ParseArgumentFloat(args[0]) * 1000));
+                    break;
+                default:
+                    ExecuteScriptSync(script);
+                    break;
+            }
+        }
+        private async Task ExecuteScriptsAsync(IEnumerable<TalkScript> scripts)
         {
             if (scripts == null)
-                yield break;
+                return;
             IsRunningScripts = true;
-            if (!blockerObject.activeSelf)
-            {
-                blockerObject.SetActive(true);
-            }
+            ui.SetBlockerActive(true);
             foreach (TalkScript scr in scripts)
             {
-                yield return ExecuteScript(scr);
+                await ExecuteScriptAsync(scr);
             }
             IsRunningScripts = false;
-            if (blockerObject.activeSelf)
+            ui.SetBlockerActive(false);
+        }
+        private void ExecuteScriptsSync(IEnumerable<TalkScript> scripts)
+        {
+            if (scripts == null)
+                return;
+            IsRunningScripts = true;
+            ui.SetBlockerActive(true);
+            foreach (TalkScript scr in scripts)
             {
-                blockerObject.SetActive(false);
+                ExecuteScriptSync(scr);
             }
+            IsRunningScripts = false;
+            ui.SetBlockerActive(false);
         }
 
         private void ExecuteAction(string[] args)
@@ -491,10 +493,12 @@ namespace MVZ2.Talk
         #endregion
 
         #region 指令 
-        private IEnumerator DelayedStart(float delay)
+        private async Task DelayedStart(float delay)
         {
             if (delay > 0)
-                yield return new WaitForSeconds(delay);
+            {
+                await Task.Delay(Mathf.FloorToInt(delay * 1000));
+            }
 
             var section = GetTalkSection();
             var characters = section.characters;
@@ -506,25 +510,15 @@ namespace MVZ2.Talk
                 }
             }
 
-            yield return new WaitForSeconds(0.5f);
+            await Task.Delay(500);
 
-            blockerObject.SetActive(false);
-            SetSkipButtonActive(true);
+            ui.SetBlockerActive(false);
+            ui.SetSkipButtonActive(true);
             StartSentence();
         }
         #endregion
 
-        #region UI
-        private void SetSkipButtonActive(bool value)
-        {
-            skipButton.gameObject.SetActive(value);
-        }
-        #endregion
-
-        private TalkGroup GetTalkGroup()
-        {
-            return Main.ResourceManager.GetTalkGroup(groupID);
-        }
+        #region 流程控制
         private TalkSection GetTalkSection()
         {
             return Main.ResourceManager.GetTalkSection(groupID, sectionIndex);
@@ -577,36 +571,42 @@ namespace MVZ2.Talk
 
             IEnumerable<TalkScript> scripts = sentence.startScripts != null ? sentence.startScripts : defaultStartScripts;
             // 执行脚本组。
-            StartCoroutine(ExecuteScripts(scripts));
+            _ = ExecuteScriptsAsync(scripts);
 
             NamespaceID speakerID = sentence.speaker;
-            foreach (NamespaceID charId in dialogCharacters.Keys)
+            // 对话状态。
+            for (int i = 0; i < characterList.Count; i++)
             {
-                var character = dialogCharacters[charId];
-                character.SetSpeaking(speakerID == charId);
+                var charId = characterList[i];
+                bool isSpeaker = speakerID == charId;
+                ui.SetCharacterSpeaking(i, isSpeaker);
             }
-            if (NamespaceID.IsValid(sentence.variant))
+
+            // 切换变种贴图。
+            var speakerIndex = GetCharacterIndex(speakerID);
+            if (speakerIndex >= 0 && NamespaceID.IsValid(sentence.variant))
             {
-                var character = dialogCharacters[speakerID];
                 var sprite = Main.ResourceManager.GetCharacterSprite(speakerID, sentence.variant);
-                character.SetCharacter(sprite);
+                ui.SetCharacterSprite(speakerIndex, sprite);
             }
+
+            // 气泡位置。
             SpeechBubbleDirection bubbleDirection = SpeechBubbleDirection.Up;
             if (speechBubbleDirDict.TryGetValue(speakerID, out var p))
             {
                 bubbleDirection = p;
             }
-            else if (dialogCharacters.TryGetValue(speakerID, out var chr))
+            else if (speakerIndex >= 0)
             {
-                bubbleDirection = chr.IsLeft() ? SpeechBubbleDirection.Left : SpeechBubbleDirection.Right;
+                bubbleDirection = ui.IsCharacterAtLeft(speakerIndex) ? SpeechBubbleDirection.Left : SpeechBubbleDirection.Right;
             }
 
             var context = VanillaStrings.GetTalkTextContext(groupID);
             var textKey = sentence.text;
-            speechBubble.SetText(Main.LanguageManager._p(context, textKey));
-            speechBubble.UpdateBubble(bubbleDirection);
-            speechBubble.SetShowing(true);
-            speechBubble.ForceReshow();
+            ui.SetSpeechBubbleText(Main.LanguageManager._p(context, textKey));
+            ui.SetSpeechBubbleDirection(bubbleDirection);
+            ui.SetSpeechBubbleShowing(true);
+            ui.ForceReshowSpeechBubble();
         }
 
         private void EndTalk()
@@ -617,36 +617,76 @@ namespace MVZ2.Talk
 
             IsTalking = false;
 
-            speechBubble.SetShowing(false);
-
-            SetSkipButtonActive(false);
-
-            foreach (var pair in dialogCharacters)
+            for (int i = characterList.Count - 1; i >= 0; i--)
             {
-                TalkCharacterController character = pair.Value;
-                character.SetLeaving(true);
+                var characterID = characterList[i];
+                LeaveCharacter(characterID);
             }
-            StartCoroutine(DelayedClearCharacters(0.5f));
-            blockerObject.SetActive(false);
-            raycastReceiver.gameObject.SetActive(false);
+            ui.SetSpeechBubbleShowing(false);
+            ui.SetSkipButtonActive(false);
+            ui.SetBlockerActive(false);
+            ui.SetRaycastReceiverActive(false);
             OnTalkEnd?.Invoke();
         }
-        private IEnumerator DelayedClearCharacters(float delay)
+        #endregion
+
+        private int GetCharacterIndex(NamespaceID id)
         {
-            yield return new WaitForSeconds(delay);
-            ClearCharacters();
+            return characterList.IndexOf(id);
         }
-        private void ClearCharacters()
+        public void CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
         {
-            foreach (var pair in dialogCharacters)
+            Sprite sprite;
+            if (!NamespaceID.IsValid(variant))
             {
-                var character = pair.Value;
-                if (!character)
-                    continue;
-                Destroy(character.gameObject);
+                sprite = Main.ResourceManager.GetCharacterSprite(characterId);
             }
-            dialogCharacters.Clear();
+            else
+            {
+                sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
+            }
+
+            var viewData = new TalkCharacterViewData()
+            {
+                name = characterId?.ToString(),
+                side = side,
+                sprite = sprite
+                };
+            ui.CreateCharacter(viewData);
+            characterList.Add(characterId);
         }
+        public bool RemoveCharacter(NamespaceID characterID)
+        {
+            var index = GetCharacterIndex(characterID);
+            if (index < 0)
+                return false;
+            ui.RemoveCharacterAt(index);
+            characterList.RemoveAt(index);
+            return true;
+        }
+        private void LeaveCharacter(NamespaceID id)
+        {
+            var index = GetCharacterIndex(id);
+            if (index < 0)
+                return;
+            ui.LeaveCharacterAt(index);
+            characterList.RemoveAt(index);
+        }
+        public bool DestroyCharacter(NamespaceID characterID)
+        {
+            var index = GetCharacterIndex(characterID);
+            if (index < 0)
+                return false;
+            ui.DestroyCharacterAt(index);
+            characterList.RemoveAt(index);
+            return true;
+        }
+        public void ClearCharacters()
+        {
+            ui.ClearCharacters();
+            characterList.Clear();
+        }
+
         #endregion
 
         #region 事件
@@ -680,36 +720,13 @@ namespace MVZ2.Talk
             }
         };
         private MainManager Main => MainManager.Instance;
-        [SerializeField]
-        private Canvas canvas;
-        [SerializeField]
-        private GameObject characterTemplate;
-        [SerializeField]
-        private Transform characterRoot;
-        [SerializeField]
-        private SpeechBubble speechBubble;
-        [SerializeField]
-        private Button skipButton;
-        [SerializeField]
-        private RaycastReceiver raycastReceiver;
-        [SerializeField]
-        private GameObject blockerObject;
-        [SerializeField]
-        private Image foregroundImage;
-        [SerializeField]
-        private CanvasGroup foregroundCanvasGroup;
-        [SerializeField]
-        private FloatFader foregroundFader;
-        [SerializeField]
-        private ColorFader forecolorFader;
 
         private int sectionIndex = 0;
         private int sentenceIndex = 0;
         private NamespaceID groupID;
-
-
-        // 存在的人物 (人物ID - 人物实例)
-        private Dictionary<NamespaceID, TalkCharacterController> dialogCharacters = new Dictionary<NamespaceID, TalkCharacterController>();
+        private List<NamespaceID> characterList = new List<NamespaceID>();
+        [SerializeField]
+        private TalkUI ui;
         #endregion 属性
     }
 }
