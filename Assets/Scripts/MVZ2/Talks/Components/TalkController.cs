@@ -7,7 +7,6 @@ using MVZ2.TalkData;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -42,6 +41,23 @@ namespace MVZ2.Talk
 
             StartCoroutine(DelayedStart(delay));
         }
+        public bool TryStartTalk(NamespaceID groupId, int sectionIndex, float delay = 0)
+        {
+            bool played = false;
+            if (CanStartTalk(groupId))
+            {
+                if (!WillSkipTalk(groupId))
+                {
+                    StartTalk(groupId, sectionIndex, delay);
+                    played = true;
+                }
+                else
+                {
+                    RunSkipScripts(groupId);
+                }
+            }
+            return played;
+        }
         public TalkCharacterController CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
         {
             TalkCharacterController chr = Instantiate(characterTemplate, characterRoot).GetComponent<TalkCharacterController>();
@@ -64,7 +80,13 @@ namespace MVZ2.Talk
             dialogCharacters.Add(characterId, chr);
             return chr;
         }
-
+        public void RunSkipScripts(NamespaceID groupId)
+        {
+            var group = Main.ResourceManager.GetTalkGroup(groupId);
+            if (group == null)
+                return;
+            StartCoroutine(ExecuteScripts(group.skipScripts));
+        }
         public bool CanStartTalk(NamespaceID groupId)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupId);
@@ -73,6 +95,17 @@ namespace MVZ2.Talk
             if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
                 return false;
             if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
+                return false;
+            return true;
+        }
+        public bool WillSkipTalk(NamespaceID groupId)
+        {
+            if (!Main.OptionsManager.SkipAllTalks())
+                return false;
+            var group = Main.ResourceManager.GetTalkGroup(groupId);
+            if (group == null)
+                return false;
+            if (!group.canSkip)
                 return false;
             return true;
         }
@@ -412,7 +445,7 @@ namespace MVZ2.Talk
                 case "delay":
                     yield return new WaitForSeconds(ParseArgumentFloat(args[0]));
                     break;
-                #endregion
+                    #endregion
             }
         }
 

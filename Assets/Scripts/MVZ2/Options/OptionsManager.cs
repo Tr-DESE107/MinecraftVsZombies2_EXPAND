@@ -20,6 +20,7 @@ namespace MVZ2.Options
             options.swapTrigger = GetPlayerPrefsBool(PREFS_SWAP_TRIGGER, false);
             options.vibration = GetPlayerPrefsBool(PREFS_VIBRATION, false);
             options.bloodAndGore = GetPlayerPrefsBool(PREFS_BLOOD_AND_GORE, true);
+            options.skipAllTalks = GetPlayerPrefsBool(PREFS_SKIP_ALL_TALKS, false);
             options.pauseOnFocusLost = GetPlayerPrefsBool(PREFS_PAUSE_ON_FOCUS_LOST, true);
 
             options.musicVolume = GetPlayerPrefsFloat(PREFS_MUSIC_VOLUME, 1);
@@ -141,6 +142,22 @@ namespace MVZ2.Options
         public void SwitchPauseOnFocusLost()
         {
             SetPauseOnFocusLost(!GetPauseOnFocusLost());
+        }
+        #endregion
+
+        #region 
+        public bool SkipAllTalks()
+        {
+            return options.skipAllTalks;
+        }
+        public void SetSkipAllTalks(bool value)
+        {
+            options.skipAllTalks = value;
+            PlayerPrefs.SetInt(PREFS_SKIP_ALL_TALKS, BoolToInt(value));
+        }
+        public void SwitchSkipAllTalks()
+        {
+            SetSkipAllTalks(!SkipAllTalks());
         }
         #endregion
 
@@ -267,6 +284,7 @@ namespace MVZ2.Options
         public const string PREFS_VIBRATION = "Vibration";
         public const string PREFS_BLOOD_AND_GORE = "BloodAndGore";
         public const string PREFS_PAUSE_ON_FOCUS_LOST = "PauseOnFocusLost";
+        public const string PREFS_SKIP_ALL_TALKS = "SkipAllTalks";
 
         public const string PREFS_MUSIC_VOLUME = "MusicVolume";
         public const string PREFS_SOUND_VOLUME = "SoundVolume";
@@ -282,6 +300,7 @@ namespace MVZ2.Options
         public NamespaceID difficulty;
         public bool bloodAndGore;
         public bool pauseOnFocusLost;
+        public bool skipAllTalks;
 
         public float musicVolume;
         public float soundVolume;

@@ -25,9 +25,8 @@ namespace MVZ2.Note
             ui.SetCanFlip(meta.canFlip);
             ui.SetFlipAtLeft(isFlipped);
             var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
-            if (talkController.CanStartTalk(startTalk))
+            if (talkController.TryStartTalk(startTalk, 0, 3))
             {
-                StartTalk(startTalk, 0, 3);
                 SetInteractable(false);
             }
         }
@@ -72,11 +71,6 @@ namespace MVZ2.Note
             SetInteractable(true);
         }
         #endregion
-
-        private void StartTalk(NamespaceID groupId, int section, float delay = 0)
-        {
-            talkController.StartTalk(groupId, section, delay);
-        }
 
         #region 属性字段
         private MainManager main => MainManager.Instance;

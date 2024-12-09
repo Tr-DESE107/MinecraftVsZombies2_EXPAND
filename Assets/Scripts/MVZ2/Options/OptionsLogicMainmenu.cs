@@ -27,6 +27,7 @@ namespace MVZ2.Options
             UpdateResolutionDropdown();
 
             UpdateBloodAndGoreButton();
+            UpdateSkipAllTalksButton();
 
             base.InitDialog();
 
@@ -58,6 +59,12 @@ namespace MVZ2.Options
                         UpdateBloodAndGoreButton();
                     }
                     break;
+                case ButtonType.SkipAllTalks:
+                    {
+                        Main.OptionsManager.SwitchSkipAllTalks();
+                        UpdateSkipAllTalksButton();
+                    }
+                    break;
             }
         }
         protected override void OnSliderValueChangedCallback(SliderType type, float value)
@@ -79,9 +86,9 @@ namespace MVZ2.Options
                     break;
             }
         }
-        protected override void OnPointerUpdownValueChangedCallback(DropdownType type, int index)
+        protected override void OnDropdownValueChangedCallback(DropdownType type, int index)
         {
-            base.OnPointerUpdownValueChangedCallback(type, index);
+            base.OnDropdownValueChangedCallback(type, index);
             switch (type)
             {
                 case DropdownType.Language:
@@ -165,6 +172,11 @@ namespace MVZ2.Options
         {
             var value = BloodAndGore;
             UpdateButtonText(value, OPTION_BLOOD_AND_GORE, TextButtonType.BloodAndGore);
+        }
+        private void UpdateSkipAllTalksButton()
+        {
+            var value = Main.OptionsManager.SkipAllTalks();
+            UpdateButtonText(value, OPTION_SKIP_ALL_TALKS, TextButtonType.SkipAllTalks);
         }
         #endregion
         public bool NeedsReload { get; private set; }

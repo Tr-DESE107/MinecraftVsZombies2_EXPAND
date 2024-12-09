@@ -270,7 +270,7 @@
       </sentences>
     </section>
   </group>
-  <group id="dream_6_map" tags="mvz2:dream;mvz2:map">
+  <group id="dream_6_map" tags="mvz2:dream;mvz2:map" onSkip="action show_nightmare;music play mvz2:nightmare_map">
     <archive name="梦境世界第6天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
     <section onSkip="end;music volume 1;forecolor fade black #0000 1;action show_nightmare;music play mvz2:nightmare_map">
       <characters>

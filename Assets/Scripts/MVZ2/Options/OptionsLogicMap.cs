@@ -67,9 +67,9 @@ namespace MVZ2.Options
                     break;
             }
         }
-        protected override void OnPointerUpdownValueChangedCallback(DropdownType type, int index)
+        protected override void OnDropdownValueChangedCallback(DropdownType type, int index)
         {
-            base.OnPointerUpdownValueChangedCallback(type, index);
+            base.OnDropdownValueChangedCallback(type, index);
             switch (type)
             {
                 case DropdownType.Resolution:

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks>
-  <group id="tutorial" tags="mvz2:prologue;mvz2:tutorial">
+  <group id="tutorial" tags="mvz2:prologue;mvz2:tutorial" canSkip="false">
     <archive name="教程" music="mvz2:mainmenu" background="mvz2:misc/steves_house" unlock="mvz2:level.prologue" />
     <section onSkip="sentence 3;action create_tutorial_form">
       <text>开始段落</text>

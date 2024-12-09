@@ -440,11 +440,12 @@ namespace MVZ2.Level
 
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
+            bool played = false;
             if (!level.IsRerun && talkController.CanStartTalk(endTalk))
             {
-                StartTalk(endTalk, 0, 5);
+                played = talkController.TryStartTalk(endTalk, 0, 5);
             }
-            else
+            if (!played)
             {
                 StartExitLevelTransition(3);
             }
@@ -694,10 +695,14 @@ namespace MVZ2.Level
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
             var startTalk = level.GetStartTalk() ?? level.StageID;
+            bool played = false;
             if (!level.IsRerun && talkController.CanStartTalk(startTalk))
             {
+                played = talkController.TryStartTalk(startTalk, 0, 2);
+            }
+            if (played)
+            {
                 Music.Play(VanillaMusicID.mainmenu);
-                StartTalk(startTalk, 0, 2);
             }
             else
             {

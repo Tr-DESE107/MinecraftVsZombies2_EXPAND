@@ -12,6 +12,8 @@ namespace MVZ2.TalkData
         public NamespaceID requires;
         public NamespaceID requiresNot;
         public List<NamespaceID> tags;
+        public bool canSkip;
+        public List<TalkScript> skipScripts;
 
         public TalkGroupArchiveInfo archive;
         public List<TalkSection> sections;
@@ -29,6 +31,8 @@ namespace MVZ2.TalkData
                 var child = section.ToXmlNode(document);
                 node.AppendChild(child);
             }
+            node.CreateAttribute("canSkip", canSkip.ToString());
+            node.CreateAttribute("onSkip", skipScripts != null ? string.Join(";", skipScripts.Where(s => s != null).Select(s => s.ToString())) : null);
             return node;
         }
         public static TalkGroup FromXmlNode(XmlNode node, string defaultNsp)
@@ -37,6 +41,9 @@ namespace MVZ2.TalkData
             var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
             var requiresNot = node.GetAttributeNamespaceID("requiresNot", defaultNsp);
             var tags = node.GetAttribute("tags")?.Split(';')?.Select(t => NamespaceID.Parse(t, defaultNsp))?.ToList();
+
+            var canSkip = node.GetAttributeBool("canSkip") ?? true;
+            var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip"))?.ToList();
 
             var children = node.ChildNodes;
 
@@ -66,6 +73,9 @@ namespace MVZ2.TalkData
                 requires = requires,
                 requiresNot = requiresNot,
                 tags = tags,
+
+                canSkip = canSkip,
+                skipScripts = skipScripts,
 
                 archive = archive,
                 sections = sections,

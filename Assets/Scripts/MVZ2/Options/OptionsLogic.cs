@@ -18,7 +18,7 @@ namespace MVZ2.Options
 
             dialog.OnButtonClick += OnButtonClickCallback;
             dialog.OnSliderValueChanged += OnSliderValueChangedCallback;
-            dialog.OnPointerUpdownValueChanged += OnPointerUpdownValueChangedCallback;
+            dialog.OnPointerUpdownValueChanged += OnDropdownValueChangedCallback;
         }
         public virtual void InitDialog()
         {
@@ -37,7 +37,7 @@ namespace MVZ2.Options
         {
             dialog.OnButtonClick -= OnButtonClickCallback;
             dialog.OnSliderValueChanged -= OnSliderValueChangedCallback;
-            dialog.OnPointerUpdownValueChanged -= OnPointerUpdownValueChangedCallback;
+            dialog.OnPointerUpdownValueChanged -= OnDropdownValueChangedCallback;
         }
         protected virtual void OnButtonClickCallback(ButtonType type)
         {
@@ -97,7 +97,7 @@ namespace MVZ2.Options
                     break;
             }
         }
-        protected virtual void OnPointerUpdownValueChangedCallback(DropdownType type, int index)
+        protected virtual void OnDropdownValueChangedCallback(DropdownType type, int index)
         {
         }
         #region 更新元素
@@ -186,6 +186,9 @@ namespace MVZ2.Options
 
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_BLOOD_AND_GORE = "血与碎块：{0}";
+
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_SKIP_ALL_TALKS = "跳过对话：{0}";
 
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_PARTICLE_AMOUNT = "粒子数量：{0}";
