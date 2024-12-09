@@ -103,9 +103,15 @@ namespace MVZ2.Archives
 
             talksList.Clear();
             var talks = Main.ResourceManager.GetAllTalkGroupsID();
-            talksList.AddRange(talks);
+            var filteredTalks = talks.Where(t =>
+            {
+                var group = Main.ResourceManager.GetTalkGroup(t);
+                var unlockID = group.archive?.unlock;
+                return !NamespaceID.IsValid(unlockID) || Main.SaveManager.IsUnlocked(unlockID);
+            });
+            talksList.AddRange(filteredTalks);
 
-            var talkGroups = talks.Select(t => Main.ResourceManager.GetTalkGroup(t));
+            var talkGroups = talksList.Select(t => Main.ResourceManager.GetTalkGroup(t));
             tagsList.Clear();
             var tags = talkGroups.SelectMany(g => g.tags).Distinct();
             var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
