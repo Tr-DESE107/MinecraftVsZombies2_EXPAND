@@ -178,10 +178,13 @@ namespace PVZEngine.Buffs
         }
         public static BuffList FromSerializable(SerializableBuffList serializable, LevelEngine level, IBuffTarget target)
         {
-            var buffList = new BuffList()
+            var buffList = new BuffList();
+            foreach (var seriBuff in serializable.buffs)
             {
-                buffs = serializable.buffs.ConvertAll(b => Buff.Deserialize(b, level, target))
-            };
+                var buff = Buff.Deserialize(seriBuff, level, target);
+                buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
+                buffList.buffs.Add(buff);
+            }
             buffList.UpdateModifierCaches();
             return buffList;
         }
