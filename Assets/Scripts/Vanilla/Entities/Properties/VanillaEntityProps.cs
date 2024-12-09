@@ -243,9 +243,9 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<int>(SPAWN_COST);
         }
-        public static NamespaceID GetPreviewCount(this EntityDefinition entity)
+        public static int GetPreviewCount(this EntityDefinition entity)
         {
-            return entity.GetProperty<NamespaceID>(PREVIEW_COUNT);
+            return entity.GetProperty<int>(PREVIEW_COUNT);
         }
     }
 }
