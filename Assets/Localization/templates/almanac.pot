@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-07 12:16+0800\n"
+"POT-Creation-Date: 2024-12-09 03:43+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -495,7 +495,8 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid ""
-"能够打开一道通向其他世界的大门的，充满魔力的钥匙。\\n但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。\n"
+"能够打开一道通向其他世界的大门的，充满魔力的钥匙。\n"
+"但仅能用于前往其他世界的梦境，如果在那里没有类似于管理者的人接应，便无法前往这个世界的现实。\n"
 "钥匙上刻着古文：\n"
 "于残酷的现实睡去\n"
 "于幻想之地\n"
@@ -1305,13 +1306,13 @@ msgctxt "character.name"
 msgid "哆来咪"
 msgstr ""
 
-#. Name for artifact mvz2:
+#. Name for artifact mvz2:dream_key
 #: Artifact meta file
 msgctxt "artifact.name"
 msgid "梦境钥匙"
 msgstr ""
 
-#. Tooltip for artifact mvz2:
+#. Tooltip for artifact mvz2:dream_key
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "对器械使用星之碎片会恢复所有生命值，并在此期间无敌"

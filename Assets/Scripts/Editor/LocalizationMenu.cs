@@ -17,8 +17,15 @@ namespace MVZ2.Editor
 {
     public class LocalizationMenu
     {
-        [MenuItem("Custom/Assets/Localization/Update Translations")]
-        public static void UpdateTranslations()
+        [MenuItem("Custom/Assets/Localization/Update All Translations")]
+        public static void UpdateAllTranslations()
+        {
+            UpdateGeneralTranslations();
+            UpdateAlmanacTranslations();
+            UpdateTalkTranslations();
+        }
+        [MenuItem("Custom/Assets/Localization/Update General Translations")]
+        public static void UpdateGeneralTranslations()
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
 

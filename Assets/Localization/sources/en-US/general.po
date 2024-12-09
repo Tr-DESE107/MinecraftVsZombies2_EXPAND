@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 12:57+0800\n"
-"PO-Revision-Date: 2024-12-09 13:00+0800\n"
+"POT-Creation-Date: 2024-12-09 03:47+0800\n"
+"PO-Revision-Date: 2024-12-09 15:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -256,6 +256,11 @@ msgstr "Tags: "
 msgid "播放"
 msgstr "Play"
 
+#. 对话档案标题
+#: /MainGame/MainScene/Archive/Canvas/Talk/Center/RightBook/Region/Title
+msgid "段落"
+msgstr "Segments"
+
 #. 成就完成提示
 #: /MainGame/MainScene/GlobalUICanvas/AchievementHint/Root/Region/Texts/Earned
 msgid "完成成就！"
@@ -483,117 +488,129 @@ msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr "Do you have enough money to buy this?"
 
+# 对话档案对话框标题
+#: Scripts\Vanilla\VanillaStrings.cs:47
+msgctxt "archive"
+msgid "对话结束"
+msgstr "Replay Ended"
+
+# 对话档案对话框内容
 #: Scripts\Vanilla\VanillaStrings.cs:49
+msgctxt "archive"
+msgid "是否重新播放？"
+msgstr "Play again?"
+
+#: Scripts\Vanilla\VanillaStrings.cs:53
 msgid "是"
 msgstr "Yes"
 
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid "否"
 msgstr "No"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgid "返回地图"
 msgstr "Back to map"
 
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:67
 msgid "警告"
 msgstr "Warning"
 
-#: Scripts\Vanilla\VanillaStrings.cs:65
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:69
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgid "确认"
 msgstr "Accept"
 
-#: Scripts\Vanilla\VanillaStrings.cs:72
+#: Scripts\Vanilla\VanillaStrings.cs:76
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:74
+#: Scripts\Vanilla\VanillaStrings.cs:78
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:76
+#: Scripts\Vanilla\VanillaStrings.cs:80
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:80
+#: Scripts\Vanilla\VanillaStrings.cs:84
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:82
+#: Scripts\Vanilla\VanillaStrings.cs:86
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:84
+#: Scripts\Vanilla\VanillaStrings.cs:88
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:86
+#: Scripts\Vanilla\VanillaStrings.cs:90
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:90
+#: Scripts\Vanilla\VanillaStrings.cs:94
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:92
+#: Scripts\Vanilla\VanillaStrings.cs:96
 msgctxt "levelname"
 msgid "序章"
 msgstr "Prologue"
 
-#: Scripts\Vanilla\VanillaStrings.cs:94
+#: Scripts\Vanilla\VanillaStrings.cs:98
 msgctxt "levelname"
 msgid "万圣夜"
 msgstr "Halloween"
 
-#: Scripts\Vanilla\VanillaStrings.cs:96
+#: Scripts\Vanilla\VanillaStrings.cs:100
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:100
+#: Scripts\Vanilla\VanillaStrings.cs:104
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:103
+#: Scripts\Vanilla\VanillaStrings.cs:107
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:106
+#: Scripts\Vanilla\VanillaStrings.cs:110
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:109
+#: Scripts\Vanilla\VanillaStrings.cs:113
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:112
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:115
+#: Scripts\Vanilla\VanillaStrings.cs:119
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:119
+#: Scripts\Vanilla\VanillaStrings.cs:123
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
@@ -696,11 +713,16 @@ msgstr "{0}%"
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
+# 选项，{0}为是否开启
 #: Scripts\MVZ2\Options\OptionsLogic.cs:190
+msgid "跳过对话：{0}"
+msgstr "Skip talks: {0}"
+
+#: Scripts\MVZ2\Options\OptionsLogic.cs:193
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:192
+#: Scripts\MVZ2\Options\OptionsLogic.cs:195
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -712,7 +734,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:462
+#: Scripts\MVZ2\Map\MapController.cs:459
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -720,7 +742,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:464
+#: Scripts\MVZ2\Map\MapController.cs:461
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -728,7 +750,7 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:466
+#: Scripts\MVZ2\Map\MapController.cs:463
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
@@ -784,12 +806,12 @@ msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:163
+#: Scripts\MVZ2\Archive\ArchiveController.cs:218
 msgid "<b>[{0}]</b> {1}"
 msgstr "<b>[{0}]</b> {1}"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:165
+#: Scripts\MVZ2\Archive\ArchiveController.cs:220
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -1005,7 +1027,7 @@ msgstr "Intro"
 #: Archive meta file
 msgctxt "archive.tagname"
 msgid "结束对话"
-msgstr "Over"
+msgstr "Outro"
 
 #. Name for archive tag mvz2:map
 #: Archive meta file
