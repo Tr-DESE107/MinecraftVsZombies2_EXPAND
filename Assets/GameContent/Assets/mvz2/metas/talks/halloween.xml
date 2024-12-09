@@ -103,13 +103,13 @@
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">你们看起来……的确是有一手。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">对了，我好像还没有自我介绍。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">我是欧兰特，是一位灵魂术士，在这里……等候一些人的到来。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嗯？您就是……？欧兰特？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">……你认识我吗？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">啊，听说过这个名字。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">我们村庄那里，都是靠铁傀儡来防御那些怪物的！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">而您，应该就是铁傀儡原型的创造者吧？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">铁傀儡……啊，算是吧。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye" onClick="end">不过……我已经把那种事情抛弃很久了。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">不会是在等我们吧？</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye">……抱歉，我不能说。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">啊，好吧。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">您是一位灵魂术士，那您知道这些僵尸为什么会复活吗？</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:normal">我不太清楚。自从一段时间前开始，这些僵尸和骷髅就开始出现了。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">不止如此，还有一些更加危险的怪物藏在这里，请务必小心。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onClick="end">看来我们得好好招待这些万圣节的客人了！</sentence>
       </sentences>
     </section>
   </group>
@@ -203,7 +203,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">我们明明已经在这里呆了4天，却一直都是万圣夜！</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">啊，那是因为这里被施了魔法的原因吧。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">或者可以说是诅咒……总之这里的沼泽时间永远都会保持在万圣节前一天。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">如同一幅神秘的画……永恒的持续在此时。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">就像一幅画一样……时间永远停止在这一刻。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">这还真是奇怪。不过好像和我们没什么关系。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">那么，朋友，再去帮忙找找欧兰特的图鉴吧！</sentence>
       </sentences>
@@ -471,8 +471,8 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">在我们开始之前，这里有一些战斗的提示！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">尝试找出那家伙可以做什么，会做什么！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">总会有东西是拿来反制它的！明白了嘛？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">请记住，在这场战斗中，选择牺牲什么器械和不牺牲什么是至关重要的。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">据我所知，TNT拥有吸收闪电的能力，并且在那之后会变得高压。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">记住，在这场战斗中，灵魂熔炉至关重要。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">并且据我所知，TNT可以吸收闪电，并且在那之后会变得非常……危险。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让我们好好利用它们吧！</sentence>
       </sentences>
     </section>

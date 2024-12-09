@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 03:43+0800\n"
-"PO-Revision-Date: 2024-12-09 15:46+0800\n"
+"POT-Creation-Date: 2024-12-09 05:41+0800\n"
+"PO-Revision-Date: 2024-12-09 17:44+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/talk/en_US/>\n"
@@ -2358,44 +2358,48 @@ msgstr ""
 #. Text for talk sentence 3 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "嗯？您就是……？欧兰特？"
-msgstr "Huh? You are... Orant?"
+msgid "不会是在等我们吧？"
+msgstr "Are you waiting for us?"
 
 #. Text for talk sentence 4 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "……你认识我吗？"
-msgstr "...You know me?"
+msgid "……抱歉，我不能说。"
+msgstr "...Sorry, I can't say."
 
 #. Text for talk sentence 5 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "啊，听说过这个名字。"
-msgstr "Ah, I've heard of your name before."
+msgid "啊，好吧。"
+msgstr "Oh, okay."
 
 #. Text for talk sentence 6 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "我们村庄那里，都是靠铁傀儡来防御那些怪物的！"
-msgstr "In our village, we rely on Iron Golems to defend from those monsters!"
+msgid "您是一位灵魂术士，那您知道这些僵尸为什么会复活吗？"
+msgstr ""
+"You are a soul sorceress, do you know why these zombies are resurrected?"
 
 #. Text for talk sentence 7 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "而您，应该就是铁傀儡原型的创造者吧？"
-msgstr "And you, should be the creator of the Iron Golem prototypes?"
+msgid "我不太清楚。自从一段时间前开始，这些僵尸和骷髅就开始出现了。"
+msgstr ""
+"Not sure. Since a while ago, these zombies and skeletons have been appearing."
 
 #. Text for talk sentence 8 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "铁傀儡……啊，算是吧。"
-msgstr "Iron Golems... Ah, sort of."
+msgid "不止如此，还有一些更加危险的怪物藏在这里，请务必小心。"
+msgstr ""
+"Not only that, there are also some more dangerous monsters hidden here, "
+"please be careful."
 
 #. Text for talk sentence 9 in talk group halloween_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_2_map"
-msgid "不过……我已经把那种事情抛弃很久了。"
-msgstr "But... I've long since abandoned those things."
+msgid "看来我们得好好招待这些万圣节的客人了！"
+msgstr "It seems that we need to treat these Halloween guests well!"
 
 #. Archive name for talk group halloween_3
 #: Talk meta file
@@ -2618,8 +2622,8 @@ msgstr ""
 #. Text for talk sentence 4 in talk group halloween_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4_map"
-msgid "如同一幅神秘的画……永恒的持续在此时。"
-msgstr "Just like a mysterious painting...eternally frozen in time."
+msgid "就像一幅画一样……时间永远停止在这一刻。"
+msgstr "Just like a painting...eternally frozen in time."
 
 #. Text for talk sentence 5 in talk group halloween_4_map's section 0
 #: Talk meta file
@@ -3252,7 +3256,7 @@ msgstr "And some thingamabobs to COUNTER whatever that is. Ya get what I mean?"
 #. Text for talk sentence 3 in talk group halloween_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_11"
-msgid "请记住，在这场战斗中，选择牺牲什么器械和不牺牲什么是至关重要的。"
+msgid "记住，在这场战斗中，灵魂熔炉至关重要。"
 msgstr ""
 "Keep in mind that, choosing what contraptions to sacrifice, and what not to "
 "is crucial for this battle."
@@ -3260,10 +3264,10 @@ msgstr ""
 #. Text for talk sentence 4 in talk group halloween_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_11"
-msgid "据我所知，TNT拥有吸收闪电的能力，并且在那之后会变得高压。"
+msgid "并且据我所知，TNT可以吸收闪电，并且在那之后会变得非常……危险。"
 msgstr ""
-"From what I’ve seen, TNTs have the ability to absorb lightning and become "
-"high-pressured."
+"From what I’ve seen, TNTs have the ability to absorb lightning and become..."
+"dangerous."
 
 #. Text for talk sentence 5 in talk group halloween_11's section 0
 #: Talk meta file
@@ -3566,6 +3570,39 @@ msgctxt "talk-mvz2:prologue_note"
 msgid "很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！"
 msgstr ""
 "CRAAZZYY, RIGHT??? We’re coming for ya, very-suspicious-looking portal!"
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "嗯？您就是……？欧兰特？"
+#~ msgstr "Huh? You are... Orant?"
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "……你认识我吗？"
+#~ msgstr "...You know me?"
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "啊，听说过这个名字。"
+#~ msgstr "Ah, I've heard of your name before."
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "我们村庄那里，都是靠铁傀儡来防御那些怪物的！"
+#~ msgstr ""
+#~ "In our village, we rely on Iron Golems to defend from those monsters!"
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "而您，应该就是铁傀儡原型的创造者吧？"
+#~ msgstr "And you, should be the creator of the Iron Golem prototypes?"
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "铁傀儡……啊，算是吧。"
+#~ msgstr "Iron Golems... Ah, sort of."
+
+#~ msgctxt "talk-mvz2:halloween_2_map"
+#~ msgid "不过……我已经把那种事情抛弃很久了。"
+#~ msgstr "But... I've long since abandoned those things."
+
+#~ msgctxt "talk-mvz2:halloween_4_map"
+#~ msgid "如同一幅神秘的画……永恒的持续在此时。"
+#~ msgstr "Just like a mysterious painting...eternally frozen in time."
 
 #, fuzzy
 #~| msgctxt "talk-mvz2:dream_5_map"

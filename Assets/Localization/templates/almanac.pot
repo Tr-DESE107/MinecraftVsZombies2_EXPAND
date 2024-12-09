@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-09 03:43+0800\n"
+"POT-Creation-Date: 2024-12-09 05:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -555,8 +555,10 @@ msgstr ""
 msgctxt "misc.description"
 msgid ""
 "从前，有个国王做了一场噩梦。梦里他看到一个来自星空的，扭曲而无形的怪物。它化作一匹马在他的土地上狂奔，污染身后的土地。\n"
-"国王醒来后立刻找来了占卜师，占卜师称：“这是相当不祥的噩兆。这匹怪物化作的马预示着国家会被怪物入侵并毁灭。因此，必须消灭国家周遭的一切怪物。”\n"
-"国王发布了悬赏，召集勇者清除王国领土旁的所有怪物。很快，一位骑士请求参战。国王给了他上好的装备和马匹，骑士便出发了。"
+"国王醒来后立刻找来了占卜师，占卜师称：“这是相当不祥的噩兆。这匹怪物化作的马预示着国家会被怪物入侵并毁灭。”\n"
+"国王大吃一惊：“那这么说的话，这些怪物就留不得了！”随后国王发布了悬赏，召集勇者清除王国领土旁的所有怪物。\n"
+"一位骑士看到了悬赏，他踏入那华丽而宏伟的王宫，向国王请求参战。国王便赐予了他一副链甲和皮马铠。将任务交付于他。\n"
+"骑士离开王宫，骑上自己的马，便准备出发了。"
 msgstr ""
 
 #. Name for almanac group mvz2:misc_entities
@@ -783,7 +785,7 @@ msgstr ""
 #. Flavor for misc mvz2:steves_house
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "坑爹村民的村庄之前遭受了僵尸的攻击而导致毁灭，于是他们搬到了公路附近的一片广阔平原上，开始了新的生活。"
+msgid "史蒂夫不受村庄中的其他人欢迎，于是他们搬到了公路附近的一片广阔平原上，开始了两人独居的生活。"
 msgstr ""
 
 #. Name for misc mvz2:eternal_night_swamp
@@ -825,19 +827,19 @@ msgid ""
 "史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。"
 msgstr ""
 
-#. Name for misc mvz2:dream_world
+#. Name for misc mvz2:nightmare_world
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "噩梦世界"
 msgstr ""
 
-#. Header for misc mvz2:dream_world
+#. Header for misc mvz2:nightmare_world
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "噩梦世界是被梦魇所腐化的梦境世界。"
 msgstr ""
 
-#. Flavor for misc mvz2:dream_world
+#. Flavor for misc mvz2:nightmare_world
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。"
