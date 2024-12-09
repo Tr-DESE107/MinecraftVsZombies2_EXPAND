@@ -42,8 +42,12 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("对话档案对话框标题", CONTEXT_ARCHIVE)]
         public const string ARCHIVE_BRANCH = "剧情分支";
-        [TranslateMsg("对话档案对话框标题", CONTEXT_ARCHIVE)]
+        [TranslateMsg("对话档案对话框内容", CONTEXT_ARCHIVE)]
         public const string ARCHIVE_WHETHER_HAS_ENOUGH_MONEY = "是否拥有足够的金钱？";
+        [TranslateMsg("对话档案对话框标题", CONTEXT_ARCHIVE)]
+        public const string ARCHIVE_TALK_END = "对话结束";
+        [TranslateMsg("对话档案对话框内容", CONTEXT_ARCHIVE)]
+        public const string ARCHIVE_REPLAY = "是否重新播放？";
 
 
         [TranslateMsg("通用的是")]

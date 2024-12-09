@@ -1,7 +1,3 @@
-using System;
-using MVZ2.Models;
-using MVZ2.UI;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +8,11 @@ namespace MVZ2.Archives
         public void SetBackground(Sprite background)
         {
             backgroundImage.sprite = background;
+            backgroundRatioFitter.aspectRatio = background.rect.width / background.rect.height;
         }
         [SerializeField]
         private Image backgroundImage;
+        [SerializeField]
+        private AspectRatioFitter backgroundRatioFitter;
     }
 }

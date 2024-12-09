@@ -7,6 +7,8 @@ using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
@@ -34,6 +36,8 @@ namespace MVZ2.Archives
             ui.OnDetailsPlayClick += OnDetailsPlayClickCallback;
 
             talkSystem = new ArchiveTalkSystem(simulationTalk);
+            simulationTalk.OnTalkAction += OnTalkActionCallback;
+            simulationTalk.OnTalkEnd += OnTalkEndCallback;
         }
         private void OnIndexReturnClickCallback()
         {
@@ -64,6 +68,57 @@ namespace MVZ2.Archives
         private void OnTalkEntryClickCallback(int index)
         {
             var groupID = filteredTalks[index];
+            viewingTalkID = groupID;
+            UpdateDetails(groupID);
+            ui.DisplayPage(ArchiveUI.Page.Details);
+        }
+        private void OnDetailsPlayClickCallback()
+        {
+            PlayTalk(viewingTalkID);
+        }
+        private void OnTalkActionCallback(string cmd, params string[] parameters)
+        {
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
+        }
+        private void OnTalkEndCallback()
+        {
+            var title = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_TALK_END);
+            var desc = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_REPLAY);
+            Main.Scene.ShowDialogSelect(title, desc, (value) =>
+            {
+                if (value)
+                {
+                    PlayTalk(viewingTalkID);
+                }
+                else
+                {
+                    ReturnFromSimulation();
+                }
+            });
+        }
+        private void UpdateIndex()
+        {
+            searchPattern = string.Empty;
+            ui.SetIndexSearch(searchPattern);
+
+            talksList.Clear();
+            var talks = Main.ResourceManager.GetAllTalkGroupsID();
+            talksList.AddRange(talks);
+
+            var talkGroups = talks.Select(t => Main.ResourceManager.GetTalkGroup(t));
+            tagsList.Clear();
+            var tags = talkGroups.SelectMany(g => g.tags).Distinct();
+            var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
+            tagsList.AddRange(orderedTags);
+
+            selectedTagIndexes.Clear();
+            var tagViewDatas = tagsList.Select((tag, index) => new ArchiveTagViewData() { name = Main.ResourceManager.GetArchiveTagName(tag), value = selectedTagIndexes.Contains(index) }).ToArray();
+            ui.SetIndexTags(tagViewDatas);
+
+            UpdateFilteredTalks();
+        }
+        private void UpdateDetails(NamespaceID groupID)
+        {
             var group = Main.ResourceManager.GetTalkGroup(groupID);
             if (group == null)
                 return;
@@ -110,31 +165,6 @@ namespace MVZ2.Archives
                 sections = sectionsViewData
             };
             ui.UpdateDetails(viewData);
-            ui.DisplayPage(ArchiveUI.Page.Details);
-        }
-        private void OnDetailsPlayClickCallback()
-        {
-        }
-        private void UpdateIndex()
-        {
-            searchPattern = string.Empty;
-            ui.SetIndexSearch(searchPattern);
-
-            talksList.Clear();
-            var talks = Main.ResourceManager.GetAllTalkGroupsID();
-            talksList.AddRange(talks);
-
-            var talkGroups = talks.Select(t => Main.ResourceManager.GetTalkGroup(t));
-            tagsList.Clear();
-            var tags = talkGroups.SelectMany(g => g.tags).Distinct();
-            var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
-            tagsList.AddRange(orderedTags);
-
-            selectedTagIndexes.Clear();
-            var tagViewDatas = tagsList.Select((tag, index) => new ArchiveTagViewData() { name = Main.ResourceManager.GetArchiveTagName(tag), value = selectedTagIndexes.Contains(index) }).ToArray();
-            ui.SetIndexTags(tagViewDatas);
-
-            UpdateFilteredTalks();
         }
         private void UpdateFilteredTalks()
         {
@@ -152,6 +182,25 @@ namespace MVZ2.Archives
                 var group = Main.ResourceManager.GetTalkGroup(t);
                 return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
             }).ToArray());
+        }
+        private void PlayTalk(NamespaceID groupID)
+        {
+            var group = Main.ResourceManager.GetTalkGroup(groupID);
+            if (group == null)
+                return;
+            var backgroundRef = group.archive.background;
+            var background = Main.ResourceManager.GetSprite(backgroundRef);
+            var musicID = group.archive.music;
+            ui.SetSimulationBackground(background);
+            ui.DisplayPage(ArchiveUI.Page.Simulation);
+            simulationTalk.StartTalk(viewingTalkID, 0);
+            Main.MusicManager.Play(musicID);
+        }
+        private void ReturnFromSimulation()
+        {
+            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
+                Main.MusicManager.Play(VanillaMusicID.choosing);
+            ui.DisplayPage(ArchiveUI.Page.Details);
         }
         private string GetTranslatedString(string context, string text, params object[] args)
         {

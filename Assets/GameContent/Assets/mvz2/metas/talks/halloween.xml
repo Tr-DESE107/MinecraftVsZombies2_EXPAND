@@ -526,7 +526,7 @@
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">传送门已经准备好了，已经可以出发了。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye">那……祝你们好运。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，邻居！我们终于可以去到幻想乡了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character leave mvz2:crazy_villager;action warp;delay 5;next">一起来吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character leave mvz2:crazy_villager;playsound mvz2:travel;portal fade 1 2;delay 2;portal fade 0 2;delay 3;next">一起来吧！</sentence>
         <sentence speaker="mvz2:orant" description="（史蒂夫和村民前往了梦境世界。）" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end;action goto_dream">该你出场的时候了，朋友。</sentence>
       </sentences>

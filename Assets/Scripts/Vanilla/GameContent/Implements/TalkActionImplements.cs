@@ -184,7 +184,7 @@ namespace MVZ2.GameContent.Implements
             private void ShowTutorialDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetText(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_BRANCH);
+                var title = game.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
                 var desc = game.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
                 var options = new string[]
                 {
@@ -207,8 +207,8 @@ namespace MVZ2.GameContent.Implements
             private void TryBuySeventhSlot(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetText(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_BRANCH);
-                var desc = game.GetText(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_WHETHER_HAS_ENOUGH_MONEY);
+                var title = game.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
+                var desc = game.GetTextParticular(VanillaStrings.ARCHIVE_WHETHER_HAS_ENOUGH_MONEY, VanillaStrings.CONTEXT_ARCHIVE);
                 var options = new string[]
                 {
                     game.GetText(VanillaStrings.YES),
@@ -231,7 +231,7 @@ namespace MVZ2.GameContent.Implements
             private void ShowSeventhSlotDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetText(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_BRANCH);
+                var title = game.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
                 var desc = game.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
                 var options = new string[]
                 {
