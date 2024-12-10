@@ -1,6 +1,7 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -74,6 +75,8 @@ namespace MVZ2.GameContent.Pickups
             var level = pickup.Level;
             level.AddDelayedMoney(pickup, pickup.GetMoneyValue());
             pickup.SetProperty(EngineEntityProps.GRAVITY, 0f);
+            pickup.SetSortingLayer(SortingLayers.money);
+            pickup.SetSortingOrder(9999);
 
             var pitch = GetRandomCollectPitch() ? Random.Range(0.95f, 1.5f) : 1;
             pickup.PlaySound(pickup.GetCollectSound(), pitch);
