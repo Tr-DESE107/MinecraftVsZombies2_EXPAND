@@ -104,7 +104,6 @@ namespace MVZ2.Vanilla
                 if (meta == null)
                     continue;
                 var stage = new ClassicStage(spaceName, meta.ID);
-                stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
                 AddDefinition(stage);
             }
         }
@@ -130,6 +129,7 @@ namespace MVZ2.Vanilla
         }
         private void LoadStageProperties()
         {
+            AddDefinition(new WhackAGhostStage(spaceName, "halloween_6"));
             foreach (var meta in Global.Game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
@@ -155,6 +155,8 @@ namespace MVZ2.Vanilla
 
                 stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
                 stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
+
+                stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
 
                 stage.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
 

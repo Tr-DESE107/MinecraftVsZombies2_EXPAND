@@ -13,6 +13,7 @@ using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,25 +29,20 @@ namespace MVZ2.Entities
             Entity = entity;
             gameObject.name = entity.GetDefinitionID().ToString();
             entity.PostInit += PostInitCallback;
-            entity.OnTriggerAnimation += OnTriggerAnimationCallback;
-            entity.OnSetAnimationBool += OnSetAnimationBoolCallback;
-            entity.OnSetAnimationInt += OnSetAnimationIntCallback;
-            entity.OnSetAnimationFloat += OnSetAnimationFloatCallback;
 
             entity.OnEquipArmor += OnArmorEquipCallback;
             entity.OnDestroyArmor += OnArmorDestroyCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
-            entity.OnModelChanged += OnModelChangedCallback;
-            entity.OnSetModelProperty += OnSetModelPropertyCallback;
-            entity.OnSetShaderInt += OnSetShaderIntCallback;
-            entity.OnSetShaderFloat += OnSetShaderFloatCallback;
-            entity.OnSetShaderColor += OnSetShaderColorCallback;
+            bodyModelInterface = new BodyModelInterface(this);
+            armorModelInterface = new ArmorModelInterface(this);
+            entity.SetModelInterface(bodyModelInterface, armorModelInterface);
             SetModel(Entity.ModelID);
 
             transform.position = Level.LawnToTrans(Entity.Position);
             lastPosition = transform.position;
         }
+
         #region 模型
         public void SetModel(NamespaceID modelId)
         {
@@ -71,6 +67,13 @@ namespace MVZ2.Entities
             {
                 Model.SetSimulationSpeed(simulationSpeed);
             }
+        }
+        public void ChangeArmorModel(NamespaceID modelID)
+        {
+            if (!Model)
+                return;
+            Model.RemoveArmor();
+            Model.SetArmor(CreateModel(modelID));
         }
         #endregion
 
@@ -239,34 +242,6 @@ namespace MVZ2.Entities
         {
             UpdateFrame(0);
         }
-        private void OnTriggerAnimationCallback(string name, EntityAnimationTarget target)
-        {
-            var targetModel = GetAnimationTargetModel(target);
-            if (!targetModel)
-                return;
-            targetModel.TriggerAnimator(name);
-        }
-        private void OnSetAnimationBoolCallback(string name, EntityAnimationTarget target, bool value)
-        {
-            var targetModel = GetAnimationTargetModel(target);
-            if (!targetModel)
-                return;
-            targetModel.SetAnimatorBool(name, value);
-        }
-        private void OnSetAnimationIntCallback(string name, EntityAnimationTarget target, int value)
-        {
-            var targetModel = GetAnimationTargetModel(target);
-            if (!targetModel)
-                return;
-            targetModel.SetAnimatorInt(name, value);
-        }
-        private void OnSetAnimationFloatCallback(string name, EntityAnimationTarget target, float value)
-        {
-            var targetModel = GetAnimationTargetModel(target);
-            if (!targetModel)
-                return;
-            targetModel.SetAnimatorFloat(name, value);
-        }
         private void OnArmorEquipCallback(Armor armor)
         {
             CreateArmorModel(armor);
@@ -277,34 +252,6 @@ namespace MVZ2.Entities
         private void OnArmorRemoveCallback(Armor armor)
         {
             RemoveArmorModel();
-        }
-        private void OnModelChangedCallback(NamespaceID modelID)
-        {
-            SetModel(modelID);
-        }
-        private void OnSetModelPropertyCallback(string name, object value)
-        {
-            if (!Model)
-                return;
-            Model.SetProperty(name, value);
-        }
-        private void OnSetShaderFloatCallback(string name, float value)
-        {
-            if (!Model)
-                return;
-            Model.SetShaderFloat(name, value);
-        }
-        private void OnSetShaderIntCallback(string name, int value)
-        {
-            if (!Model)
-                return;
-            Model.SetShaderInt(name, value);
-        }
-        private void OnSetShaderColorCallback(string name, Color value)
-        {
-            if (!Model)
-                return;
-            Model.SetShaderColor(name, value);
         }
         #endregion
 
@@ -417,17 +364,6 @@ namespace MVZ2.Entities
                 return null;
             return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
         }
-        private Model GetAnimationTargetModel(EntityAnimationTarget target)
-        {
-            switch (target)
-            {
-                case EntityAnimationTarget.Entity:
-                    return Model;
-                case EntityAnimationTarget.Armor:
-                    return Model.ArmorModel;
-            }
-            return null;
-        }
         private void UpdateEntityModel()
         {
             if (!Model)
@@ -519,6 +455,8 @@ namespace MVZ2.Entities
         private bool isHovered;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
+        private IModelInterface bodyModelInterface;
+        private IModelInterface armorModelInterface;
         [SerializeField]
         private ShadowController shadow;
         [SerializeField]

@@ -141,13 +141,15 @@ namespace MVZ2.Vanilla.Level
                 level.CurrentFlag++;
             }
             level.CurrentWave++;
+            var totalPoints = level.GetBaseSpawnPoints(level.CurrentWave);
+            level.SetSpawnPoints(totalPoints);
             level.SpawnWaveEnemies(level.CurrentWave);
 
             var wave = level.CurrentWave;
             level.StageDefinition.PostWave(level, wave);
             level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, level, wave);
         }
-        public static float GetSpawnPoints(this LevelEngine level, int wave)
+        public static float GetBaseSpawnPoints(this LevelEngine level, int wave)
         {
             var points = wave / 3f;
             if (level.IsHugeWave(wave))
@@ -159,7 +161,7 @@ namespace MVZ2.Vanilla.Level
         }
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {
-            var totalPoints = level.GetSpawnPoints(wave);
+            var totalPoints = level.GetSpawnPoints();
             var pool = level.GetEnemyPool();
             var spawnDefs = pool.Where(e => e.CanSpawn(level)).Select(e => e.GetSpawnDefinition(level.Content));
             while (totalPoints > 0)

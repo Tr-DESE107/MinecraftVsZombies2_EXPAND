@@ -10,6 +10,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID boneHit = Get("bone_hit");
         public readonly static NamespaceID boneWallBuild = Get("bone_wall_build");
         public readonly static NamespaceID bow = Get("bow");
+        public readonly static NamespaceID bonk = Get("bonk");
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID chestOpen = Get("chest_open");
         public readonly static NamespaceID chestClose = Get("chest_close");
@@ -70,6 +71,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID starshardUse = Get("starshard_use");
         public readonly static NamespaceID stone = Get("stone");
         public readonly static NamespaceID stunned = Get("stunned");
+        public readonly static NamespaceID swing = Get("swing");
         public readonly static NamespaceID tap = Get("tap");
         public readonly static NamespaceID thunder = Get("thunder");
         public readonly static NamespaceID throwSound = Get("throw");

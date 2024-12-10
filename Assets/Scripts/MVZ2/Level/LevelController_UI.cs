@@ -4,6 +4,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.Almanacs;
 using MVZ2.GameContent.HeldItems;
+using MVZ2.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.Options;
@@ -16,6 +17,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -28,18 +30,26 @@ namespace MVZ2.Level
     {
         #region 公有方法
 
-        public void SetHeldItemUI(NamespaceID heldType, long id, int priority, bool noCancel)
+        public void SetHeldItemModel(NamespaceID modelID)
         {
-            var definition = Game.GetHeldItemDefinition(heldType);
-
             Model model = null;
-            var modelID = definition?.GetModelID(level, id);
             var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
             if (modelMeta != null)
             {
                 model = Main.ResourceManager.GetModel(modelMeta.Path);
             }
             ui.SetHeldItemModel(model);
+        }
+        public Model GetHeldItemModel()
+        {
+            return ui.GetHeldItemModel();
+        }
+        public void SetHeldItemUI(NamespaceID heldType, long id, int priority, bool noCancel)
+        {
+            var definition = Game.GetHeldItemDefinition(heldType);
+
+            var modelID = definition?.GetModelID(level, id);
+            SetHeldItemModel(modelID);
 
 
             List<int> layers = new List<int>();
@@ -61,6 +71,11 @@ namespace MVZ2.Level
             uiPreset.SetRaycasterMask(layerMask);
             levelRaycaster.eventMask = layerMask;
             levelRaycaster.SetHeldItem(definition, id);
+        }
+
+        public IModelInterface GetHeldItemModelInterface()
+        {
+            return heldItemModelInterface;
         }
         public void ShowMoney()
         {
@@ -103,6 +118,7 @@ namespace MVZ2.Level
 
         private void Awake_UI()
         {
+            heldItemModelInterface = new HeldItemModelInterface(this);
             ui.OnPauseDialogResumeClicked += UI_OnPauseDialogResumeClickedCallback;
             ui.OnLevelLoadedDialogButtonClicked += UI_OnLevelLoadedDialogOptionClickedCallback;
             ui.OnLevelErrorLoadingDialogButtonClicked += UI_OnLevelErrorLoadingDialogOptionClickedCallback;
@@ -717,6 +733,7 @@ namespace MVZ2.Level
         private bool isChoosingBlueprints;
         private List<int> chosenBlueprints = new List<int>();
         private NamespaceID[] choosingBlueprints;
+        private IModelInterface heldItemModelInterface;
 
         [Header("UI")]
         [SerializeField]

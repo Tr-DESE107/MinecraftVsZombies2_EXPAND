@@ -46,6 +46,10 @@ namespace MVZ2.UI
         {
             heldItem.SetModel(prefab);
         }
+        public Model GetHeldItemModel()
+        {
+            return heldItem.GetModel();
+        }
         public void UpdateHeldItemModelFixed()
         {
             heldItem.UpdateModelFixed();

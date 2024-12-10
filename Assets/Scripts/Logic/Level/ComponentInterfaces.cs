@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using UnityEngine;
 
 namespace MVZ2Logic.Level.Components
@@ -17,6 +18,7 @@ namespace MVZ2Logic.Level.Components
         void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false);
         void ResetHeldItem();
         bool CancelHeldItem();
+        IModelInterface GetHeldItemModelInterface();
         NamespaceID HeldItemType { get; }
         long HeldItemID { get; }
         int HeldItemPriority { get; }

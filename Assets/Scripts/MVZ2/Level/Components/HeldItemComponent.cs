@@ -4,6 +4,7 @@ using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Models;
 
 namespace MVZ2.Level.Components
 {
@@ -25,6 +26,10 @@ namespace MVZ2.Level.Components
             heldItemPriority = priority;
             heldItemNoCancel = noCancel;
             Controller.SetHeldItemUI(type, id, priority, noCancel);
+        }
+        public IModelInterface GetHeldItemModelInterface()
+        {
+            return Controller.GetHeldItemModelInterface();
         }
         public void ResetHeldItem()
         {

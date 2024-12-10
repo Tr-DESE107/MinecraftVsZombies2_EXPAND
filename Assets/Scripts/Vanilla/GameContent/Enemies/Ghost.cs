@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -27,7 +28,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DamageInput info)
         {
             base.PostDeath(entity, info);
-            if (!IsEverIlluminated(entity))
+            if (!IsEverIlluminated(entity) && !info.Effects.HasEffect(VanillaDamageEffects.WHACK))
             {
                 Global.Game.Unlock(VanillaUnlockID.ghostBuster);
             }

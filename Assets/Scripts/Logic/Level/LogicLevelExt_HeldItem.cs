@@ -5,6 +5,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Models;
 
 namespace MVZ2Logic.Level
 {
@@ -117,6 +118,11 @@ namespace MVZ2Logic.Level
         public static void UseOnLawn(this LevelEngine level, LawnArea area)
         {
             level.UseOnLawn(area, level.GetHeldItemType(), level.GetHeldItemID());
+        }
+        public static IModelInterface GetHeldItemModelInterface(this LevelEngine level)
+        {
+            var component = level.GetHeldItemComponent();
+            return component.GetHeldItemModelInterface();
         }
         #endregion
     }

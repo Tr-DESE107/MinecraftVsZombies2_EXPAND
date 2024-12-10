@@ -363,6 +363,7 @@ namespace MVZ2.Level
             if (level != null)
             {
                 ui.SetNightValue(level.GetNightValue());
+                ui.SetDarknessValue(level.GetDarknessValue());
             }
             var uiPreset = GetUIPreset();
             var uiDeltaTime = IsGamePaused() ? 0 : deltaTime * gameSpeed;

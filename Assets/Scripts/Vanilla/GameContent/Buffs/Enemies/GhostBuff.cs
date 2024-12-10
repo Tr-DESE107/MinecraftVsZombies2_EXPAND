@@ -9,7 +9,6 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -43,6 +42,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 return;
             var buffs = entity.GetBuffs<GhostBuff>();
             if (buffs.Length <= 0)
+                return;
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.WHACK))
                 return;
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))
             {

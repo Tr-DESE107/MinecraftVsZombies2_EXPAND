@@ -22,6 +22,9 @@
     <sound name="bone_wall_destroyed">
         <sample path="mvz2:entity/bone_wall/bone_wall_destroyed" weight="1" />
     </sound>
+    <sound name="bonk">
+        <sample path="mvz2:bonk" weight="1" />
+    </sound>
     <sound name="bow">
         <sample path="mvz2:bow" weight="1" />
     </sound>
@@ -324,6 +327,9 @@
     </sound>
     <sound name="stunned">
         <sample path="mvz2:stunned" weight="1" />
+    </sound>
+    <sound name="swing">
+        <sample path="mvz2:swing" weight="1" />
     </sound>
     <sound name="tap" priority="64">
         <sample path="mvz2:tap" weight="1" />

@@ -94,5 +94,14 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetStarshardChance(level.GetStarshardChance() + value);
         }
+        public const string SPAWN_POINTS = "SpawnPoints";
+        public static float GetSpawnPoints(this LevelEngine level)
+        {
+            return level.GetProperty<float>(SPAWN_POINTS);
+        }
+        public static void SetSpawnPoints(this LevelEngine level, float value)
+        {
+            level.SetProperty(SPAWN_POINTS, value);
+        }
     }
 }

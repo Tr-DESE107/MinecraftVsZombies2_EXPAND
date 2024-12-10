@@ -6,6 +6,7 @@ namespace MVZ2.Vanilla.Level
     {
         public const string DOOR_Z = "doorZ";
         public const string NIGHT_VALUE = "nightValue";
+        public const string DARKNESS_VALUE = "darknessValue";
 
         public static float GetDoorZ(this LevelEngine game)
         {
@@ -14,6 +15,10 @@ namespace MVZ2.Vanilla.Level
         public static float GetNightValue(this LevelEngine level)
         {
             return level.GetProperty<float>(NIGHT_VALUE);
+        }
+        public static float GetDarknessValue(this LevelEngine level)
+        {
+            return level.GetProperty<float>(DARKNESS_VALUE);
         }
     }
 }

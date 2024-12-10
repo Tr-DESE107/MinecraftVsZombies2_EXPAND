@@ -1,4 +1,5 @@
 ﻿using MVZ2.Models;
+using PVZEngine.Models;
 using UnityEngine;
 
 namespace MVZ2.Level.UI
@@ -37,6 +38,10 @@ namespace MVZ2.Level.UI
             {
                 model = Instantiate(prefab.gameObject, modelRoot).GetComponent<Model>();
             }
+        }
+        public Model GetModel()
+        {
+            return model;
         }
         [SerializeField]
         private Transform modelRoot;

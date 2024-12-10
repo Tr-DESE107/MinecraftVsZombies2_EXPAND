@@ -8,6 +8,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -42,25 +43,16 @@ namespace MVZ2.GameContent.Implements
         {
             var bodyResult = result.BodyResult;
             var armorResult = result.ArmorResult;
-            if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
-            {
-                var shellDefinition = armorResult.ShellDefinition;
-                var entity = result.Entity;
-                entity.PlayHitSound(armorResult.Effects, shellDefinition);
-            }
+            var entity = result.Entity;
             if (bodyResult != null)
             {
-                var entity = bodyResult.Entity;
                 var shellDefinition = bodyResult.ShellDefinition;
-                if (!bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
-                {
-                    entity.PlayHitSound(bodyResult.Effects, shellDefinition);
-                }
                 if (bodyResult.Effects.HasEffect(VanillaDamageEffects.SLICE) && shellDefinition.IsSliceCritical())
                 {
                     entity.EmitBlood();
                 }
             }
+            result.PlayHitSound();
         }
         private void ChangeLaneUpdateCallback(Entity entity)
         {

@@ -14,6 +14,7 @@ using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
+using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -216,6 +217,34 @@ namespace MVZ2.Vanilla.Entities
         public static void PlaySound(this Entity entity, NamespaceID soundID, float pitch = 1)
         {
             entity.Level.PlaySound(soundID, entity.Position, pitch);
+        }
+        public static void PlayHitSound(this DamageOutput damage)
+        {
+            if (damage == null)
+                return;
+            var entity = damage.Entity;
+
+            var armorResult = damage.ArmorResult;
+            if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            {
+                if (armorResult.Effects.HasEffect(VanillaDamageEffects.WHACK))
+                {
+                    entity.PlaySound(VanillaSoundID.bonk);
+                }
+                PlayHitSound(entity, armorResult.Effects, armorResult.ShellDefinition);
+            }
+            var bodyResult = damage.BodyResult;
+            if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            {
+                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.WHACK))
+                {
+                    entity.PlaySound(VanillaSoundID.bonk);
+                }
+                else
+                {
+                    PlayHitSound(entity, bodyResult.Effects, bodyResult.ShellDefinition);
+                }
+            }
         }
         public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
         {

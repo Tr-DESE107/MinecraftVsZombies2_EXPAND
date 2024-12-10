@@ -7,6 +7,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using Tools;
 using UnityEngine;
 
@@ -106,25 +107,6 @@ namespace PVZEngine.Entities
         {
             return new EntityReferenceChain(this);
         }
-
-        #region 动画
-        public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
-        {
-            OnTriggerAnimation?.Invoke(name, target);
-        }
-        public void SetAnimationBool(string name, bool value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
-        {
-            OnSetAnimationBool?.Invoke(name, target, value);
-        }
-        public void SetAnimationInt(string name, int value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
-        {
-            OnSetAnimationInt?.Invoke(name, target, value);
-        }
-        public void SetAnimationFloat(string name, float value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
-        {
-            OnSetAnimationFloat?.Invoke(name, target, value);
-        }
-        #endregion
 
         #region 伤害
 
@@ -523,27 +505,55 @@ namespace PVZEngine.Entities
         #endregion
         public bool IsFacingLeft() => GetProperty<bool>(EngineEntityProps.FACE_LEFT_AT_DEFAULT) != FlipX;
 
+        #region 模型
+        public void SetModelInterface(IModelInterface model, IModelInterface armorModel)
+        {
+            modelInterface = model;
+            armorModelInterface = armorModel;
+        }
         public void ChangeModel(NamespaceID id)
         {
             ModelID = id;
-            OnModelChanged?.Invoke(id);
+            modelInterface.ChangeModel(id);
         }
         public void SetModelProperty(string name, object value)
         {
-            OnSetModelProperty?.Invoke(name, value);
+            modelInterface.SetModelProperty(name, value);
         }
         public void SetShaderInt(string name, int value)
         {
-            OnSetShaderInt?.Invoke(name, value);
+            modelInterface.SetShaderInt(name, value);
         }
         public void SetShaderFloat(string name, float value)
         {
-            OnSetShaderFloat?.Invoke(name, value);
+            modelInterface.SetShaderFloat(name, value);
         }
         public void SetShaderColor(string name, Color value)
         {
-            OnSetShaderColor?.Invoke(name, value);
+            modelInterface.SetShaderColor(name, value);
         }
+        public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        {
+            GetModelTarget(target).TriggerAnimation(name);
+        }
+        public void SetAnimationBool(string name, bool value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        {
+            GetModelTarget(target).SetAnimationBool(name, value);
+        }
+        public void SetAnimationInt(string name, int value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        {
+            GetModelTarget(target).SetAnimationInt(name, value);
+        }
+        public void SetAnimationFloat(string name, float value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        {
+            GetModelTarget(target).SetAnimationFloat(name, value);
+        }
+        private IModelInterface GetModelTarget(EntityAnimationTarget target)
+        {
+            return target == EntityAnimationTarget.Armor ? armorModelInterface : modelInterface;
+        }
+        #endregion
+
         public SerializableEntity Serialize()
         {
             var seri = new SerializableEntity();
@@ -679,21 +689,9 @@ namespace PVZEngine.Entities
 
         #region 事件
         public event Action PostInit;
-
-        public event Action<string, EntityAnimationTarget> OnTriggerAnimation;
-        public event Action<string, EntityAnimationTarget, bool> OnSetAnimationBool;
-        public event Action<string, EntityAnimationTarget, int> OnSetAnimationInt;
-        public event Action<string, EntityAnimationTarget, float> OnSetAnimationFloat;
-
         public event Action<Armor> OnEquipArmor;
         public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
         public event Action<Armor> OnRemoveArmor;
-
-        public event Action<NamespaceID> OnModelChanged;
-        public event Action<string, object> OnSetModelProperty;
-        public event Action<string, int> OnSetShaderInt;
-        public event Action<string, float> OnSetShaderFloat;
-        public event Action<string, Color> OnSetShaderColor;
         #endregion
 
         #region 属性字段
@@ -717,6 +715,8 @@ namespace PVZEngine.Entities
         public Hitbox MainHitbox { get; private set; }
         private List<EntityCollider> colliders = new List<EntityCollider>();
         private List<EntityCollider> enabledColliders = new List<EntityCollider>();
+        private IModelInterface modelInterface;
+        private IModelInterface armorModelInterface;
         #endregion
         public int PoolCount { get; set; }
         public int Timeout { get; set; } = -1;
