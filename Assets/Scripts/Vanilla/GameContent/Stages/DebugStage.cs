@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
@@ -33,7 +34,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.ghost,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.necromancer,
+                VanillaEffectID.rain,
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

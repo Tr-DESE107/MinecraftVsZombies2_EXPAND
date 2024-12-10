@@ -50,6 +50,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID pickaxe = Get("pickaxe");
         public readonly static NamespaceID potion = Get("potion");
         public readonly static NamespaceID punch = Get("punch");
+        public readonly static NamespaceID rain = Get("rain");
         public readonly static NamespaceID refuel = Get("refuel");
         public readonly static NamespaceID reviveCast = Get("revive_cast");
         public readonly static NamespaceID scream = Get("scream");

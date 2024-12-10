@@ -73,6 +73,7 @@
     <model name="bone_particles" type="entity" path="mvz2:effect/bone_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="blood_particles" type="entity" path="mvz2:effect/blood_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="smoke_cluster" type="entity" path="mvz2:effect/smoke_cluster" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="rain" type="entity" path="mvz2:effect/rain" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
@@ -92,4 +93,5 @@
     <model name="starshard.halloween" type="held" path="mvz2:held/starshards/halloween" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
     <model name="pickaxe" type="held" path="mvz2:held/pickaxe" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="trigger" type="held" path="mvz2:held/trigger" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
+    <model name="sword" type="held" path="mvz2:held/sword" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
 </models>

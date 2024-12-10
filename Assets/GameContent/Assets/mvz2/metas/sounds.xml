@@ -244,6 +244,9 @@
     <sound name="punch">
         <sample path="mvz2:punch" weight="1" />
     </sound>
+    <sound name="rain">
+        <sample path="mvz2:rain" weight="1" />
+    </sound>
     <sound name="ready_set_build" priority="64">
         <sample path="mvz2:ready_set_build" weight="1" />
     </sound>

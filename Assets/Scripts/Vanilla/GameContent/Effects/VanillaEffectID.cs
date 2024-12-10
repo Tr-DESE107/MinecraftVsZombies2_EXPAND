@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Effects
         public const string smoke = "smoke";
         public const string thunderBolt = "thunder_bolt";
         public const string evocationStar = "evocation_star";
+        public const string rain = "rain";
         public const string shineRing = "shine_ring";
         public const string stunStars = "stun_stars";
         public const string stunningFlash = "stunning_flash";
@@ -39,10 +40,11 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID smoke = Get(VanillaEffectNames.smoke);
         public static readonly NamespaceID thunderBolt = Get(VanillaEffectNames.thunderBolt);
         public static readonly NamespaceID evocationStar = Get(VanillaEffectNames.evocationStar);
+        public static readonly NamespaceID explosion = Get(VanillaEffectNames.explosion);
+        public static readonly NamespaceID rain = Get(VanillaEffectNames.rain);
         public static readonly NamespaceID shineRing = Get(VanillaEffectNames.shineRing);
         public static readonly NamespaceID stunStars = Get(VanillaEffectNames.stunStars);
         public static readonly NamespaceID stunningFlash = Get(VanillaEffectNames.stunningFlash);
-        public static readonly NamespaceID explosion = Get(VanillaEffectNames.explosion);
         public static readonly NamespaceID soulfire = Get(VanillaEffectNames.soulfire);
         public static readonly NamespaceID soulfireBurn = Get(VanillaEffectNames.soulfireBurn);
         public static readonly NamespaceID soulfireBlast = Get(VanillaEffectNames.soulfireBlast);

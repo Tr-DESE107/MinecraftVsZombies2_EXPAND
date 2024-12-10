@@ -509,5 +509,6 @@
         <effect id="smoke_cluster">
             <int name="maxTimeout" value="30"/>
         </effect>
+        <effect id="rain" />
     </entries>
 </entities>
