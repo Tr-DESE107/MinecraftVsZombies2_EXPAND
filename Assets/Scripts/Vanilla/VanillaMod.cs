@@ -140,6 +140,8 @@ namespace MVZ2.Vanilla
                 stage.SetLevelName(meta.Name);
                 stage.SetDayNumber(meta.DayNumber);
 
+                stage.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
+
                 stage.SetProperty(VanillaStageProps.START_TALK, meta.StartTalk);
                 stage.SetProperty(VanillaStageProps.END_TALK, meta.EndTalk);
                 stage.SetProperty(VanillaStageProps.MAP_TALK, meta.MapTalk);
@@ -153,6 +155,8 @@ namespace MVZ2.Vanilla
 
                 stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
                 stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
+
+                stage.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
 
                 foreach (var pair in meta.Properties)
                 {

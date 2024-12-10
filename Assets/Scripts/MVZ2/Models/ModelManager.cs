@@ -24,10 +24,12 @@ namespace MVZ2.Models
 
             // 相机渲染。
             modelShotCamera.orthographicSize = height * 0.005f;
+
             var localPos = modelShotPositionTransform.localPosition;
             localPos.x = modelOffset.x * 0.01f;
-            localPos.y = -modelShotCamera.orthographicSize + modelOffset.y * 0.01f;
+            localPos.y = modelOffset.y * 0.01f;
             modelShotPositionTransform.localPosition = localPos;
+
             SortingGroup.UpdateAllSortingGroups();
             modelShotCamera.Render();
 

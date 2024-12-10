@@ -5,10 +5,10 @@ using MukioI18n;
 using MVZ2.Almanacs;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Level.UI;
+using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Callbacks;
@@ -30,24 +30,16 @@ namespace MVZ2.Level
 
         public void SetHeldItemUI(NamespaceID heldType, long id, int priority, bool noCancel)
         {
-            Sprite icon = null;
-            if (heldType == BuiltinHeldTypes.blueprint)
+            var definition = Game.GetHeldItemDefinition(heldType);
+
+            Model model = null;
+            var modelID = definition?.GetModelID(level, id);
+            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
+            if (modelMeta != null)
             {
-                icon = GetHeldItemIcon(id);
+                model = Main.ResourceManager.GetModel(modelMeta.Path);
             }
-            else if (heldType == VanillaHeldTypes.pickaxe)
-            {
-                icon = Localization.GetSprite(pickaxeSprite);
-            }
-            else if (heldType == VanillaHeldTypes.starshard)
-            {
-                icon = Localization.GetSprite(GetStarshardIcon(level.AreaDefinition.GetID()));
-            }
-            else if (heldType == VanillaHeldTypes.trigger)
-            {
-                icon = Localization.GetSprite(triggerSprite);
-            }
-            ui.SetHeldItemIcon(icon);
+            ui.SetHeldItemModel(model);
 
 
             List<int> layers = new List<int>();
@@ -64,7 +56,6 @@ namespace MVZ2.Level
             {
                 layers.Add(Layers.PICKUP);
             }
-            var definition = Game.GetHeldItemDefinition(heldType);
             LayerMask layerMask = Layers.GetMask(layers.ToArray());
             var uiPreset = GetUIPreset();
             uiPreset.SetRaycasterMask(layerMask);
@@ -119,7 +110,7 @@ namespace MVZ2.Level
             ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
             ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
 
-            ui.SetHeldItemIcon(null);
+            ui.SetHeldItemModel(null);
             ui.SetPauseDialogActive(false);
             ui.SetOptionsDialogActive(false);
             ui.SetGameOverDialogActive(false);
@@ -700,15 +691,6 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             StarshardActive = Saves.IsStarshardUnlocked();
             TriggerActive = Saves.IsTriggerUnlocked();
-        }
-        private NamespaceID GetStarshardIcon(NamespaceID areaID)
-        {
-            var spriteID = new NamespaceID(areaID.spacename, $"starshards/{areaID.path}");
-            if (!Resources.GetSprite(spriteID))
-            {
-                spriteID = new NamespaceID(areaID.spacename, $"starshards/default");
-            }
-            return spriteID;
         }
 
         #endregion

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -6,6 +7,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -76,6 +78,16 @@ namespace MVZ2.GameContent.HeldItems
             {
                 level.PlaySound(VanillaSoundID.tap);
             }
+        }
+
+        public override NamespaceID GetModelID(LevelEngine level, long id)
+        {
+            var modelID = VanillaModelID.GetStarshardHeldItem(level.AreaDefinition.GetID());
+            if (Global.Game.GetModelMeta(modelID) == null)
+            {
+                return VanillaModelID.defaultStartShardHeldItem;
+            }
+            return modelID;
         }
     }
 }

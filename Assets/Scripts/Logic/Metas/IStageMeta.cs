@@ -13,6 +13,8 @@ namespace MVZ2Logic.Level
         string Type { get; }
         NamespaceID Unlock { get; }
 
+        NamespaceID MusicID { get; }
+
         NamespaceID StartTalk { get; }
         NamespaceID EndTalk { get; }
         NamespaceID MapTalk { get; }
@@ -27,6 +29,7 @@ namespace MVZ2Logic.Level
         int TotalFlags { get; }
         IEnemySpawnEntry[] Spawns { get; }
         int FirstWaveTime { get; }
+        float SpawnPointsMultiplier { get; }
 
         Dictionary<string, object> Properties { get; }
     }

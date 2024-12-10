@@ -1,5 +1,5 @@
 <stages>
-    <stage id="debug" name="测试关卡" >
+    <stage id="debug" name="测试关卡" type="special">
         <camera transition="instant"/>
     </stage>
     <stage id="tutorial" name="教程关" type="special">
@@ -77,11 +77,12 @@
             <integer name="statueCount" value="6" />
         </properties>
     </stage>
-    <stage id="halloween_6" name="万圣夜" dayNumber="6" type="minigame" unlock="mvz2:level.halloween_5" >
+    <stage id="halloween_6" name="万圣夜" dayNumber="6" type="minigame" unlock="mvz2:level.halloween_5" music="mvz2:minigame" >
+        <model preset="cloudy" />
         <talk start="mvz2:halloween_6" end="mvz2:halloween_6_over" map="mvz2:halloween_6_map" />
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:tnt"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" >
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" >
             <spawn id="mvz2:ghost"/>
         </spawns>
     </stage>
@@ -147,6 +148,7 @@
         </properties>
     </stage>
     <stage id="halloween_11" name="万圣夜" dayNumber="11" unlock="mvz2:level.halloween_10" >
+        <model preset="cloudy" />
         <talk start="mvz2:halloween_11" end="mvz2:halloween_11_over" map="mvz2:halloween_11_map" />
         <clear pickupModel="mvz2:entity.dream_key"/>
         <spawns flags="2" firstWaveTime="30" >

@@ -109,5 +109,19 @@ namespace MVZ2.Vanilla.HeldItems
         }
         public override bool IsForGrid() => true;
         public override bool IsForEntity() => false;
+        public override NamespaceID GetModelID(LevelEngine level, long id)
+        {
+            var seed = level.GetSeedPackAt((int)id);
+            if (seed == null)
+                return null;
+            var seedDef = seed.Definition;
+            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+            {
+                var entityID = seedDef.GetSeedEntityID();
+                var entityDef = level.Content.GetEntityDefinition(entityID);
+                return entityDef.GetModelID();
+            }
+            return null;
+        }
     }
 }

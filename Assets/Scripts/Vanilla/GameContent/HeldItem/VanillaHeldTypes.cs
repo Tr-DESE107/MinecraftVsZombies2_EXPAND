@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.HeldItems
         public const string pickaxe = "pickaxe";
         public const string starshard = "starshard";
         public const string trigger = "trigger";
+        public const string sword = "sword";
     }
     public static class VanillaHeldTypes
     {
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent.HeldItems
         public static readonly NamespaceID pickaxe = Get(VanillaHeldItemNames.pickaxe);
         public static readonly NamespaceID starshard = Get(VanillaHeldItemNames.starshard);
         public static readonly NamespaceID trigger = Get(VanillaHeldItemNames.trigger);
+        public static readonly NamespaceID sword = Get(VanillaHeldItemNames.sword);
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

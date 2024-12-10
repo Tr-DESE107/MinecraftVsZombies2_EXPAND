@@ -147,23 +147,29 @@ namespace MVZ2.Vanilla.Level
             level.StageDefinition.PostWave(level, wave);
             level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, level, wave);
         }
-        public static void SpawnWaveEnemies(this LevelEngine level, int wave)
+        public static float GetSpawnPoints(this LevelEngine level, int wave)
         {
-            var totalEnergy = Mathf.Ceil(wave / 3f);
+            var points = wave / 3f;
             if (level.IsHugeWave(wave))
             {
-                totalEnergy *= 2.5f;
+                points *= 2.5f;
             }
+            points *= level.GetSpawnPointMultiplier();
+            return Mathf.Ceil(points);
+        }
+        public static void SpawnWaveEnemies(this LevelEngine level, int wave)
+        {
+            var totalPoints = level.GetSpawnPoints(wave);
             var pool = level.GetEnemyPool();
             var spawnDefs = pool.Where(e => e.CanSpawn(level)).Select(e => e.GetSpawnDefinition(level.Content));
-            while (totalEnergy > 0)
+            while (totalPoints > 0)
             {
-                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalEnergy);
+                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalPoints);
                 if (validSpawnDefs.Count() <= 0)
                     break;
                 var spawnDef = validSpawnDefs.Random(level.GetSpawnRNG());
                 level.SpawnEnemyAtRandomLane(spawnDef);
-                totalEnergy -= spawnDef.SpawnCost;
+                totalPoints -= spawnDef.SpawnCost;
             }
 
             if (level.IsFinalWave(wave))

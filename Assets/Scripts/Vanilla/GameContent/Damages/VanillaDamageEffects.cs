@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID SACRIFICE = Get("sacrifice");
         public static readonly NamespaceID EXPLOSION = Get("explosion");
         public static readonly NamespaceID SELF_DAMAGE = Get("self_damage");
+        public static readonly NamespaceID WHACK = Get("whack");
 
         public static NamespaceID Get(string name)
         {

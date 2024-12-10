@@ -291,6 +291,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.IsFriendly(entity.Level.Option.LeftFaction);
         }
+        public static bool IsHostileEnemy(this Entity entity)
+        {
+            return !entity.IsFriendlyEnemy();
+        }
         public static EntitySeed GetEntitySeedDefinition(this Entity entity)
         {
             var game = Global.Game;

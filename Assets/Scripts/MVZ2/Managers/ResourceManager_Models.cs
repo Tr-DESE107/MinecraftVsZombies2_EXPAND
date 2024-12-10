@@ -30,6 +30,8 @@ namespace MVZ2.Managers
         #region 元数据
         public ModelMeta GetModelMeta(NamespaceID id)
         {
+            if (!NamespaceID.IsValid(id))
+                return null;
             var meta = GetModelMetaList(id.spacename);
             if (meta == null)
                 return null;

@@ -1,4 +1,5 @@
-﻿using PVZEngine.Base;
+﻿using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -20,6 +21,7 @@ namespace MVZ2Logic.HeldItems
         public virtual bool IsForEntity() => false;
         public virtual bool IsForGrid() => false;
         public virtual bool IsForPickup() => false;
+        public virtual NamespaceID GetModelID(LevelEngine level, long id) => null;
     }
     public enum LawnArea
     {

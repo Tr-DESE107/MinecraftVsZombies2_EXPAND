@@ -14,9 +14,13 @@ namespace MVZ2.Metas
         public string Type { get; private set; }
         public NamespaceID Unlock { get; private set; }
 
+        public NamespaceID MusicID { get; private set; }
+
         public NamespaceID StartTalk { get; private set; }
         public NamespaceID EndTalk { get; private set; }
         public NamespaceID MapTalk { get; private set; }
+
+        public string ModelPreset { get; private set; }
 
         public NamespaceID ClearPickupModel { get; private set; }
         public NamespaceID ClearPickupBlueprint { get; private set; }
@@ -26,6 +30,7 @@ namespace MVZ2.Metas
         public string StartTransition { get; private set; }
 
         public int TotalFlags { get; private set; }
+        public float SpawnPointsMultiplier { get; private set; }
         public EnemySpawnEntry[] Spawns { get; private set; }
         public int FirstWaveTime { get; private set; }
 
@@ -39,6 +44,10 @@ namespace MVZ2.Metas
             var type = node.GetAttribute("type") ?? StageTypes.TYPE_NORMAL;
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
+
+            var modelNode = node["model"];
+            var preset = modelNode?.GetAttribute("preset");
 
             var talkNode = node["talk"];
             var startTalk = talkNode?.GetAttributeNamespaceID("start", defaultNsp);
@@ -58,6 +67,7 @@ namespace MVZ2.Metas
             var spawnNode = node["spawns"];
             var flags = spawnNode?.GetAttributeInt("flags") ?? 1;
             var firstWaveTime = spawnNode?.GetAttributeInt("firstWaveTime") ?? 540;
+            var spawnPointsMultiplier = spawnNode?.GetAttributeFloat("pointsMultiplier") ?? 1;
             var spawns = new EnemySpawnEntry[spawnNode?.ChildNodes.Count ?? 0];
             for (int i = 0; i < spawns.Length; i++)
             {
@@ -73,6 +83,9 @@ namespace MVZ2.Metas
                 DayNumber = dayNumber,
                 Type = type,
                 Unlock = unlock,
+                MusicID = musicID,
+
+                ModelPreset = preset,
 
                 StartTalk = startTalk,
                 EndTalk = endTalk,
@@ -88,6 +101,7 @@ namespace MVZ2.Metas
                 TotalFlags = flags,
                 FirstWaveTime = firstWaveTime,
                 Spawns = spawns,
+                SpawnPointsMultiplier = spawnPointsMultiplier,
 
                 Properties = properties
             };

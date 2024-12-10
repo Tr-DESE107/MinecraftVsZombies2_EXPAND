@@ -298,6 +298,7 @@ namespace MVZ2.Level
                         {
                             entity.UpdateFixed();
                         }
+                        ui.UpdateHeldItemModelFixed();
                         UpdateEnemyCry();
                     }
                 }
@@ -343,9 +344,15 @@ namespace MVZ2.Level
                         heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
                     }
                     ui.SetHeldItemPosition(heldItemPosition);
+                    ui.UpdateHeldItemModelFrame(deltaTime * gameSpeed);
+                    ui.SetHeldItemModelSimulationSpeed(gameSpeed);
                     UpdateLevelUI();
 
                     levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
+                }
+                else
+                {
+                    ui.SetHeldItemModelSimulationSpeed(0);
                 }
             }
             if (isPaused)
@@ -382,6 +389,12 @@ namespace MVZ2.Level
             ui.SetOptionsDialogActive(false);
             ui.SetLevelLoadedDialogVisible(false);
             levelLoaded = false;
+        }
+        public void SetModelPreset(string name)
+        {
+            if (!model)
+                return;
+            model.SetPreset(name);
         }
         #endregion
 
@@ -690,6 +703,15 @@ namespace MVZ2.Level
                 return;
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<AreaModel>();
         }
+        private void InitLevelModel(NamespaceID stageId)
+        {
+            if (!model)
+                return;
+            var stageMeta = Resources.GetStageMeta(stageId);
+            if (stageMeta == null)
+                return;
+            model.SetPreset(stageMeta.ModelPreset);
+        }
         private IEnumerator StartLevelIntroDelayed(float delay)
         {
             yield return new WaitForSeconds(delay);
@@ -722,7 +744,10 @@ namespace MVZ2.Level
 
             levelRaycaster.Init(level);
             AddLevelCallbacks();
+
             CreateLevelModel(areaID);
+            InitLevelModel(stageID);
+
             talkSystem = new LevelTalkSystem(level, talkController);
 
             level.IsRerun = Saves.IsLevelCleared(stageID);

@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8749061831517456452}
   - component: {fileID: 5996849860487715985}
+  - component: {fileID: 1368649541266903725}
   m_Layer: 12
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8749061831517456452
 Transform:
   m_ObjectHideFlags: 0
@@ -86,6 +87,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1368649541266903725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702757986815588298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdab7c9fa104bd40b20b2cd68e8798e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  presetName: default
 --- !u!1 &832400486551388483
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorObjects: []
+  presets:
+  - {fileID: 1368649541266903725}
+  - {fileID: 2444012910812579451}
 --- !u!1 &6696145540963875398
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,13 +245,14 @@ GameObject:
   m_Component:
   - component: {fileID: 299756372484147714}
   - component: {fileID: 1310151774257788305}
+  - component: {fileID: 2444012910812579451}
   m_Layer: 12
   m_Name: Cloudy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &299756372484147714
 Transform:
   m_ObjectHideFlags: 0
@@ -302,6 +320,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2444012910812579451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6696145540963875398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdab7c9fa104bd40b20b2cd68e8798e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  presetName: cloudy
 --- !u!1 &6758134076092747385
 GameObject:
   m_ObjectHideFlags: 0

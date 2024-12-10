@@ -1,10 +1,12 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -79,5 +81,10 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override bool IsForGrid() => Global.IsMobile();
         public override bool IsForEntity() => !Global.IsMobile();
+
+        public override NamespaceID GetModelID(LevelEngine level, long id)
+        {
+            return VanillaModelID.pickaxeHeldItem;
+        }
     }
 }

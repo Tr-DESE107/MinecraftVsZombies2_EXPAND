@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.Level.UI;
+using MVZ2.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,9 +42,21 @@ namespace MVZ2.UI
         {
             heldItem.transform.position = worldPos;
         }
-        public void SetHeldItemIcon(Sprite sprite)
+        public void SetHeldItemModel(Model prefab)
         {
-            heldItem.SetIcon(sprite);
+            heldItem.SetModel(prefab);
+        }
+        public void UpdateHeldItemModelFixed()
+        {
+            heldItem.UpdateModelFixed();
+        }
+        public void UpdateHeldItemModelFrame(float deltaTime)
+        {
+            heldItem.UpdateModelFrame(deltaTime);
+        }
+        public void SetHeldItemModelSimulationSpeed(float speed)
+        {
+            heldItem.SetModelSimulationSpeed(speed);
         }
         #endregion
 
