@@ -14,16 +14,16 @@ namespace MVZ2.Level.Components
         public SoundComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
-        public override void Update()
+        public override void UpdateFrame(float deltaTime, float simulationSpeed)
         {
-            base.Update();
+            base.UpdateFrame(deltaTime, simulationSpeed);
             loopSoundBuffer.Clear();
             loopSoundBuffer.AddRange(loopSounds.Keys);
             foreach (var id in loopSoundBuffer)
             {
                 UpdateLoopSoundEntities(id);
             }
-            UpdatePlayingLoopSounds();
+            UpdatePlayingLoopSounds(deltaTime);
         }
         public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1)
         {
@@ -115,6 +115,10 @@ namespace MVZ2.Level.Components
                 loopSounds.Remove(id);
                 return;
             }
+            if (Controller.IsGamePaused())
+            {
+                return;
+            }    
             var entityID = entities.FirstOrDefault();
             var entity = Level.FindEntityByID(entityID);
             if (!IsPlayingLoopSound(id))
@@ -123,15 +127,15 @@ namespace MVZ2.Level.Components
             }
             SetLoopSoundPosition(id, entity.Position);
         }
-        private void UpdatePlayingLoopSounds()
+        private void UpdatePlayingLoopSounds(float deltaTime)
         {
             for (int i = playingLoopSounds.Count - 1; i >= 0; i--)
             {
                 var soundID = playingLoopSounds[i];
-                if (HasLoopSoundEntities(soundID))
+                if (HasLoopSoundEntities(soundID) && !Controller.IsGamePaused())
                     continue;
                 var volume = GetLoopSoundVolume(soundID);
-                volume -= VOLUME_FADE_SPEED;
+                volume -= deltaTime;
                 SetLoopSoundVolume(soundID, volume);
                 if (volume <= 0)
                 {
@@ -155,7 +159,6 @@ namespace MVZ2.Level.Components
             loopSounds = serializable.loopSounds.ToDictionary(p => p.id, p => new HashSet<long>(p.entities));
         }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "sound");
-        public const float VOLUME_FADE_SPEED = 0.1f;
         private Dictionary<NamespaceID, HashSet<long>> loopSounds = new Dictionary<NamespaceID, HashSet<long>>();
         private List<NamespaceID> playingLoopSounds = new List<NamespaceID>();
         private List<NamespaceID> loopSoundBuffer = new List<NamespaceID>();

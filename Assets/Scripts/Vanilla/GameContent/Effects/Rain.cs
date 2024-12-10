@@ -14,6 +14,8 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public Rain(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, true);
+            SetProperty(VanillaEntityProps.UPDATE_AFTER_GAME_OVER, true);
         }
         public override void Init(Entity entity)
         {

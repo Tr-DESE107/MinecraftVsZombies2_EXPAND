@@ -449,6 +449,20 @@ namespace MVZ2.Level
             var seedDef = seed.Definition;
             return Resources.GetBlueprintIconStandalone(seedDef);
         }
+        private void UpdateHeldItemPosition()
+        {
+            bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
+            Vector2 heldItemPosition;
+            if (Main.IsMobile() && !isPressing)
+            {
+                heldItemPosition = new Vector2(-1000, -1000);
+            }
+            else
+            {
+                heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
+            }
+            ui.SetHeldItemPosition(heldItemPosition);
+        }
         #endregion
 
         #region 选择蓝图

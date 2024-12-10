@@ -87,9 +87,11 @@ namespace PVZEngine.Level
                 grids[i] = new LawnGrid(this, definition, lane, column);
             }
         }
-        public void SetupArea()
+        public void Setup()
         {
             AreaDefinition.Setup(this);
+            StageDefinition.Setup(this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_SETUP, this);
         }
         public void Start()
         {

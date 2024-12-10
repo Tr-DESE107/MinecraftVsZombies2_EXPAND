@@ -8,6 +8,7 @@ namespace PVZEngine.Level
         public StageBehaviour(StageDefinition stageDef)
         {
         }
+        public virtual void Setup(LevelEngine level) { }
         public virtual void Start(LevelEngine level) { }
         public virtual void Update(LevelEngine level) { }
         public virtual void PrepareForBattle(LevelEngine level) { }

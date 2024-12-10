@@ -21,6 +21,10 @@ namespace MVZ2.Level.Components
         {
 
         }
+        public virtual void UpdateFrame(float deltaTime, float simulationSpeed)
+        {
+
+        }
         protected MainManager Main => MainManager.Instance;
         public LevelController Controller { get; private set; }
     }

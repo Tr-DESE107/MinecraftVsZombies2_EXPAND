@@ -12,6 +12,11 @@ namespace PVZEngine.Definitions
         {
             SetProperty(EngineStageProps.WAVES_PER_FLAG, 10);
         }
+        public void Setup(LevelEngine level)
+        {
+            behaviours.ForEach(b => b.Setup(level));
+            OnSetup(level);
+        }
         public void Start(LevelEngine level)
         {
             behaviours.ForEach(b => b.Start(level));
@@ -47,6 +52,7 @@ namespace PVZEngine.Definitions
             behaviours.ForEach(b => b.PostEnemySpawned(entity));
             OnPostEnemySpawned(entity);
         }
+        public virtual void OnSetup(LevelEngine level) { }
         public virtual void OnStart(LevelEngine level) { }
         public virtual void OnUpdate(LevelEngine level) { }
         public virtual void OnPrepareForBattle(LevelEngine level) { }

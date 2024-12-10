@@ -21,6 +21,7 @@ namespace PVZEngine.Callbacks
         public delegate void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damageResult);
         public delegate void PostRemoveArmor(Entity entity, Armor armor);
 
+        public delegate void PostLevelSetup(LevelEngine level);
         public delegate void PostLevelStart(LevelEngine level);
         public delegate void PostLevelUpdate(LevelEngine level);
         public delegate void PostLevelClear(LevelEngine level);
@@ -43,6 +44,7 @@ namespace PVZEngine.Callbacks
         public readonly static CallbackReference<PostRemoveArmor> POST_REMOVE_ARMOR = new();
 
 
+        public readonly static CallbackReference<PostLevelSetup> POST_LEVEL_SETUP = new();
         public readonly static CallbackReference<PostLevelStart> POST_LEVEL_START = new();
         public readonly static CallbackReference<PostLevelUpdate> POST_LEVEL_UPDATE = new();
         public readonly static CallbackReference<PostLevelClear> POST_LEVEL_CLEAR = new();

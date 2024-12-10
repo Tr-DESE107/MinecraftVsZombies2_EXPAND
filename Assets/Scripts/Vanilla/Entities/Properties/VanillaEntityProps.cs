@@ -136,6 +136,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         public const string UPDATE_BEFORE_GAME = "updateBeforeGame";
+        public const string UPDATE_AFTER_GAME_OVER = "updateAfterGameOver";
 
         #region 影子
         public static bool IsShadowHidden(this Entity entity) => entity.GetProperty<bool>(VanillaEntityProps.SHADOW_HIDDEN);
@@ -155,6 +156,10 @@ namespace MVZ2.Vanilla.Entities
         public static bool CanUpdateBeforeGameStart(this Entity entity)
         {
             return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
+        }
+        public static bool CanUpdateAfterGameOver(this Entity entity)
+        {
+            return entity.GetProperty<bool>(UPDATE_AFTER_GAME_OVER);
         }
 
         public const string IS_UNDEAD = "undead";

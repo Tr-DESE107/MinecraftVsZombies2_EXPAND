@@ -8,6 +8,7 @@ using MVZ2.Entities;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
 using MVZ2.Grids;
+using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2.Options;
@@ -53,7 +54,7 @@ namespace MVZ2.Level
                 TPS = 30
             };
             level.Init(areaID, stageID, option);
-            level.SetupArea();
+            level.Setup();
 
             var uiPreset = GetUIPreset();
             uiPreset.UpdateFrame(0);
@@ -262,6 +263,14 @@ namespace MVZ2.Level
                     killerEntity.Entity.Position = pos;
                     killerEntity.UpdateFixed();
                 }
+                foreach (var entity in entities.ToArray())
+                {
+                    if (CanUpdateAfterGameOver(entity.Entity))
+                    {
+                        entity.Entity.Update();
+                        entity.UpdateFixed();
+                    }
+                }
                 return;
             }
             else
@@ -306,70 +315,76 @@ namespace MVZ2.Level
         }
         public void UpdateFrame(float deltaTime)
         {
-            float gameSpeed = GetGameSpeed();
-            if (isGameOver)
+            float gameSpeed = isGameOver ? 1 : GetGameSpeed();
+            bool gameRunning = IsGameRunning();
+            // 更新实体动画。
+            foreach (var entity in entities)
             {
-                if (killerEntity)
+                bool modelActive = false;
+                if (isGameOver)
                 {
-                    float simulationSpeed = 1;
-                    killerEntity.SetSimulationSpeed(simulationSpeed);
-                    killerEntity.UpdateFrame(deltaTime);
+                    // 如果游戏结束，则只有在实体是杀死玩家的实体，或者在游戏结束后能行动时，才会动起来。
+                    modelActive = CanUpdateAfterGameOver(entity.Entity) || entity == killerEntity;
                 }
+                else
+                {
+                    // 游戏没有结束，则只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
+                    modelActive = gameRunning || CanUpdateBeforeGameStart(entity.Entity) || entity.Entity.IsPreviewEnemy();
+                }
+                float speed = modelActive ? gameSpeed : 0;
+                entity.SetSimulationSpeed(speed);
+                entity.UpdateFrame(deltaTime * speed);
             }
-            else
+            if (!isGameOver)
             {
-                // 更新实体动画。
-                // 只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
-                foreach (var entity in entities)
-                {
-                    bool modelActive = IsGameRunning() || CanUpdateBeforeGameStart(entity.Entity) || entity.Entity.IsPreviewEnemy();
-                    float simulationSpeed = modelActive ? gameSpeed : 0;
-                    entity.SetSimulationSpeed(simulationSpeed);
-                    entity.UpdateFrame(deltaTime * simulationSpeed);
-                }
-
                 // 游戏运行时更新UI。
-                if (IsGameRunning())
+                if (gameRunning)
                 {
                     AdvanceLevelProgress();
 
-                    bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
-                    Vector2 heldItemPosition;
-                    if (Main.IsMobile() && !isPressing)
-                    {
-                        heldItemPosition = new Vector2(-1000, -1000);
-                    }
-                    else
-                    {
-                        heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
-                    }
-                    ui.SetHeldItemPosition(heldItemPosition);
-                    ui.UpdateHeldItemModelFrame(deltaTime * gameSpeed);
-                    ui.SetHeldItemModelSimulationSpeed(gameSpeed);
+                    UpdateHeldItemPosition();
                     UpdateLevelUI();
 
                     levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
                 }
-                else
-                {
-                    ui.SetHeldItemModelSimulationSpeed(0);
-                }
+                // 更新手持物品。
+                var speed = gameRunning ? gameSpeed : 0;
+                ui.UpdateHeldItemModelFrame(deltaTime * speed);
+                ui.SetHeldItemModelSimulationSpeed(speed);
             }
-            if (isPaused)
+
+            bool paused = IsGamePaused();
+            // 暂停时显示金钱。
+            if (paused)
             {
                 ShowMoney();
             }
+
+            // 设置射线检测。
             ui.SetRaycastDisabled(IsInputDisabled());
+
+            // 设置光照。
             if (level != null)
             {
                 ui.SetNightValue(level.GetNightValue());
                 ui.SetDarknessValue(level.GetDarknessValue());
             }
+            // 更新UI。
+            var uiSimulationSpeed = paused ? 0 : gameSpeed;
+            var uiDeltaTime = deltaTime * uiSimulationSpeed;
+
             var uiPreset = GetUIPreset();
-            var uiDeltaTime = IsGamePaused() ? 0 : deltaTime * gameSpeed;
             uiPreset.UpdateFrame(uiDeltaTime);
             UpdateGridHighlight();
             UpdateInput();
+
+            foreach (var component in level.GetComponents())
+            {
+                if (component is MVZ2Component comp)
+                {
+                    comp.UpdateFrame(deltaTime, uiSimulationSpeed);
+                }
+            }
         }
         public void Pause()
         {
@@ -689,6 +704,10 @@ namespace MVZ2.Level
         {
             return entity.CanUpdateBeforeGameStart();
         }
+        private bool CanUpdateAfterGameOver(Entity entity)
+        {
+            return entity.CanUpdateAfterGameOver();
+        }
         private bool IsInputDisabled()
         {
             return level == null || level.IsCleared || isOpeningAlmanac;
@@ -706,12 +725,10 @@ namespace MVZ2.Level
         }
         private void InitLevelModel(NamespaceID stageId)
         {
-            if (!model)
-                return;
             var stageMeta = Resources.GetStageMeta(stageId);
             if (stageMeta == null)
                 return;
-            model.SetPreset(stageMeta.ModelPreset);
+            SetModelPreset(stageMeta.ModelPreset);
         }
         private IEnumerator StartLevelIntroDelayed(float delay)
         {
