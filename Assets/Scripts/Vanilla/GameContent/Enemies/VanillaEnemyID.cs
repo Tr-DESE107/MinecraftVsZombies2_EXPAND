@@ -19,6 +19,7 @@ namespace MVZ2.GameContent.Enemies
         public const string ghast = "ghast";
 
         public const string boneWall = "bone_wall";
+        public const string napstablook = "napstablook";
     }
     public static class VanillaEnemyID
     {
@@ -36,6 +37,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ghast = Get(VanillaEnemyNames.ghast);
 
         public static readonly NamespaceID boneWall = Get(VanillaEnemyNames.boneWall);
+        public static readonly NamespaceID napstablook = Get(VanillaEnemyNames.napstablook);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

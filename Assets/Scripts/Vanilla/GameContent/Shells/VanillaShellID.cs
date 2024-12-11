@@ -5,6 +5,7 @@ namespace MVZ2.GameContent.Shells
 {
     public static class VanillaShellNames
     {
+        public const string normal = "normal";
         public const string leather = "leather";
         public const string flesh = "flesh";
         public const string bone = "bone";
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent.Shells
     }
     public static class VanillaShellID
     {
+        public static readonly NamespaceID normal = Get(VanillaShellNames.normal);
         public static readonly NamespaceID leather = Get(VanillaShellNames.leather);
         public static readonly NamespaceID flesh = Get(VanillaShellNames.flesh);
         public static readonly NamespaceID bone = Get(VanillaShellNames.bone);

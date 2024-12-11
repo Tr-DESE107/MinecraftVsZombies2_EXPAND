@@ -269,6 +269,9 @@
     <sound name="shot">
         <sample path="mvz2:shot" weight="1" />
     </sound>
+    <sound name="shock">
+        <sample path="mvz2:shock" weight="1" />
+    </sound>
     <sound name="siren" maxCount="1" priority="64">
         <sample path="mvz2:siren" weight="1" />
     </sound>

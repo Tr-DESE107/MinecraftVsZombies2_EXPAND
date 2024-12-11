@@ -1,6 +1,8 @@
 using System;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.HeldItems;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -12,6 +14,15 @@ namespace MVZ2.Level.Components
     {
         public HeldItemComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
+        }
+        public override void Update()
+        {
+            base.Update();
+            var definition = Level.Content.GetHeldItemDefinition(heldItemType);
+            if (definition != null)
+            {
+                definition.Update(Level);
+            }
         }
         public bool IsHoldingItem()
         {

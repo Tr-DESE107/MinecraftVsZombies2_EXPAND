@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
@@ -56,15 +57,32 @@ namespace MVZ2.GameContent.Stages
             base.OnPostWave(level, wave);
             var timer = GetThunderTimer(level);
             timer.Frame = Mathf.Min(timer.Frame, 30);
+
+            var napstablookPoints = (wave - 5) / 3f;
+            if (level.IsHugeWave(wave))
+            {
+                napstablookPoints *= 2.5f;
+            }
+            var napstablookCount = Mathf.CeilToInt(napstablookPoints);
+            for (int i = 0; i < napstablookCount; i++)
+            {
+                var lane = level.GetRandomEnemySpawnLane();
+                var column = level.GetSpawnRNG().Next(0, 5);
+                var x = level.GetColumnX(column);
+                var z = level.GetEntityLaneZ(lane);
+                var y = level.GetGroundY(x, z);
+                var napstablook = level.Spawn(VanillaEnemyID.napstablook, new Vector3(x, y, z), null);
+                napstablook.SetScale(new Vector3(-1, 1, 1));
+                napstablook.SetDisplayScale(new Vector3(-1, 1, 1));
+                AddSpeedBuff(napstablook);
+            }
         }
         public override void OnPostEnemySpawned(Entity entity)
         {
             base.OnPostEnemySpawned(entity);
             var advanceDistance = entity.RNG.Next(0, entity.Level.GetGridWidth() * 3f);
             entity.Position += Vector3.left * advanceDistance;
-
-            var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
-            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(3, 5, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
+            AddSpeedBuff(entity);
         }
         private void SetThunderTimer(LevelEngine level, FrameTimer timer)
         {
@@ -73,6 +91,11 @@ namespace MVZ2.GameContent.Stages
         private FrameTimer GetThunderTimer(LevelEngine level)
         {
             return level.GetProperty<FrameTimer>("ThunderTimer");
+        }
+        private void AddSpeedBuff(Entity entity)
+        {
+            var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
+            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(3, 5, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
     }
 }

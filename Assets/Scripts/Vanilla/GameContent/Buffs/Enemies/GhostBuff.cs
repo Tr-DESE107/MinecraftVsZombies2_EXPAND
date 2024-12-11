@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 foreach (var buff in buffs)
                 {
                     buff.SetProperty(PROP_ETHEREAL, false);
-                    Ghost.SetEverIlluminated(entity, true);
+                    SetEverIlluminated(buff, true);
                 }
             }
             if (buffs.Any(b => b.GetProperty<bool>(PROP_ETHEREAL)))
@@ -70,6 +70,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public static void SetIlluminated(Buff buff, bool illuminated)
         {
+            if (illuminated)
+            {
+                SetEverIlluminated(buff, true);
+            }
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
@@ -86,11 +90,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             buff.SetProperty(PROP_TINT_MULTIPLIER, tint);
             buff.SetProperty(PROP_SHADOW_ALPHA, shadowAlpha);
             buff.SetProperty(PROP_ETHEREAL, ethereal);
-
-            if (illuminated)
-            {
-                Ghost.SetEverIlluminated(entity, true);
-            }
         }
         public static void Illuminate(Buff buff)
         {
@@ -106,6 +105,19 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             return TINT_ALPHA_MIN;
         }
+        public static void SetEverIlluminated(Buff buff, bool value)
+        {
+            buff.SetProperty(PROP_EVER_ILLUMINATED, value);
+        }
+        public static bool IsEverIlluminated(Buff buff)
+        {
+            return buff.GetProperty<bool>(PROP_EVER_ILLUMINATED);
+        }
+        public static bool IsEverIlluminated(Entity entity)
+        {
+            return entity.GetBuffs<GhostBuff>().Any(b => GhostBuff.IsEverIlluminated(b));
+        }
+        public const string PROP_EVER_ILLUMINATED = "EverIlluminated";
         public const string PROP_TINT_MULTIPLIER = "TintMultiplier";
         public const string PROP_SHADOW_ALPHA = "ShadowAlpha";
         public const string PROP_ETHEREAL = "Ethereal";

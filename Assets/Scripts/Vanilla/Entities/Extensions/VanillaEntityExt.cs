@@ -16,6 +16,8 @@ using PVZEngine.Entities;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -90,6 +92,14 @@ namespace MVZ2.Vanilla.Entities
         }
         private static bool PreTakeDamage(DamageInput damageInfo)
         {
+            Entity entity = damageInfo.Entity;
+            if (entity == null)
+                return false;
+            entity.Definition.PreTakeDamage(damageInfo);
+            if (damageInfo.Canceled)
+            {
+                return false;
+            }
             var triggers = damageInfo.Entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
             foreach (var trigger in triggers)
             {

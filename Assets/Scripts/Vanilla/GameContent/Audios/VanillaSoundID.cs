@@ -56,6 +56,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID reviveCast = Get("revive_cast");
         public readonly static NamespaceID scream = Get("scream");
         public readonly static NamespaceID screw = Get("screw");
+        public readonly static NamespaceID shock = Get("shock");
         public readonly static NamespaceID shot = Get("shot");
         public readonly static NamespaceID siren = Get("siren");
         public readonly static NamespaceID slice = Get("slice");

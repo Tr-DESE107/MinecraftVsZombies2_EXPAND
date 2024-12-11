@@ -474,7 +474,7 @@ namespace MVZ2.Level
         {
             bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
             Vector2 heldItemPosition;
-            if (Main.IsMobile() && !isPressing)
+            if (Main.IsMobile() && !isPressing && !level.KeepHeldItemInScreen())
             {
                 heldItemPosition = new Vector2(-1000, -1000);
             }

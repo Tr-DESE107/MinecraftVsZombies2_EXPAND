@@ -332,7 +332,7 @@ namespace MVZ2.Vanilla.Level
         public static void Thunder(this LevelEngine level) 
         {
             level.AddBuff<ThunderBuff>();
-            foreach (var ghost in level.FindEntities(VanillaEnemyID.ghost))
+            foreach (var ghost in level.GetEntities())
             {
                 foreach (var buff in ghost.GetBuffs<GhostBuff>())
                 {

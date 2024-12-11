@@ -39,7 +39,7 @@ namespace MVZ2.Vanilla.Entities
         }
         protected virtual void UpdateLogic(Entity entity)
         {
-            if (entity.IsFriendlyEnemy())
+            if (entity.IsFriendlyEnemy() || !entity.IsFacingLeft())
             {
                 if (IsOutsideView(entity))
                 {

@@ -167,6 +167,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b8ba75cdb635b54db18d67e1674ea4d
+    m_Address: mvz2:entity/enemy/napstablook
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb1d4fd287008034c97609f5686628e6
     m_Address: mvz2:entity/enemy/mummy
     m_ReadOnly: 0
@@ -2497,6 +2503,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75aeaeb2218da954b8273a0ea8a1b93f
     m_Address: mvz2:enemy/necromancer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f85f2ef6d4079c14daceec24db946d68
+    m_Address: mvz2:enemy/napstablook
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

@@ -15,6 +15,7 @@ namespace MVZ2.Vanilla.Level
         public const string MUSIC_ID = "musicId";
         public const string PICKAXE_DISABLED = "pickaxeDisabled";
         public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
+        public const string KEEP_HELD_ITEM_IN_SCREEN = "keepHeldItemInScreen";
         public static IEnemySpawnEntry[] GetEnemyPool(this LevelEngine game)
         {
             return game.GetProperty<IEnemySpawnEntry[]>(ENEMY_POOL);
@@ -62,6 +63,10 @@ namespace MVZ2.Vanilla.Level
         public static void AddStarshardCount(this LevelEngine game, int value)
         {
             game.SetStarshardCount(game.GetStarshardCount() + value);
+        }
+        public static bool KeepHeldItemInScreen(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(KEEP_HELD_ITEM_IN_SCREEN);
         }
 
         public const string FIRST_GEM = "firstGem";

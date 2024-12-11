@@ -12,6 +12,7 @@ namespace PVZEngine.Entities
         }
         public virtual void Init(Entity entity) { }
         public virtual void Update(Entity entity) { }
+        public virtual void PreTakeDamage(DamageInput input) { }
         public virtual void PostTakeDamage(DamageOutput result) { }
         public virtual void PostContactGround(Entity entity, Vector3 velocity) { }
         public virtual void PostLeaveGround(Entity entity) { }

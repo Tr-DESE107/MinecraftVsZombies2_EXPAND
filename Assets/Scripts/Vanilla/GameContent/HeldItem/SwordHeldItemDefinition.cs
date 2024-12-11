@@ -1,4 +1,7 @@
-﻿using MVZ2.GameContent.Damages;
+﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -7,6 +10,7 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -20,6 +24,10 @@ namespace MVZ2.GameContent.HeldItems
         public SwordHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Update(LevelEngine level)
+        {
+            level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
+        }
         public override bool IsForEntity() => true;
         public override bool IsForPickup() => true;
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
@@ -28,9 +36,12 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.ENEMY:
-                    if (entity.IsHostileEnemy())
+                    if (!IsParalyzed(entity.Level))
                     {
-                        flags |= HeldFlags.Valid | HeldFlags.NoHighlight;
+                        if (entity.IsHostileEnemy())
+                        {
+                            flags |= HeldFlags.Valid | HeldFlags.NoHighlight;
+                        }
                     }
                     break;
                 case EntityTypes.PICKUP:
@@ -100,8 +111,29 @@ namespace MVZ2.GameContent.HeldItems
         {
             return 16;
         }
+        public static void Paralyze(LevelEngine level)
+        {
+            var buff = level.AddBuff<SwordParalyzedBuff>();
+            var timeout = 45;
+            if (level.Difficulty == VanillaDifficulties.easy)
+            {
+                timeout = 22;
+            }
+            else if (level.Difficulty == VanillaDifficulties.hard)
+            {
+                timeout = 90;
+            }
+            buff.SetProperty(SwordParalyzedBuff.PROP_TIMEOUT, timeout);
+            level.PlaySound(VanillaSoundID.shock);
+        }
+        public static bool IsParalyzed(LevelEngine level)
+        {
+            return level.HasBuff<SwordParalyzedBuff>();
+        }
         private void Swing(LevelEngine level)
         {
+            if (IsParalyzed(level))
+                return;
             level.GetHeldItemModelInterface()?.TriggerAnimation("Swing");
             level.PlaySound(VanillaSoundID.swing);
         }

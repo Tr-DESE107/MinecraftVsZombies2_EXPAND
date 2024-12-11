@@ -292,11 +292,18 @@ namespace PVZEngine.Level
             }
             return false;
         }
-        public void AddBuff<T>() where T : BuffDefinition
+        public Buff AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(CreateBuff<T>(AllocBuffID()));
+            var buff = CreateBuff<T>(AllocBuffID());
+            AddBuff(buff);
+            return buff;
         }
-        public void AddBuff(BuffDefinition buffDef) => buffs.AddBuff(CreateBuff(buffDef, AllocBuffID()));
+        public Buff AddBuff(BuffDefinition buffDef)
+        {
+            var buff = CreateBuff(buffDef, AllocBuffID());
+            buffs.AddBuff(buff);
+            return buff;
+        }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
         public int RemoveBuffs(BuffDefinition buffDef) => RemoveBuffs(GetBuffs(buffDef));

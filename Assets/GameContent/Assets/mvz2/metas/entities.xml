@@ -334,6 +334,17 @@
 
             <int name="cost" value="25" />
         </enemy>
+        <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……" unlock="mvz2:level.halloween_6">
+            <bool name="harmless" value="true"/>
+            <bool name="noReward" value="true"/>
+            <float name="friction" value="0.05"/>
+            <float name="maxHealth" value="10000"/>
+            <id name="shell" value="mvz2:normal"/>
+            <id name="crySound" null="true"/>
+            <id name="deathSound" null="true"/>
+
+            <int name="cost" value="0" />
+        </enemy>
 
         <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">
