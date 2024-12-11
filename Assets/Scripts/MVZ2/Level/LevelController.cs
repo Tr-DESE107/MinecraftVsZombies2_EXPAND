@@ -361,12 +361,6 @@ namespace MVZ2.Level
             // 设置射线检测。
             ui.SetRaycastDisabled(IsInputDisabled());
 
-            if (level != null)
-            {
-                // 设置光照。
-                ui.SetNightValue(level.GetNightValue());
-                ui.SetDarknessValue(level.GetDarknessValue());
-            }
             // 更新UI。
             var uiSimulationSpeed = paused ? 0 : gameSpeed;
             var uiDeltaTime = deltaTime * uiSimulationSpeed;
@@ -376,11 +370,17 @@ namespace MVZ2.Level
             UpdateGridHighlight();
             UpdateInput();
 
-            foreach (var component in level.GetComponents())
+            if (level != null)
             {
-                if (component is MVZ2Component comp)
+                // 设置光照。
+                ui.SetNightValue(level.GetNightValue());
+                ui.SetDarknessValue(level.GetDarknessValue());
+                foreach (var component in level.GetComponents())
                 {
-                    comp.UpdateFrame(deltaTime, uiSimulationSpeed);
+                    if (component is MVZ2Component comp)
+                    {
+                        comp.UpdateFrame(deltaTime, uiSimulationSpeed);
+                    }
                 }
             }
         }
@@ -467,13 +467,12 @@ namespace MVZ2.Level
             Saves.SetMapTalk(level.GetMapTalk());
 
             var stageID = level.StageID;
-            var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
+            var endTalk = level.GetEndTalk();
 
             float transitionDelay = 3;
-            if (!level.IsRerun && !await talkController.TrySkipTalkAsync(endTalk, 0))
+            if (!level.IsRerun)
             {
-                transitionDelay = 0;
-                await talkController.StartTalkAsync(endTalk, 0, 5);
+                await talkController.SimpleStartTalkAsync(endTalk, 0, 5, () => transitionDelay = 0);
             }
             StartExitLevelTransition(transitionDelay);
         }
@@ -730,10 +729,9 @@ namespace MVZ2.Level
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
             var startTalk = level.GetStartTalk() ?? level.StageID;
-            if (!level.IsRerun && !await talkController.TrySkipTalkAsync(startTalk, 0))
+            if (!level.IsRerun)
             {
-                Music.Play(VanillaMusicID.mainmenu);
-                await talkController.StartTalkAsync(startTalk, 0, 2);
+                await talkController.SimpleStartTalkAsync(startTalk, 0, 2, () => Music.Play(VanillaMusicID.mainmenu));
             }
             level.BeginLevel();
         }

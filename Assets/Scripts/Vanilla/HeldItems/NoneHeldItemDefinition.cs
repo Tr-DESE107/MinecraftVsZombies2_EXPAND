@@ -41,13 +41,15 @@ namespace MVZ2.Vanilla.HeldItems
                 case EntityTypes.PICKUP:
                     if (phase != PointerPhase.Release)
                     {
-                        entity.Collect();
+                        if (!entity.IsCollected())
+                            entity.Collect();
                     }
                     break;
                 case EntityTypes.CART:
                     if (phase == PointerPhase.Press)
                     {
-                        entity.TriggerCart();
+                        if (!entity.IsCartTriggered())
+                            entity.TriggerCart();
                     }
                     break;
             }

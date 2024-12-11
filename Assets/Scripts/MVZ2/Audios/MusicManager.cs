@@ -60,7 +60,7 @@ namespace MVZ2.Audios
         }
         private void Awake()
         {
-            volumeFader.OnValueChanged += value => SetVolume(value);
+            volumeFader.OnValueChanged += value => musicSource.volume = value;
         }
         private void Play(AudioClip clip)
         {

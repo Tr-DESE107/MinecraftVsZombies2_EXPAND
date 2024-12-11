@@ -83,7 +83,8 @@ namespace MVZ2.GameContent.HeldItems
                 case EntityTypes.CART:
                     if (phase == PointerPhase.Press)
                     {
-                        entity.TriggerCart();
+                        if (!entity.IsCartTriggered())
+                            entity.TriggerCart();
                         Swing(entity.Level);
                     }
                     return false;
