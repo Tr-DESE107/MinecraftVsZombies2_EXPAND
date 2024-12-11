@@ -33,15 +33,15 @@ namespace PVZEngine.Auras
         }
         public void UpdateAura(LevelEngine level)
         {
-            var entities = Definition.GetAuraTargets(level, this);
-            foreach (var entity in entities)
+            var targets = Definition.GetAuraTargets(level, this).Where(t => t != null);
+            foreach (var target in targets)
             {
-                UpdateBuffTarget(entity);
+                UpdateBuffTarget(target);
             }
             var missingEntities = buffDict.Where(p => !p.Key.Exists()).ToArray();
             foreach (var pair in missingEntities)
             {
-                RemoveEntityBuff(pair.Key, pair.Value);
+                RemoveTargetBuff(pair.Key, pair.Value);
             }
         }
         public SerializableAuraEffect ToSerializable()
@@ -61,37 +61,37 @@ namespace PVZEngine.Auras
                 .Where(b => b.Item1 != null && b.Item2 != null)
                 .ToDictionary(p => p.Item1, p => p.Item2);
         }
-        private void UpdateBuffTarget(IBuffTarget entity)
+        private void UpdateBuffTarget(IBuffTarget target)
         {
-            var buff = GetEntityBuff(entity);
-            if (Definition.CheckCondition(this, entity))
+            var buff = GetTargetBuff(target);
+            if (Definition.CheckCondition(this, target))
             {
                 if (buff == null)
                 {
-                    buff = AddEntityBuff(entity);
+                    buff = AddTargetBuff(target);
                 }
-                Definition.UpdateTargetBuff(this, entity, buff);
+                Definition.UpdateTargetBuff(this, target, buff);
             }
             else
             {
                 if (buff != null)
                 {
-                    RemoveEntityBuff(entity, buff);
+                    RemoveTargetBuff(target, buff);
                 }
             }
         }
-        private Buff AddEntityBuff(IBuffTarget entity)
+        private Buff AddTargetBuff(IBuffTarget entity)
         {
             var buff = entity.CreateBuff(Definition.BuffID);
             entity.AddBuff(buff);
             buffDict.Add(entity, buff);
             return buff;
         }
-        private Buff GetEntityBuff(IBuffTarget entity)
+        private Buff GetTargetBuff(IBuffTarget entity)
         {
             return buffDict.TryGetValue(entity, out var buff) ? buff : null;
         }
-        private bool RemoveEntityBuff(IBuffTarget entity, Buff buff)
+        private bool RemoveTargetBuff(IBuffTarget entity, Buff buff)
         {
             if (buffDict.Remove(entity))
             {
