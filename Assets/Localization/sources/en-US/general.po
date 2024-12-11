@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 03:47+0800\n"
-"PO-Revision-Date: 2024-12-09 15:50+0800\n"
+"POT-Creation-Date: 2024-12-11 06:43+0800\n"
+"PO-Revision-Date: 2024-12-11 18:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -280,122 +280,122 @@ msgstr "Please input your name"
 msgid "取消"
 msgstr "Cancel"
 
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:200
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:205
 msgctxt "advice.starshard_tutorial.0"
 msgid "点击星之碎片槽选中星之碎片！！"
 msgstr "Click the Starshard to select it!"
 
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:202
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:207
 msgctxt "advice.starshard_tutorial.1"
 msgid "点击发射器！"
 msgstr "Click the Dispenser!"
 
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:204
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:209
 msgctxt "advice.starshard_tutorial.2"
 msgid "干得漂亮！"
 msgstr "Well done!"
 
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:206
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:211
 msgctxt "advice.starshard_tutorial.3"
 msgid "绿色的怪物会携带星之碎片！"
 msgstr "Green enemies carry Starshards!"
 
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:208
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:213
 msgctxt "advice.starshard_tutorial.4"
 msgid "点击收集星之碎片！"
 msgstr "Click to collect Starshards!"
 
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:210
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:215
 msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr "Now defeat the Iron Helmet Zombie!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:448
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:454
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
 msgstr "Click a blueprint to choose a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:450
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:456
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr "Click the lawn to place a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:452
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:458
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr "Nicely done!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:454
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:460
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr "Click redstone to collect energy!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:456
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:462
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr "Collect enough energy to place contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:458
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:464
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr "Defeat the zombie with your Dispenser!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:460
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:466
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr "Well done!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:462
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:468
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr "Select Furnace and place it!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:464
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:470
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr "Furnaces can provide you additional redstone!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:466
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:472
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr "The more Furnaces you have, the faster you can build!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:468
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:474
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr "Place at least three Furnaces!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:470
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:476
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr "Block the zombie with Obsidian!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:472
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:478
 msgctxt "advice.tutorial.12"
 msgid "干得漂亮！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:474
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:480
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr "Mine TNTs can blow up enemies after arming itself!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:476
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:482
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr "Blow up the Iron Helmet Zombie with Mine TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:478
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:484
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:480
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:486
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr "Finally, the pickaxe can dig out placed contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:482
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:488
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
@@ -734,7 +734,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:459
+#: Scripts\MVZ2\Map\MapController.cs:468
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -742,7 +742,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:461
+#: Scripts\MVZ2\Map\MapController.cs:470
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -750,7 +750,7 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:463
+#: Scripts\MVZ2\Map\MapController.cs:472
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
@@ -777,12 +777,12 @@ msgstr "Quit?"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:182
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:184
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:718
+#: Scripts\MVZ2\Level\LevelController_UI.cs:759
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -790,28 +790,28 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:720
+#: Scripts\MVZ2\Level\LevelController_UI.cs:761
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:722
+#: Scripts\MVZ2\Level\LevelController_UI.cs:763
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
 "game state."
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:724
+#: Scripts\MVZ2\Level\LevelController_UI.cs:765
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:218
+#: Scripts\MVZ2\Archive\ArchiveController.cs:225
 msgid "<b>[{0}]</b> {1}"
 msgstr "<b>[{0}]</b> {1}"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:220
+#: Scripts\MVZ2\Archive\ArchiveController.cs:227
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -830,6 +830,18 @@ msgstr "Cost: <color=red>{0}</color>"
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
+
+#. Name for stage mvz2:debug
+#: Stage meta file
+msgctxt "levelname"
+msgid "测试关卡"
+msgstr "Debug Stage"
+
+#. Name for stage mvz2:tutorial
+#: Stage meta file
+msgctxt "levelname"
+msgid "教程关"
+msgstr "Tutorial"
 
 #. Name for stat category mvz2:contraption_place
 #: Stats meta file

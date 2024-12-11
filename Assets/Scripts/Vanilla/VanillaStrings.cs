@@ -93,10 +93,6 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_LEVEL_NAME = "levelname";
         [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]
         public const string LEVEL_NAME_UNKNOWN = "未知关卡";
-        [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]
-        public const string LEVEL_NAME_PROLOGUE = "序章";
-        [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]
-        public const string LEVEL_NAME_HALLOWEEN = "万圣夜";
         [TranslateMsg("关卡名称，{0}为关卡名，{1}为冒险模式天数", CONTEXT_LEVEL_NAME)]
         public const string LEVEL_NAME_DAY_TEMPLATE = "{0} - 第{1}天";
 

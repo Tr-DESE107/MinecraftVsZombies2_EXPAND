@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-09 05:46+0800\n"
+"POT-Creation-Date: 2024-12-11 06:43+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -653,7 +653,7 @@ msgstr ""
 #. Header for misc mvz2:napstablook
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "小幽灵会在你使用铁剑击中时生气，然后麻痹你的剑。"
+msgid "小幽灵会在你使用铁剑击中它时生气，然后麻痹你的剑。"
 msgstr ""
 
 #. Flavor for misc mvz2:napstablook
@@ -1234,6 +1234,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "你是怎么做到的？"
+msgstr ""
+
+#. Header for entity mvz2:napstablook
+#: Entity meta file
+msgctxt "entity.name"
+msgid "小幽灵"
+msgstr ""
+
+#. Death message for entity mvz2:napstablook
+#: Entity meta file
+msgctxt "death_message"
+msgid "抱歉……我不是有意这么做的……"
 msgstr ""
 
 #. Header for entity mvz2:gargoyle_statue

@@ -56,6 +56,15 @@ namespace MVZ2.Editor
 
             // 统计
             var spaceName = "mvz2";
+            // 关卡
+            var stageDocument = LoadMetaXmlDocument(spaceName, "stages.xml");
+            var stageList = StageMetaList.FromXmlNode(stageDocument["stages"], spaceName);
+            var stageReference = "Stage meta file";
+            foreach (var meta in stageList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(potGenerator, meta.Name, stageReference, $"Name for stage {id}", VanillaStrings.CONTEXT_LEVEL_NAME);
+            }
             // 统计
             var statsDocument = LoadMetaXmlDocument(spaceName, "stats.xml");
             var statsEntryList = StatMetaList.FromXmlNode(statsDocument["stats"], spaceName);

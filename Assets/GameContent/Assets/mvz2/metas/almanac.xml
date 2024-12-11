@@ -386,9 +386,9 @@
                     <p>南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:napstablook" name="小幽灵" unlock="mvz2:level.halloween_6">
+            <entry id="mvz2:napstablook" name="小幽灵" model="mvz2:entity.napstablook" unlock="mvz2:level.halloween_6">
                 <header>
-                    <p>小幽灵会在你使用铁剑击中时生气，然后麻痹你的剑。</p>
+                    <p>小幽灵会在你使用铁剑击中它时生气，然后麻痹你的剑。</p>
                 </header>
                 <flavor>
                     <p>只是个路过的幽灵而已。</p>
