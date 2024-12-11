@@ -8,6 +8,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
@@ -71,7 +72,7 @@ namespace MVZ2.Level
                 // 自动拾取
                 if (Input.GetMouseButton((int)MouseButton.LeftMouse))
                 {
-                    level.HoverOnEntity(entityCtrl.Entity);
+                    level.UseOnEntity(entityCtrl.Entity, PointerPhase.Enter);
                 }
             }
             else
@@ -116,7 +117,7 @@ namespace MVZ2.Level
                 bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
                 if (heldFlags.HasFlag(HeldFlags.Valid))
                 {
-                    reset = level.UseOnEntity(entity);
+                    reset = level.UseOnEntity(entity, PointerPhase.Press);
                 }
                 if (reset)
                 {

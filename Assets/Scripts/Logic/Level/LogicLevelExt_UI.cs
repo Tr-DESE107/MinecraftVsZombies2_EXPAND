@@ -16,6 +16,11 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.ShowMoney();
         }
+        public static void SetEnergyActive(this LevelEngine level, bool visible)
+        {
+            var component = level.GetUIComponent();
+            component.SetEnergyActive(visible);
+        }
         public static void SetBlueprintsActive(this LevelEngine level, bool visible)
         {
             var component = level.GetUIComponent();

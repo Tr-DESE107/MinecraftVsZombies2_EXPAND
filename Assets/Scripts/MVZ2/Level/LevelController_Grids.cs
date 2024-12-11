@@ -1,6 +1,7 @@
 ﻿using System;
 using MVZ2.Grids;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using UnityEngine;
@@ -40,15 +41,13 @@ namespace MVZ2.Level
         }
         private void UI_OnGridPointerDownCallback(int lane, int column, PointerEventData data)
         {
-            if (Main.IsMobile())
-                return;
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            ClickOnGrid(lane, column);
+            ClickOnGrid(lane, column, PointerPhase.Press);
         }
 
         #endregion
-        private void ClickOnGrid(int lane, int column)
+        private void ClickOnGrid(int lane, int column, PointerPhase phase)
         {
             if (!IsGameRunning())
                 return;
@@ -58,7 +57,7 @@ namespace MVZ2.Level
             bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
             if (heldFlags.HasFlag(HeldFlags.Valid))
             {
-                reset = level.UseOnGrid(grid);
+                reset = level.UseOnGrid(grid, phase);
             }
             else
             {

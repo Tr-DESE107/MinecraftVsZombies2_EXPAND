@@ -71,25 +71,20 @@ namespace MVZ2Logic.Level
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
             return heldItemDef.IsForPickup();
         }
-        public static bool UseOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
+        public static bool UseOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId, PointerPhase phase)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            return heldItemDef.UseOnEntity(entity, heldId);
+            return heldItemDef.UseOnEntity(entity, heldId, phase);
         }
-        public static void HoverOnEntity(this LevelEngine level, Entity entity, NamespaceID heldType, long heldId)
+        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId, PointerPhase phase)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            heldItemDef.HoverOnEntity(entity, heldId);
+            return heldItemDef.UseOnGrid(grid, heldId, phase);
         }
-        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, long heldId)
+        public static void UseOnLawn(this LevelEngine level, LawnArea area, NamespaceID heldType, long heldId, PointerPhase phase)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            return heldItemDef.UseOnGrid(grid, heldId);
-        }
-        public static void UseOnLawn(this LevelEngine level, LawnArea area, NamespaceID heldType, long heldId)
-        {
-            var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            heldItemDef.UseOnLawn(level, area, heldId);
+            heldItemDef.UseOnLawn(level, area, heldId, phase);
         }
         public static HeldFlags GetHeldFlagsOnEntity(this LevelEngine level, Entity entity)
         {
@@ -103,21 +98,17 @@ namespace MVZ2Logic.Level
         {
             return level.GetHeldErrorMessageOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID());
         }
-        public static bool UseOnEntity(this LevelEngine level, Entity entity)
+        public static bool UseOnEntity(this LevelEngine level, Entity entity, PointerPhase phase)
         {
-            return level.UseOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemID());
+            return level.UseOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemID(), phase);
         }
-        public static void HoverOnEntity(this LevelEngine level, Entity entity)
+        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, PointerPhase phase)
         {
-            level.HoverOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemID());
+            return level.UseOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID(), phase);
         }
-        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid)
+        public static void UseOnLawn(this LevelEngine level, LawnArea area, PointerPhase phase)
         {
-            return level.UseOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemID());
-        }
-        public static void UseOnLawn(this LevelEngine level, LawnArea area)
-        {
-            level.UseOnLawn(area, level.GetHeldItemType(), level.GetHeldItemID());
+            level.UseOnLawn(area, level.GetHeldItemType(), level.GetHeldItemID(), phase);
         }
         public static IModelInterface GetHeldItemModelInterface(this LevelEngine level)
         {

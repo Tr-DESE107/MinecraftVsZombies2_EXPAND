@@ -46,6 +46,10 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region ÄÜÁ¿
+        public void SetEnergyActive(bool value)
+        {
+            energyPanel.gameObject.SetActive(value);
+        }
         public void SetEnergy(string value)
         {
             energyPanel.SetEnergy(value);

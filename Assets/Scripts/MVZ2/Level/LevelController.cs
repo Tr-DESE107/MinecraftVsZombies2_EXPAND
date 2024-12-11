@@ -19,6 +19,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Talk;
@@ -582,22 +583,20 @@ namespace MVZ2.Level
         }
         private void OnLeftPointerUp(Vector2 screenPosition)
         {
-            if (!Main.IsMobile())
-                return;
             var gameObject = GetRaycastGameObject(screenPosition);
             if (!gameObject || !gameObject.activeInHierarchy)
                 return;
             var grid = gameObject.GetComponentInParent<GridController>();
             if (grid)
             {
-                ClickOnGrid(grid.Lane, grid.Column);
+                ClickOnGrid(grid.Lane, grid.Column, PointerPhase.Release);
                 return;
             }
 
             var receiver = gameObject.GetComponentInParent<RaycastReceiver>();
             if (receiver)
             {
-                ClickOnReceiver(receiver);
+                ClickOnReceiver(receiver, PointerPhase.Release);
                 return;
             }
         }
@@ -819,6 +818,16 @@ namespace MVZ2.Level
             get => Music.Time;
             set => Music.Time = value;
         }
+        public bool EnergyActive
+        {
+            get => energyActive;
+            set
+            {
+                energyActive = value;
+                var uiPreset = GetUIPreset();
+                uiPreset.SetEnergyActive(value);
+            }
+        }
         public bool BlueprintsActive
         {
             get => blueprintsActive;
@@ -859,6 +868,7 @@ namespace MVZ2.Level
                 uiPreset.SetTriggerActive(value);
             }
         }
+        private bool energyActive = true;
         private bool blueprintsActive = true;
         private bool pickaxeActive = true;
         private bool starshardActive = true;

@@ -1,4 +1,5 @@
 ﻿using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -11,7 +12,9 @@ namespace MVZ2.Vanilla.HeldItems
         public NoneHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-
+        #region 实体
+        public override bool IsForEntity() => true;
+        public override bool IsForPickup() => true;
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
             switch (entity.Type)
@@ -31,35 +34,31 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return HeldFlags.None;
         }
-        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
-        {
-            return HeldFlags.None;
-        }
-        public override bool UseOnEntity(Entity entity, long id)
+        public override bool UseOnEntity(Entity entity, long id, PointerPhase phase)
         {
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    entity.Collect();
+                    if (phase != PointerPhase.Release)
+                    {
+                        entity.Collect();
+                    }
                     break;
                 case EntityTypes.CART:
-                    entity.TriggerCart();
+                    if (phase == PointerPhase.Press)
+                    {
+                        entity.TriggerCart();
+                    }
                     break;
             }
             return false;
         }
-        public override void HoverOnEntity(Entity entity, long id)
-        {
-            switch (entity.Type)
-            {
-                case EntityTypes.PICKUP:
-                    if (!entity.IsCollected())
-                        entity.Collect();
-                    break;
-            }
-        }
+        #endregion
+
         public override bool IsForGrid() => false;
-        public override bool IsForEntity() => true;
-        public override bool IsForPickup() => true;
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
+        {
+            return HeldFlags.None;
+        }
     }
 }

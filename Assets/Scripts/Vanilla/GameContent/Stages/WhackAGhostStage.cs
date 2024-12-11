@@ -29,6 +29,7 @@ namespace MVZ2.GameContent.Stages
         public override void OnStart(LevelEngine level)
         {
             base.OnStart(level);
+            level.SetEnergyActive(false);
             level.SetBlueprintsActive(false);
             level.SetPickaxeActive(false);
             level.SetStarshardActive(false);

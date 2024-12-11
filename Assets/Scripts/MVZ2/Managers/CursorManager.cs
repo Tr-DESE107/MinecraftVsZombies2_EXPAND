@@ -75,8 +75,16 @@ namespace MVZ2.Cursors
         }
         private void UpdateCursor()
         {
-            var enabledSources = cursorSources.Where(s => s.Enabled);
-            targetCursorType = enabledSources.Count() > 0 ? enabledSources.LastOrDefault().CursorType : CursorType.Arrow;
+            targetCursorType = CursorType.Arrow;
+            var main = MainManager.Instance;
+            if (main == null || !main.IsMobile())
+            {
+                var enabledSources = cursorSources.Where(s => s.Enabled);
+                if (enabledSources.Count() > 0)
+                {
+                    targetCursorType = enabledSources.LastOrDefault().CursorType;
+                }
+            }
 
             if (targetCursorType == CursorType.Empty)
             {

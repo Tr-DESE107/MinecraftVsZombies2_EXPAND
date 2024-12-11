@@ -35,6 +35,7 @@ namespace MVZ2.Level
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
 
+                energyActive = EnergyActive,
                 blueprintsActive = BlueprintsActive,
                 pickaxeActive = PickaxeActive,
                 starshardActive = StarshardActive,
@@ -70,6 +71,7 @@ namespace MVZ2.Level
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
 
+                EnergyActive = seri.energyActive;
                 BlueprintsActive = seri.blueprintsActive;
                 PickaxeActive = seri.pickaxeActive;
                 StarshardActive = seri.starshardActive;
@@ -172,6 +174,7 @@ namespace MVZ2.Level
         public NamespaceID musicID;
         public float musicTime;
 
+        public bool energyActive;
         public bool blueprintsActive;
         public bool pickaxeActive;
         public bool starshardActive;

@@ -19,6 +19,10 @@ namespace MVZ2.Level.Components
         {
             Controller.ShowMoney();
         }
+        public void SetEnergyActive(bool visible)
+        {
+            Controller.EnergyActive = visible;
+        }
         public void SetBlueprintsActive(bool visible)
         {
             Controller.BlueprintsActive = visible;

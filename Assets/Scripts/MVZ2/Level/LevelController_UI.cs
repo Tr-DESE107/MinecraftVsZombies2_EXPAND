@@ -14,6 +14,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
@@ -192,7 +193,7 @@ namespace MVZ2.Level
             if (!IsGameStarted())
                 return;
 
-            ClickOnReceiver(receiver);
+            ClickOnReceiver(receiver, PointerPhase.Press);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
@@ -631,13 +632,13 @@ namespace MVZ2.Level
             }
             level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
         }
-        private void ClickOnReceiver(RaycastReceiver receiver)
+        private void ClickOnReceiver(RaycastReceiver receiver, PointerPhase phase)
         {
             var levelUI = GetUIPreset();
             var type = levelUI.GetReceiverType(receiver);
-            ClickOnReceiver(type);
+            ClickOnReceiver(type, phase);
         }
-        private void ClickOnReceiver(LevelUIPreset.Receiver receiver)
+        private void ClickOnReceiver(LevelUIPreset.Receiver receiver, PointerPhase phase)
         {
             if (!IsGameRunning())
                 return;
@@ -652,7 +653,7 @@ namespace MVZ2.Level
                     area = LawnArea.Bottom;
                     break;
             }
-            level.UseOnLawn(area);
+            level.UseOnLawn(area, phase);
         }
         private void AdvanceLevelProgress()
         {

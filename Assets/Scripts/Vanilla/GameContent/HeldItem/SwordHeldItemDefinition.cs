@@ -48,40 +48,49 @@ namespace MVZ2.GameContent.HeldItems
             }
             return flags;
         }
-        public override bool UseOnEntity(Entity entity, long id)
+        public override bool UseOnEntity(Entity entity, long id, PointerPhase phase)
         {
-            base.UseOnEntity(entity, id);
+            base.UseOnEntity(entity, id, phase);
             switch (entity.Type)
             {
                 case EntityTypes.ENEMY:
-                    var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
-                    entity.TakeDamage(750, effects);
-                    entity.Level.GetHeldItemModelInterface()?.TriggerAnimation("Swing");
-                    entity.Level.PlaySound(VanillaSoundID.swing);
+                    if (phase == PointerPhase.Press)
+                    {
+                        var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
+                        entity.TakeDamage(750, effects);
+                        Swing(entity.Level);
+                    }
                     return true;
                 case EntityTypes.PICKUP:
-                    entity.Collect();
-                    break;
+                    if (phase != PointerPhase.Release)
+                    {
+                        if (!entity.IsCollected())
+                            entity.Collect();
+                        Swing(entity.Level);
+                    }
+                    return false;
                 case EntityTypes.CART:
-                    entity.TriggerCart();
-                    break;
+                    if (phase == PointerPhase.Press)
+                    {
+                        entity.TriggerCart();
+                        Swing(entity.Level);
+                    }
+                    return false;
             }
             return false;
-        }
-        public override void HoverOnEntity(Entity entity, long id)
-        {
-            switch (entity.Type)
-            {
-                case EntityTypes.PICKUP:
-                    if (!entity.IsCollected())
-                        entity.Collect();
-                    break;
-            }
         }
         public override bool IsForGrid() => false;
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
         {
             return HeldFlags.None;
+        }
+        public override void UseOnLawn(LevelEngine level, LawnArea area, long id, PointerPhase phase)
+        {
+            base.UseOnLawn(level, area, id, phase);
+            if (phase == PointerPhase.Press)
+            {
+                Swing(level);
+            }
         }
         public override NamespaceID GetModelID(LevelEngine level, long id)
         {
@@ -91,9 +100,8 @@ namespace MVZ2.GameContent.HeldItems
         {
             return 16;
         }
-        public override void UseOnLawn(LevelEngine level, LawnArea area, long id)
+        private void Swing(LevelEngine level)
         {
-            base.UseOnLawn(level, area, id);
             level.GetHeldItemModelInterface()?.TriggerAnimation("Swing");
             level.PlaySound(VanillaSoundID.swing);
         }
