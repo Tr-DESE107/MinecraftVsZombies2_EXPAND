@@ -8,7 +8,10 @@ namespace MVZ2.Archives
         public void SetBackground(Sprite background)
         {
             backgroundImage.sprite = background;
-            backgroundRatioFitter.aspectRatio = background.rect.width / background.rect.height;
+            if (background)
+            {
+                backgroundRatioFitter.aspectRatio = background.rect.width / background.rect.height;
+            }
         }
         [SerializeField]
         private Image backgroundImage;

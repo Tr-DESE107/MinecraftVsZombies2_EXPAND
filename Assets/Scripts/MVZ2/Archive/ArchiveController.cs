@@ -200,7 +200,14 @@ namespace MVZ2.Archives
             ui.SetSimulationBackground(background);
             ui.DisplayPage(ArchiveUI.Page.Simulation);
             simulationTalk.StartTalk(viewingTalkID, 0);
-            Main.MusicManager.Play(musicID);
+            if (NamespaceID.IsValid(musicID))
+            {
+                Main.MusicManager.Play(musicID);
+            }
+            else
+            {
+                Main.MusicManager.Stop();
+            }
         }
         private void ReturnFromSimulation()
         {

@@ -127,6 +127,7 @@ namespace MVZ2.Map
                     Main.SaveManager.SaveModDatas();
                     break;
                 case MapUI.ButtonType.Almanac:
+                    Main.Scene.DisplayAlmanac(() => Main.Scene.DisplayMap(MapID));
                     break;
                 case MapUI.ButtonType.Store:
                     break;
