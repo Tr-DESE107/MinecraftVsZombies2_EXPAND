@@ -11,13 +11,21 @@ namespace MVZ2.Level.Components
         public TalkComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
-        public void StartTalk(NamespaceID id, int section, float delay = 1)
+        public bool CanStartTalk(NamespaceID id, int section)
         {
-            Controller.StartTalk(id, section, delay);
+            return Controller.CanStartTalk(id, section);
         }
-        public void TryStartTalk(NamespaceID id, int section, float delay = 1, Action<bool> onFinished = null)
+        public void StartTalk(NamespaceID id, int section, float delay = 1, Action onEnd = null)
         {
-            Controller.TryStartTalk(id, section, delay, onFinished);
+            Controller.StartTalk(id, section, delay, onEnd);
+        }
+        public bool WillSkipTalk(NamespaceID id, int section)
+        {
+            return Controller.WillSkipTalk(id, section);
+        }
+        public void SkipTalk(NamespaceID id, int section, Action onSkipped = null)
+        {
+            Controller.SkipTalk(id, section, onSkipped);
         }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "talk");
     }

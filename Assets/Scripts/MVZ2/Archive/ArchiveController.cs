@@ -37,7 +37,6 @@ namespace MVZ2.Archives
 
             talkSystem = new ArchiveTalkSystem(simulationTalk);
             simulationTalk.OnTalkAction += OnTalkActionCallback;
-            simulationTalk.OnTalkEnd += OnTalkEndCallback;
         }
         private void OnIndexReturnClickCallback()
         {
@@ -80,7 +79,7 @@ namespace MVZ2.Archives
         {
             Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
         }
-        private void OnTalkEndCallback()
+        private void ShowReplayDialog()
         {
             var title = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_TALK_END);
             var desc = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_REPLAY);
@@ -199,7 +198,7 @@ namespace MVZ2.Archives
             var musicID = group.archive.music;
             ui.SetSimulationBackground(background);
             ui.DisplayPage(ArchiveUI.Page.Simulation);
-            simulationTalk.StartTalk(viewingTalkID, 0);
+            simulationTalk.StartTalk(viewingTalkID, 0, onEnd: ShowReplayDialog);
             if (NamespaceID.IsValid(musicID))
             {
                 Main.MusicManager.Play(musicID);

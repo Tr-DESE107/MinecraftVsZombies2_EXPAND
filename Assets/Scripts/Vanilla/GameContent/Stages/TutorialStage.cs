@@ -368,11 +368,7 @@ namespace MVZ2.GameContent.Stages
                                 seedPack.SetTwinkling(false);
                             }
                         }
-                        level.TryStartTalk(VanillaTalkID.tutorial, 3, 2, played =>
-                        {
-                            if (!played)
-                                level.BeginLevel();
-                        });
+                        level.SimpleStartTalk(VanillaTalkID.tutorial, 3, 2, onEnd: () => level.BeginLevel());
                     }
                     break;
             }

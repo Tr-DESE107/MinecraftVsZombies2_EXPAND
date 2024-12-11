@@ -11,15 +11,30 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<ITalkComponent>();
         }
-        public static void StartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0)
+        public static bool CanStartTalk(this LevelEngine level, NamespaceID groupId, int section)
         {
             var component = level.GetTalkComponent();
-            component.StartTalk(groupId, section, delay);
+            return component.CanStartTalk(groupId, section);
         }
-        public static void TryStartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0, Action<bool> onFinished = null)
+        public static void StartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0, Action onEnd = null)
         {
             var component = level.GetTalkComponent();
-            component.TryStartTalk(groupId, section, delay, onFinished);
+            component.StartTalk(groupId, section, delay, onEnd);
+        }
+        public static void CanSkipTalk(this LevelEngine level, NamespaceID groupId, int section)
+        {
+            var component = level.GetTalkComponent();
+            component.CanStartTalk(groupId, section);
+        }
+        public static void SkipTalk(this LevelEngine level, NamespaceID groupId, int section, Action onSkipped = null)
+        {
+            var component = level.GetTalkComponent();
+            component.SkipTalk(groupId, section, onSkipped);
+        }
+        public static void SimpleStartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0, Action onSkipped = null, Action onStarted = null, Action onEnd = null)
+        {
+            var component = level.GetTalkComponent();
+            component.SimpleStartTalk(groupId, section, delay, onSkipped, onStarted, onEnd);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MVZ2.Managers;
+﻿using MVZ2.Talks;
+using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.Metas;
 using MVZ2.Scenes;
@@ -16,7 +17,7 @@ namespace MVZ2.Note
 {
     public class NoteController : MainScenePage, INote
     {
-        public void SetNote(NamespaceID id)
+        public async void SetNote(NamespaceID id)
         {
             meta = main.ResourceManager.GetNoteMeta(id);
             definition = main.Game.GetNoteDefinition(id);
@@ -25,11 +26,8 @@ namespace MVZ2.Note
             ui.SetCanFlip(meta.canFlip);
             ui.SetFlipAtLeft(isFlipped);
             var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
-            talkController.TryStartTalk(startTalk, 0, 3, played =>
-            {
-                if (played)
-                    SetInteractable(false);
-            });
+            await talkController.SimpleStartTalkAsync(startTalk, 0, 3, () => SetInteractable(false));
+            SetInteractable(true);
         }
         public void SetButtonText(string text)
         {
@@ -45,7 +43,6 @@ namespace MVZ2.Note
             ui.OnNoteFlipClick += OnNoteFlipClickCallback;
             ui.OnButtonClick += OnButtonClickCallback;
             talkController.OnTalkAction += OnTalkActionCallback;
-            talkController.OnTalkEnd += OnTalkEndCallback;
             talkSystem = new NoteTalkSystem(talkController);
         }
         #endregion
@@ -66,10 +63,6 @@ namespace MVZ2.Note
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
             Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
-        }
-        private void OnTalkEndCallback()
-        {
-            SetInteractable(true);
         }
         #endregion
 

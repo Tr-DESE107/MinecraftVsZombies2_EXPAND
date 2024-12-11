@@ -22,11 +22,6 @@ namespace MVZ2Logic
         {
             return Main.StartCoroutine(enumerator);
         }
-        public static Coroutine StartCoroutine(Task task)
-        {
-            return StartCoroutine(task.ToCoroutineFunc());
-        }
-
         public static void FadeMusic(float target, float duration)
         {
             Music.StartFade(target, duration);
@@ -46,16 +41,16 @@ namespace MVZ2Logic
         }
         public static IEnumerator GotoLevel()
         {
-            yield return Level.GotoLevelSceneAsync().ToCoroutineFunc();
+            yield return Level.GotoLevelSceneCoroutine();
             Scene.HidePages();
         }
         public static void GotoMainmenu()
         {
             Scene.DisplayPage(MainScenePageType.Mainmenu);
         }
-        public static IEnumerator DisplayChapterTransition(NamespaceID chapterID)
+        public static Coroutine DisplayChapterTransition(NamespaceID chapterID)
         {
-            return Scene.DisplayChapterTransitionAsync(chapterID).ToCoroutineFunc();
+            return Scene.DisplayChapterTransitionCoroutine(chapterID);
         }
         public static void HideChapterTransition()
         {
@@ -115,7 +110,7 @@ namespace MVZ2Logic
         void FadeBlackScreen(float target, float duration);
         void SetBlackScreen(float value);
         void HideChapterTransition();
-        Task DisplayChapterTransitionAsync(NamespaceID chapterID);
+        Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID);
     }
     public interface IMusicManager
     {
@@ -125,7 +120,7 @@ namespace MVZ2Logic
     public interface ILevelManager
     {
         void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0);
-        Task GotoLevelSceneAsync();
+        Coroutine GotoLevelSceneCoroutine();
     }
     public interface IOptionsManager
     {

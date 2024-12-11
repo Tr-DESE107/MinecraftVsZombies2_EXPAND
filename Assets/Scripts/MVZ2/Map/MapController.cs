@@ -8,6 +8,7 @@ using MVZ2.Metas;
 using MVZ2.Options;
 using MVZ2.Scenes;
 using MVZ2.Talk;
+using MVZ2.Talks;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
@@ -53,7 +54,7 @@ namespace MVZ2.Map
             }
             SetCameraBackgroundColor(Color.black);
         }
-        public void SetMap(NamespaceID mapId)
+        public async void SetMap(NamespaceID mapId)
         {
             MapID = mapId;
             mapMeta = Main.ResourceManager.GetMapMeta(mapId);
@@ -81,11 +82,8 @@ namespace MVZ2.Map
             Main.MusicManager.Play(mapPreset.music);
 
             var mapTalk = Main.SaveManager.GetMapTalk();
-            talkController.TryStartTalk(mapTalk, 0, 3, (played) =>
-            {
-                if (!played)
-                    Main.SaveManager.SetMapTalk(null);
-            });
+            await talkController.SimpleStartTalkAsync(mapTalk, 0, 3);
+            Main.SaveManager.SetMapTalk(null);
         }
         #endregion
 
@@ -96,7 +94,6 @@ namespace MVZ2.Map
         {
             ui.OnButtonClick += OnButtonClickCallback;
             talkController.OnTalkAction += OnTalkActionCallback;
-            talkController.OnTalkEnd += OnTalkEndCallback;
 
             talkSystem = new MapTalkSystem(talkController);
         }
@@ -143,10 +140,6 @@ namespace MVZ2.Map
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
             Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
-        }
-        private void OnTalkEndCallback()
-        {
-            Main.SaveManager.SetMapTalk(null);
         }
         private void OnOptionsDialogCloseCallback()
         {

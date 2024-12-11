@@ -21,11 +21,22 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始进行对话。
         /// </summary>
-        public async void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0)
+        public async void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0, Action onEnd = null)
+        {
+            await StartTalkAsync(groupId, sectionIndex, delay);
+            onEnd?.Invoke();
+        }
+        /// <summary>
+        /// 开始进行对话。
+        /// </summary>
+        public async Task StartTalkAsync(NamespaceID groupId, int sectionIndex, float delay = 0)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupId);
             if (group == null)
-                throw new InvalidOperationException($"Could not find talk group with id {groupId}.");
+                throw new ArgumentException($"Could not find talk group with id {groupId}.");
+            if (IsTalking)
+                return;
+            tcs = new TaskCompletionSource<object>();
             IsTalking = true;
 
             groupID = groupId;
@@ -37,49 +48,49 @@ namespace MVZ2.Talk
             ui.SetRaycastReceiverActive(true);
             ClearCharacters();
 
+            // 执行开始指令。
             var section = group.sections[sectionIndex];
             await ExecuteScriptsAsync(section.startScripts);
 
-            _ = DelayedStart(delay);
+            // 延迟。
+            if (delay > 0)
+            {
+                await Main.CoroutineManager.DelaySeconds(delay);
+            }
+            // 延迟完毕。
+            // 创建角色。
+            var characters = section.characters;
+            if (characters != null)
+            {
+                foreach (TalkCharacter chr in characters)
+                {
+                    CreateCharacter(chr.id, chr.variant, ParseCharacterSide(chr.side));
+                }
+            }
+            // 延迟半秒。
+            await Main.CoroutineManager.DelaySeconds(0.5f);
+
+            // 设置阻挡和跳过按钮。
+            ui.SetBlockerActive(false);
+            ui.SetSkipButtonActive(true);
+
+            // 开始语句。
+            StartSentence();
+
+            await tcs.Task;
         }
-        public void TryStartTalk(NamespaceID groupId, int sectionIndex, float delay = 0, Action<bool> onFinished = null)
+        public async void SkipTalk(NamespaceID groupId, int sectionIndex, Action onSkipped = null)
         {
-            if (!CanStartTalk(groupId))
-            {
-                onFinished?.Invoke(false);
-                return;
-            }
-
-            if (WillSkipTalk(groupId, sectionIndex))
-            {
-                var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-                if (section == null)
-                {
-                    onFinished?.Invoke(false);
-                }
-                else
-                {
-                    StartCoroutine(routine());
-
-                    IEnumerator routine()
-                    {
-                        var task1 = ExecuteScriptsAsync(section.startScripts);
-                        while (!task1.IsCompleted)
-                            yield return null;
-                        var task2 = ExecuteScriptsAsync(section.skipScripts);
-                        while (!task2.IsCompleted)
-                            yield return null;
-                        onFinished?.Invoke(false);
-                    }
-                }
-            }
-            else
-            {
-                StartTalk(groupId, sectionIndex, delay);
-                onFinished?.Invoke(true);
-            }
+            await SkipTalkAsync(groupId, sectionIndex);
+            onSkipped?.Invoke();
         }
-        public bool CanStartTalk(NamespaceID groupId)
+        public async Task SkipTalkAsync(NamespaceID groupId, int sectionIndex)
+        {
+            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
+            await ExecuteScriptsAsync(section.startScripts);
+            await ExecuteScriptsAsync(section.skipScripts);
+        }
+        public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupId);
             if (group == null)
@@ -87,6 +98,9 @@ namespace MVZ2.Talk
             if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
                 return false;
             if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
+                return false;
+            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
+            if (section == null)
                 return false;
             return true;
         }
@@ -437,7 +451,7 @@ namespace MVZ2.Talk
             switch (script.function)
             {
                 case "delay":
-                    await Task.Delay((int)(ParseArgumentFloat(args[0]) * 1000));
+                    await Main.CoroutineManager.DelaySeconds(ParseArgumentFloat(args[0]));
                     break;
                 default:
                     ExecuteScriptSync(script);
@@ -457,20 +471,6 @@ namespace MVZ2.Talk
             IsRunningScripts = false;
             ui.SetBlockerActive(false);
         }
-        private void ExecuteScriptsSync(IEnumerable<TalkScript> scripts)
-        {
-            if (scripts == null)
-                return;
-            IsRunningScripts = true;
-            ui.SetBlockerActive(true);
-            foreach (TalkScript scr in scripts)
-            {
-                ExecuteScriptSync(scr);
-            }
-            IsRunningScripts = false;
-            ui.SetBlockerActive(false);
-        }
-
         private void ExecuteAction(string[] args)
         {
             if (OnTalkAction == null)
@@ -487,34 +487,6 @@ namespace MVZ2.Talk
             {
                 Debug.Log($"动作\"{func}\"的参数数组大小({actionArgs.Length})不足：" + e);
             }
-        }
-
-
-        #endregion
-
-        #region 指令 
-        private async Task DelayedStart(float delay)
-        {
-            if (delay > 0)
-            {
-                await Task.Delay(Mathf.FloorToInt(delay * 1000));
-            }
-
-            var section = GetTalkSection();
-            var characters = section.characters;
-            if (characters != null)
-            {
-                foreach (TalkCharacter chr in characters)
-                {
-                    CreateCharacter(chr.id, chr.variant, ParseCharacterSide(chr.side));
-                }
-            }
-
-            await Task.Delay(500);
-
-            ui.SetBlockerActive(false);
-            ui.SetSkipButtonActive(true);
-            StartSentence();
         }
         #endregion
 
@@ -626,7 +598,11 @@ namespace MVZ2.Talk
             ui.SetSkipButtonActive(false);
             ui.SetBlockerActive(false);
             ui.SetRaycastReceiverActive(false);
-            OnTalkEnd?.Invoke();
+            if (tcs != null)
+            {
+                tcs.SetResult(null);
+                tcs = null;
+            }
         }
         #endregion
 
@@ -651,7 +627,7 @@ namespace MVZ2.Talk
                 name = characterId?.ToString(),
                 side = side,
                 sprite = sprite
-                };
+            };
             ui.CreateCharacter(viewData);
             characterList.Add(characterId);
         }
@@ -690,7 +666,6 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件
-        public event Action OnTalkEnd;
         public event Action<string, string[]> OnTalkAction;
         #endregion 动作
 
@@ -725,6 +700,7 @@ namespace MVZ2.Talk
         private int sentenceIndex = 0;
         private NamespaceID groupID;
         private List<NamespaceID> characterList = new List<NamespaceID>();
+        private TaskCompletionSource<object> tcs;
         [SerializeField]
         private TalkUI ui;
         #endregion 属性

@@ -210,7 +210,9 @@ namespace MVZ2.Tests
         }
         private static IEnumerator Init()
         {
-            return InitAsync().ToCoroutineFunc();
+            var task = InitAsync();
+            while (!task.IsCompleted)
+                yield return null;
         }
         private static async Task InitAsync()
         {

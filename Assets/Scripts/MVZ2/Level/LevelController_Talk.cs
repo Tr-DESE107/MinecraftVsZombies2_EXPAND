@@ -14,13 +14,21 @@ namespace MVZ2.Level
         #region 公有方法
 
         #region 对话
-        public void StartTalk(NamespaceID groupId, int section, float delay = 0)
+        public bool CanStartTalk(NamespaceID groupId, int section)
         {
-            talkController.StartTalk(groupId, section, delay);
+            return talkController.CanStartTalk(groupId, section);
         }
-        public void TryStartTalk(NamespaceID groupId, int section, float delay = 0, Action<bool> onFinished = null)
+        public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action onEnd = null)
         {
-            talkController.TryStartTalk(groupId, section, delay, onFinished);
+            talkController.StartTalk(groupId, section, delay, onEnd);
+        }
+        public bool WillSkipTalk(NamespaceID groupId, int section)
+        {
+            return talkController.WillSkipTalk(groupId, section);
+        }
+        public void SkipTalk(NamespaceID groupId, int section, Action onSkip = null)
+        {
+            talkController.SkipTalk(groupId, section, onSkip);
         }
         #endregion
 
@@ -34,18 +42,6 @@ namespace MVZ2.Level
         {
             Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
         }
-        private void UI_OnTalkEndCallback()
-        {
-            if (level.IsCleared)
-            {
-                StartExitLevelTransition(0);
-            }
-            else
-            {
-                level.BeginLevel();
-            }
-        }
-
         #endregion
 
         #endregion

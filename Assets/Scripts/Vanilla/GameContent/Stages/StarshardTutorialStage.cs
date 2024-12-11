@@ -155,11 +155,7 @@ namespace MVZ2.GameContent.Stages
                         level.SetPickaxeActive(true);
                         level.SetStarshardActive(true);
                         Global.Game.Unlock(VanillaUnlockID.starshard);
-                        level.TryStartTalk(VanillaTalkID.starshardTutorial, 1, 2, played =>
-                        {
-                            if (!played)
-                                level.BeginLevel();
-                        });
+                        level.SimpleStartTalk(VanillaTalkID.starshardTutorial, 1, 2, onEnd: () => level.BeginLevel());
                     }
                     break;
             }

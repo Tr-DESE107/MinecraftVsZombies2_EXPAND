@@ -198,6 +198,11 @@ namespace MVZ2.Scenes
             }
         }
 
+        Coroutine ISceneController.DisplayChapterTransitionCoroutine(NamespaceID chapterID)
+        {
+            return main.CoroutineManager.ToCoroutine(DisplayChapterTransitionAsync(chapterID));
+        }
+
         #region 生命周期
         private void Awake()
         {

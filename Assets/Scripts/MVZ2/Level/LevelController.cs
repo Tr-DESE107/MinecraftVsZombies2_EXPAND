@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVZ2.Talks;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Entities;
@@ -32,6 +33,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
+    using static System.Collections.Specialized.BitVector32;
     using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
     public partial class LevelController : MonoBehaviour, IDisposable
     {
@@ -63,14 +65,7 @@ namespace MVZ2.Level
         }
         public void StartLevelIntro(float delay)
         {
-            if (delay <= 0)
-            {
-                StartLevelIntroInstant();
-            }
-            else
-            {
-                StartCoroutine(StartLevelIntroDelayed(delay));
-            }
+            _ = StartLevelIntroAsync(delay);
         }
         public void StartLevelTransition()
         {
@@ -425,7 +420,6 @@ namespace MVZ2.Level
             Awake_Grids();
 
             talkController.OnTalkAction += UI_OnTalkActionCallback;
-            talkController.OnTalkEnd += UI_OnTalkEndCallback;
 
             levelCamera.SetPosition(cameraHousePosition, cameraHouseAnchor);
 
@@ -464,7 +458,7 @@ namespace MVZ2.Level
                     break;
             }
         }
-        private void Engine_OnClearCallback()
+        private async void Engine_OnClearCallback()
         {
             LevelManager.RemoveLevelState(StartStageID);
             Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
@@ -474,18 +468,14 @@ namespace MVZ2.Level
 
             var stageID = level.StageID;
             var endTalk = level.GetEndTalk() ?? new NamespaceID(stageID.spacename, $"{stageID.path}_over");
-            if (!level.IsRerun)
+
+            float transitionDelay = 3;
+            if (!level.IsRerun && !await talkController.TrySkipTalkAsync(endTalk, 0))
             {
-                talkController.TryStartTalk(endTalk, 0, 5, (played) =>
-                {
-                    if (!played)
-                        StartExitLevelTransition(3);
-                });
+                transitionDelay = 0;
+                await talkController.StartTalkAsync(endTalk, 0, 5);
             }
-            else
-            {
-                StartExitLevelTransition(3);
-            }
+            StartExitLevelTransition(transitionDelay);
         }
         private async void UI_OnExitLevelToNoteCalledCallback()
         {
@@ -731,30 +721,21 @@ namespace MVZ2.Level
                 return;
             SetModelPreset(stageMeta.ModelPreset);
         }
-        private IEnumerator StartLevelIntroDelayed(float delay)
+        private async Task StartLevelIntroAsync(float delay)
         {
-            yield return new WaitForSeconds(delay);
-            StartLevelIntroInstant();
-        }
-        private void StartLevelIntroInstant()
-        {
+            if (delay > 0)
+            {
+                await Main.CoroutineManager.DelaySeconds(delay);
+            }
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
             var startTalk = level.GetStartTalk() ?? level.StageID;
-            if (level.IsRerun)
+            if (!level.IsRerun && !await talkController.TrySkipTalkAsync(startTalk, 0))
             {
-                level.BeginLevel();
+                Music.Play(VanillaMusicID.mainmenu);
+                await talkController.StartTalkAsync(startTalk, 0, 2);
             }
-            else
-            {
-                talkController.TryStartTalk(startTalk, 0, 2, (played) =>
-                {
-                    if (played)
-                        Music.Play(VanillaMusicID.mainmenu);
-                    else
-                        level.BeginLevel();
-                });
-            }
+            level.BeginLevel();
         }
         private void InitLevelEngine(LevelEngine level, Game game, NamespaceID areaID, NamespaceID stageID)
         {

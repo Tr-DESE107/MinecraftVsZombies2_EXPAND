@@ -47,8 +47,31 @@ namespace MVZ2Logic.Level.Components
     }
     public interface ITalkComponent : ILevelComponent
     {
-        void StartTalk(NamespaceID id, int section, float delay = 1);
-        void TryStartTalk(NamespaceID id, int section, float delay = 1, Action<bool> onFinished = null);
+        bool CanStartTalk(NamespaceID id, int section);
+        void StartTalk(NamespaceID id, int section, float delay = 1, Action onEnd = null);
+        bool WillSkipTalk(NamespaceID id, int section);
+        void SkipTalk(NamespaceID id, int section, Action onSkipped = null);
+        void SimpleStartTalk(NamespaceID groupId, int section, float delay = 0, Action onSkipped = null, Action onStarted = null, Action onEnd = null)
+        {
+            if (!CanStartTalk(groupId, section))
+            {
+                onEnd?.Invoke();
+                return;
+            }
+            if (WillSkipTalk(groupId, section))
+            {
+                SkipTalk(groupId, section, () =>
+                {
+                    onSkipped?.Invoke();
+                    onEnd?.Invoke();
+                });
+            }
+            else
+            {
+                StartTalk(groupId, section, delay, onEnd);
+                onStarted?.Invoke();
+            }
+        }
     }
     public interface IUIComponent : ILevelComponent
     {
