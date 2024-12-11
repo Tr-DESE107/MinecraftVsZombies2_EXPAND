@@ -16,6 +16,14 @@ namespace MVZ2.GameContent.Enemies
         public Ghost(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            if (!entity.HasBuff<GhostBuff>())
+            {
+                entity.AddBuff<GhostBuff>();
+            }
+        }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);

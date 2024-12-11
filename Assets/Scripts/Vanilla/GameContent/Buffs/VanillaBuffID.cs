@@ -27,6 +27,7 @@ namespace MVZ2.GameContent.Buffs
         public const string damageColor = "damage_color";
         public const string ghost = "ghost";
         public const string stun = "stun";
+        public const string minigameEnemySpeed = "minigame_enemy_speed";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
@@ -52,6 +53,7 @@ namespace MVZ2.GameContent.Buffs
             public const string levelEasy = "level_easy";
             public const string levelHard = "level_hard";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
+            public const string thunder = "thunder";
         }
     }
     public static class VanillaBuffID

@@ -123,7 +123,7 @@ namespace MVZ2.Level
 
             level.Start();
 
-            isGameStarted = true;
+            SetGameStarted(true);
             UpdateFocusLost(Application.isFocused);
         }
         public Task RestartLevel()
@@ -165,7 +165,7 @@ namespace MVZ2.Level
             level.ClearEnergyDelayedEntities();
             level.ClearDelayedMoney();
             UpdateGridHighlight();
-            isGameStarted = false;
+            SetGameStarted(false);
             Saves.SaveModDatas();
         }
         public void Dispose()
@@ -352,6 +352,8 @@ namespace MVZ2.Level
                 ui.UpdateHeldItemModelFrame(deltaTime * speed);
                 ui.SetHeldItemModelSimulationSpeed(speed);
             }
+            // 更新光标。
+            UpdateHeldItemCursor();
 
             bool paused = IsGamePaused();
             // 暂停时显示金钱。
@@ -363,9 +365,9 @@ namespace MVZ2.Level
             // 设置射线检测。
             ui.SetRaycastDisabled(IsInputDisabled());
 
-            // 设置光照。
             if (level != null)
             {
+                // 设置光照。
                 ui.SetNightValue(level.GetNightValue());
                 ui.SetDarknessValue(level.GetDarknessValue());
             }
@@ -769,6 +771,10 @@ namespace MVZ2.Level
             talkSystem = new LevelTalkSystem(level, talkController);
 
             level.IsRerun = Saves.IsLevelCleared(stageID);
+        }
+        private void SetGameStarted(bool value)
+        {
+            isGameStarted = value;
         }
         #endregion
 

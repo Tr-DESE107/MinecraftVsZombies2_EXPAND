@@ -8,24 +8,33 @@ namespace MVZ2.Cursors
 {
     public class CursorManager : MonoBehaviour
     {
-        public static void AddSource(ICursorSource source)
+        public static void AddSource(CursorSource source)
         {
             var instance = MainManager.Instance.CursorManager;
             if (!instance)
                 return;
-
-            instance.cursorSources.Add(source);
-            instance.UpdateCursor();
+            instance.AddCursorSource(source);
         }
-        public static bool RemoveSource(ICursorSource source)
+        public static bool RemoveSource(CursorSource source)
         {
             var instance = MainManager.Instance.CursorManager;
             if (!instance)
                 return false;
-
-            if (instance.cursorSources.Remove(source))
+            return instance.RemoveCursorSource(source);
+        }
+        public void AddCursorSource(CursorSource source)
+        {
+            cursorSources.Add(source);
+            cursorSources.Sort();
+            source.OnEnableChanged += OnSourceEnableChangedCallback;
+            UpdateCursor();
+        }
+        public bool RemoveCursorSource(CursorSource source)
+        {
+            if (cursorSources.Remove(source))
             {
-                instance.UpdateCursor();
+                source.OnEnableChanged -= OnSourceEnableChangedCallback;
+                UpdateCursor();
                 return true;
             }
             return false;
@@ -36,19 +45,42 @@ namespace MVZ2.Cursors
         }
         private void Update()
         {
-            var invalidSources = cursorSources.RemoveAll(s => !s.IsValid());
-            if (invalidSources > 0)
+            var mousePosition = Input.mousePosition;
+            var outScreen = mousePosition.x <= 0 || mousePosition.y <= 0 || mousePosition.x >= Screen.width || mousePosition.y >= Screen.height;
+            var invalidSources = RemoveInvalidCursorSources();
+            if (invalidSources > 0 || outScreen != outOfScreen)
             {
+                outOfScreen = outScreen;
                 UpdateCursor();
             }
         }
+        private void OnSourceEnableChangedCallback(bool value)
+        {
+            UpdateCursor();
+        }
+        private int RemoveInvalidCursorSources()
+        {
+            int removed = 0;
+            for (int i = cursorSources.Count - 1; i >= 0; i--)
+            {
+                CursorSource source = cursorSources[i];
+                if (!source.IsValid())
+                {
+                    cursorSources.RemoveAt(i);
+                    source.OnEnableChanged -= OnSourceEnableChangedCallback;
+                    removed++;
+                }
+            }
+            return removed;
+        }
         private void UpdateCursor()
         {
-            targetCursorType = cursorSources.Count > 0 ? cursorSources.OrderByDescending(c => c.Priority).FirstOrDefault().CursorType : CursorType.Arrow;
+            var enabledSources = cursorSources.Where(s => s.Enabled);
+            targetCursorType = enabledSources.Count() > 0 ? enabledSources.LastOrDefault().CursorType : CursorType.Arrow;
 
             if (targetCursorType == CursorType.Empty)
             {
-                Cursor.visible = false;
+                Cursor.visible = outOfScreen;
             }
             else
             {
@@ -57,7 +89,8 @@ namespace MVZ2.Cursors
                 Cursor.SetCursor(cursorData.texture, cursorData.hotspot, CursorMode.Auto);
             }
         }
-        private List<ICursorSource> cursorSources = new List<ICursorSource>();
+        private bool outOfScreen;
+        private List<CursorSource> cursorSources = new List<CursorSource>();
         [SerializeField]
         private CursorType targetCursorType;
         [SerializeField]
@@ -70,11 +103,25 @@ namespace MVZ2.Cursors
         public Texture2D texture;
         public Vector2 hotspot;
     }
-    public interface ICursorSource
+    public abstract class CursorSource : IComparable<CursorSource>
     {
-        CursorType CursorType { get; }
-        int Priority { get; }
-        bool IsValid();
+        public abstract bool IsValid();
+        public void SetEnabled(bool enabled)
+        {
+            if (enabled == Enabled)
+                return;
+            Enabled = enabled;
+            OnEnableChanged?.Invoke(enabled);
+        }
+        public event Action<bool> OnEnableChanged;
+        public bool Enabled { get; private set; } = true;
+        public abstract CursorType CursorType { get; }
+        public abstract int Priority { get; }
+
+        public int CompareTo(CursorSource other)
+        {
+            return Priority.CompareTo(other.Priority);
+        }
     }
     public enum CursorType
     {

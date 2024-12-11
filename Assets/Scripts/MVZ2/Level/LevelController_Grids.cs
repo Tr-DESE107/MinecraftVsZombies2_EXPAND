@@ -99,7 +99,7 @@ namespace MVZ2.Level
             var grid = gridLayout.GetGrid(lane, column);
             var heldFlags = level.GetHeldFlagsOnGrid(level.GetGrid(column, lane));
             Color color = Color.clear;
-            if (!heldFlags.HasFlag(HeldFlags.HideGridColor))
+            if (!heldFlags.HasFlag(HeldFlags.NoHighlight))
             {
                 color = heldFlags.HasFlag(HeldFlags.Valid) ? Color.green : Color.red;
             }

@@ -412,14 +412,18 @@ namespace MVZ2.Map
             for (int i = 0; i < model.GetMapButtonCount(); i++)
             {
                 var unlocked = IsLevelUnlocked(i);
+                var cleared = IsLevelCleared(i);
+
                 var color = buttonColorCleared;
                 if (!unlocked)
                     color = buttonColorLocked;
                 else if (IsMinigameStage(i))
                     color = buttonColorMinigame;
-                else if (!IsLevelCleared(i))
-                {
+                else if (!cleared)
                     color = buttonColorUncleared;
+
+                if (unlocked && !cleared)
+                {
                     unclearedMapButtonIndex = i;
                 }
 

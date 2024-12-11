@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
@@ -325,5 +328,18 @@ namespace MVZ2.Vanilla.Level
         public const float PROJECTILE_TOP_BORDER = 1000;
         public const float PROJECTILE_BOTTOM_BORDER = -1000;
         #endregion
+
+        public static void Thunder(this LevelEngine level) 
+        {
+            level.AddBuff<ThunderBuff>();
+            foreach (var ghost in level.FindEntities(VanillaEnemyID.ghost))
+            {
+                foreach (var buff in ghost.GetBuffs<GhostBuff>())
+                {
+                    GhostBuff.Illuminate(buff);
+                }
+            }
+            level.PlaySound(VanillaSoundID.thunder);
+        }
     }
 }

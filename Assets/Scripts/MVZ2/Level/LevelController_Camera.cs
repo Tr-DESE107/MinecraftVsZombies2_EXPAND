@@ -66,6 +66,7 @@ namespace MVZ2.Level
         private void GameStartInstantTransition()
         {
             SetCameraPosition(LevelCameraPosition.Lawn);
+            level.PrepareForBattle();
             StartGame();
         }
         private IEnumerator GameStartToPreviewTransition()

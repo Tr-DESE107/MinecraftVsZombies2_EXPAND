@@ -8,6 +8,6 @@ namespace MVZ2Logic.HeldItems
         None = 0,
         Valid = 1,
         ForceReset = 1 << 1,
-        HideGridColor = 1 << 2
+        NoHighlight = 1 << 2,
     }
 }

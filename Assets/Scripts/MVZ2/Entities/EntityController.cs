@@ -111,9 +111,10 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        public void SetHovered(bool hovered)
+        public void SetHovered(bool hovered, bool highlight)
         {
             isHovered = hovered;
+            isHighlight = highlight;
         }
         public SerializableEntityController ToSerializable()
         {
@@ -144,14 +145,14 @@ namespace MVZ2.Entities
                 if (_cursorSource == null)
                 {
                     _cursorSource = new EntityCursorSource(this, CursorType.Point);
-                    CursorManager.AddSource(_cursorSource);
+                    Main.CursorManager.AddCursorSource(_cursorSource);
                 }
             }
             else
             {
                 if (_cursorSource != null)
                 {
-                    CursorManager.RemoveSource(_cursorSource);
+                    Main.CursorManager.RemoveCursorSource(_cursorSource);
                     _cursorSource = null;
                 }
             }
@@ -398,7 +399,7 @@ namespace MVZ2.Entities
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
-            if (isHovered && Entity.Level.IsHoldingItem())
+            if (isHighlight && Entity.Level.IsHoldingItem())
             {
                 color = ColorCalculator.Blend(new Color(1, 1, 1, 0.5f), color, BlendOperator.SrcAlpha, BlendOperator.OneMinusSrcAlpha);
             }
@@ -453,6 +454,7 @@ namespace MVZ2.Entities
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
         private bool isHovered;
+        private bool isHighlight;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface;
@@ -469,7 +471,7 @@ namespace MVZ2.Entities
 
         #endregion
     }
-    public class EntityCursorSource : ICursorSource
+    public class EntityCursorSource : CursorSource
     {
         public EntityCursorSource(EntityController target, CursorType type, int priority = 0)
         {
@@ -478,16 +480,16 @@ namespace MVZ2.Entities
             this.priority = priority;
         }
 
-        public bool IsValid()
+        public override bool IsValid()
         {
             return target;
         }
 
         public EntityController target;
         private int priority;
-        public int Priority => priority;
+        public override int Priority => priority;
         private CursorType type;
-        public CursorType CursorType => type;
+        public override CursorType CursorType => type;
     }
     public class SerializableEntityController
     {

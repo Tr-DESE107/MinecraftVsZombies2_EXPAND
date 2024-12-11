@@ -1,6 +1,8 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -25,7 +27,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, TINT_ALPHA_MIN));
+            buff.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, GetMinAlpha(buff)));
             buff.SetProperty(PROP_ETHEREAL, true);
             buff.SetProperty(PROP_SHADOW_ALPHA, SHADOW_ALPHA_MIN);
             UpdateIllumination(buff);
@@ -76,7 +78,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             bool ethereal = illuminated ? false : true;
 
             var tint = buff.GetProperty<Color>(PROP_TINT_MULTIPLIER);
-            tint.a = Mathf.Clamp(tint.a + tintSpeed, TINT_ALPHA_MIN, TINT_ALPHA_MAX);
+            tint.a = Mathf.Clamp(tint.a + tintSpeed, GetMinAlpha(buff), TINT_ALPHA_MAX);
 
             var shadowAlpha = buff.GetProperty<float>(PROP_SHADOW_ALPHA);
             shadowAlpha = Mathf.Clamp(shadowAlpha + shadowSpeed, SHADOW_ALPHA_MIN, SHADOW_ALPHA_MAX);
@@ -89,6 +91,20 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 Ghost.SetEverIlluminated(entity, true);
             }
+        }
+        public static void Illuminate(Buff buff)
+        {
+            buff.SetProperty(PROP_TINT_MULTIPLIER, Color.white);
+            buff.SetProperty(PROP_SHADOW_ALPHA, SHADOW_ALPHA_MAX);
+            buff.SetProperty(PROP_ETHEREAL, false);
+        }
+        private static float GetMinAlpha(Buff buff)
+        {
+            if (buff.Level.StageDefinition is WhackAGhostStage)
+            {
+                return 0;
+            }
+            return TINT_ALPHA_MIN;
         }
         public const string PROP_TINT_MULTIPLIER = "TintMultiplier";
         public const string PROP_SHADOW_ALPHA = "ShadowAlpha";

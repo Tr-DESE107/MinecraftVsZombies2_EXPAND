@@ -130,7 +130,7 @@ namespace MVZ2.Models
         }
         public void Load(ParticleSystem particleSystem)
         {
-            particleSystem.Stop();
+            particleSystem.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
             particleSystem.randomSeed = (uint)seed;
             particleSystem.time = time;
 

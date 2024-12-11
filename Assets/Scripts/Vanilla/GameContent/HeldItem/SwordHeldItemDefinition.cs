@@ -20,7 +20,8 @@ namespace MVZ2.GameContent.HeldItems
         public SwordHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public override bool IsForEntity() => !Global.IsMobile();
+        public override bool IsForEntity() => true;
+        public override bool IsForPickup() => true;
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
         {
             HeldFlags flags = HeldFlags.None;
@@ -28,6 +29,18 @@ namespace MVZ2.GameContent.HeldItems
             {
                 case EntityTypes.ENEMY:
                     if (entity.IsHostileEnemy())
+                    {
+                        flags |= HeldFlags.Valid | HeldFlags.NoHighlight;
+                    }
+                    break;
+                case EntityTypes.PICKUP:
+                    if (!entity.IsCollected())
+                    {
+                        flags |= HeldFlags.Valid;
+                    }
+                    break;
+                case EntityTypes.CART:
+                    if (!entity.IsCartTriggered())
                     {
                         flags |= HeldFlags.Valid;
                     }
@@ -46,8 +59,24 @@ namespace MVZ2.GameContent.HeldItems
                     entity.Level.GetHeldItemModelInterface()?.TriggerAnimation("Swing");
                     entity.Level.PlaySound(VanillaSoundID.swing);
                     return true;
+                case EntityTypes.PICKUP:
+                    entity.Collect();
+                    break;
+                case EntityTypes.CART:
+                    entity.TriggerCart();
+                    break;
             }
             return false;
+        }
+        public override void HoverOnEntity(Entity entity, long id)
+        {
+            switch (entity.Type)
+            {
+                case EntityTypes.PICKUP:
+                    if (!entity.IsCollected())
+                        entity.Collect();
+                    break;
+            }
         }
         public override bool IsForGrid() => false;
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
@@ -57,6 +86,10 @@ namespace MVZ2.GameContent.HeldItems
         public override NamespaceID GetModelID(LevelEngine level, long id)
         {
             return VanillaModelID.swordHeldItem;
+        }
+        public override float GetRadius()
+        {
+            return 16;
         }
         public override void UseOnLawn(LevelEngine level, LawnArea area, long id)
         {

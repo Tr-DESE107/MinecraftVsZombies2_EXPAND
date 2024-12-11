@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Almanacs;
+using MVZ2.Cursors;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.HeldItems;
 using MVZ2.Level.UI;
@@ -10,6 +11,7 @@ using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Callbacks;
@@ -51,6 +53,7 @@ namespace MVZ2.Level
             var modelID = definition?.GetModelID(level, id);
             SetHeldItemModel(modelID);
 
+            var radius = (definition?.GetRadius() ?? 0) * LawnToTransScale;
 
             List<int> layers = new List<int>();
             layers.Add(Layers.RAYCAST_RECEIVER);
@@ -70,7 +73,24 @@ namespace MVZ2.Level
             var uiPreset = GetUIPreset();
             uiPreset.SetRaycasterMask(layerMask);
             levelRaycaster.eventMask = layerMask;
-            levelRaycaster.SetHeldItem(definition, id);
+            levelRaycaster.SetHeldItem(definition, id, radius);
+
+            if (heldType == BuiltinHeldTypes.none)
+            {
+                if (heldItemCursorSource != null)
+                {
+                    Main.CursorManager.RemoveCursorSource(heldItemCursorSource);
+                    heldItemCursorSource = null;
+                }
+            }
+            else
+            {
+                if (heldItemCursorSource == null)
+                {
+                    heldItemCursorSource = new HeldItemCursorSource(this);
+                    Main.CursorManager.AddCursorSource(heldItemCursorSource);
+                }
+            }
         }
 
         public IModelInterface GetHeldItemModelInterface()
@@ -463,6 +483,14 @@ namespace MVZ2.Level
             }
             ui.SetHeldItemPosition(heldItemPosition);
         }
+        private void UpdateHeldItemCursor()
+        {
+            var enabled = IsGameRunning() && (level != null && !level.IsCleared);
+            if (heldItemCursorSource != null && enabled != heldItemCursorSource.Enabled)
+            {
+                heldItemCursorSource.SetEnabled(enabled);
+            }
+        }
         #endregion
 
         #region 选择蓝图
@@ -748,6 +776,7 @@ namespace MVZ2.Level
         private List<int> chosenBlueprints = new List<int>();
         private NamespaceID[] choosingBlueprints;
         private IModelInterface heldItemModelInterface;
+        private CursorSource heldItemCursorSource;
 
         [Header("UI")]
         [SerializeField]

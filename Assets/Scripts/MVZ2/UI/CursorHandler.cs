@@ -78,7 +78,7 @@ namespace MVZ2.UI
         private bool interactable = true;
         private HandlerCursorSource _cursorSource;
     }
-    public class HandlerCursorSource : ICursorSource
+    public class HandlerCursorSource : CursorSource
     {
         public HandlerCursorSource(GameObject target, CursorType type, int priority = 0)
         {
@@ -87,15 +87,15 @@ namespace MVZ2.UI
             this.priority = priority;
         }
 
-        public bool IsValid()
+        public override bool IsValid()
         {
             return target && target.activeInHierarchy;
         }
 
         public GameObject target;
         private int priority;
-        public int Priority => priority;
+        public override int Priority => priority;
         private CursorType type;
-        public CursorType CursorType => type;
+        public override CursorType CursorType => type;
     }
 }

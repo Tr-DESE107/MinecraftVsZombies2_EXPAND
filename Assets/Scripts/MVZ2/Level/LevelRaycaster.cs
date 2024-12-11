@@ -23,10 +23,11 @@ namespace MVZ2.Level
         {
             this.level = level;
         }
-        public void SetHeldItem(HeldItemDefinition definition, long id)
+        public void SetHeldItem(HeldItemDefinition definition, long id, float radius)
         {
             heldItemDefinition = definition;
             heldItemId = id;
+            castRadius = radius;
         }
         /// <summary>
         /// Raycast against 2D elements in the scene.
@@ -43,7 +44,14 @@ namespace MVZ2.Level
 
             if (maxRayIntersections == 0)
             {
-                m_Hits = Physics2D.GetRayIntersectionAll(ray, distanceToClipPlane, finalEventMask);
+                if (castRadius <= 0)
+                {
+                    m_Hits = Physics2D.GetRayIntersectionAll(ray, distanceToClipPlane, finalEventMask);
+                }
+                else
+                {
+                    m_Hits = Physics2D.CircleCastAll(ray.origin, castRadius, ray.direction, distanceToClipPlane, finalEventMask);
+                }
                 hitCount = m_Hits.Length;
             }
             else
@@ -54,7 +62,14 @@ namespace MVZ2.Level
                     m_LastMaxRayIntersections = m_MaxRayIntersections;
                 }
 
-                hitCount = Physics2D.GetRayIntersectionNonAlloc(ray, m_Hits, distanceToClipPlane, finalEventMask);
+                if (castRadius <= 0)
+                {
+                    hitCount = Physics2D.GetRayIntersectionNonAlloc(ray, m_Hits, distanceToClipPlane, finalEventMask);
+                }
+                else
+                {
+                    hitCount = Physics2D.CircleCastNonAlloc(ray.origin, castRadius, ray.direction, m_Hits, distanceToClipPlane, finalEventMask);
+                }
             }
 
             if (hitCount == 0)
@@ -94,6 +109,7 @@ namespace MVZ2.Level
         RaycastHit2D[] m_Hits;
         private HeldItemDefinition heldItemDefinition;
         private long heldItemId;
+        private float castRadius;
         private LevelEngine level;
     }
 }

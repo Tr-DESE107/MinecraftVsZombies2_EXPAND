@@ -108,7 +108,7 @@ namespace MVZ2.Level
 
             SetCameraPosition(LevelCameraPosition.Lawn);
 
-            isGameStarted = true;
+            SetGameStarted(true);
 
             foreach (var component in level.GetComponents())
             {

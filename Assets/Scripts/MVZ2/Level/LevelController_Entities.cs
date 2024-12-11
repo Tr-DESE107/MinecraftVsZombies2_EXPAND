@@ -62,30 +62,31 @@ namespace MVZ2.Level
         {
             RemoveControllerFromEntity(entity);
         }
-        private void UI_OnEntityPointerEnterCallback(EntityController entity, PointerEventData eventData)
+        private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
         {
-            entity.SetHovered(true);
+            var heldFlags = level.GetHeldFlagsOnEntity(entityCtrl.Entity);
+            entityCtrl.SetHovered(true, !heldFlags.HasFlag(HeldFlags.NoHighlight));
             if (IsGameRunning())
             {
                 // 自动拾取
                 if (Input.GetMouseButton((int)MouseButton.LeftMouse))
                 {
-                    level.HoverOnEntity(entity.Entity);
+                    level.HoverOnEntity(entityCtrl.Entity);
                 }
             }
             else
             {
                 // 显示查看图鉴提示
-                if (entity.Entity.IsPreviewEnemy() && IsChoosingBlueprints())
+                if (entityCtrl.Entity.IsPreviewEnemy() && IsChoosingBlueprints())
                 {
-                    var name = Main.ResourceManager.GetEntityName(entity.Entity.GetDefinitionID());
+                    var name = Main.ResourceManager.GetEntityName(entityCtrl.Entity.GetDefinitionID());
                     var description = string.Empty;
                     if (Main.SaveManager.IsAlmanacUnlocked())
                     {
                         description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
                     }
                     var uiPreset = GetUIPreset();
-                    uiPreset.ShowTooltipOnComponent(entity, new TooltipViewData()
+                    uiPreset.ShowTooltipOnComponent(entityCtrl, new TooltipViewData()
                     {
                         name = name,
                         description = description
@@ -95,7 +96,7 @@ namespace MVZ2.Level
         }
         private void UI_OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
         {
-            entity.SetHovered(false);
+            entity.SetHovered(false, false);
             // 隐藏查看图鉴提示
             if (entity.Entity.IsPreviewEnemy())
             {
