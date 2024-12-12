@@ -51,6 +51,7 @@ namespace MVZ2.Vanilla.Entities
         {
             var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
             fragment.SetParent(entity);
+            Fragment.UpdateFragmentID(fragment);
             return fragment;
         }
         public static Entity GetOrCreateFragment(this Entity entity)

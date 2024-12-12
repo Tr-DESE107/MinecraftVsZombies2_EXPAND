@@ -75,7 +75,7 @@ namespace MVZ2.Almanacs
             if (def == null)
                 return AlmanacEntryViewData.Empty;
             var spriteRef = def.GetSpriteReference();
-            var sprite = Main.ResourceManager.GetSprite(spriteRef);
+            var sprite = Main.LanguageManager.GetSprite(spriteRef);
             return new AlmanacEntryViewData() { sprite = sprite };
         }
         public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
@@ -94,7 +94,7 @@ namespace MVZ2.Almanacs
                     }
                     else
                     {
-                        sprite = Main.ResourceManager.GetSprite(spriteID);
+                        sprite = Main.LanguageManager.GetSprite(spriteID);
                     }
                     return new AlmanacEntryViewData()
                     {

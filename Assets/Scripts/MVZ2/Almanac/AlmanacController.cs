@@ -182,7 +182,7 @@ namespace MVZ2.Almanacs
                     return;
                 }
             }
-            Sprite sprite = Main.ResourceManager.GetSprite(spriteID);
+            Sprite sprite = Main.LanguageManager.GetSprite(spriteID);
             ui.SetActiveMiscEntry(sprite, name, description);
         }
         private void GetEntityAlmanacInfos(NamespaceID entityID, string almanacCategory, out Model model, out string name, out string description)
@@ -220,7 +220,7 @@ namespace MVZ2.Almanacs
             if (definition == null)
                 return;
             var spriteReference = definition.GetSpriteReference();
-            sprite = Main.ResourceManager.GetSprite(spriteReference);
+            sprite = Main.LanguageManager.GetSprite(spriteReference);
         }
         private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory)
         {

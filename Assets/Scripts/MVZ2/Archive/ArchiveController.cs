@@ -129,7 +129,7 @@ namespace MVZ2.Archives
                 return;
             var name = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
             var backgroundRef = group.archive.background;
-            var background = Main.ResourceManager.GetSprite(backgroundRef);
+            var background = Main.LanguageManager.GetSprite(backgroundRef);
             var musicID = group.archive.music;
             var music = Main.ResourceManager.GetMusicName(musicID);
             var tags = string.Join(", ", group.tags.Select(t => Main.ResourceManager.GetArchiveTagName(t)));
@@ -194,7 +194,7 @@ namespace MVZ2.Archives
             if (group == null)
                 return;
             var backgroundRef = group.archive.background;
-            var background = Main.ResourceManager.GetSprite(backgroundRef);
+            var background = Main.LanguageManager.GetSprite(backgroundRef);
             var musicID = group.archive.music;
             ui.SetSimulationBackground(background);
             ui.DisplayPage(ArchiveUI.Page.Simulation);

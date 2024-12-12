@@ -514,7 +514,7 @@ namespace MVZ2.Mainmenu
                 var metaName = meta.Name;
                 var metaDescription = meta.Description;
 
-                var icon = main.ResourceManager.GetSprite(iconRef);
+                var icon = main.LanguageManager.GetSprite(iconRef);
                 var name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaName);
                 var earned = main.SaveManager.IsAchievementEarned(new NamespaceID(nsp, meta.ID));
                 var description = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaDescription);

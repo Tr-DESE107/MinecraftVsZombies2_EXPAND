@@ -1,4 +1,5 @@
 <notes>
     <note id="help" sprite="note/help_front" background="note/background_day" canFlip="true" flipSprite="note/help_back" />
     <note id="prologue" sprite="note/prologue" background="note/background_day" startTalk="mvz2:prologue_note" />
+    <note id="halloween" sprite="note/halloween" background="note/background_halloween" startTalk="mvz2:halloween_note" />
 </notes>

@@ -14,6 +14,8 @@ namespace MVZ2.GameContent.Detections
         }
         public override bool IsInRange(Entity self, Entity target)
         {
+            if (target.Type != EntityTypes.ENEMY)
+                return false;
             if (!TargetInLawn(target))
                 return false;
             var targetSize = target.GetScaledSize();

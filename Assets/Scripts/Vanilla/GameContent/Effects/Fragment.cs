@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Effects
             {
                 entity.Timeout = 30;
                 entity.Position = parent.Position;
-                entity.SetModelProperty("FragmentID", parent.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID));
+                UpdateFragmentID(entity);
             }
             entity.SetModelProperty("EmitSpeed", GetEmitSpeed(entity));
             SetEmitSpeed(entity, 0);
@@ -38,6 +38,10 @@ namespace MVZ2.GameContent.Effects
         public static void AddEmitSpeed(Entity entity, float value)
         {
             SetEmitSpeed(entity, GetEmitSpeed(entity) + value);
+        }
+        public static void UpdateFragmentID(Entity entity)
+        {
+            entity.SetModelProperty("FragmentID", entity.Parent?.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID));
         }
         #endregion
     }

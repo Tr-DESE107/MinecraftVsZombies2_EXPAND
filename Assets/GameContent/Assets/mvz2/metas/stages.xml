@@ -178,7 +178,7 @@
             <talk type="end" value="mvz2:halloween_10_over"/>
             <talk type="map" value="mvz2:halloween_10_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.map_pickup"/>
+        <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:halloween"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
