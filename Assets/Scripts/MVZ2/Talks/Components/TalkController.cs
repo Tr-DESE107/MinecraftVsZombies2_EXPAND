@@ -291,7 +291,7 @@ namespace MVZ2.Talk
                         switch (args[0])
                         {
                             case "change":
-                                ui.SetForegroundSprite(Main.LanguageManager.GetSprite(ParseArgumentSpriteReference(args[1])));
+                                ui.SetForegroundSprite(Main.GetFinalSprite(ParseArgumentSpriteReference(args[1])));
                                 break;
                             case "alpha":
                                 ui.SetForegroundAlpha(ParseArgumentFloat(args[1]));

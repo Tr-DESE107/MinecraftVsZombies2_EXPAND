@@ -17,7 +17,7 @@ namespace MVZ2.ChapterTransition
                 return;
             animator.SetBool("WillRotate", !info.doNotRotate);
             ui.SetWheelRootRotation(info.angle);
-            ui.SetTitleSprite(Main.LanguageManager.GetSprite(info.sprite));
+            ui.SetTitleSprite(Main.GetFinalSprite(info.sprite));
         }
         public async Task DisplayAsync(NamespaceID id)
         {

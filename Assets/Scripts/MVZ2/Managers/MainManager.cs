@@ -4,6 +4,7 @@ using MVZ2.Almanacs;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Cursors;
+using MVZ2.GameContent.Effects;
 using MVZ2.Games;
 using MVZ2.IO;
 using MVZ2.Level;
@@ -17,7 +18,9 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2Logic;
 using MVZ2Logic.Games;
+using PVZEngine;
 using UnityEngine;
+using static UnityEditor.PlayerSettings.Switch;
 
 namespace MVZ2.Managers
 {
@@ -85,6 +88,58 @@ namespace MVZ2.Managers
 #else
             return false;
 #endif
+        }
+        public Sprite GetFinalSprite(SpriteReference spriteRef)
+        {
+            if (!OptionsManager.HasBloodAndGore())
+            {
+                var id = spriteRef.id;
+                var censoredId = new NamespaceID(id.spacename, $"{id.path}_censored");
+                SpriteReference censoredRef;
+                if (spriteRef.isSheet)
+                {
+                    censoredRef = new SpriteReference(censoredId, spriteRef.index);
+                }
+                else
+                {
+                    censoredRef = new SpriteReference(censoredId);
+                }
+                var sprite = LanguageManager.GetCurrentLanguageSprite(censoredRef) ?? ResourceManager.GetSprite(censoredRef);
+                if (sprite)
+                    return sprite;
+            }
+            return LanguageManager.GetCurrentLanguageSprite(spriteRef) ?? ResourceManager.GetSprite(spriteRef);
+        }
+        public Sprite GetFinalSprite(Sprite sprite)
+        {
+            var spriteID = ResourceManager.GetSpriteReference(sprite);
+            return GetFinalSprite(spriteID) ?? sprite;
+        }
+        public Sprite GetFinalSprite(SpriteReference spriteRef, string language)
+        {
+            if (!OptionsManager.HasBloodAndGore())
+            {
+                var id = spriteRef.id;
+                var censoredId = new NamespaceID(id.spacename, $"{id.path}_censored");
+                SpriteReference censoredRef;
+                if (spriteRef.isSheet)
+                {
+                    censoredRef = new SpriteReference(censoredId, spriteRef.index);
+                }
+                else
+                {
+                    censoredRef = new SpriteReference(censoredId);
+                }
+                var sprite = LanguageManager.GetLocalizedSprite(censoredRef, language) ?? ResourceManager.GetSprite(censoredRef);
+                if (sprite)
+                    return sprite;
+            }
+            return LanguageManager.GetLocalizedSprite(spriteRef, language) ?? ResourceManager.GetSprite(spriteRef);
+        }
+        public Sprite GetFinalSprite(Sprite sprite, string language)
+        {
+            var spriteID = ResourceManager.GetSpriteReference(sprite);
+            return GetFinalSprite(spriteID, language) ?? sprite;
         }
         private void Awake()
         {

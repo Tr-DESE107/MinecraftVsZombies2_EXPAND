@@ -378,7 +378,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8d7f3c7369b68684b9a88018c6176f7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -568,7 +568,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0bad8dd7ca96eb047840a09bdbdcc162, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -690,7 +690,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c833ac401af4ce44c872c8fe55574646, type: 3}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
@@ -774,7 +774,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0fbbba219c45ca74497d29cf6fea2c5e, type: 3}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
@@ -1171,7 +1171,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0fbbba219c45ca74497d29cf6fea2c5e, type: 3}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
@@ -1291,7 +1291,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0fbbba219c45ca74497d29cf6fea2c5e, type: 3}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
@@ -1994,7 +1994,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1fa7f21a7f8675f47a19b64ae5086153, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

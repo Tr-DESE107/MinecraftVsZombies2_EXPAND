@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MVZ2.Managers;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace MVZ2.Localization
@@ -13,7 +14,7 @@ namespace MVZ2.Localization
         protected override void Translate(string language)
         {
             base.Translate(language);
-            Component.sprite = lang.GetLocalizedSprite(GetKeyInner(), language);
+            Component.sprite = MainManager.Instance.GetFinalSprite(Key, language);
         }
     }
 }

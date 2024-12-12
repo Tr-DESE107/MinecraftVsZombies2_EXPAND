@@ -59,7 +59,7 @@ namespace MVZ2.Mainmenu.UI
             {
                 sprKey = hoveredSprite;
             }
-            var spr = main.LanguageManager.GetSprite(sprKey);
+            var spr = main.GetFinalSprite(sprKey);
             spriteRenderer.sprite = spr;
         }
 

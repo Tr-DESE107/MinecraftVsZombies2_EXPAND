@@ -480,9 +480,9 @@ namespace MVZ2.Level
         }
         private void ShowPausedDialog()
         {
-            var spriteReference = pauseImages.Random(rng);
+            var sprite = pauseImages.Random(rng);
             ui.SetPauseDialogActive(true);
-            ui.SetPauseDialogImage(Localization.GetSprite(spriteReference));
+            ui.SetPauseDialogImage(Main.GetFinalSprite(sprite));
         }
         private void ShowGameOverDialog()
         {

@@ -21,8 +21,8 @@ namespace MVZ2.Note
         {
             meta = main.ResourceManager.GetNoteMeta(id);
             definition = main.Game.GetNoteDefinition(id);
-            ui.SetNoteSprite(main.LanguageManager.GetSprite(meta.sprite));
-            ui.SetBackground(main.LanguageManager.GetSprite(meta.background));
+            ui.SetNoteSprite(main.GetFinalSprite(meta.sprite));
+            ui.SetBackground(main.GetFinalSprite(meta.background));
             ui.SetCanFlip(meta.canFlip);
             ui.SetFlipAtLeft(isFlipped);
             var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
@@ -53,7 +53,7 @@ namespace MVZ2.Note
             isFlipped = !isFlipped;
             main.SoundManager.Play2D(VanillaSoundID.paper);
             var sprRef = isFlipped ? meta.flipSprite : meta.sprite;
-            ui.SetNoteSprite(main.LanguageManager.GetSprite(sprRef));
+            ui.SetNoteSprite(main.GetFinalSprite(sprRef));
             ui.SetFlipAtLeft(isFlipped);
         }
         private void OnButtonClickCallback()

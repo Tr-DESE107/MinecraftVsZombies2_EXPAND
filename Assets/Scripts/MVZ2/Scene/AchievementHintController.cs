@@ -32,7 +32,7 @@ namespace MVZ2.Scenes
                 if (meta != null)
                 {
                     name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, meta.Name ?? string.Empty);
-                    icon = main.LanguageManager.GetSprite(meta.Icon);
+                    icon = main.GetFinalSprite(meta.Icon);
                 }
                 ui.UpdateAchievement(icon, name);
                 showTimeout = maxShowTimeout;
