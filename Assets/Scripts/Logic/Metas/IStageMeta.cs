@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -36,10 +37,12 @@ namespace MVZ2Logic.Level
     {
         string Type { get; }
         NamespaceID Value { get; }
-        NamespaceID RepeatUntil { get; }
+        NamespaceID[] RepeatUntil { get; }
         bool ShouldRepeat(IGameSaveData save)
         {
-            return NamespaceID.IsValid(RepeatUntil) && !save.IsUnlocked(RepeatUntil);
+            if (RepeatUntil == null || RepeatUntil.Count(c => NamespaceID.IsValid(c)) <= 0)
+                return false;
+            return !RepeatUntil.Any(c => save.IsUnlocked(c));
         }
     }
     public interface IEnemySpawnEntry

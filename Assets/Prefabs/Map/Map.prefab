@@ -619,7 +619,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 33
+    m_Bits: 161
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -653,6 +653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   safeAspectMin: 1.3333334
   safeAspectMax: 1.7
+  safeAspectMinMobile: 1.7
+  safeAspectMaxMobile: 1.7
   _camera: {fileID: 4354599265992543201}
 --- !u!114 &1839116434386063240
 MonoBehaviour:
@@ -2044,7 +2046,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0473f920090d7f41b244edfaaa8c7f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b232a97df3137748bf2e8e41658dfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &7858243530172904481 stripped

@@ -19,6 +19,10 @@ namespace MVZ2.Level.Components
         {
             Controller.ShowMoney();
         }
+        public void SetMoneyFade(bool fade)
+        {
+            Controller.SetMoneyFade(fade);
+        }
         public void SetEnergyActive(bool visible)
         {
             Controller.EnergyActive = visible;

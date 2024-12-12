@@ -114,6 +114,7 @@ namespace MVZ2.Level
             UpdateLevelName();
             UpdateDifficulty();
             UpdateLevelUI();
+            UpdateMoney();
 
             var uiPreset = GetUIPreset();
             uiPreset.SetBlockRaycasts(true);
@@ -376,6 +377,7 @@ namespace MVZ2.Level
                 // 设置光照。
                 ui.SetNightValue(level.GetNightValue());
                 ui.SetDarknessValue(level.GetDarknessValue());
+                UpdateMoney();
                 foreach (var component in level.GetComponents())
                 {
                     if (component is MVZ2Component comp)
@@ -749,7 +751,6 @@ namespace MVZ2.Level
             var startTalk = level.GetTalk(StageMetaTalk.TYPE_START);
             if (startTalk != null)
             {
-                var repeatUntil = startTalk.RepeatUntil;
                 if (!level.IsRerun || startTalk.ShouldRepeat(Main.SaveManager))
                 {
                     await talkController.SimpleStartTalkAsync(startTalk.Value, 0, 2, () => Music.Play(VanillaMusicID.mainmenu));

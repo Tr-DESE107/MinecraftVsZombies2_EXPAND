@@ -76,6 +76,7 @@ namespace MVZ2Logic.Level.Components
     {
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
         void ShowMoney();
+        void SetMoneyFade(bool fade);
         void SetEnergyActive(bool visible);
         void SetBlueprintsActive(bool visible);
         void SetPickaxeActive(bool visible);

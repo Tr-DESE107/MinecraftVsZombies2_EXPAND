@@ -126,6 +126,11 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             levelUI.ResetMoneyFadeTime();
         }
+        public void SetMoneyFade(bool fade)
+        {
+            var levelUI = GetUIPreset();
+            levelUI.SetMoneyFade(fade);
+        }
         public LevelUIPreset GetUIPreset()
         {
             return Main.IsMobile() ? mobileUI : standaloneUI;
@@ -748,12 +753,16 @@ namespace MVZ2.Level
         private void UpdateLevelUI()
         {
             var ui = GetUIPreset();
-            ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
             UpdateEnergy();
             UpdateLevelProgress();
             UpdateHeldSlotUI();
             UpdateBlueprintsState();
             UpdateStarshards();
+        }
+        private void UpdateMoney()
+        {
+            var ui = GetUIPreset();
+            ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
         }
         private void UpdateEnergy()
         {

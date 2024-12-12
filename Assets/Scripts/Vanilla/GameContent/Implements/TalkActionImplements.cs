@@ -89,12 +89,6 @@ namespace MVZ2.GameContent.Implements
             }
             private void ShowTutorialDialog(ITalkSystem system)
             {
-                if (level.StageID != VanillaStageID.prologue)
-                {
-                    Debug.LogError("尝试在非教程场景创建教程对话框。");
-                    return;
-                }
-
                 var game = Global.Game;
                 var title = game.GetText(VanillaStrings.UI_TUTORIAL);
                 var desc = game.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
@@ -119,24 +113,20 @@ namespace MVZ2.GameContent.Implements
             private void TryBuySeventhSlot(ITalkSystem system)
             {
                 var game = Global.Game;
-                level.ShowMoney();
                 if (game.GetMoney() >= 750)
                 {
+                    level.ShowMoney();
+                    level.SetMoneyFade(false);
                     system.StartSection(1);
                 }
                 else
                 {
+                    level.ShowMoney();
                     system.StartSection(2);
                 }
             }
             private void ShowSeventhSlotDialog(ITalkSystem system)
             {
-                if (level.StageID != VanillaStageID.halloween7)
-                {
-                    Debug.LogError("尝试在非万圣夜场景创建第七卡槽对话框。");
-                    return;
-                }
-
                 var game = Global.Game;
                 var title = game.GetText(VanillaStrings.UI_PURCHASE);
                 var desc = game.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
@@ -155,10 +145,13 @@ namespace MVZ2.GameContent.Implements
                             game.AddMoney(-750);
                             level.SetSeedSlotCount(7);
                             game.SetBlueprintSlots(7);
+                            game.Unlock(VanillaUnlockID.blueprintSlot7);
                             system.StartSection(3);
+                            level.SetMoneyFade(true);
                             break;
                         case 1:
                             system.StartSection(4);
+                            level.SetMoneyFade(true);
                             break;
                     }
                 });

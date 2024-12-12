@@ -105,6 +105,7 @@ namespace MVZ2.Level
             UpdateLevelProgress();
             UpdateDifficultyName();
             UpdateLevelUI();
+            UpdateMoney();
             SetUIVisibleState(VisibleState.InLevel);
             ShowMoney();
 
