@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2.HeldItems;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Level;
 using UnityEngine;
@@ -23,10 +24,10 @@ namespace MVZ2.Level
         {
             this.level = level;
         }
-        public void SetHeldItem(HeldItemDefinition definition, long id, float radius)
+        public void SetHeldItem(HeldItemDefinition definition, IHeldItemData data, float radius)
         {
             heldItemDefinition = definition;
-            heldItemId = id;
+            heldItemData = data;
             castRadius = radius;
         }
         /// <summary>
@@ -80,7 +81,10 @@ namespace MVZ2.Level
                 var hit = m_Hits[b];
                 var go = hit.collider.gameObject;
 
-                if (!IsGameObjectValid(go))
+                var receiver = go.GetComponentInParent<ILevelRaycastReceiver>();
+                if (receiver == null)
+                    continue;
+                if (!receiver.IsValidReceiver(level, heldItemDefinition, heldItemData))
                     continue;
 
                 var result = new RaycastResult
@@ -92,23 +96,17 @@ namespace MVZ2.Level
                     worldNormal = hit.normal,
                     screenPosition = eventData.position,
                     displayIndex = displayIndex,
-                    index = resultAppendList.Count
+                    index = resultAppendList.Count,
+                    sortingLayer = receiver.GetSortingLayer(),
+                    sortingOrder = receiver.GetSortingOrder(),
                 };
 
                 resultAppendList.Add(result);
             }
         }
-        private bool IsGameObjectValid(GameObject go)
-        {
-            var receiver = go.GetComponentInParent<ILevelRaycastReceiver>();
-            if (receiver == null)
-                return false;
-            return receiver.IsValidReceiver(level, heldItemDefinition, heldItemId);
-        }
-        public override int sortOrderPriority => 0;
         RaycastHit2D[] m_Hits;
         private HeldItemDefinition heldItemDefinition;
-        private long heldItemId;
+        private IHeldItemData heldItemData;
         private float castRadius;
         private LevelEngine level;
     }

@@ -46,6 +46,10 @@ namespace MVZ2.UI
         {
             heldItem.SetModel(prefab);
         }
+        public void SetHeldItemTrigger(bool visible, bool trigger)
+        {
+            heldItem.SetTrigger(visible, trigger);
+        }
         public Model GetHeldItemModel()
         {
             return heldItem.GetModel();

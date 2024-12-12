@@ -74,7 +74,7 @@ namespace MVZ2.Vanilla
                 }
                 AddDefinition(entityDefinition);
 
-                var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), entityDefinition.IsTriggerActive());
+                var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), entityDefinition.IsTriggerActive(), entityDefinition.CanInstantTrigger());
                 AddDefinition(seedDef);
 
                 var spawnCost = entityDefinition.GetSpawnCost();
@@ -142,9 +142,7 @@ namespace MVZ2.Vanilla
 
                 stage.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
 
-                stage.SetProperty(VanillaStageProps.START_TALK, meta.StartTalk);
-                stage.SetProperty(VanillaStageProps.END_TALK, meta.EndTalk);
-                stage.SetProperty(VanillaStageProps.MAP_TALK, meta.MapTalk);
+                stage.SetProperty(VanillaStageProps.TALKS, meta.Talks);
 
                 stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
                 stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_BLUEPRINT, meta.ClearPickupBlueprint);

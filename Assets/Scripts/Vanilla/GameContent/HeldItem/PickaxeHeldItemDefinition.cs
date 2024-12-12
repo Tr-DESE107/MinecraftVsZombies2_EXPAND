@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Models;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.HeldItems
 
         #region 实体
         public override bool IsForEntity() => !Global.IsMobile();
-        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
         {
             HeldFlags flags = HeldFlags.ForceReset;
             switch (entity.Type)
@@ -37,9 +38,9 @@ namespace MVZ2.GameContent.HeldItems
             }
             return flags;
         }
-        public override bool UseOnEntity(Entity entity, long id, PointerPhase phase)
+        public override bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase)
         {
-            base.UseOnEntity(entity, id, phase);
+            base.UseOnEntity(entity, data, phase);
             if (phase != PointerPhase.Press)
                 return false;
             switch (entity.Type)
@@ -55,7 +56,7 @@ namespace MVZ2.GameContent.HeldItems
 
         #region 网格
         public override bool IsForGrid() => Global.IsMobile();
-        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             var flags = HeldFlags.ForceReset;
             var entities = grid.GetTakenEntities();
@@ -65,9 +66,9 @@ namespace MVZ2.GameContent.HeldItems
             }
             return flags;
         }
-        public override bool UseOnGrid(LawnGrid grid, long id, PointerPhase phase)
+        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase)
         {
-            base.UseOnGrid(grid, id, phase);
+            base.UseOnGrid(grid, data, phase);
             if (phase != PointerPhase.Release)
                 return false;
             var entities = grid.GetTakenEntities();
@@ -80,9 +81,9 @@ namespace MVZ2.GameContent.HeldItems
         }
         #endregion
 
-        public override void UseOnLawn(LevelEngine level, LawnArea area, long id, PointerPhase phase)
+        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data, PointerPhase phase)
         {
-            base.UseOnLawn(level, area, id, phase);
+            base.UseOnLawn(level, area, data, phase);
             if (level.CancelHeldItem() && area == LawnArea.Side)
             {
                 level.PlaySound(VanillaSoundID.tap);

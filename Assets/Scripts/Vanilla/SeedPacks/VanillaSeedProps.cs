@@ -10,6 +10,7 @@ namespace MVZ2.Vanilla.SeedPacks
         public const string SEED_TYPE = "seedType";
         public const string TWINKLING = "twinkling";
         public const string TRIGGER_ACTIVE = "triggerActive";
+        public const string CAN_INSTANT_TRIGGER = "canInstantTrigger";
         public static int GetSeedType(this SeedDefinition definition)
         {
             return definition.GetProperty<int>(SEED_TYPE);
@@ -21,6 +22,14 @@ namespace MVZ2.Vanilla.SeedPacks
         public static bool IsTriggerActive(this SeedDefinition definition)
         {
             return definition.GetProperty<bool>(TRIGGER_ACTIVE);
+        }
+        public static bool IsTriggerActive(this SeedPack seedPack)
+        {
+            return seedPack.GetProperty<bool>(TRIGGER_ACTIVE);
+        }
+        public static bool CanInstantTrigger(this SeedDefinition definition)
+        {
+            return definition.GetProperty<bool>(CAN_INSTANT_TRIGGER);
         }
         public static bool IsTwinkling(this SeedPack seed)
         {

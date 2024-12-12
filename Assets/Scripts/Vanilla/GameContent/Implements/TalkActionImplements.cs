@@ -80,10 +80,10 @@ namespace MVZ2.GameContent.Implements
                         }
                         break;
                     case "start_starshard_tutorial":
-                        level.ChangeStage(VanillaStageID.starshard_tutorial);
+                        level.ChangeStage(VanillaStageID.starshardTutorial);
                         break;
                     case "start_trigger_tutorial":
-                        level.ChangeStage(VanillaStageID.trigger_tutorial);
+                        level.ChangeStage(VanillaStageID.triggerTutorial);
                         break;
                 }
             }

@@ -16,9 +16,7 @@ namespace MVZ2.Metas
 
         public NamespaceID MusicID { get; private set; }
 
-        public NamespaceID StartTalk { get; private set; }
-        public NamespaceID EndTalk { get; private set; }
-        public NamespaceID MapTalk { get; private set; }
+        public StageMetaTalk[] Talks { get; private set; }
 
         public string ModelPreset { get; private set; }
 
@@ -36,6 +34,7 @@ namespace MVZ2.Metas
 
         public Dictionary<string, object> Properties { get; private set; }
 
+        IStageTalkMeta[] IStageMeta.Talks => Talks;
         IEnemySpawnEntry[] IStageMeta.Spawns => Spawns;
         public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -49,10 +48,19 @@ namespace MVZ2.Metas
             var modelNode = node["model"];
             var preset = modelNode?.GetAttribute("preset");
 
-            var talkNode = node["talk"];
-            var startTalk = talkNode?.GetAttributeNamespaceID("start", defaultNsp);
-            var endTalk = talkNode?.GetAttributeNamespaceID("end", defaultNsp);
-            var mapTalk = talkNode?.GetAttributeNamespaceID("map", defaultNsp);
+            var talks = new List<StageMetaTalk>();
+            var talksNode = node["talks"];
+            if (talksNode != null)
+            {
+                for (int i = 0; i < talksNode.ChildNodes.Count; i++)
+                {
+                    var child = talksNode.ChildNodes[i];
+                    if (child.Name == "talk")
+                    {
+                        talks.Add(StageMetaTalk.FromXmlNode(child, defaultNsp));
+                    }
+                }
+            }
 
             var clearNode = node["clear"];
             var clearPickupModel = clearNode?.GetAttributeNamespaceID("pickupModel", defaultNsp);
@@ -87,9 +95,7 @@ namespace MVZ2.Metas
 
                 ModelPreset = preset,
 
-                StartTalk = startTalk,
-                EndTalk = endTalk,
-                MapTalk = mapTalk,
+                Talks = talks.ToArray(),
 
                 ClearPickupModel = clearPickupModel,
                 ClearPickupBlueprint = clearPickupBlueprint,

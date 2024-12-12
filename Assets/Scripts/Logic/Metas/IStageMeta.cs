@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -15,9 +16,7 @@ namespace MVZ2Logic.Level
 
         NamespaceID MusicID { get; }
 
-        NamespaceID StartTalk { get; }
-        NamespaceID EndTalk { get; }
-        NamespaceID MapTalk { get; }
+        IStageTalkMeta[] Talks { get; }
 
         NamespaceID ClearPickupModel { get; }
         NamespaceID ClearPickupBlueprint { get; }
@@ -32,6 +31,16 @@ namespace MVZ2Logic.Level
         float SpawnPointsMultiplier { get; }
 
         Dictionary<string, object> Properties { get; }
+    }
+    public interface IStageTalkMeta
+    {
+        string Type { get; }
+        NamespaceID Value { get; }
+        NamespaceID RepeatUntil { get; }
+        bool ShouldRepeat(IGameSaveData save)
+        {
+            return NamespaceID.IsValid(RepeatUntil) && !save.IsUnlocked(RepeatUntil);
+        }
     }
     public interface IEnemySpawnEntry
     {

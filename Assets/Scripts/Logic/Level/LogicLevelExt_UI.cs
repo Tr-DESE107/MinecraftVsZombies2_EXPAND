@@ -56,6 +56,11 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.SetHintArrowPointToPickaxe();
         }
+        public static void SetHintArrowPointToTrigger(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            component.SetHintArrowPointToTrigger();
+        }
         public static void SetHintArrowPointToStarshard(this LevelEngine level)
         {
             var component = level.GetUIComponent();

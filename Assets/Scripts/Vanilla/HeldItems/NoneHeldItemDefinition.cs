@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using MVZ2.HeldItems;
+using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Entities;
@@ -15,7 +16,7 @@ namespace MVZ2.Vanilla.HeldItems
         #region 实体
         public override bool IsForEntity() => true;
         public override bool IsForPickup() => true;
-        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
         {
             switch (entity.Type)
             {
@@ -34,7 +35,7 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return HeldFlags.None;
         }
-        public override bool UseOnEntity(Entity entity, long id, PointerPhase phase)
+        public override bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase)
         {
             switch (entity.Type)
             {
@@ -58,7 +59,7 @@ namespace MVZ2.Vanilla.HeldItems
         #endregion
 
         public override bool IsForGrid() => false;
-        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             return HeldFlags.None;
         }

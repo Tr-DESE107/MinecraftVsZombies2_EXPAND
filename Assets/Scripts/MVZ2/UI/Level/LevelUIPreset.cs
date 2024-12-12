@@ -294,6 +294,12 @@ namespace MVZ2.Level.UI
             var pickaxe = pickaxeSlot;
             hintArrow.SetTarget(pickaxe.transform, hintArrowOffsetPickaxe * 0.01f, hintArrowAnglePickaxe);
         }
+        public void SetHintArrowPointToTrigger()
+        {
+            hintArrow.SetVisible(true);
+            var trigger = triggerSlot;
+            hintArrow.SetTarget(trigger.transform, hintArrowOffsetTrigger * 0.01f, hintArrowAngleTrigger);
+        }
         public void SetHintArrowPointToStarshard()
         {
             hintArrow.SetVisible(true);
@@ -329,6 +335,10 @@ namespace MVZ2.Level.UI
         public void ShowTooltipOnPickaxe(TooltipViewData viewData)
         {
             ShowTooltipOnComponent(pickaxeSlot, viewData);
+        }
+        public void ShowTooltipOnTrigger(TooltipViewData viewData)
+        {
+            ShowTooltipOnComponent(triggerSlot, viewData);
         }
         public void ShowTooltipOnEntity(EntityController entity, TooltipViewData viewData)
         {
@@ -412,6 +422,8 @@ namespace MVZ2.Level.UI
 
             starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
 
+            triggerSlot.OnPointerEnter += (data) => OnTriggerPointerEnter?.Invoke(data);
+            triggerSlot.OnPointerExit += (data) => OnTriggerPointerExit?.Invoke(data);
             triggerSlot.OnPointerDown += (data) => OnTriggerPointerDown?.Invoke(data);
 
 
@@ -476,6 +488,8 @@ namespace MVZ2.Level.UI
 
         public event Action<PointerEventData> OnStarshardPointerDown;
 
+        public event Action<PointerEventData> OnTriggerPointerEnter;
+        public event Action<PointerEventData> OnTriggerPointerExit;
         public event Action<PointerEventData> OnTriggerPointerDown;
         public event Action OnStartGameCalled;
         public event Action OnMenuButtonClick;
@@ -586,11 +600,15 @@ namespace MVZ2.Level.UI
         [SerializeField]
         Vector2 hintArrowOffsetStarshard;
         [SerializeField]
+        Vector2 hintArrowOffsetTrigger;
+        [SerializeField]
         float hintArrowAngleBlueprint;
         [SerializeField]
         float hintArrowAnglePickaxe;
         [SerializeField]
         float hintArrowAngleStarshard;
+        [SerializeField]
+        float hintArrowAngleTrigger;
         #endregion
 
         #region ÄÚÇ¶Àà

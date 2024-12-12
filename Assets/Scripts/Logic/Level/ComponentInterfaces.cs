@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MVZ2.HeldItems;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -16,13 +17,11 @@ namespace MVZ2Logic.Level.Components
     public interface IHeldItemComponent : ILevelComponent
     {
         void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false);
+        void SetHeldItem(IHeldItemData data);
         void ResetHeldItem();
         bool CancelHeldItem();
         IModelInterface GetHeldItemModelInterface();
-        NamespaceID HeldItemType { get; }
-        long HeldItemID { get; }
-        int HeldItemPriority { get; }
-        bool HeldItemNoCancel { get; }
+        IHeldItemData Data { get; }
     }
     public interface ILogicComponent : ILevelComponent
     {
@@ -84,6 +83,7 @@ namespace MVZ2Logic.Level.Components
         void SetTriggerActive(bool visible);
         void SetHintArrowPointToBlueprint(int index);
         void SetHintArrowPointToPickaxe();
+        void SetHintArrowPointToTrigger();
         void SetHintArrowPointToStarshard();
         void SetHintArrowPointToEntity(Entity entity);
         void HideHintArrow();

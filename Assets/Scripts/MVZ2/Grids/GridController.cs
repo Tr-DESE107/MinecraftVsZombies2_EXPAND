@@ -1,5 +1,7 @@
 using System;
+using MVZ2.HeldItems;
 using MVZ2.Level;
+using MVZ2.Models;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Level;
 using UnityEngine;
@@ -29,12 +31,20 @@ namespace MVZ2.Grids
         {
             OnPointerUp?.Invoke(eventData);
         }
-        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, long id)
+        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data)
         {
             if (definition == null || !definition.IsForGrid())
                 return false;
-            var flags = definition.GetHeldFlagsOnGrid(level.GetGrid(Column, Lane), id);
+            var flags = definition.GetHeldFlagsOnGrid(level.GetGrid(Column, Lane), data);
             return flags.HasFlag(HeldFlags.Valid);
+        }
+        int ILevelRaycastReceiver.GetSortingLayer()
+        {
+            return spriteRenderer.sortingLayerID;
+        }
+        int ILevelRaycastReceiver.GetSortingOrder()
+        {
+            return spriteRenderer.sortingOrder;
         }
         public event Action<PointerEventData> OnPointerEnter;
         public event Action<PointerEventData> OnPointerExit;

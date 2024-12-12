@@ -53,6 +53,13 @@ namespace MVZ2.Level.Components
             TargetType = HintArrowTargetType.Pickaxe;
             TargetID = 0;
         }
+        public void SetHintArrowPointToTrigger()
+        {
+            var levelUI = Controller.GetUIPreset();
+            levelUI.SetHintArrowPointToTrigger();
+            TargetType = HintArrowTargetType.Trigger;
+            TargetID = 0;
+        }
         public void SetHintArrowPointToStarshard()
         {
             var levelUI = Controller.GetUIPreset();
@@ -140,6 +147,7 @@ namespace MVZ2.Level.Components
         None,
         Blueprint,
         Pickaxe,
+        Trigger,
         Entity,
         Starshard,
     }

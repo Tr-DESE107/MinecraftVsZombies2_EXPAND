@@ -180,6 +180,7 @@
             <id name="shell" value="mvz2:grass"/>
             <id name="deathSound" value="mvz2:grass"/>
             <bool name="triggerActive" value="true" />
+            <bool name="instantTrigger" value="true" />
 
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:very_long" />

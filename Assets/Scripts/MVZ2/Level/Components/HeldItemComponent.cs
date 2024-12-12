@@ -1,4 +1,6 @@
 using System;
+using MVZ2.HeldItems;
+using MVZ2.Level.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic.Callbacks;
@@ -18,7 +20,7 @@ namespace MVZ2.Level.Components
         public override void Update()
         {
             base.Update();
-            var definition = Level.Content.GetHeldItemDefinition(heldItemType);
+            var definition = Level.Content.GetHeldItemDefinition(Data.Type);
             if (definition != null)
             {
                 definition.Update(Level);
@@ -26,17 +28,28 @@ namespace MVZ2.Level.Components
         }
         public bool IsHoldingItem()
         {
-            return NamespaceID.IsValid(heldItemType) && heldItemType != BuiltinHeldTypes.none;
+            return NamespaceID.IsValid(Data.Type) && Data.Type != BuiltinHeldTypes.none;
         }
         public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
         {
-            if (IsHoldingItem() && heldItemPriority > priority)
+            SetHeldItem(new HeldItemStruct()
+            {
+                Type = type,
+                ID = id,
+                Priority = priority,
+                NoCancel = noCancel
+            });
+        }
+        public void SetHeldItem(IHeldItemData value)
+        {
+            if (IsHoldingItem() && info.Priority > value.Priority)
                 return;
-            heldItemType = type;
-            heldItemID = id;
-            heldItemPriority = priority;
-            heldItemNoCancel = noCancel;
-            Controller.SetHeldItemUI(type, id, priority, noCancel);
+            info.Type = value.Type;
+            info.ID = value.ID;
+            info.Priority = value.Priority;
+            info.NoCancel = value.NoCancel;
+            info.InstantTrigger = value.InstantTrigger;
+            Controller.SetHeldItemUI(info);
         }
         public IModelInterface GetHeldItemModelInterface()
         {
@@ -48,23 +61,28 @@ namespace MVZ2.Level.Components
         }
         public bool CancelHeldItem()
         {
-            if (!IsHoldingItem() || HeldItemNoCancel)
+            if (!IsHoldingItem() || info.NoCancel)
                 return false;
             ResetHeldItem();
             return true;
         }
-        public NamespaceID HeldItemType => heldItemType;
-        public long HeldItemID => heldItemID;
-        public int HeldItemPriority => heldItemPriority;
-        public bool HeldItemNoCancel => heldItemNoCancel;
-        private NamespaceID heldItemType;
-        private long heldItemID;
-        private int heldItemPriority;
-        private bool heldItemNoCancel;
+        public IHeldItemData Data => info;
+        private HeldItemStruct info = new HeldItemStruct()
+        {
+            Type = BuiltinHeldTypes.none
+        };
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "heldItem");
     }
     [Serializable]
     public class EmptySerializableLevelComponent : ISerializableLevelComponent
     {
+    }
+    public struct HeldItemStruct : IHeldItemData
+    {
+        public NamespaceID Type { get; set; }
+        public long ID { get; set; }
+        public int Priority { get; set; }
+        public bool NoCancel { get; set; }
+        public bool InstantTrigger { get; set; }
     }
 }

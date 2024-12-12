@@ -41,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 2237204161
     locked: 0
+  - name: Receivers
+    uniqueID: 683829979
+    locked: 0
   - name: Grid
     uniqueID: 2302159725
     locked: 0

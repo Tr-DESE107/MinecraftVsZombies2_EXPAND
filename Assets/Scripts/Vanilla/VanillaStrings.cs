@@ -79,6 +79,8 @@ namespace MVZ2.Vanilla
         public const string TOOLTIP_RECHARGING = "重新充能中…";
         [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_DIG_CONTRAPTION = "挖掉器械";
+        [TranslateMsg("游戏内文本提示")]
+        public const string TOOLTIP_TRIGGER_CONTRAPTION = "触发器械";
 
         public const string CONTEXT_DIFFICULTY = "difficulty";
         [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]

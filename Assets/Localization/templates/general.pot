@@ -3,99 +3,13 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-11 06:43+0800\n"
+"POT-Creation-Date: 2024-12-12 05:28+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/TopRight/MenuButton/Text
-msgid "菜单"
-msgstr ""
-
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
-msgid "选择你的蓝图"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
-msgid "一起摇滚吧！"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
-msgid "查看战场"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
-msgid "查看图鉴"
-msgstr ""
-
-#. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
-msgid "进入商店"
-msgstr ""
-
-#. 对话跳过按钮
-#: /Level/UI/Talk/SkipButton/Text
-msgid "跳过"
-msgstr ""
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
-msgid "游戏暂停"
-msgstr ""
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
-msgid "返回游戏"
-msgstr ""
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
-msgid "游戏结束"
-msgstr ""
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/RetryButton/Text
-msgid "重新开始"
-msgstr ""
-
-#. 暂停游戏对话框的按钮
-#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/BackButton/Text
-msgid "返回"
-msgstr ""
-
-#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
-msgid "更多选项"
-msgstr ""
-
-#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
-msgid "语言"
-msgstr ""
-
-#: /Level/UI/DialogCanvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
-msgid "分辨率"
-msgstr ""
-
-#. 读取游戏对话框的标题
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
-msgid "继续"
-msgstr ""
-
-#. 读取游戏对话框的描述
-#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
-msgid "是否继续上一次的进度？"
-msgstr ""
-
-#. 读取游戏失败对话框的标题
-#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
-msgid "错误"
-msgstr ""
 
 #. 初始界面的作者标识
 #: /MainGame/MainScene/Landing/Canvas/Creator
@@ -132,6 +46,10 @@ msgstr ""
 msgid "成就"
 msgstr ""
 
+#: /MainGame/MainScene/Mainmenu/Elements/Buttons/Stats/ReturnButton/Text
+msgid "返回"
+msgstr ""
+
 #: /MainGame/MainScene/Mainmenu/Elements/Buttons/Achievements/Region/Scroll View/Viewport/Content/Entry/Texts/TitleRegion/Earned
 msgid "已完成！"
 msgstr ""
@@ -159,6 +77,33 @@ msgstr ""
 #. 用户管理界面按钮
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/SwitchButton/Text
 msgid "确定"
+msgstr ""
+
+#. 菜单对话框的标题
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
+msgid "菜单"
+msgstr ""
+
+#. 关卡内菜单选项
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
+msgid "重新开始"
+msgstr ""
+
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
+msgid "更多选项"
+msgstr ""
+
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
+msgid "语言"
+msgstr ""
+
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
+msgid "分辨率"
+msgstr ""
+
+#. 对话跳过按钮
+#: /MainGame/MainScene/Note/Talk/SkipButton/Text
+msgid "跳过"
 msgstr ""
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Top/Title/Text (TMP)
@@ -275,146 +220,266 @@ msgstr ""
 msgid "取消"
 msgstr ""
 
-# 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:205
-msgctxt "advice.starshard_tutorial.0"
-msgid "点击星之碎片槽选中星之碎片！！"
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
+msgid "选择你的蓝图"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+msgid "一起摇滚吧！"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+msgid "查看战场"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+msgid "查看图鉴"
+msgstr ""
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+msgid "进入商店"
+msgstr ""
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
+msgstr ""
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "返回游戏"
+msgstr ""
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
+msgstr ""
+
+#. 读取游戏对话框的标题
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
+msgid "继续"
+msgstr ""
+
+#. 读取游戏对话框的描述
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
+msgid "是否继续上一次的进度？"
+msgstr ""
+
+#. 读取游戏失败对话框的标题
+#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
+msgid "错误"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:207
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:201
+msgctxt "advice.starshard_tutorial.0"
+msgid "点击星之碎片槽选中星之碎片！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:203
 msgctxt "advice.starshard_tutorial.1"
 msgid "点击发射器！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:209
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:205
 msgctxt "advice.starshard_tutorial.2"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:211
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:207
 msgctxt "advice.starshard_tutorial.3"
 msgid "绿色的怪物会携带星之碎片！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:213
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:209
 msgctxt "advice.starshard_tutorial.4"
 msgid "点击收集星之碎片！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:215
+#: Scripts\Vanilla\GameContent\Stages\StarshardTutorialStage.cs:211
 msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:454
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:298
+msgctxt "advice.trigger_tutorial.0"
+msgid "放置TNT！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:300
+msgctxt "advice.trigger_tutorial.1"
+msgid "点击选中触发器！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:302
+msgctxt "advice.trigger_tutorial.2"
+msgid "点击以触发TNT！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:304
+msgctxt "advice.trigger_tutorial.3"
+msgid "干得漂亮！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:306
+msgctxt "advice.trigger_tutorial.4"
+msgid "选中触发器！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:308
+msgctxt "advice.trigger_tutorial.5"
+msgid "点击TNT蓝图！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:310
+msgctxt "advice.trigger_tutorial.6"
+msgid "放置TNT，它会立即被触发！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:312
+msgctxt "advice.trigger_tutorial.7"
+msgid "干得好！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:314
+msgctxt "advice.trigger_tutorial.8"
+msgid "立即触发只限于一次性消耗类型的器械。"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:316
+msgctxt "advice.trigger_tutorial.9"
+msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TriggerTutorialStage.cs:318
+msgctxt "advice.trigger_tutorial.10"
+msgid "祝你好运！"
+msgstr ""
+
+# 教程关指引
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:450
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:456
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:452
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:458
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:454
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:460
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:456
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:462
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:458
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:464
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:460
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:466
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:462
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:468
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:464
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:470
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:466
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:472
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:468
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:474
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:470
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:476
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:472
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:478
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:474
 msgctxt "advice.tutorial.12"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:480
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:476
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:482
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:478
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:484
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:480
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:486
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:482
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:488
+#: Scripts\Vanilla\GameContent\Stages\TutorialStage.cs:484
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr ""
@@ -578,92 +643,85 @@ msgstr ""
 msgid "挖掉器械"
 msgstr ""
 
-# 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:84
-msgctxt "difficulty"
-msgid "简单"
+# 游戏内文本提示
+#: Scripts\Vanilla\VanillaStrings.cs:82
+msgid "触发器械"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:86
 msgctxt "difficulty"
-msgid "普通"
+msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:88
 msgctxt "difficulty"
-msgid "困难"
+msgid "普通"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:90
 msgctxt "difficulty"
-msgid "未知难度"
+msgid "困难"
 msgstr ""
 
-# 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:94
-msgctxt "levelname"
-msgid "未知关卡"
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:92
+msgctxt "difficulty"
+msgid "未知难度"
 msgstr ""
 
 # 关卡名称
 #: Scripts\Vanilla\VanillaStrings.cs:96
 msgctxt "levelname"
-msgid "序章"
-msgstr ""
-
-# 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:98
-msgctxt "levelname"
-msgid "万圣夜"
+msgid "未知关卡"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:100
+#: Scripts\Vanilla\VanillaStrings.cs:98
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:104
+#: Scripts\Vanilla\VanillaStrings.cs:102
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:107
+#: Scripts\Vanilla\VanillaStrings.cs:105
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:110
+#: Scripts\Vanilla\VanillaStrings.cs:108
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:113
+#: Scripts\Vanilla\VanillaStrings.cs:111
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:116
+#: Scripts\Vanilla\VanillaStrings.cs:114
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:119
+#: Scripts\Vanilla\VanillaStrings.cs:117
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:123
+#: Scripts\Vanilla\VanillaStrings.cs:121
 msgctxt "music.name"
 msgid "无"
 msgstr ""
@@ -795,21 +853,21 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:468
+#: Scripts\MVZ2\Map\MapController.cs:461
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:470
+#: Scripts\MVZ2\Map\MapController.cs:463
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:472
+#: Scripts\MVZ2\Map\MapController.cs:465
 msgid "正在进入关卡……"
 msgstr ""
 
@@ -845,34 +903,34 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:759
+#: Scripts\MVZ2\Level\LevelController_UI.cs:813
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:761
+#: Scripts\MVZ2\Level\LevelController_UI.cs:815
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:763
+#: Scripts\MVZ2\Level\LevelController_UI.cs:817
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:765
+#: Scripts\MVZ2\Level\LevelController_UI.cs:819
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:225
+#: Scripts\MVZ2\Archive\ArchiveController.cs:224
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:227
+#: Scripts\MVZ2\Archive\ArchiveController.cs:226
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -900,6 +958,18 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "教程关"
+msgstr ""
+
+#. Name for stage mvz2:prologue
+#: Stage meta file
+msgctxt "levelname"
+msgid "序章"
+msgstr ""
+
+#. Name for stage mvz2:halloween_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "万圣夜"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place

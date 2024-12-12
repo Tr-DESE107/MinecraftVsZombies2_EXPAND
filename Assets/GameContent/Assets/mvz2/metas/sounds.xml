@@ -334,6 +334,9 @@
     <sound name="swing">
         <sample path="mvz2:swing" weight="1" />
     </sound>
+    <sound name="talk">
+        <sample path="mvz2:talk" weight="1" />
+    </sound>
     <sound name="tap" priority="64">
         <sample path="mvz2:tap" weight="1" />
     </sound>

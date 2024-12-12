@@ -10,10 +10,12 @@ using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.UI;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
@@ -47,15 +49,31 @@ namespace MVZ2.Level
         {
             return ui.GetHeldItemModel();
         }
-        public void SetHeldItemUI(NamespaceID heldType, long id, int priority, bool noCancel)
+        public void SetHeldItemUI(IHeldItemData data)
         {
+            NamespaceID heldType = data.Type;
+            long id = data.ID;
+            bool instantTrigger = data.InstantTrigger;
+
             var definition = Game.GetHeldItemDefinition(heldType);
 
+            // 设置图标。
             var modelID = definition?.GetModelID(level, id);
             SetHeldItemModel(modelID);
 
-            var radius = (definition?.GetRadius() ?? 0) * LawnToTransScale;
+            // 显示触发器图标。
+            bool triggerVisible = false;
+            if (heldType == BuiltinHeldTypes.blueprint)
+            {
+                var blueprint = level.GetSeedPackAt((int)id);
+                if (blueprint != null && blueprint.IsTriggerActive()) 
+                {
+                    triggerVisible = true;
+                }
+            }
+            ui.SetHeldItemTrigger(triggerVisible, instantTrigger);
 
+            // 设置射线检测图层。
             List<int> layers = new List<int>();
             layers.Add(Layers.RAYCAST_RECEIVER);
             if (level.IsHeldItemForGrid(heldType))
@@ -71,11 +89,16 @@ namespace MVZ2.Level
                 layers.Add(Layers.PICKUP);
             }
             LayerMask layerMask = Layers.GetMask(layers.ToArray());
+
             var uiPreset = GetUIPreset();
             uiPreset.SetRaycasterMask(layerMask);
             levelRaycaster.eventMask = layerMask;
-            levelRaycaster.SetHeldItem(definition, id, radius);
 
+            // 设置射线检测半径。
+            var radius = (definition?.GetRadius() ?? 0) * LawnToTransScale;
+            levelRaycaster.SetHeldItem(definition, data, radius);
+
+            // 设置光标。
             if (heldType == BuiltinHeldTypes.none)
             {
                 if (heldItemCursorSource != null)
@@ -161,6 +184,8 @@ namespace MVZ2.Level
 
             uiPreset.OnStarshardPointerDown += UI_OnStarshardPointerDownCallback;
 
+            uiPreset.OnTriggerPointerEnter += UI_OnTriggerPointerEnterCallback;
+            uiPreset.OnTriggerPointerExit += UI_OnTriggerPointerExitCallback;
             uiPreset.OnTriggerPointerDown += UI_OnTriggerPointerDownCallback;
 
             uiPreset.OnRaycastReceiverPointerDown += UI_OnRaycastReceiverPointerDownCallback;
@@ -254,6 +279,33 @@ namespace MVZ2.Level
             if (!IsGameStarted())
                 return;
             ClickStarshard();
+        }
+        private void UI_OnTriggerPointerEnterCallback(PointerEventData eventData)
+        {
+            if (!IsGameStarted())
+                return;
+            var levelUI = GetUIPreset();
+            string error = null;
+            if (level.IsTriggerDisabled())
+            {
+                var message = level.GetTriggerDisableMessage();
+                if (!string.IsNullOrEmpty(message))
+                {
+                    error = Localization._(message);
+                }
+            }
+            var viewData = new TooltipViewData()
+            {
+                name = Localization._(VanillaStrings.TOOLTIP_TRIGGER_CONTRAPTION),
+                error = error,
+                description = null
+            };
+            levelUI.ShowTooltipOnTrigger(viewData);
+        }
+        private void UI_OnTriggerPointerExitCallback(PointerEventData eventData)
+        {
+            var levelUI = GetUIPreset();
+            levelUI.HideTooltip();
         }
         private void UI_OnTriggerPointerDownCallback(PointerEventData eventData)
         {
@@ -630,6 +682,8 @@ namespace MVZ2.Level
                 }
                 return;
             }
+            if (level.IsTriggerDisabled())
+                return;
             level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
         }
         private void ClickOnReceiver(RaycastReceiver receiver, PointerPhase phase)

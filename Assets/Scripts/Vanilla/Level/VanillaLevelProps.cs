@@ -16,6 +16,8 @@ namespace MVZ2.Vanilla.Level
         public const string PICKAXE_DISABLED = "pickaxeDisabled";
         public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
         public const string KEEP_HELD_ITEM_IN_SCREEN = "keepHeldItemInScreen";
+        public const string TRIGGER_DISABLED = "triggerDisabled";
+        public const string TRIGGER_DISABLE_MESSAGE = "triggerDisableMessage";
         public static IEnemySpawnEntry[] GetEnemyPool(this LevelEngine game)
         {
             return game.GetProperty<IEnemySpawnEntry[]>(ENEMY_POOL);
@@ -39,6 +41,14 @@ namespace MVZ2.Vanilla.Level
         public static string GetPickaxeDisableMessage(this LevelEngine level)
         {
             return level.GetProperty<string>(PICKAXE_DISABLE_MESSAGE);
+        }
+        public static bool IsTriggerDisabled(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(TRIGGER_DISABLED);
+        }
+        public static string GetTriggerDisableMessage(this LevelEngine level)
+        {
+            return level.GetProperty<string>(TRIGGER_DISABLE_MESSAGE);
         }
         public static Vector3 GetLastEnemyPosition(this LevelEngine game)
         {

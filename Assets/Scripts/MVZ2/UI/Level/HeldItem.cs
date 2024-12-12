@@ -43,8 +43,17 @@ namespace MVZ2.Level.UI
         {
             return model;
         }
+        public void SetTrigger(bool visible, bool trigger)
+        {
+            triggerObj.SetActive(visible && trigger);
+            notTriggerObj.SetActive(visible && !trigger);
+        }
         [SerializeField]
         private Transform modelRoot;
+        [SerializeField]
+        private GameObject triggerObj;
+        [SerializeField]
+        private GameObject notTriggerObj;
         private Model model;
     }
 }

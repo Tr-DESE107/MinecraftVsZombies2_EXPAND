@@ -3,6 +3,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -30,7 +31,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override bool IsForEntity() => true;
         public override bool IsForPickup() => true;
-        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, long id)
+        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
         {
             HeldFlags flags = HeldFlags.None;
             switch (entity.Type)
@@ -59,9 +60,9 @@ namespace MVZ2.GameContent.HeldItems
             }
             return flags;
         }
-        public override bool UseOnEntity(Entity entity, long id, PointerPhase phase)
+        public override bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase)
         {
-            base.UseOnEntity(entity, id, phase);
+            base.UseOnEntity(entity, data, phase);
             switch (entity.Type)
             {
                 case EntityTypes.ENEMY:
@@ -92,19 +93,19 @@ namespace MVZ2.GameContent.HeldItems
             return false;
         }
         public override bool IsForGrid() => false;
-        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, long id)
+        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             return HeldFlags.None;
         }
-        public override void UseOnLawn(LevelEngine level, LawnArea area, long id, PointerPhase phase)
+        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data, PointerPhase phase)
         {
-            base.UseOnLawn(level, area, id, phase);
+            base.UseOnLawn(level, area, data, phase);
             if (phase == PointerPhase.Press)
             {
                 Swing(level);
             }
         }
-        public override NamespaceID GetModelID(LevelEngine level, long id)
+        public override NamespaceID GetModelID(LevelEngine level,long id)
         {
             return VanillaModelID.swordHeldItem;
         }

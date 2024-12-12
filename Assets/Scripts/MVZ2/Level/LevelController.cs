@@ -30,6 +30,7 @@ using PVZEngine.Level;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using MVZ2.Metas;
 
 namespace MVZ2.Level
 {
@@ -464,15 +465,24 @@ namespace MVZ2.Level
             Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Saves.SaveModDatas();
-            Saves.SetMapTalk(level.GetMapTalk());
 
-            var stageID = level.StageID;
-            var endTalk = level.GetEndTalk();
-
-            float transitionDelay = 3;
-            if (!level.IsRerun)
+            var mapTalk = level.GetTalk(StageMetaTalk.TYPE_MAP);
+            if (mapTalk != null)
             {
-                await talkController.SimpleStartTalkAsync(endTalk, 0, 5, () => transitionDelay = 0);
+                if (!level.IsRerun || mapTalk.ShouldRepeat(Main.SaveManager))
+                {
+                    Saves.SetMapTalk(mapTalk.Value);
+                }
+            }
+
+            var endTalk = level.GetTalk(StageMetaTalk.TYPE_END);
+            float transitionDelay = 3;
+            if (endTalk != null)
+            {
+                if (!level.IsRerun || endTalk.ShouldRepeat(Main.SaveManager))
+                {
+                    await talkController.SimpleStartTalkAsync(endTalk.Value, 0, 5, () => transitionDelay = 0);
+                }
             }
             StartExitLevelTransition(transitionDelay);
         }
@@ -728,10 +738,14 @@ namespace MVZ2.Level
             }
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
-            var startTalk = level.GetStartTalk() ?? level.StageID;
-            if (!level.IsRerun)
+            var startTalk = level.GetTalk(StageMetaTalk.TYPE_START);
+            if (startTalk != null)
             {
-                await talkController.SimpleStartTalkAsync(startTalk, 0, 2, () => Music.Play(VanillaMusicID.mainmenu));
+                var repeatUntil = startTalk.RepeatUntil;
+                if (!level.IsRerun || startTalk.ShouldRepeat(Main.SaveManager))
+                {
+                    await talkController.SimpleStartTalkAsync(startTalk.Value, 0, 2, () => Music.Play(VanillaMusicID.mainmenu));
+                }
             }
             level.BeginLevel();
         }

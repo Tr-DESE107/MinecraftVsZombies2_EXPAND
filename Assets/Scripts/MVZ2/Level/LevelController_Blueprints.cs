@@ -1,6 +1,9 @@
 ﻿using System;
+using MVZ2.GameContent.HeldItems;
+using MVZ2.Level.Components;
 using MVZ2.Level.UI;
 using MVZ2.UI;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
@@ -201,14 +204,14 @@ namespace MVZ2.Level
                 chosenBlueprints.RemoveAt(index);
 
                 var uiPreset = GetUIPreset();
-                var blueprint = uiPreset.GetBlueprintAt(index);
+                var blueprintUI = uiPreset.GetBlueprintAt(index);
                 uiPreset.RemoveBlueprintAt(index);
 
-                var startPos = blueprint.transform.position;
+                var startPos = blueprintUI.transform.position;
                 var targetBlueprint = uiPreset.GetBlueprintChooseItem(choosingIndex);
                 var movingBlueprint = uiPreset.CreateMovingBlueprint();
                 movingBlueprint.transform.position = startPos;
-                movingBlueprint.SetBlueprint(blueprint);
+                movingBlueprint.SetBlueprint(blueprintUI);
                 movingBlueprint.SetMotion(startPos, targetBlueprint.transform);
                 movingBlueprint.OnMotionFinished += () =>
                 {
@@ -223,7 +226,14 @@ namespace MVZ2.Level
 
             if (index < 0 || index >= level.GetSeedPackCount())
                 return;
-            if (level.IsHoldingItem())
+            bool altTrigger = level.GetHeldItemType() == VanillaHeldTypes.trigger;
+            bool canInstantTrigger = false;
+            var blueprint = level.GetSeedPackAt(index);
+            if (blueprint.CanInstantTrigger())
+            {
+                canInstantTrigger = true;
+            }
+            if (level.IsHoldingItem() && !(canInstantTrigger && altTrigger))
             {
                 if (level.CancelHeldItem())
                 {
@@ -237,11 +247,26 @@ namespace MVZ2.Level
                 return;
             }
             level.PlaySound(VanillaSoundID.pick);
-            SelectBlueprint(index);
+            var instantTrigger = false;
+            if (canInstantTrigger)
+            {
+                instantTrigger = altTrigger;
+                if (Main.SaveManager.IsUnlocked(VanillaUnlockID.trigger) && Main.OptionsManager.IsTriggerSwapped())
+                {
+                    instantTrigger = !instantTrigger;
+                }
+            }
+            SelectBlueprint(index, instantTrigger);
         }
-        private void SelectBlueprint(int index)
+        private void SelectBlueprint(int index, bool instantTrigger)
         {
-            level.SetHeldItem(BuiltinHeldTypes.blueprint, index, 0);
+            level.SetHeldItem(new HeldItemStruct() 
+            {
+                Type = BuiltinHeldTypes.blueprint,
+                ID = index,
+                InstantTrigger = instantTrigger,
+                Priority = 0,
+            });
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using MVZ2Logic.Level;
+﻿using System.Linq;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -17,9 +18,7 @@ namespace MVZ2.Vanilla.Level
         public const string NO_PRODUCTION = "noProduction";
         public const string AUTO_COLLECT = "autoCollect";
 
-        public const string START_TALK = "startTalk";
-        public const string END_TALK = "endTalk";
-        public const string MAP_TALK = "mapTalk";
+        public const string TALKS = "talks";
 
         public const string CLEAR_PICKUP_MODEL = "clearPickupModel";
         public const string CLEAR_PICKUP_BLUEPRINT = "clearPickupBlueprint";
@@ -66,17 +65,16 @@ namespace MVZ2.Vanilla.Level
         {
             game.SetProperty(NO_PRODUCTION, value);
         }
-        public static NamespaceID GetStartTalk(this LevelEngine game)
+        public static IStageTalkMeta[] GetTalks(this LevelEngine game)
         {
-            return game.GetProperty<NamespaceID>(START_TALK);
+            return game.GetProperty<IStageTalkMeta[]>(TALKS);
         }
-        public static NamespaceID GetEndTalk(this LevelEngine game)
+        public static IStageTalkMeta GetTalk(this LevelEngine game, string type)
         {
-            return game.GetProperty<NamespaceID>(END_TALK);
-        }
-        public static NamespaceID GetMapTalk(this LevelEngine game)
-        {
-            return game.GetProperty<NamespaceID>(MAP_TALK);
+            var talks = game.GetTalks();
+            if (talks == null)
+                return null;
+            return talks.FirstOrDefault(t => t.Type == type);
         }
         public static NamespaceID GetEndNoteID(this LevelEngine game)
         {

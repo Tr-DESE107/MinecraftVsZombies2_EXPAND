@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
+using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
@@ -269,7 +270,7 @@ namespace MVZ2.Entities
         {
             OnPointerDown?.Invoke(this, eventData);
         }
-        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, long id)
+        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data)
         {
             if (Entity.IsPreviewEnemy())
                 return true;
@@ -285,8 +286,16 @@ namespace MVZ2.Entities
                 if (!definition.IsForEntity())
                     return false;
             }
-            var flags = definition.GetHeldFlagsOnEntity(Entity, id);
+            var flags = definition.GetHeldFlagsOnEntity(Entity, data);
             return flags.HasFlag(HeldFlags.Valid);
+        }
+        int ILevelRaycastReceiver.GetSortingLayer()
+        {
+            return Model.RendererGroup.SortingLayerID;
+        }
+        int ILevelRaycastReceiver.GetSortingOrder()
+        {
+            return Model.RendererGroup.SortingOrder;
         }
         #endregion
 
