@@ -93,6 +93,10 @@ namespace MVZ2.Level.UI
         {
             return blueprints.GetBlueprintAt(index);
         }
+        public int GetBlueprintIndex(Blueprint blueprint)
+        {
+            return blueprints.GetBlueprintIndex(blueprint);
+        }
         public Vector3 GetBlueprintPosition(int index)
         {
             return blueprints.GetBlueprintPosition(index);
@@ -164,9 +168,9 @@ namespace MVZ2.Level.UI
         {
             pickaxeSlotObj.SetActive(visible);
         }
-        public void SetPickaxeVisible(bool visible)
+        public void SetPickaxeSelected(bool selected)
         {
-            pickaxeSlot.SetPickaxeVisible(visible);
+            pickaxeSlot.SetSelected(selected);
         }
         #endregion
 
@@ -198,12 +202,20 @@ namespace MVZ2.Level.UI
         {
             starshardPanel.SetPoints(count, maxCount);
         }
+        public void SetStarshardSelected(bool selected)
+        {
+            starshardPanel.SetSelected(selected);
+        }
         #endregion
 
         #region ´¥·¢
         public void SetTriggerActive(bool visible)
         {
             triggerSlotObj.SetActive(visible);
+        }
+        public void SetTriggerSelected(bool selected)
+        {
+            triggerSlot.SetSelected(selected);
         }
         #endregion
 

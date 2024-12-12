@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6192170848796652454}
   - component: {fileID: 2115973866519645924}
+  - component: {fileID: 7209155741419981347}
   - component: {fileID: 6406392715525907118}
   m_Layer: 5
   m_Name: StarshardSlot
@@ -248,9 +249,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b197e8d3bbd24b49b12d470d4c933f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAnimator: {fileID: 0}
+  animator: {fileID: 7209155741419981347}
   icon: {fileID: 1625184735808977593}
   pointsList: {fileID: 7995129516486761019}
+--- !u!95 &7209155741419981347
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857391153651654308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbc917aa86e996b4c9e8f4173137a330, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6406392715525907118
 MonoBehaviour:
   m_ObjectHideFlags: 0

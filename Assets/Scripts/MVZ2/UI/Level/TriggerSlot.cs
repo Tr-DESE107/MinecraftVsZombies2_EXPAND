@@ -7,6 +7,10 @@ namespace MVZ2.Level.UI
 {
     public class TriggerSlot : LevelUIUnit, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, ITooltipTarget
     {
+        public void SetSelected(bool selected)
+        {
+            animator.SetBool("Selected", selected);
+        }
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
             OnPointerEnter?.Invoke(eventData);
@@ -23,7 +27,7 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData> OnPointerExit;
         public event Action<PointerEventData> OnPointerDown;
         [SerializeField]
-        private Image image;
+        private Animator animator;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
 

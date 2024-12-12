@@ -8,11 +8,5 @@ namespace MVZ2.Level.UI
         {
             gameObject.SetActive(active);
         }
-        public void MoveIntoScreen()
-        {
-            uiAnimator.SetTrigger("MoveIntoScreen");
-        }
-        [SerializeField]
-        private Animator uiAnimator;
     }
 }

@@ -54,8 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f237f8dd88bea8743bfcaec3b9163f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAnimator: {fileID: 6673061259195245295}
-  image: {fileID: 7462567857865010268}
+  animator: {fileID: 6673061259195245295}
   tooltipAnchor: {fileID: 2039400898580484579}
 --- !u!114 &1708850345675257184
 MonoBehaviour:
@@ -87,7 +86,7 @@ Animator:
   m_GameObject: {fileID: 3849907924920646456}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fbedecb48243349478dcb9a96c465772, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -111,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 1
+  trackSelectable: {fileID: 0}
 --- !u!1 &4394773466280662562
 GameObject:
   m_ObjectHideFlags: 0

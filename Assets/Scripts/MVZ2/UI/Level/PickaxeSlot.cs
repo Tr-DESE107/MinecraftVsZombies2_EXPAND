@@ -1,15 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
     public class PickaxeSlot : LevelUIUnit, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, ITooltipTarget
     {
-        public void SetPickaxeVisible(bool visible)
+        public void SetSelected(bool selected)
         {
-            image.enabled = visible;
+            animator.SetBool("Selected", selected);
         }
         private void Awake()
         {
@@ -33,7 +32,7 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData> OnPointerDown;
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         [SerializeField]
-        private Image image;
+        private Animator animator;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
     }

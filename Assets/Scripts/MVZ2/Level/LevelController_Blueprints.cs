@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
@@ -8,6 +9,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
@@ -137,7 +139,7 @@ namespace MVZ2.Level
                 blueprint.SetRecharge(maxCharge == 0 ? 0 : 1 - seed.GetRecharge() / maxCharge);
                 blueprint.SetDisabled(!CanPickBlueprint(seed));
                 blueprint.SetSelected(level.IsHoldingBlueprint(i));
-                blueprint.SetTwinkling(seed.IsTwinkling());
+                blueprint.SetTwinkling(seed.IsTwinkling() || (level.IsHoldingTrigger() && seed.CanInstantTrigger()));
             }
         }
         private bool CanPickBlueprint(SeedPack seed)
@@ -200,73 +202,90 @@ namespace MVZ2.Level
         {
             if (IsChoosingBlueprints())
             {
-                var choosingIndex = chosenBlueprints[index];
-                chosenBlueprints.RemoveAt(index);
-
-                var uiPreset = GetUIPreset();
-                var blueprintUI = uiPreset.GetBlueprintAt(index);
-                uiPreset.RemoveBlueprintAt(index);
-
-                var startPos = blueprintUI.transform.position;
-                var targetBlueprint = uiPreset.GetBlueprintChooseItem(choosingIndex);
-                var movingBlueprint = uiPreset.CreateMovingBlueprint();
-                movingBlueprint.transform.position = startPos;
-                movingBlueprint.SetBlueprint(blueprintUI);
-                movingBlueprint.SetMotion(startPos, targetBlueprint.transform);
-                movingBlueprint.OnMotionFinished += () =>
-                {
-                    UpdateBlueprintChooseItem(choosingIndex);
-                    uiPreset.RemoveMovingBlueprint(movingBlueprint);
-                };
-
-                level.PlaySound(VanillaSoundID.tap);
-                uiPreset.HideTooltip();
+                UnchooseBlueprint(index);
                 return;
             }
 
             if (index < 0 || index >= level.GetSeedPackCount())
                 return;
-            bool altTrigger = level.GetHeldItemType() == VanillaHeldTypes.trigger;
-            bool canInstantTrigger = false;
-            var blueprint = level.GetSeedPackAt(index);
-            if (blueprint.CanInstantTrigger())
-            {
-                canInstantTrigger = true;
-            }
-            if (level.IsHoldingItem() && !(canInstantTrigger && altTrigger))
-            {
-                if (level.CancelHeldItem())
-                {
-                    level.PlaySound(VanillaSoundID.tap);
-                }
+            SelectBlueprint(index);
+        }
+        private void ReleaseOnBlueprint(int index)
+        {
+            // 移动端会额外在手指放开在蓝图上时进行一次立即触发检测。
+            if (!Global.IsMobile())
                 return;
+            bool holdingTrigger = level.IsHoldingTrigger();
+            bool canInstantTrigger = level.GetSeedPackAt(index)?.CanInstantTrigger() ?? false;
+            bool usingTrigger = holdingTrigger && canInstantTrigger;
+            if (!usingTrigger)
+                return;
+            bool swapped = IsTriggerSwapped();
+            bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
+            PickupBlueprint(index, instantTrigger, true);
+        }
+        private void UnchooseBlueprint(int index)
+        {
+            var choosingIndex = chosenBlueprints[index];
+            chosenBlueprints.RemoveAt(index);
+
+            var uiPreset = GetUIPreset();
+            var blueprintUI = uiPreset.GetBlueprintAt(index);
+            uiPreset.RemoveBlueprintAt(index);
+
+            var startPos = blueprintUI.transform.position;
+            var targetBlueprint = uiPreset.GetBlueprintChooseItem(choosingIndex);
+            var movingBlueprint = uiPreset.CreateMovingBlueprint();
+            movingBlueprint.transform.position = startPos;
+            movingBlueprint.SetBlueprint(blueprintUI);
+            movingBlueprint.SetMotion(startPos, targetBlueprint.transform);
+            movingBlueprint.OnMotionFinished += () =>
+            {
+                UpdateBlueprintChooseItem(choosingIndex);
+                uiPreset.RemoveMovingBlueprint(movingBlueprint);
+            };
+
+            level.PlaySound(VanillaSoundID.tap);
+            uiPreset.HideTooltip();
+        } 
+        private void SelectBlueprint(int index)
+        {
+            // 进行立即触发检测。
+            bool holdingTrigger = level.IsHoldingTrigger();
+            bool canInstantTrigger = level.GetSeedPackAt(index)?.CanInstantTrigger() ?? false;
+            bool usingTrigger = holdingTrigger && canInstantTrigger;
+
+            bool swapped = IsTriggerSwapped();
+            bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
+            PickupBlueprint(index, instantTrigger, usingTrigger);
+        }
+        private void PickupBlueprint(int index, bool instantTrigger, bool skipCancelHeld = false)
+        {
+            // 先取消已经手持的物品。
+            if (!skipCancelHeld)
+            {
+                if (TryCancelHeldItem())
+                    return;
             }
+            // 无法拾取蓝图。
             if (!CanPickBlueprint(level.GetSeedPackAt(index)))
             {
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            level.PlaySound(VanillaSoundID.pick);
-            var instantTrigger = false;
-            if (canInstantTrigger)
-            {
-                instantTrigger = altTrigger;
-                if (Main.SaveManager.IsUnlocked(VanillaUnlockID.trigger) && Main.OptionsManager.IsTriggerSwapped())
-                {
-                    instantTrigger = !instantTrigger;
-                }
-            }
-            SelectBlueprint(index, instantTrigger);
-        }
-        private void SelectBlueprint(int index, bool instantTrigger)
-        {
-            level.SetHeldItem(new HeldItemStruct() 
+            // 设置当前手持物品。
+            level.SetHeldItem(new HeldItemStruct()
             {
                 Type = BuiltinHeldTypes.blueprint,
                 ID = index,
                 InstantTrigger = instantTrigger,
                 Priority = 0,
             });
+            level.PlaySound(VanillaSoundID.pick);
+        }
+        private bool IsTriggerSwapped()
+        {
+            return Main.SaveManager.IsUnlocked(VanillaUnlockID.trigger) && Main.OptionsManager.IsTriggerSwapped();
         }
 
         #endregion

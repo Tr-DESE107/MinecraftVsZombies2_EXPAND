@@ -749,9 +749,9 @@ namespace MVZ2.Level
         {
             var ui = GetUIPreset();
             ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
-            ui.SetPickaxeVisible(!level.IsHoldingPickaxe());
             UpdateEnergy();
             UpdateLevelProgress();
+            UpdateHeldSlotUI();
             UpdateBlueprintsState();
             UpdateStarshards();
         }
@@ -766,6 +766,13 @@ namespace MVZ2.Level
             ui.SetProgressVisible(level.LevelProgressVisible);
             ui.SetProgress(levelProgress);
             ui.SetBannerProgresses(bannerProgresses);
+        }
+        private void UpdateHeldSlotUI()
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
+            uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());
+            uiPreset.SetTriggerSelected(level.IsHoldingTrigger());
         }
         private void UpdateLevelName()
         {
@@ -804,6 +811,19 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             StarshardActive = Saves.IsStarshardUnlocked();
             TriggerActive = Saves.IsTriggerUnlocked();
+        }
+        private bool TryCancelHeldItem()
+        {
+            // 正在拾起其他物品，取消正在拾取的物品。
+            if (level.IsHoldingItem())
+            {
+                if (level.CancelHeldItem())
+                {
+                    level.PlaySound(VanillaSoundID.tap);
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 3819648580199021119}
   - component: {fileID: 6395664641256175597}
   - component: {fileID: 3032903214186562567}
+  - component: {fileID: 9115125493321339334}
   m_Layer: 0
   m_Name: PickaxeSlotMobile
   m_TagString: Untagged
@@ -127,8 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f237f8dd88bea8743bfcaec3b9163f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAnimator: {fileID: 0}
-  image: {fileID: 6841598518491289067}
+  animator: {fileID: 9115125493321339334}
   tooltipAnchor: {fileID: 7390052010646372039}
 --- !u!114 &3032903214186562567
 MonoBehaviour:
@@ -143,6 +143,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorType: 1
+  trackSelectable: {fileID: 0}
+--- !u!95 &9115125493321339334
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409849591881615265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: afe080ed40b237b498dc2b1cba873f43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5122271015148823933
 GameObject:
   m_ObjectHideFlags: 0

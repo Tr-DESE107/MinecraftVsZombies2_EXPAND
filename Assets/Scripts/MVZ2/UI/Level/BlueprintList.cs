@@ -56,6 +56,10 @@ namespace MVZ2.Level.UI
         {
             return blueprints.getElement<Blueprint>(index);
         }
+        public int GetBlueprintIndex(Blueprint value)
+        {
+            return blueprints.indexOf(value);
+        }
         public Vector3 GetBlueprintPosition(int index)
         {
             var local = GetBlueprintLocalPosition(index);

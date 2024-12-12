@@ -585,6 +585,14 @@ namespace MVZ2.Level
             var gameObject = GetRaycastGameObject(screenPosition);
             if (!gameObject || !gameObject.activeInHierarchy)
                 return;
+            var blueprint = gameObject.GetComponentInParent<Blueprint>();
+            if (blueprint)
+            {
+                var uiPreset = GetUIPreset();
+                ReleaseOnBlueprint(uiPreset.GetBlueprintIndex(blueprint));
+                return;
+            }
+
             var grid = gameObject.GetComponentInParent<GridController>();
             if (grid)
             {

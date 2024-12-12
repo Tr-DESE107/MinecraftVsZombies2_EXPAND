@@ -684,6 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2949967534129472339}
   - component: {fileID: 4027973856870429493}
+  - component: {fileID: 7855923541821702170}
   m_Layer: 5
   m_Name: TriggerSlot
   m_TagString: Untagged
@@ -725,9 +726,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb9e0ce7c5197043830d7413fb4b6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAnimator: {fileID: 0}
-  image: {fileID: 6289235607478111567}
+  animator: {fileID: 7855923541821702170}
   tooltipAnchor: {fileID: 2760929483851033245}
+--- !u!95 &7855923541821702170
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622862327282582981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: e1bbd5db872d0c7498e7230f1250438e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5691164487032255641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,11 +1268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1056501050438266100, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1056501050438266100, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1056501050438266100, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2702,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: hintArrowOffsetBlueprint.y
-      value: -22.5
+      value: -27.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

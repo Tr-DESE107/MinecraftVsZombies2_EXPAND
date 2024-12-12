@@ -11,6 +11,10 @@ namespace MVZ2.Level.UI
         {
             icon.SetSprite(sprite);
         }
+        public void SetSelected(bool selected)
+        {
+            animator.SetBool("Selected", selected);
+        }
         public void SetPoints(int count, int maxCount)
         {
             pointsList.updateList(maxCount, (i, rect) =>
@@ -25,6 +29,8 @@ namespace MVZ2.Level.UI
         }
         public event Action<PointerEventData> OnPointerDown;
         public StarshardPanelIcon Icon => icon;
+        [SerializeField]
+        private Animator animator;
         [SerializeField]
         private StarshardPanelIcon icon;
         [SerializeField]
