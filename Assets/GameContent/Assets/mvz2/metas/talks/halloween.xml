@@ -311,6 +311,37 @@
       </sentences>
     </section>
   </group>
+  <group id="halloween_7_over" tags="mvz2:halloween;mvz2:over">
+    <archive name="万圣夜第7天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我会夺取你的灵魂！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">看吧，灵魂熔炉！它能发射致命的灵魂火球，击中后还会焚烧一群敌人！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">但代价是什么？它需要牺牲前方的器械来当作它的燃料！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">让怪物们下地狱吧！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="halloween_7_map" tags="mvz2:halloween;mvz2:map">
+    <archive name="万圣夜第7天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:orant" side="right" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">所以，那个钥匙实际上是个什么样的东西呢？</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">那个东西叫做梦境钥匙。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">梦境钥匙是我们这里能够进入到其他世界的方法之一，它能够让人进入到不同世界的梦境。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">然后从梦境再转折到那个世界的现实，以达到穿梭世界的目的。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">真是个神奇的东西啊！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">如果有它的话，我们就能进入到幻想乡了！</sentence>
+      </sentences>
+    </section>
+  </group>
   <group id="seventh_slot" requiresNot="mvz2:blueprint_slot.7" tags="mvz2:halloween;mvz2:special">
     <archive name="蓝图槽位交易" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:blueprint_slot.7" />
     <section canAutoSkip="false" onSkip="action try_buy_seventh_slot">
@@ -357,50 +388,6 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">真可惜！如果你又想要了，再回到这个关卡吧！</sentence>
-      </sentences>
-    </section>
-  </group>
-  <group id="halloween_7_over" tags="mvz2:halloween;mvz2:over">
-    <archive name="万圣夜第7天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
-    <section>
-      <characters>
-        <character id="mvz2:crazy_villager" />
-      </characters>
-      <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我会夺取你的灵魂！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">看吧，灵魂熔炉！它能发射致命的灵魂火球，击中后还会焚烧一群敌人！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">但代价是什么？它需要牺牲前方的器械来当作它的燃料！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">让怪物们下地狱吧！</sentence>
-      </sentences>
-    </section>
-  </group>
-  <group id="halloween_7_map" tags="mvz2:halloween;mvz2:map">
-    <archive name="万圣夜第7天地图" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
-    <section>
-      <characters>
-        <character id="mvz2:crazy_villager" />
-        <character id="mvz2:orant" side="right" />
-      </characters>
-      <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">所以，那个钥匙实际上是个什么样的东西呢？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">那个东西叫做梦境钥匙。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">梦境钥匙是我们这里能够进入到其他世界的方法之一，它能够让人进入到不同世界的梦境。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">然后从梦境再转折到那个世界的现实，以达到穿梭世界的目的。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">真是个神奇的东西啊！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">如果有它的话，我们就能进入到幻想乡了！</sentence>
-      </sentences>
-    </section>
-  </group>
-  <group id="halloween_8" tags="mvz2:halloween;mvz2:intro">
-    <archive name="万圣夜第8天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_8" />
-    <section>
-      <characters>
-        <character id="mvz2:crazy_villager" />
-      </characters>
-      <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">在这里等着科学怪人的来临可不是好方法啊！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">正巧，我有一些诱饵魔咒可以找到敌人，并把目标吸引过来！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">我就在这里使用吧！大约两三天，我们就能找到目标了！</sentence>
       </sentences>
     </section>
   </group>

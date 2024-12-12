@@ -28,7 +28,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">也就是说，你现在可以在水上布置战线了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character create mvz2:doremy right;delay 0.5;next">可惜它不能像它的祖先一样把船撞碎！</sentence>
         <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">外界的人类啊，让我看看你做了什么梦……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_cut" variant="mvz2:open_mouth" onStart="shake 0.1 0.5" onClick="end">等……等等！你是真身？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_cut" variant="mvz2:open_mouth" onStart="shake 0.1 0.5" onClick="end">等、等等！你是真身？</sentence>
       </sentences>
     </section>
   </group>
@@ -40,15 +40,15 @@
         <character id="mvz2:doremy" variant="mvz2:confused" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">不是我说，为什么又有一个人真身进入梦境世界啊……而且还有一个方块大鼻子怪人。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">不是我说，为什么又有一个人真身进入梦境世界啊。而且还有一个方块大鼻子怪人。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">肯定不是在说我吧！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而且你们是怎么真身来到这里的，难道你们也是想去月之都的吗？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">月之都？不是，我们是要去幻想乡内地！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_mouth">幻想乡内地？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">你看，你的梦境世界里不也有这么多僵尸之类的怪物吗？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read">啊，这倒是确实……不过这关你们什么事？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read">啊，这倒是确实。不过这关你们什么事？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">我们当然是来清除这些家伙的了！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:confused">你们……要清除这些方块怪物？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:confused">你们——要清除这些方块怪物？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">来吧，邻居，让我们证明给她看！</sentence>
       </sentences>
     </section>
@@ -61,7 +61,7 @@
         <character id="mvz2:doremy" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">所以……你们通过一把钥匙来到这里的，要进入幻想乡，是吧？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">所以，你们通过一把钥匙来到这里的，要进入幻想乡，是吧？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我可以让你们通过这里，不过目前遇到了一点难处。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">什么难处？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">梦境世界遭到了一些方形虫子的入侵，导致现在的环境比较不稳定。</sentence>
@@ -95,11 +95,11 @@
       <sentences>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">看起来你们干的不错，能这么快就把那些蜘蛛一网打尽。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">对了，我好像还没自我介绍。</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我是哆来咪·苏伊特，这个梦境世界的管理者……不过你们看起来早就知道了，还知道幻想乡的事情。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我是哆来咪·苏伊特，这个梦境世界的管理者。不过你们看起来早就知道了，还知道幻想乡的事情。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">当然了！我们可是一开始就是奔着这里来的！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">对了，我叫村民，叫我坑爹村民就行了！这是我的邻居，叫……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">对了，我叫村民，叫我坑爹村民就行了！这是我的邻居，叫——</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_weird">史蒂夫是吧？我听说过你的名字。</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">幻想乡里某个人的梦境里有出现过你，梦中的那个长得的确是一模一样。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">幻想乡里某个人的梦境里有出现过你，梦中的那个和你长得一模一样。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">哇哦，你在幻想乡里居然有女朋友！是哪个妖怪呢？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_explosive" onStart="character variant mvz2:doremy mvz2:open_mouth;shake;music volume 0">没有！你为啥会这么想啊！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:dialog_weird">哇，说话了！我还以为你是哑巴呢！</sentence>
@@ -150,7 +150,7 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book">是这样没错，这的确是一场规模很大的异变，不过大家都已经习惯了。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">那些方形怪物的话，对于没有战斗能力的人类而言是相当大的威胁，毕竟他们没有办法进行反抗。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">但对于一些强大的妖怪来说可就不一定了。猎物反倒是那些可怜的方块生物们。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">……那这么说，反倒不用我们出手了？</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">那这么说，反倒不用我们出手了？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">并非如此，它们的数量太过于庞大了。异变整整持续了三年，这些怪物的数量仍旧只增不减。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal" onClick="end">看起来，必须要找个方法才能彻底根除它们了。</sentence>
       </sentences>
@@ -181,17 +181,17 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_surprised" variant="mvz2:open_book">啊，是史蒂夫啊。我在观察你的梦。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">梦？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你以前做过的梦的记录，在我这边都能查到。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird">难……难道你在看我小时候哭着要戴夫给我买机械玩具——</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird">难、难道你在看我小时候哭着要戴夫给我买机械玩具——</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_cut" variant="mvz2:open_mouth" onStart="shake">不不不不不！当然不是这件事了。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:taunt">虽然你那时候还挺可爱的……</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake">&lt;color=blue&gt;（呜……！好想去死……）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake">&lt;color=blue&gt;（好想去死！）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read">我比较在意的是，你梦里的那个坟墓。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird">坟墓？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal">就是在那棵树旁边的的坟墓。你的梦中似乎一直出现它呢。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">是吗……？好像还真是这样。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">是吗？好像还真是这样。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">具体情况我不是很了解，但是一定是相当印象深刻的东西吧。</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:sad">因为死者而感到印象深刻……我真的有点想同情你呢。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（……很奇怪，我似乎并不清楚这个坟墓是谁的。）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:sad">因为死者而感到印象深刻——我真的有点想同情你呢。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（很奇怪，我似乎并不清楚这个坟墓是谁的。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="end">&lt;color=blue&gt;（这到底是怎么回事呢？）&lt;/color&gt;</sentence>
       </sentences>
     </section>
@@ -221,20 +221,20 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">对了，哆来咪，我有个问题想问问你。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">是什么问题呢？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">为什么，有的时候这天突然就黑下来了？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" variant="mvz2:open_mouth">……什么？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" variant="mvz2:open_mouth">什么？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2;mvz2:dialog_surprised">啊？就是战斗的时候天突然变黑了一下，伸手不见五指的。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">我还以为是失明了，但那片黑暗却可以被光芒照亮。</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">……你在说什么？天黑？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你在说什么？天黑？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……？你不知道吗？天已经黑过很多次了啊。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">你都没有注意到这些吗？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_cut" variant="mvz2:nervous" onStart="shake;music fade 0">你、你说什么？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake">但是我，一次也没有见到过那种漆黑的景象啊！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">什么？你看不见那种景象吗？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我看不到黑暗……？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我看不到黑暗？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1;music play mvz2:suspension">难、难道说……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake">是那家伙！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">怎么了？哆来咪？你怎么这么——</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">原来如此，我一直以为这里没什么异常，一直以来……我的眼睛都被蒙骗了！</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">原来如此，我一直以为这里没什么异常，一直以来，我的眼睛都被蒙骗了！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_beat" onStart="shake">你们呆在这里不要乱跑，我要去找那个东西！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_flashback" onStart="shake;character leave mvz2:doremy;music fade 0">等、等一下！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……</sentence>
@@ -279,8 +279,8 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" description="（哆来咪双手抱头痛苦不堪）" sounds="mvz2:dialog_cut" onStart="shake;music fade 0 0.5">哆、哆来咪，你怎么了？！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1;music play mvz2:suspension">你……你们快走……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那家伙……要来了……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1;music play mvz2:suspension">你、你们快走……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那家伙、要来了……</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake">是、是谁把你变成这样的！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;music fade 0 0.5;character faint mvz2:doremy 0.5;delay 0.5;shake;playsound mvz2:dialog_faint;delay 1;next">是……梦……魇……</sentence>
         <sentence speaker="mvz2:crazy_villager" description="（哆来咪倒地）" sounds="mvz2:dialog_judge" onStart="shake" onClick="bubble hide;music play mvz2:suspension;music fade 1;forecolor fade #0000 2;delay 3;next">哆来咪！</sentence>
@@ -288,10 +288,10 @@
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（这里的东西开始溶解、脱落，狞笑着向我们展示着，它们真正的样子。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（那是我一生都无法遗忘的场面。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="bubble hide;music fade 0 0.5;playsound mvz2:dialog_flashback;action show_nightmare;forecolor fade white 0.5;delay 1;forecolor set #0000;shake;playsound mvz2:dialog_bang;music fade 0;music volume 1;music play mvz2:nightmare_map;delay 1;next">&lt;color=blue&gt;（那时候，我才明白，哆来咪口中的“噩梦”，到底是什么。）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:self" description="（噩梦世界展现了出来）" sounds="mvz2:dialog_cut" onStart="shake">……这、这是怎么回事！</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">这里……为什么会变成这样啊！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">所以，那些东西只是障眼法吗？！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_bang" onStart="shake" onClick="end">这个地方……原来早就已经是这样子了？！</sentence>
+        <sentence speaker="mvz2:self" description="（噩梦世界展现了出来）" sounds="mvz2:dialog_cut" onStart="shake">——这、这是怎么回事！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">这里，为什么会变成这样啊！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">所以，那些东西都只是幻象吗？！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_bang" onStart="shake" onClick="end">这个地方，原来早就已经是这样子了？！</sentence>
       </sentences>
     </section>
   </group>
@@ -303,7 +303,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">哆来咪没有大碍，她只是昏过去了。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">但是，她好像中了一种诅咒……具体情况我还在研究。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">但是，她好像中了一种诅咒。具体情况我还在研究。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">而且，似乎有什么东西正在慢慢地剥夺她的生命，情况相当的不乐观。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">总之，等她醒了再问问吧！</sentence>
       </sentences>
@@ -331,40 +331,40 @@
         <character id="mvz2:doremy" variant="mvz2:cursed_close_eyes" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……我在哪儿？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我、我在哪儿？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">哆来咪，你醒了啊。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你们是……？史蒂夫他们吗？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">是的。哆来咪，你感觉如何？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我——</sentence>
         <sentence speaker="mvz2:doremy" description="（哆来咪睁开了她失明的双眼）" sounds="mvz2:dialog_weird" variant="mvz2:cursed" onStart="music fade 0 0.5;forecolor set white;delay 0.1;forecolor set #0000">我为什么，什么也看不见？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_surprised">！是诅咒吗？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……什么都看不到……你们在哪儿？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我、什么都看不到……你们在哪儿？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="music fade 1 0.5">哆来咪，能告诉我们，你在那个时候遇见了什么吗？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">就是你受到诅咒的那个时候。</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">……诅咒……是吗？那时……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">诅咒、是吗？那时……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed_close_eyes">我在找……一样东西。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那是……一匹马。在你们来之前，就已经来到梦境的黑马。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:nightmare_appear;foreground fade 2;delay 1;next">马？</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-我在几个月前……发现了它的存在。</sentence>
+我在几个月前、发现了它的存在。</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
 那个时候，它仅仅是一匹马而已……当我见到它时，感到非常奇怪，但当时我并没有去深究。</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-我单纯的认为那只是其他妖怪罢了……但是第二天，它不见了。</sentence>
+我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-现在回想起来，那应该……是个非常恐怖的东西，它连我的眼睛都能蒙骗过去……</sentence>
+现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-当我听你们说梦境突然变得黑暗的时候，我意识到……这件事情不可能这么简单……</sentence>
+当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
 所以我才会拼了命的去找到那个东西……</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-最终，我找到了它，但那已经不是一匹马了，那是……一个怪物……</sentence>
+最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[史蒂夫]&lt;/color&gt;
 然后，你就被诅咒了？</sentence>
         <sentence speaker="mvz2:bottom" sounds="mvz2:talk" onClick="bubble hide;foreground fade -1;delay 1;next">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-没错……在那之后我就变成了现在这样子……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">……是吗，我们明白了。</sentence>
+没错、在那之后我就变成了现在这样子……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">是吗，我们明白了。</sentence>
       </sentences>
     </section>
   </group>
@@ -376,14 +376,14 @@
         <character id="mvz2:doremy" variant="mvz2:cursed_close_eyes" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">呼……咳咳……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">……我……喘不上气……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">呼、咳咳……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我、喘不上气……</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">！有什么东西，正在吸取哆来咪的生命力！！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">是……梦魇……他在我身上下了咒……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我，很快就会……失去所有力气……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">然后……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">是、梦魇——他在我身上下了咒……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我，很快就会、失去所有力气……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">然后——</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake">不！怎么能这样！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">我们——真的只能眼睁睁地看着这一切发生吗……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">我们真的只能眼睁睁地看着这一切发生吗……</sentence>
       </sentences>
     </section>
   </group>
@@ -411,35 +411,34 @@
       <sentences>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">你感觉怎么样，哆来咪？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……我……还是……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onStart="shake">不行……梦境结晶的治愈效果……还是不能弥补生命的流失！……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我、我，还是……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onStart="shake">不行！梦境结晶的治愈效果，还是不能弥补生命的流失！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_beat" onStart="shake">那、那我们该怎么办啊！</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">我们只能看着哆来咪小姐她……我绝对不允许这种事情发生！！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" onStart="music fade -1">史蒂夫……！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">我们只能看着哆来咪小姐她——我绝对不允许这种事情发生！！</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" onStart="music fade -1">史蒂夫！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_surprised">！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake">你们……快走……！不要……管我……！用你们的钥匙走吧！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">如果你们，还呆在这里的话……很快……你们也会……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我……我是个不称职的梦境管理者……求求你们……快走吧！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake">你们、快走！不要……管我！用你们的钥匙走吧！</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">如果你们，还呆在这里的话，很快、你们也会……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake" onClick="delay 3">我、我是个不称职的梦境管理者……求求你们，快走吧！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_weird">戴夫。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk;mvz2:dialog_surprised">？怎么了？</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">把诱饵魔咒拿出来。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_beat" onStart="shake">！你、你想干什么？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk;mvz2:dialog_surprised">怎么了？</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">准备好所有器械。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_beat" onStart="shake">你想干什么？</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">我要亲手干掉那个什么梦魇。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_cut" onStart="shake">你是认真的吗？！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake;music fade 0;music volume 1;music play mvz2:nightmare_map">当然。快点！</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed">史……史蒂夫！你……别做傻事！</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed">史、史蒂夫！你，别做傻事！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed_close_eyes" onStart="shake">咳、咳咳……</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">戴夫，你知道我是什么样的人。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">我绝对不会放过任何伤害别人的人。也绝对不会放弃任何一个孤独的人，让他承受痛苦。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">管他是梦魇还是更恐怖的家伙，我也绝对不会让他为非作歹！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">戴夫，你知道我什么样。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">我不会放过任何伤害别人的人。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">也不会放弃任何一个孤独、承受着痛苦的人。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_bang" onStart="shake">那个梦魇，他该死了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">你……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">……果然还是这么莽撞啊。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">好，把那个什么梦魇引出来吧！</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:dialog_explosive" onStart="shake">我会让他知道厉害的！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">明白了……看来我无论说什么也阻止不了你啊。</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onClick="end">为什么……你们……还不走啊……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">果然还是这么莽撞啊。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">好，准备好所有器械！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:dialog_explosive" onStart="shake">我会让他知道厉害！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">明白了。看来我无论说什么也阻止不了你啊。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onClick="end">你们——为什么要这么做啊……</sentence>
       </sentences>
     </section>
   </group>
@@ -452,8 +451,8 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">我已经尽我所能把那个梦魇给吸引过来了，你可要小心。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">我知道，赶快开始吧。 </sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（……说是要击败那个梦魇，但我心中却丝毫没有底气。）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（但是为了哆来咪小姐，我也只能这么做了……）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（说是要击败那个梦魇，但我心中却丝毫没有底气。）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（但是为了哆来咪小姐，我也只能这么做了。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">我只能做到这里了。可别把自己的命给搭上。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">等等，那边那个白色的蜘蛛是什么？</sentence>
       </sentences>
@@ -469,7 +468,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">又是一件梦境的物品！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是美梦丝！把它放在器械上面，器械就会睡着！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">在这个器械醒来之后，就会产生新的星之碎片，供你利用！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">……我会试着用它来缓解哆来咪的痛苦的。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">……对，我会试着用它来缓解哆来咪的痛苦的。</sentence>
       </sentences>
     </section>
   </group>
@@ -480,10 +479,10 @@
         <character id="mvz2:crazy_villager" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">我说……哆来咪还是想见你一面。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">我说，哆来咪还是想见你一面。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">还是在劝我们离开吗。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">是的。你已经很久没看望过她了吧？</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">……我很抱歉。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">我很抱歉。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">我能明白你的心情。实际上，我也不打算就这么放弃。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">我也有要见的人。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_weird">……？你要见谁？</sentence>
@@ -519,9 +518,9 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">但是，如果失败了的话，可不就止一条命这么简单了。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">既然没有其他办法，那我只能这么做了。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">哆来咪的身体也濒临极限了。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">哆来咪小姐……她一直希望我不去和它战斗。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">哆来咪小姐，她一直希望我不去和它战斗。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">但为了能救她，我只能选择不去见她。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">我真的很抱歉……</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">我真的很抱歉。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk" onClick="end">……我们会祝你好运的。</sentence>
       </sentences>
     </section>
@@ -549,10 +548,10 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">Ohhhhhhhhh！真没想到你做到了！</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">……梦魇他……死了吗？！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">梦魇他——死了吗？！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;character create mvz2:doremy right mvz2:cured;delay 0.5;next">那，哆来咪小姐她现在怎么样？！</sentence>
-        <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">我……我能看见了？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而且……我的生命力回来了！</sentence>
+        <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">我、我能看见了？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而且——我的生命力回来了！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake">哆来咪小姐！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">……您没事实在是太好了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:final_item" onClick="end">干的漂亮，邻居！现在，梦境世界的噩梦已经完全被消除了！</sentence>
@@ -570,7 +569,12 @@
         <sentence speaker="mvz2:self" sounds="mvz2:talk">我对我的鲁莽行为表示抱歉，哆来咪小姐。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">不不不，不用道歉的。最后还是你拯救了整个梦境啊。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:slightly_close_eyes">你还真是个令人操心的孩子啊，但我不讨厌。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（……哆来咪像看着自己孩子一样看着我……）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（哆来咪像看着孩子一样看着我……）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">真没想到你居然做到了。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">器械之间的无瑕配合，你的指挥力和谋略，如此年轻的孩子居然拥有这般不可小觑的力量。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">说实话，甚至比我还要强大。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">如果是你的话，说不定幻想乡的问题真的能得到解决。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">真的吗……？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_weird" variant="mvz2:open_mouth">啊，对了，有件事我得告诉你。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3;mvz2:dialog_surprised">什么，告诉我吗？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:normal">不不不，是史蒂夫。</sentence>
@@ -580,7 +584,7 @@
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_surprised" onStart="forecolor fade white #FFF0 0.01;music volume 0">！墓……？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">我之前仔细查询了一下，发现，那个墓其实是在你很小的时候就见过的一座墓。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:open_book">那时候，我还没来得及告诉你，就被卷入了梦魇的阴谋中。现在该告诉你了。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk">我很小时候的墓……？但是，我不记得戴夫家附近有什么墓啊。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">我很小时候的墓？但是，我不记得戴夫家附近有什么墓啊。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:read_smile">那是更早之前的事了。那时，你还是个婴儿。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake" onClick="bubble hide;forecolor fade #0000 black 1;delay 1;next">婴……婴儿？！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk">&lt;color=blue&gt;（我小时候的记忆，只停留到大约两三岁时候的事情。）&lt;/color&gt;</sentence>
@@ -598,7 +602,7 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">这样子啊。不过，我们以后大概还会再见的。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你在做梦的时候，可能还会遇见我，那个时候我们再聊聊吧。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而在幻想乡那段时间内，我就好好的翻翻你的梦吧。</sentence>
-        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake">&lt;color=blue&gt;（……希望你不要再翻我的那些黑历史了！）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake">&lt;color=blue&gt;（——希望你不要再翻我的那些黑历史了！）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">好了，我们终于可以去幻想乡了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">我们早就已经准备好了！出发吧！</sentence>
       </sentences>

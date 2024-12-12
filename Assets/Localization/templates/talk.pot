@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-11 06:43+0800\n"
+"POT-Creation-Date: 2024-12-11 11:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,7 +98,7 @@ msgstr ""
 #. Text for talk sentence 5 in talk group dream_1_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_1_over"
-msgid "等……等等！你是真身？"
+msgid "等、等等！你是真身？"
 msgstr ""
 
 #. Archive name for talk group dream_1_map
@@ -110,7 +110,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group dream_1_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_1_map"
-msgid "不是我说，为什么又有一个人真身进入梦境世界啊……而且还有一个方块大鼻子怪人。"
+msgid "不是我说，为什么又有一个人真身进入梦境世界啊。而且还有一个方块大鼻子怪人。"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group dream_1_map's section 0
@@ -146,7 +146,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group dream_1_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_1_map"
-msgid "啊，这倒是确实……不过这关你们什么事？"
+msgid "啊，这倒是确实。不过这关你们什么事？"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_1_map's section 0
@@ -158,7 +158,7 @@ msgstr ""
 #. Text for talk sentence 8 in talk group dream_1_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_1_map"
-msgid "你们……要清除这些方块怪物？"
+msgid "你们——要清除这些方块怪物？"
 msgstr ""
 
 #. Text for talk sentence 9 in talk group dream_1_map's section 0
@@ -176,7 +176,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group dream_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_2"
-msgid "所以……你们通过一把钥匙来到这里的，要进入幻想乡，是吧？"
+msgid "所以，你们通过一把钥匙来到这里的，要进入幻想乡，是吧？"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group dream_2's section 0
@@ -266,7 +266,7 @@ msgstr ""
 #. Text for talk sentence 2 in talk group dream_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_2_map"
-msgid "我是哆来咪·苏伊特，这个梦境世界的管理者……不过你们看起来早就知道了，还知道幻想乡的事情。"
+msgid "我是哆来咪·苏伊特，这个梦境世界的管理者。不过你们看起来早就知道了，还知道幻想乡的事情。"
 msgstr ""
 
 #. Text for talk sentence 3 in talk group dream_2_map's section 0
@@ -278,7 +278,7 @@ msgstr ""
 #. Text for talk sentence 4 in talk group dream_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_2_map"
-msgid "对了，我叫村民，叫我坑爹村民就行了！这是我的邻居，叫……"
+msgid "对了，我叫村民，叫我坑爹村民就行了！这是我的邻居，叫——"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group dream_2_map's section 0
@@ -290,7 +290,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group dream_2_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_2_map"
-msgid "幻想乡里某个人的梦境里有出现过你，梦中的那个长得的确是一模一样。"
+msgid "幻想乡里某个人的梦境里有出现过你，梦中的那个和你长得一模一样。"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_2_map's section 0
@@ -428,7 +428,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group dream_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_3_map"
-msgid "……那这么说，反倒不用我们出手了？"
+msgid "那这么说，反倒不用我们出手了？"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_3_map's section 0
@@ -506,7 +506,7 @@ msgstr ""
 #. Text for talk sentence 5 in talk group dream_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
-msgid "难……难道你在看我小时候哭着要戴夫给我买机械玩具——"
+msgid "难、难道你在看我小时候哭着要戴夫给我买机械玩具——"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group dream_4_map's section 0
@@ -524,7 +524,7 @@ msgstr ""
 #. Text for talk sentence 8 in talk group dream_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
-msgid "<color=blue>（呜……！好想去死……）</color>"
+msgid "<color=blue>（好想去死！）</color>"
 msgstr ""
 
 #. Text for talk sentence 9 in talk group dream_4_map's section 0
@@ -548,7 +548,7 @@ msgstr ""
 #. Text for talk sentence 12 in talk group dream_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
-msgid "是吗……？好像还真是这样。"
+msgid "是吗？好像还真是这样。"
 msgstr ""
 
 #. Text for talk sentence 13 in talk group dream_4_map's section 0
@@ -560,13 +560,13 @@ msgstr ""
 #. Text for talk sentence 14 in talk group dream_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
-msgid "因为死者而感到印象深刻……我真的有点想同情你呢。"
+msgid "因为死者而感到印象深刻——我真的有点想同情你呢。"
 msgstr ""
 
 #. Text for talk sentence 15 in talk group dream_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
-msgid "<color=blue>（……很奇怪，我似乎并不清楚这个坟墓是谁的。）</color>"
+msgid "<color=blue>（很奇怪，我似乎并不清楚这个坟墓是谁的。）</color>"
 msgstr ""
 
 #. Text for talk sentence 16 in talk group dream_4_map's section 0
@@ -632,7 +632,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_5_map"
-msgid "……什么？"
+msgid "什么？"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_5_map's section 0
@@ -650,7 +650,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group dream_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_5_map"
-msgid "……你在说什么？天黑？"
+msgid "你在说什么？天黑？"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_5_map's section 0
@@ -686,7 +686,7 @@ msgstr ""
 #. Text for talk sentence 12 in talk group dream_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_5_map"
-msgid "我看不到黑暗……？"
+msgid "我看不到黑暗？"
 msgstr ""
 
 #. Text for talk sentence 13 in talk group dream_5_map's section 0
@@ -710,7 +710,7 @@ msgstr ""
 #. Text for talk sentence 16 in talk group dream_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_5_map"
-msgid "原来如此，我一直以为这里没什么异常，一直以来……我的眼睛都被蒙骗了！"
+msgid "原来如此，我一直以为这里没什么异常，一直以来，我的眼睛都被蒙骗了！"
 msgstr ""
 
 #. Text for talk sentence 17 in talk group dream_5_map's section 0
@@ -818,13 +818,13 @@ msgstr ""
 #. Text for talk sentence 1 in talk group dream_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
-msgid "你……你们快走……"
+msgid "你、你们快走……"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group dream_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
-msgid "那家伙……要来了……"
+msgid "那家伙、要来了……"
 msgstr ""
 
 #. Text for talk sentence 3 in talk group dream_6_map's section 0
@@ -878,7 +878,7 @@ msgstr ""
 #. Text for talk sentence 10 in talk group dream_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
-msgid "……这、这是怎么回事！"
+msgid "——这、这是怎么回事！"
 msgstr ""
 
 #. Description for talk sentence 10 in talk group dream_6_map's section 0
@@ -890,19 +890,19 @@ msgstr ""
 #. Text for talk sentence 11 in talk group dream_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
-msgid "这里……为什么会变成这样啊！"
+msgid "这里，为什么会变成这样啊！"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group dream_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
-msgid "所以，那些东西只是障眼法吗？！"
+msgid "所以，那些东西都只是幻象吗？！"
 msgstr ""
 
 #. Text for talk sentence 13 in talk group dream_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
-msgid "这个地方……原来早就已经是这样子了？！"
+msgid "这个地方，原来早就已经是这样子了？！"
 msgstr ""
 
 #. Archive name for talk group dream_7
@@ -920,7 +920,7 @@ msgstr ""
 #. Text for talk sentence 1 in talk group dream_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7"
-msgid "但是，她好像中了一种诅咒……具体情况我还在研究。"
+msgid "但是，她好像中了一种诅咒。具体情况我还在研究。"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group dream_7's section 0
@@ -974,7 +974,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid "我……我在哪儿？"
+msgid "我、我在哪儿？"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group dream_7_map's section 0
@@ -998,7 +998,7 @@ msgstr ""
 #. Text for talk sentence 4 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid "我……"
+msgid "我——"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group dream_7_map's section 0
@@ -1022,7 +1022,7 @@ msgstr ""
 #. Text for talk sentence 7 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid "我……什么都看不到……你们在哪儿？"
+msgid "我、什么都看不到……你们在哪儿？"
 msgstr ""
 
 #. Text for talk sentence 8 in talk group dream_7_map's section 0
@@ -1046,7 +1046,7 @@ msgstr ""
 #. Text for talk sentence 11 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid "……诅咒……是吗？那时……"
+msgid "诅咒、是吗？那时……"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group dream_7_map's section 0
@@ -1072,7 +1072,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid ""
 "<color=blue>[哆来咪]</color>\n"
-"我在几个月前……发现了它的存在。"
+"我在几个月前、发现了它的存在。"
 msgstr ""
 
 #. Text for talk sentence 16 in talk group dream_7_map's section 0
@@ -1088,7 +1088,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid ""
 "<color=blue>[哆来咪]</color>\n"
-"我单纯的认为那只是其他妖怪罢了……但是第二天，它不见了。"
+"我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。"
 msgstr ""
 
 #. Text for talk sentence 18 in talk group dream_7_map's section 0
@@ -1096,7 +1096,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid ""
 "<color=blue>[哆来咪]</color>\n"
-"现在回想起来，那应该……是个非常恐怖的东西，它连我的眼睛都能蒙骗过去……"
+"现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group dream_7_map's section 0
@@ -1104,7 +1104,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid ""
 "<color=blue>[哆来咪]</color>\n"
-"当我听你们说梦境突然变得黑暗的时候，我意识到……这件事情不可能这么简单……"
+"当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。"
 msgstr ""
 
 #. Text for talk sentence 20 in talk group dream_7_map's section 0
@@ -1120,7 +1120,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid ""
 "<color=blue>[哆来咪]</color>\n"
-"最终，我找到了它，但那已经不是一匹马了，那是……一个怪物……"
+"最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。"
 msgstr ""
 
 #. Text for talk sentence 22 in talk group dream_7_map's section 0
@@ -1136,13 +1136,13 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid ""
 "<color=blue>[哆来咪]</color>\n"
-"没错……在那之后我就变成了现在这样子……"
+"没错、在那之后我就变成了现在这样子……"
 msgstr ""
 
 #. Text for talk sentence 24 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid "……是吗，我们明白了。"
+msgid "是吗，我们明白了。"
 msgstr ""
 
 #. Archive name for talk group dream_8
@@ -1154,13 +1154,13 @@ msgstr ""
 #. Text for talk sentence 0 in talk group dream_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8"
-msgid "呼……咳咳……"
+msgid "呼、咳咳……"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group dream_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8"
-msgid "……我……喘不上气……"
+msgid "我、喘不上气……"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group dream_8's section 0
@@ -1172,19 +1172,19 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8"
-msgid "是……梦魇……他在我身上下了咒……"
+msgid "是、梦魇——他在我身上下了咒……"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8"
-msgid "我，很快就会……失去所有力气……"
+msgid "我，很快就会、失去所有力气……"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group dream_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8"
-msgid "然后……"
+msgid "然后——"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group dream_8's section 0
@@ -1196,7 +1196,7 @@ msgstr ""
 #. Text for talk sentence 7 in talk group dream_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8"
-msgid "我们——真的只能眼睁睁地看着这一切发生吗……"
+msgid "我们真的只能眼睁睁地看着这一切发生吗……"
 msgstr ""
 
 #. Archive name for talk group dream_8_over
@@ -1250,13 +1250,13 @@ msgstr ""
 #. Text for talk sentence 2 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "我……我……还是……"
+msgid "我、我，还是……"
 msgstr ""
 
 #. Text for talk sentence 3 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "不行……梦境结晶的治愈效果……还是不能弥补生命的流失！……"
+msgid "不行！梦境结晶的治愈效果，还是不能弥补生命的流失！"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_8_map's section 0
@@ -1268,13 +1268,13 @@ msgstr ""
 #. Text for talk sentence 5 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "我们只能看着哆来咪小姐她……我绝对不允许这种事情发生！！"
+msgid "我们只能看着哆来咪小姐她——我绝对不允许这种事情发生！！"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "史蒂夫……！"
+msgid "史蒂夫！"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_8_map's section 0
@@ -1286,127 +1286,133 @@ msgstr ""
 #. Text for talk sentence 8 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "你们……快走……！不要……管我……！用你们的钥匙走吧！"
+msgid "你们、快走！不要……管我！用你们的钥匙走吧！"
 msgstr ""
 
 #. Text for talk sentence 9 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "如果你们，还呆在这里的话……很快……你们也会……"
+msgid "如果你们，还呆在这里的话，很快、你们也会……"
 msgstr ""
 
 #. Text for talk sentence 10 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "我……我是个不称职的梦境管理者……求求你们……快走吧！"
+msgid "我、我是个不称职的梦境管理者……求求你们，快走吧！"
 msgstr ""
 
-#. Text for talk sentence 13 in talk group dream_8_map's section 0
+#. Text for talk sentence 11 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
 msgid "戴夫。"
 msgstr ""
 
+#. Text for talk sentence 12 in talk group dream_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_8_map"
+msgid "怎么了？"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group dream_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_8_map"
+msgid "准备好所有器械。"
+msgstr ""
+
 #. Text for talk sentence 14 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "？怎么了？"
+msgid "你想干什么？"
 msgstr ""
 
 #. Text for talk sentence 15 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "把诱饵魔咒拿出来。"
+msgid "我要亲手干掉那个什么梦魇。"
 msgstr ""
 
 #. Text for talk sentence 16 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "！你、你想干什么？"
+msgid "你是认真的吗？！"
 msgstr ""
 
 #. Text for talk sentence 17 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "我要亲手干掉那个什么梦魇。"
+msgid "当然。快点！"
 msgstr ""
 
 #. Text for talk sentence 18 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "你是认真的吗？！"
+msgid "史、史蒂夫！你，别做傻事！"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "当然。快点！"
+msgid "咳、咳咳……"
 msgstr ""
 
 #. Text for talk sentence 20 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "史……史蒂夫！你……别做傻事！"
+msgid "戴夫，你知道我什么样。"
 msgstr ""
 
 #. Text for talk sentence 21 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "咳、咳咳……"
+msgid "我不会放过任何伤害别人的人。"
 msgstr ""
 
 #. Text for talk sentence 22 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "戴夫，你知道我是什么样的人。"
+msgid "也不会放弃任何一个孤独、承受着痛苦的人。"
 msgstr ""
 
 #. Text for talk sentence 23 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "我绝对不会放过任何伤害别人的人。也绝对不会放弃任何一个孤独的人，让他承受痛苦。"
+msgid "那个梦魇，他该死了！"
 msgstr ""
 
 #. Text for talk sentence 24 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "管他是梦魇还是更恐怖的家伙，我也绝对不会让他为非作歹！"
+msgid "你……"
 msgstr ""
 
 #. Text for talk sentence 25 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "你……"
+msgid "果然还是这么莽撞啊。"
 msgstr ""
 
 #. Text for talk sentence 26 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "……果然还是这么莽撞啊。"
+msgid "好，准备好所有器械！"
 msgstr ""
 
 #. Text for talk sentence 27 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "好，把那个什么梦魇引出来吧！"
+msgid "我会让他知道厉害！"
 msgstr ""
 
 #. Text for talk sentence 28 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "我会让他知道厉害的！"
+msgid "明白了。看来我无论说什么也阻止不了你啊。"
 msgstr ""
 
 #. Text for talk sentence 29 in talk group dream_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
-msgid "明白了……看来我无论说什么也阻止不了你啊。"
-msgstr ""
-
-#. Text for talk sentence 30 in talk group dream_8_map's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:dream_8_map"
-msgid "为什么……你们……还不走啊……"
+msgid "你们——为什么要这么做啊……"
 msgstr ""
 
 #. Archive name for talk group dream_9
@@ -1430,13 +1436,13 @@ msgstr ""
 #. Text for talk sentence 2 in talk group dream_9's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_9"
-msgid "<color=blue>（……说是要击败那个梦魇，但我心中却丝毫没有底气。）</color>"
+msgid "<color=blue>（说是要击败那个梦魇，但我心中却丝毫没有底气。）</color>"
 msgstr ""
 
 #. Text for talk sentence 3 in talk group dream_9's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_9"
-msgid "<color=blue>（但是为了哆来咪小姐，我也只能这么做了……）</color>"
+msgid "<color=blue>（但是为了哆来咪小姐，我也只能这么做了。）</color>"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_9's section 0
@@ -1478,7 +1484,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_9_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_9_over"
-msgid "……我会试着用它来缓解哆来咪的痛苦的。"
+msgid "……对，我会试着用它来缓解哆来咪的痛苦的。"
 msgstr ""
 
 #. Archive name for talk group dream_9_map
@@ -1490,7 +1496,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group dream_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_9_map"
-msgid "我说……哆来咪还是想见你一面。"
+msgid "我说，哆来咪还是想见你一面。"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group dream_9_map's section 0
@@ -1508,7 +1514,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_9_map"
-msgid "……我很抱歉。"
+msgid "我很抱歉。"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_9_map's section 0
@@ -1616,7 +1622,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group dream_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_10_map"
-msgid "哆来咪小姐……她一直希望我不去和它战斗。"
+msgid "哆来咪小姐，她一直希望我不去和它战斗。"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_10_map's section 0
@@ -1628,7 +1634,7 @@ msgstr ""
 #. Text for talk sentence 8 in talk group dream_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_10_map"
-msgid "我真的很抱歉……"
+msgid "我真的很抱歉。"
 msgstr ""
 
 #. Text for talk sentence 9 in talk group dream_10_map's section 0
@@ -1688,7 +1694,7 @@ msgstr ""
 #. Text for talk sentence 1 in talk group dream_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_over"
-msgid "……梦魇他……死了吗？！"
+msgid "梦魇他——死了吗？！"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group dream_11_over's section 0
@@ -1700,13 +1706,13 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_over"
-msgid "我……我能看见了？"
+msgid "我、我能看见了？"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_over"
-msgid "而且……我的生命力回来了！"
+msgid "而且——我的生命力回来了！"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group dream_11_over's section 0
@@ -1754,184 +1760,214 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（……哆来咪像看着自己孩子一样看着我……）</color>"
+msgid "<color=blue>（哆来咪像看着孩子一样看着我……）</color>"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "啊，对了，有件事我得告诉你。"
+msgid "真没想到你居然做到了。"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "什么，告诉我吗？"
+msgid "器械之间的无瑕配合，你的指挥力和谋略，如此年轻的孩子居然拥有这般不可小觑的力量。"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "不不不，是史蒂夫。"
+msgid "说实话，甚至比我还要强大。"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "肯定是在说我吧！"
+msgid "如果是你的话，说不定幻想乡的问题真的能得到解决。"
 msgstr ""
 
 #. Text for talk sentence 8 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（这家伙也回来了……）</color>"
+msgid "真的吗……？"
 msgstr ""
 
 #. Text for talk sentence 9 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "你还记得，关于你梦中的那个墓吗？"
+msgid "啊，对了，有件事我得告诉你。"
 msgstr ""
 
 #. Text for talk sentence 10 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "！墓……？"
+msgid "什么，告诉我吗？"
 msgstr ""
 
 #. Text for talk sentence 11 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "我之前仔细查询了一下，发现，那个墓其实是在你很小的时候就见过的一座墓。"
+msgid "不不不，是史蒂夫。"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "那时候，我还没来得及告诉你，就被卷入了梦魇的阴谋中。现在该告诉你了。"
+msgid "肯定是在说我吧！"
 msgstr ""
 
 #. Text for talk sentence 13 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "我很小时候的墓……？但是，我不记得戴夫家附近有什么墓啊。"
+msgid "<color=blue>（这家伙也回来了……）</color>"
 msgstr ""
 
 #. Text for talk sentence 14 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "那是更早之前的事了。那时，你还是个婴儿。"
+msgid "你还记得，关于你梦中的那个墓吗？"
 msgstr ""
 
 #. Text for talk sentence 15 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "婴……婴儿？！"
+msgid "！墓……？"
 msgstr ""
 
 #. Text for talk sentence 16 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（我小时候的记忆，只停留到大约两三岁时候的事情。）</color>"
+msgid "我之前仔细查询了一下，发现，那个墓其实是在你很小的时候就见过的一座墓。"
 msgstr ""
 
 #. Text for talk sentence 17 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（那个时候，我没有父亲，也没有母亲，只有作为养父的戴夫抚养着我。）</color>"
+msgid "那时候，我还没来得及告诉你，就被卷入了梦魇的阴谋中。现在该告诉你了。"
 msgstr ""
 
 #. Text for talk sentence 18 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（但是，我并不是像戴夫一样的方块生物，因此常常被当作异类对待。）</color>"
+msgid "我很小时候的墓？但是，我不记得戴夫家附近有什么墓啊。"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（因此，我很在意，我的亲生父亲和母亲，到底是谁。）</color>"
+msgid "那是更早之前的事了。那时，你还是个婴儿。"
 msgstr ""
 
 #. Text for talk sentence 20 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "那、那到底是谁的墓！"
+msgid "婴……婴儿？！"
 msgstr ""
 
 #. Text for talk sentence 21 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "不清楚。"
+msgid "<color=blue>（我小时候的记忆，只停留到大约两三岁时候的事情。）</color>"
 msgstr ""
 
 #. Text for talk sentence 22 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "诶？"
+msgid "<color=blue>（那个时候，我没有父亲，也没有母亲，只有作为养父的戴夫抚养着我。）</color>"
 msgstr ""
 
 #. Text for talk sentence 23 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "你的记忆似乎到此为止，连这梦中的人的模样都记不得了。"
+msgid "<color=blue>（但是，我并不是像戴夫一样的方块生物，因此常常被当作异类对待。）</color>"
 msgstr ""
 
 #. Text for talk sentence 24 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "我只能说很遗憾。"
+msgid "<color=blue>（因此，我很在意，我的亲生父亲和母亲，到底是谁。）</color>"
 msgstr ""
 
 #. Text for talk sentence 25 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "……是这样吗。还是多谢了，哆来咪小姐。"
+msgid "那、那到底是谁的墓！"
 msgstr ""
 
 #. Text for talk sentence 26 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "我其实曾经是个孤儿，是戴夫一直以来抚养着我。"
+msgid "不清楚。"
 msgstr ""
 
 #. Text for talk sentence 27 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "这些年来，我一直都很想知道自己的亲生父母到底是谁。"
+msgid "诶？"
 msgstr ""
 
 #. Text for talk sentence 28 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "这样子啊。不过，我们以后大概还会再见的。"
+msgid "你的记忆似乎到此为止，连这梦中的人的模样都记不得了。"
 msgstr ""
 
 #. Text for talk sentence 29 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "你在做梦的时候，可能还会遇见我，那个时候我们再聊聊吧。"
+msgid "我只能说很遗憾。"
 msgstr ""
 
 #. Text for talk sentence 30 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "而在幻想乡那段时间内，我就好好的翻翻你的梦吧。"
+msgid "……是这样吗。还是多谢了，哆来咪小姐。"
 msgstr ""
 
 #. Text for talk sentence 31 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "<color=blue>（……希望你不要再翻我的那些黑历史了！）</color>"
+msgid "我其实曾经是个孤儿，是戴夫一直以来抚养着我。"
 msgstr ""
 
 #. Text for talk sentence 32 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
-msgid "好了，我们终于可以去幻想乡了！"
+msgid "这些年来，我一直都很想知道自己的亲生父母到底是谁。"
 msgstr ""
 
 #. Text for talk sentence 33 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "这样子啊。不过，我们以后大概还会再见的。"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "你在做梦的时候，可能还会遇见我，那个时候我们再聊聊吧。"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "而在幻想乡那段时间内，我就好好的翻翻你的梦吧。"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "<color=blue>（——希望你不要再翻我的那些黑历史了！）</color>"
+msgstr ""
+
+#. Text for talk sentence 37 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "好了，我们终于可以去幻想乡了！"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
 msgid "我们早就已经准备好了！出发吧！"
@@ -2741,72 +2777,6 @@ msgctxt "talk-mvz2:trigger_tutorial"
 msgid "那么，现在来开始吧！"
 msgstr ""
 
-#. Archive name for talk group seventh_slot
-#: Talk meta file
-msgctxt "archive"
-msgid "蓝图槽位交易"
-msgstr ""
-
-#. Text for talk sentence 0 in talk group seventh_slot's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:seventh_slot"
-msgid "嘿邻居！我寻思你需要第七个器械槽位了！"
-msgstr ""
-
-#. Archive text for talk group seventh_slot's section 1
-#: Talk meta file
-msgctxt "archive"
-msgid "如果金钱足够"
-msgstr ""
-
-#. Text for talk sentence 0 in talk group seventh_slot's section 1
-#: Talk meta file
-msgctxt "talk-mvz2:seventh_slot"
-msgid "只要750$，怎么样？"
-msgstr ""
-
-#. Archive text for talk group seventh_slot's section 2
-#: Talk meta file
-msgctxt "archive"
-msgid "如果金钱不足"
-msgstr ""
-
-#. Text for talk sentence 0 in talk group seventh_slot's section 2
-#: Talk meta file
-msgctxt "talk-mvz2:seventh_slot"
-msgid "需要750$，但你的钱不够啊！"
-msgstr ""
-
-#. Text for talk sentence 1 in talk group seventh_slot's section 2
-#: Talk meta file
-msgctxt "talk-mvz2:seventh_slot"
-msgid "在你攒到足够的钱之后，再回这个关卡吧！"
-msgstr ""
-
-#. Archive text for talk group seventh_slot's section 3
-#: Talk meta file
-msgctxt "archive"
-msgid "如果成交"
-msgstr ""
-
-#. Text for talk sentence 0 in talk group seventh_slot's section 3
-#: Talk meta file
-msgctxt "talk-mvz2:seventh_slot"
-msgid "这场交易真是大快人心！"
-msgstr ""
-
-#. Archive text for talk group seventh_slot's section 4
-#: Talk meta file
-msgctxt "archive"
-msgid "如果拒绝"
-msgstr ""
-
-#. Text for talk sentence 0 in talk group seventh_slot's section 4
-#: Talk meta file
-msgctxt "talk-mvz2:seventh_slot"
-msgid "真可惜！如果你又想要了，再回到这个关卡吧！"
-msgstr ""
-
 #. Archive name for talk group halloween_7_over
 #: Talk meta file
 msgctxt "archive"
@@ -2879,28 +2849,70 @@ msgctxt "talk-mvz2:halloween_7_map"
 msgid "如果有它的话，我们就能进入到幻想乡了！"
 msgstr ""
 
-#. Archive name for talk group halloween_8
+#. Archive name for talk group seventh_slot
 #: Talk meta file
 msgctxt "archive"
-msgid "万圣夜第8天入场"
+msgid "蓝图槽位交易"
 msgstr ""
 
-#. Text for talk sentence 0 in talk group halloween_8's section 0
+#. Text for talk sentence 0 in talk group seventh_slot's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:halloween_8"
-msgid "在这里等着科学怪人的来临可不是好方法啊！"
+msgctxt "talk-mvz2:seventh_slot"
+msgid "嘿邻居！我寻思你需要第七个器械槽位了！"
 msgstr ""
 
-#. Text for talk sentence 1 in talk group halloween_8's section 0
+#. Archive text for talk group seventh_slot's section 1
 #: Talk meta file
-msgctxt "talk-mvz2:halloween_8"
-msgid "正巧，我有一些诱饵魔咒可以找到敌人，并把目标吸引过来！"
+msgctxt "archive"
+msgid "如果金钱足够"
 msgstr ""
 
-#. Text for talk sentence 2 in talk group halloween_8's section 0
+#. Text for talk sentence 0 in talk group seventh_slot's section 1
 #: Talk meta file
-msgctxt "talk-mvz2:halloween_8"
-msgid "我就在这里使用吧！大约两三天，我们就能找到目标了！"
+msgctxt "talk-mvz2:seventh_slot"
+msgid "只要750$，怎么样？"
+msgstr ""
+
+#. Archive text for talk group seventh_slot's section 2
+#: Talk meta file
+msgctxt "archive"
+msgid "如果金钱不足"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group seventh_slot's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:seventh_slot"
+msgid "需要750$，但你的钱不够啊！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group seventh_slot's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:seventh_slot"
+msgid "在你攒到足够的钱之后，再回这个关卡吧！"
+msgstr ""
+
+#. Archive text for talk group seventh_slot's section 3
+#: Talk meta file
+msgctxt "archive"
+msgid "如果成交"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group seventh_slot's section 3
+#: Talk meta file
+msgctxt "talk-mvz2:seventh_slot"
+msgid "这场交易真是大快人心！"
+msgstr ""
+
+#. Archive text for talk group seventh_slot's section 4
+#: Talk meta file
+msgctxt "archive"
+msgid "如果拒绝"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group seventh_slot's section 4
+#: Talk meta file
+msgctxt "talk-mvz2:seventh_slot"
+msgid "真可惜！如果你又想要了，再回到这个关卡吧！"
 msgstr ""
 
 #. Archive name for talk group halloween_8_over
