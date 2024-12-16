@@ -1,9 +1,11 @@
 ﻿using MVZ2.HeldItems;
 using PVZEngine;
 using PVZEngine.Base;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -23,6 +25,7 @@ namespace MVZ2Logic.HeldItems
         public virtual bool IsForPickup() => false;
         public virtual NamespaceID GetModelID(LevelEngine level, long id) => null;
         public virtual float GetRadius() => 0;
+        public virtual SeedPack GetSeedPack(LevelEngine level, IHeldItemData data) => null;
         public virtual void Update(LevelEngine level) { }
     }
     public enum LawnArea

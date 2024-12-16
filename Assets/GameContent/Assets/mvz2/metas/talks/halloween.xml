@@ -151,11 +151,13 @@
         <character id="mvz2:orant" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">这个是……荧石吧？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">来源于下界的发光石头……人间的确不多见。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它只会发光，可是这里好像没什么需要照亮的东西……</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">……也许……</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end">幽灵要开始游荡了。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">看来……嗯，图鉴是弄丢了。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">大概是和那些怪物战斗的时候弄丢的吧。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">嗯……那还真是不幸。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">不过不必担心，那些僵尸大概也会把图鉴带回来的吧。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye">因为——嗯……他们会拿着他们遇到的……一些东西。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:normal">大概，他们也会把我的图鉴带来吧。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">是吗？那么我们也来帮忙找找吧！</sentence>
       </sentences>
     </section>
   </group>
@@ -167,13 +169,11 @@
         <character id="mvz2:orant" side="right" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">……看来……嗯，图鉴是弄丢了。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">大概是和那些怪物战斗的时候弄丢的吧。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">嗯……那还真是不幸。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">不过不必担心……那些僵尸大概也会把图鉴带回来的吧。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye">因为……嗯……他们会拿着他们遇到的……一些东西。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:normal">大概，他们也会把我的图鉴带来吧。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">是吗？那么我们也来帮忙找找吧！</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">你们之前拿到的东西是荧石吧？</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">来源于下界的发光石头，人间的确不多见。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它只会发光，可是这里好像没什么需要照亮的东西。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">也许……</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end">幽灵要开始游荡了。</sentence>
       </sentences>
     </section>
   </group>

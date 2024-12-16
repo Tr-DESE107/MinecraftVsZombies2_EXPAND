@@ -41,12 +41,15 @@ namespace PVZEngine.Level
         public SerializableGrid[] grids;
         public float rechargeSpeed;
         public float rechargeTimeMultiplier;
-        public SerializableSeedPack[] seedPacks;
-        public SerializableSeedPack[] seedPackPool;
+        public SerializableClassicSeedPack[] seedPacks;
+        public SerializableClassicSeedPack[] seedPackPool;
+        public SerializableConveyorSeedPack[] conveyorSeedPacks;
         public bool requireCards;
         public long currentEntityID = 1;
         public long currentBuffID;
-        public int currentSeedPackID;
+        public long currentSeedPackID;
+        public int conveyorSlotCount;
+        public SerializableConveyorSeedSpendRecords conveyorSeedSpendRecord;
         public List<SerializableEntity> entities;
         public float energy;
         public SerializableDelayedEnergy[] delayedEnergyEntities;

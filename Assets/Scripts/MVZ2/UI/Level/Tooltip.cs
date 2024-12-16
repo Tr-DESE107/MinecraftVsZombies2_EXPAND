@@ -3,6 +3,7 @@ using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Level.UI
 {
@@ -13,10 +14,9 @@ namespace MVZ2.Level.UI
             var rectTransform = transform as RectTransform;
             rectTransform.pivot = pivot;
         }
-        public void SetData(Vector2 position, TooltipViewData viewData)
+        public void SetData(Transform target, TooltipViewData viewData)
         {
-            var rectTransform = transform as RectTransform;
-            rectTransform.position = position;
+            targetTransform = target;
             nameText.text = viewData.name;
             errorText.text = viewData.error;
             descriptionText.text = viewData.description;
@@ -24,10 +24,23 @@ namespace MVZ2.Level.UI
             errorText.gameObject.SetActive(!string.IsNullOrEmpty(viewData.error));
             descriptionText.gameObject.SetActive(!string.IsNullOrEmpty(viewData.description));
 
+            var rectTransform = transform as RectTransform;
+            rectTransform.position = targetTransform.position;
             var rootCanvas = rectTransform.GetRootCanvasNonAlloc(canvasListCache);
             if (rootCanvas)
             {
                 LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+                rectTransform.LimitInsideScreen(rootCanvas.transform, rootTransform.rect.size);
+            }
+        }
+        private void Update()
+        {
+            var rectTransform = transform as RectTransform;
+            rectTransform.position = targetTransform.position;
+
+            var rootCanvas = rectTransform.GetRootCanvasNonAlloc(canvasListCache);
+            if (rootCanvas)
+            {
                 rectTransform.LimitInsideScreen(rootCanvas.transform, rootTransform.rect.size);
             }
         }
@@ -39,6 +52,7 @@ namespace MVZ2.Level.UI
         TextMeshProUGUI errorText;
         [SerializeField]
         TextMeshProUGUI descriptionText;
+        private Transform targetTransform;
         private List<Canvas> canvasListCache = new List<Canvas>();
     }
     public struct TooltipViewData

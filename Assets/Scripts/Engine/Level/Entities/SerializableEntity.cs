@@ -29,7 +29,7 @@ namespace PVZEngine.Entities
         public SerializableEntityCollider[] colliders;
         public Vector3 renderRotation;
         public Vector3 renderScale;
-        public int poolCount;
+        public NamespaceID takenConveyorCard;
         public int timeout;
 
         #region 影子

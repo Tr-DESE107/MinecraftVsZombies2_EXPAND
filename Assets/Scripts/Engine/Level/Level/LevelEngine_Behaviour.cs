@@ -24,10 +24,6 @@ namespace PVZEngine.Level
             StageDefinition.PostHugeWaveEvent(this);
             Triggers.RunCallback(LevelCallbacks.POST_HUGE_WAVE_EVENT, this);
         }
-        public RandomGenerator GetSpawnRNG()
-        {
-            return spawnRandom;
-        }
         public void AddSpawnedEnemyID(NamespaceID enemyId)
         {
             if (IsEnemySpawned(enemyId))

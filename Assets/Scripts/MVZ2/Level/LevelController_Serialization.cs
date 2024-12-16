@@ -41,6 +41,9 @@ namespace MVZ2.Level
                 starshardActive = StarshardActive,
                 triggerActive = TriggerActive,
 
+                isConveyorMode = isConveyorMode,
+                conveyorSeedPositions = conveyorSeedPositions.ToArray(),
+
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
 
                 level = SerializeLevel(),
@@ -77,6 +80,9 @@ namespace MVZ2.Level
                 StarshardActive = seri.starshardActive;
                 TriggerActive = seri.triggerActive;
 
+                SetConveyorMode(seri.isConveyorMode);
+                conveyorSeedPositions = seri.conveyorSeedPositions.ToList();
+
                 var uiPreset = GetUIPreset();
                 uiPreset.LoadFromSerializable(seri.uiPreset);
                 uiPreset.UpdateFrame(0);
@@ -100,7 +106,9 @@ namespace MVZ2.Level
             }
 
             level.ResetHeldItem();
-            UpdateBlueprintsView();
+            InitBlueprints();
+            UpdateClassicBlueprintCount();
+            UpdateConveyorBlueprintCount();
             UpdateLevelName();
             UpdateLevelProgress();
             UpdateDifficultyName();
@@ -139,6 +147,9 @@ namespace MVZ2.Level
 
             level.OnSeedPackChanged += Engine_OnSeedPackChangedCallback;
             level.OnSeedSlotCountChanged += Engine_OnSeedPackCountChangedCallback;
+            level.OnConveyorSeedAdded += Engine_OnConveyorSeedPackAddedCallback;
+            level.OnConveyorSeedRemoved += Engine_OnConveyorSeedPackRemovedCallback;
+            level.OnConveyorSeedSlotCountChanged += Engine_OnConveyorSeedPackCountChangedCallback;
 
             level.OnClear += Engine_OnClearCallback;
 
@@ -180,6 +191,9 @@ namespace MVZ2.Level
         public bool pickaxeActive;
         public bool starshardActive;
         public bool triggerActive;
+
+        public bool isConveyorMode;
+        public float[] conveyorSeedPositions;
 
         public int maxCryTime;
         public FrameTimer cryTimer;

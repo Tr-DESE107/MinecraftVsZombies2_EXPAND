@@ -11,15 +11,15 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using UnityEngine;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.HeldItems
 {
-    [Definition(BuiltinHeldItemNames.blueprint)]
-    public class BlueprintHeldItemDefinition : HeldItemDefinition
+    public abstract class BlueprintHeldItemDefinition : HeldItemDefinition
     {
         public BlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
@@ -57,31 +57,22 @@ namespace MVZ2.Vanilla.HeldItems
             if (phase != targetPhase)
                 return false;
             var level = grid.Level;
-            var seed = level.GetSeedPackAt((int)data.ID);
+            var seed = GetSeedPackAt(level, (int)data.ID);
             if (seed == null)
                 return false;
             var seedDef = seed.Definition;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
-                var x = level.GetEntityColumnX(grid.Column);
-                var z = level.GetEntityLaneZ(grid.Lane);
-                var y = level.GetGroundY(x, z);
-
-                var position = new Vector3(x, y, z);
-                var entityID = seedDef.GetSeedEntityID();
-                var entityDef = level.Content.GetEntityDefinition(entityID);
-                var entity = level.Spawn(entityID, position, null);
-                level.AddEnergy(-seedDef.GetCost());
-                level.SetRechargeTimeToUsed(seed);
-                seed.ResetRecharge();
+                var entity = seedDef.PlaceSeedEntity(grid);
+                PostPlaceEntity(grid, data, seed, entity);
                 if (data.InstantTrigger && entity.CanTrigger())
                 {
                     entity.Trigger();
                 }
-                level.PlaySound(entityDef.GetPlaceSound(), position);
+                entity.PlaySound(entity.GetPlaceSound());
                 if (entity.Type == EntityTypes.PLANT)
                 {
-                    level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_PLACE, entityID, entity);
+                    level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_PLACE, entity.GetDefinitionID(), entity);
                 }
                 return true;
             }
@@ -124,7 +115,7 @@ namespace MVZ2.Vanilla.HeldItems
         }
         public override NamespaceID GetModelID(LevelEngine level, long id)
         {
-            var seed = level.GetSeedPackAt((int)id);
+            var seed = GetSeedPackAt(level, (int)id);
             if (seed == null)
                 return null;
             var seedDef = seed.Definition;
@@ -135,6 +126,14 @@ namespace MVZ2.Vanilla.HeldItems
                 return entityDef.GetModelID();
             }
             return null;
+        }
+        protected abstract SeedPack GetSeedPackAt(LevelEngine level, int index);
+        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
+        {
+            return GetSeedPackAt(level, (int)data.ID);
+        }
+        protected virtual void PostPlaceEntity(LawnGrid grid, IHeldItemData data, SeedPack seed, Entity entity)
+        {
         }
     }
 }

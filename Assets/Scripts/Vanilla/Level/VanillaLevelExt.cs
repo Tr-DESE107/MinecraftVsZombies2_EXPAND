@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
@@ -17,6 +18,7 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 
@@ -67,12 +69,14 @@ namespace MVZ2.Vanilla.Level
         }
         public static NamespaceID GetHeldEntityID(this LevelEngine level)
         {
-            if (level.GetHeldItemType() != BuiltinHeldTypes.blueprint)
+            var heldType = level.GetHeldItemType();
+            var heldDefinition = level.Content.GetHeldItemDefinition(heldType);
+            if (heldDefinition == null)
                 return null;
-            var seed = level.GetSeedPackAt((int)level.GetHeldItemID());
-            if (seed == null)
+            var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
+            var seedDef = seed?.Definition;
+            if (seedDef == null)
                 return null;
-            var seedDef = seed.Definition;
             if (seedDef.GetSeedType() != SeedTypes.ENTITY)
                 return null;
             return seedDef.GetSeedEntityID();
@@ -93,6 +97,10 @@ namespace MVZ2.Vanilla.Level
         public static bool IsHoldingBlueprint(this LevelEngine level, int i)
         {
             return level.GetHeldItemType() == BuiltinHeldTypes.blueprint && level.GetHeldItemID() == i;
+        }
+        public static bool IsHoldingConveyorBlueprint(this LevelEngine level, int i)
+        {
+            return level.GetHeldItemType() == BuiltinHeldTypes.conveyor && level.GetHeldItemID() == i;
         }
         public static bool IsHoldingTrigger(this LevelEngine level)
         {
@@ -329,7 +337,35 @@ namespace MVZ2.Vanilla.Level
         public const float PROJECTILE_BOTTOM_BORDER = -1000;
         #endregion
 
-        public static void Thunder(this LevelEngine level) 
+        public static SeedPack ConveyRandomSeedPack(this LevelEngine level)
+        {
+            if (level.CanConveySeedPack())
+            {
+                var id = level.DrawConveyorSeed();
+                var seedPack = level.AddConveyorSeedPack(id ?? VanillaContraptionID.dispenser);
+                if (seedPack != null)
+                {
+                    seedPack.SetDrawnConveyorSeed(seedPack.GetDefinitionID());
+                }
+                else
+                {
+                    level.PutSeedToConveyorPool(id);
+                }
+                return seedPack;
+            }
+            return null;
+        }
+        public static NamespaceID DrawConveyorSeed(this LevelEngine level)
+        {
+            var entries = level.GetConveyorPool();
+            if (entries.Count() <= 0)
+                return null;
+            var index = level.GetConveyorRNG().WeightedRandom(entries.Select(e => Mathf.Max(1, e.Count - level.GetSpentSeedFromConveyorPool(e.ID))).ToArray());
+            var entry = entries[index];
+            level.SpendSeedFromConveyorPool(entry.ID);
+            return entry.ID;
+        }
+        public static void Thunder(this LevelEngine level)
         {
             level.AddBuff<ThunderBuff>();
             foreach (var ghost in level.GetEntities())

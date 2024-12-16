@@ -106,6 +106,7 @@ namespace PVZEngine.Level
         {
             StageID = stageId;
             StageDefinition = Content.GetStageDefinition(stageId);
+            
         }
         public void ChangeArea(NamespaceID areaId)
         {
@@ -320,8 +321,6 @@ namespace PVZEngine.Level
             currentBuffID++;
             return id;
         }
-        #endregion
-
         public Buff CreateBuff<T>(long buffID) where T : BuffDefinition
         {
             var buffDefinition = Content.GetBuffDefinition<T>();
@@ -339,11 +338,9 @@ namespace PVZEngine.Level
             return new Buff(this, buffDef, buffID);
         }
 
-        public RandomGenerator CreateRNG()
-        {
-            return new RandomGenerator(levelRandom.Next());
-        }
+        #endregion
 
+        #region 序列化
         public SerializableLevel Serialize()
         {
             return new SerializableLevel()
@@ -370,6 +367,9 @@ namespace PVZEngine.Level
                 rechargeTimeMultiplier = RechargeTimeMultiplier,
                 seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray(),
                 seedPackPool = seedPackPool.Select(g => g != null ? g.Serialize() : null).ToArray(),
+                conveyorSeedPacks = conveyorSeedPacks.Select(s => s != null ? s.Serialize() : null).ToArray(),
+                conveyorSlotCount = conveyorSlotCount,
+                conveyorSeedSpendRecord = conveyorSeedSpendRecord.ToSerializable(),
 
                 currentEntityID = currentEntityID,
                 currentBuffID = currentBuffID,
@@ -416,8 +416,11 @@ namespace PVZEngine.Level
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
-            level.seedPacks = seri.seedPacks.Select(g => g != null ? SeedPack.Deserialize(g, level) : null).ToArray();
-            level.seedPackPool = seri.seedPackPool.Select(g => g != null ? SeedPack.Deserialize(g, level) : null).ToList();
+            level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
+            level.seedPackPool = seri.seedPackPool.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToList();
+            level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
+            level.conveyorSlotCount = seri.conveyorSlotCount;
+            level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
 
             level.currentEntityID = seri.currentEntityID;
             level.currentBuffID = seri.currentBuffID;
@@ -456,6 +459,23 @@ namespace PVZEngine.Level
                 comp.LoadSerializable(seriComp.Value);
             }
         }
+        #endregion
+
+        #region 随机数生成器
+        public RandomGenerator CreateRNG()
+        {
+            return new RandomGenerator(levelRandom.Next());
+        }
+
+        public RandomGenerator GetSpawnRNG()
+        {
+            return spawnRandom;
+        }
+        public RandomGenerator GetConveyorRNG()
+        {
+            return conveyorRandom;
+        }
+        #endregion
 
         #endregion
 

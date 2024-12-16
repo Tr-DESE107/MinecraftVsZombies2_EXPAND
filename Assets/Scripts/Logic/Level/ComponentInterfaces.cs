@@ -75,6 +75,7 @@ namespace MVZ2Logic.Level.Components
     public interface IUIComponent : ILevelComponent
     {
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
+        void SetConveyorMode(bool value);
         void ShowMoney();
         void SetMoneyFade(bool fade);
         void SetEnergyActive(bool visible);

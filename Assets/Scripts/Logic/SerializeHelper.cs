@@ -55,7 +55,8 @@ namespace MVZ2Logic
             RegisterClass<BuffReferenceEntity>();
             RegisterClass<BuffReferenceArmor>();
             RegisterClass<BuffReferenceLevel>();
-            RegisterClass<BuffReferenceSeedPack>();
+            RegisterClass<BuffReferenceClassicSeedPack>();
+            RegisterClass<BuffReferenceConveyorSeedPack>(); 
 
             RegisterClass<SerializableEntity>();
             RegisterClass<SerializableArmor>();
@@ -65,7 +66,10 @@ namespace MVZ2Logic
             RegisterClass<SerializableLevel>();
             RegisterClass<SerializableDelayedEnergy>();
             RegisterClass<SerializableLevelOption>();
-            RegisterClass<SerializableSeedPack>();
+            RegisterClass<SerializableClassicSeedPack>();
+            RegisterClass<SerializableConveyorSeedPack>();
+            RegisterClass<SerializableConveyorSeedSpendRecords>();
+            RegisterClass<SerializableConveyorSeedSendRecordEntry>();
 
             // MVZ2.Logic
             RegisterClass<SerializableModSaveData>();

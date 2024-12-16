@@ -63,13 +63,10 @@ namespace MVZ2.Level
 
             // 显示触发器图标。
             bool triggerVisible = false;
-            if (heldType == BuiltinHeldTypes.blueprint)
+            var blueprint = definition.GetSeedPack(level, data);
+            if (blueprint != null && blueprint.IsTriggerActive())
             {
-                var blueprint = level.GetSeedPackAt((int)id);
-                if (blueprint != null && blueprint.IsTriggerActive()) 
-                {
-                    triggerVisible = true;
-                }
+                triggerVisible = true;
             }
             ui.SetHeldItemTrigger(triggerVisible, instantTrigger);
 
@@ -211,6 +208,7 @@ namespace MVZ2.Level
             uiPreset.SetProgressVisible(false);
             uiPreset.HideTooltip();
             SetUIVisibleState(VisibleState.Nothing);
+            uiPreset.SetConveyorMode(false);
         }
 
         #region 事件回调

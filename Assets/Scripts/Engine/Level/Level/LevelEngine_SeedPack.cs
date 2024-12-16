@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
+using Tools;
+using UnityEngine;
 
 namespace PVZEngine.Level
 {
     public partial class LevelEngine
     {
         #region 公有方法
+
 
         #region 种子包
         public void InsertSeedPackAt(int index, NamespaceID id)
@@ -57,7 +61,7 @@ namespace PVZEngine.Level
                 ReplaceSeedPackAt(i, seed);
             }
         }
-        public int GetSeedPackIndex(SeedPack seed)
+        public int GetSeedPackIndex(ClassicSeedPack seed)
         {
             return Array.IndexOf(seedPacks, seed);
         }
@@ -69,7 +73,7 @@ namespace PVZEngine.Level
         {
             return seedPacks.Count(s => s != null);
         }
-        public SeedPack[] GetAllSeedPacks()
+        public ClassicSeedPack[] GetAllSeedPacks()
         {
             return seedPacks.ToArray();
         }
@@ -77,15 +81,15 @@ namespace PVZEngine.Level
         {
             return seedPacks[index]?.GetDefinitionID();
         }
-        public SeedPack GetSeedPackAt(int index)
+        public ClassicSeedPack GetSeedPackAt(int index)
         {
             return seedPacks[index];
         }
-        public SeedPack GetSeedPack(NamespaceID seedRef)
+        public ClassicSeedPack GetSeedPack(NamespaceID seedRef)
         {
             return seedPacks.FirstOrDefault(r => r != null && r.GetDefinitionID() == seedRef);
         }
-        public SeedPack GetSeedPackByID(int id)
+        public ClassicSeedPack GetSeedPackByID(long id)
         {
             return seedPacks.FirstOrDefault(s => s.ID == id) ?? seedPackPool.FirstOrDefault(s => s.ID == id);
         }
@@ -99,7 +103,7 @@ namespace PVZEngine.Level
         public void SetSeedSlotCount(int count)
         {
             var oldSeedPacks = seedPacks.ToArray();
-            seedPacks = new SeedPack[count];
+            seedPacks = new ClassicSeedPack[count];
             OnSeedSlotCountChanged?.Invoke(count);
 
             ClearSeedPacks();
@@ -107,10 +111,97 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 种子池
-        public SeedPack[] GetSeedPackPool()
+        #region 传送带
+        public bool CanConveySeedPack()
         {
-            return seedPackPool.ToArray();
+            return conveyorSeedPacks.Count < GetConveyorSlotCount();
+        }
+        public ConveyorSeedPack AddConveyorSeedPack(NamespaceID id)
+        {
+            return InsertConveyorSeedPackAt(conveyorSeedPacks.Count, id);
+        }
+        public ConveyorSeedPack InsertConveyorSeedPackAt(int index, NamespaceID id)
+        {
+            if (id == null)
+                return null;
+            if (index < 0 || index > conveyorSeedPacks.Count || index >= GetConveyorSlotCount())
+                return null;
+            SeedDefinition seedDefinition = Content.GetSeedDefinition(id);
+            if (seedDefinition == null)
+                return null;
+            var seedPack = new ConveyorSeedPack(this, seedDefinition, currentSeedPackID++);
+            conveyorSeedPacks.Insert(index, seedPack);
+            OnConveyorSeedAdded?.Invoke(index);
+            return seedPack;
+        }
+        public bool RemoveConveyorSeedPackAt(int index)
+        {
+            if (index < 0 || index >= conveyorSeedPacks.Count)
+                return false;
+            var seedPack = conveyorSeedPacks[index];
+            conveyorSeedPacks.RemoveAt(index);
+            OnConveyorSeedRemoved?.Invoke(index);
+            return true;
+        }
+        public void ClearConveyorSeedPacks()
+        {
+            for (int i = conveyorSeedPacks.Count - 1; i >= 0; i--)
+            {
+                RemoveSeedPackAt(i);
+            }
+        }
+        public int GetConveyorSeedPackIndex(ConveyorSeedPack seed)
+        {
+            return conveyorSeedPacks.IndexOf(seed);
+        }
+        public int GetConveyorSeedPackIndex(NamespaceID id)
+        {
+            return conveyorSeedPacks.FindIndex(s => s.GetDefinitionID() == id);
+        }
+        public int GetConveyorSeedPackCount()
+        {
+            return conveyorSeedPacks.Count(s => s != null);
+        }
+        public ConveyorSeedPack[] GetAllConveyorSeedPacks()
+        {
+            return conveyorSeedPacks.ToArray();
+        }
+        public NamespaceID GetConveyorSeedPackIDAt(int index)
+        {
+            return conveyorSeedPacks[index]?.GetDefinitionID();
+        }
+        public ConveyorSeedPack GetConveyorSeedPackAt(int index)
+        {
+            return conveyorSeedPacks[index];
+        }
+        public ConveyorSeedPack GetConveyorSeedPack(NamespaceID seedRef)
+        {
+            return conveyorSeedPacks.FirstOrDefault(r => r != null && r.GetDefinitionID() == seedRef);
+        }
+        public ConveyorSeedPack GetConveyorSeedPackByID(long id)
+        {
+            return conveyorSeedPacks.FirstOrDefault(s => s.ID == id);
+        }
+        public int GetConveyorSlotCount()
+        {
+            return conveyorSlotCount;
+        }
+        public void SetConveyorSlotCount(int value)
+        {
+            conveyorSlotCount = value;
+            OnConveyorSeedSlotCountChanged?.Invoke(value);
+        }
+        public void PutSeedToConveyorPool(NamespaceID seedID)
+        {
+            conveyorSeedSpendRecord.AddSpendValue(seedID, -1);
+        }
+        public void SpendSeedFromConveyorPool(NamespaceID seedID)
+        {
+            conveyorSeedSpendRecord.AddSpendValue(seedID, 1);
+        }
+        public int GetSpentSeedFromConveyorPool(NamespaceID seedID)
+        {
+            return conveyorSeedSpendRecord.GetSpendValue(seedID);
         }
         #endregion
 
@@ -171,7 +262,7 @@ namespace PVZEngine.Level
         }
 
         #region 种子池
-        private SeedPack PopSeedPackFromPool(NamespaceID seedRef)
+        private ClassicSeedPack PopSeedPackFromPool(NamespaceID seedRef)
         {
             if (seedRef == null)
                 return null;
@@ -186,12 +277,12 @@ namespace PVZEngine.Level
             }
             else
             {
-                seedPack = new SeedPack(this, seedDefinition, currentSeedPackID++);
+                seedPack = new ClassicSeedPack(this, seedDefinition, currentSeedPackID++);
                 seedPack.SetStartRecharge(true);
                 return seedPack;
             }
         }
-        private void PushSeedPackToPool(SeedPack seed)
+        private void PushSeedPackToPool(ClassicSeedPack seed)
         {
             seedPackPool.Add(seed);
         }
@@ -201,12 +292,18 @@ namespace PVZEngine.Level
 
         public event Action<int> OnSeedSlotCountChanged;
         public event Action<int> OnSeedPackChanged;
+        public event Action<int> OnConveyorSeedAdded;
+        public event Action<int> OnConveyorSeedRemoved;
+        public event Action<int> OnConveyorSeedSlotCountChanged;
         #region 属性字段
         public float RechargeSpeed { get; set; } = 1;
         public float RechargeTimeMultiplier { get; set; } = 1;
-        private int currentSeedPackID = 1;
-        private SeedPack[] seedPacks = Array.Empty<SeedPack>();
-        private List<SeedPack> seedPackPool = new List<SeedPack>();
+        private int conveyorSlotCount = 10;
+        private long currentSeedPackID = 1;
+        private ClassicSeedPack[] seedPacks = Array.Empty<ClassicSeedPack>();
+        private List<ClassicSeedPack> seedPackPool = new List<ClassicSeedPack>();
+        private List<ConveyorSeedPack> conveyorSeedPacks = new List<ConveyorSeedPack>();
+        private ConveyorSeedSpendRecords conveyorSeedSpendRecord = new ConveyorSeedSpendRecords();
         #endregion
     }
 }

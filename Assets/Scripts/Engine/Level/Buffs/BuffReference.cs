@@ -51,16 +51,34 @@ namespace PVZEngine.Buffs
         }
     }
     [Serializable]
-    public class BuffReferenceSeedPack : BuffReference
+    public abstract class BuffReferenceSeedPack : BuffReference
     {
-        public BuffReferenceSeedPack(int seedId)
+        public BuffReferenceSeedPack(long seedId)
         {
             seedID = seedId;
+        }
+        public long seedID;
+    }
+    [Serializable]
+    public class BuffReferenceClassicSeedPack : BuffReferenceSeedPack
+    {
+        public BuffReferenceClassicSeedPack(long seedId) : base(seedId)
+        {
         }
         public override IBuffTarget GetTarget(LevelEngine level)
         {
             return level.GetSeedPackByID(seedID);
         }
-        public int seedID;
+    }
+    [Serializable]
+    public class BuffReferenceConveyorSeedPack : BuffReferenceSeedPack
+    {
+        public BuffReferenceConveyorSeedPack(long seedId) : base(seedId)
+        {
+        }
+        public override IBuffTarget GetTarget(LevelEngine level)
+        {
+            return level.GetConveyorSeedPackByID(seedID);
+        }
     }
 }

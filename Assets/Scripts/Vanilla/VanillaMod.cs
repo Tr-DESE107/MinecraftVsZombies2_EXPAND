@@ -155,6 +155,7 @@ namespace MVZ2.Vanilla
                 stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
 
                 stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
+                stage.SetProperty(VanillaLevelProps.CONVEYOR_POOL, meta.ConveyorPool);
 
                 stage.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
 

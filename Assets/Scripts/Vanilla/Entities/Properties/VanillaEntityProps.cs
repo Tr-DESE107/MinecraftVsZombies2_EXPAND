@@ -96,6 +96,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return definition.GetProperty<NamespaceID>(PLACE_SOUND);
         }
+        public static NamespaceID GetPlaceSound(this Entity entity)
+        {
+            return entity.GetProperty<NamespaceID>(PLACE_SOUND);
+        }
         public static NamespaceID GetDeathSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(DEATH_SOUND);

@@ -16,8 +16,6 @@ using PVZEngine.Entities;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.Vanilla.Entities
 {

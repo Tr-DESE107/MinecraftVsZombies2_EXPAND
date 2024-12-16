@@ -34,7 +34,6 @@ using MVZ2.Metas;
 
 namespace MVZ2.Level
 {
-    using static System.Collections.Specialized.BitVector32;
     using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
     public partial class LevelController : MonoBehaviour, IDisposable
     {
@@ -110,7 +109,8 @@ namespace MVZ2.Level
             SetUIVisibleState(VisibleState.InLevel);
             SetUnlockedUIActive();
 
-            UpdateBlueprintCount();
+            UpdateClassicBlueprintCount();
+            UpdateConveyorBlueprintCount();
             UpdateLevelName();
             UpdateDifficulty();
             UpdateLevelUI();
@@ -304,6 +304,10 @@ namespace MVZ2.Level
                         foreach (var entity in entitiesCache)
                         {
                             entity.UpdateFixed();
+                        }
+                        if (isConveyorMode)
+                        {
+                            UpdateConveyorBlueprintPositions();
                         }
                         ui.UpdateHeldItemModelFixed();
                         UpdateEnemyCry();
@@ -590,8 +594,8 @@ namespace MVZ2.Level
             var blueprint = gameObject.GetComponentInParent<Blueprint>();
             if (blueprint)
             {
-                var uiPreset = GetUIPreset();
-                ReleaseOnBlueprint(uiPreset.GetBlueprintIndex(blueprint));
+                var blueprintMode = GetCurrentBlueprintMode();
+                blueprintMode.ReleaseOnBlueprint(blueprintMode.GetBlueprintUIIndex(blueprint));
                 return;
             }
 
@@ -693,7 +697,8 @@ namespace MVZ2.Level
                     if (Input.GetKeyDown(KeyCode.Alpha0 + i))
                     {
                         var index = i == 0 ? 9 : i - 1;
-                        ClickBlueprint(index);
+                        var blueprintMode = GetCurrentBlueprintMode();
+                        blueprintMode.ClickBlueprint(index);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Q))

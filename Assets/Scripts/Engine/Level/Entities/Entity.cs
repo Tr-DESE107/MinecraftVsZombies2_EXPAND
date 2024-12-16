@@ -95,6 +95,11 @@ namespace PVZEngine.Entities
             {
                 Removed = true;
                 Level.RemoveEntity(this);
+                if (NamespaceID.IsValid(TakenConveyorSeed))
+                {
+                    Level.PutSeedToConveyorPool(TakenConveyorSeed);
+                    TakenConveyorSeed = null;
+                }
                 Definition.PostRemove(this);
                 Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_REMOVE, this);
             }
@@ -574,7 +579,7 @@ namespace PVZEngine.Entities
             seri.collisionMaskHostile = CollisionMaskHostile;
             seri.collisionMaskFriendly = CollisionMaskFriendly;
             seri.renderRotation = RenderRotation;
-            seri.poolCount = PoolCount;
+            seri.takenConveyorCard = TakenConveyorSeed;
             seri.timeout = Timeout;
             seri.colliders = colliders.ConvertAll(g => g.ToSerializable()).ToArray();
 
@@ -610,7 +615,7 @@ namespace PVZEngine.Entities
             CollisionMaskHostile = seri.collisionMaskHostile;
             CollisionMaskFriendly = seri.collisionMaskFriendly;
             RenderRotation = seri.renderRotation;
-            PoolCount = seri.poolCount;
+            TakenConveyorSeed = seri.takenConveyorCard;
             Timeout = seri.timeout;
 
             IsDead = seri.isDead;
@@ -718,7 +723,7 @@ namespace PVZEngine.Entities
         private IModelInterface modelInterface;
         private IModelInterface armorModelInterface;
         #endregion
-        public int PoolCount { get; set; }
+        public NamespaceID TakenConveyorSeed { get; set; }
         public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
         public float Health { get; set; }

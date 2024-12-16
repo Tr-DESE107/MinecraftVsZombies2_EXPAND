@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
@@ -16,6 +18,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddAura(new BlueprintAura());
             AddAura(new ContraptionAura());
             AddAura(new ArmorAura());
+            AddModifier(new FloatModifier(VanillaLevelProps.CONVEY_SPEED, NumberOperator.Multiply, 1.5f));
         }
 
         public class BlueprintAura : AuraEffectDefinition

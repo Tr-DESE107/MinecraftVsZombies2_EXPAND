@@ -11,6 +11,7 @@ namespace MVZ2.Vanilla.SeedPacks
         public const string TWINKLING = "twinkling";
         public const string TRIGGER_ACTIVE = "triggerActive";
         public const string CAN_INSTANT_TRIGGER = "canInstantTrigger";
+        public const string DRAWN_CONVEYOR_SEED = "drawnConveyorSeed";
         public static int GetSeedType(this SeedDefinition definition)
         {
             return definition.GetProperty<int>(SEED_TYPE);
@@ -38,6 +39,14 @@ namespace MVZ2.Vanilla.SeedPacks
         public static void SetTwinkling(this SeedPack seed, bool value)
         {
             seed.SetProperty(TWINKLING, value);
+        }
+        public static NamespaceID GetDrawnConveyorSeed(this SeedPack seed)
+        {
+            return seed.GetProperty<NamespaceID>(DRAWN_CONVEYOR_SEED);
+        }
+        public static void SetDrawnConveyorSeed(this SeedPack seed, NamespaceID value)
+        {
+            seed.SetProperty(DRAWN_CONVEYOR_SEED, value);
         }
     }
 }

@@ -28,6 +28,7 @@ namespace MVZ2Logic.Level
 
         int TotalFlags { get; }
         IEnemySpawnEntry[] Spawns { get; }
+        IConveyorPoolEntry[] ConveyorPool { get; }
         int FirstWaveTime { get; }
         float SpawnPointsMultiplier { get; }
 
@@ -58,5 +59,10 @@ namespace MVZ2Logic.Level
         {
             return game.GetSpawnDefinition(SpawnRef);
         }
+    }
+    public interface IConveyorPoolEntry
+    {
+        NamespaceID ID { get; }
+        int Count { get; }
     }
 }

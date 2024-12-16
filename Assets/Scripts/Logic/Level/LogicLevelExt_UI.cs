@@ -11,6 +11,11 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<IUIComponent>();
         }
+        public static void SetConveyorMode(this LevelEngine level, bool value)
+        {
+            var component = level.GetUIComponent();
+            component.SetConveyorMode(value);
+        }
         public static void SetMoneyFade(this LevelEngine level, bool fade)
         {
             var component = level.GetUIComponent();

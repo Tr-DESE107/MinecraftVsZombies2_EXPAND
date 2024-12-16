@@ -3,13 +3,20 @@ using PVZEngine.Buffs;
 
 namespace PVZEngine.SeedPacks
 {
-    [Serializable]
-    public class SerializableSeedPack
+    public abstract class SerializableSeedPack
     {
-        public int id;
+        public long id;
         public NamespaceID seedID;
         public long currentBuffID;
         public SerializableBuffList buffs;
         public SerializablePropertyDictionary propertyDict;
+    }
+    [Serializable]
+    public class SerializableClassicSeedPack : SerializableSeedPack
+    {
+    }
+    [Serializable]
+    public class SerializableConveyorSeedPack : SerializableSeedPack
+    {
     }
 }

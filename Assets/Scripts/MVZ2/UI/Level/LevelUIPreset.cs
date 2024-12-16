@@ -60,6 +60,7 @@ namespace MVZ2.Level.UI
         public void SetBlueprintsActive(bool visible)
         {
             blueprintsObj.SetActive(visible);
+            conveyorObj.SetActive(visible);
         }
         public void SetBlueprintSlotCount(int count)
         {
@@ -77,10 +78,6 @@ namespace MVZ2.Level.UI
         {
             blueprints.InsertBlueprint(index, blueprint);
         }
-        public void ForceAlignBlueprint(int index)
-        {
-            blueprints.ForceAlign(index);
-        }
         public bool RemoveBlueprint(Blueprint blueprint)
         {
             return blueprints.RemoveBlueprint(blueprint);
@@ -97,9 +94,58 @@ namespace MVZ2.Level.UI
         {
             return blueprints.GetBlueprintIndex(blueprint);
         }
+        public void ForceAlignBlueprint(int index)
+        {
+            blueprints.ForceAlign(index);
+        }
         public Vector3 GetBlueprintPosition(int index)
         {
             return blueprints.GetBlueprintPosition(index);
+        }
+        #endregion
+
+        #region 传送带
+        public void SetConveyorMode(bool value)
+        {
+            isConveyor = value;
+            blueprintClassicObj.SetActive(!value);
+            blueprintConveyorObj.SetActive(value);
+        }
+        public Blueprint ConveyBlueprint()
+        {
+            return conveyor.CreateBlueprint();
+        }
+        public void AddConveyorBlueprint(Blueprint blueprint)
+        {
+            conveyor.AddBlueprint(blueprint);
+        }
+        public void InsertConveyorBlueprint(int index, Blueprint blueprint)
+        {
+            conveyor.InsertBlueprint(index, blueprint);
+        }
+        public bool RemoveConveyorBlueprint(Blueprint blueprint)
+        {
+            return conveyor.RemoveBlueprint(blueprint);
+        }
+        public void RemoveConveyorBlueprintAt(int index)
+        {
+            conveyor.RemoveBlueprintAt(index);
+        }
+        public Blueprint GetConveyorBlueprintAt(int index)
+        {
+            return conveyor.GetBlueprintAt(index);
+        }
+        public int GetConveyorBlueprintIndex(Blueprint blueprint)
+        {
+            return conveyor.GetBlueprintIndex(blueprint);
+        }
+        public void SetConveyorSlotCount(int count)
+        {
+            conveyor.SetSlotCount(count);
+        }
+        public void SetConveyorBlueprintNormalizedPosition(int index, float position)
+        {
+            conveyor.SetBlueprintNormalizedPosition(index, position);
         }
         #endregion
 
@@ -212,10 +258,12 @@ namespace MVZ2.Level.UI
         public void SetTriggerActive(bool visible)
         {
             triggerSlotObj.SetActive(visible);
+            triggerSlotConveyorObj.SetActive(visible);
         }
         public void SetTriggerSelected(bool selected)
         {
             triggerSlot.SetSelected(selected);
+            triggerSlotConveyor.SetSelected(selected);
         }
         #endregion
 
@@ -291,7 +339,7 @@ namespace MVZ2.Level.UI
         #region 提示箭头
         public void SetHintArrowPointToBlueprint(int index)
         {
-            var blueprint = GetBlueprintAt(index);
+            var blueprint = isConveyor ? GetConveyorBlueprintAt(index) : GetBlueprintAt(index);
             if (!blueprint)
             {
                 HideHintArrow();
@@ -309,7 +357,7 @@ namespace MVZ2.Level.UI
         public void SetHintArrowPointToTrigger()
         {
             hintArrow.SetVisible(true);
-            var trigger = triggerSlot;
+            var trigger = GetCurrentTriggerUI();
             hintArrow.SetTarget(trigger.transform, hintArrowOffsetTrigger * 0.01f, hintArrowAngleTrigger);
         }
         public void SetHintArrowPointToStarshard()
@@ -337,6 +385,13 @@ namespace MVZ2.Level.UI
                 return;
             ShowTooltipOnComponent(blueprint, viewData);
         }
+        public void ShowTooltipOnConveyorBlueprint(int index, TooltipViewData viewData)
+        {
+            var blueprint = GetConveyorBlueprintAt(index);
+            if (!blueprint)
+                return;
+            ShowTooltipOnComponent(blueprint, viewData);
+        }
         public void ShowTooltipOnChoosingBlueprint(int index, TooltipViewData viewData)
         {
             var blueprint = GetBlueprintChooseItem(index);
@@ -350,7 +405,7 @@ namespace MVZ2.Level.UI
         }
         public void ShowTooltipOnTrigger(TooltipViewData viewData)
         {
-            ShowTooltipOnComponent(triggerSlot, viewData);
+            ShowTooltipOnComponent(GetCurrentTriggerUI(), viewData);
         }
         public void ShowTooltipOnEntity(EntityController entity, TooltipViewData viewData)
         {
@@ -363,7 +418,7 @@ namespace MVZ2.Level.UI
                 return;
             tooltip.gameObject.SetActive(true);
             tooltip.SetPivot(anchor.Pivot);
-            tooltip.SetData(anchor.transform.position, viewData);
+            tooltip.SetData(anchor.transform, viewData);
         }
         public void HideTooltip()
         {
@@ -417,6 +472,10 @@ namespace MVZ2.Level.UI
             blueprints.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             blueprints.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
 
+            conveyor.OnBlueprintPointerEnter += (index, data) => OnConveyorBlueprintPointerEnter?.Invoke(index, data);
+            conveyor.OnBlueprintPointerExit += (index, data) => OnConveyorBlueprintPointerExit?.Invoke(index, data);
+            conveyor.OnBlueprintPointerDown += (index, data) => OnConveyorBlueprintPointerDown?.Invoke(index, data);
+
             blueprintChoosePanel.OnArtifactClick += (index) => OnBlueprintChooseArtifactClick?.Invoke(index);
             blueprintChoosePanel.OnStartButtonClick += () => OnBlueprintChooseStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnBlueprintChooseViewLawnClick?.Invoke();
@@ -437,6 +496,13 @@ namespace MVZ2.Level.UI
             triggerSlot.OnPointerEnter += (data) => OnTriggerPointerEnter?.Invoke(data);
             triggerSlot.OnPointerExit += (data) => OnTriggerPointerExit?.Invoke(data);
             triggerSlot.OnPointerDown += (data) => OnTriggerPointerDown?.Invoke(data);
+            
+            if (triggerSlotConveyor != triggerSlot)
+            {
+                triggerSlotConveyor.OnPointerEnter += (data) => OnTriggerPointerEnter?.Invoke(data);
+                triggerSlotConveyor.OnPointerExit += (data) => OnTriggerPointerExit?.Invoke(data);
+                triggerSlotConveyor.OnPointerDown += (data) => OnTriggerPointerDown?.Invoke(data);
+            }
 
 
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
@@ -474,6 +540,11 @@ namespace MVZ2.Level.UI
             }
         }
         #endregion
+
+        private TriggerSlot GetCurrentTriggerUI()
+        {
+            return isConveyor ? triggerSlotConveyor : triggerSlot;
+        }
         #endregion
 
         #region 事件
@@ -482,6 +553,10 @@ namespace MVZ2.Level.UI
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
+
+        public event Action<int, PointerEventData> OnConveyorBlueprintPointerEnter;
+        public event Action<int, PointerEventData> OnConveyorBlueprintPointerExit;
+        public event Action<int, PointerEventData> OnConveyorBlueprintPointerDown;
 
         public event Action OnBlueprintChooseStartClick;
         public event Action OnBlueprintChooseViewLawnClick;
@@ -510,6 +585,7 @@ namespace MVZ2.Level.UI
 
         #region 属性字段
 
+        private bool isConveyor;
         [SerializeField]
         Animator animator;
         [SerializeField]
@@ -526,7 +602,15 @@ namespace MVZ2.Level.UI
         [SerializeField]
         GameObject triggerSlotObj;
         [SerializeField]
+        GameObject triggerSlotConveyorObj;
+        [SerializeField]
         GameObject blueprintsObj;
+        [SerializeField]
+        GameObject conveyorObj;
+        [SerializeField]
+        GameObject blueprintClassicObj;
+        [SerializeField]
+        GameObject blueprintConveyorObj;
 
         [Header("Blueprints")]
         [SerializeField]
@@ -534,7 +618,11 @@ namespace MVZ2.Level.UI
         [SerializeField]
         TriggerSlot triggerSlot;
         [SerializeField]
+        TriggerSlot triggerSlotConveyor;
+        [SerializeField]
         BlueprintList blueprints;
+        [SerializeField]
+        Conveyor conveyor;
         [SerializeField]
         PickaxeSlot pickaxeSlot;
         [SerializeField]

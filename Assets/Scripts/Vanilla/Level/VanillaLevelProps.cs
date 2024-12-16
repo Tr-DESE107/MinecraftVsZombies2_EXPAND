@@ -9,6 +9,8 @@ namespace MVZ2.Vanilla.Level
     public static class VanillaLevelProps
     {
         public const string ENEMY_POOL = "enemyPool";
+        public const string CONVEYOR_POOL = "conveyorPool";
+        public const string CONVEY_SPEED = "conveySpeed";
         public const string LAST_ENEMY_POSITION = "lastEnemyPosition";
         public const string STARSHARD_COUNT = "starshardCount";
         public const string STARSHARD_SLOT_COUNT = "starshardSlotCount";
@@ -25,6 +27,14 @@ namespace MVZ2.Vanilla.Level
         public static void SetEnemyPool(this LevelEngine game, IEnemySpawnEntry[] value)
         {
             game.SetProperty(ENEMY_POOL, value);
+        }
+        public static IConveyorPoolEntry[] GetConveyorPool(this LevelEngine game)
+        {
+            return game.GetProperty<IConveyorPoolEntry[]>(CONVEYOR_POOL);
+        }
+        public static float GetConveySpeed(this LevelEngine game)
+        {
+            return game.GetProperty<float>(CONVEY_SPEED);
         }
         public static int GetStarshardSlotCount(this LevelEngine game)
         {

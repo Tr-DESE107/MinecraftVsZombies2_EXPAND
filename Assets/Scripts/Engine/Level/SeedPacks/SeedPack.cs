@@ -8,19 +8,16 @@ using UnityEngine;
 
 namespace PVZEngine.SeedPacks
 {
-    public class SeedPack : IBuffTarget
+    public abstract class SeedPack : IBuffTarget
     {
-        public SeedPack(LevelEngine level, SeedDefinition definition, int id)
+        public SeedPack(LevelEngine level, SeedDefinition definition, long id)
         {
             ID = id;
             Level = level;
             Definition = definition;
             buffs.OnPropertyChanged += UpdateBuffedProperty;
         }
-        public int GetIndex()
-        {
-            return Level.GetSeedPackIndex(this);
-        }
+        public abstract int GetIndex();
         public NamespaceID GetDefinitionID()
         {
             return Definition?.GetID();
@@ -97,7 +94,7 @@ namespace PVZEngine.SeedPacks
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
-        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceSeedPack(ID);
+        public abstract BuffReference GetBuffReference(Buff buff);
         private long AllocBuffID()
         {
             return currentBuffID++;
@@ -152,29 +149,21 @@ namespace PVZEngine.SeedPacks
         #endregion
 
         #region 序列化
-        public SerializableSeedPack Serialize()
+        protected void ApplySerializableProperties(SerializableSeedPack seri)
         {
-            return new SerializableSeedPack()
-            {
-                id = ID,
-                seedID = Definition.GetID(),
-                propertyDict = propertyDict.Serialize(),
-                buffs = buffs.ToSerializable(),
-                currentBuffID = currentBuffID,
-            };
+            seri.id = ID;
+            seri.seedID = Definition.GetID();
+            seri.propertyDict = propertyDict.Serialize();
+            seri.buffs = buffs.ToSerializable();
+            seri.currentBuffID = currentBuffID;
         }
-        public static SeedPack Deserialize(SerializableSeedPack seri, LevelEngine level)
+        protected void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
         {
-            var definition = level.Content.GetSeedDefinition(seri.seedID);
-            var seedPack = new SeedPack(level, definition, seri.id)
-            {
-                propertyDict = PropertyDictionary.Deserialize(seri.propertyDict),
-                currentBuffID = seri.currentBuffID
-            };
-            seedPack.buffs = BuffList.FromSerializable(seri.buffs, level, seedPack); ;
-            seedPack.buffs.OnPropertyChanged += seedPack.UpdateBuffedProperty;
-            seedPack.UpdateAllBuffedProperties();
-            return seedPack;
+            propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            currentBuffID = seri.currentBuffID;
+            buffs = BuffList.FromSerializable(seri.buffs, level, this);
+            buffs.OnPropertyChanged += UpdateBuffedProperty;
+            UpdateAllBuffedProperties();
         }
         #endregion
 
@@ -183,13 +172,13 @@ namespace PVZEngine.SeedPacks
         bool IBuffTarget.Exists() => true;
 
         #region 属性字段
-        public int ID { get; }
+        public long ID { get; }
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
-        private long currentBuffID = 1;
-        private PropertyDictionary buffedProperties = new PropertyDictionary();
-        private PropertyDictionary propertyDict = new PropertyDictionary();
-        private BuffList buffs = new BuffList();
+        protected long currentBuffID = 1;
+        protected PropertyDictionary buffedProperties = new PropertyDictionary();
+        protected PropertyDictionary propertyDict = new PropertyDictionary();
+        protected BuffList buffs = new BuffList();
         #endregion
     }
 }

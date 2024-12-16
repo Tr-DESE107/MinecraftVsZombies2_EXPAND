@@ -30,12 +30,14 @@ namespace MVZ2.Metas
         public int TotalFlags { get; private set; }
         public float SpawnPointsMultiplier { get; private set; }
         public EnemySpawnEntry[] Spawns { get; private set; }
+        public ConveyorPoolEntry[] ConveyorPool { get; private set; }
         public int FirstWaveTime { get; private set; }
 
         public Dictionary<string, object> Properties { get; private set; }
 
         IStageTalkMeta[] IStageMeta.Talks => Talks;
         IEnemySpawnEntry[] IStageMeta.Spawns => Spawns;
+        IConveyorPoolEntry[] IStageMeta.ConveyorPool => ConveyorPool;
         public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -72,6 +74,13 @@ namespace MVZ2.Metas
             var startCameraPosition = cameraPositionDict.TryGetValue(cameraPositionStr ?? string.Empty, out var p) ? p : LevelCameraPosition.House;
             var transition = cameraNode?.GetAttribute("transition");
 
+            var conveyorNode = node["conveyor"];
+            var conveyorPool = new ConveyorPoolEntry[conveyorNode?.ChildNodes.Count ?? 0];
+            for (int i = 0; i < conveyorPool.Length; i++)
+            {
+                conveyorPool[i] = ConveyorPoolEntry.FromXmlNode(conveyorNode.ChildNodes[i], defaultNsp);
+            }
+
             var spawnNode = node["spawns"];
             var flags = spawnNode?.GetAttributeInt("flags") ?? 1;
             var firstWaveTime = spawnNode?.GetAttributeInt("firstWaveTime") ?? 540;
@@ -104,6 +113,8 @@ namespace MVZ2.Metas
                 StartCameraPosition = startCameraPosition,
                 StartTransition = transition,
 
+                ConveyorPool = conveyorPool,
+
                 TotalFlags = flags,
                 FirstWaveTime = firstWaveTime,
                 Spawns = spawns,
@@ -133,6 +144,22 @@ namespace MVZ2.Metas
             var spawnRef = node.GetAttributeNamespaceID("id", defaultNsp);
             var earliestFlag = node.GetAttributeInt("earliestFlag") ?? 0;
             return new EnemySpawnEntry(spawnRef, earliestFlag);
+        }
+    }
+    public class ConveyorPoolEntry : IConveyorPoolEntry
+    {
+        public NamespaceID ID { get; }
+        public int Count { get; }
+        public ConveyorPoolEntry(NamespaceID id, int count = 1)
+        {
+            ID = id;
+            Count = count;
+        }
+        public static ConveyorPoolEntry FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            var count = node.GetAttributeInt("count") ?? 1;
+            return new ConveyorPoolEntry(id, count);
         }
     }
 }
