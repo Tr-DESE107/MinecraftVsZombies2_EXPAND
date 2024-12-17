@@ -33,6 +33,8 @@ namespace PVZEngine.Entities
             SpawnerReference = spawnerReference;
             MainHitbox = new EntityHitbox(this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
+            buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
+            buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
             Cache = new EntityCache();
         }
         public void Init(Entity spawner)
@@ -521,7 +523,7 @@ namespace PVZEngine.Entities
         public void ChangeModel(NamespaceID id)
         {
             ModelID = id;
-            modelInterface.ChangeModel(id);
+            OnChangeModel?.Invoke(id);
         }
         public void SetModelProperty(string name, object value)
         {
@@ -538,6 +540,18 @@ namespace PVZEngine.Entities
         public void SetShaderColor(string name, Color value)
         {
             modelInterface.SetShaderColor(name, value);
+        }
+        public IModelInterface CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            return modelInterface.CreateChildModel(anchorName, key, modelID);
+        }
+        public bool RemoveChildModel(NamespaceID key)
+        {
+            return modelInterface.RemoveChildModel(key);
+        }
+        public IModelInterface GetChildModel(NamespaceID key)
+        {
+            return modelInterface.GetChildModel(key);
         }
         public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
         {
@@ -628,6 +642,8 @@ namespace PVZEngine.Entities
 
             buffs = BuffList.FromSerializable(seri.buffs, Level, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
+            buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
+            buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
@@ -702,6 +718,14 @@ namespace PVZEngine.Entities
             Definition.PostCollision(collision, state);
             Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, collision, state);
         }
+        private void OnBuffModelAddCallback(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            CreateChildModel(anchorName, key, modelID);
+        }
+        private void OnBuffModelRemoveCallback(NamespaceID key)
+        {
+            RemoveChildModel(key);
+        }
 
         Entity IBuffTarget.GetEntity() => this;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
@@ -709,6 +733,7 @@ namespace PVZEngine.Entities
 
         #region 事件
         public event Action PostInit;
+        public event Action<NamespaceID> OnChangeModel;
         public event Action<Armor> OnEquipArmor;
         public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
         public event Action<Armor> OnRemoveArmor;

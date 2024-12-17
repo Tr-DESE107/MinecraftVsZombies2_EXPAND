@@ -882,7 +882,7 @@ namespace MVZ2.GameContent.Bosses
                     if (ent.Type == EntityTypes.PLANT)
                     {
                         var damageOutput = ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
-                        if (damageOutput.BodyResult?.Fatal ?? false)
+                        if (damageOutput?.BodyResult?.Fatal ?? false)
                         {
                             boss.PlaySound(VanillaSoundID.smash);
                         }
@@ -1034,20 +1034,19 @@ namespace MVZ2.GameContent.Bosses
                 var shockables = level.FindEntities(e => IsShockable(boss, e));
                 var targetsID = shockables.Select(e => e.GetDefinitionID());
                 if (targetsID.Count() <= 0)
-                {
                     return;
-                }
+
                 var contrapId = targetsID.Random(GetShockRNG(boss));
 
                 bool soundPlayed = false;
                 //再次遍历可以电击的器械。
                 foreach (Entity contraption in shockables)
                 {
-                    var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
-                    ElectricArc.Connect(arc, contraption.Position);
                     if (contraption.IsEntityOf(VanillaContraptionID.tnt))
                     {
                         contraption.AddBuff<TNTChargedBuff>();
+                        var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
+                        ElectricArc.Connect(arc, contraption.Position);
                     }
                     else if (contraption.IsEntityOf(contrapId))
                     {
@@ -1058,6 +1057,8 @@ namespace MVZ2.GameContent.Bosses
                             contraption.PlaySound(VanillaSoundID.powerOff);
                             soundPlayed = true;
                         }
+                        var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
+                        ElectricArc.Connect(arc, contraption.Position);
                     }
                 }
                 boss.PlaySound(VanillaSoundID.teslaAttack);

@@ -15,7 +15,7 @@ namespace MVZ2.Almanacs
             }
             if (prefab)
             {
-                model = Instantiate(prefab.gameObject, rootTransform).GetComponent<Model>();
+                model = Model.Create(prefab, rootTransform);
                 updater.model = model;
             }
         }

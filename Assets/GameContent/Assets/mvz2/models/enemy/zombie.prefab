@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5795746347716959356}
   - component: {fileID: 7172769817493710939}
+  - component: {fileID: 2310118289990033872}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -189,6 +190,19 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_SortAtRoot: 0
+--- !u!114 &2310118289990033872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875394997873838390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: armor
 --- !u!1 &3937826066836800300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1211,14 @@ PrefabInstance:
       propertyPath: armorTransform
       value: 
       objectReference: {fileID: 5795746347716959356}
+    - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: modelAnchors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: modelAnchors.Array.data[3]
+      value: 
+      objectReference: {fileID: 2310118289990033872}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

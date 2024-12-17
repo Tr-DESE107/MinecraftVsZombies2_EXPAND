@@ -1,5 +1,6 @@
 ﻿using MVZ2.Models;
 using PVZEngine;
+using PVZEngine.Models;
 
 namespace MVZ2.Entities
 {

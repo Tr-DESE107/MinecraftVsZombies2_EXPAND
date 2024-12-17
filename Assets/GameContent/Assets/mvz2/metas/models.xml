@@ -104,4 +104,7 @@
     <model name="pickaxe" type="held" path="mvz2:held/pickaxe" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="trigger" type="held" path="mvz2:held/trigger" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
     <model name="sword" type="held" path="mvz2:held/sword" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
+
+    <model name="short_circuit" type="icon" path="mvz2:icon/short_circuit" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="static_particles" type="icon" path="mvz2:icon/static_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
 </models>

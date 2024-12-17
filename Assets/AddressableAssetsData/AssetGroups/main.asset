@@ -17,24 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
-  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 476d29f782ced5045aee9c4a94e69cad
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24d902c61d41892478d085a513cc421a
     m_Address: mvz2:ui/level/progress_bar/level_progress_icon
     m_ReadOnly: 0
@@ -217,6 +199,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
     m_Address: mvz2:entity/effect/miner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1f7123b5f8de1640b46858b3fc6914e
+    m_Address: mvz2:entity/effect/flesh_part_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cf3f949b8fc04941865ff67a358fcbb
+    m_Address: mvz2:entity/effect/flesh_part
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -839,18 +833,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c1f7123b5f8de1640b46858b3fc6914e
-    m_Address: mvz2:entity/effects/flesh_part_censored
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5cf3f949b8fc04941865ff67a358fcbb
-    m_Address: mvz2:entity/effects/flesh_part
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
     m_ReadOnly: 0
@@ -899,6 +881,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cac832a88b0c87445b15d989123caa7a
+    m_Address: mvz2:entity/contraptions/sleeping
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef8e70ac08eeb9a4aa57ec0abfff3b47
+    m_Address: mvz2:entity/contraptions/short_circuited
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d00aabb5514ee4743a361ad46e38de95
     m_Address: mvz2:entity/contraptions/punchton_arm
     m_ReadOnly: 0
@@ -919,6 +913,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b11711b1da870544827beb40076b98b
     m_Address: mvz2:entity/contraptions/glowstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc3e815806f7eaf4694e0d4333cc9185
+    m_Address: mvz2:entity/contraptions/disabled
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2525,6 +2525,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee0a778b8029fb145a6764e65f31fbac
+    m_Address: mvz2:icon/static_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41d1f6bfb664db14899e2d2411e931a8
+    m_Address: mvz2:icon/short_circuit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f4b36b269eeb544904c93124f26c1d
     m_Address: mvz2:held/trigger
     m_ReadOnly: 0
@@ -3777,6 +3789,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 476d29f782ced5045aee9c4a94e69cad
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level

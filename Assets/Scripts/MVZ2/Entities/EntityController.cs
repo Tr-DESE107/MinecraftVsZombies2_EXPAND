@@ -30,6 +30,7 @@ namespace MVZ2.Entities
             Entity = entity;
             gameObject.name = entity.GetDefinitionID().ToString();
             entity.PostInit += PostInitCallback;
+            entity.OnChangeModel += OnChangeModelCallback;
 
             entity.OnEquipArmor += OnArmorEquipCallback;
             entity.OnDestroyArmor += OnArmorDestroyCallback;
@@ -47,15 +48,12 @@ namespace MVZ2.Entities
         #region 模型
         public void SetModel(NamespaceID modelId)
         {
-            SetModel(CreateModel(modelId));
-        }
-        public void SetModel(Model model)
-        {
             if (Model)
             {
                 Destroy(Model.gameObject);
                 Model = null;
             }
+            var model = Model.Create(modelId, transform);
             Model = model;
             if (!Model)
                 return;
@@ -74,7 +72,7 @@ namespace MVZ2.Entities
             if (!Model)
                 return;
             Model.RemoveArmor();
-            Model.SetArmor(CreateModel(modelID));
+            Model.CreateArmor(modelID);
         }
         #endregion
 
@@ -244,6 +242,10 @@ namespace MVZ2.Entities
         {
             UpdateFrame(0);
         }
+        private void OnChangeModelCallback(NamespaceID modelID)
+        {
+            SetModel(modelID);
+        }
         private void OnArmorEquipCallback(Armor armor)
         {
             CreateArmorModel(armor);
@@ -332,9 +334,18 @@ namespace MVZ2.Entities
         #region 护甲
         private void CreateArmorModel(Armor armor)
         {
+            if (armor?.Definition == null)
+                return;
+            var modelID = armor.Definition.GetModelID();
+            CreateArmorModel(modelID);
+        }
+        private void CreateArmorModel(NamespaceID modelID)
+        {
             if (!Model)
                 return;
-            Model.SetArmor(CreateModel(armor.Definition.GetModelID()));
+            if (!NamespaceID.IsValid(modelID))
+                return;
+            Model.CreateArmor(modelID);
         }
         private void RemoveArmorModel()
         {
@@ -344,36 +355,20 @@ namespace MVZ2.Entities
         }
         private void UpdateArmorModel()
         {
-            if (Entity.EquipedArmor == null)
-            {
-                RemoveArmorModel();
+            if (!Model)
                 return;
-            }
-            if (!Model.ArmorModel)
-            {
-                CreateArmorModel(Entity.EquipedArmor);
-            }
-            UpdateArmorModelProperties(Entity.EquipedArmor);
-        }
-        private void UpdateArmorModelProperties(Armor armor)
-        {
-            Model.ArmorModel.RendererGroup.SetTint(armor.GetTint());
-            Model.ArmorModel.RendererGroup.SetColorOffset(armor.GetColorOffset());
+            var armor = Entity.EquipedArmor;
+            if (armor == null)
+                return;
+            var armorModel = Model.GetArmorModel();
+            if (!armorModel)
+                return;
+            armorModel.RendererGroup.SetTint(armor.GetTint());
+            armorModel.RendererGroup.SetColorOffset(armor.GetColorOffset());
         }
         #endregion
 
         #region 模型
-        private Model CreateModel(NamespaceID id)
-        {
-            var res = Main.ResourceManager;
-            var modelMeta = res.GetModelMeta(id);
-            if (modelMeta == null)
-                return null;
-            var modelTemplate = res.GetModel(modelMeta.Path);
-            if (modelTemplate == null)
-                return null;
-            return Instantiate(modelTemplate.gameObject, transform).GetComponent<Model>();
-        }
         private void UpdateEntityModel()
         {
             if (!Model)

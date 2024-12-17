@@ -2,6 +2,7 @@
 using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Base;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
@@ -19,6 +20,10 @@ namespace PVZEngine.Buffs
         {
             return modifiers.Where(e => e.PropertyName == propName).ToArray();
         }
+        public ModelInsertion[] GetModelInsertions()
+        {
+            return modelInsertions.ToArray();
+        }
         public AuraEffectDefinition[] GetAuras()
         {
             return auraDefinitions.ToArray();
@@ -30,11 +35,16 @@ namespace PVZEngine.Buffs
         {
             modifiers.Add(modifier);
         }
+        protected void AddModelInsertion(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            modelInsertions.Add(new ModelInsertion(anchorName, key, modelID));
+        }
         protected void AddAura(AuraEffectDefinition aura)
         {
             auraDefinitions.Add(aura);
         }
         private List<PropertyModifier> modifiers = new List<PropertyModifier>();
         private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
+        private List<ModelInsertion> modelInsertions = new List<ModelInsertion>();
     }
 }

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
 {
     public class BuffList
     {
+        #region 增益操作
         public bool AddBuff(Buff buff)
         {
             changedPropertiesBuffer.Clear();
@@ -75,10 +77,33 @@ namespace PVZEngine.Buffs
         {
             return buffs.ToArray();
         }
-        public string[] GetModifierPropertyNames()
+        private bool AddBuffImplement(Buff buff)
         {
-            return modifierCaches.Keys.ToArray();
+            if (buff == null)
+                return false;
+            buffs.Add(buff);
+            AddModifierCaches(buff);
+            UpdateModelInsertions();
+            buff.OnPropertyChanged += OnPropertyChangedCallback;
+            return true;
         }
+        private bool RemoveBuffImplement(Buff buff)
+        {
+            if (buff == null)
+                return false;
+            if (buffs.Remove(buff))
+            {
+                buff.RemoveFromTarget();
+                RemoveModifierCaches(buff);
+                UpdateModelInsertions();
+                buff.OnPropertyChanged -= OnPropertyChangedCallback;
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
+        #region 属性
         public object CalculateProperty(string name, object value)
         {
             if (buffs.Count == 0)
@@ -86,13 +111,6 @@ namespace PVZEngine.Buffs
 
             var modifiers = GetModifierCaches(name);
             return CalculateProperty(modifiers, name, value);
-        }
-        public SerializableBuffList ToSerializable()
-        {
-            return new SerializableBuffList()
-            {
-                buffs = buffs.ConvertAll(b => b.Serialize())
-            };
         }
         private object CalculateProperty(List<BuffModifierItem> modifiers, string name, object value)
         {
@@ -111,32 +129,43 @@ namespace PVZEngine.Buffs
                 throw new NullReferenceException($"Calculator for property {name} does not exists.");
             return calculator.Calculate(value, modifiers);
         }
-        public bool AddBuffImplement(Buff buff)
-        {
-            if (buff == null)
-                return false;
-            buffs.Add(buff);
-            AddModifierCaches(buff);
-            buff.OnPropertyChanged += OnPropertyChangedCallback;
-            return true;
-        }
-        private bool RemoveBuffImplement(Buff buff)
-        {
-            if (buff == null)
-                return false;
-            if (buffs.Remove(buff))
-            {
-                buff.RemoveFromTarget();
-                RemoveModifierCaches(buff);
-                buff.OnPropertyChanged -= OnPropertyChangedCallback;
-                return true;
-            }
-            return false;
-        }
         private void OnPropertyChangedCallback(string name)
         {
             OnPropertyChanged?.Invoke(name);
         }
+        public string[] GetModifierPropertyNames()
+        {
+            return modifierCaches.Keys.ToArray();
+        }
+        #endregion
+
+        #region 模型
+        public void UpdateModelInsertions()
+        {
+            HashSet<NamespaceID> retainModels = new HashSet<NamespaceID>();
+            foreach (var buff in buffs)
+            {
+                foreach (var insertion in buff.GetModelInsertions())
+                {
+                    retainModels.Add(insertion.key);
+                    if (createdModelInsertions.Contains(insertion.key))
+                        continue;
+                    OnModelInsertionAdded?.Invoke(insertion.anchorName, insertion.key, insertion.modelID);
+                    createdModelInsertions.Add(insertion.key);
+                }
+            }
+            for (int i = createdModelInsertions.Count - 1; i >= 0; i--)
+            {
+                var key = createdModelInsertions[i];
+                if (retainModels.Contains(key))
+                    continue;
+                OnModelInsertionRemoved?.Invoke(key);
+                createdModelInsertions.RemoveAt(i);
+            }
+        }
+        #endregion
+
+        #region 修改器缓存
         private void AddModifierCaches(Buff buff)
         {
             foreach (var modifier in buff.GetModifiers())
@@ -176,6 +205,16 @@ namespace PVZEngine.Buffs
                 return list;
             return null;
         }
+        #endregion
+
+        #region 序列化
+        public SerializableBuffList ToSerializable()
+        {
+            return new SerializableBuffList()
+            {
+                buffs = buffs.ConvertAll(b => b.Serialize())
+            };
+        }
         public static BuffList FromSerializable(SerializableBuffList serializable, LevelEngine level, IBuffTarget target)
         {
             var buffList = new BuffList();
@@ -184,13 +223,25 @@ namespace PVZEngine.Buffs
                 var buff = Buff.Deserialize(seriBuff, level, target);
                 buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
                 buffList.buffs.Add(buff);
+
+                foreach (var insertion in buff.GetModelInsertions())
+                {
+                    if (!buffList.createdModelInsertions.Contains(insertion.key))
+                    {
+                        buffList.createdModelInsertions.Add(insertion.key);
+                    }
+                }
             }
             buffList.UpdateModifierCaches();
             return buffList;
         }
+        #endregion
+        public event Action<string, NamespaceID, NamespaceID> OnModelInsertionAdded;
+        public event Action<NamespaceID> OnModelInsertionRemoved;
         public event Action<string> OnPropertyChanged;
         private HashSet<string> changedPropertiesBuffer = new HashSet<string>();
         private List<Buff> buffs = new List<Buff>();
+        private List<NamespaceID> createdModelInsertions = new List<NamespaceID>();
         private Dictionary<string, List<BuffModifierItem>> modifierCaches = new Dictionary<string, List<BuffModifierItem>>();
     }
     public class MultipleValueModifierException : Exception

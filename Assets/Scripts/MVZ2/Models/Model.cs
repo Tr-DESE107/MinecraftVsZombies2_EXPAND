@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Effects;
+using MVZ2.Managers;
 using PVZEngine;
+using PVZEngine.Models;
 using Tools;
+using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Models
@@ -10,6 +15,21 @@ namespace MVZ2.Models
     public sealed class Model : MonoBehaviour
     {
         #region 公有方法
+        public void Init()
+        {
+            Init(Guid.NewGuid().GetHashCode());
+        }
+        public void Init(int seed)
+        {
+            modelComponents = GetComponents<ModelComponent>();
+            rng = new RandomGenerator(seed);
+            foreach (var comp in modelComponents)
+            {
+                comp.Model = this;
+                comp.Init();
+            }
+            modelInterface = new ModelParentInterface(this);
+        }
         public void UpdateFixed()
         {
             triggeringEvents.Clear();
@@ -66,10 +86,13 @@ namespace MVZ2.Models
         {
             return new SerializableModelData()
             {
+                id = ID,
+                key = Key,
+                anchor = AnchorName,
                 rng = rng.ToSerializable(),
-                armorModel = armorModel ? armorModel.ToSerializable() : null,
                 propertyDict = propertyDict != null ? propertyDict.Serialize() : null,
                 rendererGroup = rendererGroup.ToSerializable(),
+                childModels = childModels.Select(c => c.ToSerializable()).ToArray(),
                 triggeredEvents = triggeredEvents.ToArray(),
                 triggeringEvents = triggeringEvents.ToArray()
             };
@@ -77,9 +100,10 @@ namespace MVZ2.Models
         public void LoadFromSerializable(SerializableModelData serializable)
         {
             rng = RandomGenerator.FromSerializable(serializable.rng);
-            if (armorModel && serializable.armorModel != null)
+            foreach (var seriChild in serializable.childModels)
             {
-                armorModel.LoadFromSerializable(serializable.armorModel);
+                var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
+                child.LoadFromSerializable(seriChild);
             }
             rendererGroup.LoadFromSerializable(serializable.rendererGroup);
             if (serializable.propertyDict != null)
@@ -95,29 +119,53 @@ namespace MVZ2.Models
             triggeredEvents.AddRange(serializable.triggeredEvents);
             triggeringEvents.AddRange(serializable.triggeringEvents);
         }
-        #region 护甲
-        public void SetArmor(Model model)
+        public Model CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {
-            if (ArmorModel)
-            {
-                RemoveArmor();
-            }
+            var existing = GetChildModel(key);
+            if (existing)
+                RemoveChildModel(key);
+            var anchor = GetAnchor(anchorName);
+            if (!anchor)
+                return null;
+            var child = Model.Create(modelID, anchor.transform);
+            if (!child)
+                return null;
+            child.transform.localPosition = Vector3.zero;
+            child.AnchorName = anchorName;
+            child.Key = key;
+            child.Parent = this;
+            childModels.Add(child);
+            return child;
+        }
+        public bool RemoveChildModel(NamespaceID key)
+        {
+            var model = childModels.FirstOrDefault(m => m.Key == key);
             if (!model)
-                return;
-            if (!armorTransform)
-                return;
-            model.transform.parent = armorTransform;
-            model.transform.localPosition = Vector3.zero;
-            armorModel = model;
+                return false;
+            Destroy(model.gameObject);
+            return childModels.Remove(model);
         }
-        public void RemoveArmor()
+        public Model GetChildModel(NamespaceID key)
         {
-            if (!armorModel)
-                return;
-            Destroy(armorModel.gameObject);
-            armorModel = null;
+            var model = childModels.FirstOrDefault(m => m.Key == key);
+            if (!model)
+                return null;
+            return model;
         }
-        #endregion
+        public void ChangeChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            RemoveChildModel(key);
+            CreateChildModel(anchorName, key, modelID);
+        }
+        public IModelInterface GetParentModelInterface()
+        {
+            return modelInterface;
+        }
+
+        public ModelAnchor GetAnchor(string name)
+        {
+            return modelAnchors.FirstOrDefault(a => a.key == name);
+        }
 
         #region 属性
         public T GetProperty<T>(string name)
@@ -149,19 +197,51 @@ namespace MVZ2.Models
         }
         #endregion
 
+        public static Model GetPrefab(NamespaceID modelID)
+        {
+            var main = MainManager.Instance;
+            var res = main.ResourceManager;
+            var modelMeta = res.GetModelMeta(modelID);
+            if (modelMeta == null)
+                return null;
+            return res.GetModel(modelMeta.Path);
+        }
+        public static Model Create(NamespaceID modelID, Transform parent)
+        {
+            var prefab = GetPrefab(modelID);
+            var model = Create(prefab, parent);
+            if (model)
+                model.ID = modelID;
+            return model;
+        }
+        public static Model Create(NamespaceID modelID, Transform parent, int seed)
+        {
+            var prefab = GetPrefab(modelID);
+            var model = Create(prefab, parent, seed);
+            if (model)
+                model.ID = modelID;
+            return model;
+        }
+        public static Model Create(Model prefab, Transform parent)
+        {
+            if (prefab == null)
+                return null;
+            var model = Instantiate(prefab, parent).GetComponent<Model>();
+            model.Init();
+            return model;
+        }
+        public static Model Create(Model prefab, Transform parent, int seed)
+        {
+            if (prefab == null)
+                return null;
+            var model = Instantiate(prefab, parent).GetComponent<Model>();
+            model.Init(seed);
+            return model;
+        }
+
         #endregion
 
         #region 私有方法
-        private void Awake()
-        {
-            modelComponents = GetComponents<ModelComponent>();
-            rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
-            foreach (var comp in modelComponents)
-            {
-                comp.Model = this;
-                comp.Init();
-            }
-        }
         private void TriggerEvent(string name)
         {
             triggeringEvents.Add(name);
@@ -173,8 +253,11 @@ namespace MVZ2.Models
         public MultipleRendererGroup RendererGroup => rendererGroup;
         public Transform RootTransform => rootTransform;
         public Transform CenterTransform => centerTransform;
-        public Model ArmorModel => armorModel;
         public float AnimationSpeed { get; set; }
+        public string AnchorName { get; private set; }
+        public NamespaceID ID { get; private set; }
+        public NamespaceID Key { get; private set; }
+        public Model Parent { get; private set; }
         [SerializeField]
         private MultipleRendererGroup rendererGroup;
         [SerializeField]
@@ -182,11 +265,11 @@ namespace MVZ2.Models
         [SerializeField]
         private Transform centerTransform;
         [SerializeField]
-        private Transform armorTransform;
-        [SerializeField]
-        private Model armorModel;
+        private ModelAnchor[] modelAnchors;
         [SerializeField]
         private ModelComponent[] modelComponents;
+        private ModelParentInterface modelInterface;
+        private List<Model> childModels = new List<Model>();
         private RandomGenerator rng;
         private List<string> triggeringEvents = new List<string>();
         private List<string> triggeredEvents = new List<string>();
@@ -195,10 +278,13 @@ namespace MVZ2.Models
     }
     public class SerializableModelData
     {
+        public string anchor;
+        public NamespaceID key;
+        public NamespaceID id;
         public SerializableRNG rng;
         public SerializableMultipleRendererGroup rendererGroup;
-        public SerializableModelData armorModel;
         public SerializablePropertyDictionary propertyDict;
+        public SerializableModelData[] childModels;
         public string[] triggeringEvents;
         public string[] triggeredEvents;
     }

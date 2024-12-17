@@ -56,6 +56,10 @@ namespace PVZEngine.Buffs
         {
             return Definition.GetModifiers(propName);
         }
+        public ModelInsertion[] GetModelInsertions()
+        {
+            return Definition.GetModelInsertions();
+        }
         public Entity GetEntity()
         {
             return Target?.GetEntity();

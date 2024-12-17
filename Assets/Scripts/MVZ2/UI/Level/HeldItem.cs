@@ -36,7 +36,7 @@ namespace MVZ2.Level.UI
             }
             if (prefab)
             {
-                model = Instantiate(prefab.gameObject, modelRoot).GetComponent<Model>();
+                model = Model.Create(prefab, modelRoot);
             }
         }
         public Model GetModel()

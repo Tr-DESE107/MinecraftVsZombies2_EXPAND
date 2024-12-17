@@ -8,7 +8,6 @@ namespace MVZ2.Models
 {
     public abstract class ModelInterface : IModelInterface
     {
-        public abstract void ChangeModel(NamespaceID modelID);
         public void TriggerAnimation(string name)
         {
             var targetModel = GetModel();
@@ -64,6 +63,29 @@ namespace MVZ2.Models
             if (!model)
                 return;
             model.SetShaderColor(name, value);
+        }
+        public IModelInterface CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            var model = GetModel();
+            if (!model)
+                return null;
+            var child = model.CreateChildModel(anchorName, key, modelID);
+            return child.GetParentModelInterface();
+        }
+        public bool RemoveChildModel(NamespaceID key)
+        {
+            var model = GetModel();
+            if (!model)
+                return false;
+            return model.RemoveChildModel(key);
+        }
+        public IModelInterface GetChildModel(NamespaceID key)
+        {
+            var model = GetModel();
+            if (!model)
+                return null;
+            var child = model.GetChildModel(key);
+            return child.GetParentModelInterface();
         }
         protected abstract Model GetModel();
     }
