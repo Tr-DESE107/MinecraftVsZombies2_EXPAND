@@ -123,13 +123,13 @@ namespace MVZ2.Level.UI
         {
             conveyor.InsertBlueprint(index, blueprint);
         }
-        public bool RemoveConveyorBlueprint(Blueprint blueprint)
+        public bool DestroyConveyorBlueprint(Blueprint blueprint)
         {
-            return conveyor.RemoveBlueprint(blueprint);
+            return conveyor.DestroyBlueprint(blueprint);
         }
-        public void RemoveConveyorBlueprintAt(int index)
+        public void DestroyConveyorBlueprintAt(int index)
         {
-            conveyor.RemoveBlueprintAt(index);
+            conveyor.DestroyBlueprintAt(index);
         }
         public Blueprint GetConveyorBlueprintAt(int index)
         {

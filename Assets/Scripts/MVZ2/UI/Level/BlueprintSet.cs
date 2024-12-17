@@ -28,6 +28,19 @@ namespace MVZ2.Level.UI
         {
             if (!blueprint)
                 return false;
+            if (blueprints.Remove(blueprint.gameObject))
+            {
+                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
+                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
+                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+                return true;
+            }
+            return false;
+        }
+        public bool DestroyBlueprint(Blueprint blueprint)
+        {
+            if (!blueprint)
+                return false;
             if (blueprints.DestroyItem(blueprint.gameObject))
             {
                 blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
@@ -40,6 +53,10 @@ namespace MVZ2.Level.UI
         public void RemoveBlueprintAt(int index)
         {
             RemoveBlueprint(GetBlueprintAt(index));
+        }
+        public void DestroyBlueprintAt(int index)
+        {
+            DestroyBlueprint(GetBlueprintAt(index));
         }
         public Blueprint GetBlueprintAt(int index)
         {

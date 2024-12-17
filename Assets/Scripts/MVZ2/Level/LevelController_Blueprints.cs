@@ -594,7 +594,7 @@ namespace MVZ2.Level
             public void RemoveBlueprintAt(int index)
             {
                 var uiPreset = GetUIPreset();
-                uiPreset.RemoveConveyorBlueprintAt(index);
+                uiPreset.DestroyConveyorBlueprintAt(index);
             }
             #endregion
 
