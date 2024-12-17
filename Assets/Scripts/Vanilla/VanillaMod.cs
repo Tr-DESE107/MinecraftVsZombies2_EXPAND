@@ -78,12 +78,9 @@ namespace MVZ2.Vanilla
                 AddDefinition(seedDef);
 
                 var spawnCost = entityDefinition.GetSpawnCost();
-                if (spawnCost > 0)
-                {
-                    var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name));
-                    spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
-                    AddDefinition(spawnDef);
-                }
+                var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name));
+                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
+                AddDefinition(spawnDef);
             }
         }
         private void LoadArtifactMetas()
