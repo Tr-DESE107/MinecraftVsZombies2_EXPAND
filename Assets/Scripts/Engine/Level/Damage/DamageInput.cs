@@ -27,6 +27,10 @@ namespace PVZEngine.Damages
         {
             Amount += value;
         }
+        public void SetAmount(float value)
+        {
+            Amount = value;
+        }
         public void Multiply(float value)
         {
             Amount *= value;

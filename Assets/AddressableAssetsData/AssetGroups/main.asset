@@ -17,18 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
-  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
-    m_Address: Main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Scene
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
     m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
     m_ReadOnly: 0
@@ -203,6 +191,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d4ebeebf58039f44b54ff10434c99d4
+    m_Address: mvz2:entity/effect/static
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef0c4e33486bc0b44bd32da3f6b7c34f
     m_Address: mvz2:entity/effect/smoke
     m_ReadOnly: 0
@@ -289,6 +283,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3ffec953f3b51d4fbe1130f7e6f67e5
     m_Address: mvz2:entity/contraption/dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74da7e893d261a549a659cfaef15b372
+    m_Address: mvz2:entity/boss/frankenstein
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -455,6 +455,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe83ffae5970de14a9a107d4947b87b0
+    m_Address: mvz2:ui/level/conveyor_belt_part_mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc224faa8e569ed409210f50b54a311f
     m_Address: mvz2:ui/level/conveyor_belt_part
     m_ReadOnly: 0
@@ -521,14 +527,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 482bc6c937f3f2345b34075e5d1a3f69
-    m_Address: mvz2:map/dream/nightmare
+  - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
+    m_Address: mvz2:map/dream/nightmare_censored
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
-    m_Address: mvz2:map/dream/nightmare.censored
+  - m_GUID: 482bc6c937f3f2345b34075e5d1a3f69
+    m_Address: mvz2:map/dream/nightmare
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -821,8 +827,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fb8f9b8ab883a64887b34f86731c9b9
+    m_Address: mvz2:entity/effects/frankenstein_jump_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a86b26689fa937a498456ef9f0f05b95
     m_Address: mvz2:entity/effects/fragment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1f7123b5f8de1640b46858b3fc6914e
+    m_Address: mvz2:entity/effects/flesh_part_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cf3f949b8fc04941865ff67a358fcbb
+    m_Address: mvz2:entity/effects/flesh_part
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -907,6 +931,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d9178829e9e3e340b9f8df54bfcbbb5
     m_Address: mvz2:entity/carts/minecart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6834e54b22c072438a7aa1583ebc4f5
+    m_Address: mvz2:entity/boss/gun_fire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1973,6 +2003,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a8db72eb32f2374786990b1c3e9de7a
+    m_Address: mvz2:misc/nightmare_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80c498f2605fad848859bce97a8c16ed
     m_Address: mvz2:misc/nightmare_art
     m_ReadOnly: 0
@@ -1987,12 +2023,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f515a416fe31cb4b8033bfb9fb4dc5b
     m_Address: mvz2:misc/nightmare
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a8db72eb32f2374786990b1c3e9de7a
-    m_Address: mvz2:misc/nightmare.censored
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2089,6 +2119,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34e619cc0502d6c499f470950cf5acec
     m_Address: mvz2:artifacts/dream_key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41531d8ef0693fa41a5341fcbd896474
+    m_Address: mvz2:archive/prologue_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8b94582569820d4ea902e962c410bd0
+    m_Address: mvz2:archive/halloween_note
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2387,6 +2429,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 706b7253177e8ab4f87b65901d915482
+    m_Address: mvz2:projectile/missile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c0296d1bdf087b44b8393dd14f667bf
     m_Address: mvz2:projectile/mine_tnt_seed
     m_ReadOnly: 0
@@ -2407,6 +2455,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8721c16bbd9cf364d83f35b9228ec0ac
     m_Address: mvz2:projectile/fire_charge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64aa6f3f876738842a30b3f44e87520f
+    m_Address: mvz2:projectile/bullet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2651,8 +2705,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4ca120bb158f374cafa91bd415ee181
+    m_Address: mvz2:effect/gore_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f77f74f52e5407f41a2a580c09dca22a
     m_Address: mvz2:effect/gas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92095e42f0867964a8529bd7c6e7fcb7
+    m_Address: mvz2:effect/frankenstein_jump_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 022aa81ac92cdd044ae704e62cc05a42
+    m_Address: mvz2:effect/frankenstein_head
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2671,6 +2743,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a56647610464c8445b41721cad686444
     m_Address: mvz2:effect/evocation_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f595f40e714ca554fbaa630677a07d0c
+    m_Address: mvz2:effect/electric_arc
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2773,6 +2851,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27e82ff068e4b8a439d196de3631d525
     m_Address: mvz2:cart/minecart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12a7d92a949605f46888a4e22b1600fd
+    m_Address: mvz2:boss/frankenstein
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3693,6 +3777,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
+    m_Address: Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

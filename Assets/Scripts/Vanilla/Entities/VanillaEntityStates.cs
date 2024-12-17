@@ -12,6 +12,12 @@
 
         public const int ENEMY_CAST = 200;
 
+        public const int BOSS_APPEAR = 300;
+        public const int BOSS_ATTACK_2 = 301;
+        public const int BOSS_ATTACK_3 = 302;
+        public const int BOSS_ATTACK_4 = 303;
+        public const int BOSS_FAINT = 304;
+
         public const int CART_TRIGGERED = 500;
 
         public const int PICKUP_COLLECTED = 600;
@@ -27,5 +33,16 @@
         public const int MAGICHEST_CLOSE = CONTRAPTION_COOLDOWN;
 
         public const int NECROMANCER_CAST = ENEMY_CAST;
+
+        public const int FRANKENSTEIN_IDLE = IDLE;
+        public const int FRANKENSTEIN_JUMP = WALK;
+        public const int FRANKENSTEIN_GUN = ATTACK;
+        public const int FRANKENSTEIN_DEAD = DEAD;
+        public const int FRANKENSTEIN_MISSILE = BOSS_ATTACK_2;
+        public const int FRANKENSTEIN_PUNCH = BOSS_ATTACK_3;
+        public const int FRANKENSTEIN_SHOCK = BOSS_ATTACK_4;
+        public const int FRANKENSTEIN_WAKING = BOSS_APPEAR;
+        public const int FRANKENSTEIN_FAINT = BOSS_FAINT;
+
     }
 }

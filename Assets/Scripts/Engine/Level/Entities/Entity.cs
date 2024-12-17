@@ -391,12 +391,14 @@ namespace PVZEngine.Entities
             if (GetCollider(collider.Name) != null)
                 throw new ArgumentException($"Attempting to add a collider with name \"{collider.Name}\" to an entity while it already has a collider with the same name.");
             colliders.Add(collider);
+            collider.PreCollision += PreCollisionCallback;
             collider.PostCollision += PostCollisionCallback;
         }
         public bool RemoveCollider(EntityCollider collider)
         {
             if (colliders.Remove(collider))
             {
+                collider.PreCollision -= PreCollisionCallback;
                 collider.PostCollision -= PostCollisionCallback;
                 return true;
             }
@@ -681,6 +683,19 @@ namespace PVZEngine.Entities
         {
             Definition.PostLeaveGround(this);
             Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, this);
+        }
+        private bool PreCollisionCallback(EntityCollision collision)
+        {
+            bool canCollide = Definition.PreCollision(collision);
+            if (!canCollide)
+                return false;
+            foreach (var trigger in Level.Triggers.GetTriggers(LevelCallbacks.PRE_ENTITY_COLLISION))
+            {
+                var result = trigger.Invoke(collision);
+                if (result is bool boolValue && !boolValue)
+                    return false;
+            }
+            return true;
         }
         private void PostCollisionCallback(EntityCollision collision, int state)
         {

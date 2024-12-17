@@ -23,6 +23,10 @@ namespace Tools
         {
             return generator.NextInt();
         }
+        public float NextFloat()
+        {
+            return generator.NextFloat();
+        }
         public int Next(int max)
         {
             return Next(0, max);

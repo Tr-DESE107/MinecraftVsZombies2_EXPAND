@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Contraptions;
+﻿using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
@@ -36,7 +37,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.ghost,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.zombie,
-                VanillaEffectID.rain,
+                VanillaBossID.frankenstein,
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

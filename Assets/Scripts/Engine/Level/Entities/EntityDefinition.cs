@@ -30,6 +30,7 @@ namespace PVZEngine.Entities
         public void PostTakeDamage(DamageOutput result) { behaviour?.PostTakeDamage(result); }
         public void PostContactGround(Entity entity, Vector3 velocity) { behaviour?.PostContactGround(entity, velocity); }
         public void PostLeaveGround(Entity entity) { behaviour?.PostLeaveGround(entity); }
+        public bool PreCollision(EntityCollision collision) { return behaviour?.PreCollision(collision) ?? true; }
         public void PostCollision(EntityCollision collision, int state) { behaviour?.PostCollision(collision, state); }
         public void PostDeath(Entity entity, DamageInput damageInfo) { behaviour?.PostDeath(entity, damageInfo); }
         public void PostRemove(Entity entity) { behaviour?.PostRemove(entity); }

@@ -58,7 +58,7 @@ namespace PVZEngine.Triggers
                 return;
             foreach (var trigger in triggerList.triggers)
             {
-                if (trigger.FilterValue != null && !trigger.FilterValue.Equals(filterValue))
+                if (!trigger.Filter(filterValue))
                     continue;
                 trigger.Run(args);
             }
@@ -99,6 +99,10 @@ namespace PVZEngine.Triggers
         public virtual object Invoke(params object[] args)
         {
             return Action?.DynamicInvoke(args);
+        }
+        public bool Filter(object value)
+        {
+            return FilterValue == null || FilterValue.Equals(value);
         }
         public CallbackReference CallbackID { get; }
         public Delegate Action { get; }

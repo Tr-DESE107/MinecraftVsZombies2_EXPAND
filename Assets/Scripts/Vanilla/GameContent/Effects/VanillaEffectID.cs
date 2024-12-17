@@ -28,6 +28,10 @@ namespace MVZ2.GameContent.Effects
         public const string boneParticles = "bone_particles";
         public const string bloodParticles = "blood_particles";
         public const string smokeCluster = "smoke_cluster";
+        public const string electricArc = "electric_arc";
+        public const string goreParticles = "gore_particles";
+        public const string frankensteinJumpTrail = "frankenstein_jump_trail";
+        public const string frankensteinHead = "frankenstein_head";
     }
     public static class VanillaEffectID
     {
@@ -54,6 +58,10 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID boneParticles = Get(VanillaEffectNames.boneParticles);
         public static readonly NamespaceID bloodParticles = Get(VanillaEffectNames.bloodParticles);
         public static readonly NamespaceID smokeCluster = Get(VanillaEffectNames.smokeCluster);
+        public static readonly NamespaceID electricArc = Get(VanillaEffectNames.electricArc);
+        public static readonly NamespaceID gore = Get(VanillaEffectNames.goreParticles);
+        public static readonly NamespaceID frankensteinJumpTrail = Get(VanillaEffectNames.frankensteinJumpTrail);
+        public static readonly NamespaceID frankensteinHead = Get(VanillaEffectNames.frankensteinHead);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

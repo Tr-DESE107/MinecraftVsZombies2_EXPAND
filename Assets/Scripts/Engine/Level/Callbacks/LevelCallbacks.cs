@@ -14,6 +14,7 @@ namespace PVZEngine.Callbacks
         public delegate void PostEntityUpdate(Entity entity);
         public delegate void PostEntityContactGround(Entity entity, Vector3 Velocity);
         public delegate void PostEntityLeaveGround(Entity entity);
+        public delegate bool PreEntityCollision(EntityCollision collision);
         public delegate void PostEntityCollision(EntityCollision collision, int state);
         public delegate void PostEntityDeath(Entity entity, DamageInput damageInfo);
         public delegate void PostEntityRemove(Entity entity);
@@ -36,6 +37,7 @@ namespace PVZEngine.Callbacks
         public readonly static CallbackReference<PostEntityUpdate> POST_ENTITY_UPDATE = new();
         public readonly static CallbackReference<PostEntityContactGround> POST_ENTITY_CONTACT_GROUND = new();
         public readonly static CallbackReference<PostEntityLeaveGround> POST_ENTITY_LEAVE_GROUND = new();
+        public readonly static CallbackReference<PreEntityCollision> PRE_ENTITY_COLLISION = new();
         public readonly static CallbackReference<PostEntityCollision> POST_ENTITY_COLLISION = new();
         public readonly static CallbackReference<PostEntityDeath> POST_ENTITY_DEATH = new();
         public readonly static CallbackReference<PostEntityRemove> POST_ENTITY_REMOVE = new();

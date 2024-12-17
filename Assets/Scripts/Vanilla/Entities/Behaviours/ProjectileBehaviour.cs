@@ -23,11 +23,7 @@ namespace MVZ2.Vanilla.Entities
                 | EntityCollisionHelper.MASK_ENEMY
                 | EntityCollisionHelper.MASK_OBSTACLE
                 | EntityCollisionHelper.MASK_BOSS;
-            if (entity.PointsTowardDirection())
-            {
-                var vel = new Vector2(entity.Velocity.x, entity.Velocity.y + entity.Velocity.z);
-                entity.RenderRotation = Vector3.forward * Vector2.SignedAngle(Vector2.right, vel);
-            }
+            entity.UpdatePointTowardsDirection();
         }
 
         public override void Update(Entity projectile)
@@ -44,11 +40,7 @@ namespace MVZ2.Vanilla.Entities
                 projectile.Remove();
                 return;
             }
-            if (projectile.PointsTowardDirection())
-            {
-                var vel = new Vector2(projectile.Velocity.x, projectile.Velocity.y + projectile.Velocity.z);
-                projectile.RenderRotation = Vector3.forward * Vector2.SignedAngle(Vector2.right, vel);
-            }
+            projectile.UpdatePointTowardsDirection();
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
@@ -138,7 +130,17 @@ namespace MVZ2.Vanilla.Entities
 
             // 触发击中前回调。
             PreHitEntity(hitInput, damageInput);
-            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, projectile.GetDefinitionID(), hitInput, damageInput);
+            if (hitInput.Canceled)
+                return;
+            var filterValue = projectile.GetDefinitionID();
+            foreach (var trigger in projectile.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_PROJECTILE_HIT))
+            {
+                if (!trigger.Filter(filterValue))
+                    continue;
+                trigger.Run(hitInput, damageInput);
+                if (hitInput.Canceled)
+                    return;
+            }
 
             // 对敌人造成伤害
             DamageOutput damageOutput = VanillaEntityExt.TakeDamage(damageInput);

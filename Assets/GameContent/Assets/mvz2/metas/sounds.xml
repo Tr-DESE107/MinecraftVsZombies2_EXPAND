@@ -3,11 +3,17 @@
     <sound name="achievement">
         <sample path="mvz2:achievement" weight="1" />
     </sound>
+    <sound name="anvil">
+        <sample path="mvz2:anvil" weight="1" />
+    </sound>
     <sound name="armor_up">
         <sample path="mvz2:armor_up" weight="1" />
     </sound>
     <sound name="awooga">
         <sample path="mvz2:awooga" weight="1" />
+    </sound>
+    <sound name="bloody">
+        <sample path="mvz2:bloody" weight="1" />
     </sound>
     <sound name="bone_hit">
         <sample path="mvz2:damage/bone/bone_hit1" weight="1" />
@@ -79,6 +85,9 @@
     <sound name="dirt_rise">
         <sample path="mvz2:dirt_rise" weight="1" />
     </sound>
+    <sound name="electric_spark">
+        <sample path="mvz2:electric_spark" weight="1" />
+    </sound>
     <sound name="evocation" priority="64">
         <sample path="mvz2:evocation" weight="1" />
     </sound>
@@ -108,6 +117,12 @@
     </sound>
     <sound name="fizz">
         <sample path="mvz2:fizz" weight="1" />
+    </sound>
+    <sound name="frankenstein_laugh">
+        <sample path="mvz2:frankenstein_laugh" weight="1" />
+    </sound>
+    <sound name="frankenstein_steel_laugh">
+        <sample path="mvz2:frankenstein_steel_laugh" weight="1" />
     </sound>
     <sound name="fuse">
         <sample path="mvz2:fuse" weight="1" />
@@ -169,7 +184,10 @@
         <sample path="mvz2:grind1" weight="1" />
         <sample path="mvz2:grind2" weight="1" />
     </sound>
-    <sound name="gun_shot" maxCount="20">
+    <sound name="gun_reload">
+        <sample path="mvz2:gun_reload" weight="1" />
+    </sound>
+    <sound name="gun_shot" maxCount="3">
         <sample path="mvz2:gun_shot" weight="1" />
     </sound>
     <sound name="hit">
@@ -198,6 +216,9 @@
     </sound>
     <sound name="minecart" priority="64">
         <sample path="mvz2:minecart" weight="1" />
+    </sound>
+    <sound name="missile">
+        <sample path="mvz2:missile" weight="1" />
     </sound>
     <sound name="money_fall">
         <sample path="mvz2:money_fall" weight="1" />
@@ -244,6 +265,12 @@
     <sound name="potion" maxCount="3">
         <sample path="mvz2:potion" weight="1" />
     </sound>
+    <sound name="power_off">
+        <sample path="mvz2:power_off" weight="1" />
+    </sound>
+    <sound name="power_on">
+        <sample path="mvz2:power_on" weight="1" />
+    </sound>
     <sound name="punch">
         <sample path="mvz2:punch" weight="1" />
     </sound>
@@ -258,6 +285,12 @@
     </sound>
     <sound name="revive_cast">
         <sample path="mvz2:revive_cast" weight="1" />
+    </sound>
+    <sound name="scream">
+        <sample path="mvz2:scream" weight="1" />
+    </sound>
+    <sound name="screw">
+        <sample path="mvz2:screw" weight="1" />
     </sound>
     <sound name="shell_case" maxCount="4">
         <sample path="mvz2:shell_case_drop" weight="1" />
@@ -290,11 +323,8 @@
     <sound name="slow_down" priority="64">
         <sample path="mvz2:slow_down" weight="1" />
     </sound>
-    <sound name="scream">
-        <sample path="mvz2:scream" weight="1" />
-    </sound>
-    <sound name="screw">
-        <sample path="mvz2:screw" weight="1" />
+    <sound name="smash">
+        <sample path="mvz2:smash" weight="1" />
     </sound>
     <sound name="sparkle">
         <sample path="mvz2:sparkle" weight="1" />
@@ -345,8 +375,17 @@
         <sample path="mvz2:entity/terror/terror_cry2" weight="1" />
         <sample path="mvz2:entity/terror/terror_cry3" weight="1" />
     </sound>
+    <sound name="tesla_attack">
+        <sample path="mvz2:tesla_attack" weight="1" />
+    </sound>
+    <sound name="tesla_power">
+        <sample path="mvz2:tesla_power" weight="1" />
+    </sound>
     <sound name="throw">
         <sample path="mvz2:throw" weight="1" />
+    </sound>
+    <sound name="thump">
+        <sample path="mvz2:thump" weight="1" />
     </sound>
     <sound name="thunder" priority="64">
         <sample path="mvz2:random/thunder1" weight="1" />

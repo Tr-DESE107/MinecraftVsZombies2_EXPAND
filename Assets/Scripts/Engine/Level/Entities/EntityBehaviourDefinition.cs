@@ -16,6 +16,7 @@ namespace PVZEngine.Entities
         public virtual void PostTakeDamage(DamageOutput result) { }
         public virtual void PostContactGround(Entity entity, Vector3 velocity) { }
         public virtual void PostLeaveGround(Entity entity) { }
+        public virtual bool PreCollision(EntityCollision collision) { return true; }
         public virtual void PostCollision(EntityCollision collision, int state) { }
         public virtual void PostDeath(Entity entity, DamageInput damageInfo) { }
         public virtual void PostRemove(Entity entity) { }

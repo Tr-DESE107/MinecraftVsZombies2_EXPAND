@@ -284,8 +284,8 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void EmitBlood(this Entity entity)
         {
-            var bloodColor = entity.GetBloodColor();
             var blood = entity.Level.Spawn(VanillaEffectID.bloodParticles, entity.GetCenter(), entity);
+            var bloodColor = entity.GetBloodColor();
             blood.SetTint(bloodColor);
         }
         #endregion

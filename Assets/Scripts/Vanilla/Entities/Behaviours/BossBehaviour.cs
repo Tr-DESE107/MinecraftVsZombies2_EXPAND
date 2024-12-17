@@ -1,4 +1,6 @@
-﻿using PVZEngine.Entities;
+﻿using MVZ2.GameContent.Buffs;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -11,6 +13,32 @@ namespace MVZ2.Vanilla.Entities
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.RightFaction);
+        }
+        public override sealed void Update(Entity entity)
+        {
+            base.Update(entity);
+            if (!entity.IsAIFrozen())
+            {
+                UpdateAI(entity);
+            }
+            UpdateLogic(entity);
+        }
+        protected virtual void UpdateLogic(Entity entity)
+        {
+        }
+        protected virtual void UpdateAI(Entity entity)
+        {
+        }
+        public override void PostTakeDamage(DamageOutput result)
+        {
+            base.PostTakeDamage(result);
+            var bodyResult = result.BodyResult;
+            if (bodyResult != null)
+            {
+                var entity = bodyResult.Entity;
+                if (!entity.HasBuff<DamageColorBuff>())
+                    entity.AddBuff<DamageColorBuff>();
+            }
         }
     }
 }

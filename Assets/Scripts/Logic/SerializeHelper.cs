@@ -56,7 +56,7 @@ namespace MVZ2Logic
             RegisterClass<BuffReferenceArmor>();
             RegisterClass<BuffReferenceLevel>();
             RegisterClass<BuffReferenceClassicSeedPack>();
-            RegisterClass<BuffReferenceConveyorSeedPack>(); 
+            RegisterClass<BuffReferenceConveyorSeedPack>();
 
             RegisterClass<SerializableEntity>();
             RegisterClass<SerializableArmor>();

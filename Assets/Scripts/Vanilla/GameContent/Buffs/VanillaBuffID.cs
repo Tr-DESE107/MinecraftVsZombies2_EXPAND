@@ -17,8 +17,10 @@ namespace MVZ2.GameContent.Buffs
         public const string moonlightSensorEvoked = "moonlight_sensor_evoked";
         public const string glowstoneEvoke = "glowstone_evoke";
         public const string tntIgnited = "tnt_ignited";
+        public const string tntCharged = "tnt_charged";
         public const string sacrificed = "sacrificed";
         public const string magichestInvincible = "magichest_invincible";
+        public const string frankensteinShocked = "frankenstein_shocked";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -57,6 +59,11 @@ namespace MVZ2.GameContent.Buffs
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
             public const string thunder = "thunder";
             public const string swordParalyzed = "sword_paralyzed";
+        }
+        public static class Boss
+        {
+            public const string frankensteinSteel = "frankenstein_steel";
+            public const string frankensteinTransforming = "frankenstein_transforming";
         }
     }
     public static class VanillaBuffID

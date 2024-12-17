@@ -13,6 +13,7 @@
             <id name="rechargeId" value="mvz2:none" />
         </entity>
         <contraption id="1" parent="entity">
+            <bool name="canShock" value="true"/>
             <float name="maxHealth" value="300"/>
             <float name="friction" value="0.2"/>
             <float name="gravity" value="1"/>
@@ -57,6 +58,7 @@
             <float name="maxHealth" value="1000"/>
             <float name="friction" value="0.15"/>
             <float name="gravity" value="1"/>
+            <float name="damage" value="100"/>
             <id name="shell" value="mvz2:flesh"/>
             <bool name="faceLeftAtDefault" value="true"/>
         </boss>
@@ -114,6 +116,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械" >
+            <bool name="canShock" value="false"/>
             <float name="maxHealth" value="4000"/>
             <vector3 name="size" x="48" y="48" z="48"/>
 
@@ -121,6 +124,7 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备" >
+            <bool name="canShock" value="false"/>
             <float name="damage" value="1800"/>
             <float name="range" value="40"/>
             <id name="placeSound" value="mvz2:grass"/>
@@ -152,6 +156,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
+            <bool name="canShock" value="false"/>
             <id name="placeSound" value="mvz2:glass"/>
             <id name="deathSound" value="mvz2:glass_break"/>
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -172,6 +177,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
+            <bool name="canShock" value="false"/>
             <float name="damage" value="1800"/>
             <float name="range" value="120"/>
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -354,6 +360,15 @@
             <id name="fragmentId" value="mvz2:furnace"/>
         </obstacle>
 
+        <!-- Bosses -->
+        <boss id="frankenstein" name="科学怪人">
+            <float name="maxHealth" value="25000"/>
+            <vector3 name="size" x="60" y="200" z="60"/>
+            <vector3 name="shotVelocity" x="30" y="0" z="0"/>
+            <color name="bloodColor" value="#7F0000FF"/>
+            <color name="bloodColorCensored" value="#00007FFF"/>
+        </boss>
+
         <!-- Carts -->
         <cart id="minecart" name="矿车"/>
         <cart id="pumpkin_carriage" name="南瓜马车">
@@ -435,6 +450,16 @@
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="32" y="6" z="2" />
             <idArray name="damageEffects" value="mvz2:slice" />
+        </projectile>
+        <projectile id="bullet">
+            <bool name="pointToDirection" value="true" />
+            <vector3 name="size" x="32" y="6" z="2" />
+            <vector3 name="shadowScale" x="0" y="0" z="0" />
+        </projectile>
+        <projectile id="missile">
+            <bool name="pointToDirection" value="true" />
+            <float name="range" value="40"/>
+            <vector3 name="size" x="64" y="8" z="8" />
         </projectile>
         <projectile id="fire_charge">
             <float name="range" value="40"/>
@@ -522,5 +547,19 @@
             <int name="maxTimeout" value="30"/>
         </effect>
         <effect id="rain" />
+        <effect id="electric_arc">
+            <int name="maxTimeout" value="60"/>
+        </effect>
+        <effect id="gore_particles">
+            <int name="maxTimeout" value="90"/>
+        </effect>
+        <effect id="frankenstein_jump_trail">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="frankenstein_head">
+            <float name="friction" value="0.1"/>
+            <float name="gravity" value="1"/>
+            <int name="maxTimeout" value="120"/>
+        </effect>
     </entries>
 </entities>

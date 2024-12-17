@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
@@ -87,6 +88,11 @@ namespace MVZ2.GameContent.Contraptions
             explosion.SetSize(Vector3.one * (range * 2));
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
+
+            if (entity.HasBuff<TNTChargedBuff>())
+            {
+                ChargedExplode(entity);
+            }
             return damageOutputs;
         }
         private void IgnitedUpdate(Entity entity)
@@ -110,7 +116,13 @@ namespace MVZ2.GameContent.Contraptions
                         var direction = Quaternion.Euler(0, i * 90, 0) * Vector3.right * 10;
                         var velocity = direction;
                         velocity.y = 10;
-                        entity.ShootProjectile(VanillaProjectileID.flyingTNT, velocity);
+                        var projectile = entity.ShootProjectile(VanillaProjectileID.flyingTNT, velocity);
+                        projectile.SetDamage(damage);
+                        projectile.SetRange(range);
+                        if (entity.HasBuff<TNTChargedBuff>())
+                        {
+                            projectile.AddBuff<TNTChargedBuff>();
+                        }
                     }
                 }
                 entity.Remove();
@@ -122,6 +134,29 @@ namespace MVZ2.GameContent.Contraptions
             var damage = entity.GetDamage();
             Explode(entity, range, damage);
             entity.Remove();
+        }
+        private static void ChargedExplode(Entity entity)
+        {
+            const float arcLength = 1000;
+            var level = entity.Level;
+            for (int i = 0; i < 18; i++)
+            {
+                var arc = level.Spawn(VanillaEffectID.electricArc, entity.Position, entity);
+
+                float degree = i * 20;
+                float rad = degree * Mathf.Deg2Rad;
+                Vector3 pos = entity.Position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
+                ElectricArc.Connect(arc, pos);
+            }
+            foreach (Entity unit in level.FindEntities(e => entity.IsHostile(e)))
+            {
+                unit.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.IGNORE_ARMOR));
+                if (unit.IsEntityOf(VanillaBossID.frankenstein))
+                {
+                    Frankenstein.Paralyze(unit, entity);
+                }
+            }
+            entity.PlaySound(VanillaSoundID.thunder);
         }
     }
 }

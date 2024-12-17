@@ -59,6 +59,8 @@ namespace PVZEngine.Entities
         #region 碰撞
         public void Collide(EntityCollision collision)
         {
+            if (!CallPreCollision(collision))
+                return;
             if (!collisionList.Contains(collision))
             {
                 CallPostCollision(collision, EntityCollisionHelper.STATE_ENTER);
@@ -86,6 +88,10 @@ namespace PVZEngine.Entities
                 collisionList.Remove(collision);
             }
             collisionThisTick.Clear();
+        }
+        private bool CallPreCollision(EntityCollision collision)
+        {
+            return PreCollision?.Invoke(collision) ?? true;
         }
         private void CallPostCollision(EntityCollision collision, int state)
         {
@@ -123,6 +129,7 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        public event Func<EntityCollision, bool> PreCollision;
         public event Action<EntityCollision, int> PostCollision;
         public bool Enabled { get; set; } = true;
         public string Name { get; set; }

@@ -2,6 +2,7 @@
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -31,17 +32,37 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID, Vector3 velocity)
         {
+            return entity.ShootProjectile(new ShootParams()
+            {
+                projectileID = projectileID,
+                position = entity.GetShootPoint(),
+                faction = entity.GetFaction(),
+                damage = entity.GetDamage(),
+                soundID = entity.GetShootSound(),
+                velocity = velocity
+            });
+        }
+        public static Entity ShootProjectile(this Entity entity, ShootParams parameters)
+        {
             var game = entity.Level;
-            entity.PlaySound(entity.GetShootSound());
+            entity.PlaySound(parameters.soundID);
 
-            Vector3 shootPoint = entity.GetShootPoint();
-            velocity = entity.ModifyProjectileVelocity(velocity);
+            var velocity = entity.ModifyProjectileVelocity(parameters.velocity);
 
-            var projectile = game.Spawn(projectileID, shootPoint, entity);
-            projectile.SetDamage(entity.GetDamage());
-            projectile.SetFaction(entity.GetFaction());
+            var projectile = game.Spawn(parameters.projectileID, parameters.position, entity);
+            projectile.SetDamage(parameters.damage);
+            projectile.SetFaction(parameters.faction);
             projectile.Velocity = velocity;
+            projectile.UpdatePointTowardsDirection();
             return projectile;
+        }
+        public static void UpdatePointTowardsDirection(this Entity entity)
+        {
+            if (entity.PointsTowardDirection())
+            {
+                var vel = new Vector2(entity.Velocity.x, entity.Velocity.y + entity.Velocity.z);
+                entity.RenderRotation = Vector3.forward * Vector2.SignedAngle(Vector2.right, vel);
+            }
         }
         public static Vector3 GetLobVelocity(Vector3 source, Vector3 target, float maxY, float gravity, bool passesMaxY = true)
         {
@@ -139,5 +160,14 @@ namespace MVZ2.Vanilla.Entities
             var hori = horiDirection * velHori;
             return new Vector3(hori.x, velVert, hori.y);
         }
+    }
+    public struct ShootParams
+    {
+        public NamespaceID projectileID;
+        public Vector3 position;
+        public Vector3 velocity;
+        public NamespaceID soundID;
+        public float damage;
+        public int faction;
     }
 }

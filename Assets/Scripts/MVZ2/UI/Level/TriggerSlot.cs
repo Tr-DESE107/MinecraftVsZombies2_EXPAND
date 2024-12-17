@@ -9,7 +9,8 @@ namespace MVZ2.Level.UI
     {
         public void SetSelected(bool selected)
         {
-            animator.SetBool("Selected", selected);
+            if (animator.isActiveAndEnabled)
+                animator.SetBool("Selected", selected);
         }
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {

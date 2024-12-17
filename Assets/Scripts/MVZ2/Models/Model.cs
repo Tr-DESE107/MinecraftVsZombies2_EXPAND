@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PVZEngine;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Models
@@ -55,10 +57,16 @@ namespace MVZ2.Models
             return triggeredEvents.Contains(name);
         }
 
+        public RandomGenerator GetRNG()
+        {
+            return rng;
+        }
+
         public SerializableModelData ToSerializable()
         {
             return new SerializableModelData()
             {
+                rng = rng.ToSerializable(),
                 armorModel = armorModel ? armorModel.ToSerializable() : null,
                 propertyDict = propertyDict != null ? propertyDict.Serialize() : null,
                 rendererGroup = rendererGroup.ToSerializable(),
@@ -68,6 +76,7 @@ namespace MVZ2.Models
         }
         public void LoadFromSerializable(SerializableModelData serializable)
         {
+            rng = RandomGenerator.FromSerializable(serializable.rng);
             if (armorModel && serializable.armorModel != null)
             {
                 armorModel.LoadFromSerializable(serializable.armorModel);
@@ -146,6 +155,7 @@ namespace MVZ2.Models
         private void Awake()
         {
             modelComponents = GetComponents<ModelComponent>();
+            rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
             foreach (var comp in modelComponents)
             {
                 comp.Model = this;
@@ -177,6 +187,7 @@ namespace MVZ2.Models
         private Model armorModel;
         [SerializeField]
         private ModelComponent[] modelComponents;
+        private RandomGenerator rng;
         private List<string> triggeringEvents = new List<string>();
         private List<string> triggeredEvents = new List<string>();
         private PropertyDictionary propertyDict = new PropertyDictionary();
@@ -184,6 +195,7 @@ namespace MVZ2.Models
     }
     public class SerializableModelData
     {
+        public SerializableRNG rng;
         public SerializableMultipleRendererGroup rendererGroup;
         public SerializableModelData armorModel;
         public SerializablePropertyDictionary propertyDict;

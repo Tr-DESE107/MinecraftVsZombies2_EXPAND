@@ -61,6 +61,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<float>(PRODUCE_SPEED);
         }
+        public static void SetRange(this Entity entity, float value)
+        {
+            entity.SetProperty(RANGE, value);
+        }
         public static float GetRange(this Entity entity)
         {
             return entity.GetProperty<float>(RANGE);

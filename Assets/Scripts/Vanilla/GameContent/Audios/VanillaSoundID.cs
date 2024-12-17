@@ -5,8 +5,10 @@ namespace MVZ2.Vanilla.Audios
     public static class VanillaSoundID
     {
         public readonly static NamespaceID achievement = Get("achievement");
+        public readonly static NamespaceID anvil = Get("anvil");
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
+        public readonly static NamespaceID bloody = Get("bloody");
         public readonly static NamespaceID boneHit = Get("bone_hit");
         public readonly static NamespaceID boneWallBuild = Get("bone_wall_build");
         public readonly static NamespaceID bow = Get("bow");
@@ -20,6 +22,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
+        public readonly static NamespaceID electricSpark = Get("electric_spark");
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID fastForward = Get("fast_forward");
@@ -27,11 +30,15 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID fireCharge = Get("fire_charge");
         public readonly static NamespaceID finalWave = Get("final_wave");
         public readonly static NamespaceID fizz = Get("fizz");
+        public readonly static NamespaceID frankensteinLaugh = Get("frankenstein_laugh");
+        public readonly static NamespaceID frankensteinSteelLaugh = Get("frankenstein_steel_laugh");
         public readonly static NamespaceID fuse = Get("fuse");
         public readonly static NamespaceID ghastFire = Get("ghast_fire");
         public readonly static NamespaceID glowstone = Get("glowstone");
         public readonly static NamespaceID grass = Get("grass");
         public readonly static NamespaceID grind = Get("grind");
+        public readonly static NamespaceID gunReload = Get("gun_reload");
+        public readonly static NamespaceID gunShot = Get("gun_shot");
         public readonly static NamespaceID hit = Get("hit");
         public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID hugeWave = Get("huge_wave");
@@ -40,6 +47,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID magical = Get("magical");
         public readonly static NamespaceID mineExplode = Get("mine_explode");
         public readonly static NamespaceID minecart = Get("minecart");
+        public readonly static NamespaceID missile = Get("missile");
         public readonly static NamespaceID moneyFall = Get("money_fall");
         public readonly static NamespaceID odd = Get("odd");
         public readonly static NamespaceID paper = Get("paper");
@@ -50,6 +58,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID pick = Get("pick");
         public readonly static NamespaceID pickaxe = Get("pickaxe");
         public readonly static NamespaceID potion = Get("potion");
+        public readonly static NamespaceID powerOff = Get("power_off");
+        public readonly static NamespaceID powerOn = Get("power_on");
         public readonly static NamespaceID punch = Get("punch");
         public readonly static NamespaceID rain = Get("rain");
         public readonly static NamespaceID refuel = Get("refuel");
@@ -64,6 +74,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID skeletonCry = Get("skeleton_cry");
         public readonly static NamespaceID skeletonDeath = Get("skeleton_death");
         public readonly static NamespaceID slowDown = Get("slow_down");
+        public readonly static NamespaceID smash = Get("smash");
         public readonly static NamespaceID sparkle = Get("sparkle");
         public readonly static NamespaceID spellCard = Get("spell_card");
         public readonly static NamespaceID splat = Get("splat");
@@ -74,6 +85,9 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID stunned = Get("stunned");
         public readonly static NamespaceID swing = Get("swing");
         public readonly static NamespaceID tap = Get("tap");
+        public readonly static NamespaceID teslaAttack = Get("tesla_attack");
+        public readonly static NamespaceID teslaPower = Get("tesla_power");
+        public readonly static NamespaceID thump = Get("thump");
         public readonly static NamespaceID thunder = Get("thunder");
         public readonly static NamespaceID throwSound = Get("throw");
         public readonly static NamespaceID travel = Get("travel");

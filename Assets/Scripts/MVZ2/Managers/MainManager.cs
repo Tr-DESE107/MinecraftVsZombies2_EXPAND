@@ -113,6 +113,8 @@ namespace MVZ2.Managers
         public Sprite GetFinalSprite(Sprite sprite)
         {
             var spriteID = ResourceManager.GetSpriteReference(sprite);
+            if (!SpriteReference.IsValid(spriteID))
+                return sprite;
             return GetFinalSprite(spriteID) ?? sprite;
         }
         public Sprite GetFinalSprite(SpriteReference spriteRef, string language)
@@ -139,6 +141,8 @@ namespace MVZ2.Managers
         public Sprite GetFinalSprite(Sprite sprite, string language)
         {
             var spriteID = ResourceManager.GetSpriteReference(sprite);
+            if (!SpriteReference.IsValid(spriteID))
+                return sprite;
             return GetFinalSprite(spriteID, language) ?? sprite;
         }
         private void Awake()
