@@ -1,5 +1,7 @@
 ﻿using MVZ2.GameContent.Armors;
+using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
+using PVZEngine;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Enemies
@@ -14,6 +16,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
+            entity.ChangeModel(VanillaModelID.zombie);
             entity.EquipArmor<LeatherCap>();
         }
     }

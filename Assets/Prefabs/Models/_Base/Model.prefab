@@ -129,6 +129,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abc2d1d73694ef4798b808c036c46ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id:
+    spacename: 
+    path: 
+  key:
+    spacename: 
+    path: 
+  parent: {fileID: 0}
   rendererGroup: {fileID: 3485482240055686899}
   rootTransform: {fileID: 303959657157909876}
   centerTransform: {fileID: 2811163713146360984}
@@ -137,6 +144,7 @@ MonoBehaviour:
   - {fileID: 905553599597623908}
   - {fileID: 1163798719439639357}
   modelComponents: []
+  childModels: []
 --- !u!114 &3485482240055686899
 MonoBehaviour:
   m_ObjectHideFlags: 0

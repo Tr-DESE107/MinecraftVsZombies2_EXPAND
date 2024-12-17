@@ -8,6 +8,7 @@ namespace MVZ2.GameContent.Models
         public const string TYPE_HELD_ITEM = "held";
         public const string TYPE_ICON = "icon";
 
+        public static readonly NamespaceID zombie = Get("zombie", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID moneyChest = Get("money_chest", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID blueprintPickup = Get("blueprint_pickup", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID mapPickup = Get("map_pickup", EngineModelID.TYPE_ENTITY);

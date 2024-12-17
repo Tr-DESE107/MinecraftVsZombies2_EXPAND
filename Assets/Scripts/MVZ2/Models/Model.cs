@@ -132,8 +132,8 @@ namespace MVZ2.Models
                 return null;
             child.transform.localPosition = Vector3.zero;
             child.AnchorName = anchorName;
-            child.Key = key;
-            child.Parent = this;
+            child.key = key;
+            child.parent = this;
             childModels.Add(child);
             return child;
         }
@@ -211,7 +211,7 @@ namespace MVZ2.Models
             var prefab = GetPrefab(modelID);
             var model = Create(prefab, parent);
             if (model)
-                model.ID = modelID;
+                model.id = modelID;
             return model;
         }
         public static Model Create(NamespaceID modelID, Transform parent, int seed)
@@ -219,7 +219,7 @@ namespace MVZ2.Models
             var prefab = GetPrefab(modelID);
             var model = Create(prefab, parent, seed);
             if (model)
-                model.ID = modelID;
+                model.id = modelID;
             return model;
         }
         public static Model Create(Model prefab, Transform parent)
@@ -255,9 +255,15 @@ namespace MVZ2.Models
         public Transform CenterTransform => centerTransform;
         public float AnimationSpeed { get; set; }
         public string AnchorName { get; private set; }
-        public NamespaceID ID { get; private set; }
-        public NamespaceID Key { get; private set; }
-        public Model Parent { get; private set; }
+        public NamespaceID ID => id;
+        public NamespaceID Key => key;
+        public Model Parent => parent;
+        [SerializeField]
+        private NamespaceID id;
+        [SerializeField]
+        private NamespaceID key;
+        [SerializeField]
+        private Model parent;
         [SerializeField]
         private MultipleRendererGroup rendererGroup;
         [SerializeField]
@@ -268,8 +274,9 @@ namespace MVZ2.Models
         private ModelAnchor[] modelAnchors;
         [SerializeField]
         private ModelComponent[] modelComponents;
-        private ModelParentInterface modelInterface;
+        [SerializeField]
         private List<Model> childModels = new List<Model>();
+        private ModelParentInterface modelInterface;
         private RandomGenerator rng;
         private List<string> triggeringEvents = new List<string>();
         private List<string> triggeredEvents = new List<string>();

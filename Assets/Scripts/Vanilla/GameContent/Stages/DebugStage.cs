@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Stages
 
                 VanillaEnemyID.ghost,
                 VanillaEnemyID.ghast,
-                VanillaEnemyID.zombie,
+                VanillaEnemyID.leatherCappedZombie,
                 VanillaBossID.frankenstein,
             });
             level.RechargeSpeed = 9999999;
