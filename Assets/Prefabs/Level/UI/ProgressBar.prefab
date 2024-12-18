@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4848214681634604047}
   - component: {fileID: 6207827433103923092}
-  - component: {fileID: 8530636542282950814}
   - component: {fileID: 7744186435565456276}
   - component: {fileID: 4575991372992862622}
   - component: {fileID: 6976302548209069430}
@@ -54,27 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flags: {fileID: 8138190902696631893}
+  backgroundImage: {fileID: 4575991372992862622}
+  barImage: {fileID: 5799940963004196459}
+  iconImage: {fileID: 5043308297998461800}
+  barRegion: {fileID: 5050856861532532730}
   slider: {fileID: 1870490291709849759}
---- !u!114 &8530636542282950814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126737601396360499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 124
-  m_MinHeight: 24
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!222 &7744186435565456276
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -534,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8083444741798729120
 RectTransform:
   m_ObjectHideFlags: 0

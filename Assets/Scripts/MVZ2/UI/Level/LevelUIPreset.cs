@@ -3,6 +3,7 @@ using MVZ2.Entities;
 using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -296,17 +297,30 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region ¹Ø¿¨½ø¶È
-        public void SetProgressVisible(bool visible)
+        public void SetProgressBarVisible(bool visible)
         {
-            progressBar.gameObject.SetActive(visible);
+            progressBarRoot.SetActive(visible);
         }
-        public void SetProgress(float progress)
+        public void SetProgressBarMode(bool boss)
+        {
+            progressBar.gameObject.SetActive(!boss);
+            bossProgressBar.gameObject.SetActive(boss);
+        }
+        public void SetLevelProgress(float progress)
         {
             progressBar.SetProgress(progress);
         }
         public void SetBannerProgresses(float[] progresses)
         {
             progressBar.SetBannerProgresses(progresses);
+        }
+        public void SetBossProgressTemplate(ProgressBarTemplateViewData template)
+        {
+            bossProgressBar.UpdateTemplate(template);
+        }
+        public void SetBossProgress(float progress)
+        {
+            bossProgressBar.SetProgress(progress);
         }
         #endregion
 
@@ -664,7 +678,11 @@ namespace MVZ2.Level.UI
         [SerializeField]
         TextMeshProUGUI levelNameText;
         [SerializeField]
+        GameObject progressBarRoot;
+        [SerializeField]
         ProgressBar progressBar;
+        [SerializeField]
+        ProgressBar bossProgressBar;
 
         [Header("Right Top")]
         [SerializeField]

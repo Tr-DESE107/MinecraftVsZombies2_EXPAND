@@ -154,6 +154,7 @@ namespace MVZ2.Vanilla
                 stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
                 stage.SetProperty(VanillaLevelProps.CONVEYOR_POOL, meta.ConveyorPool);
 
+                stage.SetNeedBlueprints(meta.NeedBlueprints);
                 stage.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
 
                 foreach (var pair in meta.Properties)

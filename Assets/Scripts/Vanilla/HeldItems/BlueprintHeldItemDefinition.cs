@@ -82,7 +82,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
             errorMessage = null;
             var level = grid.Level;
-            var seed = level.GetSeedPackAt((int)data.ID);
+            var seed = GetSeedPackAt(level, (int)data.ID);
             if (seed == null)
                 return false;
             var seedDef = seed.Definition;

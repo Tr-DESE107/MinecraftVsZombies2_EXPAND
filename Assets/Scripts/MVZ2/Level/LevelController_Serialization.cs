@@ -27,6 +27,9 @@ namespace MVZ2.Level
 
                 bannerProgresses = bannerProgresses?.ToArray(),
                 levelProgress = levelProgress,
+                bossProgress = bossProgress,
+                progressBarMode = progressBarMode,
+                bossProgressBarStyle = bossProgressBarStyle,
 
                 maxCryTime = maxCryTime,
                 cryTimer = cryTimer,
@@ -34,6 +37,7 @@ namespace MVZ2.Level
 
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
+                musicVolume = MusicVolume,
 
                 energyActive = EnergyActive,
                 blueprintsActive = BlueprintsActive,
@@ -66,6 +70,9 @@ namespace MVZ2.Level
                 level.DeserializeComponents(seri.level);
                 bannerProgresses = seri.bannerProgresses?.ToArray();
                 levelProgress = seri.levelProgress;
+                bossProgress = seri.bossProgress;
+                progressBarMode = seri.progressBarMode;
+                bossProgressBarStyle = seri.bossProgressBarStyle;
 
                 maxCryTime = seri.maxCryTime;
                 cryTimer = seri.cryTimer;
@@ -73,6 +80,7 @@ namespace MVZ2.Level
 
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
+                MusicVolume = seri.musicVolume;
 
                 EnergyActive = seri.energyActive;
                 BlueprintsActive = seri.blueprintsActive;
@@ -104,21 +112,29 @@ namespace MVZ2.Level
                 Debug.LogException(e);
                 return;
             }
-
+            // 设置UI可见状态
+            SetUIVisibleState(VisibleState.InLevel);
+            // 相机位置
+            SetCameraPosition(LevelCameraPosition.Lawn);
+            // 手持物品
             level.ResetHeldItem();
+            // 经典蓝图和传送带蓝图
             InitBlueprints();
             UpdateClassicBlueprintCount();
             UpdateConveyorBlueprintCount();
+            // 关卡名
             UpdateLevelName();
-            UpdateLevelProgress();
+            // 关卡进度条
+            RefreshProgressBar();
+            // 难度名称
             UpdateDifficultyName();
-            UpdateLevelUI();
+            // 能量、关卡进度条、手持物品、蓝图状态、星之碎片
+            UpdateInLevelUI();
+            // 金钱
             UpdateMoney();
-            SetUIVisibleState(VisibleState.InLevel);
             ShowMoney();
 
-            SetCameraPosition(LevelCameraPosition.Lawn);
-
+            // 游戏开始状态
             SetGameStarted(true);
 
             foreach (var component in level.GetComponents())
@@ -182,9 +198,13 @@ namespace MVZ2.Level
 
         public float levelProgress;
         public float[] bannerProgresses;
+        public float bossProgress;
+        public NamespaceID bossProgressBarStyle;
+        public bool progressBarMode;
 
         public NamespaceID musicID;
         public float musicTime;
+        public float musicVolume;
 
         public bool energyActive;
         public bool blueprintsActive;

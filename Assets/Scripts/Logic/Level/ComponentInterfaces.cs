@@ -32,6 +32,8 @@ namespace MVZ2Logic.Level.Components
     {
         void Play(NamespaceID id);
         void Stop();
+        void SetMusicVolume(float volume);
+        float GetMusicVolume();
     }
     public interface ISoundComponent : ILevelComponent
     {
@@ -89,6 +91,8 @@ namespace MVZ2Logic.Level.Components
         void SetHintArrowPointToStarshard();
         void SetHintArrowPointToEntity(Entity entity);
         void HideHintArrow();
+        void SetProgressBarToBoss(NamespaceID barStyle);
+        void SetProgressBarToStage();
     }
     public interface IMoneyComponent : ILevelComponent
     {

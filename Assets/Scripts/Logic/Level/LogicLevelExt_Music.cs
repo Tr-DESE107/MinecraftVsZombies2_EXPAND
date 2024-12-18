@@ -20,5 +20,15 @@ namespace MVZ2Logic.Level
             var component = level.GetMusicComponent();
             component.Stop();
         }
+        public static void SetMusicVolume(this LevelEngine level, float volume)
+        {
+            var component = level.GetMusicComponent();
+            component.SetMusicVolume(volume);
+        }
+        public static float GetMusicVolume(this LevelEngine level)
+        {
+            var component = level.GetMusicComponent();
+            return component.GetMusicVolume();
+        }
     }
 }

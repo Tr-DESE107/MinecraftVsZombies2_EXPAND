@@ -12,6 +12,7 @@ using MVZ2.Options;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
@@ -21,6 +22,7 @@ using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
@@ -35,6 +37,12 @@ namespace MVZ2.Level
     {
         #region 公有方法
 
+        public LevelUIPreset GetUIPreset()
+        {
+            return Main.IsMobile() ? mobileUI : standaloneUI;
+        }
+
+        #region 手持物品
         public void SetHeldItemModel(NamespaceID modelID)
         {
             Model model = null;
@@ -113,11 +121,13 @@ namespace MVZ2.Level
                 }
             }
         }
-
         public IModelInterface GetHeldItemModelInterface()
         {
             return heldItemModelInterface;
         }
+        #endregion
+
+        #region 金钱
         public void ShowMoney()
         {
             var levelUI = GetUIPreset();
@@ -128,10 +138,9 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             levelUI.SetMoneyFade(fade);
         }
-        public LevelUIPreset GetUIPreset()
-        {
-            return Main.IsMobile() ? mobileUI : standaloneUI;
-        }
+        #endregion
+
+        #region 对话框
         public void ShowRestartConfirmDialog()
         {
             var title = Localization._(Vanilla.VanillaStrings.RESTART);
@@ -148,15 +157,54 @@ namespace MVZ2.Level
         {
             ShowLevelErrorLoadingDialog(Localization._(ERROR_LOAD_LEVEL_EXCEPTION, e.Message));
         }
+        #endregion
+
+        #region 选择蓝图
         public bool IsChoosingBlueprints()
         {
             return isChoosingBlueprints;
         }
+        #endregion
+
+        #region 难度
         public void UpdateDifficulty()
         {
             level.SetDifficulty(Options.GetDifficulty());
             UpdateDifficultyName();
         }
+        #endregion
+
+        #region 进度条
+        public void SetProgressToBoss(NamespaceID barStyleID)
+        {
+            var ui = GetUIPreset();
+            progressBarMode = true;
+            bossProgressBarStyle = barStyleID;
+            ui.SetProgressBarMode(progressBarMode);
+            var meta = Main.ResourceManager.GetProgressBarMeta(barStyleID);
+            if (meta == null)
+                return;
+            var background = Main.GetFinalSprite(meta.BackgroundSprite);
+            var bar = Main.GetFinalSprite(meta.BarSprite);
+            var icon = Main.GetFinalSprite(meta.IconSprite);
+            var viewData = new ProgressBarTemplateViewData()
+            {
+                backgroundSprite = background,
+                barSprite = bar,
+                fromLeft = meta.FromLeft,
+                iconSprite = icon,
+                padding = meta.Padding,
+                size = meta.Size,
+            };
+            ui.SetBossProgressTemplate(viewData);
+        }
+        public void SetProgressToStage()
+        {
+            var ui = GetUIPreset();
+            progressBarMode = false;
+            ui.SetProgressBarMode(progressBarMode);
+        }
+        #endregion
 
         #endregion
 
@@ -205,7 +253,7 @@ namespace MVZ2.Level
             uiPreset.OnBlueprintChooseViewStoreClick += UI_OnBlueprintChooseViewStoreClickCallback;
 
             uiPreset.HideMoney();
-            uiPreset.SetProgressVisible(false);
+            uiPreset.SetProgressBarVisible(false);
             uiPreset.HideTooltip();
             SetUIVisibleState(VisibleState.Nothing);
             uiPreset.SetConveyorMode(false);
@@ -547,6 +595,26 @@ namespace MVZ2.Level
                 heldItemCursorSource.SetEnabled(enabled);
             }
         }
+        private void UpdateHeldSlotUI()
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
+            uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());
+            uiPreset.SetTriggerSelected(level.IsHoldingTrigger());
+        }
+        private bool TryCancelHeldItem()
+        {
+            // 正在拾起其他物品，取消正在拾取的物品。
+            if (level.IsHoldingItem())
+            {
+                if (level.CancelHeldItem())
+                {
+                    level.PlaySound(VanillaSoundID.tap);
+                    return true;
+                }
+            }
+            return false;
+        }
         #endregion
 
         #region 选择蓝图
@@ -637,6 +705,7 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 可操作工具
         private void ClickPickaxe()
         {
             if (!PickaxeActive)
@@ -689,6 +758,20 @@ namespace MVZ2.Level
                 return;
             level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
         }
+        private void UpdateStarshards()
+        {
+            var levelUI = GetUIPreset();
+            levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
+        }
+        private void SetUnlockedUIActive()
+        {
+            var levelUI = GetUIPreset();
+            StarshardActive = Saves.IsStarshardUnlocked();
+            TriggerActive = Saves.IsTriggerUnlocked();
+        }
+        #endregion
+
+        #region 战场射线接收器
         private void ClickOnReceiver(RaycastReceiver receiver, PointerPhase phase)
         {
             var levelUI = GetUIPreset();
@@ -712,75 +795,79 @@ namespace MVZ2.Level
             }
             level.UseOnLawn(area, phase);
         }
+        #endregion
+
+        #region 进度条
         private void AdvanceLevelProgress()
         {
             var deltaTime = Time.deltaTime;
-            var totalFlags = level.GetTotalFlags();
-            if (bannerProgresses == null || bannerProgresses.Length != totalFlags)
+            if (progressBarMode)
             {
-                var newProgresses = new float[totalFlags];
-                if (bannerProgresses != null)
+                // BOSS血条
+                var bosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy());
+                if (bosses.Count() <= 0)
                 {
-                    bannerProgresses.CopyTo(newProgresses, 0);
+                    bossProgress = 0;
                 }
-                bannerProgresses = newProgresses;
-            }
-            for (int i = 0; i < bannerProgresses.Length; i++)
-            {
-                float value = (level.CurrentWave >= (totalFlags - i) * level.GetWavesPerFlag()) ? deltaTime : -deltaTime;
-                bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + value);
-            }
-            int totalWaveCount = level.GetTotalWaveCount();
-            float targetProgress = totalWaveCount <= 0 ? 0 : level.CurrentWave / (float)totalWaveCount;
-            int progressDirection = Math.Sign(targetProgress - levelProgress);
-            if (progressDirection != 0)
-            {
-                levelProgress += Time.deltaTime * 0.1f * progressDirection;
-                var newDirection = Mathf.Sign(targetProgress - levelProgress);
-                if (progressDirection != newDirection)
+                else
                 {
-                    levelProgress = targetProgress;
+                    bossProgress = bosses.Sum(b => b.Health) / bosses.Sum(b => b.GetMaxHealth());
                 }
             }
+            else
+            {
+                // 关卡进度
+                var totalFlags = level.GetTotalFlags();
+                if (bannerProgresses == null || bannerProgresses.Length != totalFlags)
+                {
+                    var newProgresses = new float[totalFlags];
+                    if (bannerProgresses != null)
+                    {
+                        bannerProgresses.CopyTo(newProgresses, 0);
+                    }
+                    bannerProgresses = newProgresses;
+                }
+                for (int i = 0; i < bannerProgresses.Length; i++)
+                {
+                    float value = (level.CurrentWave >= (totalFlags - i) * level.GetWavesPerFlag()) ? deltaTime : -deltaTime;
+                    bannerProgresses[i] = Mathf.Clamp01(bannerProgresses[i] + value);
+                }
+                int totalWaveCount = level.GetTotalWaveCount();
+                float targetProgress = totalWaveCount <= 0 ? 0 : level.CurrentWave / (float)totalWaveCount;
+                int progressDirection = Math.Sign(targetProgress - levelProgress);
+                if (progressDirection != 0)
+                {
+                    levelProgress += Time.deltaTime * 0.1f * progressDirection;
+                    var newDirection = Mathf.Sign(targetProgress - levelProgress);
+                    if (progressDirection != newDirection)
+                    {
+                        levelProgress = targetProgress;
+                    }
+                }
+            }
         }
-        private void PlayReadySetBuild()
+        private void UpdateLevelProgressUI()
         {
             var ui = GetUIPreset();
-            ui.ShowReadySetBuild();
-        }
-        private void UpdateLevelUI()
-        {
-            var ui = GetUIPreset();
-            UpdateEnergy();
-            UpdateLevelProgress();
-            UpdateHeldSlotUI();
-            UpdateBlueprintsState();
-            UpdateStarshards();
-        }
-        private void UpdateMoney()
-        {
-            var ui = GetUIPreset();
-            ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
-        }
-        private void UpdateEnergy()
-        {
-            var ui = GetUIPreset();
-            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
-        }
-        private void UpdateLevelProgress()
-        {
-            var ui = GetUIPreset();
-            ui.SetProgressVisible(level.LevelProgressVisible);
-            ui.SetProgress(levelProgress);
+            ui.SetProgressBarVisible(level.LevelProgressVisible);
+            ui.SetLevelProgress(levelProgress);
             ui.SetBannerProgresses(bannerProgresses);
+            ui.SetBossProgress(bossProgress);
         }
-        private void UpdateHeldSlotUI()
+        private void RefreshProgressBar()
         {
-            var uiPreset = GetUIPreset();
-            uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
-            uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());
-            uiPreset.SetTriggerSelected(level.IsHoldingTrigger());
+            if (progressBarMode)
+            {
+                SetProgressToBoss(bossProgressBarStyle);
+            }
+            else
+            {
+                SetProgressToStage();
+            }
         }
+        #endregion
+
+        #region 关卡名
         private void UpdateLevelName()
         {
             string name = level.GetLevelName();
@@ -797,40 +884,60 @@ namespace MVZ2.Level
             }
             levelUI.SetLevelName(levelName);
         }
-        private void UpdateStarshards()
+        #endregion
+
+        #region 提示红字
+        private void PlayReadySetBuild()
         {
-            var levelUI = GetUIPreset();
-            levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
+            var ui = GetUIPreset();
+            ui.ShowReadySetBuild();
         }
+        #endregion
+
+        #region 金钱
+        private void UpdateMoney()
+        {
+            var ui = GetUIPreset();
+            ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
+        }
+        #endregion
+
+        #region 能量
+        private void UpdateEnergy()
+        {
+            var ui = GetUIPreset();
+            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
+        }
+        #endregion
+
+        #region 难度
         private void UpdateDifficultyName()
         {
             var difficultyName = Resources.GetDifficultyName(level.Difficulty);
             var levelUI = GetUIPreset();
             levelUI.SetDifficulty(difficultyName);
         }
+        #endregion
+
+        #region UI可见度
         private void SetUIVisibleState(VisibleState state)
         {
             var levelUI = GetUIPreset();
             levelUI.SetUIVisibleState(state);
         }
-        private void SetUnlockedUIActive()
+        #endregion
+
+        /// <summary>
+        /// 更新能量、关卡进度条、手持物品、蓝图状态、星之碎片。
+        /// </summary>
+        private void UpdateInLevelUI()
         {
-            var levelUI = GetUIPreset();
-            StarshardActive = Saves.IsStarshardUnlocked();
-            TriggerActive = Saves.IsTriggerUnlocked();
-        }
-        private bool TryCancelHeldItem()
-        {
-            // 正在拾起其他物品，取消正在拾取的物品。
-            if (level.IsHoldingItem())
-            {
-                if (level.CancelHeldItem())
-                {
-                    level.PlaySound(VanillaSoundID.tap);
-                    return true;
-                }
-            }
-            return false;
+            var ui = GetUIPreset();
+            UpdateEnergy();
+            UpdateLevelProgressUI();
+            UpdateHeldSlotUI();
+            UpdateBlueprintsState();
+            UpdateStarshards();
         }
 
         #endregion
@@ -849,6 +956,9 @@ namespace MVZ2.Level
         #region 保存属性
         private float levelProgress;
         private float[] bannerProgresses;
+        private float bossProgress;
+        private bool progressBarMode;
+        private NamespaceID bossProgressBarStyle;
         #endregion
 
         public RandomGenerator RNG => rng;

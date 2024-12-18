@@ -361,7 +361,7 @@
         </obstacle>
 
         <!-- Bosses -->
-        <boss id="frankenstein" name="科学怪人">
+        <boss id="frankenstein" name="科学怪人的怪物">
             <float name="maxHealth" value="25000"/>
             <vector3 name="size" x="60" y="200" z="60"/>
             <vector3 name="shotVelocity" x="30" y="0" z="0"/>

@@ -32,6 +32,7 @@ namespace MVZ2.Metas
         public EnemySpawnEntry[] Spawns { get; private set; }
         public ConveyorPoolEntry[] ConveyorPool { get; private set; }
         public int FirstWaveTime { get; private set; }
+        public bool NeedBlueprints { get; private set; }
 
         public Dictionary<string, object> Properties { get; private set; }
 
@@ -46,6 +47,7 @@ namespace MVZ2.Metas
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
+            var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
             var modelNode = node["model"];
             var preset = modelNode?.GetAttribute("preset");
@@ -119,6 +121,7 @@ namespace MVZ2.Metas
                 FirstWaveTime = firstWaveTime,
                 Spawns = spawns,
                 SpawnPointsMultiplier = spawnPointsMultiplier,
+                NeedBlueprints = needBlueprints,
 
                 Properties = properties
             };

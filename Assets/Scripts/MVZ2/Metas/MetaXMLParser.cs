@@ -56,7 +56,10 @@ namespace MVZ2.Metas
                     break;
                 case "musics":
                     resource.MusicMetaList = MusicMetaList.FromXmlNode(document["musics"], defaultNsp);
-                    break; 
+                    break;
+                case "progressbars":
+                    resource.ProgressBarMetaList = ProgressBarMetaList.FromXmlNode(document["bars"], defaultNsp);
+                    break;
             }
         }
     }

@@ -191,6 +191,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3d9178829e9e3e340b9f8df54bfcbbb5, type: 3}
   - name: entity/carts/pumpkin_carriage
     sprite: {fileID: 21300000, guid: 65b141497a801624881cf387625a6801, type: 3}
+  - name: entity/contraptions/disabled
+    sprite: {fileID: 21300000, guid: fc3e815806f7eaf4694e0d4333cc9185, type: 3}
   - name: entity/contraptions/glowstone
     sprite: {fileID: 21300000, guid: 9b11711b1da870544827beb40076b98b, type: 3}
   - name: entity/contraptions/magichest_flash
@@ -199,6 +201,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
   - name: entity/contraptions/punchton_arm
     sprite: {fileID: 21300000, guid: d00aabb5514ee4743a361ad46e38de95, type: 3}
+  - name: entity/contraptions/short_circuited
+    sprite: {fileID: 21300000, guid: ef8e70ac08eeb9a4aa57ec0abfff3b47, type: 3}
+  - name: entity/contraptions/sleeping
+    sprite: {fileID: 21300000, guid: cac832a88b0c87445b15d989123caa7a, type: 3}
   - name: entity/contraptions/soul_furnace
     sprite: {fileID: 21300000, guid: 24543ba35a4b2b248b19964dc8587095, type: 3}
   - name: entity/contraptions/soul_furnace_fuel_bar
@@ -401,9 +407,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 45676c5928868ae4092cf6ecaeb3f4d6, type: 3}
   - name: ui/level/mobile/trigger_gear_slot
     sprite: {fileID: 21300000, guid: b5ccd0b2064964141897d244b8b815bf, type: 3}
-  - name: ui/level/progress_bar/frankenstein_health_bar
+  - name: ui/level/progress_bar/frankenstein
     sprite: {fileID: 21300000, guid: 6e512505562ed4c44ae29837d5cd4be7, type: 3}
-  - name: ui/level/progress_bar/frankenstein_health_bar_background
+  - name: ui/level/progress_bar/frankenstein_background
     sprite: {fileID: 21300000, guid: 54522e226cf17e14bb45c04de8805928, type: 3}
   - name: ui/level/progress_bar/level_progress_banner
     sprite: {fileID: 21300000, guid: 43d0c46d78f545946b9f8472fc64be72, type: 3}

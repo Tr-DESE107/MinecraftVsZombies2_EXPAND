@@ -31,6 +31,7 @@ namespace MVZ2.GameContent.Buffs
         public const string stun = "stun";
         public const string minigameEnemySpeed = "minigame_enemy_speed";
         public const string napstablookAngry = "napstablook_angry";
+        public const string frankensteinTransformer = "frankenstein_transformer";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
@@ -59,6 +60,7 @@ namespace MVZ2.GameContent.Buffs
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
             public const string thunder = "thunder";
             public const string swordParalyzed = "sword_paralyzed";
+            public const string frankensteinStage = "frankenstein_stage";
         }
         public static class Boss
         {

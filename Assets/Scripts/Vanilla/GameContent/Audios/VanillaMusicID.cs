@@ -8,6 +8,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID choosing = Get("choosing");
         public readonly static NamespaceID day = Get("day");
         public readonly static NamespaceID halloween = Get("halloween");
+        public readonly static NamespaceID halloweenBoss = Get("halloween_boss");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

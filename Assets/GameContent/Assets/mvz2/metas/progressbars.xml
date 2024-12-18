@@ -1,0 +1,7 @@
+<bars>
+    <bar id="frankenstein" type="boss" width="124" height="24">
+        <background sprite="mvz2:ui/level/progress_bar/frankenstein_background" />
+        <bar sprite="mvz2:ui/level/progress_bar/frankenstein" fromLeft="true" />
+        <padding left="7" right="7" top="8" bottom="8" />
+    </bar>
+</bars>

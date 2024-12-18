@@ -323,7 +323,7 @@
     <misc>
         <!-- Bosses -->
         <group id="mvz2:bosses" name="头目" order="100">
-            <entry id="mvz2:frankenstein" name="科学怪人" unlock="mvz2:level.halloween_11">
+            <entry id="mvz2:frankenstein" name="科学怪人的怪物" unlock="mvz2:level.halloween_11">
                 <header>
                     <p>尸块组成的怪物，科幻小说中的杀人魔。</p>
                 </header>

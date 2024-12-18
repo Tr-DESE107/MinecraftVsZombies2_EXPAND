@@ -13,7 +13,7 @@ namespace MVZ2.Models
             modelShotRoot.gameObject.SetActive(true);
 
             //设置模型
-            var modelInstance = Instantiate(model.gameObject, modelShotPositionTransform);
+            var modelInstance = Model.Create(model, modelShotPositionTransform).gameObject;
             modelInstance.transform.localPosition = Vector3.zero;
 
             //创建一个用于渲染图片的RenderTexture

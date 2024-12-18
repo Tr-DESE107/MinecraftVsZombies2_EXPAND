@@ -162,6 +162,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void UpdateSacrifice(Entity furnace)
         {
+            if (furnace.IsDead)
+                return;
             var column = furnace.GetColumn();
             var lane = furnace.GetLane();
             var targetGrid = furnace.Level.GetGrid(column + 1, lane);

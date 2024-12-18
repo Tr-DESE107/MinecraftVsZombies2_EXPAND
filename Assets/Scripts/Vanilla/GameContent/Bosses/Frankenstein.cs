@@ -84,6 +84,7 @@ namespace MVZ2.GameContent.Bosses
                 var stateMachine = GetStateMachine(entity.State);
                 stateMachine.OnUpdate(entity);
             }
+            entity.SetAnimationFloat("ActionSpeed", GetActionSpeed(entity));
         }
         public override void PostDeath(Entity boss, DamageInput damageInfo)
         {
@@ -252,6 +253,11 @@ namespace MVZ2.GameContent.Bosses
             if (boss.Level.Difficulty == VanillaDifficulties.easy)
                 return false;
             return boss.Health <= boss.GetMaxHealth() * 0.5f && !IsSteelPhase(boss);
+        }
+
+        public static float GetActionSpeed(Entity boss)
+        {
+            return boss.Level.Difficulty == VanillaDifficulties.hard ? 2 : 1;
         }
 
         #region 属性
@@ -477,7 +483,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var nextStateTimer = GetStateTimer(entity);
-                nextStateTimer.Run();
+                nextStateTimer.Run(GetActionSpeed(entity));
                 if (!nextStateTimer.Expired)
                     return;
 
@@ -539,7 +545,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var substateTimer = GetSubStateTimer(entity);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(entity));
                 if (!substateTimer.Expired)
                     return;
 
@@ -623,7 +629,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var substateTimer = GetSubStateTimer(entity);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(entity));
                 if (substateTimer.Expired)
                 {
                     if (CanTransformPhase(entity))
@@ -656,7 +662,7 @@ namespace MVZ2.GameContent.Bosses
                 if (substate == SUBSTATE_GUN_READY)
                 {
                     var substateTimer = GetSubStateTimer(entity);
-                    substateTimer.Run();
+                    substateTimer.Run(GetActionSpeed(entity));
                     if (substateTimer.Expired)
                     {
                         substate = SUBSTATE_GUN_FIRE;
@@ -666,7 +672,7 @@ namespace MVZ2.GameContent.Bosses
                 }
                 // 寻找机枪目标
                 var detectTimer = GetDetectTimer(entity);
-                detectTimer.Run();
+                detectTimer.Run(GetActionSpeed(entity));
                 if (detectTimer.Expired || entity.Target == null || !entity.Target.Exists())
                 {
                     detectTimer.ResetTime(detectIntervalFrames);
@@ -739,14 +745,15 @@ namespace MVZ2.GameContent.Bosses
             private void ShootBullets(Entity boss)
             {
                 var substateTimer = GetSubStateTimer(boss);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(boss));
+                var intervalCount = substateTimer.PassedIntervalCount(1);
+                for (int i = 0; i < intervalCount; i++)
+                {
+                    ShootABullet(boss);
+                }
                 if (substateTimer.Expired)
                 {
                     EndFiringBullets(boss);
-                }
-                else
-                {
-                    ShootABullet(boss);
                 }
             }
         }
@@ -766,7 +773,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var detectTimer = GetDetectTimer(entity);
-                detectTimer.Run();
+                detectTimer.Run(GetActionSpeed(entity));
                 if (detectTimer.Expired)
                 {
                     detectTimer.ResetTime(detectIntervalFrames);
@@ -780,7 +787,7 @@ namespace MVZ2.GameContent.Bosses
 
                 var substate = GetSubState(entity);
                 var substateTimer = GetSubStateTimer(entity);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(entity));
                 if (!substateTimer.Expired)
                     return;
 
@@ -829,7 +836,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var substateTimer = GetSubStateTimer(entity);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(entity));
                 if (substateTimer.Expired)
                 {
                     var substate = GetSubState(entity);
@@ -953,7 +960,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var substateTimer = GetSubStateTimer(entity);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(entity));
                 if (!substateTimer.Expired)
                     return;
                 var substate = GetSubState(entity);
@@ -1006,7 +1013,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdate(entity);
                 var substateTimer = GetSubStateTimer(entity);
-                substateTimer.Run();
+                substateTimer.Run(GetActionSpeed(entity));
                 if (!substateTimer.Expired)
                     return;
                 var substate = GetSubState(entity);

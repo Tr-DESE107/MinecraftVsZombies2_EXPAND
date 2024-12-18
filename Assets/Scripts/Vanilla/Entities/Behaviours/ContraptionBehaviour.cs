@@ -18,7 +18,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.LeftFaction);
-
+            UpdateTakenGrids(entity);
             entity.InitFragment();
         }
         public override sealed void Update(Entity entity)

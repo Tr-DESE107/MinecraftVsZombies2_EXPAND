@@ -4,3 +4,6 @@
 [submodule "Assets/Plugins/CustomBuilder"]
 	path = Assets/Plugins/CustomBuilder
 	url = https://code.lotlab.org/IGensokyo/CustomBuilder.git
+[submodule "Assets/Plugins/tidalwav"]
+	path = Assets/Plugins/tidalwav
+	url = https://github.com/Cuerzor/tidalwav.git

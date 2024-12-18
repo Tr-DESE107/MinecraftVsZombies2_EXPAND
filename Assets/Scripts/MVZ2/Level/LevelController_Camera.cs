@@ -106,7 +106,7 @@ namespace MVZ2.Level
 
             var unlocked = Saves.GetUnlockedContraptions();
 
-            if (unlocked.Length > seedSlots)
+            if (unlocked.Length > seedSlots && level.NeedBlueprints())
             {
                 // 选卡。
                 var uiPreset = GetUIPreset();

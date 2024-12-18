@@ -29,6 +29,8 @@ namespace MVZ2.Vanilla.Level
 
         public const string SPAWN_POINTS_MULTIPLIER = "SpawnPointsMultiplier";
 
+        public const string NEED_BLUEPRINTS = "NeedBlueprints";
+
         public static NamespaceID GetClearPickupModel(this LevelEngine level)
         {
             return level.GetProperty<NamespaceID>(CLEAR_PICKUP_MODEL);
@@ -95,6 +97,14 @@ namespace MVZ2.Vanilla.Level
         public static float GetSpawnPointMultiplier(this LevelEngine level)
         {
             return level.GetProperty<float>(SPAWN_POINTS_MULTIPLIER);
+        }
+        public static void SetNeedBlueprints(this StageDefinition stage, bool value)
+        {
+            stage.SetProperty(NEED_BLUEPRINTS, value);
+        }
+        public static bool NeedBlueprints(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(NEED_BLUEPRINTS);
         }
     }
 }

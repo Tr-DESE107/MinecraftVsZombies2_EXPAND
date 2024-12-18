@@ -106,14 +106,21 @@ namespace MVZ2.Level
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
 
+            // 设置UI可见状态
             SetUIVisibleState(VisibleState.InLevel);
+            // 可解锁UI
             SetUnlockedUIActive();
 
+            // 经典蓝图和传送带蓝图
             UpdateClassicBlueprintCount();
             UpdateConveyorBlueprintCount();
+            // 关卡名
             UpdateLevelName();
+            // 设置难度和名称
             UpdateDifficulty();
-            UpdateLevelUI();
+            // 能量、关卡进度条、手持物品、蓝图状态、星之碎片
+            UpdateInLevelUI();
+            // 金钱
             UpdateMoney();
 
             var uiPreset = GetUIPreset();
@@ -173,6 +180,7 @@ namespace MVZ2.Level
                 optionsLogic.Dispose();
                 optionsLogic = null;
             }
+            Music.SetVolume(1);
             level?.StopAllLoopSounds();
             level?.Dispose();
         }
@@ -345,7 +353,7 @@ namespace MVZ2.Level
                     AdvanceLevelProgress();
 
                     UpdateHeldItemPosition();
-                    UpdateLevelUI();
+                    UpdateInLevelUI();
 
                     levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
                 }
@@ -824,6 +832,11 @@ namespace MVZ2.Level
         {
             get => Music.Time;
             set => Music.Time = value;
+        }
+        public float MusicVolume
+        {
+            get => Music.GetVolume();
+            set => Music.SetVolume(value);
         }
         public bool EnergyActive
         {

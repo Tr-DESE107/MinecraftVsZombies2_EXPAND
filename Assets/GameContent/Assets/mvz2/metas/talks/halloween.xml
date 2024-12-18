@@ -290,12 +290,12 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">所以，是什么怪物袭击了你？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">一个巨大而又强壮的可怕尸体怪物，它的身上充满了电流。它叫做……科学怪人。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">一个巨大而又强壮的可怕尸体怪物，它的身上充满了电流。它被叫做——科学怪人的怪物。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">科学怪人？但那只是个小说故事啊！</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">我也以为是……但它真的存在。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">很抱歉我疏忽了……事情本不应该是这样。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">很抱歉我疏忽了，事情本不应该是这样。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">没事，只需要把钥匙抢回来就可以了！</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end">……如果你们想和那个怪物战斗的话，请务必小心……</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end">如果你们想和那个怪物战斗的话，请务必小心。</sentence>
       </sentences>
     </section>
   </group>
@@ -441,7 +441,7 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">一封邀请函！僵尸发来的！</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">这……字好难看啊。</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">等等，射击……和电弧？这正是科学怪人的攻击手段！</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">等等，射击……和电弧？这正是那个怪物的攻击手段！</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">可能……你们会迎来一场恶战了。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">嘿，邻居，你难道会错过这次机会吗？肯定不会！</sentence>
       </sentences>
@@ -473,7 +473,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">这是我的梦境钥匙！你们做到了！</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">科学怪人也已经回到属于他的地方去了。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">怪物也已经回到属于他的地方去了。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk" variant="mvz2:close_eye">我由衷地感谢你们至今为我做的一切。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">这种事怎么弄得着感谢？我们只是我做了我们该做的罢了！</sentence>
       </sentences>

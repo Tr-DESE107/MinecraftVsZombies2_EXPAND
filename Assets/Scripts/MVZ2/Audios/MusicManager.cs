@@ -50,9 +50,17 @@ namespace MVZ2.Audios
         {
             volumeFader.StartFade(target, duration);
         }
+        public void StopFade()
+        {
+            volumeFader.StopFade();
+        }
         public void SetVolume(float volume)
         {
             volumeFader.Value = volume;
+        }
+        public float GetVolume()
+        {
+            return volumeFader.Value;
         }
         public void SetGlobalVolume(float volume)
         {

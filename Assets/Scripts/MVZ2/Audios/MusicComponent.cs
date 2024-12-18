@@ -18,6 +18,14 @@ namespace MVZ2.Level.Components
         {
             Main.MusicManager.Stop();
         }
+        public void SetMusicVolume(float volume)
+        {
+            Main.MusicManager.SetVolume(volume);
+        }
+        public float GetMusicVolume()
+        {
+            return Main.MusicManager.GetVolume();
+        }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "music");
     }
 }

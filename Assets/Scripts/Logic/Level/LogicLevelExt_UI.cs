@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2Logic.Level.Components;
+using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -85,6 +86,16 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetUIComponent();
             component.HideHintArrow();
+        }
+        public static void SetProgressBarToBoss(this LevelEngine level, NamespaceID barStyle)
+        {
+            var component = level.GetUIComponent();
+            component.SetProgressBarToBoss(barStyle);
+        }
+        public static void SetProgressBarToStage(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            component.SetProgressBarToStage();
         }
     }
 }

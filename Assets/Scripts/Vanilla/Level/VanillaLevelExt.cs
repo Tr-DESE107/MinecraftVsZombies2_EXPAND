@@ -2,6 +2,7 @@
 using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
@@ -152,6 +153,10 @@ namespace MVZ2.Vanilla.Level
                 level.CurrentFlag++;
             }
             level.CurrentWave++;
+            level.RunWave();
+        }
+        public static void RunWave(this LevelEngine level)
+        {
             var totalPoints = level.GetBaseSpawnPoints(level.CurrentWave);
             level.SetSpawnPoints(totalPoints);
             level.SpawnWaveEnemies(level.CurrentWave);
@@ -376,6 +381,10 @@ namespace MVZ2.Vanilla.Level
                 }
             }
             level.PlaySound(VanillaSoundID.thunder);
+        }
+        public static void StartRain(this LevelEngine level)
+        {
+            level.Spawn(VanillaEffectID.rain, new Vector3(VanillaLevelExt.LEVEL_WIDTH * 0.5f, 0, 0), null);
         }
     }
 }
