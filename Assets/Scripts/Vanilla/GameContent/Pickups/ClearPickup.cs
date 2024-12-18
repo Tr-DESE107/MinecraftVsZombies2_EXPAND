@@ -36,6 +36,10 @@ namespace MVZ2.GameContent.Pickups
             {
                 entity.SetProperty(VanillaPickupProps.REMOVE_ON_COLLECT, true);
             }
+            if (entity.ModelID == VanillaModelID.mapPickup)
+            {
+                entity.SetCollectSound(VanillaSoundID.pick);
+            }
         }
         public override void Update(Entity pickup)
         {
@@ -95,7 +99,7 @@ namespace MVZ2.GameContent.Pickups
             level.Clear();
             level.StopMusic();
             level.PlaySound(pickup.GetCollectSound());
-            level.PlaySound(GetPickupSoundID(pickup));
+            level.PlaySound(pickup.Level.GetClearSound());
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
 
         }
@@ -111,14 +115,6 @@ namespace MVZ2.GameContent.Pickups
             if (level.IsRerun)
                 return VanillaModelID.moneyChest;
             return level.GetClearPickupModel() ?? VanillaModelID.blueprintPickup;
-        }
-        private NamespaceID GetPickupSoundID(Entity entity)
-        {
-            if (entity.ModelID == VanillaModelID.mapPickup)
-            {
-                return VanillaSoundID.pick;
-            }
-            return VanillaSoundID.tap;
         }
         private const float COLLECTED_Z = 0;
     }

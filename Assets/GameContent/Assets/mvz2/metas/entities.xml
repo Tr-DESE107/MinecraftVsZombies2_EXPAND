@@ -399,7 +399,7 @@
         </gem>
         <pickup id="clear_pickup" name="通关掉落物">
             <bool name="important" value="true"/>
-            <id name="collectSound" value="mvz2:win_music"/>
+            <id name="collectSound" value="mvz2:tap"/>
             <id name="modelId" value="mvz2:entity.money_chest"/>
         </pickup>
         <pickup id="starshard" name="星之碎片">

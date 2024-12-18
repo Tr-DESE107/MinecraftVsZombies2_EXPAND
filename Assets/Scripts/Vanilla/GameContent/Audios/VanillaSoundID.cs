@@ -29,6 +29,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID fireCharge = Get("fire_charge");
         public readonly static NamespaceID finalWave = Get("final_wave");
+        public readonly static NamespaceID finalItem = Get("final_item");
         public readonly static NamespaceID fizz = Get("fizz");
         public readonly static NamespaceID frankensteinLaugh = Get("frankenstein_laugh");
         public readonly static NamespaceID frankensteinSteelLaugh = Get("frankenstein_steel_laugh");

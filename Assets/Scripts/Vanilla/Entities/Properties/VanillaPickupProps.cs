@@ -36,6 +36,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<NamespaceID>(DROP_SOUND);
         }
+        public static void SetCollectSound(this Entity entity, NamespaceID value)
+        {
+            entity.SetProperty(COLLECT_SOUND, value);
+        }
         public static NamespaceID GetCollectSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(COLLECT_SOUND);

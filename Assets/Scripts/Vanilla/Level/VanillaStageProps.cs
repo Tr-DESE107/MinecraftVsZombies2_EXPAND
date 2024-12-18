@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -27,9 +28,10 @@ namespace MVZ2.Vanilla.Level
         public const string START_TRANSITION = "startTransition";
         public const string START_CAMERA_POSITION = "startCameraPosition";
 
-        public const string SPAWN_POINTS_MULTIPLIER = "SpawnPointsMultiplier";
+        public const string SPAWN_POINTS_MULTIPLIER = "spawnPointsMultiplier";
 
-        public const string NEED_BLUEPRINTS = "NeedBlueprints";
+        public const string NEED_BLUEPRINTS = "needBlueprints";
+        public const string CLEAR_SOUND = "clearSound";
 
         public static NamespaceID GetClearPickupModel(this LevelEngine level)
         {
@@ -105,6 +107,14 @@ namespace MVZ2.Vanilla.Level
         public static bool NeedBlueprints(this LevelEngine level)
         {
             return level.GetProperty<bool>(NEED_BLUEPRINTS);
+        }
+        public static void SetClearSound(this StageDefinition stage, NamespaceID value)
+        {
+            stage.SetProperty(CLEAR_SOUND, value);
+        }
+        public static NamespaceID GetClearSound(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID>(CLEAR_SOUND) ?? VanillaSoundID.winMusic;
         }
     }
 }

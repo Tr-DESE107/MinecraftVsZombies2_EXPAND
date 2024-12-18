@@ -106,6 +106,9 @@
     <sound name="fast_forward" priority="64">
         <sample path="mvz2:fast_forward" weight="1" />
     </sound>
+    <sound name="final_item" priority="0">
+        <sample path="mvz2:final_item" weight="1" />
+    </sound>
     <sound name="final_wave" maxCount="1" priority="64">
         <sample path="mvz2:final_wave" weight="1" />
     </sound>
