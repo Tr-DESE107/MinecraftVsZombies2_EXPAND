@@ -17,7 +17,6 @@ namespace MVZ2.Vanilla.Entities
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetShadowScale(new Vector3(0.5f, 0.5f, 1));
             entity.Timeout = entity.GetMaxTimeout();
             entity.CollisionMaskHostile = EntityCollisionHelper.MASK_PLANT
                 | EntityCollisionHelper.MASK_ENEMY

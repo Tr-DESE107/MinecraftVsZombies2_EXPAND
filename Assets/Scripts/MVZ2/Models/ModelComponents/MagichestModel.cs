@@ -5,9 +5,9 @@ namespace MVZ2.Models
 {
     public class MagichestModel : ModelComponent
     {
-        public override void UpdateLogic()
+        public override void UpdateFrame(float deltaTime)
         {
-            base.UpdateLogic();
+            base.UpdateFrame(deltaTime);
 
             var flashScale = Model.GetProperty<Vector3>("FlashScale");
             flashScale = flashScale * (1 - scaleSpeed) + targetFlashScale * scaleSpeed;

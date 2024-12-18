@@ -7,9 +7,9 @@ namespace MVZ2.Models
 {
     public class BlueprintPickupSetter : ModelComponent
     {
-        public override void UpdateLogic()
+        public override void UpdateFrame(float deltaTime)
         {
-            base.UpdateLogic();
+            base.UpdateFrame(deltaTime);
             var blueprintID = Model.GetProperty<NamespaceID>("BlueprintID");
             if (lastID != blueprintID)
             {

@@ -76,6 +76,7 @@
         <projectile id="7" parent="entity">
             <int name="maxTimeout" value="1800"/>
             <float name="changeLaneSpeed" value="10"/>
+            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
         </projectile>
         <effect id="8" parent="entity">
             <int name="maxTimeout" value="-1"/>

@@ -59,6 +59,7 @@ namespace MVZ2.Entities
                 return;
             UpdateEntityModel();
             UpdateArmorModel();
+            Model.UpdateFrame(0);
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {

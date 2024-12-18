@@ -13,11 +13,6 @@ namespace MVZ2.Models
         {
             base.UpdateLogic();
             var rng = Model.GetRNG();
-            var source = sourceTransform.position;
-            var dest = Lawn2TransPosition(Model.GetProperty<Vector3>("Dest"));
-            var distance = dest - source;
-            sourceTransform.rotation = Quaternion.FromToRotation(Vector3.right, distance);
-            sourceTransform.localScale = new Vector3(distance.magnitude, 1, 1);
 
             foreach (LightningGenerator lightning in lightnings)
             {
@@ -37,6 +32,15 @@ namespace MVZ2.Models
                     renderer.SetPosition(i, localPosition);
                 }
             }
+        }
+        public override void UpdateFrame(float deltaTime)
+        {
+            base.UpdateFrame(deltaTime);
+            var source = sourceTransform.position;
+            var dest = Lawn2TransPosition(Model.GetProperty<Vector3>("Dest"));
+            var distance = dest - source;
+            sourceTransform.rotation = Quaternion.FromToRotation(Vector3.right, distance);
+            sourceTransform.localScale = new Vector3(distance.magnitude, 1, 1);
         }
         private void UpdateLines()
         {
