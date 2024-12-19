@@ -28,11 +28,13 @@ namespace MVZ2.Metas
         }
         private static readonly Dictionary<string, StatCategoryType> typeDict = new Dictionary<string, StatCategoryType>()
         {
-            { "entity", StatCategoryType.Entity }
+            { "entity", StatCategoryType.Entity },
+            { "stage", StatCategoryType.Stage }
         };
     }
     public enum StatCategoryType
     {
-        Entity
+        Entity,
+        Stage
     }
 }

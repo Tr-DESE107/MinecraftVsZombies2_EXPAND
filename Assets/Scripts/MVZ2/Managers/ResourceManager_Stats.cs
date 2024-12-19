@@ -29,6 +29,8 @@ namespace MVZ2.Managers
             {
                 case StatCategoryType.Entity:
                     return GetEntityName(entryID);
+                case StatCategoryType.Stage:
+                    return Main.LevelManager.GetStageName(entryID);
             }
             return entryID.ToString();
         }

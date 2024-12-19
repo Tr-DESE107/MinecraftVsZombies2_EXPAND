@@ -153,9 +153,9 @@ namespace MVZ2.Tests
                 }
             }
             // 生成僵尸
-            var zombie = VanillaEnemyID.zombie;
-            var leatherCap = VanillaEnemyID.leatherCappedZombie;
-            var ironHelmet = VanillaEnemyID.ironHelmettedZombie;
+            var zombie = VanillaSpawnID.zombie;
+            var leatherCap = VanillaSpawnID.leatherCappedZombie;
+            var ironHelmet = VanillaSpawnID.ironHelmettedZombie;
             for (int t = 0; t < 3; t++)
             {
                 NamespaceID def = zombie;

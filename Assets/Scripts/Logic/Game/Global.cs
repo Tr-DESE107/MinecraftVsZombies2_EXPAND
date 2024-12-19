@@ -77,9 +77,13 @@ namespace MVZ2Logic
         {
             return Saves.GetSaveStat(category, entry);
         }
+        public static void SetSaveStat(NamespaceID category, NamespaceID entry, long value)
+        {
+            Saves.SetSaveStat(category, entry, value);
+        }
         public static void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
         {
-            Saves.AddSaveStat(category, entry, value);
+            SetSaveStat(category, entry, GetSaveStat(category, entry) + value);
         }
         #endregion
         private static IMainManager Main { get; set; }
@@ -129,6 +133,6 @@ namespace MVZ2Logic
     public interface IGlobalSave
     {
         long GetSaveStat(NamespaceID category, NamespaceID entry);
-        void AddSaveStat(NamespaceID category, NamespaceID entry, long value);
+        void SetSaveStat(NamespaceID category, NamespaceID entry, long value);
     }
 }

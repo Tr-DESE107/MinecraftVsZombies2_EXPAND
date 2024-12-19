@@ -78,7 +78,7 @@ namespace MVZ2.Vanilla
                 AddDefinition(seedDef);
 
                 var spawnCost = entityDefinition.GetSpawnCost();
-                var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name));
+                var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name), entityDefinition.GetExcludedAreaTags() ?? Array.Empty<NamespaceID>());
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
                 AddDefinition(spawnDef);
             }
@@ -96,12 +96,25 @@ namespace MVZ2.Vanilla
         }
         private void LoadStageMetas()
         {
-            foreach (var meta in Global.Game.GetModStageMetas(spaceName).Where(m => m.Type == StageTypes.TYPE_NORMAL))
+            foreach (var meta in Global.Game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
                     continue;
-                var stage = new ClassicStage(spaceName, meta.ID);
-                AddDefinition(stage);
+                switch (meta.Type)
+                {
+                    case StageTypes.TYPE_NORMAL:
+                        {
+                            var stage = new ClassicStage(spaceName, meta.ID);
+                            AddDefinition(stage);
+                        }
+                        break;
+                    case StageTypes.TYPE_ENDLESS:
+                        {
+                            var stage = new EndlessStage(spaceName, meta.ID);
+                            AddDefinition(stage);
+                        }
+                        break;
+                }
             }
         }
         protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)

@@ -8,8 +8,10 @@ namespace MVZ2.Vanilla
         [TranslateMsg("教程无法使用提示")]
         public const string TOOLTIP_DISABLE_MESSAGE = "无法使用";
 
-        [TranslateMsg("不能在雕像上放置器械提示", CONTEXT_ADVICE_ERROR)]
+        [TranslateMsg("不能在雕像上放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_CANNOT_PLACE_ON_STATUES = "你不能在雕像上放置器械";
+        [TranslateMsg("不能在雕像上放置器械提示", CONTEXT_ADVICE)]
+        public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
 
         [TranslateMsg]
         public const string UI_PURCHASE = "购买";
@@ -97,6 +99,8 @@ namespace MVZ2.Vanilla
         public const string LEVEL_NAME_UNKNOWN = "未知关卡";
         [TranslateMsg("关卡名称，{0}为关卡名，{1}为冒险模式天数", CONTEXT_LEVEL_NAME)]
         public const string LEVEL_NAME_DAY_TEMPLATE = "{0} - 第{1}天";
+        [TranslateMsg("关卡名称，{0}为关卡名，{1}为无尽模式轮数", CONTEXT_LEVEL_NAME)]
+        public const string LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE = "{0} - 第{1}轮";
 
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
@@ -136,7 +140,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ACHIEVEMENT = "achievement";
         public const string CONTEXT_ARCHIVE = "archive";
         public const string CONTEXT_ARCHIVE_TAG_NAME = "archive.tagname";
-        public const string CONTEXT_ADVICE_ERROR = "advice.error";
+        public const string CONTEXT_ADVICE = "advice";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_CHARACTER_NAME = "character.name";

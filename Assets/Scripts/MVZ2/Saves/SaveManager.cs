@@ -255,6 +255,21 @@ namespace MVZ2.Saves
         }
         #endregion
 
+        public int GetCurrentEndlessFlag(NamespaceID stageID)
+        {
+            var saveData = GetModSaveData(stageID.spacename);
+            if (saveData == null)
+                return 0;
+            return saveData.GetCurrentEndlessFlag(stageID.path);
+        }
+        public void SetCurrentEndlessFlag(NamespaceID stageID, int value)
+        {
+            var saveData = GetModSaveData(stageID.spacename);
+            if (saveData == null)
+                return;
+            saveData.SetCurrentEndlessFlag(stageID.path, value);
+        }
+
         #region 统计
         public UserStats GetUserStats(string nsp)
         {
@@ -270,12 +285,12 @@ namespace MVZ2.Saves
                 return 0;
             return saveData.GetStat(category.path, entry);
         }
-        public void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
+        public void SetSaveStat(NamespaceID category, NamespaceID entry, long value)
         {
             var saveData = GetModSaveData(category.spacename);
             if (saveData == null)
                 return;
-            saveData.AddStat(category.path, entry, value);
+            saveData.SetStat(category.path, entry, value);
         }
         #endregion
 

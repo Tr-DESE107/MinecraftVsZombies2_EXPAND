@@ -1,41 +1,40 @@
-﻿using MongoDB.Bson;
+﻿using System.Globalization;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
+using Tools.BsonSerializers;
 
 namespace PVZEngine.BsonSerializers
 {
-    public class NamespaceIDSerializer : ClassSerializerBase<NamespaceID>
+    public class NamespaceIDSerializer : WrappedSerializerBase<NamespaceID>
     {
         public NamespaceIDSerializer(string defaultNsp)
         {
             this.defaultNsp = defaultNsp;
         }
-        public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, NamespaceID value)
+        protected override void SerializeValue(BsonSerializationContext context, BsonSerializationArgs args, NamespaceID value)
         {
             var writer = context.Writer;
-            if (value == null)
-            {
-                writer.WriteNull();
-            }
-            else
-            {
-                writer.WriteString(value.ToString());
-            }
+            writer.WriteString(value.ToString());
         }
 
-        public override NamespaceID Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+        protected override NamespaceID DeserializeClassValue(BsonDeserializationContext context, BsonDeserializationArgs args)
         {
             var reader = context.Reader;
-            if (reader.GetCurrentBsonType() != BsonType.String)
+
+            var bsonType = reader.GetCurrentBsonType();
+            switch (bsonType)
             {
-                reader.ReadNull();
-                return null;
+                case BsonType.String:
+                    if (NamespaceID.TryParse(reader.ReadString(), defaultNsp, out var parsed))
+                    {
+                        return parsed;
+                    }
+                    return null;
+
+                default:
+                    throw CreateCannotDeserializeFromBsonTypeException(bsonType);
             }
-            if (NamespaceID.TryParse(reader.ReadString(), defaultNsp, out var parsed))
-            {
-                return parsed;
-            }
-            return null;
         }
         private string defaultNsp;
     }

@@ -231,4 +231,14 @@
             <integer name="statueCount" value="10" />
         </properties>
     </stage>
+    <stage id="halloween_endless" name="万圣夜无尽" type="endless" unlock="mvz2:level.halloween_11" >
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="statueCount" value="2" />
+        </properties>
+    </stage>
 </stages>

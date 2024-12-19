@@ -4,6 +4,7 @@ using MVZ2.GameContent.Grids;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace MVZ2.GameContent.Areas
         {
             SetProperty(VanillaAreaProps.DOOR_Z, 240f);
             SetProperty(EngineAreaProps.CART_REFERENCE, VanillaCartID.minecart);
+            SetProperty(EngineAreaProps.AREA_TAGS, new NamespaceID[] { VanillaAreaTags.day, VanillaAreaTags.noWater });
             SetProperty(VanillaLevelProps.MUSIC_ID, VanillaMusicID.day);
             for (int i = 0; i < 45; i++)
             {

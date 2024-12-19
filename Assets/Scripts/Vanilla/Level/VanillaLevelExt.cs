@@ -5,6 +5,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
@@ -107,26 +108,26 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetHeldItemType() == VanillaHeldTypes.trigger;
         }
-        public static void CreatePreviewEnemies(this LevelEngine level, IEnumerable<NamespaceID> validEnemies, Rect region)
+        public static void CreatePreviewEnemies(this LevelEngine level, IEnumerable<NamespaceID> spawnsID, Rect region)
         {
-            List<NamespaceID> enemyIDToCreate = new List<NamespaceID>();
-            foreach (var id in validEnemies)
+            List<SpawnDefinition> spawnToCreate = new List<SpawnDefinition>();
+            foreach (var spawnID in spawnsID)
             {
-                var spawnDefinition = level.Content.GetSpawnDefinition(id);
+                var spawnDefinition = level.Content.GetSpawnDefinition(spawnID);
                 int count = spawnDefinition.GetPreviewCount();
 
                 for (int i = 0; i < count; i++)
                 {
-                    enemyIDToCreate.Add(id);
+                    spawnToCreate.Add(spawnDefinition);
                 }
             }
 
             List<Entity> createdEnemies = new List<Entity>();
             float radius = 80;
-            while (enemyIDToCreate.Count > 0)
+            while (spawnToCreate.Count > 0)
             {
-                var creatingEnemyId = enemyIDToCreate.ToArray();
-                foreach (var id in creatingEnemyId)
+                var creatingSpawnDef = spawnToCreate.ToArray();
+                foreach (var spawnDef in creatingSpawnDef)
                 {
                     var x = Random.Range(region.xMin, region.xMax);
                     var z = Random.Range(region.yMin, region.yMax);
@@ -136,28 +137,33 @@ namespace MVZ2.Vanilla.Level
                     if (radius > 0 && createdEnemies.Any(e => Vector3.Distance(e.Position, pos) < radius))
                         continue;
 
-                    Entity enm = level.Spawn(id, pos, null);
+                    Entity enm = level.Spawn(spawnDef.EntityID, pos, null);
                     enm.SetPreviewEnemy(true);
                     createdEnemies.Add(enm);
 
-                    enemyIDToCreate.Remove(id);
+                    spawnToCreate.Remove(spawnDef);
                 }
                 radius--;
             }
         }
         #region Waves
-        public static void NextWave(this LevelEngine level)
+        public static void PostWaveFinished(this LevelEngine level, int wave)
         {
-            if (level.IsHugeWave(level.CurrentWave))
+            if (level.IsHugeWave(wave))
             {
                 level.CurrentFlag++;
             }
+            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, wave, level, wave);
+        }
+        public static void NextWave(this LevelEngine level)
+        {
+            level.PostWaveFinished(level.CurrentWave);
             level.CurrentWave++;
             level.RunWave();
         }
         public static void RunWave(this LevelEngine level)
         {
-            var totalPoints = level.GetBaseSpawnPoints(level.CurrentWave);
+            var totalPoints = level.GetBaseSpawnPoints(level.CurrentWave, level.CurrentFlag);
             level.SetSpawnPoints(totalPoints);
             level.SpawnWaveEnemies(level.CurrentWave);
 
@@ -165,9 +171,12 @@ namespace MVZ2.Vanilla.Level
             level.StageDefinition.PostWave(level, wave);
             level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, level, wave);
         }
-        public static float GetBaseSpawnPoints(this LevelEngine level, int wave)
+        public static float GetBaseSpawnPoints(this LevelEngine level, int wave, int flags)
         {
-            var points = wave / 3f;
+            var wavesPerFlag = level.GetWavesPerFlag();
+            var waveModular = (wave - 1) % wavesPerFlag + 1;
+            var totalWave = waveModular + flags * wavesPerFlag;
+            var points = Mathf.Min(totalWave / 3f, 500);
             if (level.IsHugeWave(wave))
             {
                 points *= 2.5f;
@@ -180,7 +189,8 @@ namespace MVZ2.Vanilla.Level
             var totalPoints = level.GetSpawnPoints();
             var pool = level.GetEnemyPool();
             var spawnDefs = pool.Where(e => e.CanSpawn(level)).Select(e => e.GetSpawnDefinition(level.Content));
-            while (totalPoints > 0)
+            int spawnedCount = 0;
+            while (totalPoints > 0 && spawnedCount < 50)
             {
                 var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalPoints);
                 if (validSpawnDefs.Count() <= 0)
@@ -188,6 +198,7 @@ namespace MVZ2.Vanilla.Level
                 var spawnDef = validSpawnDefs.Random(level.GetSpawnRNG());
                 level.SpawnEnemyAtRandomLane(spawnDef);
                 totalPoints -= spawnDef.SpawnCost;
+                spawnedCount++;
             }
 
             if (level.IsFinalWave(wave))
@@ -234,8 +245,8 @@ namespace MVZ2.Vanilla.Level
         public static void CreatePreviewEnemies(this LevelEngine level, Rect region)
         {
             var pool = level.GetEnemyPool();
-            var validEnemies = pool.Select(e => e.GetSpawnDefinition(level.Content)?.EntityID);
-            level.CreatePreviewEnemies(validEnemies, region);
+            var spawnIDs = pool.Select(e => e.GetSpawnDefinition(level.Content)?.GetID()).Where(e => e != null);
+            level.CreatePreviewEnemies(spawnIDs, region);
         }
         public static void RemovePreviewEnemies(this LevelEngine level)
         {

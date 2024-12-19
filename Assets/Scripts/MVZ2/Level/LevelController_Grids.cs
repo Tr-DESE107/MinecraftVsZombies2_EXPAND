@@ -64,7 +64,7 @@ namespace MVZ2.Level
                 var errorMessage = level.GetHeldErrorMessageOnGrid(grid);
                 if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    level.ShowAdvice(Vanilla.VanillaStrings.CONTEXT_ADVICE_ERROR, errorMessage, 0, 150);
+                    level.ShowAdvice(Vanilla.VanillaStrings.CONTEXT_ADVICE, errorMessage, 0, 150);
                 }
             }
             if (reset)

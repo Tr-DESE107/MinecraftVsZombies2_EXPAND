@@ -19,5 +19,10 @@ namespace MVZ2Logic.Level
             var component = level.GetLogicComponent();
             component.StopLevel();
         }
+        public static void SaveStateData(this LevelEngine level)
+        {
+            var component = level.GetLogicComponent();
+            component.SaveStateData();
+        }
     }
 }

@@ -143,7 +143,7 @@ namespace MVZ2.Level
         #region 对话框
         public void ShowRestartConfirmDialog()
         {
-            var title = Localization._(Vanilla.VanillaStrings.RESTART);
+            var title = Localization._(VanillaStrings.RESTART);
             var desc = Localization._(DIALOG_DESC_RESTART);
             Scene.ShowDialogSelect(title, desc, async (confirm) =>
             {
@@ -287,7 +287,7 @@ namespace MVZ2.Level
             }
             var viewData = new TooltipViewData()
             {
-                name = Localization._(Vanilla.VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
+                name = Localization._(VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
                 error = error,
                 description = null
             };
@@ -416,7 +416,7 @@ namespace MVZ2.Level
         {
             if (chosenBlueprints.Count < level.GetSeedSlotCount())
             {
-                var title = Localization._(Vanilla.VanillaStrings.WARNING);
+                var title = Localization._(VanillaStrings.WARNING);
                 var desc = Localization._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL);
                 var result = await Scene.ShowDialogSelectAsync(title, desc);
                 if (!result)
@@ -542,7 +542,7 @@ namespace MVZ2.Level
                 message = deathMessage;
             }
             ui.SetGameOverDialogActive(true);
-            ui.SetGameOverDialogMessage(Localization._p(Vanilla.VanillaStrings.CONTEXT_DEATH_MESSAGE, message));
+            ui.SetGameOverDialogMessage(Localization._p(VanillaStrings.CONTEXT_DEATH_MESSAGE, message));
         }
         private void ShowLevelErrorLoadingDialog(string desc)
         {
@@ -870,19 +870,8 @@ namespace MVZ2.Level
         #region 关卡名
         private void UpdateLevelName()
         {
-            string name = level.GetLevelName();
-            int dayNumber = level.GetDayNumber();
-            if (string.IsNullOrEmpty(name))
-            {
-                name = Vanilla.VanillaStrings.LEVEL_NAME_UNKNOWN;
-            }
             var levelUI = GetUIPreset();
-            var levelName = Localization._p(Vanilla.VanillaStrings.CONTEXT_LEVEL_NAME, name);
-            if (dayNumber > 0)
-            {
-                levelName = Localization._p(Vanilla.VanillaStrings.CONTEXT_LEVEL_NAME, Vanilla.VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
-            }
-            levelUI.SetLevelName(levelName);
+            levelUI.SetLevelName(LevelManager.GetStageName(level));
         }
         #endregion
 

@@ -96,6 +96,28 @@ namespace MVZ2Logic.Saves
         }
         #endregion
 
+        #region 无尽
+        public void SetCurrentEndlessFlag(string stageID, int value)
+        {
+            var record = endlessRecords.FirstOrDefault(e => e.ID == stageID);
+            if (record == null)
+            {
+                record = new EndlessRecord(stageID);
+                endlessRecords.Add(record);
+            }
+            record.SetMaxFlags(value);
+        }
+        public int GetCurrentEndlessFlag(string stageID)
+        {
+            var record = endlessRecords.FirstOrDefault(e => e.ID == stageID);
+            if (record == null)
+            {
+                return 0;
+            }
+            return record.GetMaxFlags();
+        }
+        #endregion
+
         #region 统计
         public void SetStat(string category, NamespaceID entry, long value)
         {
@@ -133,6 +155,7 @@ namespace MVZ2Logic.Saves
         public string Namespace { get; private set; }
         protected UserStats stats = new UserStats();
         protected List<LevelDifficultyRecord> levelDifficultyRecords = new List<LevelDifficultyRecord>();
+        protected List<EndlessRecord> endlessRecords = new List<EndlessRecord>();
         protected List<MapPresetConfig> mapPresetConfigs = new List<MapPresetConfig>();
         protected HashSet<string> unlocks = new HashSet<string>();
     }
@@ -141,6 +164,7 @@ namespace MVZ2Logic.Saves
         public int version;
         public string spaceName;
         public SerializableUserStats stats;
+        public SerializableEndlessRecord[] endlessRecords;
         public SerializableLevelDifficultyRecord[] levelDifficultyRecords;
         public SerializableMapPresetConfig[] mapPresetConfigs;
         public string[] unlocks;

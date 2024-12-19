@@ -15,9 +15,9 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    public class FrankensteinStageBehaviour : WaveStageBehaviour
+    public class FrankensteinStageBehaviour : BossStageBehaviour
     {
-        public FrankensteinStageBehaviour(StageDefinition stageDef) : base(stageDef, true)
+        public FrankensteinStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
         }
         protected override void AfterFinalWaveUpdate(LevelEngine level)
@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Stages
                 if (waveTimer.Expired)
                 {
                     SetWaveMaxHealth(level, 0);
-                    waveTimer.ResetTime(GetWaveMaxTime(level));
+                    waveTimer.ResetTime(level.GetWaveMaxTime());
                     level.RunWave();
                 }
             }

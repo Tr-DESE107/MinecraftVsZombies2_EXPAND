@@ -18,6 +18,10 @@ namespace MVZ2.Level.Components
         {
             Controller.StopLevel();
         }
+        public void SaveStateData()
+        {
+            Main.LevelManager.SaveLevel();
+        }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "logic");
     }
 }

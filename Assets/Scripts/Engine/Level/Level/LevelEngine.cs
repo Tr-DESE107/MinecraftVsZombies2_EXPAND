@@ -349,7 +349,6 @@ namespace PVZEngine.Level
                 isCleared = IsCleared,
                 stageDefinitionID = StageDefinition.GetID(),
                 areaDefinitionID = AreaDefinition.GetID(),
-                isEndless = IsEndless,
                 difficulty = Difficulty,
                 Option = Option.Serialize(),
 
@@ -408,7 +407,6 @@ namespace PVZEngine.Level
             level.ChangeArea(seri.areaDefinitionID);
             level.InitAreaProperties();
 
-            level.IsEndless = seri.isEndless;
             level.Difficulty = seri.difficulty;
             level.Option = LevelOption.Deserialize(seri.Option);
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
@@ -470,6 +468,10 @@ namespace PVZEngine.Level
         public RandomGenerator GetSpawnRNG()
         {
             return spawnRandom;
+        }
+        public RandomGenerator GetRoundRNG()
+        {
+            return roundRandom;
         }
         public RandomGenerator GetConveyorRNG()
         {

@@ -16,6 +16,11 @@ namespace MVZ2.Games
             saveDataProvider.Unlock(unlockID);
         }
 
+        public NamespaceID[] GetUnlockedEnemies()
+        {
+            return saveDataProvider.GetUnlockedEnemies();
+        }
+
         public T GetModSaveData<T>(string spaceName)
         {
             return saveDataProvider.GetModSaveData<T>(spaceName);

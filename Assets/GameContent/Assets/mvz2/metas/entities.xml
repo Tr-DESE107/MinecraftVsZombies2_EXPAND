@@ -284,6 +284,8 @@
             <id name="crySound" value="mvz2:ghost_cry"/>
             <id name="deathSound" value="mvz2:ghost_death"/>
 
+            <idArray name="excludedAreaTags" value="mvz2:day" />
+
             <int name="cost" value="100" />
             
             <int name="spawnCost" value="2"/>
@@ -341,6 +343,7 @@
             <id name="deathSound" value="mvz2:bone_wall_destroyed"/>
 
             <int name="cost" value="25" />
+            <int name="spawnCost" value="0"/>
         </enemy>
         <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……" unlock="mvz2:level.halloween_6">
             <bool name="harmless" value="true"/>
@@ -352,6 +355,7 @@
             <id name="deathSound" null="true"/>
 
             <int name="cost" value="0" />
+            <int name="spawnCost" value="0"/>
         </enemy>
 
         <!-- Obstacles -->

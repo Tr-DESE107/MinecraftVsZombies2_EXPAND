@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
@@ -12,11 +14,13 @@ using MVZ2.Talks;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
+using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Scenes;
 using MVZ2Logic.Talk;
 using PVZEngine;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -78,6 +82,7 @@ namespace MVZ2.Map
 
             UpdateModelButtons();
             UpdateModelElements();
+            UpdateModelEndlessFlags();
             SetCameraBackgroundColor(mapPreset.backgroundColor);
             Main.MusicManager.Play(mapPreset.music);
 
@@ -150,10 +155,13 @@ namespace MVZ2.Map
         }
         private void OnMapButtonClickCallback(int index)
         {
-            StartCoroutine(EnterLevel(index));
+            var stageID = mapMeta.stages[index];
+            StartCoroutine(EnterLevel(stageID));
         }
         private void OnEndlessButtonClickCallback()
         {
+            var stageID = mapMeta.endlessStage;
+            StartCoroutine(EnterLevel(stageID));
         }
         #endregion
 
@@ -379,24 +387,24 @@ namespace MVZ2.Map
         }
         #endregion
 
-        private IEnumerator EnterLevel(int index)
+        private IEnumerator EnterLevel(NamespaceID stageID)
         {
             ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
             ui.SetRaycastBlockerActive(true);
             Main.MusicManager.Stop();
             Main.SoundManager.Play2D(VanillaSoundID.spring);
             yield return new WaitForSeconds(1);
-            var task = GotoLevelAsync(index);
+            var task = GotoLevelAsync(stageID);
             while (!task.IsCompleted)
             {
                 yield return null;
             }
         }
-        private async Task GotoLevelAsync(int index)
+        private async Task GotoLevelAsync(NamespaceID stageID)
         {
             Main.SaveManager.SaveModDatas();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.InitLevel(mapMeta.area, mapMeta.stages[index]);
+            Main.LevelManager.InitLevel(mapMeta.area, stageID);
             Hide();
         }
 
@@ -455,6 +463,24 @@ namespace MVZ2.Map
                 model.SetMapElementUnlocked(unlock, Main.SaveManager.IsUnlocked(unlock));
             }
         }
+        private void UpdateModelEndlessFlags()
+        {
+            var currentFlags = GetEndlessFlags();
+            var maxFlags = GetMaxEndlessFlags();
+            var text = Main.LanguageManager._(ENDLESS_FLAGS_TEMPLATE, currentFlags, maxFlags);
+            model.SetEndlessFlagsTextActive(IsEndlessUnlocked());
+            model.SetEndlessFlagsText(text);
+        }
+        private int GetEndlessFlags()
+        {
+            var stageID = mapMeta.endlessStage;
+            return Main.SaveManager.GetCurrentEndlessFlag(stageID);
+        }
+        private int GetMaxEndlessFlags()
+        {
+            var stageID = mapMeta.endlessStage;
+            return (int)Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+        }
 
         #endregion
 
@@ -464,6 +490,8 @@ namespace MVZ2.Map
         public const string HINT_TEXT_MOBILE = "单指拖动以移动视图\n双指触摸以缩放视图";
         [TranslateMsg("地图的提示文本")]
         public const string HINT_TEXT_ENTERING_LEVEL = "正在进入关卡……";
+        [TranslateMsg("地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高")]
+        public const string ENDLESS_FLAGS_TEMPLATE = "轮数\n{0}/{1}";
         private MainManager Main => MainManager.Instance;
         private MapModel model;
         private MapMeta mapMeta;

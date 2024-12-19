@@ -353,7 +353,10 @@ namespace PVZEngine.Entities
         }
         public void TakeGrid(LawnGrid grid)
         {
-            takenGrids.Add(grid);
+            if (!takenGrids.Contains(grid))
+            {
+                takenGrids.Add(grid);
+            }
             grid.AddEntity(this);
         }
         public bool ReleaseGrid(LawnGrid grid)
@@ -646,7 +649,7 @@ namespace PVZEngine.Entities
             buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
-            takenGrids = seri.takenGrids.ConvertAll(g => Level.GetGrid(g));
+            takenGrids = seri.takenGrids.Distinct().Select(g => Level.GetGrid(g)).ToList();
             for (int i = 0; i < colliders.Count; i++)
             {
                 var collider = colliders[i];

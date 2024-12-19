@@ -27,6 +27,7 @@ namespace MVZ2Logic.Level.Components
     {
         void BeginLevel();
         void StopLevel();
+        void SaveStateData();
     }
     public interface IMusicComponent : ILevelComponent
     {

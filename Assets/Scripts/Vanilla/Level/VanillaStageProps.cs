@@ -33,6 +33,12 @@ namespace MVZ2.Vanilla.Level
         public const string NEED_BLUEPRINTS = "needBlueprints";
         public const string CLEAR_SOUND = "clearSound";
 
+        public const string ENDLESS = "endless";
+
+
+        public static int GetWaveMaxTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_MAX_TIME);
+        public static int GetWaveAdvanceTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_ADVANCE_TIME);
+        public static float GetWaveAdvanceHealthPercent(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT);
         public static NamespaceID GetClearPickupModel(this LevelEngine level)
         {
             return level.GetProperty<NamespaceID>(CLEAR_PICKUP_MODEL);
@@ -45,6 +51,10 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<string>(LEVEL_NAME);
         }
+        public static string GetLevelName(this StageDefinition stage)
+        {
+            return stage.GetProperty<string>(LEVEL_NAME);
+        }
         public static void SetLevelName(this StageDefinition stage, string name)
         {
             stage.SetProperty(LEVEL_NAME, name);
@@ -52,6 +62,10 @@ namespace MVZ2.Vanilla.Level
         public static int GetDayNumber(this LevelEngine level)
         {
             return level.GetProperty<int>(DAY_NUMBER);
+        }
+        public static int GetDayNumber(this StageDefinition stage)
+        {
+            return stage.GetProperty<int>(DAY_NUMBER);
         }
         public static void SetDayNumber(this StageDefinition stage, int number)
         {
@@ -115,6 +129,14 @@ namespace MVZ2.Vanilla.Level
         public static NamespaceID GetClearSound(this LevelEngine level)
         {
             return level.GetProperty<NamespaceID>(CLEAR_SOUND) ?? VanillaSoundID.winMusic;
+        }
+        public static bool IsEndless(this StageDefinition stage)
+        {
+            return stage.GetProperty<bool>(ENDLESS);
+        }
+        public static bool IsEndless(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(ENDLESS);
         }
     }
 }

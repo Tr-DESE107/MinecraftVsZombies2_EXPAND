@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.Scenes;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;
+using PVZEngine.Level;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,11 +46,14 @@ namespace MVZ2.Level
         {
             if (!controller)
                 return;
-            var path = GetLevelStatePath(controller.GetStartStageID());
+            var stageID = controller.GetStartStageID();
+            var path = GetLevelStatePath(stageID);
             FileHelper.ValidateDirectory(path);
             var seri = controller.SaveGame();
             var json = seri.ToBson();
             Main.FileManager.WriteJsonFile(path, json);
+
+            UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
         }
         public void LoadLevel(NamespaceID areaID, NamespaceID stageID)
         {
@@ -56,15 +63,20 @@ namespace MVZ2.Level
                 return;
             try
             {
-                var path = GetLevelStatePath(stageID);
-                var json = Main.FileManager.ReadJsonFile(path);
-                var seri = SerializeHelper.FromBson<SerializableLevelController>(json);
+                var seri = LoadLevelStateData(stageID);
                 controller.LoadGame(seri, Main.Game, areaID, stageID);
+                UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
             }
             catch (Exception e)
             {
                 controller.ShowLevelErrorLoadingDialog(e);
             }
+        }
+        public SerializableLevelController LoadLevelStateData(NamespaceID stageID)
+        {
+            var path = GetLevelStatePath(stageID);
+            var json = Main.FileManager.ReadJsonFile(path);
+            return SerializeHelper.FromBson<SerializableLevelController>(json);
         }
         public bool HasLevelState(NamespaceID stageID)
         {
@@ -78,6 +90,7 @@ namespace MVZ2.Level
             {
                 File.Delete(path);
             }
+            UpdateCurrentEndlessFlags(stageID, 0);
         }
         public string GetLevelStatePath(NamespaceID stageID)
         {
@@ -89,6 +102,36 @@ namespace MVZ2.Level
         {
             var mods = Main.ModManager.GetAllModInfos();
             return new LevelDataIdentifierList(mods.Select(m => new LevelDataIdentifier(m.Namespace, m.LevelDataVersion)));
+        }
+        public string GetStageName(NamespaceID stageID)
+        {
+            var meta = Main.Game.GetStageDefinition(stageID);
+            if (meta == null)
+                return Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_UNKNOWN);
+            var levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, meta.GetLevelName());
+            var dayNumber = meta.GetDayNumber();
+            if (dayNumber > 0)
+            {
+                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+            }
+            return levelName;
+        }
+        public string GetStageName(LevelEngine level)
+        {
+            string name = level?.GetLevelName();
+            if (string.IsNullOrEmpty(name))
+                name = VanillaStrings.LEVEL_NAME_UNKNOWN;
+            var levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, name);
+            int dayNumber = level.GetDayNumber();
+            if (dayNumber > 0)
+            {
+                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+            }
+            if (level.IsEndless() && level.CurrentFlag > 0)
+            {
+                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, levelName, level.CurrentFlag);
+            }
+            return levelName;
         }
         #endregion
         public Vector3 LawnToTrans(Vector3 pos)
@@ -143,6 +186,14 @@ namespace MVZ2.Level
                 return;
             await Scene.UnloadSceneAsync(sceneName);
             controller = null;
+        }
+        private void UpdateCurrentEndlessFlags(NamespaceID stageID, int flags)
+        {
+            var stageDef = Main.Game.GetStageDefinition(stageID);
+            if (stageDef != null && stageDef.IsEndless())
+            {
+                Main.SaveManager.SetCurrentEndlessFlag(stageID, flags);
+            }
         }
         public const int CURRENT_DATA_VERSION = 0;
         public float LawnToTransScale => 1 / transToLawnScale;

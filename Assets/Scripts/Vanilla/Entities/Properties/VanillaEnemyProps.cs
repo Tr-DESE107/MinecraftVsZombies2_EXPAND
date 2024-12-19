@@ -17,6 +17,7 @@ namespace MVZ2.Vanilla.Entities
         public const string HARMLESS = "harmless";
         public const string DEATH_MESSAGE = "deathMessage";
         public const string IS_NEUTRALIZED = "isNeutralized";
+        public const string EXCLUDED_AREA_TAGS = "excludedAreaTags";
         public static float GetSpeed(this Entity enemy)
         {
             return enemy.GetProperty<float>(SPEED);
@@ -48,6 +49,10 @@ namespace MVZ2.Vanilla.Entities
         public static bool IsNeutralized(this Entity enemy)
         {
             return enemy.GetProperty<bool>(IS_NEUTRALIZED);
+        }
+        public static NamespaceID[] GetExcludedAreaTags(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID[]>(EXCLUDED_AREA_TAGS);
         }
     }
 }

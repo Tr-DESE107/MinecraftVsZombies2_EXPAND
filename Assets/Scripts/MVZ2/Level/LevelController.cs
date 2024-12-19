@@ -504,6 +504,10 @@ namespace MVZ2.Level
         {
             await ExitLevelToNote(exitTargetNoteID);
         }
+        private void PostWaveFinishedCallback(LevelEngine level, int wave)
+        {
+            UpdateLevelName();
+        }
         private void PostHugeWaveApproachCallback(LevelEngine level)
         {
             var ui = GetUIPreset();
@@ -646,7 +650,7 @@ namespace MVZ2.Level
             }
             if (Input.GetKeyDown(KeyCode.F4))
             {
-                var spawnDef = level.Content.GetSpawnDefinition(VanillaEnemyID.zombie);
+                var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
                 for (int i = 0; i < 30; i++)
                 {
                     level.SpawnEnemy(spawnDef, 2);

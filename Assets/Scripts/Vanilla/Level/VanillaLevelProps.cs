@@ -96,6 +96,14 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<int>(STATUE_COUNT);
         }
+        public static bool IsAllEnemiesCleared(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(VanillaLevelProps.ALL_ENEMIES_CLEARED);
+        }
+        public static void SetAllEnemiesCleared(this LevelEngine level, bool value)
+        {
+            level.SetProperty(VanillaLevelProps.ALL_ENEMIES_CLEARED, value);
+        }
 
         public const string STARSHARD_RNG = "StarshardRNG";
         public const string STARSHARD_CHANCE = "StarshardChance";

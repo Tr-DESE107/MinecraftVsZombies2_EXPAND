@@ -1,12 +1,21 @@
 using System;
 using System.Linq;
 using PVZEngine;
+using TMPro;
 using UnityEngine;
 
 namespace MVZ2.Map
 {
     public class MapModel : MonoBehaviour
     {
+        public void SetEndlessFlagsTextActive(bool active)
+        {
+            endlessFlagsText.gameObject.SetActive(active);
+        }
+        public void SetEndlessFlagsText(string text)
+        {
+            endlessFlagsText.text = text;
+        }
         public int GetMapButtonCount()
         {
             return mapButtons.Length;
@@ -79,6 +88,8 @@ namespace MVZ2.Map
         }
         public event Action<int> OnMapButtonClick;
         public event Action OnEndlessButtonClick;
+        [SerializeField]
+        private TextMeshPro endlessFlagsText;
         [SerializeField]
         private MapButton endlessButton;
         [SerializeField]

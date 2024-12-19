@@ -3,7 +3,7 @@
         <presets>
             <preset id="mvz2:halloween" model="mvz2:halloween" backgroundColor="#00001A" music="mvz2:halloween_map" />
         </presets>
-        <stages>
+        <stages endless="mvz2:halloween_endless">
             <stage id="mvz2:halloween_1"/>
             <stage id="mvz2:halloween_2"/>
             <stage id="mvz2:halloween_3"/>
