@@ -13,34 +13,34 @@ namespace MVZ2Logic.Saves
         }
         public int GetMaxFlags()
         {
-            return maxFlags;
+            return currentFlag;
         }
         public void SetMaxFlags(int flags)
         {
-            maxFlags = flags;
+            currentFlag = flags;
         }
         public SerializableEndlessRecord ToSerializable()
         {
             return new SerializableEndlessRecord()
             {
                 id = ID,
-                maxFlags = maxFlags,
+                currentFlag = currentFlag,
             };
         }
         public static EndlessRecord FromSerializable(SerializableEndlessRecord serializable)
         {
             return new EndlessRecord(serializable.id)
             {
-                maxFlags = serializable.maxFlags
+                currentFlag = serializable.currentFlag
             };
         }
         public string ID { get; private set; }
-        private int maxFlags;
+        private int currentFlag;
     }
     [Serializable]
     public class SerializableEndlessRecord
     {
         public string id;
-        public int maxFlags;
+        public int currentFlag;
     }
 }

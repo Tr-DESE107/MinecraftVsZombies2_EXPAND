@@ -132,10 +132,21 @@ namespace MVZ2.GameContent.Stages
             level.NextWave();
             if (level.IsFinalWave(level.CurrentWave))
             {
-                level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, level);
-                level.WaveState = STATE_FINAL_WAVE;
-                SetFinalWaveEventTimer(level, new FrameTimer(60));
+                StartFinalWave(level);
             }
+        }
+        private void StartFinalWave(LevelEngine level)
+        {
+            level.WaveState = STATE_FINAL_WAVE;
+            if (ShouldTriggerFinalWaveEvent(level))
+            {
+                SetFinalWaveEventTimer(level, new FrameTimer(60));
+                level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, level);
+            }
+        }
+        protected virtual bool ShouldTriggerFinalWaveEvent(LevelEngine level)
+        {
+            return true;
         }
         #endregion
 

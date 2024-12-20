@@ -52,6 +52,10 @@ namespace MVZ2.GameContent.Stages
             }
         }
 
+        protected override bool ShouldTriggerFinalWaveEvent(LevelEngine level)
+        {
+            return false;
+        }
         #region 更新关卡
         protected override void FinalWaveUpdate(LevelEngine level)
         {

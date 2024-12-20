@@ -78,7 +78,7 @@ namespace MVZ2.Level
             else
             {
                 // 显示查看图鉴提示
-                if (entityCtrl.Entity.IsPreviewEnemy() && IsChoosingBlueprints())
+                if (entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
                 {
                     var name = Main.ResourceManager.GetEntityName(entityCtrl.Entity.GetDefinitionID());
                     var description = string.Empty;
@@ -127,7 +127,7 @@ namespace MVZ2.Level
             else
             {
                 // 打开图鉴
-                if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && IsChoosingBlueprints())
+                if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && CanChooseBlueprints())
                 {
                     var uiPreset = GetUIPreset();
                     uiPreset.HideTooltip();

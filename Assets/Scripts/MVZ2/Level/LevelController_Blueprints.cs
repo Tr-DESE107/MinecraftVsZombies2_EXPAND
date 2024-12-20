@@ -471,7 +471,7 @@ namespace MVZ2.Level
             #region 操作
             public override void ClickBlueprint(int index)
             {
-                if (controller.IsChoosingBlueprints())
+                if (controller.CanChooseBlueprints())
                 {
                     controller.UnchooseBlueprint(index);
                     return;

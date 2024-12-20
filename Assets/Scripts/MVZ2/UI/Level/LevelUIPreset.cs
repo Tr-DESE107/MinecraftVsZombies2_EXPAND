@@ -37,7 +37,7 @@ namespace MVZ2.Level.UI
             SetSideUIBlend(sideUIBlend + sideUIBlendAddition);
             SetBlueprintChooseBlend(blueprintChooseBlend + blueprintChooseAddition);
         }
-        public void SetBlockRaycasts(bool value)
+        public void SetReceiveRaycasts(bool value)
         {
             foreach (var group in canvasGroups)
             {

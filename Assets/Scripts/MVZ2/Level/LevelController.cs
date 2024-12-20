@@ -124,7 +124,7 @@ namespace MVZ2.Level
             UpdateMoney();
 
             var uiPreset = GetUIPreset();
-            uiPreset.SetBlockRaycasts(true);
+            uiPreset.SetReceiveRaycasts(true);
 
             level.Start();
 

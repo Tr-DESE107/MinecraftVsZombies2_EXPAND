@@ -115,7 +115,7 @@ namespace MVZ2.Level.Components
                 loopSounds.Remove(id);
                 return;
             }
-            if (Controller.IsGamePaused())
+            if (!Controller.IsGameRunning())
             {
                 return;
             }    
@@ -132,7 +132,7 @@ namespace MVZ2.Level.Components
             for (int i = playingLoopSounds.Count - 1; i >= 0; i--)
             {
                 var soundID = playingLoopSounds[i];
-                if (HasLoopSoundEntities(soundID) && !Controller.IsGamePaused())
+                if (HasLoopSoundEntities(soundID) && Controller.IsGameRunning())
                     continue;
                 var volume = GetLoopSoundVolume(soundID);
                 volume -= deltaTime;

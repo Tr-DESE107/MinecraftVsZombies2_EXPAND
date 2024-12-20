@@ -10,8 +10,10 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("不能在雕像上放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_CANNOT_PLACE_ON_STATUES = "你不能在雕像上放置器械";
-        [TranslateMsg("不能在雕像上放置器械提示", CONTEXT_ADVICE)]
+        [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
+        [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
+        public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
 
         [TranslateMsg]
         public const string UI_PURCHASE = "购买";

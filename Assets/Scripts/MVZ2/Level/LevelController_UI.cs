@@ -160,9 +160,9 @@ namespace MVZ2.Level
         #endregion
 
         #region 选择蓝图
-        public bool IsChoosingBlueprints()
+        public bool CanChooseBlueprints()
         {
-            return isChoosingBlueprints;
+            return isChoosingBlueprints && !isViewingLawn;
         }
         #endregion
 
@@ -219,6 +219,7 @@ namespace MVZ2.Level
 
             ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
             ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
+            ui.OnBlueprintChooseViewLawnReturnClick += UI_OnBlueprintChooseViewLawnReturnClickCallback;
 
             ui.SetHeldItemModel(null);
             ui.SetPauseDialogActive(false);
@@ -226,6 +227,7 @@ namespace MVZ2.Level
             ui.SetGameOverDialogActive(false);
             ui.SetLevelLoadedDialogVisible(false);
             ui.SetLevelErrorLoadingDialogVisible(false);
+            ui.SetViewLawnReturnBlockerActive(false);
 
             var uiPreset = GetUIPreset();
             uiPreset.OnPickaxePointerEnter += UI_OnPickaxePointerEnterCallback;
@@ -427,7 +429,13 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintChooseViewLawnClickCallback()
         {
-
+            isViewingLawn = true;
+            viewLawnFinished = false;
+            StartCoroutine(BlueprintChooseViewLawnTransition());
+        }
+        private void UI_OnBlueprintChooseViewLawnReturnClickCallback()
+        {
+            viewLawnFinished = true;
         }
         private void UI_OnBlueprintChooseCommandBlockClickCallback()
         {

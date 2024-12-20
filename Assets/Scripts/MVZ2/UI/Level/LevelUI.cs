@@ -131,6 +131,13 @@ namespace MVZ2.UI
             levelErrorLoadingDialog.SetInteractable(interactable);
         }
         #endregion
+
+        #region 选择蓝图
+        public void SetViewLawnReturnBlockerActive(bool active)
+        {
+            viewLawnReturnBlocker.SetActive(active);
+        }
+        #endregion
         private void Awake()
         {
             pauseDialog.OnResumeClicked += () => OnPauseDialogResumeClicked?.Invoke();
@@ -140,18 +147,27 @@ namespace MVZ2.UI
 
             levelLoadedDialog.OnButtonClicked += (button) => OnLevelLoadedDialogButtonClicked?.Invoke(button);
             levelErrorLoadingDialog.OnButtonClicked += (restart) => OnLevelErrorLoadingDialogButtonClicked?.Invoke(restart);
+
+            viewLawnReturnButton.onClick.AddListener(() => OnBlueprintChooseViewLawnReturnClick?.Invoke());
         }
 
         public event Action OnExitLevelToNoteCalled;
         public event Action OnPauseDialogResumeClicked;
         public event Action OnGameOverRetryButtonClicked;
         public event Action OnGameOverBackButtonClicked;
+        public event Action OnBlueprintChooseViewLawnReturnClick;
         public event Action<LevelLoadedDialog.ButtonType> OnLevelLoadedDialogButtonClicked;
         public event Action<bool> OnLevelErrorLoadingDialogButtonClicked;
         public OptionsDialog OptionsDialog => optionsDialog;
 
         [SerializeField]
         Animator animator;
+        [Header("Blueprint Choosing")]
+        [SerializeField]
+        Button viewLawnReturnButton;
+        [SerializeField]
+        GameObject viewLawnReturnBlocker;
+
         [Header("Shading")]
         [SerializeField]
         private Image nightImage;

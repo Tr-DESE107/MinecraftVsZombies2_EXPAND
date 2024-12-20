@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using MVZ2.Cameras;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
@@ -113,9 +114,9 @@ namespace MVZ2.Level
                 uiPreset.SetSideUIBlend(0);
                 uiPreset.SetBlueprintChooseBlend(0);
                 ShowBlueprintChoosePanel(unlocked);
-                uiPreset.SetBlockRaycasts(false);
+                uiPreset.SetReceiveRaycasts(false);
                 yield return new WaitForSeconds(0.5f);
-                uiPreset.SetBlockRaycasts(true);
+                uiPreset.SetReceiveRaycasts(true);
             }
             else
             {
@@ -128,10 +129,32 @@ namespace MVZ2.Level
         {
             var uiPreset = GetUIPreset();
             uiPreset.SetBlueprintsChooseVisible(false);
-            uiPreset.SetBlockRaycasts(false);
+            uiPreset.SetReceiveRaycasts(false);
 
             yield return new WaitForSeconds(1);
             yield return GameStartToLawnTransition();
+        }
+        private IEnumerator BlueprintChooseViewLawnTransition()
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.SetBlueprintsChooseVisible(false);
+            uiPreset.SetReceiveRaycasts(false);
+
+            yield return new WaitForSeconds(1);
+            yield return MoveCameraToLawn();
+            uiPreset.SetReceiveRaycasts(true);
+            ui.SetViewLawnReturnBlockerActive(true);
+            level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_CONTINUE, 1000, -1);
+            while (!viewLawnFinished) 
+            {
+                yield return null;
+            }
+            ui.SetViewLawnReturnBlockerActive(false);
+            level.HideAdvice();
+            yield return MoveCameraToChoose();
+            uiPreset.SetBlueprintsChooseVisible(true);
+            isViewingLawn = false;
+            viewLawnFinished = false;
         }
         #endregion
 
@@ -215,6 +238,8 @@ namespace MVZ2.Level
         private Vector3 cameraChoosePosition = new Vector3(14, 3, -10);
         [SerializeField]
         private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
+        private bool isViewingLawn;
+        private bool viewLawnFinished;
         #endregion
     }
 }
