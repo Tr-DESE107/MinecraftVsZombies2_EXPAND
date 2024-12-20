@@ -4,7 +4,6 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 

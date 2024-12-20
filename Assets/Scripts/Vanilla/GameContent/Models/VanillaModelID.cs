@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID diamond = Get("diamond", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID pistonPalm = Get("piston_palm", EngineModelID.TYPE_ENTITY);
 
-        
+
         public static readonly NamespaceID pickaxeHeldItem = Get("pickaxe", TYPE_HELD_ITEM);
         public static readonly NamespaceID triggerHeldItem = Get("trigger", TYPE_HELD_ITEM);
         public static readonly NamespaceID swordHeldItem = Get("sword", TYPE_HELD_ITEM);

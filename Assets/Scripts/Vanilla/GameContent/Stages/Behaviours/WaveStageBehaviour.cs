@@ -1,12 +1,5 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using PVZEngine.Definitions;
+﻿using PVZEngine.Definitions;
 using PVZEngine.Level;
-using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {

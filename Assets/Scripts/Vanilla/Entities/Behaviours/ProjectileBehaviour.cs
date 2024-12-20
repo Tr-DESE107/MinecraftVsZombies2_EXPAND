@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {

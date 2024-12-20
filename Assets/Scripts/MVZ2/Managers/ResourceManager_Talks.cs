@@ -4,7 +4,6 @@ using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
 using PVZEngine;
-using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Managers

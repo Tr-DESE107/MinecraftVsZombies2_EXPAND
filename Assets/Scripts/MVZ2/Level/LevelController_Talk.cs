@@ -2,7 +2,6 @@
 using MVZ2.Talk;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
-using MVZ2Logic.Level;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;

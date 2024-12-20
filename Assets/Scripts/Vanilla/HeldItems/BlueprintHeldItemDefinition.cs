@@ -11,7 +11,6 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;

@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
-using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Talk;
@@ -31,7 +30,7 @@ namespace MVZ2.GameContent.Implements
             {
                 preset = new LevelPreset(system.GetLevel());
             }
-            
+
             if (preset != null)
             {
                 preset.TalkAction(system, cmd, parameters);

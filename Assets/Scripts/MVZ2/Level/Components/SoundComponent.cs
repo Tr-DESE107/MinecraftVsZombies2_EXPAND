@@ -118,7 +118,7 @@ namespace MVZ2.Level.Components
             if (!Controller.IsGameRunning())
             {
                 return;
-            }    
+            }
             var entityID = entities.FirstOrDefault();
             var entity = Level.FindEntityByID(entityID);
             if (!IsPlayingLoopSound(id))

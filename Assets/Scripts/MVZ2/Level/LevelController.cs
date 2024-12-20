@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MVZ2.Talks;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Entities;
@@ -12,25 +10,23 @@ using MVZ2.Grids;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Managers;
+using MVZ2.Metas;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+using MVZ2.Talks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
-using MVZ2Logic.Games;
 using MVZ2Logic.Level;
-using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using MVZ2.Metas;
 
 namespace MVZ2.Level
 {

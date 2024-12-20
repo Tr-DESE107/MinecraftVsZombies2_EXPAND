@@ -106,7 +106,7 @@ namespace PVZEngine.Level
         {
             StageID = stageId;
             StageDefinition = Content.GetStageDefinition(stageId);
-            
+
         }
         public void ChangeArea(NamespaceID areaId)
         {

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,8 +9,6 @@ using MVZ2.Vanilla;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace MVZ2.Talk
 {

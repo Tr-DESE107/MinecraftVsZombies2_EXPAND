@@ -1,17 +1,9 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Callbacks;
+﻿using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {

@@ -145,7 +145,7 @@ namespace MVZ2.Level
             uiPreset.SetReceiveRaycasts(true);
             ui.SetViewLawnReturnBlockerActive(true);
             level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_CONTINUE, 1000, -1);
-            while (!viewLawnFinished) 
+            while (!viewLawnFinished)
             {
                 yield return null;
             }

@@ -1,7 +1,5 @@
 ﻿using System.Linq;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;

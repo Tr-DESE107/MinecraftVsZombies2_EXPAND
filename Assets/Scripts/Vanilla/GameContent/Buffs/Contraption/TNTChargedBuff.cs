@@ -1,12 +1,8 @@
 ﻿using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
-using PVZEngine.Modifiers;
-using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {

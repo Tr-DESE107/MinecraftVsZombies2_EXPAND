@@ -1,19 +1,7 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Armors;
+﻿using MVZ2.Vanilla.Level;
 using PVZEngine.Definitions;
-using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {

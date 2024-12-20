@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MVZ2.Managers;
-using MVZ2.Talk;
+﻿using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2Logic.Talk;
 using PVZEngine.Level;
-using UnityEditor.VersionControl;
 
 namespace MVZ2.Map
 {

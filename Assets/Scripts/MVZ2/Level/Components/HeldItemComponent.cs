@@ -1,10 +1,8 @@
 using System;
 using MVZ2.HeldItems;
-using MVZ2.Level.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic.Callbacks;
-using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;

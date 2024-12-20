@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
@@ -20,7 +18,6 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Scenes;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

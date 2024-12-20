@@ -5,7 +5,7 @@ namespace MVZ2.HeldItems
 {
     public class HeldItemCursorSource : CursorSource
     {
-        public HeldItemCursorSource(LevelController level) 
+        public HeldItemCursorSource(LevelController level)
         {
             levelController = level;
         }

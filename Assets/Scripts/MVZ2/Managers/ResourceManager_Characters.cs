@@ -33,7 +33,7 @@ namespace MVZ2.Managers
         public string GetCharacterName(NamespaceID characterID)
         {
             var character = GetCharacterMeta(characterID);
-            if (character?.name == null) 
+            if (character?.name == null)
                 return string.Empty;
             return main.LanguageManager._p(VanillaStrings.CONTEXT_CHARACTER_NAME, character.name);
         }

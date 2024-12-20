@@ -2,7 +2,6 @@
 using System.Globalization;
 using MVZ2.Localization;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;

@@ -3,7 +3,6 @@ using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Level.UI
 {

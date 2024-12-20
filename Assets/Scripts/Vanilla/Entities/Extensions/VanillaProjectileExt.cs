@@ -2,7 +2,6 @@
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {

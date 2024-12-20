@@ -1,7 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
@@ -11,7 +10,6 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -105,7 +103,7 @@ namespace MVZ2.GameContent.HeldItems
                 Swing(level);
             }
         }
-        public override NamespaceID GetModelID(LevelEngine level,long id)
+        public override NamespaceID GetModelID(LevelEngine level, long id)
         {
             return VanillaModelID.swordHeldItem;
         }

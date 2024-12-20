@@ -1,6 +1,4 @@
-﻿using PVZEngine;
-
-namespace MVZ2.Models
+﻿namespace MVZ2.Models
 {
     public class ModelParentInterface : ModelInterface
     {

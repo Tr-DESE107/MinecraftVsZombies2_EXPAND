@@ -1,6 +1,4 @@
-﻿using PVZEngine.Entities;
-
-namespace PVZEngine.Definitions
+﻿namespace PVZEngine.Definitions
 {
     public static class EngineAreaProps
     {

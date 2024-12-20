@@ -9,26 +9,17 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic;
 using MVZ2Logic.Level;
-using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using Tools;
-using Tools.Mathematics;
 using UnityEngine;
-using static MVZ2.GameContent.Buffs.VanillaBuffNames;
-using static UnityEngine.EventSystems.EventTrigger;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.ParticleSystem;
-using static UnityEngine.UI.CanvasScaler;
 
 namespace MVZ2.GameContent.Bosses
 {

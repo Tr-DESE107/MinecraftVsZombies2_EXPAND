@@ -4,7 +4,6 @@ using MVZ2.Almanacs;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Cursors;
-using MVZ2.GameContent.Effects;
 using MVZ2.Games;
 using MVZ2.IO;
 using MVZ2.Level;
@@ -20,7 +19,6 @@ using MVZ2Logic;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
-using static UnityEditor.PlayerSettings.Switch;
 
 namespace MVZ2.Managers
 {

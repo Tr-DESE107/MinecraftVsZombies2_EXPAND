@@ -1,10 +1,5 @@
 ﻿using MVZ2.HeldItems;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
-using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;

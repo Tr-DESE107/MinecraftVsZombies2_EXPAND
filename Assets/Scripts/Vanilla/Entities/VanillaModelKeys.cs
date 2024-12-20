@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Buffs;
-using PVZEngine;
+﻿using PVZEngine;
 
 namespace MVZ2.Vanilla.Models
 {

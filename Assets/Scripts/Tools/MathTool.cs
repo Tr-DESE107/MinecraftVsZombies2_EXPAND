@@ -445,7 +445,7 @@ namespace Tools.Mathematics
         public static bool CollideBetweenRectangleAndRoundRectangle(RoundRect roundRect, Rect rectangle)
         {
             var roundRectCenter = new Rect(roundRect.center - roundRect.size * 0.5f, roundRect.size);
-            if (roundRect.radius <= 0) 
+            if (roundRect.radius <= 0)
                 return roundRectCenter.Overlaps(rectangle);
 
             // 水平相交

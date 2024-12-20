@@ -3,7 +3,6 @@ using MVZ2.Entities;
 using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -510,7 +509,7 @@ namespace MVZ2.Level.UI
             triggerSlot.OnPointerEnter += (data) => OnTriggerPointerEnter?.Invoke(data);
             triggerSlot.OnPointerExit += (data) => OnTriggerPointerExit?.Invoke(data);
             triggerSlot.OnPointerDown += (data) => OnTriggerPointerDown?.Invoke(data);
-            
+
             if (triggerSlotConveyor != triggerSlot)
             {
                 triggerSlotConveyor.OnPointerEnter += (data) => OnTriggerPointerEnter?.Invoke(data);
