@@ -20,6 +20,7 @@ namespace MVZ2.Options
 
             InitResolutionDropdown();
             UpdateResolutionDropdown();
+            UpdateSkipAllTalksButton();
 
             base.InitDialog();
 
@@ -45,6 +46,12 @@ namespace MVZ2.Options
                     break;
                 case ButtonType.MoreBack:
                     dialog.SetPage(Page.Main);
+                    break;
+                case ButtonType.SkipAllTalks:
+                    {
+                        Main.OptionsManager.SwitchSkipAllTalks();
+                        UpdateSkipAllTalksButton();
+                    }
                     break;
             }
         }
@@ -129,6 +136,11 @@ namespace MVZ2.Options
                 index = resolutionValues.Length - 1;
             }
             dialog.SetDropdownValue(DropdownType.Resolution, index);
+        }
+        private void UpdateSkipAllTalksButton()
+        {
+            var value = Main.OptionsManager.SkipAllTalks();
+            UpdateButtonText(value, OPTION_SKIP_ALL_TALKS, TextButtonType.SkipAllTalks);
         }
         #endregion
         private Vector2Int[] resolutionValues;
