@@ -44,7 +44,8 @@
 		{
 			CGPROGRAM
 			#include "cg/entity.cginc"
-			#pragma shader_feature_local _ BURN_ON
+			// 使用multi_compile_local而非shader_feature_local，以使这个标记被打进包
+			#pragma multi_compile_local _ BURN_ON
 			#pragma vertex EntityVert
 			#pragma fragment frag
 
