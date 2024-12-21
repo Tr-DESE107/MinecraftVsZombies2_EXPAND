@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-11 11:18+0800\n"
-"PO-Revision-Date: 2024-12-12 12:46+0800\n"
+"POT-Creation-Date: 2024-12-21 06:24+0800\n"
+"PO-Revision-Date: 2024-12-21 06:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/talk/en_US/>\n"
@@ -2515,33 +2515,44 @@ msgstr "Halloween Day 3 Map"
 #. Text for talk sentence 0 in talk group halloween_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_3_map"
-msgid "这个是……荧石吧？"
-msgstr "Is this... Glowstone?"
+msgid "看来……嗯，图鉴是弄丢了。"
+msgstr "The Almanac... It's gone."
 
 #. Text for talk sentence 1 in talk group halloween_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_3_map"
-msgid "来源于下界的发光石头……人间的确不多见。"
-msgstr ""
-"A kind of glowing stone from the Nether... Extremely rare in the overworld."
+msgid "大概是和那些怪物战斗的时候弄丢的吧。"
+msgstr "I probably lost it while fighting those monsters."
 
 #. Text for talk sentence 2 in talk group halloween_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_3_map"
-msgid "它只会发光，可是这里好像没什么需要照亮的东西……"
-msgstr "It... glows. But... what needs to be lit...?"
+msgid "嗯……那还真是不幸。"
+msgstr "Hmm... That's unfortunate."
 
 #. Text for talk sentence 3 in talk group halloween_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_3_map"
-msgid "……也许……"
-msgstr "...Perhaps…"
+msgid "不过不必担心，那些僵尸大概也会把图鉴带回来的吧。"
+msgstr "Don't worry, Perhaps those zombies will bring the Almanac back to us."
 
 #. Text for talk sentence 4 in talk group halloween_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_3_map"
-msgid "幽灵要开始游荡了。"
-msgstr "Ghosts will begin wandering."
+msgid "因为——嗯……他们会拿着他们遇到的……一些东西。"
+msgstr "Because- hmm... They seem to pick up... anything they encounter."
+
+#. Text for talk sentence 5 in talk group halloween_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_3_map"
+msgid "大概，他们也会把我的图鉴带来吧。"
+msgstr "Maybe one of them got a hold of my Almanac."
+
+#. Text for talk sentence 6 in talk group halloween_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_3_map"
+msgid "是吗？那么我们也来帮忙找找吧！"
+msgstr "Really? Time to hunt for whoever got the Almanac!"
 
 #. Archive name for talk group halloween_4
 #: Talk meta file
@@ -2552,45 +2563,33 @@ msgstr "Halloween Day 4 Intro"
 #. Text for talk sentence 0 in talk group halloween_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4"
-msgid "……看来……嗯，图鉴是弄丢了。"
-msgstr "...The Almanac... It's gone."
+msgid "你们之前拿到的东西是荧石吧？"
+msgstr "Did you get Glowstone before?"
 
 #. Text for talk sentence 1 in talk group halloween_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4"
-msgid "大概是和那些怪物战斗的时候弄丢的吧。"
-msgstr "I probably lost it while fighting those monsters."
+msgid "来源于下界的发光石头，人间的确不多见。"
+msgstr ""
+"A kind of glowing stone from the Nether... Extremely rare in the overworld."
 
 #. Text for talk sentence 2 in talk group halloween_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4"
-msgid "嗯……那还真是不幸。"
-msgstr "Hmm... That's unfortunate."
+msgid "它只会发光，可是这里好像没什么需要照亮的东西。"
+msgstr "It glows. But what needs to be lit?"
 
 #. Text for talk sentence 3 in talk group halloween_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4"
-msgid "不过不必担心……那些僵尸大概也会把图鉴带回来的吧。"
-msgstr ""
-"Don't worry... Perhaps those zombies will bring the Almanac back to us."
+msgid "也许……"
+msgstr "Perhaps…"
 
 #. Text for talk sentence 4 in talk group halloween_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4"
-msgid "因为……嗯……他们会拿着他们遇到的……一些东西。"
-msgstr "Because... hmm... They seem to pick up... anything they encounter."
-
-#. Text for talk sentence 5 in talk group halloween_4's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:halloween_4"
-msgid "大概，他们也会把我的图鉴带来吧。"
-msgstr "Maybe one of them got a hold of my Almanac."
-
-#. Text for talk sentence 6 in talk group halloween_4's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:halloween_4"
-msgid "是吗？那么我们也来帮忙找找吧！"
-msgstr "Really? Time to hunt for... whoever got the Almanac!"
+msgid "幽灵要开始游荡了。"
+msgstr "Ghosts will begin wandering."
 
 #. Archive name for talk group halloween_4_over
 #: Talk meta file
@@ -2916,10 +2915,12 @@ msgstr "So, what's the monster that attacked you?"
 #. Text for talk sentence 1 in talk group halloween_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_6_map"
-msgid "一个巨大而又强壮的可怕尸体怪物，它的身上充满了电流。它叫做……科学怪人。"
+msgid ""
+"一个巨大而又强壮的可怕尸体怪物，它的身上充满了电流。它被叫做——科学怪人的怪"
+"物。"
 msgstr ""
 "A giant, terrible and strong zombie-like monster, filled with enormous "
-"amount of electricity. It's called... Frankenstein."
+"amount of electricity. It's called... Frankenstein's monster."
 
 #. Text for talk sentence 2 in talk group halloween_6_map's section 0
 #: Talk meta file
@@ -2936,9 +2937,8 @@ msgstr "I also thought that was the case... but it really does exist."
 #. Text for talk sentence 4 in talk group halloween_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_6_map"
-msgid "很抱歉我疏忽了……事情本不应该是这样。"
-msgstr ""
-"Sorry for my negligence... the situation shouldn't have been like this."
+msgid "很抱歉我疏忽了，事情本不应该是这样。"
+msgstr "Sorry for my negligence, the situation shouldn't have been like this."
 
 #. Text for talk sentence 5 in talk group halloween_6_map's section 0
 #: Talk meta file
@@ -2949,8 +2949,8 @@ msgstr "Don't worry, we just need to get the key back!"
 #. Text for talk sentence 6 in talk group halloween_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_6_map"
-msgid "……如果你们想和那个怪物战斗的话，请务必小心……"
-msgstr "...If you wish to fight against the monster, please be careful…"
+msgid "如果你们想和那个怪物战斗的话，请务必小心。"
+msgstr "If you wish to fight against the monster, please be careful."
 
 #. Archive name for talk group trigger_tutorial
 #: Talk meta file
@@ -3223,9 +3223,9 @@ msgstr "That is... one heck of a handwriting."
 #. Text for talk sentence 2 in talk group halloween_note's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_note"
-msgid "等等，射击……和电弧？这正是科学怪人的攻击手段！"
+msgid "等等，射击……和电弧？这正是那个怪物的攻击手段！"
 msgstr ""
-"Hold on, shooting... and electric arcs? That's how Frankenstein attacks!"
+"Hold on, shooting... and electric arcs? That's how that monster attacks!"
 
 #. Text for talk sentence 3 in talk group halloween_note's section 0
 #: Talk meta file
@@ -3301,9 +3301,9 @@ msgstr "This is my Dream Key! You did it!"
 #. Text for talk sentence 1 in talk group halloween_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_11_over"
-msgid "科学怪人也已经回到属于他的地方去了。"
+msgid "怪物也已经回到属于他的地方去了。"
 msgstr ""
-"And with that, Frankenstein has also returned to the place where he belongs."
+"And with that, The monster has also returned to the place where he belongs."
 
 #. Text for talk sentence 2 in talk group halloween_11_over's section 0
 #: Talk meta file
@@ -3581,6 +3581,10 @@ msgctxt "talk-mvz2:prologue_note"
 msgid "很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！"
 msgstr ""
 "CRAAZZYY, RIGHT??? We’re coming for ya, very-suspicious-looking portal!"
+
+#~ msgctxt "talk-mvz2:halloween_3_map"
+#~ msgid "这个是……荧石吧？"
+#~ msgstr "Is this... Glowstone?"
 
 #~ msgctxt "talk-mvz2:dream_8"
 #~ msgid "呼……咳咳……"

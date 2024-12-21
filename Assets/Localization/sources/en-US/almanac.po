@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-11 06:43+0800\n"
-"PO-Revision-Date: 2024-12-11 18:45+0800\n"
+"POT-Creation-Date: 2024-12-21 06:24+0800\n"
+"PO-Revision-Date: 2024-12-21 06:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -647,8 +647,8 @@ msgstr "Bosses"
 #. Name for misc mvz2:frankenstein
 #: Almanac meta file
 msgctxt "misc.name"
-msgid "科学怪人"
-msgstr "Frankenstein"
+msgid "科学怪人的怪物"
+msgstr "The Creature"
 
 #. Header for misc mvz2:frankenstein
 #: Almanac meta file
@@ -673,9 +673,8 @@ msgid ""
 "由于欧兰特设置了权限，本条目的部分内容不予显示。\n"
 "她的过去与你无关。"
 msgstr ""
-"People around here are actually not too keen on novels. Whether Frankenstein is the name of the creator or the monster remains a "
-"mystery. As a result, both are called Frankenstein.\n"
-"Some contents of this entry will not be displayed due to the restrictions set by Orant."
+"Some contents of this entry will not be displayed due to the restrictions set by Orant.\n"
+"Her past has nothing to do with you."
 
 #. Name for misc mvz2:nightmare_boss
 #: Almanac meta file
@@ -1448,6 +1447,12 @@ msgstr "Sorry...I didn't mean to do this..."
 msgctxt "entity.name"
 msgid "石像鬼雕像"
 msgstr "Gargoyle Statue"
+
+#. Header for entity mvz2:frankenstein
+#: Entity meta file
+msgctxt "entity.name"
+msgid "科学怪人的怪物"
+msgstr "The Creature"
 
 #. Header for entity mvz2:minecart
 #: Entity meta file

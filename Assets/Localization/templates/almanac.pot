@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-11 06:43+0800\n"
+"POT-Creation-Date: 2024-12-21 06:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -513,7 +513,7 @@ msgstr ""
 #. Name for misc mvz2:frankenstein
 #: Almanac meta file
 msgctxt "misc.name"
-msgid "科学怪人"
+msgid "科学怪人的怪物"
 msgstr ""
 
 #. Header for misc mvz2:frankenstein
@@ -1252,6 +1252,12 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "石像鬼雕像"
+msgstr ""
+
+#. Header for entity mvz2:frankenstein
+#: Entity meta file
+msgctxt "entity.name"
+msgid "科学怪人的怪物"
 msgstr ""
 
 #. Header for entity mvz2:minecart
