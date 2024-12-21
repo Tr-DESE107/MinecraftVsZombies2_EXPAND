@@ -169,7 +169,10 @@ namespace MVZ2.Level
         #region 难度
         public void UpdateDifficulty()
         {
-            level.SetDifficulty(Options.GetDifficulty());
+            if (level.CurrentFlag <= 0)
+            {
+                level.SetDifficulty(Options.GetDifficulty());
+            }
             UpdateDifficultyName();
         }
         #endregion

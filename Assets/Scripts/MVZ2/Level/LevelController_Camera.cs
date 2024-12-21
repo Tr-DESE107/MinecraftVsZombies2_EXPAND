@@ -67,7 +67,7 @@ namespace MVZ2.Level
         private void GameStartInstantTransition()
         {
             SetCameraPosition(LevelCameraPosition.Lawn);
-            level.SetDifficulty(Options.GetDifficulty());
+            UpdateDifficulty();
             level.PrepareForBattle();
             StartGame();
         }
@@ -82,7 +82,7 @@ namespace MVZ2.Level
         private IEnumerator GameStartToLawnTransition()
         {
             yield return MoveCameraToLawn();
-            level.SetDifficulty(Options.GetDifficulty());
+            UpdateDifficulty();
             level.PrepareForBattle();
             yield return new WaitForSeconds(0.5f);
             PlayReadySetBuild();
