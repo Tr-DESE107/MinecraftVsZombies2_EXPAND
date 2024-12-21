@@ -195,11 +195,28 @@ namespace MVZ2.Level.UI
         }
         public void ResetBlueprintChooseArtifactCount(int count)
         {
-            blueprintChoosePanel.ResetArtifactCount(count);
+            blueprintChooseArtifactList.updateList(count, (i, rect) =>
+            {
+                var artifactIcon = rect.GetComponent<ArtifactSlot>();
+                artifactIcon.ResetView();
+            },
+            rect =>
+            {
+                var artifactIcon = rect.GetComponent<ArtifactSlot>();
+                artifactIcon.OnClick += OnArtifactIconClickCallback;
+            },
+            rect =>
+            {
+                var artifactIcon = rect.GetComponent<ArtifactSlot>();
+                artifactIcon.OnClick -= OnArtifactIconClickCallback;
+            });
         }
         public void UpdateBlueprintChooseArtifactAt(int index, ArtifactViewData viewData)
         {
-            blueprintChoosePanel.UpdateArtifactAt(index, viewData);
+            var element = blueprintChooseArtifactList.getElement<ArtifactSlot>(index);
+            if (!element)
+                return;
+            element.UpdateView(viewData);
         }
         public void UpdateBlueprintChooseElements(BlueprintChoosePanelViewData viewData)
         {
@@ -212,6 +229,10 @@ namespace MVZ2.Level.UI
         public Blueprint GetBlueprintChooseItem(int index)
         {
             return blueprintChoosePanel.GetItem(index);
+        }
+        public void SetBlueprintChooseArtifactVisible(bool visible)
+        {
+            blueprintChooseArtifactRoot.SetActive(visible);
         }
         #endregion
 
@@ -553,7 +574,6 @@ namespace MVZ2.Level.UI
             conveyor.OnBlueprintPointerExit += (index, data) => OnConveyorBlueprintPointerExit?.Invoke(index, data);
             conveyor.OnBlueprintPointerDown += (index, data) => OnConveyorBlueprintPointerDown?.Invoke(index, data);
 
-            blueprintChoosePanel.OnArtifactClick += (index) => OnBlueprintChooseArtifactClick?.Invoke(index);
             blueprintChoosePanel.OnStartButtonClick += () => OnBlueprintChooseStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnBlueprintChooseViewLawnClick?.Invoke();
             blueprintChoosePanel.OnCommandBlockBlueprintClick += () => OnBlueprintChooseCommandBlockClick?.Invoke();
@@ -621,6 +641,10 @@ namespace MVZ2.Level.UI
         private TriggerSlot GetCurrentTriggerUI()
         {
             return isConveyor ? triggerSlotConveyor : triggerSlot;
+        }
+        private void OnArtifactIconClickCallback(ArtifactSlot icon)
+        {
+            OnBlueprintChooseArtifactClick?.Invoke(blueprintChooseArtifactList.indexOf(icon));
         }
         #endregion
 
@@ -718,6 +742,10 @@ namespace MVZ2.Level.UI
         [SerializeField]
         bool blueprintChooseVisible;
         float blueprintChooseBlend;
+        [SerializeField]
+        GameObject blueprintChooseArtifactRoot;
+        [SerializeField]
+        ElementListUI blueprintChooseArtifactList;
 
         [Header("Raycast Receivers")]
         [SerializeField]

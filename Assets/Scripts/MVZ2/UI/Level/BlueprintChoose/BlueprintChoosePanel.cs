@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.UI;
+using MVZ2Logic.Artifacts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ namespace MVZ2.Level.UI
         {
             viewLawnButton.gameObject.SetActive(viewData.canViewLawn);
             displayer.SetCommandBlockActive(viewData.hasCommandBlock);
-            artifactRoot.SetActive(viewData.hasArtifacts);
         }
         public void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {
@@ -22,31 +22,6 @@ namespace MVZ2.Level.UI
         {
             return displayer.GetItem(index);
         }
-        public void ResetArtifactCount(int count)
-        {
-            artifactList.updateList(count, (i, rect) =>
-            {
-                var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.ResetView();
-            },
-            rect =>
-            {
-                var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.OnClick += OnArtifactIconClickCallback;
-            },
-            rect =>
-            {
-                var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.OnClick -= OnArtifactIconClickCallback;
-            });
-        }
-        public void UpdateArtifactAt(int index, ArtifactViewData viewData)
-        {
-            var element = artifactList.getElement<ArtifactSlot>(index);
-            if (!element)
-                return;
-            element.UpdateView(viewData);
-        }
         private void Awake()
         {
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
@@ -55,10 +30,6 @@ namespace MVZ2.Level.UI
             displayer.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             displayer.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
             displayer.OnCommandBlockBlueprintClick += () => OnCommandBlockBlueprintClick?.Invoke();
-        }
-        private void OnArtifactIconClickCallback(ArtifactSlot icon)
-        {
-            OnArtifactClick?.Invoke(artifactList.indexOf(icon));
         }
         protected void CallBlueprintPointerEnter(int index, PointerEventData eventData)
         {
@@ -78,22 +49,16 @@ namespace MVZ2.Level.UI
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
-        public event Action<int> OnArtifactClick;
         [SerializeField]
         Button startButton;
         [SerializeField]
         Button viewLawnButton;
         [SerializeField]
         BlueprintDisplayer displayer;
-        [SerializeField]
-        GameObject artifactRoot;
-        [SerializeField]
-        ElementListUI artifactList;
     }
     public struct BlueprintChoosePanelViewData
     {
         public bool canViewLawn;
         public bool hasCommandBlock;
-        public bool hasArtifacts;
     }
 }
