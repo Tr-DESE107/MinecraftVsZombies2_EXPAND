@@ -26,6 +26,7 @@ namespace MVZ2.Managers
     {
         public async Task Initialize()
         {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
 
