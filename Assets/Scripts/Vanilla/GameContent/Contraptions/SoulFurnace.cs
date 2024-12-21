@@ -167,6 +167,8 @@ namespace MVZ2.GameContent.Contraptions
             var column = furnace.GetColumn();
             var lane = furnace.GetLane();
             var targetGrid = furnace.Level.GetGrid(column + 1, lane);
+            if (targetGrid == null)
+                return;
             var targetEntities = targetGrid.GetTakenEntities();
             foreach (var ent in targetEntities)
             {

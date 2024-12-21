@@ -46,15 +46,22 @@ namespace PVZEngine.Entities
         }
         public void Update()
         {
-            OnUpdate();
-            Definition.Update(this);
-            if (EquipedArmor != null)
-                EquipedArmor.Update();
-            foreach (var buff in buffs.GetAllBuffs())
+            try
             {
-                buff.Update();
+                OnUpdate();
+                Definition.Update(this);
+                if (EquipedArmor != null)
+                    EquipedArmor.Update();
+                foreach (var buff in buffs.GetAllBuffs())
+                {
+                    buff.Update();
+                }
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
             }
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
+            catch (Exception ex)
+            {
+                Debug.LogError($"更新实体时出现错误：{ex}");
+            }
         }
 
         private void UpdateColliders()
