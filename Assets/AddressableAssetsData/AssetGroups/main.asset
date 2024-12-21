@@ -2058,7 +2058,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c52ffe26b09fa8d43bfa1881edcd3b04
-    m_Address: mvz2:misc/frankenstein_art
+    m_Address: mvz2:misc/frankenstein
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
