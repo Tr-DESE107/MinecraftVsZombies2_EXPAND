@@ -41,6 +41,13 @@ namespace MVZ2.Models
                 return;
             model.SetProperty(name, value);
         }
+        public void TriggerModel(string name)
+        {
+            var model = GetModel();
+            if (!model)
+                return;
+            model.TriggerModel(name);
+        }
         public void SetShaderFloat(string name, float value)
         {
             var model = GetModel();

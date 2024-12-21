@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using MVZ2.Managers;
 using UnityEngine;
 
@@ -98,6 +99,10 @@ namespace MVZ2.Models
             }
             return curve;
         }
+        private void OnParticleCollision(GameObject other)
+        {
+            OnParticleCollisionEvent?.Invoke(this, other);
+        }
         public ParticleSystem Particles
         {
             get
@@ -107,6 +112,7 @@ namespace MVZ2.Models
                 return particles;
             }
         }
+        public event Action<ParticlePlayer, GameObject> OnParticleCollisionEvent;
         private ParticleSystem particles;
         [SerializeField]
         private float minAmount = 0;

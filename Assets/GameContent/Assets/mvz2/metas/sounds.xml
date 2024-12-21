@@ -295,7 +295,7 @@
     <sound name="screw">
         <sample path="mvz2:screw" weight="1" />
     </sound>
-    <sound name="shell_case" maxCount="4">
+    <sound name="shell_case_drop" maxCount="4">
         <sample path="mvz2:shell_case_drop" weight="1" />
     </sound>
     <sound name="shield_hit">

@@ -539,6 +539,10 @@ namespace PVZEngine.Entities
         {
             modelInterface.SetModelProperty(name, value);
         }
+        public void TriggerModel(string name)
+        {
+            modelInterface.TriggerModel(name);
+        }
         public void SetShaderInt(string name, int value)
         {
             modelInterface.SetShaderInt(name, value);

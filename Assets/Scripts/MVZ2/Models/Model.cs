@@ -179,6 +179,13 @@ namespace MVZ2.Models
                 comp.OnPropertySet(name, value);
             }
         }
+        public void TriggerModel(string name)
+        {
+            foreach (var comp in modelComponents)
+            {
+                comp.OnTrigger(name);
+            }
+        }
         #endregion
 
         #region 着色器属性

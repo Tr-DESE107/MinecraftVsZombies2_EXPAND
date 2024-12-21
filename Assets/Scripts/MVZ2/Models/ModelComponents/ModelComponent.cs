@@ -9,6 +9,7 @@ namespace MVZ2.Models
         public virtual void UpdateLogic() { }
         public virtual void UpdateFrame(float deltaTime) { }
         public virtual void OnPropertySet(string name, object value) { }
+        public virtual void OnTrigger(string name) { }
         protected Vector3 Lawn2TransPosition(Vector3 pos)
         {
             return MainManager.Instance.LevelManager.LawnToTrans(pos);

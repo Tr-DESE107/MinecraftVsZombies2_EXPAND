@@ -728,6 +728,7 @@ namespace MVZ2.GameContent.Bosses
                     soundID = VanillaSoundID.gunShot,
                 });
                 boss.TriggerAnimation("GunFire");
+                boss.TriggerModel("GunFire");
             }
 
             /// <summary>

@@ -9,6 +9,7 @@ namespace PVZEngine.Models
         void SetAnimationInt(string name, int value);
         void SetAnimationFloat(string name, float value);
         void SetModelProperty(string name, object value);
+        void TriggerModel(string name);
         void SetShaderInt(string name, int value);
         void SetShaderFloat(string name, float value);
         void SetShaderColor(string name, Color value);
