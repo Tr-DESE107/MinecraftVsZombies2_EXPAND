@@ -35,6 +35,7 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableUserDataList>();
             SerializeHelper.RegisterClass<SerializableSaveDataMeta>();
             SerializeHelper.RegisterClass<SerializableAdviceComponent>();
+            SerializeHelper.RegisterClass<SerializableArtifactComponent>();
             SerializeHelper.RegisterClass<SerializableLightComponent>();
             SerializeHelper.RegisterClass<SerializableUIComponent>();
             SerializeHelper.RegisterClass<SerializableSoundComponent>();

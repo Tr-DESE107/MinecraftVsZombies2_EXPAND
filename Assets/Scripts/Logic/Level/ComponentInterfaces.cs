@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MVZ2.HeldItems;
+using MVZ2Logic.Artifacts;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -109,5 +110,13 @@ namespace MVZ2Logic.Level.Components
         bool IsIlluminated(Entity entity);
         long GetIlluminationLightSourceID(Entity entity);
         IEnumerable<long> GetAllIlluminationLightSources(Entity entity);
+    }
+    public interface IArtifactComponent : ILevelComponent
+    {
+        void ReplaceArtifacts(ArtifactDefinition[] definitions);
+        Artifact[] GetArtifacts();
+        bool HasArtifact(ArtifactDefinition artifactDef);
+        int GetArtifactIndex(ArtifactDefinition artifactDef);
+        Artifact GetArtifactAt(int index);
     }
 }

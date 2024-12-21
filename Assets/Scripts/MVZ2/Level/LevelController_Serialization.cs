@@ -184,6 +184,7 @@ namespace MVZ2.Level
             level.AddComponent(new MusicComponent(level, this));
             level.AddComponent(new MoneyComponent(level, this));
             level.AddComponent(new LightComponent(level, this));
+            level.AddComponent(new ArtifactComponent(level, this));
         }
         private SerializableLevel SerializeLevel()
         {

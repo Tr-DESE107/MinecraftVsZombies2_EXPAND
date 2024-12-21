@@ -1,0 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
+using MVZ2.Models;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace MVZ2.Level.UI
+{
+    public class ArtifactItemUI : MonoBehaviour
+    {
+        public void SetGlowing(bool glowing)
+        {
+            if (!animator.isActiveAndEnabled)
+                return;
+            animator.SetBool("Glowing", glowing);
+        }
+        public void Shine()
+        {
+            if (!animator.isActiveAndEnabled)
+                return;
+            animator.SetTrigger("Shine");
+        }
+        public void SetGrayscale(bool grayscale)
+        {
+            if (!animator.isActiveAndEnabled)
+                return;
+            animator.SetBool("Grayscale", grayscale);
+        }
+        public void SetIcon(Sprite sprite)
+        {
+            foreach (var icon in iconImages)
+            {
+                icon.sprite = sprite;
+                icon.enabled = icon.sprite;
+            }
+        }
+        public void SetNumber(string number)
+        {
+            numText.text = number;
+        }
+        public void UpdateAnimator(float deltaTime)
+        {
+            if (!animator.isActiveAndEnabled)
+                return;
+            animator.Update(deltaTime);
+        }
+        public SerializableAnimator GetSerializableAnimator()
+        {
+            return new SerializableAnimator(animator);
+        }
+        public void LoadFromSerializableAnimator(SerializableAnimator seri)
+        {
+            seri.Deserialize(animator);
+        }
+        [SerializeField]
+        private Animator animator;
+        [SerializeField]
+        private Image[] iconImages;
+        [SerializeField]
+        private TextMeshProUGUI numText;
+    }
+}

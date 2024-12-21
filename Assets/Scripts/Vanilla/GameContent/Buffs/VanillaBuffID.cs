@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Buffs
         public const string sacrificed = "sacrificed";
         public const string magichestInvincible = "magichest_invincible";
         public const string frankensteinShocked = "frankenstein_shocked";
+        public const string dreamKeyShield = "dream_key_shield";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -83,6 +84,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID easyContraption = Get(VanillaBuffNames.easyContraption);
         public static readonly NamespaceID easyArmor = Get(VanillaBuffNames.easyArmor);
         public static readonly NamespaceID hardEnemy = Get(VanillaBuffNames.hardEnemy);
+        public static readonly NamespaceID dreamKeyShield = Get(VanillaBuffNames.dreamKeyShield);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

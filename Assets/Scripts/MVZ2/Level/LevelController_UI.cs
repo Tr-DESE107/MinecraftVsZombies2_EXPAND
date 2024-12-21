@@ -6,6 +6,7 @@ using MVZ2.Almanacs;
 using MVZ2.Cursors;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.HeldItems;
+using MVZ2.Level.Components;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.Options;
@@ -18,15 +19,19 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
+using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static MVZ2.Level.UI.LevelUIPreset;
@@ -223,6 +228,9 @@ namespace MVZ2.Level
             ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
             ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
             ui.OnBlueprintChooseViewLawnReturnClick += UI_OnBlueprintChooseViewLawnReturnClickCallback;
+
+            ui.OnArtifactChoosingItemClicked += UI_OnArtifactChooseItemClickCallback;
+            ui.OnArtifactChoosingBackClicked += UI_OnArtifactChooseReturnClickCallback;
 
             ui.SetHeldItemModel(null);
             ui.SetPauseDialogActive(false);
@@ -520,7 +528,67 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintChooseArtifactClickCallback(int index)
         {
+            choosingArtifactSlotIndex = index;
+            choosingArtifacts = Main.SaveManager.GetUnlockedArtifacts();
+            var viewDatas = choosingArtifacts.Select(id =>
+            {
+                var sprite = GetArtifactIcon(id);
+                var disabled = !CanChooseArtifact(id);
+                return new ArtifactSelectItemViewData()
+                {
+                    icon = sprite,
+                    disabled = disabled
+                };
+            }).ToArray();
+            ui.ShowArtifactChoosePanel(viewDatas);
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
+        #endregion
 
+        #region 制品选择对话框
+        private void UI_OnArtifactChooseItemPointerEnterCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            var blueprintID = choosingArtifacts[index];
+            GetArtifactTooltip(blueprintID, out var name, out var tooltip);
+            string error = null;
+            if (!IsChoosingBlueprintError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+            {
+                error = Localization._(errorMessage);
+            }
+            var viewData = new TooltipViewData()
+            {
+                name = name,
+                error = error,
+                description = tooltip
+            };
+            uiPreset.ShowTooltipOnComponent(ui.GetArtifactSelectItem(index), viewData);
+        }
+        private void UI_OnArtifactChooseItemPointerExitCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.HideTooltip();
+        }
+        private void UI_OnArtifactChooseItemClickCallback(int index)
+        {
+            var id = choosingArtifacts[index];
+            if (!CanChooseArtifact(id))
+                return;
+            for (int i = 0; i < chosenArtifacts.Length; i++)
+            {
+                if (chosenArtifacts[i] == id)
+                {
+                    chosenArtifacts[i] = null;
+                    SetChosenArtifact(i, null);
+                }
+            }
+            SetChosenArtifact(choosingArtifactSlotIndex, id);
+            CloseArtifactChoosePanel();
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
+        private void UI_OnArtifactChooseReturnClickCallback()
+        {
+            CloseArtifactChoosePanel();
         }
         #endregion
 
@@ -631,9 +699,10 @@ namespace MVZ2.Level
         #region 选择蓝图
         private void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
         {
+            var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
             var panelViewData = new BlueprintChoosePanelViewData()
             {
-                hasArtifacts = false,
+                hasArtifacts = hasArtifacts,
                 canViewLawn = level.CurrentFlag > 0,
                 hasCommandBlock = false,
             };
@@ -648,7 +717,23 @@ namespace MVZ2.Level
             uiPreset.SetBlueprintChooseViewStoreButtonActive(Saves.IsStoreUnlocked());
             uiPreset.SetSideUIVisible(true);
             uiPreset.SetBlueprintsChooseVisible(true);
-            uiPreset.ResetBlueprintChooseArtifactCount(3);
+
+            int artifactCount = 3;
+            uiPreset.ResetBlueprintChooseArtifactCount(artifactCount);
+            chosenArtifacts = new NamespaceID[artifactCount];
+            for (int i = 0; i < chosenArtifacts.Length; i++)
+            {
+                var artifact = level.GetArtifactAt(i);
+                var def = artifact?.Definition;
+                chosenArtifacts[i] = def?.GetID();
+                var sprite = GetArtifactIcon(def);
+                var artifactViewData = new ArtifactViewData()
+                {
+                    sprite = sprite,
+                };
+                uiPreset.UpdateBlueprintChooseArtifactAt(i, artifactViewData);
+            }
+
             uiPreset.UpdateBlueprintChooseElements(panelViewData);
             uiPreset.UpdateBlueprintChooseItems(blueprintViewDatas);
             uiPreset.SetUIVisibleState(VisibleState.ChoosingBlueprints);
@@ -927,6 +1012,49 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 制品
+        private Sprite GetArtifactIcon(NamespaceID id)
+        {
+            if (id == null)
+                return null;
+            var def = Game.GetArtifactDefinition(id);
+            return GetArtifactIcon(def);
+        }
+        private Sprite GetArtifactIcon(ArtifactDefinition def)
+        {
+            if (def == null)
+                return null;
+            var spriteRef = def.GetSpriteReference();
+            return Main.GetFinalSprite(spriteRef);
+        }
+        private void GetArtifactTooltip(NamespaceID id, out string name, out string tooltip)
+        {
+            name = Resources.GetArtifactName(id);
+            tooltip = Resources.GetArtifactTooltip(id);
+        }
+        private bool CanChooseArtifact(NamespaceID id)
+        {
+            return true;
+        }
+        private void CloseArtifactChoosePanel()
+        {
+            ui.HideArtifactChoosePanel();
+            choosingArtifactSlotIndex = -1;
+            choosingArtifacts = null;
+        }
+        private void SetChosenArtifact(int index, NamespaceID id)
+        {
+            chosenArtifacts[index] = id;
+            var uiPreset = GetUIPreset();
+            var sprite = GetArtifactIcon(id);
+            var artifactViewData = new ArtifactViewData()
+            {
+                sprite = sprite,
+            };
+            uiPreset.UpdateBlueprintChooseArtifactAt(index, artifactViewData);
+        }
+        #endregion
+
         /// <summary>
         /// 更新能量、关卡进度条、手持物品、蓝图状态、星之碎片。
         /// </summary>
@@ -969,6 +1097,10 @@ namespace MVZ2.Level
         private NamespaceID[] choosingBlueprints;
         private IModelInterface heldItemModelInterface;
         private CursorSource heldItemCursorSource;
+
+        private NamespaceID[] chosenArtifacts;
+        private int choosingArtifactSlotIndex;
+        private NamespaceID[] choosingArtifacts;
 
         [Header("UI")]
         [SerializeField]

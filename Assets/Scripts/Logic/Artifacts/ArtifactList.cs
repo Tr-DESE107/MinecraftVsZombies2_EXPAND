@@ -1,0 +1,164 @@
+﻿using System;
+using System.Linq;
+using PVZEngine.Level;
+
+namespace MVZ2Logic.Artifacts
+{
+    public class ArtifactList
+    {
+        public ArtifactList(LevelEngine level, int count) : this(level)
+        {
+            artifacts = new Artifact[count];
+        }
+        private ArtifactList(LevelEngine level)
+        {
+            Level = level;
+        }
+        #region 制品操作
+        public void ReplaceArtifacts(ArtifactDefinition[] definitions)
+        {
+            if (definitions == null)
+            {
+                // 设置为空
+                // 移除列表中的所有制品。
+                for (int i = 0; i < artifacts.Length; i++)
+                {
+                    var artifact = artifacts[i];
+                    if (artifact == null)
+                        continue;
+                    artifact.PostRemove();
+                    artifact.OnHighlighted -= OnItemHighlightedCallback;
+                    artifacts[i] = null;
+                }
+            }
+            else
+            {
+                // 设置不为空。
+                var oldArtifacts = artifacts.ToList();
+                for (int i = 0; i < artifacts.Length; i++)
+                {
+                    if (i < 0 || i >= definitions.Length)
+                    {
+                        artifacts[i] = null;
+                        continue;
+                    }
+                    var definition = definitions[i];
+                    if (definition == null)
+                    {
+                        artifacts[i] = null;
+                        continue;
+                    }
+                    // 在当前制品列表中寻找匹配定义的制品。
+                    // 若找到了则直接搬过来。
+                    // 若没找到则新建。
+                    var oldArtifact = oldArtifacts.FirstOrDefault(a => a?.Definition == definition);
+                    if (oldArtifact != null)
+                    {
+                        artifacts[i] = oldArtifact;
+                        oldArtifacts.Remove(oldArtifact);
+                    }
+                    else
+                    {
+                        var newArtifact = new Artifact(Level, definition);
+                        artifacts[i] = newArtifact;
+                        newArtifact.PostAdd();
+                        newArtifact.OnHighlighted += OnItemHighlightedCallback;
+                    }
+                }
+                // 之前制品列表中仍残留的制品被去除。
+                foreach (var oldArtifact in oldArtifacts)
+                {
+                    if (oldArtifact == null)
+                        continue;
+                    oldArtifact.PostRemove();
+                    oldArtifact.OnHighlighted -= OnItemHighlightedCallback;
+                }
+            }
+        }
+        public bool HasArtifact<T>() where T : ArtifactDefinition
+        {
+            return artifacts.Any(b => b.Definition is T);
+        }
+        public bool HasArtifact(ArtifactDefinition buffDef)
+        {
+            return artifacts.Any(b => b.Definition == buffDef);
+        }
+        public bool HasArtifact(Artifact buff)
+        {
+            return artifacts.Contains(buff);
+        }
+        public Artifact[] GetArtifacts<T>() where T : ArtifactDefinition
+        {
+            return artifacts.Where(b => b.Definition is T).ToArray();
+        }
+        public Artifact[] GetArtifacts(ArtifactDefinition buffDef)
+        {
+            return artifacts.Where(b => b.Definition == buffDef).ToArray();
+        }
+        public int GetArtifactIndex(Artifact artifact)
+        {
+            return Array.IndexOf(artifacts, artifact);
+        }
+        public int GetArtifactIndex(ArtifactDefinition def)
+        {
+            return Array.FindIndex(artifacts, a => a.Definition == def);
+        }
+        public Artifact GetArtifactAt(int index)
+        {
+            if (index < 0 || index >= artifacts.Length)
+                return null;
+            return artifacts[index];
+        }
+        public Artifact[] GetAllArtifacts()
+        {
+            return artifacts.ToArray();
+        }
+        public int GetArtifactSlotCount()
+        {
+            return artifacts.Length;
+        }
+        #endregion
+
+        #region 序列化
+        public SerializableArtifactList ToSerializable()
+        {
+            return new SerializableArtifactList()
+            {
+                artifacts = artifacts == null ? Array.Empty<SerializableArtifact>() : artifacts.Select(b => b == null ? null : b.Serialize()).ToArray()
+            };
+        }
+        public static ArtifactList FromSerializable(SerializableArtifactList serializable, LevelEngine level)
+        {
+            var artifactList = new ArtifactList(level, serializable.artifacts.Length);
+            for (int i = 0; i < artifactList.artifacts.Length; i++)
+            {
+                var seri = serializable.artifacts[i];
+                if (seri == null)
+                    continue;
+                var artifact = Artifact.Deserialize(seri, level);
+                artifact.OnHighlighted += artifactList.OnItemHighlightedCallback;
+                artifactList.artifacts[i] = artifact;
+            }
+            return artifactList;
+        }
+        #endregion
+
+        public void Update()
+        {
+            foreach (var artifact in artifacts)
+            {
+                if (artifact == null)
+                    continue;
+                artifact.Update();
+            }
+        }
+        private void OnItemHighlightedCallback(Artifact artifact)
+        {
+            OnArtifactHighlighted?.Invoke(GetArtifactIndex(artifact));
+        }
+
+        public event Action<int> OnArtifactHighlighted;
+        public LevelEngine Level { get; }
+        private Artifact[] artifacts;
+    }
+}

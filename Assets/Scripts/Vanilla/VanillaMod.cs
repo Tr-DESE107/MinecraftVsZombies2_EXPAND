@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Artifacts;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
@@ -27,10 +28,10 @@ namespace MVZ2.Vanilla
         public VanillaMod() : base(spaceName)
         {
             LoadEntityMetas();
-            LoadArtifactMetas();
             LoadStageMetas();
             LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
             LoadStageProperties();
+            LoadArtifactProperties();
             AddEntityBehaviours();
 
             ImplementCallbacks(new GemStageImplements());
@@ -80,17 +81,6 @@ namespace MVZ2.Vanilla
                 var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name), entityDefinition.GetExcludedAreaTags() ?? Array.Empty<NamespaceID>());
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
                 AddDefinition(spawnDef);
-            }
-        }
-        private void LoadArtifactMetas()
-        {
-            foreach (IArtifactMeta meta in Global.Game.GetModArtifactMetas(spaceName))
-            {
-                if (meta == null)
-                    continue;
-                var name = meta.ID;
-                var definition = new MetaArtifactDefinition(meta, spaceName, name);
-                AddDefinition(definition);
             }
         }
         private void LoadStageMetas()
@@ -173,6 +163,19 @@ namespace MVZ2.Vanilla
                 {
                     stage.SetProperty(pair.Key, pair.Value);
                 }
+            }
+        }
+        private void LoadArtifactProperties()
+        {
+            foreach (IArtifactMeta meta in Global.Game.GetModArtifactMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var artifact = GetDefinition<ArtifactDefinition>(new NamespaceID(spaceName, name));
+                if (artifact == null)
+                    continue;
+                artifact.SetSpriteReference(meta.Sprite);
             }
         }
         private void AddEntityBehaviours()

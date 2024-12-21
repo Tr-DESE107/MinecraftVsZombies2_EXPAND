@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Bosses;
+﻿using MVZ2.GameContent.Artifacts;
+using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
@@ -23,9 +24,9 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
+                VanillaContraptionID.glowstone,
                 VanillaContraptionID.soulFurnace,
-                VanillaContraptionID.furnace,
-                VanillaContraptionID.mineTNT,
+                VanillaContraptionID.obsidian,
                 VanillaContraptionID.punchton,
 
                 VanillaContraptionID.magichest,
@@ -35,6 +36,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.leatherCappedZombie,
                 VanillaBossID.frankenstein,
+            });
+            level.ReplaceArtifacts(new NamespaceID[]
+            {
+                VanillaArtifactID.dreamKey,
+                null,
+                null
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

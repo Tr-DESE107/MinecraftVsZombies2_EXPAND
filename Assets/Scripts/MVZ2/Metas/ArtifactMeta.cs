@@ -13,7 +13,6 @@ namespace MVZ2.Metas
         public string Tooltip { get; private set; }
         public NamespaceID Unlock { get; private set; }
         public SpriteReference Sprite { get; private set; }
-        public NamespaceID BuffID { get; private set; }
         public int Order { get; private set; }
         public static ArtifactMeta FromXmlNode(XmlNode node, string defaultNsp, int order)
         {
@@ -22,7 +21,6 @@ namespace MVZ2.Metas
             var tooltip = node.GetAttribute("tooltip");
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
-            var buffId = node.GetAttributeNamespaceID("buffId", defaultNsp);
             return new ArtifactMeta()
             {
                 ID = id,
@@ -31,7 +29,6 @@ namespace MVZ2.Metas
                 Unlock = unlock,
                 Order = order,
                 Sprite = sprite,
-                BuffID = buffId,
             };
         }
     }

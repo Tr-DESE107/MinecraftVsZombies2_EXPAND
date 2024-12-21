@@ -193,6 +193,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 65b141497a801624881cf387625a6801, type: 3}
   - name: entity/contraptions/disabled
     sprite: {fileID: 21300000, guid: fc3e815806f7eaf4694e0d4333cc9185, type: 3}
+  - name: entity/contraptions/dream_key_shield
+    sprite: {fileID: 21300000, guid: 536be77b316de444c86963d500ad1922, type: 3}
   - name: entity/contraptions/glowstone
     sprite: {fileID: 21300000, guid: 9b11711b1da870544827beb40076b98b, type: 3}
   - name: entity/contraptions/magichest_flash

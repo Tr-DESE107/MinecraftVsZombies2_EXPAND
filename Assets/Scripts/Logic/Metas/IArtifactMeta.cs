@@ -9,7 +9,6 @@ namespace MVZ2Logic.Entities
         string Tooltip { get; }
         NamespaceID Unlock { get; }
         SpriteReference Sprite { get; }
-        NamespaceID BuffID { get; }
         int Order { get; }
     }
 }

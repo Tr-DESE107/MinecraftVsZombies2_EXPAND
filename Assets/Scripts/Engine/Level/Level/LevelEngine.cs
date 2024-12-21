@@ -299,8 +299,15 @@ namespace PVZEngine.Level
             AddBuff(buff);
             return buff;
         }
+        public Buff AddBuff(NamespaceID buffID)
+        {
+            var buffDef = Content.GetBuffDefinition(buffID);
+            return AddBuff(buffDef);
+        }
         public Buff AddBuff(BuffDefinition buffDef)
         {
+            if (buffDef == null)
+                return null;
             var buff = CreateBuff(buffDef, AllocBuffID());
             buffs.AddBuff(buff);
             return buff;

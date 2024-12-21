@@ -1,4 +1,6 @@
-﻿using PVZEngine;
+﻿using System.Collections.Generic;
+using PVZEngine;
+using PVZEngine.Auras;
 using PVZEngine.Base;
 
 namespace MVZ2Logic.Artifacts
@@ -7,8 +9,19 @@ namespace MVZ2Logic.Artifacts
     {
         public ArtifactDefinition(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(LogicArtifactProps.NUMBER, -1);
         }
-        public abstract SpriteReference GetSpriteReference();
-        public abstract NamespaceID GetBuffID();
+        public AuraEffectDefinition[] GetAuras()
+        {
+            return auraDefinitions.ToArray();
+        }
+        public virtual void PostUpdate(Artifact artifact) { }
+        public virtual void PostAdd(Artifact artifact) { }
+        public virtual void PostRemove(Artifact artifact) { }
+        protected void AddAura(AuraEffectDefinition aura)
+        {
+            auraDefinitions.Add(aura);
+        }
+        private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
     }
 }

@@ -15,14 +15,6 @@ namespace PVZEngine.Auras
             auraEffects.Add(auraEffect);
             auraEffect.PostAdd(level);
         }
-        public AuraEffect Get(AuraEffectDefinition auraDef)
-        {
-            return auraEffects.FirstOrDefault(a => a.Definition == auraDef);
-        }
-        public AuraEffect[] GetAll()
-        {
-            return auraEffects.ToArray();
-        }
         public bool Remove(LevelEngine level, AuraEffect auraEffect)
         {
             if (auraEffects.Remove(auraEffect))
@@ -31,6 +23,28 @@ namespace PVZEngine.Auras
                 return true;
             }
             return true;
+        }
+        public void PostAdd(LevelEngine level)
+        {
+            foreach (var auraEffect in auraEffects)
+            {
+                auraEffect.PostAdd(level);
+            }
+        }
+        public void PostRemove(LevelEngine level)
+        {
+            foreach (var auraEffect in auraEffects)
+            {
+                auraEffect.PostRemove(level);
+            }
+        }
+        public AuraEffect Get(AuraEffectDefinition auraDef)
+        {
+            return auraEffects.FirstOrDefault(a => a.Definition == auraDef);
+        }
+        public AuraEffect[] GetAll()
+        {
+            return auraEffects.ToArray();
         }
         public void Clear(LevelEngine level)
         {

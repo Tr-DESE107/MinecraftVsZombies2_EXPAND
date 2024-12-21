@@ -88,6 +88,7 @@ namespace MVZ2.Level
             var starshardSlots = Saves.GetStarshardSlots();
             level.SetStarshardSlotCount(starshardSlots);
 
+            // 设置蓝图。
             for (int i = 0; i < chosenBlueprints.Count; i++)
             {
                 var index = chosenBlueprints[i];
@@ -96,6 +97,10 @@ namespace MVZ2.Level
             }
             chosenBlueprints.Clear();
             choosingBlueprints = null;
+
+            // 设置制品。
+            level.ReplaceArtifacts(chosenArtifacts);
+            chosenArtifacts = null;
 
             Music.Play(level.GetMusicID());
 
@@ -603,7 +608,11 @@ namespace MVZ2.Level
             if (blueprint)
             {
                 var blueprintMode = GetCurrentBlueprintMode();
-                blueprintMode.ReleaseOnBlueprint(blueprintMode.GetBlueprintUIIndex(blueprint));
+                var index = blueprintMode.GetBlueprintUIIndex(blueprint);
+                if (index >= 0)
+                {
+                    blueprintMode.ReleaseOnBlueprint(index);
+                }
                 return;
             }
 

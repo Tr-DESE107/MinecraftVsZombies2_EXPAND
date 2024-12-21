@@ -28,6 +28,12 @@ namespace MVZ2.Level.UI
         public void UpdateFrame(float deltaTime)
         {
             animator.Update(deltaTime);
+            for (int i = 0; i < artifactList.Count; i++)
+            {
+                var artifact = artifactList.getElement<ArtifactItemUI>(i);
+                artifact.UpdateAnimator(deltaTime);
+            }
+
             float targetSideUIBlend = sideUIVisible ? 1 : 0;
             float targetBlueprintChooseBlend = blueprintChooseVisible ? 1 : 0;
             const float blendSpeed = 10;
@@ -439,6 +445,47 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region ÖÆÆ·
+        public void SetArtifactCount(int count)
+        {
+            artifactList.updateList(count);
+        }
+        public void SetArtifactIcon(int index, Sprite value)
+        {
+            var ui = GetArtifactUI(index);
+            if (!ui) return;
+            ui.SetIcon(value);
+        }
+        public void SetArtifactNumber(int index, string number)
+        {
+            var ui = GetArtifactUI(index);
+            if (!ui) return;
+            ui.SetNumber(number);
+        }
+        public void HighlightArtifact(int index)
+        {
+            var ui = GetArtifactUI(index);
+            if (!ui) return;
+            ui.Shine();
+        }
+        public void SetArtifactGrayscale(int index, bool value)
+        {
+            var ui = GetArtifactUI(index);
+            if (!ui) return;
+            ui.SetGrayscale(value);
+        }
+        public void SetArtifactGlowing(int index, bool value)
+        {
+            var ui = GetArtifactUI(index);
+            if (!ui) return;
+            ui.SetGlowing(value);
+        }
+        private ArtifactItemUI GetArtifactUI(int index)
+        {
+            return artifactList.getElement<ArtifactItemUI>(index);
+        }
+        #endregion
+
         public void SetUIVisibleState(VisibleState state)
         {
             animator.SetInteger("UIState", (int)state);
@@ -455,9 +502,16 @@ namespace MVZ2.Level.UI
 
         public SerializableLevelUIPreset ToSerializable()
         {
+            SerializableAnimator[] artifactAnimators = new SerializableAnimator[artifactList.Count];
+            for (int i = 0; i < artifactAnimators.Length; i++)
+            {
+                var artifact = artifactList.getElement<ArtifactItemUI>(i);
+                artifactAnimators[i] = artifact.GetSerializableAnimator();
+            }
             return new SerializableLevelUIPreset()
             {
                 animator = new SerializableAnimator(animator),
+                artifactAnimators = artifactAnimators
             };
         }
         public void LoadFromSerializable(SerializableLevelUIPreset serializable)
@@ -465,6 +519,16 @@ namespace MVZ2.Level.UI
             if (serializable == null)
                 return;
             serializable.animator?.Deserialize(animator);
+            if (serializable.artifactAnimators != null)
+            {
+                for (int i = 0; i < serializable.artifactAnimators.Length; i++)
+                {
+                    var artifact = artifactList.getElement<ArtifactItemUI>(i);
+                    if (artifact == null)
+                        continue;
+                    artifact.LoadFromSerializableAnimator(serializable.artifactAnimators[i]);
+                }
+            }
         }
 
         public void CallStartGame()
@@ -669,6 +733,10 @@ namespace MVZ2.Level.UI
         [SerializeField]
         float cameraLimitMinX = 2.2f;
 
+        [Header("Artifacts")]
+        [SerializeField]
+        ElementList artifactList;
+
         [Header("Bottom")]
         [SerializeField]
         MoneyPanel moneyPanel;
@@ -747,5 +815,6 @@ namespace MVZ2.Level.UI
     public class SerializableLevelUIPreset
     {
         public SerializableAnimator animator;
+        public SerializableAnimator[] artifactAnimators;
     }
 }

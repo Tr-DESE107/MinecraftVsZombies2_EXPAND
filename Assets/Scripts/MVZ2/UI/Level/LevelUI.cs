@@ -138,6 +138,23 @@ namespace MVZ2.UI
             viewLawnReturnBlocker.SetActive(active);
         }
         #endregion
+
+        #region 选择制品
+        public void ShowArtifactChoosePanel(ArtifactSelectItemViewData[] viewDatas)
+        {
+            artifactChoosingDialogObj.SetActive(true);
+            artifactChoosingDialog.UpdateArtifacts(viewDatas);
+        }
+        public void HideArtifactChoosePanel()
+        {
+            artifactChoosingDialogObj.SetActive(false);
+        }
+        public ArtifactSelectItem GetArtifactSelectItem(int index)
+        {
+            return artifactChoosingDialog.GetArtifactSelectItem(index);
+        }
+        #endregion
+
         private void Awake()
         {
             pauseDialog.OnResumeClicked += () => OnPauseDialogResumeClicked?.Invoke();
@@ -149,6 +166,9 @@ namespace MVZ2.UI
             levelErrorLoadingDialog.OnButtonClicked += (restart) => OnLevelErrorLoadingDialogButtonClicked?.Invoke(restart);
 
             viewLawnReturnButton.onClick.AddListener(() => OnBlueprintChooseViewLawnReturnClick?.Invoke());
+
+            artifactChoosingDialog.OnItemClicked += (index) => OnArtifactChoosingItemClicked?.Invoke(index);
+            artifactChoosingDialog.OnBackButtonClicked += () => OnArtifactChoosingBackClicked?.Invoke();
         }
 
         public event Action OnExitLevelToNoteCalled;
@@ -158,15 +178,25 @@ namespace MVZ2.UI
         public event Action OnBlueprintChooseViewLawnReturnClick;
         public event Action<LevelLoadedDialog.ButtonType> OnLevelLoadedDialogButtonClicked;
         public event Action<bool> OnLevelErrorLoadingDialogButtonClicked;
+
+        public event Action<int> OnArtifactChoosingItemClicked;
+        public event Action OnArtifactChoosingBackClicked;
         public OptionsDialog OptionsDialog => optionsDialog;
 
         [SerializeField]
         Animator animator;
+
         [Header("Blueprint Choosing")]
         [SerializeField]
         Button viewLawnReturnButton;
         [SerializeField]
         GameObject viewLawnReturnBlocker;
+
+        [Header("Artifact Choosing")]
+        [SerializeField]
+        GameObject artifactChoosingDialogObj;
+        [SerializeField]
+        ArtifactChoosingDialog artifactChoosingDialog;
 
         [Header("Shading")]
         [SerializeField]
