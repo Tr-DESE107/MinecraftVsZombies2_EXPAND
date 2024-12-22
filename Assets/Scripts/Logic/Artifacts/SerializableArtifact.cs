@@ -1,7 +1,6 @@
 ﻿using System;
 using PVZEngine;
 using PVZEngine.Auras;
-using PVZEngine.Buffs;
 
 namespace MVZ2Logic.Artifacts
 {

@@ -1,6 +1,5 @@
 ﻿using System;
 using MVZ2.UI;
-using MVZ2Logic.Artifacts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

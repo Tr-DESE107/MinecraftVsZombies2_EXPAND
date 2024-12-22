@@ -3,9 +3,7 @@ using System.Linq;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
 using PVZEngine.Auras;
-using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Modifiers;
 
 namespace MVZ2Logic.Artifacts
 {

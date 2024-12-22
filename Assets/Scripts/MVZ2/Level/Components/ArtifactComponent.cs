@@ -64,7 +64,7 @@ namespace MVZ2.Level.Components
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
             UpdateUIArtifacts();
         }
-        private void UpdateUIArtifacts() 
+        private void UpdateUIArtifacts()
         {
 
             var uiPreset = Controller.GetUIPreset();
