@@ -17,60 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7a738a0d559ecdc4184b556a8290e169
   m_SerializeEntries:
-  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 476d29f782ced5045aee9c4a94e69cad
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 24d902c61d41892478d085a513cc421a
-    m_Address: mvz2:ui/level/progress_bar/level_progress_icon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b34bc915055138f4b98fddeb34062934
-    m_Address: mvz2:ui/level/progress_bar/level_progress_flag_pole
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2156299c9ad6a149827e1ee60c23f79
-    m_Address: mvz2:ui/level/progress_bar/level_progress_bar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 43d0c46d78f545946b9f8472fc64be72
-    m_Address: mvz2:ui/level/progress_bar/level_progress_banner
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 54522e226cf17e14bb45c04de8805928
-    m_Address: mvz2:ui/level/progress_bar/frankenstein_background
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6e512505562ed4c44ae29837d5cd4be7
-    m_Address: mvz2:ui/level/progress_bar/frankenstein
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5ccd0b2064964141897d244b8b815bf
     m_Address: mvz2:ui/level/mobile/trigger_gear_slot
     m_ReadOnly: 0
@@ -811,6 +757,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fd484fcbd2c9ed4dbad79aa98011525
     m_Address: mvz2:entity/effects/shine_ring
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e0db9919161e1f4d8204af2dba2d3d6
+    m_Address: mvz2:entity/effects/shell_case
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2141,8 +2093,68 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c37ae568963b3c141804d263bfe68ffd
+    m_Address: mvz2:artifacts/wither_skeleton_skull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d12e7157df0411749ab53333da0a507d
+    m_Address: mvz2:artifacts/upside_down_mirror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47aa6cbff8c048c40a3da0ad86fa845d
+    m_Address: mvz2:artifacts/the_creatures_heart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6aeedebbc3d6f934c8d4f7afb3614d86
+    m_Address: mvz2:artifacts/sweet_sleep_pillow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3099084e873c11d4084a10707cd96120
+    m_Address: mvz2:artifacts/rake
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48d03b03b358d9948863f3eb0517933a
+    m_Address: mvz2:artifacts/pagoda_branch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70875885371f09444af751a1676e6f71
+    m_Address: mvz2:artifacts/miracle_mallet_replica
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34e619cc0502d6c499f470950cf5acec
     m_Address: mvz2:artifacts/dream_key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a62ec6260923674096be59047f89949
+    m_Address: mvz2:artifacts/dark_matter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a71c983a20b667478dd88d44c1a96b3
+    m_Address: mvz2:artifacts/cellphone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e2acf8f4e91cab468eae2cf860e025a
+    m_Address: mvz2:artifacts/broken_lantern
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3837,6 +3849,60 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e512505562ed4c44ae29837d5cd4be7
+    m_Address: mvz2:ui/level/progress_bar/frankenstein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54522e226cf17e14bb45c04de8805928
+    m_Address: mvz2:ui/level/progress_bar/frankenstein_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43d0c46d78f545946b9f8472fc64be72
+    m_Address: mvz2:ui/level/progress_bar/level_progress_banner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2156299c9ad6a149827e1ee60c23f79
+    m_Address: mvz2:ui/level/progress_bar/level_progress_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b34bc915055138f4b98fddeb34062934
+    m_Address: mvz2:ui/level/progress_bar/level_progress_flag_pole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24d902c61d41892478d085a513cc421a
+    m_Address: mvz2:ui/level/progress_bar/level_progress_icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 476d29f782ced5045aee9c4a94e69cad
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
+    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level
