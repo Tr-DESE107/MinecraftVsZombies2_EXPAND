@@ -1,4 +1,5 @@
 ﻿using System;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace PVZEngine.Buffs
@@ -6,6 +7,10 @@ namespace PVZEngine.Buffs
     [Serializable]
     public abstract class BuffReference
     {
+        public BuffReference(long buffId)
+        {
+            this.buffId = buffId;
+        }
         public abstract IBuffTarget GetTarget(LevelEngine level);
         public Buff GetBuff(LevelEngine level)
         {
@@ -14,12 +19,12 @@ namespace PVZEngine.Buffs
                 return null;
             return target.GetBuff(buffId);
         }
-        public int buffId;
+        public long buffId;
     }
     [Serializable]
     public class BuffReferenceEntity : BuffReference
     {
-        public BuffReferenceEntity(long id)
+        public BuffReferenceEntity(long id, long buffId) : base(buffId)
         {
             entityID = id;
         }
@@ -32,7 +37,7 @@ namespace PVZEngine.Buffs
     [Serializable]
     public class BuffReferenceArmor : BuffReference
     {
-        public BuffReferenceArmor(long id)
+        public BuffReferenceArmor(long id, long buffId) : base(buffId)
         {
             entityID = id;
         }
@@ -45,6 +50,9 @@ namespace PVZEngine.Buffs
     [Serializable]
     public class BuffReferenceLevel : BuffReference
     {
+        public BuffReferenceLevel(long buffId) : base(buffId)
+        {
+        }
         public override IBuffTarget GetTarget(LevelEngine level)
         {
             return level;
@@ -53,7 +61,7 @@ namespace PVZEngine.Buffs
     [Serializable]
     public abstract class BuffReferenceSeedPack : BuffReference
     {
-        public BuffReferenceSeedPack(long seedId)
+        public BuffReferenceSeedPack(long seedId, long buffId) : base(buffId)
         {
             seedID = seedId;
         }
@@ -62,7 +70,7 @@ namespace PVZEngine.Buffs
     [Serializable]
     public class BuffReferenceClassicSeedPack : BuffReferenceSeedPack
     {
-        public BuffReferenceClassicSeedPack(long seedId) : base(seedId)
+        public BuffReferenceClassicSeedPack(long seedId, long buffId) : base(seedId, buffId)
         {
         }
         public override IBuffTarget GetTarget(LevelEngine level)
@@ -73,7 +81,7 @@ namespace PVZEngine.Buffs
     [Serializable]
     public class BuffReferenceConveyorSeedPack : BuffReferenceSeedPack
     {
-        public BuffReferenceConveyorSeedPack(long seedId) : base(seedId)
+        public BuffReferenceConveyorSeedPack(long seedId, long buffId) : base(seedId, buffId)
         {
         }
         public override IBuffTarget GetTarget(LevelEngine level)

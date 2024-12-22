@@ -15,7 +15,7 @@ namespace PVZEngine.SeedPacks
         }
         public override BuffReference GetBuffReference(Buff buff)
         {
-            return new BuffReferenceClassicSeedPack(ID);
+            return new BuffReferenceClassicSeedPack(ID, buff.ID);
         }
         #region 序列化
         public SerializableClassicSeedPack Serialize()

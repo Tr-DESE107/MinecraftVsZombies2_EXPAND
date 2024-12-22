@@ -109,7 +109,7 @@ namespace PVZEngine.Armors
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
-        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID);
+        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID, buff.ID);
         private long AllocBuffID()
         {
             return currentBuffID++;

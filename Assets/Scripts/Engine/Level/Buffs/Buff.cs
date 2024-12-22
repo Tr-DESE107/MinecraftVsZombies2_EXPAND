@@ -96,6 +96,7 @@ namespace PVZEngine.Buffs
         {
             return new SerializableBuff()
             {
+                id = ID,
                 definitionID = Definition.GetID(),
                 propertyDict = propertyDict.Serialize(),
                 auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()

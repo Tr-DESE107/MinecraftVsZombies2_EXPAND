@@ -12,7 +12,7 @@ namespace PVZEngine.Buffs
         Entity GetEntity();
         IEnumerable<Buff> GetBuffs();
         BuffReference GetBuffReference(Buff buff);
-        Buff GetBuff(int id)
+        Buff GetBuff(long id)
         {
             return GetBuffs().FirstOrDefault(b => b.ID == id);
         }

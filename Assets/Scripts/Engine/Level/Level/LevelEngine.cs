@@ -321,7 +321,7 @@ namespace PVZEngine.Level
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
         public Buff[] GetBuffs(BuffDefinition buffDef) => buffs.GetBuffs(buffDef);
         public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
-        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceLevel();
+        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceLevel(buff.ID);
         private long AllocBuffID()
         {
             long id = currentBuffID;

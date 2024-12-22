@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
+using MVZ2.Metas;
 using PVZEngine;
 using PVZEngine.Models;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MVZ2.Models
 {
@@ -14,6 +16,8 @@ namespace MVZ2.Models
     public sealed class Model : MonoBehaviour
     {
         #region 公有方法
+
+        #region 生命周期
         public void Init()
         {
             Init(Guid.NewGuid().GetHashCode());
@@ -37,6 +41,19 @@ namespace MVZ2.Models
             {
                 comp.UpdateLogic();
             }
+            childModels.RemoveAll(m => !m);
+            foreach (var child in childModels)
+            {
+                child.UpdateFixed();
+            }
+            if (destroyTimeout > 0)
+            {
+                destroyTimeout--;
+                if (destroyTimeout <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
         public void UpdateFrame(float deltaTime)
         {
@@ -45,11 +62,24 @@ namespace MVZ2.Models
             {
                 comp.UpdateFrame(deltaTime);
             }
+            childModels.RemoveAll(m => !m);
+            foreach (var child in childModels)
+            {
+                child.UpdateFrame(deltaTime);
+            }
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
             RendererGroup.SetSimulationSpeed(simulationSpeed);
+            childModels.RemoveAll(m => !m);
+            foreach (var child in childModels)
+            {
+                child.SetSimulationSpeed(simulationSpeed);
+            }
         }
+        #endregion
+
+        #region 动画
         public void TriggerAnimator(string name)
         {
             RendererGroup.TriggerAnimator(name);
@@ -66,21 +96,20 @@ namespace MVZ2.Models
         {
             RendererGroup.SetAnimatorFloat(name, value);
         }
+        #endregion
+
+        #region 事件触发
         public bool IsEventTriggered(string name)
         {
             return triggeringEvents.Contains(name);
         }
-
         public bool WasEventTriggered(string name)
         {
             return triggeredEvents.Contains(name);
         }
+        #endregion
 
-        public RandomGenerator GetRNG()
-        {
-            return rng;
-        }
-
+        #region 序列化
         public SerializableModelData ToSerializable()
         {
             return new SerializableModelData()
@@ -93,7 +122,8 @@ namespace MVZ2.Models
                 rendererGroup = rendererGroup.ToSerializable(),
                 childModels = childModels.Select(c => c.ToSerializable()).ToArray(),
                 triggeredEvents = triggeredEvents.ToArray(),
-                triggeringEvents = triggeringEvents.ToArray()
+                triggeringEvents = triggeringEvents.ToArray(),
+                destroyTimeout = destroyTimeout,
             };
         }
         public void LoadFromSerializable(SerializableModelData serializable)
@@ -117,7 +147,11 @@ namespace MVZ2.Models
             triggeringEvents.Clear();
             triggeredEvents.AddRange(serializable.triggeredEvents);
             triggeringEvents.AddRange(serializable.triggeringEvents);
+            destroyTimeout = serializable.destroyTimeout;
         }
+        #endregion
+
+        #region 子模型
         public Model CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {
             var existing = GetChildModel(key);
@@ -138,15 +172,23 @@ namespace MVZ2.Models
         }
         public bool RemoveChildModel(NamespaceID key)
         {
-            var model = childModels.FirstOrDefault(m => m.Key == key);
+            var model = GetChildModel(key);
             if (!model)
                 return false;
-            Destroy(model.gameObject);
-            return childModels.Remove(model);
+            if (model.destroyDelay <= 0)
+            {
+                Destroy(model.gameObject);
+                return childModels.Remove(model);
+            }
+            else
+            {
+                model.DestroyDelayed(model.destroyDelay);
+                return true;
+            }
         }
         public Model GetChildModel(NamespaceID key)
         {
-            var model = childModels.FirstOrDefault(m => m.Key == key);
+            var model = childModels.FirstOrDefault(m => !m.IsDestroying() && m.Key == key);
             if (!model)
                 return null;
             return model;
@@ -160,11 +202,19 @@ namespace MVZ2.Models
         {
             return modelInterface;
         }
+        #endregion
 
-        public ModelAnchor GetAnchor(string name)
+        #region 摧毁
+        public void DestroyDelayed(int frames)
         {
-            return modelAnchors.FirstOrDefault(a => a.key == name);
+            destroyTimeout = frames;
+            onDelayedDestroy?.Invoke();
         }
+        public bool IsDestroying()
+        {
+            return destroyTimeout > 0;
+        }
+        #endregion
 
         #region 属性
         public T GetProperty<T>(string name)
@@ -203,15 +253,7 @@ namespace MVZ2.Models
         }
         #endregion
 
-        public static Model GetPrefab(NamespaceID modelID)
-        {
-            var main = MainManager.Instance;
-            var res = main.ResourceManager;
-            var modelMeta = res.GetModelMeta(modelID);
-            if (modelMeta == null)
-                return null;
-            return res.GetModel(modelMeta.Path);
-        }
+        #region 创建
         public static Model Create(NamespaceID modelID, Transform parent)
         {
             var prefab = GetPrefab(modelID);
@@ -244,7 +286,31 @@ namespace MVZ2.Models
             model.Init(seed);
             return model;
         }
+        #endregion
 
+        public static ModelMeta GetModelMeta(NamespaceID modelID)
+        {
+            var main = MainManager.Instance;
+            var res = main.ResourceManager;
+            return res.GetModelMeta(modelID);
+        }
+        public static Model GetPrefab(NamespaceID modelID)
+        {
+            var main = MainManager.Instance;
+            var res = main.ResourceManager;
+            var modelMeta = GetModelMeta(modelID);
+            if (modelMeta == null)
+                return null;
+            return res.GetModel(modelMeta.Path);
+        }
+        public ModelAnchor GetAnchor(string name)
+        {
+            return modelAnchors.FirstOrDefault(a => a.key == name);
+        }
+        public RandomGenerator GetRNG()
+        {
+            return rng;
+        }
         #endregion
 
         #region 私有方法
@@ -282,6 +348,13 @@ namespace MVZ2.Models
         private ModelComponent[] modelComponents;
         [SerializeField]
         private List<Model> childModels = new List<Model>();
+        [Header("Destruction")]
+        [SerializeField]
+        private int destroyDelay;
+        [SerializeField]
+        private UnityEvent onDelayedDestroy;
+
+        private int destroyTimeout;
         private ModelParentInterface modelInterface;
         private RandomGenerator rng;
         private List<string> triggeringEvents = new List<string>();
@@ -298,6 +371,7 @@ namespace MVZ2.Models
         public SerializableMultipleRendererGroup rendererGroup;
         public SerializablePropertyDictionary propertyDict;
         public SerializableModelData[] childModels;
+        public int destroyTimeout;
         public string[] triggeringEvents;
         public string[] triggeredEvents;
     }
