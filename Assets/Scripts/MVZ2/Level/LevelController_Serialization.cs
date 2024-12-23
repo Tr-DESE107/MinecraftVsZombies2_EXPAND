@@ -23,6 +23,7 @@ namespace MVZ2.Level
         {
             return new SerializableLevelController()
             {
+                rng = rng.ToSerializable(),
                 identifiers = LevelManager.GetLevelStateIdentifierList(),
 
                 bannerProgresses = bannerProgresses?.ToArray(),
@@ -64,6 +65,7 @@ namespace MVZ2.Level
 
             try
             {
+                rng = RandomGenerator.FromSerializable(seri.rng);
                 level = LevelEngine.Deserialize(seri.level, game, game, game);
                 InitLevelEngine(level, game, areaID, stageID);
 
@@ -196,6 +198,7 @@ namespace MVZ2.Level
     }
     public class SerializableLevelController
     {
+        public SerializableRNG rng;
         public LevelDataIdentifierList identifiers;
 
         public float levelProgress;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -62,6 +63,10 @@ namespace PVZEngine.Grids
             var definition = level.Content.GetGridDefinition(seri.definitionID);
             var grid = new LawnGrid(level, definition, seri.lane, seri.column);
             return grid;
+        }
+        public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
+        {
+            takenEntities = seri.takenEntities.Select(id => level.FindEntityByID(id)).ToList();
         }
         #endregion ·½·¨
 

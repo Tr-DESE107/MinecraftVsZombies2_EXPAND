@@ -15,7 +15,16 @@ namespace MVZ2.Level.Components
             artifacts = new ArtifactList(level, 3);
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
         }
-
+        public void SetSlotCount(int count)
+        {
+            artifacts.SetSlotCount(count);
+            var uiPreset = Controller.GetUIPreset();
+            uiPreset.SetArtifactCount(count);
+        }
+        public int GetSlotCount()
+        {
+            return artifacts.GetSlotCount();
+        }
         public void ReplaceArtifacts(ArtifactDefinition[] artifactDef)
         {
             artifacts.ReplaceArtifacts(artifactDef);
@@ -66,10 +75,8 @@ namespace MVZ2.Level.Components
         }
         private void UpdateUIArtifacts()
         {
-
             var uiPreset = Controller.GetUIPreset();
-            var count = artifacts.GetArtifactSlotCount();
-            uiPreset.SetArtifactCount(count);
+            var count = artifacts.GetSlotCount();
             for (int i = 0; i < count; i++)
             {
                 var artifact = artifacts.GetArtifactAt(i);

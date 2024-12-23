@@ -15,6 +15,22 @@ namespace MVZ2Logic.Artifacts
             Level = level;
         }
         #region 制品操作
+        public void SetSlotCount(int count)
+        {
+            var newArray = new Artifact[count];
+            if (artifacts != null)
+            {
+                for (int i = 0; i < Math.Min(count, artifacts.Length); i++)
+                {
+                    newArray[i] = artifacts[i];
+                }
+            }
+            artifacts = newArray;
+        }
+        public int GetSlotCount()
+        {
+            return artifacts.Length;
+        }
         public void ReplaceArtifacts(ArtifactDefinition[] definitions)
         {
             if (definitions == null)
@@ -112,10 +128,6 @@ namespace MVZ2Logic.Artifacts
         public Artifact[] GetAllArtifacts()
         {
             return artifacts.ToArray();
-        }
-        public int GetArtifactSlotCount()
-        {
-            return artifacts.Length;
         }
         #endregion
 

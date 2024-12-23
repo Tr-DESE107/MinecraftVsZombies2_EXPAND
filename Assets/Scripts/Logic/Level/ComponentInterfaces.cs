@@ -113,6 +113,8 @@ namespace MVZ2Logic.Level.Components
     }
     public interface IArtifactComponent : ILevelComponent
     {
+        void SetSlotCount(int count);
+        int GetSlotCount();
         void ReplaceArtifacts(ArtifactDefinition[] definitions);
         Artifact[] GetArtifacts();
         bool HasArtifact(ArtifactDefinition artifactDef);

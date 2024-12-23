@@ -16,6 +16,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
+using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -28,6 +29,7 @@ namespace MVZ2.Entities
         {
             Level = level;
             Entity = entity;
+            rng = new RandomGenerator(entity.InitSeed);
             gameObject.name = entity.GetDefinitionID().ToString();
             entity.PostInit += PostInitCallback;
             entity.OnChangeModel += OnChangeModelCallback;
@@ -53,7 +55,7 @@ namespace MVZ2.Entities
                 Destroy(Model.gameObject);
                 Model = null;
             }
-            var model = Model.Create(modelId, transform);
+            var model = Model.Create(modelId, transform, Entity.InitSeed);
             Model = model;
             if (!Model)
                 return;
@@ -395,7 +397,7 @@ namespace MVZ2.Entities
             var lightScaleLawn = Entity.GetLightRange();
             var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
             var lightColor = Entity.GetLightColor();
-            var randomLightScale = Level.RNG.Next(-0.05f, 0.05f);
+            var randomLightScale = rng.Next(-0.05f, 0.05f);
             Model.RendererGroup.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
 
         }
@@ -458,6 +460,7 @@ namespace MVZ2.Entities
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
+        private RandomGenerator rng;
         private bool isHovered;
         private bool isHighlight;
         private EntityCursorSource _cursorSource;

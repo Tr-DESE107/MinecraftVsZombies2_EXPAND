@@ -25,6 +25,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -36,9 +37,9 @@ namespace MVZ2.Level
         #region 公有方法
 
         #region 游戏流程
-        public void InitLevel(Game game, NamespaceID areaID, NamespaceID stageID)
+        public void InitLevel(Game game, NamespaceID areaID, NamespaceID stageID, int seed = 0)
         {
-
+            rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
             level = new LevelEngine(game, game, game);
             InitLevelEngine(level, game, areaID, stageID);
 
@@ -52,7 +53,7 @@ namespace MVZ2.Level
                 MaxEnergy = 9990,
                 TPS = 30
             };
-            level.Init(areaID, stageID, option);
+            level.Init(areaID, stageID, option, seed);
             level.Setup();
 
             var uiPreset = GetUIPreset();

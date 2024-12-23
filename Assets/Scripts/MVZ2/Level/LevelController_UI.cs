@@ -997,7 +997,7 @@ namespace MVZ2.Level
         {
             var uiPreset = GetUIPreset();
             var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
-            int artifactCount = 3;
+            int artifactCount = level.GetArtifactSlotCount();
             uiPreset.SetBlueprintChooseArtifactVisible(hasArtifacts);
             uiPreset.ResetBlueprintChooseArtifactCount(artifactCount);
             chosenArtifacts = new NamespaceID[artifactCount];
@@ -1091,7 +1091,7 @@ namespace MVZ2.Level
         #endregion
 
         public RandomGenerator RNG => rng;
-        private RandomGenerator rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
+        private RandomGenerator rng;
         private OptionsLogicLevel optionsLogic;
         private bool isChoosingBlueprints;
         private List<int> chosenBlueprints = new List<int>();

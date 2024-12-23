@@ -15,6 +15,7 @@ namespace PVZEngine.Entities
         public int state;
         public long target;
         public long parent;
+        public int initSeed;
         public SerializableRNG rng;
         public SerializableRNG dropRng;
         public NamespaceID definitionID;

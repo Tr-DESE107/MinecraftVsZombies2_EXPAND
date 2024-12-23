@@ -330,9 +330,7 @@ namespace MVZ2.Models
         public NamespaceID ID => id;
         public NamespaceID Key => key;
         public Model Parent => parent;
-        [SerializeField]
         private NamespaceID id;
-        [SerializeField]
         private NamespaceID key;
         [SerializeField]
         private Model parent;

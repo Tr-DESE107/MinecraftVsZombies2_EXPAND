@@ -446,6 +446,13 @@ namespace PVZEngine.Level
                 level.entities[i].ApplyDeserialize(seri.entities[i]);
             }
             // 在实体加载后面
+            for (int i = 0; i< level.grids.Length; i++)
+            {
+                var grid = level.grids[i];
+                var seriGrid = seri.grids[i];
+                grid.LoadFromSerializable(seriGrid, level);
+            }
+
             level.Energy = seri.energy;
             level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
             level.buffs = BuffList.FromSerializable(seri.buffs, level, level);

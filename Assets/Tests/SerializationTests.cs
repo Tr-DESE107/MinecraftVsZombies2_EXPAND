@@ -108,10 +108,7 @@ namespace MVZ2.Tests
         {
             var areaId = VanillaAreaID.day;
             var stageId = VanillaStageID.prologue;
-            yield return Init();
-            yield return GotoLevel();
-            var levelController = GetLevelController();
-            InitLevel(levelController, areaId, stageId);
+            yield return PrepareLevelSerializationTest(areaId, stageId);
 
             var game = GetGame();
             var level = GetLevel();
@@ -129,15 +126,15 @@ namespace MVZ2.Tests
                 for (int column = 0; column < 7; column++)
                 {
                     EntityDefinition def;
-                    if (lane == 0 || lane == 3 || lane == 4)
+                    if (column == 0 || column == 3 || column == 4)
                     {
                         def = dispenser;
                     }
-                    else if (lane > 0 && lane < 3)
+                    else if (column > 0 && column < 3)
                     {
                         def = furnace;
                     }
-                    else if (lane == 5)
+                    else if (column == 5)
                     {
                         def = obsidian;
                     }
@@ -174,38 +171,148 @@ namespace MVZ2.Tests
                     level.SpawnEnemyAtRandomLane(spawnDef);
                 }
             }
+            yield return LevelSerializationTest(areaId, stageId, 5);
+        }
+        [UnityTest]
+        public static IEnumerator LevelSerializationTestHalloween()
+        {
+            var areaId = VanillaAreaID.halloween;
+            var stageId = VanillaStageID.halloween10;
+            yield return PrepareLevelSerializationTest(areaId, stageId);
 
+            var game = GetGame();
+            var level = GetLevel();
+
+
+            level.Start();
+
+            // 生成器械
+            var smallDispenser = game.GetEntityDefinition(VanillaContraptionID.smallDispenser);
+            var moonlightsensor = game.GetEntityDefinition(VanillaContraptionID.moonlightSensor);
+            var glowstone = game.GetEntityDefinition(VanillaContraptionID.glowstone);
+            var punchton = game.GetEntityDefinition(VanillaContraptionID.punchton);
+            var tnt = game.GetEntityDefinition(VanillaContraptionID.tnt);
+            var soulFurnace = game.GetEntityDefinition(VanillaContraptionID.soulFurnace);
+            var silvenser = game.GetEntityDefinition(VanillaContraptionID.silvenser);
+            var magichest = game.GetEntityDefinition(VanillaContraptionID.magichest);
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            {
+                for (int column = 0; column < 8; column++)
+                {
+                    EntityDefinition def;
+                    if (column == 0)
+                    {
+                        def = silvenser;
+                    }
+                    else if (column == 1)
+                    {
+                        def = moonlightsensor;
+                    }
+                    else if (column == 2)
+                    {
+                        def = soulFurnace;
+                    }
+                    else if (column == 3)
+                    {
+                        def = tnt;
+                    }
+                    else if (column == 4)
+                    {
+                        def = glowstone;
+                    }
+                    else if (column == 5)
+                    {
+                        def = smallDispenser;
+                    }
+                    else if (column == 6)
+                    {
+                        def = punchton;
+                    }
+                    else
+                    {
+                        def = magichest;
+                    }
+                    var x = level.GetEntityColumnX(column);
+                    var z = level.GetEntityLaneZ(lane);
+                    var height = level.GetGroundY(x, z);
+                    var position = new Vector3(x, height, z);
+                    level.Spawn(def, position, null);
+                }
+            }
+            // 生成僵尸
+            var skeleton = VanillaSpawnID.skeleton;
+            var ghost = VanillaSpawnID.ghost;
+            var mummy = VanillaSpawnID.mummy;
+            var necromancer = VanillaSpawnID.necromancer;
+            for (int t = 0; t < 4; t++)
+            {
+                NamespaceID def = skeleton;
+                switch (t)
+                {
+                    case 1:
+                        def = ghost;
+                        break;
+                    case 2:
+                        def = mummy;
+                        break;
+                    case 3:
+                        def = necromancer;
+                        break;
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    var spawnDef = game.GetSpawnDefinition(def);
+                    level.SpawnEnemyAtRandomLane(spawnDef);
+                }
+            }
+            yield return LevelSerializationTest(areaId, stageId, 5);
+        }
+        private static IEnumerator PrepareLevelSerializationTest(NamespaceID areaId, NamespaceID stageId)
+        {
+            yield return Init();
+            yield return GotoLevel();
+            var levelController = GetLevelController();
+            InitLevel(levelController, areaId, stageId);
+            var level = GetLevel();
+            level.Start();
+        }
+        private static IEnumerator LevelSerializationTest(NamespaceID areaId, NamespaceID stageId, int seconds)
+        {
+            var levelController = GetLevelController();
+            var level = GetLevel();
             var serializableBeforeSave = levelController.SaveGame();
             var jsonBeforeSave = serializableBeforeSave.ToBson();
 
             var serializableAfterLoad = SerializeHelper.FromBson<SerializableLevelController>(jsonBeforeSave);
             var jsonAfterLoad = serializableAfterLoad.ToBson();
 
-            Debug.Log(jsonBeforeSave);
-            Debug.Log(jsonAfterLoad);
-            Assert.AreEqual(jsonBeforeSave, jsonAfterLoad);
+            var engineJsonBeforeSave = serializableBeforeSave.level.ToBson();
+            var engineJsonAfterLoad = serializableAfterLoad.level.ToBson();
+            Assert.AreEqual(engineJsonBeforeSave, engineJsonAfterLoad);
 
             // 更新五秒
-            for (int i = 0; i < 5 * level.TPS; i++)
+            for (int i = 0; i < seconds * level.Option.TPS; i++)
             {
                 levelController.UpdateLogic();
             }
             var serializableAfterUpdate1 = levelController.SaveGame();
-            var jsonAfterUpdate1 = SerializeHelper.ToBson(serializableAfterUpdate1);
+            var jsonAfterUpdate1 = SerializeHelper.ToBson(serializableAfterUpdate1.level);
 
             yield return GotoLevel();
             var levelAfterLoad = GetLevelController();
             LoadLevel(levelAfterLoad, serializableAfterLoad, areaId, stageId);
             // 更新五秒
-            for (int i = 0; i < 5 * level.TPS; i++)
+            for (int i = 0; i < seconds * level.Option.TPS; i++)
             {
                 levelAfterLoad.UpdateLogic();
             }
             var serializableAfterUpdate2 = levelAfterLoad.SaveGame();
-            var jsonAfterUpdate2 = SerializeHelper.ToBson(serializableAfterUpdate2);
+            var jsonAfterUpdate2 = SerializeHelper.ToBson(serializableAfterUpdate2.level);
 
-            Debug.Log(jsonAfterUpdate1);
-            Debug.Log(jsonAfterUpdate2);
+            Debug.Log($"{nameof(jsonBeforeSave)}: {jsonBeforeSave}");
+            Debug.Log($"{nameof(jsonAfterLoad)}: {jsonAfterLoad}");
+            Debug.Log($"{nameof(jsonAfterUpdate1)}: {jsonAfterUpdate1}");
+            Debug.Log($"{nameof(jsonAfterUpdate2)}: {jsonAfterUpdate2}");
             Assert.AreEqual(jsonAfterUpdate1, jsonAfterUpdate2);
         }
         private static IEnumerator Init()
@@ -249,7 +356,7 @@ namespace MVZ2.Tests
         }
         private static void InitLevel(LevelController level, NamespaceID areaId, NamespaceID stageId)
         {
-            level.InitLevel(Main.Game, areaId, stageId);
+            level.InitLevel(Main.Game, areaId, stageId, 58115310);
             level.StartGame();
         }
         private static void LoadLevel(LevelController level, SerializableLevelController seri, NamespaceID areaId, NamespaceID stageId)
