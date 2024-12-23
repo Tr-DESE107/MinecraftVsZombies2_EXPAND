@@ -104,7 +104,12 @@
         <sentence speaker="mvz2:self" sounds="mvz2:talk;mvz2:dialog_explosive" onStart="character variant mvz2:doremy mvz2:open_mouth;shake;music volume 0">没有！你为啥会这么想啊！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:dialog_weird">哇，说话了！我还以为你是哑巴呢！</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:dialog_cut" onStart="shake;character variant mvz2:doremy mvz2:normal">&lt;color=blue&gt;（谁是哑巴啊！）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1" onClick="end">史蒂夫，还有村民，是吧？欢迎你们的到来。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="music fade 1">史蒂夫，还有村民，是吧？欢迎你们的到来。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="item show mvz2:artifacts/sweet_sleep_pillow">另外，希望你们能收下这个。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk">这是……枕头？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">是我特制的安眠枕，能帮你们睡些好觉。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onClick="item hide">这样啊，那我们就收下了。</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk"><![CDATA[<color=blue>（嗯……也许这对器械也有用？）</color>]]></sentence>
       </sentences>
     </section>
   </group>
@@ -603,6 +608,11 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">你在做梦的时候，可能还会遇见我，那个时候我们再聊聊吧。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而在幻想乡那段时间内，我就好好的翻翻你的梦吧。</sentence>
         <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="shake">&lt;color=blue&gt;（——希望你不要再翻我的那些黑历史了！）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">另外，为了表示感谢，在你们离开之前，我有东西要送给你们。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="item show mvz2:artifacts/dream_butterfly">请收下这个吧。这个是梦境世界的梦蝶。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">它能够保护你，还有器械们免受某些灾难。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">祝你们一路平安！</sentence>
+        <sentence speaker="mvz2:self" sounds="mvz2:talk" onStart="item hide">好，谢谢哆来咪小姐了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">好了，我们终于可以去幻想乡了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">我们早就已经准备好了！出发吧！</sentence>
       </sentences>

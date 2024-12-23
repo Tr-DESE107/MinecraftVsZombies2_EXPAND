@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-21 06:24+0800\n"
-"PO-Revision-Date: 2024-12-21 06:29+0800\n"
+"POT-Creation-Date: 2024-12-23 05:39+0800\n"
+"PO-Revision-Date: 2024-12-23 17:40+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/talk/en_US/>\n"
@@ -352,6 +352,37 @@ msgstr "<color=blue>(Who's a mute!)</color>"
 msgctxt "talk-mvz2:dream_2_map"
 msgid "史蒂夫，还有村民，是吧？欢迎你们的到来。"
 msgstr "Steve, and Villager, right? Welcome to the Dream World."
+
+#. Text for talk sentence 12 in talk group dream_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_2_map"
+msgid "另外，希望你们能收下这个。"
+msgstr "And, take this."
+
+#. Text for talk sentence 13 in talk group dream_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_2_map"
+msgid "这是……枕头？"
+msgstr "This is... a pillow?"
+
+#. Text for talk sentence 14 in talk group dream_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_2_map"
+msgid "是我特制的安眠枕，能帮你们睡些好觉。"
+msgstr ""
+"It's my specially designed Sweet Sleep Pillow, it can help you sleep well."
+
+#. Text for talk sentence 15 in talk group dream_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_2_map"
+msgid "这样啊，那我们就收下了。"
+msgstr "Okay, then we'll take it."
+
+#. Text for talk sentence 16 in talk group dream_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_2_map"
+msgid "<color=blue>（嗯……也许这对器械也有用？）</color>"
+msgstr "<color=blue>(Hmm...Maybe this also works on contraptions?)</color>"
 
 #. Archive name for talk group dream_3
 #: Talk meta file
@@ -2110,10 +2141,40 @@ msgstr ""
 #. Text for talk sentence 37 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
+msgid "另外，为了表示感谢，在你们离开之前，我有东西要送给你们。"
+msgstr "Also, for appreciation, I have something for you before you leave."
+
+#. Text for talk sentence 38 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "请收下这个吧。这个是梦境世界的梦蝶。"
+msgstr "Take this. This is the Dream World's butterfly."
+
+#. Text for talk sentence 39 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "它能够保护你，还有器械们免受某些灾难。"
+msgstr "It can protect you, and contraptions from some disasters."
+
+#. Text for talk sentence 40 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "祝你们一路平安！"
+msgstr "Wishing you a safe journey!"
+
+#. Text for talk sentence 41 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
+msgid "好，谢谢哆来咪小姐了！"
+msgstr "Ok, thanks, Miss Doremy!"
+
+#. Text for talk sentence 42 in talk group dream_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:dream_11_map"
 msgid "好了，我们终于可以去幻想乡了！"
 msgstr "Well, we can finally go to Gensokyo!"
 
-#. Text for talk sentence 38 in talk group dream_11_map's section 0
+#. Text for talk sentence 43 in talk group dream_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
 msgid "我们早就已经准备好了！出发吧！"

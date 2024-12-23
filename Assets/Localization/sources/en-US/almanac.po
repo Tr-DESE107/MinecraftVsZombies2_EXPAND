@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-21 06:24+0800\n"
-"PO-Revision-Date: 2024-12-21 06:27+0800\n"
+"POT-Creation-Date: 2024-12-23 06:57+0800\n"
+"PO-Revision-Date: 2024-12-23 19:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -599,11 +599,23 @@ msgstr ""
 "The Necromancers can’t figure out why they have to deal with others overtaxing them or calling them evil witches because they raise "
 "the dead. They just want to build a wall."
 
-#. Name for artifacts mvz2:dream_key
+#. Header for artifacts mvz2:hoe
 #: Almanac meta file
-msgctxt "artifacts.name"
-msgid "梦境钥匙"
-msgstr "Dream Key"
+msgctxt "artifacts.description"
+msgid "农耕用具。"
+msgstr "An agricultural tool."
+
+#. Properties for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
+msgstr "Effect: <color=red>Kills the first enemy of every battle.</color>"
+
+#. Flavor for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "踩到了的话被打一下很痛。真的。"
+msgstr "If you step on it, it will hurt you a lot. REALLY."
 
 #. Header for artifacts mvz2:dream_key
 #: Almanac meta file
@@ -615,7 +627,7 @@ msgstr "A key used to open gates towards the dreamland of other worlds, allowing
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "效果：<color=red>对器械使用星之碎片会为其恢复所有生命值，并在此期间无敌。</color>"
-msgstr "Effects: <color=red>Contraptions restore all toughness after being evoked, and is invincible during evocation.</color>"
+msgstr "Effect: <color=red>Contraptions restore all toughness after being evoked, and is invincible during evocation.</color>"
 
 #. Flavor for artifacts mvz2:dream_key
 #: Almanac meta file
@@ -637,6 +649,109 @@ msgstr ""
 "To the land of fantasy\n"
 "To the end of the light\n"
 "To the dream's awakening"
+
+#. Header for artifacts mvz2:the_creatures_heart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "科学怪人的怪物的心脏。"
+msgstr "The Frankenstein's monster's heart."
+
+#. Properties for artifacts mvz2:the_creatures_heart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>"
+msgstr "Effect: <color=red>-5 contraption cost for each same contraption on the battlefield.</color>"
+
+#. Flavor for artifacts mvz2:the_creatures_heart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "……爱……？"
+msgstr "...Love...?"
+
+#. Header for artifacts mvz2:sweet_sleep_pillow
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "哆来咪赠予的奇妙枕头，拥有让人安眠的效果。"
+msgstr "A wonderful pillow gifted by Doremy, with the ability of making people sleep peacefully."
+
+#. Properties for artifacts mvz2:sweet_sleep_pillow
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>器械每秒钟恢复10点生命值。</color>"
+msgstr "Effect: <color=red>Contraptions restore 10 toughness per second</color>"
+
+#. Flavor for artifacts mvz2:sweet_sleep_pillow
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "好困啊，先不写趣文了。"
+msgstr "I'm so sleepy, let's write this flavor later."
+
+#. Header for artifacts mvz2:pagoda_branch
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "槐树上的树枝。"
+msgstr "A branch on the pagoda tree."
+
+#. Properties for artifacts mvz2:pagoda_branch
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>开始战斗时拥有300点能量，但敌人出现数量变为300%。</color>"
+msgstr "Effect: <color=red>Has 300 energy at start, but spawns 300% amount of enemies.</color>"
+
+#. Flavor for artifacts mvz2:pagoda_branch
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"据说能让你一生荣华富贵，最终却也会因战火流离失所。\n"
+"不过，还好这只是一场梦。大槐安国的时光，大梦一场，却走完了人的一生。"
+msgstr ""
+"It is said that it can bring you a lifetime of glory and wealth, but finally you will also be displaced by war.\n"
+"Fortunately, it was just a dream. The time in Da Huai An Kingdom just lasts a sleep, but it's a person's whole life."
+
+#. Header for artifacts mvz2:dream_butterfly
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "梦境世界的蝴蝶，两翼异色，分别代表着美梦和噩梦。"
+msgstr "A dichromatic butterfly in the Dream World, which the wings represent dreams and nightmares."
+
+#. Properties for artifacts mvz2:dream_butterfly
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>刚放下的器械无敌3秒。</color>"
+msgstr "Effect: <color=red>Contraptions are invincible for 3 seconds after build.</color>"
+
+#. Flavor for artifacts mvz2:dream_butterfly
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这种蝴蝶生长在梦境世界，吸取人们的美梦的幸福、放松的甜蜜，沾染噩梦的痛苦、疲劳的花粉。\n"
+"蝴蝶的左翼粉色，代表着美梦。上半部分描绘了大槐安国以及其子民的景象，而下半部分则是另一只梦蝶。\n"
+"右翼则是红色，代表着噩梦。花纹混沌，其中隐隐约约浮现出人类所恐惧的事物——死亡、骨血、眼睛、尖叫。"
+msgstr ""
+"This butterfly grows in the Dream World, it absorbs the sweet and relaxing nectar of dreams, stained by the painful and tiring pollen "
+"of nightmares.\n"
+"The pink left wing represents the beautiful dreams. The upper part depicts the scenery of Da Huai An Kingdom and its people, while the "
+"lower part is another dream butterfly.\n"
+"The red right wing represents the nightmares. The patterns are chaotic, with faint hints of things that humans fear - death, gores, "
+"eyes and screams."
+
+#. Header for artifacts mvz2:dark_matter
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "暗物质是宇宙中大量存在的一种不可见的物质。"
+msgstr "Dark Matter is an invisible substance that exists in large quantities in the universe."
+
+#. Properties for artifacts mvz2:dark_matter
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>器械生产效率增加100%，但场景变得黑暗。</color>"
+msgstr "Effect: <color=red>+100% contraption produce speed, but the battlefield is pitch black</color>"
+
+#. Flavor for artifacts mvz2:dark_matter
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "<color=white>你看不见我</color>"
+msgstr "<color=white>You can't see me</color>"
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -1520,6 +1635,18 @@ msgctxt "character.name"
 msgid "哆来咪"
 msgstr "Doremy"
 
+#. Name for artifact mvz2:hoe
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "锄头"
+msgstr "Hoe"
+
+#. Tooltip for artifact mvz2:hoe
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "消灭每场战斗的第一个敌人"
+msgstr "Kills the first enemy of every battle"
+
 #. Name for artifact mvz2:dream_key
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -1531,6 +1658,70 @@ msgstr "Dream Key"
 msgctxt "artifact.tooltip"
 msgid "对器械使用星之碎片会恢复所有生命值，并在此期间无敌"
 msgstr "Contraptions restore all toughness after being evoked, and is invincible during evocation"
+
+#. Name for artifact mvz2:the_creatures_heart
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "怪物的心"
+msgstr "The Creature's Heart"
+
+#. Tooltip for artifact mvz2:the_creatures_heart
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "场上每有一个同类器械，该器械的能量消耗减少5"
+msgstr "-5 contraption cost of for each same contraption on the battlefield"
+
+#. Name for artifact mvz2:sweet_sleep_pillow
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "安眠枕"
+msgstr "Sweet Sleep Pillow"
+
+#. Tooltip for artifact mvz2:sweet_sleep_pillow
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "器械每秒恢复10点生命值"
+msgstr "Contraptions restore 10 toughness per second"
+
+#. Name for artifact mvz2:pagoda_branch
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "槐树树枝"
+msgstr "Pagoda Branch"
+
+#. Tooltip for artifact mvz2:pagoda_branch
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "战斗开始时拥有300能量，但敌人数量变为300%"
+msgstr "Has 300 energy at start, but spawns 300% amount of enemies"
+
+#. Name for artifact mvz2:dream_butterfly
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "梦蝶"
+msgstr "Dream Butterfly"
+
+#. Tooltip for artifact mvz2:dream_butterfly
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "刚放置的器械无敌3秒"
+msgstr "Contraptions are invincible for 3 seconds after build"
+
+#. Name for artifact mvz2:dark_matter
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "暗物质"
+msgstr "Dark Matter"
+
+#. Tooltip for artifact mvz2:dark_matter
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "器械生产效率增加100%，但场景变得黑暗"
+msgstr "+100% contraption produce speed, but the battlefield is pitch black"
+
+#~ msgctxt "artifacts.name"
+#~ msgid "梦境钥匙"
+#~ msgstr "Dream Key"
 
 #~ msgid "史蒂夫"
 #~ msgstr "Steve"

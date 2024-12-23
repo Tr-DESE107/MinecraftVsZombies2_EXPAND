@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-21 06:24+0800\n"
+"POT-Creation-Date: 2024-12-23 06:57+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -473,10 +473,22 @@ msgctxt "enemies.description"
 msgid "死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。"
 msgstr ""
 
-#. Name for artifacts mvz2:dream_key
+#. Header for artifacts mvz2:hoe
 #: Almanac meta file
-msgctxt "artifacts.name"
-msgid "梦境钥匙"
+msgctxt "artifacts.description"
+msgid "农耕用具。"
+msgstr ""
+
+#. Properties for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "踩到了的话被打一下很痛。真的。"
 msgstr ""
 
 #. Header for artifacts mvz2:dream_key
@@ -502,6 +514,101 @@ msgid ""
 "于幻想之地\n"
 "于光明的尽头\n"
 "于梦的苏醒"
+msgstr ""
+
+#. Header for artifacts mvz2:the_creatures_heart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "科学怪人的怪物的心脏。"
+msgstr ""
+
+#. Properties for artifacts mvz2:the_creatures_heart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:the_creatures_heart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "……爱……？"
+msgstr ""
+
+#. Header for artifacts mvz2:sweet_sleep_pillow
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "哆来咪赠予的奇妙枕头，拥有让人安眠的效果。"
+msgstr ""
+
+#. Properties for artifacts mvz2:sweet_sleep_pillow
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>器械每秒钟恢复10点生命值。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:sweet_sleep_pillow
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "好困啊，先不写趣文了。"
+msgstr ""
+
+#. Header for artifacts mvz2:pagoda_branch
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "槐树上的树枝。"
+msgstr ""
+
+#. Properties for artifacts mvz2:pagoda_branch
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>开始战斗时拥有300点能量，但敌人出现数量变为300%。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:pagoda_branch
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"据说能让你一生荣华富贵，最终却也会因战火流离失所。\n"
+"不过，还好这只是一场梦。大槐安国的时光，大梦一场，却走完了人的一生。"
+msgstr ""
+
+#. Header for artifacts mvz2:dream_butterfly
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "梦境世界的蝴蝶，两翼异色，分别代表着美梦和噩梦。"
+msgstr ""
+
+#. Properties for artifacts mvz2:dream_butterfly
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>刚放下的器械无敌3秒。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:dream_butterfly
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这种蝴蝶生长在梦境世界，吸取人们的美梦的幸福、放松的甜蜜，沾染噩梦的痛苦、疲劳的花粉。\n"
+"蝴蝶的左翼粉色，代表着美梦。上半部分描绘了大槐安国以及其子民的景象，而下半部分则是另一只梦蝶。\n"
+"右翼则是红色，代表着噩梦。花纹混沌，其中隐隐约约浮现出人类所恐惧的事物——死亡、骨血、眼睛、尖叫。"
+msgstr ""
+
+#. Header for artifacts mvz2:dark_matter
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "暗物质是宇宙中大量存在的一种不可见的物质。"
+msgstr ""
+
+#. Properties for artifacts mvz2:dark_matter
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>器械生产效率增加100%，但场景变得黑暗。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:dark_matter
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "<color=white>你看不见我</color>"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -1326,6 +1433,18 @@ msgctxt "character.name"
 msgid "哆来咪"
 msgstr ""
 
+#. Name for artifact mvz2:hoe
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "锄头"
+msgstr ""
+
+#. Tooltip for artifact mvz2:hoe
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "消灭每场战斗的第一个敌人"
+msgstr ""
+
 #. Name for artifact mvz2:dream_key
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -1336,5 +1455,65 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "对器械使用星之碎片会恢复所有生命值，并在此期间无敌"
+msgstr ""
+
+#. Name for artifact mvz2:the_creatures_heart
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "怪物的心"
+msgstr ""
+
+#. Tooltip for artifact mvz2:the_creatures_heart
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "场上每有一个同类器械，该器械的能量消耗减少5"
+msgstr ""
+
+#. Name for artifact mvz2:sweet_sleep_pillow
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "安眠枕"
+msgstr ""
+
+#. Tooltip for artifact mvz2:sweet_sleep_pillow
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "器械每秒恢复10点生命值"
+msgstr ""
+
+#. Name for artifact mvz2:pagoda_branch
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "槐树树枝"
+msgstr ""
+
+#. Tooltip for artifact mvz2:pagoda_branch
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "战斗开始时拥有300能量，但敌人数量变为300%"
+msgstr ""
+
+#. Name for artifact mvz2:dream_butterfly
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "梦蝶"
+msgstr ""
+
+#. Tooltip for artifact mvz2:dream_butterfly
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "刚放置的器械无敌3秒"
+msgstr ""
+
+#. Name for artifact mvz2:dark_matter
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "暗物质"
+msgstr ""
+
+#. Tooltip for artifact mvz2:dark_matter
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "器械生产效率增加100%，但场景变得黑暗"
 msgstr ""
 
