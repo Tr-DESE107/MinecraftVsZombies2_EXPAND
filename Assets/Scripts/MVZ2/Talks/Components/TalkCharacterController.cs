@@ -13,6 +13,14 @@ namespace MVZ2.Talk
             SetScale(scale);
             SetCharacter(viewData.sprite);
             gameObject.name = viewData.name;
+
+            var widthExtend = viewData.widthExtend;
+            var anchoredPos = imageRectTransform.anchoredPosition;
+            var sizeDelta = imageRectTransform.sizeDelta;
+            anchoredPos.x -= (widthExtend.x - widthExtend.y) * 0.5f;
+            sizeDelta.x += widthExtend.x + widthExtend.y;
+            imageRectTransform.anchoredPosition = anchoredPos;
+            imageRectTransform.sizeDelta = sizeDelta;
         }
         public void SetScale(Vector3 scale)
         {
@@ -41,7 +49,8 @@ namespace MVZ2.Talk
         public void SetCharacter(Sprite spr)
         {
             image.sprite = spr;
-            imageRectTransform.pivot = spr.pivot / spr.rect.size;
+            if (spr)
+                imageRectTransform.pivot = spr.pivot / spr.rect.size;
         }
         private void Update()
         {
@@ -102,6 +111,7 @@ namespace MVZ2.Talk
     {
         public string name;
         public Sprite sprite;
+        public Vector2 widthExtend;
         public CharacterSide side;
     }
 }

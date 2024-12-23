@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
@@ -41,34 +43,44 @@ namespace MVZ2.Metas
             meta.name = node.GetAttribute("name");
             meta.unlockCondition = node.GetAttributeNamespaceID("unlock", defaultNsp);
 
+            var variantTemplates = new List<TalkCharacterVariantTemplate>();
             var variantChildNodes = node.ChildNodes;
             for (int i = 0; i < variantChildNodes.Count; i++)
             {
                 var child = variantChildNodes[i];
-                meta.variants.Add(TalkCharacterVariant.FromXmlNode(child, defaultNsp));
+                if (child.Name == "variant")
+                {
+                    variantTemplates.Add(TalkCharacterVariantTemplate.FromXmlNode(child, defaultNsp));
+                }
             }
+            meta.variants.AddRange(variantTemplates.Select(t => t.ToVariant(variantTemplates)));
             return meta;
         }
     }
 
-    public class TalkCharacterVariant
+    public class TalkCharacterVariantTemplate
     {
         public NamespaceID id;
+        public NamespaceID parent;
         public int? width;
         public int? height;
         public float? pivotX;
         public float? pivotY;
-        public NamespaceID parent;
+        public float? extendLeft;
+        public float? extendRight;
         public List<TalkCharacterLayer> layers = new List<TalkCharacterLayer>();
-        public static TalkCharacterVariant FromXmlNode(XmlNode node, string defaultNsp)
+        public static TalkCharacterVariantTemplate FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var variant = new TalkCharacterVariant();
+            var variant = new TalkCharacterVariantTemplate();
             variant.id = node.GetAttributeNamespaceID("id", defaultNsp);
+            variant.parent = node.GetAttributeNamespaceID("parent", defaultNsp);
+
             variant.width = node.GetAttributeInt("width");
             variant.height = node.GetAttributeInt("height");
+            variant.extendLeft = node.GetAttributeFloat("extendLeft");
+            variant.extendRight = node.GetAttributeFloat("extendRight");
             variant.pivotX = node.GetAttributeFloat("pivotX");
             variant.pivotY = node.GetAttributeFloat("pivotY");
-            variant.parent = node.GetAttributeNamespaceID("parent", defaultNsp);
 
             var variantChildNodes = node.ChildNodes;
             for (int i = 0; i < variantChildNodes.Count; i++)
@@ -78,6 +90,46 @@ namespace MVZ2.Metas
             }
             return variant;
         }
+        public TalkCharacterVariant ToVariant(IEnumerable<TalkCharacterVariantTemplate> templates)
+        {
+            var result = new TalkCharacterVariant();
+            var visited = new Stack<TalkCharacterVariantTemplate>();
+            GetCharacterVariantProperties(templates, result, visited);
+            return result;
+        }
+        private void GetCharacterVariantProperties(IEnumerable<TalkCharacterVariantTemplate> templatePool, TalkCharacterVariant result, Stack<TalkCharacterVariantTemplate> visited)
+        {
+            if (visited.Contains(this))
+                throw new InvalidOperationException($"A recursion exception has been occured while loading talk character {id} from talkcharacter.xml, maybe a cycle parent reference is present.");
+            visited.Push(this);
+            var parentID = parent;
+            if (NamespaceID.IsValid(parentID))
+            {
+                var parent = templatePool.FirstOrDefault(t => t.id == parentID);
+                if (parent != null)
+                {
+                    parent.GetCharacterVariantProperties(templatePool, result, visited);
+                }
+            }
+            visited.Pop();
+            result.id = id;
+            result.pivotX = pivotX ?? result.pivotX;
+            result.pivotY = pivotY ?? result.pivotY;
+            result.width = width ?? result.width;
+            result.height = height ?? result.height;
+            result.widthExtend = new Vector2(extendLeft ?? result.widthExtend.x, extendRight ?? result.widthExtend.y);
+            result.layers.AddRange(layers);
+        }
+    }
+    public class TalkCharacterVariant
+    {
+        public NamespaceID id;
+        public int width;
+        public int height;
+        public float pivotX = 0.5f;
+        public float pivotY = 0.5f;
+        public Vector2 widthExtend;
+        public List<TalkCharacterLayer> layers = new List<TalkCharacterLayer>();
     }
 
     public class TalkCharacterLayer

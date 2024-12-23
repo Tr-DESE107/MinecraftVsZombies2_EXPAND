@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.TalkData;
@@ -63,13 +64,16 @@ namespace MVZ2.Managers
             TalkCharacterVariant variantInfo = info.GetVariant(variantID);
 
             // Variables
-            var layers = new List<TalkCharacterLayer>();
-            GetCharacterVariantProperties(info, variantInfo, layers, out float pivotX, out float pivotY, out int width, out int height);
-            Vector2 spritePivot = new Vector2(pivotX, pivotY);
+            Vector2 spritePivot = new Vector2(variantInfo.pivotX, variantInfo.pivotY);
 
+            var width = variantInfo.width;
+            var height = variantInfo.height;
             var imageTexture = new Texture2D(width, height);
+            var emptyColors = new Color32[width * height];
+            Array.Fill(emptyColors, new Color32(0, 0, 0, 0));
+            imageTexture.SetPixels32(emptyColors);
             imageTexture.name = $"{character}({variantID})";
-            foreach (TalkCharacterLayer layer in layers)
+            foreach (TalkCharacterLayer layer in variantInfo.layers)
             {
                 Sprite sourceSpr = GetSprite(layer.sprite);
                 Texture2D sourceTex = sourceSpr.texture;
@@ -87,27 +91,6 @@ namespace MVZ2.Managers
             return spr;
         }
         #region 私有方法
-        private void GetCharacterVariantProperties(TalkCharacterMeta info, TalkCharacterVariant variantInfo, List<TalkCharacterLayer> layers, out float pivotX, out float pivotY, out int width, out int height)
-        {
-            var parentID = variantInfo.parent;
-            if (NamespaceID.IsValid(parentID))
-            {
-                var parent = info.GetVariant(variantInfo.parent);
-                GetCharacterVariantProperties(info, parent, layers, out pivotX, out pivotY, out width, out height);
-            }
-            else
-            {
-                pivotX = 0.5f;
-                pivotY = 0.5f;
-                width = 0;
-                height = 0;
-            }
-            layers.AddRange(variantInfo.layers);
-            pivotX = variantInfo.pivotX ?? pivotX;
-            pivotY = variantInfo.pivotY ?? pivotY;
-            width = variantInfo.width ?? width;
-            height = variantInfo.height ?? height;
-        }
         private void LoadCharacterVariantSprites(string nsp)
         {
             var modResource = GetModResource(nsp);

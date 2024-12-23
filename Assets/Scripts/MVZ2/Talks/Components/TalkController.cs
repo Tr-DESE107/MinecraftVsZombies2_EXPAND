@@ -394,19 +394,18 @@ namespace MVZ2.Talk
                     {
                         case "fade":
                             {
-                                var fadeArgs = args.Skip(1).ToArray();
-                                if (fadeArgs.Length >= 3)
+                                if (args.Length >= 4)
                                 {
-                                    Main.MusicManager.SetVolume(ParseArgumentFloat(fadeArgs[0]));
-                                    Main.MusicManager.StartFade(ParseArgumentFloat(fadeArgs[1]), ParseArgumentFloat(fadeArgs[2]));
+                                    Main.MusicManager.SetVolume(ParseArgumentFloat(args[1]));
+                                    Main.MusicManager.StartFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
                                 }
-                                else if (fadeArgs.Length == 2)
+                                else if (args.Length == 3)
                                 {
-                                    Main.MusicManager.StartFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                    Main.MusicManager.StartFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
                                 }
-                                else if (fadeArgs.Length == 1)
+                                else if (args.Length == 2)
                                 {
-                                    Main.MusicManager.StartFade(ParseArgumentFloat(fadeArgs[0]), ParseArgumentFloat(fadeArgs[1]));
+                                    Main.MusicManager.StartFade(ParseArgumentFloat(args[1]), 1);
                                 }
                             }
                             break;
@@ -610,20 +609,34 @@ namespace MVZ2.Talk
         public void CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
         {
             Sprite sprite;
+            Vector2 widthExtend = Vector2.zero;
             if (!NamespaceID.IsValid(variant))
             {
                 sprite = Main.ResourceManager.GetCharacterSprite(characterId);
+                var meta = Main.ResourceManager.GetCharacterMeta(characterId);
+                var variantMeta = meta.variants.FirstOrDefault();
+                if (variantMeta != null)
+                {
+                    widthExtend = variantMeta.widthExtend;
+                }
             }
             else
             {
                 sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
+                var meta = Main.ResourceManager.GetCharacterMeta(characterId);
+                var variantMeta = meta.variants.FirstOrDefault(v => v.id == variant);
+                if (variantMeta != null)
+                {
+                    widthExtend = variantMeta.widthExtend;
+                }
             }
 
             var viewData = new TalkCharacterViewData()
             {
                 name = characterId?.ToString(),
                 side = side,
-                sprite = sprite
+                sprite = sprite,
+                widthExtend = widthExtend
             };
             ui.CreateCharacter(viewData);
             characterList.Add(characterId);
