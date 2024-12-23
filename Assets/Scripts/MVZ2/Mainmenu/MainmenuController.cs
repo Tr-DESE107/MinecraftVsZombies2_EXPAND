@@ -16,6 +16,7 @@ using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Saves;
 using MVZ2Logic.Scenes;
 using PVZEngine;
@@ -35,10 +36,14 @@ namespace MVZ2.Mainmenu
             }
             ui.SetButtonActive(MainmenuButtonType.Almanac, main.SaveManager.IsAlmanacUnlocked());
             ui.SetButtonActive(MainmenuButtonType.Store, main.SaveManager.IsStoreUnlocked());
+
+            isDark = false;
             ui.SetBackgroundDark(false);
             ui.SetOptionsDialogVisible(false);
             ui.SetUserManageDialogVisible(false);
             ui.SetRayblockerActive(true);
+
+            UpdateWindowView();
 
             if (!main.MusicManager.IsPlaying(VanillaMusicID.mainmenu))
             {
@@ -275,7 +280,9 @@ namespace MVZ2.Mainmenu
         {
             if (!main.IsFastMode())
             {
+                isDark = true;
                 ui.SetBackgroundDark(true);
+                UpdateWindowView();
                 main.MusicManager.Stop();
                 main.SoundManager.Play2D(VanillaSoundID.loseMusic);
 
@@ -458,6 +465,29 @@ namespace MVZ2.Mainmenu
         {
             return Vector2.Lerp(animatorBlendStart, animatorBlendEnd, MathTool.EaseInAndOut((transitionTime - animatorBlendTimeout) / transitionTime));
         }
+        private void UpdateWindowView()
+        {
+            var saves = main.SaveManager;
+            var resources = main.ResourceManager;
+            var viewsID = resources.GetAllMainmenuViews();
+            var metas = viewsID.Select(id => resources.GetMainmenuViewMeta(id)).Where(m => m != null);
+            var ordered = metas.OrderByDescending(m => m.Priority);
+            Sprite sprite = null;
+            int sheetIndex = isDark ? 1 : 0;
+            foreach (var meta in ordered)
+            {
+                if (meta.Conditions == null || saves.MeetsXMLConditions(meta.Conditions))
+                {
+                    var spriteRef = new SpriteReference(meta.SpritesheetID, sheetIndex);
+                    if (SpriteReference.IsValid(spriteRef))
+                    {
+                        sprite = main.GetFinalSprite(spriteRef);
+                        break;
+                    }
+                }
+            }
+            ui.SetWindowViewSprite(sprite);
+        }
 
         #region 统计
         private void ReloadStats()
@@ -552,6 +582,7 @@ namespace MVZ2.Mainmenu
         private OptionsLogicMainmenu optionsLogic;
         private int[] managingUserIndexes;
         private int selectedUserArrayIndex = -1;
+        private bool isDark;
 
         private Vector2 animatorBlendStart;
         private Vector2 animatorBlendEnd;

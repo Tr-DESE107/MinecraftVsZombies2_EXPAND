@@ -54,6 +54,9 @@ namespace MVZ2.Metas
                 case "archive":
                     resource.ArchiveMetaList = ArchiveMetaList.FromXmlNode(document["archive"], defaultNsp);
                     break;
+                case "mainmenuviews":
+                    resource.MainmenuViewMetaList = MainmenuViewMetaList.FromXmlNode(document["views"], defaultNsp);
+                    break;
                 case "musics":
                     resource.MusicMetaList = MusicMetaList.FromXmlNode(document["musics"], defaultNsp);
                     break;

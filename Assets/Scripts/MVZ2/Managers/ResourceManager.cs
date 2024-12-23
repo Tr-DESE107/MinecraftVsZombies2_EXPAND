@@ -71,6 +71,7 @@ namespace MVZ2.Managers
             entitiesCacheDict.Clear();
             talksCacheDict.Clear();
             achievementCacheDict.Clear();
+            mainmenuViewCacheDict.Clear();
             artifactsCacheDict.Clear();
             difficultyCache.Clear();
             noteCache.Clear();
@@ -106,6 +107,10 @@ namespace MVZ2.Managers
             foreach (var meta in modResource.AchievementMetaList.metas)
             {
                 achievementCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+            }
+            foreach (var meta in modResource.MainmenuViewMetaList.Metas) 
+            {
+                mainmenuViewCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             foreach (var meta in modResource.ArtifactMetaList.metas)
             {

@@ -35,6 +35,10 @@ namespace MVZ2.Mainmenu.UI
         {
             userManageDialog.SetCreateNewUserActive(active);
         }
+        public void SetWindowViewSprite(Sprite sprite)
+        {
+            windowViewSpriteRenderer.sprite = sprite;
+        }
         public void SetBackgroundDark(bool dark)
         {
             backgroundLight.gameObject.SetActive(!dark);
@@ -121,6 +125,8 @@ namespace MVZ2.Mainmenu.UI
         private GameObject backgroundDark;
         [SerializeField]
         private TextMeshPro userNameText;
+        [SerializeField]
+        private SpriteRenderer windowViewSpriteRenderer;
 
         [Header("Dialogs")]
         [SerializeField]
