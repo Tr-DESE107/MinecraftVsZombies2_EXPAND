@@ -213,6 +213,12 @@ MonoBehaviour:
     angle: 30
     doNotRotate: 1
     sprite: {fileID: 21300000, guid: aa82843b9b0ef4c43a15446e94370464, type: 3}
+  - id:
+      spacename: mvz2
+      path: dream
+    angle: 60
+    doNotRotate: 0
+    sprite: {fileID: 21300000, guid: 4020decd1a5c0cb49be19fd1c17e9698, type: 3}
 --- !u!114 &645970992447663266
 MonoBehaviour:
   m_ObjectHideFlags: 0
