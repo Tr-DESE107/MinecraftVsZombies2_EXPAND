@@ -16,6 +16,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID rickrollDrown = Get("achievement.rickroll_drown");
         public static readonly NamespaceID returnToSender = Get("achievement.return_to_sender");
         public static readonly NamespaceID blueprintSlot7 = Get("blueprint_slot.7");
+        public static readonly NamespaceID dreamIsNightmare = Get("dream_is_nightmare");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

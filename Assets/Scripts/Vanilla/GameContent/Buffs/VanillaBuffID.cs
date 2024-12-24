@@ -62,6 +62,7 @@ namespace MVZ2.GameContent.Buffs
             public const string thunder = "thunder";
             public const string swordParalyzed = "sword_paralyzed";
             public const string frankensteinStage = "frankenstein_stage";
+            public const string nightmareLevel = "nightmare_level";
         }
         public static class Boss
         {

@@ -7,6 +7,7 @@ namespace MVZ2.GameContent.Areas
     {
         public static readonly NamespaceID day = Get("day");
         public static readonly NamespaceID night = Get("night");
+        public static readonly NamespaceID water = Get("water");
         public static readonly NamespaceID noWater = Get("no_water");
         private static NamespaceID Get(string name)
         {

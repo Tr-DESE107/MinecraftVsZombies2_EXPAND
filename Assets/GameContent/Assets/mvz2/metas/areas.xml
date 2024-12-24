@@ -1,4 +1,5 @@
 <areas>
     <area id="day" model="mvz2:day" music="mvz2:day" tags="mvz2:day;mvz2:no_water" />
     <area id="halloween" model="mvz2:halloween" music="mvz2:halloween" tags="mvz2:night;mvz2:no_water" />
+    <area id="dream" model="mvz2:dream" music="mvz2:dream" tags="mvz2:day;mvz2:water" />
 </areas>

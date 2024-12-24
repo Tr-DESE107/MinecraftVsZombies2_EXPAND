@@ -24,12 +24,6 @@ namespace MVZ2.Models
                 particle.SetSimulationSpeed(speed);
             }
         }
-        public void SetLight(bool visible, Vector2 range, Color color, Vector2 randomOffset)
-        {
-            lightController.gameObject.SetActive(visible);
-            lightController.SetColor(color);
-            lightController.SetRange(range, randomOffset);
-        }
         public void UpdateRendererElements()
         {
             renderers.Clear();
@@ -154,7 +148,6 @@ namespace MVZ2.Models
             serializable.sortingOrder = SortingOrder;
             serializable.elements = renderers.Select(e => e.ToSerializable()).ToArray();
             serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
-            serializable.light = lightController.ToSerializable();
             return serializable;
         }
         public void LoadFromSerializable(SerializableMultipleRendererGroup serializable)
@@ -185,7 +178,6 @@ namespace MVZ2.Models
                 var data = serializable.particles[i];
                 particle.LoadFromSerializable(data);
             }
-            lightController.LoadFromSerializable(serializable.light);
         }
         #endregion
 
@@ -221,8 +213,6 @@ namespace MVZ2.Models
         [SerializeField]
         private SortingGroup sortingGroup;
         [SerializeField]
-        private LightController lightController;
-        [SerializeField]
         private List<Animator> animators;
         [SerializeField]
         private List<TransformElement> transforms = new List<TransformElement>();
@@ -237,7 +227,6 @@ namespace MVZ2.Models
         public SerializableAnimator[] animators;
         public SerializableRendererElement[] elements;
         public SerializableParticleSystem[] particles;
-        public SerializableLightController light;
         public int sortingLayerID;
         public int sortingOrder;
     }

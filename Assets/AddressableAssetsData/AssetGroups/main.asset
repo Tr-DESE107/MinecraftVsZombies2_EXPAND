@@ -83,6 +83,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 071d4c30cf6fe5042ba032e38c0b03ef
+    m_Address: mvz2:entity/cart/nyan_cat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0784b30367a6d9641ada63bda6ec2336
     m_Address: mvz2:ui/level/mobile/selected
     m_ReadOnly: 0
@@ -149,6 +155,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d2c48cde3441c649b93560520f96272
+    m_Address: mvz2:level/dream/nightmare_boss_sky
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d3add995d27b534e84eb4b0f2655c5c
     m_Address: mvz2:entity/ghost/ghost_cry4
     m_ReadOnly: 0
@@ -160,6 +172,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d7f2041adf80d54c9e2d84f3b4a6f2c
+    m_Address: mvz2:level/dream/pool_shade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0da0947a4bc75b141addb08ebc69c8aa
     m_Address: mvz2:poison_gas
@@ -214,6 +232,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10da8cfdbbbeb534289c57027874f461
+    m_Address: mvz2:nightmare_final
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 111b8a1b7b5a2be4c9f3830f3523485b
     m_Address: mvz2:effect/stun_stars
@@ -353,6 +377,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Language
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 192fd705260459944b02604fe6907cf5
+    m_Address: mvz2:cart/nyaightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a62ec6260923674096be59047f89949
     m_Address: mvz2:artifacts/dark_matter
     m_ReadOnly: 0
@@ -364,6 +394,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1adb67d35f526fa46b4f9eef62188a56
+    m_Address: mvz2:entity/cart/nyaightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b77173cc372d294799227cf43061173
     m_Address: mvz2:water
@@ -491,6 +527,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 227ed731d72488f4aa762e37f9d60767
+    m_Address: mvz2:level/dream/nightmare_sky_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 228193da8c78b914dbf0041e7f3667f5
+    m_Address: mvz2:dream_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
     m_Address: mvz2:entity/effect/miner
     m_ReadOnly: 0
@@ -505,6 +553,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23645a3b80625764cbb9c90ed96f0024
     m_Address: mvz2:ui/level/mobile/energy_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 237ffa5c541517f40ac8dbcb9bdd1f01
+    m_Address: mvz2:level/dream/pool_shade_nightmare
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -532,6 +586,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24bd2285f487fd3418b6faed12117f29
+    m_Address: mvz2:nightmare_boss2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24d902c61d41892478d085a513cc421a
     m_Address: mvz2:ui/level/progress_bar/level_progress_icon
@@ -604,6 +664,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2af1142db136d094e82dc92ab10358f3
+    m_Address: mvz2:nightmare_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b7ddde9b7a3533498e973193163290c
     m_Address: mvz2:lose_music
@@ -720,7 +786,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3099084e873c11d4084a10707cd96120
-    m_Address: mvz2:artifacts/rake
+    m_Address: mvz2:artifacts/hoe
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1012,6 +1078,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4020decd1a5c0cb49be19fd1c17e9698
+    m_Address: mvz2:chapter_transition/chapter_title_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 403593c82a7adb74b8cc7ce5e0a7e925
     m_Address: mvz2:characters/orant
     m_ReadOnly: 0
@@ -1023,6 +1095,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40db1b532555e104184c1eca82025505
+    m_Address: mvz2:level/dream/nightmare_boss_sky_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410c602e03a209e49a68674fd0551a89
     m_Address: mvz2:difficulties
@@ -1089,6 +1167,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 459c5842f9a23624aa9868fd0f0a353a
+    m_Address: mvz2:nightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45bd5e18c8a90ab47ab4eb0c7f131186
     m_Address: mvz2:entity/zombie/zombie_cry1
@@ -1176,6 +1260,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 498cfe5e32569bc43ae84fc47f7622ce
     m_Address: mvz2:entity/effects/thunder_bolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a34d2e0337c5e24196eb44240e1b00c
+    m_Address: mvz2:level/dream/nightmare_ground
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1420,6 +1510,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a43bbbdfc2dfc64382269576cdd5203
+    m_Address: mvz2:level/dream/pool
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a71c983a20b667478dd88d44c1a96b3
     m_Address: mvz2:artifacts/cellphone
     m_ReadOnly: 0
@@ -1491,6 +1587,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d23376e7a066774ab671e71271015fc
+    m_Address: mvz2:artifacts/dream_butterfly
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d3cf3664e1b8304f90a615e9b1e27af
     m_Address: mvz2:talk/villager/villager_extra_long3
@@ -1617,6 +1719,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64951a0026f5ef54bbb28092c064d4ea
+    m_Address: mvz2:level/dream/dream_house_cover
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64aa6f3f876738842a30b3f44e87520f
     m_Address: mvz2:projectile/bullet
@@ -1749,6 +1857,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e18c83488c045c4db8f73faf2cd8a8c
+    m_Address: mvz2:dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6e512505562ed4c44ae29837d5cd4be7
     m_Address: mvz2:ui/level/progress_bar/frankenstein
@@ -1966,6 +2080,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fb868cd756467a47a78f7ef5cd25ba2
+    m_Address: mvz2:entity/cart/nightmare_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fb8f9b8ab883a64887b34f86731c9b9
     m_Address: mvz2:entity/effects/frankenstein_jump_trail
     m_ReadOnly: 0
@@ -1974,6 +2094,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 804225591a395d3499b55198f88fa584
     m_Address: mvz2:halloween_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80ab3f88e3042a2429696411af0b0810
+    m_Address: mvz2:nightmare_level
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
@@ -2110,6 +2236,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a2e7dea253a9e84c910acffe8c3e79e
+    m_Address: mvz2:mainmenu/view/nightmare_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
     m_Address: mvz2:random/crystal/crystal3
     m_ReadOnly: 0
@@ -2217,6 +2349,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f7e35986ffa8894c8241697cb5846ec
+    m_Address: mvz2:suspension
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f85d3d605c8bf34b9c860577f50ba8c
     m_Address: mvz2:note/help_front
@@ -2326,12 +2464,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 945bda9db910c474f914bb2feee3518e
-    m_Address: mvz2:day
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - AreaModel
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9471881cde5f3d841abcd44501e0f922
     m_Address: mvz2:mobile_blueprint/mummy
     m_ReadOnly: 0
@@ -2361,6 +2493,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97fb6eef6b0b240438ad3bc4f783cf48
+    m_Address: mvz2:entity/cart/rainbow_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 985fbd93414b34845b4a0a7ee830eb1a
     m_Address: mvz2:entity/projectiles/gas
@@ -2512,6 +2650,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3399410694747943aee3e605146f887
+    m_Address: mvz2:level/dream/dream_ground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a375b3420dd9da54b8197294f005405b
     m_Address: mvz2:huge_wave
     m_ReadOnly: 0
@@ -2577,6 +2721,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a63910147a739b64b8e08fe64c258544
+    m_Address: mvz2:halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6593d9123fd3ed40b97b320a74e5da3
     m_Address: mvz2:entity/effects/soul
@@ -2914,8 +3064,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc88affd29ca4074f864f38ac1e90b33
+    m_Address: mvz2:dream_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd7b2da4545106b46b4afbf8863f9926
     m_Address: mvz2:level/halloween/halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
+    m_Address: mvz2:level/dream/pool_sparkle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3148,6 +3310,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ced932759e970e74891ad58675bf4e53
+    m_Address: mvz2:level/dream/dream_sky
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf07278ba3ead524cbc99190282cd556
     m_Address: mvz2:enemy/mummy
     m_ReadOnly: 0
@@ -3183,6 +3351,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d088b4d6b29224e428f22c0184a33dc4
+    m_Address: mvz2:nightmare_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0f0436e148be3b43995b8ca69c828be
     m_Address: mvz2:starshard_appear
@@ -3322,6 +3496,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8c2736fc27a8e04493b3b49320d67db
+    m_Address: mvz2:cart/nyan_cat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9dd31bf028bdda498cb850149535586
     m_Address: mvz2:achievements/return_to_sender
     m_ReadOnly: 0
@@ -3363,12 +3543,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: da6e4661f37feae45bff7fb231b6dd8d
-    m_Address: mvz2:halloween
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - AreaModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db3c78d339728b54896ae08ad492515f
     m_Address: mvz2:entity/zombie/zombie_death
@@ -3429,6 +3603,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddf1e55cb17d1c948912567efd67c1ce
+    m_Address: mvz2:dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
     m_Address: mvz2:entity/pickup/ruby
@@ -3534,6 +3714,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5e566d19ad3e024c8c3e91f928d8be1
     m_Address: mvz2:entity/effects/gas_diffusion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e65c8602a6db8284fa1069847600d372
+    m_Address: mvz2:level/dream/nightmare_ground_censored
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3658,6 +3844,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecc7209e07d89f24ab9328d718a340a9
+    m_Address: mvz2:day
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecdea1f2d39df2049be852b3107d40a4
     m_Address: mvz2:ui/form
     m_ReadOnly: 0
@@ -3699,6 +3891,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0125c799657eb041aea02f63549e0a0
+    m_Address: mvz2:level/dream/nightmare_sky
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f022b6ff2c7efb247b94a9b7a2f0d006
     m_Address: mvz2:chapter_transition/chapter_wheel

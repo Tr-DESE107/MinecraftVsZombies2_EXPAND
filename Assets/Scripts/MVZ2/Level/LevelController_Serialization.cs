@@ -50,6 +50,8 @@ namespace MVZ2.Level
                 conveyorSeedPositions = conveyorSeedPositions.ToArray(),
 
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
+                
+                areaModel = model.ToSerializable(),
 
                 level = SerializeLevel(),
                 uiPreset = GetUIPreset().ToSerializable()
@@ -90,6 +92,8 @@ namespace MVZ2.Level
                 StarshardActive = seri.starshardActive;
                 TriggerActive = seri.triggerActive;
 
+                InitGrids();
+
                 SetConveyorMode(seri.isConveyorMode);
                 conveyorSeedPositions = seri.conveyorSeedPositions.ToList();
 
@@ -107,6 +111,7 @@ namespace MVZ2.Level
                     controller.LoadFromSerializable(seriEntity);
                     controller.UpdateFrame(0);
                 }
+                model.LoadFromSerializable(seri.areaModel);
             }
             catch (Exception e)
             {
@@ -225,6 +230,8 @@ namespace MVZ2.Level
         public FrameTimer cryTimeCheckTimer;
 
         public SerializableEntityController[] entities;
+        public SerializableAreaModelData areaModel;
+
         public SerializableLevel level;
 
         public SerializableLevelUIPreset uiPreset;

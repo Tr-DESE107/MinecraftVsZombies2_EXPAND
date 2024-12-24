@@ -96,5 +96,10 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.SetProgressBarToStage();
         }
+        public static void SetAreaModelPreset(this LevelEngine level, string preset)
+        {
+            var component = level.GetUIComponent();
+            component.SetAreaModelPreset(preset);
+        }
     }
 }

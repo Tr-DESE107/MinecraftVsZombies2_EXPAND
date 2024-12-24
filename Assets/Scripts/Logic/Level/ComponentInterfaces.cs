@@ -95,6 +95,7 @@ namespace MVZ2Logic.Level.Components
         void HideHintArrow();
         void SetProgressBarToBoss(NamespaceID barStyle);
         void SetProgressBarToStage();
+        void SetAreaModelPreset(string name);
     }
     public interface IMoneyComponent : ILevelComponent
     {

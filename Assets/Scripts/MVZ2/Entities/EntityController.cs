@@ -388,7 +388,7 @@ namespace MVZ2.Entities
             rendererGroup.SetTint(Entity.GetTint());
             rendererGroup.SetColorOffset(GetColorOffset());
             rendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
-            Model.CenterTransform.localEulerAngles = Entity.RenderRotation;
+            Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.GetDisplayScale();
             Model.RendererGroup.SortingLayerID = Entity.GetSortingLayer();
             Model.RendererGroup.SortingOrder = Entity.GetSortingOrder();
@@ -398,7 +398,7 @@ namespace MVZ2.Entities
             var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
             var lightColor = Entity.GetLightColor();
             var randomLightScale = rng.Next(-0.05f, 0.05f);
-            Model.RendererGroup.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
+            Model.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
 
         }
         #endregion

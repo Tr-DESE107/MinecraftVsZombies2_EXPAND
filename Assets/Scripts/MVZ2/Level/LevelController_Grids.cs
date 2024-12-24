@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -120,16 +121,48 @@ namespace MVZ2.Level
                 }
             }
         }
+
+        private void InitGrids()
+        {
+            var maxColumn = level.GetMaxColumnCount();
+            var gridWidth = level.GetGridWidth();
+            var gridHeight = level.GetGridHeight();
+            var viewDatas = new GridViewData[level.GetMaxLaneCount()][];
+            for (int lane = 0; lane < viewDatas.Length; lane++)
+            {
+                viewDatas[lane] = new GridViewData[maxColumn];
+                for (int column = 0; column < maxColumn; column++)
+                {
+                    var x = level.GetColumnX(column) + gridWidth * 0.5f;
+                    var z = level.GetLaneZ(lane) + gridHeight * 0.5f;
+                    var y = level.GetGroundY(x, z);
+                    var pos = new Vector3(x, y, z);
+                    var worldPos = LawnToTrans(pos);
+
+                    var sprite = Main.GetFinalSprite(defaultGridSprite);
+                    viewDatas[lane][column] = new GridViewData()
+                    {
+                        position = new Vector2(worldPos.x, worldPos.y),
+                        sprite = sprite
+                    };
+                }
+            }
+            gridLayout.UpdateGrids(viewDatas);
+        }
         #endregion
 
         #region 属性字段
         private int pointingGridLane = -1;
         private int pointingGridColumn = -1;
         private bool lastPointingGrid;
+
+        [Header("Grids")]
         [SerializeField]
         private Color gridColorTransparent = new Color(1, 1, 1, 0.5f);
         [SerializeField]
         private GridLayoutController gridLayout;
+        [SerializeField]
+        private Sprite defaultGridSprite;
         #endregion
     }
 }

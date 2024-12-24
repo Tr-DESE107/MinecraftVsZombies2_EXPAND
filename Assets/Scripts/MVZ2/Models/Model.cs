@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using MVZ2.Managers;
 using MVZ2.Metas;
+using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Models;
 using Tools;
@@ -35,8 +37,6 @@ namespace MVZ2.Models
         }
         public void UpdateFixed()
         {
-            triggeringEvents.Clear();
-
             foreach (var comp in modelComponents)
             {
                 comp.UpdateLogic();
@@ -77,6 +77,12 @@ namespace MVZ2.Models
                 child.SetSimulationSpeed(simulationSpeed);
             }
         }
+        public void SetLight(bool visible, Vector2 range, Color color, Vector2 randomOffset)
+        {
+            lightController.gameObject.SetActive(visible);
+            lightController.SetColor(color);
+            lightController.SetRange(range, randomOffset);
+        }
         #endregion
 
         #region 动画
@@ -98,43 +104,28 @@ namespace MVZ2.Models
         }
         #endregion
 
-        #region 事件触发
-        public bool IsEventTriggered(string name)
-        {
-            return triggeringEvents.Contains(name);
-        }
-        public bool WasEventTriggered(string name)
-        {
-            return triggeredEvents.Contains(name);
-        }
-        #endregion
-
         #region 序列化
         public SerializableModelData ToSerializable()
         {
             return new SerializableModelData()
             {
-                id = ID,
-                key = Key,
-                anchor = AnchorName,
+                id = id,
+                key = parentKey,
+                anchor = parentAnchor,
                 rng = rng.ToSerializable(),
                 propertyDict = propertyDict != null ? propertyDict.Serialize() : null,
                 rendererGroup = rendererGroup.ToSerializable(),
                 childModels = childModels.Select(c => c.ToSerializable()).ToArray(),
-                triggeredEvents = triggeredEvents.ToArray(),
-                triggeringEvents = triggeringEvents.ToArray(),
                 destroyTimeout = destroyTimeout,
+                light = lightController.ToSerializable(),
             };
         }
         public void LoadFromSerializable(SerializableModelData serializable)
         {
             rng = RandomGenerator.FromSerializable(serializable.rng);
-            foreach (var seriChild in serializable.childModels)
-            {
-                var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
-                child.LoadFromSerializable(seriChild);
-            }
             rendererGroup.LoadFromSerializable(serializable.rendererGroup);
+            lightController.LoadFromSerializable(serializable.light);
+            destroyTimeout = serializable.destroyTimeout;
             if (serializable.propertyDict != null)
             {
                 var dict = PropertyDictionary.Deserialize(serializable.propertyDict);
@@ -143,11 +134,11 @@ namespace MVZ2.Models
                     SetProperty(name, dict.GetProperty(name));
                 }
             }
-            triggeredEvents.Clear();
-            triggeringEvents.Clear();
-            triggeredEvents.AddRange(serializable.triggeredEvents);
-            triggeringEvents.AddRange(serializable.triggeringEvents);
-            destroyTimeout = serializable.destroyTimeout;
+            foreach (var seriChild in serializable.childModels)
+            {
+                var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
+                child.LoadFromSerializable(seriChild);
+            }
         }
         #endregion
 
@@ -164,8 +155,8 @@ namespace MVZ2.Models
             if (!child)
                 return null;
             child.transform.localPosition = Vector3.zero;
-            child.AnchorName = anchorName;
-            child.key = key;
+            child.parentAnchor = anchorName;
+            child.parentKey = key;
             child.parent = this;
             childModels.Add(child);
             return child;
@@ -188,7 +179,7 @@ namespace MVZ2.Models
         }
         public Model GetChildModel(NamespaceID key)
         {
-            var model = childModels.FirstOrDefault(m => !m.IsDestroying() && m.Key == key);
+            var model = childModels.FirstOrDefault(m => !m.IsDestroying() && m.parentKey == key);
             if (!model)
                 return null;
             return model;
@@ -313,51 +304,41 @@ namespace MVZ2.Models
         }
         #endregion
 
-        #region 私有方法
-        private void TriggerEvent(string name)
-        {
-            triggeringEvents.Add(name);
-            triggeredEvents.Add(name);
-        }
-        #endregion
-
         #region 属性字段
         public MultipleRendererGroup RendererGroup => rendererGroup;
-        public Transform RootTransform => rootTransform;
-        public Transform CenterTransform => centerTransform;
-        public float AnimationSpeed { get; set; }
-        public string AnchorName { get; private set; }
-        public NamespaceID ID => id;
-        public NamespaceID Key => key;
-        public Model Parent => parent;
+        public Transform GetRootTransform() => GetAnchor(LogicModelHelper.ANCHOR_ROOT).transform;
+        public Transform GetCenterTransform() => GetAnchor(LogicModelHelper.ANCHOR_CENTER).transform;
+
         private NamespaceID id;
-        private NamespaceID key;
-        [SerializeField]
-        private Model parent;
+        private NamespaceID parentKey;
+        private string parentAnchor;
+
+        private int destroyTimeout;
+        private ModelParentInterface modelInterface;
+        private RandomGenerator rng;
+        private PropertyDictionary propertyDict = new PropertyDictionary();
+
+        [Header("General")]
         [SerializeField]
         private MultipleRendererGroup rendererGroup;
         [SerializeField]
-        private Transform rootTransform;
-        [SerializeField]
-        private Transform centerTransform;
+        private LightController lightController;
         [SerializeField]
         private ModelAnchor[] modelAnchors;
         [SerializeField]
         private ModelComponent[] modelComponents;
+
+        [Header("Nesting")]
+        [SerializeField]
+        private Model parent;
         [SerializeField]
         private List<Model> childModels = new List<Model>();
+
         [Header("Destruction")]
         [SerializeField]
         private int destroyDelay;
         [SerializeField]
         private UnityEvent onDelayedDestroy;
-
-        private int destroyTimeout;
-        private ModelParentInterface modelInterface;
-        private RandomGenerator rng;
-        private List<string> triggeringEvents = new List<string>();
-        private List<string> triggeredEvents = new List<string>();
-        private PropertyDictionary propertyDict = new PropertyDictionary();
         #endregion
     }
     public class SerializableModelData
@@ -369,8 +350,7 @@ namespace MVZ2.Models
         public SerializableMultipleRendererGroup rendererGroup;
         public SerializablePropertyDictionary propertyDict;
         public SerializableModelData[] childModels;
+        public SerializableLightController light;
         public int destroyTimeout;
-        public string[] triggeringEvents;
-        public string[] triggeredEvents;
     }
 }

@@ -54,6 +54,7 @@ namespace MVZ2.Level
                 TPS = 30
             };
             level.Init(areaID, stageID, option, seed);
+            InitGrids();
             level.Setup();
 
             var uiPreset = GetUIPreset();
@@ -385,6 +386,13 @@ namespace MVZ2.Level
             uiPreset.UpdateFrame(uiDeltaTime);
             UpdateGridHighlight();
             UpdateInput();
+
+            // 更新场景。
+            if (model)
+            {
+                model.UpdateFrame(uiDeltaTime);
+                model.SetSimulationSpeed(uiSimulationSpeed);
+            }
 
             if (level != null)
             {
