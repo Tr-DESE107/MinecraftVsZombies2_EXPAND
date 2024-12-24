@@ -17,4 +17,23 @@
             <stage id="mvz2:halloween_11"/>
         </stages>
     </map>
+    <map id="dream" endlessUnlock="mvz2:level.dream_11" area="mvz2:dream" >
+        <presets>
+            <preset id="mvz2:dream" model="mvz2:dream" backgroundColor="#000E24" music="mvz2:dream_map" />
+            <preset id="mvz2:nightmare" model="mvz2:nightmare" backgroundColor="#24000E" music="mvz2:nightmare_map" />
+        </presets>
+        <stages endless="mvz2:dream_endless">
+            <stage id="mvz2:dream_1"/>
+            <stage id="mvz2:dream_2"/>
+            <stage id="mvz2:dream_3"/>
+            <stage id="mvz2:dream_4"/>
+            <stage id="mvz2:dream_5"/>
+            <stage id="mvz2:dream_6"/>
+            <stage id="mvz2:dream_7"/>
+            <stage id="mvz2:dream_8"/>
+            <stage id="mvz2:dream_9"/>
+            <stage id="mvz2:dream_10"/>
+            <stage id="mvz2:dream_11"/>
+        </stages>
+    </map>
 </maps>
