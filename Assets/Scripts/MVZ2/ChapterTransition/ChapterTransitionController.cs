@@ -12,12 +12,12 @@ namespace MVZ2.ChapterTransition
         public void Display(NamespaceID id)
         {
             gameObject.SetActive(true);
-            var info = transitionInfos.FirstOrDefault(i => i.id == id);
-            if (info == null)
+            var meta = Main.ResourceManager.GetChapterTransitionMeta(id);
+            if (meta == null)
                 return;
-            animator.SetBool("WillRotate", !info.doNotRotate);
-            ui.SetWheelRootRotation(info.angle);
-            ui.SetTitleSprite(Main.GetFinalSprite(info.sprite));
+            animator.SetBool("WillRotate", !meta.NoRotate);
+            ui.SetWheelRootRotation(meta.Angle);
+            ui.SetTitleSprite(Main.GetFinalSprite(meta.TextSprite));
         }
         public async Task DisplayAsync(NamespaceID id)
         {
@@ -40,15 +40,5 @@ namespace MVZ2.ChapterTransition
         private Animator animator;
         [SerializeField]
         private ChapterTransition ui;
-        [SerializeField]
-        private ChapterTransitionInfo[] transitionInfos;
-    }
-    [Serializable]
-    public class ChapterTransitionInfo
-    {
-        public NamespaceID id;
-        public float angle;
-        public bool doNotRotate;
-        public Sprite sprite;
     }
 }

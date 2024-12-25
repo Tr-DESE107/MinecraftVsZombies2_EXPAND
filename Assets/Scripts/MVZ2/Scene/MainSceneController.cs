@@ -178,6 +178,7 @@ namespace MVZ2.Scenes
         }
         public Task DisplayChapterTransitionAsync(NamespaceID id)
         {
+            HidePages();
             return chapterTransition.DisplayAsync(id);
         }
         public void HideChapterTransition()

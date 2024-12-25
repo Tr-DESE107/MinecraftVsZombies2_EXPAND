@@ -731,7 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   raycastHitbox: {fileID: 1115501953064253085}
   modelRoot: {fileID: 5874189075473884093}
   mapCamera: {fileID: 4354599265992543201}
-  maxCameraY: 12
+  maxCameraY: 9
   maxCameraAspect: 1.7
   minCameraSize: 2
   buttonColorMinigame: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

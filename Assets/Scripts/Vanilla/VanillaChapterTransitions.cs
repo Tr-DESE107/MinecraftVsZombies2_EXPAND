@@ -1,13 +1,41 @@
-﻿using PVZEngine;
+﻿using System.Collections;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Stages;
+using MVZ2Logic;
+using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
     public static class VanillaChapterTransitions
     {
         public readonly static NamespaceID halloween = Get("halloween");
+        public readonly static NamespaceID dream = Get("dream");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
+        }
+        public static IEnumerator TransitionToLevel(NamespaceID transition, NamespaceID areaID, NamespaceID stageID)
+        {
+            Global.FadeMusic(0, 2);
+            Global.SetBlackScreen(0);
+            Global.FadeBlackScreen(1, 1);
+
+            yield return new WaitForSeconds(2);
+
+            Global.StopMusic();
+            Global.SetBlackScreen(0);
+            yield return Global.DisplayChapterTransition(transition);
+
+            Global.SetBlackScreen(1);
+            yield return Global.GotoLevel();
+
+            yield return new WaitForSeconds(2);
+
+            Global.FadeBlackScreen(0, 1);
+            Global.SetMusicVolume(1);
+            Global.InitLevel(areaID, stageID, 1);
+            Global.HideChapterTransition();
         }
     }
 }

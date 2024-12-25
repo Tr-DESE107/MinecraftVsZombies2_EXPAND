@@ -149,6 +149,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0be02fce6cb64c8478a27d7f60abde13
+    m_Address: mvz2:chapter_wheel_spin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bf81dfa34c6eaa4a980ccb398aac439
     m_Address: mvz2:entity/ghost/ghost_cry1
     m_ReadOnly: 0
@@ -845,6 +851,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33c5bcab4db531b46920a0ffc599e988
+    m_Address: mvz2:chaptertransitions
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33d140b9942701745a921a9fc102ca79
     m_Address: mvz2:damage/fall/fall_small
     m_ReadOnly: 0
@@ -1079,7 +1091,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4020decd1a5c0cb49be19fd1c17e9698
-    m_Address: mvz2:chapter_transition/chapter_title_2
+    m_Address: mvz2:chapter_transition/title_dream
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1636,6 +1648,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f078c67087fbfb4aa46cf7965c4f6c2
+    m_Address: mvz2:map/halloween/dream_key_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fe877b614795e144996e5d0ede65e81
     m_Address: mvz2:starshards/default
     m_ReadOnly: 0
@@ -2188,6 +2206,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 870eee8567c7c8948aa1357afdc15d62
+    m_Address: mvz2:starshards/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8721c16bbd9cf364d83f35b9228ec0ac
     m_Address: mvz2:projectile/fire_charge
     m_ReadOnly: 0
@@ -2373,6 +2397,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9060b852db8277d41a1432ec241fa646
+    m_Address: mvz2:pickup/starshards/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 906ce113fd4d66149af2e0d8c40a4299
     m_Address: mvz2:anvil
@@ -2608,6 +2638,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f90eb4f980e8c746be488d67df74a3a
+    m_Address: mvz2:held/starshards/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: mvz2:talk/villager/villager_scream1
     m_ReadOnly: 0
@@ -2807,7 +2843,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa82843b9b0ef4c43a15446e94370464
-    m_Address: mvz2:chapter_transition/chapter_title_1
+    m_Address: mvz2:chapter_transition/title_halloween
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3759,6 +3795,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8196c198b390f343b2370b0aa2c81b3
+    m_Address: mvz2:starshard_rings/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e81c449d2edbc5046ad8a2889e216bf3
     m_Address: mvz2:entity/terror/terror_cry1

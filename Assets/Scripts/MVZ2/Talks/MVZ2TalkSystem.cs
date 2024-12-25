@@ -17,6 +17,7 @@ namespace MVZ2.Talks
             talk.StartSection(section);
         }
         public abstract bool IsInArchive();
+        public abstract bool IsInMap();
         public abstract LevelEngine GetLevel();
 
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect)

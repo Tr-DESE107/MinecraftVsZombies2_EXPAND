@@ -1,4 +1,7 @@
-﻿using MVZ2.GameContent.Contraptions;
+﻿using System.Collections;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
@@ -25,6 +28,10 @@ namespace MVZ2.GameContent.Implements
             if (system.IsInArchive())
             {
                 preset = new ArchivePreset();
+            }
+            else if (system.IsInMap())
+            {
+                preset = new MapPreset();
             }
             else if (system.IsInLevel())
             {
@@ -154,6 +161,20 @@ namespace MVZ2.GameContent.Implements
                             break;
                     }
                 });
+            }
+        }
+        private class MapPreset : TalkPreset
+        {
+            public override void TalkAction(ITalkSystem system, string cmd, string[] parameters)
+            {
+                switch (cmd)
+                {
+                    case "goto_dream":
+                        Global.Game.Unlock(VanillaUnlockID.enteredDream);
+                        Global.Game.SetLastMapID(VanillaMapID.dream);
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
+                        break;
+                }
             }
         }
         private class ArchivePreset : TalkPreset

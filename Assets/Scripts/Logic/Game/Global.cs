@@ -29,6 +29,10 @@ namespace MVZ2Logic
         {
             Music.SetVolume(volume);
         }
+        public static void StopMusic()
+        {
+            Music.Stop();
+        }
         public static void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0)
         {
             Level.InitLevel(areaId, stageId, introDelay);
@@ -119,6 +123,7 @@ namespace MVZ2Logic
     {
         void StartFade(float target, float duration);
         void SetVolume(float volume);
+        void Stop();
     }
     public interface ILevelManager
     {

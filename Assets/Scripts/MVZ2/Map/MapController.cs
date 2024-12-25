@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Maps;
+using MVZ2.GameContent.Talk;
 using MVZ2.Managers;
 using MVZ2.Metas;
+using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
@@ -50,6 +55,7 @@ namespace MVZ2.Map
             {
                 model.OnMapButtonClick -= OnMapButtonClickCallback;
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
+                model.OnMapKeyClick -= OnMapKeyClickCallback;
                 Destroy(model.gameObject);
                 model = null;
             }
@@ -76,12 +82,15 @@ namespace MVZ2.Map
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
+            model.OnMapKeyClick += OnMapKeyClickCallback;
 
             UpdateModelButtons();
             UpdateModelElements();
             UpdateModelEndlessFlags();
             SetCameraBackgroundColor(mapPreset.backgroundColor);
             Main.MusicManager.Play(mapPreset.music);
+
+            Main.SaveManager.SetLastMapID(mapId);
 
             var mapTalk = Main.SaveManager.GetMapTalk();
             await talkController.SimpleStartTalkAsync(mapTalk, 0, 3);
@@ -159,6 +168,26 @@ namespace MVZ2.Map
         {
             var stageID = mapMeta.endlessStage;
             StartCoroutine(EnterLevel(stageID));
+        }
+        private async void OnMapKeyClickCallback()
+        {
+            ui.SetRaycastBlockerActive(true);
+            if (!Main.SaveManager.IsUnlocked(VanillaUnlockID.enteredDream) && MapID == VanillaMapID.halloween)
+            {
+                await talkController.SimpleStartTalkAsync(VanillaTalkID.halloweenFinal, 0, 0);
+            }
+            else
+            {
+                Hide();
+                if (MapID == VanillaMapID.halloween)
+                {
+                    Main.Scene.DisplayMap(VanillaMapID.dream);
+                }
+                else
+                {
+                    Main.Scene.DisplayMap(VanillaMapID.halloween);
+                }
+            }
         }
         #endregion
 
@@ -438,6 +467,8 @@ namespace MVZ2.Map
             model.SetEndlessButtonInteractable(endlessUnlocked);
             model.SetEndlessButtonColor(endlessColor);
             model.SetEndlessButtonText("E");
+
+            model.SetMapKeyActive(Main.SaveManager.IsUnlocked(VanillaUnlockID.halloween11));
 
 
             if (unclearedMapButtonIndex >= 0)

@@ -241,4 +241,16 @@
             <integer name="statueCount" value="2" />
         </properties>
     </stage>
+    <stage id="dream_1" name="梦境世界" dayNumber="1" unlock="mvz2:entered_dream">
+        <talks>
+            <talk type="start" value="mvz2:dream_1"/>
+            <talk type="end" value="mvz2:dream_1_over"/>
+            <talk type="map" value="mvz2:dream_1_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:lilypad"/>
+        <spawns flags="1">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+        </spawns>
+    </stage>
 </stages>

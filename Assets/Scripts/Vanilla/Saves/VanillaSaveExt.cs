@@ -17,6 +17,13 @@ namespace MVZ2.Vanilla.Saves
                 return null;
             return saveData.LastMapID;
         }
+        public static void SetLastMapID(this IGameSaveData save, NamespaceID value)
+        {
+            var saveData = save.GetVanillaSaveData();
+            if (saveData == null)
+                return;
+            saveData.LastMapID = value;
+        }
         public static void SetMoney(this IGameSaveData save, int money)
         {
             var saveData = save.GetVanillaSaveData();

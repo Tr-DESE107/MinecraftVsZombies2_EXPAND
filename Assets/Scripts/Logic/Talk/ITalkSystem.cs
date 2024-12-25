@@ -7,6 +7,7 @@ namespace MVZ2Logic.Talk
     {
         void StartSection(int section);
         bool IsInArchive();
+        bool IsInMap();
         bool IsInLevel() => GetLevel() != null;
         LevelEngine GetLevel();
     }

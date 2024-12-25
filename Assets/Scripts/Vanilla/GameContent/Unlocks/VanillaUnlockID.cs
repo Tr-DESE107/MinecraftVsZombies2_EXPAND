@@ -5,6 +5,7 @@ namespace MVZ2.Vanilla
     public static class VanillaUnlockID
     {
         public static readonly NamespaceID halloween5 = Get("level.halloween_5");
+        public static readonly NamespaceID halloween11 = Get("level.halloween_11");
         public static readonly NamespaceID dream5 = Get("level.dream_5");
         public static readonly NamespaceID almanac = halloween5;
         public static readonly NamespaceID store = dream5;
@@ -16,6 +17,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID rickrollDrown = Get("achievement.rickroll_drown");
         public static readonly NamespaceID returnToSender = Get("achievement.return_to_sender");
         public static readonly NamespaceID blueprintSlot7 = Get("blueprint_slot.7");
+        public static readonly NamespaceID enteredDream = Get("entered_dream");
         public static readonly NamespaceID dreamIsNightmare = Get("dream_is_nightmare");
         private static NamespaceID Get(string name)
         {

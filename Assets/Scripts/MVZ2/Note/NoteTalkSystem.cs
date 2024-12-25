@@ -14,7 +14,10 @@ namespace MVZ2.Map
         {
             return false;
         }
-
+        public override bool IsInMap()
+        {
+            return false;
+        }
         public override LevelEngine GetLevel()
         {
             return null;

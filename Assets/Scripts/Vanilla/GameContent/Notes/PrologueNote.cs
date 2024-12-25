@@ -18,27 +18,7 @@ namespace MVZ2.GameContent.Notes
         {
             base.OnBack(note);
             note.SetInteractable(false);
-            Global.StartCoroutine(NoteCoroutine());
-        }
-        private IEnumerator NoteCoroutine()
-        {
-            Global.FadeMusic(0, 2);
-            Global.SetBlackScreen(0);
-            Global.FadeBlackScreen(1, 1);
-
-            yield return new WaitForSeconds(2);
-
-            Global.SetBlackScreen(0);
-            yield return Global.DisplayChapterTransition(VanillaChapterTransitions.halloween);
-            yield return Global.GotoLevel();
-
-            yield return new WaitForSeconds(2);
-
-            Global.SetBlackScreen(1);
-            Global.FadeBlackScreen(0, 1);
-            Global.SetMusicVolume(1);
-            Global.InitLevel(VanillaAreaID.halloween, VanillaStageID.halloween1, 1);
-            Global.HideChapterTransition();
+            Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.halloween, VanillaAreaID.halloween, VanillaStageID.halloween1));
         }
     }
 }

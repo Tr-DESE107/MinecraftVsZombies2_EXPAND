@@ -29,6 +29,7 @@ namespace MVZ2.Modding
         public ArchiveMetaList ArchiveMetaList { get; set; }
         public MainmenuViewMetaList MainmenuViewMetaList { get; set; }
         public ProgressBarMetaList ProgressBarMetaList { get; set; }
+        public ChapterTransitionMetaList ChapterTransitionMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Sprite[]> SpriteSheets = new();

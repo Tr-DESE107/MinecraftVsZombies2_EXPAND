@@ -38,6 +38,11 @@ namespace MVZ2.Map
         {
             endlessButton.SetText(text);
         }
+        public void SetMapKeyActive(bool active)
+        {
+            if (mapKey)
+                mapKey.gameObject.SetActive(active);
+        }
         public void SetMapButtonInteractable(int index, bool interactable)
         {
             var button = GetMapButton(index);
@@ -85,13 +90,20 @@ namespace MVZ2.Map
                 button.OnClick += () => OnMapButtonClick?.Invoke(index);
             }
             endlessButton.OnClick += () => OnEndlessButtonClick?.Invoke();
+            if (mapKey)
+            {
+                mapKey.OnClick += () => OnMapKeyClick?.Invoke();
+            }
         }
         public event Action<int> OnMapButtonClick;
         public event Action OnEndlessButtonClick;
+        public event Action OnMapKeyClick;
         [SerializeField]
         private TextMeshPro endlessFlagsText;
         [SerializeField]
         private MapButton endlessButton;
+        [SerializeField]
+        private MapKey mapKey;
         [SerializeField]
         private MapButton[] mapButtons;
         [SerializeField]

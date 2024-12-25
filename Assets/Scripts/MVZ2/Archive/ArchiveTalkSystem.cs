@@ -14,7 +14,10 @@ namespace MVZ2.Archives
         {
             return true;
         }
-
+        public override bool IsInMap()
+        {
+            return false;
+        }
         public override LevelEngine GetLevel()
         {
             return null;
