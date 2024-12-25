@@ -9,6 +9,7 @@ using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Artifacts;
@@ -193,10 +194,17 @@ namespace MVZ2.Almanacs
             description = null;
             if (!NamespaceID.IsValid(entityID))
                 return;
-            name = Main.ResourceManager.GetEntityName(entityID);
-            description = GetAlmanacDescription(entityID, almanacCategory);
-
             var definition = Main.Game.GetEntityDefinition(entityID);
+            bool nocturnal = definition.IsNocturnal();
+
+            string extraPropertyText = string.Empty;
+            if (definition.IsNocturnal())
+            {
+                extraPropertyText += "\n" + Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, EXTRA_PROPERTY_NOCTURNAL);
+            }
+            name = Main.ResourceManager.GetEntityName(entityID);
+            description = GetAlmanacDescription(entityID, almanacCategory, extraPropertyText);
+
             if (definition == null)
                 return;
             var modelID = definition.GetModelID();
@@ -223,7 +231,7 @@ namespace MVZ2.Almanacs
             var spriteReference = definition.GetSpriteReference();
             sprite = Main.GetFinalSprite(spriteReference);
         }
-        private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory)
+        private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory, string extraPropertyText = null)
         {
             if (!NamespaceID.IsValid(almanacID))
                 return string.Empty;
@@ -237,6 +245,10 @@ namespace MVZ2.Almanacs
                 var context = VanillaStrings.GetAlmanacDescriptionContext(almanacCategory);
                 var header = GetTranslatedString(context, almanacMeta.header);
                 var properties = GetTranslatedString(context, almanacMeta.properties);
+                if (!string.IsNullOrEmpty(extraPropertyText))
+                {
+                    properties += extraPropertyText;
+                }
                 var flavor = GetTranslatedString(context, almanacMeta.flavor);
                 var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
                 return string.Join("\n\n", strings);
@@ -284,6 +296,10 @@ namespace MVZ2.Almanacs
         public const string COST_LABEL = "花费：<color=red>{0}</color>";
         [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
         public const string RECHARGE_LABEL = "冷却时间：<color=red>{0}</color>";
+        [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string EXTRA_PROPERTY_NOCTURNAL = "<color=blue>白天失效</color>";
+        
+                
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> contraptionEntries = new List<NamespaceID>();
         private List<NamespaceID> enemyEntries = new List<NamespaceID>();

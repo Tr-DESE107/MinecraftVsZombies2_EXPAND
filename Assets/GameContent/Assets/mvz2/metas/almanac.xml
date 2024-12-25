@@ -87,7 +87,6 @@
                 <p>小型发射器能发射短距离的雪球。</p>
             </header>
             <properties>
-                <p><![CDATA[<color=blue>白天失效</color>]]></p>
                 <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：射出一个越滚越大的雪球</p>
@@ -101,7 +100,6 @@
                 <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
             </header>
             <properties>
-                <p><![CDATA[<color=blue>白天失效</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red>1点/1.6秒</color>]]>，而后<![CDATA[<color=red>1点/1秒</color>]]></p>
                 <p>技能：立即升级，发出蓝光，并使生产量变为<![CDATA[<color=red>2.5</color>]]>倍</p>
             </properties>
@@ -152,7 +150,6 @@
                 <p>灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。</p>
             </header>
             <properties>
-                <p><![CDATA[<color=blue>白天失效</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>60</color>]]></p>
                 <p>特点：需要烧毁器械补充燃料</p>
                 <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
