@@ -64,8 +64,8 @@ namespace MVZ2.Editor
                     });
                 }
                 EditorUtility.SetDirty(spriteManifest);
-                AssetDatabase.SaveAssetIfDirty(spriteManifest);
             }
+            AssetDatabase.SaveAssetIfDirty(spriteManifest);
             Debug.Log($"Update sprite manifest completed.");
 
             EditorUtility.ClearProgressBar();

@@ -35,6 +35,18 @@ namespace MVZ2.Vanilla.Contraptions
         }
         #endregion
 
+        #region 夜用
+        public const string NOCTURNAL = "nocturnal";
+        public static bool IsNocturnal(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(NOCTURNAL);
+        }
+        public static bool IsNocturnal(this Entity entity)
+        {
+            return entity.GetProperty<bool>(NOCTURNAL);
+        }
+        #endregion
+
         public const string IS_FLOOR = "isFloor";
         public const string CAN_SHOCK = "canShock";
         public const string FRAGMENT_ID = "fragmentId";

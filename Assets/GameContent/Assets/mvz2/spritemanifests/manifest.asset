@@ -31,14 +31,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 5a71c983a20b667478dd88d44c1a96b3, type: 3}
   - name: artifacts/dark_matter
     sprite: {fileID: 21300000, guid: 1a62ec6260923674096be59047f89949, type: 3}
+  - name: artifacts/dream_butterfly
+    sprite: {fileID: 21300000, guid: 5d23376e7a066774ab671e71271015fc, type: 3}
   - name: artifacts/dream_key
     sprite: {fileID: 21300000, guid: 34e619cc0502d6c499f470950cf5acec, type: 3}
+  - name: artifacts/hoe
+    sprite: {fileID: 21300000, guid: 3099084e873c11d4084a10707cd96120, type: 3}
   - name: artifacts/miracle_mallet_replica
     sprite: {fileID: 21300000, guid: 70875885371f09444af751a1676e6f71, type: 3}
   - name: artifacts/pagoda_branch
     sprite: {fileID: 21300000, guid: 48d03b03b358d9948863f3eb0517933a, type: 3}
-  - name: artifacts/rake
-    sprite: {fileID: 21300000, guid: 3099084e873c11d4084a10707cd96120, type: 3}
   - name: artifacts/sweet_sleep_pillow
     sprite: {fileID: 21300000, guid: 6aeedebbc3d6f934c8d4f7afb3614d86, type: 3}
   - name: artifacts/the_creatures_heart
@@ -49,6 +51,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c37ae568963b3c141804d263bfe68ffd, type: 3}
   - name: chapter_transition/chapter_title_1
     sprite: {fileID: 21300000, guid: aa82843b9b0ef4c43a15446e94370464, type: 3}
+  - name: chapter_transition/chapter_title_2
+    sprite: {fileID: 21300000, guid: 4020decd1a5c0cb49be19fd1c17e9698, type: 3}
   - name: chapter_transition/chapter_wheel
     sprite: {fileID: 21300000, guid: f022b6ff2c7efb247b94a9b7a2f0d006, type: 3}
   - name: chapter_transition/chapter_wheel_dark
@@ -175,10 +179,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 32f36e28f5381c345b9988e80c40ee5a, type: 3}
   - name: starshards/default
     sprite: {fileID: 21300000, guid: 5fe877b614795e144996e5d0ede65e81, type: 3}
+  - name: starshards/dream
+    sprite: {fileID: 21300000, guid: 870eee8567c7c8948aa1357afdc15d62, type: 3}
   - name: starshards/halloween
     sprite: {fileID: 21300000, guid: ead2b534e897e48469cac6037a937e50, type: 3}
   - name: starshard_rings/default
     sprite: {fileID: 21300000, guid: a87b33e84a23ca14eb7f301beca38504, type: 3}
+  - name: starshard_rings/dream
+    sprite: {fileID: 21300000, guid: e8196c198b390f343b2370b0aa2c81b3, type: 3}
   - name: starshard_rings/halloween
     sprite: {fileID: 21300000, guid: b71a3502ba3935b49a514559f8734478, type: 3}
   - name: talk/speech_bubble
@@ -329,6 +337,32 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9b2e55d12d554ed4f9bf1c03efdee504, type: 3}
   - name: level/day/day_house_cover
     sprite: {fileID: 21300000, guid: a9e913e5bc94c0c49808cc3e0c25228a, type: 3}
+  - name: level/dream/dream_ground
+    sprite: {fileID: 21300000, guid: a3399410694747943aee3e605146f887, type: 3}
+  - name: level/dream/dream_house_cover
+    sprite: {fileID: 21300000, guid: 64951a0026f5ef54bbb28092c064d4ea, type: 3}
+  - name: level/dream/dream_sky
+    sprite: {fileID: 21300000, guid: ced932759e970e74891ad58675bf4e53, type: 3}
+  - name: level/dream/nightmare_boss_sky
+    sprite: {fileID: 21300000, guid: 0d2c48cde3441c649b93560520f96272, type: 3}
+  - name: level/dream/nightmare_boss_sky_censored
+    sprite: {fileID: 21300000, guid: 40db1b532555e104184c1eca82025505, type: 3}
+  - name: level/dream/nightmare_ground
+    sprite: {fileID: 21300000, guid: 4a34d2e0337c5e24196eb44240e1b00c, type: 3}
+  - name: level/dream/nightmare_ground_censored
+    sprite: {fileID: 21300000, guid: e65c8602a6db8284fa1069847600d372, type: 3}
+  - name: level/dream/nightmare_sky
+    sprite: {fileID: 21300000, guid: f0125c799657eb041aea02f63549e0a0, type: 3}
+  - name: level/dream/nightmare_sky_censored
+    sprite: {fileID: 21300000, guid: 227ed731d72488f4aa762e37f9d60767, type: 3}
+  - name: level/dream/pool
+    sprite: {fileID: 21300000, guid: 5a43bbbdfc2dfc64382269576cdd5203, type: 3}
+  - name: level/dream/pool_shade
+    sprite: {fileID: 21300000, guid: 0d7f2041adf80d54c9e2d84f3b4a6f2c, type: 3}
+  - name: level/dream/pool_shade_nightmare
+    sprite: {fileID: 21300000, guid: 237ffa5c541517f40ac8dbcb9bdd1f01, type: 3}
+  - name: level/dream/pool_sparkle
+    sprite: {fileID: 21300000, guid: bfce65959617bce4ab0ffb4a5d19df4c, type: 3}
   - name: level/halloween/halloween
     sprite: {fileID: 21300000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
   - name: level/halloween/halloween_cloudy
@@ -623,6 +657,52 @@ MonoBehaviour:
     - {fileID: 5442776467709350791, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
     - {fileID: 8849250387669684591, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
     - {fileID: 6238587927403159039, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
+  - name: entity/cart/nightmare_trail
+    spritesheet:
+    - {fileID: 3762937400720167656, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: -6970994303841719020, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: 7912368268690322972, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: -3174389737156429877, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: -6270753612164821523, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: 2526363429185201870, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: -6872187722671972619, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: -491175715003493549, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: -8286120902522101564, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: 915529344922293255, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: 4291426322022827179, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: 6458087443443785499, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+    - {fileID: 5315338841829937595, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}
+  - name: entity/cart/nyaightmare
+    spritesheet:
+    - {fileID: 4015982848366332494, guid: 1adb67d35f526fa46b4f9eef62188a56, type: 3}
+    - {fileID: 8116305347336062760, guid: 1adb67d35f526fa46b4f9eef62188a56, type: 3}
+    - {fileID: -5782492854685404547, guid: 1adb67d35f526fa46b4f9eef62188a56, type: 3}
+    - {fileID: 6575977668076511406, guid: 1adb67d35f526fa46b4f9eef62188a56, type: 3}
+    - {fileID: 7108353527168423172, guid: 1adb67d35f526fa46b4f9eef62188a56, type: 3}
+    - {fileID: 3460163605884429468, guid: 1adb67d35f526fa46b4f9eef62188a56, type: 3}
+  - name: entity/cart/nyan_cat
+    spritesheet:
+    - {fileID: 2933340885890360790, guid: 071d4c30cf6fe5042ba032e38c0b03ef, type: 3}
+    - {fileID: 9055510684579093494, guid: 071d4c30cf6fe5042ba032e38c0b03ef, type: 3}
+    - {fileID: 821189768589261446, guid: 071d4c30cf6fe5042ba032e38c0b03ef, type: 3}
+    - {fileID: 2958353647522255803, guid: 071d4c30cf6fe5042ba032e38c0b03ef, type: 3}
+    - {fileID: 7676379331505311182, guid: 071d4c30cf6fe5042ba032e38c0b03ef, type: 3}
+    - {fileID: -7080666168918176775, guid: 071d4c30cf6fe5042ba032e38c0b03ef, type: 3}
+  - name: entity/cart/rainbow_trail
+    spritesheet:
+    - {fileID: -1221712028896741284, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -2183945180960425977, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -2493962405233981728, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -7933208544285842616, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -2870429872245953509, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: 81582735622651703, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -7021028823641962876, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -6330606556036316505, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -7967844677914448634, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: 1664692618759813936, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -7760324040334233758, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: -3414009260396193802, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+    - {fileID: 4886630257185471161, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
   - name: entity/contraption/dispenser
     spritesheet:
     - {fileID: 207085780836861793, guid: a3ffec953f3b51d4fbe1130f7e6f67e5, type: 3}

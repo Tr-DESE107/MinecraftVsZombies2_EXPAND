@@ -28,6 +28,7 @@ using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
+using UnityEditor.Presets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static MVZ2.Level.UI.LevelUIPreset;
@@ -838,6 +839,13 @@ namespace MVZ2.Level
         {
             var levelUI = GetUIPreset();
             levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
+        }
+        private void SetStarshardIcon()
+        {
+            var levelUI = GetUIPreset();
+            var spriteRef = level.GetStarshardIcon();
+            var sprite = Main.GetFinalSprite(spriteRef);
+            levelUI.SetStarshardIcon(sprite);
         }
         private void SetUnlockedUIActive()
         {

@@ -149,6 +149,8 @@
 
         <!-- Halloween Contraptions -->
         <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1">
+            <bool name="nocturnal" value="true"/>
+
             <float name="range" value="255"/>
             <id name="projectileId" value="mvz2:snowball"/>
             <id name="shootSound" value="mvz2:bow"/>
@@ -160,6 +162,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
         <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量" unlock="mvz2:level.halloween_2">
+            <bool name="nocturnal" value="true"/>
             <vector3 name="size" x="48" y="24" z="48"/>
             <color name="lightColor" value="#0000FF"/>
 
@@ -203,6 +206,8 @@
             <id name="rechargeId" value="mvz2:very_long" />
         </contraption>
         <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料" unlock="mvz2:level.halloween_7">
+            <bool name="nocturnal" value="true"/>
+
             <float name="damage" value="60"/>
             <float name="range" value="800"/>
             <id name="shell" value="mvz2:nether"/>
@@ -234,8 +239,8 @@
             <id name="deathSound" value="mvz2:wood"/>
             <vector3 name="size" x="32" y="48" z="32"/>
 
-            <int name="cost" value="150" />
-            <id name="rechargeId" value="mvz2:long" />
+            <int name="cost" value="200" />
+            <id name="rechargeId" value="mvz2:very_long" />
         </dispenser>
 
         <!-- Enemies -->

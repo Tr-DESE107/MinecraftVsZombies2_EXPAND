@@ -32,7 +32,7 @@ namespace MVZ2.TalkData
         {
             var speaker = node.GetAttributeNamespaceID("speaker", defaultNsp);
             var description = node.GetAttribute("description");
-            var sounds = node.GetAttribute("sounds")?.Split(';')?.Select(s => NamespaceID.Parse(s, defaultNsp)).ToList();
+            var sounds = node.GetAttributeNamespaceIDArray("sounds", defaultNsp)?.ToList();
             var variant = node.GetAttributeNamespaceID("variant", defaultNsp);
             var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
             var clickScripts = TalkScript.ParseArray(node.GetAttribute("onClick"))?.ToList();

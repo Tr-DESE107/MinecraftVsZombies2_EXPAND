@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Buffs
         public const string magichestInvincible = "magichest_invincible";
         public const string frankensteinShocked = "frankenstein_shocked";
         public const string dreamKeyShield = "dream_key_shield";
+        public const string nocturnal = "nocturnal";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";

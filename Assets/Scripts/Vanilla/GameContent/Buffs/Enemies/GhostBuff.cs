@@ -4,6 +4,7 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -63,7 +64,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            bool illuminated = entity.IsIlluminated() || entity.IsAIFrozen();
+            bool illuminated = entity.Level.IsDay() || entity.IsIlluminated() || entity.IsAIFrozen();
             SetIlluminated(buff, illuminated);
         }
         public static void SetIlluminated(Buff buff, bool illuminated)

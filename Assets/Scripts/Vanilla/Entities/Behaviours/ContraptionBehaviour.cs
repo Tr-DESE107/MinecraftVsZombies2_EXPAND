@@ -1,9 +1,13 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using System.Linq;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
@@ -20,6 +24,11 @@ namespace MVZ2.Vanilla.Entities
             entity.SetFaction(entity.Level.Option.LeftFaction);
             UpdateTakenGrids(entity);
             entity.InitFragment();
+
+            if (entity.IsNocturnal() && entity.Level.IsDay())
+            {
+                entity.AddBuff<NocturnalBuff>();
+            }
         }
         public override sealed void Update(Entity entity)
         {
@@ -73,7 +82,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual bool CanEvoke(Entity entity)
         {
-            return !entity.IsEvoked();
+            return !entity.IsEvoked() && !entity.IsAIFrozen();
         }
         public virtual void Evoke(Entity entity)
         {
@@ -82,7 +91,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual bool CanTrigger(Entity entity)
         {
-            return entity.IsTriggerActive();
+            return entity.IsTriggerActive() && !entity.IsAIFrozen();
         }
         public virtual void Trigger(Entity entity)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
@@ -27,6 +28,11 @@ namespace MVZ2.Vanilla.Level
 {
     public static partial class VanillaLevelExt
     {
+        public static bool IsDay(this LevelEngine level)
+        {
+            var areaTags = level.GetAreaTags();
+            return areaTags.Contains(VanillaAreaTags.day);
+        }
         public static void SpawnCarts(this LevelEngine game, NamespaceID cartRef, float x, float xInterval)
         {
             var carts = game.GetEntities(EntityTypes.CART);

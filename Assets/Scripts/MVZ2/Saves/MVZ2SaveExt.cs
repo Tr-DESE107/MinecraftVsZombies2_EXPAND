@@ -16,7 +16,11 @@ namespace MVZ2.Saves
         {
             if (condition == null)
                 return false;
-            return condition.Required.All(c => save.IsUnlocked(c)) && condition.RequiredNot.All(c => !save.IsUnlocked(c));
+            if (condition.Required == null || !condition.Required.All(c => save.IsUnlocked(c)))
+                return false;
+            if (condition.RequiredNot != null && !condition.RequiredNot.All(c => !save.IsUnlocked(c)))
+                return false;
+            return true;
         }
     }
 }

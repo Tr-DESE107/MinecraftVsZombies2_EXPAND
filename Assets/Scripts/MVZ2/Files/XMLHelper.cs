@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -87,6 +88,21 @@ namespace MVZ2.IO
             if (!NamespaceID.TryParse(attr.Value, defaultNsp, out var value))
                 return null;
             return value;
+        }
+        public static NamespaceID[] GetAttributeNamespaceIDArray(this XmlNode node, string name, string defaultNsp)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            var list = new List<NamespaceID>();
+            foreach (var str in attr.Value.Split(";"))
+            {
+                if (NamespaceID.TryParse(str, defaultNsp, out var condition))
+                {
+                    list.Add(condition);
+                }
+            }
+            return list.ToArray();
         }
         public static SpriteReference GetAttributeSpriteReference(this XmlNode node, string name, string defaultNsp)
         {

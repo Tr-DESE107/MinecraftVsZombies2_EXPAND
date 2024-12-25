@@ -37,10 +37,7 @@ namespace MVZ2.Grids
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data)
         {
-            if (definition == null || !definition.IsForGrid())
-                return false;
-            var flags = definition.GetHeldFlagsOnGrid(level.GetGrid(Column, Lane), data);
-            return flags.HasFlag(HeldFlags.Valid);
+            return definition != null && definition.IsForGrid();
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {

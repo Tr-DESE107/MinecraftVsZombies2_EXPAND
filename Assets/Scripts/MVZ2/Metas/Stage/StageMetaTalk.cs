@@ -15,23 +15,12 @@ namespace MVZ2.Metas
         {
             var type = node.GetAttribute("type");
             var value = node.GetAttributeNamespaceID("value", defaultNsp);
-            var repeatUntilString = node.GetAttribute("repeatUntil");
-            var repeatUntil = new List<NamespaceID>();
-            if (!string.IsNullOrEmpty(repeatUntilString))
-            {
-                foreach (var str in repeatUntilString.Split(";"))
-                {
-                    if (NamespaceID.TryParse(str, defaultNsp, out var condition))
-                    {
-                        repeatUntil.Add(condition);
-                    }
-                }
-            }
+            var repeatUntil = node.GetAttributeNamespaceIDArray("repeatUntil", defaultNsp);
             return new StageMetaTalk()
             {
                 Type = type,
                 Value = value,
-                RepeatUntil = repeatUntil.ToArray()
+                RepeatUntil = repeatUntil
             };
         }
         public const string TYPE_START = "start";

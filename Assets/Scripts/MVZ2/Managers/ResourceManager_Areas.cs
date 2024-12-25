@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MVZ2.Level;
 using MVZ2.Metas;
+using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace MVZ2.Managers
             var stageMetalist = GetAreaMetaList(mapID.spacename);
             if (stageMetalist == null)
                 return null;
-            return stageMetalist.metas.FirstOrDefault(m => m.id == mapID.path);
+            return stageMetalist.metas.FirstOrDefault(m => m.ID == mapID.path);
         }
         #region 模型
         public AreaModel GetAreaModel(string nsp, string path)

@@ -5,7 +5,22 @@ namespace MVZ2Logic.Level
     public interface IAreaMeta
     {
         public string ID { get; }
-        public NamespaceID ModelID { get; set; }
-        public NamespaceID MusicID { get; set; }
+        public NamespaceID ModelID { get; }
+        public NamespaceID MusicID { get; }
+        public NamespaceID Cart { get; }
+        public NamespaceID[] Tags { get; }
+        public SpriteReference StarshardIcon { get; }
+
+        public float EnemySpawnX { get; }
+        public float DoorZ { get; }
+
+        public float GridWidth { get; }
+        public float GridHeight { get; }
+        public float GridLeftX { get; }
+        public float GridBottomZ { get; }
+        public int Lanes { get; }
+        public int Columns { get; }
+
+        public NamespaceID[] Grids { get; }
     }
 }

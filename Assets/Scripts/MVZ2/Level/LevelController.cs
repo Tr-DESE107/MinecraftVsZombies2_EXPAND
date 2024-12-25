@@ -59,6 +59,7 @@ namespace MVZ2.Level
 
             var uiPreset = GetUIPreset();
             uiPreset.UpdateFrame(0);
+            SetStarshardIcon();
             SetUnlockedUIActive();
         }
         public void StartLevelIntro(float delay)
@@ -756,10 +757,13 @@ namespace MVZ2.Level
 
         private void CreateLevelModel(NamespaceID areaId)
         {
-            var areaMeta = Resources.GetAreaMeta(areaId);
-            if (areaMeta == null)
+            var areaDef = Game.GetAreaDefinition(areaId);
+            if (areaDef == null)
                 return;
-            var modelPrefab = Resources.GetAreaModel(areaMeta.model);
+            var modelID = areaDef.GetModelID();
+            if (modelID == null)
+                return;
+            var modelPrefab = Resources.GetAreaModel(modelID);
             if (modelPrefab == null)
                 return;
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<AreaModel>();

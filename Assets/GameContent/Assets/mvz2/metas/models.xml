@@ -55,6 +55,7 @@
 
     <model name="starshard.default" type="entity" path="mvz2:pickup/starshards/default" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="starshard.halloween" type="entity" path="mvz2:pickup/starshards/halloween" width="64" height="64" xOffset="0" yOffset="-16"/>
+    <model name="starshard.dream" type="entity" path="mvz2:pickup/starshards/dream" width="64" height="64" xOffset="0" yOffset="-16"/>
     
     <!-- Effects -->
     <model name="miner" type="entity" path="mvz2:effect/miner" width="32" height="32" xOffset="0" yOffset="-16"/>
@@ -102,11 +103,13 @@
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
     <model name="starshard.halloween" type="held" path="mvz2:held/starshards/halloween" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
+    <model name="starshard.dream" type="held" path="mvz2:held/starshards/dream" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
     <model name="pickaxe" type="held" path="mvz2:held/pickaxe" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="trigger" type="held" path="mvz2:held/trigger" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
     <model name="sword" type="held" path="mvz2:held/sword" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="short_circuit" type="icon" path="mvz2:icon/short_circuit" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="nocturnal" type="icon" path="mvz2:icon/nocturnal" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="static_particles" type="icon" path="mvz2:icon/static_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="dream_key_shield" type="icon" path="mvz2:icon/dream_key_shield" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
 </models>

@@ -36,7 +36,7 @@ namespace MVZ2.TalkData
             var id = node.GetAttribute("id");
             var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
             var requiresNot = node.GetAttributeNamespaceID("requiresNot", defaultNsp);
-            var tags = node.GetAttribute("tags")?.Split(';')?.Select(t => NamespaceID.Parse(t, defaultNsp))?.ToList();
+            var tags = node.GetAttributeNamespaceIDArray("tags", defaultNsp)?.ToList();
 
             var children = node.ChildNodes;
 

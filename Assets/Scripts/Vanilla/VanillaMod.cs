@@ -30,6 +30,7 @@ namespace MVZ2.Vanilla
             LoadEntityMetas();
             LoadStageMetas();
             LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
+            LoadAreaProperties();
             LoadStageProperties();
             LoadArtifactProperties();
             AddEntityBehaviours();
@@ -105,6 +106,7 @@ namespace MVZ2.Vanilla
                         break;
                 }
             }
+            AddDefinition(new WhackAGhostStage(spaceName, "halloween_6"));
         }
         protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
         {
@@ -126,9 +128,36 @@ namespace MVZ2.Vanilla
                 }
             }
         }
+        private void LoadAreaProperties()
+        {
+            foreach (IAreaMeta meta in Global.Game.GetModAreaMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var area = GetDefinition<AreaDefinition>(new NamespaceID(spaceName, meta.ID));
+                if (area == null)
+                    continue;
+                area.SetProperty(VanillaAreaProps.MODEL_ID, meta.ModelID);
+                area.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
+                area.SetProperty(EngineAreaProps.CART_REFERENCE, meta.Cart);
+                area.SetProperty(EngineAreaProps.AREA_TAGS, meta.Tags);
+                area.SetProperty(VanillaAreaProps.STARSHARD_ICON, meta.StarshardIcon);
+
+                area.SetProperty(EngineAreaProps.ENEMY_SPAWN_X, meta.EnemySpawnX);
+                area.SetProperty(VanillaAreaProps.DOOR_Z, meta.DoorZ);
+
+                area.SetProperty(EngineAreaProps.GRID_WIDTH, meta.GridWidth);
+                area.SetProperty(EngineAreaProps.GRID_HEIGHT, meta.GridHeight);
+                area.SetProperty(EngineAreaProps.GRID_LEFT_X, meta.GridLeftX);
+                area.SetProperty(EngineAreaProps.GRID_BOTTOM_Z, meta.GridBottomZ);
+                area.SetProperty(EngineAreaProps.MAX_LANE_COUNT, meta.Lanes);
+                area.SetProperty(EngineAreaProps.MAX_COLUMN_COUNT, meta.Columns);
+
+                area.SetGridLayout(meta.Grids);
+            }
+        }
         private void LoadStageProperties()
         {
-            AddDefinition(new WhackAGhostStage(spaceName, "halloween_6"));
             foreach (var meta in Global.Game.GetModStageMetas(spaceName))
             {
                 if (meta == null)

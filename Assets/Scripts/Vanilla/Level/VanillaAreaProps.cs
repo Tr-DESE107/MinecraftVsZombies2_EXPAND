@@ -1,9 +1,27 @@
-﻿using PVZEngine.Level;
+﻿using MVZ2Logic;
+using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Level
 {
     public static class VanillaAreaProps
     {
+        public const string MODEL_ID = "modelID";
+        public static NamespaceID GetModelID(this LevelEngine game)
+        {
+            return game.GetProperty<NamespaceID>(MODEL_ID);
+        }
+        public static NamespaceID GetModelID(this AreaDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(MODEL_ID);
+        }
+        public const string STARSHARD_ICON = "starshardIcon";
+        public static SpriteReference GetStarshardIcon(this LevelEngine game)
+        {
+            return game.GetProperty<SpriteReference>(STARSHARD_ICON);
+        }
+
         public const string DOOR_Z = "doorZ";
         public const string NIGHT_VALUE = "nightValue";
         public const string DARKNESS_VALUE = "darknessValue";

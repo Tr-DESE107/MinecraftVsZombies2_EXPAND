@@ -78,7 +78,7 @@ namespace PVZEngine.Level
 
             grids = new LawnGrid[maxColumn * maxLane];
 
-            var gridDefinitions = AreaDefinition.GetGridDefintionsID().Select(i => Content.GetGridDefinition(i)).ToArray();
+            var gridDefinitions = AreaDefinition.GetGridLayout().Select(i => Content.GetGridDefinition(i)).ToArray();
             for (int i = 0; i < gridDefinitions.Length; i++)
             {
                 var definition = gridDefinitions[i];

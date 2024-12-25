@@ -246,9 +246,12 @@ namespace MVZ2.Managers
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
         #region 接口实现
-        IStageMeta IGameMetas.GetStageMeta(NamespaceID stageID) => GetStageMeta(stageID);
+        IStageMeta IGameMetas.GetStageMeta(NamespaceID id) => GetStageMeta(id);
 
         IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
+        IAreaMeta IGameMetas.GetAreaMeta(NamespaceID id) => GetAreaMeta(id);
+
+        IAreaMeta[] IGameMetas.GetModAreaMetas(string spaceName) => GetModAreaMetas(spaceName);
 
         IEntityMeta IGameMetas.GetEntityMeta(NamespaceID id) => GetEntityMeta(id);
 

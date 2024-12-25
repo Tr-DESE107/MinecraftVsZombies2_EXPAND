@@ -271,6 +271,10 @@ namespace MVZ2.Level.UI
         {
             starshardPanelObj.SetActive(visible);
         }
+        public void SetStarshardIcon(Sprite icon)
+        {
+            starshardPanel.SetIconSprite(icon);
+        }
         public void SetStarshardCount(int count, int maxCount)
         {
             starshardPanel.SetPoints(count, maxCount);
