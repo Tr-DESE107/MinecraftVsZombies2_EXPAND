@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.Grids;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
@@ -44,11 +45,11 @@ namespace MVZ2.Level
         {
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            ClickOnGrid(lane, column, PointerPhase.Press);
+            ClickOnGrid(lane, column, PointerPhase.Press, true);
         }
 
         #endregion
-        private void ClickOnGrid(int lane, int column, PointerPhase phase)
+        private void ClickOnGrid(int lane, int column, PointerPhase phase, bool upper)
         {
             if (!IsGameRunning())
                 return;
@@ -56,9 +57,24 @@ namespace MVZ2.Level
             var grid = level.GetGrid(column, lane);
             var heldFlags = level.GetHeldFlagsOnGrid(grid);
             bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
-            if (heldFlags.HasFlag(HeldFlags.Valid))
+            bool validOnProtector = heldFlags.HasFlag(HeldFlags.ValidOnProtector);
+            bool validOnMain = heldFlags.HasFlag(HeldFlags.Valid);
+            bool validOnCarrier = heldFlags.HasFlag(HeldFlags.ValidOnCarrier);
+            if (validOnProtector && validOnMain)
             {
-                reset = level.UseOnGrid(grid, phase);
+                reset = level.UseOnGrid(grid, phase, upper ? VanillaGridLayers.main : VanillaGridLayers.protector);
+            }
+            else if (validOnProtector)
+            {
+                reset = level.UseOnGrid(grid, phase, VanillaGridLayers.protector);
+            }
+            else if (validOnMain)
+            {
+                reset = level.UseOnGrid(grid, phase, VanillaGridLayers.main);
+            }
+            else if (validOnCarrier)
+            {
+                reset = level.UseOnGrid(grid, phase, VanillaGridLayers.carrier);
             }
             else
             {

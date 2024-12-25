@@ -9,6 +9,6 @@ namespace PVZEngine.Grids
         public int lane;
         public int column;
         public NamespaceID definitionID;
-        public List<long> takenEntities;
+        public Dictionary<string, long> layerEntities;
     }
 }

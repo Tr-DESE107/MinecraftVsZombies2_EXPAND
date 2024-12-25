@@ -4,6 +4,8 @@ using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
@@ -59,21 +61,28 @@ namespace MVZ2.GameContent.HeldItems
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             var flags = HeldFlags.ForceReset;
-            var entities = grid.GetTakenEntities();
-            if (entities.Any(e => e.Type == EntityTypes.PLANT && CanDigContraption(e)))
-            {
+
+            var protector = grid.GetProtectorEntity();
+            var main = grid.GetMainEntity();
+            var carrier = grid.GetCarrierEntity();
+            if (protector != null && protector.Type == EntityTypes.PLANT && CanDigContraption(protector))
+                flags |= HeldFlags.ValidOnProtector;
+
+            if (main != null && main.Type == EntityTypes.PLANT && CanDigContraption(main))
                 flags |= HeldFlags.Valid;
-            }
+
+            if (carrier != null && carrier.Type == EntityTypes.PLANT && CanDigContraption(carrier))
+                flags |= HeldFlags.ValidOnCarrier;
+
             return flags;
         }
-        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase)
+        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer)
         {
-            base.UseOnGrid(grid, data, phase);
+            base.UseOnGrid(grid, data, phase, targetLayer);
             if (phase != PointerPhase.Release)
                 return false;
-            var entities = grid.GetTakenEntities();
-            var entity = entities.FirstOrDefault(e => e.Type == EntityTypes.PLANT && CanDigContraption(e));
-            if (entity != null)
+            var entity = grid.GetLayerEntity(targetLayer);
+            if (entity != null && entity.Type == EntityTypes.PLANT && CanDigContraption(entity))
             {
                 entity.Die();
             }

@@ -4,8 +4,37 @@ namespace MVZ2.Vanilla.Contraptions
 {
     public static class VanillaContraptionProps
     {
+        #region 可放置性
+        public const string PLACE_ON_LAND = "placeOnLand";
         public const string PLACE_ON_WATER = "placeOnWater";
-        public const string PLACE_ON_LILY = "placeOnLily";
+        public const string PLACE_ON_LILY = "placeOnLilypad";
+        public const string PLACE_ON_PLANE = "placeOnPlane";
+        public static bool CanPlaceOnWater(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(PLACE_ON_WATER);
+        }
+        public static bool CanPlaceOnWater(this Entity entity)
+        {
+            return entity.GetProperty<bool>(PLACE_ON_WATER);
+        }
+        public static bool CanPlaceOnLilypad(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(PLACE_ON_LILY);
+        }
+        public static bool CanPlaceOnLilypad(this Entity entity)
+        {
+            return entity.GetProperty<bool>(PLACE_ON_LILY);
+        }
+        public static bool CanPlaceOnLand(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(PLACE_ON_LAND);
+        }
+        public static bool CanPlaceOnPlane(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(PLACE_ON_PLANE);
+        }
+        #endregion
+
         public const string IS_FLOOR = "isFloor";
         public const string CAN_SHOCK = "canShock";
         public const string FRAGMENT_ID = "fragmentId";

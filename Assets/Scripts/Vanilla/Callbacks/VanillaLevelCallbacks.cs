@@ -1,6 +1,8 @@
 ﻿using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Callbacks
@@ -12,9 +14,12 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreEntityHeal(HealInput info);
         public delegate void PostEntityHeal(HealOutput result);
 
+        public delegate void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, GridStatus data);
+        public delegate void PrePlaceEntity(LawnGrid grid, NamespaceID entityID);
+        public delegate void PostPlaceEntity(LawnGrid grid, Entity entity);
+
         public delegate void PostContraptionTrigger(Entity entity);
         public delegate void PostContraptionEvoke(Entity entity);
-        public delegate void PostContraptionPlace(Entity entity);
         public delegate void PostContraptionDestroy(Entity entity);
         public delegate bool CanContraptionSacrifice(Entity entity, Entity soulFurnace);
         public delegate int GetContraptionSacrificeFuel(Entity entity, Entity soulFurnace);
@@ -37,9 +42,12 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<PreEntityHeal> PRE_ENTITY_HEAL = new();
         public readonly static CallbackReference<PostEntityHeal> POST_ENTITY_HEAL = new();
 
+        public readonly static CallbackReference<CanPlaceEntity> CAN_PLACE_ENTITY = new();
+        public readonly static CallbackReference<PrePlaceEntity> PRE_PLACE_ENTITY = new();
+        public readonly static CallbackReference<PostPlaceEntity> POST_PLACE_ENTITY = new();
+
         public readonly static CallbackReference<PostContraptionTrigger> POST_CONTRAPTION_TRIGGER = new();
         public readonly static CallbackReference<PostContraptionEvoke> POST_CONTRAPTION_EVOKE = new();
-        public readonly static CallbackReference<PostContraptionPlace> POST_CONTRAPTION_PLACE = new();
         public readonly static CallbackReference<PostContraptionDestroy> POST_CONTRAPTION_DESTROY = new();
         public readonly static CallbackReference<CanContraptionSacrifice> CAN_CONTRAPTION_SACRIFICE = new();
         public readonly static CallbackReference<GetContraptionSacrificeFuel> GET_CONTRAPTION_SACRIFICE_FUEL = new();

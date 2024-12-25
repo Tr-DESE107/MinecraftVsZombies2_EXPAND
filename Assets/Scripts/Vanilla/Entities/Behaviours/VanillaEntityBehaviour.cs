@@ -97,7 +97,10 @@ namespace MVZ2.Vanilla.Entities
             {
                 foreach (var grid in GetGridsToTake(entity))
                 {
-                    entity.TakeGrid(grid);
+                    foreach (var layer in entity.GetGridLayersToTake())
+                    {
+                        entity.TakeGrid(grid, layer);
+                    }
                 }
             }
         }

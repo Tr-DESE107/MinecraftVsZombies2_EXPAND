@@ -4,6 +4,7 @@ using MVZ2Logic;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Implements
@@ -12,16 +13,18 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_PLACE, PostPlaceContraptionCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.POST_PLACE_ENTITY, PostPlaceEntityCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, PostContraptionDestroyCallback);
 
             mod.AddTrigger(LevelCallbacks.POST_ENEMY_SPAWNED, PostEnemySpawnedCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, PostEnemyNeutralizeCallback);
             mod.AddTrigger(LevelCallbacks.POST_GAME_OVER, PostGameOverCallback);
         }
-        private void PostPlaceContraptionCallback(Entity contraption)
+        private void PostPlaceEntityCallback(LawnGrid grid, Entity entity)
         {
-            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_PLACE, contraption.GetDefinitionID(), 1);
+            if (entity.Type != EntityTypes.PLANT)
+                return;
+            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_PLACE, entity.GetDefinitionID(), 1);
         }
         private void PostContraptionDestroyCallback(Entity contraption)
         {

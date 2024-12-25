@@ -44,13 +44,13 @@ namespace MVZ2.Vanilla.HeldItems
         }
         public override string GetHeldErrorMessageOnGrid(LawnGrid grid, IHeldItemData data)
         {
-            if (!IsValidOnGrid(grid, data, out var message))
+            if (!IsValidOnGrid(grid, data, out var error))
             {
-                return message;
+                return Global.Game.GetGridErrorMessage(error);
             }
             return null;
         }
-        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase)
+        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer)
         {
             var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
             if (phase != targetPhase)
@@ -69,36 +69,21 @@ namespace MVZ2.Vanilla.HeldItems
                     entity.Trigger();
                 }
                 entity.PlaySound(entity.GetPlaceSound());
-                if (entity.Type == EntityTypes.PLANT)
-                {
-                    level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_PLACE, entity.GetDefinitionID(), entity);
-                }
+                level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, entity.GetDefinitionID(), grid, entity);
                 return true;
             }
             return false;
         }
-        private bool IsValidOnGrid(LawnGrid grid, IHeldItemData data, out string errorMessage)
+        private bool IsValidOnGrid(LawnGrid grid, IHeldItemData data, out NamespaceID error)
         {
-            errorMessage = null;
+            error = null;
             var level = grid.Level;
             var seed = GetSeedPackAt(level, (int)data.ID);
             if (seed == null)
                 return false;
-            var seedDef = seed.Definition;
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-            {
-                var entityID = seedDef.GetSeedEntityID();
-                var entityDef = level.Content.GetEntityDefinition(entityID);
-                if (entityDef.Type == EntityTypes.PLANT)
-                {
-                    if (!grid.CanPlace(entityDef))
-                    {
-                        if (grid.GetTakenEntities().Any(e => e.IsEntityOf(VanillaObstacleID.gargoyleStatue)))
-                            errorMessage = VanillaStrings.ADVICE_CANNOT_PLACE_ON_STATUES;
-                        return false;
-                    }
-                }
-            }
+            var seedDef = seed.GetDefinitionID();
+            if (!grid.CanPlaceBlueprint(seedDef, out error))
+                return false;
             return true;
         }
         #endregion

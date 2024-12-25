@@ -87,10 +87,10 @@ namespace MVZ2Logic.Level
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
             return heldItemDef.UseOnEntity(entity, data, phase);
         }
-        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, IHeldItemData data, PointerPhase phase)
+        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, NamespaceID heldType, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            return heldItemDef.UseOnGrid(grid, data, phase);
+            return heldItemDef.UseOnGrid(grid, data, phase, targetLayer);
         }
         public static void UseOnLawn(this LevelEngine level, LawnArea area, NamespaceID heldType, IHeldItemData data, PointerPhase phase)
         {
@@ -113,9 +113,9 @@ namespace MVZ2Logic.Level
         {
             return level.UseOnEntity(entity, level.GetHeldItemType(), level.GetHeldItemData(), phase);
         }
-        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, PointerPhase phase)
+        public static bool UseOnGrid(this LevelEngine level, LawnGrid grid, PointerPhase phase, NamespaceID targetLayer)
         {
-            return level.UseOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemData(), phase);
+            return level.UseOnGrid(grid, level.GetHeldItemType(), level.GetHeldItemData(), phase, targetLayer);
         }
         public static void UseOnLawn(this LevelEngine level, LawnArea area, PointerPhase phase)
         {

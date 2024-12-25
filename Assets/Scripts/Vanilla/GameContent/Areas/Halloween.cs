@@ -7,6 +7,7 @@ using MVZ2.GameContent.Grids;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -81,14 +82,19 @@ namespace MVZ2.GameContent.Areas
         {
             if (count <= 0)
                 return;
+            var statueDef = level.Content.GetEntityDefinition(VanillaObstacleID.gargoyleStatue);
+            if (statueDef == null)
+                return;
             List<LawnGrid> valid = new List<LawnGrid>();
             List<int> weights = new List<int>();
+
+            var layersToTake = statueDef.GetGridLayersToTake();
             for (int col = STATUE_MIN_COLUMN; col < level.GetMaxColumnCount(); col++)
             {
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(col, lane);
-                    if (grid.GetTakenEntities().Any(e => e != null && e.Type != EntityTypes.PLANT))
+                    if (layersToTake.Any(l => { var e = grid.GetLayerEntity(l); return e != null && e.Type != EntityTypes.PLANT; }))
                         continue;
                     valid.Add(grid);
                     weights.Add(GetStatueWeight(col));

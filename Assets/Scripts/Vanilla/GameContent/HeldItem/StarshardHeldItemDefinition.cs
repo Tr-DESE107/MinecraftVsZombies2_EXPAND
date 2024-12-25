@@ -4,6 +4,7 @@ using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
@@ -59,21 +60,26 @@ namespace MVZ2.GameContent.HeldItems
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             var flags = HeldFlags.ForceReset;
-            var entities = grid.GetTakenEntities();
-            if (entities.Any(e => e.Type == EntityTypes.PLANT && e.CanEvoke()))
-            {
+            var protector = grid.GetProtectorEntity();
+            var main = grid.GetMainEntity();
+            var carrier = grid.GetCarrierEntity();
+            if (protector != null && protector.Type == EntityTypes.PLANT && protector.CanEvoke())
+                flags |= HeldFlags.ValidOnProtector;
+
+            if (main != null && main.Type == EntityTypes.PLANT && main.CanEvoke())
                 flags |= HeldFlags.Valid;
-            }
+
+            if (carrier != null && carrier.Type == EntityTypes.PLANT && carrier.CanEvoke())
+                flags |= HeldFlags.ValidOnCarrier;
             return flags;
         }
-        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase)
+        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer)
         {
-            base.UseOnGrid(grid, data, phase);
+            base.UseOnGrid(grid, data, phase, targetLayer);
             if (phase != PointerPhase.Release)
                 return false;
-            var entities = grid.GetTakenEntities();
-            var entity = entities.FirstOrDefault(e => e.Type == EntityTypes.PLANT && e.CanEvoke());
-            if (entity != null)
+            var entity = grid.GetLayerEntity(targetLayer);
+            if (entity != null && entity.Type == EntityTypes.PLANT && entity.CanEvoke())
             {
                 entity.Evoke();
                 entity.Level.AddStarshardCount(-1);

@@ -104,7 +104,9 @@ namespace PVZEngine
         {
             if (lhs is null)
                 return rhs is null;
-            return lhs.Equals(rhs);
+            if (rhs is null)
+                return false;
+            return lhs.spacename == rhs.spacename && lhs.path == rhs.path;
         }
         public static bool operator !=(NamespaceID lhs, NamespaceID rhs)
         {

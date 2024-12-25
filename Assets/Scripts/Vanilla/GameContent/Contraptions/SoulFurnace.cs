@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Damages;
+﻿using System.Linq;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
@@ -169,10 +170,12 @@ namespace MVZ2.GameContent.Contraptions
             var targetGrid = furnace.Level.GetGrid(column + 1, lane);
             if (targetGrid == null)
                 return;
-            var targetEntities = targetGrid.GetTakenEntities();
-            foreach (var ent in targetEntities)
+            var layers = targetGrid.GetLayers();
+            var orderedLayers = layers.OrderBy(l => Global.Game.GetGridLayerPriority(l));
+            foreach (var layer in orderedLayers)
             {
-                if (!CanSacrifice(ent, furnace))
+                var ent = targetGrid.GetLayerEntity(layer);
+                if (ent == null || !CanSacrifice(ent, furnace))
                     continue;
                 var fuel = GetSacrificeFuel(ent, furnace);
                 Sacrifice(ent, furnace, fuel);

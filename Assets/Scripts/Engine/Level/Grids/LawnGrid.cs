@@ -33,20 +33,25 @@ namespace PVZEngine.Grids
             var z = Level.GetEntityLaneZ(Lane);
             return Level.GetGroundY(x, z);
         }
-        public void AddEntity(Entity entity)
+        public void AddLayerEntity(NamespaceID layer, Entity entity)
         {
-            if (!takenEntities.Contains(entity))
+            layerEntities[layer] = entity;
+        }
+        public bool RemoveLayerEntity(NamespaceID layer)
+        {
+            return layerEntities.Remove(layer);
+        }
+        public Entity GetLayerEntity(NamespaceID layer)
+        {
+            if (layerEntities.TryGetValue(layer, out var entity))
             {
-                takenEntities.Add(entity);
+                return entity;
             }
+            return null;
         }
-        public bool RemoveEntity(Entity entity)
+        public NamespaceID[] GetLayers()
         {
-            return takenEntities.Remove(entity);
-        }
-        public Entity[] GetTakenEntities()
-        {
-            return takenEntities.ToArray();
+            return layerEntities.Keys.ToArray();
         }
         public SerializableGrid Serialize()
         {
@@ -55,7 +60,7 @@ namespace PVZEngine.Grids
                 lane = Lane,
                 column = Column,
                 definitionID = Definition.GetID(),
-                takenEntities = takenEntities.ConvertAll(e => e.ID)
+                layerEntities = layerEntities.ToDictionary(p => p.Key.ToString(), p => p.Value.ID)
             };
         }
         public static LawnGrid Deserialize(SerializableGrid seri, LevelEngine level)
@@ -66,7 +71,7 @@ namespace PVZEngine.Grids
         }
         public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
         {
-            takenEntities = seri.takenEntities.Select(id => level.FindEntityByID(id)).ToList();
+            layerEntities = seri.layerEntities.ToDictionary(p => NamespaceID.Parse(p.Key, string.Empty), p => level.FindEntityByID(p.Value));
         }
         #endregion ∑Ω∑®
 
@@ -75,7 +80,7 @@ namespace PVZEngine.Grids
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }
-        private List<Entity> takenEntities = new List<Entity>();
+        private Dictionary<NamespaceID, Entity> layerEntities = new Dictionary<NamespaceID, Entity>();
         #endregion  Ù–‘
     }
     public enum PlaceType

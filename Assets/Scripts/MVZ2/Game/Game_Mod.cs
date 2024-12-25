@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Modding;
 using PVZEngine;
 using PVZEngine.Base;
@@ -18,6 +21,31 @@ namespace MVZ2.Games
         {
             return definitionGroup.GetDefinitions();
         }
+        public int GetGridLayerPriority(NamespaceID layer)
+        {
+            if (layer == VanillaGridLayers.protector)
+            {
+                return 100;
+            }
+            else if (layer == VanillaGridLayers.carrier)
+            {
+                return -100;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public string GetGridErrorMessage(NamespaceID error)
+        {
+            if (error == null)
+                return null;
+            if (gridErrorMessages.TryGetValue(error, out var message))
+            {
+                return message;
+            }
+            return null;
+        }
         public void AddMod(IModLogic mod)
         {
             foreach (var def in mod.GetDefinitions())
@@ -26,5 +54,13 @@ namespace MVZ2.Games
             }
         }
         private DefinitionGroup definitionGroup = new DefinitionGroup();
+        private static readonly Dictionary<NamespaceID, string> gridErrorMessages = new Dictionary<NamespaceID, string>()
+        {
+            { VanillaGridStatus.needLilypad, VanillaStrings.ADVICE_PLACE_LILYPAD_FIRST },
+            { VanillaGridStatus.notOnLilypad, VanillaStrings.ADVICE_CANNOT_PLACE_ON_LILYPAD },
+            { VanillaGridStatus.notOnLand, VanillaStrings.ADVICE_CANNOT_PLACE_ON_LAND },
+            { VanillaGridStatus.notOnPlane, VanillaStrings.ADVICE_CANNOT_PLACE_ON_PLANE },
+            { VanillaGridStatus.notOnStatues, VanillaStrings.ADVICE_CANNOT_PLACE_ON_STATUES },
+        };
     }
 }

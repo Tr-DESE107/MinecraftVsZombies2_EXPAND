@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int y = 0; y < entity.Level.GetMaxLaneCount(); y++)
                 {
                     var grid = entity.Level.GetGrid(x, y);
-                    if (grid.CanPlace(VanillaContraptionID.mineTNT))
+                    if (grid.CanPlaceEntity(VanillaContraptionID.mineTNT))
                     {
                         grids.Add(grid);
                     }

@@ -7,60 +7,12 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityProps
     {
+        #region 射击
         public const string RANGE = "range";
         public const string SHOT_VELOCITY = "shotVelocity";
         public const string SHOT_OFFSET = "shotOffset";
         public const string SHOOT_SOUND = "shootSound";
         public const string PROJECTILE_ID = "projectileId";
-
-        public const string DAMAGE = "damage";
-        public const string ATTACK_SPEED = "attackSpeed";
-        public const string PRODUCE_SPEED = "produceSpeed";
-        public const string ETHEREAL = "ethereal";
-        public const string FALL_DAMAGE = "fallDamage";
-        public const string CAN_DISABLE = "canDisable";
-        public const string NO_TARGET = "noTarget";
-        public const string INVISIBLE = "invisible";
-        public const string AI_FROZEN = "aiFrozen";
-
-        public const string COST = "cost";
-        public const string RECHARGE_ID = "rechargeId";
-
-        public const string SPAWN_COST = "spawnCost";
-        public const string PREVIEW_COUNT = "previewCount";
-
-        public static float GetFallDamage(this Entity entity)
-        {
-            return entity.GetProperty<float>(FALL_DAMAGE);
-        }
-        public static void SetFallDamage(this Entity entity, float value)
-        {
-            entity.SetProperty(FALL_DAMAGE, value);
-        }
-        public static float GetDamage(this Entity entity, bool ignoreBuffs = false)
-        {
-            return entity.GetProperty<float>(DAMAGE, ignoreBuffs: ignoreBuffs);
-        }
-        public static void SetDamage(this Entity entity, float value)
-        {
-            entity.SetProperty(DAMAGE, value);
-        }
-        public static bool IsInvisible(this Entity entity)
-        {
-            return entity.GetProperty<bool>(INVISIBLE);
-        }
-        public static bool IsEthereal(this Entity entity)
-        {
-            return entity.GetProperty<bool>(ETHEREAL);
-        }
-        public static float GetAttackSpeed(this Entity entity)
-        {
-            return entity.GetProperty<float>(ATTACK_SPEED);
-        }
-        public static float GetProduceSpeed(this Entity entity)
-        {
-            return entity.GetProperty<float>(PRODUCE_SPEED);
-        }
         public static void SetRange(this Entity entity, float value)
         {
             entity.SetProperty(RANGE, value);
@@ -85,10 +37,69 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<NamespaceID>(PROJECTILE_ID);
         }
+        #endregion
+
+        #region 攻击
+        public const string DAMAGE = "damage";
+        public const string ATTACK_SPEED = "attackSpeed";
+
+        public static float GetDamage(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<float>(DAMAGE, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetDamage(this Entity entity, float value)
+        {
+            entity.SetProperty(DAMAGE, value);
+        }
+        public static float GetAttackSpeed(this Entity entity)
+        {
+            return entity.GetProperty<float>(ATTACK_SPEED);
+        }
+        #endregion
+
+        #region 摔落
+        public const string FALL_DAMAGE = "fallDamage";
+        public static float GetFallDamage(this Entity entity)
+        {
+            return entity.GetProperty<float>(FALL_DAMAGE);
+        }
+        public static void SetFallDamage(this Entity entity, float value)
+        {
+            entity.SetProperty(FALL_DAMAGE, value);
+        }
+        #endregion
+
+        #region 虚无
+        public const string ETHEREAL = "ethereal";
+        public static bool IsEthereal(this Entity entity)
+        {
+            return entity.GetProperty<bool>(ETHEREAL);
+        }
+        #endregion
+
+        #region 生产
+        public const string PRODUCE_SPEED = "produceSpeed";
+        public static float GetProduceSpeed(this Entity entity)
+        {
+            return entity.GetProperty<float>(PRODUCE_SPEED);
+        }
+        #endregion
+
+        #region 索敌
+        public const string INVISIBLE = "invisible";
+        public const string AI_FROZEN = "aiFrozen";
+
+        public static bool IsInvisible(this Entity entity)
+        {
+            return entity.GetProperty<bool>(INVISIBLE);
+        }
         public static bool IsAIFrozen(this Entity entity)
         {
             return entity.GetProperty<bool>(AI_FROZEN);
         }
+        #endregion
+
+        #region 音效
         public const string HIT_SOUND = "hitSound";
         public const string DEATH_SOUND = "deathSound";
         public const string PLACE_SOUND = "placeSound";
@@ -108,23 +119,18 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<NamespaceID>(DEATH_SOUND);
         }
+        #endregion
 
-        public const string MAX_TIMEOUT = "maxTimeout";
-
+        #region 换行
         public const string CHANGING_LANE = "isChangingLane";
         public const string CHANGE_LANE_SPEED = "changeLaneSpeed";
         public const string CHANGE_LANE_TARGET = "changeLaneTarget";
         public const string CHANGE_LANE_SOURCE = "changeLaneSource";
-
-        public const string SHADOW_HIDDEN = "shadowHidden";
-        public const string SHADOW_ALPHA = "shadowAlpha";
-        public const string SHADOW_SCALE = "shadowScale";
-        public const string SHADOW_OFFSET = "shadowOffset";
-
-        public const string SORTING_LAYER = "sortingLayer";
-        public const string SORTING_ORDER = "sortingOrder";
+        #endregion
 
         #region 显示
+        public const string SORTING_LAYER = "sortingLayer";
+        public const string SORTING_ORDER = "sortingOrder";
         public static int GetSortingLayer(this Entity entity)
         {
             return entity.GetProperty<int>(VanillaEntityProps.SORTING_LAYER);
@@ -143,10 +149,25 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 更新
         public const string UPDATE_BEFORE_GAME = "updateBeforeGame";
         public const string UPDATE_AFTER_GAME_OVER = "updateAfterGameOver";
+        public static bool CanUpdateBeforeGameStart(this Entity entity)
+        {
+            return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
+        }
+        public static bool CanUpdateAfterGameOver(this Entity entity)
+        {
+            return entity.GetProperty<bool>(UPDATE_AFTER_GAME_OVER);
+        }
+        #endregion
 
         #region 影子
+
+        public const string SHADOW_HIDDEN = "shadowHidden";
+        public const string SHADOW_ALPHA = "shadowAlpha";
+        public const string SHADOW_SCALE = "shadowScale";
+        public const string SHADOW_OFFSET = "shadowOffset";
         public static bool IsShadowHidden(this Entity entity) => entity.GetProperty<bool>(VanillaEntityProps.SHADOW_HIDDEN);
         public static void SetShadowHidden(this Entity entity, bool value) => entity.SetProperty(VanillaEntityProps.SHADOW_HIDDEN, value);
         public static float GetShadowAlpha(this Entity entity) => entity.GetProperty<float>(VanillaEntityProps.SHADOW_ALPHA);
@@ -156,20 +177,16 @@ namespace MVZ2.Vanilla.Entities
         public static Vector3 GetShadowOffset(this Entity entity) => entity.GetProperty<Vector3>(VanillaEntityProps.SHADOW_OFFSET);
         public static void SetShadowOffset(this Entity entity, Vector3 value) => entity.SetProperty(VanillaEntityProps.SHADOW_OFFSET, value);
         #endregion
+
+        #region 时限
+        public const string MAX_TIMEOUT = "maxTimeout";
         public static int GetMaxTimeout(this Entity entity)
         {
             return entity.GetProperty<int>(MAX_TIMEOUT);
         }
+        #endregion
 
-        public static bool CanUpdateBeforeGameStart(this Entity entity)
-        {
-            return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
-        }
-        public static bool CanUpdateAfterGameOver(this Entity entity)
-        {
-            return entity.GetProperty<bool>(UPDATE_AFTER_GAME_OVER);
-        }
-
+        #region 亡灵
         public const string IS_UNDEAD = "undead";
         public static void SetIsUndead(this Entity entity, bool value)
         {
@@ -179,6 +196,9 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(IS_UNDEAD);
         }
+        #endregion
+
+        #region 火焰
 
         public const string IS_FIRE = "isFire";
         public static void SetIsFire(this Entity entity, bool value)
@@ -189,6 +209,7 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(IS_FIRE);
         }
+        #endregion
 
         #region 光照
         public const string IS_LIGHT_SOURCE = "isLightSource";
@@ -216,7 +237,7 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 光照
+        #region 血液
         public const string BLOOD_COLOR = "bloodColor";
         public const string BLOOD_COLOR_CENSORED = "bloodColorCensored";
         public static Color GetBloodColorNormal(this Entity entity)
@@ -234,6 +255,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 蓝图
+        public const string COST = "cost";
+        public const string RECHARGE_ID = "rechargeId";
         public static int GetCost(this Entity entity)
         {
             return entity.GetProperty<int>(COST);
@@ -252,6 +275,10 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 生成
+        public const string SPAWN_COST = "spawnCost";
+        public const string PREVIEW_COUNT = "previewCount";
+
         public static int GetSpawnCost(this EntityDefinition entity)
         {
             return entity.GetProperty<int>(SPAWN_COST);
@@ -260,5 +287,18 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<int>(PREVIEW_COUNT);
         }
+        #endregion
+
+        #region 单元格
+        public const string GRID_LAYERS = "gridLayers";
+        public static NamespaceID[] GetGridLayersToTake(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
+        }
+        public static NamespaceID[] GetGridLayersToTake(this Entity entity)
+        {
+            return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
+        }
+        #endregion
     }
 }

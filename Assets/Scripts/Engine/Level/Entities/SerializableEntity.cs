@@ -47,6 +47,13 @@ namespace PVZEngine.Entities
         public SerializablePropertyDictionary propertyDict;
         public SerializableBuffList buffs;
         public List<long> children;
-        public List<int> takenGrids;
+        public List<TakenGridInfo> takenGrids;
+
+        [Serializable]
+        public class TakenGridInfo
+        {
+            public int grid;
+            public NamespaceID[] layers;
+        }
     }
 }

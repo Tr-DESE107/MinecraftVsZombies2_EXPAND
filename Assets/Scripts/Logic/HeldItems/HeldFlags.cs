@@ -9,5 +9,7 @@ namespace MVZ2Logic.HeldItems
         Valid = 1,
         ForceReset = 1 << 1,
         NoHighlight = 1 << 2,
+        ValidOnProtector = 1 << 3,
+        ValidOnCarrier = 1 << 4,
     }
 }

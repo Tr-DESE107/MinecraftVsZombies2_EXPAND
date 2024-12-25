@@ -13,6 +13,11 @@
             <id name="rechargeId" value="mvz2:none" />
         </entity>
         <contraption id="1" parent="entity">
+            <bool name="placeOnLand" value="true"/>
+            <bool name="placeOnWater" value="false"/>
+            <bool name="placeOnLilypad" value="true"/>
+            <bool name="placeOnPlane" value="true"/>
+
             <bool name="canShock" value="true"/>
             <float name="maxHealth" value="300"/>
             <float name="friction" value="0.2"/>
@@ -24,6 +29,7 @@
             <id name="shell" value="mvz2:stone"/>
             <id name="placeSound" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
+            <idArray name="gridLayers" value="mvz2:main"/>
         </contraption>
         <enemy id="2" parent="entity">
             <float name="maxHealth" value="200"/>
@@ -53,6 +59,7 @@
             <id name="shell" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
             <bool name="faceLeftAtDefault" value="true"/>
+            <idArray name="gridLayers" value="mvz2:main"/>
         </obstacle>
         <boss id="4" parent="entity">
             <float name="maxHealth" value="1000"/>
@@ -125,6 +132,9 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备" >
+            <bool name="placeOnLilypad" value="false"/>
+            <bool name="placeOnPlane" value="false"/>
+
             <bool name="canShock" value="false"/>
             <float name="damage" value="1800"/>
             <float name="range" value="40"/>
