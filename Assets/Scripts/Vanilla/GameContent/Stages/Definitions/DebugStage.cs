@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.magichest,
                 VanillaContraptionID.tnt,
 
-                VanillaEnemyID.ghost,
+                VanillaEnemyID.necromancer,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.leatherCappedZombie,
                 VanillaBossID.frankenstein,

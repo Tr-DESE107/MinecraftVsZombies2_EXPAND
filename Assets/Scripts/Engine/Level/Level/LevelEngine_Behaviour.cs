@@ -42,9 +42,9 @@ namespace PVZEngine.Level
         {
             return spawnedID.ToArray();
         }
-        public int GetEnemySpawnX()
+        public float GetEnemySpawnX()
         {
-            return GetProperty<int>(EngineAreaProps.ENEMY_SPAWN_X);
+            return GetProperty<float>(EngineAreaProps.ENEMY_SPAWN_X);
         }
         public void GameOver(int type, Entity killer, string message)
         {

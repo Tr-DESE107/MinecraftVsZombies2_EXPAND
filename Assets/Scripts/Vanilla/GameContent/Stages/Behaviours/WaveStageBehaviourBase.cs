@@ -223,7 +223,7 @@ namespace MVZ2.GameContent.Stages
                     Vector3 position;
                     if (lastEnemyPosition.x <= VanillaLevelExt.GetBorderX(false))
                     {
-                        var x = level.GetProperty<float>(EngineAreaProps.ENEMY_SPAWN_X);
+                        var x = level.GetEnemySpawnX();
                         var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
                         var y = level.GetGroundY(x, z);
                         position = new Vector3(x, y, z);
