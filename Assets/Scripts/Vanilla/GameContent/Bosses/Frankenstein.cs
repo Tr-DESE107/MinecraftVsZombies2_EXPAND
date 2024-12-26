@@ -876,7 +876,7 @@ namespace MVZ2.GameContent.Bosses
                 var bossLane = boss.GetLane();
                 foreach (Entity ent in level.GetEntities())
                 {
-                    if (!boss.IsHostile(ent) || ent.GetColumn() != bossColumn || ent.GetLane() != bossLane)
+                    if (!ent.IsVulnerableEntity() || !boss.IsHostile(ent) || ent.GetColumn() != bossColumn || ent.GetLane() != bossLane)
                         continue;
                     if (ent.Type == EntityTypes.PLANT)
                     {
@@ -907,7 +907,7 @@ namespace MVZ2.GameContent.Bosses
 
                 int column = 0;
                 int lane = 0;
-                var laneEnemyGroups = level.GetEntities().Where(e => boss.IsHostile(e) && e.GetLane() >= 0 && e.GetLane() < maxLane && e.GetLane() != boss.GetLane()).GroupBy(e => e.GetLane());
+                var laneEnemyGroups = level.GetEntities().Where(e => e.IsVulnerableEntity() && boss.IsHostile(e) && e.GetLane() >= 0 && e.GetLane() < maxLane && e.GetLane() != boss.GetLane()).GroupBy(e => e.GetLane());
                 if (laneEnemyGroups.Count() == 0)
                 {
                     if (boss.IsFacingLeft())
