@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Triggers;
 
 namespace PVZEngine.Grids
 {
@@ -7,12 +8,8 @@ namespace PVZEngine.Grids
         public GridDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public virtual void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, GridStatus data)
+        public virtual void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error)
         {
         }
-    }
-    public class GridStatus
-    {
-        public NamespaceID Error { get; set; }
     }
 }

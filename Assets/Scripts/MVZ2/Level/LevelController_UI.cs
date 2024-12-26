@@ -12,6 +12,7 @@ using MVZ2.Options;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
@@ -22,7 +23,9 @@ using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -461,12 +464,7 @@ namespace MVZ2.Level
         {
             var uiPreset = GetUIPreset();
             var blueprintID = choosingBlueprints[index];
-            GetBlueprintTooltip(blueprintID, out var name, out var tooltip);
-            string error = null;
-            if (!IsChoosingBlueprintError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
-            {
-                error = Localization._(errorMessage);
-            }
+            GetBlueprintChooseTooltip(blueprintID, out var name, out var error, out var tooltip);
             var viewData = new TooltipViewData()
             {
                 name = name,
@@ -548,11 +546,7 @@ namespace MVZ2.Level
             var uiPreset = GetUIPreset();
             var blueprintID = choosingArtifacts[index];
             GetArtifactTooltip(blueprintID, out var name, out var tooltip);
-            string error = null;
-            if (!IsChoosingBlueprintError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
-            {
-                error = Localization._(errorMessage);
-            }
+            string error = string.Empty;
             var viewData = new TooltipViewData()
             {
                 name = name,
@@ -704,7 +698,7 @@ namespace MVZ2.Level
             };
             var orderedBlueprints = new List<NamespaceID>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
-            var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
+            var blueprintViewDatas = orderedBlueprints.Select(id =>  Main.AlmanacManager.GetChoosingBlueprintViewData(id) ).ToArray();
             isChoosingBlueprints = true;
             choosingBlueprints = orderedBlueprints.ToArray();
 
@@ -717,6 +711,10 @@ namespace MVZ2.Level
             uiPreset.SetBlueprintsChooseVisible(true);
             uiPreset.UpdateBlueprintChooseElements(panelViewData);
             uiPreset.UpdateBlueprintChooseItems(blueprintViewDatas);
+            for (int i = 0; i < orderedBlueprints.Count; i++)
+            {
+                UpdateBlueprintChooseItem(i);
+            }
             uiPreset.SetUIVisibleState(VisibleState.ChoosingBlueprints);
 
             UpdateChosenBlueprints();
@@ -754,13 +752,40 @@ namespace MVZ2.Level
             var uiPreset = GetUIPreset();
             var blueprintChooseItem = uiPreset.GetBlueprintChooseItem(index);
             bool selected = chosenBlueprints.Contains(index);
+            var id = choosingBlueprints[index];
+            bool notRecommended = level.IsBlueprintNotRecommmended(id);
+
             blueprintChooseItem.SetDisabled(selected);
-            blueprintChooseItem.SetRecharge(selected ? 1 : 0);
+            blueprintChooseItem.SetRecharge((selected || notRecommended) ? 1 : 0);
         }
         private bool IsChoosingBlueprintError(NamespaceID id, out string errorMessage)
         {
             errorMessage = null;
-            return true;
+            if (level.IsBlueprintNotRecommmended(id))
+            {
+                errorMessage = VanillaStrings.NOT_RECOMMONEDED_IN_LEVEL;
+                return true;
+            }
+            return false;
+        }
+        private void GetBlueprintChooseTooltip(NamespaceID id, out string name, out string error, out string tooltip)
+        {
+            name = string.Empty;
+            error = string.Empty;
+            tooltip = string.Empty;
+            var definition = Main.Game.GetSeedDefinition(id);
+            if (definition == null || definition.GetSeedType() != SeedTypes.ENTITY)
+            {
+                name = string.Empty;
+                tooltip = string.Empty;
+            }
+            var entityID = definition.GetSeedEntityID();
+            name = Resources.GetEntityName(entityID);
+            tooltip = Resources.GetEntityTooltip(entityID);
+            if (IsChoosingBlueprintError(id, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+            {
+                error = Localization._(errorMessage);
+            }
         }
         #endregion
 

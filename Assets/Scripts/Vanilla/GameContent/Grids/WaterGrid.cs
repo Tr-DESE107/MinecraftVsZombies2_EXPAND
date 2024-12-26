@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Grids
 {
@@ -17,7 +18,7 @@ namespace MVZ2.GameContent.Grids
         public WaterGrid(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, GridStatus data)
+        public override void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error)
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
@@ -29,12 +30,12 @@ namespace MVZ2.GameContent.Grids
                 {
                     if (!entityDef.CanPlaceOnPlane())
                     {
-                        data.Error = VanillaGridStatus.notOnPlane;
+                        error.Result = VanillaGridStatus.notOnPlane;
                         return;
                     }
                     if (!entityDef.CanPlaceOnLilypad())
                     {
-                        data.Error = VanillaGridStatus.notOnLilypad;
+                        error.Result = VanillaGridStatus.notOnLilypad;
                         return;
                     }
                 }
@@ -42,7 +43,7 @@ namespace MVZ2.GameContent.Grids
                 {
                     if (!entityDef.CanPlaceOnWater() && entityDef.CanPlaceOnPlane())
                     {
-                        data.Error = VanillaGridStatus.needLilypad;
+                        error.Result = VanillaGridStatus.needLilypad;
                         return;
                     }
                 }
@@ -50,7 +51,7 @@ namespace MVZ2.GameContent.Grids
                 var layersToTake = entityDef.GetGridLayersToTake();
                 if (layersToTake.Any(l => grid.GetLayerEntity(l) != null))
                 {
-                    data.Error = VanillaGridStatus.alreadyTaken;
+                    error.Result = VanillaGridStatus.alreadyTaken;
                     return;
                 }
             }

@@ -5,6 +5,7 @@ using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Grids
 {
@@ -35,16 +36,16 @@ namespace MVZ2.Vanilla.Grids
         }
         public static NamespaceID GetEntityPlaceStatus(this LawnGrid grid, NamespaceID entityID)
         {
-            GridStatus data = new GridStatus();
-            grid.Definition.CanPlaceEntity(grid, entityID, data);
+            var error = new TriggerResultNamespaceID();
+            grid.Definition.CanPlaceEntity(grid, entityID, error);
             var level = grid.Level;
             foreach (var trigger in level.Triggers.GetTriggers(VanillaLevelCallbacks.CAN_PLACE_ENTITY))
             {
                 if (!trigger.Filter(entityID))
                     continue;
-                trigger.Run(grid, entityID, data);
+                trigger.Run(grid, entityID, error);
             }
-            return data.Error;
+            return error.Result;
         }
         public static bool CanPlaceBlueprint(this LawnGrid grid, NamespaceID seedID, out NamespaceID error)
         {

@@ -14,7 +14,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreEntityHeal(HealInput info);
         public delegate void PostEntityHeal(HealOutput result);
 
-        public delegate void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, GridStatus data);
+        public delegate void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error);
         public delegate void PrePlaceEntity(LawnGrid grid, NamespaceID entityID);
         public delegate void PostPlaceEntity(LawnGrid grid, Entity entity);
 

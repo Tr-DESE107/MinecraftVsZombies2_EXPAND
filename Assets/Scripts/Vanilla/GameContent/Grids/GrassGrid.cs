@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Grids
 {
@@ -16,7 +17,7 @@ namespace MVZ2.GameContent.Grids
         public GrassGrid(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, GridStatus data)
+        public override void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error)
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
@@ -27,7 +28,7 @@ namespace MVZ2.GameContent.Grids
                 {
                     if (!entityDef.CanPlaceOnLand())
                     {
-                        data.Error = VanillaGridStatus.notOnLand;
+                        error.Result = VanillaGridStatus.notOnLand;
                         return;
                     }
                 }
@@ -38,10 +39,10 @@ namespace MVZ2.GameContent.Grids
                 {
                     if (conflictEntities.Any(e => e.IsEntityOf(VanillaObstacleID.gargoyleStatue)))
                     {
-                        data.Error = VanillaGridStatus.notOnStatues;
+                        error.Result = VanillaGridStatus.notOnStatues;
                         return;
                     }
-                    data.Error = VanillaGridStatus.alreadyTaken;
+                    error.Result = VanillaGridStatus.alreadyTaken;
                     return;
                 }
             }

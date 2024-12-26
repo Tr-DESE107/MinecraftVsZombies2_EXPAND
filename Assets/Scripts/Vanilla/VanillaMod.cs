@@ -42,6 +42,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new DifficultyImplements());
             ImplementCallbacks(new CartToMoneyImplements());
             ImplementCallbacks(new TalkActionImplements());
+            ImplementCallbacks(new BlueprintRecommendImplements());
         }
         public override void PostGameInit()
         {

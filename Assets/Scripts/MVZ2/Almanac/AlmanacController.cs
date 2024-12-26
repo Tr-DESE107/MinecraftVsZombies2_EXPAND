@@ -296,7 +296,7 @@ namespace MVZ2.Almanacs
         public const string COST_LABEL = "花费：<color=red>{0}</color>";
         [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
         public const string RECHARGE_LABEL = "冷却时间：<color=red>{0}</color>";
-        [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
+        [TranslateMsg("图鉴描述", VanillaStrings.CONTEXT_ALMANAC)]
         public const string EXTRA_PROPERTY_NOCTURNAL = "<color=blue>白天失效</color>";
         
                 

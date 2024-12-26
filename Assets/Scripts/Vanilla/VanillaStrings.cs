@@ -24,6 +24,9 @@ namespace MVZ2.Vanilla
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
 
+        [TranslateMsg("不推荐使用的提示")]
+        public const string NOT_RECOMMONEDED_IN_LEVEL = "不推荐在这关使用";
+
         [TranslateMsg]
         public const string UI_PURCHASE = "购买";
         [TranslateMsg]

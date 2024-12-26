@@ -100,15 +100,15 @@ namespace MVZ2.Level
         {
             var levelUI = GetUIPreset();
             string name;
-            string tooltip;
             string error = null;
+            string tooltip = null;
             if (IsGameStarted())
             {
                 var currentBlueprintMode = GetBlueprintMode(conveyor);
                 var seedPack = currentBlueprintMode.GetSeedPackAt(index);
                 if (seedPack == null)
                     return;
-                GetBlueprintTooltip(seedPack.Definition, out name, out tooltip);
+                name = GetBlueprintTooltipName(seedPack.Definition);
                 if (!currentBlueprintMode.CanPickBlueprint(seedPack, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
                 {
                     error = Localization._(errorMessage);
@@ -116,13 +116,10 @@ namespace MVZ2.Level
             }
             else
             {
+                // 选卡时已选中的卡牌。
                 var chosenIndex = chosenBlueprints[index];
                 var blueprintID = choosingBlueprints[chosenIndex];
-                GetBlueprintTooltip(blueprintID, out name, out tooltip);
-                if (!IsChoosingBlueprintError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
-                {
-                    error = Localization._(errorMessage);
-                }
+                GetBlueprintChooseTooltip(blueprintID, out name, out error, out tooltip);
             }
             var viewData = new TooltipViewData()
             {
@@ -239,20 +236,17 @@ namespace MVZ2.Level
                 return null;
             return Resources.GetBlueprintIcon(seed.Definition);
         }
-        private void GetBlueprintTooltip(NamespaceID blueprintID, out string name, out string tooltip)
+        private string GetBlueprintTooltipName(NamespaceID blueprintID)
         {
             var definition = Main.Game.GetSeedDefinition(blueprintID);
-            GetBlueprintTooltip(definition, out name, out tooltip);
+            return GetBlueprintTooltipName(definition);
         }
-        private void GetBlueprintTooltip(SeedDefinition definition, out string name, out string tooltip)
+        private string GetBlueprintTooltipName(SeedDefinition definition)
         {
-            name = string.Empty;
-            tooltip = string.Empty;
             if (definition == null || definition.GetSeedType() != SeedTypes.ENTITY)
-                return;
+                return string.Empty;
             var entityID = definition.GetSeedEntityID();
-            name = Resources.GetEntityName(entityID);
-            tooltip = Resources.GetEntityTooltip(entityID);
+            return Resources.GetEntityName(entityID);
         }
         private bool IsTriggerSwapped()
         {
