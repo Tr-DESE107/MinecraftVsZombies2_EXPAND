@@ -2,10 +2,13 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Grids;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -462,6 +465,38 @@ namespace MVZ2.Vanilla.Entities
                 Entity = entity,
                 Source = info.Source,
             };
+        }
+        #endregion
+
+        #region 沉没
+        public const int SPLASH_SIZE_UNIT = 110592; //48^3
+        public static bool IsOnWater(this Entity entity)
+        {
+            var grid = entity.GetGrid();
+            return grid != null && grid.IsWater();
+        }
+        public static void PlaySplashEffect(this Entity entity)
+        {
+            var level = entity.Level;
+            var size = entity.GetScaledSize();
+            var pos = entity.Position;
+            pos.y = entity.GetGroundY();
+            var splash = level.Spawn(VanillaEffectID.splashParticles, pos, entity);
+            splash.SetTint(level.GetWaterColor());
+            var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
+            splash.SetDisplayScale(scale * Vector3.one);
+        }
+
+        public static void PlaySplashSound(this Entity entity)
+        {
+            var level = entity.Level;
+            var size = entity.GetScaledSize();
+            var sound = VanillaSoundID.splash;
+            if (size.x * size.y * size.z / SPLASH_SIZE_UNIT > 1)
+            {
+                sound = VanillaSoundID.splashBig;
+            }
+            entity.PlaySound(sound);
         }
         #endregion
     }

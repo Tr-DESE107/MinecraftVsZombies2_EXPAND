@@ -69,6 +69,14 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 沉没
+        public const string WATER_INTERACTION = "waterInteraction";
+        public static int GetWaterInteraction(this Entity entity)
+        {
+            return entity.GetProperty<int>(WATER_INTERACTION);
+        }
+        #endregion
+
         #region 虚无
         public const string ETHEREAL = "ethereal";
         public static bool IsEthereal(this Entity entity)

@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.glowstone,
+                VanillaContraptionID.smallDispenser,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.punchton,

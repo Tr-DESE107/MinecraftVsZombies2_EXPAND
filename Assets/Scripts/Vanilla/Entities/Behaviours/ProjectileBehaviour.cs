@@ -1,4 +1,5 @@
 using System;
+using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
@@ -67,6 +68,16 @@ namespace MVZ2.Vanilla.Entities
             var vel = entity.Velocity;
             vel.z = 0;
             entity.Velocity = vel;
+        }
+        public override void PostDeath(Entity entity, DamageInput damageInfo)
+        {
+            base.PostDeath(entity, damageInfo);
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.DROWN))
+            {
+                entity.PlaySplashEffect();
+                entity.PlaySplashSound();
+            }
+            entity.Remove();
         }
         public virtual bool IsOutsideView(Entity proj)
         {

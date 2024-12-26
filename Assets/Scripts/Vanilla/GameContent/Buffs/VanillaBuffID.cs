@@ -8,6 +8,7 @@ namespace MVZ2.GameContent.Buffs
         // Entities
         public const string entityPhysics = "entity_physics";
         public const string fly = "fly";
+        public const string inWater = "in_water";
 
         // Contraption
         public const string productionColor = "production_color";
@@ -34,6 +35,7 @@ namespace MVZ2.GameContent.Buffs
         public const string minigameEnemySpeed = "minigame_enemy_speed";
         public const string napstablookAngry = "napstablook_angry";
         public const string frankensteinTransformer = "frankenstein_transformer";
+        public const string boat = "boat";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";

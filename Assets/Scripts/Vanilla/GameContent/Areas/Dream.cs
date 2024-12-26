@@ -26,39 +26,37 @@ namespace MVZ2.GameContent.Areas
     {
         public Dream(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaAreaProps.DOOR_Z, 240f);
-            SetProperty(EngineAreaProps.CART_REFERENCE, VanillaCartID.nyanCat);
-            SetProperty(EngineAreaProps.AREA_TAGS, new NamespaceID[] { VanillaAreaTags.day, VanillaAreaTags.water });
-            SetProperty(VanillaLevelProps.MUSIC_ID, VanillaMusicID.dreamLevel);
-            SetProperty(EngineAreaProps.GRID_BOTTOM_Z, 40);
-            SetProperty(EngineAreaProps.MAX_LANE_COUNT, 6);
-            for (int y = 0; y < 6; y++)
-            {
-                for (int x = 0; x < 9; x++)
-                {
-                    if (x >= 3 && x <= 6 && y >= 1 && y <= 4)
-                    {
-                        grids.Add(VanillaGridID.water);
-                    }
-                    else
-                    {
-                        grids.Add(VanillaGridID.grass);
-                    }
-                }
-            }
+            SetProperty(VanillaAreaProps.WATER_COLOR, new Color(0, 0.48f, 0.89f, 1));
+            SetProperty(VanillaAreaProps.WATER_COLOR_CENSORED, new Color(0, 0.48f, 0.89f, 1));
         }
         public override void Setup(LevelEngine level)
         {
             base.Setup(level);
             if (Global.Game.IsUnlocked(VanillaUnlockID.dreamIsNightmare))
             {
-                level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmare);
+                if (Global.HasBloodAndGore())
+                {
+                    level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmare);
+                }
+                else
+                {
+                    level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmareCensored);
+                }
                 level.AddBuff<NightmareLevelBuff>();
             }
         }
         public override void PostHugeWaveEvent(LevelEngine level)
         {
             base.PostHugeWaveEvent(level);
+        }
+        public override float GetGroundY(float x, float z)
+        {
+            if (x > 500 && x < 820 && z > 120 && z < 440)
+            {
+                // 水中
+                return -10;
+            }
+            return base.GetGroundY(x, z);
         }
     }
 }

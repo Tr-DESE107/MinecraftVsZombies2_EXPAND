@@ -68,7 +68,6 @@ namespace MVZ2.Vanilla.Entities
             }
             TurnToMoneyUpdate(entity);
         }
-
         private void TurnToMoneyUpdate(Entity entity)
         {
             FrameTimer timer = entity.GetTurnToMoneyTimer();

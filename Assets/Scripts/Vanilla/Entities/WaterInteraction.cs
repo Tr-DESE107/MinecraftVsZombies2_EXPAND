@@ -1,0 +1,10 @@
+﻿namespace MVZ2.Vanilla.Entities
+{
+    public static class WaterInteraction
+    {
+        public const int NONE = 0;
+        public const int REMOVE = 1;
+        public const int DROWN = 2;
+        public const int FLOAT = 3;
+    }
+}

@@ -1,11 +1,9 @@
 ﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
-using MVZ2Logic.Triggers;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Triggers;

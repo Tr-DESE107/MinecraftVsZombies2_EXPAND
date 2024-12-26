@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7145841033780740962}
-  m_Father: {fileID: 7564897173997905686}
+  m_Father: {fileID: 1002251205305341444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &182688417446982005
 MonoBehaviour:
@@ -1222,7 +1222,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7545653319874429337, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 983144231746023563, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5605978735337598566}
     - targetCorrespondingSourceObject: {fileID: 7999499151332666377, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
@@ -1239,6 +1239,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4177988592965763333}
   m_SourcePrefab: {fileID: 100100000, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+--- !u!4 &1002251205305341444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 983144231746023563, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+  m_PrefabInstance: {fileID: 21500200205723279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423205524658841358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1408606006542680449, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
@@ -1300,11 +1305,6 @@ PolygonCollider2D:
       - {x: 0.16, y: 0.2}
       - {x: 0.16, y: 0.42}
   m_UseDelaunayMesh: 0
---- !u!4 &7564897173997905686 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7545653319874429337, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
-  m_PrefabInstance: {fileID: 21500200205723279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &7734433056528099549 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}

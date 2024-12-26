@@ -182,7 +182,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!114 &3019303190465936668
 MonoBehaviour:
@@ -5062,6 +5062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6b70938912efd41ae1b06e741430ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minAmount: 0
 --- !u!1001 &2934760682282928127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5238,7 +5239,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8020783707132807814, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
-      insertIndex: 3
+      insertIndex: -1
       addedObject: {fileID: 3992541656275917738}
     - targetCorrespondingSourceObject: {fileID: 1769270375021608237, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       insertIndex: 0

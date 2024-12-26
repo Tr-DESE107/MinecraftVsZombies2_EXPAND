@@ -10,7 +10,6 @@ using PVZEngine.Level;
 using PVZEngine.Models;
 using Tools;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace PVZEngine.Entities
 {
@@ -181,11 +180,13 @@ namespace PVZEngine.Entities
             if (Definition != null && Definition.TryGetProperty<object>(name, out var defProp))
                 return defProp;
 
-            var behaviour = Definition.GetBehaviour();
-            if (behaviour == null)
-                return null;
-
-            return behaviour.GetProperty<object>(name);
+            var behaviours = Definition.GetBehaviours();
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour.TryGetProperty<object>(name, out var behProp))
+                    return behProp;
+            }
+            return null;
         }
         public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
         {
@@ -272,18 +273,18 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 相对高度
-        public float GetGroundHeight()
+        public float GetGroundY()
         {
             return Level.GetGroundY(Position.x, Position.z);
         }
         public float GetRelativeY()
         {
-            return Position.y - GetGroundHeight();
+            return Position.y - GetGroundY();
         }
         public void SetRelativeY(float value)
         {
             var pos = Position;
-            pos.y = value + GetGroundHeight();
+            pos.y = value + GetGroundY();
             Position = pos;
         }
         #endregion
@@ -295,7 +296,7 @@ namespace PVZEngine.Entities
             var nextPos = Position + velocity * simulationSpeed;
             if (!Cache.CanUnderGround)
             {
-                nextPos.y = Mathf.Max(GetGroundHeight(), nextPos.y);
+                nextPos.y = Mathf.Max(GetGroundY(), nextPos.y);
             }
             return nextPos;
         }

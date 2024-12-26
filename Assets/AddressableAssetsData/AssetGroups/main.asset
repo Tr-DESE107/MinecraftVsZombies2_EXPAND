@@ -2818,6 +2818,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8aab7486167e7d4ba67bd10e5ae1c6c
+    m_Address: mvz2:armor/boat_item
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8cf5193a3c0b9a4ea8d1119e96dfa2b
     m_Address: mvz2:ui/level/pause_image_2
     m_ReadOnly: 0
@@ -2956,6 +2962,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2d31dd0c8208b34192a17491789d379
+    m_Address: mvz2:effect/splash_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b34bc915055138f4b98fddeb34062934
     m_Address: mvz2:ui/level/progress_bar/level_progress_flag_pole
     m_ReadOnly: 0
@@ -2973,6 +2985,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b412e38a906dfb1429079b79047f12d3
+    m_Address: mvz2:entity/effects/boat_item
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b47d03bd743710345b665a5cac672aee
     m_Address: mvz2:ui/map/map_back_button

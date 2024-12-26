@@ -2,6 +2,7 @@
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
 {
@@ -20,6 +21,20 @@ namespace MVZ2.Vanilla.Level
         public static SpriteReference GetStarshardIcon(this LevelEngine game)
         {
             return game.GetProperty<SpriteReference>(STARSHARD_ICON);
+        }
+        public const string WATER_COLOR = "waterColor";
+        public const string WATER_COLOR_CENSORED = "waterColorCensored";
+        public static Color GetWaterColorNormal(this LevelEngine game)
+        {
+            return game.GetProperty<Color>(WATER_COLOR);
+        }
+        public static Color GetWaterColorCensored(this LevelEngine game)
+        {
+            return game.GetProperty<Color>(WATER_COLOR_CENSORED);
+        }
+        public static Color GetWaterColor(this LevelEngine game)
+        {
+            return Global.HasBloodAndGore() ? game.GetWaterColorNormal() : game.GetWaterColorCensored();
         }
 
         public const string DOOR_Z = "doorZ";

@@ -8,8 +8,7 @@ namespace PVZEngine.Base
     {
         public Definition(string nsp, string name)
         {
-            Namespace = nsp;
-            Name = name;
+            id = new NamespaceID(nsp, name);
         }
         public virtual bool TryGetProperty<T>(string name, out T value)
         {
@@ -37,14 +36,15 @@ namespace PVZEngine.Base
         }
         public NamespaceID GetID()
         {
-            return new NamespaceID(Namespace, Name);
+            return id;
         }
         public override string ToString()
         {
             return GetID().ToString();
         }
-        public string Namespace { get; set; }
-        public string Name { get; set; }
+        public string Namespace => id.spacename;
+        public string Name => id.path;
+        private NamespaceID id;
         protected PropertyDictionary propertyDict = new PropertyDictionary();
         protected List<Trigger> triggers = new List<Trigger>();
     }

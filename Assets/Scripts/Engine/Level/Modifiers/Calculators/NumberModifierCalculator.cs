@@ -7,9 +7,10 @@ namespace PVZEngine.Modifiers
     {
         public override T CalculateGeneric(T value, IEnumerable<BuffModifierItem> modifiers)
         {
-            var addValue = value;
-            var multiple = GetDefaultMultiple();
-            var multiply = GetDefaultMultiple();
+            T setValue = value;
+            T addValue = default;
+            T multiple = GetDefaultMultiple();
+            T multiply = GetDefaultMultiple();
             bool hasForceSet = false;
             T forceSet = default;
             foreach (var modi in modifiers)
@@ -20,6 +21,9 @@ namespace PVZEngine.Modifiers
                 var modifierValue = modifier.GetModifierValueGeneric(buff);
                 switch (modifier.Operator)
                 {
+                    case NumberOperator.Set:
+                        setValue = modifierValue;
+                        break;
                     case NumberOperator.Add:
                         addValue = AddValue(addValue, modifierValue);
                         break;
@@ -41,7 +45,8 @@ namespace PVZEngine.Modifiers
             }
             else
             {
-                value = addValue;
+                value = setValue;
+                value = AddValue(value, addValue);
                 value = MultiplyValue(value, multiple);
                 value = MultiplyValue(value, multiply);
             }

@@ -18,6 +18,8 @@
             <bool name="placeOnLilypad" value="true"/>
             <bool name="placeOnPlane" value="true"/>
 
+            <int name="waterInteraction" value="1"/>
+
             <bool name="canShock" value="true"/>
             <float name="maxHealth" value="300"/>
             <float name="friction" value="0.2"/>
@@ -48,6 +50,8 @@
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
 
+            <int name="waterInteraction" value="1"/>
+            
             <int name="spawnCost" value="1"/>
             <int name="previewCount" value="1"/>
         </enemy>
@@ -60,6 +64,7 @@
             <id name="deathSound" value="mvz2:stone"/>
             <bool name="faceLeftAtDefault" value="true"/>
             <idArray name="gridLayers" value="mvz2:main"/>
+            <int name="waterInteraction" value="1"/>
         </obstacle>
         <boss id="4" parent="entity">
             <float name="maxHealth" value="1000"/>
@@ -73,6 +78,7 @@
             <bool name="canUnderGround" value="true"/>
             <vector3 name="size" x="56" y="32" z="56"/>
             <id name="cartTriggerSound" value="mvz2:minecart"/>
+            <int name="waterInteraction" value="1"/>
         </cart>
         <pickup id="6" parent="entity">
             <int name="maxTimeout" value="300"/>
@@ -84,6 +90,7 @@
             <int name="maxTimeout" value="1800"/>
             <float name="changeLaneSpeed" value="10"/>
             <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+            <int name="waterInteraction" value="1"/>
         </projectile>
         <effect id="8" parent="entity">
             <int name="maxTimeout" value="-1"/>
@@ -247,23 +254,27 @@
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="50" />
 
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="1"/>
             <int name="previewCount" value="3"/>
         </enemy>
         <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="75" />
 
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="2"/>
             <int name="previewCount" value="2"/>
         </enemy>
         <enemy id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="125" />
 
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="5"/>
         </enemy>
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="300" />
 
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="0"/>
         </enemy>
 
@@ -279,6 +290,7 @@
 
             <int name="cost" value="75" />
             
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="2"/>
         </enemy>
         <enemy id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
@@ -291,6 +303,7 @@
 
             <int name="cost" value="100" />
 
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="0"/>
         </enemy>
         <enemy id="ghost" name="幽灵" deathMessage="现在有伴了。" unlock="mvz2:level.halloween_3">
@@ -303,6 +316,7 @@
 
             <int name="cost" value="100" />
             
+            <int name="waterInteraction" value="3"/>
             <int name="spawnCost" value="2"/>
         </enemy>
         <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
@@ -315,6 +329,7 @@
 
             <int name="cost" value="75" />
             
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="2"/>
         </enemy>
         <enemy id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值" unlock="mvz2:level.halloween_8">
@@ -324,6 +339,7 @@
 
             <int name="cost" value="75" />
             
+            <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="3"/>
         </enemy>
 
@@ -341,6 +357,7 @@
             <id name="deathSound" value="mvz2:ghast_death"/>
 
             <int name="cost" value="125" />
+            <int name="waterInteraction" value="3"/>
             <int name="spawnCost" value="3"/>
         </enemy>
 
@@ -382,6 +399,7 @@
 
         <!-- Bosses -->
         <boss id="frankenstein" name="科学怪人的怪物">
+            <int name="waterInteraction" value="1"/>
             <float name="maxHealth" value="25000"/>
             <vector3 name="size" x="60" y="200" z="60"/>
             <vector3 name="shotVelocity" x="30" y="0" z="0"/>
@@ -396,6 +414,14 @@
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="240" y="240" z="240"/>
             <color name="lightColor" value="#00FF00"/>
+        </cart>
+        <cart id="nyan_cat" name="彩虹猫">
+            <id name="cartTriggerSound" value="mvz2:meow"/>
+            <float name="gravity" value="0"/>
+        </cart>
+        <cart id="nyaightmare" name="噩梦猫">
+            <id name="cartTriggerSound" value="mvz2:nyaightmare_scream"/>
+            <float name="gravity" value="0"/>
         </cart>
 
         <!-- Pickups -->
@@ -506,6 +532,7 @@
         </effect>
         <effect id="broken_armor">
             <int name="maxTimeout" value="60"/>
+            <int name="waterInteraction" value="1"/>
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>
         </effect>
@@ -580,6 +607,9 @@
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>
             <int name="maxTimeout" value="120"/>
+        </effect>
+        <effect id="splash_particles">
+            <int name="maxTimeout" value="30"/>
         </effect>
     </entries>
 </entities>

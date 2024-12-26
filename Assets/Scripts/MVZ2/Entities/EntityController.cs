@@ -308,7 +308,7 @@ namespace MVZ2.Entities
         protected void UpdateShadow(Vector3 posOffset)
         {
             var shadowPos = Entity.Position;
-            shadowPos.y = Entity.GetGroundHeight();
+            shadowPos.y = Entity.GetGroundY();
             shadowPos += Entity.GetShadowOffset();
             Shadow.transform.position = Level.LawnToTrans(shadowPos) + posOffset;
             float relativeHeight = Entity.GetRelativeY();
@@ -382,7 +382,7 @@ namespace MVZ2.Entities
                 Model.SetAnimatorInt("State", VanillaEntityStates.WALK);
             }
             var groundPos = Entity.Position;
-            groundPos.y = Entity.GetGroundHeight();
+            groundPos.y = Entity.GetGroundY();
 
             var rendererGroup = Model.RendererGroup;
             rendererGroup.SetTint(Entity.GetTint());

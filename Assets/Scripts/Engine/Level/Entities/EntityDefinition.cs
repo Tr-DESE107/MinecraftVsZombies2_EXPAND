@@ -1,4 +1,6 @@
-﻿using PVZEngine.Armors;
+﻿using System.Collections.Generic;
+using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Base;
 using PVZEngine.Damages;
 using UnityEngine;
@@ -10,33 +12,64 @@ namespace PVZEngine.Entities
         public EntityDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public void SetBehaviour(EntityBehaviourDefinition behaviour)
+        public void AddBehaviour(EntityBehaviourDefinition behaviour)
         {
-            this.behaviour = behaviour;
+            behaviours.Add(behaviour);
         }
-        public EntityBehaviourDefinition GetBehaviour()
+        public bool RemoveBehaviour(EntityBehaviourDefinition behaviour)
         {
-            return behaviour;
+            return behaviours.Remove(behaviour);
+        }
+        public bool HasBehaviour(EntityBehaviourDefinition behaviour)
+        {
+            return behaviours.Contains(behaviour);
+        }
+        public bool HasBehaviour(NamespaceID id)
+        {
+            return behaviours.Exists(b => b.GetID() == id);
+        }
+        public bool HasBehaviour<T>()
+        {
+            return behaviours.Exists(b => b is T);
+        }
+        public EntityBehaviourDefinition GetBehaviour(NamespaceID id)
+        {
+            return behaviours.FirstOrDefault(b => b.GetID() == id);
         }
         public T GetBehaviour<T>()
         {
-            if (behaviour is T tBehaviour)
-                return tBehaviour;
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour is T tBehaviour)
+                    return tBehaviour;
+            }
             return default;
         }
-        public void Init(Entity entity) { behaviour?.Init(entity); }
-        public void Update(Entity entity) { behaviour?.Update(entity); }
-        public void PreTakeDamage(DamageInput input) { behaviour?.PreTakeDamage(input); }
-        public void PostTakeDamage(DamageOutput result) { behaviour?.PostTakeDamage(result); }
-        public void PostContactGround(Entity entity, Vector3 velocity) { behaviour?.PostContactGround(entity, velocity); }
-        public void PostLeaveGround(Entity entity) { behaviour?.PostLeaveGround(entity); }
-        public bool PreCollision(EntityCollision collision) { return behaviour?.PreCollision(collision) ?? true; }
-        public void PostCollision(EntityCollision collision, int state) { behaviour?.PostCollision(collision, state); }
-        public void PostDeath(Entity entity, DamageInput damageInfo) { behaviour?.PostDeath(entity, damageInfo); }
-        public void PostRemove(Entity entity) { behaviour?.PostRemove(entity); }
-        public void PostEquipArmor(Entity entity, Armor armor) { behaviour?.PostEquipArmor(entity, armor); }
-        public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage) { behaviour?.PostDestroyArmor(entity, armor, damage); }
-        public void PostRemoveArmor(Entity entity, Armor armor) { behaviour?.PostRemoveArmor(entity, armor); }
+        public EntityBehaviourDefinition[] GetBehaviours()
+        {
+            return behaviours.ToArray();
+        }
+        public void Init(Entity entity) { behaviours.ForEach(b => b.Init(entity)); }
+        public void Update(Entity entity) { behaviours.ForEach(b => b.Update(entity)); }
+        public void PreTakeDamage(DamageInput input) { behaviours.ForEach(b => b.PreTakeDamage(input)); }
+        public void PostTakeDamage(DamageOutput result) { behaviours.ForEach(b => b.PostTakeDamage(result)); }
+        public void PostContactGround(Entity entity, Vector3 velocity) { behaviours.ForEach(b => b.PostContactGround(entity, velocity)); }
+        public void PostLeaveGround(Entity entity) { behaviours.ForEach(b => b.PostLeaveGround(entity)); }
+        public bool PreCollision(EntityCollision collision)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                if (!behaviour.PreCollision(collision))
+                    return false;
+            }
+            return true;
+        }
+        public void PostCollision(EntityCollision collision, int state) { behaviours.ForEach(b => b.PostCollision(collision, state)); }
+        public void PostDeath(Entity entity, DamageInput damageInfo) { behaviours.ForEach(b => b.PostDeath(entity, damageInfo)); }
+        public void PostRemove(Entity entity) { behaviours.ForEach(b => b.PostRemove(entity)); }
+        public void PostEquipArmor(Entity entity, Armor armor) { behaviours.ForEach(b => b.PostEquipArmor(entity, armor)); }
+        public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage) { behaviours.ForEach(b => b.PostDestroyArmor(entity, armor, damage)); }
+        public void PostRemoveArmor(Entity entity, Armor armor) { behaviours.ForEach(b => b.PostRemoveArmor(entity, armor)); }
         public NamespaceID GetModelID()
         {
             NamespaceID id;
@@ -44,13 +77,13 @@ namespace PVZEngine.Entities
             {
                 id = GetID().ToModelID(EngineModelID.TYPE_ENTITY);
             }
-            if (behaviour != null)
+            foreach (var behaviour in behaviours)
             {
                 id = behaviour.GetModelID(id);
             }
             return id;
         }
         public abstract int Type { get; }
-        private EntityBehaviourDefinition behaviour;
+        private List<EntityBehaviourDefinition> behaviours = new List<EntityBehaviourDefinition>();
     }
 }

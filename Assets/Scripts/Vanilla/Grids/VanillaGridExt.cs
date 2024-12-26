@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Grids;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.SeedPacks;
@@ -11,6 +12,10 @@ namespace MVZ2.Vanilla.Grids
 {
     public static class VanillaGridExt
     {
+        public static bool IsWater(this LawnGrid grid)
+        {
+            return grid.Definition.GetID() == VanillaGridID.water;
+        }
         public static Entity GetCarrierEntity(this LawnGrid grid)
         {
             if (grid == null)

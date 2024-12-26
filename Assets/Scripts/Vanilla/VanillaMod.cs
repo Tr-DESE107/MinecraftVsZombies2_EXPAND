@@ -43,6 +43,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new CartToMoneyImplements());
             ImplementCallbacks(new TalkActionImplements());
             ImplementCallbacks(new BlueprintRecommendImplements());
+            ImplementCallbacks(new WaterImplements());
         }
         public override void PostGameInit()
         {
@@ -215,11 +216,14 @@ namespace MVZ2.Vanilla
                 var entity = GetDefinition<EntityDefinition>(behaviour.GetMatchEntityID());
                 if (entity == null)
                     continue;
-                if (entity.GetBehaviour() != null)
+                if (entity.HasBehaviour(behaviour))
                 {
                     Debug.LogWarning($"Entity {entity.GetID()} has multiple Entity Behaviours.");
                 }
-                entity.SetBehaviour(behaviour);
+                else
+                {
+                    entity.AddBehaviour(behaviour);
+                }
             }
         }
 

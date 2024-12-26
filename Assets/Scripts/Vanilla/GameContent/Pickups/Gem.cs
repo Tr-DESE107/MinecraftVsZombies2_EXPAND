@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Pickups
                     shadowAlpha = alpha;
                 }
             }
-            pickup.SetAnimationBool("Rotating", !pickup.IsCollected() && pickup.GetGroundHeight() <= 0);
+            pickup.SetAnimationBool("Rotating", !pickup.IsCollected() && pickup.GetGroundY() <= 0);
             var color = pickup.GetTint(true);
             color.a = alpha;
             pickup.SetTint(color);

@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Projectiles
         public LargeSnowball(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostEnemyTakeDamageCallback);
+            SetProperty(VanillaEntityProps.WATER_INTERACTION, WaterInteraction.DROWN);
         }
         public override void Init(Entity entity)
         {

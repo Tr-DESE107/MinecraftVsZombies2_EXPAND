@@ -217,6 +217,9 @@
     <sound name="magical">
         <sample path="mvz2:magical" weight="1" />
     </sound>
+    <sound name="meow">
+        <sample path="mvz2:meow" weight="1" />
+    </sound>
     <sound name="mine_explode">
         <sample path="mvz2:mine_explode" weight="1" />
     </sound>
@@ -236,6 +239,9 @@
     </sound>
     <sound name="mummy_death">
         <sample path="mvz2:entity/mummy/mummy_death" weight="1" />
+    </sound>
+    <sound name="nyaightmare_scream">
+        <sample path="mvz2:nyaightmare_scream" weight="1" />
     </sound>
     <sound name="odd">
         <sample path="mvz2:odd" weight="1" />
@@ -344,6 +350,12 @@
         <sample path="mvz2:spider_cry3" weight="1" />
         <sample path="mvz2:spider_cry4" weight="1" />
     </sound>
+    <sound name="splash">
+        <sample path="mvz2:splash" weight="1" />
+    </sound>
+    <sound name="splash_big">
+        <sample path="mvz2:splash_big" weight="1" />
+    </sound>
     <sound name="splat">
         <sample path="mvz2:damage/splat/splat1" weight="1" />
         <sample path="mvz2:damage/splat/splat2" weight="1" />
@@ -441,6 +453,9 @@
     </sound>
     <sound name="villager_short3" priority="64">
         <sample path="mvz2:talk/villager/villager_short3" weight="1" />
+    </sound>
+    <sound name="water">
+        <sample path="mvz2:water" weight="1" />
     </sound>
     <sound name="win_music" priority="0">
         <sample path="mvz2:win_music" weight="1" />

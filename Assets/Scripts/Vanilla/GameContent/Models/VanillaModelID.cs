@@ -6,6 +6,7 @@ namespace MVZ2.GameContent.Models
     public static class VanillaModelID
     {
         public const string TYPE_HELD_ITEM = "held";
+        public const string TYPE_ARMOR = "armor";
         public const string TYPE_ICON = "icon";
 
         public static readonly NamespaceID zombie = Get("zombie", EngineModelID.TYPE_ENTITY);
@@ -17,6 +18,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID diamond = Get("diamond", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID pistonPalm = Get("piston_palm", EngineModelID.TYPE_ENTITY);
 
+        public static readonly NamespaceID boatItem = Get("boat_item", TYPE_ARMOR);
 
         public static readonly NamespaceID pickaxeHeldItem = Get("pickaxe", TYPE_HELD_ITEM);
         public static readonly NamespaceID triggerHeldItem = Get("trigger", TYPE_HELD_ITEM);

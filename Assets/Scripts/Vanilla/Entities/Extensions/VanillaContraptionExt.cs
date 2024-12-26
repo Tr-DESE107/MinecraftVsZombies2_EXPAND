@@ -52,24 +52,5 @@ namespace MVZ2.Vanilla.Entities
         {
             contraption.SetProperty("Evoked", value);
         }
-        public static void FallIntoWater(this Entity contraption)
-        {
-            var grid = contraption.GetGrid();
-            var carrierEntity = grid.GetCarrierEntity();
-            if (carrierEntity != null && carrierEntity.IsEntityOf(VanillaContraptionID.lilyPad))
-            {
-                if (!contraption.CanPlaceOnLilypad() && carrierEntity != contraption)
-                {
-                    contraption.Die();
-                }
-            }
-            else
-            {
-                if (!contraption.CanPlaceOnWater())
-                {
-                    contraption.Remove();
-                }
-            }
-        }
     }
 }

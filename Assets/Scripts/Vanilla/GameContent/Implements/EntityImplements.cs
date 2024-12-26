@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Grids;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
@@ -29,6 +30,8 @@ namespace MVZ2.GameContent.Implements
         private void PostContactGroundCallback(Entity entity, Vector3 velocity)
         {
             if (!entity.IsVulnerableEntity())
+                return;
+            if (entity.IsOnWater())
                 return;
             float fallHeight = Mathf.Max(0, entity.GetFallDamage() - velocity.y * 5);
             float fallDamage = Mathf.Pow(fallHeight, 2);

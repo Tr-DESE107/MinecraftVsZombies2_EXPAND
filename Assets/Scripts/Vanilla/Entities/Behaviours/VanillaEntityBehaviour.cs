@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Effects;
 using MVZ2Logic.Models;
@@ -82,6 +83,7 @@ namespace MVZ2.Vanilla.Entities
         {
         }
         #endregion
+
         protected virtual Vector3 GetArmorPosition(Entity entity)
         {
             var bounds = entity.GetBounds();

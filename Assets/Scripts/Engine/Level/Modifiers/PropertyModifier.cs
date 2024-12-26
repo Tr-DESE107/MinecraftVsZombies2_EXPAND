@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Buffs;
+using Tools;
 
 namespace PVZEngine.Modifiers
 {
@@ -53,7 +54,8 @@ namespace PVZEngine.Modifiers
         }
         public T GetModifierValueGeneric(Buff buff)
         {
-            if (GetModifierValue(buff) is T tValue)
+            var value = GetModifierValue(buff);
+            if (value.TryToGeneric<T>(out var tValue))
                 return tValue;
             return default;
         }

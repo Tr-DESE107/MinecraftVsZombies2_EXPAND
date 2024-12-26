@@ -41,6 +41,8 @@
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="pumpkin_carriage" type="entity" path="mvz2:cart/pumpkin_carriage" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="nyan_cat" type="entity" path="mvz2:cart/nyan_cat" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="nyaightmare" type="entity" path="mvz2:cart/nyaightmare" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="-16"/>
@@ -84,6 +86,7 @@
     <model name="gore_particles" type="entity" path="mvz2:effect/gore_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="frankenstein_jump_trail" type="entity" path="mvz2:effect/frankenstein_jump_trail" width="120" height="240" xOffset="24" yOffset="0"/>
     <model name="frankenstein_head" type="entity" path="mvz2:effect/frankenstein_head" width="56" height="48" xOffset="0" yOffset="0"/>
+    <model name="splash_particles" type="entity" path="mvz2:effect/splash_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
@@ -99,6 +102,7 @@
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0"/>
+    <model name="boat_item" type="armor" path="mvz2:armor/boat_item" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
