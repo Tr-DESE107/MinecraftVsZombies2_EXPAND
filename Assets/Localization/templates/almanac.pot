@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-25 07:59+0800\n"
+"POT-Creation-Date: 2024-12-27 04:05+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -286,6 +286,24 @@ msgctxt "contraptions.description"
 msgid ""
 "它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。\n"
 "还有，别他妈再吃骨墙了。"
+msgstr ""
+
+#. Header for contraptions mvz2:lily_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "睡莲允许你在水上放置器械。"
+msgstr ""
+
+#. Properties for contraptions mvz2:lily_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：在3x3范围内的水中召唤分身。"
+msgstr ""
+
+#. Flavor for contraptions mvz2:lily_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1224,6 +1242,18 @@ msgctxt "entity.tooltip"
 msgid "将一个怪物变为星之碎片"
 msgstr ""
 
+#. Header for entity mvz2:lily_pad
+#: Entity meta file
+msgctxt "entity.name"
+msgid "睡莲"
+msgstr ""
+
+#. Properties for entity mvz2:lily_pad
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "允许在水上放置器械"
+msgstr ""
+
 #. Header for entity mvz2:zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -1374,6 +1404,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "南瓜马车"
+msgstr ""
+
+#. Header for entity mvz2:nyan_cat
+#: Entity meta file
+msgctxt "entity.name"
+msgid "彩虹猫"
+msgstr ""
+
+#. Header for entity mvz2:nyaightmare
+#: Entity meta file
+msgctxt "entity.name"
+msgid "噩梦猫"
 msgstr ""
 
 #. Header for entity mvz2:redstone

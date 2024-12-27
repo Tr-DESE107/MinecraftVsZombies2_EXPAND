@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.GameContent.Placements;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
@@ -15,6 +16,7 @@ using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -196,11 +198,16 @@ namespace MVZ2.Almanacs
                 return;
             var definition = Main.Game.GetEntityDefinition(entityID);
             bool nocturnal = definition.IsNocturnal();
+            var placement = definition.GetPlacementID();
 
             string extraPropertyText = string.Empty;
             if (definition.IsNocturnal())
             {
                 extraPropertyText += "\n" + Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, EXTRA_PROPERTY_NOCTURNAL);
+            }
+            if (placement == VanillaPlacementID.aquatic)
+            {
+                extraPropertyText += "\n" + Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, EXTRA_PROPERTY_AQUATIC);
             }
             name = Main.ResourceManager.GetEntityName(entityID);
             description = GetAlmanacDescription(entityID, almanacCategory, extraPropertyText);
@@ -298,8 +305,10 @@ namespace MVZ2.Almanacs
         public const string RECHARGE_LABEL = "冷却时间：<color=red>{0}</color>";
         [TranslateMsg("图鉴描述", VanillaStrings.CONTEXT_ALMANAC)]
         public const string EXTRA_PROPERTY_NOCTURNAL = "<color=blue>白天失效</color>";
-        
-                
+        [TranslateMsg("图鉴描述", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string EXTRA_PROPERTY_AQUATIC = "<color=blue>只能放在水上</color>";
+
+
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> contraptionEntries = new List<NamespaceID>();
         private List<NamespaceID> enemyEntries = new List<NamespaceID>();

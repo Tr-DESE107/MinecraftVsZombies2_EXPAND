@@ -68,7 +68,7 @@ namespace MVZ2.Vanilla.HeldItems
                 {
                     entity.Trigger();
                 }
-                entity.PlaySound(entity.GetPlaceSound());
+                entity.PlaySound(grid.GetPlaceSound(entity));
                 level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, entity.GetDefinitionID(), grid, entity);
                 return true;
             }

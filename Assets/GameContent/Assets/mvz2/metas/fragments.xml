@@ -67,4 +67,10 @@
             <color hex="#FFFFFF" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="lily_pad">
+        <colorKeys>
+            <color hex="#104018" time="0.75"/>
+            <color hex="#0B2B10" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

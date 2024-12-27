@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 07:59+0800\n"
-"PO-Revision-Date: 2024-12-25 20:00+0800\n"
+"POT-Creation-Date: 2024-12-27 04:05+0800\n"
+"PO-Revision-Date: 2024-12-27 16:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -367,6 +367,24 @@ msgid ""
 msgstr ""
 "It will let the zombies know what's YMCA! What's YMCA? Well, \"Yummy Magic Chest Absorb\".\n"
 "Also, STOP EATING F*#KING BONE WALLS."
+
+#. Header for contraptions mvz2:lily_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "睡莲允许你在水上放置器械。"
+msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
+
+#. Properties for contraptions mvz2:lily_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：在3x3范围内的水中召唤分身。"
+msgstr "Evocation: Summon copies on 3x3 water grids."
+
+#. Flavor for contraptions mvz2:lily_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。"
+msgstr "\"Why are you making me a gift for Sakuya?! I am NOT a lily chest pad!\""
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -1422,6 +1440,18 @@ msgctxt "entity.tooltip"
 msgid "将一个怪物变为星之碎片"
 msgstr "Transform an enemy into a Starshard"
 
+#. Header for entity mvz2:lily_pad
+#: Entity meta file
+msgctxt "entity.name"
+msgid "睡莲"
+msgstr "Lily Pad"
+
+#. Properties for entity mvz2:lily_pad
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "允许在水上放置器械"
+msgstr "Allow you to place contraptions on water"
+
 #. Header for entity mvz2:zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -1575,6 +1605,18 @@ msgstr "Minecart"
 msgctxt "entity.name"
 msgid "南瓜马车"
 msgstr "Pumpkin Carriage"
+
+#. Header for entity mvz2:nyan_cat
+#: Entity meta file
+msgctxt "entity.name"
+msgid "彩虹猫"
+msgstr "Nyan Cat"
+
+#. Header for entity mvz2:nyaightmare
+#: Entity meta file
+msgctxt "entity.name"
+msgid "噩梦猫"
+msgstr "Nyaightmare"
 
 #. Header for entity mvz2:redstone
 #: Entity meta file
@@ -1909,27 +1951,11 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ "(Requires Small Dispenser)\n"
 #~ "Shoot parabots which spread between enemies"
 
-#~ msgid ""
-#~ "继古明地 觉被不断迫害后，\n"
-#~ "我们又迎来了宇佐见 莲子。"
-#~ msgstr ""
-#~ "<color=blue>Must be placed in water</color>\n"
-#~ "\n"
-#~ "\"Why are you making me a gift for Sakuya?! I am NOT a lily chest pad!\""
-
 #~ msgid "技能：在上下左右四个方向召唤四个分身"
 #~ msgstr "Evocation: Summon four copies in four directions"
 
-#~ msgid ""
-#~ "睡莲允许你在水上放置器械。\n"
-#~ "<color=blue>只能放在水上</color>"
-#~ msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
-
 #~ msgid "让你能把非水生器械放在上面"
 #~ msgstr "Allow you to place contraptions on water"
-
-#~ msgid "睡莲"
-#~ msgstr "Lily Pad"
 
 #~ msgid "技能：立即准备完毕，并向最前方播种自身的两个复制"
 #~ msgstr "Evocation: Instantly arm itself, then place two copies of itself on the rightmost column."

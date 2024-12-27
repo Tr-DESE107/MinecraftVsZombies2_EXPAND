@@ -13,7 +13,7 @@ namespace MVZ2.Vanilla
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_PLACE_LILYPAD_FIRST = "请先放睡莲";
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_CANNOT_PLACE_ON_LILYPAD = "你不能在水上放置该器械";
+        public const string ADVICE_CANNOT_PLACE_ON_WATER = "你不能在水上放置该器械";
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_CANNOT_PLACE_ON_PLANE = "你不能在薄面上放置该器械";
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]

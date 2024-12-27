@@ -49,6 +49,10 @@ namespace PVZEngine.Grids
             }
             return null;
         }
+        public bool IsEmpty()
+        {
+            return layerEntities.Count == 0;
+        }
         public NamespaceID[] GetLayers()
         {
             return layerEntities.Keys.ToArray();

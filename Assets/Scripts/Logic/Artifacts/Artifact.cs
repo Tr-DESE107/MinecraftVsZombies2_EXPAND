@@ -3,11 +3,12 @@ using System.Linq;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
 using PVZEngine.Auras;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2Logic.Artifacts
 {
-    public class Artifact
+    public class Artifact : IAuraSource
     {
         public Artifact(LevelEngine level, ArtifactDefinition definition)
         {
@@ -18,12 +19,12 @@ namespace MVZ2Logic.Artifacts
             for (int i = 0; i < auraDefs.Length; i++)
             {
                 var auraDef = auraDefs[i];
-                auras.Add(level, new AuraEffect(auraDef, i));
+                auras.Add(level, new AuraEffect(auraDef, i, this));
             }
         }
         public void Update()
         {
-            auras.Update(Level);
+            auras.Update();
             if (Definition != null)
             {
                 Definition.PostUpdate(this);
@@ -35,12 +36,12 @@ namespace MVZ2Logic.Artifacts
         }
         internal void PostAdd()
         {
-            auras.PostAdd(Level);
+            auras.PostAdd();
             Definition.PostAdd(this);
         }
         internal void PostRemove()
         {
-            auras.PostRemove(Level);
+            auras.PostRemove();
             Definition.PostRemove(this);
         }
         public T GetProperty<T>(string name)
@@ -70,6 +71,9 @@ namespace MVZ2Logic.Artifacts
             buff.auras.LoadFromSerializable(level, seri.auras);
             return buff;
         }
+
+        Entity IAuraSource.GetEntity() => null;
+        LevelEngine IAuraSource.GetLevel() => Level;
         public event Action<Artifact> OnHighlighted;
         public LevelEngine Level { get; }
         public ArtifactDefinition Definition { get; }

@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Areas
             if (x > 500 && x < 820 && z > 120 && z < 440)
             {
                 // 水中
-                return -10;
+                return -2;
             }
             return base.GetGroundY(x, z);
         }

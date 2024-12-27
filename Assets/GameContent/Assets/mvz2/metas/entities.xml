@@ -8,15 +8,12 @@
             <vector3 name="displayScale" x="1" y="1" z="1"/>
             <id name="placeSound" value="mvz2:grass"/>
             <color name="tint" value="#FFFFFF"/>
+            <id name="placement" value="mvz2:any"/>
 
             <int name="cost" value="0" />
             <id name="rechargeId" value="mvz2:none" />
         </entity>
         <contraption id="1" parent="entity">
-            <bool name="placeOnLand" value="true"/>
-            <bool name="placeOnWater" value="false"/>
-            <bool name="placeOnLilypad" value="true"/>
-            <bool name="placeOnPlane" value="true"/>
 
             <int name="waterInteraction" value="1"/>
 
@@ -29,6 +26,7 @@
             <float name="damage" value="100"/>
             <float name="fallDamage" value="-22.5"/>
             <id name="shell" value="mvz2:stone"/>
+            <id name="placement" value="mvz2:normal"/>
             <id name="placeSound" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
             <idArray name="gridLayers" value="mvz2:main"/>
@@ -38,6 +36,7 @@
             <float name="friction" value="0.15"/>
             <float name="gravity" value="1"/>
             <float name="attackSpeed" value="1"/>
+            <float name="maxAttackHeight" value="60"/>
             <float name="speed" value="1"/>
             <float name="damage" value="100"/>
             <float name="fallDamage" value="-22.5"/>
@@ -139,14 +138,13 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备" >
-            <bool name="placeOnLilypad" value="false"/>
-            <bool name="placeOnPlane" value="false"/>
 
             <bool name="canShock" value="false"/>
             <float name="damage" value="1800"/>
             <float name="range" value="40"/>
             <id name="placeSound" value="mvz2:grass"/>
             <id name="shell" value="mvz2:grass"/>
+            <id name="placement" value="mvz2:buried"/>
             <id name="deathSound" value="mvz2:grass"/>
             <vector3 name="size" x="48" y="24" z="48"/>
 
@@ -239,7 +237,7 @@
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
-        <dispenser id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片"  unlock="mvz2:level.halloween_9">
+        <contraption id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片"  unlock="mvz2:level.halloween_9">
             <float name="range" value="120"/>
             <id name="shell" value="mvz2:wood"/>
             <id name="placeSound" value="mvz2:wood"/>
@@ -248,7 +246,26 @@
 
             <int name="cost" value="200" />
             <id name="rechargeId" value="mvz2:very_long" />
-        </dispenser>
+        </contraption>
+
+        <!-- Dream Contraptions -->
+        <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械"  unlock="mvz2:level.dream_1">
+            <bool name="canShock" value="false"/>
+
+            <id name="shell" value="mvz2:grass"/>
+            <id name="placeSound" value="mvz2:grass"/>
+            <id name="deathSound" value="mvz2:grass"/>
+            <vector3 name="size" x="32" y="2" z="32"/>
+
+            <bool name="shadowHidden" value="true"/>
+
+            <id name="placement" value="mvz2:aquatic"/>
+            <int name="waterInteraction" value="0"/>
+            <idArray name="gridLayers" value="mvz2:carrier"/>
+
+            <int name="cost" value="25" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
 
         <!-- Enemies -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">

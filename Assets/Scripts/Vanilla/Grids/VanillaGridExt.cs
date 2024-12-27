@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Grids;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
@@ -34,6 +35,12 @@ namespace MVZ2.Vanilla.Grids
                 return null;
             return grid.GetLayerEntity(VanillaGridLayers.protector);
         }
+        public static NamespaceID GetPlaceSound(this LawnGrid grid, Entity entity)
+        {
+            if (grid.Definition is not IPlaceSoundGrid soundGrid)
+                return entity.GetPlaceSound();
+            return soundGrid.GetPlaceSound(entity);
+        }
         public static bool CanPlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
             var status = grid.GetEntityPlaceStatus(entityID);
@@ -42,8 +49,15 @@ namespace MVZ2.Vanilla.Grids
         public static NamespaceID GetEntityPlaceStatus(this LawnGrid grid, NamespaceID entityID)
         {
             var error = new TriggerResultNamespaceID();
-            grid.Definition.CanPlaceEntity(grid, entityID, error);
             var level = grid.Level;
+            var entityDef = level.Content.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return null;
+            var placementID = entityDef.GetPlacementID();
+            var placementDef = level.Content.GetPlacementDefinition(placementID);
+            if (placementDef == null)
+                return null;
+            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
             foreach (var trigger in level.Triggers.GetTriggers(VanillaLevelCallbacks.CAN_PLACE_ENTITY))
             {
                 if (!trigger.Filter(entityID))

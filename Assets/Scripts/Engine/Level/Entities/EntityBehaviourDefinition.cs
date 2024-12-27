@@ -1,4 +1,6 @@
-﻿using PVZEngine.Armors;
+﻿using System.Collections.Generic;
+using PVZEngine.Armors;
+using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Damages;
 using UnityEngine;
@@ -39,5 +41,14 @@ namespace PVZEngine.Entities
         {
             return GetID();
         }
+        public AuraEffectDefinition[] GetAuras()
+        {
+            return auraDefinitions.ToArray();
+        }
+        protected void AddAura(AuraEffectDefinition aura)
+        {
+            auraDefinitions.Add(aura);
+        }
+        private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
     }
 }

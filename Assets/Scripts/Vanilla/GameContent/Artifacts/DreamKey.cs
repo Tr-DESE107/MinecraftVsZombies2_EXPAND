@@ -41,14 +41,7 @@ namespace MVZ2.GameContent.Artifacts
             }
             public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
             {
-                return level.GetEntities(EntityTypes.PLANT);
-            }
-            public override bool CheckCondition(AuraEffect effect, IBuffTarget target)
-            {
-                var entity = target.GetEntity();
-                if (entity == null)
-                    return false;
-                return entity.IsEvoked();
+                return level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsEvoked());
             }
         }
     }

@@ -17,35 +17,5 @@ namespace MVZ2.GameContent.Grids
         public GrassGrid(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error)
-        {
-            var level = grid.Level;
-            var entityDef = level.Content.GetEntityDefinition(entityID);
-            if (entityDef.Type == EntityTypes.PLANT)
-            {
-                var gridDefID = grid.Definition.GetID();
-                if (gridDefID == VanillaGridID.grass)
-                {
-                    if (!entityDef.CanPlaceOnLand())
-                    {
-                        error.Result = VanillaGridStatus.notOnLand;
-                        return;
-                    }
-                }
-
-                var layersToTake = entityDef.GetGridLayersToTake();
-                var conflictEntities = layersToTake.Select(l => grid.GetLayerEntity(l)).Where(e => e != null);
-                if (conflictEntities.Count() > 0)
-                {
-                    if (conflictEntities.Any(e => e.IsEntityOf(VanillaObstacleID.gargoyleStatue)))
-                    {
-                        error.Result = VanillaGridStatus.notOnStatues;
-                        return;
-                    }
-                    error.Result = VanillaGridStatus.alreadyTaken;
-                    return;
-                }
-            }
-        }
     }
 }

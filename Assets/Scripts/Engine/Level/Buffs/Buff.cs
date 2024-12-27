@@ -7,7 +7,7 @@ using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
 {
-    public class Buff
+    public class Buff : IAuraSource
     {
         public Buff(LevelEngine level, BuffDefinition definition, long id)
         {
@@ -19,12 +19,12 @@ namespace PVZEngine.Buffs
             for (int i = 0; i < auraDefs.Length; i++)
             {
                 var auraDef = auraDefs[i];
-                auras.Add(level, new AuraEffect(auraDef, i));
+                auras.Add(level, new AuraEffect(auraDef, i, this));
             }
         }
         public void Update()
         {
-            auras.Update(Level);
+            auras.Update();
             if (Definition != null)
             {
                 Definition.PostUpdate(this);
@@ -73,6 +73,7 @@ namespace PVZEngine.Buffs
             {
                 modifier.PostAdd(this);
             }
+            auras.PostAdd();
             Definition.PostAdd(this);
         }
         internal void RemoveFromTarget()
@@ -83,6 +84,7 @@ namespace PVZEngine.Buffs
             {
                 modifier.PostRemove(this);
             }
+            auras.PostRemove();
             Target = null;
             Definition.PostRemove(this);
         }
@@ -111,6 +113,7 @@ namespace PVZEngine.Buffs
             buff.auras.LoadFromSerializable(level, seri.auras);
             return buff;
         }
+        LevelEngine IAuraSource.GetLevel() { return Level; }
         private void CallPropertyChanged(string name)
         {
             OnPropertyChanged?.Invoke(name);

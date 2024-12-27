@@ -6,36 +6,26 @@ namespace PVZEngine.Auras
 {
     public class AuraEffectList
     {
-        public AuraEffect CreateAura(AuraEffectDefinition auraDef, int id)
-        {
-            return new AuraEffect(auraDef, id);
-        }
         public void Add(LevelEngine level, AuraEffect auraEffect)
         {
             auraEffects.Add(auraEffect);
-            auraEffect.PostAdd(level);
         }
         public bool Remove(LevelEngine level, AuraEffect auraEffect)
         {
-            if (auraEffects.Remove(auraEffect))
-            {
-                auraEffect.PostRemove(level);
-                return true;
-            }
-            return true;
+            return auraEffects.Remove(auraEffect);
         }
-        public void PostAdd(LevelEngine level)
+        public void PostAdd()
         {
             foreach (var auraEffect in auraEffects)
             {
-                auraEffect.PostAdd(level);
+                auraEffect.PostAdd();
             }
         }
-        public void PostRemove(LevelEngine level)
+        public void PostRemove()
         {
             foreach (var auraEffect in auraEffects)
             {
-                auraEffect.PostRemove(level);
+                auraEffect.PostRemove();
             }
         }
         public AuraEffect Get(AuraEffectDefinition auraDef)
@@ -46,19 +36,19 @@ namespace PVZEngine.Auras
         {
             return auraEffects.ToArray();
         }
-        public void Clear(LevelEngine level)
+        public void Clear()
         {
             foreach (var auraEffect in auraEffects)
             {
-                auraEffect.PostRemove(level);
+                auraEffect.PostRemove();
             }
             auraEffects.Clear();
         }
-        public void Update(LevelEngine level)
+        public void Update()
         {
             foreach (var aura in auraEffects)
             {
-                aura.UpdateAuraInterval(level);
+                aura.UpdateAuraInterval();
             }
         }
         public void LoadFromSerializable(LevelEngine level, IEnumerable<SerializableAuraEffect> effects)

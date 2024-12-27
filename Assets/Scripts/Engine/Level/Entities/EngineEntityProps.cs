@@ -7,6 +7,7 @@ namespace PVZEngine.Entities
         public const string MAX_HEALTH = "maxHealth";
 
         public const string SHELL = "shell";
+        public const string PLACEMENT = "placement";
 
         public const string SCALE = "scale";
         public const string DISPLAY_SCALE = "displayScale";
@@ -112,6 +113,10 @@ namespace PVZEngine.Entities
         public static NamespaceID GetShellID(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<NamespaceID>(SHELL, ignoreBuffs: ignoreBuffs);
+        }
+        public static NamespaceID GetPlacementID(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(PLACEMENT);
         }
         public static void SetShellID(this Entity entity, NamespaceID value)
         {

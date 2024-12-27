@@ -27,11 +27,6 @@ namespace MVZ2.GameContent.Buffs.Level
             {
                 return level.GetEntities(EntityTypes.ENEMY);
             }
-
-            public override bool CheckCondition(AuraEffect effect, IBuffTarget entity)
-            {
-                return true;
-            }
         }
     }
 }

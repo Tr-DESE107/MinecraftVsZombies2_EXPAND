@@ -6,6 +6,7 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Placements;
 
 namespace PVZEngine
 {
@@ -42,6 +43,10 @@ namespace PVZEngine
         public static ShellDefinition GetShellDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<ShellDefinition>(defRef);
+        }
+        public static PlacementDefinition GetPlacementDefinition(this IGameContent provider, NamespaceID defRef)
+        {
+            return provider.GetDefinition<PlacementDefinition>(defRef);
         }
         public static AreaDefinition GetAreaDefinition(this IGameContent provider, NamespaceID defRef)
         {

@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using PVZEngine.Entities;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -24,6 +25,24 @@ namespace MVZ2.Vanilla.Entities
                 return;
             evokable.Evoke(contraption);
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), contraption);
+        }
+        public static bool HasPassenger(this Entity contraption)
+        {
+            var grid = contraption?.GetGrid();
+            if (grid != null && grid.GetCarrierEntity() == contraption)
+            {
+                var main = grid.GetMainEntity();
+                if (main != null && main.Exists())
+                {
+                    return true;
+                }
+                var protector = grid.GetProtectorEntity();
+                if (protector != null && protector.Exists())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public static bool CanTrigger(this Entity contraption)
         {

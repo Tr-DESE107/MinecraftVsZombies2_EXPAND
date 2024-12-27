@@ -33,11 +33,6 @@ namespace MVZ2.GameContent.Buffs.Level
             {
                 return level.GetAllSeedPacks();
             }
-
-            public override bool CheckCondition(AuraEffect effect, IBuffTarget entity)
-            {
-                return true;
-            }
         }
         public class ContraptionAura : AuraEffectDefinition
         {
@@ -51,11 +46,6 @@ namespace MVZ2.GameContent.Buffs.Level
             {
                 return level.GetEntities(EntityTypes.PLANT);
             }
-
-            public override bool CheckCondition(AuraEffect effect, IBuffTarget entity)
-            {
-                return true;
-            }
         }
         public class ArmorAura : AuraEffectDefinition
         {
@@ -67,11 +57,6 @@ namespace MVZ2.GameContent.Buffs.Level
             public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
             {
                 return level.GetEntities(EntityTypes.ENEMY).Select(e => e.EquipedArmor).Where(e => e != null);
-            }
-
-            public override bool CheckCondition(AuraEffect effect, IBuffTarget entity)
-            {
-                return true;
             }
         }
     }

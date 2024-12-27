@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    if (entity.CanEvoke())
+                    if (CanEvoke(entity))
                     {
                         flags |= HeldFlags.Valid;
                     }
@@ -63,13 +63,13 @@ namespace MVZ2.GameContent.HeldItems
             var protector = grid.GetProtectorEntity();
             var main = grid.GetMainEntity();
             var carrier = grid.GetCarrierEntity();
-            if (protector != null && protector.Type == EntityTypes.PLANT && protector.CanEvoke())
+            if (protector != null && protector.Type == EntityTypes.PLANT && CanEvoke(protector))
                 flags |= HeldFlags.ValidOnProtector;
 
-            if (main != null && main.Type == EntityTypes.PLANT && main.CanEvoke())
+            if (main != null && main.Type == EntityTypes.PLANT && CanEvoke(main))
                 flags |= HeldFlags.Valid;
 
-            if (carrier != null && carrier.Type == EntityTypes.PLANT && carrier.CanEvoke())
+            if (carrier != null && carrier.Type == EntityTypes.PLANT && CanEvoke(carrier))
                 flags |= HeldFlags.ValidOnCarrier;
             return flags;
         }
@@ -79,7 +79,7 @@ namespace MVZ2.GameContent.HeldItems
             if (phase != PointerPhase.Release)
                 return false;
             var entity = grid.GetLayerEntity(targetLayer);
-            if (entity != null && entity.Type == EntityTypes.PLANT && entity.CanEvoke())
+            if (entity != null && entity.Type == EntityTypes.PLANT && CanEvoke(entity))
             {
                 entity.Evoke();
                 entity.Level.AddStarshardCount(-1);
@@ -108,6 +108,14 @@ namespace MVZ2.GameContent.HeldItems
                 return VanillaModelID.defaultStartShardHeldItem;
             }
             return modelID;
+        }
+        private bool CanEvoke(Entity entity)
+        {
+            if (entity.HasPassenger())
+            {
+                return false;
+            }
+            return entity.GetFaction() == entity.Level.Option.LeftFaction && entity.CanEvoke();
         }
     }
 }

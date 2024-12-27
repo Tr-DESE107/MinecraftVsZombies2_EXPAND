@@ -8,40 +8,58 @@ namespace PVZEngine.Auras
 {
     public class AuraEffect
     {
-        public AuraEffect(AuraEffectDefinition definition, int id)
+        public AuraEffect(AuraEffectDefinition definition, int id, IAuraSource source)
         {
             ID = id;
             Definition = definition;
             updateTimer = new FrameTimer(Definition.UpdateInterval);
+            Source = source;
         }
-        public void UpdateAuraInterval(LevelEngine level)
+        public void UpdateAuraInterval()
         {
             updateTimer.Run();
             if (updateTimer.Expired)
             {
                 updateTimer.Reset();
-                UpdateAura(level);
+                UpdateAura();
             }
         }
-        public void PostAdd(LevelEngine level)
+        public void PostAdd()
         {
-            Definition.PostAdd(level, this);
+            UpdateAura();
+            Definition.PostAdd(this);
         }
-        public void PostRemove(LevelEngine level)
+        public void PostRemove()
         {
-            Definition.PostRemove(level, this);
+            ClearBuffs();
+            Definition.PostRemove(this);
         }
-        public void UpdateAura(LevelEngine level)
+        public void UpdateAura()
         {
-            var targets = Definition.GetAuraTargets(level, this).Where(t => t != null);
-            foreach (var target in targets)
+            var level = Source.GetLevel();
+            var newTargets = Definition.GetAuraTargets(level, this);
+            if (newTargets == null)
             {
-                UpdateBuffTarget(target);
+                ClearBuffs();
+                return;
             }
-            var missingEntities = buffDict.Where(p => !p.Key.Exists()).ToArray();
-            foreach (var pair in missingEntities)
+            else
             {
-                RemoveTargetBuff(pair.Key, pair.Value);
+                newTargets = newTargets.Where(t => t != null);
+                foreach (var target in newTargets)
+                {
+                    var buff = GetTargetBuff(target);
+                    if (buff == null)
+                    {
+                        buff = AddTargetBuff(target);
+                    }
+                    Definition.UpdateTargetBuff(this, target, buff);
+                }
+                var missingEntities = buffDict.Where(p => !p.Key.Exists() || !newTargets.Contains(p.Key)).ToArray();
+                foreach (var pair in missingEntities)
+                {
+                    RemoveTargetBuff(pair.Key, pair.Value);
+                }
             }
         }
         public SerializableAuraEffect ToSerializable()
@@ -60,25 +78,6 @@ namespace PVZEngine.Auras
                 .Select(b => (b.GetTarget(level), b.GetBuff(level)))
                 .Where(b => b.Item1 != null && b.Item2 != null)
                 .ToDictionary(p => p.Item1, p => p.Item2);
-        }
-        private void UpdateBuffTarget(IBuffTarget target)
-        {
-            var buff = GetTargetBuff(target);
-            if (Definition.CheckCondition(this, target))
-            {
-                if (buff == null)
-                {
-                    buff = AddTargetBuff(target);
-                }
-                Definition.UpdateTargetBuff(this, target, buff);
-            }
-            else
-            {
-                if (buff != null)
-                {
-                    RemoveTargetBuff(target, buff);
-                }
-            }
         }
         private Buff AddTargetBuff(IBuffTarget entity)
         {
@@ -100,8 +99,17 @@ namespace PVZEngine.Auras
             }
             return false;
         }
+        private void ClearBuffs()
+        {
+            foreach (var pair in buffDict)
+            {
+                pair.Key.RemoveBuff(pair.Value);
+            }
+            buffDict.Clear();
+        }
         public int ID { get; }
         public AuraEffectDefinition Definition { get; }
+        public IAuraSource Source { get; }
         private FrameTimer updateTimer;
         private Dictionary<IBuffTarget, Buff> buffDict = new Dictionary<IBuffTarget, Buff>();
     }

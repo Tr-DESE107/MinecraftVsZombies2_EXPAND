@@ -57,7 +57,7 @@ namespace MVZ2.Games
         private static readonly Dictionary<NamespaceID, string> gridErrorMessages = new Dictionary<NamespaceID, string>()
         {
             { VanillaGridStatus.needLilypad, VanillaStrings.ADVICE_PLACE_LILYPAD_FIRST },
-            { VanillaGridStatus.notOnLilypad, VanillaStrings.ADVICE_CANNOT_PLACE_ON_LILYPAD },
+            { VanillaGridStatus.notOnWater, VanillaStrings.ADVICE_CANNOT_PLACE_ON_WATER },
             { VanillaGridStatus.notOnLand, VanillaStrings.ADVICE_CANNOT_PLACE_ON_LAND },
             { VanillaGridStatus.notOnPlane, VanillaStrings.ADVICE_CANNOT_PLACE_ON_PLANE },
             { VanillaGridStatus.notOnStatues, VanillaStrings.ADVICE_CANNOT_PLACE_ON_STATUES },

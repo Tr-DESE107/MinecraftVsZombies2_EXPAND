@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
-                    if (entity.CanTrigger())
+                    if (CanTrigger(entity))
                     {
                         flags |= HeldFlags.Valid;
                     }
@@ -61,13 +61,13 @@ namespace MVZ2.GameContent.HeldItems
             var protector = grid.GetProtectorEntity();
             var main = grid.GetMainEntity();
             var carrier = grid.GetCarrierEntity();
-            if (protector != null && protector.Type == EntityTypes.PLANT && protector.CanTrigger())
+            if (protector != null && protector.Type == EntityTypes.PLANT && CanTrigger(protector))
                 flags |= HeldFlags.ValidOnProtector;
 
-            if (main != null && main.Type == EntityTypes.PLANT && main.CanTrigger())
+            if (main != null && main.Type == EntityTypes.PLANT && CanTrigger(main))
                 flags |= HeldFlags.Valid;
 
-            if (carrier != null && carrier.Type == EntityTypes.PLANT && carrier.CanTrigger())
+            if (carrier != null && carrier.Type == EntityTypes.PLANT && CanTrigger(carrier))
                 flags |= HeldFlags.ValidOnCarrier;
 
             return flags;
@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.HeldItems
             if (phase != PointerPhase.Release)
                 return false;
             var entity = grid.GetLayerEntity(targetLayer);
-            if (entity != null && entity.Type == EntityTypes.PLANT && entity.CanTrigger())
+            if (entity != null && entity.Type == EntityTypes.PLANT && CanTrigger(entity))
             {
                 entity.Trigger();
             }
@@ -100,6 +100,14 @@ namespace MVZ2.GameContent.HeldItems
         public override NamespaceID GetModelID(LevelEngine level, long id)
         {
             return VanillaModelID.triggerHeldItem;
+        }
+        private bool CanTrigger(Entity entity)
+        {
+            if (entity.HasPassenger())
+            {
+                return false;
+            }
+            return entity.GetFaction() == entity.Level.Option.LeftFaction && entity.CanTrigger();
         }
     }
 }

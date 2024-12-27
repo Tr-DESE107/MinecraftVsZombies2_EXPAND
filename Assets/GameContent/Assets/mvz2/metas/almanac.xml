@@ -184,6 +184,17 @@
                 <p>还有，别他妈再吃骨墙了。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:lily_pad">
+            <header>
+                <p>睡莲允许你在水上放置器械。</p>
+            </header>
+            <properties>
+                <p>技能：在3x3范围内的水中召唤分身。</p>
+            </properties>
+            <flavor>
+                <p>继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

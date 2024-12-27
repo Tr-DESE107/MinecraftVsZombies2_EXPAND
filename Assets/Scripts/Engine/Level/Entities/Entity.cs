@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace PVZEngine.Entities
 {
-    public sealed class Entity : IBuffTarget
+    public sealed class Entity : IBuffTarget, IAuraSource
     {
         #region 公有方法
 
@@ -24,6 +25,13 @@ namespace PVZEngine.Entities
             InitSeed = seed;
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
+
+            var auraDefs = definition.GetAuras();
+            for (int i = 0; i < auraDefs.Length; i++)
+            {
+                var auraDef = auraDefs[i];
+                auras.Add(level, new AuraEffect(auraDef, i, this));
+            }
         }
         private Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
         {
@@ -42,6 +50,7 @@ namespace PVZEngine.Entities
         {
             OnInit(spawner);
             Definition.Init(this);
+            auras.PostAdd();
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, Type, this);
             PostInit?.Invoke();
         }
@@ -53,6 +62,7 @@ namespace PVZEngine.Entities
                 Definition.Update(this);
                 if (EquipedArmor != null)
                     EquipedArmor.Update();
+                auras.Update();
                 foreach (var buff in buffs.GetAllBuffs())
                 {
                     buff.Update();
@@ -111,6 +121,7 @@ namespace PVZEngine.Entities
                     TakenConveyorSeed = null;
                 }
                 Definition.PostRemove(this);
+                auras.PostRemove();
                 Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_REMOVE, this);
             }
         }
@@ -657,6 +668,8 @@ namespace PVZEngine.Entities
             seri.buffs = buffs.ToSerializable();
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
             seri.takenGrids = takenGrids.ConvertAll(i => new SerializableEntity.TakenGridInfo() { grid = i.grid.GetIndex(), layers = i.takenLayers.ToArray() });
+
+            seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
             return seri;
         }
         public static Entity Deserialize(SerializableEntity seri, LevelEngine level)
@@ -704,6 +717,7 @@ namespace PVZEngine.Entities
                 var seriCollider = seri.colliders[i];
                 collider.LoadCollisions(Level, seriCollider);
             }
+            auras.LoadFromSerializable(Level, seri.auras);
             UpdateAllBuffedProperties();
             Cache.UpdateAll(this);
             UpdateColliders();
@@ -780,6 +794,8 @@ namespace PVZEngine.Entities
 
         Entity IBuffTarget.GetEntity() => this;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        Entity IAuraSource.GetEntity() => this;
+        LevelEngine IAuraSource.GetLevel() => Level;
         #endregion
 
         #region 事件
@@ -830,6 +846,7 @@ namespace PVZEngine.Entities
         private PropertyDictionary buffedProperties = new PropertyDictionary();
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
+        private AuraEffectList auras = new AuraEffectList();
         private List<TakenGridInfo> takenGrids = new List<TakenGridInfo>();
         private List<Entity> children = new List<Entity>();
         #endregion

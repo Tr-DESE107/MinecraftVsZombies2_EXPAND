@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
+using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Damages;
 using UnityEngine;
@@ -82,6 +83,10 @@ namespace PVZEngine.Entities
                 id = behaviour.GetModelID(id);
             }
             return id;
+        }
+        public AuraEffectDefinition[] GetAuras()
+        {
+            return behaviours.SelectMany(b => b.GetAuras()).ToArray();
         }
         public abstract int Type { get; }
         private List<EntityBehaviourDefinition> behaviours = new List<EntityBehaviourDefinition>();

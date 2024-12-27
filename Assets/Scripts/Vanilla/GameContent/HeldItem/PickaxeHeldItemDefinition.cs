@@ -100,6 +100,10 @@ namespace MVZ2.GameContent.HeldItems
         }
         private bool CanDigContraption(Entity entity)
         {
+            if (entity.HasPassenger())
+            {
+                return false;
+            }
             return entity.GetFaction() == entity.Level.Option.LeftFaction;
         }
 

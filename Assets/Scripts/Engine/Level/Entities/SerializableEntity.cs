@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PVZEngine.Armors;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using Tools;
 using UnityEngine;
@@ -48,6 +49,8 @@ namespace PVZEngine.Entities
         public SerializableBuffList buffs;
         public List<long> children;
         public List<TakenGridInfo> takenGrids;
+
+        public SerializableAuraEffect[] auras;
 
         [Serializable]
         public class TakenGridInfo

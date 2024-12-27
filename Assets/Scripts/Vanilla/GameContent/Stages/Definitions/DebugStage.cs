@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.smallDispenser,
+                VanillaContraptionID.lilyPad,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.punchton,
@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.magichest,
                 VanillaContraptionID.tnt,
 
-                VanillaEnemyID.necromancer,
+                VanillaEnemyID.zombie,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.leatherCappedZombie,
                 VanillaBossID.frankenstein,
