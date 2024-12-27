@@ -16,6 +16,7 @@
     <model name="magichest" type="entity" path="mvz2:contraption/magichest" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="lily_pad" type="entity" path="mvz2:contraption/lily_pad" width="64" height="64" xOffset="0" yOffset="-16"/>
+    <model name="drivenser" type="entity" path="mvz2:contraption/drivenser" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
@@ -89,6 +90,7 @@
     <model name="frankenstein_jump_trail" type="entity" path="mvz2:effect/frankenstein_jump_trail" width="120" height="240" xOffset="24" yOffset="0"/>
     <model name="frankenstein_head" type="entity" path="mvz2:effect/frankenstein_head" width="56" height="48" xOffset="0" yOffset="0"/>
     <model name="splash_particles" type="entity" path="mvz2:effect/splash_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="gear_particles" type="entity" path="mvz2:effect/gear_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
@@ -100,6 +102,7 @@
     <model name="fire_charge" type="entity" path="mvz2:projectile/fire_charge" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="bullet" type="entity" path="mvz2:projectile/bullet" width="32" height="2" xOffset="0" yOffset="0"/>
     <model name="missile" type="entity" path="mvz2:projectile/missile" width="64" height="20" xOffset="0" yOffset="0"/>
+    <model name="large_arrow" type="entity" path="mvz2:projectile/large_arrow" width="64" height="20" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>

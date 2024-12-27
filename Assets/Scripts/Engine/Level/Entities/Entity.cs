@@ -115,11 +115,11 @@ namespace PVZEngine.Entities
             {
                 Removed = true;
                 Level.RemoveEntity(this);
-                if (NamespaceID.IsValid(TakenConveyorSeed))
+                foreach (var pair in takenConveyorSeeds)
                 {
-                    Level.PutSeedToConveyorPool(TakenConveyorSeed);
-                    TakenConveyorSeed = null;
+                    Level.PutSeedToConveyorPool(pair.Key, pair.Value);
                 }
+                takenConveyorSeeds.Clear();
                 Definition.PostRemove(this);
                 auras.PostRemove();
                 Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_REMOVE, this);
@@ -635,6 +635,34 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 传送带
+        public void AddTakenConveyorSeed(NamespaceID id)
+        {
+            if (takenConveyorSeeds.ContainsKey(id))
+            {
+                takenConveyorSeeds[id]++;
+            }
+            else
+            {
+                takenConveyorSeeds[id] = 1;
+            }
+        }
+        public bool RemoveTakenConveyorSeed(NamespaceID id)
+        {
+            if (!takenConveyorSeeds.ContainsKey(id))
+            {
+                return false;
+            }
+            takenConveyorSeeds[id]--;
+            if (takenConveyorSeeds[id] <= 0)
+            {
+                takenConveyorSeeds.Remove(id);
+            }
+            return true;
+        }
+        #endregion
+
+        #region 序列化
         public SerializableEntity Serialize()
         {
             var seri = new SerializableEntity();
@@ -656,7 +684,7 @@ namespace PVZEngine.Entities
             seri.collisionMaskHostile = CollisionMaskHostile;
             seri.collisionMaskFriendly = CollisionMaskFriendly;
             seri.renderRotation = RenderRotation;
-            seri.takenConveyorCard = TakenConveyorSeed;
+            seri.takenConveyorSeeds = takenConveyorSeeds.ToDictionary(p => p.ToString(), p => p.Value);
             seri.timeout = Timeout;
             seri.colliders = colliders.ConvertAll(g => g.ToSerializable()).ToArray();
 
@@ -695,7 +723,7 @@ namespace PVZEngine.Entities
             CollisionMaskHostile = seri.collisionMaskHostile;
             CollisionMaskFriendly = seri.collisionMaskFriendly;
             RenderRotation = seri.renderRotation;
-            TakenConveyorSeed = seri.takenConveyorCard;
+            takenConveyorSeeds = seri.takenConveyorSeeds.ToDictionary(p => NamespaceID.ParseStrict(p.Key), p => p.Value);
             Timeout = seri.timeout;
 
             IsDead = seri.isDead;
@@ -732,6 +760,7 @@ namespace PVZEngine.Entities
             }
             return entity;
         }
+        #endregion
         public override string ToString()
         {
             return $"{ID}({this.Definition.GetID()})";
@@ -831,7 +860,6 @@ namespace PVZEngine.Entities
         private IModelInterface modelInterface;
         private IModelInterface armorModelInterface;
         #endregion
-        public NamespaceID TakenConveyorSeed { get; set; }
         public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
         public float Health { get; set; }
@@ -849,6 +877,7 @@ namespace PVZEngine.Entities
         private AuraEffectList auras = new AuraEffectList();
         private List<TakenGridInfo> takenGrids = new List<TakenGridInfo>();
         private List<Entity> children = new List<Entity>();
+        private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
         #endregion
 
         private class TakenGridInfo

@@ -53,6 +53,10 @@ namespace PVZEngine.Grids
         {
             return layerEntities.Count == 0;
         }
+        public Entity[] GetEntities()
+        {
+            return layerEntities.Values.ToArray();
+        }
         public NamespaceID[] GetLayers()
         {
             return layerEntities.Keys.ToArray();
@@ -75,7 +79,7 @@ namespace PVZEngine.Grids
         }
         public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
         {
-            layerEntities = seri.layerEntities.ToDictionary(p => NamespaceID.Parse(p.Key, string.Empty), p => level.FindEntityByID(p.Value));
+            layerEntities = seri.layerEntities.ToDictionary(p => NamespaceID.ParseStrict(p.Key), p => level.FindEntityByID(p.Value));
         }
         #endregion ·½·¨
 

@@ -266,6 +266,13 @@
             <int name="cost" value="25" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
+        <dispenser id="drivenser" name="驱动发射器" tooltip="能够堆叠放置，堆叠后子弹数量增加" unlock="mvz2:level.dream_2">
+            <id name="fragmentId" value="mvz2:furnace"/>
+            <id name="stackOn" value="mvz2:drivenser"/>
+
+            <int name="cost" value="125" />
+            <id name="rechargeId" value="mvz2:short" />
+        </dispenser>
 
         <!-- Enemies -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -533,6 +540,12 @@
             <float name="range" value="40"/>
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
+        <projectile id="large_arrow">
+            <bool name="pointToDirection" value="true" />
+            <bool name="piercing" value="true" />
+            <vector3 name="size" x="64" y="4" z="4" />
+            <idArray name="damageEffects" value="mvz2:damage_body_after_armor_broken" />
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -631,6 +644,9 @@
             <int name="maxTimeout" value="120"/>
         </effect>
         <effect id="splash_particles">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="gear_particles">
             <int name="maxTimeout" value="30"/>
         </effect>
     </entries>

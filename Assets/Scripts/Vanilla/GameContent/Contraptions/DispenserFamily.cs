@@ -32,10 +32,14 @@ namespace MVZ2.GameContent.Contraptions
                 var target = detector.Detect(entity);
                 if (target != null)
                 {
-                    Shoot(entity);
+                    OnShootTick(entity);
                 }
                 shootTimer.ResetTime(GetTimerTime(entity));
             }
+        }
+        public virtual void OnShootTick(Entity entity)
+        {
+            Shoot(entity);
         }
         public virtual Entity Shoot(Entity entity)
         {

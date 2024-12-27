@@ -14,14 +14,9 @@ namespace MVZ2.Vanilla.HeldItems
         public ConveyorBlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void PostPlaceEntity(LawnGrid grid, IHeldItemData data, SeedPack seed, Entity entity)
+        protected override void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
         {
-            base.PostPlaceEntity(grid, data, seed, entity);
-            var drawnFromPool = seed.GetDrawnConveyorSeed();
-            if (NamespaceID.IsValid(drawnFromPool))
-            {
-                entity.TakenConveyorSeed = drawnFromPool;
-            }
+            base.OnUseBlueprint(grid, data, seed);
             seed.Level.RemoveConveyorSeedPackAt((int)data.ID);
         }
 

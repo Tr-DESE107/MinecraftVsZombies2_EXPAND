@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Obstacles;
-using MVZ2.HeldItems;
+﻿using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.SeedPacks;
@@ -62,14 +59,8 @@ namespace MVZ2.Vanilla.HeldItems
             var seedDef = seed.Definition;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
-                var entity = seedDef.PlaceSeedEntity(grid);
-                PostPlaceEntity(grid, data, seed, entity);
-                if (data.InstantTrigger && entity.CanTrigger())
-                {
-                    entity.Trigger();
-                }
-                entity.PlaySound(grid.GetPlaceSound(entity));
-                level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, entity.GetDefinitionID(), grid, entity);
+                seed.UseOnGrid(grid, data);
+                OnUseBlueprint(grid, data, seed);
                 return true;
             }
             return false;
@@ -116,7 +107,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
             return GetSeedPackAt(level, (int)data.ID);
         }
-        protected virtual void PostPlaceEntity(LawnGrid grid, IHeldItemData data, SeedPack seed, Entity entity)
+        protected virtual void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
         {
         }
     }

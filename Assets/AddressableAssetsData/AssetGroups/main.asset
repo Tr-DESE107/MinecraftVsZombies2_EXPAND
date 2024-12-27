@@ -1102,6 +1102,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 407fad964d6763c4485f90c8ab1d907a
+    m_Address: mvz2:entity/contraption/drivenser_gears
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40c5d6493088d5344a631523effc16e7
     m_Address: mvz2:fragments
     m_ReadOnly: 0
@@ -1942,6 +1948,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75b0d67cc3ae5e843baa944916995256
+    m_Address: mvz2:projectile/large_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76002873be7e1314c8853b5a35e273ec
     m_Address: mvz2:ui/map/map_back_button_highlighted
     m_ReadOnly: 0
@@ -2343,6 +2355,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8db82be40ad22c949aeac353e033a702
+    m_Address: mvz2:effect/gear_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e0d71e6c2e48c849bcc74bc255e073e
     m_Address: mvz2:small_explosion
@@ -2848,6 +2866,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa25af9d5cc160b468dd23f63a13a510
+    m_Address: mvz2:contraption/drivenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa82843b9b0ef4c43a15446e94370464
     m_Address: mvz2:chapter_transition/title_halloween
     m_ReadOnly: 0
@@ -2868,6 +2892,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab1cac139d76a6f478c12842a619042d
     m_Address: mvz2:entity/contraptions/magichest_flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab45c539e2bb18040b691583b08639f1
+    m_Address: mvz2:entity/contraptions/drivenser_blocker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3682,6 +3712,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ded137b9dc7a3e54fae7243bc2863c71
+    m_Address: mvz2:entity/contraption/drivenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: deeb13e67aa912f44b29bd07001f719c
     m_Address: mvz2:damage/splat/splat2
     m_ReadOnly: 0
@@ -3820,6 +3856,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e81ac283d392c4f40badaaf0d30184b2
+    m_Address: mvz2:entity/contraptions/lily_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e81c449d2edbc5046ad8a2889e216bf3
     m_Address: mvz2:entity/terror/terror_cry1
     m_ReadOnly: 0
@@ -3867,6 +3909,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb2ee79a0855dd74aa5271554aa39c14
+    m_Address: mvz2:contraption/lily_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb5396e8d49b71b4b899a73dae8c9ce9
     m_Address: mvz2:mobile_blueprint/glowstone

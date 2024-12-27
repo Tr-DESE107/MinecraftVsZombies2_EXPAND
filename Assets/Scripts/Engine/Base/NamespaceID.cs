@@ -40,6 +40,35 @@ namespace PVZEngine
             }
             return sb.ToString();
         }
+        public static bool TryParseStrict(string str, out NamespaceID parsed)
+        {
+            var colonIndex = str.IndexOf(':');
+            string nsp;
+            string path;
+            parsed = null;
+            if (colonIndex < 0)
+            {
+                // 没有冒号，失败。
+                return false;
+            }
+            else if (colonIndex == 0)
+            {
+                // 冒号前没有内容，错误。
+                return false;
+            }
+            else
+            {
+                // 冒号前有内容，获取命名空间和路径。
+                nsp = str.Substring(0, colonIndex);
+                path = str.Substring(colonIndex + 1);
+            }
+            if (!ValidateNamespace(nsp))
+                return false;
+            if (!ValidatePath(path))
+                return false;
+            parsed = new NamespaceID(nsp, path);
+            return true;
+        }
         public static bool TryParse(string str, string defaultNsp, out NamespaceID parsed)
         {
             var colonIndex = str.IndexOf(':');
@@ -69,6 +98,14 @@ namespace PVZEngine
                 return false;
             parsed = new NamespaceID(nsp, path);
             return true;
+        }
+        public static NamespaceID ParseStrict(string str)
+        {
+            if (TryParseStrict(str, out var parsed))
+            {
+                return parsed;
+            }
+            throw new FormatException($"Invalid NamespaceID {str}.");
         }
         public static NamespaceID Parse(string str, string defaultNsp)
         {

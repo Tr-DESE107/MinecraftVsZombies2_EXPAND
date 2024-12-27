@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.lilyPad,
-                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.drivenser,
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.punchton,
 

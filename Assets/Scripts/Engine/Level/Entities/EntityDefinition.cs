@@ -50,6 +50,10 @@ namespace PVZEngine.Entities
         {
             return behaviours.ToArray();
         }
+        public T[] GetBehaviours<T>()
+        {
+            return behaviours.OfType<T>().ToArray();
+        }
         public void Init(Entity entity) { behaviours.ForEach(b => b.Init(entity)); }
         public void Update(Entity entity) { behaviours.ForEach(b => b.Update(entity)); }
         public void PreTakeDamage(DamageInput input) { behaviours.ForEach(b => b.PreTakeDamage(input)); }

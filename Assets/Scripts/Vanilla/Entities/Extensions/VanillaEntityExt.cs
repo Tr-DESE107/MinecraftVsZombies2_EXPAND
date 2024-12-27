@@ -16,6 +16,7 @@ using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
@@ -501,6 +502,29 @@ namespace MVZ2.Vanilla.Entities
                 sound = VanillaSoundID.splashBig;
             }
             entity.PlaySound(sound);
+        }
+        #endregion
+
+        #region 堆叠
+        public static bool CanStackFrom(this Entity target, NamespaceID entityID)
+        {
+            var level = target.Level;
+            var definition = level.Content.GetEntityDefinition(entityID);
+            var result = new TriggerResultBoolean();
+            foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
+            {
+                behaviour.CanStackOnEntity(target, result);
+            }
+            return result.Result;
+        }
+        public static void StackFromEntity(this Entity target, NamespaceID entityID)
+        {
+            var level = target.Level;
+            var definition = level.Content.GetEntityDefinition(entityID);
+            foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
+            {
+                behaviour.StackOnEntity(target);
+            }
         }
         #endregion
     }

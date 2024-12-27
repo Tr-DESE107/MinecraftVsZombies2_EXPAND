@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-27 04:05+0800\n"
+"POT-Creation-Date: 2024-12-27 08:59+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -304,6 +304,28 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。"
+msgstr ""
+
+#. Header for contraptions mvz2:drivenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。"
+msgstr ""
+
+#. Properties for contraptions mvz2:drivenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：每枚箭矢<color=red>20</color>\n"
+"升级上限：<color=red>5</color>\n"
+"技能：发射五支大箭矢。"
+msgstr ""
+
+#. Flavor for contraptions mvz2:drivenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1252,6 +1274,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "允许在水上放置器械"
+msgstr ""
+
+#. Header for entity mvz2:drivenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "驱动发射器"
+msgstr ""
+
+#. Properties for entity mvz2:drivenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "能够堆叠放置，堆叠后子弹数量增加"
 msgstr ""
 
 #. Header for entity mvz2:zombie

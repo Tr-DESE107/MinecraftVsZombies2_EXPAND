@@ -313,5 +313,13 @@ namespace MVZ2.Vanilla.Entities
             return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
         }
         #endregion
+
+        #region 堆叠
+        public const string STACK_ON = "stackOn";
+        public static NamespaceID GetStackOnEntity(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(STACK_ON);
+        }
+        #endregion
     }
 }

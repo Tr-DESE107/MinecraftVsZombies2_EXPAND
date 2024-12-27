@@ -17,9 +17,9 @@ namespace MVZ2.Vanilla.HeldItems
         {
             return level.GetSeedPackAt(index);
         }
-        protected override void PostPlaceEntity(LawnGrid grid, IHeldItemData data, SeedPack seed, Entity entity)
+        protected override void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
         {
-            base.PostPlaceEntity(grid, data, seed, entity);
+            base.OnUseBlueprint(grid, data, seed);
             var level = grid.Level;
             var seedDef = seed.Definition;
             level.AddEnergy(-seedDef.GetCost());

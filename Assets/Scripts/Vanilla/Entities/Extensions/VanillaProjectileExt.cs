@@ -31,15 +31,10 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID, Vector3 velocity)
         {
-            return entity.ShootProjectile(new ShootParams()
-            {
-                projectileID = projectileID,
-                position = entity.GetShootPoint(),
-                faction = entity.GetFaction(),
-                damage = entity.GetDamage(),
-                soundID = entity.GetShootSound(),
-                velocity = velocity
-            });
+            var shootParams = entity.GetShootParams();
+            shootParams.projectileID = projectileID;
+            shootParams.velocity = velocity;
+            return entity.ShootProjectile(shootParams);
         }
         public static Entity ShootProjectile(this Entity entity, ShootParams parameters)
         {
@@ -54,6 +49,18 @@ namespace MVZ2.Vanilla.Entities
             projectile.Velocity = velocity;
             projectile.UpdatePointTowardsDirection();
             return projectile;
+        }
+        public static ShootParams GetShootParams(this Entity entity)
+        {
+            return new ShootParams()
+            {
+                projectileID = entity.GetProjectileID(),
+                position = entity.GetShootPoint(),
+                faction = entity.GetFaction(),
+                damage = entity.GetDamage(),
+                soundID = entity.GetShootSound(),
+                velocity = entity.GetShotVelocity()
+            };
         }
         public static void UpdatePointTowardsDirection(this Entity entity)
         {

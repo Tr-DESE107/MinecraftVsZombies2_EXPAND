@@ -188,13 +188,13 @@ namespace PVZEngine.Level
             conveyorSlotCount = value;
             OnConveyorSeedSlotCountChanged?.Invoke(value);
         }
-        public void PutSeedToConveyorPool(NamespaceID seedID)
+        public void PutSeedToConveyorPool(NamespaceID seedID, int value = 1)
         {
-            conveyorSeedSpendRecord.AddSpendValue(seedID, -1);
+            conveyorSeedSpendRecord.AddSpendValue(seedID, -value);
         }
-        public void SpendSeedFromConveyorPool(NamespaceID seedID)
+        public void SpendSeedFromConveyorPool(NamespaceID seedID, int value = 1)
         {
-            conveyorSeedSpendRecord.AddSpendValue(seedID, 1);
+            conveyorSeedSpendRecord.AddSpendValue(seedID, value);
         }
         public int GetSpentSeedFromConveyorPool(NamespaceID seedID)
         {

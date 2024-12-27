@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-27 04:05+0800\n"
-"PO-Revision-Date: 2024-12-27 16:08+0800\n"
+"POT-Creation-Date: 2024-12-27 08:59+0800\n"
+"PO-Revision-Date: 2024-12-27 21:01+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -385,6 +385,36 @@ msgstr "Evocation: Summon copies on 3x3 water grids."
 msgctxt "contraptions.description"
 msgid "继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。"
 msgstr "\"Why are you making me a gift for Sakuya?! I am NOT a lily chest pad!\""
+
+#. Header for contraptions mvz2:drivenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。"
+msgstr "Place another Drivenser on an existing one to increase the number of arrows per shot."
+
+#. Properties for contraptions mvz2:drivenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：每枚箭矢<color=red>20</color>\n"
+"升级上限：<color=red>5</color>\n"
+"技能：发射五支大箭矢。"
+msgstr ""
+"Fire rate: <color=red>1.5 seconds</color>\n"
+"Damage: <color=red>20</color>\n"
+"Max Level: <color=red>5</color>\n"
+"Evocation: Shoot 5 large arrows."
+
+#. Flavor for contraptions mvz2:drivenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸"
+"之间的战争，但有人已经抢先了。"
+msgstr ""
+"Drivenser is a technical nerd. He knows how to assemble a computer, properties of different softwares and hardwares, different coding "
+"languages, etc. Recently he wants to compile a game to re-tell this war with the zombies, but someone's already ahead of him."
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -1452,6 +1482,18 @@ msgctxt "entity.tooltip"
 msgid "允许在水上放置器械"
 msgstr "Allow you to place contraptions on water"
 
+#. Header for entity mvz2:drivenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "驱动发射器"
+msgstr "Drivenser"
+
+#. Properties for entity mvz2:drivenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "能够堆叠放置，堆叠后子弹数量增加"
+msgstr "Stackable, add arrows per shot after stacked"
+
 #. Header for entity mvz2:zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -1831,27 +1873,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "让一个器械睡着，醒来后生成一个星之碎片"
 #~ msgstr "Make a contraption sleep, create a Starshard when it wakes up"
 
-#~ msgid ""
-#~ "特点：只能升级四次\n"
-#~ "\n"
-#~ "驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵"
-#~ "尸之间的战争，但有人已经抢先了。"
-#~ msgstr ""
-#~ "Special: Can only be upgraded 4 times\n"
-#~ "Drivenser is a technical nerd. He knows how to assemble a computer, properties of different softwares and hardwares, different "
-#~ "coding languages, etc. Recently he wants to compile a game to re-tell this war with the zombies, but someone's already ahead of him."
-
 #~ msgid "技能：发射五支大箭矢"
 #~ msgstr "Evocation: Shoot five large arrows"
-
-#~ msgid "在一个驱动发射器上再放置一个驱动发射器能够增加驱动发射器每次发射的箭。"
-#~ msgstr "Place another Drivenser on an existing one to increase the number of arrows per shot."
-
-#~ msgid "驱动发射器"
-#~ msgstr "Drivenser"
-
-#~ msgid "能够堆叠放置，堆叠后一次射出的箭会增加"
-#~ msgstr "Stackable, add arrows per shot after stacked"
 
 #~ msgid ""
 #~ "<color=red>必须放置在重力板上</color>\n"

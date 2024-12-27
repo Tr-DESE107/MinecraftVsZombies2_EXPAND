@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string magichest = "magichest";
 
         public const string lilyPad = "lily_pad";
+        public const string drivenser = "drivenser";
     }
     public static class VanillaContraptionID
     {
@@ -38,6 +39,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID magichest = Get(VanillaContraptionNames.magichest);
 
         public static readonly NamespaceID lilyPad = Get(VanillaContraptionNames.lilyPad);
+        public static readonly NamespaceID drivenser = Get(VanillaContraptionNames.drivenser);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
