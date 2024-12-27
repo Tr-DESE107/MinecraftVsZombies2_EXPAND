@@ -55,6 +55,9 @@
     <sound name="click" maxCount="4" priority="64">
         <sample path="mvz2:click" weight="1" />
     </sound>
+    <sound name="confuse">
+        <sample path="mvz2:confuse" weight="1" />
+    </sound>
     <sound name="coin" maxCount="1" priority="64">
         <sample path="mvz2:coin" weight="1" />
     </sound>
@@ -294,6 +297,9 @@
     </sound>
     <sound name="refuel">
         <sample path="mvz2:refuel" weight="1" />
+    </sound>
+    <sound name="reverse_vampire">
+        <sample path="mvz2:reverse_vampire" weight="1" />
     </sound>
     <sound name="revive_cast">
         <sample path="mvz2:revive_cast" weight="1" />

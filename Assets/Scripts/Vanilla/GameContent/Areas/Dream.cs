@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Areas
         public override void Setup(LevelEngine level)
         {
             base.Setup(level);
+            level.Spawn(VanillaEffectID.miner, new Vector3(600, 0, 40), null);
             if (Global.Game.IsUnlocked(VanillaUnlockID.dreamIsNightmare))
             {
                 if (Global.HasBloodAndGore())
@@ -48,6 +49,9 @@ namespace MVZ2.GameContent.Areas
         public override void PostHugeWaveEvent(LevelEngine level)
         {
             base.PostHugeWaveEvent(level);
+            level.AddBuff<TaintedSunBuff>();
+            level.PlaySound(VanillaSoundID.reverseVampire);
+            level.PlaySound(VanillaSoundID.confuse);
         }
         public override float GetGroundY(float x, float z)
         {

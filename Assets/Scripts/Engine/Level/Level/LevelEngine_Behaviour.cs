@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -55,20 +56,19 @@ namespace PVZEngine.Level
         public int GetRandomEnemySpawnLane()
         {
             var length = GetMaxLaneCount();
-            if (spawnedLanes.Count >= length)
+            return GetRandomEnemySpawnLane(Enumerable.Range(0, length));
+        }
+        public int GetRandomEnemySpawnLane(IEnumerable<int> lanes)
+        {
+            if (lanes.Count() <= 0)
+                return -1;
+            var possibleLanes = lanes.Where(l => !spawnedLanes.Contains(l));
+            if (possibleLanes.Count() <= 0)
             {
                 spawnedLanes.Clear();
+                possibleLanes = lanes;
             }
-
-            var pool = new List<int>();
-            for (int i = 0; i < length; i++)
-            {
-                if (spawnedLanes.Contains(i))
-                    continue;
-                pool.Add(i);
-            }
-            int row = pool.Random(spawnRandom);
-
+            int row = possibleLanes.Random(spawnRandom);
             spawnedLanes.Add(row);
             return row;
         }

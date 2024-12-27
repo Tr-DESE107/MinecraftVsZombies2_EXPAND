@@ -60,6 +60,7 @@ namespace MVZ2.GameContent.Buffs
         {
             public const string levelEasy = "level_easy";
             public const string levelHard = "level_hard";
+            public const string taintedSun = "tainted_sun";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
             public const string thunder = "thunder";

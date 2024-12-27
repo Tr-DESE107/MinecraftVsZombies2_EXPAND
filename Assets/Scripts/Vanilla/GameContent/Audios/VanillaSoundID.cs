@@ -18,6 +18,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID chestClose = Get("chest_close");
         public readonly static NamespaceID chime = Get("chime");
         public readonly static NamespaceID coin = Get("coin");
+        public readonly static NamespaceID confuse = Get("confuse");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
         public readonly static NamespaceID diamond = Get("diamond");
@@ -65,6 +66,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID rain = Get("rain");
         public readonly static NamespaceID refuel = Get("refuel");
         public readonly static NamespaceID reviveCast = Get("revive_cast");
+        public readonly static NamespaceID reverseVampire = Get("reverse_vampire");
         public readonly static NamespaceID scream = Get("scream");
         public readonly static NamespaceID screw = Get("screw");
         public readonly static NamespaceID shock = Get("shock");

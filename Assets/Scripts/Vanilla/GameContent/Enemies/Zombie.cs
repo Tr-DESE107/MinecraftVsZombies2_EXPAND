@@ -6,6 +6,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
@@ -24,16 +25,10 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             var level = entity.Level;
-            for (int i = 0; i < level.GetMaxColumnCount(); i++)
+            if (level.IsWaterLane(entity.GetLane()))
             {
-                var grid = level.GetGrid(i, entity.GetLane());
-                if (grid == null)
-                    continue;
-                if (grid.IsWater())
-                {
-                    entity.AddBuff<BoatBuff>();
-                    break;
-                }
+                entity.AddBuff<BoatBuff>();
+                entity.SetAnimationBool("HasBoat", true);
             }
         }
         protected override void UpdateLogic(Entity entity)

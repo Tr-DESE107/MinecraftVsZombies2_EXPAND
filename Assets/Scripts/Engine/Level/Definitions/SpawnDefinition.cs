@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Level;
 
 namespace PVZEngine.Definitions
 {
@@ -9,6 +10,10 @@ namespace PVZEngine.Definitions
             SpawnCost = cost;
             EntityID = entityID;
             ExcludedAreaTags = excludedAreaTags;
+        }
+        public virtual int GetRandomSpawnLane(LevelEngine level)
+        {
+            return level.GetRandomEnemySpawnLane();
         }
         public int SpawnCost { get; }
         public NamespaceID EntityID { get; }

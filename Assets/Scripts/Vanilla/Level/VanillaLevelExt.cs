@@ -8,6 +8,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -227,7 +228,7 @@ namespace MVZ2.Vanilla.Level
         {
             if (spawnDef == null)
                 return null;
-            var lane = level.GetRandomEnemySpawnLane();
+            var lane = spawnDef.GetRandomSpawnLane(level);
             return level.SpawnEnemy(spawnDef, lane);
         }
         public static Entity SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
@@ -401,6 +402,26 @@ namespace MVZ2.Vanilla.Level
         public static void StartRain(this LevelEngine level)
         {
             level.Spawn(VanillaEffectID.rain, new Vector3(VanillaLevelExt.LEVEL_WIDTH * 0.5f, 0, 0), null);
+        }
+        public static IEnumerable<int> GetAllLanes(this LevelEngine level)
+        {
+            return Enumerable.Range(0, level.GetMaxLaneCount());
+        }
+        public static IEnumerable<int> GetWaterLanes(this LevelEngine level)
+        {
+            return level.GetAllLanes().Where(l => level.IsWaterLane(l));
+        }
+        public static bool IsWaterLane(this LevelEngine level, int lane)
+        {
+            for (int column = 0; column < level.GetMaxColumnCount(); column++)
+            {
+                var grid = level.GetGrid(column, lane);
+                if (grid == null)
+                    continue;
+                if (grid.IsWater())
+                    return true;
+            }
+            return false;
         }
     }
 }

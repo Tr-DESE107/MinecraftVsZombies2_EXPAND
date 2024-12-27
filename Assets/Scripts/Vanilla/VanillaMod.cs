@@ -2,6 +2,7 @@
 using System.Reflection;
 using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
+using MVZ2.GameContent.Spawns;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
@@ -81,8 +82,9 @@ namespace MVZ2.Vanilla
                 AddDefinition(seedDef);
 
                 var spawnCost = entityDefinition.GetSpawnCost();
-                var spawnDef = new SpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name), entityDefinition.GetExcludedAreaTags() ?? Array.Empty<NamespaceID>());
+                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name), entityDefinition.GetExcludedAreaTags() ?? Array.Empty<NamespaceID>());
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
+                spawnDef.CanSpawnAtWaterLane = entityDefinition.CanSpawnAtWaterLane();
                 AddDefinition(spawnDef);
             }
         }

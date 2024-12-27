@@ -257,6 +257,7 @@
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="1"/>
             <int name="previewCount" value="3"/>
+            <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
         <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="75" />
@@ -264,18 +265,21 @@
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="2"/>
             <int name="previewCount" value="2"/>
+            <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
         <enemy id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="125" />
 
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="5"/>
+            <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="300" />
 
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="0"/>
+            <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
 
         <!-- Halloween Enemies -->
@@ -359,6 +363,7 @@
             <int name="cost" value="125" />
             <int name="waterInteraction" value="3"/>
             <int name="spawnCost" value="3"/>
+            <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
 
         <!-- Token Enemies-->

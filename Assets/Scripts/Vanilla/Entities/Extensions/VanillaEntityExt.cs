@@ -492,6 +492,10 @@ namespace MVZ2.Vanilla.Entities
             var level = entity.Level;
             var size = entity.GetScaledSize();
             var sound = VanillaSoundID.splash;
+            if (entity.Type == EntityTypes.ENEMY)
+            {
+                sound = VanillaSoundID.water;
+            }
             if (size.x * size.y * size.z / SPLASH_SIZE_UNIT > 1)
             {
                 sound = VanillaSoundID.splashBig;

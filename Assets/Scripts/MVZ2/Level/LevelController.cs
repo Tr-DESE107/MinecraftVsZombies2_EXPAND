@@ -399,7 +399,7 @@ namespace MVZ2.Level
             {
                 // 设置光照。
                 ui.SetNightValue(level.GetNightValue());
-                ui.SetDarknessValue(level.GetDarknessValue());
+                SetDarknessValue(level.GetDarknessValue());
                 UpdateMoney();
                 foreach (var component in level.GetComponents())
                 {
@@ -811,6 +811,11 @@ namespace MVZ2.Level
         private void SetGameStarted(bool value)
         {
             isGameStarted = value;
+        }
+        private void SetDarknessValue(float value)
+        {
+            ui.SetDarknessValue(value);
+            model.SetDarknessValue(value);
         }
         #endregion
 

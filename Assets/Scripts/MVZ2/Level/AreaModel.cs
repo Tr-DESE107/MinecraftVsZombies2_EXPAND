@@ -15,6 +15,13 @@ namespace MVZ2.Level
         {
             updateGroup.SetSimulationSpeed(simulationSpeed);
         }
+        public void SetDarknessValue(float value)
+        {
+            foreach (var renderer in darknessRenderers)
+            {
+                renderer.color = new Color(0, 0, 0, value);
+            }
+        }
         public void SetPreset(string name)
         {
             bool hasActive = false;
@@ -66,6 +73,8 @@ namespace MVZ2.Level
         private ModelUpdateGroup updateGroup;
         [SerializeField]
         private GameObject[] doorObjects;
+        [SerializeField]
+        private SpriteRenderer[] darknessRenderers;
         [SerializeField]
         private AreaModelPreset[] presets;
     }
