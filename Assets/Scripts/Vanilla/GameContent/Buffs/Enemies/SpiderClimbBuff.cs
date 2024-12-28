@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public SpiderClimbBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
+            AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Set, 0));
             AddModifier(new BooleanModifier(VanillaEntityProps.KEEP_GROUND_FRICTION, true));
         }
     }

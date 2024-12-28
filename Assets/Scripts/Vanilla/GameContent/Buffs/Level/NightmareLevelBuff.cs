@@ -16,8 +16,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(new NamespaceIDModifier(EngineAreaProps.CART_REFERENCE, VanillaCartID.nyaightmare));
             AddModifier(new NamespaceIDModifier(VanillaLevelProps.MUSIC_ID, VanillaMusicID.nightmareLevel));
-            SetProperty(VanillaAreaProps.WATER_COLOR, new Color(0.89f, 0, 0, 1));
-            SetProperty(VanillaAreaProps.WATER_COLOR_CENSORED, new Color(0, 0, 0.5f, 1));
+            AddModifier(new ColorModifier(VanillaAreaProps.WATER_COLOR, BlendOperator.One, BlendOperator.Zero, new Color(0.89f, 0, 0, 1)));
+            AddModifier(new ColorModifier(VanillaAreaProps.WATER_COLOR_CENSORED, BlendOperator.One, BlendOperator.Zero, new Color(0, 0, 0.5f, 1)));
         }
     }
 }
