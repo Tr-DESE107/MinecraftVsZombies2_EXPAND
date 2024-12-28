@@ -31,6 +31,7 @@
     <model name="necromancer" type="entity" path="mvz2:enemy/necromancer" width="64" height="96" xOffset="10" yOffset="-44"/>
 
     <model name="spider" type="entity" path="mvz2:enemy/spider" width="108" height="108" xOffset="0" yOffset="-48"/>
+    <model name="cave_spider" type="entity" path="mvz2:enemy/cave_spider" width="54" height="54" xOffset="0" yOffset="-24"/>
     <model name="ghast" type="entity" path="mvz2:enemy/ghast" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="bone_wall" type="entity" path="mvz2:enemy/bone_wall" width="80" height="80" xOffset="0" yOffset="-40"/>

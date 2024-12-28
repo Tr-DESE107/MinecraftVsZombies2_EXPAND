@@ -336,6 +336,19 @@
                 <p>蜘蛛开的网吧相当赚钱，因为大家都被黏住了。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:cave_spider">
+            <header>
+                <p>洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>120</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被普通高度的子弹打中</color>]]></p>
+            </properties>
+            <flavor>
+                <p>曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:hoe">

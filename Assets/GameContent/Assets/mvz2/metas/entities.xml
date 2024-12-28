@@ -391,6 +391,25 @@
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="2"/>
         </enemy>
+        <enemy id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。" unlock="mvz2:level.dream_3">
+            <float name="maxHealth" value="120"/>
+            <float name="maxAttackHeight" value="15"/>
+            <float name="speed" value="2"/>
+            <bool name="undead" value="false"/>
+            <vector3 name="size" x="52" y="24" z="24"/>
+            <id name="crySound" value="mvz2:spider_cry"/>
+            <id name="deathSound" value="mvz2:spider_death"/>
+
+            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+
+            <color name="bloodColor" value="#007F00FF"/>
+            <color name="bloodColorCensored" value="#007F00FF"/>
+
+            <int name="cost" value="75" />
+            <int name="waterInteraction" value="3"/>
+            <int name="spawnCost" value="2"/>
+            <bool name="canSpawnAtWaterLane" value="true"/>
+        </enemy>
         <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
             <bool name="undead" value="false"/>
             <float name="maxHealth" value="100"/>
