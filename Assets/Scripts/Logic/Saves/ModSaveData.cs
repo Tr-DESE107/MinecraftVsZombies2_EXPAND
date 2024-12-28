@@ -67,35 +67,6 @@ namespace MVZ2Logic.Saves
         }
         #endregion
 
-        #region 地图预设
-        public void SetMapPresetID(string mapId, NamespaceID preset)
-        {
-            var config = GetMapPresetConfig(mapId);
-            if (config == null)
-            {
-                config = CreateMapPresetConfig(mapId);
-            }
-            config.Preset = preset;
-        }
-        public NamespaceID GetMapPresetID(string mapId)
-        {
-            var config = GetMapPresetConfig(mapId);
-            if (config == null)
-                return null;
-            return config.Preset;
-        }
-        private MapPresetConfig CreateMapPresetConfig(string mapId)
-        {
-            var config = new MapPresetConfig(mapId);
-            mapPresetConfigs.Add(config);
-            return config;
-        }
-        private MapPresetConfig GetMapPresetConfig(string mapId)
-        {
-            return mapPresetConfigs.FirstOrDefault(r => r.ID == mapId);
-        }
-        #endregion
-
         #region 无尽
         public void SetCurrentEndlessFlag(string stageID, int value)
         {
@@ -141,7 +112,6 @@ namespace MVZ2Logic.Saves
             serializable.stats = stats.ToSerializable();
             serializable.endlessRecords = endlessRecords.Select(r => r.ToSerializable()).ToArray();
             serializable.levelDifficultyRecords = levelDifficultyRecords.Select(r => r.ToSerializable()).ToArray();
-            serializable.mapPresetConfigs = mapPresetConfigs.Select(i => i.ToSerializable()).ToArray();
             serializable.unlocks = unlocks.ToArray();
             return serializable;
         }
@@ -151,14 +121,12 @@ namespace MVZ2Logic.Saves
             stats = UserStats.FromSerializable(serializable.stats);
             endlessRecords = serializable.endlessRecords?.Select(i => EndlessRecord.FromSerializable(i))?.ToList() ?? new List<EndlessRecord>();
             levelDifficultyRecords = serializable.levelDifficultyRecords.Select(r => LevelDifficultyRecord.FromSerializable(r)).ToList();
-            mapPresetConfigs = serializable.mapPresetConfigs?.Select(i => MapPresetConfig.FromSerializable(i))?.ToList() ?? new List<MapPresetConfig>();
             unlocks = serializable.unlocks.ToHashSet();
         }
         public string Namespace { get; private set; }
         protected UserStats stats = new UserStats();
         protected List<LevelDifficultyRecord> levelDifficultyRecords = new List<LevelDifficultyRecord>();
         protected List<EndlessRecord> endlessRecords = new List<EndlessRecord>();
-        protected List<MapPresetConfig> mapPresetConfigs = new List<MapPresetConfig>();
         protected HashSet<string> unlocks = new HashSet<string>();
     }
     public abstract class SerializableModSaveData
@@ -168,7 +136,8 @@ namespace MVZ2Logic.Saves
         public SerializableUserStats stats;
         public SerializableEndlessRecord[] endlessRecords;
         public SerializableLevelDifficultyRecord[] levelDifficultyRecords;
-        public SerializableMapPresetConfig[] mapPresetConfigs;
         public string[] unlocks;
+        [Obsolete]
+        public object[] mapPresetConfigs;
     }
 }

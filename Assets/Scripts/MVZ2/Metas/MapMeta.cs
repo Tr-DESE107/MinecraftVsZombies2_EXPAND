@@ -53,6 +53,8 @@ namespace MVZ2.Metas
         public NamespaceID id;
         public NamespaceID model;
         public NamespaceID music;
+        public int priority;
+        public XMLConditionList conditions;
         public Color backgroundColor;
         public static MapPreset FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -60,12 +62,21 @@ namespace MVZ2.Metas
             var model = node.GetAttributeNamespaceID("model", defaultNsp);
             var music = node.GetAttributeNamespaceID("music", defaultNsp);
             var backgroundColor = node.GetAttributeColor("backgroundColor") ?? Color.black;
+            var priority = node.GetAttributeInt("priority") ?? 0;
+            XMLConditionList conditions = null;
+            var conditionsNode = node["conditions"];
+            if (conditionsNode != null)
+            {
+                conditions = XMLConditionList.FromXmlNode(conditionsNode, defaultNsp);
+            }
             return new MapPreset()
             {
                 id = id,
                 model = model,
                 music = music,
+                priority = priority,
                 backgroundColor = backgroundColor,
+                conditions = conditions,
             };
         }
     }

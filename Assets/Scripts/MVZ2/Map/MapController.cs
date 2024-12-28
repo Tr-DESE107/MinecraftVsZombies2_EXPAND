@@ -10,6 +10,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.Options;
+using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
@@ -68,16 +69,10 @@ namespace MVZ2.Map
             if (mapMeta == null)
                 return;
 
-            var savedPreset = Main.SaveManager.GetMapPresetID(mapId);
-            MapPreset mapPreset = null;
-            if (NamespaceID.IsValid(savedPreset))
-            {
-                mapPreset = mapMeta.presets.FirstOrDefault(p => p.id == savedPreset);
-            }
+            var unlockedPresets = mapMeta.presets.Where(p => p.conditions == null || Main.SaveManager.MeetsXMLConditions(p.conditions));
+            MapPreset mapPreset = unlockedPresets.OrderByDescending(p => p.priority).FirstOrDefault();
             if (mapPreset == null)
-            {
-                mapPreset = mapMeta.presets.FirstOrDefault();
-            }
+                return;
             var modelPrefab = Main.ResourceManager.GetMapModel(mapPreset.model);
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;

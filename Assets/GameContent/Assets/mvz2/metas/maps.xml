@@ -19,8 +19,16 @@
     </map>
     <map id="dream" endlessUnlock="mvz2:level.dream_11" area="mvz2:dream" >
         <presets>
-            <preset id="mvz2:dream" model="mvz2:dream" backgroundColor="#000E24" music="mvz2:dream_map" />
-            <preset id="mvz2:nightmare" model="mvz2:nightmare" backgroundColor="#24000E" music="mvz2:nightmare_map" />
+            <preset id="mvz2:dream" model="mvz2:dream" backgroundColor="#000E24" music="mvz2:dream_map">
+                <conditions>
+                    <condition requiredNot="mvz2:dream_is_nightmare"/>
+                </conditions>
+            </preset>
+            <preset id="mvz2:nightmare" model="mvz2:nightmare" backgroundColor="#24000E" music="mvz2:nightmare_map">
+                <conditions>
+                    <condition required="mvz2:dream_is_nightmare"/>
+                </conditions>
+            </preset>
         </presets>
         <stages endless="mvz2:dream_endless">
             <stage id="mvz2:dream_1"/>
