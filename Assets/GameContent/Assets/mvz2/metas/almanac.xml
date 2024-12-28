@@ -322,6 +322,20 @@
                 <p>死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。</p>
             </flavor>
         </entry>
+        
+        <entry id="mvz2:spider">
+            <header>
+                <p>蜘蛛可以爬过你的防御。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>160</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>特点：<![CDATA[<color=red>可以爬上并越过防御性器械</color>]]></p>
+            </properties>
+            <flavor>
+                <p>蜘蛛开的网吧相当赚钱，因为大家都被黏住了。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:hoe">

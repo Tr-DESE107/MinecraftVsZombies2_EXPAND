@@ -51,9 +51,9 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetProperty(DAMAGE, value);
         }
-        public static float GetAttackSpeed(this Entity entity)
+        public static float GetAttackSpeed(this Entity entity, bool ignoreBuffs = false)
         {
-            return entity.GetProperty<float>(ATTACK_SPEED);
+            return entity.GetProperty<float>(ATTACK_SPEED, ignoreBuffs: ignoreBuffs);
         }
         #endregion
 
@@ -319,6 +319,14 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID GetStackOnEntity(this EntityDefinition entity)
         {
             return entity.GetProperty<NamespaceID>(STACK_ON);
+        }
+        #endregion
+
+        #region 摩擦力
+        public const string KEEP_GROUND_FRICTION = "KeepGroundFriction";
+        public static bool KeepGroundFriction(this Entity entity)
+        {
+            return entity.GetProperty<bool>(KEEP_GROUND_FRICTION);
         }
         #endregion
     }

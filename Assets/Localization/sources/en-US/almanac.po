@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-27 08:59+0800\n"
-"PO-Revision-Date: 2024-12-27 21:01+0800\n"
+"POT-Creation-Date: 2024-12-28 03:26+0800\n"
+"PO-Revision-Date: 2024-12-28 15:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -641,6 +641,30 @@ msgid "死灵法师想不通，为什么就因为复活了死者，他们就莫�
 msgstr ""
 "The Necromancers can’t figure out why they have to deal with others overtaxing them or calling them evil witches because they raise "
 "the dead. They just want to build a wall."
+
+#. Header for enemies mvz2:spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "蜘蛛可以爬过你的防御。"
+msgstr "Spiders can climb over your defenses."
+
+#. Properties for enemies mvz2:spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>160</color>\n"
+"速度：<color=red>2</color>\n"
+"特点：<color=red>可以爬上并越过防御性器械</color>"
+msgstr ""
+"Toughness: <color=red>160</color>\n"
+"Speed: <color=red>2</color>\n"
+"Special: <color=red>Can climb over defensive contraptions</color>"
+
+#. Flavor for enemies mvz2:spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
+msgstr "The Internet bars opened by Spiders are quite profitable, because everyone is stuck in the net."
 
 #. Header for artifacts mvz2:hoe
 #: Almanac meta file
@@ -1588,6 +1612,18 @@ msgstr ""
 "You Died\n"
 "Death took 42690 gold and some XP away"
 
+#. Header for entity mvz2:spider
+#: Entity meta file
+msgctxt "entity.name"
+msgid "蜘蛛"
+msgstr "Spider"
+
+#. Death message for entity mvz2:spider
+#: Entity meta file
+msgctxt "death_message"
+msgid "我的蜘蛛感应又有反应了。"
+msgstr "My spider-sense is tingling."
+
 #. Header for entity mvz2:ghast
 #: Entity meta file
 msgctxt "entity.name"
@@ -2218,12 +2254,6 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 
 #~ msgid "恐怖寄生虫"
 #~ msgstr "Parasite Terror"
-
-#~ msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
-#~ msgstr "The Internet bars opened by Spiders are quite profitable, because everyone is stuck in the net."
-
-#~ msgid "蜘蛛"
-#~ msgstr "Spider"
 
 #~ msgid ""
 #~ "梦魇是从虚空中诞生的上古之神所抛弃的残滓，它们成群地漂浮于深邃的宇宙之中，被恐惧所诱惑，吞噬并腐化碰到的所有东西，是既不受上古之神欢"

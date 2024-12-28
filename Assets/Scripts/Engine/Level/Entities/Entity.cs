@@ -255,6 +255,7 @@ namespace PVZEngine.Entities
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
+        public int RemoveBuffs<T>() where T : BuffDefinition => RemoveBuffs(GetBuffs<T>());
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();

@@ -39,6 +39,7 @@ namespace MVZ2.GameContent.Buffs
         public const string napstablookAngry = "napstablook_angry";
         public const string frankensteinTransformer = "frankenstein_transformer";
         public const string boat = "boat";
+        public const string spiderClimb = "spider_climb";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";

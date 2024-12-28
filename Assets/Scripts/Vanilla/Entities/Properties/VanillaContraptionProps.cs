@@ -15,6 +15,11 @@ namespace MVZ2.Vanilla.Contraptions
             return entity.GetProperty<bool>(NOCTURNAL);
         }
         #endregion
+        public const string DEFENSIVE = "defensive";
+        public static bool IsDefensive(this Entity contraption)
+        {
+            return contraption.GetProperty<bool>(DEFENSIVE);
+        }
 
         public const string IS_FLOOR = "isFloor";
         public const string CAN_SHOCK = "canShock";

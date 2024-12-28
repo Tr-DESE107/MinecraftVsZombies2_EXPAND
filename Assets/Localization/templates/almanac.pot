@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-27 08:59+0800\n"
+"POT-Creation-Date: 2024-12-28 03:26+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -508,6 +508,27 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。"
+msgstr ""
+
+#. Header for enemies mvz2:spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "蜘蛛可以爬过你的防御。"
+msgstr ""
+
+#. Properties for enemies mvz2:spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>160</color>\n"
+"速度：<color=red>2</color>\n"
+"特点：<color=red>可以爬上并越过防御性器械</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
 msgstr ""
 
 #. Header for artifacts mvz2:hoe
@@ -1378,6 +1399,18 @@ msgctxt "death_message"
 msgid ""
 "你挂了\n"
 "死亡带走了12450金币和经验值"
+msgstr ""
+
+#. Header for entity mvz2:spider
+#: Entity meta file
+msgctxt "entity.name"
+msgid "蜘蛛"
+msgstr ""
+
+#. Death message for entity mvz2:spider
+#: Entity meta file
+msgctxt "death_message"
+msgid "我的蜘蛛感应又有反应了。"
 msgstr ""
 
 #. Header for entity mvz2:ghast

@@ -18,9 +18,9 @@ namespace MVZ2.Vanilla.Entities
         public const string DEATH_MESSAGE = "deathMessage";
         public const string IS_NEUTRALIZED = "isNeutralized";
         public const string EXCLUDED_AREA_TAGS = "excludedAreaTags";
-        public static float GetSpeed(this Entity enemy)
+        public static float GetSpeed(this Entity enemy, bool ignoreBuffs = false)
         {
-            return enemy.GetProperty<float>(SPEED);
+            return enemy.GetProperty<float>(SPEED, ignoreBuffs: ignoreBuffs);
         }
         public static float GetMaxAttackHeight(this Entity enemy)
         {

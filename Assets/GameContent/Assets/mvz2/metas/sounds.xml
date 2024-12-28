@@ -359,6 +359,9 @@
         <sample path="mvz2:spider_cry3" weight="1" />
         <sample path="mvz2:spider_cry4" weight="1" />
     </sound>
+    <sound name="spider_death">
+        <sample path="mvz2:spider_death" weight="1" />
+    </sound>
     <sound name="splash">
         <sample path="mvz2:splash" weight="1" />
     </sound>

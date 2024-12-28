@@ -34,6 +34,8 @@
 
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
+        public const int SPIDER_CLIMB = ENEMY_CAST;
+
         public const int FRANKENSTEIN_IDLE = IDLE;
         public const int FRANKENSTEIN_JUMP = WALK;
         public const int FRANKENSTEIN_GUN = ATTACK;

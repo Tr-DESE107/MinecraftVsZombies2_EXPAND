@@ -503,6 +503,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20cb1b235fabd9f49b957a6cb970904b
+    m_Address: mvz2:entity/enemy/cave_spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20e366ae3ad04144489c4e881a2d2b4a
     m_Address: mvz2:entity/enemy/skeleton
     m_ReadOnly: 0
@@ -1582,6 +1588,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ce8038d74bfbca429e3e9ad92eded0f
+    m_Address: mvz2:entity/enemy/mother_terror_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ced55b015735534ea11b4302ca7f87b
     m_Address: mvz2:entity/enemy/ghast
     m_ReadOnly: 0
@@ -1689,6 +1701,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 614ed32a96b18ee45b196d855175f379
+    m_Address: mvz2:entity/enemy/mother_terror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 615b479630858fa49a2d7717e8adf4ec
     m_Address: mvz2:entity/effect/explosion
@@ -2104,6 +2122,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f65243c614e7c64abc683911c4ad91c
+    m_Address: mvz2:entity/enemy/parasite_terror_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f88b2909373d744ea8462efaa895bee
     m_Address: mvz2:damage/fall/fall_big
     m_ReadOnly: 0
@@ -2145,6 +2169,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81c298ae9a9d665438c001f4f8784077
+    m_Address: mvz2:enemy/mother_terror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8232e349821c7af46bf3bb99ffabf9d9
     m_Address: mvz2:pop
@@ -2301,6 +2331,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b6fcf46139505d41b1ef83b75aedd0d
+    m_Address: mvz2:entity/enemy/parasite_terror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b9310b7e61da30448b5d9b66c4cf9f3
     m_Address: mvz2:entity/enemies/ghost_tail
@@ -2788,6 +2824,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a66a8e7b59dead94fb585912ec7a67af
+    m_Address: mvz2:enemy/spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6c3bff2554b63442a1f25c7c9dac764
     m_Address: mvz2:talks/dream
     m_ReadOnly: 0
@@ -2944,6 +2986,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aeb73fdcd5594ca4eb34828d40fd8b74
+    m_Address: mvz2:enemy/parasite_terror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb8f84fd7f52684e9107599101bf807
     m_Address: mvz2:misc/nightmare_appear
     m_ReadOnly: 0
@@ -2973,6 +3021,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b05d578e666fa614c871c4984041189f
+    m_Address: mvz2:entity/enemy/spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0dadde6313f7754d883172449da1188
     m_Address: mvz2:mainmenuviews
@@ -3148,6 +3202,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9f53695c65314942a98f06a42c2aa47
+    m_Address: mvz2:enemy/cave_spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb82960c34438084dbe2e212ab303367
     m_Address: mvz2:entity/mummy/mummy3
     m_ReadOnly: 0
@@ -3165,6 +3225,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd7c4ef1623396741baeff42ae95e4d8
+    m_Address: mvz2:entity/enemy/spider_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle
@@ -3519,6 +3585,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d59a40ebc8e2cc64392de05f2870d045
+    m_Address: mvz2:entity/enemy/cave_spider_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d59bccce00ed4d249a2861edbaf331db
     m_Address: mvz2:effect/bone_particles

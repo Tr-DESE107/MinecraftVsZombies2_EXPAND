@@ -1,4 +1,5 @@
 ﻿using MVZ2.Vanilla;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -29,7 +30,7 @@ namespace MVZ2.GameContent.Buffs
             if (entity == null)
                 return;
             float friction = 1;
-            if (!entity.IsOnGround)
+            if (!entity.IsOnGround && !entity.KeepGroundFriction())
             {
                 friction = 0.1f;
             }
