@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-28 03:26+0800\n"
+"POT-Creation-Date: 2024-12-28 03:42+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -529,6 +529,53 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
+msgstr ""
+
+#. Header for enemies mvz2:cave_spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。"
+msgstr ""
+
+#. Properties for enemies mvz2:cave_spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>120</color>\n"
+"速度：<color=red>2</color>\n"
+"特点：<color=red>不会被普通高度的子弹打中</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:cave_spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。"
+msgstr ""
+
+#. Header for enemies mvz2:ghast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "恶魂能够飞在天上并对你的器械进行轰炸。"
+msgstr ""
+
+#. Properties for enemies mvz2:ghast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:ghast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"########公告########\n"
+"·本地狱生物展览馆收录各种样式的地狱生物，包括恶魂、僵尸猪灵（缺货）、凋灵骷髅等。\n"
+"·禁止以一切方式触摸地狱生物\n"
+"·禁止拍照\n"
+"·禁止向恶魂投食钻石头盔"
 msgstr ""
 
 #. Header for artifacts mvz2:hoe
@@ -1411,6 +1458,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "我的蜘蛛感应又有反应了。"
+msgstr ""
+
+#. Header for entity mvz2:cave_spider
+#: Entity meta file
+msgctxt "entity.name"
+msgid "洞穴蜘蛛"
+msgstr ""
+
+#. Death message for entity mvz2:cave_spider
+#: Entity meta file
+msgctxt "death_message"
+msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
 msgstr ""
 
 #. Header for entity mvz2:ghast

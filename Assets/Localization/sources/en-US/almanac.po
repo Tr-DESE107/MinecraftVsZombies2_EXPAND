@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 03:26+0800\n"
-"PO-Revision-Date: 2024-12-28 15:28+0800\n"
+"POT-Creation-Date: 2024-12-28 03:42+0800\n"
+"PO-Revision-Date: 2024-12-28 15:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -665,6 +665,65 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "蜘蛛开的网吧相当赚钱，因为大家都被黏住了。"
 msgstr "The Internet bars opened by Spiders are quite profitable, because everyone is stuck in the net."
+
+#. Header for enemies mvz2:cave_spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。"
+msgstr "Cave Spiders cannot climb over contraptions, but they can swim and cannot be hit by medium height projectiles or higher."
+
+#. Properties for enemies mvz2:cave_spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>120</color>\n"
+"速度：<color=red>2</color>\n"
+"特点：<color=red>不会被普通高度的子弹打中</color>"
+msgstr ""
+"Toughness: <color=red>120</color>\n"
+"Speed: <color=red>2</color>\n"
+"Special: <color=red>Will not be hit by medium height projectiles or higher</color>"
+
+#. Flavor for enemies mvz2:cave_spider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。"
+msgstr "It has won the \"Spidernet Surfing Competition\" many times, just because the other spiders can't swim."
+
+#. Header for enemies mvz2:ghast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "恶魂能够飞在天上并对你的器械进行轰炸。"
+msgstr "Ghasts can fly in the sky and bombard your contraptions."
+
+#. Properties for enemies mvz2:ghast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
+msgstr ""
+"Toughness: <color=red>100</color>\n"
+"Speed: <color=red>1</color>\n"
+"Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
+
+#. Flavor for enemies mvz2:ghast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"########公告########\n"
+"·本地狱生物展览馆收录各种样式的地狱生物，包括恶魂、僵尸猪灵（缺货）、凋灵骷髅等。\n"
+"·禁止以一切方式触摸地狱生物\n"
+"·禁止拍照\n"
+"·禁止向恶魂投食钻石头盔"
+msgstr ""
+"########ANNOUNCEMENT########\n"
+"· Local Hell Creature Exhibition Hall contains various types of hell creatures, including ghasts, zombified piglins (out of stock), "
+"wither skeletons, etc.\n"
+"· Touching hell creatures is prohibited by all means\n"
+"· No photography\n"
+"· Do not feed diamond helmets to ghasts"
 
 #. Header for artifacts mvz2:hoe
 #: Almanac meta file
@@ -1624,6 +1683,18 @@ msgctxt "death_message"
 msgid "我的蜘蛛感应又有反应了。"
 msgstr "My spider-sense is tingling."
 
+#. Header for entity mvz2:cave_spider
+#: Entity meta file
+msgctxt "entity.name"
+msgid "洞穴蜘蛛"
+msgstr "Cave Spider"
+
+#. Death message for entity mvz2:cave_spider
+#: Entity meta file
+msgctxt "death_message"
+msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
+msgstr "Here comes the itsy bitsy spider!"
+
 #. Header for entity mvz2:ghast
 #: Entity meta file
 msgctxt "entity.name"
@@ -2169,39 +2240,6 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ "\n"
 #~ "Toughness: <color=red>Medium</color>\n"
 #~ "Speed: <color=red>Medium</color>"
-
-#~ msgid "曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。"
-#~ msgstr "It has won the \"Spidernet Surfing Competition\" many times, just because the other spiders can't swim."
-
-#~ msgid ""
-#~ "洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。\n"
-#~ "\n"
-#~ "耐久：<color=red>极低</color>\n"
-#~ "速度：<color=red>快</color>\n"
-#~ "特点：<color=red>不会被普通高度的子弹打中</color>"
-#~ msgstr ""
-#~ "Cave Spiders cannot climb over contraptions, but they can swim and cannot be hit by medium height projectiles or higher.\n"
-#~ "\n"
-#~ "Toughness: <color=red>Very low</color>\n"
-#~ "Speed: <color=red>Fast</color>\n"
-#~ "Special: <color=red>Will not be hit by medium height projectiles or higher</color>"
-
-#~ msgid "洞穴蜘蛛"
-#~ msgstr "Cave Spider"
-
-#~ msgid ""
-#~ "########公告########\n"
-#~ "·本地狱生物展览馆收录各种样式的地狱生物，包括恶魂、僵尸猪人（缺货）、凋灵骷髅等。\n"
-#~ "·禁止以一切方式触摸地狱生物\n"
-#~ "·禁止拍照\n"
-#~ "·禁止向恶魂投食钻石头盔"
-#~ msgstr ""
-#~ "########ANNOUNCEMENT########\n"
-#~ "· Local Hell Creature Exhibition Hall contains various types of hell creatures, including ghasts, zombified piglins (out of stock), "
-#~ "wither skeletons, etc.\n"
-#~ "· Touching hell creatures is prohibited by all means\n"
-#~ "· No photography\n"
-#~ "· Do not feed diamond helmets to ghasts"
 
 #~ msgid ""
 #~ "恶魂能够飞在天上并对你的器械进行轰炸。\n"

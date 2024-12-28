@@ -349,6 +349,23 @@
                 <p>曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:ghast">
+            <header>
+                <p>恶魂能够飞在天上并对你的器械进行轰炸。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>100</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
+            </properties>
+            <flavor>
+                <p>########公告########</p>
+                <p>·本地狱生物展览馆收录各种样式的地狱生物，包括恶魂、僵尸猪灵（缺货）、凋灵骷髅等。</p>
+                <p>·禁止以一切方式触摸地狱生物</p>
+                <p>·禁止拍照</p>
+                <p>·禁止向恶魂投食钻石头盔</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:hoe">
