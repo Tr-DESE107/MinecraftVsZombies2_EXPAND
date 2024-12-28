@@ -17,7 +17,6 @@ namespace MVZ2.GameContent.Obstacles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetFaction(entity.Level.Option.RightFaction);
             entity.AddBuff<TemporaryUpdateBeforeGameBuff>();
             entity.TriggerAnimation("Rise");
             entity.PlaySound(VanillaSoundID.dirtRise);

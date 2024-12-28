@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Grids;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
@@ -43,7 +44,7 @@ namespace MVZ2.Vanilla.Entities
             float stateHP = maxHP / stateCount;
             return Mathf.CeilToInt(entity.Health / stateHP) - 1;
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, bool toBody = true, bool toShield = false)
         {
             return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), toBody, toShield);
         }
@@ -525,6 +526,17 @@ namespace MVZ2.Vanilla.Entities
             {
                 behaviour.StackOnEntity(target);
             }
+        }
+        #endregion
+
+        #region 阵营
+        public static void SetFactionAndDirection(this Entity entity, int faction)
+        {
+            entity.SetFaction(faction);
+            var faceRight = faction == entity.Level.Option.LeftFaction;
+            var xScale = entity.FaceLeftAtDefault() == faceRight ? -1 : 1;
+            entity.SetScale(new Vector3(xScale, 1, 1));
+            entity.SetDisplayScale(new Vector3(xScale, 1, 1));
         }
         #endregion
     }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 03:42+0800\n"
-"PO-Revision-Date: 2024-12-28 15:43+0800\n"
+"POT-Creation-Date: 2024-12-28 07:36+0800\n"
+"PO-Revision-Date: 2024-12-28 19:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -724,6 +724,53 @@ msgstr ""
 "· Touching hell creatures is prohibited by all means\n"
 "· No photography\n"
 "· Do not feed diamond helmets to ghasts"
+
+#. Header for enemies mvz2:mother_terror
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "恐怖之母会向血肉之躯寄生虫卵。"
+msgstr ""
+"Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs."
+
+#. Properties for enemies mvz2:mother_terror
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>2</color>，而后<color=red>0.6</color>（产卵后）\n"
+"特点：<color=red>碰到的血肉之躯会被寄生</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Speed: <color=red>2</color>, then <color=red>0.6</color> (After laying eggs)\n"
+"Special: <color=red>Flesh bodies will get parasitized upon contact</color>"
+
+#. Flavor for enemies mvz2:mother_terror
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "擅长在网络文件中捆绑流氓软件和BUG。"
+msgstr "Good at inserting bugs into network files."
+
+#. Header for enemies mvz2:parasite_terror
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "恐怖寄生虫会在宿主死亡或者成长到极限后撕碎身体并钻出来。"
+msgstr "Parasite Terrors shred the hosts' body and come out after they mature."
+
+#. Properties for enemies mvz2:parasite_terror
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>0-50</color>（变化）\n"
+"速度：<color=red>4</color>"
+msgstr ""
+"Toughness: <color=red>0-50</color>(Variable)\n"
+"Speed: <color=red>4</color>"
+
+#. Flavor for enemies mvz2:parasite_terror
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "它还没想好自己的网络冷笑话该怎么写。"
+msgstr "It hasn't figured out how to write its own network jokes."
 
 #. Header for artifacts mvz2:hoe
 #: Almanac meta file
@@ -1707,6 +1754,30 @@ msgctxt "death_message"
 msgid "快拿棒球棒！"
 msgstr "Burn Baby Burn"
 
+#. Header for entity mvz2:mother_terror
+#: Entity meta file
+msgctxt "entity.name"
+msgid "恐怖之母"
+msgstr "Mother Terror"
+
+#. Death message for entity mvz2:mother_terror
+#: Entity meta file
+msgctxt "death_message"
+msgid "生异形啊"
+msgstr "Baby delivery!"
+
+#. Header for entity mvz2:parasite_terror
+#: Entity meta file
+msgctxt "entity.name"
+msgid "恐怖寄生虫"
+msgstr "Parasite Terror"
+
+#. Death message for entity mvz2:parasite_terror
+#: Entity meta file
+msgctxt "death_message"
+msgid "恐怖寄生虫 已消灭世界上的所有……"
+msgstr "There are no healthy people left in the world..."
+
 #. Header for entity mvz2:bone_wall
 #: Entity meta file
 msgctxt "entity.name"
@@ -2254,44 +2325,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ "Speed: <color=red>Average</color>\n"
 #~ "Features: <color=red>Will not be hit by medium height projectiles or lower</color>"
 
-#~ msgid "擅长在网络文件中捆绑流氓软件和BUG。"
-#~ msgstr "Good at inserting bugs into network files."
-
-#~ msgid ""
-#~ "恐怖之母会向血肉之躯寄生虫卵。\n"
-#~ "\n"
-#~ "耐久：<color=red>中等</color>\n"
-#~ "速度：<color=red>快</color>，而后<color=red>很慢（产卵后）</color>\n"
-#~ "特点：<color=red>碰到的血肉之躯会被寄生</color>"
-#~ msgstr ""
-#~ "Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs.\n"
-#~ "\n"
-#~ "Toughness: <color=red>Medium</color>\n"
-#~ "Speed: <color=red>Fast</color>, then <color=red>Very slow (After laying eggs)</color>\n"
-#~ "Special: <color=red>flesh bodies will get parasitized upon contact</color>"
-
-#~ msgid "恐怖之母"
-#~ msgstr "Mother Terror"
-
 #~ msgid "纳普斯特"
 #~ msgstr "Napstablook"
-
-#~ msgid "它还没想好自己的网络冷笑话该怎么写。"
-#~ msgstr "It hasn't figured out how to write its own network jokes."
-
-#~ msgid ""
-#~ "恐怖寄生虫会在宿主死亡或者成长到极限后撕碎身体并钻出来。\n"
-#~ "\n"
-#~ "耐久：<color=red>极低-非常低（变化）</color>\n"
-#~ "速度：<color=red>非常快</color>"
-#~ msgstr ""
-#~ "Parasite Terrors shred the hosts' body and come out after they mature.\n"
-#~ "\n"
-#~ "Toughness: <color=red>Extremely low - Very low (Variable)</color>\n"
-#~ "Speed: <color=red>Very fast</color>"
-
-#~ msgid "恐怖寄生虫"
-#~ msgstr "Parasite Terror"
 
 #~ msgid ""
 #~ "梦魇是从虚空中诞生的上古之神所抛弃的残滓，它们成群地漂浮于深邃的宇宙之中，被恐惧所诱惑，吞噬并腐化碰到的所有东西，是既不受上古之神欢"

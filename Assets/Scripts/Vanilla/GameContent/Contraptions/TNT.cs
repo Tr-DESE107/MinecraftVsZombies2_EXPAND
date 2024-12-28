@@ -150,7 +150,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             foreach (Entity unit in level.FindEntities(e => entity.IsHostile(e)))
             {
-                unit.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.IGNORE_ARMOR));
+                unit.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.IGNORE_ARMOR), entity);
                 if (unit.IsEntityOf(VanillaBossID.frankenstein))
                 {
                     Frankenstein.Paralyze(unit, entity);

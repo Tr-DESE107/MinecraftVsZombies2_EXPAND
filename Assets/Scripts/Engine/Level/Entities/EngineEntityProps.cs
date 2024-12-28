@@ -21,6 +21,11 @@ namespace PVZEngine.Entities
         public const string TINT = "tint";
         public const string COLOR_OFFSET = "colorOffset";
         public const string FACE_LEFT_AT_DEFAULT = "faceLeftAtDefault";
+        public static bool FaceLeftAtDefault(this Entity entity)
+        {
+            return entity.GetProperty<bool>(FACE_LEFT_AT_DEFAULT);
+        }
+
         public const string FACTION = "faction";
         public const string INVINCIBLE = "invincible";
 

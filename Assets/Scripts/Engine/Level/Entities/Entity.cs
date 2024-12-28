@@ -569,7 +569,7 @@ namespace PVZEngine.Entities
             return null;
         }
         #endregion
-        public bool IsFacingLeft() => GetProperty<bool>(EngineEntityProps.FACE_LEFT_AT_DEFAULT) != FlipX;
+        public bool IsFacingLeft() => this.FaceLeftAtDefault() != FlipX;
 
         #region 模型
         public void SetModelInterface(IModelInterface model, IModelInterface armorModel)

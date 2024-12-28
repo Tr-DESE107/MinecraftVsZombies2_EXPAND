@@ -1,0 +1,130 @@
+﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Shells;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
+using PVZEngine;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using Tools;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Enemies
+{
+    [Definition(VanillaEnemyNames.motherTerror)]
+    public class MotherTerror : MeleeEnemy
+    {
+        public MotherTerror(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.CollisionMaskFriendly |= EntityCollisionHelper.MASK_ENEMY;
+            SetRestoreEggTimer(entity, new FrameTimer(600));
+        }
+        protected override void UpdateAI(Entity enemy)
+        {
+            base.UpdateAI(enemy);
+            var timer = GetRestoreEggTimer(enemy);
+            if (!HasEggs(enemy))
+            {
+                timer.Run();
+                if (timer.Expired)
+                {
+                    enemy.RemoveBuffs<MotherTerrorLaidBuff>();
+                    timer.Reset();
+                }
+            }
+        }
+        public override void PostCollision(EntityCollision collision, int state)
+        {
+            base.PostCollision(collision, state);
+            if (!collision.Collider.IsMain() || !collision.OtherCollider.IsMain())
+                return;
+            var spider = collision.Entity;
+            if (!HasEggs(spider))
+                return;
+            var other = collision.Other;
+            if (state != EntityCollisionHelper.STATE_EXIT)
+            {
+                if (CanLayEgg(spider, other))
+                {
+                    LayEgg(spider, other);
+                }
+            }
+        }
+        public override void PostDeath(Entity entity, DamageInput info)
+        {
+            base.PostDeath(entity, info);
+            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
+            if (!HasEggs(entity))
+                return;
+            var level = entity.Level;
+            int count = 1;
+            if (level.Difficulty == VanillaDifficulties.hard)
+            {
+                count = 2;
+            }
+            for (int i = 0; i < count; i++)
+            {
+                var parasite = level.Spawn(VanillaEnemyID.parasiteTerror, entity.GetCenter(), entity);
+                parasite.SetFactionAndDirection(entity.GetFaction());
+            }
+            entity.PlaySound(VanillaSoundID.bloody);
+            entity.EmitBlood();
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            // 设置血量状态。
+            entity.SetAnimationInt("EggState", GetEggState(entity));
+            entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
+        }
+        public static bool HasEggs(Entity spider)
+        {
+            return !spider.HasBuff<MotherTerrorLaidBuff>();
+        }
+        public static bool CanLayEgg(Entity self, Entity target)
+        {
+            if (target == self)
+                return false;
+            if (!Detection.CanDetect(target))
+                return false;
+            if (!self.IsFriendly(target))
+                return false;
+            if (target.IsEntityOf(VanillaEnemyID.motherTerror) || target.IsEntityOf(VanillaEnemyID.parasiteTerror))
+                return false;
+            if (target.GetShellID() != VanillaShellID.flesh)
+                return false;
+            if (target.HasBuff<TerrorParasitizedBuff>())
+                return false;
+            return true;
+        }
+        public static void LayEgg(Entity spider, Entity target)
+        {
+            target.AddBuff<TerrorParasitizedBuff>();
+            target.PlaySound(VanillaSoundID.parasitize);
+            spider.AddBuff<MotherTerrorLaidBuff>();
+        }
+        public static void SetRestoreEggTimer(Entity entity, FrameTimer timer)
+        {
+            entity.SetBehaviourProperty(ID, PROP_RESTORE_EGG_TIMER, timer);
+        }
+        public static FrameTimer GetRestoreEggTimer(Entity entity)
+        {
+            return entity.GetBehaviourProperty<FrameTimer>(ID, PROP_RESTORE_EGG_TIMER);
+        }
+        private static int GetEggState(Entity entity)
+        {
+            return HasEggs(entity) ? 1 : -1;
+        }
+        public static readonly NamespaceID ID = VanillaEnemyID.motherTerror;
+        public const string PROP_RESTORE_EGG_TIMER = "RestoreEggTimer";
+    }
+}

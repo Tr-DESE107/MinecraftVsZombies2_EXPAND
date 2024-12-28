@@ -40,6 +40,8 @@ namespace MVZ2.GameContent.Buffs
         public const string frankensteinTransformer = "frankenstein_transformer";
         public const string boat = "boat";
         public const string spiderClimb = "spider_climb";
+        public const string motherTerrorLaid = "mother_terror_laid";
+        public const string terrorParasitized = "terror_parasitized";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";

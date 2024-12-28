@@ -3064,6 +3064,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3a86d0fdd9f49043b0ec319c8c28d4c
+    m_Address: mvz2:buffs/parasitized_icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3fb8d61fec87704189d63aacaa3814c
     m_Address: mvz2:ui/level/starshard_point
     m_ReadOnly: 0
@@ -4059,6 +4065,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eefa245eb2888394a9145f9886e67a92
+    m_Address: mvz2:icon/terror_parasitized
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef0c4e33486bc0b44bd32da3f6b7c34f
     m_Address: mvz2:entity/effect/smoke

@@ -255,6 +255,9 @@
     <sound name="paper" priority="64">
         <sample path="mvz2:paper" weight="1" />
     </sound>
+    <sound name="parasitize">
+        <sample path="mvz2:entity/terror/parasitize" weight="1" />
+    </sound>
     <sound name="pause" priority="0">
         <sample path="mvz2:pause" weight="1" />
     </sound>
@@ -404,6 +407,9 @@
         <sample path="mvz2:entity/terror/terror_cry1" weight="1" />
         <sample path="mvz2:entity/terror/terror_cry2" weight="1" />
         <sample path="mvz2:entity/terror/terror_cry3" weight="1" />
+    </sound>
+    <sound name="terror_death">
+        <sample path="mvz2:entity/terror/terror_death" weight="1" />
     </sound>
     <sound name="tesla_attack">
         <sample path="mvz2:tesla_attack" weight="1" />

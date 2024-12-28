@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.HeldItems
                     if (phase == PointerPhase.Press)
                     {
                         var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
-                        entity.TakeDamage(750, effects);
+                        entity.TakeDamageNoSource(750, effects);
                         Swing(entity.Level);
                     }
                     return true;

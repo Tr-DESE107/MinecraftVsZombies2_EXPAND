@@ -33,8 +33,8 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.ghast,
-                VanillaEnemyID.caveSpider,
+                VanillaEnemyID.motherTerror,
+                VanillaEnemyID.parasiteTerror,
                 VanillaBossID.frankenstein,
             });
             level.ReplaceArtifacts(new NamespaceID[]

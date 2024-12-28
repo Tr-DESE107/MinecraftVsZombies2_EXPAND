@@ -407,7 +407,7 @@
 
             <int name="cost" value="75" />
             <int name="waterInteraction" value="3"/>
-            <int name="spawnCost" value="2"/>
+            <int name="spawnCost" value="3"/>
             <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
         <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
@@ -428,6 +428,43 @@
             <int name="spawnCost" value="3"/>
             <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
+        <enemy id="mother_terror" name="恐怖之母" deathMessage="生异形啊" unlock="mvz2:level.dream_8">
+            <float name="maxHealth" value="200"/>
+            <float name="maxAttackHeight" value="30"/>
+            <float name="speed" value="2"/>
+            <bool name="undead" value="false"/>
+            <vector3 name="size" x="104" y="48" z="48"/>
+            <id name="crySound" value="mvz2:terror_cry"/>
+            <id name="deathSound" value="mvz2:terror_death"/>
+
+            <vector3 name="shadowScale" x="1" y="0.5" z="0.5"/>
+
+            <color name="bloodColor" value="#7F0000FF"/>
+            <color name="bloodColorCensored" value="#00007FFF"/>
+
+            <int name="cost" value="125" />
+            <int name="waterInteraction" value="2"/>
+            <int name="spawnCost" value="3"/>
+        </enemy>
+        <enemy id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……" unlock="mvz2:level.dream_9">
+            <float name="maxHealth" value="50"/>
+            <float name="maxAttackHeight" value="15"/>
+            <float name="speed" value="4"/>
+            <bool name="undead" value="false"/>
+            <vector3 name="size" x="52" y="24" z="24"/>
+            <id name="crySound" value="mvz2:terror_cry"/>
+            <id name="deathSound" value="mvz2:terror_death"/>
+
+            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+
+            <color name="bloodColor" value="#7F0000FF"/>
+            <color name="bloodColorCensored" value="#00007FFF"/>
+
+            <int name="cost" value="25" />
+            <int name="waterInteraction" value="2"/>
+            <int name="spawnCost" value="0"/>
+        </enemy>
+
 
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
