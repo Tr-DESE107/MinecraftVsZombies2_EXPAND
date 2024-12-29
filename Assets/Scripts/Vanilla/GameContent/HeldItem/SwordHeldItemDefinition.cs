@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
@@ -68,6 +69,11 @@ namespace MVZ2.GameContent.HeldItems
                     {
                         var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
                         entity.TakeDamageNoSource(750, effects);
+                        if (entity.IsDead)
+                        {
+                            var pos = entity.Level.GetPointerPositionByZ(entity.Position.z);
+                            entity.Level.Spawn(VanillaEffectID.pow, pos, null);
+                        }
                         Swing(entity.Level);
                     }
                     return true;

@@ -3,6 +3,7 @@ using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.Level.Components
 {
@@ -10,6 +11,14 @@ namespace MVZ2.Level.Components
     {
         public UIComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
+        }
+        public Vector3 GetPointerPositionByZ(float z)
+        {
+            return Controller.GetPointerPositionByZ(z);
+        }
+        public Vector3 GetPointerPositionByY(float y)
+        {
+            return Controller.GetPointerPositionByY(y);
         }
         public void ShakeScreen(float startAmplitude, float endAmplitude, int time)
         {

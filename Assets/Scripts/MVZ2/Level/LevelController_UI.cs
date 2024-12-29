@@ -214,6 +214,27 @@ namespace MVZ2.Level
         }
         #endregion
 
+        public Vector3 GetPointerPositionByZ(float z)
+        {
+            var screenPosition = GetPointerScreenPosition();
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = 0;
+            var lawnPosition = TransToLawn(worldPosition);
+            lawnPosition.z = z;
+            lawnPosition.y -= z;
+            return lawnPosition;
+        }
+        public Vector3 GetPointerPositionByY(float y)
+        {
+            var screenPosition = GetPointerScreenPosition();
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = 0;
+            var lawnPosition = TransToLawn(worldPosition);
+            lawnPosition.z = lawnPosition.y - y;
+            lawnPosition.y = y;
+            return lawnPosition;
+        }
+
         #endregion
 
         #region 私有方法
@@ -1100,6 +1121,14 @@ namespace MVZ2.Level
             UpdateHeldSlotUI();
             UpdateBlueprintsState();
             UpdateStarshards();
+        }
+        private Vector3 GetPointerScreenPosition()
+        {
+            if (Input.touchCount > 0)
+            {
+                return Input.GetTouch(0).position;
+            }
+            return Input.mousePosition;
         }
 
         #endregion

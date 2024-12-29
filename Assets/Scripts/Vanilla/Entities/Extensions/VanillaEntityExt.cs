@@ -240,10 +240,6 @@ namespace MVZ2.Vanilla.Entities
             var armorResult = damage.ArmorResult;
             if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
-                if (armorResult.Effects.HasEffect(VanillaDamageEffects.WHACK))
-                {
-                    entity.PlaySound(VanillaSoundID.bonk);
-                }
                 PlayHitSound(entity, armorResult.Effects, armorResult.ShellDefinition);
             }
             var bodyResult = damage.BodyResult;

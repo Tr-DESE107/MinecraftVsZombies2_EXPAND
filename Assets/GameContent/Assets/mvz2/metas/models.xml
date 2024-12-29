@@ -95,6 +95,7 @@
     <model name="frankenstein_head" type="entity" path="mvz2:effect/frankenstein_head" width="56" height="48" xOffset="0" yOffset="0"/>
     <model name="splash_particles" type="entity" path="mvz2:effect/splash_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="gear_particles" type="entity" path="mvz2:effect/gear_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="pow" type="entity" path="mvz2:effect/pow" width="56" height="56" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

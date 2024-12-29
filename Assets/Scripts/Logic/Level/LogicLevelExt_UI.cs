@@ -2,6 +2,7 @@
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2Logic.Level
 {
@@ -10,6 +11,16 @@ namespace MVZ2Logic.Level
         public static IUIComponent GetUIComponent(this LevelEngine level)
         {
             return level.GetComponent<IUIComponent>();
+        }
+        public static Vector3 GetPointerPositionByZ(this LevelEngine level, float z)
+        {
+            var component = level.GetUIComponent();
+            return component.GetPointerPositionByZ(z);
+        }
+        public static Vector3 GetPointerPositionByY(this LevelEngine level, float y)
+        {
+            var component = level.GetUIComponent();
+            return component.GetPointerPositionByY(y);
         }
         public static void SetConveyorMode(this LevelEngine level, bool value)
         {

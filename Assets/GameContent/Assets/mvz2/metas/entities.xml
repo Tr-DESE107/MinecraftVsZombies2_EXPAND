@@ -725,5 +725,8 @@
         <effect id="gear_particles">
             <int name="maxTimeout" value="30"/>
         </effect>
+        <effect id="pow">
+            <int name="maxTimeout" value="15"/>
+        </effect>
     </entries>
 </entities>
