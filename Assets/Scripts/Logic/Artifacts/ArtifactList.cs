@@ -93,11 +93,11 @@ namespace MVZ2Logic.Artifacts
         }
         public bool HasArtifact<T>() where T : ArtifactDefinition
         {
-            return artifacts.Any(b => b.Definition is T);
+            return artifacts.Any(b => b != null && b.Definition is T);
         }
         public bool HasArtifact(ArtifactDefinition buffDef)
         {
-            return artifacts.Any(b => b.Definition == buffDef);
+            return artifacts.Any(b => b != null && b.Definition == buffDef);
         }
         public bool HasArtifact(Artifact buff)
         {
@@ -105,11 +105,11 @@ namespace MVZ2Logic.Artifacts
         }
         public Artifact[] GetArtifacts<T>() where T : ArtifactDefinition
         {
-            return artifacts.Where(b => b.Definition is T).ToArray();
+            return artifacts.Where(b => b != null && b.Definition is T).ToArray();
         }
         public Artifact[] GetArtifacts(ArtifactDefinition buffDef)
         {
-            return artifacts.Where(b => b.Definition == buffDef).ToArray();
+            return artifacts.Where(b => b != null && b.Definition == buffDef).ToArray();
         }
         public int GetArtifactIndex(Artifact artifact)
         {
@@ -117,7 +117,7 @@ namespace MVZ2Logic.Artifacts
         }
         public int GetArtifactIndex(ArtifactDefinition def)
         {
-            return Array.FindIndex(artifacts, a => a.Definition == def);
+            return Array.FindIndex(artifacts, a => a != null && a.Definition == def);
         }
         public Artifact GetArtifactAt(int index)
         {

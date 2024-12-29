@@ -49,6 +49,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.AddBuff<MoonlightSensorEvokedBuff>();
             Upgrade(entity);
             entity.PlaySound(VanillaSoundID.sparkle);
+            entity.SetAnimationBool("Sparks", true);
         }
         public static void Upgrade(Entity entity)
         {
