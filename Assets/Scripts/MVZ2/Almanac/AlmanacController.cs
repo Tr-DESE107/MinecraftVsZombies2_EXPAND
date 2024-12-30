@@ -52,7 +52,7 @@ namespace MVZ2.Almanacs
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
             ui.OnContraptionEntryClick += OnContraptionEntryClickCallback;
             ui.OnEnemyEntryClick += OnEnemyEntryClickCallback;
-            ui.OnArtifactEntryClick += OnCharacterEntryClickCallback;
+            ui.OnArtifactEntryClick += OnArtifactEntryClickCallback;
             ui.OnMiscGroupEntryClick += OnMiscGroupEntryClickCallback;
         }
         private void OnIndexReturnClickCallback()
@@ -92,8 +92,10 @@ namespace MVZ2.Almanacs
             SetActiveEnemyEntry(enemyEntries[index]);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
-        private void OnCharacterEntryClickCallback(int index)
+        private void OnArtifactEntryClickCallback(int index)
         {
+            SetActiveArtifactEntry(artifactEntries[index]);
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         private void OnMiscGroupEntryClickCallback(int groupIndex, int entryIndex)
         {
