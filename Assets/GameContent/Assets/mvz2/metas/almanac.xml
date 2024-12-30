@@ -221,6 +221,17 @@
                 <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:vortex_hopper">
+            <header>
+                <p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
+            </header>
+            <properties>
+                <p>技能：将更大范围的敌人拉入水底</p>
+            </properties>
+            <flavor>
+                <p>他无聊的时候经常把自己当陀螺抽。</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

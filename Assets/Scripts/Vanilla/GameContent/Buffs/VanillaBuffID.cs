@@ -29,6 +29,8 @@ namespace MVZ2.GameContent.Buffs
         public const string lilyPadEvocation = "lily_pad_evocation";
         public const string dreamButterflyShield = "dream_butterfly_shield";
         public const string darkMatterProduction = "dark_matter_production";
+        public const string vortexHopperSpin = "vortex_hopper_spin";
+        public const string vortexHopperEvoked = "vortex_hopper_evoked";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -45,6 +47,7 @@ namespace MVZ2.GameContent.Buffs
         public const string motherTerrorLaid = "mother_terror_laid";
         public const string terrorParasitized = "terror_parasitized";
         public const string gravityPadGravity = "gravity_pad_gravity";
+        public const string vortexHopperDrag = "vortex_hopper_drag";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";

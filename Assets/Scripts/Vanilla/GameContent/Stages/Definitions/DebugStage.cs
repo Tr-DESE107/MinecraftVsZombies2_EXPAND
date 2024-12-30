@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.obsidian,
 
                 VanillaContraptionID.furnace,
-                VanillaContraptionID.tnt,
+                VanillaContraptionID.vortexHopper,
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.spider,

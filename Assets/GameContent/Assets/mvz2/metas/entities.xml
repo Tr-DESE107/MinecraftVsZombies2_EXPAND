@@ -286,6 +286,19 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
+        <contraption id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的僵尸拉入水底" unlock="mvz2:level.dream_4">
+
+            <bool name="isFloor" value="true"/>
+            <float name="range" value="40"/>
+            <id name="shell" value="mvz2:metal"/>
+            <id name="placement" value="mvz2:aquatic"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <int name="waterInteraction" value="3"/>
+            <id name="fragmentId" value="mvz2:anvil"/>
+
+            <int name="cost" value="25" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
@@ -751,6 +764,9 @@
         </effect>
         <effect id="pow">
             <int name="maxTimeout" value="15"/>
+        </effect>
+        <effect id="vortex">
+            <int name="maxTimeout" value="30"/>
         </effect>
     </entries>
 </entities>

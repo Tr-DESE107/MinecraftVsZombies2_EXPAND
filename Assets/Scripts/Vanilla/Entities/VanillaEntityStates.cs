@@ -32,6 +32,8 @@
         public const int MAGICHEST_LOMS = CONTRAPTION_SPECIAL;
         public const int MAGICHEST_CLOSE = CONTRAPTION_COOLDOWN;
 
+        public const int VORTEX_HOPPER_SPIN = ATTACK;
+
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
         public const int SPIDER_CLIMB = ENEMY_CAST;

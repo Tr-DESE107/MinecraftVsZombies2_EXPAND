@@ -40,10 +40,6 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Effects.HasEffect(VanillaDamageEffects.DROWN))
-            {
-                Global.Game.Unlock(VanillaUnlockID.rickrollDrown);
-            }
             if (entity.HasBuff<BoatBuff>())
             {
                 entity.RemoveBuffs(entity.GetBuffs<BoatBuff>());
@@ -51,6 +47,13 @@ namespace MVZ2.GameContent.Enemies
                 var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
                 effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
                 effect.ChangeModel(VanillaModelID.boatItem);
+            }
+            else
+            {
+                if (info.Effects.HasEffect(VanillaDamageEffects.DROWN))
+                {
+                    Global.Game.Unlock(VanillaUnlockID.rickrollDrown);
+                }
             }
         }
     }

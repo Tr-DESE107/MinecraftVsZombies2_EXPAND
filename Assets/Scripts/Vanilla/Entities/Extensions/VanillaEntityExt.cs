@@ -478,6 +478,10 @@ namespace MVZ2.Vanilla.Entities
             var grid = entity.GetGrid();
             return grid != null && grid.IsWater();
         }
+        public static bool IsInWater(this Entity entity)
+        {
+            return entity.IsOnWater() && entity.IsOnGround;
+        }
         public static void PlaySplashEffect(this Entity entity)
         {
             var level = entity.Level;

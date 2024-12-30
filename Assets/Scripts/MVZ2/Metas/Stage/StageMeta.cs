@@ -50,7 +50,7 @@ namespace MVZ2.Metas
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
             var modelNode = node["model"];
-            var preset = modelNode?.GetAttribute("preset");
+            var preset = modelNode?.GetAttribute("preset") ?? "default";
 
             var talks = new List<StageMetaTalk>();
             var talksNode = node["talks"];

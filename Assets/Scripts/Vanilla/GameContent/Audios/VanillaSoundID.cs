@@ -98,6 +98,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID thunder = Get("thunder");
         public readonly static NamespaceID throwSound = Get("throw");
         public readonly static NamespaceID travel = Get("travel");
+        public readonly static NamespaceID vortex = Get("vortex");
         public readonly static NamespaceID water = Get("water");
         public readonly static NamespaceID winMusic = Get("win_music");
         public readonly static NamespaceID wood = Get("wood");

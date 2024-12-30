@@ -423,5 +423,14 @@ namespace MVZ2.Vanilla.Level
             }
             return false;
         }
+        public static bool IsWaterAt(this LevelEngine level, float x, float z)
+        {
+            var column = level.GetColumn(x);
+            var lane = level.GetLane(z);
+            var grid = level.GetGrid(column, lane);
+            if (grid == null)
+                return false;
+            return grid.IsWater();
+        }
     }
 }

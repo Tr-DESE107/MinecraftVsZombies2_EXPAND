@@ -313,12 +313,11 @@ namespace PVZEngine.Entities
         }
         #endregion
 
-        public Vector3 GetNextPosition(float simulationSpeed = 1)
+        private Vector3 GetNextPosition(float simulationSpeed = 1)
         {
             Vector3 velocity = GetNextVelocity(simulationSpeed);
             velocity.Scale(Vector3.one - Cache.VelocityDampen);
             var nextPos = Position + velocity * simulationSpeed;
-            nextPos.y = Mathf.Max(GetGroundY() + Cache.GroundLimitOffset, nextPos.y);
             return nextPos;
         }
 
@@ -336,35 +335,39 @@ namespace PVZEngine.Entities
 
             return velocity;
         }
+
         public void UpdatePhysics(float simulationSpeed = 1)
         {
             Vector3 nextVelocity = GetNextVelocity(simulationSpeed);
             Vector3 nextPos = GetNextPosition(simulationSpeed);
 
+            // 地面限制。
             float groundY = Level.GetGroundY(nextPos.x, nextPos.z);
-            float relativeY = nextPos.y - groundY;
-            bool leavingGround = relativeY > 0 || (relativeY == 0 && nextVelocity.y >= 0);
-
-            if (nextPos.y <= groundY + Cache.GroundLimitOffset && nextVelocity.y < 0)
+            var groundLimit = groundY + Cache.GroundLimitOffset;
+            var contactingGround = nextPos.y <= groundY;
+            if (nextPos.y <= groundLimit)
             {
-                nextVelocity.y = 0;
+                nextPos.y = groundLimit;
+                nextVelocity.y = Mathf.Max(nextVelocity.y, 0);
             }
+
             Position = nextPos;
             Velocity = nextVelocity;
-            if (leavingGround)
-            {
-                if (IsOnGround)
-                {
-                    OnLeaveGround();
-                    IsOnGround = false;
-                }
-            }
-            else
+
+            if (contactingGround)
             {
                 if (!IsOnGround)
                 {
                     OnContactGround();
                     IsOnGround = true;
+                }
+            }
+            else
+            {
+                if (IsOnGround)
+                {
+                    OnLeaveGround();
+                    IsOnGround = false;
                 }
             }
         }

@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Implements
             // 器械：如果重力大于0，不是水生的，并且没有睡莲，沉没。否则漂在水面上。
             // 障碍物、小推车：如果重力大于0，沉没。否则漂在水面上。
             int interaction = entity.GetWaterInteraction();
-            bool isInWater = entity.IsOnWater() && entity.IsOnGround;
+            bool isInWater = entity.IsInWater();
             if (isInWater && interaction == WaterInteraction.REMOVE)
             {
                 entity.PlaySplashEffect();

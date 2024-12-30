@@ -958,6 +958,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 377f2bb10d0c6414d87266304f24738f
+    m_Address: mvz2:effect/vortex
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 379066792c259bc4395550f6e7dec161
     m_Address: mvz2:throw
     m_ReadOnly: 0
@@ -1554,6 +1560,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 579cf24a5de6c3449ba61159e5649187
     m_Address: mvz2:mobile_blueprint/moonlight_sensor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57a43fd6f9e8d124fb3ac37bc690d4aa
+    m_Address: mvz2:entity/effects/vortex
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

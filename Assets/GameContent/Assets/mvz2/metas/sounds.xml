@@ -472,6 +472,9 @@
     <sound name="villager_short3" priority="64">
         <sample path="mvz2:talk/villager/villager_short3" weight="1" />
     </sound>
+    <sound name="vortex">
+        <sample path="mvz2:vortex" weight="1" />
+    </sound>
     <sound name="water">
         <sample path="mvz2:water" weight="1" />
     </sound>
