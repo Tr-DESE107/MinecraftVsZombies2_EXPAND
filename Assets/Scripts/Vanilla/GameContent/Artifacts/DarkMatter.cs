@@ -35,9 +35,10 @@ namespace MVZ2.GameContent.Artifacts
                 BuffID = VanillaBuffID.darkMatterProduction;
             }
 
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                return level.GetEntities(EntityTypes.PLANT);
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.GetEntities(EntityTypes.PLANT));
             }
         }
         public class DarkAura : AuraEffectDefinition
@@ -47,9 +48,9 @@ namespace MVZ2.GameContent.Artifacts
                 BuffID = VanillaBuffID.Level.darkMatterDark;
             }
 
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                yield return level;
+                results.Add(auraEffect.Source.GetLevel());
             }
         }
     }

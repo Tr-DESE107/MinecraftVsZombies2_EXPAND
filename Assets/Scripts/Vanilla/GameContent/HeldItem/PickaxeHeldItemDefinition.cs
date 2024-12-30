@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.HeldItems
             {
                 case EntityTypes.PLANT:
                     var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
-                    entity.Die(new DamageInput(0, effects, entity, new EntityReferenceChain(null)));
+                    entity.Die(effects);
                     return true;
             }
             return false;

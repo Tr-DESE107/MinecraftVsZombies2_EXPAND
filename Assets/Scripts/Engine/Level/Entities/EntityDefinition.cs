@@ -70,7 +70,7 @@ namespace PVZEngine.Entities
             return true;
         }
         public void PostCollision(EntityCollision collision, int state) { behaviours.ForEach(b => b.PostCollision(collision, state)); }
-        public void PostDeath(Entity entity, DamageInput damageInfo) { behaviours.ForEach(b => b.PostDeath(entity, damageInfo)); }
+        public void PostDeath(Entity entity, DeathInfo deathInfo) { behaviours.ForEach(b => b.PostDeath(entity, deathInfo)); }
         public void PostRemove(Entity entity) { behaviours.ForEach(b => b.PostRemove(entity)); }
         public void PostEquipArmor(Entity entity, Armor armor) { behaviours.ForEach(b => b.PostEquipArmor(entity, armor)); }
         public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage) { behaviours.ForEach(b => b.PostDestroyArmor(entity, armor, damage)); }

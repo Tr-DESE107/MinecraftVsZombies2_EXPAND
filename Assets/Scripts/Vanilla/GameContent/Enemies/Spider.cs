@@ -25,16 +25,12 @@ namespace MVZ2.GameContent.Enemies
                 var climbTarget = GetClimbTarget(entity);
                 if (climbTarget != null && climbTarget.Exists())
                 {
-                    // 正在垂直攀爬，修改速度。
-                    entity.Velocity = Vector3.up * (0.83f * entity.GetSpeed());
-
-                    // 爬到最高位置，设置位置和移速。
+                    // 正在垂直攀爬，修改位置。
                     var peak = GetClimbTargetPeak(climbTarget);
-                    if (entity.Position.y + entity.Velocity.y > peak)
+                    if (entity.Position.y < peak)
                     {
-                        entity.Velocity = Vector3.zero;
                         var position = entity.Position;
-                        position.y = peak;
+                        position.y = Mathf.Min(position.y + (0.83f * entity.GetSpeed()), peak);
                         entity.Position = position;
                     }
                 }

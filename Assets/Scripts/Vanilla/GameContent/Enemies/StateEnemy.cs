@@ -27,7 +27,7 @@ namespace MVZ2.Vanilla.Enemies
                 UpdateStateDead(entity);
             }
         }
-        public override void PostDeath(Entity entity, DamageInput info)
+        public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
             SetDeathTimer(entity, new FrameTimer(30));

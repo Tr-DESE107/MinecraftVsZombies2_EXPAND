@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Obstacles
                 bodyResult.Entity.AddFragmentTickDamage(bodyResult.Amount);
             }
         }
-        public override void PostDeath(Entity entity, DamageInput damageInfo)
+        public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
             entity.PostFragmentDeath(damageInfo);

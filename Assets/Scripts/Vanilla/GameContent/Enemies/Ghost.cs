@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<GhostBuff>();
             }
         }
-        public override void PostDeath(Entity entity, DamageInput info)
+        public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
             if (!GhostBuff.IsEverIlluminated(entity) && !info.Effects.HasEffect(VanillaDamageEffects.WHACK))

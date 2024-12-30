@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-27 04:05+0800\n"
+"POT-Creation-Date: 2024-12-30 08:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -905,26 +905,26 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:515
+#: Scripts\MVZ2\Map\MapController.cs:510
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:517
+#: Scripts\MVZ2\Map\MapController.cs:512
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:519
+#: Scripts\MVZ2\Map\MapController.cs:514
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:521
+#: Scripts\MVZ2\Map\MapController.cs:516
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -962,24 +962,24 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1109
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1138
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1111
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1140
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1113
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1142
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1115
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1144
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
@@ -996,25 +996,25 @@ msgid ""
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:302
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:304
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:304
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:306
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:306
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:308
 msgctxt "almanac"
 msgid "<color=blue>白天失效</color>"
 msgstr ""
 
 # 图鉴描述
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:308
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:310
 msgctxt "almanac"
 msgid "<color=blue>只能放在水上</color>"
 msgstr ""

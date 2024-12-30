@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
             entity.SetAnimationBool("HasBoat", entity.HasBuff<BoatBuff>());
         }
-        public override void PostDeath(Entity entity, DamageInput info)
+        public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
             if (info.Effects.HasEffect(VanillaDamageEffects.DROWN))

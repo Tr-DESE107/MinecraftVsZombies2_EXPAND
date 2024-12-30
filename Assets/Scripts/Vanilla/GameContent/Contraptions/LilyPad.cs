@@ -53,12 +53,12 @@ namespace MVZ2.GameContent.Contraptions
             {
                 BuffID = VanillaBuffID.carryingOther;
             }
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var sourceEnt = auraEffect.Source.GetEntity();
                 if (sourceEnt != null && sourceEnt.HasPassenger())
                 {
-                    yield return sourceEnt;
+                    results.Add(sourceEnt);
                 }
             }
         }
@@ -68,14 +68,14 @@ namespace MVZ2.GameContent.Contraptions
             {
                 BuffID = VanillaBuffID.carriedByLilyPad;
             }
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var sourceEnt = auraEffect.Source.GetEntity();
                 var grid = sourceEnt?.GetGrid();
                 if (grid != null)
                 {
-                    yield return grid.GetMainEntity();
-                    yield return grid.GetProtectorEntity();
+                    results.Add(grid.GetMainEntity());
+                    results.Add(grid.GetProtectorEntity());
                 }
             }
         }

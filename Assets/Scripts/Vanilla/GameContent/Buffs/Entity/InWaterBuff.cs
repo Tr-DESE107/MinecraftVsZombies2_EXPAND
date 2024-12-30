@@ -43,7 +43,7 @@ namespace MVZ2.GameContent.Buffs
                 {
                     if (entity.Position.y <= -thresoldHeight && !entity.IsDead)
                     {
-                        entity.Die(new DamageInput(0, new DamageEffectList(VanillaDamageEffects.DROWN), entity, null));
+                        entity.Die(new DamageEffectList(VanillaDamageEffects.DROWN), entity, null);
                     }
                 }
                 float verticalFriction = Mathf.Lerp(1, 0.5f, sinkPercentage / thresold);

@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Implements
                 entity.StopChangingLane();
             }
         }
-        private void PostEnemyDeathCallback(Entity entity, DamageInput damage)
+        private void PostEnemyDeathCallback(Entity entity, DeathInfo damage)
         {
             entity.Neutralize();
         }

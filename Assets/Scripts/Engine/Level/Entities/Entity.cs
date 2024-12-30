@@ -136,9 +136,21 @@ namespace PVZEngine.Entities
 
         #region 伤害
 
-        public void Die(DamageInput info = null)
+        public void Die(Entity source = null, BodyDamageResult damage = null)
         {
-            info = info ?? new DamageInput(0, new DamageEffectList(), this, new EntityReferenceChain(null));
+            Die(new DamageEffectList(), new EntityReferenceChain(source), damage);
+        }
+        public void Die(DamageEffectList effects, Entity source = null, BodyDamageResult damage = null)
+        {
+            Die(effects, new EntityReferenceChain(source), damage);
+        }
+        public void Die(DamageEffectList effects, EntityReferenceChain source, BodyDamageResult damage = null)
+        {
+            Die(new DeathInfo(this, effects, source, damage));
+        }
+        public void Die(DeathInfo info)
+        {
+            info = info ?? new DeathInfo(this, new DamageEffectList(), new EntityReferenceChain(null), null);
             IsDead = true;
             Definition.PostDeath(this, info);
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, this, info);

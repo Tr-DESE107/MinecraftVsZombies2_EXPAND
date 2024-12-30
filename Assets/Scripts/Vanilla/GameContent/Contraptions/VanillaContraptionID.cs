@@ -21,6 +21,9 @@ namespace MVZ2.GameContent.Contraptions
 
         public const string lilyPad = "lily_pad";
         public const string drivenser = "drivenser";
+        public const string gravityPad = "gravity_pad";
+
+        public const string anvil = "anvil";
     }
     public static class VanillaContraptionID
     {
@@ -40,6 +43,9 @@ namespace MVZ2.GameContent.Contraptions
 
         public static readonly NamespaceID lilyPad = Get(VanillaContraptionNames.lilyPad);
         public static readonly NamespaceID drivenser = Get(VanillaContraptionNames.drivenser);
+        public static readonly NamespaceID gravityPad = Get(VanillaContraptionNames.gravityPad);
+
+        public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

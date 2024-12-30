@@ -54,7 +54,7 @@ namespace MVZ2.Vanilla.Entities
             base.PostRemove(entity);
             entity.ClearTakenGrids();
         }
-        public override void PostDeath(Entity entity, DamageInput damageInfo)
+        public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.SACRIFICE))

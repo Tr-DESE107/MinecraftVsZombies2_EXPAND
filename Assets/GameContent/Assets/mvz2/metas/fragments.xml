@@ -73,4 +73,16 @@
             <color hex="#0B2B10" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="gravity_pad">
+        <colorKeys>
+            <color hex="#BA00FF" time="0.75"/>
+            <color hex="#DD80FF" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="anvil">
+        <colorKeys>
+            <color hex="#262626" time="0.5"/>
+            <color hex="#383838" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

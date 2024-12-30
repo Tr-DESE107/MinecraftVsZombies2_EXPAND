@@ -155,12 +155,8 @@ namespace MVZ2.Vanilla.Entities
             // Apply Damage.
             float hpBefore = entity.Health;
             entity.Health -= info.Amount;
-            if (entity.Health <= 0)
-            {
-                entity.Die(info);
-            }
 
-            return new BodyDamageResult()
+            var result = new BodyDamageResult()
             {
                 OriginalAmount = info.OriginalAmount,
                 Amount = info.Amount,
@@ -171,6 +167,13 @@ namespace MVZ2.Vanilla.Entities
                 ShellDefinition = shell,
                 Fatal = hpBefore > 0 && entity.Health <= 0,
             };
+
+            if (entity.Health <= 0)
+            {
+                entity.Die(info.Effects, info.Source, result);
+            }
+
+            return result;
         }
         #endregion
 
@@ -353,6 +356,8 @@ namespace MVZ2.Vanilla.Entities
         public static HealOutput HealEffects(this Entity entity, float amount, Entity source)
         {
             var result = entity.Heal(amount, source);
+            if (result == null)
+                return null;
             if (result.RealAmount >= 0)
             {
                 entity.AddTickHealing(result.RealAmount);

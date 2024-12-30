@@ -36,30 +36,23 @@ namespace PVZEngine.Auras
         }
         public void UpdateAura()
         {
-            var level = Source.GetLevel();
-            var newTargets = Definition.GetAuraTargets(level, this);
-            if (newTargets == null)
+            targetsBuffer.Clear();
+            Definition.GetAuraTargets(this, targetsBuffer);
+            foreach (var target in targetsBuffer)
             {
-                ClearBuffs();
-                return;
+                if (target == null)
+                    continue;
+                var buff = GetTargetBuff(target);
+                if (buff == null)
+                {
+                    buff = AddTargetBuff(target);
+                }
+                Definition.UpdateTargetBuff(this, target, buff);
             }
-            else
+            var missingEntities = buffDict.Where(p => !p.Key.Exists() || !targetsBuffer.Contains(p.Key)).ToArray();
+            foreach (var pair in missingEntities)
             {
-                newTargets = newTargets.Where(t => t != null);
-                foreach (var target in newTargets)
-                {
-                    var buff = GetTargetBuff(target);
-                    if (buff == null)
-                    {
-                        buff = AddTargetBuff(target);
-                    }
-                    Definition.UpdateTargetBuff(this, target, buff);
-                }
-                var missingEntities = buffDict.Where(p => !p.Key.Exists() || !newTargets.Contains(p.Key)).ToArray();
-                foreach (var pair in missingEntities)
-                {
-                    RemoveTargetBuff(pair.Key, pair.Value);
-                }
+                RemoveTargetBuff(pair.Key, pair.Value);
             }
         }
         public SerializableAuraEffect ToSerializable()
@@ -112,5 +105,6 @@ namespace PVZEngine.Auras
         public IAuraSource Source { get; }
         private FrameTimer updateTimer;
         private Dictionary<IBuffTarget, Buff> buffDict = new Dictionary<IBuffTarget, Buff>();
+        private List<IBuffTarget> targetsBuffer = new List<IBuffTarget>();
     }
 }

@@ -44,6 +44,7 @@ namespace MVZ2.GameContent.Buffs
         public const string spiderClimb = "spider_climb";
         public const string motherTerrorLaid = "mother_terror_laid";
         public const string terrorParasitized = "terror_parasitized";
+        public const string gravityPadGravity = "gravity_pad_gravity";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
@@ -103,6 +104,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID carriedByLilyPad = Get(VanillaBuffNames.carriedByLilyPad);
         public static readonly NamespaceID carryingOther = Get(VanillaBuffNames.carryingOther);
         public static readonly NamespaceID darkMatterProduction = Get(VanillaBuffNames.darkMatterProduction);
+        public static readonly NamespaceID gravityPadGravity = Get(VanillaBuffNames.gravityPadGravity);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

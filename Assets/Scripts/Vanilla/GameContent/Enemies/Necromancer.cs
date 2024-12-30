@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        public override void PostDeath(Entity entity, DamageInput info)
+        public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
             if (entity.State == VanillaEntityStates.NECROMANCER_CAST)

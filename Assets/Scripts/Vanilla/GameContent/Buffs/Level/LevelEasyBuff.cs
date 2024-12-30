@@ -29,9 +29,10 @@ namespace MVZ2.GameContent.Buffs.Level
                 UpdateInterval = 30;
             }
 
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                return level.GetAllSeedPacks();
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.GetAllSeedPacks());
             }
         }
         public class ContraptionAura : AuraEffectDefinition
@@ -42,9 +43,10 @@ namespace MVZ2.GameContent.Buffs.Level
                 UpdateInterval = 4;
             }
 
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                return level.GetEntities(EntityTypes.PLANT);
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.GetEntities(EntityTypes.PLANT));
             }
         }
         public class ArmorAura : AuraEffectDefinition
@@ -54,9 +56,10 @@ namespace MVZ2.GameContent.Buffs.Level
                 BuffID = VanillaBuffID.easyArmor;
             }
 
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                return level.GetEntities(EntityTypes.ENEMY).Select(e => e.EquipedArmor).Where(e => e != null);
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.GetEntities(EntityTypes.ENEMY).Select(e => e.EquipedArmor).Where(e => e != null));
             }
         }
     }

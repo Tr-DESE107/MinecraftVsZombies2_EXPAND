@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-28 07:36+0800\n"
+"POT-Creation-Date: 2024-12-30 08:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -328,6 +328,26 @@ msgctxt "contraptions.description"
 msgid "驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。"
 msgstr ""
 
+#. Header for contraptions mvz2:gravity_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。"
+msgstr ""
+
+#. Properties for contraptions mvz2:gravity_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>敌人无法发现</color>\n"
+"技能：铁砧从天而降，砸伤敌人并阻挡它们前进"
+msgstr ""
+
+#. Flavor for contraptions mvz2:gravity_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。"
+msgstr ""
+
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -619,24 +639,6 @@ msgctxt "enemies.description"
 msgid "它还没想好自己的网络冷笑话该怎么写。"
 msgstr ""
 
-#. Header for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "农耕用具。"
-msgstr ""
-
-#. Properties for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
-msgstr ""
-
-#. Flavor for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "踩到了的话被打一下很痛。真的。"
-msgstr ""
-
 #. Header for artifacts mvz2:dream_key
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -671,7 +673,7 @@ msgstr ""
 #. Properties for artifacts mvz2:the_creatures_heart
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>"
+msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少10。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:the_creatures_heart
@@ -696,6 +698,24 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "好困啊，先不写趣文了。"
+msgstr ""
+
+#. Header for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "农耕用具。"
+msgstr ""
+
+#. Properties for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "踩到了的话被打一下很痛。真的。"
 msgstr ""
 
 #. Header for artifacts mvz2:pagoda_branch
@@ -1397,6 +1417,30 @@ msgctxt "entity.tooltip"
 msgid "能够堆叠放置，堆叠后子弹数量增加"
 msgstr ""
 
+#. Header for entity mvz2:gravity_pad
+#: Entity meta file
+msgctxt "entity.name"
+msgid "重力板"
+msgstr ""
+
+#. Properties for entity mvz2:gravity_pad
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "增强上方物体的重力"
+msgstr ""
+
+#. Header for entity mvz2:anvil
+#: Entity meta file
+msgctxt "entity.name"
+msgid "铁砧"
+msgstr ""
+
+#. Properties for entity mvz2:anvil
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "阻碍敌人的前进"
+msgstr ""
+
 #. Header for entity mvz2:zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -1696,7 +1740,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:the_creatures_heart
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "场上每有一个同类器械，该器械的能量消耗减少5"
+msgid "场上每有一个同类器械，该器械的能量消耗减少10"
 msgstr ""
 
 #. Name for artifact mvz2:sweet_sleep_pillow

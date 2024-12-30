@@ -77,7 +77,7 @@ namespace MVZ2.GameContent.Bosses
             }
             entity.SetAnimationFloat("ActionSpeed", GetActionSpeed(entity));
         }
-        public override void PostDeath(Entity boss, DamageInput damageInfo)
+        public override void PostDeath(Entity boss, DeathInfo damageInfo)
         {
             base.PostDeath(boss, damageInfo);
             StartState(boss, STATE_DEAD);

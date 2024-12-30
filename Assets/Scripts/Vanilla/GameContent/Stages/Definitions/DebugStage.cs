@@ -27,21 +27,21 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.lilyPad,
                 VanillaContraptionID.silvenser,
+                VanillaContraptionID.gravityPad,
                 VanillaContraptionID.obsidian,
-                VanillaContraptionID.glowstone,
 
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.motherTerror,
-                VanillaEnemyID.parasiteTerror,
+                VanillaEnemyID.spider,
+                VanillaEnemyID.caveSpider,
                 VanillaBossID.frankenstein,
             });
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.sweetSleepPillow,
-                VanillaArtifactID.darkMatter,
+                VanillaArtifactID.dreamKey,
                 VanillaArtifactID.dreamButterfly,
             });
             level.RechargeSpeed = 9999999;

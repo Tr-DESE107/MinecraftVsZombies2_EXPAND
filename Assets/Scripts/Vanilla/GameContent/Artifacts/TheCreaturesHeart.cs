@@ -60,8 +60,9 @@ namespace MVZ2.GameContent.Artifacts
                 BuffID = VanillaBuffID.SeedPack.theCreaturesHeartReduceCost;
                 UpdateInterval = 15;
             }
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
+                var level = auraEffect.Source.GetLevel();
                 foreach (var seed in level.GetAllSeedPacks())
                 {
                     var entityID = seed?.Definition?.GetSeedEntityID();
@@ -70,7 +71,7 @@ namespace MVZ2.GameContent.Artifacts
                     var entityDef = level.Content.GetEntityDefinition(entityID);
                     if (entityDef == null || entityDef.Type != EntityTypes.PLANT)
                         continue;
-                    yield return seed;
+                    results.Add(seed);
                 }
             }
             public override void UpdateTargetBuff(AuraEffect effect, IBuffTarget target, Buff buff)

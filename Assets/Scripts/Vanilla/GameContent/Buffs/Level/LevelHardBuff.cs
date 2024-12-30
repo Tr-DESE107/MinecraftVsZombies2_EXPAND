@@ -23,9 +23,10 @@ namespace MVZ2.GameContent.Buffs.Level
                 UpdateInterval = 30;
             }
 
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                return level.GetEntities(EntityTypes.ENEMY);
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.GetEntities(EntityTypes.ENEMY));
             }
         }
     }

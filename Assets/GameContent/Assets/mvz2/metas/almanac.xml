@@ -209,6 +209,18 @@
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:gravity_pad">
+            <header>
+                <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
+            </header>
+            <properties>
+                <p>特点：<![CDATA[<color=red>敌人无法发现</color>]]></p>
+                <p>技能：铁砧从天而降，砸伤敌人并阻挡它们前进</p>
+            </properties>
+            <flavor>
+                <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

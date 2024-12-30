@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Enemies
                 bodyResult.Entity.AddFragmentTickDamage(bodyResult.Amount);
             }
         }
-        public override void PostDeath(Entity entity, DamageInput info)
+        public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
             entity.PostFragmentDeath(info);

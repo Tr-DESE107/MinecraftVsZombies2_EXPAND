@@ -69,7 +69,7 @@ namespace MVZ2.Vanilla.Entities
             vel.z = 0;
             entity.Velocity = vel;
         }
-        public override void PostDeath(Entity entity, DamageInput damageInfo)
+        public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.DROWN))

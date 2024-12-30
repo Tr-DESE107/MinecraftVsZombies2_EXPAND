@@ -17,6 +17,9 @@
 
     <model name="lily_pad" type="entity" path="mvz2:contraption/lily_pad" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="drivenser" type="entity" path="mvz2:contraption/drivenser" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="gravity_pad" type="entity" path="mvz2:contraption/gravity_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
+    
+    <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/zombie" width="64" height="96" xOffset="10" yOffset="-44"/>

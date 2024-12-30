@@ -39,9 +39,10 @@ namespace MVZ2.GameContent.Artifacts
                 BuffID = VanillaBuffID.dreamKeyShield;
                 UpdateInterval = 7;
             }
-            public override IEnumerable<IBuffTarget> GetAuraTargets(LevelEngine level, AuraEffect auraEffect)
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
-                return level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsEvoked());
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsEvoked()));
             }
         }
     }

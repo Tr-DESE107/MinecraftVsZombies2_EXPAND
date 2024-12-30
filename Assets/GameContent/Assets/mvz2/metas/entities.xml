@@ -274,6 +274,30 @@
             <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
+        <contraption id="gravity_pad" name="重力板" tooltip="增强上方物体的重力" unlock="mvz2:level.dream_3">
+
+            <bool name="shadowHidden" value="true"/>
+            <bool name="isFloor" value="true"/>
+            <id name="shell" value="mvz2:metal"/>
+            <id name="placement" value="mvz2:pad"/>
+            <vector3 name="size" x="64" y="2" z="64"/>
+            <idArray name="gridLayers" value="mvz2:carrier"/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
+
+        <!-- Token Contraptions -->
+        <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
+            <bool name="canShock" value="false"/>
+            <bool name="defensive" value="true"/>
+            <float name="maxHealth" value="2500"/>
+            <float name="fallDamage" value="-10000"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+
+            <int name="cost" value="25" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Enemies -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
