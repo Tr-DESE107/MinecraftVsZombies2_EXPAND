@@ -18,7 +18,9 @@ namespace MVZ2.GameContent.Stages
         {
             SetProperty(VanillaAreaProps.DARKNESS_VALUE, 0.5f);
             SetProperty(VanillaStageProps.AUTO_COLLECT, true);
-            AddBehaviour(new WaveStageBehaviour(this));
+            var waveStageBehaviour = new WaveStageBehaviour(this);
+            waveStageBehaviour.SpawnFlagZombie = false;
+            AddBehaviour(waveStageBehaviour);
             AddBehaviour(new GemStageBehaviour(this));
         }
         public override void OnSetup(LevelEngine level)

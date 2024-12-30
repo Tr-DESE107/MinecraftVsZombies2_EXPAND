@@ -182,7 +182,10 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(VanillaSoundID.siren);
                 level.WaveState = STATE_STARTED;
                 NextWave(level);
-                level.SpawnEnemyAtRandomLane(level.Content.GetSpawnDefinition(VanillaSpawnID.flagZombie));
+                if (SpawnFlagZombie)
+                {
+                    level.SpawnEnemyAtRandomLane(level.Content.GetSpawnDefinition(VanillaSpawnID.flagZombie));
+                }
                 level.RunHugeWaveEvent();
             }
         }
@@ -264,6 +267,7 @@ namespace MVZ2.GameContent.Stages
         #endregion
 
         #region 属性字段
+        public bool SpawnFlagZombie { get; set; } = true;
         public const int STATE_NOT_STARTED = 0;
         public const int STATE_STARTED = 1;
         public const int STATE_HUGE_WAVE_APPROACHING = 2;
