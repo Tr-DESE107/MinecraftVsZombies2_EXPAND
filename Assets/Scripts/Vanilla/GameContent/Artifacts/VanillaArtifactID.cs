@@ -8,12 +8,14 @@ namespace MVZ2.GameContent.Artifacts
         public const string dreamKey = "dream_key";
         public const string theCreaturesHeart = "the_creatures_heart";
         public const string dreamButterfly = "dream_butterfly";
+        public const string sweetSleepPillow = "sweet_sleep_pillow";
     }
     public static class VanillaArtifactID
     {
         public static readonly NamespaceID dreamKey = Get(VanillaArtifactNames.dreamKey);
         public static readonly NamespaceID theCreaturesHeart = Get(VanillaArtifactNames.theCreaturesHeart);
         public static readonly NamespaceID dreamButterfly = Get(VanillaArtifactNames.dreamButterfly);
+        public static readonly NamespaceID sweetSleepPillow = Get(VanillaArtifactNames.sweetSleepPillow);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

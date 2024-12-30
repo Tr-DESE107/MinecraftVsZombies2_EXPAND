@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Stages
             });
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.dreamKey,
+                VanillaArtifactID.sweetSleepPillow,
                 VanillaArtifactID.theCreaturesHeart,
                 VanillaArtifactID.dreamButterfly,
             });

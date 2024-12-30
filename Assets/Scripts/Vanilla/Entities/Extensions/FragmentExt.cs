@@ -83,7 +83,7 @@ namespace MVZ2.Vanilla.Entities
             if (healing > 0)
             {
                 var fragment = entity.GetOrCreateHealParticles();
-                HealParticles.AddEmitSpeed(fragment, entity.GetTickHealing());
+                HealParticles.AddEmitSpeed(fragment, entity.GetTickHealing() * 0.4f);
                 entity.SetTickHealing(0);
             }
         }
