@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.glowstone,
 
-                VanillaContraptionID.magichest,
+                VanillaContraptionID.furnace,
                 VanillaContraptionID.tnt,
 
                 VanillaEnemyID.zombie,
@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.sweetSleepPillow,
-                VanillaArtifactID.theCreaturesHeart,
+                VanillaArtifactID.darkMatter,
                 VanillaArtifactID.dreamButterfly,
             });
             level.RechargeSpeed = 9999999;

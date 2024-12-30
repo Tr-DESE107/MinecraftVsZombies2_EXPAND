@@ -28,6 +28,7 @@ namespace MVZ2.GameContent.Buffs
         public const string carryingOther = "carrying_other";
         public const string lilyPadEvocation = "lily_pad_evocation";
         public const string dreamButterflyShield = "dream_butterfly_shield";
+        public const string darkMatterProduction = "dark_matter_production";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -75,6 +76,7 @@ namespace MVZ2.GameContent.Buffs
             public const string swordParalyzed = "sword_paralyzed";
             public const string frankensteinStage = "frankenstein_stage";
             public const string nightmareLevel = "nightmare_level";
+            public const string darkMatterDark = "dark_matter_dark";
         }
         public static class Boss
         {
@@ -100,6 +102,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID dreamKeyShield = Get(VanillaBuffNames.dreamKeyShield);
         public static readonly NamespaceID carriedByLilyPad = Get(VanillaBuffNames.carriedByLilyPad);
         public static readonly NamespaceID carryingOther = Get(VanillaBuffNames.carryingOther);
+        public static readonly NamespaceID darkMatterProduction = Get(VanillaBuffNames.darkMatterProduction);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
@@ -115,6 +118,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID levelEasy = Get(VanillaBuffNames.Level.levelEasy);
             public static readonly NamespaceID levelHard = Get(VanillaBuffNames.Level.levelHard);
             public static readonly NamespaceID tutorialPickaxeDisable = Get(VanillaBuffNames.Level.tutorialPickaxeDisable);
+            public static readonly NamespaceID darkMatterDark = Get(VanillaBuffNames.Level.darkMatterDark);
         }
     }
 }
