@@ -912,6 +912,8 @@ namespace MVZ2.Level
         {
             if (!IsGameRunning())
                 return;
+            if (!level.FilterLawnPointerPhase(phase))
+                return;
 
             LawnArea area = LawnArea.Main;
             switch (receiver)
@@ -923,7 +925,7 @@ namespace MVZ2.Level
                     area = LawnArea.Bottom;
                     break;
             }
-            level.UseOnLawn(area, phase);
+            level.UseOnLawn(area);
         }
         #endregion
 

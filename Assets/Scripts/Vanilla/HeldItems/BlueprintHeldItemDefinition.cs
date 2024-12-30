@@ -30,33 +30,38 @@ namespace MVZ2.Vanilla.HeldItems
 
         #region 网格
         public override bool IsForGrid() => true;
+        public override bool FilterGridPointerPhase(PointerPhase phase)
+        {
+            return phase == (Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press);
+        }
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             var flags = HeldFlags.None;
-            if (IsValidOnGrid(grid, data, out _))
+            var level = grid.Level;
+            var seed = GetSeedPackAt(level, (int)data.ID);
+            if (seed != null)
             {
-                flags |= HeldFlags.Valid;
+                var seedDef = seed.GetDefinitionID();
+                if (grid.CanPlaceBlueprint(seedDef, out _))
+                {
+                    flags |= HeldFlags.Valid;
+                }
             }
             return flags;
         }
-        public override string GetHeldErrorMessageOnGrid(LawnGrid grid, IHeldItemData data)
+        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, NamespaceID targetLayer)
         {
-            if (!IsValidOnGrid(grid, data, out var error))
-            {
-                return Global.Game.GetGridErrorMessage(error);
-            }
-            return null;
-        }
-        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer)
-        {
-            var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
-            if (phase != targetPhase)
-                return false;
             var level = grid.Level;
             var seed = GetSeedPackAt(level, (int)data.ID);
             if (seed == null)
                 return false;
             var seedDef = seed.Definition;
+            if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
+            {
+                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, Global.Game.GetGridErrorMessage(error), 0, 150);
+                return false;
+            }
+
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 seed.UseOnGrid(grid, data);
@@ -65,22 +70,10 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return false;
         }
-        private bool IsValidOnGrid(LawnGrid grid, IHeldItemData data, out NamespaceID error)
-        {
-            error = null;
-            var level = grid.Level;
-            var seed = GetSeedPackAt(level, (int)data.ID);
-            if (seed == null)
-                return false;
-            var seedDef = seed.GetDefinitionID();
-            if (!grid.CanPlaceBlueprint(seedDef, out error))
-                return false;
-            return true;
-        }
         #endregion
-        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data, PointerPhase phase)
+        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data)
         {
-            base.UseOnLawn(level, area, data, phase);
+            base.UseOnLawn(level, area, data);
             if (area != LawnArea.Side)
                 return;
             if (level.CancelHeldItem())

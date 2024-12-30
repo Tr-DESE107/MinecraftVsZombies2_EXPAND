@@ -25,6 +25,10 @@ namespace MVZ2.GameContent.HeldItems
 
         #region 实体
         public override bool IsForEntity() => !Global.IsMobile();
+        public override bool FilterEntityPointerPhase(Entity entity, PointerPhase phase)
+        {
+            return phase == PointerPhase.Press;
+        }
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
         {
             HeldFlags flags = HeldFlags.ForceReset;
@@ -39,11 +43,9 @@ namespace MVZ2.GameContent.HeldItems
             }
             return flags;
         }
-        public override bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase)
+        public override bool UseOnEntity(Entity entity, IHeldItemData data)
         {
-            base.UseOnEntity(entity, data, phase);
-            if (phase != PointerPhase.Press)
-                return false;
+            base.UseOnEntity(entity, data);
             switch (entity.Type)
             {
                 case EntityTypes.PLANT:
@@ -57,6 +59,10 @@ namespace MVZ2.GameContent.HeldItems
 
         #region 图格
         public override bool IsForGrid() => Global.IsMobile();
+        public override bool FilterGridPointerPhase(PointerPhase phase)
+        {
+            return phase == PointerPhase.Release;
+        }
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             var flags = HeldFlags.ForceReset;
@@ -73,11 +79,9 @@ namespace MVZ2.GameContent.HeldItems
                 flags |= HeldFlags.ValidOnCarrier;
             return flags;
         }
-        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer)
+        public override bool UseOnGrid(LawnGrid grid, IHeldItemData data, NamespaceID targetLayer)
         {
-            base.UseOnGrid(grid, data, phase, targetLayer);
-            if (phase != PointerPhase.Release)
-                return false;
+            base.UseOnGrid(grid, data, targetLayer);
             var entity = grid.GetLayerEntity(targetLayer);
             if (entity != null && entity.Type == EntityTypes.PLANT && CanEvoke(entity))
             {
@@ -88,12 +92,13 @@ namespace MVZ2.GameContent.HeldItems
         }
         #endregion
 
-        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data, PointerPhase phase)
+        public override bool FilterLawnPointerPhase(PointerPhase phase)
         {
-            base.UseOnLawn(level, area, data, phase);
-            var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
-            if (phase != targetPhase)
-                return;
+            return phase == (Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press);
+        }
+        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data)
+        {
+            base.UseOnLawn(level, area, data);
             if (level.CancelHeldItem() && area == LawnArea.Side)
             {
                 level.PlaySound(VanillaSoundID.tap);

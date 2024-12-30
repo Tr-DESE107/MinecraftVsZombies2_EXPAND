@@ -53,38 +53,44 @@ namespace MVZ2.Level
         {
             if (!IsGameRunning())
                 return;
+            if (!level.FilterGridPointerPhase(phase))
+                return;
 
             var grid = level.GetGrid(column, lane);
             var heldFlags = level.GetHeldFlagsOnGrid(grid);
-            bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
+            bool forceReset = heldFlags.HasFlag(HeldFlags.ForceReset);
             bool validOnProtector = heldFlags.HasFlag(HeldFlags.ValidOnProtector);
             bool validOnMain = heldFlags.HasFlag(HeldFlags.Valid);
             bool validOnCarrier = heldFlags.HasFlag(HeldFlags.ValidOnCarrier);
-            if (validOnProtector && validOnMain)
+            NamespaceID layer;
+            if (validOnProtector)
             {
-                reset = level.UseOnGrid(grid, phase, upper ? VanillaGridLayers.main : VanillaGridLayers.protector);
-            }
-            else if (validOnProtector)
-            {
-                reset = level.UseOnGrid(grid, phase, VanillaGridLayers.protector);
-            }
-            else if (validOnMain)
-            {
-                reset = level.UseOnGrid(grid, phase, VanillaGridLayers.main);
-            }
-            else if (validOnCarrier)
-            {
-                reset = level.UseOnGrid(grid, phase, VanillaGridLayers.carrier);
+                if (validOnMain)
+                {
+                    layer = upper ? VanillaGridLayers.main : VanillaGridLayers.protector;
+                }
+                else
+                {
+                    layer = VanillaGridLayers.protector;
+                }
             }
             else
             {
-                var errorMessage = level.GetHeldErrorMessageOnGrid(grid);
-                if (!string.IsNullOrEmpty(errorMessage))
+                if (validOnMain)
                 {
-                    level.ShowAdvice(Vanilla.VanillaStrings.CONTEXT_ADVICE, errorMessage, 0, 150);
+                    layer = VanillaGridLayers.main;
+                }
+                else if (validOnCarrier)
+                {
+                    layer = VanillaGridLayers.carrier;
+                }
+                else
+                {
+                    layer = VanillaGridLayers.main;
                 }
             }
-            if (reset)
+            var reset = level.UseOnGrid(grid, layer);
+            if (reset || forceReset)
             {
                 level.ResetHeldItem();
             }
@@ -117,7 +123,7 @@ namespace MVZ2.Level
             Color color = Color.clear;
             if (!heldFlags.HasFlag(HeldFlags.NoHighlight))
             {
-                color = heldFlags.HasFlag(HeldFlags.Valid) ? Color.green : Color.red;
+                color = heldFlags.HasFlag(HeldFlags.Valid) || heldFlags.HasFlag(HeldFlags.ValidOnProtector) || heldFlags.HasFlag(HeldFlags.ValidOnCarrier) ? Color.green : Color.red;
             }
             grid.SetColor(color);
         }

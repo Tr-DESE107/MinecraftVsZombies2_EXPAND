@@ -15,10 +15,12 @@ namespace MVZ2Logic.HeldItems
         }
         public abstract HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data);
         public abstract HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data);
-        public virtual string GetHeldErrorMessageOnGrid(LawnGrid grid, IHeldItemData data) => null;
-        public virtual bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase) { return false; }
-        public virtual bool UseOnGrid(LawnGrid grid, IHeldItemData data, PointerPhase phase, NamespaceID targetLayer) { return false; }
-        public virtual void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data, PointerPhase phase) { }
+        public virtual bool FilterEntityPointerPhase(Entity entity, PointerPhase phase) => true;
+        public virtual bool FilterGridPointerPhase(PointerPhase phase) => true;
+        public virtual bool FilterLawnPointerPhase(PointerPhase phase) => true;
+        public virtual bool UseOnEntity(Entity entity, IHeldItemData data) { return false; }
+        public virtual bool UseOnGrid(LawnGrid grid, IHeldItemData data, NamespaceID targetLayer) { return false; }
+        public virtual void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data) { }
         public virtual bool IsForEntity() => false;
         public virtual bool IsForGrid() => false;
         public virtual bool IsForPickup() => false;

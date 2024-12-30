@@ -16,6 +16,18 @@ namespace MVZ2.Vanilla.HeldItems
         #region 实体
         public override bool IsForEntity() => true;
         public override bool IsForPickup() => true;
+        public override bool FilterEntityPointerPhase(Entity entity, PointerPhase phase)
+        {
+            switch (entity.Type)
+            {
+                case EntityTypes.PICKUP:
+                    return phase != PointerPhase.Release;
+                    break;
+                case EntityTypes.CART:
+                    return phase == PointerPhase.Press;
+            }
+            return false;
+        }
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
         {
             switch (entity.Type)
@@ -35,23 +47,17 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return HeldFlags.None;
         }
-        public override bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase)
+        public override bool UseOnEntity(Entity entity, IHeldItemData data)
         {
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    if (phase != PointerPhase.Release)
-                    {
-                        if (!entity.IsCollected())
-                            entity.Collect();
-                    }
+                    if (!entity.IsCollected())
+                        entity.Collect();
                     break;
                 case EntityTypes.CART:
-                    if (phase == PointerPhase.Press)
-                    {
-                        if (!entity.IsCartTriggered())
-                            entity.TriggerCart();
-                    }
+                    if (!entity.IsCartTriggered())
+                        entity.TriggerCart();
                     break;
             }
             return false;

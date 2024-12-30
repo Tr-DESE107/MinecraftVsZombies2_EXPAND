@@ -72,7 +72,10 @@ namespace MVZ2.Level
                 // 自动拾取
                 if (Input.GetMouseButton((int)MouseButton.LeftMouse))
                 {
-                    level.UseOnEntity(entityCtrl.Entity, PointerPhase.Enter);
+                    if (level.FilterEntityPointerPhase(entityCtrl.Entity, PointerPhase.Enter))
+                    {
+                        level.UseOnEntity(entityCtrl.Entity);
+                    }
                 }
             }
             else
@@ -113,11 +116,13 @@ namespace MVZ2.Level
             var entity = entityCtrl.Entity;
             if (IsGameRunning())
             {
+                if (!level.FilterEntityPointerPhase(entityCtrl.Entity, PointerPhase.Press))
+                    return;
                 var heldFlags = level.GetHeldFlagsOnEntity(entity);
                 bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
                 if (heldFlags.HasFlag(HeldFlags.Valid))
                 {
-                    reset = level.UseOnEntity(entity, PointerPhase.Press);
+                    reset = level.UseOnEntity(entity);
                 }
                 if (reset)
                 {

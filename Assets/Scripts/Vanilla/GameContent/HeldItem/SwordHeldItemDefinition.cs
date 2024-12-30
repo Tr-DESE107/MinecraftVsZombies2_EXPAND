@@ -30,6 +30,16 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override bool IsForEntity() => true;
         public override bool IsForPickup() => true;
+        public override bool FilterEntityPointerPhase(Entity entity, PointerPhase phase)
+        {
+            switch (entity.Type)
+            {
+                case EntityTypes.PICKUP:
+                    return phase != PointerPhase.Release;
+                default:
+                    return phase == PointerPhase.Press;
+            }
+        }
         public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
         {
             HeldFlags flags = HeldFlags.None;
@@ -59,55 +69,45 @@ namespace MVZ2.GameContent.HeldItems
             }
             return flags;
         }
-        public override bool UseOnEntity(Entity entity, IHeldItemData data, PointerPhase phase)
+        public override bool UseOnEntity(Entity entity, IHeldItemData data)
         {
-            base.UseOnEntity(entity, data, phase);
+            base.UseOnEntity(entity, data);
             switch (entity.Type)
             {
                 case EntityTypes.ENEMY:
-                    if (phase == PointerPhase.Press)
+                    var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
+                    entity.TakeDamageNoSource(750, effects);
+                    if (entity.IsDead)
                     {
-                        var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
-                        entity.TakeDamageNoSource(750, effects);
-                        if (entity.IsDead)
-                        {
-                            var pos = entity.Level.GetPointerPositionByZ(entity.Position.z);
-                            entity.Level.Spawn(VanillaEffectID.pow, pos, null);
-                        }
-                        Swing(entity.Level);
+                        var pos = entity.Level.GetPointerPositionByZ(entity.Position.z);
+                        entity.Level.Spawn(VanillaEffectID.pow, pos, null);
                     }
-                    return true;
+                    break;
                 case EntityTypes.PICKUP:
-                    if (phase != PointerPhase.Release)
-                    {
-                        if (!entity.IsCollected())
-                            entity.Collect();
-                        Swing(entity.Level);
-                    }
-                    return false;
+                    if (!entity.IsCollected())
+                        entity.Collect(); 
+                    break;
                 case EntityTypes.CART:
-                    if (phase == PointerPhase.Press)
-                    {
-                        if (!entity.IsCartTriggered())
-                            entity.TriggerCart();
-                        Swing(entity.Level);
-                    }
-                    return false;
+                    if (!entity.IsCartTriggered())
+                        entity.TriggerCart();
+                    break;
             }
+            Swing(entity.Level);
             return false;
         }
         public override bool IsForGrid() => false;
+        public override bool FilterLawnPointerPhase(PointerPhase phase)
+        {
+            return phase == PointerPhase.Press;
+        }
         public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
         {
             return HeldFlags.None;
         }
-        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data, PointerPhase phase)
+        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data)
         {
-            base.UseOnLawn(level, area, data, phase);
-            if (phase == PointerPhase.Press)
-            {
-                Swing(level);
-            }
+            base.UseOnLawn(level, area, data);
+            Swing(level);
         }
         public override NamespaceID GetModelID(LevelEngine level, long id)
         {
