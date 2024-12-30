@@ -74,7 +74,7 @@
             <bool name="faceLeftAtDefault" value="true"/>
         </boss>
         <cart id="5" parent="entity">
-            <bool name="canUnderGround" value="true"/>
+            <float name="groundLimitOffset" value="-1000"/>
             <vector3 name="size" x="56" y="32" z="56"/>
             <id name="cartTriggerSound" value="mvz2:minecart"/>
             <int name="waterInteraction" value="1"/>
@@ -590,7 +590,7 @@
             <id name="modelId" value="mvz2:entity.money_chest"/>
         </pickup>
         <pickup id="starshard" name="星之碎片">
-            <bool name="canUnderGround" value="true"/>
+            <float name="groundLimitOffset" value="-1000"/>
             <bool name="shadowHidden" value="true"/>
             <float name="friction" value="0"/>
             <float name="gravity" value="0"/>
