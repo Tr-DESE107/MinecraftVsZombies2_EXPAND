@@ -382,7 +382,7 @@
             <id name="crySound" value="mvz2:spider_cry"/>
             <id name="deathSound" value="mvz2:spider_death"/>
 
-            <vector3 name="shadowScale" x="1" y="0.5" z="0.5"/>
+            <vector3 name="shadowScale" x="2" y="1" z="1"/>
 
             <color name="bloodColor" value="#007F00FF"/>
             <color name="bloodColorCensored" value="#007F00FF"/>
@@ -400,7 +400,7 @@
             <id name="crySound" value="mvz2:spider_cry"/>
             <id name="deathSound" value="mvz2:spider_death"/>
 
-            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+            <vector3 name="shadowScale" x="1" y="1" z="1"/>
 
             <color name="bloodColor" value="#007F00FF"/>
             <color name="bloodColorCensored" value="#007F00FF"/>
@@ -437,7 +437,7 @@
             <id name="crySound" value="mvz2:terror_cry"/>
             <id name="deathSound" value="mvz2:terror_death"/>
 
-            <vector3 name="shadowScale" x="1" y="0.5" z="0.5"/>
+            <vector3 name="shadowScale" x="2" y="1" z="1"/>
 
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
@@ -455,7 +455,7 @@
             <id name="crySound" value="mvz2:terror_cry"/>
             <id name="deathSound" value="mvz2:terror_death"/>
 
-            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+            <vector3 name="shadowScale" x="1" y="1" z="1"/>
 
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
