@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaArtifactID.dreamKey,
                 VanillaArtifactID.theCreaturesHeart,
-                null
+                VanillaArtifactID.dreamButterfly,
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

@@ -27,6 +27,7 @@ namespace MVZ2.GameContent.Buffs
         public const string carriedByLilyPad = "carried_by_lily_pad";
         public const string carryingOther = "carrying_other";
         public const string lilyPadEvocation = "lily_pad_evocation";
+        public const string dreamButterflyShield = "dream_butterfly_shield";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
