@@ -922,6 +922,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 362da70159fb18b4a8a82d376f1976ba
+    m_Address: mvz2:contraption/anvil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 364cbf731035032499adb5896b6b058e
     m_Address: mvz2:grind2
     m_ReadOnly: 0

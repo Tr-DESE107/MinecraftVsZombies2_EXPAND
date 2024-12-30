@@ -71,6 +71,8 @@ namespace MVZ2.Level.Components
                 return;
             artifacts = ArtifactList.FromSerializable(comp.artifacts, Level);
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
+            var uiPreset = Controller.GetUIPreset();
+            uiPreset.SetArtifactCount(artifacts.GetSlotCount());
             UpdateUIArtifacts();
         }
         private void UpdateUIArtifacts()

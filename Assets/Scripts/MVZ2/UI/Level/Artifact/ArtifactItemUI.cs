@@ -9,19 +9,19 @@ namespace MVZ2.Level.UI
     {
         public void SetGlowing(bool glowing)
         {
-            if (!animator.isActiveAndEnabled)
+            if (!animator.gameObject.activeInHierarchy)
                 return;
             animator.SetBool("Glowing", glowing);
         }
         public void Shine()
         {
-            if (!animator.isActiveAndEnabled)
+            if (!animator.gameObject.activeInHierarchy)
                 return;
             animator.SetTrigger("Shine");
         }
         public void SetGrayscale(bool grayscale)
         {
-            if (!animator.isActiveAndEnabled)
+            if (!animator.gameObject.activeInHierarchy)
                 return;
             animator.SetBool("Grayscale", grayscale);
         }
@@ -39,8 +39,9 @@ namespace MVZ2.Level.UI
         }
         public void UpdateAnimator(float deltaTime)
         {
-            if (!animator.isActiveAndEnabled)
+            if (!animator.gameObject.activeInHierarchy)
                 return;
+            animator.enabled = false;
             animator.Update(deltaTime);
         }
         public SerializableAnimator GetSerializableAnimator()
