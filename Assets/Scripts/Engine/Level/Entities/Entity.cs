@@ -122,7 +122,7 @@ namespace PVZEngine.Entities
                 takenConveyorSeeds.Clear();
                 Definition.PostRemove(this);
                 auras.PostRemove();
-                Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_REMOVE, this);
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, Type, this);
             }
         }
         public bool IsEntityOf(NamespaceID id)

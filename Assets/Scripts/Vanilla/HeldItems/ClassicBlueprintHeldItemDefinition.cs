@@ -21,8 +21,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
             base.OnUseBlueprint(grid, data, seed);
             var level = grid.Level;
-            var seedDef = seed.Definition;
-            level.AddEnergy(-seedDef.GetCost());
+            level.AddEnergy(-seed.GetCost());
             level.SetRechargeTimeToUsed(seed);
             seed.ResetRecharge();
         }

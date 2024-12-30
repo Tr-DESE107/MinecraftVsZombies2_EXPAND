@@ -50,6 +50,10 @@ namespace MVZ2Logic.Artifacts
                 return thisProp;
             return Definition.GetProperty<T>(name);
         }
+        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
+        {
+            return auras.Get<T>();
+        }
         public void SetProperty(string name, object value)
         {
             propertyDict.SetProperty(name, value);

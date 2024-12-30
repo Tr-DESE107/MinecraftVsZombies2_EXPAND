@@ -104,9 +104,9 @@ namespace PVZEngine.SeedPacks
         #region 消耗
         public int GetCost()
         {
-            var cost = GetProperty<int>(EngineSeedProps.COST);
+            var cost = GetProperty<float>(EngineSeedProps.COST);
             cost = Mathf.Max(cost, 0);
-            return cost;
+            return Mathf.FloorToInt(cost);
         }
         #endregion
 

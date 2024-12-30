@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             level.SetEnergy(9990);
             level.SetSeedSlotCount(10);
+            level.SetArtifactSlotCount(3);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.lilyPad,
@@ -40,7 +41,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.dreamKey,
-                null,
+                VanillaArtifactID.theCreaturesHeart,
                 null
             });
             level.RechargeSpeed = 9999999;

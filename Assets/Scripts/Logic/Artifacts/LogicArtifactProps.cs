@@ -22,6 +22,10 @@
         {
             return artifact.GetProperty<bool>(GRAYSCALE);
         }
+        public static void SetGlowing(this Artifact artifact, bool value)
+        {
+            artifact.SetProperty(GLOWING, value);
+        }
         public static bool GetGlowing(this Artifact artifact)
         {
             return artifact.GetProperty<bool>(GLOWING);

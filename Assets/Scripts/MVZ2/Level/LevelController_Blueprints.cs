@@ -451,6 +451,8 @@ namespace MVZ2.Level
 
             protected override void UpdateBlueprintUI(int index, Blueprint blueprint, SeedPack seed)
             {
+                BlueprintViewData viewData = controller.Resources.GetBlueprintViewData(seed);
+                blueprint.UpdateView(viewData);
                 var maxCharge = seed.GetMaxRecharge();
                 blueprint.SetRecharge(maxCharge == 0 ? 0 : 1 - seed.GetRecharge() / maxCharge);
                 blueprint.SetDisabled(!CanPickBlueprint(seed));
@@ -592,6 +594,9 @@ namespace MVZ2.Level
             #region 更新UI
             protected override void UpdateBlueprintUI(int index, Blueprint blueprint, SeedPack seed)
             {
+                BlueprintViewData viewData = controller.Resources.GetBlueprintViewData(seed);
+                viewData.cost = string.Empty;
+                blueprint.UpdateView(viewData);
                 var uiPreset = GetUIPreset();
                 blueprint.SetRecharge(0);
                 blueprint.SetDisabled(false);

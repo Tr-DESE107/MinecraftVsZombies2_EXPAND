@@ -2,7 +2,7 @@
     <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌人" sprite="mvz2:artifacts/hoe" unlock="mvz2:artifact.hoe" />
     
     <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有生命值，并在此期间无敌" sprite="mvz2:artifacts/dream_key" unlock="mvz2:level.halloween_11" />
-    <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少5" sprite="mvz2:artifacts/the_creatures_heart" unlock="mvz2:artifact.the_creatures_heart" />
+    <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少10" sprite="mvz2:artifacts/the_creatures_heart" unlock="mvz2:artifact.the_creatures_heart" />
     
     <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点生命值" sprite="mvz2:artifacts/sweet_sleep_pillow" unlock="mvz2:level.dream_2" />
     <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时拥有300能量，但敌人数量变为300%" sprite="mvz2:artifacts/pagoda_branch" unlock="mvz2:artifact.pagoda_branch" />
