@@ -306,10 +306,7 @@ namespace PVZEngine.Entities
             Vector3 velocity = GetNextVelocity(simulationSpeed);
             velocity.Scale(Vector3.one - Cache.VelocityDampen);
             var nextPos = Position + velocity * simulationSpeed;
-            if (!Cache.CanUnderGround)
-            {
-                nextPos.y = Mathf.Max(GetGroundY(), nextPos.y);
-            }
+            nextPos.y = Mathf.Max(GetGroundY() + Cache.GroundLimitOffset, nextPos.y);
             return nextPos;
         }
 
@@ -332,16 +329,13 @@ namespace PVZEngine.Entities
             Vector3 nextVelocity = GetNextVelocity(simulationSpeed);
             Vector3 nextPos = GetNextPosition(simulationSpeed);
 
-            float groundHeight = Level.GetGroundY(nextPos.x, nextPos.z);
-            float relativeY = nextPos.y - groundHeight;
+            float groundY = Level.GetGroundY(nextPos.x, nextPos.z);
+            float relativeY = nextPos.y - groundY;
             bool leavingGround = relativeY > 0 || (relativeY == 0 && nextVelocity.y >= 0);
 
-            if (!GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND))
+            if (nextPos.y <= groundY + Cache.GroundLimitOffset && nextVelocity.y < 0)
             {
-                if (nextPos.y <= groundHeight && nextVelocity.y < 0)
-                {
-                    nextVelocity.y = 0;
-                }
+                nextVelocity.y = 0;
             }
             Position = nextPos;
             Velocity = nextVelocity;

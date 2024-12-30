@@ -10,7 +10,7 @@ namespace PVZEngine.Entities
             Faction = entity.GetFaction();
             Gravity = entity.GetGravity();
             Friction = entity.GetFriction();
-            CanUnderGround = entity.CanUnderGround();
+            GroundLimitOffset = entity.GetGroundLimitOffset();
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
         }
@@ -27,8 +27,8 @@ namespace PVZEngine.Entities
                 case EngineEntityProps.FRICTION:
                     Friction = value.ToGeneric<float>();
                     break;
-                case EngineEntityProps.CAN_UNDER_GROUND:
-                    CanUnderGround = value.ToGeneric<bool>();
+                case EngineEntityProps.GROUND_LIMIT_OFFSET:
+                    GroundLimitOffset = value.ToGeneric<float>();
                     break;
                 case EngineEntityProps.VELOCITY_DAMPEN:
                     VelocityDampen = value.ToGeneric<Vector3>();
@@ -41,7 +41,7 @@ namespace PVZEngine.Entities
         public int Faction { get; private set; }
         public float Gravity { get; private set; }
         public float Friction { get; private set; }
-        public bool CanUnderGround { get; private set; }
+        public float GroundLimitOffset { get; private set; }
         public Vector3 VelocityDampen { get; private set; }
         public Vector3 Size { get; private set; }
     }

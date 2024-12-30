@@ -15,7 +15,7 @@ namespace PVZEngine.Entities
         public const string GRAVITY = "gravity";
         public const string VELOCITY_DAMPEN = "velocityDampen";
         public const string SIZE = "size";
-        public const string CAN_UNDER_GROUND = "canUnderGround";
+        public const string GROUND_LIMIT_OFFSET = "groundLimitOffset";
 
         public const string HEALTH = "health";
         public const string TINT = "tint";
@@ -99,9 +99,9 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(FACTION, value);
         }
-        public static bool CanUnderGround(this Entity entity)
+        public static float GetGroundLimitOffset(this Entity entity)
         {
-            return entity.GetProperty<bool>(EngineEntityProps.CAN_UNDER_GROUND);
+            return entity.GetProperty<float>(EngineEntityProps.GROUND_LIMIT_OFFSET);
         }
         public static Vector3 GetSize(this Entity entity, bool ignoreBuffs = false)
         {

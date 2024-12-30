@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.AddMultiplie, PROP_GRAVITY_ADDITION));
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Add, 0.15f));
-            AddModifier(new BooleanModifier(EngineEntityProps.CAN_UNDER_GROUND, true));
+            AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, -100f));
         }
         public override void PostUpdate(Buff buff)
         {
@@ -51,10 +51,6 @@ namespace MVZ2.GameContent.Buffs
                 var velocity = entity.Velocity;
                 velocity.y *= verticalFriction;
                 entity.Velocity = velocity;
-
-                var position = entity.Position;
-                position.y = Mathf.Max(position.y, -100);
-                entity.Position = position;
             }
             buff.SetProperty(PROP_GRAVITY_ADDITION, gravityAddition);
         }
