@@ -134,6 +134,7 @@ namespace PVZEngine.Level
             {
                 component.Update();
             }
+            AreaDefinition.Update(this);
             StageDefinition.Update(this);
             Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, this);
         }
@@ -254,7 +255,7 @@ namespace PVZEngine.Level
         }
         public float GetGroundY(float x, float z)
         {
-            return AreaDefinition.GetGroundY(x, z);
+            return AreaDefinition.GetGroundY(this, x, z);
         }
         public LawnGrid GetGrid(int index)
         {

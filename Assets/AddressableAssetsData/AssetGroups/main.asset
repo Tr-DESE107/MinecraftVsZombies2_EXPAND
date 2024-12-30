@@ -113,6 +113,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09e33d4b66b1efa4eb15944bf80b140f
+    m_Address: mvz2:entity/contraption/dream_alarm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a0f7cbdb4c6650409a18d59ba158a03
     m_Address: mvz2:entity/projectiles/dart
     m_ReadOnly: 0
@@ -653,6 +659,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29eee8886dbe09a4192dd71e71399961
+    m_Address: mvz2:contraption/dream_crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a4746211870c7249adf3104c2ebdac4
     m_Address: mvz2:talk/speech_bubble_no_arrow
     m_ReadOnly: 0
@@ -922,6 +934,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36c76d9d43fd1e841a97ef2e0d658b84
+    m_Address: mvz2:effect/pow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36ceb837ec0bbd54e9f7ecac4e5ecc70
     m_Address: mvz2:mainmenu/titlescreen
     m_ReadOnly: 0
@@ -994,6 +1012,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c47f11cc215a5b4cad099f4d1d6158e
+    m_Address: mvz2:entity/contraptions/pistenser_arm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c7cacc742c9f154e80d19b1b5b133c2
     m_Address: mvz2:mobile_blueprint/silvenser
     m_ReadOnly: 0
@@ -1029,6 +1053,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d56ca3e620bfb14abab50beefc95cbe
+    m_Address: mvz2:contraption/vortex_hopper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d9178829e9e3e340b9f8df54bfcbbb5
     m_Address: mvz2:entity/carts/minecart
@@ -1089,6 +1119,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fd63c7920860ce4f8bc0be1188ae567
+    m_Address: mvz2:entity/contraptions/gravity_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ff5950a87d45c2428b59b7e2132c2b7
     m_Address: mvz2:pickup/redstone
@@ -1210,6 +1246,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45e4ec0a78ad63e4da7576e9c122689c
+    m_Address: mvz2:entity/contraptions/dream_silk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4604673f13e91a847a5781f0d106be31
     m_Address: mvz2:entity/armor/iron_helmet
     m_ReadOnly: 0
@@ -1281,6 +1323,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4928638317c505a4e86671ea24a68c7f
+    m_Address: mvz2:entity/contraption/anvil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 498cfe5e32569bc43ae84fc47f7622ce
     m_Address: mvz2:entity/effects/thunder_bolt
@@ -1390,6 +1438,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f777df47e4e3e849839101638a97ed9
+    m_Address: mvz2:entity/contraptions/random_china
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5005bdd978e5a304a871e9d6929ee180
     m_Address: mvz2:entity/contraption/loms
     m_ReadOnly: 0
@@ -1451,7 +1505,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 536be77b316de444c86963d500ad1922
-    m_Address: mvz2:entity/contraptions/dream_key_shield
+    m_Address: mvz2:icons/dream_key_shield
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1497,6 +1551,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58158142a20bad54bb1d4d18b73f88aa
+    m_Address: mvz2:entity/contraption/vortex_hopper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58cd365da4a132942b0437a7a378f1a1
     m_Address: mvz2:entity/ghast/ghast5
@@ -2206,6 +2266,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83ec2275e6001c34d99dc8ab93aa2907
+    m_Address: mvz2:contraption/totenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 842c7ddcc4687ac43bd7fd5d478c0b7f
     m_Address: mvz2:entity/pickups/diamond
     m_ReadOnly: 0
@@ -2259,6 +2325,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87605de12ede6fe43818bbbae557666e
+    m_Address: mvz2:entity/contraptions/gravity_force
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 877e2289face1f741ba64c6e5bb9651e
     m_Address: mvz2:chest_open
@@ -2346,6 +2418,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b93445b685c42440938fc5154ea419c
     m_Address: mvz2:entity/effects/evocation_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bf802c92af01e14ab7d98dedcdb86a1
+    m_Address: mvz2:entity/effects/pow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2560,6 +2638,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Language
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95bc9497de9a837428640f78dd1b595f
+    m_Address: mvz2:contraption/dream_silk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95c5376f1e749954692fa0c793e7dafb
     m_Address: mvz2:misc/eternal_night_swamp
     m_ReadOnly: 0
@@ -2626,6 +2710,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b59635ff8434c74fa29b53b688e15fb
+    m_Address: mvz2:entity/contraption/force_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b5a67edc6a78c340b26aac6c7756229
     m_Address: mvz2:piston_in
     m_ReadOnly: 0
@@ -2685,6 +2775,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9decbf7bacbe3b0429fa80811d0a000a
+    m_Address: mvz2:entity/contraption/dream_crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e43064c78598fd4493a1d5c14308edb
     m_Address: mvz2:mobile_blueprint/vortex_hopper
@@ -3065,7 +3161,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3a86d0fdd9f49043b0ec319c8c28d4c
-    m_Address: mvz2:buffs/parasitized_icon
+    m_Address: mvz2:icons/parasitized_icon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3213,6 +3309,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba5959cbb21e70e46930dced2270fecb
+    m_Address: mvz2:entity/contraption/pistenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bafd8d60319920d40a5881b8a2776d56
+    m_Address: mvz2:entity/contraption/force_pad_evoking
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb82960c34438084dbe2e212ab303367
     m_Address: mvz2:entity/mummy/mummy3
@@ -3382,6 +3490,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c91919e3f10e9004f85638cba2384e3e
+    m_Address: mvz2:entity/contraptions/force_wave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c98850842ba8ff14f919f63ce5114326
     m_Address: mvz2:ui/level/pickaxe
     m_ReadOnly: 0
@@ -3407,7 +3521,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cac832a88b0c87445b15d989123caa7a
-    m_Address: mvz2:entity/contraptions/sleeping
+    m_Address: mvz2:icons/sleeping
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3658,6 +3772,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d83dc6234b1ecc3488270f73c335d5bd
+    m_Address: mvz2:contraption/gravity_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8b5fc6bc8605c7498d0a162438727ce
     m_Address: mvz2:entity/effect/particle_outline
     m_ReadOnly: 0
@@ -3777,6 +3897,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de0de2dd10be63e49863ecc1248bbe77
+    m_Address: mvz2:contraption/pistenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
     m_Address: mvz2:entity/pickup/ruby
@@ -4024,6 +4150,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec212abe3448fae468e8a869c194bb7c
+    m_Address: mvz2:entity/contraption/totenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec5ff71ab8787124f871adc517ed1852
     m_Address: mvz2:level/halloween/halloween_house_cover
     m_ReadOnly: 0
@@ -4079,7 +4211,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef8e70ac08eeb9a4aa57ec0abfff3b47
-    m_Address: mvz2:entity/contraptions/short_circuited
+    m_Address: mvz2:icons/short_circuited
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4210,6 +4342,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6655a00eb7e10343929a4e216bb0f2b
+    m_Address: mvz2:entity/contraptions/dream_crystal_supernatural
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f685daf19b1faeb4dbcba727a304e6d4
     m_Address: mvz2:entity/ghast/ghast6
     m_ReadOnly: 0
@@ -4313,7 +4451,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc3e815806f7eaf4694e0d4333cc9185
-    m_Address: mvz2:entity/contraptions/disabled
+    m_Address: mvz2:icons/disabled
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

@@ -104,22 +104,22 @@ namespace MVZ2.Almanacs
         {
             var page = Main.IsMobile() ? AlmanacUI.AlmanacPage.ContraptionsMobile : AlmanacUI.AlmanacPage.ContraptionsStandalone;
             ui.DisplayPage(page);
-            SetActiveContraptionEntry(contraptionEntries.FirstOrDefault());
+            SetActiveContraptionEntry(contraptionEntries.FirstOrDefault(e => e != null));
         }
         private void ViewEnemies()
         {
             ui.DisplayPage(AlmanacUI.AlmanacPage.Enemies);
-            SetActiveEnemyEntry(enemyEntries.FirstOrDefault());
+            SetActiveEnemyEntry(enemyEntries.FirstOrDefault(e => e != null));
         }
         private void ViewArtifacts()
         {
             ui.DisplayPage(AlmanacUI.AlmanacPage.Artifacts);
-            SetActiveArtifactEntry(artifactEntries.FirstOrDefault());
+            SetActiveArtifactEntry(artifactEntries.FirstOrDefault(e => e != null));
         }
         private void ViewMisc()
         {
             ui.DisplayPage(AlmanacUI.AlmanacPage.Miscs);
-            SetActiveMiscEntry(miscGroups.FirstOrDefault()?.entries?.FirstOrDefault());
+            SetActiveMiscEntry(miscGroups.FirstOrDefault()?.entries?.FirstOrDefault(e => e != null));
         }
         private void SetActiveContraptionEntry(NamespaceID contraptionID)
         {

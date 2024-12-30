@@ -1,22 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Carts;
+﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Grids;
-using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
@@ -46,6 +36,13 @@ namespace MVZ2.GameContent.Areas
                 level.AddBuff<NightmareLevelBuff>();
             }
         }
+        public override void Update(LevelEngine level)
+        {
+            base.Update(level);
+            var wave = GetPoolWave(level);
+            wave = (wave + 0.01f) % 1;
+            SetPoolWave(level, wave);
+        }
         public override void PostHugeWaveEvent(LevelEngine level)
         {
             base.PostHugeWaveEvent(level);
@@ -53,14 +50,23 @@ namespace MVZ2.GameContent.Areas
             level.PlaySound(VanillaSoundID.reverseVampire);
             level.PlaySound(VanillaSoundID.confuse);
         }
-        public override float GetGroundY(float x, float z)
+        public override float GetGroundY(LevelEngine level, float x, float z)
         {
             if (x > 500 && x < 820 && z > 120 && z < 440)
             {
                 // 水中
-                return -2;
+                return -1 + Mathf.Sin(((x + z) * 0.01f + GetPoolWave(level)) * 4 * Mathf.PI);
             }
-            return base.GetGroundY(x, z);
+            return base.GetGroundY(level, x, z);
         }
+        public static float GetPoolWave(LevelEngine level)
+        {
+            return level.GetProperty<float>(PROP_POOL_WAVE);
+        }
+        public static void SetPoolWave(LevelEngine level, float value)
+        {
+            level.SetProperty(PROP_POOL_WAVE, value);
+        }
+        public const string PROP_POOL_WAVE = "PoolWave";
     }
 }

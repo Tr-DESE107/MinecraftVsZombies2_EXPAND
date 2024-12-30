@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Areas
         {
             ReviveStatues(level);
         }
-        public override float GetGroundY(float x, float z)
+        public override float GetGroundY(LevelEngine level, float x, float z)
         {
             switch (x)
             {

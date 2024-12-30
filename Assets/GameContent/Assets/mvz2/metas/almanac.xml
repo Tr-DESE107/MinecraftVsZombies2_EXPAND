@@ -393,17 +393,6 @@
         </entry>
     </enemies>
     <artifacts>
-        <entry id="mvz2:hoe">
-            <header>
-                <p>农耕用具。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的僵尸。</color>]]></p>
-            </properties>
-            <flavor>
-                <p>踩到了的话被打一下很痛。真的。</p>
-            </flavor>
-        </entry>
         <entry id="mvz2:dream_key">
             <header>
                 <p>欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。</p>
@@ -441,6 +430,17 @@
             </properties>
             <flavor>
                 <p>好困啊，先不写趣文了。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:hoe">
+            <header>
+                <p>农耕用具。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的僵尸。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>踩到了的话被打一下很痛。真的。</p>
             </flavor>
         </entry>
         <entry id="mvz2:pagoda_branch">
