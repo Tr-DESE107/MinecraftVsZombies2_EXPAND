@@ -29,10 +29,11 @@ namespace MVZ2.GameContent.Enemies
             var entity = input.Entity;
             if (entity == null)
                 return;
-            if (!input.Effects.HasEffect(VanillaDamageEffects.WHACK))
-                return;
-            Enrage(entity);
-            SwordHeldItemDefinition.Paralyze(entity.Level);
+            if (input.Effects.HasEffect(VanillaDamageEffects.WHACK))
+            {
+                Enrage(entity);
+                SwordHeldItemDefinition.Paralyze(entity.Level);
+            }
             input.Cancel();
         }
         protected override void UpdateLogic(Entity entity)
