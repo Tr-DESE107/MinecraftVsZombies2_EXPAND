@@ -136,6 +136,7 @@ namespace MVZ2.Level
             // 难度名称
             UpdateDifficultyName();
             // 能量、关卡进度条、手持物品、蓝图状态、星之碎片
+            SetStarshardIcon();
             UpdateInLevelUI();
             // 金钱
             UpdateMoney();
