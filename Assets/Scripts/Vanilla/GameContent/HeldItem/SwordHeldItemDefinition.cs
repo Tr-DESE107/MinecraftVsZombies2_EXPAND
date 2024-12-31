@@ -13,7 +13,6 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
@@ -28,86 +27,83 @@ namespace MVZ2.GameContent.HeldItems
         {
             level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
         }
-        public override bool IsForEntity() => true;
-        public override bool IsForPickup() => true;
-        public override bool FilterEntityPointerPhase(Entity entity, PointerPhase phase)
+        public override bool CheckRaycast(HeldItemTarget target)
         {
-            switch (entity.Type)
-            {
-                case EntityTypes.PICKUP:
-                    return phase != PointerPhase.Release;
-                default:
-                    return phase == PointerPhase.Press;
-            }
-        }
-        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
-        {
-            HeldFlags flags = HeldFlags.None;
+            if (target is not HeldItemTargetEntity entityTarget)
+                return false;
+
+            var entity = entityTarget.Target;
             switch (entity.Type)
             {
                 case EntityTypes.ENEMY:
-                    if (!IsParalyzed(entity.Level))
-                    {
-                        if (entity.IsHostileEnemy())
-                        {
-                            flags |= HeldFlags.Valid | HeldFlags.NoHighlight;
-                        }
-                    }
-                    break;
+                    return entity.IsHostileEnemy();
                 case EntityTypes.PICKUP:
-                    if (!entity.IsCollected())
-                    {
-                        flags |= HeldFlags.Valid;
-                    }
-                    break;
+                    return !entity.IsCollected();
                 case EntityTypes.CART:
-                    if (!entity.IsCartTriggered())
-                    {
-                        flags |= HeldFlags.Valid;
-                    }
-                    break;
+                    return !entity.IsCartTriggered();
             }
-            return flags;
-        }
-        public override bool UseOnEntity(Entity entity, IHeldItemData data)
-        {
-            base.UseOnEntity(entity, data);
-            switch (entity.Type)
-            {
-                case EntityTypes.ENEMY:
-                    var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
-                    entity.TakeDamageNoSource(750, effects);
-                    if (entity.IsDead)
-                    {
-                        var pos = entity.Level.GetPointerPositionByZ(entity.Position.z);
-                        entity.Level.Spawn(VanillaEffectID.pow, pos, null);
-                    }
-                    break;
-                case EntityTypes.PICKUP:
-                    if (!entity.IsCollected())
-                        entity.Collect(); 
-                    break;
-                case EntityTypes.CART:
-                    if (!entity.IsCartTriggered())
-                        entity.TriggerCart();
-                    break;
-            }
-            Swing(entity.Level);
             return false;
         }
-        public override bool IsForGrid() => false;
-        public override bool FilterLawnPointerPhase(PointerPhase phase)
+        public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
         {
-            return phase == PointerPhase.Press;
+            if (target is not HeldItemTargetEntity entityTarget)
+                return HeldHighlight.None;
+
+            var entity = entityTarget.Target;
+            switch (entity.Type)
+            {
+                case EntityTypes.CART:
+                    return HeldHighlight.Entity;
+            }
+            return HeldHighlight.None;
         }
-        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
         {
-            return HeldFlags.None;
-        }
-        public override void UseOnLawn(LevelEngine level, LawnArea area, IHeldItemData data)
-        {
-            base.UseOnLawn(level, area, data);
-            Swing(level);
+            switch (target)
+            {
+                case HeldItemTargetLawn lawnTarget:
+                    if (phase == PointerPhase.Press)
+                    {
+                        Swing(lawnTarget.Level);
+                    }
+                    break;
+                case HeldItemTargetEntity entityTarget:
+                    {
+                        var entity = entityTarget.Target;
+
+                        switch (entity.Type)
+                        {
+                            case EntityTypes.ENEMY:
+                                if (phase == PointerPhase.Press)
+                                {
+                                    var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
+                                    entity.TakeDamageNoSource(750, effects);
+                                    if (entity.IsDead)
+                                    {
+                                        var pos = entity.Level.GetPointerPositionByZ(entity.Position.z);
+                                        entity.Level.Spawn(VanillaEffectID.pow, pos, null);
+                                    }
+                                }
+                                break;
+                            case EntityTypes.PICKUP:
+                                if (phase != PointerPhase.Release)
+                                {
+                                    if (!entity.IsCollected())
+                                        entity.Collect();
+                                }
+                                break;
+                            case EntityTypes.CART:
+                                if (phase == PointerPhase.Press)
+                                {
+                                    if (!entity.IsCartTriggered())
+                                        entity.TriggerCart();
+                                }
+                                break;
+                        }
+                        Swing(entity.Level);
+                    }
+                    break;
+            }
         }
         public override NamespaceID GetModelID(LevelEngine level, long id)
         {

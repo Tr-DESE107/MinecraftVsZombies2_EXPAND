@@ -1,9 +1,11 @@
-﻿using MVZ2.HeldItems;
+﻿using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 
 namespace MVZ2.Vanilla.HeldItems
 {
@@ -14,60 +16,58 @@ namespace MVZ2.Vanilla.HeldItems
         {
         }
         #region 实体
-        public override bool IsForEntity() => true;
-        public override bool IsForPickup() => true;
-        public override bool FilterEntityPointerPhase(Entity entity, PointerPhase phase)
+        public override bool CheckRaycast(HeldItemTarget target)
         {
+            if (target is not HeldItemTargetEntity entityTarget)
+                return false;
+
+            var entity = entityTarget.Target;
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    return phase != PointerPhase.Release;
-                    break;
+                    return !entity.IsCollected();
                 case EntityTypes.CART:
-                    return phase == PointerPhase.Press;
+                    return !entity.IsCartTriggered();
             }
             return false;
         }
-        public override HeldFlags GetHeldFlagsOnEntity(Entity entity, IHeldItemData data)
+        public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
         {
+            if (target is not HeldItemTargetEntity entityTarget)
+                return HeldHighlight.None;
+
+            var entity = entityTarget.Target;
             switch (entity.Type)
             {
-                case EntityTypes.PICKUP:
-                    if (!entity.IsCollected())
-                    {
-                        return HeldFlags.Valid;
-                    }
-                    break;
                 case EntityTypes.CART:
-                    if (!entity.IsCartTriggered())
-                    {
-                        return HeldFlags.Valid;
-                    }
-                    break;
+                    return HeldHighlight.Entity;
             }
-            return HeldFlags.None;
+            return HeldHighlight.None;
         }
-        public override bool UseOnEntity(Entity entity, IHeldItemData data)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
         {
+            if (target is not HeldItemTargetEntity entityTarget)
+                return;
+
+            var entity = entityTarget.Target;
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    if (!entity.IsCollected())
-                        entity.Collect();
+                    if (phase != PointerPhase.Release)
+                    {
+                        if (!entity.IsCollected())
+                            entity.Collect();
+                    }
                     break;
                 case EntityTypes.CART:
-                    if (!entity.IsCartTriggered())
-                        entity.TriggerCart();
+                    if (phase == PointerPhase.Press)
+                    {
+                        if (!entity.IsCartTriggered())
+                            entity.TriggerCart();
+                    }
                     break;
             }
-            return false;
         }
         #endregion
-
-        public override bool IsForGrid() => false;
-        public override HeldFlags GetHeldFlagsOnGrid(LawnGrid grid, IHeldItemData data)
-        {
-            return HeldFlags.None;
-        }
     }
 }

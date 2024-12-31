@@ -86,18 +86,9 @@ namespace MVZ2.Level
             // 设置射线检测图层。
             List<int> layers = new List<int>();
             layers.Add(Layers.RAYCAST_RECEIVER);
-            if (level.IsHeldItemForGrid(heldType))
-            {
-                layers.Add(Layers.GRID);
-            }
-            if (level.IsHeldItemForEntity(heldType))
-            {
-                layers.Add(Layers.DEFAULT);
-            }
-            if (level.IsHeldItemForPickup(heldType))
-            {
-                layers.Add(Layers.PICKUP);
-            }
+            layers.Add(Layers.GRID);
+            layers.Add(Layers.DEFAULT);
+            layers.Add(Layers.PICKUP);
             LayerMask layerMask = Layers.GetMask(layers.ToArray());
 
             var uiPreset = GetUIPreset();
@@ -912,9 +903,6 @@ namespace MVZ2.Level
         {
             if (!IsGameRunning())
                 return;
-            if (!level.FilterLawnPointerPhase(phase))
-                return;
-
             LawnArea area = LawnArea.Main;
             switch (receiver)
             {
@@ -925,7 +913,8 @@ namespace MVZ2.Level
                     area = LawnArea.Bottom;
                     break;
             }
-            level.UseOnLawn(area);
+            var target = new HeldItemTargetLawn(level, area);
+            level.UseHeldItem(target, phase);
         }
         #endregion
 

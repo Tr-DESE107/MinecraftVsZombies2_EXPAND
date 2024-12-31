@@ -45,55 +45,17 @@ namespace MVZ2.Level
         {
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            ClickOnGrid(lane, column, PointerPhase.Press, true);
+            ClickOnGrid(lane, column, PointerPhase.Press, Vector2.down);
         }
 
         #endregion
-        private void ClickOnGrid(int lane, int column, PointerPhase phase, bool upper)
+        private void ClickOnGrid(int lane, int column, PointerPhase phase, Vector2 pointerPosition)
         {
             if (!IsGameRunning())
                 return;
-            if (!level.FilterGridPointerPhase(phase))
-                return;
-
             var grid = level.GetGrid(column, lane);
-            var heldFlags = level.GetHeldFlagsOnGrid(grid);
-            bool forceReset = heldFlags.HasFlag(HeldFlags.ForceReset);
-            bool validOnProtector = heldFlags.HasFlag(HeldFlags.ValidOnProtector);
-            bool validOnMain = heldFlags.HasFlag(HeldFlags.Valid);
-            bool validOnCarrier = heldFlags.HasFlag(HeldFlags.ValidOnCarrier);
-            NamespaceID layer;
-            if (validOnProtector)
-            {
-                if (validOnMain)
-                {
-                    layer = upper ? VanillaGridLayers.main : VanillaGridLayers.protector;
-                }
-                else
-                {
-                    layer = VanillaGridLayers.protector;
-                }
-            }
-            else
-            {
-                if (validOnMain)
-                {
-                    layer = VanillaGridLayers.main;
-                }
-                else if (validOnCarrier)
-                {
-                    layer = VanillaGridLayers.carrier;
-                }
-                else
-                {
-                    layer = VanillaGridLayers.main;
-                }
-            }
-            var reset = level.UseOnGrid(grid, layer);
-            if (reset || forceReset)
-            {
-                level.ResetHeldItem();
-            }
+            var target = new HeldItemTargetGrid(grid, pointerPosition);
+            level.UseHeldItem(target, phase);
         }
         private void ClearGridHighlight()
         {
@@ -104,7 +66,7 @@ namespace MVZ2.Level
         }
         private void UpdateGridHighlight()
         {
-            bool pointingGrid = IsGameRunning() && pointingGridLane >= 0 && pointingGridColumn >= 0 && level.IsHoldingItem() && level.IsHeldItemForGrid(level.GetHeldItemType());
+            bool pointingGrid = IsGameRunning() && pointingGridLane >= 0 && pointingGridColumn >= 0 && level.IsHoldingItem();
             if (pointingGrid != lastPointingGrid)
             {
                 ClearGridHighlight();
@@ -113,19 +75,28 @@ namespace MVZ2.Level
             }
             if (pointingGrid)
             {
-                HighlightGrid(pointingGridLane, pointingGridColumn);
+                var grid = level.GetGrid(pointingGridColumn, pointingGridLane);
+                var target = new HeldItemTargetGrid(grid, Vector2.down);
+                var highlight = level.GetHeldHighlight(target);
+                HighlightGrid(pointingGridLane, pointingGridColumn, highlight);
             }
         }
-        private void HighlightGrid(int lane, int column)
+        private void HighlightGrid(int lane, int column, HeldHighlight highlight)
         {
-            var grid = gridLayout.GetGrid(lane, column);
-            var heldFlags = level.GetHeldFlagsOnGrid(level.GetGrid(column, lane));
             Color color = Color.clear;
-            if (!heldFlags.HasFlag(HeldFlags.NoHighlight))
+            switch (highlight)
             {
-                color = heldFlags.HasFlag(HeldFlags.Valid) || heldFlags.HasFlag(HeldFlags.ValidOnProtector) || heldFlags.HasFlag(HeldFlags.ValidOnCarrier) ? Color.green : Color.red;
+                case HeldHighlight.Green:
+                case HeldHighlight.UpperGreen:
+                case HeldHighlight.LowerGreen:
+                    color = Color.green;
+                    break;
+                case HeldHighlight.Red:
+                    color = Color.red;
+                    break;
             }
-            grid.SetColor(color);
+            var gridUI = gridLayout.GetGrid(lane, column);
+            gridUI.SetColor(color);
         }
         private void HighlightAxisGrids(int lane, int column)
         {

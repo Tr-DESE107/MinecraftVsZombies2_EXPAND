@@ -65,17 +65,15 @@ namespace MVZ2.Level
         }
         private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
         {
-            var heldFlags = level.GetHeldFlagsOnEntity(entityCtrl.Entity);
-            entityCtrl.SetHovered(true, !heldFlags.HasFlag(HeldFlags.NoHighlight));
+            var target = new HeldItemTargetEntity(entityCtrl.Entity);
+            var highlight = level.GetHeldHighlight(target);
+            entityCtrl.SetHovered(true, highlight == HeldHighlight.Entity);
             if (IsGameRunning())
             {
                 // 自动拾取
                 if (Input.GetMouseButton((int)MouseButton.LeftMouse))
                 {
-                    if (level.FilterEntityPointerPhase(entityCtrl.Entity, PointerPhase.Enter))
-                    {
-                        level.UseOnEntity(entityCtrl.Entity);
-                    }
+                    level.UseHeldItem(target, PointerPhase.Enter);
                 }
             }
             else
@@ -116,18 +114,8 @@ namespace MVZ2.Level
             var entity = entityCtrl.Entity;
             if (IsGameRunning())
             {
-                if (!level.FilterEntityPointerPhase(entityCtrl.Entity, PointerPhase.Press))
-                    return;
-                var heldFlags = level.GetHeldFlagsOnEntity(entity);
-                bool reset = heldFlags.HasFlag(HeldFlags.ForceReset);
-                if (heldFlags.HasFlag(HeldFlags.Valid))
-                {
-                    reset = level.UseOnEntity(entity);
-                }
-                if (reset)
-                {
-                    level.ResetHeldItem();
-                }
+                var target = new HeldItemTargetEntity(entity);
+                level.UseHeldItem(target, PointerPhase.Press);
             }
             else
             {

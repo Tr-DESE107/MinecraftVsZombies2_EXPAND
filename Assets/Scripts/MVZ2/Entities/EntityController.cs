@@ -281,18 +281,8 @@ namespace MVZ2.Entities
                 return true;
             if (definition == null)
                 return false;
-            if (Entity.Type == EntityTypes.PICKUP)
-            {
-                if (!definition.IsForPickup())
-                    return false;
-            }
-            else
-            {
-                if (!definition.IsForEntity())
-                    return false;
-            }
-            var flags = definition.GetHeldFlagsOnEntity(Entity, data);
-            return flags.HasFlag(HeldFlags.Valid);
+            var target = new HeldItemTargetEntity(Entity);
+            return definition.CheckRaycast(target);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {

@@ -629,7 +629,7 @@ namespace MVZ2.Level
             var grid = gameObject.GetComponentInParent<GridController>();
             if (grid)
             {
-                ClickOnGrid(grid.Lane, grid.Column, PointerPhase.Release, true);
+                ClickOnGrid(grid.Lane, grid.Column, PointerPhase.Release, Vector2.down);
                 return;
             }
 
