@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 8115995428938001830}
     - target: {fileID: 7935261973235142517, guid: 3ec30034191dadc48bab455467ba55ce, type: 3}
       propertyPath: destroyDelay
-      value: 22
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7935261973235142517, guid: 3ec30034191dadc48bab455467ba55ce, type: 3}
       propertyPath: onDelayedDestroy.m_PersistentCalls.m_Calls.Array.size
