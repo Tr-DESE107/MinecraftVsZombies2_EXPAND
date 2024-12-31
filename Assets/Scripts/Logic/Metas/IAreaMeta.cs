@@ -21,6 +21,11 @@ namespace MVZ2Logic.Level
         public int Lanes { get; }
         public int Columns { get; }
 
-        public NamespaceID[] Grids { get; }
+        public IAreaGridMeta[] Grids { get; }
+    }
+    public interface IAreaGridMeta
+    {
+        NamespaceID ID { get; }
+        float YOffset { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
@@ -157,7 +158,7 @@ namespace MVZ2.Vanilla
                 area.SetProperty(EngineAreaProps.MAX_LANE_COUNT, meta.Lanes);
                 area.SetProperty(EngineAreaProps.MAX_COLUMN_COUNT, meta.Columns);
 
-                area.SetGridLayout(meta.Grids);
+                area.SetGridLayout(meta.Grids.Select(m => m.ID).ToArray());
             }
         }
         private void LoadStageProperties()

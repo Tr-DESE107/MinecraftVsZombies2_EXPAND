@@ -121,6 +121,7 @@ namespace MVZ2.Level
             var gridWidth = level.GetGridWidth();
             var gridHeight = level.GetGridHeight();
             var viewDatas = new GridViewData[level.GetMaxLaneCount()][];
+            var areaMeta = Main.ResourceManager.GetAreaMeta(level.AreaID);
             for (int lane = 0; lane < viewDatas.Length; lane++)
             {
                 viewDatas[lane] = new GridViewData[maxColumn];
@@ -128,7 +129,10 @@ namespace MVZ2.Level
                 {
                     var x = level.GetColumnX(column) + gridWidth * 0.5f;
                     var z = level.GetLaneZ(lane) + gridHeight * 0.5f;
-                    var y = level.GetGroundY(x, z);
+                    var gridIndex = level.GetGridIndex(column, lane);
+                    var gridMeta = areaMeta?.Grids?[gridIndex];
+                    var yOffset = gridMeta?.YOffset ?? 0;
+                    var y = 0 + yOffset;
                     var pos = new Vector3(x, y, z);
                     var worldPos = LawnToTrans(pos);
 

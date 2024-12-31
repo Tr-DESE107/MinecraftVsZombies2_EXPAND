@@ -26,7 +26,8 @@ namespace MVZ2.Metas
         public int Lanes { get; private set; }
         public int Columns { get; private set; }
 
-        public NamespaceID[] Grids { get; private set; }
+        public AreaGrid[] Grids { get; private set; }
+        IAreaGridMeta[] IAreaMeta.Grids => Grids;
         public static AreaMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -51,7 +52,7 @@ namespace MVZ2.Metas
             float bottomZ = 80;
             int lanes = 5;
             int columns = 9;
-            List<NamespaceID> grids = new List<NamespaceID>();
+            List<AreaGrid> grids = new List<AreaGrid>();
             var gridsNode = node["grids"];
             if (gridsNode != null)
             {
@@ -68,11 +69,7 @@ namespace MVZ2.Metas
                     var childNode = childNodes[i];
                     if (childNode.Name == "grid")
                     {
-                        var gridId = childNode.GetAttributeNamespaceID("id", defaultNsp);
-                        if (NamespaceID.IsValid(gridId))
-                        {
-                            grids.Add(gridId);
-                        }
+                        grids.Add(AreaGrid.FromXmlNode(childNode, defaultNsp));
                     }
                 }
             }
@@ -96,6 +93,21 @@ namespace MVZ2.Metas
                 Columns = columns,
                 Grids = grids.ToArray()
 
+            };
+        }
+    }
+    public class AreaGrid : IAreaGridMeta
+    {
+        public NamespaceID ID { get; set; }
+        public float YOffset { get; set; }
+        public static AreaGrid FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            var yOffset = node.GetAttributeFloat("yOffset") ?? 0;
+            return new AreaGrid()
+            {
+                ID = id,
+                YOffset = yOffset
             };
         }
     }
