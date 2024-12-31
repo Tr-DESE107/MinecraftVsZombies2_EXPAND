@@ -106,6 +106,7 @@ namespace MVZ2.Level
             chosenArtifacts = null;
 
             Music.Play(level.GetMusicID());
+            MusicTime = 0;
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
