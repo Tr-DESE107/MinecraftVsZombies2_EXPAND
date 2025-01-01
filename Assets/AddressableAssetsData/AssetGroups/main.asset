@@ -1138,6 +1138,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f71a063b3279ca48a927263bfbc431e
+    m_Address: mvz2:effect/fire_breath
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fd63c7920860ce4f8bc0be1188ae567
     m_Address: mvz2:entity/contraptions/gravity_pad
     m_ReadOnly: 0
@@ -2368,6 +2374,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87f9b1bee6f8e76429b41c86118b6aae
+    m_Address: mvz2:projectile/spike_ball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8826f776dff1c6a4d8d72030535a150e
     m_Address: mvz2:misc/dream
     m_ReadOnly: 0
@@ -2460,6 +2472,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c5cc48f60d7d3e4f81a1b121d8fdde2
     m_Address: mvz2:enemy/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c7ef66e261e92d45a93ab771d45f016
+    m_Address: mvz2:icon/weakness_particles
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2812,6 +2830,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f3677037dfb70d4b9d5a6856f524235
+    m_Address: mvz2:projectile/dart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f90eb4f980e8c746be488d67df74a3a
     m_Address: mvz2:held/starshards/dream
     m_ReadOnly: 0
@@ -3027,6 +3051,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa0f21a4d0383d14187681560eb75815
+    m_Address: mvz2:entity/effect/potion_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa25af9d5cc160b468dd23f63a13a510
     m_Address: mvz2:contraption/drivenser

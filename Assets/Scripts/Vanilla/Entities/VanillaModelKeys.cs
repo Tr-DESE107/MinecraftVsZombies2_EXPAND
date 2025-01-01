@@ -9,6 +9,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID dreamKeyShield = Get("dream_key_shield");
         public static readonly NamespaceID nocturnal = Get("nocturnal");
         public static readonly NamespaceID terrorParasitized = Get("terror_parasitized");
+        public static readonly NamespaceID weaknessParticles = Get("weakness_particles");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

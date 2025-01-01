@@ -28,10 +28,12 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fire = Get("fire");
+        public readonly static NamespaceID fireBreath = Get("fire_breath");
         public readonly static NamespaceID fireCharge = Get("fire_charge");
         public readonly static NamespaceID finalWave = Get("final_wave");
         public readonly static NamespaceID finalItem = Get("final_item");
         public readonly static NamespaceID fizz = Get("fizz");
+        public readonly static NamespaceID fling = Get("fling");
         public readonly static NamespaceID frankensteinLaugh = Get("frankenstein_laugh");
         public readonly static NamespaceID frankensteinSteelLaugh = Get("frankenstein_steel_laugh");
         public readonly static NamespaceID fuse = Get("fuse");
@@ -93,6 +95,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID starshardAppear = Get("starshard_appear");
         public readonly static NamespaceID starshardUse = Get("starshard_use");
         public readonly static NamespaceID stone = Get("stone");
+        public readonly static NamespaceID stoneHatch = Get("stone_hatch");
         public readonly static NamespaceID stunned = Get("stunned");
         public readonly static NamespaceID swing = Get("swing");
         public readonly static NamespaceID tap = Get("tap");

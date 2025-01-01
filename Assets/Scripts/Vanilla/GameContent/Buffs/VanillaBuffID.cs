@@ -49,6 +49,7 @@ namespace MVZ2.GameContent.Buffs
         public const string terrorParasitized = "terror_parasitized";
         public const string gravityPadGravity = "gravity_pad_gravity";
         public const string vortexHopperDrag = "vortex_hopper_drag";
+        public const string enemyWeakness = "enemy_weakness";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";

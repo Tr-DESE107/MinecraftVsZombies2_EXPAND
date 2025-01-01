@@ -37,6 +37,8 @@ namespace MVZ2.GameContent.Effects
         public const string pow = "pow";
         public const string vortex = "vortex";
         public const string giantSpike = "giant_spike";
+        public const string fireBreath = "fire_breath";
+        public const string weaknessGas = "weakness_gas";
     }
     public static class VanillaEffectID
     {
@@ -72,6 +74,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID pow = Get(VanillaEffectNames.pow);
         public static readonly NamespaceID vortex = Get(VanillaEffectNames.vortex);
         public static readonly NamespaceID giantSpike = Get(VanillaEffectNames.giantSpike);
+        public static readonly NamespaceID fireBreath = Get(VanillaEffectNames.fireBreath);
+        public static readonly NamespaceID weaknessGas = Get(VanillaEffectNames.weaknessGas);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

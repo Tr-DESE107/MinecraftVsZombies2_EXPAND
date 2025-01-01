@@ -6,6 +6,7 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.HeldItem
 {
@@ -21,7 +22,7 @@ namespace MVZ2.GameContent.HeldItem
             switch (target)
             {
                 case HeldItemTargetEntity entityTarget:
-                    return !Global.IsMobile();
+                    return !Global.IsMobile() && CanUseOnEntity(entityTarget.Target);
                 case HeldItemTargetGrid entityGrid:
                     return Global.IsMobile();
             }
@@ -32,14 +33,7 @@ namespace MVZ2.GameContent.HeldItem
             switch (target)
             {
                 case HeldItemTargetEntity entityTarget:
-                    {
-                        var entity = entityTarget.Target;
-                        if (CanUseOnEntity(entity))
-                        {
-                            return HeldHighlight.Entity;
-                        }
-                        return HeldHighlight.None;
-                    }
+                    return HeldHighlight.Entity;
                 case HeldItemTargetGrid gridTarget:
                     {
                         var grid = gridTarget.Target;
@@ -119,10 +113,7 @@ namespace MVZ2.GameContent.HeldItem
                         if (phase != PointerPhase.Press)
                             return;
                         var entity = entityTarget.Target;
-                        if (CanUseOnEntity(entity))
-                        {
-                            UseOnEntity(entity);
-                        }
+                        UseOnEntity(entity);
                         entity.Level.ResetHeldItem();
                     }
                     break;

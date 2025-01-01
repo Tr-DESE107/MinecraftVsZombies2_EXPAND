@@ -306,6 +306,13 @@
             <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
+        <dispenser id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸" unlock="mvz2:level.dream_7">
+            <float name="damage" value="15"/>
+            <id name="projectileId" value="mvz2:dart" />
+
+            <int name="cost" value="175" />
+            <id name="rechargeId" value="mvz2:short" />
+        </dispenser>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
@@ -675,6 +682,17 @@
             <float name="gravity" value="1"/>
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
+        <projectile id="dart">
+            <bool name="pointToDirection" value="true" />
+            <vector3 name="size" x="32" y="6" z="6" />
+        </projectile>
+        <projectile id="poison_javelin">
+            <float name="gravity" value="1"/>
+            <bool name="pointToDirection" value="true" />
+            <bool name="piercing" value="true" />
+            <vector3 name="size" x="96" y="6" z="6" />
+            <idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -787,6 +805,23 @@
         <effect id="giant_spike">
             <int name="maxTimeout" value="42"/>
             <vector3 name="size" x="16" y="128" z="16" />
+        </effect>
+        <effect id="fire_breath">
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="240" y="80" z="80"/>
+            <color name="lightColor" value="#FF7F00"/>
+            <bool name="isFire" value="true" />
+
+            <int name="maxTimeout" value="30"/>
+            <vector3 name="boundsOffset" x="100" y="0" z="0" />
+            <vector3 name="size" x="200" y="40" z="40" />
+        </effect>
+        <effect id="weakness_gas">
+            <float name="gravity" value="1"/>
+            <int name="maxTimeout" value="270"/>
+            <color name="tint" value="#7F7F7F" />
+            <vector3 name="size" x="100" y="40" z="40" />
+            <id name="modelId" value="mvz2:entity.gas" />
         </effect>
     </entries>
 </entities>

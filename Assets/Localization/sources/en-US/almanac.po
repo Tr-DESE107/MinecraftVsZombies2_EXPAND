@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-01 05:19+0800\n"
-"PO-Revision-Date: 2025-01-01 17:20+0800\n"
+"POT-Creation-Date: 2025-01-01 11:02+0800\n"
+"PO-Revision-Date: 2025-01-01 23:02+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -488,6 +488,37 @@ msgid ""
 "活塞发射器其实可以伸的非常长，甚至能达到直升机飞行的高度。\n"
 "……你问我怎么知道是直升机飞行的高度？"
 msgstr "\"It's over zombies, I have the high ground!\" Those were his last words before a Ghast burns his leg- uhh, neck off."
+
+#. Header for contraptions mvz2:totenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。"
+msgstr "Totensers shoot poisonous darts and burn nearby enemies with fire."
+
+#. Properties for contraptions mvz2:totenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：<color=red>15</color>（飞镖），<color=red>20/秒</color>（火焰）\n"
+"特点：飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害\n"
+"技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。"
+msgstr ""
+"Fire rate: <color=red>1.5 seconds</color>\n"
+"Damage: <color=red>15</color> (dart), <color=red>20/s</color> (fire breath)\n"
+"Special: Poison on its dart make enemies deal no damage\n"
+"Evocation: Throw a spear which pierces through enemies, and leave a trail of weakening gas"
+
+#. Flavor for contraptions mvz2:totenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。"
+"人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。"
+msgstr ""
+"What god does Totenser believe in? According to the history of Contraption Intelligence, It may believe in various mechanic gods. Some "
+"people say that it actually believes in the human inventor who made the machine, and some even say that it believes in the mechanic "
+"old gods. People's discussion went on for decades, but the truth is, it just put his faith in his waifus."
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -1733,6 +1764,18 @@ msgctxt "entity.tooltip"
 msgid "能够伸长自己来攻击空中敌人"
 msgstr "Stretch itself to attack enemies in the air"
 
+#. Header for entity mvz2:totenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "图腾发射器"
+msgstr "Totenser"
+
+#. Properties for entity mvz2:totenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射虚弱的飞镖并灼烧前方的僵尸"
+msgstr "Shoot weakening darts and burn nearby enemies"
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -2343,29 +2386,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "触发后会对周围的怪物造成巨大伤害"
 #~ msgstr "Blow up surrounding enemies after being triggered"
 
-#~ msgid ""
-#~ "特点：飞镖上的箭毒会让敌人肌肉松弛，降低攻击力\n"
-#~ "\n"
-#~ "图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古"
-#~ "神。人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。"
-#~ msgstr ""
-#~ "Special: Poison on its dart decrease enemies' damage\n"
-#~ "\n"
-#~ "What god does Totenser believe in? According to the history of Contraption Intelligence, It may believe in various mechanic gods. "
-#~ "Some people say that it actually believes in the human inventor who made the machine, and some even say that it believes in the "
-#~ "mechanic old gods. People's discussion went on for decades, but the truth is, it just put his faith in his waifus."
-
 #~ msgid "技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。"
 #~ msgstr "Evocation: Throw a spear which pierces through enemies, and leave a trail of weakening gas"
-
-#~ msgid "图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。"
-#~ msgstr "Totensers shoot poisonous darts and burn nearby enemies with fire."
-
-#~ msgid "图腾发射器"
-#~ msgstr "Totenser"
-
-#~ msgid "发射虚弱的飞镖并灼烧前方的敌人"
-#~ msgstr "Shoot weakening darts and burn nearby enemies"
 
 #~ msgid ""
 #~ "皮帽僵尸拥有能抵抗子弹的皮帽护甲。\n"

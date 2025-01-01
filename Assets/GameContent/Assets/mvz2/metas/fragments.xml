@@ -85,4 +85,11 @@
             <color hex="#383838" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="totenser">
+        <colorKeys>
+            <color hex="#CC6600" time="0.333"/>
+            <color hex="#FF6A00" time="0.667"/>
+            <color hex="#CC2200" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

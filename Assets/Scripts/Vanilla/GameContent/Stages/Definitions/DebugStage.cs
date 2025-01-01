@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.lilyPad,
-                VanillaContraptionID.pistenser,
+                VanillaContraptionID.totenser,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.obsidian,
 
@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.vortexHopper,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.spider,
+                VanillaEnemyID.mummy,
                 VanillaEnemyID.ghast,
                 VanillaBossID.frankenstein,
             });

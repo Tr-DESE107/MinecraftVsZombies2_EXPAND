@@ -121,11 +121,17 @@
     <sound name="fire">
         <sample path="mvz2:fire" weight="1" />
     </sound>
+    <sound name="fire_breath">
+        <sample path="mvz2:fire_breath" weight="1" />
+    </sound>
     <sound name="fire_charge">
         <sample path="mvz2:fire_charge" weight="1" />
     </sound>
     <sound name="fizz">
         <sample path="mvz2:fizz" weight="1" />
+    </sound>
+    <sound name="fling">
+        <sample path="mvz2:entity/totenser/fling" weight="1" />
     </sound>
     <sound name="frankenstein_laugh">
         <sample path="mvz2:frankenstein_laugh" weight="1" />
@@ -402,6 +408,9 @@
         <sample path="mvz2:random/stone2" weight="1" />
         <sample path="mvz2:random/stone3" weight="1" />
         <sample path="mvz2:random/stone4" weight="1" />
+    </sound>
+    <sound name="stone_hatch">
+        <sample path="mvz2:entity/totenser/stone_hatch" weight="1" />
     </sound>
     <sound name="stunned">
         <sample path="mvz2:stunned" weight="1" />

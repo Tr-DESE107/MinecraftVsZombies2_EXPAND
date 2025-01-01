@@ -1,4 +1,6 @@
-﻿using MVZ2.Vanilla.Callbacks;
+﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.Vanilla.Callbacks;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
@@ -25,6 +27,20 @@ namespace MVZ2.Vanilla.Entities
             if (enemy.HasNoReward())
                 return;
             enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, enemy);
+        }
+        public static void InflictWeakness(this Entity enemy, int time)
+        {
+            var buffs = enemy.GetBuffs<EnemyWeaknessBuff>();
+            Buff buff;
+            if (buffs.Length <= 0)
+            {
+                buff = enemy.AddBuff<EnemyWeaknessBuff>();
+            }
+            else
+            {
+                buff = buffs[0];
+            }
+            buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
         }
     }
 }

@@ -36,6 +36,8 @@
 
         public const int PISTENSER_SEED = CONTRAPTION_SPECIAL;
 
+        public const int TOTENSER_FIRE_BREATH = ATTACK;
+
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
         public const int SPIDER_CLIMB = ENEMY_CAST;

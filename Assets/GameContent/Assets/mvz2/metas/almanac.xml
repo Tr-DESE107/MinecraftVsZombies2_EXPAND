@@ -247,6 +247,20 @@
                 <p>……你问我怎么知道是直升机飞行的高度？</p>
             </flavor>
         </entry>
+        <entry id="mvz2:totenser">
+            <header>
+                <p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>15</color>]]>（飞镖），<![CDATA[<color=red>20/秒</color>]]>（火焰）</p>
+                <p>特点：飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</p>
+                <p>技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。</p>
+            </properties>
+            <flavor>
+                <p>图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">
