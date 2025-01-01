@@ -220,21 +220,22 @@ namespace MVZ2.Entities
                         Gizmos.DrawLine(start, end);
                     }
 
-                    // Render Center.
-                    Vector3 centerStart;
-                    Vector3 centerEnd;
+                    // Render Pivot.
+                    Vector3 pivot = Entity.Position * pixelUnit;
+                    Vector3 pivotStart;
+                    Vector3 pivotEnd;
                     float centerLength = 0.05f;
-                    centerStart = new Vector3(startX - centerLength, startZ, startY);
-                    centerEnd = new Vector3(startX + centerLength, startZ, startY);
-                    Gizmos.DrawLine(centerStart, centerEnd);
+                    pivotStart = new Vector3(pivot.x - centerLength, pivot.z, pivot.y);
+                    pivotEnd = new Vector3(pivot.x + centerLength, pivot.z, pivot.y);
+                    Gizmos.DrawLine(pivotStart, pivotEnd);
 
-                    centerStart = new Vector3(startX, startZ - centerLength, startY);
-                    centerEnd = new Vector3(startX, startZ + centerLength, startY);
-                    Gizmos.DrawLine(centerStart, centerEnd);
+                    pivotStart = new Vector3(pivot.x, pivot.z - centerLength, pivot.y);
+                    pivotEnd = new Vector3(pivot.x, pivot.z + centerLength, pivot.y);
+                    Gizmos.DrawLine(pivotStart, pivotEnd);
 
-                    centerStart = new Vector3(startX, startZ, startY - centerLength);
-                    centerEnd = new Vector3(startX, startZ, startY + centerLength);
-                    Gizmos.DrawLine(centerStart, centerEnd);
+                    pivotStart = new Vector3(pivot.x, pivot.z, pivot.y - centerLength);
+                    pivotEnd = new Vector3(pivot.x, pivot.z, pivot.y + centerLength);
+                    Gizmos.DrawLine(pivotStart, pivotEnd);
                 }
             }
         }

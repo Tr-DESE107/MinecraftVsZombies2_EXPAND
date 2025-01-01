@@ -15,6 +15,7 @@ namespace PVZEngine.Entities
         public const string GRAVITY = "gravity";
         public const string VELOCITY_DAMPEN = "velocityDampen";
         public const string SIZE = "size";
+        public const string BOUNDS_OFFSET = "boundsOffset";
         public const string GROUND_LIMIT_OFFSET = "groundLimitOffset";
 
         public const string HEALTH = "health";
@@ -107,6 +108,10 @@ namespace PVZEngine.Entities
         {
             return entity.GetProperty<float>(EngineEntityProps.GROUND_LIMIT_OFFSET);
         }
+        public static Vector3 GetSize(this EntityDefinition entity)
+        {
+            return entity.GetProperty<Vector3>(SIZE);
+        }
         public static Vector3 GetSize(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<Vector3>(SIZE, ignoreBuffs: ignoreBuffs);
@@ -114,6 +119,18 @@ namespace PVZEngine.Entities
         public static void SetSize(this Entity entity, Vector3 value)
         {
             entity.SetProperty(SIZE, value);
+        }
+        public static Vector3 GetBoundsOffset(this EntityDefinition entity)
+        {
+            return entity.GetProperty<Vector3>(BOUNDS_OFFSET);
+        }
+        public static Vector3 GetBoundsOffset(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Vector3>(BOUNDS_OFFSET, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetBoundsOffset(this Entity entity, Vector3 value)
+        {
+            entity.SetProperty(BOUNDS_OFFSET, value);
         }
         public static float GetMaxHealth(this Entity entity, bool ignoreBuffs = false)
         {

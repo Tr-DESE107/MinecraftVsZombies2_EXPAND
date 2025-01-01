@@ -13,6 +13,7 @@ namespace PVZEngine.Entities
             GroundLimitOffset = entity.GetGroundLimitOffset();
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
+            BoundsOffset = entity.GetBoundsOffset();
         }
         public void UpdateProperty(Entity entity, string name, object value)
         {
@@ -36,6 +37,9 @@ namespace PVZEngine.Entities
                 case EngineEntityProps.SIZE:
                     Size = value.ToGeneric<Vector3>();
                     break;
+                case EngineEntityProps.BOUNDS_OFFSET:
+                    BoundsOffset = value.ToGeneric<Vector3>();
+                    break;
             }
         }
         public int Faction { get; private set; }
@@ -44,5 +48,6 @@ namespace PVZEngine.Entities
         public float GroundLimitOffset { get; private set; }
         public Vector3 VelocityDampen { get; private set; }
         public Vector3 Size { get; private set; }
+        public Vector3 BoundsOffset { get; private set; }
     }
 }
