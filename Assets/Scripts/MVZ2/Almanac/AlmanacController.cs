@@ -171,6 +171,7 @@ namespace MVZ2.Almanacs
                 return;
             var name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(VanillaAlmanacCategories.MISC), entry.name);
             var header = GetTranslatedString(VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC), entry.header);
+            header = $"<color=#00007F>{header}</color>";
             var properties = GetTranslatedString(VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC), entry.properties);
             var flavor = GetTranslatedString(VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC), entry.flavor);
             var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
@@ -253,6 +254,7 @@ namespace MVZ2.Almanacs
             {
                 var context = VanillaStrings.GetAlmanacDescriptionContext(almanacCategory);
                 var header = GetTranslatedString(context, almanacMeta.header);
+                header = $"<color=#00007F>{header}</color>";
                 var properties = GetTranslatedString(context, almanacMeta.properties);
                 if (!string.IsNullOrEmpty(extraPropertyText))
                 {

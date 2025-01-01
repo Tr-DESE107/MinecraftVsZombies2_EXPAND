@@ -2638,6 +2638,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92d50d0583e590d48a101a86d5b7210b
+    m_Address: mvz2:projectile/poison_javelin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92e64a282d43f9e48be1005158f128eb
     m_Address: mvz2:talk/villager/villager_extra_long1
     m_ReadOnly: 0

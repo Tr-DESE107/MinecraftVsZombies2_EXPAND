@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-01 11:02+0800\n"
+"POT-Creation-Date: 2025-01-01 11:25+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：每枚箭矢<color=red>20</color>\n"
-"技能：快速发射60支箭矢"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速发射60支箭矢</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:dispenser
@@ -43,8 +43,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "生产速度：<color=red>24秒</color>\n"
-"提供能量：每枚红石<color=red>25</color>\n"
-"技能：瞬间生成12枚红石"
+"提供能量：<color=red>25</color>\n"
+"技能：<color=red>瞬间生成12枚红石</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:furnace
@@ -64,7 +64,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>4000</color>\n"
-"技能：获得下界合金装甲，耐久提高至<color=red>10000</color>"
+"技能：<color=red>获得下界合金装甲，耐久提高至10000</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:obsidian
@@ -113,7 +113,7 @@ msgctxt "contraptions.description"
 msgid ""
 "准备时间：<color=red>15秒</color>\n"
 "伤害：<color=red>1800</color>\n"
-"技能：立即准备完毕，并向最前方投掷两个新的地雷TNT"
+"技能：<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:mine_tnt
@@ -134,7 +134,7 @@ msgctxt "contraptions.description"
 msgid ""
 "射程：<color=red>3.5格</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：射出一个越滚越大的雪球"
+"技能：<color=red>射出一个越滚越大的雪球</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:small_dispenser
@@ -153,8 +153,8 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"提供能量：<color=red>1点/1.6秒</color>，而后<color=red>1点/1秒</color>\n"
-"技能：立即升级，发出蓝光，并使生产量变为<color=red>2.5</color>倍"
+"提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
+"技能：<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:moonlight_sensor
@@ -174,7 +174,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "照明半径：<color=red>1.5格</color>\n"
-"技能：眩晕所有敌人<color=red>5秒</color>秒"
+"技能：<color=red>眩晕所有敌人5秒</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:glowstone
@@ -193,9 +193,9 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>100</color>，无视护甲\n"
+"伤害：<color=red>100（无视护甲）</color>\n"
 "修复时间：<color=red>20秒</color>\n"
-"技能：对前方的所有敌人造成<color=red>500</color>点伤害，并将其击退至最右侧。"
+"技能：<color=red>对前方的所有敌人造成500点伤害，并将其击退至最右侧</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:punchton
@@ -216,7 +216,7 @@ msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red>1800</color>\n"
 "半径：<color=red>1.5格</color>\n"
-"技能：炸出4个TNT分身。"
+"技能：<color=red>炸出4个TNT分身</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:tnt
@@ -236,9 +236,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red>60</color>\n"
-"特点：需要烧毁器械补充燃料\n"
+"特点：<color=red>需要烧毁器械补充燃料</color>\n"
 "燃料上限：<color=red>60</color>\n"
-"技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。"
+"技能：<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:soul_furnace
@@ -257,9 +257,9 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>15</color>，对肉体<color=red>30</color>\n"
-"特点：穿透多个敌人，但无法穿透硬物\n"
-"技能：以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行。"
+"伤害：<color=red>15，30（对肉体）</color>\n"
+"特点：<color=red>穿透多个敌人，但无法穿透硬物</color>\n"
+"技能：<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:silvenser
@@ -277,7 +277,7 @@ msgstr ""
 #. Properties for contraptions mvz2:magichest
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏。"
+msgid "技能：<color=red>召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:magichest
@@ -297,7 +297,7 @@ msgstr ""
 #. Properties for contraptions mvz2:lily_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：在3x3范围内的水中召唤分身。"
+msgid "技能：<color=red>在3x3范围内的水中召唤分身</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:lily_pad
@@ -317,9 +317,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：每枚箭矢<color=red>20</color>\n"
+"伤害：<color=red>20</color>\n"
 "升级上限：<color=red>5</color>\n"
-"技能：发射五支大箭矢。"
+"技能：<color=red>发射五支大箭矢</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:drivenser
@@ -339,7 +339,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>敌人无法发现</color>\n"
-"技能：铁砧从天而降，砸伤敌人并阻挡它们前进"
+"技能：<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:gravity_pad
@@ -357,7 +357,7 @@ msgstr ""
 #. Properties for contraptions mvz2:vortex_hopper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：将更大范围的敌人拉入水底"
+msgid "技能：<color=red>将更大范围的敌人拉入水底</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:vortex_hopper
@@ -377,9 +377,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：每枚尖刺<color=red>20</color>\n"
-"特点：能够攻击高处的敌人\n"
-"技能：向至多10个敌人发射穿甲的巨型尖刺"
+"伤害：<color=red>20</color>\n"
+"特点：<color=red>能够攻击高处的敌人</color>\n"
+"技能：<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:pistenser
@@ -401,9 +401,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：<color=red>15</color>（飞镖），<color=red>20/秒</color>（火焰）\n"
-"特点：飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害\n"
-"技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。"
+"伤害：<color=red>15（飞镖），20/秒（火焰）</color>\n"
+"特点：<color=red>飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>\n"
+"技能：<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:totenser
@@ -544,7 +544,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"抗性：虚无状态下减少<color=red>90%</color>受到的伤害\n"
+"抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
 "弱点：<color=red>被光照到时会失去虚无效果</color>"
 msgstr ""
 
@@ -627,7 +627,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>120</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>不会被普通高度的子弹打中</color>"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:cave_spider

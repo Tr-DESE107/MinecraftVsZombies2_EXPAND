@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-01 11:02+0800\n"
-"PO-Revision-Date: 2025-01-01 23:02+0800\n"
+"POT-Creation-Date: 2025-01-01 11:25+0800\n"
+"PO-Revision-Date: 2025-01-01 23:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -24,12 +24,12 @@ msgstr "Dispensers are your first line of defense, they shoot arrows at incoming
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：每枚箭矢<color=red>20</color>\n"
-"技能：快速发射60支箭矢"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速发射60支箭矢</color>"
 msgstr ""
-"Fire rate: <color=red>1.5 second</color>\n"
+"Fire rate: <color=red>1.5 seconds</color>\n"
 "Damage: <color=red>20</color>\n"
-"Evocation: Rapidly shoot 60 arrows"
+"Evocation: <color=red>Rapidly shoot 60 arrows</color>"
 
 #. Flavor for contraptions mvz2:dispenser
 #: Almanac meta file
@@ -52,12 +52,12 @@ msgstr "Furnaces are essential for you to generate extra redstone which can be c
 msgctxt "contraptions.description"
 msgid ""
 "生产速度：<color=red>24秒</color>\n"
-"提供能量：每枚红石<color=red>25</color>\n"
-"技能：瞬间生成12枚红石"
+"提供能量：<color=red>25</color>\n"
+"技能：<color=red>瞬间生成12枚红石</color>"
 msgstr ""
 "Produce time: <color=red>24 seconds</color>\n"
-"Energy production: <color=red>25</color> per redstone\n"
-"Evocation: Rapidly generate 12 redstones"
+"Energy production: <color=red>25</color>\n"
+"Evocation: <color=red>Rapidly generate 12 redstones</color>"
 
 #. Flavor for contraptions mvz2:furnace
 #: Almanac meta file
@@ -76,10 +76,10 @@ msgstr "Obsidians are hard materials which you can use to prevent monsters from 
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>4000</color>\n"
-"技能：获得下界合金装甲，耐久提高至<color=red>10000</color>"
+"技能：<color=red>获得下界合金装甲，耐久提高至10000</color>"
 msgstr ""
 "Toughness: <color=red>4000</color>\n"
-"Evocation: Gain netherite armor, increase toughness into <color=red>10000</color>"
+"Evocation: <color=red>Gain netherite armor, increase toughness into 10000</color>"
 
 #. Flavor for contraptions mvz2:obsidian
 #: Almanac meta file
@@ -156,11 +156,11 @@ msgctxt "contraptions.description"
 msgid ""
 "准备时间：<color=red>15秒</color>\n"
 "伤害：<color=red>1800</color>\n"
-"技能：立即准备完毕，并向最前方投掷两个新的地雷TNT"
+"技能：<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>"
 msgstr ""
 "Time to arm: <color=red>15 seconds</color>\n"
 "Damage: <color=red>1800</color>\n"
-"Evocation: Instantly arm itself, then place two copies of itself on the rightmost column."
+"Evocation: <color=red>Instantly arm itself, then place two copies of itself on the rightmost column</color>"
 
 #. Flavor for contraptions mvz2:mine_tnt
 #: Almanac meta file
@@ -182,11 +182,11 @@ msgctxt "contraptions.description"
 msgid ""
 "射程：<color=red>3.5格</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：射出一个越滚越大的雪球"
+"技能：<color=red>射出一个越滚越大的雪球</color>"
 msgstr ""
 "Range: <color=red>3.5 grids</color>\n"
 "Damage: <color=red>20</color>\n"
-"Evocation: Shoot a snowball that gets bigger and bigger"
+"Evocation: <color=red>Shoot a snowball that gets bigger and bigger</color>"
 
 #. Flavor for contraptions mvz2:small_dispenser
 #: Almanac meta file
@@ -204,11 +204,11 @@ msgstr "Moonlight Sensors provide energy at night, and increase the yield after 
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"提供能量：<color=red>1点/1.6秒</color>，而后<color=red>1点/1秒</color>\n"
-"技能：立即升级，发出蓝光，并使生产量变为<color=red>2.5</color>倍"
+"提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
+"技能：<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>"
 msgstr ""
-"Energy production: <color=red>1/1.6 secs</color>, then <color=red>1/1 sec</color>\n"
-"Evocation: Instantly upgrade, glow with blue light and increase its yield by <color=red>2.5</color> times."
+"Energy production: <color=red>1/1.6 secs, then 1/1 sec</color>\n"
+"Evocation: <color=red>Instantly upgrade, glow with blue light and increase its yield by 2.5 times</color>"
 
 #. Flavor for contraptions mvz2:moonlight_sensor
 #: Almanac meta file
@@ -227,10 +227,10 @@ msgstr "The light of Glowstones can clear fog and reveal ghosts."
 msgctxt "contraptions.description"
 msgid ""
 "照明半径：<color=red>1.5格</color>\n"
-"技能：眩晕所有敌人<color=red>5秒</color>秒"
+"技能：<color=red>眩晕所有敌人5秒</color>"
 msgstr ""
 "Radius: <color=red>1.5 grids</color>\n"
-"Evocation: Stun all enemies for <color=red>5</color> seconds"
+"Evocation: <color=red>Stun all enemies for 5 seconds</color>"
 
 #. Flavor for contraptions mvz2:glowstone
 #: Almanac meta file
@@ -252,13 +252,13 @@ msgstr "Punchtons can knock back enemies and crush hard objects, but they need t
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>100</color>，无视护甲\n"
+"伤害：<color=red>100（无视护甲）</color>\n"
 "修复时间：<color=red>20秒</color>\n"
-"技能：对前方的所有敌人造成<color=red>500</color>点伤害，并将其击退至最右侧。"
+"技能：<color=red>对前方的所有敌人造成500点伤害，并将其击退至最右侧</color>"
 msgstr ""
-"Damage: <color=red>100</color>, Ignore Armors\n"
+"Damage: <color=red>100 (Ignore Armors)</color>\n"
 "Time to repair: <color=red>20 seconds</color>\n"
-"Evocation: Deal <color=red>500</color> damage to all enemies in front and knock back them to the rightest"
+"Evocation: <color=red>Deal 500 damage to all enemies in front and knock back them to the rightest</color>"
 
 #. Flavor for contraptions mvz2:punchton
 #: Almanac meta file
@@ -278,11 +278,11 @@ msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red>1800</color>\n"
 "半径：<color=red>1.5格</color>\n"
-"技能：炸出4个TNT分身。"
+"技能：<color=red>炸出4个TNT分身</color>"
 msgstr ""
 "Damage: <color=red>1800</color>\n"
 "Radius: <color=red>1.5 grids</color>\n"
-"Evocation: Blast into 4 flying copies of itself that explode on impact"
+"Evocation: <color=red>Blast into 4 flying copies of itself that explode on impact</color>"
 
 #. Flavor for contraptions mvz2:tnt
 #: Almanac meta file
@@ -303,14 +303,14 @@ msgstr "Soul Furances shoot terrifying soulfires, but will burn the contraption 
 msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red>60</color>\n"
-"特点：需要烧毁器械补充燃料\n"
+"特点：<color=red>需要烧毁器械补充燃料</color>\n"
 "燃料上限：<color=red>60</color>\n"
-"技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。"
+"技能：<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球</color>"
 msgstr ""
 "Damage: <color=red>60</color>\n"
-"Special: Need to be fueled by burning other contraptions\n"
+"Special: <color=red>Need to be fueled by burning other contraptions</color>\n"
 "Max Fuel: <color=red>60</color>\n"
-"Evocation: Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies."
+"Evocation: <color=red>Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies</color>"
 
 #. Flavor for contraptions mvz2:soul_furnace
 #: Almanac meta file
@@ -329,13 +329,13 @@ msgstr "Silvensers shoot piercing knives which can slice the flesh."
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>15</color>，对肉体<color=red>30</color>\n"
-"特点：穿透多个敌人，但无法穿透硬物\n"
-"技能：以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行。"
+"伤害：<color=red>15，30（对肉体）</color>\n"
+"特点：<color=red>穿透多个敌人，但无法穿透硬物</color>\n"
+"技能：<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>"
 msgstr ""
-"Damage: <color=red>15</color>, <color=red>30</color> against flesh\n"
-"Special: Knives pierce enemies, but are blocked by hard objects\n"
-"Evocation: Create circles of knives with at most 10 enemies as the centers, knives start flying after a few seconds."
+"Damage: <color=red>15, 30 against flesh</color>\n"
+"Special: <color=red>Knives pierce enemies, but are blocked by hard objects</color>\n"
+"Evocation: <color=red>Create circles of knives with at most 10 enemies as the centers, knives start flying after a few seconds</color>"
 
 #. Flavor for contraptions mvz2:silvenser
 #: Almanac meta file
@@ -355,8 +355,8 @@ msgstr "Magichests transform into a Starshard after swallowing an enemy whole."
 #. Properties for contraptions mvz2:magichest
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏。"
-msgstr "Evocation: Summon a Ghast to memorialize a game my good friend made before."
+msgid "技能：<color=red>召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏</color>"
+msgstr "Evocation: <color=red>Summon a Ghast to memorialize a game my good friend made before</color>"
 
 #. Flavor for contraptions mvz2:magichest
 #: Almanac meta file
@@ -377,8 +377,8 @@ msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
 #. Properties for contraptions mvz2:lily_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：在3x3范围内的水中召唤分身。"
-msgstr "Evocation: Summon copies on 3x3 water grids."
+msgid "技能：<color=red>在3x3范围内的水中召唤分身</color>"
+msgstr "Evocation: <color=red>Summon copies on 3x3 water grids</color>"
 
 #. Flavor for contraptions mvz2:lily_pad
 #: Almanac meta file
@@ -397,14 +397,14 @@ msgstr "Place another Drivenser on an existing one to increase the number of arr
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：每枚箭矢<color=red>20</color>\n"
+"伤害：<color=red>20</color>\n"
 "升级上限：<color=red>5</color>\n"
-"技能：发射五支大箭矢。"
+"技能：<color=red>发射五支大箭矢</color>"
 msgstr ""
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Damage: <color=red>20</color>\n"
 "Max Level: <color=red>5</color>\n"
-"Evocation: Shoot 5 large arrows."
+"Evocation: <color=red>Shoot 5 large arrows</color>"
 
 #. Flavor for contraptions mvz2:drivenser
 #: Almanac meta file
@@ -427,10 +427,10 @@ msgstr "Gravity Pads can lower the height of medium height objects above it, and
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>敌人无法发现</color>\n"
-"技能：铁砧从天而降，砸伤敌人并阻挡它们前进"
+"技能：<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>"
 msgstr ""
 "Special: <color=red>Cannot be eaten by enemies</color>\n"
-"Evocation: Anvil falls from the sky, crushes enemies and stops them"
+"Evocation: <color=red>Anvil falls from the sky, crushes enemies and stops them</color>"
 
 #. Flavor for contraptions mvz2:gravity_pad
 #: Almanac meta file
@@ -449,17 +449,14 @@ msgstr "Vortex Hoppers drag all enemies close to it underwater when spinning."
 #. Properties for contraptions mvz2:vortex_hopper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：将更大范围的敌人拉入水底"
-msgstr "Evocation: Drag enemies in a wider range underwater"
+msgid "技能：<color=red>将更大范围的敌人拉入水底</color>"
+msgstr "Evocation: <color=red>Drag enemies in a wider range underwater</color>"
 
 #. Flavor for contraptions mvz2:vortex_hopper
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "他无聊的时候经常把自己当陀螺抽。"
-msgstr ""
-"<color=blue>Must be placed in water</color>\n"
-"\n"
-"As for his favorite pastime, he likes to spin himself as a spinning top while singing \"KU-KURU KURU KURU KURU KURUUU\"."
+msgstr "As for his favorite pastime, he likes to spin himself as a spinning top while singing \"KU-KURU KURU KURU KURU KURUUU\"."
 
 #. Header for contraptions mvz2:pistenser
 #: Almanac meta file
@@ -472,14 +469,14 @@ msgstr "Pistensers can stretch themselves to attack enemies in the air."
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：每枚尖刺<color=red>20</color>\n"
-"特点：能够攻击高处的敌人\n"
-"技能：向至多10个敌人发射穿甲的巨型尖刺"
+"伤害：<color=red>20</color>\n"
+"特点：<color=red>能够攻击高处的敌人</color>\n"
+"技能：<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>"
 msgstr ""
 "Fire rate: <color=red>1.5 second</color>\n"
 "Damage: <color=red>20</color>\n"
-"Special: Can attack enemies on air\n"
-"Evocation: Shoot seeds of giant armor-piercing spikes at up to 10 enemies"
+"Special: <color=red>Can attack enemies on air</color>\n"
+"Evocation: <color=red>Shoot seeds of giant armor-piercing spikes at up to 10 enemies</color>"
 
 #. Flavor for contraptions mvz2:pistenser
 #: Almanac meta file
@@ -500,14 +497,14 @@ msgstr "Totensers shoot poisonous darts and burn nearby enemies with fire."
 msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
-"伤害：<color=red>15</color>（飞镖），<color=red>20/秒</color>（火焰）\n"
-"特点：飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害\n"
-"技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。"
+"伤害：<color=red>15（飞镖），20/秒（火焰）</color>\n"
+"特点：<color=red>飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>\n"
+"技能：<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>"
 msgstr ""
 "Fire rate: <color=red>1.5 seconds</color>\n"
-"Damage: <color=red>15</color> (dart), <color=red>20/s</color> (fire breath)\n"
-"Special: Poison on its dart make enemies deal no damage\n"
-"Evocation: Throw a spear which pierces through enemies, and leave a trail of weakening gas"
+"Damage: <color=red>15 (dart), 20/s (fire breath)</color>\n"
+"Special: <color=red>Poison on its dart make enemies deal no damage</color>\n"
+"Evocation: <color=red>Throw a spear which pierces through enemies, and leave a trail of weakening gas</color>"
 
 #. Flavor for contraptions mvz2:totenser
 #: Almanac meta file
@@ -681,11 +678,11 @@ msgstr "Ghosts can reduce most taken damage in ethereal form."
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"抗性：虚无状态下减少<color=red>90%</color>受到的伤害\n"
+"抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
 "弱点：<color=red>被光照到时会失去虚无效果</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
-"Resistance: Reduces <color=red>90%</color> taken damage in ethereal form\n"
+"Resistance: <color=red>Reduces 90% taken damage in ethereal form</color>\n"
 "Weakness: <color=red>Lose ethereality when illuminated</color>"
 
 #. Flavor for enemies mvz2:ghost
@@ -782,11 +779,11 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>120</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>不会被普通高度的子弹打中</color>"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
 msgstr ""
-"Toughness: <color=red>120</color>\n"
-"Speed: <color=red>2</color>\n"
-"Special: <color=red>Will not be hit by medium height projectiles or higher</color>"
+"Toughness: <color=red>100</color>\n"
+"Speed: <color=red>1</color>\n"
+"Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
 
 #. Flavor for enemies mvz2:cave_spider
 #: Almanac meta file
@@ -2139,6 +2136,16 @@ msgstr "Dark Matter"
 msgctxt "artifact.tooltip"
 msgid "器械生产效率增加100%，但场景变得黑暗"
 msgstr "+100% contraption produce speed, but the battlefield is pitch black"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>120</color>\n"
+#~ "速度：<color=red>2</color>\n"
+#~ "特点：<color=red>不会被普通高度的子弹打中</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>120</color>\n"
+#~ "Speed: <color=red>2</color>\n"
+#~ "Special: <color=red>Will not be hit by medium height projectiles or higher</color>"
 
 #~ msgctxt "artifacts.name"
 #~ msgid "梦境钥匙"

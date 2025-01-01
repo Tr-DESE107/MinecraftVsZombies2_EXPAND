@@ -6,8 +6,8 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：每枚箭矢<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：快速发射60支箭矢</p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
             </properties>
             <flavor>
                 <p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
@@ -19,8 +19,8 @@
             </header>
             <properties>
                 <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
-                <p>提供能量：每枚红石<![CDATA[<color=red>25</color>]]></p>
-                <p>技能：瞬间生成12枚红石</p>
+                <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
+                <p>技能：<![CDATA[<color=red>瞬间生成12枚红石</color>]]></p>
             </properties>
             <flavor>
                 <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
@@ -32,7 +32,7 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
-                <p>技能：获得下界合金装甲，耐久提高至<![CDATA[<color=red>10000</color>]]></p>
+                <p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
             </properties>
             <flavor>
                 <p>听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？</p>
@@ -72,7 +72,7 @@
             <properties>
                 <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
-                <p>技能：立即准备完毕，并向最前方投掷两个新的地雷TNT</p>
+                <p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>
             </properties>
             <flavor>
                 <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”</p>
@@ -89,7 +89,7 @@
             <properties>
                 <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：射出一个越滚越大的雪球</p>
+                <p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
             </properties>
             <flavor>
                 <p>雪球里包着石头，别问了。</p>
@@ -100,8 +100,8 @@
                 <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
             </header>
             <properties>
-                <p>提供能量：<![CDATA[<color=red>1点/1.6秒</color>]]>，而后<![CDATA[<color=red>1点/1秒</color>]]></p>
-                <p>技能：立即升级，发出蓝光，并使生产量变为<![CDATA[<color=red>2.5</color>]]>倍</p>
+                <p>提供能量：<![CDATA[<color=red>1点/1.6秒，而后1点/1秒</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>]]></p>
             </properties>
             <flavor>
                 <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
@@ -113,7 +113,7 @@
             </header>
             <properties>
                 <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：眩晕所有敌人<![CDATA[<color=red>5秒</color>]]>秒</p>
+                <p>技能：<![CDATA[<color=red>眩晕所有敌人5秒</color>]]></p>
             </properties>
             <flavor>
                 <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
@@ -124,9 +124,9 @@
                 <p>冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。</p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red>100</color>]]>，无视护甲</p>
+                <p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
                 <p>修复时间：<![CDATA[<color=red>20秒</color>]]></p>
-                <p>技能：对前方的所有敌人造成<![CDATA[<color=red>500</color>]]>点伤害，并将其击退至最右侧。</p>
+                <p>技能：<![CDATA[<color=red>对前方的所有敌人造成500点伤害，并将其击退至最右侧</color>]]></p>
             </properties>
             <flavor>
                 <p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
@@ -139,7 +139,7 @@
             <properties>
                 <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
                 <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：炸出4个TNT分身。</p>
+                <p>技能：<![CDATA[<color=red>炸出4个TNT分身</color>]]></p>
             </properties>
             <flavor>
                 <p>注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。</p>
@@ -151,9 +151,9 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>60</color>]]></p>
-                <p>特点：需要烧毁器械补充燃料</p>
+                <p>特点：<![CDATA[<color=red>需要烧毁器械补充燃料</color>]]></p>
                 <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
-                <p>技能：消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球。</p>
+                <p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球</color>]]></p>
             </properties>
             <flavor>
                 <p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
@@ -164,9 +164,9 @@
                 <p>银质发射器能发射穿透血肉之躯的飞刀。</p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red>15</color>]]>，对肉体<![CDATA[<color=red>30</color>]]></p>
-                <p>特点：穿透多个敌人，但无法穿透硬物</p>
-                <p>技能：以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行。</p>
+                <p>伤害：<![CDATA[<color=red>15，30（对肉体）</color>]]></p>
+                <p>特点：<![CDATA[<color=red>穿透多个敌人，但无法穿透硬物</color>]]></p>
+                <p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
             </properties>
             <flavor>
                 <p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
@@ -177,7 +177,7 @@
                 <p>魔术箱在吞掉前面的僵尸后会变成一个星之碎片。</p>
             </header>
             <properties>
-                <p>技能：召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏。</p>
+                <p>技能：<![CDATA[<color=red>召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏</color>]]></p>
             </properties>
             <flavor>
                 <p>它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。</p>
@@ -189,7 +189,7 @@
                 <p>睡莲允许你在水上放置器械。</p>
             </header>
             <properties>
-                <p>技能：在3x3范围内的水中召唤分身。</p>
+                <p>技能：<![CDATA[<color=red>在3x3范围内的水中召唤分身</color>]]></p>
             </properties>
             <flavor>
                 <p>继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。</p>
@@ -201,9 +201,9 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：每枚箭矢<![CDATA[<color=red>20</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>升级上限：<![CDATA[<color=red>5</color>]]></p>
-                <p>技能：发射五支大箭矢。</p>
+                <p>技能：<![CDATA[<color=red>发射五支大箭矢</color>]]></p>
             </properties>
             <flavor>
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
@@ -215,7 +215,7 @@
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>敌人无法发现</color>]]></p>
-                <p>技能：铁砧从天而降，砸伤敌人并阻挡它们前进</p>
+                <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>]]></p>
             </properties>
             <flavor>
                 <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
@@ -226,7 +226,7 @@
                 <p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
             </header>
             <properties>
-                <p>技能：将更大范围的敌人拉入水底</p>
+                <p>技能：<![CDATA[<color=red>将更大范围的敌人拉入水底</color>]]></p>
             </properties>
             <flavor>
                 <p>他无聊的时候经常把自己当陀螺抽。</p>
@@ -238,9 +238,9 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：每枚尖刺<![CDATA[<color=red>20</color>]]></p>
-                <p>特点：能够攻击高处的敌人</p>
-                <p>技能：向至多10个敌人发射穿甲的巨型尖刺</p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>特点：<![CDATA[<color=red>能够攻击高处的敌人</color>]]></p>
+                <p>技能：<![CDATA[<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>]]></p>
             </properties>
             <flavor>
                 <p>活塞发射器其实可以伸的非常长，甚至能达到直升机飞行的高度。</p>
@@ -253,9 +253,9 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>15</color>]]>（飞镖），<![CDATA[<color=red>20/秒</color>]]>（火焰）</p>
-                <p>特点：飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</p>
-                <p>技能：投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹。</p>
+                <p>伤害：<![CDATA[<color=red>15（飞镖），20/秒（火焰）</color>]]></p>
+                <p>特点：<![CDATA[<color=red>飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>]]></p>
             </properties>
             <flavor>
                 <p>图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。</p>
@@ -343,7 +343,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>抗性：虚无状态下减少<![CDATA[<color=red>90%</color>]]>受到的伤害</p>
+                <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>被光照到时会失去虚无效果</color>]]></p>
             </properties>
             <flavor>
@@ -395,7 +395,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>120</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被普通高度的子弹打中</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
             </properties>
             <flavor>
                 <p>曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
