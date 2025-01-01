@@ -5248,18 +5248,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book
       objectReference: {fileID: 0}
-    - target: {fileID: 4086577922652330848, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086577922652330848, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086577922652330848, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -17
-      objectReference: {fileID: 0}
     - target: {fileID: 4241139557200984059, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

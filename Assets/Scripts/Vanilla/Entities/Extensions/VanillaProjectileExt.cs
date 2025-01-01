@@ -111,16 +111,16 @@ namespace MVZ2.Vanilla.Entities
             if (k > 0)
             {
                 if (relativePosition.y > k)
-                    throw new InvalidOperationException("If maxY is positive, it must be greater than target.y.");
+                    throw new ArgumentException("If maxY is positive, it must be greater than target.y.");
                 if (gravity < 0)
-                    throw new InvalidOperationException("If maxY is positive, the gravity must be positive.");
+                    throw new ArgumentException("If maxY is positive, the gravity must be positive.");
             }
             else if (k < 0)
             {
                 if (relativePosition.y > k)
-                    throw new InvalidOperationException("If maxY is negative, it must be less than target.y.");
+                    throw new ArgumentException("If maxY is negative, it must be less than target.y.");
                 if (gravity < 0)
-                    throw new InvalidOperationException("If maxY is negative, the gravity must be negative.");
+                    throw new ArgumentException("If maxY is negative, the gravity must be negative.");
             }
             else
             {
@@ -165,6 +165,14 @@ namespace MVZ2.Vanilla.Entities
 
             var hori = horiDirection * velHori;
             return new Vector3(hori.x, velVert, hori.y);
+        }
+        public static Vector3 GetLobVelocityByTime(Vector3 source, Vector3 target, float maxTime, float gravity)
+        {
+            float x, y, z;
+            x = (target.x - source.x) / maxTime;
+            y = (target.y - source.y) / maxTime + gravity * maxTime * 0.5f;
+            z = (target.z - source.z) / maxTime;
+            return new Vector3(x, y, z);
         }
     }
     public struct ShootParams

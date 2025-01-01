@@ -232,6 +232,21 @@
                 <p>他无聊的时候经常把自己当陀螺抽。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:pistenser">
+            <header>
+                <p>活塞发射器能够伸长自己来攻击高处的敌人。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>伤害：每枚尖刺<![CDATA[<color=red>20</color>]]></p>
+                <p>特点：能够攻击高处的敌人</p>
+                <p>技能：向至多10个敌人发射穿甲的巨型尖刺</p>
+            </properties>
+            <flavor>
+                <p>活塞发射器其实可以伸的非常长，甚至能达到直升机飞行的高度。</p>
+                <p>……你问我怎么知道是直升机飞行的高度？</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

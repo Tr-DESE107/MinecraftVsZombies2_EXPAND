@@ -31,6 +31,7 @@ namespace MVZ2.GameContent.Buffs
         public const string darkMatterProduction = "dark_matter_production";
         public const string vortexHopperSpin = "vortex_hopper_spin";
         public const string vortexHopperEvoked = "vortex_hopper_evoked";
+        public const string pistenserExtend = "pistenser_extend";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";

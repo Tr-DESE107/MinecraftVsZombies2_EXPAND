@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-30 08:01+0800\n"
-"PO-Revision-Date: 2024-12-30 20:02+0800\n"
+"POT-Creation-Date: 2025-01-01 05:19+0800\n"
+"PO-Revision-Date: 2025-01-01 17:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -439,6 +439,55 @@ msgid "从前重力方块坐在一个苹果树下，突然一个苹果掉到了�
 msgstr ""
 "Once upon a time, Gravity Block was sitting under an apple tree, when all of a sudden an apple fell on its head, smashing it flat - it "
 "was a Golden Apple."
+
+#. Header for contraptions mvz2:vortex_hopper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。"
+msgstr "Vortex Hoppers drag all enemies close to it underwater when spinning."
+
+#. Properties for contraptions mvz2:vortex_hopper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：将更大范围的敌人拉入水底"
+msgstr "Evocation: Drag enemies in a wider range underwater"
+
+#. Flavor for contraptions mvz2:vortex_hopper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "他无聊的时候经常把自己当陀螺抽。"
+msgstr ""
+"<color=blue>Must be placed in water</color>\n"
+"\n"
+"As for his favorite pastime, he likes to spin himself as a spinning top while singing \"KU-KURU KURU KURU KURU KURUUU\"."
+
+#. Header for contraptions mvz2:pistenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "活塞发射器能够伸长自己来攻击高处的敌人。"
+msgstr "Pistensers can stretch themselves to attack enemies in the air."
+
+#. Properties for contraptions mvz2:pistenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：每枚尖刺<color=red>20</color>\n"
+"特点：能够攻击高处的敌人\n"
+"技能：向至多10个敌人发射穿甲的巨型尖刺"
+msgstr ""
+"Fire rate: <color=red>1.5 second</color>\n"
+"Damage: <color=red>20</color>\n"
+"Special: Can attack enemies on air\n"
+"Evocation: Shoot seeds of giant armor-piercing spikes at up to 10 enemies"
+
+#. Flavor for contraptions mvz2:pistenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"活塞发射器其实可以伸的非常长，甚至能达到直升机飞行的高度。\n"
+"……你问我怎么知道是直升机飞行的高度？"
+msgstr "\"It's over zombies, I have the high ground!\" Those were his last words before a Ghast burns his leg- uhh, neck off."
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -1660,6 +1709,30 @@ msgctxt "entity.tooltip"
 msgid "增强上方物体的重力"
 msgstr "Increase the gravity of objects above it"
 
+#. Header for entity mvz2:vortex_hopper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "漩涡漏斗"
+msgstr "Vortex Hopper"
+
+#. Properties for entity mvz2:vortex_hopper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "把附近的僵尸拉入水底"
+msgstr "Drag enemies close to it underwater"
+
+#. Header for entity mvz2:pistenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "活塞发射器"
+msgstr "Pistenser"
+
+#. Properties for entity mvz2:pistenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "能够伸长自己来攻击空中敌人"
+msgstr "Stretch itself to attack enemies in the air"
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -2203,15 +2276,6 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "技能：向至多10个敌人发射穿甲的巨型尖刺"
 #~ msgstr "Evocation: Shoot seeds of giant armor-piercing spikes at up to 10 enemies"
 
-#~ msgid "活塞发射器能够伸长自己来攻击高处的敌人。"
-#~ msgstr "Pistensers can stretch themselves to attack enemies in the air."
-
-#~ msgid "活塞发射器"
-#~ msgstr "Pistenser"
-
-#~ msgid "能够伸长自己来攻击空中敌人"
-#~ msgstr "Stretch itself to attack enemies in the air"
-
 #~ msgid ""
 #~ "攻击：<color=red>较高</color>，并<color=red>无视护甲</color>\n"
 #~ "\n"
@@ -2302,27 +2366,6 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 
 #~ msgid "发射虚弱的飞镖并灼烧前方的敌人"
 #~ msgstr "Shoot weakening darts and burn nearby enemies"
-
-#~ msgid ""
-#~ "<color=blue>只能放在水上</color>\n"
-#~ "\n"
-#~ "他无聊的时候经常把自己当陀螺抽。"
-#~ msgstr ""
-#~ "<color=blue>Must be placed in water</color>\n"
-#~ "\n"
-#~ "As for his favorite pastime, he likes to spin himself as a spinning top while singing \"KU-KURU KURU KURU KURU KURUUU\"."
-
-#~ msgid "技能：将更大范围的敌人拉入水底"
-#~ msgstr "Evocation: Drag enemies in a wider range underwater"
-
-#~ msgid "漩涡漏斗在旋转时会把接近它的所有敌人拖入水底。"
-#~ msgstr "Vortex Hoppers drag all enemies close to it underwater when spinning."
-
-#~ msgid "漩涡漏斗"
-#~ msgstr "Vortex Hopper"
-
-#~ msgid "把附近的敌人拉入水底"
-#~ msgstr "Drag enemies close to it underwater"
 
 #~ msgid ""
 #~ "皮帽僵尸拥有能抵抗子弹的皮帽护甲。\n"

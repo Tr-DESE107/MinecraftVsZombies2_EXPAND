@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2024-12-30 08:01+0800\n"
+"POT-Creation-Date: 2025-01-01 05:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -346,6 +346,48 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。"
+msgstr ""
+
+#. Header for contraptions mvz2:vortex_hopper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。"
+msgstr ""
+
+#. Properties for contraptions mvz2:vortex_hopper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：将更大范围的敌人拉入水底"
+msgstr ""
+
+#. Flavor for contraptions mvz2:vortex_hopper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "他无聊的时候经常把自己当陀螺抽。"
+msgstr ""
+
+#. Header for contraptions mvz2:pistenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "活塞发射器能够伸长自己来攻击高处的敌人。"
+msgstr ""
+
+#. Properties for contraptions mvz2:pistenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：每枚尖刺<color=red>20</color>\n"
+"特点：能够攻击高处的敌人\n"
+"技能：向至多10个敌人发射穿甲的巨型尖刺"
+msgstr ""
+
+#. Flavor for contraptions mvz2:pistenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"活塞发射器其实可以伸的非常长，甚至能达到直升机飞行的高度。\n"
+"……你问我怎么知道是直升机飞行的高度？"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1427,6 +1469,30 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "增强上方物体的重力"
+msgstr ""
+
+#. Header for entity mvz2:vortex_hopper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "漩涡漏斗"
+msgstr ""
+
+#. Properties for entity mvz2:vortex_hopper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "把附近的僵尸拉入水底"
+msgstr ""
+
+#. Header for entity mvz2:pistenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "活塞发射器"
+msgstr ""
+
+#. Properties for entity mvz2:pistenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "能够伸长自己来攻击空中敌人"
 msgstr ""
 
 #. Header for entity mvz2:anvil

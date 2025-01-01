@@ -168,6 +168,9 @@
     <sound name="ghost_death">
         <sample path="mvz2:entity/ghost/ghost_death" weight="1" />
     </sound>
+    <sound name="giant_spike">
+        <sample path="mvz2:giant_spike" weight="1" />
+    </sound>
     <sound name="glass">
         <sample path="mvz2:random/glass1" weight="1" />
         <sample path="mvz2:random/glass2" weight="1" />
@@ -267,6 +270,12 @@
     <sound name="pickaxe" priority="64">
         <sample path="mvz2:pickaxe" weight="1" />
     </sound>
+    <sound name="piston_in">
+        <sample path="mvz2:piston_in" weight="1" />
+    </sound>
+    <sound name="piston_out">
+        <sample path="mvz2:piston_out" weight="1" />
+    </sound>
     <sound name="points" priority="64">
         <sample path="mvz2:points" weight="1" />
     </sound>
@@ -346,6 +355,9 @@
     </sound>
     <sound name="slow_down" priority="64">
         <sample path="mvz2:slow_down" weight="1" />
+    </sound>
+    <sound name="small_explosion">
+        <sample path="mvz2:small_explosion" weight="1" />
     </sound>
     <sound name="smash">
         <sample path="mvz2:smash" weight="1" />

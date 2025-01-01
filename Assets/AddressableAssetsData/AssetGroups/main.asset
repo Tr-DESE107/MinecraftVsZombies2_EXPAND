@@ -881,6 +881,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 340deae9fd5ca4c4cbf47b45ec906e94
+    m_Address: mvz2:effect/giant_spike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 343af9cde9d29df4eb4188060da23847
     m_Address: mvz2:entity/pickups/almanac_book
     m_ReadOnly: 0
@@ -3957,6 +3963,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df4b37f82bb5bec438a70507f3913e97
+    m_Address: mvz2:projectile/spike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfd23f4bf547c91488f6d7e24b5d60ef
     m_Address: mvz2:choosing

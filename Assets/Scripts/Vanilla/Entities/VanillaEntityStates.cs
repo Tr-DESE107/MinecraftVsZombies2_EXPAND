@@ -34,6 +34,8 @@
 
         public const int VORTEX_HOPPER_SPIN = ATTACK;
 
+        public const int PISTENSER_SEED = CONTRAPTION_SPECIAL;
+
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
         public const int SPIDER_CLIMB = ENEMY_CAST;

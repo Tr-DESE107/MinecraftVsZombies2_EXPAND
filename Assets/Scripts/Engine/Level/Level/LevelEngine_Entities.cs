@@ -99,6 +99,10 @@ namespace PVZEngine.Level
         {
             return entities.OrderBy(keySelector).FirstOrDefault(predicate);
         }
+        public Entity FindFirstEntityOrderByDescending<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
+        {
+            return entities.OrderByDescending(keySelector).FirstOrDefault(predicate);
+        }
         public bool EntityExists(long id)
         {
             return entities.Exists(e => e.ID == id);

@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string drivenser = "drivenser";
         public const string gravityPad = "gravity_pad";
         public const string vortexHopper = "vortex_hopper";
+        public const string pistenser = "pistenser";
 
         public const string anvil = "anvil";
     }
@@ -46,6 +47,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID drivenser = Get(VanillaContraptionNames.drivenser);
         public static readonly NamespaceID gravityPad = Get(VanillaContraptionNames.gravityPad);
         public static readonly NamespaceID vortexHopper = Get(VanillaContraptionNames.vortexHopper);
+        public static readonly NamespaceID pistenser = Get(VanillaContraptionNames.pistenser);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         private static NamespaceID Get(string name)

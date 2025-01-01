@@ -25,9 +25,9 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<Vector3>(SHOT_VELOCITY);
         }
-        public static Vector3 GetShotOffset(this Entity entity)
+        public static Vector3 GetShotOffset(this Entity entity, bool ignoreBuffs = false)
         {
-            return entity.GetProperty<Vector3>(SHOT_OFFSET);
+            return entity.GetProperty<Vector3>(SHOT_OFFSET, ignoreBuffs : ignoreBuffs);
         }
         public static NamespaceID GetShootSound(this Entity entity)
         {

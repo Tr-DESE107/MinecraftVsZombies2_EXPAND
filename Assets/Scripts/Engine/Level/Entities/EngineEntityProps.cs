@@ -35,6 +35,10 @@ namespace PVZEngine.Entities
         {
             return entity.GetProperty<bool>(INVINCIBLE);
         }
+        public static float GetGravity(this EntityDefinition entity)
+        {
+            return entity.GetProperty<float>(GRAVITY);
+        }
         public static float GetGravity(this Entity entity)
         {
             return entity.GetProperty<float>(GRAVITY);

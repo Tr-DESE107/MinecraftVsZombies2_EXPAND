@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             return Mathf.FloorToInt(entity.RNG.Next(40, 45) * entity.GetAttackSpeed());
         }
-        private Detector detector;
+        protected DispenserDetector detector;
 
     }
 }

@@ -19,6 +19,7 @@
     <model name="drivenser" type="entity" path="mvz2:contraption/drivenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="gravity_pad" type="entity" path="mvz2:contraption/gravity_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="vortex_hopper" type="entity" path="mvz2:contraption/vortex_hopper" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="pistenser" type="entity" path="mvz2:contraption/pistenser" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 
@@ -101,6 +102,7 @@
     <model name="gear_particles" type="entity" path="mvz2:effect/gear_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="pow" type="entity" path="mvz2:effect/pow" width="56" height="56" xOffset="0" yOffset="0"/>
     <model name="vortex" type="entity" path="mvz2:effect/vortex" width="240" height="240" xOffset="0" yOffset="0"/>
+    <model name="giant_spike" type="entity" path="mvz2:effect/giant_spike" width="16" height="128" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
@@ -113,6 +115,8 @@
     <model name="bullet" type="entity" path="mvz2:projectile/bullet" width="32" height="2" xOffset="0" yOffset="0"/>
     <model name="missile" type="entity" path="mvz2:projectile/missile" width="64" height="20" xOffset="0" yOffset="0"/>
     <model name="large_arrow" type="entity" path="mvz2:projectile/large_arrow" width="64" height="20" xOffset="0" yOffset="0"/>
+    <model name="spike" type="entity" path="mvz2:projectile/spike" width="20" height="11" xOffset="0" yOffset="0"/>
+    <model name="spike_ball" type="entity" path="mvz2:projectile/spike_ball" width="20" height="20" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>

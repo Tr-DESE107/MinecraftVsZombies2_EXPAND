@@ -20,7 +20,6 @@ namespace MVZ2.GameContent.Projectiles
         public const string breakoutPearl = "breakout_pearl";
         public const string spike = "spike";
         public const string spikeBall = "spike_ball";
-        public const string giantSpike = "giant_spike";
         public const string parabot = "parabot";
         public const string fireCharge = "fire_charge";
         public const string dart = "dart";
@@ -44,7 +43,6 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID breakoutPearl = Get(VanillaProjectileNames.breakoutPearl);
         public static readonly NamespaceID spike = Get(VanillaProjectileNames.spike);
         public static readonly NamespaceID spikeBall = Get(VanillaProjectileNames.spikeBall);
-        public static readonly NamespaceID giantSpike = Get(VanillaProjectileNames.giantSpike);
         public static readonly NamespaceID parabot = Get(VanillaProjectileNames.parabot);
         public static readonly NamespaceID fireCharge = Get(VanillaProjectileNames.fireCharge);
         public static readonly NamespaceID dart = Get(VanillaProjectileNames.dart);
