@@ -51,6 +51,10 @@ namespace PVZEngine
             value = default;
             return false;
         }
+        public bool RemoveProperty(string name)
+        {
+            return propertyDict.Remove(name);
+        }
         public string[] GetPropertyNames()
         {
             return propertyDict.Keys.ToArray();

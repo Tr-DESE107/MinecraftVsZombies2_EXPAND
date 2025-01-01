@@ -7,7 +7,7 @@ using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
 {
-    public class Buff : IAuraSource
+    public class Buff : IAuraSource, IModifierContainer
     {
         public Buff(LevelEngine level, BuffDefinition definition, long id)
         {
@@ -41,7 +41,7 @@ namespace PVZEngine.Buffs
                 // 增益属性更改时，如果有利用该增益属性修改属性的修改器，调用一次属性更改时事件。
                 foreach (var modifier in GetModifiers())
                 {
-                    if (modifier.UsingBuffPropertyName == name)
+                    if (modifier.UsingContainerPropertyName == name)
                     {
                         CallPropertyChanged(modifier.PropertyName);
                     }
@@ -114,6 +114,7 @@ namespace PVZEngine.Buffs
             return buff;
         }
         LevelEngine IAuraSource.GetLevel() { return Level; }
+        object IModifierContainer.GetProperty(string name) => GetProperty<object>(name);
         private void CallPropertyChanged(string name)
         {
             OnPropertyChanged?.Invoke(name);

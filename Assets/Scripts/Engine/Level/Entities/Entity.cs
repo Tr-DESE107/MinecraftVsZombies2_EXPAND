@@ -9,12 +9,13 @@ using PVZEngine.Damages;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Models;
+using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Entities
 {
-    public sealed class Entity : IBuffTarget, IAuraSource
+    public sealed class Entity : IBuffTarget, IAuraSource, IModifierContainer
     {
         #region 公有方法
 
@@ -32,6 +33,7 @@ namespace PVZEngine.Entities
                 var auraDef = auraDefs[i];
                 auras.Add(level, new AuraEffect(auraDef, i, this));
             }
+            UpdateModifierCaches();
         }
         private Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
         {
@@ -217,8 +219,18 @@ namespace PVZEngine.Entities
         }
         public void SetProperty(string name, object value)
         {
-            propertyDict.SetProperty(name, value);
-            UpdateBuffedProperty(name);
+            if (propertyDict.SetProperty(name, value))
+            {
+                UpdateBuffedProperty(name);
+                // 实体属性更改时，如果有利用该实体属性修改属性的修改器，更新一次该属性。
+                foreach (var modifier in Definition.GetModifiers())
+                {
+                    if (modifier.UsingContainerPropertyName == name)
+                    {
+                        UpdateBuffedProperty(modifier.PropertyName);
+                    }
+                }
+            }
         }
         private void UpdateAllBuffedProperties()
         {
@@ -231,9 +243,28 @@ namespace PVZEngine.Entities
         private void UpdateBuffedProperty(string name)
         {
             var baseValue = GetProperty(name, ignoreBuffs: true);
-            var value = buffs.CalculateProperty(name, baseValue);
-            buffedProperties.SetProperty(name, value);
+
+            modifierContainerBuffer.Clear();
+            GetModifierItems(name, modifierContainerBuffer);
+            buffs.GetModifierItems(name, modifierContainerBuffer);
+
+            var value = baseValue;
+            if (modifierContainerBuffer.Count > 0)
+            {
+                value = modifierContainerBuffer.CalculateProperty(name, baseValue);
+                buffedProperties.SetProperty(name, value);
+            }
+            else
+            {
+                buffedProperties.RemoveProperty(name);
+            }
             Cache.UpdateProperty(this, name, value);
+        }
+        private void GetModifierItems(string name, List<ModifierContainerItem> results)
+        {
+            if (!modifierCaches.TryGetValue(name, out var list))
+                return;
+            results.AddRange(list);
         }
         #endregion
 
@@ -831,10 +862,24 @@ namespace PVZEngine.Entities
             RemoveChildModel(key);
         }
 
+        private void UpdateModifierCaches()
+        {
+            foreach (var modifier in Definition.GetModifiers())
+            {
+                var propName = modifier.PropertyName;
+                if (!modifierCaches.TryGetValue(propName, out var list))
+                {
+                    list = new List<ModifierContainerItem>();
+                    modifierCaches.Add(propName, list);
+                }
+                list.Add(new ModifierContainerItem(this, modifier));
+            }
+        }
         Entity IBuffTarget.GetEntity() => this;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
+        object IModifierContainer.GetProperty(string name) => GetProperty(name);
         #endregion
 
         #region 事件
@@ -888,6 +933,8 @@ namespace PVZEngine.Entities
         private List<TakenGridInfo> takenGrids = new List<TakenGridInfo>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
+        private Dictionary<string, List<ModifierContainerItem>> modifierCaches = new Dictionary<string, List<ModifierContainerItem>>();
+        private List<ModifierContainerItem> modifierContainerBuffer = new List<ModifierContainerItem>();
         #endregion
 
         private class TakenGridInfo

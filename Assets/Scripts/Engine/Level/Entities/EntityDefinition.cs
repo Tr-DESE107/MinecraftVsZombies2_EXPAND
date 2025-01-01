@@ -4,6 +4,7 @@ using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Damages;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Entities
@@ -91,6 +92,10 @@ namespace PVZEngine.Entities
         public AuraEffectDefinition[] GetAuras()
         {
             return behaviours.SelectMany(b => b.GetAuras()).ToArray();
+        }
+        public PropertyModifier[] GetModifiers()
+        {
+            return behaviours.SelectMany(b => b.GetModifiers()).ToArray();
         }
         public abstract int Type { get; }
         private List<EntityBehaviourDefinition> behaviours = new List<EntityBehaviourDefinition>();

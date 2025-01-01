@@ -108,25 +108,9 @@ namespace PVZEngine.Buffs
             if (buffs.Count == 0)
                 return value;
 
-            var modifiers = GetModifierCaches(name);
-            return CalculateProperty(modifiers, name, value);
-        }
-        private object CalculateProperty(List<BuffModifierItem> modifiers, string name, object value)
-        {
-            if (modifiers == null || modifiers.Count == 0)
-                return value;
-
-            var calculators = modifiers.Select(p => p.modifier.GetCalculator()).Where(p => p != null).Distinct();
-            ModifierCalculator calculator = null;
-            foreach (var calc in calculators)
-            {
-                if (calculator != null)
-                    throw new MultipleValueModifierException($"Modifiers of property {name} has multiple different calculators: {string.Join(',', calculators)}");
-                calculator = calc;
-            }
-            if (calculator == null)
-                throw new NullReferenceException($"Calculator for property {name} does not exists.");
-            return calculator.Calculate(value, modifiers);
+            modifierItemBuffer.Clear();
+            GetModifierItems(name, modifierItemBuffer);
+            return modifierItemBuffer.CalculateProperty(name, value);
         }
         private void OnPropertyChangedCallback(string name)
         {
@@ -165,6 +149,13 @@ namespace PVZEngine.Buffs
         #endregion
 
         #region 修改器缓存
+        public void GetModifierItems(string name, List<ModifierContainerItem> results)
+        {
+            if (modifierCaches.TryGetValue(name, out var list))
+            {
+                results.AddRange(list);
+            }
+        }
         private void AddModifierCaches(Buff buff)
         {
             foreach (var modifier in buff.GetModifiers())
@@ -172,10 +163,10 @@ namespace PVZEngine.Buffs
                 var name = modifier.PropertyName;
                 if (!modifierCaches.TryGetValue(name, out var list))
                 {
-                    list = new List<BuffModifierItem>();
+                    list = new List<ModifierContainerItem>();
                     modifierCaches.Add(name, list);
                 }
-                list.Add(new BuffModifierItem(buff, modifier));
+                list.Add(new ModifierContainerItem(buff, modifier));
                 changedPropertiesBuffer.Add(name);
             }
         }
@@ -186,7 +177,7 @@ namespace PVZEngine.Buffs
                 var name = modifier.PropertyName;
                 if (modifierCaches.TryGetValue(name, out var list))
                 {
-                    list.RemoveAll(b => b.buff == buff);
+                    list.RemoveAll(b => b.container == buff);
                 }
                 changedPropertiesBuffer.Add(name);
             }
@@ -197,12 +188,6 @@ namespace PVZEngine.Buffs
             {
                 AddModifierCaches(buff);
             }
-        }
-        private List<BuffModifierItem> GetModifierCaches(string name)
-        {
-            if (modifierCaches.TryGetValue(name, out var list))
-                return list;
-            return null;
         }
         #endregion
 
@@ -241,7 +226,8 @@ namespace PVZEngine.Buffs
         private HashSet<string> changedPropertiesBuffer = new HashSet<string>();
         private List<Buff> buffs = new List<Buff>();
         private List<NamespaceID> createdModelInsertions = new List<NamespaceID>();
-        private Dictionary<string, List<BuffModifierItem>> modifierCaches = new Dictionary<string, List<BuffModifierItem>>();
+        private Dictionary<string, List<ModifierContainerItem>> modifierCaches = new Dictionary<string, List<ModifierContainerItem>>();
+        private List<ModifierContainerItem> modifierItemBuffer = new List<ModifierContainerItem>();
     }
     public class MultipleValueModifierException : Exception
     {

@@ -10,7 +10,7 @@
         {
             return new StringModifier(propertyName, null)
             {
-                UsingBuffPropertyName = buffPropertyName
+                UsingContainerPropertyName = buffPropertyName
             };
         }
         public override ModifierCalculator GetCalculator()

@@ -3,6 +3,7 @@ using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Damages;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Entities
@@ -49,6 +50,15 @@ namespace PVZEngine.Entities
         {
             auraDefinitions.Add(aura);
         }
+        public PropertyModifier[] GetModifiers()
+        {
+            return modifiers.ToArray();
+        }
+        protected void AddModifier(PropertyModifier modifier)
+        {
+            modifiers.Add(modifier);
+        }
         private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
+        private List<PropertyModifier> modifiers = new List<PropertyModifier>();
     }
 }

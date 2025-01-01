@@ -5,7 +5,7 @@ namespace PVZEngine.Modifiers
 {
     public interface IPropertyModifier
     {
-        object GetModifierValue(Buff buff);
+        object GetModifierValue(IModifierContainer buff);
     }
     public abstract class PropertyModifier : IPropertyModifier
     {
@@ -14,24 +14,24 @@ namespace PVZEngine.Modifiers
             PropertyName = propertyName;
             ConstValue = valueConst;
         }
-        public PropertyModifier(string propertyName, string buffPropertyName)
+        public PropertyModifier(string propertyName, string containerPropertyName)
         {
             PropertyName = propertyName;
-            UsingBuffPropertyName = buffPropertyName;
+            UsingContainerPropertyName = containerPropertyName;
         }
-        public virtual void PostAdd(Buff buff)
+        public virtual void PostAdd(IModifierContainer container)
         {
 
         }
-        public virtual void PostRemove(Buff buff)
+        public virtual void PostRemove(IModifierContainer container)
         {
 
         }
-        public object GetModifierValue(Buff buff)
+        public object GetModifierValue(IModifierContainer container)
         {
-            if (!string.IsNullOrEmpty(UsingBuffPropertyName))
+            if (!string.IsNullOrEmpty(UsingContainerPropertyName))
             {
-                return buff.GetProperty<object>(UsingBuffPropertyName);
+                return container.GetProperty(UsingContainerPropertyName);
             }
             else
             {
@@ -41,7 +41,7 @@ namespace PVZEngine.Modifiers
         public abstract ModifierCalculator GetCalculator();
         public string PropertyName { get; set; }
         public object ConstValue { get; set; }
-        public string UsingBuffPropertyName { get; set; }
+        public string UsingContainerPropertyName { get; set; }
     }
     public abstract class PropertyModifier<T> : PropertyModifier
     {
@@ -52,9 +52,9 @@ namespace PVZEngine.Modifiers
         protected PropertyModifier(string propertyName, string buffPropertyName) : base(propertyName, buffPropertyName)
         {
         }
-        public T GetModifierValueGeneric(Buff buff)
+        public T GetModifierValueGeneric(IModifierContainer container)
         {
-            var value = GetModifierValue(buff);
+            var value = GetModifierValue(container);
             if (value.TryToGeneric<T>(out var tValue))
                 return tValue;
             return default;

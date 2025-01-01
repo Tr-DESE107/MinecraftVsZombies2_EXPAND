@@ -5,7 +5,7 @@ namespace PVZEngine.Modifiers
 {
     public abstract class NumberModifierCalculator<T> : ModifierCalculator<T, NumberModifier<T>>
     {
-        public override T CalculateGeneric(T value, IEnumerable<BuffModifierItem> modifiers)
+        public override T CalculateGeneric(T value, IEnumerable<ModifierContainerItem> modifiers)
         {
             T setValue = value;
             T addValue = default;
@@ -15,7 +15,7 @@ namespace PVZEngine.Modifiers
             T forceSet = default;
             foreach (var modi in modifiers)
             {
-                var buff = modi.buff;
+                var buff = modi.container;
                 if (modi.modifier is not NumberModifier<T> modifier)
                     continue;
                 var modifierValue = modifier.GetModifierValueGeneric(buff);

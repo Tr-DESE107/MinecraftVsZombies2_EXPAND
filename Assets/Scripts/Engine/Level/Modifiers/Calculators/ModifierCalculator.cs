@@ -7,8 +7,8 @@ namespace PVZEngine.Modifiers
 {
     public abstract class ModifierCalculator
     {
-        public abstract object Calculate(object value, IEnumerable<BuffModifierItem> modifiers);
-        public T Calculate<T>(T value, IEnumerable<BuffModifierItem> modifiers)
+        public abstract object Calculate(object value, IEnumerable<ModifierContainerItem> modifiers);
+        public T Calculate<T>(T value, IEnumerable<ModifierContainerItem> modifiers)
         {
             var result = Calculate(value, modifiers);
             if (result.TryToGeneric<T>(out var tValue))
@@ -18,22 +18,22 @@ namespace PVZEngine.Modifiers
     }
     public abstract class ModifierCalculator<TValue, TModifier> : ModifierCalculator where TModifier : PropertyModifier<TValue>
     {
-        public override sealed object Calculate(object value, IEnumerable<BuffModifierItem> modifiers)
+        public override sealed object Calculate(object value, IEnumerable<ModifierContainerItem> modifiers)
         {
             if (!value.TryToGeneric<TValue>(out var tValue))
                 return value;
-            return CalculateGeneric(tValue, modifiers.OfType<BuffModifierItem>());
+            return CalculateGeneric(tValue, modifiers.OfType<ModifierContainerItem>());
         }
-        public abstract TValue CalculateGeneric(TValue value, IEnumerable<BuffModifierItem> modifiers);
+        public abstract TValue CalculateGeneric(TValue value, IEnumerable<ModifierContainerItem> modifiers);
     }
-    public struct BuffModifierItem
+    public struct ModifierContainerItem
     {
-        public BuffModifierItem(Buff buff, PropertyModifier modifier)
+        public ModifierContainerItem(IModifierContainer container, PropertyModifier modifier)
         {
-            this.buff = buff;
+            this.container = container;
             this.modifier = modifier;
         }
-        public Buff buff;
+        public IModifierContainer container;
         public PropertyModifier modifier;
     }
 }

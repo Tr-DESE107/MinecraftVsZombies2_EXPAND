@@ -5,11 +5,11 @@ namespace PVZEngine.Modifiers
 {
     public class ColorCalculator : ModifierCalculator<Color, ColorModifier>
     {
-        public override Color CalculateGeneric(Color value, IEnumerable<BuffModifierItem> modifiers)
+        public override Color CalculateGeneric(Color value, IEnumerable<ModifierContainerItem> modifiers)
         {
             foreach (var item in modifiers)
             {
-                var buff = item.buff;
+                var buff = item.container;
                 var modi = item.modifier;
                 if (modi is not ColorModifier modifier)
                     continue;
