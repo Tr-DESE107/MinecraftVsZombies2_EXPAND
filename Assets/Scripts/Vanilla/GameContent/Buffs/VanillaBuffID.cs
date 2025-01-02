@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Buffs
         public const string vortexHopperSpin = "vortex_hopper_spin";
         public const string vortexHopperEvoked = "vortex_hopper_evoked";
         public const string pistenserExtend = "pistenser_extend";
+        public const string dreamCrystalEvocation = "dream_crystal_evocation";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";

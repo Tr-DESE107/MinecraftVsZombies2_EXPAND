@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-01 11:25+0800\n"
+"POT-Creation-Date: 2025-01-02 05:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -410,6 +410,29 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。"
+msgstr ""
+
+#. Header for contraptions mvz2:dream_crystal
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "梦境结晶会慢慢地恢复自己的生命。"
+msgstr ""
+
+#. Properties for contraptions mvz2:dream_crystal
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"生命：<color=red>2000</color>\n"
+"恢复速度：<color=red>40/秒</color>\n"
+"技能：<color=red>进入无敌状态，并为周围的器械恢复生命值</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:dream_crystal
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"化学课就像是：\n"
+"“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1527,6 +1550,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射虚弱的飞镖并灼烧前方的僵尸"
+msgstr ""
+
+#. Header for entity mvz2:dream_crystal
+#: Entity meta file
+msgctxt "entity.name"
+msgid "梦境结晶"
+msgstr ""
+
+#. Properties for entity mvz2:dream_crystal
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "能够自我修复的障碍墙"
 msgstr ""
 
 #. Header for entity mvz2:anvil

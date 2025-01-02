@@ -1,95 +1,106 @@
 <fragments>
     <fragment name="dispenser">
         <colorKeys>
-            <color hex="#4F4F4F" time="0.35"/>
-            <color hex="#ABABAB" time="0.7"/>
-            <color hex="#C3A26D" time="0.3"/>
+            <key hex="#4F4F4F" time="0.35"/>
+            <key hex="#ABABAB" time="0.7"/>
+            <key hex="#C3A26D" time="0.3"/>
         </colorKeys>
     </fragment>
     <fragment name="furnace">
         <colorKeys>
-            <color hex="#4F4F4F" time="0.5"/>
-            <color hex="#ABABAB" time="1"/>
+            <key hex="#4F4F4F" time="0.5"/>
+            <key hex="#ABABAB" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="obsidian" blend="true">
         <colorKeys>
-            <color hex="#39305A" time="0"/>
-            <color hex="#101010" time="1"/>
+            <key hex="#39305A" time="0"/>
+            <key hex="#101010" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="obsidian_armor" blend="true">
         <colorKeys>
-            <color hex="#5A555A" time="0"/>
-            <color hex="#312829" time="1"/>
+            <key hex="#5A555A" time="0"/>
+            <key hex="#312829" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="mine_tnt">
         <colorKeys>
-            <color hex="#FF0000" time="0.6"/>
-            <color hex="#FFFFFF" time="0.9"/>
-            <color hex="#000000" time="1"/>
+            <key hex="#FF0000" time="0.6"/>
+            <key hex="#FFFFFF" time="0.9"/>
+            <key hex="#000000" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="moonlight_sensor">
         <colorKeys>
-            <color hex="#56452B" time="0.45"/>
-            <color hex="#BAC6D7" time="0.90"/>
-            <color hex="#354359" time="0.95"/>
-            <color hex="#282217" time="1"/>
+            <key hex="#56452B" time="0.45"/>
+            <key hex="#BAC6D7" time="0.90"/>
+            <key hex="#354359" time="0.95"/>
+            <key hex="#282217" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="glowstone">
         <colorKeys>
-            <color hex="#FFFFFF" time="0.15"/>
-            <color hex="#CE8452" time="0.30"/>
-            <color hex="#FFDE73" time="0.50"/>
-            <color hex="#6B4221" time="1"/>
+            <key hex="#FFFFFF" time="0.15"/>
+            <key hex="#CE8452" time="0.30"/>
+            <key hex="#FFDE73" time="0.50"/>
+            <key hex="#6B4221" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="soul_furnace">
         <colorKeys>
-            <color hex="#9F5A10" time="0.35"/>
-            <color hex="#733808" time="0.70"/>
-            <color hex="#4E1D00" time="1"/>
+            <key hex="#9F5A10" time="0.35"/>
+            <key hex="#733808" time="0.70"/>
+            <key hex="#4E1D00" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="silvenser">
         <colorKeys>
-            <color hex="#0012FE" time="0.4"/>
-            <color hex="#FFFFFF" time="1"/>
+            <key hex="#0012FE" time="0.4"/>
+            <key hex="#FFFFFF" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="magichest">
         <colorKeys>
-            <color hex="#0000FF" time="0.3"/>
-            <color hex="#FF0000" time="0.6"/>
-            <color hex="#FFFFFF" time="1"/>
+            <key hex="#0000FF" time="0.3"/>
+            <key hex="#FF0000" time="0.6"/>
+            <key hex="#FFFFFF" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="lily_pad">
         <colorKeys>
-            <color hex="#104018" time="0.75"/>
-            <color hex="#0B2B10" time="1"/>
+            <key hex="#104018" time="0.75"/>
+            <key hex="#0B2B10" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="gravity_pad">
         <colorKeys>
-            <color hex="#BA00FF" time="0.75"/>
-            <color hex="#DD80FF" time="1"/>
+            <key hex="#BA00FF" time="0.75"/>
+            <key hex="#DD80FF" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="anvil">
         <colorKeys>
-            <color hex="#262626" time="0.5"/>
-            <color hex="#383838" time="1"/>
+            <key hex="#262626" time="0.5"/>
+            <key hex="#383838" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="totenser">
         <colorKeys>
-            <color hex="#CC6600" time="0.333"/>
-            <color hex="#FF6A00" time="0.667"/>
-            <color hex="#CC2200" time="1"/>
+            <key hex="#CC6600" time="0.333"/>
+            <key hex="#FF6A00" time="0.667"/>
+            <key hex="#CC2200" time="1"/>
         </colorKeys>
+    </fragment>
+    <fragment name="dream_crystal">
+        <colorKeys>
+            <key hex="#FE95FF" time="0.5"/>
+            <key hex="#F3A4FF" time="0.8"/>
+            <key hex="#F471FF" time="1"/>
+        </colorKeys>
+        <alphaKeys>
+            <key alpha="0.5" time="0"/>
+            <key alpha="0.5" time="1"/>
+        </alphaKeys>
     </fragment>
 </fragments>

@@ -261,6 +261,20 @@
                 <p>图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:dream_crystal">
+            <header>
+                <p>梦境结晶会慢慢地恢复自己的生命。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>2000</color>]]></p>
+                <p>恢复速度：<![CDATA[<color=red>40/秒</color>]]></p>
+                <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复生命值</color>]]></p>
+            </properties>
+            <flavor>
+                <p>化学课就像是：</p>
+                <p>“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

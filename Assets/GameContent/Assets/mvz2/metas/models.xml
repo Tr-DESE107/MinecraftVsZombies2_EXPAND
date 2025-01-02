@@ -21,6 +21,7 @@
     <model name="vortex_hopper" type="entity" path="mvz2:contraption/vortex_hopper" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="pistenser" type="entity" path="mvz2:contraption/pistenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="totenser" type="entity" path="mvz2:contraption/totenser" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="dream_crystal" type="entity" path="mvz2:contraption/dream_crystal" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 

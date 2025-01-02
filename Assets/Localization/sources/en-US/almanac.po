@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-01 11:25+0800\n"
-"PO-Revision-Date: 2025-01-01 23:26+0800\n"
+"POT-Creation-Date: 2025-01-02 05:29+0800\n"
+"PO-Revision-Date: 2025-01-02 17:31+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -516,6 +516,37 @@ msgstr ""
 "What god does Totenser believe in? According to the history of Contraption Intelligence, It may believe in various mechanic gods. Some "
 "people say that it actually believes in the human inventor who made the machine, and some even say that it believes in the mechanic "
 "old gods. People's discussion went on for decades, but the truth is, it just put his faith in his waifus."
+
+#. Header for contraptions mvz2:dream_crystal
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "梦境结晶会慢慢地恢复自己的生命。"
+msgstr "Dream Crystals slowly regenerate their health."
+
+#. Properties for contraptions mvz2:dream_crystal
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"生命：<color=red>2000</color>\n"
+"恢复速度：<color=red>40/秒</color>\n"
+"技能：<color=red>进入无敌状态，并为周围的器械恢复生命值</color>"
+msgstr ""
+"Toughness: <color=red>2000</color>\n"
+"Regeneration: <color=red>40/s</color>\n"
+"Evocation: <color=red>Become invincible, regenerate health for surrounding contraptions</color>"
+
+#. Flavor for contraptions mvz2:dream_crystal
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"化学课就像是：\n"
+"“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二"
+"氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”"
+msgstr ""
+"\"Hi, this is Villager from Gear Ear Mech Co, and I'll show you the super strong, zombie-proof crystal, that can instantly patch, "
+"bond, seal and repair! Dream Crystal is no ordinary crystal. Leaky contraptions can cause MAJOR DAMAGE, but Dream Crystal grips on "
+"tight and bonds instantly. Plus, Dream Crystal is so strong, it even works underwater! To show you the power of Dream Crystal, I SAWED "
+"THIS OBSIDIAN IN HALF, and repaired it with ONLY Dream Crystal!\""
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -1773,6 +1804,18 @@ msgctxt "entity.tooltip"
 msgid "发射虚弱的飞镖并灼烧前方的僵尸"
 msgstr "Shoot weakening darts and burn nearby enemies"
 
+#. Header for entity mvz2:dream_crystal
+#: Entity meta file
+msgctxt "entity.name"
+msgid "梦境结晶"
+msgstr "Dream Crystal"
+
+#. Properties for entity mvz2:dream_crystal
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "能够自我修复的障碍墙"
+msgstr "Barrier with regeneration"
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -2169,33 +2212,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "从天而降砸死下方的僵尸，并作为临时屏障"
 #~ msgstr "Fall from the sky to crush enemies, also a barrier"
 
-#~ msgid ""
-#~ "耐久：<color=red>稍高</color>\n"
-#~ "特点：能够自我修复\n"
-#~ "\n"
-#~ "化学课就像是：\n"
-#~ "“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提"
-#~ "炼二氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”"
-#~ msgstr ""
-#~ "Toughness: <color=red>Slightly high</color>\n"
-#~ "Special: Regenerate health\n"
-#~ "\n"
-#~ "\"Hi, this is Villager from Gear Ear Mech Co, and I'll show you the super strong, zombie-proof crystal, that can instantly patch, "
-#~ "bond, seal and repair! Dream Crystal is no ordinary crystal. Leaky contraptions can cause MAJOR DAMAGE, but Dream Crystal grips on "
-#~ "tight and bonds instantly. Plus, Dream Crystal is so strong, it even works underwater! To show you the power of Dream Crystal, I "
-#~ "SAWED THIS OBSIDIAN IN HALF, and repaired it with ONLY Dream Crystal!\""
-
 #~ msgid "技能：进入无敌状态，并为周围的器械恢复生命值"
 #~ msgstr "Evocation: Become invincible, regenerate health for surrounding contraptions"
-
-#~ msgid "梦境结晶会慢慢地恢复自己的生命。"
-#~ msgstr "Dream Crystals slowly regenerate their health."
-
-#~ msgid "梦境结晶"
-#~ msgstr "Dream Crystal"
-
-#~ msgid "能够自我修复的障碍墙"
-#~ msgstr "Barrier with regeneration"
 
 #~ msgid ""
 #~ "特点：一次性使用\n"

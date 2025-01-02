@@ -25,6 +25,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string vortexHopper = "vortex_hopper";
         public const string pistenser = "pistenser";
         public const string totenser = "totenser";
+        public const string dreamCrystal = "dream_crystal";
 
         public const string anvil = "anvil";
     }
@@ -50,6 +51,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID vortexHopper = Get(VanillaContraptionNames.vortexHopper);
         public static readonly NamespaceID pistenser = Get(VanillaContraptionNames.pistenser);
         public static readonly NamespaceID totenser = Get(VanillaContraptionNames.totenser);
+        public static readonly NamespaceID dreamCrystal = Get(VanillaContraptionNames.dreamCrystal);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         private static NamespaceID Get(string name)

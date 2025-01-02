@@ -27,8 +27,8 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.lilyPad,
                 VanillaContraptionID.totenser,
-                VanillaContraptionID.gravityPad,
                 VanillaContraptionID.obsidian,
+                VanillaContraptionID.dreamCrystal,
 
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.vortexHopper,

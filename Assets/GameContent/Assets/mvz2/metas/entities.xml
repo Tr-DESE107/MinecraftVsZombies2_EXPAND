@@ -313,6 +313,18 @@
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
+        <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙"  unlock="mvz2:level.dream_8">
+            <bool name="canShock" value="false"/>
+            <bool name="defensive" value="true"/>
+            <float name="maxHealth" value="2000"/>
+            <id name="placeSound" value="mvz2:crystal_place"/>
+            <id name="deathSound" value="mvz2:crystal_break"/>
+            <id name="hitSound" value="mvz2:crystal"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
