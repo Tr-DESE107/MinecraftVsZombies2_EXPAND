@@ -276,8 +276,13 @@ namespace MVZ2.IO
                         }
                         var valueStr = node.GetAttribute("value");
                         if (string.IsNullOrEmpty(valueStr))
-                            return false;
-                        propValue = valueStr.Split(' ').Select(v => NamespaceID.TryParse(v, defaultNsp, out var parsed) ? parsed : null).Where(v => v != null).ToArray();
+                        {
+                            propValue = Array.Empty<NamespaceID>();
+                        }
+                        else
+                        {
+                            propValue = valueStr.Split(' ').Select(v => NamespaceID.TryParse(v, defaultNsp, out var parsed) ? parsed : null).Where(v => v != null).ToArray();
+                        }
                         return true;
                     }
                 case "sprite":

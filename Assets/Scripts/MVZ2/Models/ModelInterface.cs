@@ -90,6 +90,8 @@ namespace MVZ2.Models
             if (!model)
                 return null;
             var child = model.GetChildModel(key);
+            if (!child)
+                return null;
             return child.GetParentModelInterface();
         }
         protected abstract Model GetModel();

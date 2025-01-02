@@ -17,7 +17,7 @@
 
             <int name="waterInteraction" value="1"/>
 
-            <bool name="canShock" value="true"/>
+            <bool name="canDeactive" value="true"/>
             <float name="maxHealth" value="300"/>
             <float name="friction" value="0.2"/>
             <float name="gravity" value="1"/>
@@ -130,7 +130,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械" >
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
             <bool name="defensive" value="true"/>
             <float name="maxHealth" value="4000"/>
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -140,7 +140,7 @@
         </contraption>
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备" >
 
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
             <float name="damage" value="1800"/>
             <float name="range" value="40"/>
             <id name="placeSound" value="mvz2:grass"/>
@@ -176,7 +176,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
             <id name="placeSound" value="mvz2:glass"/>
             <id name="deathSound" value="mvz2:glass_break"/>
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -197,7 +197,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
             <float name="damage" value="1800"/>
             <float name="range" value="120"/>
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -251,7 +251,7 @@
 
         <!-- Dream Contraptions -->
         <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械"  unlock="mvz2:level.dream_1">
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
 
             <id name="shell" value="mvz2:grass"/>
             <id name="placeSound" value="mvz2:grass"/>
@@ -314,7 +314,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
         <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙"  unlock="mvz2:level.dream_8">
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
             <bool name="defensive" value="true"/>
             <float name="maxHealth" value="2000"/>
             <id name="placeSound" value="mvz2:crystal_place"/>
@@ -325,10 +325,31 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+        <contraption id="dream_silk" name="美梦丝" tooltip="让一个器械睡着，醒来后生成一个星之碎片"  unlock="mvz2:level.dream_9">
+            <bool name="cannotDig" value="true"/>
+            <bool name="invisible" value="true"/>
+            <bool name="invincible" value="true"/>
+            <bool name="shadowHidden" value="true"/>
+            <bool name="canDeactive" value="false"/>
+            <int name="maxTimeout" value="30"/>
+            <int name="waterInteraction" value="0"/>
+            <float name="gravity" value="-0.25"/>
+            <vector3 name="size" x="0" y="0" z="0"/>
+            <id name="shell" value="mvz2:grass"/>
+            <id name="placement" value="mvz2:dream_silk"/>
+            <id name="fragmentId" value="mvz2:dream_crystal"/>
+            <id name="placeSound" null="true"/>
+            <id name="deathSound" null="true"/>
+            <id name="hitSound" null="true"/>
+            <idArray name="gridLayers" value=""/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
-            <bool name="canShock" value="false"/>
+            <bool name="canDeactive" value="false"/>
             <bool name="defensive" value="true"/>
             <float name="maxHealth" value="2500"/>
             <float name="fallDamage" value="-10000"/>

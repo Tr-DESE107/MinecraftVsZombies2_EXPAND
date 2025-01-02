@@ -61,6 +61,7 @@ namespace MVZ2.Games
             { VanillaGridStatus.notOnLand, VanillaStrings.ADVICE_CANNOT_PLACE_ON_LAND },
             { VanillaGridStatus.notOnPlane, VanillaStrings.ADVICE_CANNOT_PLACE_ON_PLANE },
             { VanillaGridStatus.notOnStatues, VanillaStrings.ADVICE_CANNOT_PLACE_ON_STATUES },
+            { VanillaGridStatus.onlyCanSleep, VanillaStrings.ADVICE_ONLY_PLACE_ON_CAN_SLEEP },
         };
     }
 }

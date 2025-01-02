@@ -26,6 +26,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string pistenser = "pistenser";
         public const string totenser = "totenser";
         public const string dreamCrystal = "dream_crystal";
+        public const string dreamSilk = "dream_silk";
 
         public const string anvil = "anvil";
     }
@@ -52,6 +53,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID pistenser = Get(VanillaContraptionNames.pistenser);
         public static readonly NamespaceID totenser = Get(VanillaContraptionNames.totenser);
         public static readonly NamespaceID dreamCrystal = Get(VanillaContraptionNames.dreamCrystal);
+        public static readonly NamespaceID dreamSilk = Get(VanillaContraptionNames.dreamSilk);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         private static NamespaceID Get(string name)

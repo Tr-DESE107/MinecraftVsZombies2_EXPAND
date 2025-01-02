@@ -2,6 +2,7 @@
 using MVZ2.GameContent.HeldItem;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -24,7 +25,7 @@ namespace MVZ2.GameContent.HeldItems
                 return false;
             if (entity.HasPassenger())
                 return false;
-            return entity.GetFaction() == entity.Level.Option.LeftFaction;
+            return entity.GetFaction() == entity.Level.Option.LeftFaction && !entity.CannotDig();
         }
         protected override void UseOnEntity(Entity entity)
         {

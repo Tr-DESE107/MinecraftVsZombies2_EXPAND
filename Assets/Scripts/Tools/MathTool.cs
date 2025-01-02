@@ -228,7 +228,6 @@ namespace Tools.Mathematics
         {
             return Mathf.Max(start1, end1) >= Mathf.Min(start2, end2) && Mathf.Min(start1, end1) <= Mathf.Max(start2, end2);
         }
-
         /// <summary>
         /// 以抛物线形式进行Lerp。
         /// </summary>

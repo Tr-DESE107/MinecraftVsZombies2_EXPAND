@@ -22,6 +22,7 @@
     <model name="pistenser" type="entity" path="mvz2:contraption/pistenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="totenser" type="entity" path="mvz2:contraption/totenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="dream_crystal" type="entity" path="mvz2:contraption/dream_crystal" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="dream_silk" type="entity" path="mvz2:contraption/dream_silk" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 
@@ -143,4 +144,5 @@
     <model name="dream_key_shield" type="icon" path="mvz2:icon/dream_key_shield" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="terror_parasitized" type="icon" path="mvz2:icon/terror_parasitized" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="weakness_particles" type="icon" path="mvz2:icon/weakness_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="dream_alarm" type="icon" path="mvz2:icon/dream_alarm" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
 </models>

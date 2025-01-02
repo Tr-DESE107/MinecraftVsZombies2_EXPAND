@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-02 05:29+0800\n"
-"PO-Revision-Date: 2025-01-02 17:31+0800\n"
+"POT-Creation-Date: 2025-01-02 09:08+0800\n"
+"PO-Revision-Date: 2025-01-02 21:09+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -547,6 +547,30 @@ msgstr ""
 "bond, seal and repair! Dream Crystal is no ordinary crystal. Leaky contraptions can cause MAJOR DAMAGE, but Dream Crystal grips on "
 "tight and bonds instantly. Plus, Dream Crystal is so strong, it even works underwater! To show you the power of Dream Crystal, I SAWED "
 "THIS OBSIDIAN IN HALF, and repaired it with ONLY Dream Crystal!\""
+
+#. Header for contraptions mvz2:dream_silk
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。"
+msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starshard appear."
+
+#. Properties for contraptions mvz2:dream_silk
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>一次性使用</color>\n"
+"技能：<color=red>无</color>"
+msgstr ""
+"Special: <color=red>Single use</color>\n"
+"Evocation: <color=red>None</color>"
+
+#. Flavor for contraptions mvz2:dream_silk
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
+msgstr ""
+"Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
+"because of this."
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -1816,6 +1840,18 @@ msgctxt "entity.tooltip"
 msgid "能够自我修复的障碍墙"
 msgstr "Barrier with regeneration"
 
+#. Header for entity mvz2:dream_silk
+#: Entity meta file
+msgctxt "entity.name"
+msgid "美梦丝"
+msgstr "Dream Silk"
+
+#. Properties for entity mvz2:dream_silk
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "让一个器械睡着，醒来后生成一个星之碎片"
+msgstr "Make a contraption sleep, create a Starshard when it wakes up"
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -2215,27 +2251,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "技能：进入无敌状态，并为周围的器械恢复生命值"
 #~ msgstr "Evocation: Become invincible, regenerate health for surrounding contraptions"
 
-#~ msgid ""
-#~ "特点：一次性使用\n"
-#~ "\n"
-#~ "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
-#~ msgstr ""
-#~ "Special: single use\n"
-#~ "\n"
-#~ "Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
-#~ "because of this."
-
 #~ msgid "技能：无"
 #~ msgstr "Evocation: None"
-
-#~ msgid "美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。"
-#~ msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starshard appear."
-
-#~ msgid "美梦丝"
-#~ msgstr "Dream Silk"
-
-#~ msgid "让一个器械睡着，醒来后生成一个星之碎片"
-#~ msgstr "Make a contraption sleep, create a Starshard when it wakes up"
 
 #~ msgid "技能：发射五支大箭矢"
 #~ msgstr "Evocation: Shoot five large arrows"

@@ -328,13 +328,13 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.GetProperty<bool>(VanillaEnemyProps.HARMLESS) && entity.IsHostile(entity.Level.Option.LeftFaction);
         }
-        public static bool IsFriendlyEnemy(this Entity entity)
+        public static bool IsFriendlyEntity(this Entity entity)
         {
             return entity.IsFriendly(entity.Level.Option.LeftFaction);
         }
         public static bool IsHostileEnemy(this Entity entity)
         {
-            return !entity.IsFriendlyEnemy();
+            return !entity.IsFriendlyEntity();
         }
         public static EntitySeed GetEntitySeedDefinition(this Entity entity)
         {

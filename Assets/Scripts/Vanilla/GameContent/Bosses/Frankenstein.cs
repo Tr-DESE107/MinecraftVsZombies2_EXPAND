@@ -188,7 +188,7 @@ namespace MVZ2.GameContent.Bosses
         {
             if (target.IsEntityOf(VanillaContraptionID.tnt))
                 return true;
-            return target.Type == EntityTypes.PLANT && boss.IsHostile(target) && Detection.IsInFrontOf(boss, target, 20) && target.CanShock();
+            return target.Type == EntityTypes.PLANT && boss.IsHostile(target) && Detection.IsInFrontOf(boss, target, 20) && target.CanDeactive();
         }
 
         public static void DoTransformationEffects(Entity boss)

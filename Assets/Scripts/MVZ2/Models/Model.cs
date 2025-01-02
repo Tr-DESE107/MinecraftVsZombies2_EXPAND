@@ -77,6 +77,15 @@ namespace MVZ2.Models
                 child.SetSimulationSpeed(simulationSpeed);
             }
         }
+        public void SetGroundPosition(Vector3 position)
+        {
+            rendererGroup.SetGroundPosition(position);
+            childModels.RemoveAll(m => !m);
+            foreach (var child in childModels)
+            {
+                child.SetGroundPosition(position);
+            }
+        }
         public void SetLight(bool visible, Vector2 range, Color color, Vector2 randomOffset)
         {
             lightController.gameObject.SetActive(visible);

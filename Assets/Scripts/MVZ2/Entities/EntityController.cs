@@ -378,7 +378,7 @@ namespace MVZ2.Entities
             var rendererGroup = Model.RendererGroup;
             rendererGroup.SetTint(Entity.GetTint());
             rendererGroup.SetColorOffset(GetColorOffset());
-            rendererGroup.SetGroundPosition(Level.LawnToTrans(groundPos));
+            Model.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.GetDisplayScale();
             Model.RendererGroup.SortingLayerID = Entity.GetSortingLayer();

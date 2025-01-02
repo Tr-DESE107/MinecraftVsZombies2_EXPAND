@@ -23,6 +23,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
+        public readonly static NamespaceID dreamAlarm = Get("dream_alarm");
         public readonly static NamespaceID electricSpark = Get("electric_spark");
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
@@ -106,6 +107,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID throwSound = Get("throw");
         public readonly static NamespaceID travel = Get("travel");
         public readonly static NamespaceID vortex = Get("vortex");
+        public readonly static NamespaceID wakeup = Get("wakeup");
         public readonly static NamespaceID water = Get("water");
         public readonly static NamespaceID winMusic = Get("win_music");
         public readonly static NamespaceID wood = Get("wood");

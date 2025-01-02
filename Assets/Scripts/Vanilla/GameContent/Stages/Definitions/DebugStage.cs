@@ -26,15 +26,15 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.lilyPad,
-                VanillaContraptionID.totenser,
+                VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.dreamCrystal,
 
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.vortexHopper,
+                VanillaContraptionID.dreamSilk,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.mummy,
                 VanillaEnemyID.ghast,
                 VanillaBossID.frankenstein,
             });
@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaArtifactID.sweetSleepPillow,
                 VanillaArtifactID.dreamKey,
-                VanillaArtifactID.dreamButterfly,
+                VanillaArtifactID.theCreaturesHeart,
             });
             level.RechargeSpeed = 9999999;
             level.SetTriggerActive(true);

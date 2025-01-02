@@ -20,9 +20,14 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return contraption.GetProperty<bool>(DEFENSIVE);
         }
+        public const string CANNOT_DIG = "cannotDig";
+        public static bool CannotDig(this Entity contraption)
+        {
+            return contraption.GetProperty<bool>(CANNOT_DIG);
+        }
 
         public const string IS_FLOOR = "isFloor";
-        public const string CAN_SHOCK = "canShock";
+        public const string CAN_DEACTIVE = "canDeactive";
         public const string FRAGMENT_ID = "fragmentId";
         public const string TRIGGER_ACTIVE = "triggerActive";
         public const string INSTANT_TRIGGER = "instantTrigger";
@@ -46,9 +51,9 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return definition.GetProperty<bool>(INSTANT_TRIGGER);
         }
-        public static bool CanShock(this Entity entity)
+        public static bool CanDeactive(this Entity entity)
         {
-            return entity.GetProperty<bool>(CAN_SHOCK);
+            return entity.GetProperty<bool>(CAN_DEACTIVE);
         }
     }
 }

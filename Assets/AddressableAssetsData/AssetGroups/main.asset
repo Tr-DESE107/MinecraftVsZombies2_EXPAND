@@ -359,6 +359,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16a5d5b9d17ccb14bbd97dd03a234894
+    m_Address: mvz2:entity/contraptions/dream_rainbow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16ff246ec2a095242a62262d2ac32272
     m_Address: mvz2:ui/level/pause_image_6
     m_ReadOnly: 0
@@ -3178,6 +3184,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b01e8f6ab69aee145b8f4ea8ea382e1b
+    m_Address: mvz2:icon/dream_alarm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b05d578e666fa614c871c4984041189f
     m_Address: mvz2:entity/enemy/spider
     m_ReadOnly: 0
@@ -3255,6 +3267,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4afc6a6c73738d48818d19fcc98eab8
+    m_Address: mvz2:icons/z
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4ca120bb158f374cafa91bd415ee181
     m_Address: mvz2:effect/gore_particles
@@ -4287,6 +4305,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efce82eceb86bb44f90591042d0607b3
+    m_Address: mvz2:entity/contraptions/halo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0125c799657eb041aea02f63549e0a0
     m_Address: mvz2:level/dream/nightmare_sky

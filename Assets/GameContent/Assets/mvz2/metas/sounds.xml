@@ -91,6 +91,9 @@
     <sound name="dirt_rise">
         <sample path="mvz2:dirt_rise" weight="1" />
     </sound>
+    <sound name="dream_alarm">
+        <sample path="mvz2:entity/dream_alarm" weight="1" />
+    </sound>
     <sound name="electric_spark">
         <sample path="mvz2:electric_spark" weight="1" />
     </sound>
@@ -495,6 +498,9 @@
     </sound>
     <sound name="vortex">
         <sample path="mvz2:vortex" weight="1" />
+    </sound>
+    <sound name="wakeup">
+        <sample path="mvz2:entity/wakeup" weight="1" />
     </sound>
     <sound name="water">
         <sample path="mvz2:water" weight="1" />

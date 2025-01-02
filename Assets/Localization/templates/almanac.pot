@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-02 05:29+0800\n"
+"POT-Creation-Date: 2025-01-02 09:08+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -433,6 +433,26 @@ msgctxt "contraptions.description"
 msgid ""
 "化学课就像是：\n"
 "“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”"
+msgstr ""
+
+#. Header for contraptions mvz2:dream_silk
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。"
+msgstr ""
+
+#. Properties for contraptions mvz2:dream_silk
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>一次性使用</color>\n"
+"技能：<color=red>无</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:dream_silk
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1562,6 +1582,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够自我修复的障碍墙"
+msgstr ""
+
+#. Header for entity mvz2:dream_silk
+#: Entity meta file
+msgctxt "entity.name"
+msgid "美梦丝"
+msgstr ""
+
+#. Properties for entity mvz2:dream_silk
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "让一个器械睡着，醒来后生成一个星之碎片"
 msgstr ""
 
 #. Header for entity mvz2:anvil
