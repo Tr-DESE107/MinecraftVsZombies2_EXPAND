@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7301432409678427005}
   - component: {fileID: 8500279984015856736}
   - component: {fileID: 1169234399661776604}
+  - component: {fileID: 2351086926710796987}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -153,6 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2351086926710796987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328619726918049112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c0c3147367b6c4ba96c3909349cb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 8500279984015856736}
+  velocity: {x: 0, y: 0.016, z: 0}
 --- !u!1 &8080197916029061785
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93953b84997bfb4eae03d2b62e6b62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trail: {fileID: 8500279984015856736}
-  velocity: {x: 0, y: 0.016, z: 0}
+  trails:
+  - {fileID: 2351086926710796987}
 --- !u!4 &5687295266573721509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3664503004788589356, guid: 7b69825c292961840a29fdc677b9453a, type: 3}

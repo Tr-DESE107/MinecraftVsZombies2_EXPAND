@@ -41,6 +41,13 @@ namespace MVZ2.GameContent.Contraptions
                 ProductionUpdate(entity);
             }
         }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            bool frozen = entity.IsAIFrozen();
+            entity.SetAnimationBool("Frozen", frozen);
+            entity.SetLightSource(!frozen);
+        }
 
         protected override void OnEvoke(Entity entity)
         {

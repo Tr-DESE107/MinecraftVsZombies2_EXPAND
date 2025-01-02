@@ -7,43 +7,31 @@ namespace MVZ2.Models
         public override void Init()
         {
             base.Init();
-            trailPoints = new Vector3[trail.positionCount];
-            trail.GetPositions(trailPoints);
-            for (int i = 0; i < trailPoints.Length; i++)
+            foreach (var trail in trails)
             {
-                trailPoints[i] = transform.position;
+                trail.Init();
             }
-            trail.SetPositions(trailPoints);
         }
         public override void UpdateLogic()
         {
             base.UpdateLogic();
-            trail.GetPositions(trailPoints);
-            for (int i = trailPoints.Length - 1; i >= 0; i--)
+            foreach (var trail in trails)
             {
-                if (i == 0)
-                {
-                    trailPoints[i] = transform.position;
-                }
-                else
-                {
-                    trailPoints[i] = trailPoints[i - 1] + velocity * i;
-                }
+                trail.UpdateLogic();
             }
-            trail.SetPositions(trailPoints);
         }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
+            foreach (var trail in trails)
+            {
+                trail.UpdateFrame();
+            }
             fireTime += deltaTime;
-            trail.SetPosition(0, transform.position);
             Model.SetShaderFloat("_FireTime", fireTime);
         }
         [SerializeField]
-        private LineRenderer trail;
-        [SerializeField]
-        private Vector3 velocity;
-        private Vector3[] trailPoints = null;
+        private TrailController[] trails;
         private float fireTime = 0;
     }
 }
