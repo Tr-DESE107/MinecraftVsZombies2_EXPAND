@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -7,6 +6,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
@@ -17,6 +17,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Pistenser(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new Vector3Modifier(VanillaEntityProps.SHOT_OFFSET, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
             detector.ignoreHighEnemy = false;
         }
 
@@ -26,7 +27,6 @@ namespace MVZ2.GameContent.Contraptions
             InitShootTimer(entity);
             SetExtendDetectTimer(entity, new FrameTimer(DETECT_INTERVAL));
             SetEvocationTimer(entity, new FrameTimer(30));
-            entity.AddBuff<PistenserExtendBuff>();
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -46,6 +46,7 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateLogic(entity);
             var extend = GetExtend(entity);
             entity.SetAnimationFloat("Extend", extend);
+            entity.SetProperty(PROP_EXTEND_SHOOT_OFFSET, Vector3.up * extend);
         }
 
         protected override void OnEvoke(Entity entity)
@@ -215,10 +216,12 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetExtendDetectTimer(Entity entity, FrameTimer value) => entity.SetProperty("ExtendDetectTimer", value);
         public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetProperty<FrameTimer>("EvocationTimer");
         public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetProperty("EvocationTimer", value);
-        public static float GetExtend(Entity entity) => entity.GetProperty<float>("Extend");
-        public static void SetExtend(Entity entity, float value) => entity.SetProperty("Extend", value);
+        public static float GetExtend(Entity entity) => entity.GetProperty<float>(PROP_EXTEND);
+        public static void SetExtend(Entity entity, float value) => entity.SetProperty(PROP_EXTEND, value);
         public static int GetExtendDirection(Entity entity) => entity.GetProperty<int>("ExtendDirection");
         public static void SetExtendDirection(Entity entity, int value) => entity.SetProperty("ExtendDirection", value);
+        public const string PROP_EXTEND = "Extend";
+        public const string PROP_EXTEND_SHOOT_OFFSET = "ExtendShootOffset";
         public const float BASE_SHOT_HEIGHT = 30;
         public const float EXTEND_SPEED = 10;
         public const int DETECT_INTERVAL = 8;
