@@ -32,12 +32,12 @@ namespace MVZ2.Vanilla.Entities
             if (grid != null && grid.GetCarrierEntity() == contraption)
             {
                 var main = grid.GetMainEntity();
-                if (main != null && main.Exists())
+                if (main != null && main.Exists() && main != contraption)
                 {
                     return true;
                 }
                 var protector = grid.GetProtectorEntity();
-                if (protector != null && protector.Exists())
+                if (protector != null && protector.Exists() && protector != contraption)
                 {
                     return true;
                 }

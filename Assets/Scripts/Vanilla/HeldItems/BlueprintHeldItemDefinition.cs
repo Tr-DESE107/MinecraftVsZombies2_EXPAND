@@ -66,7 +66,11 @@ namespace MVZ2.Vanilla.HeldItems
                         var seedDef = seed.Definition;
                         if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
                         {
-                            level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, Global.Game.GetGridErrorMessage(error), 0, 150);
+                            var message = Global.Game.GetGridErrorMessage(error);
+                            if (!string.IsNullOrEmpty(message))
+                            {
+                                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, message, 0, 150);
+                            }
                             return;
                         }
 
