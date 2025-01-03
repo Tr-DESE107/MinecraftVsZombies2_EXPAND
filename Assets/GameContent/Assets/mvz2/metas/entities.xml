@@ -347,6 +347,23 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
 
+        <!-- Upgrade Contraptions -->
+        <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
+            <bool name="nocturnal" value="true"/>
+            <bool name="upgradeBlueprint" value="true"/>
+
+            <float name="range" value="255"/>
+            <id name="projectileId" value="mvz2:parabot"/>
+            <id name="shootSound" value="mvz2:bow"/>
+            <id name="stackOn" value="mvz2:small_dispenser"/>
+            <id name="placement" value="mvz2:upgrade"/>
+            <vector3 name="shotOffset" x="25" y="15" z="0"/>
+            <vector3 name="size" x="32" y="32" z="32"/>
+
+            <int name="cost" value="50" />
+            <id name="rechargeId" value="mvz2:very_long" />
+        </dispenser>
+
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
             <bool name="canDeactive" value="false"/>
@@ -725,6 +742,10 @@
             <bool name="piercing" value="true" />
             <vector3 name="size" x="96" y="6" z="6" />
             <idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
+        </projectile>
+        <projectile id="parabot">
+            <bool name="pointToDirection" value="true" />
+            <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
 
         <!-- Effects -->

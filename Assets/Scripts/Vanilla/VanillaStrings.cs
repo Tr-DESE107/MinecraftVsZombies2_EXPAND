@@ -20,6 +20,8 @@ namespace MVZ2.Vanilla
         public const string ADVICE_CANNOT_PLACE_ON_LAND = "你不能在陆地上放置该器械";
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_ONLY_PLACE_ON_CAN_SLEEP = "只能放置在可以睡觉的器械上";
+        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
+        public const string ADVICE_ONLY_UPGRADE = "只能放置在目标器械上";
 
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";

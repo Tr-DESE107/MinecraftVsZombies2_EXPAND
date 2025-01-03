@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID terrorParasitized = Get("terror_parasitized", TYPE_ICON);
         public static readonly NamespaceID weaknessParticles = Get("weakness_particles", TYPE_ICON);
         public static readonly NamespaceID dreamAlarm = Get("dream_alarm", TYPE_ICON);
+        public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
             return new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(TYPE_HELD_ITEM);

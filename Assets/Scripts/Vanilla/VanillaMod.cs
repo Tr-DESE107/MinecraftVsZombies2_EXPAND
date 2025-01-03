@@ -80,6 +80,7 @@ namespace MVZ2.Vanilla
                 AddDefinition(entityDefinition);
 
                 var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), entityDefinition.IsTriggerActive(), entityDefinition.CanInstantTrigger());
+                seedDef.SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, entityDefinition.IsUpgradeBlueprint());
                 AddDefinition(seedDef);
 
                 var spawnCost = entityDefinition.GetSpawnCost();

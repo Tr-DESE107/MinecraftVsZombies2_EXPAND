@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 buff.Remove();
             }
 
-            var model = contraption.GetChildModel(VanillaModelKeys.dreamAlarm);
+            var model = buff.GetInsertedModel(VanillaModelKeys.dreamAlarm);
             if (model != null)
             {
                 model.SetAnimationBool("Awake", timeout <= RING_DURATION);

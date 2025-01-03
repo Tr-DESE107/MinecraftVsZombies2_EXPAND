@@ -37,6 +37,7 @@ namespace MVZ2.Managers
                 icon = sprite,
                 cost = seedDef.GetCost().ToString(),
                 triggerActive = seedDef.IsTriggerActive(),
+                preset = seedDef.IsUpgradeBlueprint() ? BlueprintPreset.Upgrade : BlueprintPreset.Normal
             };
         }
         public BlueprintViewData GetBlueprintViewData(NamespaceID seedID)

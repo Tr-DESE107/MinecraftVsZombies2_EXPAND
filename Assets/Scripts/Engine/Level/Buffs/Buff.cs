@@ -3,6 +3,7 @@ using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
@@ -59,6 +60,10 @@ namespace PVZEngine.Buffs
         public ModelInsertion[] GetModelInsertions()
         {
             return Definition.GetModelInsertions();
+        }
+        public IModelInterface GetInsertedModel(NamespaceID key)
+        {
+            return Target?.GetInsertedModel(key);
         }
         public Entity GetEntity()
         {

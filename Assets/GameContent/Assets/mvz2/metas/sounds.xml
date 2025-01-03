@@ -267,6 +267,9 @@
     <sound name="paper" priority="64">
         <sample path="mvz2:paper" weight="1" />
     </sound>
+    <sound name="parabot_tick">
+        <sample path="mvz2:entity/infectenser/parabot_tick" weight="1" />
+    </sound>
     <sound name="parasitize">
         <sample path="mvz2:entity/terror/parasitize" weight="1" />
     </sound>

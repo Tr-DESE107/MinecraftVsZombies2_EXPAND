@@ -58,6 +58,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID moneyFall = Get("money_fall");
         public readonly static NamespaceID odd = Get("odd");
         public readonly static NamespaceID paper = Get("paper");
+        public readonly static NamespaceID parabotTick = Get("parabot_tick");
         public readonly static NamespaceID parasitize = Get("parasitize"); 
         public readonly static NamespaceID pause = Get("pause");
         public readonly static NamespaceID points = Get("points");

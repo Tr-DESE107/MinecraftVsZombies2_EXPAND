@@ -25,6 +25,15 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return contraption.GetProperty<bool>(CANNOT_DIG);
         }
+        public const string UPGRADE_BLUEPRINT = "upgradeBlueprint";
+        public static bool IsUpgradeBlueprint(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(UPGRADE_BLUEPRINT);
+        }
+        public static bool IsUpgradeBlueprint(this Entity contraption)
+        {
+            return contraption.GetProperty<bool>(UPGRADE_BLUEPRINT);
+        }
 
         public const string IS_FLOOR = "isFloor";
         public const string CAN_DEACTIVE = "canDeactive";

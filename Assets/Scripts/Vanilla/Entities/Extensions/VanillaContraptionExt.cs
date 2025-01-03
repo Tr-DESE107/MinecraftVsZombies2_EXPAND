@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Contraptions;
+﻿using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
+using PVZEngine;
 using PVZEngine.Entities;
-using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -62,6 +62,22 @@ namespace MVZ2.Vanilla.Entities
             {
                 trigger.Invoke(contraption);
             }
+        }
+        public static void UpgradeToContraption(this Entity contraption, NamespaceID target)
+        {
+            var grid = contraption.GetGrid();
+            if (grid == null)
+                return;
+            var awake = !contraption.HasBuff<NocturnalBuff>();
+            contraption.Remove();
+            var upgraded = contraption.GetGrid().PlaceEntity(target);
+            if (upgraded == null)
+                return;
+            if (awake)
+            {
+                upgraded.RemoveBuffs<NocturnalBuff>();
+            }
+
         }
         public static bool IsEvoked(this Entity contraption)
         {

@@ -15,6 +15,14 @@ namespace MVZ2.UI
             SetCost(viewData.cost);
             SetIcon(viewData.icon);
             SetTriggerActive(viewData.triggerActive);
+            foreach (var preset in normalPresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.Normal);
+            }
+            foreach (var preset in upgradePresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.Upgrade);
+            }
         }
         public void SetEmpty(bool empty)
         {
@@ -77,6 +85,10 @@ namespace MVZ2.UI
         [SerializeField]
         private GameObject rootObj;
         [SerializeField]
+        private GameObject[] normalPresets;
+        [SerializeField]
+        private GameObject[] upgradePresets;
+        [SerializeField]
         private Image iconImage;
         [SerializeField]
         private TextMeshProUGUI costText;
@@ -98,6 +110,12 @@ namespace MVZ2.UI
         public string cost;
         public Sprite icon;
         public bool triggerActive;
+        public BlueprintPreset preset;
         public static readonly BlueprintViewData Empty = new BlueprintViewData { empty = true };
+    }
+    public enum BlueprintPreset
+    {
+        Normal,
+        Upgrade
     }
 }

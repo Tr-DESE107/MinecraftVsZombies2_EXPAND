@@ -3,6 +3,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using Tools;
 using UnityEngine;
 
@@ -167,6 +168,7 @@ namespace PVZEngine.SeedPacks
         }
         #endregion
 
+        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IBuffTarget.GetEntity() => null;
         bool IBuffTarget.Exists() => true;

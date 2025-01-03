@@ -24,6 +24,8 @@
     <model name="dream_crystal" type="entity" path="mvz2:contraption/dream_crystal" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="dream_silk" type="entity" path="mvz2:contraption/dream_silk" width="64" height="64" xOffset="0" yOffset="-28"/>
 
+    <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
+
     <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Enemies -->
@@ -123,6 +125,7 @@
     <model name="spike_ball" type="entity" path="mvz2:projectile/spike_ball" width="20" height="20" xOffset="0" yOffset="0"/>
     <model name="dart" type="entity" path="mvz2:projectile/dart" width="32" height="10" xOffset="0" yOffset="0"/>
     <model name="poison_javelin" type="entity" path="mvz2:projectile/poison_javelin" width="96" height="10" xOffset="0" yOffset="0"/>
+    <model name="parabot" type="entity" path="mvz2:projectile/parabot" width="32" height="16" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
@@ -145,4 +148,5 @@
     <model name="terror_parasitized" type="icon" path="mvz2:icon/terror_parasitized" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="weakness_particles" type="icon" path="mvz2:icon/weakness_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="dream_alarm" type="icon" path="mvz2:icon/dream_alarm" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="parabot_insected" type="icon" path="mvz2:icon/parabot_insected" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
 </models>

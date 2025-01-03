@@ -6,6 +6,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -506,6 +507,7 @@ namespace PVZEngine.Level
             maxLaneCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_LANE_COUNT);
             maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
         }
+        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => null;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Buff IBuffTarget.CreateBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());

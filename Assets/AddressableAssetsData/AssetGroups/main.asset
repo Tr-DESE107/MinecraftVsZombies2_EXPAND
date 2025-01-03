@@ -665,6 +665,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 298e862cc9309854ab568ce21aa8fff4
+    m_Address: mvz2:contraption/infectenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29eee8886dbe09a4192dd71e71399961
     m_Address: mvz2:contraption/dream_crystal
     m_ReadOnly: 0
@@ -2266,6 +2272,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81ad693f052fd074687a0a10334d918a
+    m_Address: mvz2:projectile/parabot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81c298ae9a9d665438c001f4f8784077
     m_Address: mvz2:enemy/mother_terror
     m_ReadOnly: 0
@@ -3844,6 +3856,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8130bf7140daa14a9605dddcd5bd851
+    m_Address: mvz2:entity/contraption/infectenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8267644070bc9744a6f846aedd3a27c
     m_Address: mvz2:pickup/almanac_pickup
     m_ReadOnly: 0
@@ -4239,6 +4257,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec4b089e7682f9041bf3edd496701567
+    m_Address: mvz2:icon/parabot_insected
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec5ff71ab8787124f871adc517ed1852
     m_Address: mvz2:level/halloween/halloween_house_cover

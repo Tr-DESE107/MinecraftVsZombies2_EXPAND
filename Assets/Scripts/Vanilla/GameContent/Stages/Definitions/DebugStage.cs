@@ -25,8 +25,8 @@ namespace MVZ2.GameContent.Stages
             level.SetArtifactSlotCount(3);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.lilyPad,
-                VanillaContraptionID.pistenser,
+                VanillaContraptionID.smallDispenser,
+                VanillaContraptionID.infectenser,
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.dreamCrystal,
 

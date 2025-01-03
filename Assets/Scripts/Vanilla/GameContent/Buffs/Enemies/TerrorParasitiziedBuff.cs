@@ -4,7 +4,6 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
@@ -12,10 +11,6 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Modifiers;
-using UnityEngine;
-using UnityEngine.WSA;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -42,7 +37,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             health += HEALTH_SPEED;
             buff.SetProperty(PROP_PARASITE_HEALTH, health);
 
-            var iconModel = entity.GetChildModel(VanillaModelKeys.terrorParasitized);
+            var iconModel = buff.GetInsertedModel(VanillaModelKeys.terrorParasitized);
             if (iconModel != null)
             {
                 iconModel.SetAnimationBool("Awake", health > 0);

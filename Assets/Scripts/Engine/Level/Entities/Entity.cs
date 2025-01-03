@@ -875,6 +875,7 @@ namespace PVZEngine.Entities
                 list.Add(new ModifierContainerItem(this, modifier));
             }
         }
+        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         Entity IBuffTarget.GetEntity() => this;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IAuraSource.GetEntity() => this;

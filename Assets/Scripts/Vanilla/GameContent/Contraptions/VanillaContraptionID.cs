@@ -28,6 +28,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string dreamCrystal = "dream_crystal";
         public const string dreamSilk = "dream_silk";
 
+        public const string infectenser = "infectenser";
+
         public const string anvil = "anvil";
     }
     public static class VanillaContraptionID
@@ -54,6 +56,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID totenser = Get(VanillaContraptionNames.totenser);
         public static readonly NamespaceID dreamCrystal = Get(VanillaContraptionNames.dreamCrystal);
         public static readonly NamespaceID dreamSilk = Get(VanillaContraptionNames.dreamSilk);
+
+        public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         private static NamespaceID Get(string name)

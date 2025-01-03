@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Buffs
         public const string entityPhysics = "entity_physics";
         public const string fly = "fly";
         public const string inWater = "in_water";
+        public const string parabot = "parabot";
 
         // Contraption
         public const string productionColor = "production_color";

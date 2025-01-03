@@ -12,6 +12,14 @@ namespace MVZ2.Models
             costText.text = viewData.cost;
             triggerCostRoot.SetActive(viewData.triggerActive);
             UpdateIcon();
+            foreach (var preset in normalPresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.Normal);
+            }
+            foreach (var preset in upgradePresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.Upgrade);
+            }
         }
         protected void UpdateIcon()
         {
@@ -35,6 +43,10 @@ namespace MVZ2.Models
         protected GameObject triggerCostRoot;
         [SerializeField]
         protected TextMeshPro costText;
+        [SerializeField]
+        protected GameObject[] normalPresets;
+        [SerializeField]
+        protected GameObject[] upgradePresets;
         [SerializeField]
         protected Vector2 iconSpriteSize;
         [SerializeField]

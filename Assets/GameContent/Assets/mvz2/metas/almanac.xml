@@ -287,6 +287,139 @@
                 <p>美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。</p>
             </flavor>
         </entry>
+
+        <!-- Chapter 3 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 4 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        
+        <!-- Chapter 5 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 6 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 7 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 8 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 9 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 10 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 11 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Chapter 12 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Upgrades 1 -->
+        <entry id="mvz2:infectenser">
+            <header>
+                <p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
+            </header>
+            <properties>
+                <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
+                <p><![CDATA[<color=red>只能放置在小型发射器上</color>]]></p>
+            </properties>
+            <flavor>
+                <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
+            </flavor>
+        </entry>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+
+        <!-- Upgrades 2 -->
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
+        <entry/>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

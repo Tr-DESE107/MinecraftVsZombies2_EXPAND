@@ -3,6 +3,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using Tools;
 using UnityEngine;
 
@@ -186,6 +187,7 @@ namespace PVZEngine.Armors
             armor.UpdateAllBuffedProperties();
             return armor;
         }
+        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => Owner;
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.EquipedArmor == this;
