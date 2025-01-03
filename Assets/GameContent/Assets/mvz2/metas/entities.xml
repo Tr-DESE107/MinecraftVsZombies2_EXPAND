@@ -474,7 +474,7 @@
         </enemy>
 
         <!-- Dream Enemies -->
-        <enemy id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。" unlock="mvz2:level.dream_1">
+        <enemy id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。" unlock="mvz2/:level.dream_1">
             <float name="maxHealth" value="160"/>
             <float name="maxAttackHeight" value="30"/>
             <float name="speed" value="2"/>
@@ -492,7 +492,7 @@
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="2"/>
         </enemy>
-        <enemy id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。" unlock="mvz2:level.dream_3">
+        <enemy id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。" unlock="mvz2/:level.dream_3">
             <float name="maxHealth" value="120"/>
             <float name="maxAttackHeight" value="15"/>
             <float name="speed" value="2"/>
@@ -511,7 +511,7 @@
             <int name="spawnCost" value="3"/>
             <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
-        <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
+        <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2/:level.dream_6">
             <bool name="undead" value="false"/>
             <float name="maxHealth" value="100"/>
             <float name="damage" value="100"/>
@@ -529,7 +529,7 @@
             <int name="spawnCost" value="3"/>
             <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
-        <enemy id="mother_terror" name="恐怖之母" deathMessage="生异形啊" unlock="mvz2:level.dream_8">
+        <enemy id="mother_terror" name="恐怖之母" deathMessage="生异形啊" unlock="mvz2/:level.dream_8">
             <float name="maxHealth" value="200"/>
             <float name="maxAttackHeight" value="30"/>
             <float name="speed" value="2"/>
@@ -547,7 +547,7 @@
             <int name="waterInteraction" value="2"/>
             <int name="spawnCost" value="3"/>
         </enemy>
-        <enemy id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……" unlock="mvz2:level.dream_9">
+        <enemy id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……" unlock="mvz2/:level.dream_9">
             <float name="maxHealth" value="50"/>
             <float name="maxAttackHeight" value="15"/>
             <float name="speed" value="4"/>

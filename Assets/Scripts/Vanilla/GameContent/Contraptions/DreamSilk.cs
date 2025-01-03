@@ -1,8 +1,10 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using System.Linq;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using Tools;
@@ -24,8 +26,9 @@ namespace MVZ2.GameContent.Contraptions
             var grid = silk.GetGrid();
             if (grid != null)
             {
-                foreach (Entity entity in grid.GetEntities())
+                foreach (var layer in grid.GetLayers().OrderByDescending(l => Global.Game.GetGridLayerPriority(l)))
                 {
+                    var entity = grid.GetLayerEntity(layer);
                     if (!CanSleep(entity))
                         continue;
                     entity.AddBuff<DreamSilkBuff>();
