@@ -8,7 +8,7 @@ namespace MVZ2.Mainmenu
         public void UpdateEntry(StatEntryViewData viewData)
         {
             nameText.text = viewData.name;
-            countText.text = viewData.count;
+            countText.text = viewData.count.ToString();
         }
         [SerializeField]
         private TextMeshProUGUI nameText;
@@ -18,6 +18,6 @@ namespace MVZ2.Mainmenu
     public struct StatEntryViewData
     {
         public string name;
-        public string count;
+        public long count;
     }
 }

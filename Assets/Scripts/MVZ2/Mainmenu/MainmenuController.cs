@@ -506,21 +506,21 @@ namespace MVZ2.Mainmenu
                 var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
                 var sum = category.GetSum();
                 var entries = category.GetAllEntries();
-                var entriesViewData = new StatEntryViewData[entries.Length];
-                for (int j = 0; j < entriesViewData.Length; j++)
+                var entriesViewData = new List<StatEntryViewData>();
+                for (int j = 0; j < entries.Length; j++)
                 {
                     var entry = entries[j];
                     var name = main.ResourceManager.GetStatEntryName(entry.ID, metaType);
-                    var count = entry.Value.ToString();
-                    entriesViewData[j] = new StatEntryViewData()
+                    var count = entry.Value;
+                    entriesViewData.Add(new StatEntryViewData()
                     {
                         name = name,
                         count = count
-                    };
+                    });
                 }
                 viewDatas[i] = new StatCategoryViewData()
                 {
-                    entries = entriesViewData,
+                    entries = entriesViewData.OrderByDescending(e => e.count).ToArray(),
                     sum = sum.ToString(),
                     title = title
                 };
