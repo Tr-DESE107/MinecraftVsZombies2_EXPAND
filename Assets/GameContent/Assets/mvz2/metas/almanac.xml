@@ -778,7 +778,7 @@
                     <p>只是个路过的幽灵而已。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyan_cat" name="彩虹猫" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:nyan_cat" name="彩虹猫" model="mvz2:entity.nyan_cat" unlock="mvz2:level.dream_1">
                 <header>
                     <p>彩虹猫能萌死任何接触到的敌人。</p>
                 </header>
@@ -786,7 +786,7 @@
                     <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyaightmare" name="噩梦猫" unlock="mvz2:level.dream_7">
+            <entry id="mvz2:nyaightmare" name="噩梦猫" model="mvz2:entity.nyaightmare" unlock="mvz2:level.dream_7">
                 <header>
                     <p>噩梦猫会刺死任何它所恨的人。</p>
                 </header>
@@ -843,7 +843,7 @@
                     <p>由于欧兰特设置了权限，本条目的部分内容不予显示。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:dream_world" name="梦境世界" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:dream_world" name="梦境世界" sprite="mvz2:misc/dream" unlock="mvz2:level.dream_1">
                 <header>
                     <p>梦境世界是由哆来咪管理的，所有人的梦境所处的地方。</p>
                 </header>
@@ -853,7 +853,7 @@
                     <p>史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_world" name="噩梦世界" unlock="mvz2:level.dream_7">
+            <entry id="mvz2:nightmare_world" name="噩梦世界" sprite="mvz2:misc/nightmare" unlock="mvz2:level.dream_7">
                 <header>
                     <p>噩梦世界是被梦魇所腐化的梦境世界。</p>
                 </header>
@@ -876,7 +876,7 @@
                     <p>当我离开不属于我的那片土地时，我在一片沼泽中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" model="mvz2:entity.starshard.dream" unlock="mvz2:level.dream_1">
                 <header>
                     <p>星之碎片会唤醒你的器械，爆发出真正的潜力。</p>
                 </header>
