@@ -639,7 +639,7 @@
                 <p>科学怪人的怪物的心脏。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗减少10。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>]]></p>
             </properties>
             <flavor>
                 <p>……爱……？</p>

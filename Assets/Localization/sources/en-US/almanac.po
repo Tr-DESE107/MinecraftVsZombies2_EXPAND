@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-02 09:08+0800\n"
-"PO-Revision-Date: 2025-01-02 21:09+0800\n"
+"POT-Creation-Date: 2025-01-04 12:16+0800\n"
+"PO-Revision-Date: 2025-01-04 12:17+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -572,6 +572,67 @@ msgstr ""
 "Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
 "because of this."
 
+#. Header for contraptions mvz2:infectenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。"
+msgstr ""
+"Infectenser can shoot parabots which both deal damage and parasitize enemies. Parasitized enemies will shoot new parabots to other "
+"enemies around them."
+
+#. Properties for contraptions mvz2:infectenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"射程：<color=red>3.5格</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>使所有寄生中的机器人自爆</color>\n"
+"<color=red>只能放置在小型发射器上</color>"
+msgstr ""
+"Range: <color=red>3.5 grids</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Make all parasitizing parabots self-destruct</color>\n"
+"<color=red>Must be placed on Small Dispenser</color>"
+
+#. Flavor for contraptions mvz2:infectenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。"
+msgstr "Infectenser has won the Disbel Prize in virology, but due to the epidemic situation, the award ceremony couldn't be held."
+
+#. Header for contraptions mvz2:force_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
+msgstr ""
+"The direction of Force Pads can be changed by triggering. Take advantage of this to change the movement of medium height objects above "
+"it, and boost projectiles."
+
+#. Properties for contraptions mvz2:force_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"上下方向：<color=red>转移物体</color>\n"
+"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人</color>\n"
+"技能：<color=red>将周围的敌人移动到一个指定的位置</color>\n"
+"<color=red>必须放置在重力板上</color>"
+msgstr ""
+"Up/Down: <color=red>Change objects' lanes.</color>\n"
+"Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
+"Evocation: <color=red>Move nearby enemies to a certain spot</color>\n"
+"<color=red>Must be placed on Gravity Pad</color>"
+
+#. Flavor for contraptions mvz2:force_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫"
+"使某些人做出改变，这就由不得他了。"
+msgstr ""
+"Contrary to what people think, Force Pad doesn't like forcing others to do things, he believes that everyone should follow their own "
+"will, and have the right to do whatever they want. But sometimes, he is forced to force some people to change their decision, and he "
+"can't do anything about it."
+
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -970,8 +1031,8 @@ msgstr "The Frankenstein's monster's heart."
 #. Properties for artifacts mvz2:the_creatures_heart
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少10。</color>"
-msgstr "Effect: <color=red>-10 contraption cost for each same contraption on the battlefield.</color>"
+msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>"
+msgstr "Effect: <color=red>-5 contraption cost for each same contraption on the battlefield.</color>"
 
 #. Flavor for artifacts mvz2:the_creatures_heart
 #: Almanac meta file
@@ -1852,6 +1913,38 @@ msgctxt "entity.tooltip"
 msgid "让一个器械睡着，醒来后生成一个星之碎片"
 msgstr "Make a contraption sleep, create a Starshard when it wakes up"
 
+#. Header for entity mvz2:infectenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "传染发射器"
+msgstr "Infectenser"
+
+#. Properties for entity mvz2:infectenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要小型发射器）\n"
+"发射在敌人之间传播的寄生机器人"
+msgstr ""
+"(Requires Small Dispenser)\n"
+"Shoot parabots which spread between enemies"
+
+#. Header for entity mvz2:force_pad
+#: Entity meta file
+msgctxt "entity.name"
+msgid "传动力板"
+msgstr "Force Pad"
+
+#. Properties for entity mvz2:force_pad
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要重力板）\n"
+"改变上方物体的力"
+msgstr ""
+"(Requires Gravity Pad)\n"
+"Change the force of objects above it"
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -2165,8 +2258,8 @@ msgstr "The Creature's Heart"
 #. Tooltip for artifact mvz2:the_creatures_heart
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "场上每有一个同类器械，该器械的能量消耗减少10"
-msgstr "-10 contraption cost of for each same contraption on the battlefield"
+msgid "场上每有一个同类器械，该器械的能量消耗减少5"
+msgstr "-5 contraption cost of for each same contraption on the battlefield"
 
 #. Name for artifact mvz2:sweet_sleep_pillow
 #: Artifact meta file
@@ -2257,41 +2350,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "技能：发射五支大箭矢"
 #~ msgstr "Evocation: Shoot five large arrows"
 
-#~ msgid ""
-#~ "<color=red>必须放置在重力板上</color>\n"
-#~ "用途：\n"
-#~ "上下方向：<color=red>转移物体</color>\n"
-#~ "前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人。</color>\n"
-#~ "\n"
-#~ "和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会"
-#~ "迫使某些人做出改变，这就由不得他了。"
-#~ msgstr ""
-#~ "<color=red>Must be placed on Gravity Pad</color>\n"
-#~ "Usage: \n"
-#~ "Up/Down: <color=red>Change objects' lanes.</color>\n"
-#~ "Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
-#~ "\n"
-#~ "Contrary to what people think, Force Pad doesn't like forcing others to do things, he believes that everyone should follow their "
-#~ "own will, and have the right to do whatever they want. But sometimes, he is forced to force some people to change their decision, "
-#~ "and he can't do anything about it."
-
 #~ msgid "技能：将周围的敌人移动到一个指定的位置。"
 #~ msgstr "Evocation: Move nearby enemies to a certain spot."
-
-#~ msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
-#~ msgstr ""
-#~ "The direction of Force Pads can be changed by triggering. Take advantage of this to change the movement of medium height objects "
-#~ "above it, and boost projectiles."
-
-#~ msgid "传动力板"
-#~ msgstr "Force Pad"
-
-#~ msgid ""
-#~ "（需要重力板）\n"
-#~ "改变上方物体的力"
-#~ msgstr ""
-#~ "(Requires Gravity Pad)\n"
-#~ "Change the force of objects above it"
 
 #~ msgid "技能：生成大量红石"
 #~ msgstr "Evocation: Rapidly generate a large amount of redstone"
@@ -2302,36 +2362,8 @@ msgstr "+100% contraption produce speed, but the battlefield is pitch black"
 #~ msgid "照亮周围的区域，能够发现幽灵、预防器械的反叛和照亮迷雾"
 #~ msgstr "Light an area, clear fog and reveal ghosts"
 
-#~ msgid ""
-#~ "伤害：<color=red>中等</color>\n"
-#~ "<color=red>只能放置在小型发射器上</color>\n"
-#~ "<color=blue>白天失效</color>\n"
-#~ "\n"
-#~ "传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。"
-#~ msgstr ""
-#~ "Damage: <color=red>Medium</color>\n"
-#~ "<color=red>Must be placed on Small Dispenser</color>\n"
-#~ "<color=blue>Can only be used at night</color>\n"
-#~ "\n"
-#~ "Infectenser has won the Disbel Prize in virology, but due to the epidemic situation, the award ceremony couldn't be held."
-
 #~ msgid "技能：使所有寄生中的机器人自爆。"
 #~ msgstr "Evocation: Make all parasitizing parabots self-destruct."
-
-#~ msgid "传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。"
-#~ msgstr ""
-#~ "Infectenser can shoot parabots which both deal damage and parasitize enemies. Parasitized enemies will shoot new parabots to other "
-#~ "enemies around them."
-
-#~ msgid "传染发射器"
-#~ msgstr "Infectenser"
-
-#~ msgid ""
-#~ "（需要小型发射器）\n"
-#~ "发射在敌人之间传播的寄生机器人"
-#~ msgstr ""
-#~ "(Requires Small Dispenser)\n"
-#~ "Shoot parabots which spread between enemies"
 
 #~ msgid "技能：在上下左右四个方向召唤四个分身"
 #~ msgstr "Evocation: Summon four copies in four directions"

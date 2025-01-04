@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Artifacts
                     return;
                 buff.SetProperty(TheCreaturesHeartReduceCostBuff.PROP_ADDITION, seed.Level.FindEntities(entityID).Length * REDUCTION);
             }
-            public const float REDUCTION = -10;
+            public const float REDUCTION = -5;
         }
     }
 }

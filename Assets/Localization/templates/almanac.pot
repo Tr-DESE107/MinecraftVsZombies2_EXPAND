@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-02 09:08+0800\n"
+"POT-Creation-Date: 2025-01-04 12:16+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -455,6 +455,50 @@ msgctxt "contraptions.description"
 msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
 msgstr ""
 
+#. Header for contraptions mvz2:infectenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。"
+msgstr ""
+
+#. Properties for contraptions mvz2:infectenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"射程：<color=red>3.5格</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>使所有寄生中的机器人自爆</color>\n"
+"<color=red>只能放置在小型发射器上</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:infectenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。"
+msgstr ""
+
+#. Header for contraptions mvz2:force_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
+msgstr ""
+
+#. Properties for contraptions mvz2:force_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"上下方向：<color=red>转移物体</color>\n"
+"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人</color>\n"
+"技能：<color=red>将周围的敌人移动到一个指定的位置</color>\n"
+"<color=red>必须放置在重力板上</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:force_pad
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。"
+msgstr ""
+
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -780,7 +824,7 @@ msgstr ""
 #. Properties for artifacts mvz2:the_creatures_heart
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少10。</color>"
+msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:the_creatures_heart
@@ -1596,6 +1640,34 @@ msgctxt "entity.tooltip"
 msgid "让一个器械睡着，醒来后生成一个星之碎片"
 msgstr ""
 
+#. Header for entity mvz2:infectenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "传染发射器"
+msgstr ""
+
+#. Properties for entity mvz2:infectenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要小型发射器）\n"
+"发射在敌人之间传播的寄生机器人"
+msgstr ""
+
+#. Header for entity mvz2:force_pad
+#: Entity meta file
+msgctxt "entity.name"
+msgid "传动力板"
+msgstr ""
+
+#. Properties for entity mvz2:force_pad
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要重力板）\n"
+"改变上方物体的力"
+msgstr ""
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -1907,7 +1979,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:the_creatures_heart
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "场上每有一个同类器械，该器械的能量消耗减少10"
+msgid "场上每有一个同类器械，该器械的能量消耗减少5"
 msgstr ""
 
 #. Name for artifact mvz2:sweet_sleep_pillow

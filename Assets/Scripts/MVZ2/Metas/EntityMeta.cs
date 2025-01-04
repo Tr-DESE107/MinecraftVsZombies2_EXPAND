@@ -26,7 +26,7 @@ namespace MVZ2.Metas
             var name = node.GetAttribute("name");
             var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n");
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-            var tooltip = node.GetAttribute("tooltip");
+            var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n");
 
             Dictionary<string, object> properties = node.ToPropertyDictionary(defaultNsp);
             if (template != null)
