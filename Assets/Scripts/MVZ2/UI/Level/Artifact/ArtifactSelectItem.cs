@@ -11,6 +11,7 @@ namespace MVZ2.Level.UI
         {
             iconImage.sprite = viewData.icon;
             iconImage.enabled = iconImage.sprite;
+            selectedObj.SetActive(viewData.selected);
             button.interactable = !viewData.disabled;
         }
         private void Awake()
@@ -31,6 +32,8 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private Image iconImage;
         [SerializeField]
+        private GameObject selectedObj;
+        [SerializeField]
         private Button button;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
@@ -40,6 +43,7 @@ namespace MVZ2.Level.UI
     public struct ArtifactSelectItemViewData
     {
         public Sprite icon;
+        public bool selected;
         public bool disabled;
     }
 }

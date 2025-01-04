@@ -630,6 +630,7 @@ namespace MVZ2.Level
                 return new ArtifactSelectItemViewData()
                 {
                     icon = sprite,
+                    selected = chosenArtifacts.Contains(id),
                     disabled = disabled
                 };
             }).ToArray();
