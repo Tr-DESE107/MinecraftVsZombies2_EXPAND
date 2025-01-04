@@ -3,6 +3,7 @@ using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -29,6 +30,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         protected override void UseOnEntity(Entity entity)
         {
+            entity.Level.AddStarshardCount(-1);
             entity.Evoke();
         }
 

@@ -85,6 +85,36 @@
     <sound name="dark_skies_impact" maxCount="10">
         <sample path="mvz2:dark_skies_impact" weight="1" />
     </sound>
+    <sound name="dialog_bang">
+        <sample path="mvz2:talk/dialog_bang" weight="1" />
+    </sound>
+    <sound name="dialog_beat">
+        <sample path="mvz2:talk/dialog_beat" weight="1" />
+    </sound>
+    <sound name="dialog_cut">
+        <sample path="mvz2:talk/dialog_cut" weight="1" />
+    </sound>
+    <sound name="dialog_explosive">
+        <sample path="mvz2:talk/dialog_explosive" weight="1" />
+    </sound>
+    <sound name="dialog_faint">
+        <sample path="mvz2:talk/dialog_faint" weight="1" />
+    </sound>
+    <sound name="dialog_flashback">
+        <sample path="mvz2:talk/dialog_flashback" weight="1" />
+    </sound>
+    <sound name="dialog_judge">
+        <sample path="mvz2:talk/dialog_judge" weight="1" />
+    </sound>
+    <sound name="dialog_surprised">
+        <sample path="mvz2:talk/dialog_surprised" weight="1" />
+    </sound>
+    <sound name="dialog_weird">
+        <sample path="mvz2:talk/dialog_weird" weight="1" />
+    </sound>
+    <sound name="dialog_wipe">
+        <sample path="mvz2:talk/dialog_wipe" weight="1" />
+    </sound>
     <sound name="diamond" maxCount="3">
         <sample path="mvz2:diamond" weight="1" />
     </sound>

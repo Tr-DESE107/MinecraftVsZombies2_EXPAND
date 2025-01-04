@@ -77,6 +77,7 @@
             <float name="groundLimitOffset" value="-1000"/>
             <vector3 name="size" x="56" y="32" z="56"/>
             <id name="cartTriggerSound" value="mvz2:minecart"/>
+            <float name="gravity" value="1"/>
             <int name="waterInteraction" value="1"/>
         </cart>
         <pickup id="6" parent="entity">
@@ -641,10 +642,12 @@
         <cart id="nyan_cat" name="彩虹猫">
             <id name="cartTriggerSound" value="mvz2:meow"/>
             <float name="gravity" value="0"/>
+            <int name="waterInteraction" value="0"/>
         </cart>
         <cart id="nyaightmare" name="噩梦猫">
             <id name="cartTriggerSound" value="mvz2:nyaightmare_scream"/>
             <float name="gravity" value="0"/>
+            <int name="waterInteraction" value="0"/>
         </cart>
 
         <!-- Pickups -->

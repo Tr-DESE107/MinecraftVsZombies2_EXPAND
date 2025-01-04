@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
@@ -12,6 +14,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public LevelHardBuff(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS, NumberOperator.AddMultiplie, 0.5f));
             AddAura(new EnemyAura());
         }
 
