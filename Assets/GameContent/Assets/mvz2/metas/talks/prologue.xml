@@ -5,7 +5,7 @@
     <section canAutoSkip="false" onSkip="sentence 3;action create_tutorial_form">
       <text>开始段落</text>
       <characters>
-        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，邻居，好久不见啊！</sentence>
@@ -17,7 +17,7 @@
     <section onSkip="action start_tutorial;end">
       <text>如果进行教程</text>
       <characters>
-        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="action start_tutorial;end">好了，现在开始吧！</sentence>
@@ -26,7 +26,7 @@
     <section>
       <text>如果不进行教程</text>
       <characters>
-        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4">记性不错嘛！朋友！</sentence>
@@ -35,7 +35,7 @@
     <section>
       <text>教程完成后</text>
       <characters>
-        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">嘿！朋友！你看起来真的掌握了！</sentence>
@@ -45,7 +45,7 @@
     <section>
       <text>开始序章</text>
       <characters>
-        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">啊！正说着呢，那些僵尸就又来开始进攻你了。</sentence>
@@ -57,7 +57,7 @@
     <archive name="藏宝图？" background="mvz2:archive/prologue_note" unlock="mvz2:level.prologue" />
     <section>
       <characters>
-        <character id="mvz2:crazy_villager" />
+        <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这看起来像是一个藏宝图啊！</sentence>

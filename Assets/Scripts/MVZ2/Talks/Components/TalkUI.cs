@@ -56,11 +56,6 @@ namespace MVZ2.Talk
             character.SetDisappear(false);
             character.SetDisappearSpeed(1);
         }
-        public bool IsCharacterAtLeft(int index)
-        {
-            var character = GetCharacter(index);
-            return character.IsAtLeft();
-        }
         public void ClearCharacters()
         {
             foreach (var chr in characters)
@@ -129,6 +124,19 @@ namespace MVZ2.Talk
         }
         #endregion
 
+        #region 展示物品
+        public void ShowTalkItem(Sprite sprite)
+        {
+            talkItem.ForceShow();
+            talkItem.SetShowing(true);
+            talkItem.SetSprite(sprite);
+        }
+        public void HideTalkItem()
+        {
+            talkItem.SetShowing(false);
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -181,6 +189,8 @@ namespace MVZ2.Talk
         private Canvas canvas;
         [SerializeField]
         private GameObject characterTemplate;
+        [SerializeField]
+        private TalkItem talkItem;
         [SerializeField]
         private Transform characterRoot;
         [SerializeField]

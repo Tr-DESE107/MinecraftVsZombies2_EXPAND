@@ -8,8 +8,16 @@ namespace MVZ2.Talk
         #region 公有方法
         public void UpdateCharacter(TalkCharacterViewData viewData)
         {
-            var xScale = viewData.side == CharacterSide.Left ? -1 : 1;
-            var scale = new Vector3(xScale, 1, 1);
+            Vector3 scale = Vector3.zero;
+            switch (viewData.side)
+            {
+                case CharacterSide.Left:
+                    scale = new Vector3(-1, 1, 1);
+                    break;
+                case CharacterSide.Right:
+                    scale = new Vector3(1, 1, 1);
+                    break;
+            }
             SetScale(scale);
             SetCharacter(viewData.sprite);
             gameObject.name = viewData.name;
@@ -41,10 +49,6 @@ namespace MVZ2.Talk
         public void SetDisappearSpeed(float value)
         {
             _animator.SetFloat("DisappearSpeed", value);
-        }
-        public bool IsAtLeft()
-        {
-            return transform.localScale.x < 0;
         }
         public void SetCharacter(Sprite spr)
         {
@@ -94,18 +98,10 @@ namespace MVZ2.Talk
 
     public enum CharacterSide
     {
-        Left,
-        Right
-    }
-
-    public enum CharacterState
-    {
         None,
-        Enter,
-        Silence,
-        Speaking,
-        Leaving,
-        Disappear,
+        Left,
+        Right,
+        Self
     }
     public struct TalkCharacterViewData
     {

@@ -103,6 +103,12 @@
     <sound name="dialog_flashback">
         <sample path="mvz2:talk/dialog_flashback" weight="1" />
     </sound>
+    <sound name="dialog_item_show">
+        <sample path="mvz2:talk/dialog_item_show" weight="1" />
+    </sound>
+    <sound name="dialog_item_hide">
+        <sample path="mvz2:talk/dialog_item_hide" weight="1" />
+    </sound>
     <sound name="dialog_judge">
         <sample path="mvz2:talk/dialog_judge" weight="1" />
     </sound>

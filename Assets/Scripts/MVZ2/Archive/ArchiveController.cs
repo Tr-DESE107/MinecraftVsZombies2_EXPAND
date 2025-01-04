@@ -12,6 +12,7 @@ using MVZ2Logic;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Archives
 {
@@ -37,6 +38,10 @@ namespace MVZ2.Archives
 
             talkSystem = new ArchiveTalkSystem(simulationTalk);
             simulationTalk.OnTalkAction += OnTalkActionCallback;
+        }
+        private void Update()
+        {
+            simulationTalk.transform.localPosition = ((Vector3)Main.ShakeManager.GetShake2D()) * 100;
         }
         private void OnIndexReturnClickCallback()
         {

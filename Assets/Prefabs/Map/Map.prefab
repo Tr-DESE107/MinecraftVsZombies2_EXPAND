@@ -578,7 +578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7954910281105116090}
+  m_Father: {fileID: 878550411373558163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4354599265992543201
 Camera:
@@ -1019,7 +1019,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2068026530050097499}
+  - {fileID: 878550411373558163}
   m_Father: {fileID: 7503269318776489646}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7323793195261257324
@@ -1097,6 +1097,38 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7689740014198184842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878550411373558163}
+  m_Layer: 0
+  m_Name: ShakeRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &878550411373558163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689740014198184842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2068026530050097499}
+  m_Father: {fileID: 7954910281105116090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8041782283496070751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1206,7 @@ MonoBehaviour:
   talkController: {fileID: 6096685076941815896}
   raycastHitbox: {fileID: 1115501953064253085}
   modelRoot: {fileID: 5874189075473884093}
+  mapCameraShakeRoot: {fileID: 878550411373558163}
   mapCamera: {fileID: 4354599265992543201}
   maxCameraY: 9
   maxCameraAspect: 1.7

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.Cameras;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Talk;
@@ -117,6 +118,7 @@ namespace MVZ2.Map
             mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraY);
             LimitCameraPosition();
             cameraScaleSpeed *= 0.8f;
+            mapCameraShakeRoot.localPosition = (Vector3)Main.ShakeManager.GetShake2D();
         }
         #endregion
 
@@ -534,6 +536,8 @@ namespace MVZ2.Map
         private GameObject raycastHitbox;
         [SerializeField]
         private Transform modelRoot;
+        [SerializeField]
+        private Transform mapCameraShakeRoot;
         [SerializeField]
         private Camera mapCamera;
         [SerializeField]

@@ -21,6 +21,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID confuse = Get("confuse");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
+        public readonly static NamespaceID dialogItemShow = Get("dialog_item_show");
+        public readonly static NamespaceID dialogItemHide = Get("dialog_item_hide");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
         public readonly static NamespaceID dreamAlarm = Get("dream_alarm");

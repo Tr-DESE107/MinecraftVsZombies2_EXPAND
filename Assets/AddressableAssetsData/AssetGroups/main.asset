@@ -2044,6 +2044,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
+    m_Address: mvz2:talk/dialog_item_hide
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 733266dbebe372949b508891f27eed17
     m_Address: mvz2:fuse
     m_ReadOnly: 0
@@ -3532,6 +3538,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c382f6ef6a4cfc54e81d2ebfbc75de10
+    m_Address: mvz2:talk/dialog_item_show
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
     m_ReadOnly: 0
@@ -4209,6 +4221,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e94aed10d8dd86742a549eb789938806
+    m_Address: mvz2:entity/effects/speed_line
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e989be43af16c4447a2b43a6424f968e
     m_Address: mvz2:damage/hit2

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Managers;
+using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.UI;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
@@ -171,7 +173,17 @@ namespace MVZ2.Talk
         }
         private CharacterSide ParseCharacterSide(string side)
         {
-            return side == "right" ? CharacterSide.Right : CharacterSide.Left;
+            switch (side)
+            {
+                case "left":
+                    return CharacterSide.Left;
+                case "right":
+                    return CharacterSide.Right;
+                case "self":
+                    return CharacterSide.Self;
+                default:
+                    return CharacterSide.None;
+            }
         }
         private void FadeArgumentsColor(ColorFader fader, string[] args)
         {
@@ -426,6 +438,25 @@ namespace MVZ2.Talk
                     break;
                 #endregion
 
+                #region 展示物品
+                case "item":
+                    {
+                        switch (args[0])
+                        {
+                            case "show":
+                                var sprite = Main.GetFinalSprite(ParseArgumentSpriteReference(args[1]));
+                                ui.ShowTalkItem(sprite);
+                                Main.SoundManager.Play2D(VanillaSoundID.dialogItemShow);
+                                break;
+                            case "hide":
+                                ui.HideTalkItem();
+                                Main.SoundManager.Play2D(VanillaSoundID.dialogItemHide);
+                                break;
+                        }
+                    }
+                    break;
+                #endregion
+
                 #region 其他
                 case "action":
                     ExecuteAction(args);
@@ -545,8 +576,8 @@ namespace MVZ2.Talk
             // 对话状态。
             for (int i = 0; i < characterList.Count; i++)
             {
-                var charId = characterList[i];
-                bool isSpeaker = speakerID == charId;
+                var characterData = characterList[i];
+                bool isSpeaker = speakerID == characterData.id;
                 ui.SetCharacterSpeaking(i, isSpeaker);
             }
 
@@ -560,13 +591,10 @@ namespace MVZ2.Talk
 
             // 气泡位置。
             SpeechBubbleDirection bubbleDirection = SpeechBubbleDirection.Up;
-            if (speechBubbleDirDict.TryGetValue(speakerID, out var p))
+            if (speakerIndex >= 0)
             {
-                bubbleDirection = p;
-            }
-            else if (speakerIndex >= 0)
-            {
-                bubbleDirection = ui.IsCharacterAtLeft(speakerIndex) ? SpeechBubbleDirection.Left : SpeechBubbleDirection.Right;
+                var characterData = characterList[speakerIndex];
+                bubbleDirection = GetSpeechBubbleDirectionBySide(characterData.side);
             }
 
             var context = VanillaStrings.GetTalkTextContext(groupID);
@@ -587,8 +615,8 @@ namespace MVZ2.Talk
 
             for (int i = characterList.Count - 1; i >= 0; i--)
             {
-                var characterID = characterList[i];
-                LeaveCharacter(characterID);
+                var characterData = characterList[i];
+                LeaveCharacter(characterData.id);
             }
             ui.SetSpeechBubbleShowing(false);
             ui.SetSkipButtonActive(false);
@@ -604,7 +632,7 @@ namespace MVZ2.Talk
 
         private int GetCharacterIndex(NamespaceID id)
         {
-            return characterList.IndexOf(id);
+            return characterList.FindIndex(d => d.id == id);
         }
         public void CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
         {
@@ -639,7 +667,11 @@ namespace MVZ2.Talk
                 widthExtend = widthExtend
             };
             ui.CreateCharacter(viewData);
-            characterList.Add(characterId);
+            characterList.Add(new CharacterData()
+            {
+                id = characterId,
+                side = side,
+            });
         }
         public bool RemoveCharacter(NamespaceID characterID)
         {
@@ -672,6 +704,20 @@ namespace MVZ2.Talk
             ui.ClearCharacters();
             characterList.Clear();
         }
+        private SpeechBubbleDirection GetSpeechBubbleDirectionBySide(CharacterSide side) 
+        {
+            switch (side)
+            {
+                case CharacterSide.Left:
+                    return SpeechBubbleDirection.Left;
+                case CharacterSide.Right:
+                    return SpeechBubbleDirection.Right;
+                case CharacterSide.Self:
+                    return SpeechBubbleDirection.Down;
+                default:
+                    return SpeechBubbleDirection.Up;
+            }
+        }
 
         #endregion
 
@@ -683,10 +729,6 @@ namespace MVZ2.Talk
         public bool IsRunningScripts { get; private set; }
         public bool IsTalking { get; private set; }
         public readonly static NamespaceID DEFAULT_VARIANT_ID = new NamespaceID("mvz2", "normal");
-        private readonly static Dictionary<NamespaceID, SpeechBubbleDirection> speechBubbleDirDict = new Dictionary<NamespaceID, SpeechBubbleDirection>()
-        {
-            { new NamespaceID("mvz2", "self"), SpeechBubbleDirection.Down },
-        };
         private readonly static TalkScript[] defaultStartScripts = new TalkScript[0];
         private readonly static TalkScript[] defaultClickScripts = new TalkScript[]
         {
@@ -709,10 +751,16 @@ namespace MVZ2.Talk
         private int sectionIndex = 0;
         private int sentenceIndex = 0;
         private NamespaceID groupID;
-        private List<NamespaceID> characterList = new List<NamespaceID>();
+        private List<CharacterData> characterList = new List<CharacterData>();
         private TaskCompletionSource<object> tcs;
         [SerializeField]
         private TalkUI ui;
         #endregion 属性
+
+        public class CharacterData
+        {
+            public NamespaceID id;
+            public CharacterSide side;
+        }
     }
 }
