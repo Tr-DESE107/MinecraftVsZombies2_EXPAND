@@ -144,7 +144,11 @@
     </stage>
     <stage id="halloween_8" name="万圣夜" dayNumber="8" unlock="mvz2:level.halloween_7" >
         <talks>
-            <talk type="start" value="mvz2:seventh_slot" repeatUntil="mvz2:blueprint_slot.7;mvz2:level.dream_5"/>
+            <talk type="start" value="mvz2:seventh_slot">
+                <repeat>
+                    <condition requiredNot="mvz2:blueprint_slot.1;mvz2:level.dream_5"/>
+                </repeat>
+            </talk>
             <talk type="end" value="mvz2:halloween_8_over"/>
             <talk type="map" value="mvz2:halloween_8_map"/>
         </talks>

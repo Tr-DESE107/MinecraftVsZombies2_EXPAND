@@ -342,8 +342,8 @@
       </sentences>
     </section>
   </group>
-  <group id="seventh_slot" requiresNot="mvz2:blueprint_slot.7" tags="mvz2:halloween;mvz2:special">
-    <archive name="蓝图槽位交易" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:blueprint_slot.7" />
+  <group id="seventh_slot" requiresNot="mvz2:blueprint_slot.1" tags="mvz2:halloween;mvz2:special">
+    <archive name="蓝图槽位交易" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:blueprint_slot.1" />
     <section canAutoSkip="false" onSkip="action try_buy_seventh_slot">
       <text>开始段落</text>
       <characters>

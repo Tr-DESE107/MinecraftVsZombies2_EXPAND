@@ -39,13 +39,7 @@ namespace MVZ2Logic.Level
     {
         string Type { get; }
         NamespaceID Value { get; }
-        NamespaceID[] RepeatUntil { get; }
-        bool ShouldRepeat(IGameSaveData save)
-        {
-            if (RepeatUntil == null || RepeatUntil.Count(c => NamespaceID.IsValid(c)) <= 0)
-                return false;
-            return !RepeatUntil.Any(c => save.IsUnlocked(c));
-        }
+        bool ShouldRepeat(IGameSaveData save);
     }
     public interface IEnemySpawnEntry
     {
