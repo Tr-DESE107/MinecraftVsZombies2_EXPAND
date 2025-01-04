@@ -56,13 +56,6 @@ namespace MVZ2.Vanilla.Saves
                 return null;
             return saveData.MapTalkID;
         }
-        public static void SetBlueprintSlots(this IGameSaveData save, int slots)
-        {
-            var saveData = save.GetVanillaSaveData();
-            if (saveData == null)
-                return;
-            saveData.SetBlueprintSlots(slots);
-        }
         public static int GetBlueprintSlots(this IGameSaveData save)
         {
             var saveData = save.GetVanillaSaveData();
@@ -70,19 +63,19 @@ namespace MVZ2.Vanilla.Saves
                 return 6;
             return saveData.GetBlueprintSlots();
         }
+        public static int GetArtifactSlots(this IGameSaveData save)
+        {
+            var saveData = save.GetVanillaSaveData();
+            if (saveData == null)
+                return 1;
+            return saveData.GetArtifactSlots();
+        }
         public static int GetStarshardSlots(this IGameSaveData save)
         {
             var saveData = save.GetVanillaSaveData();
             if (saveData == null)
                 return 3;
             return saveData.GetStarshardSlots();
-        }
-        public static void SetStarshardSlots(this IGameSaveData save, int slots)
-        {
-            var saveData = save.GetVanillaSaveData();
-            if (saveData == null)
-                return;
-            saveData.SetStarshardSlots(slots);
         }
         public static bool IsLevelCleared(this IGameSaveData save, NamespaceID stageID)
         {

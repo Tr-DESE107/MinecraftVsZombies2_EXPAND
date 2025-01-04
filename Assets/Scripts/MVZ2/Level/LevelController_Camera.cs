@@ -104,7 +104,7 @@ namespace MVZ2.Level
 
             var seedSlots = Saves.GetBlueprintSlots();
             level.SetSeedSlotCount(seedSlots);
-            level.SetArtifactSlotCount(3);
+            level.SetArtifactSlotCount(Saves.GetArtifactSlots());
 
             var unlocked = Saves.GetUnlockedContraptions();
 

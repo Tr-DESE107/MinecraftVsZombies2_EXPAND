@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
@@ -18,8 +19,6 @@ namespace MVZ2.Vanilla.Saves
                 lastMapID = LastMapID,
                 mapTalkID = MapTalkID,
                 money = money,
-                blueprintSlots = blueprintSlots,
-                starshardSlots = starshardSlots,
             };
         }
         public void LoadSerializable(SerializableVanillaSaveData serializable)
@@ -28,8 +27,6 @@ namespace MVZ2.Vanilla.Saves
             LastMapID = serializable.lastMapID;
             MapTalkID = serializable.mapTalkID;
             money = serializable.money;
-            blueprintSlots = Mathf.Max(MIN_BLUEPRINT_SLOTS, serializable.blueprintSlots);
-            starshardSlots = Mathf.Max(MIN_STARSHARD_SLOTS, serializable.starshardSlots);
         }
 
         public int GetMoney()
@@ -42,27 +39,39 @@ namespace MVZ2.Vanilla.Saves
         }
         public int GetBlueprintSlots()
         {
-            return blueprintSlots;
+            return MIN_BLUEPRINT_SLOTS + blueprintSlotUnlocks.Count(u => IsUnlocked(u));
         }
-        public void SetBlueprintSlots(int value)
+        public int GetArtifactSlots()
         {
-            blueprintSlots = value;
+            return MIN_ARTIFACT_SLOTS + artifactSlotUnlocks.Count(u => IsUnlocked(u));
         }
         public int GetStarshardSlots()
         {
-            return starshardSlots;
-        }
-        public void SetStarshardSlots(int value)
-        {
-            starshardSlots = value;
+            return MIN_STARSHARD_SLOTS + starshardSlotUnlocks.Count(u => IsUnlocked(u));
         }
         public const int MIN_BLUEPRINT_SLOTS = 6;
+        public const int MIN_ARTIFACT_SLOTS = 1;
         public const int MIN_STARSHARD_SLOTS = 3;
         public NamespaceID LastMapID { get; set; }
         public NamespaceID MapTalkID { get; set; }
+        private static string[] blueprintSlotUnlocks = new string[]
+        {
+            VanillaUnlockNames.blueprintSlot1,
+            VanillaUnlockNames.blueprintSlot2,
+            VanillaUnlockNames.blueprintSlot3,
+            VanillaUnlockNames.blueprintSlot4,
+        };
+        private static string[] artifactSlotUnlocks = new string[]
+        {
+            VanillaUnlockNames.artifactSlot1,
+            VanillaUnlockNames.artifactSlot2,
+        };
+        private static string[] starshardSlotUnlocks = new string[]
+        {
+            VanillaUnlockNames.starshardSlot1,
+            VanillaUnlockNames.starshardSlot2,
+        };
         private int money;
-        private int blueprintSlots = MIN_BLUEPRINT_SLOTS;
-        private int starshardSlots = MIN_STARSHARD_SLOTS;
     }
     [Serializable]
     public class SerializableVanillaSaveData : SerializableModSaveData
@@ -76,7 +85,11 @@ namespace MVZ2.Vanilla.Saves
         public NamespaceID lastMapID;
         public NamespaceID mapTalkID;
         public int money;
+        [Obsolete]
+        public int artifactSlots;
+        [Obsolete]
         public int blueprintSlots;
+        [Obsolete]
         public int starshardSlots;
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
-    public class ArtifactSelectItem : MonoBehaviour, ITooltipTarget
+    public class ArtifactSelectItem : MonoBehaviour, ITooltipTarget, IPointerEnterHandler, IPointerExitHandler
     {
         public void UpdateItem(ArtifactSelectItemViewData viewData)
         {
@@ -16,7 +17,17 @@ namespace MVZ2.Level.UI
         {
             button.onClick.AddListener(() => OnClick?.Invoke(this));
         }
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        {
+            OnPointerEnter?.Invoke(this);
+        }
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+        {
+            OnPointerExit?.Invoke(this);
+        }
         public event Action<ArtifactSelectItem> OnClick;
+        public event Action<ArtifactSelectItem> OnPointerEnter;
+        public event Action<ArtifactSelectItem> OnPointerExit;
         [SerializeField]
         private Image iconImage;
         [SerializeField]

@@ -149,9 +149,8 @@ namespace MVZ2.GameContent.Implements
                     {
                         case 0:
                             game.AddMoney(-750);
-                            level.SetSeedSlotCount(7);
-                            game.SetBlueprintSlots(7);
-                            game.Unlock(VanillaUnlockID.blueprintSlot7);
+                            game.Unlock(VanillaUnlockID.blueprintSlot1);
+                            level.SetSeedSlotCount(game.GetBlueprintSlots());
                             system.StartSection(3);
                             level.SetMoneyFade(true);
                             break;

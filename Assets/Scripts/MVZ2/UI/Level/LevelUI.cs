@@ -168,6 +168,8 @@ namespace MVZ2.UI
             viewLawnReturnButton.onClick.AddListener(() => OnBlueprintChooseViewLawnReturnClick?.Invoke());
 
             artifactChoosingDialog.OnItemClicked += (index) => OnArtifactChoosingItemClicked?.Invoke(index);
+            artifactChoosingDialog.OnItemPointerEnter += (index) => OnArtifactChoosingItemEnter?.Invoke(index);
+            artifactChoosingDialog.OnItemPointerExit += (index) => OnArtifactChoosingItemExit?.Invoke(index);
             artifactChoosingDialog.OnBackButtonClicked += () => OnArtifactChoosingBackClicked?.Invoke();
         }
 
@@ -180,6 +182,8 @@ namespace MVZ2.UI
         public event Action<bool> OnLevelErrorLoadingDialogButtonClicked;
 
         public event Action<int> OnArtifactChoosingItemClicked;
+        public event Action<int> OnArtifactChoosingItemEnter;
+        public event Action<int> OnArtifactChoosingItemExit;
         public event Action OnArtifactChoosingBackClicked;
         public OptionsDialog OptionsDialog => optionsDialog;
 

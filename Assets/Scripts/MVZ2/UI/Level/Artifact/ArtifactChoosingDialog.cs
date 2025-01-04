@@ -18,11 +18,15 @@ namespace MVZ2.Level.UI
             {
                 var item = obj.GetComponent<ArtifactSelectItem>();
                 item.OnClick += OnItemClickedCallback;
+                item.OnPointerEnter += OnItemPointerEnterCallback;
+                item.OnPointerExit += OnItemPointerExitCallback;
             },
             obj =>
             {
                 var item = obj.GetComponent<ArtifactSelectItem>();
                 item.OnClick -= OnItemClickedCallback;
+                item.OnPointerEnter -= OnItemPointerEnterCallback;
+                item.OnPointerExit -= OnItemPointerExitCallback;
             });
         }
         public ArtifactSelectItem GetArtifactSelectItem(int index)
@@ -37,7 +41,17 @@ namespace MVZ2.Level.UI
         {
             OnItemClicked?.Invoke(artifactList.indexOf(item));
         }
+        private void OnItemPointerEnterCallback(ArtifactSelectItem item)
+        {
+            OnItemPointerEnter?.Invoke(artifactList.indexOf(item));
+        }
+        private void OnItemPointerExitCallback(ArtifactSelectItem item)
+        {
+            OnItemPointerExit?.Invoke(artifactList.indexOf(item));
+        }
         public event Action<int> OnItemClicked;
+        public event Action<int> OnItemPointerEnter;
+        public event Action<int> OnItemPointerExit;
         public event Action OnBackButtonClicked;
         [SerializeField]
         private ElementList artifactList;

@@ -1,11 +1,13 @@
+using System;
 using MVZ2.Models;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.Level.UI
 {
-    public class ArtifactItemUI : MonoBehaviour
+    public class ArtifactItemUI : MonoBehaviour, ITooltipTarget, IPointerEnterHandler, IPointerExitHandler
     {
         public void SetGlowing(bool glowing)
         {
@@ -52,11 +54,25 @@ namespace MVZ2.Level.UI
         {
             seri.Deserialize(animator);
         }
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        {
+            OnPointerEnter?.Invoke(this);
+        }
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+        {
+            OnPointerExit?.Invoke(this);
+        }
+        public Action<ArtifactItemUI> OnPointerEnter;
+        public Action<ArtifactItemUI> OnPointerExit;
+
         [SerializeField]
         private Animator animator;
         [SerializeField]
         private Image[] iconImages;
         [SerializeField]
         private TextMeshProUGUI numText;
+        [SerializeField]
+        private TooltipAnchor tooltipAnchor;
+        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
 }

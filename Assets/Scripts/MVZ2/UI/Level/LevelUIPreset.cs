@@ -203,12 +203,16 @@ namespace MVZ2.Level.UI
             rect =>
             {
                 var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.OnClick += OnArtifactIconClickCallback;
+                artifactIcon.OnClick += OnBlueprintChooseArtifactSlotClickCallback;
+                artifactIcon.OnPointerEnter += OnBlueprintChooseArtifactSlotPointerEnterCallback;
+                artifactIcon.OnPointerExit += OnBlueprintChooseArtifactSlotPointerExitCallback;
             },
             rect =>
             {
                 var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.OnClick -= OnArtifactIconClickCallback;
+                artifactIcon.OnClick -= OnBlueprintChooseArtifactSlotClickCallback;
+                artifactIcon.OnPointerEnter -= OnBlueprintChooseArtifactSlotPointerEnterCallback;
+                artifactIcon.OnPointerExit -= OnBlueprintChooseArtifactSlotPointerExitCallback;
             });
         }
         public void UpdateBlueprintChooseArtifactAt(int index, ArtifactViewData viewData)
@@ -233,6 +237,10 @@ namespace MVZ2.Level.UI
         public void SetBlueprintChooseArtifactVisible(bool visible)
         {
             blueprintChooseArtifactRoot.SetActive(visible);
+        }
+        public ArtifactSlot GetBlueprintChooseArtifactSlotAt(int index)
+        {
+            return blueprintChooseArtifactList.getElement<ArtifactSlot>(index);
         }
         #endregion
 
@@ -473,39 +481,50 @@ namespace MVZ2.Level.UI
         #region ÖÆÆ·
         public void SetArtifactCount(int count)
         {
-            artifactList.updateList(count);
+            artifactList.updateList(count, null, obj =>
+            {
+                var artifact = obj.GetComponent<ArtifactItemUI>();
+                artifact.OnPointerEnter += OnArtifactPointerEnterCallback;
+                artifact.OnPointerExit += OnArtifactPointerExitCallback;
+            },
+            obj =>
+            {
+                var artifact = obj.GetComponent<ArtifactItemUI>();
+                artifact.OnPointerEnter -= OnArtifactPointerEnterCallback;
+                artifact.OnPointerExit -= OnArtifactPointerExitCallback;
+            });
         }
         public void SetArtifactIcon(int index, Sprite value)
         {
-            var ui = GetArtifactUI(index);
+            var ui = GetArtifactAt(index);
             if (!ui) return;
             ui.SetIcon(value);
         }
         public void SetArtifactNumber(int index, string number)
         {
-            var ui = GetArtifactUI(index);
+            var ui = GetArtifactAt(index);
             if (!ui) return;
             ui.SetNumber(number);
         }
         public void HighlightArtifact(int index)
         {
-            var ui = GetArtifactUI(index);
+            var ui = GetArtifactAt(index);
             if (!ui) return;
             ui.Shine();
         }
         public void SetArtifactGrayscale(int index, bool value)
         {
-            var ui = GetArtifactUI(index);
+            var ui = GetArtifactAt(index);
             if (!ui) return;
             ui.SetGrayscale(value);
         }
         public void SetArtifactGlowing(int index, bool value)
         {
-            var ui = GetArtifactUI(index);
+            var ui = GetArtifactAt(index);
             if (!ui) return;
             ui.SetGlowing(value);
         }
-        private ArtifactItemUI GetArtifactUI(int index)
+        public ArtifactItemUI GetArtifactAt(int index)
         {
             return artifactList.getElement<ArtifactItemUI>(index);
         }
@@ -646,9 +665,25 @@ namespace MVZ2.Level.UI
         {
             return isConveyor ? triggerSlotConveyor : triggerSlot;
         }
-        private void OnArtifactIconClickCallback(ArtifactSlot icon)
+        private void OnBlueprintChooseArtifactSlotClickCallback(ArtifactSlot icon)
         {
             OnBlueprintChooseArtifactClick?.Invoke(blueprintChooseArtifactList.indexOf(icon));
+        }
+        private void OnBlueprintChooseArtifactSlotPointerEnterCallback(ArtifactSlot icon)
+        {
+            OnBlueprintChooseArtifactPointerEnter?.Invoke(blueprintChooseArtifactList.indexOf(icon));
+        }
+        private void OnBlueprintChooseArtifactSlotPointerExitCallback(ArtifactSlot icon)
+        {
+            OnBlueprintChooseArtifactPointerExit?.Invoke(blueprintChooseArtifactList.indexOf(icon));
+        }
+        private void OnArtifactPointerEnterCallback(ArtifactItemUI item)
+        {
+            OnArtifactPointerEnter?.Invoke(artifactList.indexOf(item));
+        }
+        private void OnArtifactPointerExitCallback(ArtifactItemUI item)
+        {
+            OnArtifactPointerExit?.Invoke(artifactList.indexOf(item));
         }
         #endregion
 
@@ -667,6 +702,8 @@ namespace MVZ2.Level.UI
         public event Action OnBlueprintChooseViewLawnClick;
         public event Action OnBlueprintChooseCommandBlockClick;
         public event Action<int> OnBlueprintChooseArtifactClick;
+        public event Action<int> OnBlueprintChooseArtifactPointerEnter;
+        public event Action<int> OnBlueprintChooseArtifactPointerExit;
         public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerDown;
@@ -677,6 +714,9 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData> OnPickaxePointerEnter;
         public event Action<PointerEventData> OnPickaxePointerExit;
         public event Action<PointerEventData> OnPickaxePointerDown;
+
+        public event Action<int> OnArtifactPointerEnter;
+        public event Action<int> OnArtifactPointerExit;
 
         public event Action<PointerEventData> OnStarshardPointerDown;
 

@@ -266,6 +266,8 @@ namespace MVZ2.Level
             ui.OnBlueprintChooseViewLawnReturnClick += UI_OnBlueprintChooseViewLawnReturnClickCallback;
 
             ui.OnArtifactChoosingItemClicked += UI_OnArtifactChooseItemClickCallback;
+            ui.OnArtifactChoosingItemEnter += UI_OnArtifactChooseItemPointerEnterCallback;
+            ui.OnArtifactChoosingItemExit += UI_OnArtifactChooseItemPointerExitCallback;
             ui.OnArtifactChoosingBackClicked += UI_OnArtifactChooseReturnClickCallback;
 
             ui.SetHeldItemModel(null);
@@ -291,7 +293,13 @@ namespace MVZ2.Level
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
+            uiPreset.OnArtifactPointerEnter += UI_OnArtifactPointerEnterCallback;
+            uiPreset.OnArtifactPointerExit += UI_OnArtifactPointerExitCallback;
+
             uiPreset.OnBlueprintChooseArtifactClick += UI_OnBlueprintChooseArtifactClickCallback;
+            uiPreset.OnBlueprintChooseArtifactPointerEnter += UI_OnBlueprintChooseArtifactPointerEnterCallback;
+            uiPreset.OnBlueprintChooseArtifactPointerExit += UI_OnBlueprintChooseArtifactPointerExitCallback;
+
             uiPreset.OnBlueprintChooseBlueprintPointerEnter += UI_OnBlueprintChooseBlueprintPointerEnterCallback;
             uiPreset.OnBlueprintChooseBlueprintPointerExit += UI_OnBlueprintChooseBlueprintPointerExitCallback;
             uiPreset.OnBlueprintChooseBlueprintPointerDown += UI_OnBlueprintChooseBlueprintPointerDownCallback;
@@ -460,6 +468,29 @@ namespace MVZ2.Level
 
         #endregion
 
+        #region 制品
+        private void UI_OnArtifactPointerEnterCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            var artifact = level.GetArtifactAt(index);
+            if (artifact?.Definition == null)
+                return;
+            GetArtifactTooltip(artifact.Definition.GetID(), out var name, out var tooltip);
+            TooltipViewData viewData = new TooltipViewData()
+            {
+                name = name,
+                error = string.Empty,
+                description = tooltip
+            };
+            uiPreset.ShowTooltipOnComponent(uiPreset.GetArtifactAt(index), viewData);
+        }
+        private void UI_OnArtifactPointerExitCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.HideTooltip();
+        }
+        #endregion
+
         #region 蓝图选择
         private async void UI_OnBlueprintChooseStartClickCallback()
         {
@@ -557,6 +588,37 @@ namespace MVZ2.Level
             // 播放音效。
             level.PlaySound(VanillaSoundID.tap);
         }
+        private void UI_OnBlueprintChooseArtifactPointerEnterCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            var artifactID = chosenArtifacts[index];
+            TooltipViewData viewData;
+            if (NamespaceID.IsValid(artifactID))
+            {
+                GetArtifactTooltip(artifactID, out var name, out var tooltip);
+                viewData = new TooltipViewData()
+                {
+                    name = name,
+                    error = string.Empty,
+                    description = tooltip
+                };
+            }
+            else
+            {
+                viewData = new TooltipViewData()
+                {
+                    name = Main.LanguageManager._(CHOOSE_ARTIFACT),
+                    error = string.Empty,
+                    description = string.Empty
+                };
+            }
+            uiPreset.ShowTooltipOnComponent(uiPreset.GetBlueprintChooseArtifactSlotAt(index), viewData);
+        }
+        private void UI_OnBlueprintChooseArtifactPointerExitCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.HideTooltip();
+        }
         private void UI_OnBlueprintChooseArtifactClickCallback(int index)
         {
             choosingArtifactSlotIndex = index;
@@ -580,8 +642,8 @@ namespace MVZ2.Level
         private void UI_OnArtifactChooseItemPointerEnterCallback(int index)
         {
             var uiPreset = GetUIPreset();
-            var blueprintID = choosingArtifacts[index];
-            GetArtifactTooltip(blueprintID, out var name, out var tooltip);
+            var artifactID = choosingArtifacts[index];
+            GetArtifactTooltip(artifactID, out var name, out var tooltip);
             string error = string.Empty;
             var viewData = new TooltipViewData()
             {
@@ -611,6 +673,8 @@ namespace MVZ2.Level
                 }
             }
             SetChosenArtifact(choosingArtifactSlotIndex, isCancel ? null : id);
+            var uiPreset = GetUIPreset();
+            uiPreset.HideTooltip();
             CloseArtifactChoosePanel();
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
@@ -1149,6 +1213,8 @@ namespace MVZ2.Level
         public const string ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH = "加载关卡失败，存档状态和当前游戏状态不匹配。";
         [TranslateMsg("对话框内容")]
         public const string WARNING_SELECTED_BLUEPRINTS_NOT_FULL = "你没有携带满蓝图，确认要继续吗？";
+        [TranslateMsg("关卡UI")]
+        public const string CHOOSE_ARTIFACT = "选择制品";
 
         #region 保存属性
         private float levelProgress;
