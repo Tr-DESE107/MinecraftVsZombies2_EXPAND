@@ -21,7 +21,7 @@ namespace MVZ2.Level.Components
             var definition = Level.Content.GetHeldItemDefinition(Data.Type);
             if (definition != null)
             {
-                definition.Update(Level);
+                definition.Update(Level, Data);
             }
         }
         public bool IsHoldingItem()
@@ -55,7 +55,12 @@ namespace MVZ2.Level.Components
         }
         public void ResetHeldItem()
         {
-            SetHeldItem(BuiltinHeldTypes.none, 0, 0, false);
+            info.Type = BuiltinHeldTypes.none;
+            info.ID = 0;
+            info.Priority = 0;
+            info.NoCancel = false;
+            info.InstantTrigger = false;
+            Controller.SetHeldItemUI(info);
         }
         public bool CancelHeldItem()
         {

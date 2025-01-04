@@ -25,13 +25,11 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
-using UnityEditor.Presets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static MVZ2.Level.UI.LevelUIPreset;
@@ -65,19 +63,18 @@ namespace MVZ2.Level
         public void SetHeldItemUI(IHeldItemData data)
         {
             NamespaceID heldType = data.Type;
-            long id = data.ID;
             bool instantTrigger = data.InstantTrigger;
 
             var definition = Game.GetHeldItemDefinition(heldType);
 
             // 设置图标。
-            var modelID = definition?.GetModelID(level, id);
+            var modelID = definition?.GetModelID(level, data);
             SetHeldItemModel(modelID);
 
             // 显示触发器图标。
             bool triggerVisible = false;
             var blueprint = definition.GetSeedPack(level, data);
-            if (blueprint != null && blueprint.IsTriggerActive())
+            if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
             {
                 triggerVisible = true;
             }
@@ -96,7 +93,7 @@ namespace MVZ2.Level
             levelRaycaster.eventMask = layerMask;
 
             // 设置射线检测半径。
-            var radius = (definition?.GetRadius() ?? 0) * LawnToTransScale;
+            var radius = (definition?.GetRadius(level, data) ?? 0) * LawnToTransScale;
             levelRaycaster.SetHeldItem(definition, data, radius);
 
             // 设置光标。
@@ -205,24 +202,51 @@ namespace MVZ2.Level
         }
         #endregion
 
-        public Vector3 GetPointerPositionByZ(float z)
+        public Vector2 GetPointerScreenPosition()
         {
-            var screenPosition = GetPointerScreenPosition();
+            if (Input.touchCount > 0)
+            {
+                return Input.GetTouch(0).position;
+            }
+            return Input.mousePosition;
+        }
+        public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
+        {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
-            worldPosition.z = 0;
+
             var lawnPosition = TransToLawn(worldPosition);
             lawnPosition.z = z;
             lawnPosition.y -= z;
+
             return lawnPosition;
         }
-        public Vector3 GetPointerPositionByY(float y)
+        public Vector3 ScreenToLawnPositionByY(Vector2 screenPosition, float y)
         {
-            var screenPosition = GetPointerScreenPosition();
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
-            worldPosition.z = 0;
+
             var lawnPosition = TransToLawn(worldPosition);
             lawnPosition.z = lawnPosition.y - y;
             lawnPosition.y = y;
+
+            return lawnPosition;
+        }
+        public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY)
+        {
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+
+            var lawnPosition = TransToLawn(worldPosition);
+            var targetY = lawnPosition.y;
+            var x = lawnPosition.x;
+            var currentZ = targetY;
+            for (int i = 1; i < 8; i++)
+            {
+                var yOffset = level.GetGroundY(x, currentZ) + relativeY;
+                var result = yOffset + currentZ;
+                currentZ = currentZ + (currentZ - result) * 0.5f;
+            }
+            lawnPosition.z = currentZ;
+            lawnPosition.y = targetY - currentZ;
+
             return lawnPosition;
         }
 
@@ -710,7 +734,7 @@ namespace MVZ2.Level
             };
             var orderedBlueprints = new List<NamespaceID>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
-            var blueprintViewDatas = orderedBlueprints.Select(id =>  Main.AlmanacManager.GetChoosingBlueprintViewData(id) ).ToArray();
+            var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
             isChoosingBlueprints = true;
             choosingBlueprints = orderedBlueprints.ToArray();
 
@@ -1113,15 +1137,6 @@ namespace MVZ2.Level
             UpdateBlueprintsState();
             UpdateStarshards();
         }
-        private Vector3 GetPointerScreenPosition()
-        {
-            if (Input.touchCount > 0)
-            {
-                return Input.GetTouch(0).position;
-            }
-            return Input.mousePosition;
-        }
-
         #endregion
 
         #region 属性字段

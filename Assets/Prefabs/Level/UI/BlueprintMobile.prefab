@@ -1255,9 +1255,9 @@ MonoBehaviour:
   normalPresets:
   - {fileID: 8389089131820362950}
   - {fileID: 2675840253046817106}
+  upgradePresets:
   - {fileID: 1602609673736805148}
   - {fileID: 7464210434246940486}
-  upgradePresets: []
   iconImage: {fileID: 8665424365956294277}
   costText: {fileID: 4084567098346113203}
   rechargeImage: {fileID: 6855817217076735219}

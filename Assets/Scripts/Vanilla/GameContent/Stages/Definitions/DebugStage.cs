@@ -27,12 +27,12 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.mineTNT,
                 VanillaContraptionID.gravityPad,
-                VanillaContraptionID.pistenser,
+                VanillaContraptionID.dispenser,
                 VanillaContraptionID.totenser,
 
-                VanillaContraptionID.dreamCrystal,
-                VanillaContraptionID.vortexHopper,
-                VanillaContraptionID.dreamSilk,
+                VanillaContraptionID.forcePad,
+                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.smallDispenser,
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.ghast,

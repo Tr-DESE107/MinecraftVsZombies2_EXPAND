@@ -103,4 +103,10 @@
             <key alpha="0.5" time="1"/>
         </alphaKeys>
     </fragment>
+    <fragment name="force_pad">
+        <colorKeys>
+            <key hex="#0000FF" time="0.75"/>
+            <key hex="#0080FF" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

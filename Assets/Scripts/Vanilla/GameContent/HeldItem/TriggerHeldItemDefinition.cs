@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
-        public override NamespaceID GetModelID(LevelEngine level, long id)
+        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.triggerHeldItem;
         }

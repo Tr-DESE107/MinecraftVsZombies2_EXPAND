@@ -16,7 +16,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
         }
         #region 实体
-        public override bool CheckRaycast(HeldItemTarget target)
+        public override bool CheckRaycast(HeldItemTarget target, IHeldItemData data)
         {
             if (target is not HeldItemTargetEntity entityTarget)
                 return false;

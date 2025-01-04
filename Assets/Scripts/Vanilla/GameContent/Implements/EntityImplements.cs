@@ -81,9 +81,9 @@ namespace MVZ2.GameContent.Implements
                 passed = entity.Position.z <= targetZ + 0.03f;
             }
 
+            Vector3 velocity = entity.Velocity;
             if (!passed)
             {
-                Vector3 velocity = entity.Velocity;
                 float warpSpeed = changeLane.GetChangeLaneSpeed(entity);
 
                 // Warp upwards.
@@ -96,7 +96,6 @@ namespace MVZ2.GameContent.Implements
                 {
                     velocity.z = Mathf.Min(-warpSpeed, entity.Velocity.z);
                 }
-                entity.Velocity = velocity;
             }
             else
             {
@@ -107,7 +106,10 @@ namespace MVZ2.GameContent.Implements
                     entity.Position = pos;
                 }
                 entity.StopChangingLane();
+
+                velocity.z = 0;
             }
+            entity.Velocity = velocity;
         }
         private void PostEnemyDeathCallback(Entity entity, DeathInfo damage)
         {

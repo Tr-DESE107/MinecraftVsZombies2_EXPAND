@@ -20,7 +20,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
         }
         #region 实体
-        public override bool CheckRaycast(HeldItemTarget target)
+        public override bool CheckRaycast(HeldItemTarget target, IHeldItemData data)
         {
             return target is HeldItemTargetGrid;
         }
@@ -102,9 +102,9 @@ namespace MVZ2.Vanilla.HeldItems
 
         #region 网格
         #endregion
-        public override NamespaceID GetModelID(LevelEngine level, long id)
+        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
-            var seed = GetSeedPackAt(level, (int)id);
+            var seed = GetSeedPackAt(level, (int)data.ID);
             if (seed == null)
                 return null;
             var seedDef = seed.Definition;

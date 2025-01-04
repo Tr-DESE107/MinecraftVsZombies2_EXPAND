@@ -232,6 +232,9 @@
     <sound name="magical">
         <sample path="mvz2:magical" weight="1" />
     </sound>
+    <sound name="magnetic">
+        <sample path="mvz2:entity/force_pad/magnetic" weight="1" />
+    </sound>
     <sound name="mechanism">
         <sample path="mvz2:mechanism" weight="1" />
     </sound>

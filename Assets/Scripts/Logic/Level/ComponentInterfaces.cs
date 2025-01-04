@@ -78,8 +78,10 @@ namespace MVZ2Logic.Level.Components
     }
     public interface IUIComponent : ILevelComponent
     {
-        Vector3 GetPointerPositionByZ(float z);
-        Vector3 GetPointerPositionByY(float y);
+        Vector2 GetPointerPosition();
+        Vector3 ScreenToLawnPositionByY(Vector2 screenPosition, float y);
+        Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float y);
+        Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY);
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
         void SetConveyorMode(bool value);
         void ShowMoney();

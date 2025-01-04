@@ -40,7 +40,7 @@ namespace MVZ2.Grids
             if (definition == null)
                 return false;
             var target = new HeldItemTargetGrid(level.GetGrid(Column, Lane), Vector2.down);
-            return definition.CheckRaycast(target);
+            return definition.CheckRaycast(target, data);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {

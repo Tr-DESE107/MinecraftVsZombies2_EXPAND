@@ -403,7 +403,20 @@
                 <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:force_pad">
+            <header>
+                <p>传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。</p>
+            </header>
+            <properties>
+                <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
+                <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人</color>]]></p>
+                <p>技能：<![CDATA[<color=red>将周围的敌人移动到一个指定的位置</color>]]></p>
+                <p><![CDATA[<color=red>必须放置在重力板上</color>]]></p>
+            </properties>
+            <flavor>
+                <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

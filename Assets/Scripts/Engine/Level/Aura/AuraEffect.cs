@@ -36,6 +36,7 @@ namespace PVZEngine.Auras
         }
         public void UpdateAura()
         {
+            var level = Source.GetLevel();
             targetsBuffer.Clear();
             Definition.GetAuraTargets(this, targetsBuffer);
             foreach (var target in targetsBuffer)
@@ -49,10 +50,21 @@ namespace PVZEngine.Auras
                 }
                 Definition.UpdateTargetBuff(this, target, buff);
             }
-            var missingEntities = buffDict.Where(p => !p.Key.Exists() || !targetsBuffer.Contains(p.Key)).ToArray();
-            foreach (var pair in missingEntities)
+            for (int i = buffCaches.Count - 1; i >= 0; i--)
             {
-                RemoveTargetBuff(pair.Key, pair.Value);
+                var reference = buffCaches[i];
+                var target = reference.GetTarget(level);
+                if (target == null)
+                {
+                    buffCaches.RemoveAt(i);
+                    continue;
+                }
+                if (!target.Exists() || !targetsBuffer.Contains(target))
+                {
+                    var buff = reference.GetBuff(level);
+                    target.RemoveBuff(buff);
+                    buffCaches.RemoveAt(i);
+                }
             }
         }
         public SerializableAuraEffect ToSerializable()
@@ -60,51 +72,86 @@ namespace PVZEngine.Auras
             return new SerializableAuraEffect()
             {
                 id = ID,
-                buffs = buffDict.Select(p => p.Key.GetBuffReference(p.Value)).ToArray(),
+                buffs = buffCaches.Select(r => r.reference).ToArray(),
                 updateTimer = updateTimer,
             };
         }
         public void LoadFromSerializable(LevelEngine level, SerializableAuraEffect serializable)
         {
             updateTimer = serializable.updateTimer;
-            buffDict = serializable.buffs
-                .Select(b => (b.GetTarget(level), b.GetBuff(level)))
-                .Where(b => b.Item1 != null && b.Item2 != null)
-                .ToDictionary(p => p.Item1, p => p.Item2);
+            buffCaches.Clear();
+            buffCaches.AddRange(serializable.buffs.Select(b => new BuffCache(b)));
         }
-        private Buff AddTargetBuff(IBuffTarget entity)
+        private Buff AddTargetBuff(IBuffTarget target)
         {
-            var buff = entity.CreateBuff(Definition.BuffID);
-            entity.AddBuff(buff);
-            buffDict.Add(entity, buff);
+            var buff = target.CreateBuff(Definition.BuffID);
+            target.AddBuff(buff);
+            buffCaches.Add(new BuffCache(target, buff));
             return buff;
         }
         private Buff GetTargetBuff(IBuffTarget entity)
         {
-            return buffDict.TryGetValue(entity, out var buff) ? buff : null;
-        }
-        private bool RemoveTargetBuff(IBuffTarget entity, Buff buff)
-        {
-            if (buffDict.Remove(entity))
-            {
-                entity.RemoveBuff(buff);
-                return true;
-            }
-            return false;
+            var reference = buffCaches.Find(r => r.GetTarget(Level) == entity);
+            if (reference == null)
+                return null;
+            return reference.GetBuff(Level);
         }
         private void ClearBuffs()
         {
-            foreach (var pair in buffDict)
+            foreach (var reference in buffCaches)
             {
-                pair.Key.RemoveBuff(pair.Value);
+                var buff = reference.GetBuff(Level);
+                buff.Remove();
             }
-            buffDict.Clear();
+            buffCaches.Clear();
         }
         public int ID { get; }
+        public LevelEngine Level => Source.GetLevel();
         public AuraEffectDefinition Definition { get; }
         public IAuraSource Source { get; }
         private FrameTimer updateTimer;
-        private Dictionary<IBuffTarget, Buff> buffDict = new Dictionary<IBuffTarget, Buff>();
+        private List<BuffCache> buffCaches = new List<BuffCache>();
         private List<IBuffTarget> targetsBuffer = new List<IBuffTarget>();
+        private class BuffCache
+        {
+            public BuffCache(IBuffTarget target, Buff buff)
+            {
+                this.target = target;
+                this.buff = buff;
+                reference = target.GetBuffReference(buff);
+            }
+            public BuffCache(BuffReference buffRef)
+            {
+                reference = buffRef;
+            }
+            public IBuffTarget GetTarget(LevelEngine level)
+            {
+                if (target != null)
+                    return target;
+                if (reference == null)
+                    return null;
+                EvaluateCache(level);
+                return target;
+            }
+            public Buff GetBuff(LevelEngine level)
+            {
+                if (buff != null)
+                    return buff;
+                if (reference == null)
+                    return null;
+                EvaluateCache(level);
+                return buff;
+            }
+            private void EvaluateCache(LevelEngine level)
+            {
+                if (reference == null)
+                    return;
+                target = reference.GetTarget(level);
+                buff = reference.GetBuff(level);
+            }
+            private IBuffTarget target;
+            private Buff buff;
+            public BuffReference reference;
+        }
     }
 }

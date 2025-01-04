@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.HeldItem;
 using MVZ2.GameContent.Models;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
@@ -33,7 +34,7 @@ namespace MVZ2.GameContent.HeldItems
             entity.Die(effects);
         }
 
-        public override NamespaceID GetModelID(LevelEngine level, long id)
+        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.pickaxeHeldItem;
         }

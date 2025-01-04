@@ -2,11 +2,13 @@
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2Logic.HeldItems
 {
     public abstract class HeldItemTarget
     {
+        public abstract LevelEngine GetLevel();
     }
     public class HeldItemTargetEntity : HeldItemTarget
     {
@@ -14,6 +16,7 @@ namespace MVZ2Logic.HeldItems
         {
             Target = target;
         }
+        public override LevelEngine GetLevel() => Target.Level;
         public Entity Target { get; }
     }
     public class HeldItemTargetGrid : HeldItemTarget
@@ -23,6 +26,7 @@ namespace MVZ2Logic.HeldItems
             Target = target;
             PointerPosition = pointerPosition;
         }
+        public override LevelEngine GetLevel() => Target.Level;
         public LawnGrid Target { get; }
         public Vector2 PointerPosition { get; }
     }
@@ -33,6 +37,7 @@ namespace MVZ2Logic.HeldItems
             Level = level;
             Area = area;
         }
+        public override LevelEngine GetLevel() => Level;
         public LevelEngine Level { get; }
         public LawnArea Area { get; }
     }

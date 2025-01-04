@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID triggerHeldItem = Get("trigger", TYPE_HELD_ITEM);
         public static readonly NamespaceID swordHeldItem = Get("sword", TYPE_HELD_ITEM);
         public static readonly NamespaceID defaultStartShardHeldItem = Get("starshard.default", TYPE_HELD_ITEM);
+        public static readonly NamespaceID targetHeldItem = Get("target", TYPE_HELD_ITEM);
 
         public static readonly NamespaceID shortCircuit = Get("short_circuit", TYPE_ICON);
         public static readonly NamespaceID nocturnal = Get("nocturnal", TYPE_ICON);
@@ -33,6 +34,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID weaknessParticles = Get("weakness_particles", TYPE_ICON);
         public static readonly NamespaceID dreamAlarm = Get("dream_alarm", TYPE_ICON);
         public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
+        public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
             return new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(TYPE_HELD_ITEM);

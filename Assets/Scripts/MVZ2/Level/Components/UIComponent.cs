@@ -12,13 +12,21 @@ namespace MVZ2.Level.Components
         public UIComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
-        public Vector3 GetPointerPositionByZ(float z)
+        public Vector2 GetPointerPosition()
         {
-            return Controller.GetPointerPositionByZ(z);
+            return Controller.GetPointerScreenPosition();
         }
-        public Vector3 GetPointerPositionByY(float y)
+        public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
-            return Controller.GetPointerPositionByY(y);
+            return Controller.ScreenToLawnPositionByZ(screenPosition, z);
+        }
+        public Vector3 ScreenToLawnPositionByY(Vector2 screenPosition, float y)
+        {
+            return Controller.ScreenToLawnPositionByY(screenPosition, y);
+        }
+        public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY)
+        {
+            return Controller.ScreenToLawnPositionByRelativeY(screenPosition, relativeY);
         }
         public void ShakeScreen(float startAmplitude, float endAmplitude, int time)
         {

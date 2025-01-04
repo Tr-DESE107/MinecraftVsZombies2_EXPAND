@@ -131,7 +131,7 @@ namespace MVZ2.GameContent.Stages
             {
                 case STATE_PLACE_TNT:
                     {
-                        var heldEntityID = level.GetHeldEntityID();
+                        var heldEntityID = level.GetHeldSeedEntityID();
                         if (heldEntityID == VanillaContraptionID.tnt)
                         {
                             level.HideHintArrow();
@@ -177,7 +177,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_CLICK_TNT_SWAP:
                     {
-                        var heldEntityID = level.GetHeldEntityID();
+                        var heldEntityID = level.GetHeldSeedEntityID();
                         if (heldEntityID == VanillaContraptionID.tnt && level.GetHeldItemData().InstantTrigger)
                         {
                             // 下一状态
@@ -200,7 +200,7 @@ namespace MVZ2.GameContent.Stages
                             StartState(level, STATE_TNT_PLACED_SWAP);
                             break;
                         }
-                        var heldEntityID = level.GetHeldEntityID();
+                        var heldEntityID = level.GetHeldSeedEntityID();
                         if (heldEntityID != VanillaContraptionID.tnt || !level.GetHeldItemData().InstantTrigger)
                         {
                             // 返回之前的状态。

@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.HeldItem;
 using MVZ2.GameContent.Models;
+using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
@@ -31,7 +32,7 @@ namespace MVZ2.GameContent.HeldItems
             entity.Evoke();
         }
 
-        public override NamespaceID GetModelID(LevelEngine level, long id)
+        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             var modelID = VanillaModelID.GetStarshardHeldItem(level.AreaDefinition.GetID());
             if (Global.Game.GetModelMeta(modelID) == null)

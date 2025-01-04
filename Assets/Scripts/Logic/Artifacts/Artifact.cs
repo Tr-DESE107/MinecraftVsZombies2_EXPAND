@@ -70,10 +70,10 @@ namespace MVZ2Logic.Artifacts
         public static Artifact Deserialize(SerializableArtifact seri, LevelEngine level)
         {
             var definition = level.Content.GetArtifactDefinition(seri.definitionID);
-            var buff = new Artifact(level, definition);
-            buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
-            buff.auras.LoadFromSerializable(level, seri.auras);
-            return buff;
+            var artifact = new Artifact(level, definition);
+            artifact.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            artifact.auras.LoadFromSerializable(level, seri.auras);
+            return artifact;
         }
 
         Entity IAuraSource.GetEntity() => null;

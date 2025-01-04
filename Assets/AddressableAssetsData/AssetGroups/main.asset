@@ -647,6 +647,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 275fc689fc1d1194ba400f58348f339b
+    m_Address: mvz2:held/target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27e82ff068e4b8a439d196de3631d525
     m_Address: mvz2:cart/minecart
     m_ReadOnly: 0
@@ -1503,6 +1509,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51407c787c6ea6b4790f4d9c7a0c78dd
+    m_Address: mvz2:icon/knockback_wave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 516d74eccaaf1e24fb1a0ab53d0f2657
     m_Address: mvz2:entity/contraption/furnace
@@ -2362,6 +2374,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86b752a5e2100d84ab9e7af262138b91
+    m_Address: mvz2:ui/level/target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 870eee8567c7c8948aa1357afdc15d62
     m_Address: mvz2:starshards/dream
     m_ReadOnly: 0
@@ -2463,6 +2481,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b8220305451b3c4ca03624db586f6b5
+    m_Address: mvz2:contraption/force_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b9310b7e61da30448b5d9b66c4cf9f3
     m_Address: mvz2:entity/enemies/ghost_tail
@@ -4563,6 +4587,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbd4f223bde2b0548986faf783bc0f17
+    m_Address: mvz2:effect/magnetic_line
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc3e815806f7eaf4694e0d4333cc9185
     m_Address: mvz2:icons/disabled

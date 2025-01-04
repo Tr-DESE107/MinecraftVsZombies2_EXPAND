@@ -25,6 +25,7 @@
     <model name="dream_silk" type="entity" path="mvz2:contraption/dream_silk" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="force_pad" type="entity" path="mvz2:contraption/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 
@@ -109,6 +110,7 @@
     <model name="vortex" type="entity" path="mvz2:effect/vortex" width="240" height="240" xOffset="0" yOffset="0"/>
     <model name="giant_spike" type="entity" path="mvz2:effect/giant_spike" width="16" height="128" xOffset="0" yOffset="0"/>
     <model name="fire_breath" type="entity" path="mvz2:effect/fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="magnetic_line" type="entity" path="mvz2:effect/magnetic_line" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
@@ -139,6 +141,7 @@
     <model name="pickaxe" type="held" path="mvz2:held/pickaxe" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="trigger" type="held" path="mvz2:held/trigger" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>
     <model name="sword" type="held" path="mvz2:held/sword" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="target" type="held" path="mvz2:held/target" shot="false" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Icons -->
     <model name="short_circuit" type="icon" path="mvz2:icon/short_circuit" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
@@ -149,4 +152,5 @@
     <model name="weakness_particles" type="icon" path="mvz2:icon/weakness_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="dream_alarm" type="icon" path="mvz2:icon/dream_alarm" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="parabot_insected" type="icon" path="mvz2:icon/parabot_insected" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="knockback_wave" type="icon" path="mvz2:icon/knockback_wave" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
 </models>

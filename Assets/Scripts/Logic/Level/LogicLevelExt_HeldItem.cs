@@ -15,7 +15,7 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<IHeldItemComponent>();
         }
-        public static void SetHeldItem(this LevelEngine level, NamespaceID type, int id, int priority, bool noCancel = false)
+        public static void SetHeldItem(this LevelEngine level, NamespaceID type, long id, int priority, bool noCancel = false)
         {
             var component = level.GetHeldItemComponent();
             component.SetHeldItem(type, id, priority, noCancel);
@@ -55,10 +55,10 @@ namespace MVZ2Logic.Level
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
             return heldItemDef.GetHighlight(target, data);
         }
-        public static bool CheckHeldItemRaycast(this LevelEngine level, HeldItemTarget target, NamespaceID heldType)
+        public static bool CheckHeldItemRaycast(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            return heldItemDef.CheckRaycast(target);
+            return heldItemDef.CheckRaycast(target, data);
         }
         public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data, PointerPhase phase)
         {

@@ -12,15 +12,25 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<IUIComponent>();
         }
-        public static Vector3 GetPointerPositionByZ(this LevelEngine level, float z)
+        public static Vector2 GetPointerPosition(this LevelEngine level)
         {
             var component = level.GetUIComponent();
-            return component.GetPointerPositionByZ(z);
+            return component.GetPointerPosition();
         }
-        public static Vector3 GetPointerPositionByY(this LevelEngine level, float y)
+        public static Vector3 ScreenToLawnPositionByZ(this LevelEngine level, Vector2 screenPosition, float z)
         {
             var component = level.GetUIComponent();
-            return component.GetPointerPositionByY(y);
+            return component.ScreenToLawnPositionByZ(screenPosition, z);
+        }
+        public static Vector3 ScreenToLawnPositionByY(this LevelEngine level, Vector2 screenPosition, float y)
+        {
+            var component = level.GetUIComponent();
+            return component.ScreenToLawnPositionByY(screenPosition, y);
+        }
+        public static Vector3 ScreenToLawnPositionByRelativeY(this LevelEngine level, Vector2 screenPosition, float relativeY)
+        {
+            var component = level.GetUIComponent();
+            return component.ScreenToLawnPositionByRelativeY(screenPosition, relativeY);
         }
         public static void SetConveyorMode(this LevelEngine level, bool value)
         {

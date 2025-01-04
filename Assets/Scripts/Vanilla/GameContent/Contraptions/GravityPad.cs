@@ -41,19 +41,6 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateLogic(entity);
             entity.SetAnimationBool("IsOn", !entity.IsAIFrozen());
         }
-        public override bool CanEvoke(Entity entity)
-        {
-            var grid = entity.GetGrid();
-            if (grid != null)
-            {
-                var mainEnt = grid.GetMainEntity();
-                if (mainEnt != null && mainEnt.Exists())
-                {
-                    return false;
-                }
-            }
-            return base.CanEvoke(entity);
-        }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);

@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Buffs
         public const string fly = "fly";
         public const string inWater = "in_water";
         public const string parabot = "parabot";
+        public const string whiteFlash = "white_flash";
 
         // Contraption
         public const string productionColor = "production_color";
@@ -52,12 +53,14 @@ namespace MVZ2.GameContent.Buffs
         public const string gravityPadGravity = "gravity_pad_gravity";
         public const string vortexHopperDrag = "vortex_hopper_drag";
         public const string enemyWeakness = "enemy_weakness";
+        public const string forcePadDrag = "force_pad_frag";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
 
         // Projectile
         public const string projectileWait = "projectile_wait";
+        public const string projectileKnockback = "projectile_knockback";
 
         // Cart
         public const string cartFadeIn = "cart_fade_in";
@@ -112,6 +115,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID carryingOther = Get(VanillaBuffNames.carryingOther);
         public static readonly NamespaceID darkMatterProduction = Get(VanillaBuffNames.darkMatterProduction);
         public static readonly NamespaceID gravityPadGravity = Get(VanillaBuffNames.gravityPadGravity);
+        public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.forcePadDrag);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

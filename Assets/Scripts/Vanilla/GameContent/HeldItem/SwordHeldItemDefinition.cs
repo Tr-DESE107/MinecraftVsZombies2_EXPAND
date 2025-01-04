@@ -23,11 +23,11 @@ namespace MVZ2.GameContent.HeldItems
         public SwordHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Update(LevelEngine level)
+        public override void Update(LevelEngine level, IHeldItemData data)
         {
             level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
         }
-        public override bool CheckRaycast(HeldItemTarget target)
+        public override bool CheckRaycast(HeldItemTarget target, IHeldItemData data)
         {
             if (target is not HeldItemTargetEntity entityTarget)
                 return false;
@@ -80,7 +80,8 @@ namespace MVZ2.GameContent.HeldItems
                                     entity.TakeDamageNoSource(750, effects);
                                     if (entity.IsDead)
                                     {
-                                        var pos = entity.Level.GetPointerPositionByZ(entity.Position.z);
+                                        var screenPos = entity.Level.GetPointerPosition();
+                                        var pos = entity.Level.ScreenToLawnPositionByZ(screenPos, entity.Position.z);
                                         entity.Level.Spawn(VanillaEffectID.pow, pos, null);
                                     }
                                 }
@@ -105,11 +106,11 @@ namespace MVZ2.GameContent.HeldItems
                     break;
             }
         }
-        public override NamespaceID GetModelID(LevelEngine level, long id)
+        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.swordHeldItem;
         }
-        public override float GetRadius()
+        public override float GetRadius(LevelEngine level, IHeldItemData data)
         {
             return 16;
         }

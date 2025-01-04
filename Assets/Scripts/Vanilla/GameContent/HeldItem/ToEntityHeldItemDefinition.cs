@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.HeldItem
         }
 
         #region 实体
-        public override bool CheckRaycast(HeldItemTarget target)
+        public override bool CheckRaycast(HeldItemTarget target, IHeldItemData data)
         {
             switch (target)
             {
@@ -113,8 +113,8 @@ namespace MVZ2.GameContent.HeldItem
                         if (phase != PointerPhase.Press)
                             return;
                         var entity = entityTarget.Target;
-                        UseOnEntity(entity);
                         entity.Level.ResetHeldItem();
+                        UseOnEntity(entity);
                     }
                     break;
                 case HeldItemTargetGrid gridTarget:
@@ -160,11 +160,11 @@ namespace MVZ2.GameContent.HeldItem
                                 entity = carrier;
                             }
                         }
+                        grid.Level.ResetHeldItem();
                         if (CanUseOnEntity(entity))
                         {
                             UseOnEntity(entity);
                         }
-                        grid.Level.ResetHeldItem();
                     }
                     break;
             }

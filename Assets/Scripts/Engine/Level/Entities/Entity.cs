@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -26,13 +27,7 @@ namespace PVZEngine.Entities
             InitSeed = seed;
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
-
-            var auraDefs = definition.GetAuras();
-            for (int i = 0; i < auraDefs.Length; i++)
-            {
-                var auraDef = auraDefs[i];
-                auras.Add(level, new AuraEffect(auraDef, i, this));
-            }
+            CreateAuraEffects();
             UpdateModifierCaches();
         }
         private Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
@@ -786,7 +781,10 @@ namespace PVZEngine.Entities
                 var seriCollider = seri.colliders[i];
                 collider.LoadCollisions(Level, seriCollider);
             }
+            CreateAuraEffects();
             auras.LoadFromSerializable(Level, seri.auras);
+
+            UpdateModifierCaches();
             UpdateAllBuffedProperties();
             Cache.UpdateAll(this);
             UpdateColliders();
@@ -862,6 +860,15 @@ namespace PVZEngine.Entities
             RemoveChildModel(key);
         }
 
+        private void CreateAuraEffects()
+        {
+            var auraDefs = Definition.GetAuras();
+            for (int i = 0; i < auraDefs.Length; i++)
+            {
+                var auraDef = auraDefs[i];
+                auras.Add(Level, new AuraEffect(auraDef, i, this));
+            }
+        }
         private void UpdateModifierCaches()
         {
             foreach (var modifier in Definition.GetModifiers())

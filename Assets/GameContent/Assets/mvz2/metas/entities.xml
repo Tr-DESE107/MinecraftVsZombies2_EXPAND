@@ -364,6 +364,22 @@
             <int name="cost" value="50" />
             <id name="rechargeId" value="mvz2:very_long" />
         </dispenser>
+        <contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力" unlock="mvz2:contraption.force_pad">
+
+            <bool name="upgradeBlueprint" value="true"/>
+
+            <bool name="triggerActive" value="true"/>
+            <bool name="shadowHidden" value="true"/>
+            <bool name="isFloor" value="true"/>
+            <id name="shell" value="mvz2:metal"/>
+            <id name="placement" value="mvz2:upgrade"/>
+            <id name="stackOn" value="mvz2:gravity_pad"/>
+            <vector3 name="size" x="64" y="2" z="64"/>
+            <idArray name="gridLayers" value="mvz2:carrier"/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:very_long" />
+        </contraption>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
@@ -878,5 +894,6 @@
             <vector3 name="size" x="100" y="40" z="40" />
             <id name="modelId" value="mvz2:entity.gas" />
         </effect>
+        <effect id="magnetic_line" />
     </entries>
 </entities>

@@ -75,6 +75,8 @@ namespace MVZ2.Models
             if (!model)
                 return null;
             var child = model.CreateChildModel(anchorName, key, modelID);
+            if (child == null)
+                return null;
             return child.GetParentModelInterface();
         }
         public bool RemoveChildModel(NamespaceID key)

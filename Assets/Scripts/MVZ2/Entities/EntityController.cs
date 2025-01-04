@@ -283,7 +283,7 @@ namespace MVZ2.Entities
             if (definition == null)
                 return false;
             var target = new HeldItemTargetEntity(Entity);
-            return definition.CheckRaycast(target);
+            return definition.CheckRaycast(target, data);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {

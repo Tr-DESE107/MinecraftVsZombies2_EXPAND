@@ -13,13 +13,13 @@ namespace MVZ2Logic.HeldItems
         public HeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public virtual bool CheckRaycast(HeldItemTarget target) => false;
+        public virtual bool CheckRaycast(HeldItemTarget target, IHeldItemData data) => false;
         public virtual HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data) => HeldHighlight.None;
         public virtual void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase) { }
-        public virtual NamespaceID GetModelID(LevelEngine level, long id) => null;
-        public virtual float GetRadius() => 0;
+        public virtual NamespaceID GetModelID(LevelEngine level, IHeldItemData data) => null;
+        public virtual float GetRadius(LevelEngine level, IHeldItemData data) => 0;
         public virtual SeedPack GetSeedPack(LevelEngine level, IHeldItemData data) => null;
-        public virtual void Update(LevelEngine level) { }
+        public virtual void Update(LevelEngine level, IHeldItemData data) { }
     }
     public enum LawnArea
     {

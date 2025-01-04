@@ -75,7 +75,7 @@ namespace MVZ2.Vanilla.Level
             }
             return damageOutputs.ToArray();
         }
-        public static NamespaceID GetHeldEntityID(this LevelEngine level)
+        public static NamespaceID GetHeldSeedEntityID(this LevelEngine level)
         {
             var heldType = level.GetHeldItemType();
             var heldDefinition = level.Content.GetHeldItemDefinition(heldType);
@@ -113,6 +113,10 @@ namespace MVZ2.Vanilla.Level
         public static bool IsHoldingTrigger(this LevelEngine level)
         {
             return level.GetHeldItemType() == VanillaHeldTypes.trigger;
+        }
+        public static bool IsHoldingEntity(this LevelEngine level, Entity entity)
+        {
+            return level.GetHeldItemType() == VanillaHeldTypes.entity && level.GetHeldItemID() == entity.ID;
         }
         public static void CreatePreviewEnemies(this LevelEngine level, IEnumerable<NamespaceID> spawnsID, Rect region)
         {
