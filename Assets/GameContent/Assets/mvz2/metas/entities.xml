@@ -415,7 +415,7 @@
             <int name="cost" value="125" />
 
             <int name="waterInteraction" value="2"/>
-            <int name="spawnCost" value="5"/>
+            <int name="spawnCost" value="4"/>
             <bool name="canSpawnAtWaterLane" value="true"/>
         </enemy>
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
