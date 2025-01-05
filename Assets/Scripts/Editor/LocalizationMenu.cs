@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.IO.Compression;
 using System.Xml;
 using MukioI18n;
@@ -101,6 +102,29 @@ namespace MVZ2.Editor
             {
                 var id = new NamespaceID(spaceName, tag.ID);
                 AddTranslation(potGenerator, tag.Name, archiveReference, $"Name for archive tag {id}", VanillaStrings.CONTEXT_ARCHIVE_TAG_NAME);
+            }
+            // 商店
+            var storeDocument = LoadMetaXmlDocument(spaceName, "store.xml");
+            var storeList = StoreMetaList.FromXmlNode(storeDocument["store"], spaceName);
+            var storeReference = "Store meta file";
+            foreach (var chatGroup in storeList.Chats)
+            {
+                foreach (var chat in chatGroup.Chats)
+                {
+                    AddTranslation(potGenerator, chat.Text, storeReference, $"Store chat from character {chatGroup.Character}", VanillaStrings.CONTEXT_STORE_TALK);
+                }
+            }
+            foreach (var product in storeList.Products)
+            {
+                var id = new NamespaceID(spaceName, product.ID);
+                foreach (var talk in product.Talks)
+                {
+                    AddTranslation(potGenerator, talk.Text, storeReference, $"Store item description of {id} by character {talk.Character}", VanillaStrings.CONTEXT_STORE_TALK);
+                }
+                foreach (var stage in product.Stages)
+                {
+                    AddTranslation(potGenerator, stage.Text, storeReference, $"Store item text of {id}");
+                }
             }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));

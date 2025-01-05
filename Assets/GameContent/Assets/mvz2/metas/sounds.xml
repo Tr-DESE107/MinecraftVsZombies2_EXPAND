@@ -37,6 +37,9 @@
     <sound name="buzzer" maxCount="4" priority="64">
         <sample path="mvz2:buzzer" weight="1" />
     </sound>
+    <sound name="cash_register">
+        <sample path="mvz2:cash_register" weight="1" />
+    </sound>
     <sound name="chapter_wheel_spin" maxCount="1" priority="0">
         <sample path="mvz2:chapter_wheel_spin" weight="1" />
     </sound>

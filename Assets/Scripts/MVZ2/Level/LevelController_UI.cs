@@ -803,9 +803,14 @@ namespace MVZ2.Level
             isChoosingBlueprints = true;
             choosingBlueprints = orderedBlueprints.ToArray();
 
-            UpdateBlueprintChooseArtifactPanel();
-
             var uiPreset = GetUIPreset();
+            // 制品。
+            var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
+            uiPreset.SetBlueprintChooseArtifactVisible(hasArtifacts);
+            InheritChosenArtifacts();
+            UpdateBlueprintChooseArtifacts();
+
+            // 边缘UI。
             uiPreset.SetBlueprintChooseViewAlmanacButtonActive(Saves.IsAlmanacUnlocked());
             uiPreset.SetBlueprintChooseViewStoreButtonActive(Saves.IsStoreUnlocked());
             uiPreset.SetSideUIVisible(true);
@@ -920,6 +925,7 @@ namespace MVZ2.Level
                 isOpeningStore = false;
                 levelCamera.gameObject.SetActive(true);
                 level.UpdatePersistentLevelUnlocks();
+                UpdateBlueprintChooseArtifacts();
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
                     Music.Play(VanillaMusicID.choosing);
             });
@@ -1145,20 +1151,45 @@ namespace MVZ2.Level
         #endregion
 
         #region 制品
-        private void UpdateBlueprintChooseArtifactPanel()
+        private void InheritChosenArtifacts()
         {
-            var uiPreset = GetUIPreset();
-            var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
             int artifactCount = level.GetArtifactSlotCount();
-            uiPreset.SetBlueprintChooseArtifactVisible(hasArtifacts);
-            uiPreset.ResetBlueprintChooseArtifactCount(artifactCount);
             chosenArtifacts = new NamespaceID[artifactCount];
             for (int i = 0; i < chosenArtifacts.Length; i++)
             {
                 var artifact = level.GetArtifactAt(i);
                 var def = artifact?.Definition;
                 chosenArtifacts[i] = def?.GetID();
-                var sprite = GetArtifactIcon(def);
+            }
+        }
+        private void RemapChosenArtifacts(int count)
+        {
+            var newArray = new NamespaceID[count];
+            if (chosenArtifacts != null)
+            {
+                var max = Mathf.Min(chosenArtifacts.Length, count);
+                for (int i = 0; i < max; i++)
+                {
+                    newArray[i] = chosenArtifacts[i];
+                }
+            }
+            chosenArtifacts = newArray;
+        }
+        private void UpdateBlueprintChooseArtifacts()
+        {
+            var uiPreset = GetUIPreset();
+            int artifactCount = level.GetArtifactSlotCount();
+            uiPreset.ResetBlueprintChooseArtifactCount(artifactCount);
+
+            if (chosenArtifacts == null || artifactCount != chosenArtifacts.Length)
+            {
+                RemapChosenArtifacts(artifactCount);
+            }
+
+            for (int i = 0; i < chosenArtifacts.Length; i++)
+            {
+                var artifactID = chosenArtifacts[i];
+                var sprite = GetArtifactIcon(artifactID);
                 var artifactViewData = new ArtifactViewData()
                 {
                     sprite = sprite,

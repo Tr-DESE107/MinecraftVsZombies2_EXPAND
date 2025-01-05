@@ -43,11 +43,11 @@ namespace MVZ2.Almanacs
             bool interactable = false;
             string text = string.Empty;
 
-            var stage = GetCurrentProductStage(id);
+            var stage = GetCurrentProductStage(productMeta);
             if (stage != null)
             {
-                bool soldout = Main.SaveManager.IsUnlocked(stage.Unlocks);
-                price = string.Format("{0:#,#}", stage.Price);
+                bool soldout = IsSoldout(stage);
+                price = stage.Price.ToString("N0");
                 interactable = !soldout;
                 var textKey = soldout ? PRODUCT_SOLDOUT : stage.Text;
                 if (!string.IsNullOrEmpty(textKey))
@@ -66,9 +66,8 @@ namespace MVZ2.Almanacs
                 text = text
             };
         }
-        public ProductStageMeta GetCurrentProductStage(NamespaceID productId)
+        public ProductStageMeta GetCurrentProductStage(ProductMeta productMeta)
         {
-            var productMeta = Main.ResourceManager.GetProductMeta(productId);
             if (productMeta == null)
                 return null;
             for (int i = 0; i < productMeta.Stages.Length; i++)
@@ -78,11 +77,15 @@ namespace MVZ2.Almanacs
                     continue;
                 if (stage.Conditions != null && !Main.SaveManager.MeetsXMLConditions(stage.Conditions))
                     continue;
-                if (Main.SaveManager.IsUnlocked(stage.Unlocks))
+                if (IsSoldout(stage))
                     continue;
                 return stage;
             }
             return productMeta.Stages.LastOrDefault();
+        }
+        public bool IsSoldout(ProductStageMeta stage)
+        {
+            return Main.SaveManager.IsUnlocked(stage.Unlocks);
         }
         private NamespaceID[] GetIDListByProductOrder(IEnumerable<NamespaceID> idList)
         {
@@ -109,7 +112,7 @@ namespace MVZ2.Almanacs
                 .ToArray();
         }
         [TranslateMsg("商店文本")]
-        public const string PRODUCT_SOLDOUT = "售罄";
+        public const string PRODUCT_SOLDOUT = "<color=red>售罄</color>";
         public MainManager Main => MainManager.Instance;
     }
 }

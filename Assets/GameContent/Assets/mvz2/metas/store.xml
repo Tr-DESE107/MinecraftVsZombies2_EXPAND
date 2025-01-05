@@ -53,7 +53,7 @@
         </product>
         <product id="artifact_slot" sprite="mvz2:products/artifact_slot">
             <talks>
-                <talk character="mvz2:crazy_villager">更多的制品槽！多用神通，私藏无用！</talk>
+                <talk character="mvz2:crazy_villager">更多的制品槽！让你能带更多亮闪闪的小玩意！</talk>
             </talks>
             <stages>
                 <stage text="2 槽" price="20000" unlocks="mvz2:artifact_slot.1"/>

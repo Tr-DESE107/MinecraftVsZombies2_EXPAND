@@ -9,6 +9,7 @@ using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using PVZEngine;
 using Tools;
@@ -21,11 +22,12 @@ namespace MVZ2.Store
         public override void Display()
         {
             base.Display();
-            UpdateProducts();
             page = 0;
+            chatFadeTimeout = 0;
+            UpdateProducts();
             UpdatePage();
             ResetChatTimeout();
-            chatFadeTimeout = 0;
+            UpdateMoney();
             ui.Display();
 
             var presets = Main.ResourceManager.GetAllStorePresets();
@@ -110,7 +112,38 @@ namespace MVZ2.Store
         }
         private void OnProductClickCallback(int index)
         {
-
+            var product = GetCurrentProduct(index);
+            if (!NamespaceID.IsValid(product))
+                return;
+            var productMeta = Main.ResourceManager.GetProductMeta(product);
+            var stage = Main.StoreManager.GetCurrentProductStage(productMeta);
+            if (Main.StoreManager.IsSoldout(stage))
+                return;
+            var price = stage.Price;
+            var money = Main.SaveManager.GetMoney();
+            if (money >= price)
+            {
+                var title = Main.LanguageManager._(PURCHASE);
+                var desc = Main.LanguageManager._(PURCHASE_DESCRIPTION, price);
+                Main.Scene.ShowDialogSelect(title, desc, (purchase) =>
+                {
+                    if (purchase)
+                    {
+                        Main.SaveManager.AddMoney(-price);
+                        Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
+                        Main.SaveManager.Unlock(stage.Unlocks);
+                        Main.SaveManager.SaveModDatas();
+                        UpdateMoney();
+                        UpdatePage();
+                    }
+                });
+            }
+            else
+            {
+                var title = Main.LanguageManager._(INSUFFICIENT_MONEY);
+                var desc = Main.LanguageManager._(INSUFFICIENT_MONEY_DESCRIPTION);
+                Main.Scene.ShowDialogMessage(title, desc);
+            }
         }
         private void UpdateProducts()
         {
@@ -142,6 +175,10 @@ namespace MVZ2.Store
             ui.ShowTalk(message);
             Main.SoundManager.Play2D(chat.Sound);
         }
+        private void UpdateMoney()
+        {
+            ui.SetMoney(Main.SaveManager.GetMoney().ToString("N0"));
+        }
         private NamespaceID GetCurrentProduct(int index)
         {
             var i = page * productsPerPage + index;
@@ -161,6 +198,14 @@ namespace MVZ2.Store
         }
         public event Action OnReturnClick;
 
+        [TranslateMsg("商店对话框标题")]
+        public const string PURCHASE = "购买物品";
+        [TranslateMsg("商店对话框内容，{0}为价格")]
+        public const string PURCHASE_DESCRIPTION = "确定以{0:N0}的价格买下这个物品？";
+        [TranslateMsg("商店对话框标题")]
+        public const string INSUFFICIENT_MONEY = "金钱不足";
+        [TranslateMsg("商店对话框内容")]
+        public const string INSUFFICIENT_MONEY_DESCRIPTION = "你没有足够的金钱！";
         [TranslateMsg("商店的页面计数，{0}为当前页面，{1}为总页面")]
         public const string PAGE_TEMPLATE = "{0}/{1}";
         private MainManager Main => MainManager.Instance;

@@ -15,6 +15,10 @@ namespace MVZ2.Store
             character.SetSpeaking(true);
             character.ResetMotion();
         }
+        public void SetMoney(string money)
+        {
+            moneyPanel.SetMoney(money);
+        }
         public void SetProducts(ProductItemViewData[] viewDatas)
         {
             products.updateList(viewDatas.Length, (i, obj) =>
@@ -100,6 +104,8 @@ namespace MVZ2.Store
         private Button nextPageButton;
         [SerializeField]
         private TextMeshProUGUI pageText;
+        [SerializeField]
+        private MoneyPanel moneyPanel;
         [SerializeField]
         private ElementList products;
     }

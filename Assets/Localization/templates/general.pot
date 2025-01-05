@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-04 12:12+0800\n"
+"POT-Creation-Date: 2025-01-05 03:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -146,6 +146,16 @@ msgstr ""
 msgid "杂项图鉴"
 msgstr ""
 
+#: /MainGame/MainScene/Store/Canvas/Items/Title
+msgctxt "商店界面"
+msgid "商店"
+msgstr ""
+
+#: /MainGame/MainScene/Store/Canvas/ReturnButton/Text
+msgctxt "商店界面"
+msgid "返回"
+msgstr ""
+
 #. 对话档案标题
 #: /MainGame/MainScene/Archive/Canvas/Index/Center/Filter/Contents/Title
 msgid "筛选"
@@ -245,6 +255,11 @@ msgid "进入商店"
 msgstr ""
 
 #. 暂停游戏对话框的标题
+#: /Level/UI/ArtifactSelectCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
+msgid "选择制品"
+msgstr ""
+
+#. 暂停游戏对话框的标题
 #: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
 msgid "游戏暂停"
 msgstr ""
@@ -272,11 +287,6 @@ msgstr ""
 #. 读取游戏失败对话框的标题
 #: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
 msgid "错误"
-msgstr ""
-
-#. 暂停游戏对话框的标题
-#: /Level/UI/DialogCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
-msgid "选择制品"
 msgstr ""
 
 # 教程关指引
@@ -795,6 +805,31 @@ msgstr ""
 msgid "版本{0}"
 msgstr ""
 
+# 商店对话框标题
+#: Scripts\MVZ2\Store\StoreController.cs:201
+msgid "购买物品"
+msgstr ""
+
+# 商店对话框内容，{0}为价格
+#: Scripts\MVZ2\Store\StoreController.cs:203
+msgid "确定以{0:N0}的价格买下这个物品？"
+msgstr ""
+
+# 商店对话框标题
+#: Scripts\MVZ2\Store\StoreController.cs:205
+msgid "金钱不足"
+msgstr ""
+
+# 商店对话框内容
+#: Scripts\MVZ2\Store\StoreController.cs:207
+msgid "你没有足够的金钱！"
+msgstr ""
+
+# 商店的页面计数，{0}为当前页面，{1}为总页面
+#: Scripts\MVZ2\Store\StoreController.cs:209
+msgid "{0}/{1}"
+msgstr ""
+
 # 开始游戏时读取出错，对话框的描述，{0}为错误信息
 #: Scripts\MVZ2\Scene\GameEntrance.cs:136
 msgid ""
@@ -917,48 +952,48 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:510
+#: Scripts\MVZ2\Map\MapController.cs:513
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:512
+#: Scripts\MVZ2\Map\MapController.cs:515
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:514
+#: Scripts\MVZ2\Map\MapController.cs:517
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:516
+#: Scripts\MVZ2\Map\MapController.cs:519
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:564
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:567
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:566
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:569
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:568
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:571
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:570
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:573
 msgid "确认要退出吗？"
 msgstr ""
 
@@ -974,34 +1009,34 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1144
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1258
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1146
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1260
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1148
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1262
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:1150
+#: Scripts\MVZ2\Level\LevelController_UI.cs:1264
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:224
+#: Scripts\MVZ2\Archive\ArchiveController.cs:229
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:226
+#: Scripts\MVZ2\Archive\ArchiveController.cs:231
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -1029,6 +1064,11 @@ msgstr ""
 #: Scripts\MVZ2\Almanac\AlmanacController.cs:312
 msgctxt "almanac"
 msgid "<color=blue>只能放在水上</color>"
+msgstr ""
+
+# 商店文本
+#: Scripts\MVZ2\Store\StoreManager.cs:114
+msgid "<color=red>售罄</color>"
 msgstr ""
 
 #. Name for stage mvz2:debug
@@ -1299,5 +1339,147 @@ msgstr ""
 #: Archive meta file
 msgctxt "archive.tagname"
 msgid "地图对话"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "Whaddaya Buyin'?"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我吃地上的东西！"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "倒吊人今天会带给你好运！"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "你根本不知道在海的这边泥土有多值钱！"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "周三打烊！"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "一个人前进太危险了，把你的钱都给我吧！"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "这个地毯可是非卖品！"
+msgstr ""
+
+#. Store chat from character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "有人放彩色石头的悬崖下面通常有好东西！"
+msgstr ""
+
+#. Store item description of mvz2:blueprint_slot by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
+msgstr ""
+
+#. Store item text of mvz2:blueprint_slot
+#: Store meta file
+msgid "7 槽"
+msgstr ""
+
+#. Store item text of mvz2:blueprint_slot
+#: Store meta file
+msgid "8 槽"
+msgstr ""
+
+#. Store item text of mvz2:blueprint_slot
+#: Store meta file
+msgid "9 槽"
+msgstr ""
+
+#. Store item text of mvz2:blueprint_slot
+#: Store meta file
+msgid "10 槽"
+msgstr ""
+
+#. Store item description of mvz2:starshard_slot by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "更多的星之碎片槽！让你的器械爆发吧！"
+msgstr ""
+
+#. Store item text of mvz2:starshard_slot
+#: Store meta file
+msgid "4 槽"
+msgstr ""
+
+#. Store item text of mvz2:starshard_slot
+#: Store meta file
+msgid "5 槽"
+msgstr ""
+
+#. Store item description of mvz2:artifact_slot by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "更多的制品槽！让你能带更多亮闪闪的小玩意！"
+msgstr ""
+
+#. Store item text of mvz2:artifact_slot
+#: Store meta file
+msgid "2 槽"
+msgstr ""
+
+#. Store item text of mvz2:artifact_slot
+#: Store meta file
+msgid "3 槽"
+msgstr ""
+
+#. Store item description of mvz2:infectenser by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "把传染发射器放在小型发射器上，让它发射的子弹能够在敌人之间传播！"
+msgstr ""
+
+#. Store item description of mvz2:force_pad by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "把传动力板放在重力板上，让它能够操纵上方子弹和敌人的位置！"
+msgstr ""
+
+#. Store item description of mvz2:hoe by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我以前用过的锄头！每场战斗它都能杀死最开始出现的那只怪物！"
+msgstr ""
+
+#. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得300能量，但是会出现原先3倍多的敌人！"
+msgstr ""
+
+#. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "科学怪人的怪物的心脏！你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！"
+msgstr ""
+
+#. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！"
 msgstr ""
 

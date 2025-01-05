@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-04 12:16+0800\n"
+"POT-Creation-Date: 2025-01-05 03:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -878,7 +878,7 @@ msgstr ""
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时拥有300点能量，但敌人出现数量变为300%。</color>"
+msgid "效果：<color=red>开始战斗时获得300点能量，但敌人出现数量变为300%。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:pagoda_branch
@@ -1341,6 +1341,26 @@ msgid ""
 "这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
 "当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
 "你该学学语文了。"
+msgstr ""
+
+#. Name for misc mvz2:ender_chest
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "末影箱"
+msgstr ""
+
+#. Header for misc mvz2:ender_chest
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "末影箱可以将村民的存货取出来，并让他重新开张商店。"
+msgstr ""
+
+#. Flavor for misc mvz2:ender_chest
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"“打怪就能拿到的末影箱？你从哪儿拿来的？”\n"
+"“梦里。”"
 msgstr ""
 
 #. Name for misc mvz2:nightmare_box
@@ -1928,6 +1948,12 @@ msgctxt "entity.name"
 msgid "星之碎片"
 msgstr ""
 
+#. Name for character mvz2:steve
+#: Character meta file
+msgctxt "character.name"
+msgid "史蒂夫"
+msgstr ""
+
 #. Name for character mvz2:crazy_villager
 #: Character meta file
 msgctxt "character.name"
@@ -2003,7 +2029,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时拥有300能量，但敌人数量变为300%"
+msgid "战斗开始时获得300能量，但敌人数量变为300%"
 msgstr ""
 
 #. Name for artifact mvz2:dream_butterfly

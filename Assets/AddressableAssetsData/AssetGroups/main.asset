@@ -1810,6 +1810,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 603c3eb6844364544ad2bc4aef2d0240
+    m_Address: mvz2:cash_register
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6095a96fe9b0021419be1746f4e90d1d
     m_Address: mvz2:power_on
     m_ReadOnly: 0
@@ -3617,7 +3623,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7f50d8658623a44886293ea828537fd
-    m_Address: mvz2:ui/store/store_background
+    m_Address: mvz2:store/background_village
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
