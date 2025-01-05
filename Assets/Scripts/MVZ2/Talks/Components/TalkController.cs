@@ -636,36 +636,7 @@ namespace MVZ2.Talk
         }
         public void CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
         {
-            Sprite sprite;
-            Vector2 widthExtend = Vector2.zero;
-            if (!NamespaceID.IsValid(variant))
-            {
-                sprite = Main.ResourceManager.GetCharacterSprite(characterId);
-                var meta = Main.ResourceManager.GetCharacterMeta(characterId);
-                var variantMeta = meta.variants.FirstOrDefault();
-                if (variantMeta != null)
-                {
-                    widthExtend = variantMeta.widthExtend;
-                }
-            }
-            else
-            {
-                sprite = Main.ResourceManager.GetCharacterSprite(characterId, variant);
-                var meta = Main.ResourceManager.GetCharacterMeta(characterId);
-                var variantMeta = meta.variants.FirstOrDefault(v => v.id == variant);
-                if (variantMeta != null)
-                {
-                    widthExtend = variantMeta.widthExtend;
-                }
-            }
-
-            var viewData = new TalkCharacterViewData()
-            {
-                name = characterId?.ToString(),
-                side = side,
-                sprite = sprite,
-                widthExtend = widthExtend
-            };
+            var viewData = Main.ResourceManager.GetCharacterViewData(characterId, variant, side);
             ui.CreateCharacter(viewData);
             characterList.Add(new CharacterData()
             {

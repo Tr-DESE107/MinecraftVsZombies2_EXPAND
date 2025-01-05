@@ -12,6 +12,7 @@ using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.Note;
 using MVZ2.Save;
+using MVZ2.Store;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -162,6 +163,16 @@ namespace MVZ2.Scenes
                 almanac.OnReturnClick -= OnReturn;
             }
         }
+        public void DisplayStore(Action onReturn)
+        {
+            DisplayPage(MainScenePageType.Store);
+            store.OnReturnClick += OnReturn;
+            void OnReturn()
+            {
+                onReturn?.Invoke();
+                store.OnReturnClick -= OnReturn;
+            }
+        }
         public void DisplayArchive(Action onReturn)
         {
             DisplayPage(MainScenePageType.Archive);
@@ -213,6 +224,7 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Note, note);
             pages.Add(MainScenePageType.Map, map);
             pages.Add(MainScenePageType.Almanac, almanac);
+            pages.Add(MainScenePageType.Store, store);
             pages.Add(MainScenePageType.Archive, archive);
         }
         #endregion
@@ -238,6 +250,8 @@ namespace MVZ2.Scenes
         private ChapterTransitionController chapterTransition;
         [SerializeField]
         private AlmanacController almanac;
+        [SerializeField]
+        private StoreController store;
         [SerializeField]
         private ArchiveController archive;
         [SerializeField]

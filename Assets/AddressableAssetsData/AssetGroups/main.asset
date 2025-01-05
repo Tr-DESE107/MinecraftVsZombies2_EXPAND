@@ -653,6 +653,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27bc220c88500d148ae07c7c22c60e72
+    m_Address: mvz2:pickup/ender_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27e82ff068e4b8a439d196de3631d525
     m_Address: mvz2:cart/minecart
     m_ReadOnly: 0
@@ -859,6 +865,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 329b9a3401e28284e914a54eee51e840
     m_Address: mvz2:entity/pickups/ender_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32bf431d8ac58764cb0070360418c14d
+    m_Address: mvz2:ui/store/product_frame
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2962,6 +2974,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4fb4d341a16ba64cbad7dd992c94206
+    m_Address: mvz2:products/blueprint_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a517e81da420e4941880bb250f059923
     m_Address: mvz2:entity/enemies/bow_texture
     m_ReadOnly: 0
@@ -3412,6 +3430,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b944e3154656ac74f8054ed14cb53335
+    m_Address: mvz2:products/starshard_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9c39bb1453520844927684f519182e9
     m_Address: mvz2:sounds
     m_ReadOnly: 0
@@ -3465,6 +3489,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: beb139d5d07db39408272c27eaea0034
+    m_Address: mvz2:products/obsidian_first_aid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle
@@ -3585,6 +3615,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7f50d8658623a44886293ea828537fd
+    m_Address: mvz2:ui/store/store_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c833ac401af4ce44c872c8fe55574646
     m_Address: mvz2:mainmenu/birch_planks
@@ -4359,6 +4395,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef1e58ae80f487446bacfef20bc8db9c
+    m_Address: mvz2:store
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef8e70ac08eeb9a4aa57ec0abfff3b47
     m_Address: mvz2:icons/short_circuited

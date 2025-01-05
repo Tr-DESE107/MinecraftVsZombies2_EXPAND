@@ -6,6 +6,7 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -150,7 +151,7 @@ namespace MVZ2.GameContent.Implements
                         case 0:
                             game.AddMoney(-750);
                             game.Unlock(VanillaUnlockID.blueprintSlot1);
-                            level.SetSeedSlotCount(game.GetBlueprintSlots());
+                            level.UpdatePersistentLevelUnlocks();
                             system.StartSection(3);
                             level.SetMoneyFade(true);
                             break;

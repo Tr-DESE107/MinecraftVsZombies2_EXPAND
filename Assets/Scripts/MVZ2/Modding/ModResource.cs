@@ -25,6 +25,7 @@ namespace MVZ2.Modding
         public AreaMetaList AreaMetaList { get; set; }
         public StatMetaList StatMetaList { get; set; }
         public AchievementMetaList AchievementMetaList { get; set; }
+        public StoreMetaList StoreMetaList { get; set; }
         public MusicMetaList MusicMetaList { get; set; }
         public ArchiveMetaList ArchiveMetaList { get; set; }
         public MainmenuViewMetaList MainmenuViewMetaList { get; set; }

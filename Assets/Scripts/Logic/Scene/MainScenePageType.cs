@@ -8,6 +8,7 @@
         Note,
         Map,
         Almanac,
+        Store,
         Archive
     }
 }

@@ -135,6 +135,7 @@ namespace MVZ2.Map
                     Main.Scene.DisplayAlmanac(() => Main.Scene.DisplayMap(MapID));
                     break;
                 case MapUI.ButtonType.Store:
+                    Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID));
                     break;
                 case MapUI.ButtonType.Setting:
                     ui.SetOptionsDialogActive(true);

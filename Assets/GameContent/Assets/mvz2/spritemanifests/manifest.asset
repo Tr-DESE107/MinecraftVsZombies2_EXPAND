@@ -65,6 +65,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ef8e70ac08eeb9a4aa57ec0abfff3b47, type: 3}
   - name: icons/sleeping
     sprite: {fileID: 21300000, guid: cac832a88b0c87445b15d989123caa7a, type: 3}
+  - name: icons/z
+    sprite: {fileID: 21300000, guid: b4afc6a6c73738d48818d19fcc98eab8, type: 3}
   - name: level/light
     sprite: {fileID: 21300000, guid: 4b231be250a3cbf49a9bb3175eeca43c, type: 3}
   - name: level/shadow
@@ -185,6 +187,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8f85d3d605c8bf34b9c860577f50ba8c, type: 3}
   - name: note/prologue
     sprite: {fileID: 21300000, guid: 32f36e28f5381c345b9988e80c40ee5a, type: 3}
+  - name: products/blueprint_slot
+    sprite: {fileID: 21300000, guid: a4fb4d341a16ba64cbad7dd992c94206, type: 3}
+  - name: products/obsidian_first_aid
+    sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
+  - name: products/starshard_slot
+    sprite: {fileID: 21300000, guid: b944e3154656ac74f8054ed14cb53335, type: 3}
   - name: starshards/default
     sprite: {fileID: 21300000, guid: 5fe877b614795e144996e5d0ede65e81, type: 3}
   - name: starshards/dream
@@ -197,6 +205,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e8196c198b390f343b2370b0aa2c81b3, type: 3}
   - name: starshard_rings/halloween
     sprite: {fileID: 21300000, guid: b71a3502ba3935b49a514559f8734478, type: 3}
+  - name: store/background_village
+    sprite: {fileID: 21300000, guid: c7f50d8658623a44886293ea828537fd, type: 3}
   - name: talk/speech_bubble
     sprite: {fileID: 21300000, guid: da0c5367a9a28744296833a41ea6087a, type: 3}
   - name: talk/speech_bubble_center
@@ -229,6 +239,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 65b141497a801624881cf387625a6801, type: 3}
   - name: entity/contraptions/dream_crystal_supernatural
     sprite: {fileID: 21300000, guid: f6655a00eb7e10343929a4e216bb0f2b, type: 3}
+  - name: entity/contraptions/dream_rainbow
+    sprite: {fileID: 21300000, guid: 16a5d5b9d17ccb14bbd97dd03a234894, type: 3}
   - name: entity/contraptions/dream_silk
     sprite: {fileID: 21300000, guid: 45e4ec0a78ad63e4da7576e9c122689c, type: 3}
   - name: entity/contraptions/drivenser_blocker
@@ -241,6 +253,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 87605de12ede6fe43818bbbae557666e, type: 3}
   - name: entity/contraptions/gravity_pad
     sprite: {fileID: 21300000, guid: 3fd63c7920860ce4f8bc0be1188ae567, type: 3}
+  - name: entity/contraptions/halo
+    sprite: {fileID: 21300000, guid: efce82eceb86bb44f90591042d0607b3, type: 3}
   - name: entity/contraptions/lily_pad
     sprite: {fileID: 21300000, guid: e81ac283d392c4f40badaaf0d30184b2, type: 3}
   - name: entity/contraptions/magichest_flash
@@ -293,10 +307,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a6593d9123fd3ed40b97b320a74e5da3, type: 3}
   - name: entity/effects/soulfire_particle
     sprite: {fileID: 21300000, guid: 7f3395beab3ab1e48af75779a006eae7, type: 3}
+  - name: entity/effects/speed_line
+    sprite: {fileID: 21300000, guid: e94aed10d8dd86742a549eb789938806, type: 3}
   - name: entity/effects/star
     sprite: {fileID: 21300000, guid: 9274a6de61534f940b4da30c3fffcb67, type: 3}
   - name: entity/effects/thunder_bolt
     sprite: {fileID: 21300000, guid: 498cfe5e32569bc43ae84fc47f7622ce, type: 3}
+  - name: entity/effects/vortex
+    sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
   - name: entity/enemies/bow_texture
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
   - name: entity/enemies/ghost_headwear
@@ -469,6 +487,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1e784c0427ce232488fd2f10b6bee02f, type: 3}
   - name: ui/level/starshard_slot
     sprite: {fileID: 21300000, guid: b626708772b5ae44699b01c650dcf73f, type: 3}
+  - name: ui/level/target
+    sprite: {fileID: 21300000, guid: 86b752a5e2100d84ab9e7af262138b91, type: 3}
   - name: ui/level/wallet
     sprite: {fileID: 21300000, guid: f1aefc59239478744b6bdc884a1fc842, type: 3}
   - name: ui/map/map_back_button
@@ -479,6 +499,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7bb8171db9a35d847a0d278960512921, type: 3}
   - name: ui/map/map_drag_mark
     sprite: {fileID: 21300000, guid: 4d1a02ea98fa8a440b49d3871b5d0dff, type: 3}
+  - name: ui/store/product_frame
+    sprite: {fileID: 21300000, guid: 32bf431d8ac58764cb0070360418c14d, type: 3}
   - name: ui/level/mobile/card_curtain
     sprite: {fileID: 21300000, guid: 47f64bb4f9829ae49a99df91e2c19d03, type: 3}
   - name: ui/level/mobile/energy_slot
@@ -773,6 +795,9 @@ MonoBehaviour:
     - {fileID: -1758956819, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
     - {fileID: -2083500495, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
     - {fileID: 552944845, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
+  - name: entity/contraption/infectenser
+    spritesheet:
+    - {fileID: 21300000, guid: d8130bf7140daa14a9605dddcd5bd851, type: 3}
   - name: entity/contraption/loms
     spritesheet:
     - {fileID: -650657220, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
@@ -911,6 +936,16 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 3d38c1fa4b0e4e641a7bb81ade3dad97, type: 3}
     - {fileID: 21300006, guid: 3d38c1fa4b0e4e641a7bb81ade3dad97, type: 3}
     - {fileID: 21300008, guid: 3d38c1fa4b0e4e641a7bb81ade3dad97, type: 3}
+  - name: entity/effect/potion_effect
+    spritesheet:
+    - {fileID: -6943993630033444682, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: 7819721605700150638, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: 1094775304052101240, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: -2822187975118499220, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: -2191958049455821397, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: 7916453395666619620, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: -5368731407951122825, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
+    - {fileID: 1220999004488155858, guid: aa0f21a4d0383d14187681560eb75815, type: 3}
   - name: entity/effect/smoke
     spritesheet:
     - {fileID: 21300000, guid: ef0c4e33486bc0b44bd32da3f6b7c34f, type: 3}

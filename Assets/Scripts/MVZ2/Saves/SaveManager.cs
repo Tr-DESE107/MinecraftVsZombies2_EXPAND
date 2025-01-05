@@ -176,6 +176,10 @@ namespace MVZ2.Saves
         {
             return unlockedArtifactsCache.ToArray();
         }
+        public NamespaceID[] GetUnlockedProducts()
+        {
+            return unlockedProductsCache.ToArray();
+        }
 
         #endregion
 
@@ -292,6 +296,7 @@ namespace MVZ2.Saves
         {
             EvaluateUnlockedEntities();
             EvaluateUnlockedArtifacts();
+            EvaluateUnlockedProducts();
             EvaluateUnlockedAchievements(initial);
         }
         private void EvaluateUnlockedArtifacts()
@@ -307,6 +312,21 @@ namespace MVZ2.Saves
                 if (NamespaceID.IsValid(meta.Unlock) && !IsUnlocked(meta.Unlock))
                     continue;
                 unlockedArtifactsCache.Add(id);
+            }
+        }
+        private void EvaluateUnlockedProducts()
+        {
+            unlockedProductsCache.Clear();
+            var resourceManager = Main.ResourceManager;
+            var productsID = resourceManager.GetAllProductsID();
+            foreach (var id in productsID)
+            {
+                var meta = resourceManager.GetProductMeta(id);
+                if (meta == null)
+                    continue;
+                if (NamespaceID.IsValid(meta.Required) && !IsUnlocked(meta.Required))
+                    continue;
+                unlockedProductsCache.Add(id);
             }
         }
         private void EvaluateUnlockedEntities()
@@ -353,6 +373,7 @@ namespace MVZ2.Saves
         private List<NamespaceID> unlockedContraptionsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedEnemiesCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedArtifactsCache = new List<NamespaceID>();
+        private List<NamespaceID> unlockedProductsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedAchievementsCache = new List<NamespaceID>();
         #endregion
     }

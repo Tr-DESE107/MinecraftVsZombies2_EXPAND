@@ -1,0 +1,125 @@
+<store>
+    <presets>
+        <preset id="village" character="mvz2:crazy_villager" background="mvz2:store/background_village" music="mvz2:mainmenu" priority="0"/>
+    </presets>
+    <chats>
+        <group character="mvz2:crazy_villager">
+            <chat sound="mvz2:villager_short2">Whaddaya Buyin'?</chat>
+            <chat sound="mvz2:villager_short3">我吃地上的东西！</chat>
+            <chat sound="mvz2:villager_long1">倒吊人今天会带给你好运！</chat>
+            <chat sound="mvz2:villager_long2">你根本不知道在海的这边泥土有多值钱！</chat>
+            <chat sound="mvz2:villager_short1">周三打烊！</chat>
+            <chat sound="mvz2:villager_long3">一个人前进太危险了，把你的钱都给我吧！</chat>
+            <chat sound="mvz2:villager_scream1">这个地毯可是非卖品！</chat>
+            <chat sound="mvz2:villager_extra_long1">有人放彩色石头的悬崖下面通常有好东西！</chat>
+        </group>
+    </chats>
+    <products>
+        <product id="blueprint_slot" sprite="mvz2:products/blueprint_slot">
+            <talks>
+                <talk character="mvz2:crazy_villager">额外的蓝图槽！让你能在战斗中多携带一个器械！</talk>
+            </talks>
+            <stages>
+                <stage text="7 槽" price="750" unlocks="mvz2:blueprint_slot.1"/>
+                <stage text="8 槽" price="5000" unlocks="mvz2:blueprint_slot.2">
+                    <conditions>
+                        <condition required="mvz2:blueprint_slot.1"/>
+                    </conditions>
+                </stage>
+                <stage text="9 槽" price="20000" unlocks="mvz2:blueprint_slot.3">
+                    <conditions>
+                        <condition required="mvz2:blueprint_slot.2"/>
+                    </conditions>
+                </stage>
+                <stage text="10 槽" price="80000" unlocks="mvz2:blueprint_slot.4">
+                    <conditions>
+                        <condition required="mvz2:blueprint_slot.3"/>
+                    </conditions>
+                </stage>
+            </stages>
+        </product>
+        <product id="starshard_slot" sprite="mvz2:products/starshard_slot">
+            <talks>
+                <talk character="mvz2:crazy_villager">更多的星之碎片槽！让你的器械爆发吧！</talk>
+            </talks>
+            <stages>
+                <stage text="4 槽" price="5000" unlocks="mvz2:starshard_slot.1"/>
+                <stage text="5 槽" price="20000" unlocks="mvz2:starshard_slot.2">
+                    <conditions>
+                        <condition required="mvz2:starshard_slot.1"/>
+                    </conditions>
+                </stage>
+            </stages>
+        </product>
+        <product id="artifact_slot" sprite="mvz2:products/artifact_slot">
+            <talks>
+                <talk character="mvz2:crazy_villager">更多的制品槽！多用神通，私藏无用！</talk>
+            </talks>
+            <stages>
+                <stage text="2 槽" price="20000" unlocks="mvz2:artifact_slot.1"/>
+                <stage text="3 槽" price="80000" unlocks="mvz2:artifact_slot.2">
+                    <conditions>
+                        <condition required="mvz2:artifact_slot.1"/>
+                    </conditions>
+                </stage>
+            </stages>
+        </product>
+        <product />
+
+        <product id="infectenser" blueprintId="mvz2:infectenser">
+            <talks>
+                <talk character="mvz2:crazy_villager">把传染发射器放在小型发射器上，让它发射的子弹能够在敌人之间传播！</talk>
+            </talks>
+            <stages>
+                <stage price="5000" unlocks="mvz2:contraption.infectenser"/>
+            </stages>
+        </product>
+        <product id="force_pad" blueprintId="mvz2:force_pad">
+            <talks>
+                <talk character="mvz2:crazy_villager">把传动力板放在重力板上，让它能够操纵上方子弹和敌人的位置！</talk>
+            </talks>
+            <stages>
+                <stage price="5000" unlocks="mvz2:contraption.force_pad"/>
+            </stages>
+        </product>
+        <product />
+        <product />
+        <product />
+        <product />
+        <product />
+        <product />
+
+        <product id="hoe" sprite="mvz2:artifacts/hoe">
+            <talks>
+                <talk character="mvz2:crazy_villager">我以前用过的锄头！每场战斗它都能杀死最开始出现的那只怪物！</talk>
+            </talks>
+            <stages>
+                <stage price="1000" unlocks="mvz2:artifact.hoe"/>
+            </stages>
+        </product>
+        <product id="pagoda_branch" sprite="mvz2:artifacts/pagoda_branch">
+            <talks>
+                <talk character="mvz2:crazy_villager">产自梦境世界的槐树的树枝！你在开始战斗时额外获得300能量，但是会出现原先3倍多的敌人！</talk>
+            </talks>
+            <stages>
+                <stage price="6666" unlocks="mvz2:artifact.pagoda_branch"/>
+            </stages>
+        </product>
+        <product id="the_creatures_heart" sprite="mvz2:artifacts/the_creatures_heart">
+            <talks>
+                <talk character="mvz2:crazy_villager">科学怪人的怪物的心脏！你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.the_creatures_heart"/>
+            </stages>
+        </product>
+        <product id="dark_matter" sprite="mvz2:artifacts/dark_matter" required="mvz2:level.dream_11">
+            <talks>
+                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.dark_matter"/>
+            </stages>
+        </product>
+    </products>
+</store>

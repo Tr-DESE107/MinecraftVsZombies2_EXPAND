@@ -165,7 +165,10 @@ namespace MVZ2.Mainmenu
         {
             main.Scene.DisplayAlmanac(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
         }
-        private void OnStoreButtonClickCallback() { }
+        private void OnStoreButtonClickCallback()
+        {
+            main.Scene.DisplayStore(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+        }
         private void OnMoreMenuButtonClickCallback()
         {
             StartAnimatorTransition(new Vector2(0, -1));

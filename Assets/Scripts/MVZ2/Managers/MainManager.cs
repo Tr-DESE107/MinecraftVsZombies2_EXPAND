@@ -202,6 +202,7 @@ namespace MVZ2.Managers
         public ResolutionManager ResolutionManager => resolution;
         public SceneLoadingManager SceneManager => sceneLoadingManager;
         public AlmanacManager AlmanacManager => almanacManager;
+        public StoreManager StoreManager => storeManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -246,6 +247,8 @@ namespace MVZ2.Managers
         private SceneLoadingManager sceneLoadingManager;
         [SerializeField]
         private AlmanacManager almanacManager;
+        [SerializeField]
+        private StoreManager storeManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

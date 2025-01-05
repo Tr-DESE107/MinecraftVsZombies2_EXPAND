@@ -73,6 +73,7 @@ namespace MVZ2.Managers
             achievementCacheDict.Clear();
             mainmenuViewCacheDict.Clear();
             artifactsCacheDict.Clear();
+            ClearResources_Store();
             difficultyCache.Clear();
             noteCache.Clear();
         }
@@ -116,6 +117,7 @@ namespace MVZ2.Managers
             {
                 artifactsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
+            PostLoadMod_Store(modNamespace, modResource);
             foreach (var meta in modResource.DifficultyMetaList.metas)
             {
                 difficultyCache.Add(new NamespaceID(modNamespace, meta.id));

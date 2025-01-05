@@ -56,6 +56,10 @@ namespace MVZ2.Talk
             if (spr)
                 imageRectTransform.pivot = spr.pivot / spr.rect.size;
         }
+        public void ResetMotion()
+        {
+            blendValue = 0;
+        }
         private void Update()
         {
             if (leaving)

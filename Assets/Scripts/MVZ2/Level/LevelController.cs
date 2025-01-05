@@ -753,7 +753,7 @@ namespace MVZ2.Level
         }
         private bool IsInputDisabled()
         {
-            return level == null || level.IsCleared || isOpeningAlmanac;
+            return level == null || level.IsCleared || isOpeningAlmanac || isOpeningStore;
         }
 
         private void CreateLevelModel(NamespaceID areaId)
@@ -840,6 +840,7 @@ namespace MVZ2.Level
         private bool isGameStarted;
         private bool isGameOver;
         private bool isOpeningAlmanac;
+        private bool isOpeningStore;
         private bool speedUp;
         private float gameRunTimeModular;
         private NamespaceID killerID;

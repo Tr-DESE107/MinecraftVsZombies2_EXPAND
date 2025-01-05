@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
@@ -435,6 +436,13 @@ namespace MVZ2.Vanilla.Level
             if (grid == null)
                 return false;
             return grid.IsWater();
+        }
+        public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
+        {
+            var game = Global.Game;
+            level.SetSeedSlotCount(game.GetBlueprintSlots());
+            level.SetStarshardSlotCount(game.GetStarshardSlots());
+            level.SetArtifactSlotCount(game.GetArtifactSlots());
         }
     }
 }

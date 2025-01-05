@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Talk;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
+using static UnityEditor.UIElements.ToolbarMenu;
+using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Managers
 {
@@ -57,6 +61,38 @@ namespace MVZ2.Managers
             if (variant == null)
                 return null;
             return variant.sprite;
+        }
+        public TalkCharacterViewData GetCharacterViewData(NamespaceID characterID, NamespaceID variantID, CharacterSide side)
+        {
+            Sprite sprite;
+            Vector2 widthExtend = Vector2.zero;
+            if (!NamespaceID.IsValid(variantID))
+            {
+                sprite = Main.ResourceManager.GetCharacterSprite(characterID);
+                var meta = Main.ResourceManager.GetCharacterMeta(characterID);
+                var variantMeta = meta.variants.FirstOrDefault();
+                if (variantMeta != null)
+                {
+                    widthExtend = variantMeta.widthExtend;
+                }
+            }
+            else
+            {
+                sprite = Main.ResourceManager.GetCharacterSprite(characterID, variantID);
+                var meta = Main.ResourceManager.GetCharacterMeta(characterID);
+                var variantMeta = meta.variants.FirstOrDefault(v => v.id == variantID);
+                if (variantMeta != null)
+                {
+                    widthExtend = variantMeta.widthExtend;
+                }
+            }
+            return new TalkCharacterViewData()
+            {
+                name = characterID?.ToString(),
+                side = side,
+                sprite = sprite,
+                widthExtend = widthExtend
+            };
         }
         public Sprite GenerateCharacterVariantSprite(NamespaceID character, NamespaceID variantID)
         {

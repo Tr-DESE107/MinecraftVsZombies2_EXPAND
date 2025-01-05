@@ -101,14 +101,12 @@ namespace MVZ2.Level
 
             UpdateDifficulty();
             UpdateEnergy();
-
-            var seedSlots = Saves.GetBlueprintSlots();
-            level.SetSeedSlotCount(seedSlots);
-            level.SetArtifactSlotCount(Saves.GetArtifactSlots());
+            level.UpdatePersistentLevelUnlocks();
 
             var unlocked = Saves.GetUnlockedContraptions();
 
-            if (unlocked.Length > seedSlots && level.NeedBlueprints())
+            var seedSlotCount = level.GetSeedSlotCount();
+            if (unlocked.Length > seedSlotCount && level.NeedBlueprints())
             {
                 // 选卡。
                 var uiPreset = GetUIPreset();
@@ -121,7 +119,7 @@ namespace MVZ2.Level
             }
             else
             {
-                var seedPacks = unlocked.Take(seedSlots).ToArray();
+                var seedPacks = unlocked.Take(seedSlotCount).ToArray();
                 level.ReplaceSeedPacks(seedPacks);
                 yield return GameStartToLawnTransition();
             }

@@ -521,11 +521,11 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintChooseViewAlmanacClickCallback()
         {
-            OpenAlmanac(AlmanacUI.AlmanacPage.Index);
+            OpenAlmanac();
         }
         private void UI_OnBlueprintChooseViewStoreClickCallback()
         {
-
+            OpenStore();
         }
         private void UI_OnBlueprintChooseBlueprintPointerEnterCallback(int index, PointerEventData eventData)
         {
@@ -891,7 +891,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 图鉴
-        private void OpenAlmanac(AlmanacUI.AlmanacPage page)
+        private void OpenAlmanac()
         {
             isOpeningAlmanac = true;
             levelCamera.gameObject.SetActive(false);
@@ -899,12 +899,30 @@ namespace MVZ2.Level
             {
                 isOpeningAlmanac = false;
                 levelCamera.gameObject.SetActive(true);
+                if (!Music.IsPlaying(VanillaMusicID.choosing))
+                    Music.Play(VanillaMusicID.choosing);
             });
         }
         private void OpenEnemyAlmanac(NamespaceID enemyID)
         {
-            OpenAlmanac(AlmanacUI.AlmanacPage.Enemies);
+            OpenAlmanac();
             Main.Scene.DisplayEnemyAlmanac(enemyID);
+        }
+        #endregion
+
+        #region 商店
+        private void OpenStore()
+        {
+            isOpeningStore = true;
+            levelCamera.gameObject.SetActive(false);
+            Main.Scene.DisplayStore(() =>
+            {
+                isOpeningStore = false;
+                levelCamera.gameObject.SetActive(true);
+                level.UpdatePersistentLevelUnlocks();
+                if (!Music.IsPlaying(VanillaMusicID.choosing))
+                    Music.Play(VanillaMusicID.choosing);
+            });
         }
         #endregion
 
