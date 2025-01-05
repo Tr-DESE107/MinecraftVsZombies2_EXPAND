@@ -112,6 +112,7 @@
     <model name="giant_spike" type="entity" path="mvz2:effect/giant_spike" width="16" height="128" xOffset="0" yOffset="0"/>
     <model name="fire_breath" type="entity" path="mvz2:effect/fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="magnetic_line" type="entity" path="mvz2:effect/magnetic_line" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="hoe" type="entity" path="mvz2:effect/hoe" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

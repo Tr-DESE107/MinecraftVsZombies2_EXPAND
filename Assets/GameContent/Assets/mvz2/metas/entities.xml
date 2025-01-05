@@ -898,5 +898,9 @@
             <id name="modelId" value="mvz2:entity.gas" />
         </effect>
         <effect id="magnetic_line" />
+        <effect id="hoe">
+            <float name="gravity" value="1"/>
+            <vector3 name="size" x="20" y="20" z="20" />
+        </effect>
     </entries>
 </entities>

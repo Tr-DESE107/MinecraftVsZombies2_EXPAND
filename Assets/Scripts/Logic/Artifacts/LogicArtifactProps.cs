@@ -4,7 +4,7 @@
     {
         public const string SPRITE_REFERENCE = "spriteReference";
         public const string NUMBER = "number";
-        public const string GRAYSCALE = "grayscale";
+        public const string INACTIVE = "inactive";
         public const string GLOWING = "glowing";
         public static SpriteReference GetSpriteReference(this ArtifactDefinition definition)
         {
@@ -18,9 +18,13 @@
         {
             return artifact.GetProperty<int>(NUMBER);
         }
-        public static bool GetGrayscale(this Artifact artifact)
+        public static void SetInactive(this Artifact artifact, bool value)
         {
-            return artifact.GetProperty<bool>(GRAYSCALE);
+            artifact.SetProperty(INACTIVE, value);
+        }
+        public static bool IsInactive(this Artifact artifact)
+        {
+            return artifact.GetProperty<bool>(INACTIVE);
         }
         public static void SetGlowing(this Artifact artifact, bool value)
         {

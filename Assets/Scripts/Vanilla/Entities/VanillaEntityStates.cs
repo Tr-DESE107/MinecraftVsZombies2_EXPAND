@@ -22,6 +22,8 @@
 
         public const int PICKUP_COLLECTED = 600;
 
+
+
         public const int PUNCHTON_IDLE = IDLE;
         public const int PUNCHTON_PUNCH = ATTACK;
         public const int PUNCHTON_BROKEN = CONTRAPTION_COOLDOWN;
@@ -38,9 +40,13 @@
 
         public const int TOTENSER_FIRE_BREATH = ATTACK;
 
+
+
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
         public const int SPIDER_CLIMB = ENEMY_CAST;
+
+
 
         public const int FRANKENSTEIN_IDLE = IDLE;
         public const int FRANKENSTEIN_JUMP = WALK;
@@ -52,5 +58,9 @@
         public const int FRANKENSTEIN_WAKING = BOSS_APPEAR;
         public const int FRANKENSTEIN_FAINT = BOSS_FAINT;
 
+
+        public const int HOE_IDLE = IDLE;
+        public const int HOE_TRIGGERED = ATTACK;
+        public const int HOE_DAMAGED = DEAD;
     }
 }

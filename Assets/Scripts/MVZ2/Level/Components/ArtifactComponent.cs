@@ -91,7 +91,7 @@ namespace MVZ2.Level.Components
                     icon = Main.GetFinalSprite(artifact.Definition.GetSpriteReference());
                     var number = artifact.GetNumber();
                     numberText = number < 0 ? string.Empty : number.ToString();
-                    grayscale = artifact.GetGrayscale();
+                    grayscale = artifact.IsInactive();
                     glowing = artifact.GetGlowing();
                 }
                 uiPreset.SetArtifactIcon(i, icon);

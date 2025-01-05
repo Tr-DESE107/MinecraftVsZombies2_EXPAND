@@ -2368,6 +2368,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 850d4c9b6833d8047ac10f992af536ff
+    m_Address: mvz2:products/artifact_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85842c2e1aa457b418e743fc8faeae75
     m_Address: mvz2:entity/projectiles/knife
     m_ReadOnly: 0
@@ -3399,6 +3405,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b629659464184aa45ab9aeef29594aa5
+    m_Address: mvz2:effect/hoe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
     m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
