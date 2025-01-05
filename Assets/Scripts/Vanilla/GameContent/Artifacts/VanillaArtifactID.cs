@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID sweetSleepPillow = Get(VanillaArtifactNames.sweetSleepPillow);
         public static readonly NamespaceID darkMatter = Get(VanillaArtifactNames.darkMatter);
         public static readonly NamespaceID hoe = Get(VanillaArtifactNames.hoe);
+        public static readonly NamespaceID pagodaBranch = Get(VanillaArtifactNames.pagodaBranch);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

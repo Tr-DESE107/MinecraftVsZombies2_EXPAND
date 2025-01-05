@@ -88,6 +88,7 @@ namespace MVZ2.GameContent.Buffs
             public const string frankensteinStage = "frankenstein_stage";
             public const string nightmareLevel = "nightmare_level";
             public const string darkMatterDark = "dark_matter_dark";
+            public const string pagodaBranchLevel = "pagoda_branch_level";
         }
         public static class Boss
         {
@@ -132,6 +133,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID levelHard = Get(VanillaBuffNames.Level.levelHard);
             public static readonly NamespaceID tutorialPickaxeDisable = Get(VanillaBuffNames.Level.tutorialPickaxeDisable);
             public static readonly NamespaceID darkMatterDark = Get(VanillaBuffNames.Level.darkMatterDark);
+            public static readonly NamespaceID pagodaBranchLevel = Get(VanillaBuffNames.Level.pagodaBranchLevel);
         }
     }
 }
