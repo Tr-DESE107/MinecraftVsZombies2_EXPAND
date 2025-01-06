@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-05 03:55+0800\n"
-"PO-Revision-Date: 2025-01-05 15:56+0800\n"
+"PO-Revision-Date: 2025-01-06 14:23+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -1393,6 +1393,8 @@ msgstr ""
 msgctxt "store_talk"
 msgid "我以前用过的锄头！每场战斗它都能杀死最开始出现的那只怪物！"
 msgstr ""
+"The hoe I used to use! It can kill the first enemy that appears in every "
+"battle!"
 
 #. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
 #: Store meta file
@@ -1401,6 +1403,8 @@ msgid ""
 "产自梦境世界的槐树的树枝！你在开始战斗时额外获得300能量，但是会出现原先3倍多"
 "的敌人！"
 msgstr ""
+"The branch of a pagoda tree from the Dream World! It gives you 300 more "
+"energy to start with in every battle, but there will be 3 times the enemies!"
 
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
 #: Store meta file
@@ -1409,12 +1413,16 @@ msgid ""
 "科学怪人的怪物的心脏！你的场上每有一个相同的器械，这个器械的能量消耗就会减少"
 "5！"
 msgstr ""
+"The heart of The Creature! For each copy of a contraption you have on the "
+"lawn, the cost of this contraption is decreased by 5!"
 
 #. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
 msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！"
 msgstr ""
+"Dark matter extracted from the Nightmare itself! Contraptions produce at "
+"twice the speed, but the stage will become dark!"
 
 #~ msgctxt "store_talk"
 #~ msgid "更多的制品槽！多用神通，私藏无用！"

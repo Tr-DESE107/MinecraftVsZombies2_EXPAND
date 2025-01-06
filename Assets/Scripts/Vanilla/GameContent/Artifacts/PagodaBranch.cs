@@ -28,6 +28,8 @@ namespace MVZ2.GameContent.Artifacts
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)
             {
+                if (artifact == null)
+                    continue;
                 if (artifact.Definition.GetID() != VanillaArtifactID.pagodaBranch)
                     continue;
                 artifact.Highlight();

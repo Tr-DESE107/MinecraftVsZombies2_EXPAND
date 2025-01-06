@@ -536,9 +536,9 @@ namespace MVZ2.Level
         #region 暂停
         private void UpdateFocusLost(bool focus)
         {
-            if (isPaused)
+            if (IsInputDisabled())
                 return;
-            if (!IsGameStarted())
+            if (!IsGameRunning())
                 return;
             if (focus)
                 return;

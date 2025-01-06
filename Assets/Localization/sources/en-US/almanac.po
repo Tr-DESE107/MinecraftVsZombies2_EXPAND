@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-05 03:32+0800\n"
-"PO-Revision-Date: 2025-01-05 15:48+0800\n"
+"PO-Revision-Date: 2025-01-06 14:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1621,7 +1621,7 @@ msgstr "Ender Chest"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "末影箱可以将村民的存货取出来，并让他重新开张商店。"
-msgstr ""
+msgstr "The ender chest allows the villager to retrieve his stock and reopen his shop."
 
 #. Flavor for misc mvz2:ender_chest
 #: Almanac meta file
@@ -1630,6 +1630,8 @@ msgid ""
 "“打怪就能拿到的末影箱？你从哪儿拿来的？”\n"
 "“梦里。”"
 msgstr ""
+"\"A mob dropped this ender chest? Where'd you get it from?\"\n"
+"\"In your dreams.\""
 
 #. Name for misc mvz2:nightmare_box
 #: Almanac meta file

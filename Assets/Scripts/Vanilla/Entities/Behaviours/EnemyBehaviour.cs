@@ -88,6 +88,8 @@ namespace MVZ2.Vanilla.Entities
                 entity.Remove();
                 return;
             }
+            if (!entity.HasBuff<DamageColorBuff>())
+                entity.AddBuff<DamageColorBuff>();
             entity.PlaySound(entity.GetDeathSound());
         }
         protected virtual bool IsOutsideView(Entity enemy)
