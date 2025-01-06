@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.Talk;
@@ -8,8 +7,6 @@ using MVZ2.TalkData;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
-using static UnityEditor.UIElements.ToolbarMenu;
-using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Managers
 {

@@ -74,7 +74,7 @@ namespace MVZ2.Localization
                 return _p(Vanilla.VanillaStrings.CONTEXT_LANGUAGE_NAME, language);
             }
         }
-        public Sprite GetCurrrentLanguageSprite(Sprite sprite)
+        public Sprite GetCurrentLanguageSprite(Sprite sprite)
         {
             return GetLocalizedSprite(sprite, GetCurrentLanguage());
         }
