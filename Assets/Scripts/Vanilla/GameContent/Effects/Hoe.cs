@@ -1,8 +1,11 @@
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Callbacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Effects
@@ -14,6 +17,7 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public Hoe(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(LogicLevelCallbacks.POST_LEVEL_STOP, PostLevelStopCallback);
         }
         public override void Init(Entity entity)
         {
@@ -72,7 +76,13 @@ namespace MVZ2.GameContent.Effects
             }
         }
         #endregion
-
+        private void PostLevelStopCallback(LevelEngine level)
+        {
+            foreach (var hoe in level.FindEntities(e => e.IsEntityOf(VanillaEffectID.hoe)))
+            {
+                hoe.Remove();
+            }
+        }
         public static bool CanDamage(Entity hoe, Entity target)
         {
             return hoe.IsHostile(target) && target.Type == EntityTypes.ENEMY && hoe.MainHitbox.Intersects(target.MainHitbox);

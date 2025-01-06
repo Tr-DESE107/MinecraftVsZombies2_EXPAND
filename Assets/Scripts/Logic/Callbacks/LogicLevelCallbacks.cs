@@ -11,7 +11,9 @@ namespace MVZ2Logic.Callbacks
     public static class LogicLevelCallbacks
     {
         public delegate void GetBlueprintNotRecommonded(LevelEngine level, NamespaceID blueprintID, TriggerResultBoolean result);
+        public delegate void PostLevelStop(LevelEngine level);
 
         public readonly static CallbackReference<GetBlueprintNotRecommonded> GET_BLUEPRINT_NOT_RECOMMONDED = new();
+        public readonly static CallbackReference<PostLevelStop> POST_LEVEL_STOP = new();
     }
 }
