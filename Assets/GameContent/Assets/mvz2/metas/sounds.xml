@@ -3,6 +3,9 @@
     <sound name="achievement">
         <sample path="mvz2:achievement" weight="1" />
     </sound>
+    <sound name="agnoy">
+        <sample path="mvz2:agnoy" weight="1" />
+    </sound>
     <sound name="anvil">
         <sample path="mvz2:anvil" weight="1" />
     </sound>

@@ -107,6 +107,10 @@ namespace MVZ2.Talk
         {
             foregroundFader.Value = value;
         }
+        public float GetForegroundAlpha()
+        {
+            return foregroundFader.Value;
+        }
         public void StartForegroundFade(float target, float duration)
         {
             foregroundFader.StartFade(target, duration);
@@ -160,9 +164,7 @@ namespace MVZ2.Talk
         #region 事件回调
         private void OnForegroundAlphaChangedCallback(float value)
         {
-            var color = foregroundImage.color;
-            color.a = value;
-            foregroundImage.color = color;
+            foregroundCanvasGroup.alpha = value;
         }
         private void OnForegroundColorChangedCallback(Color value)
         {
@@ -205,9 +207,11 @@ namespace MVZ2.Talk
         [SerializeField]
         private GameObject blockerObject;
         [SerializeField]
-        private Image foregroundImage;
+        private CanvasGroup foregroundCanvasGroup;
         [SerializeField]
         private Image forecolorImage;
+        [SerializeField]
+        private Image foregroundImage;
         [SerializeField]
         private FloatFader foregroundFader;
         [SerializeField]

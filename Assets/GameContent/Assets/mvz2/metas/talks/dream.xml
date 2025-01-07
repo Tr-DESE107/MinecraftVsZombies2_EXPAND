@@ -379,25 +379,16 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">诅咒、是吗？那时……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed_close_eyes">我在找……一样东西。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那是……一匹马。在你们来之前，就已经来到梦境的黑马。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:nightmare_appear;foreground fade 2;delay 1;next">马？</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-我在几个月前、发现了它的存在。</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-那个时候，它仅仅是一匹马而已……当我见到它时，感到非常奇怪，但当时我并没有去深究。</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-所以我才会拼了命的去找到那个东西……</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk">&lt;color=blue&gt;[史蒂夫]&lt;/color&gt;
-然后，你就被诅咒了？</sentence>
-        <sentence speaker="mvz2:bottom" sounds="mvz2:talk" onClick="bubble hide;foreground fade -1;delay 1;next">&lt;color=blue&gt;[哆来咪]&lt;/color&gt;
-没错、在那之后我就变成了现在这样子……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:misc/nightmare_appear;foreground fade 2;delay 1;next">马？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我在几个月前、发现了它的存在。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那个时候，它仅仅是一匹马而已……当我见到它时，感到非常奇怪，但当时我并没有去深究。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">所以我才会拼了命的去找到那个东西……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk">最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">然后，你就被诅咒了？</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onClick="bubble hide;foreground fade -1;delay 1;next">没错、在那之后我就变成了现在这样子……</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">是吗，我们明白了。</sentence>
       </sentences>
     </section>

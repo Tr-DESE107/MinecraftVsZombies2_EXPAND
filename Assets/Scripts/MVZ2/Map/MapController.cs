@@ -470,6 +470,8 @@ namespace MVZ2.Map
                 else if (IsMinigameStage(i))
                     color = buttonColorMinigame;
                 else if (IsEndlessStage(i))
+                    color = buttonColorBoss;
+                else if (IsEndlessStage(i))
                     color = buttonColorEndless;
                 else if (!cleared)
                     color = buttonColorUncleared;
@@ -579,6 +581,8 @@ namespace MVZ2.Map
         private Color buttonColorMinigame = Color.yellow;
         [SerializeField]
         private Color buttonColorLocked = Color.gray;
+        [SerializeField]
+        private Color buttonColorBoss = Color.red;
         [SerializeField]
         private Color buttonColorEndless = Color.magenta;
         [SerializeField]

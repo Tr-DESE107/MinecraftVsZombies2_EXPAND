@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.TalkData;
@@ -597,10 +598,16 @@ namespace MVZ2.Talk
                 var characterData = characterList[speakerIndex];
                 bubbleDirection = GetSpeechBubbleDirectionBySide(characterData.side);
             }
-
             var context = VanillaStrings.GetTalkTextContext(groupID);
             var textKey = sentence.text;
-            ui.SetSpeechBubbleText(Main.LanguageManager._p(context, textKey));
+            var bubbleText = Main.LanguageManager._p(context, textKey);
+            if (ui.GetForegroundAlpha() > 0.1f)
+            {
+                bubbleDirection = SpeechBubbleDirection.Down;
+                var speakerName = Main.ResourceManager.GetCharacterName(speakerID);
+                bubbleText = Main.LanguageManager._p(VanillaStrings.CONTEXT_TALK, FORGROUND_TALK_TEMPLATE, speakerName, bubbleText);
+            }
+            ui.SetSpeechBubbleText(bubbleText);
             ui.SetSpeechBubbleDirection(bubbleDirection);
             ui.SetSpeechBubbleShowing(true);
             ui.ForceReshowSpeechBubble();
@@ -698,6 +705,8 @@ namespace MVZ2.Talk
         #endregion 动作
 
         #region 属性字段
+        [TranslateMsg("前景图生效时的对话模板，{0}为讨论者，{1}为文本")]
+        public const string FORGROUND_TALK_TEMPLATE = "<color=blue>[{0}]</color>\n{1}";
         public bool IsRunningScripts { get; private set; }
         public bool IsTalking { get; private set; }
         public readonly static NamespaceID DEFAULT_VARIANT_ID = new NamespaceID("mvz2", "normal");
