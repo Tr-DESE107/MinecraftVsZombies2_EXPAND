@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.HeldItems
                                     entity.TakeDamageNoSource(750, effects);
                                     if (entity.IsDead)
                                     {
-                                        var screenPos = entity.Level.GetPointerPosition();
+                                        var screenPos = Global.GetPointerScreenPosition();
                                         var pos = entity.Level.ScreenToLawnPositionByZ(screenPos, entity.Position.z);
                                         entity.Level.Spawn(VanillaEffectID.pow, pos, null);
                                     }

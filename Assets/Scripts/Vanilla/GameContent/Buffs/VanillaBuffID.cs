@@ -54,6 +54,7 @@ namespace MVZ2.GameContent.Buffs
         public const string vortexHopperDrag = "vortex_hopper_drag";
         public const string enemyWeakness = "enemy_weakness";
         public const string forcePadDrag = "force_pad_frag";
+        public const string redstoneCarrier = "redstone_carrier";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
@@ -69,6 +70,11 @@ namespace MVZ2.GameContent.Buffs
         public const string easyContraption = "easy_contraption";
         public const string easyArmor = "easy_armor";
         public const string hardEnemy = "hard_enemy";
+
+        public static class Effect 
+        {
+            public const string breakoutBoardUpgrade = "breakout_board_upgrade";
+        }
 
         public static class SeedPack
         {

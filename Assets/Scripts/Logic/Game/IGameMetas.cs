@@ -1,6 +1,7 @@
 ﻿using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 
 namespace MVZ2Logic.Games
@@ -16,5 +17,7 @@ namespace MVZ2Logic.Games
         public IArtifactMeta[] GetModArtifactMetas(string spaceName);
         public IModelMeta GetModelMeta(NamespaceID id);
         public IModelMeta[] GetModModelMetas(string spaceName);
+        public ISeedOptionMeta GetSeedOptionMeta(NamespaceID id);
+        public ISeedOptionMeta[] GetModSeedOptionMetas(string spaceName);
     }
 }

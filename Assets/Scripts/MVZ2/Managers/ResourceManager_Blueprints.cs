@@ -45,7 +45,7 @@ namespace MVZ2.Managers
         {
             if (id == null)
                 return "null";
-            var meta = GetEntityMeta(id);
+            var meta = GetBlueprintOptionMeta(id);
             if (meta == null)
                 return id.ToString();
             var name = meta.Name ?? VanillaStrings.UNKNOWN_OPTION_NAME;

@@ -65,6 +65,8 @@ namespace MVZ2.GameContent.Stages
         public override void PostHugeWaveEvent(LevelEngine level)
         {
             base.PostHugeWaveEvent(level);
+            if (level.IgnoreHugeWaveEvent())
+                return;
             level.AreaDefinition.PostHugeWaveEvent(level);
         }
         public override void PostFinalWaveEvent(LevelEngine level)

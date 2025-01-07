@@ -19,8 +19,8 @@ namespace MVZ2.GameContent.Stages
         public override void Start(LevelEngine level)
         {
             base.Start(level);
-            level.SetStarshardRNG(level.CreateRNG());
-            level.SetStarshardChance(MIN_STARSHARD_CHANCE);
+            SetStarshardRNG(level, level.CreateRNG());
+            SetStarshardChance(level, MIN_STARSHARD_CHANCE);
         }
         public override void PostWave(LevelEngine level, int wave)
         {
@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Stages
             {
                 increament *= 2;
             }
-            level.AddStarshardChance(increament);
+            AddStarshardChance(level, increament);
         }
         public override void PostEnemySpawned(Entity entity)
         {
@@ -38,26 +38,49 @@ namespace MVZ2.GameContent.Stages
             if (!Global.Game.IsStarshardUnlocked())
                 return;
             var level = entity.Level;
-            var chance = level.GetStarshardChance();
+            var chance = GetStarshardChance(level);
             var rng = GetOrCreateStarshardRNG(level);
             var value = rng.Next(100);
             if (value < chance)
             {
                 entity.AddBuff<StarshardCarrierBuff>();
                 chance = Mathf.Max(MIN_STARSHARD_CHANCE, chance + STARSHARD_REDUCTION);
-                level.SetStarshardChance(chance);
+                SetStarshardChance(level, chance);
             }
         }
         public static RandomGenerator GetOrCreateStarshardRNG(LevelEngine level)
         {
-            var rng = level.GetStarshardRNG();
+            var rng = GetStarshardRNG(level);
             if (rng == null)
             {
                 rng = level.CreateRNG();
-                level.SetStarshardRNG(rng);
+                SetStarshardRNG(level, rng);
             }
             return rng;
         }
+        public static RandomGenerator GetStarshardRNG(LevelEngine level)
+        {
+            return level.GetProperty<RandomGenerator>(STARSHARD_RNG);
+        }
+        public static void SetStarshardRNG(LevelEngine level, RandomGenerator value)
+        {
+            level.SetProperty(STARSHARD_RNG, value);
+        }
+        public static int GetStarshardChance( LevelEngine level)
+        {
+            return level.GetProperty<int>(STARSHARD_CHANCE);
+        }
+        public static void SetStarshardChance(LevelEngine level, int value)
+        {
+            level.SetProperty(STARSHARD_CHANCE, value);
+        }
+        public static void AddStarshardChance(LevelEngine level, int value)
+        {
+            SetStarshardChance(level, GetStarshardChance(level) + value);
+        }
+
+        public const string STARSHARD_RNG = "StarshardRNG";
+        public const string STARSHARD_CHANCE = "StarshardChance";
         public const int MIN_STARSHARD_CHANCE = -15;
         public const int STARSHARD_INCREAMENT = 10;
         public const int STARSHARD_REDUCTION = -125;

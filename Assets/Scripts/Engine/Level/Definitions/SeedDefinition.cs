@@ -1,5 +1,6 @@
 ﻿using PVZEngine.Base;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace PVZEngine.Definitions
 {
@@ -9,5 +10,6 @@ namespace PVZEngine.Definitions
         {
             SetProperty(EngineSeedProps.RECHARGE_SPEED, 1);
         }
+        public virtual void Update(SeedPack seedPack, float rechargeSpeed) { }
     }
 }

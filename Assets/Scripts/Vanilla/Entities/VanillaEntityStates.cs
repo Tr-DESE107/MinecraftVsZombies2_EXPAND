@@ -59,6 +59,11 @@
         public const int FRANKENSTEIN_FAINT = BOSS_FAINT;
 
 
+        public const int BREAKOUT_PEARL_IDLE = IDLE;
+        public const int BREAKOUT_PEARL_RETURN = WALK;
+        public const int BREAKOUT_PEARL_FIRED = ATTACK;
+
+
         public const int HOE_IDLE = IDLE;
         public const int HOE_TRIGGERED = ATTACK;
         public const int HOE_DAMAGED = DEAD;

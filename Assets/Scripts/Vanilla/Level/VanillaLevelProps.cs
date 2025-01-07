@@ -104,29 +104,6 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetProperty(VanillaLevelProps.ALL_ENEMIES_CLEARED, value);
         }
-
-        public const string STARSHARD_RNG = "StarshardRNG";
-        public const string STARSHARD_CHANCE = "StarshardChance";
-        public static RandomGenerator GetStarshardRNG(this LevelEngine level)
-        {
-            return level.GetProperty<RandomGenerator>(STARSHARD_RNG);
-        }
-        public static void SetStarshardRNG(this LevelEngine level, RandomGenerator value)
-        {
-            level.SetProperty(STARSHARD_RNG, value);
-        }
-        public static int GetStarshardChance(this LevelEngine level)
-        {
-            return level.GetProperty<int>(STARSHARD_CHANCE);
-        }
-        public static void SetStarshardChance(this LevelEngine level, int value)
-        {
-            level.SetProperty(STARSHARD_CHANCE, value);
-        }
-        public static void AddStarshardChance(this LevelEngine level, int value)
-        {
-            level.SetStarshardChance(level.GetStarshardChance() + value);
-        }
         public const string SPAWN_POINTS = "SpawnPoints";
         public static float GetSpawnPoints(this LevelEngine level)
         {
@@ -136,5 +113,15 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetProperty(SPAWN_POINTS, value);
         }
+        public const string IGNORE_HUGE_WAVE_EVENT = "ignoreHugeWaveEvent";
+        public static bool IgnoreHugeWaveEvent(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(IGNORE_HUGE_WAVE_EVENT);
+        }
+        public static void SetIgnoreHugeWaveEvent(this LevelEngine level, bool value)
+        {
+            level.SetProperty(IGNORE_HUGE_WAVE_EVENT, value);
+        }
+        
     }
 }

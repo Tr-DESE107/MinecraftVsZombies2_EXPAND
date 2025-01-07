@@ -11,6 +11,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -264,6 +265,9 @@ namespace MVZ2.Managers
         IModelMeta IGameMetas.GetModelMeta(NamespaceID id) => GetModelMeta(id);
 
         IModelMeta[] IGameMetas.GetModModelMetas(string spaceName) => GetModModelMetas(spaceName);
+        ISeedOptionMeta IGameMetas.GetSeedOptionMeta(NamespaceID id) => GetBlueprintOptionMeta(id);
+
+        ISeedOptionMeta[] IGameMetas.GetModSeedOptionMetas(string spaceName) => GetModBlueprintOptionMetas(spaceName);
         #endregion
 
         #endregion

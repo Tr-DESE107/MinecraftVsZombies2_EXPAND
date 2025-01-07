@@ -37,11 +37,11 @@ namespace MVZ2.Vanilla
             LoadAreaProperties();
             LoadStageProperties();
             LoadArtifactProperties();
+            LoadSeedOptionProperties();
             AddEntityBehaviours();
             AddOptionSeeds();
 
             ImplementCallbacks(new GemStageImplements());
-            ImplementCallbacks(new StarshardSpawnImplements());
             ImplementCallbacks(new StatsImplements());
             ImplementCallbacks(new EntityImplements());
             ImplementCallbacks(new DifficultyImplements());
@@ -202,6 +202,19 @@ namespace MVZ2.Vanilla
                 {
                     stage.SetProperty(pair.Key, pair.Value);
                 }
+            }
+        }
+        private void LoadSeedOptionProperties()
+        {
+            foreach (var meta in Global.Game.GetModSeedOptionMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var seedOptionDefinition = GetDefinition<SeedOptionDefinition>(new NamespaceID(spaceName, meta.ID));
+                if (seedOptionDefinition == null)
+                    continue;
+                seedOptionDefinition.SetProperty(LogicSeedOptionProps.COST, meta.Cost);
+                seedOptionDefinition.SetProperty(LogicSeedOptionProps.ICON, meta.Icon);
             }
         }
         private void LoadArtifactProperties()

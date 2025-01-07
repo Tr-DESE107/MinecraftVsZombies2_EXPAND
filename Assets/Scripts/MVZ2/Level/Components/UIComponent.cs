@@ -12,10 +12,6 @@ namespace MVZ2.Level.Components
         public UIComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
-        public Vector2 GetPointerPosition()
-        {
-            return Controller.GetPointerScreenPosition();
-        }
         public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
             return Controller.ScreenToLawnPositionByZ(screenPosition, z);

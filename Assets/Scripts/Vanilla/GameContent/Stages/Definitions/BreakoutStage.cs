@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Stages
             SetProperty(VanillaStageProps.AUTO_COLLECT, true);
             AddBehaviour(new WaveStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
-            //AddBehaviour(new RedstoneDropStageBehaviour(this));
+            AddBehaviour(new RedstoneDropStageBehaviour(this));
         }
         public override void OnSetup(LevelEngine level)
         {
@@ -41,6 +41,10 @@ namespace MVZ2.GameContent.Stages
             level.SetPickaxeActive(false);
             level.SetStarshardActive(false);
             level.SetTriggerActive(false);
+        }
+        public override void OnPostHugeWave(LevelEngine level)
+        {
+            base.OnPostHugeWave(level);
         }
         public override void OnUpdate(LevelEngine level)
         {
@@ -67,14 +71,13 @@ namespace MVZ2.GameContent.Stages
             var y = 32;
             var pos = new Vector3(x, y, z);
             var board = level.Spawn(VanillaEffectID.breakoutBoard, pos, null);
-            var pearl = level.Spawn(VanillaProjectileID.breakoutPearl, board.Position + Vector3.right * 40, board);
-            board.Target = pearl;
+            BreakoutBoard.SpawnPearl(board);
             return board;
         }
         private void AddSpeedBuff(Entity entity)
         {
             var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
-            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(1, 3, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
+            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(1, 2, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
     }
 }

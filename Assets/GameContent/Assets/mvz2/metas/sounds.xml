@@ -193,6 +193,9 @@
     <sound name="gargoyle_death">
         <sample path="mvz2:entity/gargoyle/gargoyle_death" weight="1" />
     </sound>
+    <sound name="gem">
+        <sample path="mvz2:gem" weight="1" />
+    </sound>
     <sound name="ghast_cry">
         <sample path="mvz2:entity/ghast/ghast1" weight="1" />
         <sample path="mvz2:entity/ghast/ghast2" weight="1" />
@@ -317,6 +320,9 @@
     </sound>
     <sound name="pause" priority="0">
         <sample path="mvz2:pause" weight="1" />
+    </sound>
+    <sound name="pearl_touch">
+        <sample path="mvz2:pearl_touch" weight="1" />
     </sound>
     <sound name="pick" priority="64">
         <sample path="mvz2:pick" weight="1" />

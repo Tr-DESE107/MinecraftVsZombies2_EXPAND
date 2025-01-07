@@ -1,5 +1,10 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic.Modding;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using UnityEngine;
@@ -12,6 +17,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public StarshardCarrierBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
+            AddTrigger(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, PostEnemyDropRewardsCallback);
         }
 
         public override void PostAdd(Buff buff)
@@ -33,6 +39,15 @@ namespace MVZ2.GameContent.Buffs.Enemies
             alpha *= 0.8f;
             buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, 1, 0, alpha));
             buff.SetProperty(PROP_TIME, time);
+        }
+        private void PostEnemyDropRewardsCallback(Entity enemy)
+        {
+            var buffs = enemy.GetBuffs<StarshardCarrierBuff>();
+            foreach (var buff in buffs)
+            {
+                enemy.Level.Spawn(VanillaPickupID.starshard, enemy.Position, enemy);
+                buff.Remove();
+            }
         }
         public const int MAX_TIME = 60;
         public const string PROP_TIME = "Time";

@@ -16,6 +16,26 @@ namespace MVZ2Logic
         {
             return Main.IsMobile();
         }
+        public static Vector2 GetPointerScreenPosition()
+        {
+            if (Input.touchCount > 0)
+            {
+                return Input.GetTouch(0).position;
+            }
+            return Input.mousePosition;
+        }
+        public static int GetTouchCount()
+        {
+            return Input.touchCount;
+        }
+        public static Vector2 GetTouchDelta(int index)
+        {
+            return Input.GetTouch(index).deltaPosition;
+        }
+        public static Vector2 GetTouchPosition(int index)
+        {
+            return Input.GetTouch(index).position;
+        }
 
         public static Coroutine StartCoroutine(IEnumerator enumerator)
         {

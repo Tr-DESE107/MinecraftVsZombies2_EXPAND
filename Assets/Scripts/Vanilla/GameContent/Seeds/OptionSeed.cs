@@ -1,8 +1,11 @@
 ﻿using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds
 {
@@ -13,6 +16,15 @@ namespace MVZ2.GameContent.Seeds
             SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.OPTION);
             SetProperty(VanillaSeedProps.SEED_OPTION_ID, new NamespaceID(nsp, name));
             SetProperty(EngineSeedProps.COST, cost);
+        }
+        public override void Update(SeedPack seedPack, float rechargeSpeed)
+        {
+            base.Update(seedPack, rechargeSpeed);
+            var optionID = seedPack.Definition.GetSeedOptionID();
+            var optionDef = seedPack.Level.Content.GetSeedOptionDefinition(optionID);
+            if (optionDef == null)
+                return;
+            optionDef.Update(seedPack, rechargeSpeed);
         }
     }
 }

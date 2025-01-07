@@ -327,5 +327,9 @@
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
         </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+            <bool name="noProduction" value="true"/>
+        </properties>
     </stage>
 </stages>

@@ -1,3 +1,4 @@
+using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.HeldItems;
@@ -12,8 +13,8 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using Tools.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -73,30 +74,124 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             var level = entity.Level;
-            var screenPosition = level.GetPointerPosition();
-            var size = entity.GetScaledSize();
-            var position = level.ScreenToLawnPositionByY(screenPosition, 32);
-            position.x = Mathf.Clamp(position.x, MIN_X + size.x * 0.5f, MAX_X - size.x * 0.5f);
-            position.z = Mathf.Clamp(position.z, level.GetGridBottomZ() + size.z * 0.5f, level.GetGridTopZ() - size.z * 0.5f);
+            Vector3 position;
+            if (Global.IsMobile())
+            {
+                if (Global.GetTouchCount() > 0)
+                {
+                    var touchDelta = Global.GetTouchDelta(0);
+                    var touchPosition = Global.GetTouchPosition(0);
+                    var lastScreenPosition = touchPosition - touchDelta;
+                    var pointerPosition = level.ScreenToLawnPositionByY(touchPosition, 32);
+                    var lastPointerPosition = level.ScreenToLawnPositionByY(lastScreenPosition, 32);
+                    position = entity.Position + pointerPosition - lastPointerPosition;
+                }
+                else
+                {
+                    position = entity.Position;
+                }
+            }
+            else
+            {
+                var screenPosition = Global.GetPointerScreenPosition();
+                var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
+                position = pointerPosition;
+            }
+            position.x = Mathf.Clamp(position.x, MIN_X, MAX_X);
+            position.z = Mathf.Clamp(position.z, level.GetGridBottomZ(), level.GetGridTopZ());
             entity.Position = position;
 
+            bool pearlExists = true;
             var target = entity.Target;
             if (target != null && target.Exists())
             {
-                target.Position = entity.Position + Vector3.right * 40;
-                target.Velocity = Vector3.zero;
+                var targetPosition = entity.Position + Vector3.right * 40;
+                if (target.State == VanillaEntityStates.BREAKOUT_PEARL_RETURN)
+                {
+                    target.Velocity = (targetPosition - target.Position) * 0.5f;
+                }
+                else if (target.State == VanillaEntityStates.BREAKOUT_PEARL_IDLE)
+                {
+                    target.Position = targetPosition;
+                    target.Velocity = Vector3.zero;
+                }
             }
             else
             {
                 var pearls = level.FindEntities(VanillaProjectileID.breakoutPearl);
                 if (pearls.Length <= 0)
                 {
-                    var pearl = level.Spawn(VanillaProjectileID.breakoutPearl, entity.Position + Vector3.right * 40, entity);
-                    entity.Target = pearl;
+                    pearlExists = false;
                 }
             }
+            if (!pearlExists)
+            {
+                var countdown = GetRespawnCountdown(entity);
+                countdown--;
+                if (countdown <= 0)
+                {
+                    countdown = MAX_RESPAWN_COUNTDOWN;
+                    SpawnPearl(entity);
+                    entity.SetModelProperty("Countdown", 0);
+                }
+                else
+                {
+                    entity.SetModelProperty("Countdown", countdown);
+                }
+                SetRespawnCountdown(entity, countdown);
+            }
+            else
+            {
+                SetRespawnCountdown(entity, MAX_RESPAWN_COUNTDOWN);
+                entity.SetModelProperty("Countdown", 0);
+            }
+            entity.SetAnimationBool("Upgraded", IsUpgraded(entity));
         }
         #endregion
+        public static Entity SpawnPearl(Entity board)
+        {
+            var level = board.Level;
+            var pearl = level.Spawn(VanillaProjectileID.breakoutPearl, board.Position + Vector3.right * 40, board);
+            board.Target = pearl;
+            pearl.SetParent(board);
+            board.State = VanillaEntityStates.BREAKOUT_PEARL_IDLE;
+            return pearl;
+        }
+        public static void ReturnPearl(Entity board, Entity pearl)
+        {
+            var level = board.Level;
+            board.Target = pearl;
+            pearl.SetParent(board);
+            board.State = VanillaEntityStates.BREAKOUT_PEARL_RETURN;
+        }
+        public static void FirePearl(Entity board)
+        {
+            var pearl = board.Target;
+            if (pearl != null && pearl.Exists())
+            {
+                board.Target = null;
+                pearl.SetParent(null);
+                pearl.Velocity = Vector3.right * 15;
+                board.State = VanillaEntityStates.BREAKOUT_PEARL_FIRED;
+            }
+        }
+        public static bool IsUpgraded(Entity board)
+        {
+            return board.HasBuff<BreakoutBoardUpgradeBuff>();
+        }
+        public static void Upgrade(Entity board)
+        {
+            if (!IsUpgraded(board))
+                board.AddBuff<BreakoutBoardUpgradeBuff>();
+        }
+        public static int GetRespawnCountdown(Entity board)
+        {
+            return board.GetBehaviourProperty<int>(ID, PROP_RESPAWN_COUNTDOWN);
+        }
+        public static void SetRespawnCountdown(Entity board, int value)
+        {
+            board.SetBehaviourProperty(ID, PROP_RESPAWN_COUNTDOWN, value);
+        }
         private void PushBullet(Entity board, Entity bullet, Vector3 bullet2Board)
         {
             // 挤开子弹。
@@ -157,12 +252,7 @@ namespace MVZ2.GameContent.Effects
             var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
             if (phase != targetPhase)
                 return;
-            var pearl = entity.Target;
-            if (pearl != null && pearl.Exists())
-            {
-                entity.Target = null;
-                pearl.Velocity = Vector3.right * 20;
-            }
+            FirePearl(entity);
         }
 
         SeedPack IEntityHeldItemBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
@@ -184,6 +274,8 @@ namespace MVZ2.GameContent.Effects
         {
         }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
+        public const string PROP_RESPAWN_COUNTDOWN = "RespawnCountdown";
+        public const int MAX_RESPAWN_COUNTDOWN = 90;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
         public const float MIN_X = VanillaLevelExt.LEFT_BORDER + 40;
     }

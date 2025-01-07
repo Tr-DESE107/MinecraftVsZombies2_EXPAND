@@ -1,5 +1,5 @@
 <blueprints>
     <option id="return_pearl" cost="25" name="返回弹珠" icon="mvz2:options/return_pearl" />
-    <option id="lengthen_board" cost="150" name="增长挡板" icon="mvz2:options/lengthen_board" />
+    <option id="lengthen_board" cost="125" name="增长挡板" icon="mvz2:options/lengthen_board" />
     <option id="add_pearl" cost="50" name="增加弹珠" icon="mvz2:options/add_pearl" />
 </blueprints>

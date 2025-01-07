@@ -1,4 +1,5 @@
 ﻿using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
@@ -16,6 +17,17 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.Init(entity);
             entity.Timeout = 30;
+        }
+
+        protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage)
+        {
+            base.PreHitEntity(hit, damage);
+            var bullet = hit.Projectile;
+            if (bullet.Parent != null && bullet.Parent.Exists())
+            {
+                hit.Cancel();
+                return;
+            }    
         }
         protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
         {
@@ -35,7 +47,6 @@ namespace MVZ2.GameContent.Projectiles
         }
         public override void Update(Entity projectile)
         {
-            base.Update(projectile);
             projectile.Timeout = 30;
             var level = projectile.Level;
             var position = projectile.Position;
@@ -44,19 +55,23 @@ namespace MVZ2.GameContent.Projectiles
             {
                 position.x = MAX_X;
                 velocity.x *= -1;
+                projectile.PlaySound(VanillaSoundID.pearlTouch);
             }
             if (position.z > level.GetGridTopZ())
             {
                 position.z = level.GetGridTopZ();
                 velocity.z *= -1;
+                projectile.PlaySound(VanillaSoundID.pearlTouch);
             }
             else if (position.z < level.GetGridBottomZ())
             {
                 position.z = level.GetGridBottomZ();
                 velocity.z *= -1;
+                projectile.PlaySound(VanillaSoundID.pearlTouch);
             }
             projectile.Position = position;
             projectile.Velocity = velocity;
+            base.Update(projectile);
         }
 
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;

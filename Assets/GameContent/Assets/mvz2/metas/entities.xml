@@ -768,7 +768,7 @@
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
         <projectile id="breakout_pearl">
-            <vector3 name="size" x="16" y="16" z="16" />
+            <vector3 name="size" x="32" y="32" z="32" />
             <bool name="piercing" value="true" />
             <float name="damage" value="800" />
         </projectile>
@@ -911,8 +911,8 @@
             <bool name="shadowHidden" value="false"/>
             <int name="collisionDetection" value="1"/>
             <float name="collisionSampleLength" value="16"/>
-            <vector3 name="size" x="16" y="64" z="80" />
-            <vector3 name="shadowScale" x="0.5" y="3" z="0.5" />
+            <vector3 name="size" x="32" y="64" z="160" />
+            <vector3 name="shadowScale" x="1" y="5" z="1" />
         </effect>
     </entries>
 </entities>

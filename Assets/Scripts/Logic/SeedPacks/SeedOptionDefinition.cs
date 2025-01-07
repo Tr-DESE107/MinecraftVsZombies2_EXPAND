@@ -17,5 +17,6 @@ namespace MVZ2Logic.SeedPacks
         {
 
         }
+        public virtual void Update(SeedPack seedPack, float rechargeSpeed) { }
     }
 }

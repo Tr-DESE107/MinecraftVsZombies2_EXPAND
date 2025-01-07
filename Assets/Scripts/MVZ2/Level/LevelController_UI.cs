@@ -205,14 +205,6 @@ namespace MVZ2.Level
         }
         #endregion
 
-        public Vector2 GetPointerScreenPosition()
-        {
-            if (Input.touchCount > 0)
-            {
-                return Input.GetTouch(0).position;
-            }
-            return Input.mousePosition;
-        }
         public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);

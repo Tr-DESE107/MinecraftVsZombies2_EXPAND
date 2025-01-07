@@ -12,11 +12,6 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<IUIComponent>();
         }
-        public static Vector2 GetPointerPosition(this LevelEngine level)
-        {
-            var component = level.GetUIComponent();
-            return component.GetPointerPosition();
-        }
         public static Vector3 ScreenToLawnPositionByZ(this LevelEngine level, Vector2 screenPosition, float z)
         {
             var component = level.GetUIComponent();
