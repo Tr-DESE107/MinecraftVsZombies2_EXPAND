@@ -127,6 +127,9 @@ namespace MVZ2.Vanilla
         [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
         public const string UNKNOWN_ENTITY_NAME = "？？？";
 
+        [TranslateMsg("蓝图选项名称-未知", CONTEXT_OPTION_NAME)]
+        public const string UNKNOWN_OPTION_NAME = "？？？";
+
         [TranslateMsg("实体说明-未知", CONTEXT_ENTITY_TOOLTIP)]
         public const string UNKNOWN_ENTITY_TOOLTIP = "？？？";
 
@@ -169,6 +172,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC = "almanac";
         public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
+        public const string CONTEXT_OPTION_NAME = "option.name";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
         public const string CONTEXT_STORE_TALK = "store_talk";

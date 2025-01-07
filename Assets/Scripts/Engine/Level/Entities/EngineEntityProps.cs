@@ -148,5 +148,15 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(SHELL, value);
         }
+        public const string COLLISION_DETECTION = "collisionDetection";
+        public static int GetCollisionDetection(this Entity entity)
+        {
+            return entity.GetProperty<int>(COLLISION_DETECTION);
+        }
+        public const string COLLISION_SAMPLE_LENGTH = "collisionSampleLength";
+        public static float GetCollisionSampleLength(this Entity entity)
+        {
+            return entity.GetProperty<float>(COLLISION_SAMPLE_LENGTH);
+        }
     }
 }

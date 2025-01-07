@@ -9,12 +9,15 @@ using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -119,7 +122,9 @@ namespace MVZ2.Level
                 // 选卡时已选中的卡牌。
                 var chosenIndex = chosenBlueprints[index];
                 var blueprintID = choosingBlueprints[chosenIndex];
-                GetBlueprintChooseTooltip(blueprintID, out name, out error, out tooltip);
+                name = GetBlueprintTooltipName(blueprintID);
+                error = GetBlueprintChooseTooltipError(blueprintID);
+                tooltip = GetBlueprintTooltip(blueprintID);
             }
             var viewData = new TooltipViewData()
             {
@@ -243,10 +248,33 @@ namespace MVZ2.Level
         }
         private string GetBlueprintTooltipName(SeedDefinition definition)
         {
-            if (definition == null || definition.GetSeedType() != SeedTypes.ENTITY)
+            if (definition == null)
                 return string.Empty;
-            var entityID = definition.GetSeedEntityID();
-            return Resources.GetEntityName(entityID);
+            var seedType = definition.GetSeedType();
+            if (seedType == SeedTypes.ENTITY)
+            {
+                var entityID = definition.GetSeedEntityID();
+                return Resources.GetEntityName(entityID);
+            }
+            else if (seedType == SeedTypes.OPTION)
+            {
+                var optionID = definition.GetSeedOptionID();
+                return Resources.GetSeedOptionName(optionID);
+            }
+            return string.Empty;
+        }
+        private string GetBlueprintTooltip(NamespaceID id)
+        {
+            var definition = Main.Game.GetSeedDefinition(id);
+            if (definition == null)
+                return string.Empty;
+            var seedType = definition.GetSeedType();
+            if (seedType == SeedTypes.ENTITY)
+            {
+                var entityID = definition.GetSeedEntityID();
+                return Resources.GetEntityTooltip(entityID);
+            }
+            return string.Empty;
         }
         private bool IsTriggerSwapped()
         {
@@ -483,20 +511,37 @@ namespace MVZ2.Level
                         return;
                 }
                 // 无法拾取蓝图。
-                if (!CanPickBlueprint(GetSeedPackAt(index)))
+                var blueprint = GetSeedPackAt(index);
+                if (blueprint == null)
+                    return;
+                if (!CanPickBlueprint(blueprint))
                 {
                     level.PlaySound(VanillaSoundID.buzzer);
                     return;
                 }
-                // 设置当前手持物品。
-                level.SetHeldItem(new HeldItemStruct()
+                var blueprintDef = blueprint.Definition;
+                var seedType = blueprintDef.GetSeedType();
+                if (seedType == SeedTypes.ENTITY)
                 {
-                    Type = BuiltinHeldTypes.blueprint,
-                    ID = index,
-                    InstantTrigger = instantTrigger,
-                    Priority = 0,
-                });
-                level.PlaySound(VanillaSoundID.pick);
+                    // 设置当前手持物品。
+                    level.SetHeldItem(new HeldItemStruct()
+                    {
+                        Type = BuiltinHeldTypes.blueprint,
+                        ID = index,
+                        InstantTrigger = instantTrigger,
+                        Priority = 0,
+                    });
+                    level.PlaySound(VanillaSoundID.pick);
+                }
+                else if (seedType == SeedTypes.OPTION)
+                {
+                    var optionID = blueprintDef.GetSeedOptionID();
+                    var optionDef = level.Content.GetSeedOptionDefinition(optionID);
+                    if (optionDef == null)
+                        return;
+                    optionDef.Use(blueprint);
+                    level.AddEnergy(-blueprint.GetCost());
+                }
             }
             #endregion
         }
@@ -621,15 +666,36 @@ namespace MVZ2.Level
                     if (controller.TryCancelHeldItem())
                         return;
                 }
-                // 设置当前手持物品。
-                level.SetHeldItem(new HeldItemStruct()
+                var blueprint = GetSeedPackAt(index);
+                if (blueprint == null)
+                    return;
+                if (!CanPickBlueprint(blueprint))
                 {
-                    Type = BuiltinHeldTypes.conveyor,
-                    ID = index,
-                    InstantTrigger = instantTrigger,
-                    Priority = 0,
-                });
-                level.PlaySound(VanillaSoundID.pick);
+                    level.PlaySound(VanillaSoundID.buzzer);
+                    return;
+                }
+                var blueprintDef = blueprint.Definition;
+                var seedType = blueprintDef.GetSeedType();
+                if (seedType == SeedTypes.ENTITY)
+                {
+                    // 设置当前手持物品。
+                    level.SetHeldItem(new HeldItemStruct()
+                    {
+                        Type = BuiltinHeldTypes.conveyor,
+                        ID = index,
+                        InstantTrigger = instantTrigger,
+                        Priority = 0,
+                    });
+                    level.PlaySound(VanillaSoundID.pick);
+                }
+                else if (seedType == SeedTypes.OPTION)
+                {
+                    var optionID = blueprintDef.GetSeedOptionID();
+                    var optionDef = level.Content.GetSeedOptionDefinition(optionID);
+                    if (optionDef == null)
+                        return;
+                    optionDef.Use(blueprint);
+                }
             }
             #endregion
         }

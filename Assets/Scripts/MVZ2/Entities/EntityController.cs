@@ -87,8 +87,9 @@ namespace MVZ2.Entities
             var pos = Entity.Position;
             var currentTransPos = Level.LawnToTrans(pos);
             transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+            var finalOffset = transform.position - currentTransPos;
 
-            UpdateShadow(posOffset);
+            UpdateShadow(finalOffset);
             if (Model)
             {
                 Model.UpdateFixed();
@@ -101,9 +102,10 @@ namespace MVZ2.Entities
             var pos = Entity.Position;
             var currentTransPos = Level.LawnToTrans(pos);
             transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+            var finalOffset = transform.position - currentTransPos;
             lastPosition = transform.position;
 
-            UpdateShadow(posOffset);
+            UpdateShadow(finalOffset);
             if (Model)
             {
                 UpdateEntityModel();

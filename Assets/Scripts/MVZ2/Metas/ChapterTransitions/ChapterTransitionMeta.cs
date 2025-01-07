@@ -1,25 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
+using MVZ2.IO;
+using MVZ2Logic;
 
 namespace MVZ2.Metas
 {
-    public class ChapterTransitionMetaList
+    public class ChapterTransitionMeta
     {
-        public ChapterTransitionMeta[] Metas { get; private set; }
-        public static ChapterTransitionMetaList FromXmlNode(XmlNode node, string defaultNsp)
+        public string ID { get; private set; }
+        public float Angle { get; private set; }
+        public bool NoRotate { get; private set; }
+        public SpriteReference TextSprite { get; private set; }
+        public static ChapterTransitionMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var tags = new List<ChapterTransitionMeta>();
-            for (var i = 0; i < node.ChildNodes.Count; i++)
+            var id = node.GetAttribute("id");
+            var angle = node.GetAttributeFloat("angle") ?? 0;
+            var noRotate = node.GetAttributeBool("noRotate") ?? false;
+            var textSprite = node.GetAttributeSpriteReference("textSprite", defaultNsp);
+            return new ChapterTransitionMeta()
             {
-                var child = node.ChildNodes[i];
-                if (child.Name == "transition")
-                {
-                    tags.Add(ChapterTransitionMeta.FromXmlNode(child, defaultNsp));
-                }
-            }
-            return new ChapterTransitionMetaList()
-            {
-                Metas = tags.ToArray()
+                ID = id,
+                Angle = angle,
+                NoRotate = noRotate,
+                TextSprite = textSprite
             };
         }
     }

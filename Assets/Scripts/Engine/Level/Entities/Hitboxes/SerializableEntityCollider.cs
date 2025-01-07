@@ -5,6 +5,6 @@
         public string name;
         public bool enabled;
         public SerializableHitbox[] hitboxes;
-        public EntityColliderReference[] collisionList;
+        public SerializableEntityCollision[] collisionList;
     }
 }

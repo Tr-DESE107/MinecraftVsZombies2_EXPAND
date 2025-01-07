@@ -4,6 +4,9 @@ namespace PVZEngine.Entities
 {
     public static class EntityCollisionHelper
     {
+        public const int DETECTION_DISCRETE = 0;
+        public const int DETECTION_CONTINUOUS = 1;
+
         public const string NAME_MAIN = "main";
         public const string NAME_SHIELD = "shield";
 

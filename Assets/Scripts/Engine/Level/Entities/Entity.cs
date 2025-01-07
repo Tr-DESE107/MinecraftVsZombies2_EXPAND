@@ -13,6 +13,7 @@ using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.Networking.UnityWebRequest;
 
 namespace PVZEngine.Entities
 {
@@ -65,6 +66,8 @@ namespace PVZEngine.Entities
                     buff.Update();
                 }
                 Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
+                // 更新碰撞体位置，用于碰撞检测。
+                UpdateColliders();
             }
             catch (Exception ex)
             {
@@ -312,6 +315,11 @@ namespace PVZEngine.Entities
         {
             return MainHitbox.GetBoundsCenter();
         }
+        public void SetCenter(Vector3 center)
+        {
+            var offset = GetCenter() - Position;
+            Position = center - offset;
+        }
         public Bounds GetBounds()
         {
             return MainHitbox.GetBounds();
@@ -377,6 +385,7 @@ namespace PVZEngine.Entities
                 nextVelocity.y = Mathf.Max(nextVelocity.y, 0);
             }
 
+            PreviousPosition = Position;
             Position = nextPos;
             Velocity = nextVelocity;
 
@@ -510,36 +519,24 @@ namespace PVZEngine.Entities
         {
             return enabledColliders.ToArray();
         }
-        public bool CheckCollisionWith(Entity other)
+        public void DoCollision(Entity other)
         {
-            foreach (var group1 in GetEnabledColliders())
+            var motion = Position - PreviousPosition;
+            var otherMotion = other.Position - other.PreviousPosition;
+            var collisionPoints = 1;
+            var detection = this.GetCollisionDetection();
+            if (detection == EntityCollisionHelper.DETECTION_CONTINUOUS)
             {
-                foreach (var group2 in other.GetEnabledColliders())
-                {
-                    if (group1.Intersects(group2))
-                        return true;
-                }
+                collisionPoints = Mathf.CeilToInt(motion.magnitude / this.GetCollisionSampleLength());
             }
-            return false;
-        }
-        public int CheckContacts(Entity other, EntityCollision[] buffer)
-        {
-            int index = 0;
+
             foreach (var collider1 in enabledColliders)
             {
                 foreach (var collider2 in other.enabledColliders)
                 {
-                    if (collider1.Intersects(collider2))
-                    {
-                        var collision = new EntityCollision(collider1, collider2);
-                        buffer[index] = collision;
-                        index++;
-                        if (index >= buffer.Length)
-                            return index;
-                    }
+                    collider1.DoCollision(collider2, motion, otherMotion, collisionPoints);
                 }
             }
-            return index;
         }
         public IEnumerable<EntityCollision> GetCurrentCollisions()
         {
@@ -715,6 +712,7 @@ namespace PVZEngine.Entities
             seri.modelID = ModelID;
             seri.parent = Parent?.ID ?? 0;
             seri.EquipedArmor = EquipedArmor?.Serialize();
+            seri.previousPosition = PreviousPosition;
             seri.position = Position;
             seri.velocity = Velocity;
             seri.collisionMaskHostile = CollisionMaskHostile;
@@ -754,6 +752,7 @@ namespace PVZEngine.Entities
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
+            PreviousPosition = seri.previousPosition;
             Position = seri.position;
             Velocity = seri.velocity;
             CollisionMaskHostile = seri.collisionMaskHostile;
@@ -809,6 +808,7 @@ namespace PVZEngine.Entities
         #region 私有方法
         private void OnInit(Entity spawner)
         {
+            PreviousPosition = Position;
             Health = this.GetMaxHealth();
             var collider = new EntityCollider(this, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(this));
             AddCollider(collider);
@@ -819,7 +819,6 @@ namespace PVZEngine.Entities
         private void OnUpdate()
         {
             UpdatePhysics(1);
-            UpdateColliders();
             Health = Mathf.Min(Health, this.GetMaxHealth());
         }
         private void OnContactGround()
@@ -910,6 +909,7 @@ namespace PVZEngine.Entities
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
         public Armor EquipedArmor { get; private set; }
+        public Vector3 PreviousPosition { get; private set; }
         public Vector3 Position { get; set; }
         public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Xml.Linq;
 using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Spawns;
@@ -16,6 +17,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
@@ -36,6 +38,7 @@ namespace MVZ2.Vanilla
             LoadStageProperties();
             LoadArtifactProperties();
             AddEntityBehaviours();
+            AddOptionSeeds();
 
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StarshardSpawnImplements());
@@ -113,6 +116,7 @@ namespace MVZ2.Vanilla
                 }
             }
             AddDefinition(new WhackAGhostStage(spaceName, "halloween_6"));
+            AddDefinition(new BreakoutStage(spaceName, "dream_6"));
         }
         protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
         {
@@ -228,6 +232,14 @@ namespace MVZ2.Vanilla
                 {
                     entity.AddBehaviour(behaviour);
                 }
+            }
+        }
+        private void AddOptionSeeds()
+        {
+            foreach (var option in GetDefinitions<SeedOptionDefinition>())
+            {
+                var seedDef = new OptionSeed(Namespace, option.Name, option.GetCost());
+                AddDefinition(seedDef);
             }
         }
 

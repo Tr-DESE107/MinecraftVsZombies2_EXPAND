@@ -66,6 +66,9 @@ namespace MVZ2.Metas
                 case "progressbars":
                     resource.ProgressBarMetaList = ProgressBarMetaList.FromXmlNode(document["bars"], defaultNsp);
                     break;
+                case "blueprints":
+                    resource.BlueprintMetaList = BlueprintMetaList.FromXmlNode(document["blueprints"], defaultNsp);
+                    break;
                 case "chaptertransitions":
                     resource.ChapterTransitionMetaList = ChapterTransitionMetaList.FromXmlNode(document["transitions"], defaultNsp);
                     break;

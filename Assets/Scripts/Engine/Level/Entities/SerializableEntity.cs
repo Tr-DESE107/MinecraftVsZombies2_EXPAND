@@ -23,6 +23,7 @@ namespace PVZEngine.Entities
         public NamespaceID modelID;
         public EntityReferenceChain spawnerReference;
         public SerializableArmor EquipedArmor;
+        public Vector3 previousPosition;
         public Vector3 position;
         public Vector3 velocity;
         public Vector3 scale;

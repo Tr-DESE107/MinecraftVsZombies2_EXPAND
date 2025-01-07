@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace PVZEngine.Entities
 {
@@ -26,17 +27,41 @@ namespace PVZEngine.Entities
                 hitbox.Update();
             }
         }
-        public bool Intersects(EntityCollider other)
+        public void DoCollision(EntityCollider other, Vector3 selfMotion, Vector3 otherMotion, int checkPoints)
         {
-            foreach (var hitbox1 in hitboxes)
+            for (int i1 = 0; i1 < hitboxes.Count; i1++)
             {
-                foreach (var hitbox2 in other.hitboxes)
+                var hitbox1 = hitboxes[i1];
+                for (int i2 = 0; i2 < other.hitboxes.Count; i2++)
                 {
-                    if (hitbox1.Intersects(hitbox2))
-                        return true;
+                    var hitbox2 = other.hitboxes[i2];
+                    if (hitbox1.DoCollision(hitbox2, selfMotion, otherMotion, checkPoints, out var seperation))
+                    {
+                        var collision = collisionList.Find(c => c.OtherCollider == other);
+                        bool enter = false;
+                        if (collision == null)
+                        {
+                            enter = true;
+                            collision = new EntityCollision(this, other);
+                        }
+                        collision.Seperation = seperation;
+                        if (CallPreCollision(collision))
+                        {
+                            if (enter)
+                            {
+                                collisionList.Add(collision);
+                                CallPostCollision(collision, EntityCollisionHelper.STATE_ENTER);
+                            }
+                            else
+                            {
+                                CallPostCollision(collision, EntityCollisionHelper.STATE_STAY);
+                            }
+                            collisionThisTick.Add(collision);
+                        }
+                        return;
+                    }
                 }
             }
-            return false;
         }
         public void AddHitbox(Hitbox hitbox)
         {
@@ -57,21 +82,6 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 碰撞
-        public void Collide(EntityCollision collision)
-        {
-            if (!CallPreCollision(collision))
-                return;
-            if (!collisionList.Contains(collision))
-            {
-                CallPostCollision(collision, EntityCollisionHelper.STATE_ENTER);
-                collisionList.Add(collision);
-            }
-            else
-            {
-                CallPostCollision(collision, EntityCollisionHelper.STATE_STAY);
-            }
-            collisionThisTick.Add(collision);
-        }
         public IEnumerable<EntityCollision> GetCollisions()
         {
             return collisionList.ToArray();
@@ -111,7 +121,7 @@ namespace PVZEngine.Entities
                 name = Name,
                 enabled = Enabled,
                 hitboxes = hitboxes.Select(h => h.ToSerializable()).ToArray(),
-                collisionList = collisionList.Select(c => c.OtherCollider.ToReference()).ToArray(),
+                collisionList = collisionList.Select(c => c.ToSerializable()).ToArray(),
             };
         }
         public static EntityCollider FromSerializable(SerializableEntityCollider seri, Entity entity)
@@ -125,7 +135,7 @@ namespace PVZEngine.Entities
         }
         public void LoadCollisions(LevelEngine level, SerializableEntityCollider seri)
         {
-            collisionList = seri.collisionList.Select(s => new EntityCollision(this, s.GetCollider(level))).ToList();
+            collisionList = seri.collisionList.Select(s => EntityCollision.FromSerializable(s, level)).ToList();
         }
         #endregion
 
@@ -138,45 +148,10 @@ namespace PVZEngine.Entities
         private List<EntityCollision> collisionThisTick = new List<EntityCollision>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
     }
-    [Serializable]
-    public class EntityColliderReference
+    public class CollisionResult
     {
-        public long entityId;
-        public string unitName;
-
-        public EntityColliderReference(EntityCollider collider) : this(collider.Entity.ID, collider.Name)
-        {
-        }
-        public EntityColliderReference(long entityId, string unitName)
-        {
-            this.entityId = entityId;
-            this.unitName = unitName;
-        }
-
-        public EntityCollider GetCollider(LevelEngine engine)
-        {
-            var entity = engine.FindEntityByID(entityId);
-            if (entity == null)
-                return null;
-            return entity.GetCollider(unitName);
-        }
-        public override bool Equals(object obj)
-        {
-            if (obj is not EntityColliderReference other)
-                return false;
-            return entityId == other.entityId && unitName == other.unitName;
-        }
-        public override int GetHashCode()
-        {
-            return entityId.GetHashCode() * 31 + unitName.GetHashCode();
-        }
-        public static bool operator ==(EntityColliderReference lhs, EntityColliderReference rhs)
-        {
-            return lhs.Equals(rhs);
-        }
-        public static bool operator !=(EntityColliderReference lhs, EntityColliderReference rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public Vector3 seperation;
+        public int selfHitbox;
+        public int otherHitbox;
     }
 }

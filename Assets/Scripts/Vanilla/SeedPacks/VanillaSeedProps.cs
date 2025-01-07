@@ -7,6 +7,7 @@ namespace MVZ2.Vanilla.SeedPacks
     public static class VanillaSeedProps
     {
         public const string SEED_ENTITY_ID = "seedEntityId";
+        public const string SEED_OPTION_ID = "seedOptionId";
         public const string SEED_TYPE = "seedType";
         public const string TWINKLING = "twinkling";
         public const string TRIGGER_ACTIVE = "triggerActive";
@@ -24,6 +25,10 @@ namespace MVZ2.Vanilla.SeedPacks
         public static NamespaceID GetSeedEntityID(this SeedDefinition definition)
         {
             return definition.GetProperty<NamespaceID>(SEED_ENTITY_ID);
+        }
+        public static NamespaceID GetSeedOptionID(this SeedDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(SEED_OPTION_ID);
         }
         public static bool IsTriggerActive(this SeedDefinition definition)
         {

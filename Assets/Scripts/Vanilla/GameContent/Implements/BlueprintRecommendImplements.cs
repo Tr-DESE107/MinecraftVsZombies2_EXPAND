@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Triggers;
@@ -26,17 +27,20 @@ namespace MVZ2.GameContent.Implements
 
             if (level.IsDay())
             {
-                var entityID = blueprintDef.GetSeedEntityID();
-                if (entityID == VanillaContraptionID.glowstone)
+                if (blueprintDef.GetSeedType() == SeedTypes.ENTITY)
                 {
-                    result.Result = true;
-                    return;
-                }
-                var entityDef = content.GetEntityDefinition(entityID);
-                if (entityDef != null && entityDef.IsNocturnal())
-                {
-                    result.Result = true;
-                    return;
+                    var entityID = blueprintDef.GetSeedEntityID();
+                    if (entityID == VanillaContraptionID.glowstone)
+                    {
+                        result.Result = true;
+                        return;
+                    }
+                    var entityDef = content.GetEntityDefinition(entityID);
+                    if (entityDef != null && entityDef.IsNocturnal())
+                    {
+                        result.Result = true;
+                        return;
+                    }
                 }
             }
         }

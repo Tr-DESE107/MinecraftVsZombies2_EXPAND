@@ -21,6 +21,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
@@ -30,6 +31,7 @@ using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static MVZ2.Level.UI.LevelUIPreset;
@@ -97,7 +99,8 @@ namespace MVZ2.Level
             levelRaycaster.SetHeldItem(definition, data, radius);
 
             // 设置光标。
-            if (heldType == BuiltinHeldTypes.none)
+            bool isHeldItemNone = heldType == BuiltinHeldTypes.none || !NamespaceID.IsValid(modelID);
+            if (isHeldItemNone)
             {
                 if (heldItemCursorSource != null)
                 {
@@ -213,6 +216,7 @@ namespace MVZ2.Level
         public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = 0;
 
             var lawnPosition = TransToLawn(worldPosition);
             lawnPosition.z = z;
@@ -223,6 +227,7 @@ namespace MVZ2.Level
         public Vector3 ScreenToLawnPositionByY(Vector2 screenPosition, float y)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = 0;
 
             var lawnPosition = TransToLawn(worldPosition);
             lawnPosition.z = lawnPosition.y - y;
@@ -233,6 +238,7 @@ namespace MVZ2.Level
         public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = 0;
 
             var lawnPosition = TransToLawn(worldPosition);
             var targetY = lawnPosition.y;
@@ -531,7 +537,9 @@ namespace MVZ2.Level
         {
             var uiPreset = GetUIPreset();
             var blueprintID = choosingBlueprints[index];
-            GetBlueprintChooseTooltip(blueprintID, out var name, out var error, out var tooltip);
+            var name = GetBlueprintTooltipName(blueprintID);
+            var tooltip = GetBlueprintTooltip(blueprintID);
+            var error = GetBlueprintChooseTooltipError(blueprintID);
             var viewData = new TooltipViewData()
             {
                 name = name,
@@ -874,24 +882,13 @@ namespace MVZ2.Level
             }
             return false;
         }
-        private void GetBlueprintChooseTooltip(NamespaceID id, out string name, out string error, out string tooltip)
+        private string GetBlueprintChooseTooltipError(NamespaceID id)
         {
-            name = string.Empty;
-            error = string.Empty;
-            tooltip = string.Empty;
-            var definition = Main.Game.GetSeedDefinition(id);
-            if (definition == null || definition.GetSeedType() != SeedTypes.ENTITY)
-            {
-                name = string.Empty;
-                tooltip = string.Empty;
-            }
-            var entityID = definition.GetSeedEntityID();
-            name = Resources.GetEntityName(entityID);
-            tooltip = Resources.GetEntityTooltip(entityID);
             if (IsChoosingBlueprintError(id, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
             {
-                error = Localization._(errorMessage);
+                return Localization._(errorMessage);
             }
+            return string.Empty;
         }
         #endregion
 

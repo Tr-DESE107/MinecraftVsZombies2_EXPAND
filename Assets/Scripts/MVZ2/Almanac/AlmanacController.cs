@@ -15,6 +15,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;

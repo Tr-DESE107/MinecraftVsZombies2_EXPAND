@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Tools.Mathematics
 {
@@ -519,6 +520,72 @@ namespace Tools.Mathematics
             }
         }
 
+        public static bool AABBSweep(Vector3 Ea, Vector3 Eb, Vector3 A1, Vector3 B1, Vector3 prevA, Vector3 prevB, out float firstTime, out float lastTime)
+        {
+            Bounds prevBoxA = new Bounds(prevA, Ea);//previous state of AABB A
+            Bounds prevBoxB = new Bounds(prevB, Eb);//previous state of AABB B
+            Vector3 displacementA = A1 - prevA;//displacement of A
+            Vector3 displacementB = B1 - prevB;//displacement of B
+            //the problem is solved in A's frame of reference
+
+            Vector3 relativeDisplacement = displacementB - displacementA;
+            //relative velocity (in normalized time)
+
+            Vector3 firstTimeAxises = new Vector3(0,0,0);
+            //first times of overlap along each axis
+
+            Vector3 lastTimeAxises = new Vector3(1,1,1);
+            //last times of overlap along each axis
+
+            //check if they were overlapping
+            // on the previous frame
+            if (prevBoxA.Intersects(prevBoxB))
+            {
+                firstTime = 0;
+                lastTime = 0;
+                return true;
+
+            }
+
+            //find the possible first and last times
+            //of overlap along each axis
+            for (int i = 0; i < 3; i++)
+            {
+                var minA = prevBoxA.min[i];
+                var maxA = prevBoxA.max[i];
+                var minB = prevBoxB.min[i];
+                var maxB = prevBoxB.max[i];
+                var displacement = relativeDisplacement[i];
+                if (maxA < minB && displacement < 0)
+                {
+                    firstTimeAxises[i] = (maxA - minB) / displacement;
+                }
+                else if (maxB < minA && displacement > 0)
+                {
+                    firstTimeAxises[i] = (minA - maxB) / displacement;
+                }
+
+                if (maxB > minA && displacement < 0)
+                {
+                    lastTimeAxises[i] = (minA - maxB) / displacement;
+                }
+                else if (maxA > minB && displacement > 0)
+                {
+                    lastTimeAxises[i] = (maxA - minB) / displacement;
+                }
+            }
+
+            //possible first time of overlap
+            firstTime = Mathf.Max(firstTimeAxises.x, firstTimeAxises.y, firstTimeAxises.z);
+
+            //possible last time of overlap
+            lastTime = Mathf.Min(lastTimeAxises.x, lastTimeAxises.y, lastTimeAxises.z);
+
+            //they could have only collided if
+            //the first time of overlap occurred
+            //before the last time of overlap
+            return firstTime <= lastTime;
+        }
     }
     public enum Axis
     {

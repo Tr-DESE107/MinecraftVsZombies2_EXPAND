@@ -1,9 +1,10 @@
 ﻿using MVZ2Logic.Artifacts;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Notes;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 
-namespace MVZ2Logic.Callbacks
+namespace MVZ2Logic.Games
 {
     public static class LogicGameDefinitionsExt
     {
@@ -14,6 +15,10 @@ namespace MVZ2Logic.Callbacks
         public static ArtifactDefinition GetArtifactDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<ArtifactDefinition>(defRef);
+        }
+        public static SeedOptionDefinition GetSeedOptionDefinition(this IGameContent provider, NamespaceID id)
+        {
+            return provider.GetDefinition<SeedOptionDefinition>(id);
         }
         public static NoteDefinition GetNoteDefinition(this IGameContent provider, NamespaceID heldType)
         {

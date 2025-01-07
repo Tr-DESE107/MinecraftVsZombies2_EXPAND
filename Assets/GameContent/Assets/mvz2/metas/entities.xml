@@ -767,6 +767,11 @@
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
+        <projectile id="breakout_pearl">
+            <vector3 name="size" x="16" y="16" z="16" />
+            <bool name="piercing" value="true" />
+            <float name="damage" value="800" />
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -901,6 +906,13 @@
         <effect id="hoe">
             <float name="gravity" value="1"/>
             <vector3 name="size" x="20" y="20" z="20" />
+        </effect>
+        <effect id="breakout_board">
+            <bool name="shadowHidden" value="false"/>
+            <int name="collisionDetection" value="1"/>
+            <float name="collisionSampleLength" value="16"/>
+            <vector3 name="size" x="16" y="64" z="80" />
+            <vector3 name="shadowScale" x="0.5" y="3" z="0.5" />
         </effect>
     </entries>
 </entities>

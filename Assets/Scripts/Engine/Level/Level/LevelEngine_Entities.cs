@@ -25,14 +25,7 @@ namespace PVZEngine.Level
                 var mask = ent2.IsHostile(ent1Faction) ? maskHostile : maskFriendly;
                 if (!EntityCollisionHelper.CanCollide(mask, ent2))
                     continue;
-                var collisionCount = ent1.CheckContacts(ent2, collisionBuffer);
-                if (collisionCount <= 0)
-                    continue;
-                for (int i = 0; i < collisionCount; i++)
-                {
-                    var collision = collisionBuffer[i];
-                    collision.Collider.Collide(collision);
-                }
+                ent1.DoCollision(ent2);
             }
             ent1.ExitCollision(this);
         }
@@ -131,6 +124,5 @@ namespace PVZEngine.Level
         #endregion
         private long currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
-        private EntityCollision[] collisionBuffer = new EntityCollision[256];
     }
 }

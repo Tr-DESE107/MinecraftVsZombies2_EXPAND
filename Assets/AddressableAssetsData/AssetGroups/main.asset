@@ -994,6 +994,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37615d759a134794786c955d0039509e
+    m_Address: mvz2:options/lengthen_board
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 377f2bb10d0c6414d87266304f24738f
     m_Address: mvz2:effect/vortex
     m_ReadOnly: 0
@@ -2044,6 +2050,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f22bfed212241144ada2b8c00f2bea2
+    m_Address: mvz2:blueprints
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 700aed4be18069141a38feb57b823f77
     m_Address: mvz2:entity/effect/filled_smoke
     m_ReadOnly: 0
@@ -2284,6 +2296,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fe15cf03f7a8c64cb0f6007db72398c
+    m_Address: mvz2:options/add_pearl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 804225591a395d3499b55198f88fa584
     m_Address: mvz2:halloween_boss
     m_ReadOnly: 0
@@ -2379,6 +2397,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85bb9fed037b3764b83045bd03a49065
+    m_Address: mvz2:projectile/breakout_pearl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85fc4cf81c16b5f40a5aca54cdc85565
     m_Address: mvz2:level/shadow
@@ -2722,6 +2746,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9314f1d33a68e1e40b9abba26d9eb400
+    m_Address: mvz2:options/return_pearl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9323eece77c5c3a4a8a55697061be8e2
     m_Address: mvz2:pause
     m_ReadOnly: 0
@@ -3063,6 +3093,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6f5c16aaaa862f4a8000dbbb824d5a0
+    m_Address: mvz2:entity/effects/breakout_board_long
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a70f4f9f4fc407b4d973ede9ec07aa19
     m_Address: mvz2:random/thunder2
@@ -3435,6 +3471,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7c80b168e4da364f97d8787bc49699a
+    m_Address: mvz2:effect/breakout_board
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8b94582569820d4ea902e962c410bd0
     m_Address: mvz2:archive/halloween_note
@@ -3837,6 +3879,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d26b719675efdbf49b1e6342f7270818
+    m_Address: mvz2:entity/effects/breakout_board
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d270746c6b1f84442af0d2614257f2e6
     m_Address: mvz2:entity/projectiles/parabot

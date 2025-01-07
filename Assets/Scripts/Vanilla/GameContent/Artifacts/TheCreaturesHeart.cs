@@ -5,6 +5,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -65,7 +66,12 @@ namespace MVZ2.GameContent.Artifacts
                 var level = auraEffect.Source.GetLevel();
                 foreach (var seed in level.GetAllSeedPacks())
                 {
-                    var entityID = seed?.Definition?.GetSeedEntityID();
+                    var seedDef = seed?.Definition;
+                    if (seedDef == null)
+                        continue;
+                    if (seedDef.GetSeedType() != SeedTypes.ENTITY)
+                        continue;
+                    var entityID = seedDef?.GetSeedEntityID();
                     if (!NamespaceID.IsValid(entityID))
                         continue;
                     var entityDef = level.Content.GetEntityDefinition(entityID);
@@ -78,6 +84,11 @@ namespace MVZ2.GameContent.Artifacts
             {
                 base.UpdateTargetBuff(effect, target, buff);
                 if (target is not SeedPack seed)
+                    return;
+                var seedDef = seed?.Definition;
+                if (seedDef == null)
+                    return;
+                if (seedDef.GetSeedType() != SeedTypes.ENTITY)
                     return;
                 var entityID = seed?.Definition?.GetSeedEntityID();
                 if (!NamespaceID.IsValid(entityID))
