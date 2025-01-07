@@ -1,6 +1,8 @@
 ﻿using System;
 using MVZ2.Managers;
 using MVZ2.Talk;
+using MVZ2Logic.Archives;
+using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
 using PVZEngine.Level;
 
@@ -16,8 +18,8 @@ namespace MVZ2.Talks
         {
             talk.StartSection(section);
         }
-        public abstract bool IsInArchive();
-        public abstract bool IsInMap();
+        public abstract IArchiveInterface GetArchive();
+        public abstract IMapInterface GetMap();
         public abstract LevelEngine GetLevel();
 
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect)

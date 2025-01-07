@@ -9,7 +9,9 @@ using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Archives;
 using MVZ2Logic.Level;
+using MVZ2Logic.Maps;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Talk;
 using PVZEngine.Level;
@@ -28,11 +30,11 @@ namespace MVZ2.GameContent.Implements
             TalkPreset preset = null;
             if (system.IsInArchive())
             {
-                preset = new ArchivePreset();
+                preset = new ArchivePreset(system.GetArchive());
             }
             else if (system.IsInMap())
             {
-                preset = new MapPreset();
+                preset = new MapPreset(system.GetMap());
             }
             else if (system.IsInLevel())
             {
@@ -165,6 +167,11 @@ namespace MVZ2.GameContent.Implements
         }
         private class MapPreset : TalkPreset
         {
+            private IMapInterface map;
+            public MapPreset(IMapInterface map)
+            {
+                this.map = map;
+            }
             public override void TalkAction(ITalkSystem system, string cmd, string[] parameters)
             {
                 switch (cmd)
@@ -174,11 +181,20 @@ namespace MVZ2.GameContent.Implements
                         Global.Game.SetLastMapID(VanillaMapID.dream);
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
+                    case "show_nightmare":
+                        map.SetPreset(VanillaMapPresetID.nightmare);
+                        Global.Game.Unlock(VanillaUnlockID.dreamIsNightmare);
+                        break;
                 }
             }
         }
         private class ArchivePreset : TalkPreset
         {
+            private IArchiveInterface archive;
+            public ArchivePreset(IArchiveInterface archive)
+            {
+                this.archive = archive;
+            }
             public override void TalkAction(ITalkSystem system, string cmd, string[] parameters)
             {
                 switch (cmd)
@@ -191,6 +207,9 @@ namespace MVZ2.GameContent.Implements
                         break;
                     case "create_seventh_slot_form":
                         ShowSeventhSlotDialog(system);
+                        break;
+                    case "show_nightmare":
+                        archive.SetBackground(VanillaArchiveBackgrounds.nightmare);
                         break;
                 }
             }

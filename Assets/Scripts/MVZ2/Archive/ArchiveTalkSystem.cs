@@ -1,26 +1,31 @@
-﻿using MVZ2.Talk;
+﻿using MVZ2.GameContent.Seeds;
+using MVZ2.Talk;
 using MVZ2.Talks;
+using MVZ2Logic.Archives;
+using MVZ2Logic.Maps;
 using PVZEngine.Level;
 
 namespace MVZ2.Archives
 {
     public class ArchiveTalkSystem : MVZ2TalkSystem
     {
-        public ArchiveTalkSystem(TalkController talk) : base(talk)
+        public ArchiveTalkSystem(IArchiveInterface archive, TalkController talk) : base(talk)
         {
+            this.archive = archive;
         }
 
-        public override bool IsInArchive()
+        public override IArchiveInterface GetArchive()
         {
-            return true;
+            return archive;
         }
-        public override bool IsInMap()
+        public override IMapInterface GetMap()
         {
-            return false;
+            return null;
         }
         public override LevelEngine GetLevel()
         {
             return null;
         }
+        private IArchiveInterface archive;
     }
 }

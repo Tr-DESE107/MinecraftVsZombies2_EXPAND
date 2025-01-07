@@ -316,11 +316,11 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那家伙、要来了……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake">是、是谁把你变成这样的！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;music fade 0 0.5;character faint mvz2:doremy 0.5;delay 0.5;shake;playsound mvz2:dialog_faint;delay 1;next">是……梦……魇……</sentence>
-        <sentence speaker="mvz2:crazy_villager" description="（哆来咪倒地）" sounds="mvz2:dialog_judge" onStart="shake" onClick="bubble hide;music play mvz2:suspension;music fade 1;forecolor fade #0000 2;delay 3;next">哆来咪！</sentence>
+        <sentence speaker="mvz2:crazy_villager" description="（哆来咪倒地）" sounds="mvz2:dialog_judge" onStart="shake" onClick="bubble hide;music play mvz2:suspension;music fade 1;forecolor fade #000F 2;delay 3;next">哆来咪！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">&lt;color=blue&gt;（那一瞬间，整个梦境世界都失去了色彩。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">&lt;color=blue&gt;（这里的东西开始溶解、脱落，狞笑着向我们展示着，它们真正的样子。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">&lt;color=blue&gt;（那是我一生都无法遗忘的场面。）&lt;/color&gt;</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;music fade 0 0.5;playsound mvz2:dialog_flashback;action show_nightmare;forecolor fade white 0.5;delay 1;forecolor set #0000;shake;playsound mvz2:dialog_bang;music fade 0;music volume 1;music play mvz2:nightmare_map;delay 1;next">&lt;color=blue&gt;（那时候，我才明白，哆来咪口中的“噩梦”，到底是什么。）&lt;/color&gt;</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;music fade 0 0.5;playsound mvz2:dialog_flashback;action show_nightmare;forecolor fade white 0.5;delay 1;forecolor set #0000;shake;playsound mvz2:dialog_bang;music volume 1;music play mvz2:nightmare_map;delay 1;next">&lt;color=blue&gt;（那时候，我才明白，哆来咪口中的“噩梦”，到底是什么。）&lt;/color&gt;</sentence>
         <sentence speaker="mvz2:steve" description="（噩梦世界展现了出来）" sounds="mvz2:dialog_cut" onStart="shake">——这、这是怎么回事！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_bang" onStart="shake">这里，为什么会变成这样啊！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">所以，那些东西都只是幻象吗？！</sentence>

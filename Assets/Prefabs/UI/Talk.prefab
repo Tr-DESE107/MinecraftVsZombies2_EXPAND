@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 8302655558147765184}
   - component: {fileID: 2673563217369978568}
   m_Layer: 0
-  m_Name: Blocker
+  m_Name: Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -569,8 +569,8 @@ RectTransform:
   m_Children:
   - {fileID: 5127972757061456310}
   - {fileID: 1241599753917517570}
-  - {fileID: 6853009434399274958}
   - {fileID: 3655672932039397397}
+  - {fileID: 6853009434399274958}
   - {fileID: 6492800867396408241}
   - {fileID: 426451401001368331}
   - {fileID: 1972507474956330896}
@@ -678,7 +678,7 @@ MonoBehaviour:
   raycastReceiver: {fileID: 7834968819404388587}
   blockerObject: {fileID: 8562295504330421035}
   foregroundImage: {fileID: 4078748948085694105}
-  foregroundCanvasGroup: {fileID: 4372977444566867777}
+  forecolorImage: {fileID: 2673563217369978568}
   foregroundFader: {fileID: 3567761593372130009}
   forecolorFader: {fileID: 6308243753151705679}
 --- !u!1 &6466180377371486113
@@ -830,7 +830,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8240618892827598349}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

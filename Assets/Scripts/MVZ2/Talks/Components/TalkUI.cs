@@ -160,15 +160,18 @@ namespace MVZ2.Talk
         #region 事件回调
         private void OnForegroundAlphaChangedCallback(float value)
         {
-            foregroundCanvasGroup.alpha = value;
+            var color = foregroundImage.color;
+            color.a = value;
+            foregroundImage.color = color;
         }
         private void OnForegroundColorChangedCallback(Color value)
         {
-            var color = foregroundImage.color;
+            var color = forecolorImage.color;
             color.r = value.r;
             color.g = value.g;
             color.b = value.b;
-            foregroundImage.color = color;
+            color.a = value.a;
+            forecolorImage.color = color;
         }
         #endregion
 
@@ -204,7 +207,7 @@ namespace MVZ2.Talk
         [SerializeField]
         private Image foregroundImage;
         [SerializeField]
-        private CanvasGroup foregroundCanvasGroup;
+        private Image forecolorImage;
         [SerializeField]
         private FloatFader foregroundFader;
         [SerializeField]

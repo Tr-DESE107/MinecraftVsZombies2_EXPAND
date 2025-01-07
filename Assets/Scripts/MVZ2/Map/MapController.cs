@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
-using MVZ2.Cameras;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Talk;
 using MVZ2.Managers;
 using MVZ2.Metas;
-using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
@@ -22,6 +19,8 @@ using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Level;
+using MVZ2Logic.Map;
+using MVZ2Logic.Maps;
 using MVZ2Logic.Scenes;
 using MVZ2Logic.Talk;
 using PVZEngine;
@@ -30,7 +29,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Map
 {
-    public class MapController : MainScenePage
+    public class MapController : MainScenePage, IMapInterface
     {
         #region 公有方法
         public override void Display()
@@ -72,9 +71,28 @@ namespace MVZ2.Map
 
             var unlockedPresets = mapMeta.presets.Where(p => p.conditions == null || Main.SaveManager.MeetsXMLConditions(p.conditions));
             MapPreset mapPreset = unlockedPresets.OrderByDescending(p => p.priority).FirstOrDefault();
+            SetMapPreset(mapPreset);
+
+            Main.MusicManager.Play(mapPreset.music);
+            Main.SaveManager.SetLastMapID(mapId);
+
+            var mapTalk = Main.SaveManager.GetMapTalk();
+            await talkController.SimpleStartTalkAsync(mapTalk, 0, 3);
+            Main.SaveManager.SetMapTalk(null);
+        }
+        public void SetMapPreset(MapPreset mapPreset)
+        {
             if (mapPreset == null)
                 return;
             var modelPrefab = Main.ResourceManager.GetMapModel(mapPreset.model);
+            if (model)
+            {
+                model.OnMapButtonClick -= OnMapButtonClickCallback;
+                model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
+                model.OnMapKeyClick -= OnMapKeyClickCallback;
+                Destroy(model.gameObject);
+            }
+
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
@@ -84,13 +102,6 @@ namespace MVZ2.Map
             UpdateModelElements();
             UpdateModelEndlessFlags();
             SetCameraBackgroundColor(mapPreset.backgroundColor);
-            Main.MusicManager.Play(mapPreset.music);
-
-            Main.SaveManager.SetLastMapID(mapId);
-
-            var mapTalk = Main.SaveManager.GetMapTalk();
-            await talkController.SimpleStartTalkAsync(mapTalk, 0, 3);
-            Main.SaveManager.SetMapTalk(null);
         }
         #endregion
 
@@ -102,7 +113,7 @@ namespace MVZ2.Map
             ui.OnButtonClick += OnButtonClickCallback;
             talkController.OnTalkAction += OnTalkActionCallback;
 
-            talkSystem = new MapTalkSystem(talkController);
+            talkSystem = new MapTalkSystem(this, talkController);
         }
         private void Update()
         {
@@ -189,6 +200,12 @@ namespace MVZ2.Map
         }
         #endregion
 
+        void IMapInterface.SetPreset(NamespaceID presetID)
+        {
+            var preset = mapMeta.presets.FirstOrDefault(p => p.id == presetID);
+            SetMapPreset(preset);
+        }
+
         #region 相机
         private void ResetCamera()
         {
@@ -233,6 +250,13 @@ namespace MVZ2.Map
             if (stageMeta == null)
                 return false;
             return stageMeta.Type == StageTypes.TYPE_MINIGAME;
+        }
+        private bool IsEndlessStage(int index)
+        {
+            var stageMeta = GetStageMeta(index);
+            if (stageMeta == null)
+                return false;
+            return stageMeta.Type == StageTypes.TYPE_ENDLESS;
         }
         private bool IsLevelUnlocked(int index)
         {
@@ -445,6 +469,8 @@ namespace MVZ2.Map
                     color = buttonColorLocked;
                 else if (IsMinigameStage(i))
                     color = buttonColorMinigame;
+                else if (IsEndlessStage(i))
+                    color = buttonColorEndless;
                 else if (!cleared)
                     color = buttonColorUncleared;
 
@@ -553,6 +579,8 @@ namespace MVZ2.Map
         private Color buttonColorMinigame = Color.yellow;
         [SerializeField]
         private Color buttonColorLocked = Color.gray;
+        [SerializeField]
+        private Color buttonColorEndless = Color.magenta;
         [SerializeField]
         private Color buttonColorUncleared = new Color(0, 1, 0, 1);
         [SerializeField]

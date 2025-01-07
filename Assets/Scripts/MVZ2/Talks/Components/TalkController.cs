@@ -424,6 +424,7 @@ namespace MVZ2.Talk
                         case "volume":
                             float volume = ParseArgumentFloat(args[1]);
                             Main.MusicManager.SetVolume(volume);
+                            Main.MusicManager.StopFade();
                             break;
                         case "play":
                             NamespaceID musicId = ParseArgumentNamespaceID(args[1]);

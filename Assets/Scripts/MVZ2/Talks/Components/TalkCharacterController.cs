@@ -44,11 +44,11 @@ namespace MVZ2.Talk
         }
         public void SetDisappear(bool value)
         {
-            _animator.SetBool("Disappear", value);
+            disappearing = value;
         }
         public void SetDisappearSpeed(float value)
         {
-            _animator.SetFloat("DisappearSpeed", value);
+            disappearSpeed = value;
         }
         public void SetCharacter(Sprite spr)
         {
@@ -74,8 +74,13 @@ namespace MVZ2.Talk
             {
                 blendValue = Mathf.Lerp(blendValue, idleBlendValue, idleBlendFactor);
             }
+            if (disappearing)
+            {
+                disappearBlend = Mathf.Clamp01(disappearBlend + disappearSpeed * Time.deltaTime);
+            }
             _animator.SetFloat("Blend", blendValue);
-            if (leaving && blendValue <= 0.01f)
+            _animator.SetFloat("DisappearBlend", disappearBlend);
+            if ((leaving && blendValue <= 0.01f) || (disappearing && disappearBlend >= 1))
             {
                 Destroy(gameObject);
             }
@@ -85,6 +90,9 @@ namespace MVZ2.Talk
         #region 属性字段
         private bool speaking;
         private bool leaving;
+        private bool disappearing;
+        private float disappearSpeed;
+        private float disappearBlend;
         private float blendValue = 0;
         [SerializeField]
         private Animator _animator;

@@ -1,5 +1,7 @@
 ﻿using MVZ2.Talk;
 using MVZ2.Talks;
+using MVZ2Logic.Archives;
+using MVZ2Logic.Maps;
 using PVZEngine.Level;
 
 namespace MVZ2.Level
@@ -10,13 +12,13 @@ namespace MVZ2.Level
         {
             this.level = level;
         }
-        public override bool IsInArchive()
+        public override IArchiveInterface GetArchive()
         {
-            return false;
+            return null;
         }
-        public override bool IsInMap()
+        public override IMapInterface GetMap()
         {
-            return false;
+            return null;
         }
         public override LevelEngine GetLevel()
         {

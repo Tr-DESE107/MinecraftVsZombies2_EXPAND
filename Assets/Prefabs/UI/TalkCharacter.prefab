@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 6994645559512801611}
   - component: {fileID: 8264514307198630559}
   - component: {fileID: 85909185270243658}
+  - component: {fileID: 6428233124690043903}
   m_Layer: 0
   m_Name: TalkCharacter
   m_TagString: Untagged
@@ -187,3 +188,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &6428233124690043903
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9110853629423673998}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

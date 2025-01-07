@@ -9,14 +9,14 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
+using MVZ2Logic.Archives;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Archives
 {
-    public class ArchiveController : MainScenePage
+    public class ArchiveController : MainScenePage, IArchiveInterface
     {
         public override void Display()
         {
@@ -26,6 +26,10 @@ namespace MVZ2.Archives
             if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
                 Main.MusicManager.Play(VanillaMusicID.choosing);
         }
+
+        #region 私有方法
+
+        #region 生命周期
         private void Awake()
         {
             ui.OnIndexReturnClick += OnIndexReturnClickCallback;
@@ -36,13 +40,16 @@ namespace MVZ2.Archives
             ui.OnDetailsReturnClick += OnDetailsReturnClickCallback;
             ui.OnDetailsPlayClick += OnDetailsPlayClickCallback;
 
-            talkSystem = new ArchiveTalkSystem(simulationTalk);
+            talkSystem = new ArchiveTalkSystem(this, simulationTalk);
             simulationTalk.OnTalkAction += OnTalkActionCallback;
         }
         private void Update()
         {
             simulationTalk.transform.localPosition = ((Vector3)Main.ShakeManager.GetShake2D()) * 100;
         }
+        #endregion
+
+        #region 事件回调
         private void OnIndexReturnClickCallback()
         {
             Hide();
@@ -83,6 +90,13 @@ namespace MVZ2.Archives
         private void OnTalkActionCallback(string cmd, params string[] parameters)
         {
             Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
+        }
+        #endregion
+
+        void IArchiveInterface.SetBackground(SpriteReference backgroundRef)
+        {
+            var background = Main.GetFinalSprite(backgroundRef);
+            ui.SetSimulationBackground(background);
         }
         private void ShowReplayDialog()
         {
@@ -225,6 +239,7 @@ namespace MVZ2.Archives
                 return string.Empty;
             return Main.LanguageManager._p(context, text, args);
         }
+        #endregion
         public event Action OnReturnClick;
         [TranslateMsg("对话档案中语句的模板，{0}为人物，{1}为语句内容")]
         public const string SENTENCE_TEMPLATE = "<b>[{0}]</b> {1}";
