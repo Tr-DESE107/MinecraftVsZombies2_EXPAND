@@ -14,6 +14,8 @@ namespace MVZ2Logic.Level
         public float EnemySpawnX { get; }
         public float DoorZ { get; }
 
+        public float NightValue { get; }
+
         public float GridWidth { get; }
         public float GridHeight { get; }
         public float GridLeftX { get; }

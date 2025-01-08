@@ -42,6 +42,7 @@ namespace MVZ2.GameContent.Effects
         public const string magneticLine = "magnetic_line";
         public const string hoe = "hoe";
         public const string breakoutBoard = "breakout_board";
+        public const string nightmareWatchingEye = "nightmare_watching_eye";
     }
     public static class VanillaEffectID
     {
@@ -82,6 +83,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID magneticLine = Get(VanillaEffectNames.magneticLine);
         public static readonly NamespaceID hoe = Get(VanillaEffectNames.hoe);
         public static readonly NamespaceID breakoutBoard = Get(VanillaEffectNames.breakoutBoard);
+        public static readonly NamespaceID nightmareWatchingEye = Get(VanillaEffectNames.nightmareWatchingEye);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

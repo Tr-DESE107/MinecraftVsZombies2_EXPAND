@@ -114,6 +114,7 @@
     <model name="magnetic_line" type="entity" path="mvz2:effect/magnetic_line" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="hoe" type="entity" path="mvz2:effect/hoe" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="breakout_board" type="entity" path="mvz2:effect/breakout_board" width="32" height="160" xOffset="0" yOffset="0"/>
+    <model name="nightmare_watching_eye" type="entity" path="mvz2:effect/nightmare_watching_eye" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

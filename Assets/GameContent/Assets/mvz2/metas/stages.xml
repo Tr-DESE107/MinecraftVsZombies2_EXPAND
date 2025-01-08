@@ -424,5 +424,8 @@
             <spawn id="mvz2:ghast"/>
             <spawn id="mvz2:mother_terror"/>
         </spawns>
+        <properties>
+            <bool name="noProduction" value="true"/>
+        </properties>
     </stage>
 </stages>

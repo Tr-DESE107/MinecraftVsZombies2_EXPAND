@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Stages
         public const string halloween10 = "halloween_10";
         public const string halloween11 = "halloween_11";
         public const string dream1 = "dream_1";
+        public const string dream11 = "dream_11";
     }
     public static class VanillaStageID
     {
@@ -30,6 +31,7 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID halloween10 = Get(VanillaStageNames.halloween10);
         public static readonly NamespaceID halloween11 = Get(VanillaStageNames.halloween11);
         public static readonly NamespaceID dream1 = Get(VanillaStageNames.dream1);
+        public static readonly NamespaceID dream11 = Get(VanillaStageNames.dream11);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

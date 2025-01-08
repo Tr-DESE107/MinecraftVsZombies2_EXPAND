@@ -215,6 +215,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e5714ba6ca6d674889c791b36a58067
+    m_Address: mvz2:entity/effects/nightmare_eye_mask
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f85791f4565cdd48b780ea2b27b64f5
     m_Address: mvz2:random/crystal/crystal_place1
     m_ReadOnly: 0
@@ -1533,6 +1539,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51110ec3172668f4b8b37e15303e7c5e
+    m_Address: mvz2:effect/nightmare_watching_eye
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51407c787c6ea6b4790f4d9c7a0c78dd
     m_Address: mvz2:icon/knockback_wave

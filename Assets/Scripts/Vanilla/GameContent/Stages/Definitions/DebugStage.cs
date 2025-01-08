@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
@@ -36,7 +37,7 @@ namespace MVZ2.GameContent.Stages
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.ghast,
-                VanillaEnemyID.caveSpider,
+                VanillaEffectID.nightmareWatchingEye,
             });
             level.ReplaceArtifacts(new NamespaceID[]
             {

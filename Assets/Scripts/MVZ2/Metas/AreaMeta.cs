@@ -19,6 +19,8 @@ namespace MVZ2.Metas
         public float EnemySpawnX { get; private set; }
         public float DoorZ { get; private set; }
 
+        public float NightValue { get; private set; }
+
         public float GridWidth { get; private set; }
         public float GridHeight { get; private set; }
         public float GridLeftX { get; private set; }
@@ -44,6 +46,13 @@ namespace MVZ2.Metas
             {
                 enemySpawnX = positionsNode.GetAttributeFloat("enemySpawnX") ?? enemySpawnX;
                 doorZ = positionsNode.GetAttributeFloat("doorZ") ?? doorZ;
+            }
+
+            float nightValue = 0;
+            var lightingNode = node["lighting"];
+            if (lightingNode != null)
+            {
+                nightValue = lightingNode.GetAttributeFloat("night") ?? 0;
             }
 
             float gridWidth = 80;
@@ -84,6 +93,8 @@ namespace MVZ2.Metas
 
                 EnemySpawnX = enemySpawnX,
                 DoorZ = doorZ,
+
+                NightValue = nightValue,
 
                 GridWidth = gridWidth,
                 GridHeight = gridHeight,

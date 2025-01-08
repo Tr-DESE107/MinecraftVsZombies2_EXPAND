@@ -878,5 +878,6 @@
             <vector3 name="size" x="32" y="64" z="160" />
             <vector3 name="shadowScale" x="1" y="5" z="1" />
         </effect>
+        <effect id="nightmare_watching_eye"/>
     </entries>
 </entities>
