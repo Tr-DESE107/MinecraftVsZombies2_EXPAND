@@ -6,5 +6,6 @@
         public const string TYPE_SPECIAL = "special";
         public const string TYPE_MINIGAME = "minigame";
         public const string TYPE_ENDLESS = "endless";
+        public const string TYPE_BOSS = "boss";
     }
 }

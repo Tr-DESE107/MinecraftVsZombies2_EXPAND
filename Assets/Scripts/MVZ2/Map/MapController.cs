@@ -244,19 +244,12 @@ namespace MVZ2.Map
                 return null;
             return Main.ResourceManager.GetStageMeta(stageID);
         }
-        private bool IsMinigameStage(int index)
+        private string GetStageType(int index)
         {
             var stageMeta = GetStageMeta(index);
             if (stageMeta == null)
-                return false;
-            return stageMeta.Type == StageTypes.TYPE_MINIGAME;
-        }
-        private bool IsEndlessStage(int index)
-        {
-            var stageMeta = GetStageMeta(index);
-            if (stageMeta == null)
-                return false;
-            return stageMeta.Type == StageTypes.TYPE_ENDLESS;
+                return string.Empty;
+            return stageMeta.Type;
         }
         private bool IsLevelUnlocked(int index)
         {
@@ -463,16 +456,15 @@ namespace MVZ2.Map
             {
                 var unlocked = IsLevelUnlocked(i);
                 var cleared = IsLevelCleared(i);
+                var stageType = GetStageType(i);
 
                 var color = buttonColorCleared;
                 if (!unlocked)
                     color = buttonColorLocked;
-                else if (IsMinigameStage(i))
+                else if (stageType == StageTypes.TYPE_MINIGAME)
                     color = buttonColorMinigame;
-                else if (IsEndlessStage(i))
+                else if (stageType == StageTypes.TYPE_BOSS)
                     color = buttonColorBoss;
-                else if (IsEndlessStage(i))
-                    color = buttonColorEndless;
                 else if (!cleared)
                     color = buttonColorUncleared;
 
@@ -486,7 +478,7 @@ namespace MVZ2.Map
                 model.SetMapButtonText(i, (i + 1).ToString());
                 model.SetMapButtonDifficulty(i, GetLevelDifficulty(i));
             }
-            var endlessColor = buttonColorCleared;
+            var endlessColor = buttonColorEndless;
             var endlessUnlocked = IsEndlessUnlocked();
             if (!endlessUnlocked)
                 endlessColor = buttonColorLocked;
