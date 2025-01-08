@@ -183,52 +183,108 @@ namespace MVZ2.Vanilla.Level
             level.StageDefinition.PostWave(level, wave);
             level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, level, wave);
         }
-        public static float GetBaseSpawnPoints(this LevelEngine level, int wave, int flags)
+        public static int GetLevelTotalWaves(this LevelEngine level, int wave, int flags)
         {
             var wavesPerFlag = level.GetWavesPerFlag();
             var waveModular = (wave - 1) % wavesPerFlag + 1;
-            var totalWave = waveModular + flags * wavesPerFlag;
+            return waveModular + flags * wavesPerFlag;
+        }
+        /// <summary>
+        /// 波次生成敌人所需要的总等级花费。
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="wave"></param>
+        /// <param name="flags"></param>
+        /// <returns></returns>
+        public static float GetBaseSpawnPoints(this LevelEngine level, int wave, int flags)
+        {
+            var totalWave = level.GetLevelTotalWaves(wave, flags);
             var points = Mathf.Min(totalWave / 3f, 500);
             if (level.IsHugeWave(wave))
             {
                 points *= 2.5f;
             }
+            points = Mathf.Ceil(points);
             points *= level.GetSpawnPointMultiplier();
             return Mathf.Ceil(points);
         }
+        /// <summary>
+        /// 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="wave"></param>
+        /// <param name="flags"></param>
+        /// <returns></returns>
+        public static float GetWaveSpawnLevelLimit(this LevelEngine level, int wave, int flags)
+        {
+            var totalWave = level.GetLevelTotalWaves(wave, flags);
+            var limit = totalWave * 0.4f + 1;
+            if (level.IsHugeWave(wave))
+            {
+                limit *= 2.5f;
+            }
+            return Mathf.Floor(limit);
+        }
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {
+            // 获取本波的生成点数。
             var totalPoints = level.GetSpawnPoints();
+
+            // 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
+            var currentWaveLevelLimit = level.GetWaveSpawnLevelLimit(wave, level.CurrentFlag);
+
+            // 当前的有效敌人池。
             var pool = level.GetEnemyPool();
-            var spawnDefs = pool.Where(e => e.CanSpawn(level)).Select(e => e.GetSpawnDefinition(level.Content));
+            var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).Where(def => def != null && def.SpawnLevel > 0);
+
+            // 已生成怪物数量。
             int spawnedCount = 0;
+
+            // 没有剩余点数，或者生成的敌人数量大于50只，则中断。
             while (totalPoints > 0 && spawnedCount < 50)
             {
-                var validSpawnDefs = spawnDefs.Where(def => def.SpawnCost > 0 && def.SpawnCost <= totalPoints);
-                if (validSpawnDefs.Count() <= 0)
+                // 当前所有可以生成的敌人。
+                // 不被当前波次限制。
+                var possibleSpawnDefs = spawnDefs.Where(def => def.SpawnLevel <= totalPoints);
+
+                // 没有可生成的敌人了，跳出
+                if (possibleSpawnDefs.Count() <= 0)
                     break;
-                var spawnDef = validSpawnDefs.Random(level.GetSpawnRNG());
+
+                IEnumerable<SpawnDefinition> finalSpawnPool = possibleSpawnDefs;
+                // 根据当前波次的等级限制获取有效的敌人。
+                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.SpawnLevel <= currentWaveLevelLimit);
+
+                // 如果根据当前波次限制之后，没有可以生成的敌人，则不进行限制。
+                if (limitedSpawnDefs.Count() > 0)
+                {
+                    finalSpawnPool = limitedSpawnDefs;
+                }
+
+                // 随机生成一个敌人。
+                var rng = level.GetSpawnRNG();
+                var spawnDef = finalSpawnPool.WeightedRandom(i => i.GetWeight(level), rng);
                 level.SpawnEnemyAtRandomLane(spawnDef);
-                totalPoints -= spawnDef.SpawnCost;
+                totalPoints -= spawnDef.SpawnLevel;
                 spawnedCount++;
             }
 
             if (level.IsFinalWave(wave))
             {
-                var poolSpawnDefs = pool.Select(e => e.GetSpawnDefinition(level.Content));
-                var notSpawnedDefs = poolSpawnDefs.Where(def => !level.IsEnemySpawned(def.GetID()));
+                // 最后一波如果还有没生成过的敌人，强制全部生成一次
+                var notSpawnedDefs = spawnDefs.Where(def => !level.IsEnemySpawned(def.GetID()));
                 foreach (var notSpawnedDef in notSpawnedDefs)
                 {
                     level.SpawnEnemyAtRandomLane(notSpawnedDef);
                 }
             }
         }
-        public static bool WillEnemySpawn(this LevelEngine level, NamespaceID spawnRef)
+        public static bool WillEnemySpawn(this LevelEngine level, NamespaceID spawnID)
         {
             var pool = level.GetEnemyPool();
             if (pool == null)
                 return false;
-            return pool.Any(e => e.GetSpawnDefinition(level.Content).GetID() == spawnRef);
+            return pool.Any(e => e == spawnID);
         }
         public static Entity SpawnEnemyAtRandomLane(this LevelEngine level, SpawnDefinition spawnDef)
         {
@@ -257,7 +313,7 @@ namespace MVZ2.Vanilla.Level
         public static void CreatePreviewEnemies(this LevelEngine level, Rect region)
         {
             var pool = level.GetEnemyPool();
-            var spawnIDs = pool.Select(e => e.GetSpawnDefinition(level.Content)?.GetID()).Where(e => e != null);
+            var spawnIDs = pool.Where(e => NamespaceID.IsValid(e));
             level.CreatePreviewEnemies(spawnIDs, region);
         }
         public static void RemovePreviewEnemies(this LevelEngine level)

@@ -20,11 +20,11 @@ namespace MVZ2.Vanilla.Level
         public const string KEEP_HELD_ITEM_IN_SCREEN = "keepHeldItemInScreen";
         public const string TRIGGER_DISABLED = "triggerDisabled";
         public const string TRIGGER_DISABLE_MESSAGE = "triggerDisableMessage";
-        public static IEnemySpawnEntry[] GetEnemyPool(this LevelEngine game)
+        public static NamespaceID[] GetEnemyPool(this LevelEngine game)
         {
-            return game.GetProperty<IEnemySpawnEntry[]>(ENEMY_POOL);
+            return game.GetProperty<NamespaceID[]>(ENEMY_POOL);
         }
-        public static void SetEnemyPool(this LevelEngine game, IEnemySpawnEntry[] value)
+        public static void SetEnemyPool(this LevelEngine game, NamespaceID[] value)
         {
             game.SetProperty(ENEMY_POOL, value);
         }

@@ -69,6 +69,9 @@ namespace MVZ2.Metas
                 case "blueprints":
                     resource.BlueprintMetaList = BlueprintMetaList.FromXmlNode(document["blueprints"], defaultNsp);
                     break;
+                case "spawns":
+                    resource.SpawnMetaList = SpawnMetaList.FromXmlNode(document["spawns"], defaultNsp);
+                    break;
                 case "chaptertransitions":
                     resource.ChapterTransitionMetaList = ChapterTransitionMetaList.FromXmlNode(document["transitions"], defaultNsp);
                     break;

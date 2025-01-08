@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Tools
 {
     public static class RandomHelper
     {
-        public static int WeightedRandom(this RandomGenerator rng, IList<int> weights)
+        public static int WeightedRandom(this RandomGenerator rng, IEnumerable<int> weights)
         {
-            int totalWeight = 0;
-            foreach (int weight in weights)
-            {
-                totalWeight += weight;
-            }
+            var count = weights.Count();
+            if (count <= 0)
+                return -1;
+            int totalWeight = weights.Sum();
             int value = rng.Next(0, totalWeight);
-            for (int i = 0; i < weights.Count; i++)
+            for (int i = 0; i < count; i++)
             {
-                value -= weights[i];
+                value -= weights.ElementAt(i);
                 if (value <= 0)
                 {
                     return i;
@@ -22,17 +22,16 @@ namespace Tools
             }
             return -1;
         }
-        public static int WeightedRandom(this RandomGenerator rng, IList<float> weights)
+        public static int WeightedRandom(this RandomGenerator rng, IEnumerable<float> weights)
         {
-            float totalWeight = 0;
-            foreach (int weight in weights)
-            {
-                totalWeight += weight;
-            }
+            var count = weights.Count();
+            if (count <= 0)
+                return -1;
+            float totalWeight = weights.Sum();
             float value = rng.Next(0, totalWeight);
-            for (int i = 0; i < weights.Count; i++)
+            for (int i = 0; i < count; i++)
             {
-                value -= weights[i];
+                value -= weights.ElementAt(i);
                 if (value <= 0)
                 {
                     return i;

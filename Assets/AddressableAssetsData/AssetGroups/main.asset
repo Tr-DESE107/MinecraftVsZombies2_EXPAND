@@ -4570,6 +4570,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f32e04f547babbf47bf4fc44801f9e22
+    m_Address: mvz2:spawns
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f33715c080e647f4eb47909df824bc60
     m_Address: mvz2:note/help_back
     m_ReadOnly: 0

@@ -24,11 +24,6 @@ namespace MVZ2.GameContent.Areas
     {
         public Halloween(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaAreaProps.DOOR_Z, 160f);
-            SetProperty(EngineAreaProps.CART_REFERENCE, VanillaCartID.pumpkinCarriage);
-            SetProperty(EngineAreaProps.AREA_TAGS, new NamespaceID[] { VanillaAreaTags.night, VanillaAreaTags.noWater });
-            SetProperty(VanillaLevelProps.MUSIC_ID, VanillaMusicID.halloween);
-            SetProperty(VanillaAreaProps.NIGHT_VALUE, 0.5f);
             for (int i = 0; i < 45; i++)
             {
                 grids.Add(VanillaGridID.grass);

@@ -2,6 +2,7 @@
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Spawns;
 using PVZEngine;
 
 namespace MVZ2Logic.Games
@@ -19,5 +20,7 @@ namespace MVZ2Logic.Games
         public IModelMeta[] GetModModelMetas(string spaceName);
         public ISeedOptionMeta GetSeedOptionMeta(NamespaceID id);
         public ISeedOptionMeta[] GetModSeedOptionMetas(string spaceName);
+        public ISpawnMeta GetSpawnMeta(NamespaceID id);
+        public ISpawnMeta[] GetModSpawnMetas(string spaceName);
     }
 }

@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Spawns
 {
@@ -30,6 +31,16 @@ namespace MVZ2.GameContent.Spawns
                 }
             }
             return level.GetRandomEnemySpawnLane(resultLanes);
+        }
+        public override int GetWeight(LevelEngine level)
+        {
+            var weight = this.GetWeightBase();
+            var decayStart = this.GetWeightDecayStartFlag();
+            var decayEnd = this.GetWeightDecayEndFlag();
+            var decay = this.GetWeightDecayPerFlag();
+
+            var decayFlags = Mathf.Clamp(level.CurrentFlag - decayStart, 0, decayEnd);
+            return weight - decay * decayFlags;
         }
         public bool CanSpawnAtWaterLane { get; set; }
     }

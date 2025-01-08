@@ -283,25 +283,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 生成
-        public const string SPAWN_COST = "spawnCost";
-        public const string PREVIEW_COUNT = "previewCount";
-        public const string CAN_SPAWN_AT_WATER_LANE = "canSpawnAtWaterLane";
-
-        public static int GetSpawnCost(this EntityDefinition entity)
-        {
-            return entity.GetProperty<int>(SPAWN_COST);
-        }
-        public static int GetPreviewCount(this EntityDefinition entity)
-        {
-            return entity.GetProperty<int>(PREVIEW_COUNT);
-        }
-        public static bool CanSpawnAtWaterLane(this EntityDefinition entity)
-        {
-            return entity.GetProperty<bool>(CAN_SPAWN_AT_WATER_LANE);
-        }
-        #endregion
-
         #region 单元格
         public const string GRID_LAYERS = "gridLayers";
         public static NamespaceID[] GetGridLayersToTake(this EntityDefinition entity)

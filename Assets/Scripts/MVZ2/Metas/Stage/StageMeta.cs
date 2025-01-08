@@ -29,7 +29,7 @@ namespace MVZ2.Metas
 
         public int TotalFlags { get; private set; }
         public float SpawnPointsMultiplier { get; private set; }
-        public EnemySpawnEntry[] Spawns { get; private set; }
+        public NamespaceID[] Spawns { get; private set; }
         public ConveyorPoolEntry[] ConveyorPool { get; private set; }
         public int FirstWaveTime { get; private set; }
         public bool NeedBlueprints { get; private set; }
@@ -37,7 +37,7 @@ namespace MVZ2.Metas
         public Dictionary<string, object> Properties { get; private set; }
 
         IStageTalkMeta[] IStageMeta.Talks => Talks;
-        IEnemySpawnEntry[] IStageMeta.Spawns => Spawns;
+        NamespaceID[] IStageMeta.Spawns => Spawns;
         IConveyorPoolEntry[] IStageMeta.ConveyorPool => ConveyorPool;
         public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -87,10 +87,11 @@ namespace MVZ2.Metas
             var flags = spawnNode?.GetAttributeInt("flags") ?? 1;
             var firstWaveTime = spawnNode?.GetAttributeInt("firstWaveTime") ?? 540;
             var spawnPointsMultiplier = spawnNode?.GetAttributeFloat("pointsMultiplier") ?? 1;
-            var spawns = new EnemySpawnEntry[spawnNode?.ChildNodes.Count ?? 0];
+            var spawns = new NamespaceID[spawnNode?.ChildNodes.Count ?? 0];
             for (int i = 0; i < spawns.Length; i++)
             {
-                spawns[i] = EnemySpawnEntry.FromXmlNode(spawnNode.ChildNodes[i], defaultNsp);
+                var childNode = spawnNode.ChildNodes[i];
+                spawns[i] = childNode.GetAttributeNamespaceID("id", defaultNsp);
             }
 
             var propertiesNode = node["properties"];
@@ -132,22 +133,6 @@ namespace MVZ2.Metas
             { "lawn", LevelCameraPosition.Lawn },
             { "choose", LevelCameraPosition.Choose },
         };
-    }
-    public class EnemySpawnEntry : IEnemySpawnEntry
-    {
-        public NamespaceID SpawnRef { get; }
-        public int EarliestFlag { get; }
-        public EnemySpawnEntry(NamespaceID spawnRef, int earliestFlag = 0)
-        {
-            SpawnRef = spawnRef;
-            EarliestFlag = earliestFlag;
-        }
-        public static EnemySpawnEntry FromXmlNode(XmlNode node, string defaultNsp)
-        {
-            var spawnRef = node.GetAttributeNamespaceID("id", defaultNsp);
-            var earliestFlag = node.GetAttributeInt("earliestFlag") ?? 0;
-            return new EnemySpawnEntry(spawnRef, earliestFlag);
-        }
     }
     public class ConveyorPoolEntry : IConveyorPoolEntry
     {

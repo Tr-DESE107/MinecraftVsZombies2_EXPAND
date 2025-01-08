@@ -35,7 +35,6 @@ namespace MVZ2Logic
             RegisterSerializer(new ColorSerializer());
             RegisterSerializer(new RandomGeneratorSerializer());
             RegisterSerializer(new NamespaceIDSerializer(defaultNsp));
-            RegisterSerializer(new EndlessSpawnEntrySerializer());
 
             // Tools
             RegisterClass<FrameTimer>();

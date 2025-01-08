@@ -18,6 +18,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
 using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Spawns;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
@@ -32,6 +33,7 @@ namespace MVZ2.Vanilla
         public VanillaMod() : base(spaceName)
         {
             LoadEntityMetas();
+            LoadSpawnMetas();
             LoadStageMetas();
             LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
             LoadAreaProperties();
@@ -85,11 +87,31 @@ namespace MVZ2.Vanilla
                 var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), entityDefinition.IsTriggerActive(), entityDefinition.CanInstantTrigger());
                 seedDef.SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, entityDefinition.IsUpgradeBlueprint());
                 AddDefinition(seedDef);
+            }
+        }
+        private void LoadSpawnMetas()
+        {
+            foreach (ISpawnMeta meta in Global.Game.GetModSpawnMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var spawnLevel = meta.SpawnLevel;
+                var terrain = meta.Terrain;
+                var weight = meta.Weight;
+                var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
+                var water = meta.Terrain?.Water ?? false;
 
-                var spawnCost = entityDefinition.GetSpawnCost();
-                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnCost, new NamespaceID(Namespace, name), entityDefinition.GetExcludedAreaTags() ?? Array.Empty<NamespaceID>());
-                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, entityDefinition.GetPreviewCount());
-                spawnDef.CanSpawnAtWaterLane = entityDefinition.CanSpawnAtWaterLane();
+                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, new NamespaceID(Namespace, name), excludedTags);
+                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
+                if (weight != null)
+                {
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
+                }
+                spawnDef.CanSpawnAtWaterLane = water;
                 AddDefinition(spawnDef);
             }
         }

@@ -27,6 +27,24 @@ namespace Tools
             }
             return results;
         }
+        public static T WeightedRandom<T>(this IEnumerable<T> list, Func<T, int> weightGetter, RandomGenerator rng)
+        {
+            var count = list.Count();
+            if (count <= 0)
+                throw new ArgumentException("The list to get weighted random element is empty.");
+            var weights = list.Select(i => weightGetter(i));
+            int totalWeight = weights.Sum();
+            int value = rng.Next(0, totalWeight);
+            for (int i = 0; i < count; i++)
+            {
+                value -= weights.ElementAt(i);
+                if (value <= 0)
+                {
+                    return list.ElementAt(i);
+                }
+            }
+            return default;
+        }
         public static IEnumerable<T> WeightedRandomTake<T>(this IEnumerable<T> list, IList<int> weights, int count, RandomGenerator rng)
         {
             List<T> results = new List<T>();

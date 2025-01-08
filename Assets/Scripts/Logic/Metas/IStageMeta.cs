@@ -27,7 +27,7 @@ namespace MVZ2Logic.Level
         string StartTransition { get; }
 
         int TotalFlags { get; }
-        IEnemySpawnEntry[] Spawns { get; }
+        NamespaceID[] Spawns { get; }
         IConveyorPoolEntry[] ConveyorPool { get; }
         int FirstWaveTime { get; }
         bool NeedBlueprints { get; }
@@ -40,20 +40,6 @@ namespace MVZ2Logic.Level
         string Type { get; }
         NamespaceID Value { get; }
         bool ShouldRepeat(IGameSaveData save);
-    }
-    public interface IEnemySpawnEntry
-    {
-        NamespaceID SpawnRef { get; }
-        int EarliestFlag { get; }
-        bool CanSpawn(LevelEngine game)
-        {
-            return game.CurrentFlag >= EarliestFlag;
-        }
-
-        SpawnDefinition GetSpawnDefinition(IGameContent game)
-        {
-            return game.GetSpawnDefinition(SpawnRef);
-        }
     }
     public interface IConveyorPoolEntry
     {

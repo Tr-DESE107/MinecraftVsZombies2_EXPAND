@@ -16,10 +16,6 @@ namespace MVZ2.GameContent.Areas
     {
         public Day(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaAreaProps.DOOR_Z, 240f);
-            SetProperty(EngineAreaProps.CART_REFERENCE, VanillaCartID.minecart);
-            SetProperty(EngineAreaProps.AREA_TAGS, new NamespaceID[] { VanillaAreaTags.day, VanillaAreaTags.noWater });
-            SetProperty(VanillaLevelProps.MUSIC_ID, VanillaMusicID.day);
             for (int i = 0; i < 45; i++)
             {
                 grids.Add(VanillaGridID.grass);

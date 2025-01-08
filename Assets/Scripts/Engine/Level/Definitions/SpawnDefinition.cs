@@ -3,11 +3,11 @@ using PVZEngine.Level;
 
 namespace PVZEngine.Definitions
 {
-    public class SpawnDefinition : Definition
+    public abstract class SpawnDefinition : Definition
     {
         public SpawnDefinition(string nsp, string name, int cost, NamespaceID entityID, NamespaceID[] excludedAreaTags) : base(nsp, name)
         {
-            SpawnCost = cost;
+            SpawnLevel = cost;
             EntityID = entityID;
             ExcludedAreaTags = excludedAreaTags;
         }
@@ -15,7 +15,8 @@ namespace PVZEngine.Definitions
         {
             return level.GetRandomEnemySpawnLane();
         }
-        public int SpawnCost { get; }
+        public abstract int GetWeight(LevelEngine level);
+        public int SpawnLevel { get; }
         public NamespaceID EntityID { get; }
         public NamespaceID[] ExcludedAreaTags { get; }
     }
