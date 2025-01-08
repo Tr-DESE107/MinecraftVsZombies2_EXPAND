@@ -8,12 +8,14 @@ namespace MVZ2.GameContent.Notes
         public const string help = "help";
         public const string prologue = "prologue";
         public const string halloween = "halloween";
+        public const string dream = "dream";
     }
     public static class VanillaNoteID
     {
         public static readonly NamespaceID help = Get(VanillaNoteNames.help);
         public static readonly NamespaceID prologue = Get(VanillaNoteNames.prologue);
         public static readonly NamespaceID halloween = Get(VanillaNoteNames.halloween);
+        public static readonly NamespaceID dream = Get(VanillaNoteNames.dream);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

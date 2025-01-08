@@ -148,10 +148,4 @@ namespace PVZEngine.Entities
         private List<EntityCollision> collisionThisTick = new List<EntityCollision>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
     }
-    public class CollisionResult
-    {
-        public Vector3 seperation;
-        public int selfHitbox;
-        public int otherHitbox;
-    }
 }

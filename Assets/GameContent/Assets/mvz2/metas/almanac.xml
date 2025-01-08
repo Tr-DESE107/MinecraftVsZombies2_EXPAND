@@ -922,7 +922,7 @@
         </group>
         <!-- Lore -->
         <group id="mvz2:lore" name="剧情" order="700">
-            <entry id="mvz2:blurred_note" name="模糊的字条" unlock="mvz2:level.dream_10">
+            <entry id="mvz2:blurred_note" name="模糊的字条" sprite="mvz2:note/dream" unlock="mvz2:level.dream_10">
                 <header>
                     <p>？？？</p>
                 </header>
