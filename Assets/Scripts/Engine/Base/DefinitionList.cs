@@ -4,76 +4,43 @@ using PVZEngine.Base;
 
 namespace PVZEngine
 {
-    public abstract class DefinitionList
+    public class DefinitionList
     {
-        public abstract bool CanGet<T>() where T : Definition;
-        public abstract T Get<T>(NamespaceID id) where T : Definition;
-        public abstract T[] GetAll<T>() where T : Definition;
-        public abstract Definition[] GetAll();
-        public abstract bool CanAdd(Definition definition);
-        public abstract void Add(Definition definition);
-        public void AddRange(IEnumerable<Definition> definitions)
-        {
-            foreach (var def in definitions)
-            {
-                Add(def);
-            }
-        }
-        public abstract void Clear();
-        public abstract Definition GetDefinition(NamespaceID id);
-        public abstract Definition[] GetDefinitions();
-    }
-    public class DefinitionList<T> : DefinitionList where T : Definition
-    {
-        public T GetDefinitionGeneric(NamespaceID id)
-        {
-            return definitions.FirstOrDefault(d => id == d.GetID());
-        }
-        public T[] GetDefinitionsGeneric()
+        public Definition[] GetAllDefinitions()
         {
             return definitions.ToArray();
         }
-
-        public override Definition[] GetDefinitions()
+        public T[] GetAllDefinitions<T>() where T : Definition
         {
-            return GetDefinitionsGeneric();
+            return definitions.OfType<T>().ToArray();
         }
-        public override Definition GetDefinition(NamespaceID id)
+        public Definition GetDefinition(NamespaceID id)
         {
-            return GetDefinitionGeneric(id);
-        }
-        public override bool CanAdd(Definition definition)
-        {
-            return definition is T;
-        }
-        public override void Add(Definition definition)
-        {
-            if (definition is T tDef)
+            foreach (var definition in definitions)
             {
-                definitions.Add(tDef);
+                if (definition.GetID() == id)
+                    return definition;
             }
+            return null;
         }
-        public override bool CanGet<T1>()
+        public T GetDefinition<T>(NamespaceID id) where T : Definition
         {
-            return typeof(T).IsAssignableFrom(typeof(T1));
+            foreach (var definition in definitions)
+            {
+                if (definition is T tDef && definition.GetID() == id)
+                    return tDef;
+            }
+            return null;
         }
-        public override T1 Get<T1>(NamespaceID id)
+        public void Add(Definition definition)
         {
-            return definitions.OfType<T1>().FirstOrDefault(d => d.GetID() == id);
+            definitions.Add(definition);
         }
-        public override T1[] GetAll<T1>()
-        {
-            return definitions.OfType<T1>().ToArray();
-        }
-        public override Definition[] GetAll()
-        {
-            return definitions.ToArray();
-        }
-        public override void Clear()
+        public void Clear()
         {
             definitions.Clear();
         }
-        private List<T> definitions = new List<T>();
+        private List<Definition> definitions = new List<Definition>();
 
     }
 }

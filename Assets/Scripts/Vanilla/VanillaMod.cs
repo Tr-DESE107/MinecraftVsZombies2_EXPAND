@@ -14,6 +14,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
@@ -166,7 +167,7 @@ namespace MVZ2.Vanilla
             {
                 if (meta == null)
                     continue;
-                var area = GetDefinition<AreaDefinition>(new NamespaceID(spaceName, meta.ID));
+                var area = this.GetAreaDefinition(new NamespaceID(spaceName, meta.ID));
                 if (area == null)
                     continue;
                 area.SetProperty(VanillaAreaProps.MODEL_ID, meta.ModelID);
@@ -194,7 +195,7 @@ namespace MVZ2.Vanilla
             {
                 if (meta == null)
                     continue;
-                var stage = GetDefinition<StageDefinition>(new NamespaceID(spaceName, meta.ID));
+                var stage = this.GetStageDefinition(new NamespaceID(spaceName, meta.ID));
                 if (stage == null)
                     continue;
                 stage.SetLevelName(meta.Name);
@@ -232,7 +233,7 @@ namespace MVZ2.Vanilla
             {
                 if (meta == null)
                     continue;
-                var seedOptionDefinition = GetDefinition<SeedOptionDefinition>(new NamespaceID(spaceName, meta.ID));
+                var seedOptionDefinition = this.GetSeedOptionDefinition(new NamespaceID(spaceName, meta.ID));
                 if (seedOptionDefinition == null)
                     continue;
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.COST, meta.Cost);
@@ -246,7 +247,7 @@ namespace MVZ2.Vanilla
                 if (meta == null)
                     continue;
                 var name = meta.ID;
-                var artifact = GetDefinition<ArtifactDefinition>(new NamespaceID(spaceName, name));
+                var artifact = this.GetArtifactDefinition(new NamespaceID(spaceName, name));
                 if (artifact == null)
                     continue;
                 artifact.SetSpriteReference(meta.Sprite);
@@ -254,9 +255,9 @@ namespace MVZ2.Vanilla
         }
         private void AddEntityBehaviours()
         {
-            foreach (var behaviour in GetDefinitions<EntityBehaviourDefinition>())
+            foreach (var behaviour in GetDefinitions<EntityBehaviourDefinition>(EngineDefinitionTypes.ENTITY_BEHAVIOUR))
             {
-                var entity = GetDefinition<EntityDefinition>(behaviour.GetMatchEntityID());
+                var entity = this.GetEntityDefinition(behaviour.GetMatchEntityID());
                 if (entity == null)
                     continue;
                 if (entity.HasBehaviour(behaviour))
@@ -271,7 +272,7 @@ namespace MVZ2.Vanilla
         }
         private void AddOptionSeeds()
         {
-            foreach (var option in GetDefinitions<SeedOptionDefinition>())
+            foreach (var option in GetDefinitions<SeedOptionDefinition>(LogicDefinitionTypes.SEED_OPTION))
             {
                 var seedDef = new OptionSeed(Namespace, option.Name, option.GetCost());
                 AddDefinition(seedDef);

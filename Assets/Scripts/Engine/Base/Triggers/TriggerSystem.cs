@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace PVZEngine.Triggers
 {
@@ -89,6 +91,7 @@ namespace PVZEngine.Triggers
         {
             CallbackID = callbackID;
             Action = action;
+            cache = WrapDelegate(action);
             Priority = priorty;
             FilterValue = filterValue;
         }
@@ -98,15 +101,61 @@ namespace PVZEngine.Triggers
         }
         public virtual object Invoke(params object[] args)
         {
-            return Action?.DynamicInvoke(args);
+            return cache.Invoke(Action, args);
         }
         public bool Filter(object value)
         {
             return FilterValue == null || FilterValue.Equals(value);
         }
+        private static CachedMethodDelegate WrapDelegate(Delegate del)
+        {
+            if (del == null)
+                throw new ArgumentNullException(nameof(del));
+
+            var type = del.GetType();
+            var method = del.GetMethodInfo();
+
+            CreateParamsExpressions(method, out ParameterExpression argsExp, out Expression[] paramsExps);
+
+            var targetExp = Expression.Parameter(typeof(object), "target");
+            var castTargetExp = Expression.Convert(targetExp, type);
+            var invokeExp = Expression.Invoke(castTargetExp, paramsExps);
+
+            Expression bodyExp;
+
+            if (method.ReturnType != typeof(void))
+            {
+                bodyExp = Expression.Convert(invokeExp, typeof(object));
+            }
+            else
+            {
+                var nullExp = Expression.Constant(null, typeof(object));
+                bodyExp = Expression.Block(invokeExp, nullExp);
+            }
+            var lambdaExp = Expression.Lambda<CachedMethodDelegate>(bodyExp, targetExp, argsExp);
+            var lambda = lambdaExp.Compile();
+            return lambda;
+        }
+
+        private static void CreateParamsExpressions(MethodBase method, out ParameterExpression argsExp, out Expression[] paramsExps)
+        {
+            argsExp = Expression.Parameter(typeof(object[]), "args");
+
+            var parameters = method.GetParameters();
+            paramsExps = new Expression[parameters.Length];
+
+            for (var i = 0; i < parameters.Length; i++)
+            {
+                var constExp = Expression.Constant(i, typeof(int));
+                var argExp = Expression.ArrayIndex(argsExp, constExp);
+                paramsExps[i] = Expression.Convert(argExp, parameters[i].ParameterType);
+            }
+        }
+        private delegate object CachedMethodDelegate(object target, object[] args);
         public CallbackReference CallbackID { get; }
         public Delegate Action { get; }
         public int Priority { get; }
         public object FilterValue { get; }
+        private CachedMethodDelegate cache;
     }
 }

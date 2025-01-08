@@ -19,5 +19,6 @@ namespace PVZEngine.Definitions
         public int SpawnLevel { get; }
         public NamespaceID EntityID { get; }
         public NamespaceID[] ExcludedAreaTags { get; }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.SPAWN;
     }
 }

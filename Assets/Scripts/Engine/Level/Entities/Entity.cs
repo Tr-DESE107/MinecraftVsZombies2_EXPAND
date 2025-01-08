@@ -528,10 +528,10 @@ namespace PVZEngine.Entities
             var motion = Position - PreviousPosition;
             var otherMotion = other.Position - other.PreviousPosition;
             var collisionPoints = 1;
-            var detection = this.GetCollisionDetection();
+            var detection = Cache.CollisionDetection;
             if (detection == EntityCollisionHelper.DETECTION_CONTINUOUS)
             {
-                collisionPoints = Mathf.CeilToInt(motion.magnitude / this.GetCollisionSampleLength());
+                collisionPoints = Mathf.CeilToInt(motion.magnitude / Cache.CollisionSampleLength);
             }
 
             foreach (var collider1 in enabledColliders)

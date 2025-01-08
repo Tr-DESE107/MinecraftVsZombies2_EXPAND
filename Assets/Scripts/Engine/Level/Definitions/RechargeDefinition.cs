@@ -7,5 +7,6 @@ namespace PVZEngine.Definitions
         public RechargeDefinition(string nsp, string name) : base(nsp, name)
         {
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.RECHARGE;
     }
 }

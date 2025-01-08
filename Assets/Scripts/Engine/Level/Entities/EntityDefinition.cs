@@ -4,6 +4,7 @@ using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -97,6 +98,7 @@ namespace PVZEngine.Entities
         {
             return behaviours.SelectMany(b => b.GetModifiers()).ToArray();
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.ENTITY;
         public abstract int Type { get; }
         private List<EntityBehaviourDefinition> behaviours = new List<EntityBehaviourDefinition>();
     }

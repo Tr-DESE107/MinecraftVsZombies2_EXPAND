@@ -9,13 +9,13 @@ namespace MVZ2.Games
 {
     public partial class Game
     {
-        public T GetDefinition<T>(NamespaceID id) where T : Definition
+        public T GetDefinition<T>(string type, NamespaceID id) where T : Definition
         {
-            return definitionGroup.GetDefinition<T>(id);
+            return definitionGroup.GetDefinition<T>(type, id);
         }
-        public T[] GetDefinitions<T>() where T : Definition
+        public T[] GetDefinitions<T>(string type) where T : Definition
         {
-            return definitionGroup.GetDefinitions<T>();
+            return definitionGroup.GetDefinitions<T>(type);
         }
         public Definition[] GetDefinitions()
         {

@@ -2,6 +2,7 @@
 using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Base;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
@@ -42,6 +43,7 @@ namespace PVZEngine.Buffs
         {
             auraDefinitions.Add(aura);
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.BUFF;
         private List<PropertyModifier> modifiers = new List<PropertyModifier>();
         private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
         private List<ModelInsertion> modelInsertions = new List<ModelInsertion>();

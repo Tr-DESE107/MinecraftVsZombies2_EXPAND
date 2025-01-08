@@ -21,6 +21,7 @@ namespace MVZ2Logic.Artifacts
         {
             auraDefinitions.Add(aura);
         }
+        public sealed override string GetDefinitionType() => LogicDefinitionTypes.ARTIFACT;
         private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
     }
 }

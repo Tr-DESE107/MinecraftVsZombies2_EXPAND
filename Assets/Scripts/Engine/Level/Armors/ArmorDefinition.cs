@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Definitions;
 
 namespace PVZEngine.Armors
 {
@@ -12,5 +13,6 @@ namespace PVZEngine.Armors
         {
             return GetID().ToModelID(EngineModelID.TYPE_ARMOR);
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.ARMOR;
     }
 }

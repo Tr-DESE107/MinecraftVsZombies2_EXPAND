@@ -18,5 +18,6 @@ namespace MVZ2Logic.SeedPacks
 
         }
         public virtual void Update(SeedPack seedPack, float rechargeSpeed) { }
+        public sealed override string GetDefinitionType() => LogicDefinitionTypes.SEED_OPTION;
     }
 }

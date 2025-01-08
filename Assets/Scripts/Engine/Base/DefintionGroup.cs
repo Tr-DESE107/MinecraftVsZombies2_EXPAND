@@ -10,46 +10,38 @@ namespace PVZEngine
         public DefinitionGroup()
         {
         }
-        public void Add<T>(T definition) where T : Definition
+        public void Add(Definition definition)
         {
-            foreach (var list in lists)
+            if (definition == null)
+                return;
+            var type = definition.GetDefinitionType();
+            if (!lists.TryGetValue(type, out var list))
             {
-                if (list.CanAdd(definition))
-                {
-                    list.Add(definition);
-                    return;
-                }
+                list = new DefinitionList();
+                lists.Add(type, list);
             }
-            var newList = new DefinitionList<T>();
-            lists.Add(newList);
-            newList.Add(definition);
+            list.Add(definition);
         }
-        public T GetDefinition<T>(NamespaceID id) where T : Definition
+        public T GetDefinition<T>(string type, NamespaceID id) where T : Definition
         {
-            foreach (var list in lists)
+            if (!lists.TryGetValue(type, out var list))
             {
-                if (list.CanGet<T>())
-                {
-                    return list.Get<T>(id);
-                }
+                return default;
             }
-            return default;
+            return list.GetDefinition<T>(id);
         }
-        public T[] GetDefinitions<T>() where T : Definition
+        public T[] GetDefinitions<T>(string type) where T : Definition
         {
-            foreach (var list in lists)
+            if (!lists.TryGetValue(type, out var list))
             {
-                if (list.CanGet<T>())
-                {
-                    return list.GetAll<T>();
-                }
+                return default;
             }
-            return Array.Empty<T>();
+            return list.GetAllDefinitions<T>();
         }
         public Definition[] GetDefinitions()
         {
-            return lists.SelectMany(l => l.GetAll()).ToArray();
+            return lists.SelectMany(l => l.Value.GetAllDefinitions()).ToArray();
         }
-        protected List<DefinitionList> lists = new List<DefinitionList>();
+        protected Dictionary<string, DefinitionList> lists = new Dictionary<string, DefinitionList>();
     }
 }

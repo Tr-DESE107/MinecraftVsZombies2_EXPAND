@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using PVZEngine;
 using PVZEngine.Level;
 
 namespace MVZ2Logic.Artifacts
@@ -95,13 +96,17 @@ namespace MVZ2Logic.Artifacts
         {
             return artifacts.Any(b => b != null && b.Definition is T);
         }
-        public bool HasArtifact(ArtifactDefinition buffDef)
+        public bool HasArtifact(ArtifactDefinition artifactDef)
         {
-            return artifacts.Any(b => b != null && b.Definition == buffDef);
+            return artifacts.Any(b => b != null && b.Definition == artifactDef);
         }
-        public bool HasArtifact(Artifact buff)
+        public bool HasArtifact(NamespaceID id)
         {
-            return artifacts.Contains(buff);
+            return artifacts.Any(b => b != null && b.Definition?.GetID() == id);
+        }
+        public bool HasArtifact(Artifact artifact)
+        {
+            return artifacts.Contains(artifact);
         }
         public Artifact[] GetArtifacts<T>() where T : ArtifactDefinition
         {
@@ -118,6 +123,10 @@ namespace MVZ2Logic.Artifacts
         public int GetArtifactIndex(ArtifactDefinition def)
         {
             return Array.FindIndex(artifacts, a => a != null && a.Definition == def);
+        }
+        public int GetArtifactIndex(NamespaceID id)
+        {
+            return Array.FindIndex(artifacts, a => a != null && a.Definition?.GetID() == id);
         }
         public Artifact GetArtifactAt(int index)
         {

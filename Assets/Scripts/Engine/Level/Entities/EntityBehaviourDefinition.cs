@@ -3,6 +3,7 @@ using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -58,6 +59,7 @@ namespace PVZEngine.Entities
         {
             modifiers.Add(modifier);
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.ENTITY_BEHAVIOUR;
         private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
         private List<PropertyModifier> modifiers = new List<PropertyModifier>();
     }

@@ -24,6 +24,7 @@ namespace PVZEngine.Definitions
         public virtual void PostFinalWaveEvent(LevelEngine level) { }
         public virtual void Update(LevelEngine level) { }
         public virtual float GetGroundY(LevelEngine level, float x, float z) { return 0; }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.AREA;
         protected List<NamespaceID> grids = new List<NamespaceID>();
     }
 }

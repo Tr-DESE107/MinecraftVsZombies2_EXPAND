@@ -34,15 +34,15 @@ namespace MVZ2Logic.Level
             var component = level.GetArtifactComponent();
             return component.GetArtifacts();
         }
-        public static bool HasArtifact(this LevelEngine level, ArtifactDefinition definition)
+        public static bool HasArtifact(this LevelEngine level, NamespaceID artifactID)
         {
             var component = level.GetArtifactComponent();
-            return component.HasArtifact(definition);
+            return component.HasArtifact(artifactID);
         }
-        public static int GetArtifactIndex(this LevelEngine level, ArtifactDefinition definition)
+        public static int GetArtifactIndex(this LevelEngine level, NamespaceID artifactID)
         {
             var component = level.GetArtifactComponent();
-            return component.GetArtifactIndex(definition);
+            return component.GetArtifactIndex(artifactID);
         }
         public static Artifact GetArtifactAt(this LevelEngine level, int index)
         {
@@ -61,14 +61,6 @@ namespace MVZ2Logic.Level
                 definitions = idList.Select(id => NamespaceID.IsValid(id) ? level.Content.GetArtifactDefinition(id) : null).ToArray();
             }
             level.ReplaceArtifacts(definitions);
-        }
-        public static bool HasArtifact(this LevelEngine level, NamespaceID artifactID)
-        {
-            return level.HasArtifact(level.Content.GetArtifactDefinition(artifactID));
-        }
-        public static int GetArtifactIndex(this LevelEngine level, NamespaceID artifactID)
-        {
-            return level.GetArtifactIndex(level.Content.GetArtifactDefinition(artifactID));
         }
         public static Artifact GetArtifact(this LevelEngine level, NamespaceID artifactID)
         {

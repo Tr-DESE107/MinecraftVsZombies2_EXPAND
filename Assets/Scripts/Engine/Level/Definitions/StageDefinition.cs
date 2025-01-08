@@ -68,6 +68,7 @@ namespace PVZEngine.Definitions
         {
             return behaviours.OfType<T>().Any();
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.STAGE;
         private List<StageBehaviour> behaviours = new List<StageBehaviour>();
     }
 }

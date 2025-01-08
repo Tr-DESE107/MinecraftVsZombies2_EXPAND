@@ -42,6 +42,15 @@ namespace MVZ2.Level.Components
         {
             return artifacts.GetArtifactIndex(artifactDef);
         }
+        public bool HasArtifact(NamespaceID artifactID)
+        {
+            return artifacts.HasArtifact(artifactID);
+        }
+
+        public int GetArtifactIndex(NamespaceID artifactID)
+        {
+            return artifacts.GetArtifactIndex(artifactID);
+        }
         public Artifact GetArtifactAt(int index)
         {
             return artifacts.GetArtifactAt(index);

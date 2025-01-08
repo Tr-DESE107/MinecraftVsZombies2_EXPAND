@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Definitions;
 
 namespace PVZEngine.Damages
 {
@@ -10,5 +11,6 @@ namespace PVZEngine.Damages
         public virtual void EvaluateDamage(DamageInput damageInfo)
         {
         }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.SHELL;
     }
 }

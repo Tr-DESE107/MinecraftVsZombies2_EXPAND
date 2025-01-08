@@ -14,6 +14,8 @@ namespace PVZEngine.Entities
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
             BoundsOffset = entity.GetBoundsOffset();
+            CollisionDetection = entity.GetCollisionDetection();
+            CollisionSampleLength = entity.GetCollisionSampleLength();
         }
         public void UpdateProperty(Entity entity, string name, object value)
         {
@@ -40,6 +42,12 @@ namespace PVZEngine.Entities
                 case EngineEntityProps.BOUNDS_OFFSET:
                     BoundsOffset = value.ToGeneric<Vector3>();
                     break;
+                case EngineEntityProps.COLLISION_DETECTION:
+                    CollisionDetection = value.ToGeneric<int>();
+                    break;
+                case EngineEntityProps.COLLISION_SAMPLE_LENGTH:
+                    CollisionSampleLength = value.ToGeneric<float>();
+                    break;
             }
         }
         public int Faction { get; private set; }
@@ -49,5 +57,7 @@ namespace PVZEngine.Entities
         public Vector3 VelocityDampen { get; private set; }
         public Vector3 Size { get; private set; }
         public Vector3 BoundsOffset { get; private set; }
+        public int CollisionDetection { get; private set; }
+        public float CollisionSampleLength { get; private set; }
     }
 }

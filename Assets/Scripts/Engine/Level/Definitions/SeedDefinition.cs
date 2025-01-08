@@ -11,5 +11,6 @@ namespace PVZEngine.Definitions
             SetProperty(EngineSeedProps.RECHARGE_SPEED, 1);
         }
         public virtual void Update(SeedPack seedPack, float rechargeSpeed) { }
+        public sealed override string GetDefinitionType() => EngineDefinitionTypes.SEED;
     }
 }

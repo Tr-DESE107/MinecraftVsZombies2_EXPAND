@@ -8,5 +8,6 @@ namespace MVZ2Logic.Notes
         {
         }
         public virtual void OnBack(INote note) { }
+        public sealed override string GetDefinitionType() => LogicDefinitionTypes.NOTE;
     }
 }

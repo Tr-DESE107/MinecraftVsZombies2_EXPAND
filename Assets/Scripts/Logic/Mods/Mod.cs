@@ -3,6 +3,7 @@ using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Triggers;
+using UnityEditor.Build.Player;
 
 namespace MVZ2Logic.Modding
 {
@@ -32,13 +33,13 @@ namespace MVZ2Logic.Modding
                 triggers.AddTrigger(trigger);
             }
         }
-        public T GetDefinition<T>(NamespaceID defRef) where T : Definition
+        public T GetDefinition<T>(string type, NamespaceID defRef) where T : Definition
         {
-            return definitionGroup.GetDefinition<T>(defRef);
+            return definitionGroup.GetDefinition<T>(type, defRef);
         }
-        public T[] GetDefinitions<T>() where T : Definition
+        public T[] GetDefinitions<T>(string type) where T : Definition
         {
-            return definitionGroup.GetDefinitions<T>();
+            return definitionGroup.GetDefinitions<T>(type);
         }
         public Definition[] GetDefinitions()
         {

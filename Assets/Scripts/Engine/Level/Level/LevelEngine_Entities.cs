@@ -86,15 +86,30 @@ namespace PVZEngine.Level
         }
         public Entity FindFirstEntity(Func<Entity, bool> predicate)
         {
-            return entities.FirstOrDefault(predicate);
+            foreach (var entity in entities)
+            {
+                if (predicate(entity))
+                    return entity;
+            }
+            return null;
         }
         public Entity FindFirstEntityOrderBy<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
         {
-            return entities.OrderBy(keySelector).FirstOrDefault(predicate);
+            foreach (var entity in entities.OrderBy(keySelector))
+            {
+                if (predicate(entity))
+                    return entity;
+            }
+            return null;
         }
         public Entity FindFirstEntityOrderByDescending<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
         {
-            return entities.OrderByDescending(keySelector).FirstOrDefault(predicate);
+            foreach (var entity in entities.OrderByDescending(keySelector))
+            {
+                if (predicate(entity))
+                    return entity;
+            }
+            return null;
         }
         public bool EntityExists(long id)
         {

@@ -42,6 +42,7 @@ namespace PVZEngine.Base
         {
             return GetID().ToString();
         }
+        public abstract string GetDefinitionType();
         public string Namespace => id.spacename;
         public string Name => id.path;
         private NamespaceID id;
