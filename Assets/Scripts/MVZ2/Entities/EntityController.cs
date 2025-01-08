@@ -30,7 +30,7 @@ namespace MVZ2.Entities
             Level = level;
             Entity = entity;
             rng = new RandomGenerator(entity.InitSeed);
-            gameObject.name = entity.GetDefinitionID().ToString();
+            gameObject.name = entity.ToString();
             entity.PostInit += PostInitCallback;
             entity.OnChangeModel += OnChangeModelCallback;
 

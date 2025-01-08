@@ -116,6 +116,7 @@ namespace PVZEngine.Level
         }
         public void Update()
         {
+            ClearEntityTrash();
             UpdateSeedPacks();
             UpdateDelayedEnergyEntities();
             var entities = GetEntities();
@@ -383,6 +384,7 @@ namespace PVZEngine.Level
                 currentBuffID = currentBuffID,
                 currentSeedPackID = currentSeedPackID,
                 entities = entities.ConvertAll(e => e.Serialize()),
+                entityTrash = entityTrash.ConvertAll(e => e.Serialize()),
 
                 energy = Energy,
                 delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
@@ -442,12 +444,19 @@ namespace PVZEngine.Level
             level.spawnedID = seri.spawnedID;
 
             // 在网格加载后面
+            // 加载所有实体。
             level.entities = seri.entities.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
+            level.entityTrash = seri.entityTrash.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
             for (int i = 0; i < level.entities.Count; i++)
             {
                 level.entities[i].ApplyDeserialize(seri.entities[i]);
             }
+            for (int i = 0; i < level.entityTrash.Count; i++)
+            {
+                level.entityTrash[i].ApplyDeserialize(seri.entityTrash[i]);
+            }
             // 在实体加载后面
+            // 加载所有网格的属性。
             for (int i = 0; i< level.grids.Length; i++)
             {
                 var grid = level.grids[i];

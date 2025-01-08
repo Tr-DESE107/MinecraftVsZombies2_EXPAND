@@ -50,6 +50,7 @@ namespace PVZEngine.Level
         public int conveyorSlotCount;
         public SerializableConveyorSeedSpendRecords conveyorSeedSpendRecord;
         public List<SerializableEntity> entities;
+        public List<SerializableEntity> entityTrash;
         public float energy;
         public SerializableDelayedEnergy[] delayedEnergyEntities;
         public int currentWave;

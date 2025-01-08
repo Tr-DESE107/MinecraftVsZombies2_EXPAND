@@ -11,6 +11,7 @@ namespace PVZEngine.Level
         internal void RemoveEntity(Entity entity)
         {
             entities.Remove(entity);
+            entityTrash.Add(entity);
             OnEntityRemove?.Invoke(entity);
         }
         public void CollisionUpdate(Entity ent1, Entity[] entities)
@@ -46,10 +47,6 @@ namespace PVZEngine.Level
                 return null;
             return Spawn(entityDef, pos, spawner);
         }
-        public Entity FindEntityByID(long id)
-        {
-            return entities.FirstOrDefault(e => e.ID == id);
-        }
         public Entity[] GetEntities(params int[] filterTypes)
         {
             if (filterTypes == null || filterTypes.Length <= 0)
@@ -71,6 +68,15 @@ namespace PVZEngine.Level
         public Entity[] FindEntities(Func<Entity, bool> predicate)
         {
             return entities.Where(predicate).ToArray();
+        }
+        public Entity FindEntityByID(long id)
+        {
+            var entity = FindFirstEntity(i => i.ID == id);
+            if (entity == null)
+            {
+                entity = FindEntityInTrash(id);
+            }
+            return entity;
         }
         public Entity FindFirstEntity(EntityDefinition def)
         {
@@ -133,11 +139,25 @@ namespace PVZEngine.Level
             currentEntityID++;
             return id;
         }
+        private Entity FindEntityInTrash(long id)
+        {
+            foreach (var entity in entityTrash)
+            {
+                if (entity.ID == id)
+                    return entity;
+            }
+            return null;
+        }
+        private void ClearEntityTrash()
+        {
+            entityTrash.Clear();
+        }
         #region 事件
         public Action<Entity> OnEntitySpawn;
         public Action<Entity> OnEntityRemove;
         #endregion
         private long currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
+        private List<Entity> entityTrash = new List<Entity>();
     }
 }
