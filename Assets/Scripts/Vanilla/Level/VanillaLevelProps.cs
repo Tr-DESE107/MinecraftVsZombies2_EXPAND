@@ -68,6 +68,10 @@ namespace MVZ2.Vanilla.Level
         {
             return game.GetProperty<NamespaceID>(MUSIC_ID);
         }
+        public static void SetMusicID(this LevelEngine game, NamespaceID value)
+        {
+            game.SetProperty(MUSIC_ID, value);
+        }
         public static void SetLastEnemyPosition(this LevelEngine game, Vector3 value)
         {
             game.SetProperty(LAST_ENEMY_POSITION, value);

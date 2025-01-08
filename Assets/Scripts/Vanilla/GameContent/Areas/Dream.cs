@@ -34,6 +34,10 @@ namespace MVZ2.GameContent.Areas
                     level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmareCensored);
                 }
                 level.AddBuff<NightmareLevelBuff>();
+                if (level.GetMusicID() == VanillaMusicID.dreamLevel)
+                {
+                    level.SetMusicID(VanillaMusicID.nightmareLevel);
+                }
             }
         }
         public override void Update(LevelEngine level)
