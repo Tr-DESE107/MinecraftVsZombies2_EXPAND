@@ -57,6 +57,8 @@ namespace PVZEngine.Entities
             try
             {
                 OnUpdate();
+                // 更新碰撞体位置，用于碰撞检测。
+                UpdateColliders();
                 Definition.Update(this);
                 if (EquipedArmor != null)
                     EquipedArmor.Update();
@@ -232,7 +234,9 @@ namespace PVZEngine.Entities
         }
         private void UpdateAllBuffedProperties()
         {
-            var propertyNames = buffs.GetModifierPropertyNames();
+            var entityPropertyNames = modifierCaches.Keys;
+            var buffPropertyNames = buffs.GetModifierPropertyNames();
+            var propertyNames = entityPropertyNames.Union(buffPropertyNames);
             foreach (var name in propertyNames)
             {
                 UpdateBuffedProperty(name);
