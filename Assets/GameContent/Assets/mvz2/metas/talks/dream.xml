@@ -446,7 +446,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onStart="shake">你们、快走！不要……管我！用你们的钥匙走吧！</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">如果你们，还呆在这里的话，很快、你们也会……</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake" onClick="delay 3">我、我是个不称职的梦境管理者……求求你们，快走吧！</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:dialog_bang" onStart="shake" onClick="bubble hide;delay 2;next">我、我是个不称职的梦境管理者……求求你们，快走吧！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk;mvz2:dialog_weird">戴夫。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk;mvz2:dialog_surprised">怎么了？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">准备好所有器械。</sentence>
