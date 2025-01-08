@@ -15,6 +15,11 @@ namespace MVZ2.Level.Components
             artifacts = new ArtifactList(level, 3);
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
         }
+        public override void OnStart()
+        {
+            base.OnStart();
+            UpdateUIArtifacts();
+        }
         public void SetSlotCount(int count)
         {
             artifacts.SetSlotCount(count);

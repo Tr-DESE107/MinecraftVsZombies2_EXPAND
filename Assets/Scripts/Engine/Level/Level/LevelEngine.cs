@@ -96,6 +96,10 @@ namespace PVZEngine.Level
         }
         public void Start()
         {
+            foreach (var component in levelComponents)
+            {
+                component.OnStart();
+            }
             StageDefinition.Start(this);
             Triggers.RunCallback(LevelCallbacks.POST_LEVEL_START, this);
         }

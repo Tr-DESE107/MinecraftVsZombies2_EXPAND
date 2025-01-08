@@ -109,7 +109,7 @@
     <model name="gear_particles" type="entity" path="mvz2:effect/gear_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="pow" type="entity" path="mvz2:effect/pow" width="56" height="56" xOffset="0" yOffset="0"/>
     <model name="vortex" type="entity" path="mvz2:effect/vortex" width="240" height="240" xOffset="0" yOffset="0"/>
-    <model name="giant_spike" type="entity" path="mvz2:effect/giant_spike" width="16" height="128" xOffset="0" yOffset="0"/>
+    <model name="giant_spike" type="entity" path="mvz2:effect/giant_spike" width="16" height="128" xOffset="0" yOffset="-64"/>
     <model name="fire_breath" type="entity" path="mvz2:effect/fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="magnetic_line" type="entity" path="mvz2:effect/magnetic_line" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="hoe" type="entity" path="mvz2:effect/hoe" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>

@@ -167,6 +167,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d2aba7e3e7fc2b44a60708edca144b6
+    m_Address: mvz2:archive/dream_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d2c48cde3441c649b93560520f96272
     m_Address: mvz2:level/dream/nightmare_boss_sky
     m_ReadOnly: 0
@@ -2511,6 +2517,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a7f5424a199e2544939f0b98e1afc83
+    m_Address: mvz2:artifacts/almanac
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8af07b31f932791429fddf24a251679f
     m_Address: mvz2:entity/projectiles/javelin

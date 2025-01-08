@@ -131,6 +131,7 @@ namespace MVZ2.Level
 
             var uiPreset = GetUIPreset();
             uiPreset.SetReceiveRaycasts(true);
+            uiPreset.UpdateFrame(0);
 
             level.Start();
 

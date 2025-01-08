@@ -103,23 +103,25 @@ namespace MVZ2.Level
             UpdateEnergy();
             level.UpdatePersistentLevelUnlocks();
 
-            var unlocked = Saves.GetUnlockedContraptions();
-
+            var unlockedContraptions = Saves.GetUnlockedContraptions();
+            var unlockedArtifacts = Saves.GetUnlockedArtifacts();
             var seedSlotCount = level.GetSeedSlotCount();
-            if (unlocked.Length > seedSlotCount && level.NeedBlueprints())
+            bool willChooseBlueprint = unlockedContraptions.Length > seedSlotCount || unlockedArtifacts.Length > 0; 
+
+            if (willChooseBlueprint && level.NeedBlueprints())
             {
                 // 选卡。
                 var uiPreset = GetUIPreset();
                 uiPreset.SetSideUIBlend(0);
                 uiPreset.SetBlueprintChooseBlend(0);
-                ShowBlueprintChoosePanel(unlocked);
+                ShowBlueprintChoosePanel(unlockedContraptions);
                 uiPreset.SetReceiveRaycasts(false);
                 yield return new WaitForSeconds(0.5f);
                 uiPreset.SetReceiveRaycasts(true);
             }
             else
             {
-                var seedPacks = unlocked.Take(seedSlotCount).ToArray();
+                var seedPacks = unlockedContraptions.Take(seedSlotCount).ToArray();
                 level.ReplaceSeedPacks(seedPacks);
                 yield return GameStartToLawnTransition();
             }

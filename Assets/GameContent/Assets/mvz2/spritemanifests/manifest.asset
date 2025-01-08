@@ -27,6 +27,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b8b94582569820d4ea902e962c410bd0, type: 3}
   - name: archive/prologue_note
     sprite: {fileID: 21300000, guid: 41531d8ef0693fa41a5341fcbd896474, type: 3}
+  - name: artifacts/almanac
+    sprite: {fileID: 21300000, guid: 8a7f5424a199e2544939f0b98e1afc83, type: 3}
   - name: artifacts/broken_lantern
     sprite: {fileID: 21300000, guid: 2e2acf8f4e91cab468eae2cf860e025a, type: 3}
   - name: artifacts/cellphone

@@ -1,6 +1,7 @@
 <artifacts>
-    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌人" sprite="mvz2:artifacts/hoe" unlock="mvz2:artifact.hoe" />
     
+    <artifact id="almanac" name="图鉴" tooltip="战斗开始时获得一个星之碎片" sprite="mvz2:artifacts/almanac" unlock="mvz2:level.halloween_5" />
+    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌人" sprite="mvz2:artifacts/hoe" unlock="mvz2:artifact.hoe" />
     <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有生命值，并在此期间无敌" sprite="mvz2:artifacts/dream_key" unlock="mvz2:level.halloween_11" />
     <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少5" sprite="mvz2:artifacts/the_creatures_heart" unlock="mvz2:artifact.the_creatures_heart" />
     
