@@ -5244,6 +5244,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2595319501479321836}
   m_SourcePrefab: {fileID: 100100000, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
+--- !u!114 &3693112184537551709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3315997946427311527, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
+  m_PrefabInstance: {fileID: 2108911024458340090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524320322048696600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b70938912efd41ae1b06e741430ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5524320322048696600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5903673167159867362, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
@@ -5626,18 +5637,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: particles.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: renderers.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: particles.Array.data[0]
       value: 
+      objectReference: {fileID: 3693112184537551709}
+    - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
+      propertyPath: particles.Array.data[1]
+      value: 
       objectReference: {fileID: 7249956537718850464}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2595319501479321836}
+    - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
+      propertyPath: renderers.Array.data[1]
       value: 
       objectReference: {fileID: 77107582571541040}
     - target: {fileID: 1610644400493193040, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
