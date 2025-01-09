@@ -29,16 +29,6 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             return component.ScreenToLawnPositionByRelativeY(screenPosition, relativeY);
         }
-        public static void SetConveyorMode(this LevelEngine level, bool value)
-        {
-            var component = level.GetUIComponent();
-            component.SetConveyorMode(value);
-        }
-        public static bool IsConveyorMode(this LevelEngine level)
-        {
-            var component = level.GetUIComponent();
-            return component.IsConveyorMode();
-        }
         public static void SetMoneyFade(this LevelEngine level, bool fade)
         {
             var component = level.GetUIComponent();

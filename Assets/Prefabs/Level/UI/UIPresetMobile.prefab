@@ -949,7 +949,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 317414156748861433}
-  - component: {fileID: 8983687908264005452}
   - component: {fileID: 2224621752374834862}
   m_Layer: 5
   m_Name: Blueprints
@@ -979,24 +978,6 @@ RectTransform:
   m_AnchoredPosition: {x: 20, y: -25}
   m_SizeDelta: {x: 120, y: -50}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &8983687908264005452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3285169025816261938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88f993462edd224d86a6abb5b6250c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprints: {fileID: 1221108853348371697}
-  horizontal: 0
-  slots: {fileID: 1422470223339313208}
-  offset: {x: 0, y: 0}
-  cellSize: {x: 120, y: 55}
-  alignSpeed: 0.5
 --- !u!114 &2224621752374834862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1629,6 +1610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6075500809939578632}
+  - component: {fileID: 677228034773466781}
   m_Layer: 5
   m_Name: Classic
   m_TagString: Untagged
@@ -1656,6 +1638,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &677228034773466781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218924325963428134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88f993462edd224d86a6abb5b6250c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueprints: {fileID: 1221108853348371697}
+  horizontal: 0
+  slots: {fileID: 1422470223339313208}
+  offset: {x: 0, y: 0}
+  cellSize: {x: 120, y: 55}
+  alignSpeed: 0.5
 --- !u!1 &6817015082256327619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,23 +2599,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 3703380198505405957, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3918005363706273149, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 3960166864395212803, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4127836307253982412, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4709369139415340200, guid: b149303dbaf941b4ba2483460e17bf86, type: 3}
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
@@ -4091,6 +4079,30 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: artifactSlotList
+      value: 
+      objectReference: {fileID: 4727393660543708318}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: chosenBlueprints
+      value: 
+      objectReference: {fileID: 677228034773466781}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: artifactSlotsRoot
+      value: 
+      objectReference: {fileID: 7937345087081717970}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintChoosePanel
+      value: 
+      objectReference: {fileID: 2688640333532417607}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: choosingViewStoreButton
+      value: 
+      objectReference: {fileID: 6697668684002214198}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: choosingViewAlmanacButton
+      value: 
+      objectReference: {fileID: 6840109664925857295}
     - target: {fileID: 901218314835338990, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_Name
       value: UIPresetMobile
@@ -4151,6 +4163,50 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: conveyor
+      value: 
+      objectReference: {fileID: 4623906868664940785}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprints
+      value: 
+      objectReference: {fileID: 677228034773466781}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintRootObj
+      value: 
+      objectReference: {fileID: 3285169025816261938}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicObj
+      value: 
+      objectReference: {fileID: 4581868735014591299}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorObj
+      value: 
+      objectReference: {fileID: 3042553211520452539}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicModeObj
+      value: 
+      objectReference: {fileID: 6218924325963428134}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicRootObj
+      value: 
+      objectReference: {fileID: 6218924325963428134}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorModeObj
+      value: 
+      objectReference: {fileID: 396891686493350873}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorRootObj
+      value: 
+      objectReference: {fileID: 396891686493350873}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicEnabledObj
+      value: 
+      objectReference: {fileID: 3285169025816261938}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorEnabledObj
+      value: 
+      objectReference: {fileID: 3285169025816261938}
     - target: {fileID: 3307419803827337763, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_SizeDelta.x
       value: 120
@@ -4287,10 +4343,6 @@ PrefabInstance:
       propertyPath: conveyor
       value: 
       objectReference: {fileID: 4623906868664940785}
-    - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: blueprints
-      value: 
-      objectReference: {fileID: 8983687908264005452}
     - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: conveyorObj
       value: 

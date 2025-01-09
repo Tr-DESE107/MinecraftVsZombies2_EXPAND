@@ -31,7 +31,7 @@ namespace MVZ2.Level.UI
         {
             if (moving)
             {
-                transition.time += Time.deltaTime * moveSeed;
+                transition.time += Time.deltaTime * moveSpeed;
                 if (transition.time >= 1)
                 {
                     OnMotionFinished?.Invoke();
@@ -43,7 +43,7 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private bool moving;
         [SerializeField]
-        private float moveSeed;
+        private float moveSpeed;
         [SerializeField]
         private PositionTransition transition;
         [SerializeField]

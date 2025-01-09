@@ -28,7 +28,7 @@ namespace PVZEngine.SeedPacks
         {
             Definition = definition;
             UpdateAllBuffedProperties();
-            OnDefinitionChanged?.Invoke(this, definition);
+            OnDefinitionChanged?.Invoke(definition);
         }
         #region 属性
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
@@ -157,6 +157,25 @@ namespace PVZEngine.SeedPacks
         }
         #endregion
 
+        #region 模型
+        public void SetModelInterface(IModelInterface model)
+        {
+            modelInterface = model;
+        }
+        public IModelInterface CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            return modelInterface.CreateChildModel(anchorName, key, modelID);
+        }
+        public bool RemoveChildModel(NamespaceID key)
+        {
+            return modelInterface.RemoveChildModel(key);
+        }
+        public IModelInterface GetChildModel(NamespaceID key)
+        {
+            return modelInterface.GetChildModel(key);
+        }
+        #endregion
+
         #region 序列化
         protected void ApplySerializableProperties(SerializableSeedPack seri)
         {
@@ -176,16 +195,17 @@ namespace PVZEngine.SeedPacks
         }
         #endregion
 
-        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
+        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IBuffTarget.GetEntity() => null;
         bool IBuffTarget.Exists() => true;
-        public event Action<SeedPack, SeedDefinition> OnDefinitionChanged;
+        public event Action<SeedDefinition> OnDefinitionChanged;
 
         #region 属性字段
         public long ID { get; }
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
+        private IModelInterface modelInterface;
         protected long currentBuffID = 1;
         protected PropertyDictionary buffedProperties = new PropertyDictionary();
         protected PropertyDictionary propertyDict = new PropertyDictionary();

@@ -33,14 +33,7 @@ namespace MVZ2.Level.UI
                 var artifact = artifactList.getElement<ArtifactItemUI>(i);
                 artifact.UpdateAnimator(deltaTime);
             }
-
-            float targetSideUIBlend = sideUIVisible ? 1 : 0;
-            float targetBlueprintChooseBlend = blueprintChooseVisible ? 1 : 0;
-            const float blendSpeed = 10;
-            float sideUIBlendAddition = (targetSideUIBlend - sideUIBlend) * blendSpeed * deltaTime;
-            float blueprintChooseAddition = (targetBlueprintChooseBlend - blueprintChooseBlend) * blendSpeed * deltaTime;
-            SetSideUIBlend(sideUIBlend + sideUIBlendAddition);
-            SetBlueprintChooseBlend(blueprintChooseBlend + blueprintChooseAddition);
+            BlueprintChoose.UpdateFrame(deltaTime);
         }
         public void SetReceiveRaycasts(bool value)
         {
@@ -62,188 +55,6 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region 蓝图
-        public void SetBlueprintsActive(bool visible)
-        {
-            blueprintsObj.SetActive(visible);
-            conveyorObj.SetActive(visible);
-        }
-        public void SetBlueprintSlotCount(int count)
-        {
-            blueprints.SetSlotCount(count);
-        }
-        public Blueprint CreateBlueprint()
-        {
-            return blueprints.CreateBlueprint();
-        }
-        public void AddBlueprint(Blueprint blueprint)
-        {
-            blueprints.AddBlueprint(blueprint);
-        }
-        public void InsertBlueprint(int index, Blueprint blueprint)
-        {
-            blueprints.InsertBlueprint(index, blueprint);
-        }
-        public bool RemoveBlueprint(Blueprint blueprint)
-        {
-            return blueprints.RemoveBlueprint(blueprint);
-        }
-        public void RemoveBlueprintAt(int index)
-        {
-            blueprints.RemoveBlueprintAt(index);
-        }
-        public Blueprint GetBlueprintAt(int index)
-        {
-            return blueprints.GetBlueprintAt(index);
-        }
-        public int GetBlueprintIndex(Blueprint blueprint)
-        {
-            return blueprints.GetBlueprintIndex(blueprint);
-        }
-        public void ForceAlignBlueprint(int index)
-        {
-            blueprints.ForceAlign(index);
-        }
-        public Vector3 GetBlueprintPosition(int index)
-        {
-            return blueprints.GetBlueprintPosition(index);
-        }
-        #endregion
-
-        #region 传送带
-        public void SetConveyorMode(bool value)
-        {
-            isConveyor = value;
-            blueprintClassicObj.SetActive(!value);
-            blueprintConveyorObj.SetActive(value);
-        }
-        public Blueprint ConveyBlueprint()
-        {
-            return conveyor.CreateBlueprint();
-        }
-        public void AddConveyorBlueprint(Blueprint blueprint)
-        {
-            conveyor.AddBlueprint(blueprint);
-        }
-        public void InsertConveyorBlueprint(int index, Blueprint blueprint)
-        {
-            conveyor.InsertBlueprint(index, blueprint);
-        }
-        public bool DestroyConveyorBlueprint(Blueprint blueprint)
-        {
-            return conveyor.DestroyBlueprint(blueprint);
-        }
-        public void DestroyConveyorBlueprintAt(int index)
-        {
-            conveyor.DestroyBlueprintAt(index);
-        }
-        public Blueprint GetConveyorBlueprintAt(int index)
-        {
-            return conveyor.GetBlueprintAt(index);
-        }
-        public int GetConveyorBlueprintIndex(Blueprint blueprint)
-        {
-            return conveyor.GetBlueprintIndex(blueprint);
-        }
-        public void SetConveyorSlotCount(int count)
-        {
-            conveyor.SetSlotCount(count);
-        }
-        public void SetConveyorBlueprintNormalizedPosition(int index, float position)
-        {
-            conveyor.SetBlueprintNormalizedPosition(index, position);
-        }
-        #endregion
-
-        #region 移动蓝图
-        public MovingBlueprint CreateMovingBlueprint()
-        {
-            return movingBlueprints.CreateMovingBlueprint();
-        }
-        public void RemoveMovingBlueprint(MovingBlueprint blueprint)
-        {
-            movingBlueprints.RemoveMovingBlueprint(blueprint);
-        }
-        #endregion
-
-        #region 蓝图选择
-        public void SetSideUIVisible(bool visible)
-        {
-            sideUIVisible = visible;
-        }
-        public void SetBlueprintsChooseVisible(bool visible)
-        {
-            blueprintChooseVisible = visible;
-        }
-        public void SetSideUIBlend(float blend)
-        {
-            sideUIBlend = blend;
-            animator.SetFloat("SideUIBlend", sideUIBlend);
-        }
-        public void SetBlueprintChooseBlend(float blend)
-        {
-            blueprintChooseBlend = blend;
-            animator.SetFloat("BlueprintChooseBlend", blend);
-        }
-        public void SetBlueprintChooseViewAlmanacButtonActive(bool active)
-        {
-            choosingViewAlmanacButton.gameObject.SetActive(active);
-        }
-        public void SetBlueprintChooseViewStoreButtonActive(bool active)
-        {
-            choosingViewStoreButton.gameObject.SetActive(active);
-        }
-        public void ResetBlueprintChooseArtifactCount(int count)
-        {
-            blueprintChooseArtifactList.updateList(count, (i, rect) =>
-            {
-                var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.ResetView();
-            },
-            rect =>
-            {
-                var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.OnClick += OnBlueprintChooseArtifactSlotClickCallback;
-                artifactIcon.OnPointerEnter += OnBlueprintChooseArtifactSlotPointerEnterCallback;
-                artifactIcon.OnPointerExit += OnBlueprintChooseArtifactSlotPointerExitCallback;
-            },
-            rect =>
-            {
-                var artifactIcon = rect.GetComponent<ArtifactSlot>();
-                artifactIcon.OnClick -= OnBlueprintChooseArtifactSlotClickCallback;
-                artifactIcon.OnPointerEnter -= OnBlueprintChooseArtifactSlotPointerEnterCallback;
-                artifactIcon.OnPointerExit -= OnBlueprintChooseArtifactSlotPointerExitCallback;
-            });
-        }
-        public void UpdateBlueprintChooseArtifactAt(int index, ArtifactViewData viewData)
-        {
-            var element = blueprintChooseArtifactList.getElement<ArtifactSlot>(index);
-            if (!element)
-                return;
-            element.UpdateView(viewData);
-        }
-        public void UpdateBlueprintChooseElements(BlueprintChoosePanelViewData viewData)
-        {
-            blueprintChoosePanel.UpdateElements(viewData);
-        }
-        public void UpdateBlueprintChooseItems(ChoosingBlueprintViewData[] viewDatas)
-        {
-            blueprintChoosePanel.UpdateItems(viewDatas);
-        }
-        public Blueprint GetBlueprintChooseItem(int index)
-        {
-            return blueprintChoosePanel.GetItem(index);
-        }
-        public void SetBlueprintChooseArtifactVisible(bool visible)
-        {
-            blueprintChooseArtifactRoot.SetActive(visible);
-        }
-        public ArtifactSlot GetBlueprintChooseArtifactSlotAt(int index)
-        {
-            return blueprintChooseArtifactList.getElement<ArtifactSlot>(index);
-        }
-        #endregion
-
         #region 铁镐
         public void SetPickaxeActive(bool visible)
         {
@@ -256,6 +67,23 @@ namespace MVZ2.Level.UI
         public void SetPickaxeDisabled(bool selected)
         {
             pickaxeSlot.SetDisabled(selected);
+        }
+        #endregion
+
+        #region 触发
+        public void SetTriggerActive(bool visible)
+        {
+            triggerSlotObj.SetActive(visible);
+            triggerSlotConveyorObj.SetActive(visible);
+        }
+        public void SetTriggerSelected(bool selected)
+        {
+            triggerSlot.SetSelected(selected);
+            triggerSlotConveyor.SetSelected(selected);
+        }
+        private TriggerSlot GetCurrentTriggerUI()
+        {
+            return Blueprints.IsConveyorMode() ? triggerSlotConveyor : triggerSlot;
         }
         #endregion
 
@@ -298,19 +126,6 @@ namespace MVZ2.Level.UI
         public void SetStarshardDisabled(bool selected)
         {
             starshardPanel.SetDisabled(selected);
-        }
-        #endregion
-
-        #region 触发
-        public void SetTriggerActive(bool visible)
-        {
-            triggerSlotObj.SetActive(visible);
-            triggerSlotConveyorObj.SetActive(visible);
-        }
-        public void SetTriggerSelected(bool selected)
-        {
-            triggerSlot.SetSelected(selected);
-            triggerSlotConveyor.SetSelected(selected);
         }
         #endregion
 
@@ -399,7 +214,7 @@ namespace MVZ2.Level.UI
         #region 提示箭头
         public void SetHintArrowPointToBlueprint(int index)
         {
-            var blueprint = isConveyor ? GetConveyorBlueprintAt(index) : GetBlueprintAt(index);
+            var blueprint = Blueprints.GetCurrentModeBlueprint(index);
             if (!blueprint)
             {
                 HideHintArrow();
@@ -440,21 +255,21 @@ namespace MVZ2.Level.UI
         #region 工具提示
         public void ShowTooltipOnBlueprint(int index, TooltipViewData viewData)
         {
-            var blueprint = GetBlueprintAt(index);
+            var blueprint = Blueprints.GetClassicBlueprintAt(index);
             if (!blueprint)
                 return;
             ShowTooltipOnComponent(blueprint, viewData);
         }
         public void ShowTooltipOnConveyorBlueprint(int index, TooltipViewData viewData)
         {
-            var blueprint = GetConveyorBlueprintAt(index);
+            var blueprint = Blueprints.GetConveyorBlueprintAt(index);
             if (!blueprint)
                 return;
             ShowTooltipOnComponent(blueprint, viewData);
         }
         public void ShowTooltipOnChoosingBlueprint(int index, TooltipViewData viewData)
         {
-            var blueprint = GetBlueprintChooseItem(index);
+            var blueprint = BlueprintChoose.GetBlueprintChooseItem(index);
             if (!blueprint)
                 return;
             ShowTooltipOnComponent(blueprint, viewData);
@@ -597,29 +412,11 @@ namespace MVZ2.Level.UI
             lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn, data);
             bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom, data);
 
-            blueprints.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
-            blueprints.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
-            blueprints.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
-
-            conveyor.OnBlueprintPointerEnter += (index, data) => OnConveyorBlueprintPointerEnter?.Invoke(index, data);
-            conveyor.OnBlueprintPointerExit += (index, data) => OnConveyorBlueprintPointerExit?.Invoke(index, data);
-            conveyor.OnBlueprintPointerDown += (index, data) => OnConveyorBlueprintPointerDown?.Invoke(index, data);
-
-            blueprintChoosePanel.OnStartButtonClick += () => OnBlueprintChooseStartClick?.Invoke();
-            blueprintChoosePanel.OnViewLawnButtonClick += () => OnBlueprintChooseViewLawnClick?.Invoke();
-            blueprintChoosePanel.OnCommandBlockBlueprintClick += () => OnBlueprintChooseCommandBlockClick?.Invoke();
-            blueprintChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintChooseBlueprintPointerEnter?.Invoke(index, data);
-            blueprintChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintChooseBlueprintPointerExit?.Invoke(index, data);
-            blueprintChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintChooseBlueprintPointerDown?.Invoke(index, data);
-
-            choosingViewAlmanacButton.onClick.AddListener(() => OnBlueprintChooseViewAlmanacClick?.Invoke());
-            choosingViewStoreButton.onClick.AddListener(() => OnBlueprintChooseViewStoreClick?.Invoke());
+            starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
 
             pickaxeSlot.OnPointerEnter += (data) => OnPickaxePointerEnter?.Invoke(data);
             pickaxeSlot.OnPointerExit += (data) => OnPickaxePointerExit?.Invoke(data);
             pickaxeSlot.OnPointerDown += (data) => OnPickaxePointerDown?.Invoke(data);
-
-            starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
 
             triggerSlot.OnPointerEnter += (data) => OnTriggerPointerEnter?.Invoke(data);
             triggerSlot.OnPointerExit += (data) => OnTriggerPointerExit?.Invoke(data);
@@ -631,7 +428,6 @@ namespace MVZ2.Level.UI
                 triggerSlotConveyor.OnPointerExit += (data) => OnTriggerPointerExit?.Invoke(data);
                 triggerSlotConveyor.OnPointerDown += (data) => OnTriggerPointerDown?.Invoke(data);
             }
-
 
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
@@ -669,22 +465,6 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        private TriggerSlot GetCurrentTriggerUI()
-        {
-            return isConveyor ? triggerSlotConveyor : triggerSlot;
-        }
-        private void OnBlueprintChooseArtifactSlotClickCallback(ArtifactSlot icon)
-        {
-            OnBlueprintChooseArtifactClick?.Invoke(blueprintChooseArtifactList.indexOf(icon));
-        }
-        private void OnBlueprintChooseArtifactSlotPointerEnterCallback(ArtifactSlot icon)
-        {
-            OnBlueprintChooseArtifactPointerEnter?.Invoke(blueprintChooseArtifactList.indexOf(icon));
-        }
-        private void OnBlueprintChooseArtifactSlotPointerExitCallback(ArtifactSlot icon)
-        {
-            OnBlueprintChooseArtifactPointerExit?.Invoke(blueprintChooseArtifactList.indexOf(icon));
-        }
         private void OnArtifactPointerEnterCallback(ArtifactItemUI item)
         {
             OnArtifactPointerEnter?.Invoke(artifactList.indexOf(item));
@@ -697,27 +477,6 @@ namespace MVZ2.Level.UI
 
         #region 事件
         public event Action<Receiver, PointerEventData> OnRaycastReceiverPointerDown;
-
-        public event Action<int, PointerEventData> OnBlueprintPointerEnter;
-        public event Action<int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintPointerDown;
-
-        public event Action<int, PointerEventData> OnConveyorBlueprintPointerEnter;
-        public event Action<int, PointerEventData> OnConveyorBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnConveyorBlueprintPointerDown;
-
-        public event Action OnBlueprintChooseStartClick;
-        public event Action OnBlueprintChooseViewLawnClick;
-        public event Action OnBlueprintChooseCommandBlockClick;
-        public event Action<int> OnBlueprintChooseArtifactClick;
-        public event Action<int> OnBlueprintChooseArtifactPointerEnter;
-        public event Action<int> OnBlueprintChooseArtifactPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerEnter;
-        public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintChooseBlueprintPointerDown;
-
-        public event Action OnBlueprintChooseViewAlmanacClick;
-        public event Action OnBlueprintChooseViewStoreClick;
 
         public event Action<PointerEventData> OnPickaxePointerEnter;
         public event Action<PointerEventData> OnPickaxePointerExit;
@@ -738,14 +497,15 @@ namespace MVZ2.Level.UI
 
         #region 属性字段
 
-        private bool isConveyor;
+        public LevelUIBlueprints Blueprints => blueprints;
+        public LevelUIBlueprintChoose BlueprintChoose => blueprintChoose;
+
         [SerializeField]
         Animator animator;
         [SerializeField]
         GraphicRaycaster[] raycasters;
         [SerializeField]
         CanvasGroup[] canvasGroups;
-
 
         [Header("Enabling")]
         [SerializeField]
@@ -756,16 +516,14 @@ namespace MVZ2.Level.UI
         GameObject triggerSlotObj;
         [SerializeField]
         GameObject triggerSlotConveyorObj;
-        [SerializeField]
-        GameObject blueprintsObj;
-        [SerializeField]
-        GameObject conveyorObj;
-        [SerializeField]
-        GameObject blueprintClassicObj;
-        [SerializeField]
-        GameObject blueprintConveyorObj;
 
         [Header("Blueprints")]
+        [SerializeField]
+        LevelUIBlueprints blueprints;
+        [SerializeField]
+        LevelUIBlueprintChoose blueprintChoose;
+
+        [Header("Tools")]
         [SerializeField]
         EnergyPanel energyPanel;
         [SerializeField]
@@ -773,31 +531,7 @@ namespace MVZ2.Level.UI
         [SerializeField]
         TriggerSlot triggerSlotConveyor;
         [SerializeField]
-        BlueprintList blueprints;
-        [SerializeField]
-        Conveyor conveyor;
-        [SerializeField]
         PickaxeSlot pickaxeSlot;
-        [SerializeField]
-        MovingBlueprintList movingBlueprints;
-
-        [Header("Blueprint Choose")]
-        [SerializeField]
-        BlueprintChoosePanel blueprintChoosePanel;
-        [SerializeField]
-        Button choosingViewAlmanacButton;
-        [SerializeField]
-        Button choosingViewStoreButton;
-        [SerializeField]
-        bool sideUIVisible = true;
-        float sideUIBlend = 1;
-        [SerializeField]
-        bool blueprintChooseVisible;
-        float blueprintChooseBlend;
-        [SerializeField]
-        GameObject blueprintChooseArtifactRoot;
-        [SerializeField]
-        ElementListUI blueprintChooseArtifactList;
 
         [Header("Raycast Receivers")]
         [SerializeField]

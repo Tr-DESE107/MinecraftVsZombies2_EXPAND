@@ -962,7 +962,6 @@ GameObject:
   m_Component:
   - component: {fileID: 801943381515985833}
   - component: {fileID: 2627614081060387782}
-  - component: {fileID: 4935190212502854934}
   m_Layer: 5
   m_Name: Conveyor
   m_TagString: Untagged
@@ -1017,23 +1016,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4935190212502854934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4830896308962017831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ead245e8a4165f4ab54f10843034b20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprints: {fileID: 7313641851674280119}
-  horizontal: 1
-  structureList: {fileID: 9021735351888645613}
-  startPositionAnchor: {fileID: 6510583163116527001}
-  endPositionAnchor: {fileID: 6039416979574051208}
 --- !u!1 &5139595709152002425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1028,7 @@ GameObject:
   - component: {fileID: 5673075634050481116}
   - component: {fileID: 5075887804040264184}
   - component: {fileID: 3067977792128158563}
+  - component: {fileID: 3673364380634603113}
   m_Layer: 5
   m_Name: BlueprintRoot
   m_TagString: Untagged
@@ -1128,6 +1111,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3673364380634603113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5139595709152002425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead245e8a4165f4ab54f10843034b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueprints: {fileID: 7313641851674280119}
+  horizontal: 1
+  structureList: {fileID: 9021735351888645613}
+  startPositionAnchor: {fileID: 6510583163116527001}
+  endPositionAnchor: {fileID: 6039416979574051208}
 --- !u!1 &5563920814089740129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,6 +3638,30 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: artifactSlotList
+      value: 
+      objectReference: {fileID: 8696309110706659426}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: chosenBlueprints
+      value: 
+      objectReference: {fileID: 6817580197762663109}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: artifactSlotsRoot
+      value: 
+      objectReference: {fileID: 6274483220813671470}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintChoosePanel
+      value: 
+      objectReference: {fileID: 1651196571871797559}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: choosingViewStoreButton
+      value: 
+      objectReference: {fileID: 1201263782982695939}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: choosingViewAlmanacButton
+      value: 
+      objectReference: {fileID: 4389611976723145299}
     - target: {fileID: 901218314835338990, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_Name
       value: UIPresetStandalone
@@ -3698,6 +3722,50 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: conveyor
+      value: 
+      objectReference: {fileID: 3673364380634603113}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprints
+      value: 
+      objectReference: {fileID: 6817580197762663109}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintRootObj
+      value: 
+      objectReference: {fileID: 5563920814089740129}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicObj
+      value: 
+      objectReference: {fileID: 6705774384889538624}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorObj
+      value: 
+      objectReference: {fileID: 4830896308962017831}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicModeObj
+      value: 
+      objectReference: {fileID: 6705774384889538624}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicRootObj
+      value: 
+      objectReference: {fileID: 5563920814089740129}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorModeObj
+      value: 
+      objectReference: {fileID: 4830896308962017831}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorRootObj
+      value: 
+      objectReference: {fileID: 5139595709152002425}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicEnabledObj
+      value: 
+      objectReference: {fileID: 5563920814089740129}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorEnabledObj
+      value: 
+      objectReference: {fileID: 5139595709152002425}
     - target: {fileID: 3462803424795147924, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3806,14 +3874,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: conveyor
-      value: 
-      objectReference: {fileID: 4935190212502854934}
-    - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: blueprints
-      value: 
-      objectReference: {fileID: 6817580197762663109}
     - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: conveyorObj
       value: 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.Audios;
@@ -8,6 +9,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
 using MVZ2.Grids;
 using MVZ2.Level.Components;
+using MVZ2.Level.UI;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -33,7 +35,33 @@ using UnityEngine.EventSystems;
 namespace MVZ2.Level
 {
     using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
-    public partial class LevelController : MonoBehaviour, IDisposable
+    public interface ILevelController : ILevelHeldItemController, ILevelUIController, ILevelTransitionController
+    {
+        Game Game { get; }
+        ILevelUI GetUI();
+        LevelEngine GetEngine();
+        ILevelBlueprintController BlueprintController { get; }
+        ILevelBlueprintChooseController BlueprintChoosePart { get; }
+
+        void OpenAlmanac();
+        void OpenStore();
+    }
+    public interface ILevelHeldItemController
+    {
+        bool IsTriggerSwapped();
+    }
+    public interface ILevelUIController
+    {
+        void ShowTooltipOnComponent(ITooltipTarget target, TooltipViewData viewData);
+        void HideTooltip();
+    }
+    public interface ILevelTransitionController
+    {
+        IEnumerator GameStartToLawnTransition();
+        IEnumerator MoveCameraToLawn();
+        IEnumerator MoveCameraToChoose();
+    }
+    public partial class LevelController : MonoBehaviour, ILevelController, IDisposable
     {
         #region 公有方法
 
@@ -93,18 +121,7 @@ namespace MVZ2.Level
             level.SetStarshardSlotCount(starshardSlots);
 
             // 设置蓝图。
-            for (int i = 0; i < chosenBlueprints.Count; i++)
-            {
-                var index = chosenBlueprints[i];
-                var blueprintID = choosingBlueprints[index];
-                level.ReplaceSeedPackAt(i, blueprintID);
-            }
-            chosenBlueprints.Clear();
-            choosingBlueprints = null;
-
-            // 设置制品。
-            level.ReplaceArtifacts(chosenArtifacts);
-            chosenArtifacts = null;
+            BlueprintChoosePart.ApplyChoose();
 
             Music.Play(level.GetMusicID());
             MusicTime = 0;
@@ -116,18 +133,19 @@ namespace MVZ2.Level
             SetUIVisibleState(VisibleState.InLevel);
             // 可解锁UI
             SetUnlockedUIActive();
-
-            // 经典蓝图和传送带蓝图
-            UpdateClassicBlueprintCount();
-            UpdateConveyorBlueprintCount();
             // 关卡名
             UpdateLevelName();
             // 设置难度和名称
             UpdateDifficulty();
             // 能量、关卡进度条、手持物品、蓝图状态、星之碎片
-            UpdateInLevelUI();
+            UpdateInLevelUI(0);
             // 金钱
             UpdateMoney();
+
+            foreach (var part in parts)
+            {
+                part.PostLevelStart();
+            }
 
             var uiPreset = GetUIPreset();
             uiPreset.SetReceiveRaycasts(true);
@@ -321,9 +339,9 @@ namespace MVZ2.Level
                         {
                             entity.UpdateFixed();
                         }
-                        if (isConveyorMode)
+                        foreach (var part in parts)
                         {
-                            UpdateConveyorBlueprintPositions();
+                            part.UpdateLogic();
                         }
                         ui.UpdateHeldItemModelFixed();
                         UpdateEnemyCry();
@@ -361,7 +379,7 @@ namespace MVZ2.Level
                     AdvanceLevelProgress();
 
                     UpdateHeldItemPosition();
-                    UpdateInLevelUI();
+                    UpdateInLevelUI(deltaTime * gameSpeed);
 
                     levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
                 }
@@ -408,10 +426,14 @@ namespace MVZ2.Level
                 ValidateHeldItem();
                 foreach (var component in level.GetComponents())
                 {
-                    if (component is MVZ2Component comp)
+                    if (component is IMVZ2LevelComponent comp)
                     {
                         comp.UpdateFrame(deltaTime, uiSimulationSpeed);
                     }
+                }
+                foreach (var part in parts)
+                {
+                    part.UpdateFrame(deltaTime, uiSimulationSpeed);
                 }
             }
         }
@@ -453,6 +475,14 @@ namespace MVZ2.Level
                 return;
             model.SetPreset(name);
         }
+        public ILevelUI GetUI()
+        {
+            return ui;
+        }
+        public LevelEngine GetEngine()
+        {
+            return level;
+        }
         #endregion
 
         #region 私有方法
@@ -460,6 +490,11 @@ namespace MVZ2.Level
         #region 生命周期
         private void Awake()
         {
+            parts = new ILevelControllerPart[]
+            {
+                blueprintController,
+                blueprintChooseController,
+            };
             Awake_Grids();
 
             talkController.OnTalkAction += UI_OnTalkActionCallback;
@@ -468,14 +503,16 @@ namespace MVZ2.Level
 
             ClearGridHighlight();
 
+            ui.SetMobile(Main.IsMobile());
+
             ui.OnExitLevelToNoteCalled += UI_OnExitLevelToNoteCalledCallback;
-            var uiPreset = GetUIPreset();
-            standaloneUI.SetActive(standaloneUI == uiPreset);
-            mobileUI.SetActive(mobileUI == uiPreset);
+            ui.OnStartGameCalled += StartGame;
 
-            uiPreset.OnStartGameCalled += StartGame;
+            foreach (var controller in parts)
+            {
+                controller.Init(this);
+            }
 
-            Awake_Blueprints();
             Awake_UI();
         }
         private void OnApplicationFocus(bool focus)
@@ -634,12 +671,7 @@ namespace MVZ2.Level
             var blueprint = gameObject.GetComponentInParent<Blueprint>();
             if (blueprint)
             {
-                var blueprintMode = GetCurrentBlueprintMode();
-                var index = blueprintMode.GetBlueprintUIIndex(blueprint);
-                if (index >= 0)
-                {
-                    blueprintMode.ReleaseOnBlueprint(index);
-                }
+                blueprint.PointerRelease();
                 return;
             }
 
@@ -741,8 +773,8 @@ namespace MVZ2.Level
                     if (Input.GetKeyDown(KeyCode.Alpha0 + i))
                     {
                         var index = i == 0 ? 9 : i - 1;
-                        var blueprintMode = GetCurrentBlueprintMode();
-                        blueprintMode.ClickBlueprint(index);
+                        var controller = BlueprintController.GetCurrentBlueprintControllerByIndex(index);
+                        controller.Click();
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Q))
@@ -900,8 +932,7 @@ namespace MVZ2.Level
             set
             {
                 blueprintsActive = value;
-                var uiPreset = GetUIPreset();
-                uiPreset.SetBlueprintsActive(value);
+                ui.Blueprints.SetBlueprintsActive(value);
             }
         }
         public bool PickaxeActive
@@ -941,6 +972,7 @@ namespace MVZ2.Level
         private bool triggerActive = true;
         #endregion
 
+        private ILevelControllerPart[] parts;
         [Header("Main")]
         [SerializeField]
         private LevelUI ui;

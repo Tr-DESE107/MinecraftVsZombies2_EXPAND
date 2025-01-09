@@ -58,6 +58,10 @@ namespace MVZ2.UI
         {
             animator.SetBool("Twinkling", twinkling);
         }
+        public void PointerRelease()
+        {
+            OnPointerRelease?.Invoke(this);
+        }
         private void Awake()
         {
             animator.logWarnings = false;
@@ -77,6 +81,7 @@ namespace MVZ2.UI
         public event Action<Blueprint, PointerEventData> OnPointerDown;
         public event Action<Blueprint, PointerEventData> OnPointerEnter;
         public event Action<Blueprint, PointerEventData> OnPointerExit;
+        public event Action<Blueprint> OnPointerRelease;
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         [SerializeField]
         private Animator animator;

@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using UnityEngine;
@@ -6,8 +7,12 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class LevelUI : MonoBehaviour
+    public class LevelUI : MonoBehaviour, ILevelUI
     {
+        public void SetReceiveRaycasts(bool value)
+        {
+            GetUIPreset().SetReceiveRaycasts(value);
+        }
         public void SetNightValue(float value)
         {
             var color = nightImage.color;
@@ -35,6 +40,17 @@ namespace MVZ2.UI
         public void ShowYouDied()
         {
             animator.SetTrigger("YouDied");
+        }
+        public void SetMobile(bool mobile)
+        {
+            isMobile = mobile;
+            var uiPreset = GetUIPreset();
+            standaloneUI.SetActive(standaloneUI == uiPreset);
+            mobileUI.SetActive(mobileUI == uiPreset);
+        }
+        public LevelUIPreset GetUIPreset()
+        {
+            return isMobile ? mobileUI : standaloneUI;
         }
 
         #region 手持物品
@@ -132,28 +148,7 @@ namespace MVZ2.UI
         }
         #endregion
 
-        #region 选择蓝图
-        public void SetViewLawnReturnBlockerActive(bool active)
-        {
-            viewLawnReturnBlocker.SetActive(active);
-        }
-        #endregion
 
-        #region 选择制品
-        public void ShowArtifactChoosePanel(ArtifactSelectItemViewData[] viewDatas)
-        {
-            artifactChoosingDialogObj.SetActive(true);
-            artifactChoosingDialog.UpdateArtifacts(viewDatas);
-        }
-        public void HideArtifactChoosePanel()
-        {
-            artifactChoosingDialogObj.SetActive(false);
-        }
-        public ArtifactSelectItem GetArtifactSelectItem(int index)
-        {
-            return artifactChoosingDialog.GetArtifactSelectItem(index);
-        }
-        #endregion
 
         private void Awake()
         {
@@ -165,42 +160,31 @@ namespace MVZ2.UI
             levelLoadedDialog.OnButtonClicked += (button) => OnLevelLoadedDialogButtonClicked?.Invoke(button);
             levelErrorLoadingDialog.OnButtonClicked += (restart) => OnLevelErrorLoadingDialogButtonClicked?.Invoke(restart);
 
-            viewLawnReturnButton.onClick.AddListener(() => OnBlueprintChooseViewLawnReturnClick?.Invoke());
-
-            artifactChoosingDialog.OnItemClicked += (index) => OnArtifactChoosingItemClicked?.Invoke(index);
-            artifactChoosingDialog.OnItemPointerEnter += (index) => OnArtifactChoosingItemEnter?.Invoke(index);
-            artifactChoosingDialog.OnItemPointerExit += (index) => OnArtifactChoosingItemExit?.Invoke(index);
-            artifactChoosingDialog.OnBackButtonClicked += () => OnArtifactChoosingBackClicked?.Invoke();
+            standaloneUI.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
+            mobileUI.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
         }
 
+        public event Action OnStartGameCalled;
         public event Action OnExitLevelToNoteCalled;
         public event Action OnPauseDialogResumeClicked;
         public event Action OnGameOverRetryButtonClicked;
         public event Action OnGameOverBackButtonClicked;
-        public event Action OnBlueprintChooseViewLawnReturnClick;
         public event Action<LevelLoadedDialog.ButtonType> OnLevelLoadedDialogButtonClicked;
         public event Action<bool> OnLevelErrorLoadingDialogButtonClicked;
-
-        public event Action<int> OnArtifactChoosingItemClicked;
-        public event Action<int> OnArtifactChoosingItemEnter;
-        public event Action<int> OnArtifactChoosingItemExit;
-        public event Action OnArtifactChoosingBackClicked;
         public OptionsDialog OptionsDialog => optionsDialog;
 
+
+        public ILevelBlueprintChooseUI BlueprintChoose => GetUIPreset().BlueprintChoose;
+        public ILevelBlueprintRuntimeUI Blueprints => GetUIPreset().Blueprints;
+
+        private bool isMobile;
         [SerializeField]
         Animator animator;
 
-        [Header("Blueprint Choosing")]
         [SerializeField]
-        Button viewLawnReturnButton;
+        private LevelUIPreset standaloneUI;
         [SerializeField]
-        GameObject viewLawnReturnBlocker;
-
-        [Header("Artifact Choosing")]
-        [SerializeField]
-        GameObject artifactChoosingDialogObj;
-        [SerializeField]
-        ArtifactChoosingDialog artifactChoosingDialog;
+        private LevelUIPreset mobileUI;
 
         [Header("Shading")]
         [SerializeField]

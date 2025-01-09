@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -46,10 +47,9 @@ namespace MVZ2.Level
                 starshardActive = StarshardActive,
                 triggerActive = TriggerActive,
 
-                isConveyorMode = isConveyorMode,
-                conveyorSeedPositions = conveyorSeedPositions.ToArray(),
-
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
+
+                parts = parts.Select(p => p.ToSerializable()).ToArray(),
                 
                 areaModel = model.ToSerializable(),
 
@@ -94,8 +94,16 @@ namespace MVZ2.Level
 
                 InitGrids();
 
-                SetConveyorMode(seri.isConveyorMode);
-                conveyorSeedPositions = seri.conveyorSeedPositions.ToList();
+                foreach (var part in parts)
+                {
+                    var seriPart = seri.parts.FirstOrDefault(p => p.id == part.ID);
+                    if (seriPart == null)
+                    {
+                        Debug.LogWarning($"Could not find serialized LevelControllerPart data with id {part.ID}.");
+                        continue;
+                    }
+                    part.LoadFromSerializable(seriPart);
+                }
 
                 var uiPreset = GetUIPreset();
                 uiPreset.LoadFromSerializable(seri.uiPreset);
@@ -125,10 +133,6 @@ namespace MVZ2.Level
             SetCameraPosition(LevelCameraPosition.Lawn);
             // 手持物品
             level.ResetHeldItem();
-            // 经典蓝图和传送带蓝图
-            InitBlueprints();
-            UpdateClassicBlueprintCount();
-            UpdateConveyorBlueprintCount();
             // 关卡名
             UpdateLevelName();
             // 关卡进度条
@@ -137,7 +141,7 @@ namespace MVZ2.Level
             UpdateDifficultyName();
             // 能量、关卡进度条、手持物品、蓝图状态、星之碎片
             SetStarshardIcon();
-            UpdateInLevelUI();
+            UpdateInLevelUI(0);
             // 金钱
             UpdateMoney();
             ShowMoney();
@@ -145,12 +149,17 @@ namespace MVZ2.Level
             // 游戏开始状态
             SetGameStarted(true);
 
+
             foreach (var component in level.GetComponents())
             {
-                if (component is MVZ2Component comp)
+                if (component is IMVZ2LevelComponent comp)
                 {
                     comp.PostLevelLoad();
                 }
+            }
+            foreach (var part in parts)
+            {
+                part.PostLevelLoad();
             }
 
             PauseGame();
@@ -168,13 +177,11 @@ namespace MVZ2.Level
             level.OnEntitySpawn += Engine_OnEntitySpawnCallback;
             level.OnEntityRemove += Engine_OnEntityRemoveCallback;
             level.OnGameOver += Engine_OnGameOverCallback;
-
-            level.OnSeedPackChanged += Engine_OnSeedPackChangedCallback;
-            level.OnSeedSlotCountChanged += Engine_OnSeedPackCountChangedCallback;
-            level.OnConveyorSeedAdded += Engine_OnConveyorSeedPackAddedCallback;
-            level.OnConveyorSeedRemoved += Engine_OnConveyorSeedPackRemovedCallback;
-            level.OnConveyorSeedChanged += Engine_OnConveyorSeedPackChangedCallback;
-            level.OnConveyorSeedSlotCountChanged += Engine_OnConveyorSeedPackCountChangedCallback;
+            
+            foreach (var controller in parts)
+            {
+                controller.AddEngineCallbacks(level);
+            }
 
             level.OnClear += Engine_OnClearCallback;
 
@@ -194,6 +201,7 @@ namespace MVZ2.Level
             level.AddComponent(new MoneyComponent(level, this));
             level.AddComponent(new LightComponent(level, this));
             level.AddComponent(new ArtifactComponent(level, this));
+            level.AddComponent(new BlueprintComponent(level, this));
         }
         private SerializableLevel SerializeLevel()
         {
@@ -224,8 +232,7 @@ namespace MVZ2.Level
         public bool starshardActive;
         public bool triggerActive;
 
-        public bool isConveyorMode;
-        public float[] conveyorSeedPositions;
+        public SerializableLevelControllerPart[] parts;
 
         public int maxCryTime;
         public FrameTimer cryTimer;

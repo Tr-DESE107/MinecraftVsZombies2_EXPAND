@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using MVZ2.Cameras;
+using MVZ2.Level.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
@@ -53,11 +54,11 @@ namespace MVZ2.Level
         {
             return MoveCameraLawn(cameraHousePosition, cameraHouseAnchor, 1f);
         }
-        private IEnumerator MoveCameraToLawn()
+        public IEnumerator MoveCameraToLawn()
         {
             return MoveCameraLawn(cameraLawnPosition, cameraLawnAnchor, 1f);
         }
-        private IEnumerator MoveCameraToChoose()
+        public IEnumerator MoveCameraToChoose()
         {
             return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
         }
@@ -79,7 +80,7 @@ namespace MVZ2.Level
             yield return MoveCameraToChoose();
             yield return new WaitForSeconds(1);
         }
-        private IEnumerator GameStartToLawnTransition()
+        public IEnumerator GameStartToLawnTransition()
         {
             yield return MoveCameraToLawn();
             UpdateDifficulty();
@@ -112,9 +113,8 @@ namespace MVZ2.Level
             {
                 // 选卡。
                 var uiPreset = GetUIPreset();
-                uiPreset.SetSideUIBlend(0);
-                uiPreset.SetBlueprintChooseBlend(0);
-                ShowBlueprintChoosePanel(unlockedContraptions);
+                BlueprintChoosePart.ShowBlueprintChoosePanel(unlockedContraptions);
+                uiPreset.SetUIVisibleState(LevelUIPreset.VisibleState.ChoosingBlueprints);
                 uiPreset.SetReceiveRaycasts(false);
                 yield return new WaitForSeconds(0.5f);
                 uiPreset.SetReceiveRaycasts(true);
@@ -125,37 +125,6 @@ namespace MVZ2.Level
                 level.ReplaceSeedPacks(seedPacks);
                 yield return GameStartToLawnTransition();
             }
-        }
-        private IEnumerator BlueprintChosenTransition()
-        {
-            var uiPreset = GetUIPreset();
-            uiPreset.SetBlueprintsChooseVisible(false);
-            uiPreset.SetReceiveRaycasts(false);
-
-            yield return new WaitForSeconds(1);
-            yield return GameStartToLawnTransition();
-        }
-        private IEnumerator BlueprintChooseViewLawnTransition()
-        {
-            var uiPreset = GetUIPreset();
-            uiPreset.SetBlueprintsChooseVisible(false);
-            uiPreset.SetReceiveRaycasts(false);
-
-            yield return new WaitForSeconds(1);
-            yield return MoveCameraToLawn();
-            uiPreset.SetReceiveRaycasts(true);
-            ui.SetViewLawnReturnBlockerActive(true);
-            level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_CONTINUE, 1000, -1);
-            while (!viewLawnFinished)
-            {
-                yield return null;
-            }
-            ui.SetViewLawnReturnBlockerActive(false);
-            level.HideAdvice();
-            yield return MoveCameraToChoose();
-            uiPreset.SetBlueprintsChooseVisible(true);
-            isViewingLawn = false;
-            viewLawnFinished = false;
         }
         #endregion
 
@@ -239,8 +208,6 @@ namespace MVZ2.Level
         private Vector3 cameraChoosePosition = new Vector3(14, 3, -10);
         [SerializeField]
         private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
-        private bool isViewingLawn;
-        private bool viewLawnFinished;
         #endregion
     }
 }

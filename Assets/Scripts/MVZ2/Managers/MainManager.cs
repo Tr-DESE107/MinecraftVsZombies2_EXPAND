@@ -39,7 +39,12 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableLightComponent>();
             SerializeHelper.RegisterClass<SerializableUIComponent>();
             SerializeHelper.RegisterClass<SerializableSoundComponent>();
+            SerializeHelper.RegisterClass<SerializableBlueprintComponent>();
             SerializeHelper.RegisterClass<EmptySerializableLevelComponent>();
+
+            SerializeHelper.RegisterClass<SerializableLevelControllerPart>();
+            SerializeHelper.RegisterClass<SerializableLevelBlueprintController>();
+            SerializeHelper.RegisterClass<SerializableLevelBlueprintChooseController>();
 
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);

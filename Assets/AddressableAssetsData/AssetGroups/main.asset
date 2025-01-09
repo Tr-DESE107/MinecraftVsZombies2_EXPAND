@@ -53,6 +53,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04dcfd1cd164cbb41b834f5a6fdfba4b
+    m_Address: mvz2:entity/effects/nightmare_portal_mask
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0560677ce3ebb444a8893193b27d43fc
     m_Address: mvz2:mainmenu/stats
     m_ReadOnly: 0
@@ -136,6 +142,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ad952a54ac62cc40aa4243ede0e6468
+    m_Address: mvz2:boss/slenderman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b6aa6449e74e064eb7a4dc5dd9cc283
     m_Address: mvz2:entity/projectiles/snowball
@@ -574,6 +586,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22e179046dae5d843b78cf65056dad99
+    m_Address: mvz2:entity/effects/nightmare_portal_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
     m_Address: mvz2:entity/effect/miner
@@ -1186,6 +1204,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f675fd783eb69c4ba235b5c1f510cd8
+    m_Address: mvz2:entity/boss/slenderman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f71a063b3279ca48a927263bfbc431e
     m_Address: mvz2:effect/fire_breath
     m_ReadOnly: 0
@@ -1290,6 +1314,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45676c5928868ae4092cf6ecaeb3f4d6
     m_Address: mvz2:ui/level/mobile/trigger_gear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457b5a24e00ab4e4dbfda04a0d313e49
+    m_Address: mvz2:entity/effects/nightmare_portal_background_censored
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2242,6 +2272,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ca6a0a6b98011d47ac97026866f323e
+    m_Address: mvz2:entity/boss/slenderman_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cd67e193c23b1f46ae2e123c4a0bd3a
     m_Address: mvz2:entity/contraptions/pressure_plate
     m_ReadOnly: 0
@@ -2259,6 +2295,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ebac2534124b00449659de6a1056649
+    m_Address: mvz2:entity/boss/nightmareaper_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ebbb9151abeb7e4abcdbbb6f4d9f936
     m_Address: mvz2:random/thunder1
@@ -2511,6 +2553,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89901ba4bfafc4b4e87ddb1dc852d2f6
+    m_Address: mvz2:boss/nightmareaper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a0fa8e6a83d14c4581f8cee8ce07eed
     m_Address: mvz2:mobile_blueprint/necromancer
@@ -2854,6 +2902,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 994dcad1586f82f45bf48985a9e06321
+    m_Address: mvz2:ui/banished_mark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
     m_Address: mvz2:enemy/zombie
     m_ReadOnly: 0
@@ -2883,6 +2937,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b42d523d4b6eae419bc6d9e83b028f1
+    m_Address: mvz2:entity/boss/nightmareaper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b59635ff8434c74fa29b53b688e15fb
     m_Address: mvz2:entity/contraption/force_pad
@@ -2967,6 +3027,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f887f3e85dc48d4e8d4bd36aa0a9e12
+    m_Address: mvz2:entity/effects/nightmare_portal_frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f90eb4f980e8c746be488d67df74a3a
     m_Address: mvz2:held/starshards/dream
@@ -3261,6 +3327,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae1a22e91a039eb4ab8bed023d69ca2d
+    m_Address: mvz2:entity/boss/slenderman_tentacle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae53b18b9d39d3f4e86f2a75e0d7e479
     m_Address: mvz2:effect/magic_stars
@@ -3657,6 +3729,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4b8257cfe3564b43890a309b80d59ac
+    m_Address: mvz2:effect/nightmare_portal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
@@ -4773,6 +4851,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffe7678ba632c984daedf8d9223f6c42
+    m_Address: mvz2:entity/effects/nightmare_portal_frame_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fff3c29357fe3ba43a7acb87f044cb1a
     m_Address: mvz2:enemy/bone_wall

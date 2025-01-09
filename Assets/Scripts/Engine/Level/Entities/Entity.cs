@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
-using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -13,7 +12,6 @@ using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace PVZEngine.Entities
 {

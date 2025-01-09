@@ -4,7 +4,12 @@ using PVZEngine.Level;
 
 namespace MVZ2.Level.Components
 {
-    public abstract class MVZ2Component : LevelComponent
+    public interface IMVZ2LevelComponent
+    {
+        void PostLevelLoad();
+        void UpdateFrame(float deltaTime, float simulationSpeed);
+    }
+    public abstract class MVZ2Component : LevelComponent, IMVZ2LevelComponent
     {
         public MVZ2Component(LevelEngine level, NamespaceID id, LevelController controller) : base(level, id)
         {

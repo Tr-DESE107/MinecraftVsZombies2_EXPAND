@@ -26,30 +26,6 @@ namespace MVZ2.Level
         {
             return entities.FirstOrDefault(e => e.Entity == entity);
         }
-        private EntityController CreateControllerForEntity(Entity entity)
-        {
-            var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Position), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
-            entityController.Init(this, entity);
-            entityController.OnPointerEnter += UI_OnEntityPointerEnterCallback;
-            entityController.OnPointerExit += UI_OnEntityPointerExitCallback;
-            entityController.OnPointerDown += UI_OnEntityPointerDownCallback;
-            entities.Add(entityController);
-            return entityController;
-        }
-        private bool RemoveControllerFromEntity(Entity entity)
-        {
-            var entityController = GetEntityController(entity);
-            if (entityController)
-            {
-                entityController.OnPointerEnter -= UI_OnEntityPointerEnterCallback;
-                entityController.OnPointerExit -= UI_OnEntityPointerExitCallback;
-                entityController.OnPointerDown -= UI_OnEntityPointerDownCallback;
-                Destroy(entityController.gameObject);
-                return entities.Remove(entityController);
-            }
-            return false;
-        }
-
         #endregion
 
         #region 私有方法
@@ -131,6 +107,7 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 叫声
         private void UpdateEnemyCry()
         {
             cryTimeCheckTimer.Run();
@@ -163,6 +140,33 @@ namespace MVZ2.Level
                 return Enumerable.Empty<Entity>();
             return enemies.Where(e => e.GetCrySound() != null);
         }
+        #endregion
+
+        #region 控制器
+        private EntityController CreateControllerForEntity(Entity entity)
+        {
+            var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Position), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
+            entityController.Init(this, entity);
+            entityController.OnPointerEnter += UI_OnEntityPointerEnterCallback;
+            entityController.OnPointerExit += UI_OnEntityPointerExitCallback;
+            entityController.OnPointerDown += UI_OnEntityPointerDownCallback;
+            entities.Add(entityController);
+            return entityController;
+        }
+        private bool RemoveControllerFromEntity(Entity entity)
+        {
+            var entityController = GetEntityController(entity);
+            if (entityController)
+            {
+                entityController.OnPointerEnter -= UI_OnEntityPointerEnterCallback;
+                entityController.OnPointerExit -= UI_OnEntityPointerExitCallback;
+                entityController.OnPointerDown -= UI_OnEntityPointerDownCallback;
+                Destroy(entityController.gameObject);
+                return entities.Remove(entityController);
+            }
+            return false;
+        }
+        #endregion
 
         #endregion
 

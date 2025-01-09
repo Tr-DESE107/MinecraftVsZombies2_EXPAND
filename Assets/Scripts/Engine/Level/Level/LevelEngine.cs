@@ -434,21 +434,9 @@ namespace PVZEngine.Level
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
-            level.seedPacks = seri.seedPacks.Select(g =>
-            {
-                if (g == null) return null;
-                var seedPack = ClassicSeedPack.Deserialize(g, level);
-                seedPack.OnDefinitionChanged += level.OnSeedPackDefinitionChanged;
-                return seedPack;
-            }).ToArray();
+            level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
             level.seedPackPool = seri.seedPackPool.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToList();
-            level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s =>
-            {
-                if (s == null) return null;
-                var seedPack = ConveyorSeedPack.Deserialize(s, level);
-                seedPack.OnDefinitionChanged += level.OnConveyorSeedPackDefinitionChanged;
-                return seedPack;
-            }).ToList();
+            level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
             level.conveyorSlotCount = seri.conveyorSlotCount;
             level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
 

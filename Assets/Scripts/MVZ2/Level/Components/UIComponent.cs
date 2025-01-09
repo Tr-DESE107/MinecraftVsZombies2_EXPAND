@@ -28,14 +28,6 @@ namespace MVZ2.Level.Components
         {
             Main.ShakeManager.AddShake(startAmplitude * Controller.LawnToTransScale, endAmplitude * Controller.LawnToTransScale, time / (float)Level.TPS);
         }
-        public void SetConveyorMode(bool value)
-        {
-            Controller.SetConveyorMode(value);
-        }
-        public bool IsConveyorMode()
-        {
-            return Controller.IsConveyorMode();
-        }
         public void ShowMoney()
         {
             Controller.ShowMoney();
