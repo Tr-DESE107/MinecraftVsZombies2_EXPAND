@@ -83,6 +83,7 @@ namespace MVZ2Logic.Level.Components
         Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY);
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
         void SetConveyorMode(bool value);
+        bool IsConveyorMode();
         void ShowMoney();
         void SetMoneyFade(bool fade);
         void SetEnergyActive(bool visible);
@@ -99,6 +100,9 @@ namespace MVZ2Logic.Level.Components
         void SetProgressBarToBoss(NamespaceID barStyle);
         void SetProgressBarToStage();
         void SetAreaModelPreset(string name);
+        void PauseGame(int level = 0);
+        void ResumeGame(int level = 0);
+        void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
     }
     public interface IMoneyComponent : ILevelComponent
     {

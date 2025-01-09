@@ -55,6 +55,7 @@
 
     <!-- Bosses -->
     <model name="frankenstein" type="entity" path="mvz2:boss/frankenstein" width="100" height="200" xOffset="24" yOffset="-96"/>
+    <model name="slenderman" type="entity" path="mvz2:boss/slenderman" width="200" height="150" xOffset="0" yOffset="-60"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -115,7 +116,8 @@
     <model name="hoe" type="entity" path="mvz2:effect/hoe" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="breakout_board" type="entity" path="mvz2:effect/breakout_board" width="32" height="160" xOffset="0" yOffset="0"/>
     <model name="nightmare_watching_eye" type="entity" path="mvz2:effect/nightmare_watching_eye" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
-    
+    <model name="nightmare_portal" type="entity" path="mvz2:effect/nightmare_portal" width="64" height="120" xOffset="0" yOffset="-50" />
+
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
     <model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="0"/>

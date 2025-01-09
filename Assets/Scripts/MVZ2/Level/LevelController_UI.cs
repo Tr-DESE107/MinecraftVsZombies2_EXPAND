@@ -365,14 +365,14 @@ namespace MVZ2.Level
         {
             if (IsGameRunning())
             {
-                Pause();
+                PauseGame();
                 level.PlaySound(VanillaSoundID.pause);
             }
             ShowOptionsDialog();
         }
         private void UI_OnOptionsMenuCloseCallback()
         {
-            Resume();
+            ResumeGame(100);
         }
         private void UI_OnSpeedUpButtonClickCallback()
         {
@@ -423,7 +423,7 @@ namespace MVZ2.Level
         }
         private void UI_OnPauseDialogResumeClickedCallback()
         {
-            Resume();
+            ResumeGame(100);
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {
@@ -439,7 +439,7 @@ namespace MVZ2.Level
             switch (type)
             {
                 case LevelLoadedDialog.ButtonType.Resume:
-                    Resume();
+                    ResumeGame(100);
                     ui.SetLevelLoadedDialogVisible(false);
                     levelLoaded = false;
                     break;
@@ -769,10 +769,27 @@ namespace MVZ2.Level
         }
         private void UpdateHeldSlotUI()
         {
+            bool pickaxeDisabled = level.IsPickaxeDisabled();
+            bool starshardDisabled = level.IsStarshardDisabled();
             var uiPreset = GetUIPreset();
             uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
+            uiPreset.SetStarshardDisabled(starshardDisabled && level.ShouldShowStarshardDisableIcon());
             uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());
+            uiPreset.SetPickaxeDisabled(pickaxeDisabled && level.ShouldShowPickaxeDisableIcon());
             uiPreset.SetTriggerSelected(level.IsHoldingTrigger());
+        }
+        private void ValidateHeldItem()
+        {
+            bool pickaxeDisabled = level.IsPickaxeDisabled();
+            bool starshardDisabled = level.IsStarshardDisabled();
+            if (pickaxeDisabled && level.IsHoldingPickaxe())
+            {
+                level.ResetHeldItem();
+            }
+            if (starshardDisabled && level.IsHoldingStarshard())
+            {
+                level.ResetHeldItem();
+            }
         }
         private bool TryCancelHeldItem()
         {
@@ -956,6 +973,8 @@ namespace MVZ2.Level
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
+            if (level.IsStarshardDisabled())
+                return;
             level.SetHeldItem(VanillaHeldTypes.starshard, 0, 0);
         }
         private void ClickTrigger()

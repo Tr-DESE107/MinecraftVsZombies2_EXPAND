@@ -11,6 +11,8 @@ namespace MVZ2.GameContent.Buffs
         public const string inWater = "in_water";
         public const string parabot = "parabot";
         public const string whiteFlash = "white_flash";
+        public const string charm = "charm";
+        public const string charmWithSource = "charm_with_source";
 
         // Contraption
         public const string productionColor = "production_color";
@@ -55,6 +57,7 @@ namespace MVZ2.GameContent.Buffs
         public const string enemyWeakness = "enemy_weakness";
         public const string forcePadDrag = "force_pad_frag";
         public const string redstoneCarrier = "redstone_carrier";
+        public const string nightmareComeTrue = "nightmare_come_true";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
@@ -81,6 +84,7 @@ namespace MVZ2.GameContent.Buffs
             public const string tutorialDisable = "tutorial_disable";
             public const string easyBlueprint = "easy_blueprint";
             public const string theCreaturesHeartReduceCost = "the_creatures_heart_reduce_cost";
+            public const string slendermanMindSwap = "slenderman_mind_swap";
         }
         public static class Level
         {
@@ -95,6 +99,7 @@ namespace MVZ2.GameContent.Buffs
             public const string nightmareLevel = "nightmare_level";
             public const string darkMatterDark = "dark_matter_dark";
             public const string pagodaBranchLevel = "pagoda_branch_level";
+            public const string nightmareDecrepify = "nightmare_decrepify";
         }
         public static class Boss
         {

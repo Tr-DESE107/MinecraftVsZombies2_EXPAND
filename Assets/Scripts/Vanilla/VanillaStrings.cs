@@ -7,6 +7,8 @@ namespace MVZ2.Vanilla
     {
         [TranslateMsg("教程无法使用提示")]
         public const string TOOLTIP_DISABLE_MESSAGE = "无法使用";
+        [TranslateMsg("教程无法使用提示")]
+        public const string TOOLTIP_DECREPIFY = "受到衰老诅咒！";
 
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_CANNOT_PLACE_ON_STATUES = "你不能在雕像上放置器械";

@@ -14,6 +14,10 @@ namespace MVZ2.GameContent.Seeds
         public static readonly NamespaceID returnPearl = Get(VanillaBlueprintNames.returnPearl);
         public static readonly NamespaceID lengthenBoard = Get(VanillaBlueprintNames.lengthenBoard);
         public static readonly NamespaceID addPearl = Get(VanillaBlueprintNames.addPearl);
+        public static NamespaceID FromEntity(NamespaceID entityID)
+        {
+            return entityID;
+        }
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -21,6 +21,7 @@ namespace PVZEngine.Level
             if (seedPacks[index] != null)
                 return;
             var seedPack = PopSeedPackFromPool(id);
+            seedPack.OnDefinitionChanged += OnSeedPackDefinitionChanged;
             seedPacks[index] = seedPack;
             NotifySeedPackChange(index);
         }
@@ -28,9 +29,11 @@ namespace PVZEngine.Level
         {
             if (index < 0 || index >= seedPacks.Length)
                 return false;
-            if (seedPacks[index] == null)
+            var seedPack = seedPacks[index];
+            if (seedPack == null)
                 return false;
-            PushSeedPackToPool(seedPacks[index]);
+            PushSeedPackToPool(seedPack);
+            seedPack.OnDefinitionChanged -= OnSeedPackDefinitionChanged;
             seedPacks[index] = null;
             NotifySeedPackChange(index);
             return true;
@@ -127,6 +130,7 @@ namespace PVZEngine.Level
             if (seedDefinition == null)
                 return null;
             var seedPack = new ConveyorSeedPack(this, seedDefinition, currentSeedPackID++);
+            seedPack.OnDefinitionChanged += OnConveyorSeedPackDefinitionChanged;
             conveyorSeedPacks.Insert(index, seedPack);
             OnConveyorSeedAdded?.Invoke(index);
             return seedPack;
@@ -242,6 +246,24 @@ namespace PVZEngine.Level
         {
             OnSeedPackChanged?.Invoke(index);
         }
+        private void OnSeedPackDefinitionChanged(SeedPack seedPack, SeedDefinition definition)
+        {
+            if (seedPack is not ClassicSeedPack classic)
+                return;
+            var index = GetSeedPackIndex(classic);
+            if (index < 0)
+                return;
+            NotifySeedPackChange(index);
+        }
+        private void OnConveyorSeedPackDefinitionChanged(SeedPack seedPack, SeedDefinition definition)
+        {
+            if (seedPack is not ConveyorSeedPack conveyor)
+                return;
+            var index = GetConveyorSeedPackIndex(conveyor);
+            if (index < 0)
+                return;
+            OnConveyorSeedChanged?.Invoke(index);
+        }
         private void UpdateSeedPacks()
         {
             foreach (var seedPack in seedPacks)
@@ -251,6 +273,12 @@ namespace PVZEngine.Level
                 seedPack.Update(RechargeSpeed);
             }
             foreach (var seedPack in seedPackPool)
+            {
+                if (seedPack == null)
+                    continue;
+                seedPack.Update(RechargeSpeed);
+            }
+            foreach (var seedPack in conveyorSeedPacks)
             {
                 if (seedPack == null)
                     continue;
@@ -291,6 +319,7 @@ namespace PVZEngine.Level
         public event Action<int> OnSeedPackChanged;
         public event Action<int> OnConveyorSeedAdded;
         public event Action<int> OnConveyorSeedRemoved;
+        public event Action<int> OnConveyorSeedChanged;
         public event Action<int> OnConveyorSeedSlotCountChanged;
         #region 属性字段
         public float RechargeSpeed { get; set; } = 1;

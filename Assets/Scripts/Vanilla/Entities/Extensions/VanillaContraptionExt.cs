@@ -87,5 +87,11 @@ namespace MVZ2.Vanilla.Entities
         {
             contraption.SetProperty("Evoked", value);
         }
+
+        public static void ShortCircuit(this Entity contraption, int time)
+        {
+            var buff = contraption.AddBuff<FrankensteinShockedBuff>();
+            buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, time);
+        }
     }
 }

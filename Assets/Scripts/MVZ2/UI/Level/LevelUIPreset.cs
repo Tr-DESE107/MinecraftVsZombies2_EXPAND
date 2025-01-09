@@ -253,6 +253,10 @@ namespace MVZ2.Level.UI
         {
             pickaxeSlot.SetSelected(selected);
         }
+        public void SetPickaxeDisabled(bool selected)
+        {
+            pickaxeSlot.SetDisabled(selected);
+        }
         #endregion
 
         #region Ǯ
@@ -290,6 +294,10 @@ namespace MVZ2.Level.UI
         public void SetStarshardSelected(bool selected)
         {
             starshardPanel.SetSelected(selected);
+        }
+        public void SetStarshardDisabled(bool selected)
+        {
+            starshardPanel.SetDisabled(selected);
         }
         #endregion
 

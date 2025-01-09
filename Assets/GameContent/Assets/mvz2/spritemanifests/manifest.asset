@@ -225,6 +225,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d6a955717c4507e4aa60b1e721268640, type: 3}
   - name: talk/speech_bubble_no_arrow
     sprite: {fileID: 21300000, guid: 2a4746211870c7249adf3104c2ebdac4, type: 3}
+  - name: ui/banished_mark
+    sprite: {fileID: 21300000, guid: 994dcad1586f82f45bf48985a9e06321, type: 3}
   - name: ui/button
     sprite: {fileID: 21300000, guid: 7f2f4e63d086c1c4d8d62d9d14a418d9, type: 3}
   - name: ui/button_disabled
@@ -245,6 +247,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 410f8ec80407d6e4ab481954c0ce2d49, type: 3}
   - name: entity/boss/gun_fire
     sprite: {fileID: 21300000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
+  - name: entity/boss/slenderman
+    sprite: {fileID: 21300000, guid: 3f675fd783eb69c4ba235b5c1f510cd8, type: 3}
   - name: entity/carts/minecart
     sprite: {fileID: 21300000, guid: 3d9178829e9e3e340b9f8df54bfcbbb5, type: 3}
   - name: entity/carts/pumpkin_carriage
@@ -311,6 +315,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6a6baf812492dec40ba2154d360755bb, type: 3}
   - name: entity/effects/mine_debris
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
+  - name: entity/effects/nightmare_eye_mask
+    sprite: {fileID: 21300000, guid: 0e5714ba6ca6d674889c791b36a58067, type: 3}
+  - name: entity/effects/nightmare_portal_background
+    sprite: {fileID: 21300000, guid: 22e179046dae5d843b78cf65056dad99, type: 3}
+  - name: entity/effects/nightmare_portal_background_censored
+    sprite: {fileID: 21300000, guid: 457b5a24e00ab4e4dbfda04a0d313e49, type: 3}
+  - name: entity/effects/nightmare_portal_frame
+    sprite: {fileID: 21300000, guid: 9f887f3e85dc48d4e8d4bd36aa0a9e12, type: 3}
+  - name: entity/effects/nightmare_portal_frame_censored
+    sprite: {fileID: 21300000, guid: ffe7678ba632c984daedf8d9223f6c42, type: 3}
+  - name: entity/effects/nightmare_portal_mask
+    sprite: {fileID: 21300000, guid: 04dcfd1cd164cbb41b834f5a6fdfba4b, type: 3}
   - name: entity/effects/pow
     sprite: {fileID: 21300000, guid: 8bf802c92af01e14ab7d98dedcdb86a1, type: 3}
   - name: entity/effects/rain
@@ -719,6 +735,38 @@ MonoBehaviour:
     - {fileID: 5442776467709350791, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
     - {fileID: 8849250387669684591, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
     - {fileID: 6238587927403159039, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
+  - name: entity/boss/nightmareaper
+    spritesheet:
+    - {fileID: 8620300422851923600, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
+    - {fileID: -839399261985939695, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
+    - {fileID: 8298519818392767166, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
+    - {fileID: 1287792145110962625, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
+    - {fileID: 5774354098091981103, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
+    - {fileID: -3353253955706708753, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
+  - name: entity/boss/nightmareaper_head
+    spritesheet:
+    - {fileID: -6610799563214786285, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: 8132075716715988648, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: -6840349552409501433, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: 3751322304086069470, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: 8115917880225891012, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: -167432858843744596, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: 7706618797004719824, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: 5765093703645009195, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: -3544856362173764527, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: -5845912786902687416, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: -6766465614645988480, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+    - {fileID: -1571928245095609263, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+  - name: entity/boss/slenderman_death
+    spritesheet:
+    - {fileID: 7192771203455553486, guid: 7ca6a0a6b98011d47ac97026866f323e, type: 3}
+    - {fileID: 8380690277629979186, guid: 7ca6a0a6b98011d47ac97026866f323e, type: 3}
+  - name: entity/boss/slenderman_tentacle
+    spritesheet:
+    - {fileID: 6048090677657601822, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
+    - {fileID: 6494446197138225416, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
+    - {fileID: 5653982790268467409, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
+    - {fileID: 5039749940984752654, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
   - name: entity/cart/nightmare_trail
     spritesheet:
     - {fileID: 3762937400720167656, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}

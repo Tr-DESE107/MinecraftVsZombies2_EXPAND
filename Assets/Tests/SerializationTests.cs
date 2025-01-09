@@ -362,7 +362,7 @@ namespace MVZ2.Tests
         private static void LoadLevel(LevelController level, SerializableLevelController seri, NamespaceID areaId, NamespaceID stageId)
         {
             level.LoadGame(seri, Main.Game, areaId, stageId);
-            level.Resume();
+            level.ResumeGame(9999);
         }
         private static IEnumerator GotoLevel()
         {

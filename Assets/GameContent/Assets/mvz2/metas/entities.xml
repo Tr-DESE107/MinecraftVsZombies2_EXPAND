@@ -139,6 +139,7 @@
         <contraption id="mine_tnt" name="地雷TNT" tooltip="接触时爆炸，但需要时间准备" >
 
             <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
             <float name="damage" value="1800"/>
             <float name="range" value="40"/>
             <id name="placeSound" value="mvz2:grass"/>
@@ -176,6 +177,7 @@
         </contraption>
         <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
             <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
             <id name="placeSound" value="mvz2:glass"/>
             <id name="deathSound" value="mvz2:glass_break"/>
             <vector3 name="size" x="48" y="48" z="48"/>
@@ -239,6 +241,7 @@
         </dispenser>
         <contraption id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片"  unlock="mvz2:level.halloween_9">
             <float name="range" value="120"/>
+            <bool name="loyal" value="true"/>
             <id name="shell" value="mvz2:wood"/>
             <id name="placeSound" value="mvz2:wood"/>
             <id name="deathSound" value="mvz2:wood"/>
@@ -251,6 +254,7 @@
         <!-- Dream Contraptions -->
         <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械"  unlock="mvz2:level.dream_1">
             <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
 
             <id name="shell" value="mvz2:grass"/>
             <id name="placeSound" value="mvz2:grass"/>
@@ -288,6 +292,7 @@
         <contraption id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的僵尸拉入水底" unlock="mvz2:level.dream_4">
 
             <bool name="isFloor" value="true"/>
+            <bool name="loyal" value="true"/>
             <float name="range" value="40"/>
             <id name="shell" value="mvz2:metal"/>
             <id name="placement" value="mvz2:aquatic"/>
@@ -330,6 +335,7 @@
             <bool name="invincible" value="true"/>
             <bool name="shadowHidden" value="true"/>
             <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
             <int name="maxTimeout" value="30"/>
             <int name="waterInteraction" value="0"/>
             <float name="gravity" value="-0.25"/>
@@ -365,6 +371,7 @@
         <contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力" unlock="mvz2:contraption.force_pad">
 
             <bool name="upgradeBlueprint" value="true"/>
+            <bool name="loyal" value="true"/>
 
             <bool name="triggerActive" value="true"/>
             <bool name="shadowHidden" value="true"/>
@@ -591,6 +598,13 @@
             <float name="maxHealth" value="25000"/>
             <vector3 name="size" x="60" y="200" z="60"/>
             <vector3 name="shotVelocity" x="30" y="0" z="0"/>
+            <color name="bloodColor" value="#7F0000FF"/>
+            <color name="bloodColorCensored" value="#00007FFF"/>
+        </boss>
+        <boss id="slenderman" name="瘦长鬼影">
+            <int name="waterInteraction" value="0"/>
+            <float name="maxHealth" value="2500"/>
+            <vector3 name="size" x="50" y="120" z="50"/>
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
         </boss>
@@ -879,5 +893,9 @@
             <vector3 name="shadowScale" x="1" y="5" z="1" />
         </effect>
         <effect id="nightmare_watching_eye"/>
+        <effect id="nightmare_portal">
+            <int name="maxTimeout" value="30"/>
+            <bool name="faceLeftAtDefault" value="true"/>
+        </effect>
     </entries>
 </entities>

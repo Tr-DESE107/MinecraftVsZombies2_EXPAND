@@ -310,5 +310,13 @@ namespace MVZ2.Vanilla.Entities
             return entity.GetProperty<bool>(KEEP_GROUND_FRICTION);
         }
         #endregion
+
+        #region 忠诚
+        public const string LOYAL = "loyal";
+        public static bool IsLoyal(this Entity entity)
+        {
+            return entity.GetProperty<bool>(LOYAL);
+        }
+        #endregion
     }
 }

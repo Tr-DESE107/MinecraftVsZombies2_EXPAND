@@ -32,6 +32,10 @@ namespace MVZ2.Level.Components
         {
             Controller.SetConveyorMode(value);
         }
+        public bool IsConveyorMode()
+        {
+            return Controller.IsConveyorMode();
+        }
         public void ShowMoney()
         {
             Controller.ShowMoney();
@@ -102,6 +106,18 @@ namespace MVZ2.Level.Components
             levelUI.HideHintArrow();
             TargetType = HintArrowTargetType.None;
             TargetID = 0;
+        }
+        public void PauseGame(int level = 0)
+        {
+            Controller.PauseGame(level);
+        }
+        public void ResumeGame(int level = 0)
+        {
+            Controller.ResumeGame(level);
+        }
+        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        {
+            Main.Scene.ShowDialog(title, desc, options, onSelect);
         }
         public override ISerializableLevelComponent ToSerializable()
         {

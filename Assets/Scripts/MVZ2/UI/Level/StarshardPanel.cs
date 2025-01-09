@@ -15,6 +15,10 @@ namespace MVZ2.Level.UI
         {
             animator.SetBool("Selected", selected);
         }
+        public void SetDisabled(bool selected)
+        {
+            animator.SetBool("Disabled", selected);
+        }
         public void SetPoints(int count, int maxCount)
         {
             pointsList.updateList(maxCount, (i, rect) =>

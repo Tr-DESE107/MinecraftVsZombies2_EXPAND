@@ -153,7 +153,7 @@ namespace MVZ2.Level
                 }
             }
 
-            Pause();
+            PauseGame();
             ShowLevelLoadedDialog();
             levelLoaded = true;
         }
@@ -173,6 +173,7 @@ namespace MVZ2.Level
             level.OnSeedSlotCountChanged += Engine_OnSeedPackCountChangedCallback;
             level.OnConveyorSeedAdded += Engine_OnConveyorSeedPackAddedCallback;
             level.OnConveyorSeedRemoved += Engine_OnConveyorSeedPackRemovedCallback;
+            level.OnConveyorSeedChanged += Engine_OnConveyorSeedPackChangedCallback;
             level.OnConveyorSeedSlotCountChanged += Engine_OnConveyorSeedPackCountChangedCallback;
 
             level.OnClear += Engine_OnClearCallback;

@@ -5,6 +5,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
+using PVZEngine.SeedPacks;
 
 namespace PVZEngine.Buffs
 {
@@ -68,6 +69,10 @@ namespace PVZEngine.Buffs
         public Entity GetEntity()
         {
             return Target?.GetEntity();
+        }
+        public SeedPack GetSeedPack()
+        {
+            return Target as SeedPack;
         }
         internal void AddToTarget(IBuffTarget target)
         {

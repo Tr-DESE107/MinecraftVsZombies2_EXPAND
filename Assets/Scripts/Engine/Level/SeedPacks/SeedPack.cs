@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -22,6 +23,12 @@ namespace PVZEngine.SeedPacks
         public NamespaceID GetDefinitionID()
         {
             return Definition?.GetID();
+        }
+        public void ChangeDefinition(SeedDefinition definition)
+        {
+            Definition = definition;
+            UpdateAllBuffedProperties();
+            OnDefinitionChanged?.Invoke(this, definition);
         }
         #region 属性
         public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
@@ -85,9 +92,11 @@ namespace PVZEngine.SeedPacks
             }
             return false;
         }
-        public void AddBuff<T>() where T : BuffDefinition
+        public Buff AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(CreateBuff<T>());
+            var buff = CreateBuff<T>();
+            AddBuff(buff);
+            return buff;
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
@@ -135,18 +144,16 @@ namespace PVZEngine.SeedPacks
         }
         public void Update(float rechargeSpeed)
         {
-            if (!this.IsCharged())
-            {
-                var recharge = this.GetRecharge();
-                recharge += rechargeSpeed * this.GetRechargeSpeed();
-                recharge = Mathf.Min(this.GetMaxRecharge(), recharge);
-                this.SetRecharge(recharge);
-            }
+            OnUpdate(rechargeSpeed);
             foreach (var buff in buffs.GetAllBuffs())
             {
                 buff.Update();
             }
             Definition.Update(this, rechargeSpeed);
+        }
+        protected virtual void OnUpdate(float rechargeSpeed)
+        {
+
         }
         #endregion
 
@@ -173,6 +180,7 @@ namespace PVZEngine.SeedPacks
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IBuffTarget.GetEntity() => null;
         bool IBuffTarget.Exists() => true;
+        public event Action<SeedPack, SeedDefinition> OnDefinitionChanged;
 
         #region 属性字段
         public long ID { get; }

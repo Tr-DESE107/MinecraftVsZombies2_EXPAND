@@ -1049,8 +1049,7 @@ namespace MVZ2.GameContent.Bosses
                     }
                     else if (contraption.IsEntityOf(contrapId))
                     {
-                        var buff = contraption.AddBuff<FrankensteinShockedBuff>();
-                        buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, 150);
+                        contraption.ShortCircuit(150);
                         if (!soundPlayed)
                         {
                             contraption.PlaySound(VanillaSoundID.powerOff);

@@ -31,6 +31,10 @@ namespace MVZ2.Level
             uiPreset.SetConveyorMode(mode);
             isConveyorMode = mode;
         }
+        public bool IsConveyorMode()
+        {
+            return isConveyorMode;
+        }
         #region 私有方法
 
         private void Awake_Blueprints()
@@ -71,7 +75,10 @@ namespace MVZ2.Level
         {
             UpdateConveyorBlueprintCount();
         }
-
+        private void Engine_OnConveyorSeedPackChangedCallback(int index)
+        {
+            conveyorBlueprintMode.RefreshBlueprint(index);
+        }
 
         private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData)
         {
@@ -228,18 +235,6 @@ namespace MVZ2.Level
             var count = level.GetConveyorSlotCount();
             var levelUI = GetUIPreset();
             levelUI.SetConveyorSlotCount(count);
-        }
-        private Sprite GetBlueprintIcon(int i)
-        {
-            var seeds = level.GetAllSeedPacks();
-            var seed = seeds[i];
-            return GetBlueprintIcon(seed);
-        }
-        private Sprite GetBlueprintIcon(SeedPack seed)
-        {
-            if (seed == null)
-                return null;
-            return Resources.GetBlueprintIcon(seed.Definition);
         }
         private string GetBlueprintTooltipName(NamespaceID blueprintID)
         {
@@ -485,7 +480,7 @@ namespace MVZ2.Level
                 blueprint.SetRecharge(maxCharge == 0 ? 0 : 1 - seed.GetRecharge() / maxCharge);
                 blueprint.SetDisabled(!CanPickBlueprint(seed));
                 blueprint.SetTwinkling(seed.IsTwinkling() || (level.IsHoldingTrigger() && seed.CanInstantTrigger()));
-                blueprint.SetSelected(level.IsHoldingBlueprint(index));
+                blueprint.SetSelected(level.IsHoldingClassicBlueprint(index));
             }
             #endregion
 
@@ -599,19 +594,23 @@ namespace MVZ2.Level
                 var count = GetSeedPackCount();
                 for (int i = 0; i < count; i++)
                 {
-                    var seed = GetSeedPackAt(i);
-                    var uiPreset = GetUIPreset();
-                    Blueprint conveyorBlueprint = GetBlueprintUIAt(i);
-
-                    if (!conveyorBlueprint)
-                    {
-                        conveyorBlueprint = uiPreset.ConveyBlueprint();
-                        uiPreset.InsertConveyorBlueprint(i, conveyorBlueprint);
-                    }
-                    BlueprintViewData viewData = controller.Resources.GetBlueprintViewData(seed);
-                    viewData.cost = string.Empty;
-                    conveyorBlueprint.UpdateView(viewData);
+                    RefreshBlueprint(i);
                 }
+            }
+            public void RefreshBlueprint(int index)
+            {
+                var seed = GetSeedPackAt(index);
+                var uiPreset = GetUIPreset();
+                Blueprint conveyorBlueprint = GetBlueprintUIAt(index);
+
+                if (!conveyorBlueprint)
+                {
+                    conveyorBlueprint = uiPreset.ConveyBlueprint();
+                    uiPreset.InsertConveyorBlueprint(index, conveyorBlueprint);
+                }
+                BlueprintViewData viewData = controller.Resources.GetBlueprintViewData(seed);
+                viewData.cost = string.Empty;
+                conveyorBlueprint.UpdateView(viewData);
             }
             #endregion
 

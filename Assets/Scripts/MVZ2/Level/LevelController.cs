@@ -405,6 +405,7 @@ namespace MVZ2.Level
                 ui.SetNightValue(level.GetNightValue());
                 SetDarknessValue(level.GetDarknessValue());
                 UpdateMoney();
+                ValidateHeldItem();
                 foreach (var component in level.GetComponents())
                 {
                     if (component is MVZ2Component comp)
@@ -414,13 +415,25 @@ namespace MVZ2.Level
                 }
             }
         }
-        public void Pause()
+        public void PauseGame(int level = 0)
         {
+            if (isPaused)
+            {
+                if (level > pauseLevel)
+                {
+                    pauseLevel = level;
+                }
+                return;
+            }
+            pauseLevel = level;
             isPaused = true;
             Music.Pause();
         }
-        public void Resume()
+        public void ResumeGame(int level = 0)
         {
+            if (!isPaused || level < pauseLevel)
+                return;
+            pauseLevel = 0;
             isPaused = false;
             Music.Resume();
 
@@ -548,7 +561,7 @@ namespace MVZ2.Level
             if (!Options.GetPauseOnFocusLost())
                 return;
 
-            Pause();
+            PauseGame();
             ShowPausedDialog();
         }
         #endregion
@@ -684,26 +697,26 @@ namespace MVZ2.Level
                     {
                         if (!isPaused)
                         {
-                            Pause();
+                            PauseGame();
                             level.PlaySound(VanillaSoundID.pause);
                             ShowPausedDialog();
                         }
                         else
                         {
-                            Resume();
+                            ResumeGame();
                         }
                     }
                     else if (Input.GetKeyDown(KeyCode.Escape))
                     {
                         if (!isPaused)
                         {
-                            Pause();
+                            PauseGame();
                             level.PlaySound(VanillaSoundID.pause);
                             ShowOptionsDialog();
                         }
                         else
                         {
-                            Resume();
+                            ResumeGame();
                         }
                     }
                 }
@@ -839,6 +852,7 @@ namespace MVZ2.Level
         private ShakeManager Shakes => Main.ShakeManager;
         private LevelEngine level;
         private bool isPaused = false;
+        private int pauseLevel = 0;
         private bool levelLoaded = false;
         private bool isGameStarted;
         private bool isGameOver;

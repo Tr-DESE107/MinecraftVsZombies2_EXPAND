@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -535,6 +536,17 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 阵营
+        public static void Charm(this Entity entity, int faction)
+        {
+            var buff = entity.AddBuff<CharmBuff>();
+            buff.SetProperty(CharmBuff.PROP_FACTION, faction);
+        }
+        public static void CharmWithSource(this Entity entity, int faction, Entity source)
+        {
+            var buff = entity.AddBuff<CharmWithSourceBuff>();
+            buff.SetProperty(CharmWithSourceBuff.PROP_FACTION, faction);
+            buff.SetProperty(CharmWithSourceBuff.PROP_SOURCE, new EntityID(source));
+        }
         public static void SetFactionAndDirection(this Entity entity, int faction)
         {
             entity.SetFaction(faction);

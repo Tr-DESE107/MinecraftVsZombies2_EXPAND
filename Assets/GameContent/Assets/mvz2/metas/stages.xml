@@ -2,13 +2,14 @@
     <stage id="debug" name="测试关卡" type="special">
         <camera transition="instant"/>
         <conveyor>
-            <entry id="mvz2:obsidian" count="8"/>
-            <entry id="mvz2:small_dispenser" count="5"/>
-            <entry id="mvz2:punchton" count="5"/>
-            <entry id="mvz2:tnt" count="3"/>
-            <entry id="mvz2:soul_furnace" count="10"/>
-            <entry id="mvz2:silvenser" count="8"/>
-            <entry id="mvz2:magichest" count="4"/>
+            <entry id="mvz2:lily_pad" count="16"/>
+            <entry id="mvz2:drivenser" count="30"/>
+            <entry id="mvz2:gravity_pad" count="3"/>
+            <entry id="mvz2:vortex_hopper" count="3"/>
+            <entry id="mvz2:pistenser" count="12"/>
+            <entry id="mvz2:totenser" count="12"/>
+            <entry id="mvz2:dream_crystal" count="6"/>
+            <entry id="mvz2:dream_silk" count="2"/>
         </conveyor>
     </stage>
     <stage id="tutorial" name="教程关" type="special">

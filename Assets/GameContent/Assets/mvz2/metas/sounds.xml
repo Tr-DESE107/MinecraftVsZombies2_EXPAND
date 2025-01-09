@@ -18,6 +18,9 @@
     <sound name="bloody">
         <sample path="mvz2:bloody" weight="1" />
     </sound>
+    <sound name="biohazard">
+        <sample path="mvz2:biohazard" weight="1" />
+    </sound>
     <sound name="bone_hit">
         <sample path="mvz2:damage/bone/bone_hit1" weight="1" />
         <sample path="mvz2:damage/bone/bone_hit2" weight="1" />
@@ -90,6 +93,9 @@
     </sound>
     <sound name="dark_skies_impact" maxCount="10">
         <sample path="mvz2:dark_skies_impact" weight="1" />
+    </sound>
+    <sound name="decrepify">
+        <sample path="mvz2:decrepify" weight="1" />
     </sound>
     <sound name="dialog_bang">
         <sample path="mvz2:talk/dialog_bang" weight="1" />
@@ -274,6 +280,9 @@
     <sound name="lose_music" priority="0">
         <sample path="mvz2:lose_music" weight="1" />
     </sound>
+    <sound name="lurker">
+        <sample path="mvz2:lurker" weight="1" />
+    </sound>
     <sound name="magical">
         <sample path="mvz2:magical" weight="1" />
     </sound>
@@ -305,6 +314,9 @@
     </sound>
     <sound name="mummy_death">
         <sample path="mvz2:entity/mummy/mummy_death" weight="1" />
+    </sound>
+    <sound name="nightmare_portal">
+        <sample path="mvz2:nightmare_portal" weight="1" />
     </sound>
     <sound name="nyaightmare_scream">
         <sample path="mvz2:nyaightmare_scream" weight="1" />
@@ -418,6 +430,9 @@
     <sound name="slice">
         <sample path="mvz2:damage/slice/slice1" weight="1" />
         <sample path="mvz2:damage/slice/slice2" weight="1" />
+    </sound>
+    <sound name="slenderman_death">
+        <sample path="mvz2:entity/slenderman_death" weight="1" />
     </sound>
     <sound name="slow_down" priority="64">
         <sample path="mvz2:slow_down" weight="1" />

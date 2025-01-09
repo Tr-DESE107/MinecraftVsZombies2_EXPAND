@@ -1,7 +1,9 @@
-﻿using MVZ2Logic.Level.Components;
+﻿using System;
+using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEditor.Presets;
 using UnityEngine;
 
 namespace MVZ2Logic.Level
@@ -31,6 +33,11 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetUIComponent();
             component.SetConveyorMode(value);
+        }
+        public static bool IsConveyorMode(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            return component.IsConveyorMode();
         }
         public static void SetMoneyFade(this LevelEngine level, bool fade)
         {
@@ -116,6 +123,21 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetUIComponent();
             component.SetAreaModelPreset(preset);
+        }
+        public static void PauseGame(this LevelEngine level, int pauseLevel = 0)
+        {
+            var component = level.GetUIComponent();
+            component.PauseGame(pauseLevel);
+        }
+        public static void ResumeGame(this LevelEngine level, int pauseLevel = 0)
+        {
+            var component = level.GetUIComponent();
+            component.ResumeGame(pauseLevel);
+        }
+        public static void ShowDialog(this LevelEngine level, string title, string desc, string[] options, Action<int> onSelect = null)
+        {
+            var component = level.GetUIComponent();
+            component.ShowDialog(title, desc, options, onSelect);
         }
     }
 }

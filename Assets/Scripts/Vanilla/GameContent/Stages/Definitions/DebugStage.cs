@@ -17,13 +17,25 @@ namespace MVZ2.GameContent.Stages
     {
         public DebugStage(string nsp, string name) : base(nsp, name)
         {
+            AddBehaviour(new ConveyorStageBehaviour(this));
         }
         public override void OnStart(LevelEngine level)
         {
             base.OnStart(level);
+            ConveyorStart(level);
+            level.SetTriggerActive(true);
+        }
+        public override void OnUpdate(LevelEngine level)
+        {
+            base.OnUpdate(level);
+            level.SetStarshardSlotCount(5);
+            level.SetStarshardCount(5);
+            level.CheckGameOver();
+        }
+        private void ClassicStart(LevelEngine level) 
+        {
             level.SetEnergy(9990);
             level.SetSeedSlotCount(10);
-            level.SetArtifactSlotCount(3);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.mineTNT,
@@ -37,8 +49,9 @@ namespace MVZ2.GameContent.Stages
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.ghast,
-                VanillaEffectID.nightmareWatchingEye,
+                VanillaBossID.slenderman,
             });
+            level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.sweetSleepPillow,
@@ -46,14 +59,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaArtifactID.theCreaturesHeart,
             });
             level.RechargeSpeed = 9999999;
-            level.SetTriggerActive(true);
         }
-        public override void OnUpdate(LevelEngine level)
+        private void ConveyorStart(LevelEngine level)
         {
-            base.OnUpdate(level);
-            level.SetStarshardSlotCount(5);
-            level.SetStarshardCount(5);
-            level.CheckGameOver();
+            level.SetConveyorMode(true);
+            level.SetConveyorSlotCount(10);
+            level.AddConveyorSeedPack(VanillaBossID.slenderman);
         }
     }
 }

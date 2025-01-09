@@ -1,6 +1,7 @@
 ﻿using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace PVZEngine.SeedPacks
 {
@@ -16,6 +17,17 @@ namespace PVZEngine.SeedPacks
         public override BuffReference GetBuffReference(Buff buff)
         {
             return new BuffReferenceClassicSeedPack(ID, buff.ID);
+        }
+        protected override void OnUpdate(float rechargeSpeed)
+        {
+            base.OnUpdate(rechargeSpeed);
+            if (!this.IsCharged())
+            {
+                var recharge = this.GetRecharge();
+                recharge += rechargeSpeed * this.GetRechargeSpeed();
+                recharge = Mathf.Min(this.GetMaxRecharge(), recharge);
+                this.SetRecharge(recharge);
+            }
         }
         #region 序列化
         public SerializableClassicSeedPack Serialize()

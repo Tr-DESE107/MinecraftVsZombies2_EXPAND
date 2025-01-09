@@ -104,7 +104,27 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetHeldItemType() == VanillaHeldTypes.starshard;
         }
-        public static bool IsHoldingBlueprint(this LevelEngine level, int i)
+        public static bool IsHoldingBlueprint(this LevelEngine level, SeedPack seedPack)
+        {
+            if (seedPack is ClassicSeedPack classic)
+            {
+                var classicIndex = level.GetSeedPackIndex(classic);
+                if (classicIndex > 0)
+                {
+                    return level.IsHoldingClassicBlueprint(classicIndex);
+                }
+            }
+            if (seedPack is ConveyorSeedPack conveyor)
+            {
+                var conveyorIndex = level.GetConveyorSeedPackIndex(conveyor);
+                if (conveyorIndex > 0)
+                {
+                    return level.IsHoldingConveyorBlueprint(conveyorIndex);
+                }
+            }
+            return false;
+        }
+        public static bool IsHoldingClassicBlueprint(this LevelEngine level, int i)
         {
             return level.GetHeldItemType() == BuiltinHeldTypes.blueprint && level.GetHeldItemID() == i;
         }

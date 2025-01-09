@@ -12,11 +12,7 @@ namespace MVZ2.Vanilla.Level
         public const string CONVEYOR_POOL = "conveyorPool";
         public const string CONVEY_SPEED = "conveySpeed";
         public const string LAST_ENEMY_POSITION = "lastEnemyPosition";
-        public const string STARSHARD_COUNT = "starshardCount";
-        public const string STARSHARD_SLOT_COUNT = "starshardSlotCount";
         public const string MUSIC_ID = "musicId";
-        public const string PICKAXE_DISABLED = "pickaxeDisabled";
-        public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
         public const string KEEP_HELD_ITEM_IN_SCREEN = "keepHeldItemInScreen";
         public const string TRIGGER_DISABLED = "triggerDisabled";
         public const string TRIGGER_DISABLE_MESSAGE = "triggerDisableMessage";
@@ -36,6 +32,12 @@ namespace MVZ2.Vanilla.Level
         {
             return game.GetProperty<float>(CONVEY_SPEED);
         }
+        #region 星之碎片
+        public const string STARSHARD_COUNT = "starshardCount";
+        public const string STARSHARD_SLOT_COUNT = "starshardSlotCount";
+        public const string STARSHARD_DISABLED = "starshardDisabled";
+        public const string STARSHARD_DISABLE_MESSAGE = "starshardDisableMessage";
+        public const string STARSHARD_DISABLE_ICON = "starshardDisableIcon";
         public static int GetStarshardSlotCount(this LevelEngine game)
         {
             return game.GetProperty<int>(STARSHARD_SLOT_COUNT);
@@ -44,6 +46,20 @@ namespace MVZ2.Vanilla.Level
         {
             game.SetProperty(STARSHARD_SLOT_COUNT, value);
         }
+        public static bool IsStarshardDisabled(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(STARSHARD_DISABLED);
+        }
+        public static bool ShouldShowStarshardDisableIcon(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(STARSHARD_DISABLE_ICON);
+        }
+        #endregion
+
+        #region 铁镐
+        public const string PICKAXE_DISABLED = "pickaxeDisabled";
+        public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
+        public const string PICKAXE_DISABLE_ICON = "pickaxeDisableIcon";
         public static bool IsPickaxeDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(PICKAXE_DISABLED);
@@ -52,6 +68,11 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<string>(PICKAXE_DISABLE_MESSAGE);
         }
+        public static bool ShouldShowPickaxeDisableIcon(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(PICKAXE_DISABLE_ICON);
+        }
+        #endregion
         public static bool IsTriggerDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(TRIGGER_DISABLED);
