@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-05 03:32+0800\n"
+"POT-Creation-Date: 2025-01-10 08:57+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1172,73 +1172,55 @@ msgstr ""
 #. Text for talk sentence 15 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"我在几个月前、发现了它的存在。"
+msgid "我在几个月前、发现了它的存在。"
 msgstr ""
 
 #. Text for talk sentence 16 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"那个时候，它仅仅是一匹马而已……当我见到它时，感到非常奇怪，但当时我并没有去深究。"
+msgid "那个时候，它仅仅是一匹马而已……当我见到它时，感到非常奇怪，但当时我并没有去深究。"
 msgstr ""
 
 #. Text for talk sentence 17 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。"
+msgid "我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。"
 msgstr ""
 
 #. Text for talk sentence 18 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。"
+msgid "现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。"
+msgid "当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。"
 msgstr ""
 
 #. Text for talk sentence 20 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"所以我才会拼了命的去找到那个东西……"
+msgid "所以我才会拼了命的去找到那个东西……"
 msgstr ""
 
 #. Text for talk sentence 21 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。"
+msgid "最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。"
 msgstr ""
 
 #. Text for talk sentence 22 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[史蒂夫]</color>\n"
-"然后，你就被诅咒了？"
+msgid "然后，你就被诅咒了？"
 msgstr ""
 
 #. Text for talk sentence 23 in talk group dream_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
-msgid ""
-"<color=blue>[哆来咪]</color>\n"
-"没错、在那之后我就变成了现在这样子……"
+msgid "没错、在那之后我就变成了现在这样子……"
 msgstr ""
 
 #. Text for talk sentence 24 in talk group dream_7_map's section 0
@@ -1407,6 +1389,12 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
 msgid "戴夫。"
+msgstr ""
+
+#. Description for talk sentence 11 in talk group dream_8_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（沉默）"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group dream_8_map's section 0

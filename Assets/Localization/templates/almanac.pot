@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-05 03:32+0800\n"
+"POT-Creation-Date: 2025-01-10 08:57+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -790,6 +790,45 @@ msgctxt "enemies.description"
 msgid "它还没想好自己的网络冷笑话该怎么写。"
 msgstr ""
 
+#. Header for artifacts mvz2:almanac
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。"
+msgstr ""
+
+#. Properties for artifacts mvz2:almanac
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>战斗开始时，获得一个星之碎片。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:almanac
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
+"当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
+"你该学学语文了。"
+msgstr ""
+
+#. Header for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "农具。"
+msgstr ""
+
+#. Properties for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "踩到了的话被打一下很痛。真的。"
+msgstr ""
+
 #. Header for artifacts mvz2:dream_key
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -851,24 +890,6 @@ msgctxt "artifacts.description"
 msgid "好困啊，先不写趣文了。"
 msgstr ""
 
-#. Header for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "农耕用具。"
-msgstr ""
-
-#. Properties for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
-msgstr ""
-
-#. Flavor for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "踩到了的话被打一下很痛。真的。"
-msgstr ""
-
 #. Header for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -878,7 +899,7 @@ msgstr ""
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得300点能量，但敌人出现数量变为300%。</color>"
+msgid "效果：<color=red>开始战斗时获得300点能量，但敌人出现数量+200%。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:pagoda_branch
@@ -919,7 +940,7 @@ msgstr ""
 #. Properties for artifacts mvz2:dark_matter
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械生产效率增加100%，但场景变得黑暗。</color>"
+msgid "效果：<color=red>器械生产效率×200%，但场景变得黑暗。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:dark_matter
@@ -1320,27 +1341,6 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac.group_name"
 msgid "重要物品"
-msgstr ""
-
-#. Name for misc mvz2:almanac
-#: Almanac meta file
-msgctxt "misc.name"
-msgid "图鉴"
-msgstr ""
-
-#. Header for misc mvz2:almanac
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。"
-msgstr ""
-
-#. Flavor for misc mvz2:almanac
-#: Almanac meta file
-msgctxt "misc.description"
-msgid ""
-"这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
-"当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
-"你该学学语文了。"
 msgstr ""
 
 #. Name for misc mvz2:ender_chest
@@ -1888,6 +1888,12 @@ msgctxt "entity.name"
 msgid "科学怪人的怪物"
 msgstr ""
 
+#. Header for entity mvz2:slenderman
+#: Entity meta file
+msgctxt "entity.name"
+msgid "瘦长鬼影"
+msgstr ""
+
 #. Header for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -1972,6 +1978,18 @@ msgctxt "character.name"
 msgid "哆来咪"
 msgstr ""
 
+#. Name for artifact mvz2:almanac
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "图鉴"
+msgstr ""
+
+#. Tooltip for artifact mvz2:almanac
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "战斗开始时获得一个星之碎片"
+msgstr ""
+
 #. Name for artifact mvz2:hoe
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -2029,7 +2047,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得300能量，但敌人数量变为300%"
+msgid "战斗开始时获得300能量，但敌人数量+200%"
 msgstr ""
 
 #. Name for artifact mvz2:dream_butterfly
@@ -2053,6 +2071,6 @@ msgstr ""
 #. Tooltip for artifact mvz2:dark_matter
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械生产效率增加100%，但场景变得黑暗"
+msgid "器械生产效率×200%，但场景变得黑暗"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-05 03:32+0800\n"
-"PO-Revision-Date: 2025-01-06 14:21+0800\n"
+"POT-Creation-Date: 2025-01-10 08:57+0800\n"
+"PO-Revision-Date: 2025-01-10 20:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -989,6 +989,49 @@ msgctxt "enemies.description"
 msgid "它还没想好自己的网络冷笑话该怎么写。"
 msgstr "It hasn't figured out how to write its own network jokes."
 
+#. Header for artifacts mvz2:almanac
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。"
+msgstr "A magical almanac, once owned by Orant, will automatically record everything that you come across."
+
+#. Properties for artifacts mvz2:almanac
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>战斗开始时，获得一个星之碎片。</color>"
+msgstr "Effect: <color=red>Gain a starshard at start</color>"
+
+#. Flavor for artifacts mvz2:almanac
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
+"当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
+"你该学学语文了。"
+msgstr ""
+"The book is written in this book, and you are reading an entry in this book about the book itself described by this book.\n"
+"When you look at the entry of the book in this book and feel dizzy, you feel dizzy reading the description by this book for the book "
+"in this book.\n"
+"Time for you to revise your English."
+
+#. Header for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "农具。"
+msgstr "An agricultural tool."
+
+#. Properties for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
+msgstr "Effect: <color=red>Kills the first enemy of every battle.</color>"
+
+#. Flavor for artifacts mvz2:hoe
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "踩到了的话被打一下很痛。真的。"
+msgstr "If you step on it, it will hurt you a lot. REALLY."
+
 #. Header for artifacts mvz2:dream_key
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -1058,24 +1101,6 @@ msgctxt "artifacts.description"
 msgid "好困啊，先不写趣文了。"
 msgstr "I'm so sleepy, let's write this flavor later."
 
-#. Header for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "农耕用具。"
-msgstr "An agricultural tool."
-
-#. Properties for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
-msgstr "Effect: <color=red>Kills the first enemy of every battle.</color>"
-
-#. Flavor for artifacts mvz2:hoe
-#: Almanac meta file
-msgctxt "artifacts.description"
-msgid "踩到了的话被打一下很痛。真的。"
-msgstr "If you step on it, it will hurt you a lot. REALLY."
-
 #. Header for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -1085,8 +1110,8 @@ msgstr "A branch on the pagoda tree."
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得300点能量，但敌人出现数量变为300%。</color>"
-msgstr "Effect: <color=red>+300 energy at start, but spawns 300% amount of enemies.</color>"
+msgid "效果：<color=red>开始战斗时获得300点能量，但敌人出现数量+200%。</color>"
+msgstr "Effect: <color=red>+300 energy at start, but +200% amount of spawned enemies.</color>"
 
 #. Flavor for artifacts mvz2:pagoda_branch
 #: Almanac meta file
@@ -1134,8 +1159,8 @@ msgstr "Dark Matter is an invisible substance that exists in large quantities in
 #. Properties for artifacts mvz2:dark_matter
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械生产效率增加100%，但场景变得黑暗。</color>"
-msgstr "Effect: <color=red>+100% contraption produce speed, but the battlefield is pitch black</color>"
+msgid "效果：<color=red>器械生产效率×200%，但场景变得黑暗。</color>"
+msgstr "Effect: <color=red>x200% contraption produce speed, but the battlefield is pitch black</color>"
 
 #. Flavor for artifacts mvz2:dark_matter
 #: Almanac meta file
@@ -1585,31 +1610,6 @@ msgstr ""
 msgctxt "almanac.group_name"
 msgid "重要物品"
 msgstr "Important Items"
-
-#. Name for misc mvz2:almanac
-#: Almanac meta file
-msgctxt "misc.name"
-msgid "图鉴"
-msgstr "Almanac"
-
-#. Header for misc mvz2:almanac
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。"
-msgstr "A magical almanac, once owned by Orant, will automatically record everything that you come across."
-
-#. Flavor for misc mvz2:almanac
-#: Almanac meta file
-msgctxt "misc.description"
-msgid ""
-"这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。\n"
-"当你看着这本书中的这本书的条目而感到头晕目眩时，你正面对着这本书中的这本书对于这本书的描述头晕。\n"
-"你该学学语文了。"
-msgstr ""
-"The book is written in this book, and you are reading an entry in this book about the book itself described by this book.\n"
-"When you look at the entry of the book in this book and feel dizzy, you feel dizzy reading the description by this book for the book "
-"in this book.\n"
-"Time for you to revise your English."
 
 #. Name for misc mvz2:ender_chest
 #: Almanac meta file
@@ -2169,6 +2169,12 @@ msgctxt "entity.name"
 msgid "科学怪人的怪物"
 msgstr "The Creature"
 
+#. Header for entity mvz2:slenderman
+#: Entity meta file
+msgctxt "entity.name"
+msgid "瘦长鬼影"
+msgstr "Slenderman"
+
 #. Header for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -2253,6 +2259,18 @@ msgctxt "character.name"
 msgid "哆来咪"
 msgstr "Doremy"
 
+#. Name for artifact mvz2:almanac
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "图鉴"
+msgstr "Almanac"
+
+#. Tooltip for artifact mvz2:almanac
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "战斗开始时获得一个星之碎片"
+msgstr "Gain a starshard at start"
+
 #. Name for artifact mvz2:hoe
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -2310,8 +2328,8 @@ msgstr "Pagoda Branch"
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得300能量，但敌人数量变为300%"
-msgstr "+300 energy at start, but spawns 300% amount of enemies"
+msgid "战斗开始时获得300能量，但敌人数量+200%"
+msgstr "+300 energy at start, but +200% amount of spawned enemies"
 
 #. Name for artifact mvz2:dream_butterfly
 #: Artifact meta file
@@ -2334,8 +2352,8 @@ msgstr "Dark Matter"
 #. Tooltip for artifact mvz2:dark_matter
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械生产效率增加100%，但场景变得黑暗"
-msgstr "+100% contraption produce speed, but the battlefield is pitch black"
+msgid "器械生产效率×200%，但场景变得黑暗"
+msgstr "x200% contraption produce speed, but the battlefield is pitch black"
 
 #~ msgctxt "enemies.description"
 #~ msgid ""

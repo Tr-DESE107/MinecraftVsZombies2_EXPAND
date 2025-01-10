@@ -102,7 +102,7 @@ namespace MVZ2.GameContent.Bosses
                 return;
             var maxFateTimes = GetMaxFateTimes(boss.Level);
             float stageHP = boss.GetMaxHealth() / (float)(maxFateTimes + 2);
-            int newStage = Mathf.FloorToInt(maxFateTimes - boss.Health / stageHP);
+            int newStage = Mathf.FloorToInt(maxFateTimes + 2 - boss.Health / stageHP);
             var selectedFateTimes = GetSelectedFateTimes(boss);
             if (newStage > selectedFateTimes && newStage >= 0)
             {
@@ -581,22 +581,22 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] fateOptions = new int[]
         {
-            //FATE_PANDORAS_BOX,
-            //FATE_BIOHAZARD,
-            //FATE_DECREPIFY,
+            FATE_PANDORAS_BOX,
+            FATE_BIOHAZARD,
+            FATE_DECREPIFY,
             FATE_INSANITY,
-            //FATE_COME_TRUE,
-            //FATE_THE_LURKER,
+            FATE_COME_TRUE,
+            FATE_THE_LURKER,
             FATE_BLACK_SUN,
         };
         private static string[] fateTexts = new string[]
         {
-            //FATE_TEXT_PANDORAS_BOX,
-            //FATE_TEXT_BIOHAZARD,
-            //FATE_TEXT_DECREPIFY,
+            FATE_TEXT_PANDORAS_BOX,
+            FATE_TEXT_BIOHAZARD,
+            FATE_TEXT_DECREPIFY,
             FATE_TEXT_INSANITY,
-            //FATE_TEXT_COME_TRUE,
-            //FATE_TEXT_THE_LURKER,
+            FATE_TEXT_COME_TRUE,
+            FATE_TEXT_THE_LURKER,
             FATE_TEXT_BLACK_SUN,
         };
         #endregion 常量

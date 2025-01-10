@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,21 +12,29 @@ namespace MVZ2.UI
             title.text = titleText;
             desc.text = descText;
             OnOptionSelect = onSelect;
-            buttonList.updateList(options.Length, (i, rect) =>
+
+            var rowCount = Mathf.CeilToInt(options.Length / (float)countPerRow);
+            buttonRowList.updateList(rowCount, (i, rect) =>
             {
-                var button = rect.GetComponent<TextButton>();
-                button.Text.text = options[i];
+                var row = rect.GetComponent<ButtonRow>();
+                row.UpdateButtons(options.Skip(i * countPerRow).Take(countPerRow).ToArray());
             },
             rect =>
             {
-                var button = rect.GetComponent<TextButton>();
-                button.Button.onClick.RemoveAllListeners();
-                button.Button.onClick.AddListener(() => OnOptionClickCallback(buttonList.indexOf(rect)));
+                var row = rect.GetComponent<ButtonRow>();
+                row.OnButtonClick += OnButtonRowItemClickCallback;
+            },
+            rect =>
+            {
+                var row = rect.GetComponent<ButtonRow>();
+                row.OnButtonClick -= OnButtonRowItemClickCallback;
             });
         }
-        private void OnOptionClickCallback(int index)
+        private void OnButtonRowItemClickCallback(ButtonRow row, int index)
         {
-            OnOptionSelect?.Invoke(index);
+            var rowIndex = buttonRowList.indexOf(row);
+            var realIndex = rowIndex * countPerRow + index;
+            OnOptionSelect?.Invoke(realIndex);
         }
         private Action<int> OnOptionSelect;
         [SerializeField]
@@ -33,7 +42,9 @@ namespace MVZ2.UI
         [SerializeField]
         private TextMeshProUGUI desc;
         [SerializeField]
-        private ElementListUI buttonList;
+        private ElementListUI buttonRowList;
+        [SerializeField]
+        private int countPerRow = 2;
 
     }
 }
