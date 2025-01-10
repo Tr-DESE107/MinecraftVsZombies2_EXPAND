@@ -217,10 +217,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5254245631931204225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24, y: -36}
-  m_SizeDelta: {x: 48, y: 72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3466351348295347139
 MonoBehaviour:
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &801943381515985833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -985,10 +985,10 @@ RectTransform:
   - {fileID: 577091088501342852}
   m_Father: {fileID: 5257581794803467225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 144, y: -40}
-  m_SizeDelta: {x: 96, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2627614081060387782
 MonoBehaviour:
@@ -1052,10 +1052,10 @@ RectTransform:
   - {fileID: 8838162719376338423}
   m_Father: {fileID: 801943381515985833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68, y: -40}
-  m_SizeDelta: {x: 56, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5673075634050481116
 MonoBehaviour:
@@ -1433,10 +1433,10 @@ RectTransform:
   - {fileID: 706263965072671972}
   m_Father: {fileID: 8838162719376338423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24, y: -36}
-  m_SizeDelta: {x: 48, y: 72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4639198360830718520
 MonoBehaviour:
@@ -1503,7 +1503,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8310908491005056417}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1511,10 +1511,10 @@ RectTransform:
   - {fileID: 559730239208011301}
   m_Father: {fileID: 801943381515985833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -36}
-  m_SizeDelta: {x: 40, y: 72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1956352630946303426
 MonoBehaviour:
@@ -1751,10 +1751,10 @@ RectTransform:
   - {fileID: 4280810071593785320}
   m_Father: {fileID: 577091088501342852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 28, y: -40}
-  m_SizeDelta: {x: 48, y: 72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5034620984966862807
 MonoBehaviour:
@@ -3766,6 +3766,22 @@ PrefabInstance:
       propertyPath: blueprintConveyorEnabledObj
       value: 
       objectReference: {fileID: 5139595709152002425}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicModeObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorModeObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintClassicModeObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 6705774384889538624}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintConveyorModeObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 4830896308962017831}
     - target: {fileID: 3462803424795147924, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -15,8 +15,14 @@ namespace MVZ2.UI
         public void SetConveyorMode(bool value)
         {
             isConveyor = value;
-            blueprintClassicModeObj.SetActive(!value);
-            blueprintConveyorModeObj.SetActive(value);
+            foreach (var classic in blueprintClassicModeObjects)
+            {
+                classic.SetActive(!value);
+            }
+            foreach (var conveyor in blueprintConveyorModeObjects)
+            {
+                conveyor.SetActive(value);
+            }
         }
         public bool IsConveyorMode()
         {
@@ -32,7 +38,7 @@ namespace MVZ2.UI
         public void SetBlueprintsActive(bool visible)
         {
             blueprintClassicEnabledObj.SetActive(visible);
-            blueprintClassicEnabledObj.SetActive(visible);
+            blueprintConveyorEnabledObj.SetActive(visible);
         }
         public void SetClassicBlueprintSlotCount(int count)
         {
@@ -130,9 +136,9 @@ namespace MVZ2.UI
         [SerializeField]
         GameObject blueprintConveyorEnabledObj;
         [SerializeField]
-        GameObject blueprintClassicModeObj;
+        GameObject[] blueprintClassicModeObjects;
         [SerializeField]
-        GameObject blueprintConveyorModeObj;
+        GameObject[] blueprintConveyorModeObjects;
 
         [Header("Blueprints")]
         [SerializeField]
