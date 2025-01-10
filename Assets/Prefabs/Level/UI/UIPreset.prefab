@@ -262,6 +262,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6755054022229485679}
+  - {fileID: 5430481277952156249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8895750592136595875
@@ -374,10 +375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32c0b01b146bb541b7ef5445c818396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprintClassicRootObj: {fileID: 0}
-  blueprintConveyorRootObj: {fileID: 0}
-  blueprintClassicObj: {fileID: 0}
-  blueprintConveyorObj: {fileID: 0}
+  blueprintClassicEnabledObj: {fileID: 0}
+  blueprintConveyorEnabledObj: {fileID: 0}
+  blueprintClassicModeObjects: []
+  blueprintConveyorModeObjects: []
   blueprints: {fileID: 0}
   conveyor: {fileID: 0}
 --- !u!114 &427722801915550483
@@ -1239,6 +1240,7 @@ GameObject:
   - component: {fileID: 5430481277952156249}
   - component: {fileID: 8993683878351971392}
   - component: {fileID: 1993995332336295094}
+  - component: {fileID: 147980526488858497}
   m_Layer: 5
   m_Name: SharedCanvas
   m_TagString: Untagged
@@ -1253,20 +1255,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4773445271825401736}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4235916470398564518}
   - {fileID: 8750043595552690557}
-  m_Father: {fileID: 6755054022229485679}
+  m_Father: {fileID: 2379446282709351479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!223 &8993683878351971392
 Canvas:
   m_ObjectHideFlags: 0
@@ -1307,6 +1309,29 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &147980526488858497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773445271825401736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &5257464631213220446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1594,6 @@ RectTransform:
   - {fileID: 563631685626767535}
   - {fileID: 8702633898016095137}
   - {fileID: 8288880815082721846}
-  - {fileID: 5430481277952156249}
   - {fileID: 423625654259554376}
   - {fileID: 6077733433653950794}
   m_Father: {fileID: 2379446282709351479}
