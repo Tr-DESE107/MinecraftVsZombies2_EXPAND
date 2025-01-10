@@ -94,6 +94,11 @@ namespace MVZ2.Level
 
                 InitGrids();
 
+                var uiPreset = GetUIPreset();
+                uiPreset.LoadFromSerializable(seri.uiPreset);
+                uiPreset.UpdateFrame(0);
+                // uiPreset的animator.Update会导致第一次加载该场景时，蓝图UI的子模型显示状态不正确，所以放在前面
+
                 foreach (var part in parts)
                 {
                     var seriPart = seri.parts.FirstOrDefault(p => p.id == part.ID);
@@ -104,10 +109,6 @@ namespace MVZ2.Level
                     }
                     part.LoadFromSerializable(seriPart);
                 }
-
-                var uiPreset = GetUIPreset();
-                uiPreset.LoadFromSerializable(seri.uiPreset);
-                uiPreset.UpdateFrame(0);
 
                 foreach (var entity in level.GetEntities())
                 {

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace MVZ2.Editor
 {
-    [CustomEditor(typeof(MultipleRendererGroup))]
-    public class MultipleRendererGroupEditor : UnityEditor.Editor
+    [CustomEditor(typeof(ModelRendererGroup))]
+    public class ModelRendererGroupEditor : UnityEditor.Editor
     {
-        private MultipleRendererGroup group;
+        private ModelRendererGroup group;
         private SerializedProperty sortingGroupProperty;
         private SerializedProperty renderersProperty;
         private SerializedProperty transformsProperty;
@@ -15,7 +15,7 @@ namespace MVZ2.Editor
         private SerializedProperty animatorsProperty;
         private void OnEnable()
         {
-            group = target as MultipleRendererGroup;
+            group = target as ModelRendererGroup;
             sortingGroupProperty = serializedObject.FindProperty("sortingGroup");
             renderersProperty = serializedObject.FindProperty("renderers");
             transformsProperty = serializedObject.FindProperty("transforms");
@@ -31,7 +31,7 @@ namespace MVZ2.Editor
             EditorGUILayout.PropertyField(animatorsProperty);
             if (GUILayout.Button("Update Elements"))
             {
-                group.UpdateRendererElements();
+                group.UpdateElements();
                 EditorUtility.SetDirty(group);
             }
         }

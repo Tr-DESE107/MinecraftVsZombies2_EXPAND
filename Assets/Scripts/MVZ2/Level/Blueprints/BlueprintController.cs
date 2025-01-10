@@ -26,11 +26,16 @@ namespace MVZ2.Level
         public void Init()
         {
             UpdateView();
+            var model = GetModel();
+            if (model != null)
+            {
+                model.Init();
+            }
             AddCallbacks();
         }
         public Model GetModel()
         {
-            return model;
+            return ui.Model;
         }
         public void UpdateView()
         {
@@ -123,10 +128,10 @@ namespace MVZ2.Level
         public ILevelController Controller { get; private set; }
         protected Blueprint ui;
         protected IModelInterface modelInterface;
-        private Model model;
         #endregion
     }
     public class SerializableBlueprintController
     {
+        public SerializableModelData model;
     }
 }

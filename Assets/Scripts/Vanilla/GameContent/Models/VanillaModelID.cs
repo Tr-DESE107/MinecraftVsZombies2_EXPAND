@@ -8,6 +8,7 @@ namespace MVZ2.GameContent.Models
         public const string TYPE_HELD_ITEM = "held";
         public const string TYPE_ARMOR = "armor";
         public const string TYPE_ICON = "icon";
+        public const string TYPE_UI = "ui";
 
         public static readonly NamespaceID zombie = Get("zombie", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID moneyChest = Get("money_chest", EngineModelID.TYPE_ENTITY);
@@ -35,6 +36,8 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID dreamAlarm = Get("dream_alarm", TYPE_ICON);
         public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
         public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);
+
+        public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
             return new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(TYPE_HELD_ITEM);

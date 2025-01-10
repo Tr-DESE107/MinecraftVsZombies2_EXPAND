@@ -1,8 +1,11 @@
 ﻿using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
@@ -16,6 +19,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
     {
         public SlenderManMindSwapBuff(string nsp, string name) : base(nsp, name)
         {
+            AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.mindSwap, VanillaModelID.mindSwap);
         }
         public override void PostAdd(Buff buff)
         {

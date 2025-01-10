@@ -300,8 +300,8 @@ namespace MVZ2.Level
     [Serializable]
     public class SerializableLevelBlueprintController : SerializableLevelControllerPart
     {
-        public SerializableClassicBlueprintController[] classicBlueprints;
-        public SerializableConveyorBlueprintController[] conveyorBlueprints;
+        public SerializableBlueprintController[] classicBlueprints;
+        public SerializableBlueprintController[] conveyorBlueprints;
     }
     public interface ILevelBlueprintRuntimeUI
     {

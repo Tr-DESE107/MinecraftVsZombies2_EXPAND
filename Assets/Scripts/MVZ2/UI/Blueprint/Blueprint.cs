@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.Level.UI;
+using MVZ2.Models;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -83,6 +84,7 @@ namespace MVZ2.UI
         public event Action<Blueprint, PointerEventData> OnPointerExit;
         public event Action<Blueprint> OnPointerRelease;
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        public UIModel Model => model;
         [SerializeField]
         private Animator animator;
         [SerializeField]
@@ -105,6 +107,8 @@ namespace MVZ2.UI
         private GameObject disabledObject;
         [SerializeField]
         private GameObject triggerCostObject;
+        [SerializeField]
+        private UIModel model;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
 

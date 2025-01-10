@@ -160,4 +160,6 @@
     <model name="dream_alarm" type="icon" path="mvz2:icon/dream_alarm" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="parabot_insected" type="icon" path="mvz2:icon/parabot_insected" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="knockback_wave" type="icon" path="mvz2:icon/knockback_wave" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+
+    <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
 </models>

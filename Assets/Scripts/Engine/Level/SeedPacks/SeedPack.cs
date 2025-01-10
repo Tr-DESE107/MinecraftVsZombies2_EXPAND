@@ -18,6 +18,8 @@ namespace PVZEngine.SeedPacks
             Level = level;
             Definition = definition;
             buffs.OnPropertyChanged += UpdateBuffedProperty;
+            buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
         }
         public abstract int GetIndex();
         public NamespaceID GetDefinitionID()
@@ -174,6 +176,14 @@ namespace PVZEngine.SeedPacks
         {
             return modelInterface.GetChildModel(key);
         }
+        private void OnModelInsertionAddedCallback(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            modelInterface.CreateChildModel(anchorName, key, modelID);
+        }
+        private void OnModelInsertionRemovedCallback(NamespaceID key)
+        {
+            modelInterface.RemoveChildModel(key);
+        }
         #endregion
 
         #region 序列化
@@ -191,6 +201,8 @@ namespace PVZEngine.SeedPacks
             currentBuffID = seri.currentBuffID;
             buffs = BuffList.FromSerializable(seri.buffs, level, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
+            buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
             UpdateAllBuffedProperties();
         }
         #endregion

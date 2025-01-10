@@ -55,8 +55,11 @@ namespace MVZ2.Entities
                 Destroy(Model.gameObject);
                 Model = null;
             }
-            var model = Model.Create(modelId, transform, Entity.InitSeed);
-            Model = model;
+            var model = Models.Model.Create(modelId, transform, Entity.InitSeed);
+            if (model is SpriteModel spriteModel)
+            {
+                Model = spriteModel;
+            }
             if (!Model)
                 return;
             UpdateEntityModel();
@@ -359,8 +362,8 @@ namespace MVZ2.Entities
             var armorModel = Model.GetArmorModel();
             if (!armorModel)
                 return;
-            armorModel.RendererGroup.SetTint(armor.GetTint());
-            armorModel.RendererGroup.SetColorOffset(armor.GetColorOffset());
+            armorModel.GraphicGroup.SetTint(armor.GetTint());
+            armorModel.GraphicGroup.SetColorOffset(armor.GetColorOffset());
         }
         #endregion
 
@@ -378,13 +381,13 @@ namespace MVZ2.Entities
             groundPos.y = Entity.GetGroundY();
 
             var rendererGroup = Model.RendererGroup;
-            rendererGroup.SetTint(Entity.GetTint());
-            rendererGroup.SetColorOffset(GetColorOffset());
             Model.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.GetDisplayScale();
-            Model.RendererGroup.SortingLayerID = Entity.GetSortingLayer();
-            Model.RendererGroup.SortingOrder = Entity.GetSortingOrder();
+            rendererGroup.SetTint(Entity.GetTint());
+            rendererGroup.SetColorOffset(GetColorOffset());
+            rendererGroup.SortingLayerID = Entity.GetSortingLayer();
+            rendererGroup.SortingOrder = Entity.GetSortingOrder();
 
             var lightVisible = Entity.IsLightSource();
             var lightScaleLawn = Entity.GetLightRange();
@@ -449,7 +452,7 @@ namespace MVZ2.Entities
             { EntityTypes.PICKUP, 7 },
         };
         public MainManager Main => MainManager.Instance;
-        public Model Model { get; private set; }
+        public SpriteModel Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }

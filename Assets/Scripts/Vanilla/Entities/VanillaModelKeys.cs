@@ -13,6 +13,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID dreamAlarm = Get("dream_alarm");
         public static readonly NamespaceID parabotInsected = Get("parabot_insected");
         public static readonly NamespaceID knockbackWave = Get("knockback_wave");
+        public static readonly NamespaceID mindSwap = Get("mind_swap");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

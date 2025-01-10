@@ -84,13 +84,13 @@ namespace MVZ2.Level
                 Level.AddEnergy(-blueprint.GetCost());
             }
         }
-        public SerializableClassicBlueprintController ToSerializable()
+        protected override SerializableBlueprintController CreateSerializable()
         {
             return new SerializableClassicBlueprintController()
             {
             };
         }
-        public void LoadFromSerializable(SerializableBlueprintController serializable)
+        protected override void LoadSerializable(SerializableBlueprintController serializable)
         {
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1743169279724873092}
   - component: {fileID: 6300717058088301039}
   m_Layer: 14
-  m_Name: UIModel
+  m_Name: UISpriteModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

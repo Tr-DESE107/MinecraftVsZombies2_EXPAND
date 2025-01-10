@@ -755,6 +755,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b9d667f27217564cb53414f7acb2f80
+    m_Address: mvz2:ui/mind_swap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2becb83796290cb438ce963aff698ae4
     m_Address: mvz2:achievements/double_trouble
     m_ReadOnly: 0
@@ -1491,6 +1497,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c4c1d5c3108f034bbb656243270b2fd
+    m_Address: mvz2:ui/level/mind_swap_blackhole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark

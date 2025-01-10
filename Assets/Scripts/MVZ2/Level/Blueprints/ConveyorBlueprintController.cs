@@ -83,20 +83,22 @@ namespace MVZ2.Level
                 optionDef.Use(blueprint);
             }
         }
-        public SerializableConveyorBlueprintController ToSerializable()
+        protected override SerializableBlueprintController CreateSerializable()
         {
             return new SerializableConveyorBlueprintController()
             {
                 position = Position
             };
         }
-        public void LoadFromSerializable(SerializableConveyorBlueprintController serializable)
+        protected override void LoadSerializable(SerializableBlueprintController serializable)
         {
-            Position = serializable.position;
+            if (serializable is not SerializableConveyorBlueprintController conveyor)
+                return;
+            Position = conveyor.position;
         }
         public float Position { get; set; }
     }
-    public class SerializableConveyorBlueprintController
+    public class SerializableConveyorBlueprintController : SerializableBlueprintController
     {
         public float position;
     }

@@ -21,6 +21,11 @@ namespace MVZ2.Level
             ui.gameObject.name = seedPack.ToString();
             seedPack.SetModelInterface(modelInterface);
         }
+        public override void Remove()
+        {
+            base.Remove();
+            SeedPack.SetModelInterface(null);
+        }
         protected override void AddCallbacks()
         {
             base.AddCallbacks();
@@ -35,10 +40,20 @@ namespace MVZ2.Level
         }
         public virtual void UpdateFixed()
         {
+            var model = GetModel();
+            if (model)
+            {
+                model.UpdateFixed();
+            }
         }
         public virtual void UpdateFrame(float deltaTime)
         {
             UpdateView();
+            var model = GetModel();
+            if (model)
+            {
+                model.UpdateFrame(deltaTime);
+            }
         }
         public override BlueprintViewData GetBlueprintViewData()
         {
@@ -126,6 +141,31 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
+        #endregion
+
+        #region 序列化
+        public SerializableBlueprintController ToSerializable()
+        {
+            var serializable = CreateSerializable();
+            var model = GetModel();
+            if (model != null)
+            {
+                serializable.model = model.ToSerializable();
+            }
+            return serializable;
+        }
+        public void LoadFromSerializable(SerializableBlueprintController serializable)
+        {
+            var model = GetModel();
+            if (model != null && serializable.model != null)
+            {
+                model.LoadFromSerializable(serializable.model);
+            }
+            LoadSerializable(serializable);
+        }
+        protected abstract SerializableBlueprintController CreateSerializable();
+        protected virtual void LoadSerializable(SerializableBlueprintController serializable) { }
+
         #endregion
 
         #region 属性字段

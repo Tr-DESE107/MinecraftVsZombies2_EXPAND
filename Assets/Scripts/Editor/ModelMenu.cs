@@ -40,7 +40,7 @@ namespace MVZ2.Editor
             var model = obj.GetComponent<Model>();
             if (!model)
                 return;
-            model.RendererGroup.UpdateRendererElements();
+            model.GraphicGroup.UpdateElements();
             PrefabUtility.SaveAsPrefabAsset(obj, path, out var successfully);
             PrefabUtility.UnloadPrefabContents(obj);
             Debug.Log($"{path}: {successfully}");

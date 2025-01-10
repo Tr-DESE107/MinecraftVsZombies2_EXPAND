@@ -109,7 +109,7 @@ namespace MVZ2.Vanilla.Level
             if (seedPack is ClassicSeedPack classic)
             {
                 var classicIndex = level.GetSeedPackIndex(classic);
-                if (classicIndex > 0)
+                if (classicIndex >= 0)
                 {
                     return level.IsHoldingClassicBlueprint(classicIndex);
                 }
@@ -117,7 +117,7 @@ namespace MVZ2.Vanilla.Level
             if (seedPack is ConveyorSeedPack conveyor)
             {
                 var conveyorIndex = level.GetConveyorSeedPackIndex(conveyor);
-                if (conveyorIndex > 0)
+                if (conveyorIndex >= 0)
                 {
                     return level.IsHoldingConveyorBlueprint(conveyorIndex);
                 }

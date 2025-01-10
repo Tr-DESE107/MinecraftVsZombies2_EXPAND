@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Models;
 using Tools;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace MVZ2.Models
 {
-    [DisallowMultipleComponent]
-    public sealed class Model : MonoBehaviour
+    public abstract class Model : MonoBehaviour
     {
         #region 公有方法
 
@@ -57,7 +54,7 @@ namespace MVZ2.Models
         }
         public void UpdateFrame(float deltaTime)
         {
-            rendererGroup.UpdateFrame(deltaTime);
+            GraphicGroup.UpdateFrame(deltaTime);
             foreach (var comp in modelComponents)
             {
                 comp.UpdateFrame(deltaTime);
@@ -70,7 +67,7 @@ namespace MVZ2.Models
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
-            RendererGroup.SetSimulationSpeed(simulationSpeed);
+            GraphicGroup.SetSimulationSpeed(simulationSpeed);
             childModels.RemoveAll(m => !m);
             foreach (var child in childModels)
             {
@@ -79,62 +76,53 @@ namespace MVZ2.Models
         }
         public void SetGroundPosition(Vector3 position)
         {
-            rendererGroup.SetGroundPosition(position);
+            GraphicGroup.SetGroundPosition(position);
             childModels.RemoveAll(m => !m);
             foreach (var child in childModels)
             {
                 child.SetGroundPosition(position);
             }
         }
-        public void SetLight(bool visible, Vector2 range, Color color, Vector2 randomOffset)
-        {
-            lightController.gameObject.SetActive(visible);
-            lightController.SetColor(color);
-            lightController.SetRange(range, randomOffset);
-        }
         #endregion
 
         #region 动画
         public void TriggerAnimator(string name)
         {
-            RendererGroup.TriggerAnimator(name);
+            GraphicGroup.TriggerAnimator(name);
         }
         public void SetAnimatorBool(string name, bool value)
         {
-            RendererGroup.SetAnimatorBool(name, value);
+            GraphicGroup.SetAnimatorBool(name, value);
         }
         public void SetAnimatorInt(string name, int value)
         {
-            RendererGroup.SetAnimatorInt(name, value);
+            GraphicGroup.SetAnimatorInt(name, value);
         }
         public void SetAnimatorFloat(string name, float value)
         {
-            RendererGroup.SetAnimatorFloat(name, value);
+            GraphicGroup.SetAnimatorFloat(name, value);
         }
         #endregion
 
         #region 序列化
         public SerializableModelData ToSerializable()
         {
-            return new SerializableModelData()
-            {
-                id = id,
-                key = parentKey,
-                anchor = parentAnchor,
-                rng = rng.ToSerializable(),
-                propertyDict = propertyDict != null ? propertyDict.Serialize() : null,
-                rendererGroup = rendererGroup.ToSerializable(),
-                childModels = childModels.Select(c => c.ToSerializable()).ToArray(),
-                destroyTimeout = destroyTimeout,
-                light = lightController.ToSerializable(),
-            };
+            var serializable = CreateSerializable();
+            serializable.id = id;
+            serializable.key = parentKey;
+            serializable.anchor = parentAnchor;
+            serializable.rng = rng.ToSerializable();
+            serializable.propertyDict = propertyDict != null ? propertyDict.Serialize() : null;
+            serializable.childModels = childModels.Select(c => c.ToSerializable()).ToArray();
+            serializable.destroyTimeout = destroyTimeout;
+            serializable.graphicGroup = GraphicGroup.ToSerializable();
+            return serializable;
         }
         public void LoadFromSerializable(SerializableModelData serializable)
         {
             rng = RandomGenerator.FromSerializable(serializable.rng);
-            rendererGroup.LoadFromSerializable(serializable.rendererGroup);
-            lightController.LoadFromSerializable(serializable.light);
             destroyTimeout = serializable.destroyTimeout;
+            GraphicGroup.LoadFromSerializable(serializable.graphicGroup);
             if (serializable.propertyDict != null)
             {
                 var dict = PropertyDictionary.Deserialize(serializable.propertyDict);
@@ -148,6 +136,12 @@ namespace MVZ2.Models
                 var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
                 child.LoadFromSerializable(seriChild);
             }
+            LoadSerializable(serializable);
+        }
+        protected abstract SerializableModelData CreateSerializable();
+        protected virtual void LoadSerializable(SerializableModelData serializable)
+        {
+
         }
         #endregion
 
@@ -241,15 +235,15 @@ namespace MVZ2.Models
         #region 着色器属性
         public void SetShaderFloat(string name, float value)
         {
-            rendererGroup.SetPropertyFloat(name, value);
+            GraphicGroup.SetPropertyFloat(name, value);
         }
         public void SetShaderInt(string name, int value)
         {
-            rendererGroup.SetPropertyInt(name, value);
+            GraphicGroup.SetPropertyInt(name, value);
         }
         public void SetShaderColor(string name, Color value)
         {
-            rendererGroup.SetPropertyColor(name, value);
+            GraphicGroup.SetPropertyColor(name, value);
         }
         #endregion
 
@@ -314,7 +308,7 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性字段
-        public MultipleRendererGroup RendererGroup => rendererGroup;
+        public abstract ModelGraphicGroup GraphicGroup { get; }
         public Transform GetRootTransform() => GetAnchor(LogicModelHelper.ANCHOR_ROOT).transform;
         public Transform GetCenterTransform() => GetAnchor(LogicModelHelper.ANCHOR_CENTER).transform;
 
@@ -326,12 +320,7 @@ namespace MVZ2.Models
         private ModelParentInterface modelInterface;
         private RandomGenerator rng;
         private PropertyDictionary propertyDict = new PropertyDictionary();
-
         [Header("General")]
-        [SerializeField]
-        private MultipleRendererGroup rendererGroup;
-        [SerializeField]
-        private LightController lightController;
         [SerializeField]
         private ModelAnchor[] modelAnchors;
         [SerializeField]
@@ -356,10 +345,136 @@ namespace MVZ2.Models
         public NamespaceID key;
         public NamespaceID id;
         public SerializableRNG rng;
-        public SerializableMultipleRendererGroup rendererGroup;
+        public SerializableModelGraphicGroup graphicGroup;
         public SerializablePropertyDictionary propertyDict;
         public SerializableModelData[] childModels;
-        public SerializableLightController light;
         public int destroyTimeout;
+    }
+    public class SerializableAnimator
+    {
+        public SerializableAnimatorPlayingData[] playingDatas;
+        public List<string> triggerParameters = new List<string>();
+        public Dictionary<string, bool> boolParameters = new Dictionary<string, bool>();
+        public Dictionary<string, int> intParameters = new Dictionary<string, int>();
+        public Dictionary<string, float> floatParameters = new Dictionary<string, float>();
+
+        public SerializableAnimator(Animator animator)
+        {
+            int layerCount = animator.layerCount;
+
+            playingDatas = new SerializableAnimatorPlayingData[layerCount];
+            for (int i = 0; i < playingDatas.Length; i++)
+            {
+                AnimatorStateInfo current = animator.GetCurrentAnimatorStateInfo(i);
+                AnimatorStateInfo next = animator.GetNextAnimatorStateInfo(i);
+                AnimatorTransitionInfo transition = animator.GetAnimatorTransitionInfo(i);
+
+                SerializableAnimatorPlayingData playingData = new SerializableAnimatorPlayingData()
+                {
+                    currentHash = current.shortNameHash,
+                    currentTime = current.normalizedTime,
+
+                    nextHash = next.shortNameHash,
+                    nextNormalizedTime = next.normalizedTime,
+                    nextLength = next.length == Mathf.Infinity ? 0 : next.length,
+
+                    transitionDuration = transition.duration,
+                    transitionDurationUnit = (int)transition.durationUnit,
+                    transitionTime = transition.normalizedTime
+                };
+                playingDatas[i] = playingData;
+            }
+
+            foreach (AnimatorControllerParameter para in animator.parameters)
+            {
+                string name = para.name;
+                switch (para.type)
+                {
+                    case AnimatorControllerParameterType.Bool:
+                        boolParameters.Add(name, animator.GetBool(name));
+                        break;
+
+                    case AnimatorControllerParameterType.Float:
+                        floatParameters.Add(name, (float)animator.GetFloat(name));
+                        break;
+
+                    case AnimatorControllerParameterType.Int:
+                        intParameters.Add(name, animator.GetInteger(name));
+                        break;
+
+                    case AnimatorControllerParameterType.Trigger:
+                        if (animator.GetBool(name))
+                        {
+                            triggerParameters.Add(name);
+                        }
+                        break;
+                }
+            }
+        }
+        public void Deserialize(Animator animator)
+        {
+            int layerCount = playingDatas.Length;
+
+            foreach (var pair in floatParameters)
+            {
+                animator.SetFloat(pair.Key, pair.Value);
+            }
+            foreach (var pair in boolParameters)
+            {
+                animator.SetBool(pair.Key, pair.Value);
+            }
+            foreach (var pair in intParameters)
+            {
+                animator.SetInteger(pair.Key, pair.Value);
+            }
+            foreach (string trigger in triggerParameters)
+            {
+                animator.SetTrigger(trigger);
+            }
+
+            for (int i = 0; i < layerCount; i++)
+            {
+                SerializableAnimatorPlayingData playingData = playingDatas[i];
+                int currentNameHash = playingData.currentHash;
+                float currentNormalizedTime = playingData.currentTime;
+
+                animator.Play(currentNameHash, i, currentNormalizedTime);
+            }
+
+            for (int i = 0; i < layerCount; i++)
+            {
+                SerializableAnimatorPlayingData playingData = playingDatas[i];
+                int nextFullPathHash = playingData.nextHash;
+                if (nextFullPathHash != 0)
+                {
+                    float nextNormalizedTime = playingData.nextNormalizedTime;
+                    float nextLength = playingData.nextLength;
+
+                    var transitionDurationUnit = (DurationUnit)playingData.transitionDurationUnit;
+                    float transitionDuration = playingData.transitionDuration;
+                    float transitionNormalizedTime = playingData.transitionTime;
+                    if (transitionDurationUnit == DurationUnit.Fixed)
+                    {
+                        animator.CrossFadeInFixedTime(nextFullPathHash, transitionDuration, i, nextLength, transitionNormalizedTime);
+                    }
+                    else
+                    {
+                        animator.CrossFade(nextFullPathHash, transitionDuration, i, nextNormalizedTime, transitionNormalizedTime);
+                    }
+                }
+            }
+            animator.Update(0);
+        }
+    }
+    public class SerializableAnimatorPlayingData
+    {
+        public int currentHash;
+        public float currentTime;
+        public int nextHash;
+        public float nextNormalizedTime;
+        public float nextLength;
+        public int transitionDurationUnit;
+        public float transitionDuration;
+        public float transitionTime;
     }
 }

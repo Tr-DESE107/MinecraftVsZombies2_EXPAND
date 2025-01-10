@@ -1,0 +1,92 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace MVZ2.Models
+{
+    public class ModelImageGroup : ModelGraphicGroup
+    {
+        #region 公有方法
+        public override void UpdateElements()
+        {
+            images.Clear();
+            foreach (var renderer in GetComponentsInChildren<Image>(true))
+            {
+                if (!IsChildOfGroup(renderer.transform, this))
+                    continue;
+                if (renderer.GetComponent<Mask>())
+                    continue;
+                var element = renderer.GetComponent<ImageElement>();
+                if (!element)
+                {
+                    element = renderer.gameObject.AddComponent<ImageElement>();
+                }
+                images.Add(element);
+            }
+            transforms.Clear();
+            foreach (var trans in GetComponentsInChildren<TransformElement>(true))
+            {
+                if (!IsChildOfGroup(trans.transform, this))
+                    continue;
+                transforms.Add(trans);
+            }
+            animators.Clear();
+            foreach (var animator in GetComponentsInChildren<Animator>(true))
+            {
+                if (!IsChildOfGroup(animator.transform, this))
+                    continue;
+                animators.Add(animator);
+            }
+        }
+        public override void SetPropertyInt(string name, int value)
+        {
+        }
+
+        public override void SetPropertyFloat(string name, float alpha)
+        {
+        }
+
+        public override void SetPropertyColor(string name, Color color)
+        {
+        }
+        protected override SerializableModelGraphicGroup CreateSerializable()
+        {
+            var serializable = new SerializableModelImageGroup();
+            serializable.images = images.Select(e => e.ToSerializable()).ToArray();
+            return serializable;
+        }
+        protected override void LoadSerializable(SerializableModelGraphicGroup serializable)
+        {
+            base.LoadSerializable(serializable);
+            if (serializable is not SerializableModelImageGroup imageGroup)
+                return;
+            for (int i = 0; i < images.Count; i++)
+            {
+                if (i >= imageGroup.images.Length)
+                    break;
+                var element = images[i];
+                var data = imageGroup.images[i];
+                element.LoadFromSerializable(data);
+            }
+        }
+        #endregion
+
+        #region 私有方法
+        private ImageElement[] GetAllElements(bool includeExcluded = false)
+        {
+            if (includeExcluded)
+                return images.ToArray();
+            return images.Where(e => !e.ExcludedInGroup).ToArray();
+        }
+        #endregion
+
+        [SerializeField]
+        private List<ImageElement> images = new List<ImageElement>();
+
+    }
+    public class SerializableModelImageGroup : SerializableModelGraphicGroup
+    {
+        public SerializableImageElement[] images;
+    }
+}
