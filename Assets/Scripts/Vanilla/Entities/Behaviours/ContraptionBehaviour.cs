@@ -24,7 +24,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.LeftFaction);
-            UpdateTakenGrids(entity);
+            entity.UpdateTakenGrids();
             entity.InitFragment();
 
             if (entity.IsNocturnal() && entity.Level.IsDay())
@@ -43,7 +43,7 @@ namespace MVZ2.Vanilla.Entities
         }
         protected virtual void UpdateLogic(Entity entity)
         {
-            UpdateTakenGrids(entity);
+            entity.UpdateTakenGrids();
             entity.UpdateFragment();
         }
         protected virtual void UpdateAI(Entity entity)

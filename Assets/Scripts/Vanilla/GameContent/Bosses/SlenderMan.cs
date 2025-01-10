@@ -26,10 +26,7 @@ using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
 using Tools.Mathematics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -104,7 +101,7 @@ namespace MVZ2.GameContent.Bosses
             if (boss.IsDead)
                 return;
             var maxFateTimes = GetMaxFateTimes(boss.Level);
-            float stageHP = boss.GetMaxHealth() / (maxFateTimes + 2);
+            float stageHP = boss.GetMaxHealth() / (float)(maxFateTimes + 2);
             int newStage = Mathf.FloorToInt(maxFateTimes - boss.Health / stageHP);
             var selectedFateTimes = GetSelectedFateTimes(boss);
             if (newStage > selectedFateTimes && newStage >= 0)
@@ -351,6 +348,7 @@ namespace MVZ2.GameContent.Bosses
                     continue;
                 var grid = targetGrids.Random(rng);
                 contraption.Position = grid.GetEntityPosition();
+                contraption.UpdateTakenGrids();
             }
         }
         private void Biohazard(Entity boss)
@@ -360,10 +358,10 @@ namespace MVZ2.GameContent.Bosses
             var level = boss.Level;
             for (int column = 0; column < 2; column++)
             {
-                float x = level.GetColumnX(column + level.GetMaxColumnCount() - 1 - column);
+                float x = level.GetEntityColumnX(level.GetMaxColumnCount() - 1 - column);
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
-                    var z = level.GetLaneZ(lane);
+                    var z = level.GetEntityLaneZ(lane);
                     var y = level.GetGroundY(x, z);
                     Vector3 pos = new Vector3(x, y, z);
                     SpawnPortal(boss, pos, VanillaEnemyID.ironHelmettedZombie);
@@ -583,22 +581,22 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] fateOptions = new int[]
         {
-            FATE_PANDORAS_BOX,
-            FATE_BIOHAZARD,
-            FATE_DECREPIFY,
+            //FATE_PANDORAS_BOX,
+            //FATE_BIOHAZARD,
+            //FATE_DECREPIFY,
             FATE_INSANITY,
-            FATE_COME_TRUE,
-            FATE_THE_LURKER,
+            //FATE_COME_TRUE,
+            //FATE_THE_LURKER,
             FATE_BLACK_SUN,
         };
         private static string[] fateTexts = new string[]
         {
-            FATE_TEXT_PANDORAS_BOX,
-            FATE_TEXT_BIOHAZARD,
-            FATE_TEXT_DECREPIFY,
+            //FATE_TEXT_PANDORAS_BOX,
+            //FATE_TEXT_BIOHAZARD,
+            //FATE_TEXT_DECREPIFY,
             FATE_TEXT_INSANITY,
-            FATE_TEXT_COME_TRUE,
-            FATE_TEXT_THE_LURKER,
+            //FATE_TEXT_COME_TRUE,
+            //FATE_TEXT_THE_LURKER,
             FATE_TEXT_BLACK_SUN,
         };
         #endregion 常量

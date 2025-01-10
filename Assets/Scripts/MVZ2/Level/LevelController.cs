@@ -774,7 +774,8 @@ namespace MVZ2.Level
                     {
                         var index = i == 0 ? 9 : i - 1;
                         var controller = BlueprintController.GetCurrentBlueprintControllerByIndex(index);
-                        controller.Click();
+                        if (controller != null)
+                            controller.Click();
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Q))

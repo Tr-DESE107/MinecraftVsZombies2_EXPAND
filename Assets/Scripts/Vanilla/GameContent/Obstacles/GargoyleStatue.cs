@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Obstacles
             base.Update(entity);
             entity.SetAnimationInt("HealthState", entity.GetHealthState(5));
 
-            UpdateTakenGrids(entity);
+            entity.UpdateTakenGrids();
 
             entity.UpdateFragment();
         }

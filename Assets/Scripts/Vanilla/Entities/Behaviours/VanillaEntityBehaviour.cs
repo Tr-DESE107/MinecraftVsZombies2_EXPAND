@@ -90,29 +90,6 @@ namespace MVZ2.Vanilla.Entities
             var bounds = entity.GetBounds();
             return bounds.center + Vector3.up * bounds.extents.y;
         }
-        protected void UpdateTakenGrids(Entity entity)
-        {
-            if (entity.GetRelativeY() > leaveGridHeight || entity.Removed)
-            {
-                entity.ClearTakenGrids();
-            }
-            else
-            {
-                foreach (var grid in GetGridsToTake(entity))
-                {
-                    foreach (var layer in entity.GetGridLayersToTake())
-                    {
-                        entity.TakeGrid(grid, layer);
-                    }
-                }
-            }
-        }
-        protected virtual IEnumerable<LawnGrid> GetGridsToTake(Entity entity)
-        {
-            yield return entity.Level.GetGrid(entity.GetColumn(), entity.GetLane());
-        }
         #endregion
-
-        private const float leaveGridHeight = 64;
     }
 }

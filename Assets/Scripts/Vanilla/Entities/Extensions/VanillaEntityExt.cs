@@ -353,6 +353,23 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
         }
 
+        private const float leaveGridHeight = 64;
+        public static void UpdateTakenGrids(this Entity entity)
+        {
+            if (entity.GetRelativeY() > leaveGridHeight || entity.Removed)
+            {
+                entity.ClearTakenGrids();
+            }
+            else
+            {
+                var grid = entity.Level.GetGrid(entity.GetColumn(), entity.GetLane());
+                foreach (var layer in entity.GetGridLayersToTake())
+                {
+                    entity.TakeGrid(grid, layer);
+                }
+            }
+        }
+
         #region 治疗
         public static HealOutput HealEffects(this Entity entity, float amount, Entity source)
         {
