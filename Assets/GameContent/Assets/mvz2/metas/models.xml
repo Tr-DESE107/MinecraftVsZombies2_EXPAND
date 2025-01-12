@@ -124,6 +124,7 @@
     <model name="slice_spark" type="entity" path="mvz2:effect/slice_spark" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="crushing_walls" type="entity" path="mvz2:effect/crushing_walls" width="800" height="600" xOffset="0" yOffset="0"/>
     <model name="nightmareaper_timer" type="entity" path="mvz2:effect/nightmareaper_timer" width="160" height="50" xOffset="0" yOffset="0"/>
+    <model name="nightmare_darkness" type="entity" path="mvz2:effect/nightmare_darkness" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

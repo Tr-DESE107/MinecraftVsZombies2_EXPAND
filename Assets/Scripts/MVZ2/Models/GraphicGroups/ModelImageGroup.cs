@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -13,6 +14,12 @@ namespace MVZ2.Models
         public void SetCamera(Camera camera)
         {
             canvas.worldCamera = camera;
+        }
+        public override void AddElement(GraphicElement element)
+        {
+            if (element is not ImageElement imageElement)
+                throw new ArgumentException("Wrong model group element type.", nameof(element));
+            images.Add(imageElement);
         }
         public override void UpdateElements()
         {
@@ -99,6 +106,6 @@ namespace MVZ2.Models
     }
     public class SerializableModelImageGroup : SerializableModelGraphicGroup
     {
-        public SerializableImageElement[] images;
+        public SerializableGraphicElement[] images;
     }
 }

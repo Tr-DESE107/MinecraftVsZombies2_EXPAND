@@ -180,11 +180,13 @@ namespace MVZ2.Level
             if (meta == null)
                 return;
             var background = Main.GetFinalSprite(meta.BackgroundSprite);
+            var foreground = Main.GetFinalSprite(meta.ForegroundSprite);
             var bar = Main.GetFinalSprite(meta.BarSprite);
             var icon = Main.GetFinalSprite(meta.IconSprite);
             var viewData = new ProgressBarTemplateViewData()
             {
                 backgroundSprite = background,
+                foregroundSprite = foreground,
                 barSprite = bar,
                 fromLeft = meta.FromLeft,
                 iconSprite = icon,

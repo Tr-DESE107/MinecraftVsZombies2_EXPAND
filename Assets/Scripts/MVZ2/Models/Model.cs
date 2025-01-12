@@ -19,7 +19,10 @@ namespace MVZ2.Models
         {
             return eventCamera;
         }
-
+        public void AddElement(GraphicElement element)
+        {
+            GraphicGroup.AddElement(element);
+        }
         #region 生命周期
         public virtual void Init(Camera camera, int seed = 0)
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -16,6 +17,12 @@ namespace MVZ2.Models
             {
                 particle.SetSimulationSpeed(speed);
             }
+        }
+        public override void AddElement(GraphicElement element)
+        {
+            if (element is not RendererElement rendererElement)
+                throw new ArgumentException("Wrong model group element type.", nameof(element));
+            renderers.Add(rendererElement);
         }
         public override void UpdateElements()
         {
@@ -150,6 +157,6 @@ namespace MVZ2.Models
     public class SerializableModelRendererGroup : SerializableModelGraphicGroup
     {
         public SerializableParticleSystem[] particles;
-        public SerializableRendererElement[] renderers;
+        public SerializableGraphicElement[] renderers;
     }
 }

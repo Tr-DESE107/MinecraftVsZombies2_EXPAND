@@ -83,7 +83,6 @@
                     dest.rgb = 1 - (1 - src.rgb) * (1 - dest.rgb) * 2;
                     return dest;
                 }
-
                 fixed4 frag(v2f IN) : SV_Target
                 {
                     float time = _WarpTime;

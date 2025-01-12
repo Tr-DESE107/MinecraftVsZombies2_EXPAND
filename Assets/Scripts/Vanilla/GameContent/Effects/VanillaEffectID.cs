@@ -50,6 +50,7 @@ namespace MVZ2.GameContent.Effects
         public const string sliceSpark = "slice_spark";
         public const string crushingWalls = "crushing_walls";
         public const string nightmareaperTimer = "nightmareaper_timer";
+        public const string nightmareDarkness = "nightmare_darkness";
     }
     public static class VanillaEffectID
     {
@@ -98,6 +99,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID sliceSpark = Get(VanillaEffectNames.sliceSpark);
         public static readonly NamespaceID crushingWalls = Get(VanillaEffectNames.crushingWalls);
         public static readonly NamespaceID nightmareaperTimer = Get(VanillaEffectNames.nightmareaperTimer);
+        public static readonly NamespaceID nightmareDarkness = Get(VanillaEffectNames.nightmareDarkness);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

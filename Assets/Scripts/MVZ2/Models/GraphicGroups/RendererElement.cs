@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2.Models
 {
-    public class RendererElement : MonoBehaviour
+    public class RendererElement : GraphicElement
     {
         public void SetInt(string name, int value)
         {
@@ -32,7 +32,7 @@ namespace MVZ2.Models
             colorProperties[name] = value;
         }
 
-        public SerializableRendererElement ToSerializable()
+        public override SerializableGraphicElement ToSerializable()
         {
             return new SerializableRendererElement()
             {
@@ -41,25 +41,27 @@ namespace MVZ2.Models
                 floatProperties = floatProperties.ToDictionary(p => p.Key, p => p.Value),
             };
         }
-        public void LoadFromSerializable(SerializableRendererElement serializable)
+        public override void LoadFromSerializable(SerializableGraphicElement serializable)
         {
+            if (serializable is not SerializableRendererElement rendererElement)
+                return;
             intProperties.Clear();
             floatProperties.Clear();
             colorProperties.Clear();
 
             PropertyBlock.Clear();
             Renderer.GetPropertyBlock(PropertyBlock);
-            foreach (var prop in serializable.intProperties)
+            foreach (var prop in rendererElement.intProperties)
             {
                 PropertyBlock.SetInt(prop.Key, prop.Value);
                 intProperties[prop.Key] = prop.Value;
             }
-            foreach (var prop in serializable.floatProperties)
+            foreach (var prop in rendererElement.floatProperties)
             {
                 PropertyBlock.SetFloat(prop.Key, prop.Value);
                 floatProperties[prop.Key] = prop.Value;
             }
-            foreach (var prop in serializable.colorProperties)
+            foreach (var prop in rendererElement.colorProperties)
             {
                 PropertyBlock.SetColor(prop.Key, prop.Value);
                 colorProperties[prop.Key] = prop.Value;
@@ -88,16 +90,13 @@ namespace MVZ2.Models
                 return _renderer;
             }
         }
-        public bool ExcludedInGroup => excludedInGroup;
-        [SerializeField]
-        private bool excludedInGroup;
         private MaterialPropertyBlock propertyBlock;
         private Dictionary<string, float> floatProperties = new Dictionary<string, float>();
         private Dictionary<string, int> intProperties = new Dictionary<string, int>();
         private Dictionary<string, Color> colorProperties = new Dictionary<string, Color>();
         private Renderer _renderer;
     }
-    public class SerializableRendererElement
+    public class SerializableRendererElement : SerializableGraphicElement
     {
         public Dictionary<string, float> floatProperties;
         public Dictionary<string, int> intProperties;

@@ -12,8 +12,8 @@ namespace MVZ2.Metas
         public Vector2 Size { get; private set; }
 
         public SpriteReference BackgroundSprite { get; private set; }
-
         public SpriteReference BarSprite { get; private set; }
+        public SpriteReference ForegroundSprite { get; private set; }
         public bool FromLeft { get; private set; }
 
         public Vector4 Padding { get; private set; }
@@ -31,6 +31,13 @@ namespace MVZ2.Metas
             if (backgroundNode != null)
             {
                 background = backgroundNode.GetAttributeSpriteReference("sprite", defaultNsp);
+            }
+
+            var foregroundNode = node["foreground"];
+            SpriteReference foreground = null;
+            if (foregroundNode != null)
+            {
+                foreground = foregroundNode.GetAttributeSpriteReference("sprite", defaultNsp);
             }
 
             var barNode = node["bar"];
@@ -65,6 +72,7 @@ namespace MVZ2.Metas
                 Size = new Vector2(width, height),
 
                 BackgroundSprite = background,
+                ForegroundSprite = foreground,
 
                 BarSprite = barSprite,
                 FromLeft = fromLeft,

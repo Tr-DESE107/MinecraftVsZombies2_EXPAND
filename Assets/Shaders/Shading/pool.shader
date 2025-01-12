@@ -18,7 +18,6 @@
         [MaterialToggle] PixelSnap("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip("Flip", Vector) = (1,1,1,1)
-		[HideInInspector] _LocalRect("Local Rect", Vector) = (0,0,1,1)
         [PerRendererData] _AlphaTex("External Alpha", 2D) = "white" {}
         [PerRendererData] _EnableExternalAlpha("Enable External Alpha", Float) = 0
     }
@@ -54,7 +53,6 @@
                 float _CausticTime;
                 float _CausticAlpha;
                 fixed _WarpTime;
-                fixed4 _LocalRect;
                 float _Warp;
                 sampler2D _ShadeTex;
                 sampler2D _CausticTex;
@@ -174,7 +172,7 @@
                 fixed4 frag(v2f IN) : SV_Target
                 {
                     float time = _WarpTime;
-				    fixed2 uv = (IN.texcoord - _LocalRect.xy) / (_LocalRect.zw - _LocalRect.xy);
+				    fixed2 uv = IN.texcoord;
                     uv = PoolModifyUV(uv, time);
                     fixed4 poolColor = SampleSpriteTexture(IN.texcoord);
                     fixed4 shadeColor = tex2D(_ShadeTex, uv);

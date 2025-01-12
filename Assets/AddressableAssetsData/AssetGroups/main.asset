@@ -551,6 +551,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 211657565d216cd4a9fb3b2c489ff0af
+    m_Address: mvz2:entity/effect/nightmare_broken_glasses
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2144539b9ee0718458cb1aa68cdfd6a0
     m_Address: mvz2:talk/dialog_cut
     m_ReadOnly: 0
@@ -3706,6 +3712,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbeefbb207c94ad428e3fdbcab7acbbd
+    m_Address: mvz2:entity/effects/nightmare_broken_glass
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc88affd29ca4074f864f38ac1e90b33
     m_Address: mvz2:dream_map
     m_ReadOnly: 0
@@ -4144,6 +4156,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d69e436bf37b3d34d868afa95187baa1
+    m_Address: mvz2:entity/effect/nightmare_eyes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6a955717c4507e4aa60b1e721268640
     m_Address: mvz2:talk/speech_bubble_center
     m_ReadOnly: 0
@@ -4158,6 +4176,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6f6e44ab2a3c4b4e82764fd5c5a2cdc
     m_Address: mvz2:armor/leather_cap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d742da796db90f54ba065ae3623dcea3
+    m_Address: mvz2:effect/nightmare_darkness
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

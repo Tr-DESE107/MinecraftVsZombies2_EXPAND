@@ -4,4 +4,10 @@
         <bar sprite="mvz2:ui/level/progress_bar/frankenstein" fromLeft="true" />
         <padding left="7" right="7" top="8" bottom="8" />
     </bar>
+    <bar id="nightmare" type="boss" width="183" height="25">
+        <background sprite="mvz2:ui/level/progress_bar/nightmare_background" />
+        <foreground sprite="mvz2:ui/level/progress_bar/nightmare_foreground" />
+        <bar sprite="mvz2:ui/level/progress_bar/nightmare" fromLeft="true" />
+        <padding left="44" right="44" top="9" bottom="9" />
+    </bar>
 </bars>

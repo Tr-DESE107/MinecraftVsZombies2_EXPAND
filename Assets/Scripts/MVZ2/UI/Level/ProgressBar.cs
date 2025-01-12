@@ -11,6 +11,8 @@ namespace MVZ2.Level.UI
             var rectTransform = transform as RectTransform;
             rectTransform.sizeDelta = viewData.size;
             backgroundImage.sprite = viewData.backgroundSprite;
+            foregroundImage.sprite = viewData.foregroundSprite;
+            foregroundImage.enabled = foregroundImage.sprite;
             barImage.sprite = viewData.barSprite;
             iconImage.sprite = viewData.iconSprite;
             iconImage.enabled = iconImage.sprite;
@@ -43,6 +45,8 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private ElementListUI flags;
         [SerializeField]
+        private Image foregroundImage;
+        [SerializeField]
         private Image backgroundImage;
         [SerializeField]
         private Image barImage;
@@ -57,6 +61,7 @@ namespace MVZ2.Level.UI
     {
         public Vector2 size;
         public Sprite backgroundSprite;
+        public Sprite foregroundSprite;
         public Sprite barSprite;
         public Sprite iconSprite;
         public bool fromLeft;

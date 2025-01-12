@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 7481385125309814664}
   - component: {fileID: 2379477030336860028}
   - component: {fileID: 4659451933514247113}
-  - component: {fileID: 5786736487517123703}
   m_Layer: 0
   m_Name: FuelBar
   m_TagString: Untagged
@@ -309,18 +308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &5786736487517123703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6959742817319129353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d286b799f25c546b7e7d261099c349, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0

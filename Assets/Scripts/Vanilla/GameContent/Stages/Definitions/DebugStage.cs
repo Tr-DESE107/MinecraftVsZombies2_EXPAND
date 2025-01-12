@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.smallDispenser,
 
                 VanillaEnemyID.zombie,
-                VanillaContraptionID.tnt,
+                VanillaEffectID.nightmareDarkness,
                 VanillaBossID.nightmareaper,
             });
             level.SetArtifactSlotCount(3);

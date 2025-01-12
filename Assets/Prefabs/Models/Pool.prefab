@@ -77,8 +77,8 @@ SpriteMask:
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: -1699733281
   m_BackSortingLayerID: -1699733281
-  m_FrontSortingLayer: -7
-  m_BackSortingLayer: -7
+  m_FrontSortingLayer: -8
+  m_BackSortingLayer: -8
   m_FrontSortingOrder: 10000
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 1
@@ -93,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 398604624230674612}
   - component: {fileID: 2652443272416795725}
-  - component: {fileID: 6125650838819395101}
   - component: {fileID: 3334008634162295374}
   m_Layer: 0
   m_Name: Pool
@@ -156,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1699733281
-  m_SortingLayer: -7
+  m_SortingLayer: -8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5a43bbbdfc2dfc64382269576cdd5203, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -169,18 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6125650838819395101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418105177880504147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d286b799f25c546b7e7d261099c349, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3334008634162295374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +265,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 150193795065411988, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
       propertyPath: m_SortingLayer
-      value: -7
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 150193795065411988, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
       propertyPath: m_SortingOrder

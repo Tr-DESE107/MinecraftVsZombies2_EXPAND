@@ -8,6 +8,7 @@ namespace MVZ2.Models
     public abstract class ModelGraphicGroup : MonoBehaviour
     {
         #region 公有方法
+        public abstract void AddElement(GraphicElement element);
         public void UpdateFrame(float deltaTime)
         {
             foreach (var animator in animators)

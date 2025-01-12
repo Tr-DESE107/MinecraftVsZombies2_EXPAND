@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: nightmare_smile
-  m_Shader: {fileID: 4800000, guid: ed2e20461c1a7d1449d056b62338e833, type: 3}
+  m_Name: nightmare_darkness
+  m_Shader: {fileID: 4800000, guid: 452d6fa1ba3819042ac4566d1d080e43, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -24,24 +24,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4b231be250a3cbf49a9bb3175eeca43c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: e336ff858b2a96e4588529934206cbad, type: 3}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    - _Warp: 0.3
-    - _WarpTime: 1
+    - _Center: 0
+    - _Edge: 0.2
+    - _LifeTime: 1
+    - _Radius: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _LocalRect: {r: 0, g: 0, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WarpTile: {r: 1, g: 1, b: 0, a: 0}
+    - _Center: {r: 0.52, g: 0.21, b: 0, a: 0}
   m_BuildTextureStacks: []

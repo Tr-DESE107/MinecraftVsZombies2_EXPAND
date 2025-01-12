@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 namespace MVZ2.Models
 {
-    public class ImageElement : MonoBehaviour
+    public class ImageElement : GraphicElement
     {
-        public SerializableImageElement ToSerializable()
+        public override SerializableGraphicElement ToSerializable()
         {
             return new SerializableImageElement();
         }
@@ -23,12 +23,9 @@ namespace MVZ2.Models
                 return _image;
             }
         }
-        public bool ExcludedInGroup => excludedInGroup;
-        [SerializeField]
-        private bool excludedInGroup;
         private Image _image;
     }
-    public class SerializableImageElement
+    public class SerializableImageElement : SerializableGraphicElement
     {
     }
 }

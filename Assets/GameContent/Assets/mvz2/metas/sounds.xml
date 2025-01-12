@@ -244,6 +244,9 @@
         <sample path="mvz2:random/glass_break2" weight="1" />
         <sample path="mvz2:random/glass_break3" weight="1" />
     </sound>
+    <sound name="glass_break_big">
+        <sample path="mvz2:glass_break_big" weight="1" />
+    </sound>
     <sound name="glowstone">
         <sample path="mvz2:glowstone" weight="1" />
     </sound>

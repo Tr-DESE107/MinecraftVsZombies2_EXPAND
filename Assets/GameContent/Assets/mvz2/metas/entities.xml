@@ -920,5 +920,8 @@
         </effect>
         <effect id="crushing_walls"/>
         <effect id="nightmareaper_timer"/>
+        <effect id="nightmare_darkness">
+            <int name="maxTimeout" value="180"/>
+        </effect>
     </entries>
 </entities>
