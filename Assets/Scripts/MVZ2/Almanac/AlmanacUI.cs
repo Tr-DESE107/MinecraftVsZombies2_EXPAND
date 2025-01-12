@@ -37,14 +37,14 @@ namespace MVZ2.Almanacs
         {
             miscs.SetGroups(groups);
         }
-        public void SetActiveContraptionEntry(Model prefab, string name, string description, string cost, string recharge)
+        public void SetActiveContraptionEntry(Model prefab, Camera camera, string name, string description, string cost, string recharge)
         {
-            standaloneContraptions.SetActiveEntry(prefab, name, description, cost, recharge);
-            mobileContraptions.SetActiveEntry(prefab, name, description, cost, recharge);
+            standaloneContraptions.SetActiveEntry(prefab, camera, name, description, cost, recharge);
+            mobileContraptions.SetActiveEntry(prefab, camera, name, description, cost, recharge);
         }
-        public void SetActiveEnemyEntry(Model prefab, string name, string description)
+        public void SetActiveEnemyEntry(Model prefab, Camera camera, string name, string description)
         {
-            enemies.SetActiveEntry(prefab, name, description);
+            enemies.SetActiveEntry(prefab, camera, name, description);
         }
         public void SetActiveArtifactEntry(Sprite sprite, string name, string description)
         {
@@ -54,9 +54,9 @@ namespace MVZ2.Almanacs
         {
             miscs.SetActiveEntry(sprite, name, description);
         }
-        public void SetActiveMiscEntry(Model prefab, string name, string description)
+        public void SetActiveMiscEntry(Model prefab, Camera camera, string name, string description)
         {
-            miscs.SetActiveEntry(prefab, name, description);
+            miscs.SetActiveEntry(prefab, camera, name, description);
         }
         private void Awake()
         {

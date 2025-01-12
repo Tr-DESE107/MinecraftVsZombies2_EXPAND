@@ -145,7 +145,7 @@ namespace MVZ2.Almanacs
             }
             var costText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, COST_LABEL, cost);
             var rechargeText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, RECHARGE_LABEL, recharge);
-            ui.SetActiveContraptionEntry(model, name, description, costText, rechargeText);
+            ui.SetActiveContraptionEntry(model, almanacCamera, name, description, costText, rechargeText);
         }
         private void SetActiveEnemyEntry(NamespaceID enemyID)
         {
@@ -157,7 +157,7 @@ namespace MVZ2.Almanacs
                 name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, VanillaStrings.UNKNOWN_ENTITY_NAME);
                 description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, VanillaStrings.NOT_ENCOUNTERED_YET);
             }
-            ui.SetActiveEnemyEntry(model, name, description);
+            ui.SetActiveEnemyEntry(model, almanacCamera, name, description);
         }
         private void SetActiveArtifactEntry(NamespaceID artifactID)
         {
@@ -186,7 +186,7 @@ namespace MVZ2.Almanacs
                 if (modelMeta != null)
                 {
                     var model = Main.ResourceManager.GetModel(modelMeta.Path);
-                    ui.SetActiveMiscEntry(model, name, description);
+                    ui.SetActiveMiscEntry(model, almanacCamera, name, description);
                     return;
                 }
             }
@@ -319,6 +319,8 @@ namespace MVZ2.Almanacs
         private List<NamespaceID> enemyEntries = new List<NamespaceID>();
         private List<NamespaceID> artifactEntries = new List<NamespaceID>();
         private List<AlmanacEntryGroup> miscGroups = new List<AlmanacEntryGroup>();
+        [SerializeField]
+        private Camera almanacCamera;
         [SerializeField]
         private AlmanacUI ui;
     }

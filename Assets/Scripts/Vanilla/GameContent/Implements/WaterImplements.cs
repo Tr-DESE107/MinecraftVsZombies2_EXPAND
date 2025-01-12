@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -34,6 +35,7 @@ namespace MVZ2.GameContent.Implements
                 entity.PlaySplashEffect();
                 entity.PlaySplashSound();
                 entity.Remove();
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_REMOVE, entity, WaterInteraction.ACTION_REMOVE);
 
                 return;
             }
@@ -46,6 +48,7 @@ namespace MVZ2.GameContent.Implements
                     entity.AddBuff<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySplashSound();
+                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_ENTER, entity, WaterInteraction.ACTION_ENTER);
                 }
             }
             else
@@ -55,6 +58,7 @@ namespace MVZ2.GameContent.Implements
                     entity.RemoveBuffs(entity.GetBuffs<InWaterBuff>());
                     entity.PlaySplashEffect();
                     entity.PlaySound(VanillaSoundID.water);
+                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_EXIT, entity, WaterInteraction.ACTION_EXIT);
                 }
             }
             entity.SetAnimationBool("InWater", isInWater && floatInWater);

@@ -4,6 +4,7 @@
     {
         Press,
         Enter,
+        Stay,
         Release
     }
 }

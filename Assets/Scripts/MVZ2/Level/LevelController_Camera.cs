@@ -15,6 +15,10 @@ namespace MVZ2.Level
 {
     public partial class LevelController : MonoBehaviour, IDisposable
     {
+        public Camera GetCamera()
+        {
+            return levelCamera.Camera;
+        }
         #region 私有方法
 
         #region 移动相机

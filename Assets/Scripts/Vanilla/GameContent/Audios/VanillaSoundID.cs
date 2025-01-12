@@ -65,6 +65,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID minecart = Get("minecart");
         public readonly static NamespaceID missile = Get("missile");
         public readonly static NamespaceID moneyFall = Get("money_fall");
+        public readonly static NamespaceID nightmareaperRage = Get("nightmareaper_rage");
+        public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");
         public readonly static NamespaceID nightmarePortal = Get("nightmare_portal");
         public readonly static NamespaceID nyaightmareScream = Get("nyaightmare_scream"); 
         public readonly static NamespaceID odd = Get("odd");
@@ -88,6 +90,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID reflection = Get("reflection");
         public readonly static NamespaceID refuel = Get("refuel");
         public readonly static NamespaceID reviveCast = Get("revive_cast");
+        public readonly static NamespaceID revived = Get("revived");
         public readonly static NamespaceID reverseVampire = Get("reverse_vampire");
         public readonly static NamespaceID scream = Get("scream");
         public readonly static NamespaceID screw = Get("screw");
@@ -124,6 +127,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID vortex = Get("vortex");
         public readonly static NamespaceID wakeup = Get("wakeup");
         public readonly static NamespaceID water = Get("water");
+        public readonly static NamespaceID wheelOfDeathStart = Get("wheel_of_death_start");
+        public readonly static NamespaceID wheelOfDeathLoop = Get("wheel_of_death_loop");
         public readonly static NamespaceID winMusic = Get("win_music");
         public readonly static NamespaceID wood = Get("wood");
         public readonly static NamespaceID zombieCry = Get("zombie_cry");

@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 547804964397208255}
   - component: {fileID: 8062499995708967836}
   - component: {fileID: 2231111696375014510}
+  - component: {fileID: 7297205146866868660}
   m_Layer: 0
   m_Name: UIModel
   m_TagString: Untagged
@@ -150,7 +151,31 @@ MonoBehaviour:
   animators:
   - {fileID: 547804964397208255}
   transforms: []
+  canvas: {fileID: 7297205146866868660}
   images: []
+--- !u!223 &7297205146866868660
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134337979047610562}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &6576236377435692889
 GameObject:
   m_ObjectHideFlags: 0

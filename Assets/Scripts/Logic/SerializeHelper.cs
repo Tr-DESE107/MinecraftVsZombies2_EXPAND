@@ -73,6 +73,8 @@ namespace MVZ2Logic
             RegisterClass<SerializableConveyorSeedSendRecordEntry>();
 
             // MVZ2.Logic
+            RegisterClass<ShakeInt>();
+            RegisterClass<ShakeFloat>();
             RegisterClass<SerializableModSaveData>();
             RegisterClass<SerializableUserStats>();
             RegisterClass<SerializableUserStatCategory>();

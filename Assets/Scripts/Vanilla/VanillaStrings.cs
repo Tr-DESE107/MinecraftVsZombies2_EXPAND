@@ -125,6 +125,8 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
+        [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
+        public const string DEATH_MESSAGE_CRUSHING_WALLS = "<color=red>来到我们之中吧</color>";
 
         [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
         public const string UNKNOWN_ENTITY_NAME = "？？？";

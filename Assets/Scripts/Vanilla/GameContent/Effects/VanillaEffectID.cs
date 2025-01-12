@@ -44,6 +44,12 @@ namespace MVZ2.GameContent.Effects
         public const string breakoutBoard = "breakout_board";
         public const string nightmareWatchingEye = "nightmare_watching_eye";
         public const string nightmarePortal = "nightmare_portal";
+        public const string darkMatterParticles = "dark_matter_particles";
+        public const string nightmareaperSplash = "nightmareaper_splash";
+        public const string nightmareaperShadow = "nightmareaper_shadow";
+        public const string sliceSpark = "slice_spark";
+        public const string crushingWalls = "crushing_walls";
+        public const string nightmareaperTimer = "nightmareaper_timer";
     }
     public static class VanillaEffectID
     {
@@ -86,6 +92,12 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID breakoutBoard = Get(VanillaEffectNames.breakoutBoard);
         public static readonly NamespaceID nightmareWatchingEye = Get(VanillaEffectNames.nightmareWatchingEye);
         public static readonly NamespaceID nightmarePortal = Get(VanillaEffectNames.nightmarePortal);
+        public static readonly NamespaceID darkMatterParticles = Get(VanillaEffectNames.darkMatterParticles);
+        public static readonly NamespaceID nightmareaperSplash = Get(VanillaEffectNames.nightmareaperSplash);
+        public static readonly NamespaceID nightmareaperShadow = Get(VanillaEffectNames.nightmareaperShadow);
+        public static readonly NamespaceID sliceSpark = Get(VanillaEffectNames.sliceSpark);
+        public static readonly NamespaceID crushingWalls = Get(VanillaEffectNames.crushingWalls);
+        public static readonly NamespaceID nightmareaperTimer = Get(VanillaEffectNames.nightmareaperTimer);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

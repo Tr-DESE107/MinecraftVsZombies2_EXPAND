@@ -5,7 +5,7 @@ namespace MVZ2.Almanacs
 {
     public class AlmanacModel : MonoBehaviour
     {
-        public void ChangeModel(Model prefab)
+        public void ChangeModel(Model prefab, Camera camera)
         {
             if (model)
             {
@@ -15,7 +15,7 @@ namespace MVZ2.Almanacs
             }
             if (prefab)
             {
-                model = Model.Create(prefab, rootTransform);
+                model = Model.Create(prefab, rootTransform, camera);
                 updater.model = model;
             }
         }

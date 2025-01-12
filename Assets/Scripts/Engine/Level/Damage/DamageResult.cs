@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Entities;
+using UnityEngine;
 
 namespace PVZEngine.Damages
 {
@@ -12,5 +13,6 @@ namespace PVZEngine.Damages
         public bool Fatal { get; set; }
         public ShellDefinition ShellDefinition { get; set; }
         public Entity Entity { get; set; }
+        public abstract Vector3 GetPosition();
     }
 }

@@ -93,8 +93,6 @@ namespace MVZ2.Models
         protected override SerializableModelGraphicGroup CreateSerializable()
         {
             var serializable = new SerializableModelRendererGroup();
-            serializable.sortingLayerID = SortingLayerID;
-            serializable.sortingOrder = SortingOrder;
             serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
             serializable.renderers = renderers.Select(e => e.ToSerializable()).ToArray();
             return serializable;
@@ -104,8 +102,6 @@ namespace MVZ2.Models
             base.LoadSerializable(serializable);
             if (serializable is not SerializableModelRendererGroup spriteGroup)
                 return;
-            SortingLayerID = spriteGroup.sortingLayerID;
-            SortingOrder = spriteGroup.sortingOrder;
             for (int i = 0; i < renderers.Count; i++)
             {
                 if (i >= spriteGroup.renderers.Length)
@@ -136,11 +132,11 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性字段
-        public int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
+        public override int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
 
-        public string SortingLayerName { get => sortingGroup.sortingLayerName; set => sortingGroup.sortingLayerName = value; }
+        public override string SortingLayerName { get => sortingGroup.sortingLayerName; set => sortingGroup.sortingLayerName = value; }
 
-        public int SortingOrder { get => sortingGroup.sortingOrder; set => sortingGroup.sortingOrder = value; }
+        public override int SortingOrder { get => sortingGroup.sortingOrder; set => sortingGroup.sortingOrder = value; }
 
         [SerializeField]
         private SortingGroup sortingGroup;
@@ -155,7 +151,5 @@ namespace MVZ2.Models
     {
         public SerializableParticleSystem[] particles;
         public SerializableRendererElement[] renderers;
-        public int sortingLayerID;
-        public int sortingOrder;
     }
 }

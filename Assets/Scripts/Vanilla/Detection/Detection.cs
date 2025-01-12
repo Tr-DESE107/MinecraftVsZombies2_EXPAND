@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
+using static System.Collections.Specialized.BitVector32;
 
 namespace MVZ2.Vanilla.Detections
 {
@@ -123,6 +127,36 @@ namespace MVZ2.Vanilla.Detections
         public static IEnumerable<EntityCollider> GetCollidersInSphere(this Entity entity, Vector3 center, float radius)
         {
             return entity.GetEnabledColliders().Where(g => g.IsInSphere(center, radius));
+        }
+        private static IEnumerable<EntityCollider> Overlap(this LevelEngine level, int faction, int hostileMask, int friendlyMask, Predicate<Hitbox> predicate)
+        {
+            if (predicate == null)
+                yield break;
+            var entities = level.FindEntities(e => EntityCollisionHelper.CanCollide(e.IsHostile(faction) ? hostileMask : friendlyMask, e));
+            foreach (var entity in entities)
+            {
+                foreach (var collider in entity.GetEnabledColliders())
+                {
+                    for (int i = 0; i < collider.GetHitboxCount(); i++)
+                    {
+                        var hitbox = collider.GetHitbox(i);
+                        if (predicate(hitbox))
+                        {
+                            yield return collider;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        public static IEnumerable<EntityCollider> OverlapBox(this LevelEngine level, Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask)
+        {
+            return level.Overlap(faction, hostileMask, friendlyMask, h => Detection.Intersects(center, size, h.GetBoundsCenter(), h.GetBoundsSize()));
+        }
+        public static IEnumerable<EntityCollider> OverlapCylinder(this LevelEngine level, Vector3 center, float radius, float height, int faction, int hostileMask, int friendlyMask)
+        {
+            var cylinder = new Cylinder(Axis.Y, center, height, radius);
+            return level.Overlap(faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCudeAndCylinder(cylinder, h.GetBounds()));
         }
     }
 }

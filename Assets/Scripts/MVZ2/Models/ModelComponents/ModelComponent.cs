@@ -12,20 +12,21 @@ namespace MVZ2.Models
         public virtual void OnTrigger(string name) { }
         protected Vector3 Lawn2TransPosition(Vector3 pos)
         {
-            return MainManager.Instance.LevelManager.LawnToTrans(pos);
+            return Main.LevelManager.LawnToTrans(pos);
         }
         protected Vector3 Trans2LawnPosition(Vector3 pos)
         {
-            return MainManager.Instance.LevelManager.TransToLawn(pos);
+            return Main.LevelManager.TransToLawn(pos);
         }
         protected Vector3 Lawn2TransScale(Vector3 scale)
         {
-            return MainManager.Instance.LevelManager.LawnToTransScale * scale;
+            return Main.LevelManager.LawnToTransScale * scale;
         }
         protected Vector3 Trans2LawnScale(Vector3 scale)
         {
-            return MainManager.Instance.LevelManager.TransToLawnScale * scale;
+            return Main.LevelManager.TransToLawnScale * scale;
         }
+        public MainManager Main => MainManager.Instance;
         public Model Model { get; set; }
     }
 }

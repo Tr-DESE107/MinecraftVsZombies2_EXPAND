@@ -609,6 +609,14 @@
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
         </boss>
+        <boss id="nightmareaper" name="梦魇收割者">
+            <int name="waterInteraction" value="0"/>
+            <float name="maxHealth" value="2500"/>
+            <id name="shell" value="mvz2:bone"/>
+            <vector3 name="size" x="48" y="52" z="48"/>
+            <color name="bloodColor" value="#000000FF"/>
+            <color name="bloodColorCensored" value="#000000FF"/>
+        </boss>
 
         <!-- Carts -->
         <cart id="minecart" name="矿车"/>
@@ -898,5 +906,19 @@
             <int name="maxTimeout" value="30"/>
             <bool name="faceLeftAtDefault" value="true"/>
         </effect>
+        <effect id="dark_matter_particles">
+            <int name="maxTimeout" value="180"/>
+        </effect>
+        <effect id="nightmareaper_splash">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="nightmareaper_shadow">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="slice_spark">
+            <int name="maxTimeout" value="12"/>
+        </effect>
+        <effect id="crushing_walls"/>
+        <effect id="nightmareaper_timer"/>
     </entries>
 </entities>

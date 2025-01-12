@@ -54,11 +54,11 @@ namespace MVZ2.Almanacs
             nameText.text = name;
             descriptionText.text = description;
         }
-        public void SetActiveEntry(Model prefab, string name, string description)
+        public void SetActiveEntry(Model prefab, Camera camera, string name, string description)
         {
             entryImage.gameObject.SetActive(false);
             entryModel.gameObject.SetActive(true);
-            entryModel.ChangeModel(prefab);
+            entryModel.ChangeModel(prefab, camera);
             nameText.text = name;
             descriptionText.text = description;
             descriptionScrollRect.verticalNormalizedPosition = 1;

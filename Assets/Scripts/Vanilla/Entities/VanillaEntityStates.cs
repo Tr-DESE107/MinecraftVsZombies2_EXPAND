@@ -16,7 +16,8 @@
         public const int BOSS_ATTACK_2 = 301;
         public const int BOSS_ATTACK_3 = 302;
         public const int BOSS_ATTACK_4 = 303;
-        public const int BOSS_FAINT = 304;
+        public const int BOSS_SPECIAL = 310;
+        public const int BOSS_FAINT = 350;
 
         public const int CART_TRIGGERED = 500;
 
@@ -58,6 +59,15 @@
         public const int FRANKENSTEIN_WAKING = BOSS_APPEAR;
         public const int FRANKENSTEIN_FAINT = BOSS_FAINT;
 
+        public const int NIGHTMAREAPER_APPEAR = BOSS_APPEAR;
+        public const int NIGHTMAREAPER_IDLE = IDLE;
+        public const int NIGHTMAREAPER_JAB = ATTACK;
+        public const int NIGHTMAREAPER_SPIN = BOSS_ATTACK_2;
+        public const int NIGHTMAREAPER_DARKNESS = BOSS_ATTACK_3;
+        public const int NIGHTMAREAPER_REVIVE = BOSS_ATTACK_4;
+        public const int NIGHTMAREAPER_ENRAGE = BOSS_SPECIAL;
+        public const int NIGHTMAREAPER_DEATH = DEAD;
+
 
         public const int BREAKOUT_PEARL_IDLE = IDLE;
         public const int BREAKOUT_PEARL_RETURN = WALK;
@@ -67,5 +77,10 @@
         public const int HOE_IDLE = IDLE;
         public const int HOE_TRIGGERED = ATTACK;
         public const int HOE_DAMAGED = DEAD;
+
+        public const int CRUSHING_WALLS_IDLE = IDLE;
+        public const int CRUSHING_WALLS_ENRAGED = WALK;
+        public const int CRUSHING_WALLS_CLOSED = ATTACK;
+        public const int CRUSHING_WALLS_STOPPED = DEAD;
     }
 }

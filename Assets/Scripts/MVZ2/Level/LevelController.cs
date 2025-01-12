@@ -40,6 +40,7 @@ namespace MVZ2.Level
         Game Game { get; }
         ILevelUI GetUI();
         LevelEngine GetEngine();
+        Camera GetCamera();
         ILevelBlueprintController BlueprintController { get; }
         ILevelBlueprintChooseController BlueprintChoosePart { get; }
 

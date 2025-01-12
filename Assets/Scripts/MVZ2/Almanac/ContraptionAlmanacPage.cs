@@ -15,9 +15,9 @@ namespace MVZ2.Almanacs
             blueprintDisplayer.UpdateItems(entries);
             blueprintDisplayer.SetCommandBlockActive(commandBlockVisible);
         }
-        public void SetActiveEntry(Model prefab, string name, string description, string cost, string recharge)
+        public void SetActiveEntry(Model prefab, Camera camera, string name, string description, string cost, string recharge)
         {
-            entryModel.ChangeModel(prefab);
+            entryModel.ChangeModel(prefab, camera);
             nameText.text = name;
             descriptionText.text = description;
             descriptionScrollRect.verticalNormalizedPosition = 1;

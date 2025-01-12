@@ -56,6 +56,7 @@
     <!-- Bosses -->
     <model name="frankenstein" type="entity" path="mvz2:boss/frankenstein" width="100" height="200" xOffset="24" yOffset="-96"/>
     <model name="slenderman" type="entity" path="mvz2:boss/slenderman" width="200" height="150" xOffset="0" yOffset="-60"/>
+    <model name="nightmareaper" type="entity" path="mvz2:boss/nightmareaper" width="240" height="200" xOffset="0" yOffset="-20"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -117,6 +118,12 @@
     <model name="breakout_board" type="entity" path="mvz2:effect/breakout_board" width="32" height="160" xOffset="0" yOffset="0"/>
     <model name="nightmare_watching_eye" type="entity" path="mvz2:effect/nightmare_watching_eye" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="nightmare_portal" type="entity" path="mvz2:effect/nightmare_portal" width="64" height="120" xOffset="0" yOffset="-50" />
+    <model name="dark_matter_particles" type="entity" path="mvz2:effect/dark_matter_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="nightmareaper_splash" type="entity" path="mvz2:effect/nightmareaper_splash" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="nightmareaper_shadow" type="entity" path="mvz2:effect/nightmareaper_shadow" width="240" height="200" xOffset="0" yOffset="-20"/>
+    <model name="slice_spark" type="entity" path="mvz2:effect/slice_spark" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="crushing_walls" type="entity" path="mvz2:effect/crushing_walls" width="800" height="600" xOffset="0" yOffset="0"/>
+    <model name="nightmareaper_timer" type="entity" path="mvz2:effect/nightmareaper_timer" width="160" height="50" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

@@ -573,5 +573,6 @@ namespace MVZ2.Vanilla.Entities
             entity.SetDisplayScale(new Vector3(xScale, 1, 1));
         }
         #endregion
+
     }
 }

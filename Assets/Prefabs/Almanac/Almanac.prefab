@@ -1086,6 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8119cf1be80dae4daec31ef973d1dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  almanacCamera: {fileID: 6359250135119659902}
   ui: {fileID: 4923967737258786582}
 --- !u!114 &4923967737258786582
 MonoBehaviour:

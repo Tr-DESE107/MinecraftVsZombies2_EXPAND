@@ -659,6 +659,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2574e617cf0030645966d0a257f50050
+    m_Address: mvz2:entity/effects/crushing_wall_left
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
     m_ReadOnly: 0
@@ -676,6 +682,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26dc0bfdc50bd814f9f2c3f60f62e366
+    m_Address: mvz2:entity/effects/crushing_wall_right_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 275fc689fc1d1194ba400f58348f339b
     m_Address: mvz2:held/target
@@ -982,6 +994,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Language
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3562b5fe23861f84b930c43f6d243abc
+    m_Address: mvz2:effect/dark_matter_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3583655055a075342acf09efa95d3f56
     m_Address: mvz2:day
     m_ReadOnly: 0
@@ -1066,6 +1084,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 397b6bb85fb44e64991eac4dd82cd72a
+    m_Address: mvz2:effect/slice_spark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39e80b9d7a6471b47b3b875b2ef87a5e
     m_Address: mvz2:random/grass3
     m_ReadOnly: 0
@@ -1077,6 +1101,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a6ff83055599244a872a7e3cd5865cd
+    m_Address: mvz2:effect/crushing_walls
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3afaf2b4c67113848b1fff109e80f52d
     m_Address: mvz2:revived
@@ -1293,6 +1323,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42226c15cb218274b8576006d9f58dc6
+    m_Address: mvz2:entity/effects/crushing_wall_left_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4339bf5f9f84c374c80373f3c986dc65
     m_Address: mvz2:ui/level/pickaxe_slot
@@ -2026,6 +2062,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a18698f112f8244db4b1e5de5873248
+    m_Address: mvz2:entity/effects/crushing_wall_right
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a6baf812492dec40ba2154d360755bb
     m_Address: mvz2:entity/effects/magic_star
     m_ReadOnly: 0
@@ -2229,6 +2271,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79171aca3bcf918459cf2160bda1f9f2
+    m_Address: mvz2:entity/effects/nightmareaper_shadow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 793025c0a89f00444afda2a67f717ebf
     m_Address: mvz2:gem
@@ -3010,6 +3058,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d730e080bace4646938c15cdabc88d0
+    m_Address: mvz2:entity/effects/water_splash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d739121b6e9cdf499acc37d584df332
     m_Address: mvz2:contraption/soul_furnace
     m_ReadOnly: 0
@@ -3634,11 +3688,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb7758770170e2f458ee96acd41ef78f
+    m_Address: mvz2:effect/nightmareaper_timer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb82960c34438084dbe2e212ab303367
     m_Address: mvz2:entity/mummy/mummy3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbacff986e7017645a25055965caa967
+    m_Address: mvz2:effect/nightmareaper_splash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc88affd29ca4074f864f38ac1e90b33
     m_Address: mvz2:dream_map
@@ -3777,6 +3843,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c61536478b6af914d8fb75660813567d
+    m_Address: mvz2:effect/nightmareaper_shadow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6834e54b22c072438a7aa1583ebc4f5
     m_Address: mvz2:entity/boss/gun_fire

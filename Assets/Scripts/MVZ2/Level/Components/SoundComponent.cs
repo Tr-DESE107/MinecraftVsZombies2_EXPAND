@@ -47,6 +47,14 @@ namespace MVZ2.Level.Components
             loopSounds.Clear();
             playingLoopSounds.Clear();
         }
+        public bool HasLoopSoundEntity(NamespaceID id, long entityId)
+        {
+            if (!loopSounds.TryGetValue(id, out var hashSet))
+            {
+                return false;
+            }
+            return hashSet.Contains(entityId);
+        }
         public bool AddLoopSoundEntity(NamespaceID id, long entityId)
         {
             if (!loopSounds.TryGetValue(id, out var hashSet))

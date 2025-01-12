@@ -15,14 +15,19 @@ namespace MVZ2.Models
     public abstract class Model : MonoBehaviour
     {
         #region 公有方法
+        public Camera GetCamera()
+        {
+            return eventCamera;
+        }
 
         #region 生命周期
-        public void Init()
+        public virtual void Init(Camera camera, int seed = 0)
         {
-            Init(Guid.NewGuid().GetHashCode());
-        }
-        public void Init(int seed)
-        {
+            if (seed == 0)
+            {
+                seed = Guid.NewGuid().GetHashCode();
+            }
+            eventCamera = camera;
             modelComponents = GetComponents<ModelComponent>();
             rng = new RandomGenerator(seed);
             foreach (var comp in modelComponents)
@@ -154,7 +159,7 @@ namespace MVZ2.Models
             var anchor = GetAnchor(anchorName);
             if (!anchor)
                 return null;
-            var child = Model.Create(modelID, anchor.transform);
+            var child = Model.Create(modelID, anchor.transform, eventCamera, 0);
             if (!child)
                 return null;
             child.transform.localPosition = Vector3.zero;
@@ -248,36 +253,20 @@ namespace MVZ2.Models
         #endregion
 
         #region 创建
-        public static Model Create(NamespaceID modelID, Transform parent)
+        public static Model Create(NamespaceID modelID, Transform parent, Camera camera, int seed = 0)
         {
             var prefab = GetPrefab(modelID);
-            var model = Create(prefab, parent);
+            var model = Create(prefab, parent, camera, seed);
             if (model)
                 model.id = modelID;
             return model;
         }
-        public static Model Create(NamespaceID modelID, Transform parent, int seed)
-        {
-            var prefab = GetPrefab(modelID);
-            var model = Create(prefab, parent, seed);
-            if (model)
-                model.id = modelID;
-            return model;
-        }
-        public static Model Create(Model prefab, Transform parent)
+        public static Model Create(Model prefab, Transform parent, Camera camera, int seed = 0)
         {
             if (prefab == null)
                 return null;
             var model = Instantiate(prefab, parent).GetComponent<Model>();
-            model.Init();
-            return model;
-        }
-        public static Model Create(Model prefab, Transform parent, int seed)
-        {
-            if (prefab == null)
-                return null;
-            var model = Instantiate(prefab, parent).GetComponent<Model>();
-            model.Init(seed);
+            model.Init(camera, seed);
             return model;
         }
         #endregion
@@ -315,6 +304,7 @@ namespace MVZ2.Models
         private NamespaceID id;
         private NamespaceID parentKey;
         private string parentAnchor;
+        private Camera eventCamera;
 
         private int destroyTimeout;
         private ModelParentInterface modelInterface;

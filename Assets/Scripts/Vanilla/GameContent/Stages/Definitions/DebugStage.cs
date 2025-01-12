@@ -17,12 +17,13 @@ namespace MVZ2.GameContent.Stages
     {
         public DebugStage(string nsp, string name) : base(nsp, name)
         {
-            AddBehaviour(new ConveyorStageBehaviour(this));
+            //AddBehaviour(new ConveyorStageBehaviour(this));
         }
         public override void OnStart(LevelEngine level)
         {
             base.OnStart(level);
-            ConveyorStart(level);
+            ClassicStart(level);
+            //ConveyorStart(level);
             level.SetTriggerActive(true);
         }
         public override void OnUpdate(LevelEngine level)
@@ -48,8 +49,8 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.smallDispenser,
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.ghast,
-                VanillaBossID.slenderman,
+                VanillaContraptionID.tnt,
+                VanillaBossID.nightmareaper,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

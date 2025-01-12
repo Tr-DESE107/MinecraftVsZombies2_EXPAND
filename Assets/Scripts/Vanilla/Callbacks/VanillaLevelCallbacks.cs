@@ -26,6 +26,8 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
         public delegate void PostContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
 
+        public delegate void PostWaterInteraction(Entity entity, int action);
+
         public delegate bool PreEnemyNeutralize(Entity entity);
         public delegate void PostEnemyNeutralize(Entity entity);
         public delegate void EnemyDropRewards(Entity entity);
@@ -53,6 +55,8 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<GetContraptionSacrificeFuel> GET_CONTRAPTION_SACRIFICE_FUEL = new();
         public readonly static CallbackReference<PreContraptionSacrifice> PRE_CONTRAPTION_SACRIFICE = new();
         public readonly static CallbackReference<PostContraptionSacrifice> POST_CONTRAPTION_SACRIFICE = new();
+
+        public readonly static CallbackReference<PostWaterInteraction> POST_WATER_INTERACTION = new();
 
         public readonly static CallbackReference<PreEnemyNeutralize> PRE_ENEMY_NEUTRALIZE = new();
         public readonly static CallbackReference<PostEnemyNeutralize> POST_ENEMY_NEUTRALIZE = new();

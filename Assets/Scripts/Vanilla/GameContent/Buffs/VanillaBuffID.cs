@@ -100,11 +100,14 @@ namespace MVZ2.GameContent.Buffs
             public const string darkMatterDark = "dark_matter_dark";
             public const string pagodaBranchLevel = "pagoda_branch_level";
             public const string nightmareDecrepify = "nightmare_decrepify";
+            public const string nightmareaperDarkness = "nightmareaper_darkness";
         }
         public static class Boss
         {
             public const string frankensteinSteel = "frankenstein_steel";
             public const string frankensteinTransforming = "frankenstein_transforming";
+            public const string nightmareaperFall = "nightmareaper_fall";
+            public const string nightmareaperEnraged = "nightmareaper_enraged";
         }
     }
     public static class VanillaBuffID

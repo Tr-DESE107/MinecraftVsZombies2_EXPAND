@@ -18,6 +18,7 @@ namespace PVZEngine.Entities
         public const int MASK_PICKUP = 1 << 5;
         public const int MASK_PROJECTILE = 1 << 6;
         public const int MASK_EFFECT = 1 << 7;
+        public const int MASK_VULNERABLE = MASK_PLANT | MASK_ENEMY | MASK_OBSTACLE | MASK_BOSS;
 
         public const int STATE_ENTER = 0;
         public const int STATE_STAY = 1;

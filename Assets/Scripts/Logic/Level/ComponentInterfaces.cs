@@ -29,6 +29,10 @@ namespace MVZ2Logic.Level.Components
         void BeginLevel();
         void StopLevel();
         void SaveStateData();
+        bool IsGamePaused();
+        bool IsGameStarted();
+        bool IsGameOver();
+        bool IsGameRunning();
     }
     public interface IMusicComponent : ILevelComponent
     {
@@ -43,6 +47,7 @@ namespace MVZ2Logic.Level.Components
         void PlaySound(NamespaceID id, float pitch = 1);
         void StopAllLoopSounds();
         bool IsPlayingLoopSound(NamespaceID id);
+        bool HasLoopSoundEntity(NamespaceID id, long entityId);
         bool AddLoopSoundEntity(NamespaceID id, long entityId);
         bool RemoveLoopSoundEntity(NamespaceID id, long entityId);
         bool HasLoopSoundEntities(NamespaceID id);

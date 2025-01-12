@@ -950,6 +950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7726987811559464092}
   - component: {fileID: 2343584082378804533}
+  - component: {fileID: 2459582538196613976}
   m_Layer: 11
   m_Name: RightTrail
   m_TagString: Untagged
@@ -1015,6 +1016,15 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Positions:
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
   - {x: 0.1, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
@@ -1084,6 +1094,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &2459582538196613976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374965277114401704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c0c3147367b6c4ba96c3909349cb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 2343584082378804533}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &4704897719107684566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4306567935227585695}
   - component: {fileID: 4217574144208595496}
+  - component: {fileID: 7060444354972721332}
   m_Layer: 11
   m_Name: LeftTrail
   m_TagString: Untagged
@@ -1815,6 +1840,15 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Positions:
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
   - {x: -0.1, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
@@ -1884,6 +1918,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &7060444354972721332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067565693006859872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c0c3147367b6c4ba96c3909349cb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 4217574144208595496}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &6403122433310747709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2479,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 222333253475587376}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3152729976638313519, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 373827384312443124}
     - targetCorrespondingSourceObject: {fileID: 1408606006542680449, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4598012661657660308}
@@ -2490,3 +2541,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.6}
   m_EdgeRadius: 0
+--- !u!1 &7392049178646737322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3152729976638313519, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
+  m_PrefabInstance: {fileID: 5572477373346243973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &373827384312443124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392049178646737322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61a733f0d8019a42976d64261ebfdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftArmParent: {fileID: 5237961704389895786}
+  rightArmParent: {fileID: 3941076387774876862}
+  rageRightArmDir: {x: 1, y: 0}
+  rageLeftArmDir: {x: -1, y: 0}
+  mobileRageRightArmDir: {x: 0, y: -1}
+  mobileRageLeftArmDir: {x: 0, y: 1}
+  leftEyeTrail: {fileID: 7060444354972721332}
+  rightEyeTrail: {fileID: 2459582538196613976}

@@ -46,6 +46,13 @@ namespace MVZ2Logic.Level
                 return false;
             return component.HasLoopSoundEntities(id);
         }
+        public static bool HasLoopSoundEntity(this LevelEngine level, NamespaceID soundID, long id)
+        {
+            var component = level.GetSoundComponent();
+            if (component == null)
+                return false;
+            return component.HasLoopSoundEntity(soundID, id);
+        }
         public static void StopAllLoopSounds(this LevelEngine level)
         {
             var component = level.GetSoundComponent();

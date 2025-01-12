@@ -69,6 +69,16 @@ namespace PVZEngine.Level
         {
             return entities.Where(predicate).ToArray();
         }
+        public void FindEntitiesNonAlloc(Func<Entity, bool> predicate, List<Entity> results)
+        {
+            foreach (var entity in entities)
+            {
+                if (predicate(entity))
+                {
+                    results.Add(entity);
+                }
+            }
+        }
         public Entity FindEntityByID(long id)
         {
             var entity = FindFirstEntity(i => i.ID == id);

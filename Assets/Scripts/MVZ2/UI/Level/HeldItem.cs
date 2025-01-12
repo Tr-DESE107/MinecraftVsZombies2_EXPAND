@@ -26,7 +26,7 @@ namespace MVZ2.Level.UI
                 model.SetSimulationSpeed(speed);
             }
         }
-        public void SetModel(Model prefab)
+        public void SetModel(Model prefab, Camera camera)
         {
             if (model)
             {
@@ -35,7 +35,7 @@ namespace MVZ2.Level.UI
             }
             if (prefab)
             {
-                model = Model.Create(prefab, modelRoot);
+                model = Model.Create(prefab, modelRoot, camera);
             }
         }
         public Model GetModel()

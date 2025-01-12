@@ -55,11 +55,8 @@ namespace MVZ2.Entities
                 Destroy(Model.gameObject);
                 Model = null;
             }
-            var model = Models.Model.Create(modelId, transform, Entity.InitSeed);
-            if (model is SpriteModel spriteModel)
-            {
-                Model = spriteModel;
-            }
+            var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
+            Model = model;
             if (!Model)
                 return;
             UpdateEntityModel();
@@ -292,11 +289,11 @@ namespace MVZ2.Entities
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
-            return Model.RendererGroup.SortingLayerID;
+            return Model.GraphicGroup.SortingLayerID;
         }
         int ILevelRaycastReceiver.GetSortingOrder()
         {
-            return Model.RendererGroup.SortingOrder;
+            return Model.GraphicGroup.SortingOrder;
         }
         #endregion
 
@@ -380,7 +377,7 @@ namespace MVZ2.Entities
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundY();
 
-            var rendererGroup = Model.RendererGroup;
+            var rendererGroup = Model.GraphicGroup;
             Model.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
             Model.transform.localScale = Entity.GetDisplayScale();
@@ -394,7 +391,10 @@ namespace MVZ2.Entities
             var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
             var lightColor = Entity.GetLightColor();
             var randomLightScale = rng.Next(-0.05f, 0.05f);
-            Model.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
+            if (Model is SpriteModel sprModel)
+            {
+                sprModel.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
+            }
 
         }
         #endregion
@@ -452,7 +452,7 @@ namespace MVZ2.Entities
             { EntityTypes.PICKUP, 7 },
         };
         public MainManager Main => MainManager.Instance;
-        public SpriteModel Model { get; private set; }
+        public Model Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }

@@ -24,5 +24,25 @@ namespace MVZ2Logic.Level
             var component = level.GetLogicComponent();
             component.SaveStateData();
         }
+        public static bool IsGamePaused(this LevelEngine level)
+        {
+            var component = level.GetLogicComponent();
+            return component.IsGamePaused();
+        }
+        public static bool IsGameStarted(this LevelEngine level)
+        {
+            var component = level.GetLogicComponent();
+            return component.IsGameStarted();
+        }
+        public static bool IsGameOver(this LevelEngine level)
+        {
+            var component = level.GetLogicComponent();
+            return component.IsGameOver();
+        }
+        public static bool IsGameRunning(this LevelEngine level)
+        {
+            var component = level.GetLogicComponent();
+            return component.IsGameRunning();
+        }
     }
 }

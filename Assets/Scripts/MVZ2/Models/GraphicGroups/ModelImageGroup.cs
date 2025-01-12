@@ -1,13 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace MVZ2.Models
 {
+    [RequireComponent(typeof(Canvas))]
     public class ModelImageGroup : ModelGraphicGroup
     {
         #region 公有方法
+        public void SetCamera(Camera camera)
+        {
+            canvas.worldCamera = camera;
+        }
         public override void UpdateElements()
         {
             images.Clear();
@@ -81,6 +87,12 @@ namespace MVZ2.Models
         }
         #endregion
 
+        public override int SortingLayerID { get => canvas.sortingLayerID; set => canvas.sortingLayerID = value; }
+        public override string SortingLayerName { get => canvas.sortingLayerName; set => canvas.sortingLayerName = value; }
+        public override int SortingOrder { get => canvas.sortingOrder; set => canvas.sortingOrder = value; }
+
+        [SerializeField]
+        private Canvas canvas;
         [SerializeField]
         private List<ImageElement> images = new List<ImageElement>();
 

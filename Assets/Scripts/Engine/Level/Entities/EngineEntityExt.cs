@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Damages;
+using UnityEngine;
 
 namespace PVZEngine.Entities
 {
@@ -20,6 +21,10 @@ namespace PVZEngine.Entities
         public static NamespaceID GetDefinitionID(this Entity entity)
         {
             return entity?.Definition?.GetID();
+        }
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position)
+        {
+            return entity.Level.Spawn(id, position, entity);
         }
     }
 }

@@ -318,6 +318,12 @@
     <sound name="nightmare_portal">
         <sample path="mvz2:nightmare_portal" weight="1" />
     </sound>
+    <sound name="nightmareaper_death">
+        <sample path="mvz2:entity/nightmareaper/nightmareaper_death" weight="1" />
+    </sound>
+    <sound name="nightmareaper_rage">
+        <sample path="mvz2:entity/nightmareaper/nightmareaper_rage" weight="1" />
+    </sound>
     <sound name="nyaightmare_scream">
         <sample path="mvz2:nyaightmare_scream" weight="1" />
     </sound>
@@ -396,6 +402,9 @@
     </sound>
     <sound name="revive_cast">
         <sample path="mvz2:revive_cast" weight="1" />
+    </sound>
+    <sound name="revived">
+        <sample path="mvz2:revived" weight="1" />
     </sound>
     <sound name="scream">
         <sample path="mvz2:scream" weight="1" />
@@ -576,6 +585,12 @@
     </sound>
     <sound name="water">
         <sample path="mvz2:water" weight="1" />
+    </sound>
+    <sound name="wheel_of_death_start">
+        <sample path="mvz2:entity/nightmareaper/wheel_of_death_start" weight="1" />
+    </sound>
+    <sound name="wheel_of_death_loop">
+        <sample path="mvz2:entity/nightmareaper/wheel_of_death_loop" weight="1" />
     </sound>
     <sound name="win_music" priority="0">
         <sample path="mvz2:win_music" weight="1" />

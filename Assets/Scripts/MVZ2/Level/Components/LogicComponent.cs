@@ -22,6 +22,22 @@ namespace MVZ2.Level.Components
         {
             Main.LevelManager.SaveLevel();
         }
+        public bool IsGamePaused()
+        {
+            return Controller.IsGamePaused();
+        }
+        public bool IsGameStarted()
+        {
+            return Controller.IsGameStarted();
+        }
+        public bool IsGameOver()
+        {
+            return Controller.IsGameOver();
+        }
+        public bool IsGameRunning()
+        {
+            return Controller.IsGameRunning();
+        }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "logic");
     }
 }

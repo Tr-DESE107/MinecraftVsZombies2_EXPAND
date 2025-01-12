@@ -52,7 +52,7 @@ namespace MVZ2.Level
             {
                 model = Main.ResourceManager.GetModel(modelMeta.Path);
             }
-            ui.SetHeldItemModel(model);
+            ui.SetHeldItemModel(model, GetCamera());
         }
         public Model GetHeldItemModel()
         {
@@ -272,7 +272,7 @@ namespace MVZ2.Level
             ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
             ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
 
-            ui.SetHeldItemModel(null);
+            ui.SetHeldItemModel(null, GetCamera());
             ui.SetPauseDialogActive(false);
             ui.SetOptionsDialogActive(false);
             ui.SetGameOverDialogActive(false);

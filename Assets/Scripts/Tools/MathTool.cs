@@ -307,51 +307,47 @@ namespace Tools.Mathematics
 
         public static bool CollideBetweenCudeAndCylinder(Cylinder cylinder, Bounds cube)
         {
-            int componentSide1;
-            int componentSide2;
-            int componentTop1;
-            int componentTop2;
+            Rect cylinderRectSide;
+            Rect cubeRectSide;
+            Vector2 cylinderCenterTop;
+            Rect cubeRectTop;
             switch (cylinder.axis)
             {
                 case Axis.X:
                     {
-                        componentSide1 = 0; // x
-                        componentSide2 = 1; // y
+                        cylinderRectSide = new Rect(cylinder.center.x - cylinder.length * 0.5f, cylinder.center.y - cylinder.radius, cylinder.length, cylinder.radius * 2);
+                        cubeRectSide = new Rect(cube.min.x, cube.min.y, cube.size.x, cube.size.y);
 
-                        componentTop1 = 2; // z
-                        componentTop2 = 1; // y
+                        cylinderCenterTop = new Vector2(cylinder.center.z, cylinder.center.y);
+                        cubeRectTop = new Rect(cube.min.z, cube.min.y, cube.size.z, cube.size.y);
                     }
                     break;
                 case Axis.Y:
                     {
-                        componentSide1 = 0; // x
-                        componentSide2 = 1; // y
+                        cylinderRectSide = new Rect(cylinder.center.x - cylinder.radius, cylinder.center.y - cylinder.length * 0.5f, cylinder.radius * 2, cylinder.length);
+                        cubeRectSide = new Rect(cube.min.x, cube.min.y, cube.size.x, cube.size.y);
 
-                        componentTop1 = 0; // x
-                        componentTop2 = 2; // z
+                        cylinderCenterTop = new Vector2(cylinder.center.x, cylinder.center.z);
+                        cubeRectTop = new Rect(cube.min.x, cube.min.z, cube.size.x, cube.size.z);
                     }
                     break;
                 case Axis.Z:
                     {
-                        componentSide1 = 0; // x
-                        componentSide2 = 2; // z
+                        cylinderRectSide = new Rect(cylinder.center.x - cylinder.radius, cylinder.center.z - cylinder.length * 0.5f, cylinder.radius * 2, cylinder.length);
+                        cubeRectSide = new Rect(cube.min.x, cube.min.z, cube.size.x, cube.size.z);
 
-                        componentTop1 = 0; // x
-                        componentTop2 = 1; // y
+                        cylinderCenterTop = new Vector2(cylinder.center.x, cylinder.center.y);
+                        cubeRectTop = new Rect(cube.min.x, cube.min.y, cube.size.x, cube.size.y);
                     }
                     break;
                 default:
                     return false;
             }
-            Rect cylinderRectSide = new Rect(cylinder.center[componentSide1] - cylinder.length * 0.5f, cylinder.center[componentSide2] - cylinder.radius, cylinder.length, cylinder.radius * 2);
-            Rect cubeRectSide = new Rect(cube.min[componentSide1], cube.min[componentSide2], cube.size[componentSide1], cube.size[componentSide2]);
 
             // 检测圆柱体侧面1是否与方块侧面相交。
             if (!cubeRectSide.Overlaps(cylinderRectSide))
                 return false;
 
-            Vector2 cylinderCenterTop = new Vector2(cylinder.center[componentTop1], cylinder.center[componentTop2]);
-            Rect cubeRectTop = new Rect(cube.min[componentTop1], cube.min[componentTop2], cube.size[componentTop1], cube.size[componentTop2]);
             return CollideBetweenRectangleAndCircle(cylinderCenterTop, cylinder.radius, cubeRectTop.center, cubeRectTop.size);
         }
         public static bool CollideBetweenCudeAndRoundCube(RoundCube roundCube, Bounds cube)

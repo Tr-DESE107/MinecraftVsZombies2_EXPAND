@@ -1,10 +1,11 @@
 ﻿using TMPro;
 using Tools;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MVZ2.Models
 {
-    public class BreakoutModel : ModelComponent
+    public class BreakoutBoardModel : ModelComponent
     {
         public override void UpdateFrame(float deltaTime)
         {

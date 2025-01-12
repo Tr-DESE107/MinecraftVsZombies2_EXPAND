@@ -5,6 +5,11 @@ namespace MVZ2.Models
     [DisallowMultipleComponent]
     public sealed class UIModel : Model
     {
+        public override void Init(Camera camera, int seed = 0)
+        {
+            base.Init(camera, seed);
+            imageGroup.SetCamera(camera);
+        }
         protected override SerializableModelData CreateSerializable()
         {
             var serializable = new SerializableUIModelData();
