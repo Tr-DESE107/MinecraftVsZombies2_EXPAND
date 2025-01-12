@@ -470,12 +470,38 @@ namespace MVZ2.Level
             ui.SetLevelLoadedDialogVisible(false);
             levelLoaded = false;
         }
+        #region 关卡模型
         public void SetModelPreset(string name)
         {
             if (!model)
                 return;
             model.SetPreset(name);
         }
+        public void TriggerModelAnimator(string name)
+        {
+            if (!model)
+                return;
+            model.TriggerAnimator(name);
+        }
+        public void SetModelAnimatorBool(string name, bool value)
+        {
+            if (!model)
+                return;
+            model.SetAnimatorBool(name, value);
+        }
+        public void SetModelAnimatorInt(string name, int value)
+        {
+            if (!model)
+                return;
+            model.SetAnimatorInt(name, value);
+        }
+        public void SetModelAnimatorFloat(string name, float value)
+        {
+            if (!model)
+                return;
+            model.SetAnimatorFloat(name, value);
+        }
+        #endregion
         public ILevelUI GetUI()
         {
             return ui;

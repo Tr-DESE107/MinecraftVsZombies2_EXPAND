@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             ClassicStart(level);
             //ConveyorStart(level);
+            level.LevelProgressVisible = true;
             level.SetTriggerActive(true);
         }
         public override void OnUpdate(LevelEngine level)

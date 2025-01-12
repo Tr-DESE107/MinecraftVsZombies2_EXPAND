@@ -107,10 +107,14 @@ namespace MVZ2Logic.Level.Components
         void HideHintArrow();
         void SetProgressBarToBoss(NamespaceID barStyle);
         void SetProgressBarToStage();
-        void SetAreaModelPreset(string name);
         void PauseGame(int level = 0);
         void ResumeGame(int level = 0);
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
+        void SetAreaModelPreset(string name);
+        void TriggerModelAnimator(string name);
+        void SetModelAnimatorBool(string name, bool value);
+        void SetModelAnimatorInt(string name, int value);
+        void SetModelAnimatorFloat(string name, float value);
     }
     public interface IMoneyComponent : ILevelComponent
     {

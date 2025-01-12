@@ -109,11 +109,6 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.SetProgressBarToStage();
         }
-        public static void SetAreaModelPreset(this LevelEngine level, string preset)
-        {
-            var component = level.GetUIComponent();
-            component.SetAreaModelPreset(preset);
-        }
         public static void PauseGame(this LevelEngine level, int pauseLevel = 0)
         {
             var component = level.GetUIComponent();
@@ -128,6 +123,31 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetUIComponent();
             component.ShowDialog(title, desc, options, onSelect);
+        }
+        public static void SetAreaModelPreset(this LevelEngine level, string preset)
+        {
+            var component = level.GetUIComponent();
+            component.SetAreaModelPreset(preset);
+        }
+        public static void TriggerModelAnimator(this LevelEngine level, string name)
+        {
+            var component = level.GetUIComponent();
+            component.TriggerModelAnimator(name);
+        }
+        public static void SetModelAnimatorBool(this LevelEngine level, string name, bool value)
+        {
+            var component = level.GetUIComponent();
+            component.SetModelAnimatorBool(name, value);
+        }
+        public static void SetModelAnimatorInt(this LevelEngine level, string name, int value)
+        {
+            var component = level.GetUIComponent();
+            component.SetModelAnimatorInt(name, value);
+        }
+        public static void SetModelAnimatorFloat(this LevelEngine level, string name, float value)
+        {
+            var component = level.GetUIComponent();
+            component.SetModelAnimatorFloat(name, value);
         }
     }
 }

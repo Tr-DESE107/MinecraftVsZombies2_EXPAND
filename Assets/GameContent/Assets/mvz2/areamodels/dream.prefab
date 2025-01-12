@@ -847,6 +847,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+--- !u!95 &292457789937871089 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 828729900372117667, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+  m_PrefabInstance: {fileID: 1121178309294956626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1409450254617675768 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2017725000621238186, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
@@ -1249,6 +1254,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7636320852132968293, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
   m_PrefabInstance: {fileID: 5180300170834723836}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &5504563106087635807 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 828729900372117667, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+  m_PrefabInstance: {fileID: 5180300170834723836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &6621551207012623446 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2017725000621238186, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
@@ -1323,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: animators.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: particles.Array.size
@@ -1332,13 +1342,21 @@ PrefabInstance:
     - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: animators.Array.data[0]
       value: 
-      objectReference: {fileID: 686247128418339381}
+      objectReference: {fileID: 292457789937871089}
     - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: animators.Array.data[1]
       value: 
-      objectReference: {fileID: 4341045390175160526}
+      objectReference: {fileID: 5504563106087635807}
     - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: animators.Array.data[2]
+      value: 
+      objectReference: {fileID: 686247128418339381}
+    - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: animators.Array.data[3]
+      value: 
+      objectReference: {fileID: 4341045390175160526}
+    - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: animators.Array.data[4]
       value: 
       objectReference: {fileID: 1173937056704141441}
     - target: {fileID: 3140136885680147025, guid: dec9834b166bdab458046cd2f53dece8, type: 3}

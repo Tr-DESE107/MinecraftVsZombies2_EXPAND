@@ -173,6 +173,22 @@ namespace MVZ2.Level.Components
         {
             Controller.SetModelPreset(preset);
         }
+        public void TriggerModelAnimator(string name)
+        {
+            Controller.TriggerModelAnimator(name);
+        }
+        public void SetModelAnimatorBool(string name, bool value)
+        {
+            Controller.SetModelAnimatorBool(name, value);
+        }
+        public void SetModelAnimatorInt(string name, int value)
+        {
+            Controller.SetModelAnimatorInt(name, value);
+        }
+        public void SetModelAnimatorFloat(string name, float value)
+        {
+            Controller.SetModelAnimatorFloat(name, value);
+        }
         public HintArrowTargetType TargetType { get; private set; }
         public long TargetID { get; private set; }
         public static readonly NamespaceID componentID = new NamespaceID(Vanilla.VanillaMod.spaceName, "ui");

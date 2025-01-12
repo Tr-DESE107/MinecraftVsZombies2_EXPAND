@@ -51,6 +51,26 @@ namespace MVZ2.Level
                 obj.SetActive(visible);
             }
         }
+
+        #region 动画
+        public void TriggerAnimator(string name)
+        {
+            updateGroup.TriggerAnimator(name);
+        }
+        public void SetAnimatorBool(string name, bool value)
+        {
+            updateGroup.SetAnimatorBool(name, value);
+        }
+        public void SetAnimatorInt(string name, int value)
+        {
+            updateGroup.SetAnimatorInt(name, value);
+        }
+        public void SetAnimatorFloat(string name, float value)
+        {
+            updateGroup.SetAnimatorFloat(name, value);
+        }
+        #endregion
+
         #region 序列化
         public SerializableAreaModelData ToSerializable()
         {

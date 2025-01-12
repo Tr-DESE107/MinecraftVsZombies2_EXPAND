@@ -30,33 +30,7 @@ namespace MVZ2.Managers
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
 
-            SerializeHelper.init(BuiltinNamespace);
-            // MVZ2
-            SerializeHelper.RegisterClass<SerializableUserDataList>();
-            SerializeHelper.RegisterClass<SerializableSaveDataMeta>();
-            SerializeHelper.RegisterClass<SerializableAdviceComponent>();
-            SerializeHelper.RegisterClass<SerializableArtifactComponent>();
-            SerializeHelper.RegisterClass<SerializableLightComponent>();
-            SerializeHelper.RegisterClass<SerializableUIComponent>();
-            SerializeHelper.RegisterClass<SerializableSoundComponent>();
-            SerializeHelper.RegisterClass<SerializableBlueprintComponent>();
-            SerializeHelper.RegisterClass<EmptySerializableLevelComponent>();
-
-            SerializeHelper.RegisterClass<SerializableLevelControllerPart>();
-            SerializeHelper.RegisterClass<SerializableLevelBlueprintController>();
-            SerializeHelper.RegisterClass<SerializableLevelBlueprintChooseController>();
-
-            SerializeHelper.RegisterClass<SerializableBlueprintController>();
-            SerializeHelper.RegisterClass<SerializableClassicBlueprintController>();
-            SerializeHelper.RegisterClass<SerializableConveyorBlueprintController>();
-
-            SerializeHelper.RegisterClass<SerializableModelData>();
-            SerializeHelper.RegisterClass<SerializableSpriteModelData>();
-            SerializeHelper.RegisterClass<SerializableUIModelData>();
-
-            SerializeHelper.RegisterClass<SerializableModelGraphicGroup>();
-            SerializeHelper.RegisterClass<SerializableModelRendererGroup>();
-            SerializeHelper.RegisterClass<SerializableModelImageGroup>();
+            InitSerializable();
 
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
@@ -108,6 +82,8 @@ namespace MVZ2.Managers
         }
         public Sprite GetFinalSprite(SpriteReference spriteRef)
         {
+            if (!SpriteReference.IsValid(spriteRef))
+                return null;
             if (!OptionsManager.HasBloodAndGore())
             {
                 var id = spriteRef.id;
@@ -176,6 +152,40 @@ namespace MVZ2.Managers
         private void OnApplicationQuit()
         {
             SaveManager.SaveModDatas();
+        }
+        private void InitSerializable()
+        {
+            SerializeHelper.init(BuiltinNamespace);
+            // MVZ2
+            SerializeHelper.RegisterClass<SerializableUserDataList>();
+            SerializeHelper.RegisterClass<SerializableSaveDataMeta>();
+            SerializeHelper.RegisterClass<SerializableAdviceComponent>();
+            SerializeHelper.RegisterClass<SerializableArtifactComponent>();
+            SerializeHelper.RegisterClass<SerializableLightComponent>();
+            SerializeHelper.RegisterClass<SerializableUIComponent>();
+            SerializeHelper.RegisterClass<SerializableSoundComponent>();
+            SerializeHelper.RegisterClass<SerializableBlueprintComponent>();
+            SerializeHelper.RegisterClass<EmptySerializableLevelComponent>();
+
+            SerializeHelper.RegisterClass<SerializableLevelControllerPart>();
+            SerializeHelper.RegisterClass<SerializableLevelBlueprintController>();
+            SerializeHelper.RegisterClass<SerializableLevelBlueprintChooseController>();
+
+            SerializeHelper.RegisterClass<SerializableBlueprintController>();
+            SerializeHelper.RegisterClass<SerializableClassicBlueprintController>();
+            SerializeHelper.RegisterClass<SerializableConveyorBlueprintController>();
+
+            SerializeHelper.RegisterClass<SerializableModelData>();
+            SerializeHelper.RegisterClass<SerializableSpriteModelData>();
+            SerializeHelper.RegisterClass<SerializableUIModelData>();
+
+            SerializeHelper.RegisterClass<SerializableModelGraphicGroup>();
+            SerializeHelper.RegisterClass<SerializableModelRendererGroup>();
+            SerializeHelper.RegisterClass<SerializableModelImageGroup>();
+
+            SerializeHelper.RegisterClass<SerializableGraphicElement>();
+            SerializeHelper.RegisterClass<SerializableRendererElement>();
+            SerializeHelper.RegisterClass<SerializableImageElement>();
         }
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {

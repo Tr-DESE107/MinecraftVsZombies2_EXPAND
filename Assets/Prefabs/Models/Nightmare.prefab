@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7636320852132968293}
   - component: {fileID: 3608451726858371301}
+  - component: {fileID: 828729900372117667}
   m_Layer: 12
   m_Name: Nightmare
   m_TagString: Untagged
@@ -166,6 +167,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presetName: nightmare
+--- !u!95 &828729900372117667
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604851163717151955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2cd0da9b7b4fa65499a70f03a552b8cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4593619633203608753
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +366,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3553294009672431779}
   - component: {fileID: 9066033358763612531}
+  - component: {fileID: 5317433012207967024}
+  - component: {fileID: 6626686124413113830}
   m_Layer: 12
   m_Name: BossSky
   m_TagString: Untagged
@@ -418,6 +442,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5317433012207967024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200636921570509447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21d21cd4637ef04391d6b777dacd0dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sky: {fileID: 6626686124413113830}
+  warpTime: 0
+--- !u!114 &6626686124413113830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200636921570509447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &7923582810466479565
 GameObject:
   m_ObjectHideFlags: 0

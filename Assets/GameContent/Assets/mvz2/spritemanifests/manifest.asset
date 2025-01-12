@@ -205,6 +205,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
   - name: products/starshard_slot
     sprite: {fileID: 21300000, guid: b944e3154656ac74f8054ed14cb53335, type: 3}
+  - name: shading/nightmare_boss_sky
+    sprite: {fileID: 21300000, guid: 0d2c48cde3441c649b93560520f96272, type: 3}
+  - name: shading/nightmare_boss_sky_censored
+    sprite: {fileID: 21300000, guid: 40db1b532555e104184c1eca82025505, type: 3}
+  - name: shading/pool
+    sprite: {fileID: 21300000, guid: 5a43bbbdfc2dfc64382269576cdd5203, type: 3}
+  - name: shading/pool_shade
+    sprite: {fileID: 21300000, guid: 0d7f2041adf80d54c9e2d84f3b4a6f2c, type: 3}
+  - name: shading/pool_shade_nightmare
+    sprite: {fileID: 21300000, guid: 237ffa5c541517f40ac8dbcb9bdd1f01, type: 3}
+  - name: shading/soul_furnace_fuel_bar
+    sprite: {fileID: 21300000, guid: 6af7dae5c4c813148a830a41c92b2706, type: 3}
   - name: starshards/default
     sprite: {fileID: 21300000, guid: 5fe877b614795e144996e5d0ede65e81, type: 3}
   - name: starshards/dream
@@ -285,8 +297,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4f777df47e4e3e849839101638a97ed9, type: 3}
   - name: entity/contraptions/soul_furnace
     sprite: {fileID: 21300000, guid: 24543ba35a4b2b248b19964dc8587095, type: 3}
-  - name: entity/contraptions/soul_furnace_fuel_bar
-    sprite: {fileID: 21300000, guid: 6af7dae5c4c813148a830a41c92b2706, type: 3}
   - name: entity/contraptions/soul_furnace_light
     sprite: {fileID: 21300000, guid: d04fa54aea815bb44be98b8a3bb2ed5b, type: 3}
   - name: entity/contraptions/tnt
@@ -299,6 +309,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d26b719675efdbf49b1e6342f7270818, type: 3}
   - name: entity/effects/breakout_board_long
     sprite: {fileID: 21300000, guid: a6f5c16aaaa862f4a8000dbbb824d5a0, type: 3}
+  - name: entity/effects/crushing_wall_left
+    sprite: {fileID: 21300000, guid: 2574e617cf0030645966d0a257f50050, type: 3}
+  - name: entity/effects/crushing_wall_left_censored
+    sprite: {fileID: 21300000, guid: 42226c15cb218274b8576006d9f58dc6, type: 3}
+  - name: entity/effects/crushing_wall_right
+    sprite: {fileID: 21300000, guid: 6a18698f112f8244db4b1e5de5873248, type: 3}
+  - name: entity/effects/crushing_wall_right_censored
+    sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
   - name: entity/effects/evocation_star
     sprite: {fileID: 21300000, guid: 8b93445b685c42440938fc5154ea419c, type: 3}
   - name: entity/effects/fire_particle
@@ -315,6 +333,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6a6baf812492dec40ba2154d360755bb, type: 3}
   - name: entity/effects/mine_debris
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
+  - name: entity/effects/nightmareaper_shadow
+    sprite: {fileID: 21300000, guid: 79171aca3bcf918459cf2160bda1f9f2, type: 3}
+  - name: entity/effects/nightmare_broken_glass
+    sprite: {fileID: 21300000, guid: bbeefbb207c94ad428e3fdbcab7acbbd, type: 3}
   - name: entity/effects/nightmare_eye_mask
     sprite: {fileID: 21300000, guid: 0e5714ba6ca6d674889c791b36a58067, type: 3}
   - name: entity/effects/nightmare_portal_background
@@ -347,6 +369,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 498cfe5e32569bc43ae84fc47f7622ce, type: 3}
   - name: entity/effects/vortex
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
+  - name: entity/effects/water_splash
+    sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
   - name: entity/enemies/bow_texture
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
   - name: entity/enemies/ghost_headwear
@@ -415,10 +439,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 64951a0026f5ef54bbb28092c064d4ea, type: 3}
   - name: level/dream/dream_sky
     sprite: {fileID: 21300000, guid: ced932759e970e74891ad58675bf4e53, type: 3}
-  - name: level/dream/nightmare_boss_sky
-    sprite: {fileID: 21300000, guid: 0d2c48cde3441c649b93560520f96272, type: 3}
-  - name: level/dream/nightmare_boss_sky_censored
-    sprite: {fileID: 21300000, guid: 40db1b532555e104184c1eca82025505, type: 3}
   - name: level/dream/nightmare_ground
     sprite: {fileID: 21300000, guid: 4a34d2e0337c5e24196eb44240e1b00c, type: 3}
   - name: level/dream/nightmare_ground_censored
@@ -427,12 +447,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f0125c799657eb041aea02f63549e0a0, type: 3}
   - name: level/dream/nightmare_sky_censored
     sprite: {fileID: 21300000, guid: 227ed731d72488f4aa762e37f9d60767, type: 3}
-  - name: level/dream/pool
-    sprite: {fileID: 21300000, guid: 5a43bbbdfc2dfc64382269576cdd5203, type: 3}
-  - name: level/dream/pool_shade
-    sprite: {fileID: 21300000, guid: 0d7f2041adf80d54c9e2d84f3b4a6f2c, type: 3}
-  - name: level/dream/pool_shade_nightmare
-    sprite: {fileID: 21300000, guid: 237ffa5c541517f40ac8dbcb9bdd1f01, type: 3}
   - name: level/dream/pool_sparkle
     sprite: {fileID: 21300000, guid: bfce65959617bce4ab0ffb4a5d19df4c, type: 3}
   - name: level/halloween/halloween
@@ -495,6 +509,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b5bea0ef6d58f2d47ad694ab28830cba, type: 3}
   - name: ui/level/lose
     sprite: {fileID: 21300000, guid: 3c0108de01484784fa9b10b13d99aed0, type: 3}
+  - name: ui/level/mind_swap_blackhole
+    sprite: {fileID: 21300000, guid: 4c4c1d5c3108f034bbb656243270b2fd, type: 3}
   - name: ui/level/pause_image_0
     sprite: {fileID: 21300000, guid: 3cb42106841fca546970463cc36fbf45, type: 3}
   - name: ui/level/pause_image_1
@@ -555,11 +571,11 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b34bc915055138f4b98fddeb34062934, type: 3}
   - name: ui/level/progress_bar/level_progress_icon
     sprite: {fileID: 21300000, guid: 24d902c61d41892478d085a513cc421a, type: 3}
-  - name: ui/level/progress_bar/nightmare_health_bar
+  - name: ui/level/progress_bar/nightmare
     sprite: {fileID: 21300000, guid: 476d29f782ced5045aee9c4a94e69cad, type: 3}
-  - name: ui/level/progress_bar/nightmare_health_bar_background
+  - name: ui/level/progress_bar/nightmare_background
     sprite: {fileID: 21300000, guid: b63bdd3991537ac4f9fd0e050c80fa41, type: 3}
-  - name: ui/level/progress_bar/nightmare_health_bar_foreground
+  - name: ui/level/progress_bar/nightmare_foreground
     sprite: {fileID: 21300000, guid: f8aa3c3a44b8f774e9b5441b1cb9f0e6, type: 3}
   spritesheetEntries:
   - name: map_button
@@ -986,6 +1002,41 @@ MonoBehaviour:
     - {fileID: -1309202034, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
     - {fileID: -864480218, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
     - {fileID: 191063626, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
+  - name: entity/effect/nightmare_broken_glasses
+    spritesheet:
+    - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 8269609324391817686, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3401429139997365564, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3358884720331307487, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 6874442815973686135, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 4679210846951038084, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -6495485243686058542, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 2461164191611283521, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 5417238220393675570, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -9112802057215566970, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 463742695704995586, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -8139932753208879606, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 846718947521563388, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 7416995959784659540, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 8208414520498518862, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 8004326224164664021, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 7724346793561393014, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3823601113008493474, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -7756604054095924733, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -7821657702799450650, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 2380259279533041994, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 4360235884385069951, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3439651553194031847, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -2918477655606386715, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+  - name: entity/effect/nightmare_eyes
+    spritesheet:
+    - {fileID: -1975613896574560083, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
+    - {fileID: 2570959553664901692, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
+    - {fileID: 8254185771969513376, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
+    - {fileID: -1662184291880087180, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
+    - {fileID: -624973729979173550, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
+    - {fileID: -5537431986960710146, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
+    - {fileID: -6933954499024030742, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
   - name: entity/effect/particle_outline
     spritesheet:
     - {fileID: 21300000, guid: d8b5fc6bc8605c7498d0a162438727ce, type: 3}
