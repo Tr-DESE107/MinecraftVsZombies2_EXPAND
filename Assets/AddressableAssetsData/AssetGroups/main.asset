@@ -186,7 +186,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d2c48cde3441c649b93560520f96272
-    m_Address: mvz2:level/dream/nightmare_boss_sky
+    m_Address: mvz2:shading/nightmare_boss_sky
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -204,7 +204,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d7f2041adf80d54c9e2d84f3b4a6f2c
-    m_Address: mvz2:level/dream/pool_shade
+    m_Address: mvz2:shading/pool_shade
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -618,7 +618,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 237ffa5c541517f40ac8dbcb9bdd1f01
-    m_Address: mvz2:level/dream/pool_shade_nightmare
+    m_Address: mvz2:shading/pool_shade_nightmare
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1295,7 +1295,7 @@ MonoBehaviour:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40db1b532555e104184c1eca82025505
-    m_Address: mvz2:level/dream/nightmare_boss_sky_censored
+    m_Address: mvz2:shading/nightmare_boss_sky_censored
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1433,7 +1433,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 476d29f782ced5045aee9c4a94e69cad
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar
+    m_Address: mvz2:ui/level/progress_bar/nightmare
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1769,7 +1769,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a43bbbdfc2dfc64382269576cdd5203
-    m_Address: mvz2:level/dream/pool
+    m_Address: mvz2:shading/pool
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2087,7 +2087,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6af7dae5c4c813148a830a41c92b2706
-    m_Address: mvz2:entity/contraptions/soul_furnace_fuel_bar
+    m_Address: mvz2:shading/soul_furnace_fuel_bar
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3617,7 +3617,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_background
+    m_Address: mvz2:ui/level/progress_bar/nightmare_background
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4877,7 +4877,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
-    m_Address: mvz2:ui/level/progress_bar/nightmare_health_bar_foreground
+    m_Address: mvz2:ui/level/progress_bar/nightmare_foreground
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

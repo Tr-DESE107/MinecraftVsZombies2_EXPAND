@@ -20,7 +20,6 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
-using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
