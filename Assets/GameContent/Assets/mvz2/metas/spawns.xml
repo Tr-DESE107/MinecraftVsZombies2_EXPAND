@@ -16,6 +16,11 @@
         <terrain water="true"/>
         <weight base="3000" />
     </entry>
+    <entry id="flag_zombie" entity="mvz2:flag_zombie" >
+        <spawn level="0" />
+        <terrain water="true"/>
+        <weight base="0" />
+    </entry>
 
     <!-- Halloween -->
     <entry id="skeleton" entity="mvz2:skeleton" >

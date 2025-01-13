@@ -4,6 +4,7 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
@@ -325,6 +326,20 @@ namespace MVZ2.Vanilla.Level
             level.AddSpawnedEnemyID(spawnDef.GetID());
             level.StageDefinition.PostEnemySpawned(enemy);
             level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, enemy);
+            return enemy;
+        }
+        public static Entity SpawnFlagZombie(this LevelEngine level)
+        {
+            var lane = level.GetRandomEnemySpawnLane();
+            return level.SpawnFlagZombie(lane);
+        }
+        public static Entity SpawnFlagZombie(this LevelEngine level, int lane)
+        {
+            var x = level.GetEnemySpawnX();
+            var z = level.GetEntityLaneZ(lane);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            var enemy = level.Spawn(VanillaEnemyID.flagZombie, pos, null);
             return enemy;
         }
         #endregion

@@ -186,7 +186,7 @@ namespace MVZ2.GameContent.Stages
                 NextWave(level);
                 if (SpawnFlagZombie)
                 {
-                    level.SpawnEnemyAtRandomLane(level.Content.GetSpawnDefinition(VanillaSpawnID.flagZombie));
+                    level.SpawnFlagZombie();
                 }
                 level.RunHugeWaveEvent();
             }
