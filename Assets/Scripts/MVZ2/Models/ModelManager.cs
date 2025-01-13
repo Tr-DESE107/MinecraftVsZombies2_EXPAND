@@ -1,5 +1,6 @@
 ﻿using MVZ2.Managers;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
 
 namespace MVZ2.Models
@@ -17,8 +18,9 @@ namespace MVZ2.Models
             modelInstance.transform.localPosition = Vector3.zero;
 
             //创建一个用于渲染图片的RenderTexture
-            var format = GetSupportedRenderTextureFormat();
-            RenderTexture renderTexture = new RenderTexture(width, height, 32, format);
+            var colorFormat = GetSupportedColorFormat();
+            var depthFormat = GetSupportedDepthFormat();
+            RenderTexture renderTexture = new RenderTexture(width, height, colorFormat, depthFormat);
             renderTexture.antiAliasing = 2;
             modelShotCamera.targetTexture = renderTexture;
             modelShotCamera.enabled = false;
@@ -50,28 +52,53 @@ namespace MVZ2.Models
 
             return sprite;
         }
-        private RenderTextureFormat GetSupportedRenderTextureFormat()
+        private GraphicsFormat GetSupportedColorFormat()
         {
-            if (confirmedFormat)
+            if (confirmedColorFormat)
             {
-                return supportedRenderTextureFormat;
+                return supportedColorFormat;
             }
-            foreach (var format in renderTextureFormats)
+            Debug.Log("Checking supported color formats...");
+            var format = SystemInfo.GetCompatibleFormat(GraphicsFormat.R8G8B8A8_UNorm, FormatUsage.Render);
+            if (format == GraphicsFormat.None)
             {
-                if (SystemInfo.SupportsRenderTextureFormat(format))
-                {
-                    supportedRenderTextureFormat = format;
-                    confirmedFormat = true;
-                    return format;
-                }
+                Debug.LogWarning("Cannot find a supported color format for device, using default color format.");
+                return GraphicsFormat.R8G8B8A8_UNorm;
             }
-            return RenderTextureFormat.Default;
+            else
+            {
+                Debug.Log($"Found supported color format {format}.");
+                confirmedColorFormat = true;
+                supportedColorFormat = format;
+                return format;
+            }
+        }
+        private GraphicsFormat GetSupportedDepthFormat()
+        {
+            if (confirmedDepthFormat)
+            {
+                return supportedDepthFormat;
+            }
+            Debug.Log("Checking supported depth formats...");
+            var format = SystemInfo.GetCompatibleFormat(GraphicsFormat.D32_SFloat_S8_UInt, FormatUsage.Render);
+            if (format == GraphicsFormat.None)
+            {
+                Debug.LogWarning("Cannot find a supported depth format for device, using default depth format.");
+                return GraphicsFormat.D32_SFloat_S8_UInt;
+            }
+            else
+            {
+                Debug.Log($"Found supported depth format {format}.");
+                confirmedDepthFormat = true;
+                supportedDepthFormat = format;
+                return format;
+            }
         }
         public MainManager Main => main;
-        private bool confirmedFormat = false;
-        private RenderTextureFormat supportedRenderTextureFormat = RenderTextureFormat.Default;
-        [SerializeField]
-        private RenderTextureFormat[] renderTextureFormats;
+        private bool confirmedColorFormat = false;
+        private GraphicsFormat supportedColorFormat = GraphicsFormat.R8G8B8A8_UNorm;
+        private bool confirmedDepthFormat = false;
+        private GraphicsFormat supportedDepthFormat = GraphicsFormat.D32_SFloat_S8_UInt;
         [SerializeField]
         private MainManager main;
         [SerializeField]
