@@ -304,7 +304,7 @@ namespace MVZ2.Map
 
                 var lastLength = (lastPosition0 - lastPosition1).magnitude;
                 var currentLength = (position0 - position1).magnitude;
-                var scale = currentLength / lastLength;
+                var scale = lastLength / currentLength;
 
                 var lastCenter = (lastPosition0 + lastPosition1) * 0.5f;
                 var currentCenter = (position0 + position1) * 0.5f;
