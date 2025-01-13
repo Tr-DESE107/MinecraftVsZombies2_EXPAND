@@ -76,6 +76,8 @@ namespace MVZ2.GameContent.HeldItems
                             case EntityTypes.ENEMY:
                                 if (phase == PointerPhase.Press)
                                 {
+                                    if (IsParalyzed(entity.Level))
+                                        break;
                                     var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
                                     entity.TakeDamageNoSource(750, effects);
                                     if (entity.IsDead)
@@ -84,6 +86,7 @@ namespace MVZ2.GameContent.HeldItems
                                         var pos = entity.Level.ScreenToLawnPositionByZ(screenPos, entity.Position.z);
                                         entity.Level.Spawn(VanillaEffectID.pow, pos, null);
                                     }
+                                    Swing(entity.Level);
                                 }
                                 break;
                             case EntityTypes.PICKUP:
@@ -101,7 +104,10 @@ namespace MVZ2.GameContent.HeldItems
                                 }
                                 break;
                         }
-                        Swing(entity.Level);
+                        if (phase == PointerPhase.Press)
+                        {
+                            Swing(entity.Level);
+                        }
                     }
                     break;
             }
