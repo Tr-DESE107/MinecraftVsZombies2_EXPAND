@@ -8,7 +8,7 @@ namespace MVZ2.Audios
     {
         public void Play2D()
         {
-            Play2D(soundID);
+            Play2D(soundID.Get());
         }
         public void PlaySound2D(string idString)
         {
@@ -19,7 +19,7 @@ namespace MVZ2.Audios
             MainManager.Instance.SoundManager.Play(id, Vector3.zero, pitch, 0);
         }
         [SerializeField]
-        private NamespaceID soundID;
+        private NamespaceIDReference soundID;
         [SerializeField]
         private float pitch = 1;
     }

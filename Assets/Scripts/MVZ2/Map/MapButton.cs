@@ -20,7 +20,7 @@ namespace MVZ2.Map
         }
         public void SetDifficulty(NamespaceID difficulty)
         {
-            var border = borders.Where(b => b.difficulty == difficulty).FirstOrDefault();
+            var border = borders.Where(b => b.difficulty.Get() == difficulty).FirstOrDefault();
             bool hasActive = false;
             foreach (var b in borders)
             {

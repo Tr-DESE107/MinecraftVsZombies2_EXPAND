@@ -73,11 +73,11 @@ namespace MVZ2.Map
         }
         public NamespaceID[] GetMapElementUnlocks()
         {
-            return mapElements.Select(e => e.unlock).ToArray();
+            return mapElements.Select(e => e.unlock.Get()).ToArray();
         }
         public void SetMapElementUnlocked(NamespaceID unlock, bool unlocked)
         {
-            var element = mapElements.FirstOrDefault(e => e.unlock == unlock);
+            var element = mapElements.FirstOrDefault(e => e.unlock.Get() == unlock);
             if (element == null)
                 return;
             element.SetActive(unlocked);

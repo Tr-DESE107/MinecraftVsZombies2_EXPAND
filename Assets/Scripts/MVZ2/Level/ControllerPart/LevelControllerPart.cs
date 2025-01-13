@@ -46,9 +46,9 @@ namespace MVZ2.Level
         public MainManager Main => MainManager.Instance;
         public LevelEngine Level => Controller.GetEngine();
         public ILevelController Controller { get; private set; }
-        public NamespaceID ID => id;
+        public NamespaceID ID => id.Get();
         [SerializeField]
-        private NamespaceID id;
+        private NamespaceIDReference id;
     }
     [Serializable]
     public abstract class SerializableLevelControllerPart

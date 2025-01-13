@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using UnityEngine;
 
 namespace PVZEngine
 {
@@ -172,7 +173,9 @@ namespace PVZEngine
                 concatCache = null;
             }
         }
+        [SerializeField]
         private string spacename;
+        [SerializeField]
         private string path;
         private string concatCache;
     }

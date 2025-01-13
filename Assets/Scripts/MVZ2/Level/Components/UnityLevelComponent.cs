@@ -35,13 +35,13 @@ namespace MVZ2.Level.Components
         void ILevelComponent.Update() => OnUpdate();
         public NamespaceID GetID()
         {
-            return id;
+            return id.Get();
         }
         public LevelEngine Level => Controller.GetEngine();
         public LevelController Controller => levelController;
         [SerializeField]
         private LevelController levelController;
         [SerializeField]
-        private NamespaceID id;
+        private NamespaceIDReference id;
     }
 }
