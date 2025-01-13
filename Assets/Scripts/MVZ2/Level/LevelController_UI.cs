@@ -702,7 +702,7 @@ namespace MVZ2.Level
         private void UpdateStarshards()
         {
             var levelUI = GetUIPreset();
-            levelUI.SetStarshardCount(level.GetStarshardCount(), 3);
+            levelUI.SetStarshardCount(level.GetStarshardCount(), level.GetStarshardSlotCount());
         }
         private void SetStarshardIcon()
         {
