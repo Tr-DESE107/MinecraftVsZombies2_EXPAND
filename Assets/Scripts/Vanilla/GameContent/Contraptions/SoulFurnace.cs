@@ -121,7 +121,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (!boolValue)
                     return false;
             }
-            return GetFuel(soulFurnace) <= REFUEL_THRESOLD;
+            return GetFuel(soulFurnace) <= REFUEL_THRESOLD && !entity.IsDead;
         }
         public static int GetSacrificeFuel(Entity entity, Entity soulFurnace)
         {
