@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Effects
             targetVelocity.y = 0;
 
             var velocity = bullet.Velocity;
-            var newVelocity = targetVelocity.normalized * velocity.magnitude;
+            var newVelocity = targetVelocity.normalized * PEARL_SPEED;
             velocity.x = newVelocity.x;
             velocity.y = 0;
             velocity.z = newVelocity.z;
@@ -171,7 +171,7 @@ namespace MVZ2.GameContent.Effects
             {
                 board.Target = null;
                 pearl.SetParent(null);
-                pearl.Velocity = Vector3.right * 15;
+                pearl.Velocity = Vector3.right * PEARL_SPEED;
                 board.State = VanillaEntityStates.BREAKOUT_PEARL_FIRED;
             }
         }
@@ -276,6 +276,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
         public const string PROP_RESPAWN_COUNTDOWN = "RespawnCountdown";
         public const int MAX_RESPAWN_COUNTDOWN = 90;
+        public const float PEARL_SPEED = 15;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
         public const float MIN_X = VanillaLevelExt.LEFT_BORDER + 40;
     }
