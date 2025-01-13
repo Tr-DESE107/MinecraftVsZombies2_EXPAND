@@ -61,10 +61,10 @@ namespace MVZ2.Managers
         }
         public ArchiveTagMeta GetArchiveTagMeta(NamespaceID tagID)
         {
-            var metaList = GetArchiveMetaList(tagID.spacename);
+            var metaList = GetArchiveMetaList(tagID.SpaceName);
             if (metaList == null)
                 return null;
-            return metaList.Tags.FirstOrDefault(t => t.ID == tagID.path);
+            return metaList.Tags.FirstOrDefault(t => t.ID == tagID.Path);
         }
         public string GetArchiveTagName(NamespaceID tagID)
         {

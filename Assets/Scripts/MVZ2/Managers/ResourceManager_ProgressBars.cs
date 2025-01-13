@@ -25,10 +25,10 @@ namespace MVZ2.Managers
         {
             if (progressBarID == null)
                 return null;
-            var barMetalist = GetProgressBarMetaList(progressBarID.spacename);
+            var barMetalist = GetProgressBarMetaList(progressBarID.SpaceName);
             if (barMetalist == null)
                 return null;
-            return barMetalist.metas.FirstOrDefault(m => m.ID == progressBarID.path);
+            return barMetalist.metas.FirstOrDefault(m => m.ID == progressBarID.Path);
         }
     }
 }

@@ -21,10 +21,10 @@ namespace MVZ2.Managers
         #region 元数据
         public SoundMeta GetSoundMeta(NamespaceID id)
         {
-            var soundMeta = GetSoundMetaList(id.spacename);
+            var soundMeta = GetSoundMetaList(id.SpaceName);
             if (soundMeta == null)
                 return null;
-            return soundMeta.metas.FirstOrDefault(m => m.name == id.path);
+            return soundMeta.metas.FirstOrDefault(m => m.name == id.Path);
         }
         #endregion
 
@@ -48,7 +48,7 @@ namespace MVZ2.Managers
             var resources = await LoadLabeledResources<AudioClip>(nsp, "Sound");
             foreach (var (id, res) in resources)
             {
-                modResource.Sounds.Add(id.path, res);
+                modResource.Sounds.Add(id.Path, res);
             }
         }
         #endregion

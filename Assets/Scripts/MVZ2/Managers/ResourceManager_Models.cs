@@ -32,10 +32,10 @@ namespace MVZ2.Managers
         {
             if (!NamespaceID.IsValid(id))
                 return null;
-            var meta = GetModelMetaList(id.spacename);
+            var meta = GetModelMetaList(id.SpaceName);
             if (meta == null)
                 return null;
-            return meta.metas.FirstOrDefault(m => EngineModelID.ConcatName(m.Type, m.Name) == id.path);
+            return meta.metas.FirstOrDefault(m => EngineModelID.ConcatName(m.Type, m.Name) == id.Path);
         }
         #endregion
 
@@ -71,7 +71,7 @@ namespace MVZ2.Managers
             foreach (var (id, res) in resources)
             {
                 var model = res.GetComponent<Model>();
-                modResource.Models.Add(id.path, model);
+                modResource.Models.Add(id.Path, model);
             }
         }
         private void ShotModelIcons(string modNamespace, string metaNamespace, ModelMetaList metaList)

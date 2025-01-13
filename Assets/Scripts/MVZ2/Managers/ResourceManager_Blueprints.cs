@@ -36,10 +36,10 @@ namespace MVZ2.Managers
         {
             if (id == null)
                 return null;
-            var metalist = GetBlueprintMetaList(id.spacename);
+            var metalist = GetBlueprintMetaList(id.SpaceName);
             if (metalist == null)
                 return null;
-            return metalist.Options.FirstOrDefault(m => m.ID == id.path);
+            return metalist.Options.FirstOrDefault(m => m.ID == id.Path);
         }
         public string GetSeedOptionName(NamespaceID id)
         {
@@ -102,12 +102,12 @@ namespace MVZ2.Managers
                 if (seedType == SeedTypes.ENTITY)
                 {
                     var entityID = seedDef.GetSeedEntityID();
-                    return GetSprite(entityID.spacename, $"mobile_blueprint/{entityID.path}");
+                    return GetSprite(entityID.SpaceName, $"mobile_blueprint/{entityID.Path}");
                 }
                 else if (seedType == SeedTypes.OPTION)
                 {
                     var optionID = seedDef.GetSeedOptionID();
-                    return GetSprite(optionID.spacename, $"mobile_blueprint/{optionID.path}");
+                    return GetSprite(optionID.SpaceName, $"mobile_blueprint/{optionID.Path}");
                 }
             }
             return GetDefaultSprite();

@@ -20,10 +20,10 @@ namespace MVZ2.Managers
         #region 碎片渐变
         public Gradient GetFragmentGradient(NamespaceID id)
         {
-            var meta = GetFragmentMetaList(id.spacename);
+            var meta = GetFragmentMetaList(id.SpaceName);
             if (meta == null)
                 return null;
-            return meta.metas.FirstOrDefault(m => m.Name == id.path)?.Gradient;
+            return meta.metas.FirstOrDefault(m => m.Name == id.Path)?.Gradient;
         }
         #endregion
     }

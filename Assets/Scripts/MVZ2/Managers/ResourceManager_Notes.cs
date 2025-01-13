@@ -21,10 +21,10 @@ namespace MVZ2.Managers
         #region 元数据
         public NoteMeta GetNoteMeta(NamespaceID note)
         {
-            var modResource = main.ResourceManager.GetModResource(note.spacename);
+            var modResource = main.ResourceManager.GetModResource(note.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.NoteMetaList.metas.FirstOrDefault(m => m.id == note.path);
+            return modResource.NoteMetaList.metas.FirstOrDefault(m => m.id == note.Path);
         }
         #endregion
         public NamespaceID[] GetAllNotes()

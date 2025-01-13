@@ -93,8 +93,8 @@ namespace MVZ2.Level
         public string GetLevelStatePath(NamespaceID stageID)
         {
             var userIndex = Main.SaveManager.GetCurrentUserIndex();
-            var dir = Main.SaveManager.GetUserModSaveDataDirectory(userIndex, stageID.spacename);
-            return Path.Combine(dir, "level", $"{stageID.path}.lvl");
+            var dir = Main.SaveManager.GetUserModSaveDataDirectory(userIndex, stageID.SpaceName);
+            return Path.Combine(dir, "level", $"{stageID.Path}.lvl");
         }
         public LevelDataIdentifierList GetLevelStateIdentifierList()
         {

@@ -21,10 +21,10 @@ namespace MVZ2.Managers
         #region 元数据
         public DifficultyMeta GetDifficultyMeta(NamespaceID difficulty)
         {
-            var modResource = main.ResourceManager.GetModResource(difficulty.spacename);
+            var modResource = main.ResourceManager.GetModResource(difficulty.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.id == difficulty.path);
+            return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.id == difficulty.Path);
         }
         #endregion
         public string GetDifficultyName(NamespaceID difficulty)

@@ -25,10 +25,10 @@ namespace MVZ2.Managers
         #region 元数据
         public TalkCharacterMeta GetCharacterMeta(NamespaceID characterID)
         {
-            var modResource = main.ResourceManager.GetModResource(characterID.spacename);
+            var modResource = main.ResourceManager.GetModResource(characterID.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.TalkCharacterMetaList.metas.FirstOrDefault(m => m.id == characterID.path);
+            return modResource.TalkCharacterMetaList.metas.FirstOrDefault(m => m.id == characterID.Path);
         }
         #endregion
 

@@ -36,10 +36,10 @@ namespace MVZ2.Managers
         {
             if (id == null)
                 return null;
-            var metalist = GetSpawnMetaList(id.spacename);
+            var metalist = GetSpawnMetaList(id.SpaceName);
             if (metalist == null)
                 return null;
-            return metalist.Metas.FirstOrDefault(m => m.ID == id.path);
+            return metalist.Metas.FirstOrDefault(m => m.ID == id.Path);
         }
         #endregion
     }

@@ -144,7 +144,7 @@ namespace MVZ2.Managers
 
             using var memoryStream = new MemoryStream(resource.bytes);
             var document = memoryStream.ReadXmlDocument();
-            var metaPath = resID.path.Replace("\\", "/");
+            var metaPath = resID.Path.Replace("\\", "/");
             var defaultNsp = main.BuiltinNamespace;
             if (metaPath.StartsWith(talksDirectory))
             {
@@ -216,7 +216,7 @@ namespace MVZ2.Managers
         {
             if (id == null)
                 return default;
-            return await LoadModResource<T>(id.spacename, id.path, resourceType);
+            return await LoadModResource<T>(id.SpaceName, id.Path, resourceType);
         }
         private async Task<T> LoadModResource<T>(string nsp, string path, ResourceType resourceType)
         {
@@ -230,10 +230,10 @@ namespace MVZ2.Managers
                 return default;
             foreach (var mod in modResources)
             {
-                if (mod.Namespace != id.spacename)
+                if (mod.Namespace != id.SpaceName)
                     continue;
                 var dict = dictionaryGetter(mod);
-                if (dict.TryGetValue(id.path, out var resource))
+                if (dict.TryGetValue(id.Path, out var resource))
                 {
                     return resource;
                 }

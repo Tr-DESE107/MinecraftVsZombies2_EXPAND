@@ -141,28 +141,28 @@ namespace MVZ2.Saves
         {
             if (unlockId == null)
                 return false;
-            var modSaveData = GetModSaveData(unlockId.spacename);
+            var modSaveData = GetModSaveData(unlockId.SpaceName);
             if (modSaveData == null)
                 return false;
-            return modSaveData.IsUnlocked(unlockId.path);
+            return modSaveData.IsUnlocked(unlockId.Path);
         }
         public NamespaceID[] GetLevelDifficultyRecords(NamespaceID stageID)
         {
             if (stageID == null)
                 return Array.Empty<NamespaceID>();
-            var modSaveData = GetModSaveData(stageID.spacename);
+            var modSaveData = GetModSaveData(stageID.SpaceName);
             if (modSaveData == null)
                 return Array.Empty<NamespaceID>();
-            return modSaveData.GetLevelDifficultyRecords(stageID.path);
+            return modSaveData.GetLevelDifficultyRecords(stageID.Path);
         }
         public bool HasLevelDifficultyRecords(NamespaceID stageID, NamespaceID difficulty)
         {
             if (stageID == null || difficulty == null)
                 return false;
-            var modSaveData = GetModSaveData(stageID.spacename);
+            var modSaveData = GetModSaveData(stageID.SpaceName);
             if (modSaveData == null)
                 return false;
-            return modSaveData.HasLevelDifficultyRecord(stageID.path, difficulty);
+            return modSaveData.HasLevelDifficultyRecord(stageID.Path, difficulty);
         }
         public NamespaceID[] GetUnlockedContraptions()
         {
@@ -188,29 +188,29 @@ namespace MVZ2.Saves
         {
             if (unlockId == null)
                 return;
-            var modSaveData = GetModSaveData(unlockId.spacename);
+            var modSaveData = GetModSaveData(unlockId.SpaceName);
             if (modSaveData == null)
                 return;
-            modSaveData.Unlock(unlockId.path);
+            modSaveData.Unlock(unlockId.Path);
             EvaluateUnlocks(false);
         }
         public void AddLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
         {
             if (stageID == null || difficulty == null)
                 return;
-            var modSaveData = GetModSaveData(stageID.spacename);
+            var modSaveData = GetModSaveData(stageID.SpaceName);
             if (modSaveData == null)
                 return;
-            modSaveData.AddLevelDifficultyRecord(stageID.path, difficulty);
+            modSaveData.AddLevelDifficultyRecord(stageID.Path, difficulty);
         }
         public bool RemoveLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
         {
             if (stageID == null || difficulty == null)
                 return false;
-            var modSaveData = GetModSaveData(stageID.spacename);
+            var modSaveData = GetModSaveData(stageID.SpaceName);
             if (modSaveData == null)
                 return false;
-            return modSaveData.RemoveLevelDifficultyRecord(stageID.path, difficulty);
+            return modSaveData.RemoveLevelDifficultyRecord(stageID.Path, difficulty);
         }
         public bool DeleteUserSaveData(int index)
         {
@@ -243,17 +243,17 @@ namespace MVZ2.Saves
 
         public int GetCurrentEndlessFlag(NamespaceID stageID)
         {
-            var saveData = GetModSaveData(stageID.spacename);
+            var saveData = GetModSaveData(stageID.SpaceName);
             if (saveData == null)
                 return 0;
-            return saveData.GetCurrentEndlessFlag(stageID.path);
+            return saveData.GetCurrentEndlessFlag(stageID.Path);
         }
         public void SetCurrentEndlessFlag(NamespaceID stageID, int value)
         {
-            var saveData = GetModSaveData(stageID.spacename);
+            var saveData = GetModSaveData(stageID.SpaceName);
             if (saveData == null)
                 return;
-            saveData.SetCurrentEndlessFlag(stageID.path, value);
+            saveData.SetCurrentEndlessFlag(stageID.Path, value);
         }
 
         #region 统计
@@ -266,17 +266,17 @@ namespace MVZ2.Saves
         }
         public long GetSaveStat(NamespaceID category, NamespaceID entry)
         {
-            var saveData = GetModSaveData(category.spacename);
+            var saveData = GetModSaveData(category.SpaceName);
             if (saveData == null)
                 return 0;
-            return saveData.GetStat(category.path, entry);
+            return saveData.GetStat(category.Path, entry);
         }
         public void SetSaveStat(NamespaceID category, NamespaceID entry, long value)
         {
-            var saveData = GetModSaveData(category.spacename);
+            var saveData = GetModSaveData(category.SpaceName);
             if (saveData == null)
                 return;
-            saveData.SetStat(category.path, entry, value);
+            saveData.SetStat(category.Path, entry, value);
         }
         #endregion
 

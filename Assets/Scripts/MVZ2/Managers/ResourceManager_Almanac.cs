@@ -18,7 +18,7 @@ namespace MVZ2.Managers
         {
             if (!NamespaceID.IsValid(id))
                 return null;
-            var metaList = GetAlmanacMetaList(id.spacename);
+            var metaList = GetAlmanacMetaList(id.SpaceName);
             if (metaList == null)
                 return null;
             if (!metaList.TryGetCategory(type, out var entries))

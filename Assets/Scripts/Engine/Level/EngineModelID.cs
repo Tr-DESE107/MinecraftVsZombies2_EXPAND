@@ -6,7 +6,7 @@
         public const string TYPE_ARMOR = "armor";
         public static NamespaceID ToModelID(this NamespaceID id, string type)
         {
-            return new NamespaceID(id.spacename, ConcatName(type, id.path));
+            return new NamespaceID(id.SpaceName, ConcatName(type, id.Path));
         }
         public static string ConcatName(string type, string name)
         {

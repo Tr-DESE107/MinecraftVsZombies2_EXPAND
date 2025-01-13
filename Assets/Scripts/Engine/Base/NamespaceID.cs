@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 
 namespace PVZEngine
@@ -8,18 +9,18 @@ namespace PVZEngine
     {
         public NamespaceID(string nsp, string name)
         {
-            spacename = nsp;
-            this.path = name;
+            SpaceName = nsp;
+            this.Path = name;
         }
         public override int GetHashCode()
         {
-            return spacename.GetHashCode() * 31 + path.GetHashCode();
+            return SpaceName.GetHashCode() * 31 + Path.GetHashCode();
         }
         public override bool Equals(object obj)
         {
             if (obj is NamespaceID otherRef)
             {
-                return spacename == otherRef.spacename && path == otherRef.path;
+                return SpaceName == otherRef.SpaceName && Path == otherRef.Path;
             }
             return base.Equals(obj);
         }
@@ -127,15 +128,19 @@ namespace PVZEngine
         {
             if (id == null)
                 return false;
-            if (string.IsNullOrEmpty(id.spacename) || string.IsNullOrEmpty(id.path))
+            if (string.IsNullOrEmpty(id.SpaceName) || string.IsNullOrEmpty(id.Path))
                 return false;
-            if (!ValidateNamespace(id.spacename) || !ValidatePath(id.path))
+            if (!ValidateNamespace(id.SpaceName) || !ValidatePath(id.Path))
                 return false;
             return true;
         }
         public override string ToString()
         {
-            return $"{spacename}:{path}";
+            if (concatCache == null)
+            {
+                concatCache = $"{SpaceName}:{Path}";
+            }
+            return concatCache;
         }
         public static bool operator ==(NamespaceID lhs, NamespaceID rhs)
         {
@@ -143,14 +148,32 @@ namespace PVZEngine
                 return rhs is null;
             if (rhs is null)
                 return false;
-            return lhs.spacename == rhs.spacename && lhs.path == rhs.path;
+            return lhs.SpaceName == rhs.SpaceName && lhs.Path == rhs.Path;
         }
         public static bool operator !=(NamespaceID lhs, NamespaceID rhs)
         {
             return !(lhs == rhs);
         }
-        public string spacename;
-        public string path;
-
+        public string SpaceName 
+        {
+            get => spacename;
+            set 
+            {
+                spacename = value;
+                concatCache = null;
+            }
+        }
+        public string Path
+        {
+            get => path;
+            set
+            {
+                path = value;
+                concatCache = null;
+            }
+        }
+        private string spacename;
+        private string path;
+        private string concatCache;
     }
 }

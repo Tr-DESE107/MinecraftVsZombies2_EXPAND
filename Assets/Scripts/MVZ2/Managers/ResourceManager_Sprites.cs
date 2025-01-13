@@ -107,7 +107,7 @@ namespace MVZ2.Managers
             var resources = await LoadLabeledResources<Sprite[]>(modNamespace, "Spritesheet");
             foreach (var (id, res) in resources)
             {
-                modResource.SpriteSheets.Add(id.path, res);
+                modResource.SpriteSheets.Add(id.Path, res);
                 for (int i = 0; i < res.Length; i++)
                 {
                     var sprRef = new SpriteReference(id, i);
@@ -123,7 +123,7 @@ namespace MVZ2.Managers
             var resources = await LoadLabeledResources<Sprite>(modNamespace, "Sprite");
             foreach (var (id, res) in resources)
             {
-                modResource.Sprites.Add(id.path, res);
+                modResource.Sprites.Add(id.Path, res);
                 var sprRef = new SpriteReference(id);
                 AddSpriteReferenceCache(sprRef, res);
             }

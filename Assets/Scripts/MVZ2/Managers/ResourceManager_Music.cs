@@ -22,10 +22,10 @@ namespace MVZ2.Managers
         #region 元数据
         public MusicMeta GetMusicMeta(NamespaceID music)
         {
-            var modResource = main.ResourceManager.GetModResource(music.spacename);
+            var modResource = main.ResourceManager.GetModResource(music.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.MusicMetaList.metas.FirstOrDefault(m => m.ID == music.path);
+            return modResource.MusicMetaList.metas.FirstOrDefault(m => m.ID == music.Path);
         }
         #endregion
 
@@ -61,7 +61,7 @@ namespace MVZ2.Managers
             var resources = await LoadLabeledResources<AudioClip>(nsp, "Music");
             foreach (var (id, res) in resources)
             {
-                modResource.Musics.Add(id.path, res);
+                modResource.Musics.Add(id.Path, res);
             }
         }
         #endregion

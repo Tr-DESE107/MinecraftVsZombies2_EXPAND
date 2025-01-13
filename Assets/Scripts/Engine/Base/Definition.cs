@@ -43,8 +43,8 @@ namespace PVZEngine.Base
             return GetID().ToString();
         }
         public abstract string GetDefinitionType();
-        public string Namespace => id.spacename;
-        public string Name => id.path;
+        public string Namespace => id.SpaceName;
+        public string Name => id.Path;
         private NamespaceID id;
         protected PropertyDictionary propertyDict = new PropertyDictionary();
         protected List<Trigger> triggers = new List<Trigger>();

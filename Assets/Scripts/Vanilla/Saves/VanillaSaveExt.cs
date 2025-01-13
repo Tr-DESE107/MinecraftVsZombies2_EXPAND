@@ -99,7 +99,7 @@ namespace MVZ2.Vanilla.Saves
         }
         public static NamespaceID GetLevelClearUnlockID(NamespaceID stageID)
         {
-            return new NamespaceID(stageID.spacename, $"level.{stageID.path}");
+            return new NamespaceID(stageID.SpaceName, $"level.{stageID.Path}");
         }
     }
 }

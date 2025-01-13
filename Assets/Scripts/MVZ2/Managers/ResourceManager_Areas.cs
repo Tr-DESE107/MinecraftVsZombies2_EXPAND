@@ -28,10 +28,10 @@ namespace MVZ2.Managers
         {
             if (mapID == null)
                 return null;
-            var stageMetalist = GetAreaMetaList(mapID.spacename);
+            var stageMetalist = GetAreaMetaList(mapID.SpaceName);
             if (stageMetalist == null)
                 return null;
-            return stageMetalist.metas.FirstOrDefault(m => m.ID == mapID.path);
+            return stageMetalist.metas.FirstOrDefault(m => m.ID == mapID.Path);
         }
         #region 模型
         public AreaModel GetAreaModel(string nsp, string path)
@@ -55,7 +55,7 @@ namespace MVZ2.Managers
             foreach (var (id, res) in resources)
             {
                 var model = res.GetComponent<AreaModel>();
-                modResource.AreaModels.Add(id.path, model);
+                modResource.AreaModels.Add(id.Path, model);
             }
         }
         #endregion

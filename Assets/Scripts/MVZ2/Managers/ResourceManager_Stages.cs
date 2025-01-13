@@ -25,10 +25,10 @@ namespace MVZ2.Managers
         {
             if (stageID == null)
                 return null;
-            var stageMetalist = GetStageMetaList(stageID.spacename);
+            var stageMetalist = GetStageMetaList(stageID.SpaceName);
             if (stageMetalist == null)
                 return null;
-            return stageMetalist.metas.FirstOrDefault(m => m.ID == stageID.path);
+            return stageMetalist.metas.FirstOrDefault(m => m.ID == stageID.Path);
         }
     }
 }

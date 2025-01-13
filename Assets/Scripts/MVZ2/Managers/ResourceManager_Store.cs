@@ -42,10 +42,10 @@ namespace MVZ2.Managers
         #region 预设
         public StorePresetMeta GetStorePresetMeta(NamespaceID presetID)
         {
-            var modResource = GetModResource(presetID.spacename);
+            var modResource = GetModResource(presetID.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.StoreMetaList.Presets.FirstOrDefault(p => p.ID == presetID.path);
+            return modResource.StoreMetaList.Presets.FirstOrDefault(p => p.ID == presetID.Path);
         }
         public StorePresetMeta[] GetAllStorePresets()
         {

@@ -87,7 +87,7 @@ namespace MVZ2.Managers
             if (!OptionsManager.HasBloodAndGore())
             {
                 var id = spriteRef.id;
-                var censoredId = new NamespaceID(id.spacename, $"{id.path}_censored");
+                var censoredId = new NamespaceID(id.SpaceName, $"{id.Path}_censored");
                 SpriteReference censoredRef;
                 if (spriteRef.isSheet)
                 {
@@ -115,7 +115,7 @@ namespace MVZ2.Managers
             if (!OptionsManager.HasBloodAndGore())
             {
                 var id = spriteRef.id;
-                var censoredId = new NamespaceID(id.spacename, $"{id.path}_censored");
+                var censoredId = new NamespaceID(id.SpaceName, $"{id.Path}_censored");
                 SpriteReference censoredRef;
                 if (spriteRef.isSheet)
                 {

@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
-            return new NamespaceID(areaID.spacename, $"starshard.{areaID.path}").ToModelID(TYPE_HELD_ITEM);
+            return new NamespaceID(areaID.SpaceName, $"starshard.{areaID.Path}").ToModelID(TYPE_HELD_ITEM);
         }
         private static NamespaceID Get(string name, string type)
         {

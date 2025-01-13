@@ -118,7 +118,7 @@ namespace MVZ2.UI
             foreach (var pair in dropdownDict)
             {
                 var type = pair.Key;
-                pair.Value.onValueChanged.AddListener((value) => OnPointerUpdownValueChanged?.Invoke(type, value));
+                pair.Value.onValueChanged.AddListener((value) => OnDropdownValueChanged?.Invoke(type, value));
             }
             foreach (var pair in buttonDict)
             {
@@ -127,7 +127,7 @@ namespace MVZ2.UI
             }
         }
         public event Action<SliderType, float> OnSliderValueChanged;
-        public event Action<DropdownType, int> OnPointerUpdownValueChanged;
+        public event Action<DropdownType, int> OnDropdownValueChanged;
         public event Action<ButtonType> OnButtonClick;
 
         private Dictionary<SliderType, TextSlider> sliderDict = new Dictionary<SliderType, TextSlider>();

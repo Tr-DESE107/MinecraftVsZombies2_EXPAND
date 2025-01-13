@@ -26,7 +26,7 @@ namespace MVZ2.Note
             ui.SetBackground(main.GetFinalSprite(meta.background));
             ui.SetCanFlip(meta.canFlip);
             ui.SetFlipAtLeft(isFlipped);
-            var startTalk = meta.startTalk ?? new NamespaceID(id.spacename, $"{id.path}_note");
+            var startTalk = meta.startTalk ?? new NamespaceID(id.SpaceName, $"{id.Path}_note");
             await talkController.SimpleStartTalkAsync(startTalk, 0, 3, () => SetInteractable(false));
             SetInteractable(true);
         }

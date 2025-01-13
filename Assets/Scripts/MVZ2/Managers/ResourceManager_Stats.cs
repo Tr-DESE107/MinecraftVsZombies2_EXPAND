@@ -18,10 +18,10 @@ namespace MVZ2.Managers
         {
             if (categoryID == null)
                 return null;
-            var stageMetalist = GetStatMetaList(categoryID.spacename);
+            var stageMetalist = GetStatMetaList(categoryID.SpaceName);
             if (stageMetalist == null)
                 return null;
-            return stageMetalist.categories.FirstOrDefault(m => m.ID == categoryID.path);
+            return stageMetalist.categories.FirstOrDefault(m => m.ID == categoryID.Path);
         }
         public string GetStatEntryName(NamespaceID entryID, StatCategoryType type)
         {

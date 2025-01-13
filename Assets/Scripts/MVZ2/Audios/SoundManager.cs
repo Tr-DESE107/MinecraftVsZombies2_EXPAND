@@ -25,7 +25,7 @@ namespace MVZ2.Audios
         {
             if (id == null)
                 return null;
-            var soundsMeta = main.ResourceManager.GetSoundMetaList(id.spacename);
+            var soundsMeta = main.ResourceManager.GetSoundMetaList(id.SpaceName);
             var meta = main.ResourceManager.GetSoundMeta(id);
             if (soundsMeta == null || meta == null)
                 return null;
@@ -61,7 +61,7 @@ namespace MVZ2.Audios
                 return false;
             if (IsPlayingLoopSound(id))
                 return false;
-            var soundsMeta = main.ResourceManager.GetSoundMetaList(id.spacename);
+            var soundsMeta = main.ResourceManager.GetSoundMetaList(id.SpaceName);
             var meta = main.ResourceManager.GetSoundMeta(id);
             if (soundsMeta == null || meta == null)
                 return false;

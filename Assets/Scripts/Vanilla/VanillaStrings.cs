@@ -160,7 +160,7 @@ namespace MVZ2.Vanilla
         }
         public static string GetTalkTextContext(NamespaceID groupID)
         {
-            return $"talk-{groupID.spacename}:{groupID.path}";
+            return $"talk-{groupID.SpaceName}:{groupID.Path}";
         }
         public const string CONTEXT_ACHIEVEMENT = "achievement";
         public const string CONTEXT_ARCHIVE = "archive";
