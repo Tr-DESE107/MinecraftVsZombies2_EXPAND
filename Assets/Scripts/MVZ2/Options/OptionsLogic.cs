@@ -18,7 +18,7 @@ namespace MVZ2.Options
 
             dialog.OnButtonClick += OnButtonClickCallback;
             dialog.OnSliderValueChanged += OnSliderValueChangedCallback;
-            dialog.OnPointerUpdownValueChanged += OnDropdownValueChangedCallback;
+            dialog.OnDropdownValueChanged += OnDropdownValueChangedCallback;
         }
         public virtual void InitDialog()
         {
@@ -37,7 +37,7 @@ namespace MVZ2.Options
         {
             dialog.OnButtonClick -= OnButtonClickCallback;
             dialog.OnSliderValueChanged -= OnSliderValueChangedCallback;
-            dialog.OnPointerUpdownValueChanged -= OnDropdownValueChangedCallback;
+            dialog.OnDropdownValueChanged -= OnDropdownValueChangedCallback;
         }
         protected virtual void OnButtonClickCallback(ButtonType type)
         {

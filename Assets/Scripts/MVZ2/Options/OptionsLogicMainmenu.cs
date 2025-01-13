@@ -2,6 +2,7 @@
 using System.Linq;
 using MVZ2.Cameras;
 using MVZ2.UI;
+using MVZ2Logic;
 using UnityEngine;
 
 namespace MVZ2.Options
@@ -31,6 +32,7 @@ namespace MVZ2.Options
 
             base.InitDialog();
 
+            dialog.SetDropdownActive(DropdownType.Resolution, !Global.IsMobile());
             dialog.SetButtonActive(ButtonType.LeaveLevel, false);
             dialog.SetButtonActive(ButtonType.Restart, false);
 
