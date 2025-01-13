@@ -452,10 +452,10 @@ namespace MVZ2.Level
             isPaused = true;
             Music.Pause();
         }
-        public void ResumeGame(int level = 0)
+        public bool ResumeGame(int level = 0)
         {
             if (!isPaused || level < pauseLevel)
-                return;
+                return false;
             pauseLevel = 0;
             isPaused = false;
             Music.Resume();
@@ -469,6 +469,7 @@ namespace MVZ2.Level
             ui.SetOptionsDialogActive(false);
             ui.SetLevelLoadedDialogVisible(false);
             levelLoaded = false;
+            return true;
         }
         #region 关卡模型
         public void SetModelPreset(string name)

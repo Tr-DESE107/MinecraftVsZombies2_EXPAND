@@ -365,7 +365,19 @@ namespace MVZ2.Level
         }
         private void UI_OnOptionsMenuCloseCallback()
         {
-            ResumeGame(100);
+            if (!IsGameStarted())
+            {
+                if (optionsLogic != null)
+                {
+                    optionsLogic.Dispose();
+                    optionsLogic = null;
+                }
+                ui.SetOptionsDialogActive(false);
+            }
+            else
+            {
+                ResumeGame(100);
+            }
         }
         private void UI_OnSpeedUpButtonClickCallback()
         {
