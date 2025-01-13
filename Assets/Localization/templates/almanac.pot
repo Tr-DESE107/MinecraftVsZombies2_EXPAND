@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-10 08:57+0800\n"
+"POT-Creation-Date: 2025-01-13 02:54+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -799,7 +799,7 @@ msgstr ""
 #. Properties for artifacts mvz2:almanac
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>战斗开始时，获得一个星之碎片。</color>"
+msgid "效果：<color=red>战斗开始时，本场战斗每出现3种怪物，获得25能量。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:almanac
@@ -1894,6 +1894,12 @@ msgctxt "entity.name"
 msgid "瘦长鬼影"
 msgstr ""
 
+#. Header for entity mvz2:nightmareaper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "梦魇收割者"
+msgstr ""
+
 #. Header for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -1987,7 +1993,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:almanac
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得一个星之碎片"
+msgid "本场战斗每出现3种怪物，开始战斗时+25能量"
 msgstr ""
 
 #. Name for artifact mvz2:hoe

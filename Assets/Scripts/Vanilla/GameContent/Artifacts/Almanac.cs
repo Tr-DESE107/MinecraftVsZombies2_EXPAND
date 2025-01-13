@@ -29,9 +29,15 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact?.Definition?.GetID() != ID)
                     continue;
+                var enemies = level.GetEnemyPool();
+                if (enemies == null)
+                    continue;
+                var energy = enemies.Length / 3 * 25f;
+                if (energy <= 0)
+                    continue;
                 artifact.Highlight();
-                level.AddStarshardCount(1);
-                level.PlaySound(VanillaSoundID.starshardUse);
+                level.AddEnergy(energy);
+                level.PlaySound(VanillaSoundID.points);
             }
         }
         public static readonly NamespaceID ID = VanillaArtifactID.almanac;

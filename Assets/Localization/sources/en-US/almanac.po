@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 08:57+0800\n"
-"PO-Revision-Date: 2025-01-10 20:59+0800\n"
+"POT-Creation-Date: 2025-01-13 02:54+0800\n"
+"PO-Revision-Date: 2025-01-13 14:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -998,8 +998,8 @@ msgstr "A magical almanac, once owned by Orant, will automatically record everyt
 #. Properties for artifacts mvz2:almanac
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>战斗开始时，获得一个星之碎片。</color>"
-msgstr "Effect: <color=red>Gain a starshard at start</color>"
+msgid "效果：<color=red>战斗开始时，本场战斗每出现3种怪物，获得25能量。</color>"
+msgstr "Effect: <color=red>+25 energy at the start of the battle for every 3 enemy types present in this battle</color>"
 
 #. Flavor for artifacts mvz2:almanac
 #: Almanac meta file
@@ -2175,6 +2175,12 @@ msgctxt "entity.name"
 msgid "瘦长鬼影"
 msgstr "Slenderman"
 
+#. Header for entity mvz2:nightmareaper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "梦魇收割者"
+msgstr "Nightmareaper"
+
 #. Header for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -2268,8 +2274,8 @@ msgstr "Almanac"
 #. Tooltip for artifact mvz2:almanac
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得一个星之碎片"
-msgstr "Gain a starshard at start"
+msgid "本场战斗每出现3种怪物，开始战斗时+25能量"
+msgstr "+25 energy at the start of the battle for every 3 enemy types present in this battle."
 
 #. Name for artifact mvz2:hoe
 #: Artifact meta file
@@ -2354,6 +2360,10 @@ msgstr "Dark Matter"
 msgctxt "artifact.tooltip"
 msgid "器械生产效率×200%，但场景变得黑暗"
 msgstr "x200% contraption produce speed, but the battlefield is pitch black"
+
+#~ msgctxt "artifact.tooltip"
+#~ msgid "战斗开始时获得一个星之碎片"
+#~ msgstr "Gain a starshard at start"
 
 #~ msgctxt "enemies.description"
 #~ msgid ""

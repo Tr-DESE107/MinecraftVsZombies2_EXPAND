@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 08:57+0800\n"
-"PO-Revision-Date: 2025-01-10 21:00+0800\n"
+"POT-Creation-Date: 2025-01-13 02:54+0800\n"
+"PO-Revision-Date: 2025-01-13 14:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -245,7 +245,7 @@ msgid "一起摇滚吧！"
 msgstr "Let's rock!"
 
 #. 暂停游戏对话框的标题
-#: /Level/UI/Presets/UIPresetMobile/Canvas/SharedCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
+#: /Level/UI/Presets/UIPresetMobile/SharedCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
 msgid "选择制品"
 msgstr "Select artifacts"
 
@@ -379,92 +379,92 @@ msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr "Good luck!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:450
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:451
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
 msgstr "Click a blueprint to choose a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:452
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:453
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr "Click the lawn to place a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:454
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:455
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr "Nicely done!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:456
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:457
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr "Click redstone to collect energy!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:458
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:459
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr "Collect enough energy to place contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:460
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:461
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr "Defeat the zombie with your Dispenser!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:462
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:463
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr "Well done!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:464
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:465
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr "Select Furnace and place it!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:466
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:467
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr "Furnaces can provide you additional redstone!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:468
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:469
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr "The more Furnaces you have, the faster you can build!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:470
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:471
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr "Place at least three Furnaces!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:472
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:473
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr "Block the zombie with Obsidian!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:474
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:475
 msgctxt "advice.tutorial.12"
 msgid "干得漂亮！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:476
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:477
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr "Mine TNTs can blow up enemies after arming itself!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:478
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:479
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr "Blow up the Iron Helmet Zombie with Mine TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:480
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:481
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:482
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:483
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr "Finally, the pickaxe can dig out placed contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:484
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:485
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
@@ -740,37 +740,42 @@ msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:129
+#: Scripts\Vanilla\VanillaStrings.cs:128
+msgctxt "death_message"
+msgid "<color=red>来到我们之中吧</color>"
+msgstr "<color=red>COME TO US</color>"
+
+#: Scripts\Vanilla\VanillaStrings.cs:131
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "option.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:135
+#: Scripts\Vanilla\VanillaStrings.cs:137
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:140
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\VanillaStrings.cs:143
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:146
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:148
+#: Scripts\Vanilla\VanillaStrings.cs:150
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
@@ -979,7 +984,7 @@ msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:611
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:620
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
@@ -988,7 +993,7 @@ msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:869
+#: Scripts\MVZ2\Level\LevelController_UI.cs:883
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -996,11 +1001,11 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:871
+#: Scripts\MVZ2\Level\LevelController_UI.cs:885
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:873
+#: Scripts\MVZ2\Level\LevelController_UI.cs:887
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
@@ -1744,10 +1749,6 @@ msgstr ""
 #~ msgctxt "death_message"
 #~ msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
 #~ msgstr "Here comes the itsy bitsy spider!"
-
-#~ msgctxt "death_message"
-#~ msgid "<color=red>来 到 我 们 之 中 吧</color>"
-#~ msgstr "<color=red>C O M E   T O   U S</color>"
 
 #~ msgctxt "death_message"
 #~ msgid "亲爱的日记：今天我死了。"

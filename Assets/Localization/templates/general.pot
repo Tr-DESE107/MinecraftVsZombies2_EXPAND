@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-10 08:57+0800\n"
+"POT-Creation-Date: 2025-01-13 02:54+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -240,7 +240,7 @@ msgid "一起摇滚吧！"
 msgstr ""
 
 #. 暂停游戏对话框的标题
-#: /Level/UI/Presets/UIPresetMobile/Canvas/SharedCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
+#: /Level/UI/Presets/UIPresetMobile/SharedCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
 msgid "选择制品"
 msgstr ""
 
@@ -392,109 +392,109 @@ msgid "祝你好运！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:450
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:451
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:452
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:453
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:454
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:455
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:456
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:457
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:458
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:459
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:460
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:461
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:462
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:463
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:464
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:465
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:466
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:467
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:468
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:469
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:470
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:471
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:472
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:473
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:474
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:475
 msgctxt "advice.tutorial.12"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:476
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:477
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:478
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:479
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:480
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:481
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:482
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:483
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:484
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:485
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr ""
@@ -814,44 +814,50 @@ msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
+# 死亡信息-未知
+#: Scripts\Vanilla\VanillaStrings.cs:128
+msgctxt "death_message"
+msgid "<color=red>来到我们之中吧</color>"
+msgstr ""
+
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:129
+#: Scripts\Vanilla\VanillaStrings.cs:131
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 蓝图选项名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "option.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:135
+#: Scripts\Vanilla\VanillaStrings.cs:137
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:140
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\VanillaStrings.cs:143
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:146
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:148
+#: Scripts\Vanilla\VanillaStrings.cs:150
 msgctxt "music.name"
 msgid "无"
 msgstr ""
@@ -1066,7 +1072,7 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:611
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:620
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
@@ -1077,19 +1083,19 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:869
+#: Scripts\MVZ2\Level\LevelController_UI.cs:883
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:871
+#: Scripts\MVZ2\Level\LevelController_UI.cs:885
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:873
+#: Scripts\MVZ2\Level\LevelController_UI.cs:887
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
