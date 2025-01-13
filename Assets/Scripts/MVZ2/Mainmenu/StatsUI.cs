@@ -13,6 +13,7 @@ namespace MVZ2.Mainmenu
             {
                 var category = obj.GetComponent<StatCategoryUI>();
                 category.UpdateCategory(categories[i]);
+                category.SetExpanded(false);
             });
         }
         private void Awake()

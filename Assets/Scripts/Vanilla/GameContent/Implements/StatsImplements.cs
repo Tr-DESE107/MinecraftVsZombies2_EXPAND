@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(VanillaLevelCallbacks.POST_PLACE_ENTITY, PostPlaceEntityCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, PostContraptionDestroyCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, PostContraptionEvokeCallback);
 
             mod.AddTrigger(LevelCallbacks.POST_ENEMY_SPAWNED, PostEnemySpawnedCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, PostEnemyNeutralizeCallback);
@@ -29,6 +30,10 @@ namespace MVZ2.GameContent.Implements
         private void PostContraptionDestroyCallback(Entity contraption)
         {
             Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_DESTROY, contraption.GetDefinitionID(), 1);
+        }
+        private void PostContraptionEvokeCallback(Entity contraption)
+        {
+            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), 1);
         }
         private void PostEnemySpawnedCallback(Entity enemy)
         {

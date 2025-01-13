@@ -1,6 +1,7 @@
 ﻿using MVZ2.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MVZ2.Mainmenu
 {
@@ -16,6 +17,25 @@ namespace MVZ2.Mainmenu
                 entry.UpdateEntry(viewData.entries[i]);
             });
         }
+        public void SetExpanded(bool expanded)
+        {
+            expandArrowTransform.localEulerAngles = new Vector3(0, 0, expanded ? -90 : 0);
+            entriesRoot.SetActive(expanded);
+        }
+        public bool IsExpanded()
+        {
+            return entriesRoot.activeSelf;
+        }
+        private void Awake()
+        {
+            expandArrowButton.onClick.AddListener(() => SetExpanded(!IsExpanded()));
+        }
+        [SerializeField]
+        private Transform expandArrowTransform;
+        [SerializeField]
+        private Button expandArrowButton;
+        [SerializeField]
+        private GameObject entriesRoot;
         [SerializeField]
         private ElementList entryList;
         [SerializeField]

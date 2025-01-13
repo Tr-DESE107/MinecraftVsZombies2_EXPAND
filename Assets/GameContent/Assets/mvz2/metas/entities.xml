@@ -917,7 +917,7 @@
         <effect id="slice_spark">
             <int name="maxTimeout" value="12"/>
         </effect>
-        <effect id="crushing_walls"/>
+        <effect id="crushing_walls" name="梦魇碾压墙" />
         <effect id="nightmareaper_timer"/>
         <effect id="nightmare_darkness">
             <int name="maxTimeout" value="180"/>

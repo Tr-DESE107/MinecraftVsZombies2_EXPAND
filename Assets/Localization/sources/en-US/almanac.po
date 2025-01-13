@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-13 02:54+0800\n"
-"PO-Revision-Date: 2025-01-13 14:59+0800\n"
+"POT-Creation-Date: 2025-01-13 09:57+0800\n"
+"PO-Revision-Date: 2025-01-13 21:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -2240,6 +2240,12 @@ msgstr "Clear Pickup"
 msgctxt "entity.name"
 msgid "星之碎片"
 msgstr "Starshard"
+
+#. Header for entity mvz2:crushing_walls
+#: Entity meta file
+msgctxt "entity.name"
+msgid "梦魇碾压墙"
+msgstr "Nightmare Crushing Walls"
 
 #. Name for character mvz2:steve
 #: Character meta file
