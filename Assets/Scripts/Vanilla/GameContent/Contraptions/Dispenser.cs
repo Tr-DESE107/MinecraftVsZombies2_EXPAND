@@ -1,5 +1,6 @@
 ﻿using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
 
@@ -38,14 +39,8 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Reset();
             entity.SetEvoked(true);
         }
-        public static FrameTimer GetEvocationTimer(Entity entity)
-        {
-            return entity.GetProperty<FrameTimer>("EvocationTimer");
-        }
-        public static void SetEvocationTimer(Entity entity, FrameTimer timer)
-        {
-            entity.SetProperty("EvocationTimer", timer);
-        }
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
+        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "EvocationTimer", timer);
         private void EvokedUpdate(Entity entity)
         {
             var evocationTimer = GetEvocationTimer(entity);
@@ -62,5 +57,6 @@ namespace MVZ2.GameContent.Contraptions
                 shootTimer.Reset();
             }
         }
+        private static readonly NamespaceID ID = VanillaContraptionID.dispenser;
     }
 }

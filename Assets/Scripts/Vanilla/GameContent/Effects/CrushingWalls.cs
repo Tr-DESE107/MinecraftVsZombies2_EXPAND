@@ -146,10 +146,10 @@ namespace MVZ2.GameContent.Effects
             }
             entity.SetModelProperty("Shake", shakeValue);
         }
-        public static float GetProgress(Entity entity) => entity.GetBehaviourProperty<float>(ID, PROP_PROGRESS);
-        public static void SetProgress(Entity entity, float value) => entity.SetBehaviourProperty(ID, PROP_PROGRESS, value);
-        public static ShakeInt GetShake(Entity entity) => entity.GetBehaviourProperty<ShakeInt>(ID, PROP_SHAKE);
-        public static void SetShake(Entity entity, ShakeInt value) => entity.SetBehaviourProperty(ID, PROP_SHAKE, value);
+        public static float GetProgress(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_PROGRESS);
+        public static void SetProgress(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_PROGRESS, value);
+        public static ShakeInt GetShake(Entity entity) => entity.GetBehaviourField<ShakeInt>(ID, PROP_SHAKE);
+        public static void SetShake(Entity entity, ShakeInt value) => entity.SetBehaviourField(ID, PROP_SHAKE, value);
         public const string PROP_PROGRESS = "Progress";
         public const string PROP_SHAKE = "Shake";
         public static readonly NamespaceID ID = VanillaEffectID.crushingWalls;

@@ -1,9 +1,13 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Areas;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
@@ -19,16 +23,16 @@ namespace MVZ2.GameContent.Projectiles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetProperty(PROP_SNOWBALL_SCALE, 1f);
+            SetSnowballScale(entity, 1f);
         }
         public override void Update(Entity projectile)
         {
             base.Update(projectile);
 
             projectile.Velocity += projectile.Velocity.normalized / 3f;
-            var scale = projectile.GetProperty<float>(PROP_SNOWBALL_SCALE);
+            var scale = GetSnowballScale(projectile);
             scale = Mathf.Clamp(scale + SCALE_SPEED, MIN_SCALE, MAX_SCALE);
-            projectile.SetProperty(PROP_SNOWBALL_SCALE, scale);
+            SetSnowballScale(projectile, scale);
 
             float angleSpeed = -projectile.Velocity.x * 2.5f;
             projectile.RenderRotation += Vector3.forward * angleSpeed;
@@ -53,6 +57,10 @@ namespace MVZ2.GameContent.Projectiles
                 source.PlaySound(VanillaSoundID.grind);
             }
         }
+        public static float GetSnowballScale(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_SNOWBALL_SCALE);
+        public static void SetSnowballScale(Entity entity, float scale) => entity.SetBehaviourField(ID, PROP_SNOWBALL_SCALE, scale);
+
+        private static readonly NamespaceID ID = VanillaAreaID.halloween;
         public const string PROP_SNOWBALL_SCALE = "SnowballScale";
         public const float MIN_SCALE = 1;
         public const float SCALE_SPEED = 0.1f;

@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Stages
         public override void OnStart(LevelEngine level)
         {
             base.OnStart(level);
-            level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
+            SetTutorialTimer(level, new FrameTimer(90));
             level.SetSeedSlotCount(0);
             level.ReplaceSeedPacks(new NamespaceID[0]);
             level.SetStarshardCount(1);
@@ -45,12 +45,12 @@ namespace MVZ2.GameContent.Stages
         }
         private void StartTimer(LevelEngine level, int timeout)
         {
-            var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+            var timer = GetTutorialTimer(level);
             timer.ResetTime(timeout);
         }
         private void RunTimer(LevelEngine level)
         {
-            var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+            var timer = GetTutorialTimer(level);
             timer.Run();
             if (timer.Expired)
             {
@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void StartState(LevelEngine level, int state)
         {
-            SetState(level, state);
+            SetTutorialState(level, state);
             var textKey = tutorialStrings[state];
             var context = string.Format(CONTEXT_STATE, state);
             level.ShowAdvice(context, textKey, 1000, -1);
@@ -95,7 +95,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void UpdateState(LevelEngine level)
         {
-            var state = GetState(level);
+            var state = GetTutorialState(level);
             switch (state)
             {
                 case STATE_CLICK_STARSHARD:
@@ -162,7 +162,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void OnTimerStop(LevelEngine level)
         {
-            var state = GetState(level);
+            var state = GetTutorialState(level);
             switch (state)
             {
                 case STATE_DISPENSER_EVOKED:
@@ -170,14 +170,11 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        public void SetState(LevelEngine level, int value)
-        {
-            level.SetProperty(PROP_STATE, value);
-        }
-        public int GetState(LevelEngine level)
-        {
-            return level.GetProperty<int>(PROP_STATE);
-        }
+        public static FrameTimer GetTutorialTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, PROP_TUTORIAL_TIMER);
+        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, PROP_TUTORIAL_TIMER, value);
+        public static int GetTutorialState(LevelEngine level) => level.GetBehaviourField<int>(ID, PROP_STATE);
+        public static void SetTutorialState(LevelEngine level, int value) => level.SetBehaviourField(ID, PROP_STATE, value);
+        private static readonly NamespaceID ID = VanillaStageID.starshardTutorial;
 
         public static readonly string[] tutorialStrings = new string[]
         {
@@ -212,7 +209,6 @@ namespace MVZ2.GameContent.Stages
         public const string STRING_STATE_5 = "现在干掉铁盔僵尸！";
 
         public const string PROP_STATE = "state";
-        public const string PROP_TUTORIAL_RNG = "tutorialRNG";
         public const string PROP_TUTORIAL_TIMER = "tutorialTimer";
     }
 }

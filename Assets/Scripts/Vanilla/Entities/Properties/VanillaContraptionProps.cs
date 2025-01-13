@@ -1,4 +1,5 @@
-﻿using PVZEngine.Entities;
+﻿using PVZEngine;
+using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Contraptions
 {
@@ -64,5 +65,6 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return entity.GetProperty<bool>(CAN_DEACTIVE);
         }
+        public static NamespaceID GetFragmentID(this Entity entity) => entity.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID);
     }
 }

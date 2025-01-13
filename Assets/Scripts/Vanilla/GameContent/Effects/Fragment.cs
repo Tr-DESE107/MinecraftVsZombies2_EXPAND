@@ -29,11 +29,11 @@ namespace MVZ2.GameContent.Effects
         }
         public static float GetEmitSpeed(Entity entity)
         {
-            return entity.GetProperty<float>("EmitSpeed");
+            return entity.GetBehaviourField<float>(ID, "EmitSpeed");
         }
         public static void SetEmitSpeed(Entity entity, float value)
         {
-            entity.SetProperty("EmitSpeed", value);
+            entity.SetBehaviourField(ID, "EmitSpeed", value);
         }
         public static void AddEmitSpeed(Entity entity, float value)
         {
@@ -41,8 +41,9 @@ namespace MVZ2.GameContent.Effects
         }
         public static void UpdateFragmentID(Entity entity)
         {
-            entity.SetModelProperty("FragmentID", entity.Parent?.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID));
+            entity.SetModelProperty("FragmentID", entity.Parent?.GetFragmentID());
         }
         #endregion
+        private static readonly NamespaceID ID = VanillaEffectID.fragment;
     }
 }

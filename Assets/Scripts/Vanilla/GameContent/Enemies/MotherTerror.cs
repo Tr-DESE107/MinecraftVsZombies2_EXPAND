@@ -114,11 +114,11 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void SetRestoreEggTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourProperty(ID, PROP_RESTORE_EGG_TIMER, timer);
+            entity.SetBehaviourField(ID, PROP_RESTORE_EGG_TIMER, timer);
         }
         public static FrameTimer GetRestoreEggTimer(Entity entity)
         {
-            return entity.GetBehaviourProperty<FrameTimer>(ID, PROP_RESTORE_EGG_TIMER);
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_RESTORE_EGG_TIMER);
         }
         private static int GetEggState(Entity entity)
         {

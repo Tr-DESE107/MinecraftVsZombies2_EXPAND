@@ -43,10 +43,10 @@ namespace MVZ2.GameContent.Effects
                 }
             }
         }
-        public static int GetSpawnTime(Entity entity) => entity.GetBehaviourProperty<int>(ID, PROP_SPAWN_TIME);
-        public static void SetSpawnTime(Entity entity, int value) => entity.SetBehaviourProperty(ID, PROP_SPAWN_TIME, value);
-        public static NamespaceID GetEnemyID(Entity entity) => entity.GetBehaviourProperty<NamespaceID>(ID, PROP_ENEMY_ID);
-        public static void SetEnemyID(Entity entity, NamespaceID value) => entity.SetBehaviourProperty(ID, PROP_ENEMY_ID, value);
+        public static int GetSpawnTime(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_SPAWN_TIME);
+        public static void SetSpawnTime(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_SPAWN_TIME, value);
+        public static NamespaceID GetEnemyID(Entity entity) => entity.GetBehaviourField<NamespaceID>(ID, PROP_ENEMY_ID);
+        public static void SetEnemyID(Entity entity, NamespaceID value) => entity.SetBehaviourField(ID, PROP_ENEMY_ID, value);
         #endregion
 
         #region ÊôÐÔ×Ö¶Î

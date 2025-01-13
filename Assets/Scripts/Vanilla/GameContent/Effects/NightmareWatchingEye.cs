@@ -49,27 +49,27 @@ namespace MVZ2.GameContent.Effects
 
         public static int GetEyeMoveCooldown(Entity entity)
         {
-            return entity.GetBehaviourProperty<int>(ID, PROP_EYE_MOVE_COOLDOWN);
+            return entity.GetBehaviourField<int>(ID, PROP_EYE_MOVE_COOLDOWN);
         }
         public static void SetEyeMoveCooldown(Entity entity, int value)
         {
-            entity.SetBehaviourProperty(ID, PROP_EYE_MOVE_COOLDOWN, value);
+            entity.SetBehaviourField(ID, PROP_EYE_MOVE_COOLDOWN, value);
         }
         public static Vector2 GetEyeDirection(Entity entity)
         {
-            return entity.GetBehaviourProperty<Vector2>(ID, PROP_EYE_DIRECTION);
+            return entity.GetBehaviourField<Vector2>(ID, PROP_EYE_DIRECTION);
         }
         public static void SetEyeDirection(Entity entity, Vector2 value)
         {
-            entity.SetBehaviourProperty(ID, PROP_EYE_DIRECTION, value);
+            entity.SetBehaviourField(ID, PROP_EYE_DIRECTION, value);
         }
         public static Vector2 GetEyeTarget(Entity entity)
         {
-            return entity.GetBehaviourProperty<Vector2>(ID, PROP_EYE_TARGET);
+            return entity.GetBehaviourField<Vector2>(ID, PROP_EYE_TARGET);
         }
         public static void SetEyeTarget(Entity entity, Vector2 value)
         {
-            entity.SetBehaviourProperty(ID, PROP_EYE_TARGET, value);
+            entity.SetBehaviourField(ID, PROP_EYE_TARGET, value);
         }
         public static readonly NamespaceID ID = VanillaEffectID.nightmareWatchingEye;
         public const string PROP_EYE_DIRECTION = "EyeDirection";

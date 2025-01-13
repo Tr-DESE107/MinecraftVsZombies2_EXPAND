@@ -1,10 +1,13 @@
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Effects
@@ -44,17 +47,13 @@ namespace MVZ2.GameContent.Effects
                 entity.SetAnimationBool("Open", false);
             }
         }
-        public static FrameTimer GetProductTimer(Entity entity)
-        {
-            return entity.GetProperty<FrameTimer>(PROP_PRODUCE_TIMER);
-        }
-        public static void SetProductTimer(Entity entity, FrameTimer value)
-        {
-            entity.SetProperty(PROP_PRODUCE_TIMER, value);
-        }
+        public static FrameTimer GetProductTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_PRODUCE_TIMER);
+        public static void SetProductTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_PRODUCE_TIMER, value);
         #endregion
 
         #region ÊôÐÔ×Ö¶Î
+
+        private static readonly NamespaceID ID = VanillaEffectID.miner;
         public const string PROP_IS_OPEN = "isOpen";
         public const string PROP_PRODUCE_TIMER = "produceTimer";
         public const int START_TIME = 120;

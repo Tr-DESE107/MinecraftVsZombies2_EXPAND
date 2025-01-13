@@ -203,23 +203,24 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static Entity GetExtendTarget(Entity entity)
         {
-            var id = entity.GetProperty<EntityID>("ExtendTarget");
+            var id = entity.GetBehaviourField<EntityID>(ID, "ExtendTarget");
             if (id == null)
                 return null;
             return id.GetEntity(entity.Level);
         }
         public static void SetExtendTarget(Entity entity, Entity value)
         {
-            entity.SetProperty("ExtendTarget", new EntityID(value));
+            entity.SetBehaviourField(ID, "ExtendTarget", new EntityID(value));
         }
-        public static FrameTimer GetExtendDetectTimer(Entity entity) => entity.GetProperty<FrameTimer>("ExtendDetectTimer");
-        public static void SetExtendDetectTimer(Entity entity, FrameTimer value) => entity.SetProperty("ExtendDetectTimer", value);
-        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetProperty<FrameTimer>("EvocationTimer");
-        public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetProperty("EvocationTimer", value);
-        public static float GetExtend(Entity entity) => entity.GetProperty<float>(PROP_EXTEND);
-        public static void SetExtend(Entity entity, float value) => entity.SetProperty(PROP_EXTEND, value);
-        public static int GetExtendDirection(Entity entity) => entity.GetProperty<int>("ExtendDirection");
-        public static void SetExtendDirection(Entity entity, int value) => entity.SetProperty("ExtendDirection", value);
+        public static FrameTimer GetExtendDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "ExtendDetectTimer");
+        public static void SetExtendDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, "ExtendDetectTimer", value);
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
+        public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, "EvocationTimer", value);
+        public static float GetExtend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_EXTEND);
+        public static void SetExtend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_EXTEND, value);
+        public static int GetExtendDirection(Entity entity) => entity.GetBehaviourField<int>(ID, "ExtendDirection");
+        public static void SetExtendDirection(Entity entity, int value) => entity.SetBehaviourField(ID, "ExtendDirection", value);
+        private static readonly NamespaceID ID = VanillaContraptionID.pistenser;
         public const string PROP_EXTEND = "Extend";
         public const string PROP_EXTEND_SHOOT_OFFSET = "ExtendShootOffset";
         public const float BASE_SHOT_HEIGHT = 30;

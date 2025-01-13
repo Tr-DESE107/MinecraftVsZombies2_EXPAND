@@ -48,38 +48,38 @@ namespace MVZ2.Vanilla.Entities
         }
         public int GetSubState(Entity entity)
         {
-            return entity.GetBehaviourProperty<int>(ID, PROP_SUBSTATE);
+            return entity.GetBehaviourField<int>(ID, PROP_SUBSTATE);
         }
         public void SetSubState(Entity entity, int value)
         {
-            entity.SetBehaviourProperty(ID, PROP_SUBSTATE, value);
+            entity.SetBehaviourField(ID, PROP_SUBSTATE, value);
             entity.SetAnimationInt("SubState", value);
         }
         public virtual float GetSpeed(Entity entity)
         {
             return 1;
         }
-        public int GetPreviousState(Entity boss) => boss.GetBehaviourProperty<int>(ID, PROP_PREVIOUS_STATE);
-        public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourProperty(ID, PROP_PREVIOUS_STATE, value);
+        public int GetPreviousState(Entity boss) => boss.GetBehaviourField<int>(ID, PROP_PREVIOUS_STATE);
+        public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourField(ID, PROP_PREVIOUS_STATE, value);
 
         public FrameTimer GetStateTimer(Entity entity)
         {
-            var timer = entity.GetBehaviourProperty<FrameTimer>(ID, PROP_STATE_TIMER);
+            var timer = entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
             if (timer == null)
             {
                 timer = new FrameTimer();
-                entity.SetBehaviourProperty(ID, PROP_STATE_TIMER, timer);
+                entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
             }
             return timer;
         }
 
         public FrameTimer GetSubStateTimer(Entity entity)
         {
-            var timer = entity.GetBehaviourProperty<FrameTimer>(ID, PROP_SUBSTATE_TIMER);
+            var timer = entity.GetBehaviourField<FrameTimer>(ID, PROP_SUBSTATE_TIMER);
             if (timer == null)
             {
                 timer = new FrameTimer();
-                entity.SetBehaviourProperty(ID, PROP_SUBSTATE_TIMER, timer);
+                entity.SetBehaviourField(ID, PROP_SUBSTATE_TIMER, timer);
             }
             return timer;
         }

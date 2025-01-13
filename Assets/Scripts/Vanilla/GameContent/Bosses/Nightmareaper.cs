@@ -158,8 +158,8 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 属性
-        private static void SetBehaviourProperty(Entity entity, string name, object value) => entity.SetBehaviourProperty(ID, name, value);
-        private static T GetBehaviourProperty<T>(Entity entity, string name) => entity.GetBehaviourProperty<T>(ID, name);
+        private static void SetBehaviourProperty(Entity entity, string name, object value) => entity.SetBehaviourField(ID, name, value);
+        private static T GetBehaviourProperty<T>(Entity entity, string name) => entity.GetBehaviourField<T>(ID, name);
 
         public static Vector3 GetMoveDirection(Entity entity) => GetBehaviourProperty<Vector3>(entity, PROP_MOVE_DIRECTION);
         public static void SetMoveDirection(Entity entity, Vector3 value) => SetBehaviourProperty(entity, PROP_MOVE_DIRECTION, value);

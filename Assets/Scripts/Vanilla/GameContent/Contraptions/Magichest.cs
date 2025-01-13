@@ -59,19 +59,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetStateTimer(Entity entity)
         {
-            return entity.GetBehaviourProperty<FrameTimer>(ID, "StateTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourProperty(ID, "StateTimer", timer);
+            entity.SetBehaviourField(ID, "StateTimer", timer);
         }
         public static bool GetFlashVisible(Entity entity)
         {
-            return entity.GetBehaviourProperty<bool>(ID, "FlashVisible");
+            return entity.GetBehaviourField<bool>(ID, "FlashVisible");
         }
         public static void SetFlashVisible(Entity entity, bool timer)
         {
-            entity.SetBehaviourProperty(ID, "FlashVisible", timer);
+            entity.SetBehaviourField(ID, "FlashVisible", timer);
         }
         public static void Eat(Entity entity, Entity target)
         {

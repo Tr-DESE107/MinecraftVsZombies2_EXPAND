@@ -4,6 +4,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
@@ -94,17 +95,17 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             SetRepeatCount(entity, 5);
         }
-        public static FrameTimer GetRepeatTimer(Entity entity) => entity.GetProperty<FrameTimer>("RepeatTimer");
-        public static void SetRepeatTimer(Entity entity, FrameTimer timer) => entity.SetProperty("RepeatTimer", timer);
+        public static FrameTimer GetRepeatTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "RepeatTimer");
+        public static void SetRepeatTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "RepeatTimer", timer);
 
-        public static int GetRepeatCount(Entity entity) => entity.GetProperty<int>("RepeatCount");
-        public static void SetRepeatCount(Entity entity, int count) => entity.SetProperty("RepeatCount", count);
+        public static int GetRepeatCount(Entity entity) => entity.GetBehaviourField<int>(ID, "RepeatCount");
+        public static void SetRepeatCount(Entity entity, int count) => entity.SetBehaviourField(ID, "RepeatCount", count);
 
-        public static int GetUpgradeLevel(Entity entity) => entity.GetProperty<int>("UpgradeLevel");
-        public static void SetUpgradeLevel(Entity entity, int value) => entity.SetProperty("UpgradeLevel", value);
+        public static int GetUpgradeLevel(Entity entity) => entity.GetBehaviourField<int>(ID, "UpgradeLevel");
+        public static void SetUpgradeLevel(Entity entity, int value) => entity.SetBehaviourField(ID, "UpgradeLevel", value);
 
-        public static float GetBlockerBlend(Entity entity) => entity.GetProperty<float>("BlockerBlend");
-        public static void SetBlockerBlend(Entity entity, float value) => entity.SetProperty("BlockerBlend", value);
+        public static float GetBlockerBlend(Entity entity) => entity.GetBehaviourField<float>(ID, "BlockerBlend");
+        public static void SetBlockerBlend(Entity entity, float value) => entity.SetBehaviourField(ID, "BlockerBlend", value);
 
 
         void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
@@ -124,5 +125,6 @@ namespace MVZ2.GameContent.Contraptions
 
         }
         public const int MAX_UPGRADE_LEVEL = 4;
+        private static readonly NamespaceID ID = VanillaContraptionID.drivenser;
     }
 }

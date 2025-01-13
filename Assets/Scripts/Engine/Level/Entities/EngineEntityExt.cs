@@ -5,13 +5,13 @@ namespace PVZEngine.Entities
 {
     public static class EngineEntityExt
     {
-        public static void SetBehaviourProperty(this Entity entity, NamespaceID id, string name, object value)
+        public static void SetBehaviourField(this Entity entity, NamespaceID id, string name, object value)
         {
-            entity.SetProperty($"{id}/{name}", value);
+            entity.SetField(id.ToString(), name, value);
         }
-        public static T GetBehaviourProperty<T>(this Entity entity, NamespaceID id, string name)
+        public static T GetBehaviourField<T>(this Entity entity, NamespaceID id, string name)
         {
-            return entity.GetProperty<T>($"{id}/{name}");
+            return entity.GetField<T>(id.ToString(), name);
         }
         public static ShellDefinition GetShellDefinition(this Entity entity)
         {

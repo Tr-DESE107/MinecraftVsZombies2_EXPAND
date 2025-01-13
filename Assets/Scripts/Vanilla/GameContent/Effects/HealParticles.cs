@@ -27,11 +27,11 @@ namespace MVZ2.GameContent.Effects
         }
         public static float GetEmitSpeed(Entity entity)
         {
-            return entity.GetBehaviourProperty<float>(ID, "EmitSpeed");
+            return entity.GetBehaviourField<float>(ID, "EmitSpeed");
         }
         public static void SetEmitSpeed(Entity entity, float value)
         {
-            entity.SetBehaviourProperty(ID, "EmitSpeed", value);
+            entity.SetBehaviourField(ID, "EmitSpeed", value);
         }
         public static void AddEmitSpeed(Entity entity, float value)
         {

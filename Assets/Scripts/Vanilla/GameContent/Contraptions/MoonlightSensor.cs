@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -61,19 +62,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetProductionTimer(Entity entity)
         {
-            return entity.GetProperty<FrameTimer>("ProductionTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "ProductionTimer");
         }
         public static void SetProductionTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetProperty("ProductionTimer", timer);
+            entity.SetBehaviourField(ID, "ProductionTimer", timer);
         }
         public static FrameTimer GetUpgradeTimer(Entity entity)
         {
-            return entity.GetProperty<FrameTimer>("UpgradeTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "UpgradeTimer");
         }
         public static void SetUpgradeTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetProperty("UpgradeTimer", timer);
+            entity.SetBehaviourField(ID, "UpgradeTimer", timer);
         }
         public static FrameTimer GetOrCreateUpgradeTimer(Entity entity)
         {
@@ -87,11 +88,11 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static bool GetUpgraded(Entity entity)
         {
-            return entity.GetProperty<bool>("Upgraded");
+            return entity.GetBehaviourField<bool>(ID, "Upgraded");
         }
         public static void SetUpgraded(Entity entity, bool value)
         {
-            entity.SetProperty("Upgraded", value);
+            entity.SetBehaviourField(ID, "Upgraded", value);
         }
         private void ProductionUpdate(Entity entity)
         {
@@ -121,5 +122,6 @@ namespace MVZ2.GameContent.Contraptions
         public const int PRODUCTION_INTERVAL = 30;
         public const int UPGRADE_TIME = 3600;
         private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);
+        private static readonly NamespaceID ID = VanillaContraptionID.moonlightSensor;
     }
 }

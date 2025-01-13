@@ -186,11 +186,11 @@ namespace MVZ2.GameContent.Effects
         }
         public static int GetRespawnCountdown(Entity board)
         {
-            return board.GetBehaviourProperty<int>(ID, PROP_RESPAWN_COUNTDOWN);
+            return board.GetBehaviourField<int>(ID, PROP_RESPAWN_COUNTDOWN);
         }
         public static void SetRespawnCountdown(Entity board, int value)
         {
-            board.SetBehaviourProperty(ID, PROP_RESPAWN_COUNTDOWN, value);
+            board.SetBehaviourField(ID, PROP_RESPAWN_COUNTDOWN, value);
         }
         private void PushBullet(Entity board, Entity bullet, Vector3 bullet2Board)
         {

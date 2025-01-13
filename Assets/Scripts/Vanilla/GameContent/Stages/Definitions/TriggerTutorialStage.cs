@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Stages
         public override void OnStart(LevelEngine level)
         {
             base.OnStart(level);
-            level.SetProperty(PROP_TUTORIAL_TIMER, new FrameTimer(90));
+            SetTutorialTimer(level, new FrameTimer(90));
             level.SetSeedSlotCount(1);
             level.ReplaceSeedPacks(new NamespaceID[] { VanillaContraptionID.tnt });
             level.SetStarshardActive(false);
@@ -43,12 +43,12 @@ namespace MVZ2.GameContent.Stages
         }
         private void StartTimer(LevelEngine level, int timeout)
         {
-            var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+            var timer = GetTutorialTimer(level);
             timer.ResetTime(timeout);
         }
         private void RunTimer(LevelEngine level)
         {
-            var timer = level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+            var timer = GetTutorialTimer(level);
             timer.Run();
             if (timer.Expired)
             {
@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void StartState(LevelEngine level, int state)
         {
-            SetState(level, state);
+            SetTutorialState(level, state);
             var textKey = tutorialStrings[state];
             var context = string.Format(CONTEXT_STATE, state);
             level.ShowAdvice(context, textKey, 1000, -1);
@@ -126,7 +126,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void UpdateState(LevelEngine level)
         {
-            var state = GetState(level);
+            var state = GetTutorialState(level);
             switch (state)
             {
                 case STATE_PLACE_TNT:
@@ -226,7 +226,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void OnTimerStop(LevelEngine level)
         {
-            var state = GetState(level);
+            var state = GetTutorialState(level);
             switch (state)
             {
                 case STATE_TNT_TRIGGERED:
@@ -257,14 +257,11 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        public void SetState(LevelEngine level, int value)
-        {
-            level.SetProperty(PROP_STATE, value);
-        }
-        public int GetState(LevelEngine level)
-        {
-            return level.GetProperty<int>(PROP_STATE);
-        }
+        public static FrameTimer GetTutorialTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, PROP_TUTORIAL_TIMER);
+        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, PROP_TUTORIAL_TIMER, value);
+        public static int GetTutorialState(LevelEngine level) => level.GetBehaviourField<int>(ID, PROP_STATE);
+        public static void SetTutorialState(LevelEngine level, int value) => level.SetBehaviourField(ID, PROP_STATE, value);
+        private static readonly NamespaceID ID = VanillaStageID.triggerTutorial;
 
         public static readonly string[] tutorialStrings = new string[]
         {

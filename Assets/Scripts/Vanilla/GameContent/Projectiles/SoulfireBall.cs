@@ -55,11 +55,11 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static void SetBlast(Entity entity, bool value)
         {
-            entity.SetBehaviourProperty(ID, "Blast", value);
+            entity.SetBehaviourField(ID, "Blast", value);
         }
         public static bool IsBlast(Entity entity)
         {
-            return entity.GetBehaviourProperty<bool>(ID, "Blast");
+            return entity.GetBehaviourField<bool>(ID, "Blast");
         }
         public static NamespaceID ID => VanillaProjectileID.soulfireBall;
     }

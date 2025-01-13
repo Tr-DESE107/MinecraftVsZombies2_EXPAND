@@ -287,22 +287,22 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         #region 属性
-        public static int GetPadDirection(Entity pad) => pad.GetBehaviourProperty<int>(ID, PROP_PAD_DIRECTION);
-        public static void SetPadDirection(Entity pad, int direction) => pad.SetBehaviourProperty(ID, PROP_PAD_DIRECTION, direction);
-        public static List<EntityID> GetAffectedEntities(Entity pad) => pad.GetBehaviourProperty<List<EntityID>>(ID, PROP_AFFECTED_ENTITIES);
-        public static void SetAffectedEntities(Entity pad, List<EntityID> value) => pad.SetBehaviourProperty(ID, PROP_AFFECTED_ENTITIES, value);
+        public static int GetPadDirection(Entity pad) => pad.GetBehaviourField<int>(ID, PROP_PAD_DIRECTION);
+        public static void SetPadDirection(Entity pad, int direction) => pad.SetBehaviourField(ID, PROP_PAD_DIRECTION, direction);
+        public static List<EntityID> GetAffectedEntities(Entity pad) => pad.GetBehaviourField<List<EntityID>>(ID, PROP_AFFECTED_ENTITIES);
+        public static void SetAffectedEntities(Entity pad, List<EntityID> value) => pad.SetBehaviourField(ID, PROP_AFFECTED_ENTITIES, value);
 
         #region 拖拽
-        public static EntityID[] GetDraggingEntities(Entity pad) => pad.GetBehaviourProperty<EntityID[]>(ID, PROP_DRAGGING_ENTITIES);
-        public static void SetDraggingEntities(Entity pad, EntityID[] value) => pad.SetBehaviourProperty(ID, PROP_DRAGGING_ENTITIES, value);
-        public static EntityID[] GetDraggingLines(Entity pad) => pad.GetBehaviourProperty<EntityID[]>(ID, PROP_DRAGGING_LINES);
-        public static void SetDraggingLines(Entity pad, EntityID[] value) => pad.SetBehaviourProperty(ID, PROP_DRAGGING_LINES, value);
-        public static bool IsDragTargetLocked(Entity pad) => pad.GetBehaviourProperty<bool>(ID, PROP_DRAG_TARGET_LOCKED);
-        public static void SetDragTargetLocked(Entity pad, bool value) => pad.SetBehaviourProperty(ID, PROP_DRAG_TARGET_LOCKED, value);
-        public static Vector3 GetDragTarget(Entity pad) => pad.GetBehaviourProperty<Vector3>(ID, PROP_DRAG_TARGET);
-        public static void SetDragTarget(Entity pad, Vector3 position) => pad.SetBehaviourProperty(ID, PROP_DRAG_TARGET, position);
-        public static int GetDragTimeout(Entity pad) => pad.GetBehaviourProperty<int>(ID, PROP_DRAG_TIMEOUT);
-        public static void SetDragTimeout(Entity pad, int value) => pad.SetBehaviourProperty(ID, PROP_DRAG_TIMEOUT, value);
+        public static EntityID[] GetDraggingEntities(Entity pad) => pad.GetBehaviourField<EntityID[]>(ID, PROP_DRAGGING_ENTITIES);
+        public static void SetDraggingEntities(Entity pad, EntityID[] value) => pad.SetBehaviourField(ID, PROP_DRAGGING_ENTITIES, value);
+        public static EntityID[] GetDraggingLines(Entity pad) => pad.GetBehaviourField<EntityID[]>(ID, PROP_DRAGGING_LINES);
+        public static void SetDraggingLines(Entity pad, EntityID[] value) => pad.SetBehaviourField(ID, PROP_DRAGGING_LINES, value);
+        public static bool IsDragTargetLocked(Entity pad) => pad.GetBehaviourField<bool>(ID, PROP_DRAG_TARGET_LOCKED);
+        public static void SetDragTargetLocked(Entity pad, bool value) => pad.SetBehaviourField(ID, PROP_DRAG_TARGET_LOCKED, value);
+        public static Vector3 GetDragTarget(Entity pad) => pad.GetBehaviourField<Vector3>(ID, PROP_DRAG_TARGET);
+        public static void SetDragTarget(Entity pad, Vector3 position) => pad.SetBehaviourField(ID, PROP_DRAG_TARGET, position);
+        public static int GetDragTimeout(Entity pad) => pad.GetBehaviourField<int>(ID, PROP_DRAG_TIMEOUT);
+        public static void SetDragTimeout(Entity pad, int value) => pad.SetBehaviourField(ID, PROP_DRAG_TIMEOUT, value);
         #endregion
 
         #endregion

@@ -154,14 +154,14 @@ namespace MVZ2.GameContent.Enemies
 
         public static Entity GetClimbTarget(Entity spider)
         {
-            var id = spider.GetBehaviourProperty<EntityID>(ID, PROP_CLIMB_TARGET_ID);
+            var id = spider.GetBehaviourField<EntityID>(ID, PROP_CLIMB_TARGET_ID);
             if (id == null)
                 return null;
             return id.GetEntity(spider.Level);
         }
         public static void SetClimbTarget(Entity spider, Entity value)
         {
-            spider.SetBehaviourProperty(ID, PROP_CLIMB_TARGET_ID, new EntityID(value));
+            spider.SetBehaviourField(ID, PROP_CLIMB_TARGET_ID, new EntityID(value));
         }
         public static readonly NamespaceID ID = VanillaEnemyID.spider;
         public const string PROP_CLIMB_TARGET_ID = "ClimbTargetID";

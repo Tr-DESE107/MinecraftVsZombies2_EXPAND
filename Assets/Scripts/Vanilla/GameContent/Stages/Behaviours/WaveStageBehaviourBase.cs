@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -257,18 +258,19 @@ namespace MVZ2.GameContent.Stages
         #endregion
 
         #region 关卡属性
-        public FrameTimer GetWaveTimer(LevelEngine level) => level.GetProperty<FrameTimer>("WaveTimer");
-        public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetProperty("WaveTimer", value);
+        public FrameTimer GetWaveTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, "WaveTimer");
+        public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, "WaveTimer", value);
 
-        public FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetProperty<FrameTimer>("FinalWaveEventTimer");
-        public void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetProperty("FinalWaveEventTimer", value);
+        public FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, "FinalWaveEventTimer");
+        public void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, "FinalWaveEventTimer", value);
 
-        public float GetWaveMaxHealth(LevelEngine level) => level.GetProperty<float>("WaveMaxHealth");
-        public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetProperty("WaveMaxHealth", value);
+        public float GetWaveMaxHealth(LevelEngine level) => level.GetBehaviourField<float>(ID, "WaveMaxHealth");
+        public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetBehaviourField(ID, "WaveMaxHealth", value);
         public void AddWaveMaxHealth(LevelEngine level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
         #endregion
 
         #region 属性字段
+        private static readonly NamespaceID ID = new NamespaceID("mvz2", "wave_stage_base");
         public bool SpawnFlagZombie { get; set; } = true;
         public const int STATE_NOT_STARTED = 0;
         public const int STATE_STARTED = 1;

@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -69,11 +70,11 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetRiseTimer(Entity entity)
         {
-            return entity.GetProperty<FrameTimer>("RiseTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "RiseTimer");
         }
         public static void SetRiseTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetProperty("RiseTimer", timer);
+            entity.SetBehaviourField(ID, "RiseTimer", timer);
         }
         private void RiseUpdate(Entity entity)
         {
@@ -135,5 +136,6 @@ namespace MVZ2.GameContent.Contraptions
 
             return seed;
         }
+        private static readonly NamespaceID ID = VanillaContraptionID.mineTNT;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -30,8 +31,9 @@ namespace MVZ2.GameContent.Projectiles
             base.PostContactGround(entity, velocity);
             entity.Remove();
         }
-        public static int GetGasCooldown(Entity entity) => entity.GetProperty<int>("GasCooldown");
-        public static void SetGasCooldown(Entity entity, int value) => entity.SetProperty("GasCooldown", value);
+        public static int GetGasCooldown(Entity entity) => entity.GetBehaviourField<int>(ID, "GasCooldown");
+        public static void SetGasCooldown(Entity entity, int value) => entity.SetBehaviourField(ID, "GasCooldown", value);
+        private static readonly NamespaceID ID = VanillaProjectileID.poisonJavelin;
         public const int MAX_COOLDOWN = 3;
     }
 }

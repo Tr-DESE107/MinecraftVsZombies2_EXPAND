@@ -3,6 +3,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -42,22 +43,10 @@ namespace MVZ2.GameContent.Enemies
 
             entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
         }
-        public static int GetBowPower(Entity enemy)
-        {
-            return enemy.GetProperty<int>(PROP_BOW_POWER);
-        }
-        public static bool GetBowFired(Entity enemy)
-        {
-            return enemy.GetProperty<bool>(PROP_BOW_FIRED);
-        }
-        public static void SetBowPower(Entity enemy, int value)
-        {
-            enemy.SetProperty(PROP_BOW_POWER, value);
-        }
-        public static void SetBowFired(Entity enemy, bool value)
-        {
-            enemy.SetProperty(PROP_BOW_FIRED, value);
-        }
+        public static int GetBowPower(Entity enemy) => enemy.GetBehaviourField<int>(ID, PROP_BOW_POWER);
+        public static bool GetBowFired(Entity enemy) => enemy.GetBehaviourField<bool>(ID, PROP_BOW_FIRED);
+        public static void SetBowPower(Entity enemy, int value) => enemy.SetBehaviourField(ID, PROP_BOW_POWER, value);
+        public static void SetBowFired(Entity enemy, bool value) => enemy.SetBehaviourField(ID, PROP_BOW_FIRED, value);
         protected override void UpdateStateWalk(Entity enemy)
         {
             base.UpdateStateWalk(enemy);
@@ -114,6 +103,7 @@ namespace MVZ2.GameContent.Enemies
             SetBowPower(entity, bowPower);
         }
         private Detector detector;
+        private static readonly NamespaceID ID = VanillaEnemyID.skeleton;
         public const string PROP_BOW_FIRED = "bowFired";
         public const string PROP_BOW_POWER = "bowPower";
         public const int BOW_POWER_PULL_SPEED = 100;

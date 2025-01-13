@@ -87,8 +87,8 @@ namespace MVZ2.GameContent.Effects
         {
             return hoe.IsHostile(target) && target.Type == EntityTypes.ENEMY && hoe.MainHitbox.Intersects(target.MainHitbox);
         }
-        public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourProperty(ID, PROP_STATE_TIMER, timer);
-        public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourProperty<FrameTimer>(ID, PROP_STATE_TIMER);
+        public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
+        public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
 
         public static readonly NamespaceID ID = VanillaEffectID.hoe;
         public const string PROP_STATE_TIMER = "StateTimer";

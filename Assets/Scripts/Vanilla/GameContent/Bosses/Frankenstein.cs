@@ -216,20 +216,20 @@ namespace MVZ2.GameContent.Bosses
 
         public static bool IsParalyzed(Entity boss)
         {
-            return boss.GetBehaviourProperty<bool>(ID, "Paralyzed");
+            return boss.GetBehaviourField<bool>(ID, "Paralyzed");
         }
         public static void SetParalyzed(Entity boss, bool value)
         {
-            boss.SetBehaviourProperty(ID, "Paralyzed", value);
+            boss.SetBehaviourField(ID, "Paralyzed", value);
         }
 
         public static bool IsSteelPhase(Entity boss)
         {
-            return boss.GetBehaviourProperty<bool>(ID, PROP_STEEL_PHASE);
+            return boss.GetBehaviourField<bool>(ID, PROP_STEEL_PHASE);
         }
         public static void SetSteelPhase(Entity boss, bool value)
         {
-            boss.SetBehaviourProperty(ID, PROP_STEEL_PHASE, value);
+            boss.SetBehaviourField(ID, PROP_STEEL_PHASE, value);
             if (value)
             {
                 boss.AddBuff<FrankensteinSteelBuff>();
@@ -243,69 +243,69 @@ namespace MVZ2.GameContent.Bosses
 
         public static FrameTimer GetDetectTimer(Entity boss)
         {
-            return boss.GetBehaviourProperty<FrameTimer>(ID, PROP_DETECT_TIMER);
+            return boss.GetBehaviourField<FrameTimer>(ID, PROP_DETECT_TIMER);
         }
         private static void SetDetectTimer(Entity boss, FrameTimer value)
         {
-            boss.SetBehaviourProperty(ID, PROP_DETECT_TIMER, value);
+            boss.SetBehaviourField(ID, PROP_DETECT_TIMER, value);
         }
 
         public static RandomGenerator GetShockRNG(Entity boss)
         {
-            return boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_SHOCK_RNG);
+            return boss.GetBehaviourField<RandomGenerator>(ID, PROP_SHOCK_RNG);
         }
         private static void SetShockRNG(Entity boss, RandomGenerator value)
         {
-            boss.SetBehaviourProperty(ID, PROP_SHOCK_RNG, value);
+            boss.SetBehaviourField(ID, PROP_SHOCK_RNG, value);
         }
 
         public static RandomGenerator GetJumpRNG(Entity boss)
         {
-            return boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_JUMP_RNG);
+            return boss.GetBehaviourField<RandomGenerator>(ID, PROP_JUMP_RNG);
         }
         private static void SetJumpRNG(Entity boss, RandomGenerator value)
         {
-            boss.SetBehaviourProperty(ID, PROP_JUMP_RNG, value);
+            boss.SetBehaviourField(ID, PROP_JUMP_RNG, value);
         }
 
         public static RandomGenerator GetBulletRNG(Entity boss)
         {
-            return boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_BULLET_RNG);
+            return boss.GetBehaviourField<RandomGenerator>(ID, PROP_BULLET_RNG);
         }
         private static void SetBulletRNG(Entity boss, RandomGenerator value)
         {
-            boss.SetBehaviourProperty(ID, PROP_BULLET_RNG, value);
+            boss.SetBehaviourField(ID, PROP_BULLET_RNG, value);
         }
 
         private static Vector3 GetGunDirection(Entity boss)
         {
-            return boss.GetBehaviourProperty<Vector3>(ID, PROP_GUN_DIRECTION);
+            return boss.GetBehaviourField<Vector3>(ID, PROP_GUN_DIRECTION);
         }
         private static void SetGunDirection(Entity boss, Vector3 direction)
         {
-            boss.SetBehaviourProperty(ID, PROP_GUN_DIRECTION, direction);
+            boss.SetBehaviourField(ID, PROP_GUN_DIRECTION, direction);
             float innerAngle = Vector2.SignedAngle(boss.GetFacingDirection(), direction);
             boss.SetAnimationFloat("InnerArmAngle", innerAngle);
         }
 
         private static Vector3 GetMissileDirection(Entity boss)
         {
-            return boss.GetBehaviourProperty<Vector3>(ID, PROP_MISSILE_DIRECTION);
+            return boss.GetBehaviourField<Vector3>(ID, PROP_MISSILE_DIRECTION);
         }
         private static void SetMissileDirection(Entity boss, Vector3 direction)
         {
-            boss.SetBehaviourProperty(ID, PROP_MISSILE_DIRECTION, direction);
+            boss.SetBehaviourField(ID, PROP_MISSILE_DIRECTION, direction);
             float innerAngle = Vector2.SignedAngle(boss.GetFacingDirection(), direction);
             boss.SetAnimationFloat("OuterArmAngle", innerAngle);
         }
 
         private static Vector3 GetJumpTarget(Entity boss)
         {
-            return boss.GetBehaviourProperty<Vector3>(ID, PROP_JUMP_TARGET);
+            return boss.GetBehaviourField<Vector3>(ID, PROP_JUMP_TARGET);
         }
         private static void SetJumpTarget(Entity boss, Vector3 target)
         {
-            boss.SetBehaviourProperty(ID, PROP_JUMP_TARGET, target);
+            boss.SetBehaviourField(ID, PROP_JUMP_TARGET, target);
         }
 
         #endregion 属性

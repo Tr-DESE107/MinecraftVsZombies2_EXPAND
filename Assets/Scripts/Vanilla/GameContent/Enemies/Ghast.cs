@@ -81,11 +81,11 @@ namespace MVZ2.GameContent.Enemies
         }
         public static FrameTimer GetStateTimer(Entity enemy)
         {
-            return enemy.GetBehaviourProperty<FrameTimer>(ID, PROP_STATE_TIMER);
+            return enemy.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
         }
         public static void SetStateTimer(Entity enemy, FrameTimer value)
         {
-            enemy.SetBehaviourProperty(ID, PROP_STATE_TIMER, value);
+            enemy.SetBehaviourField(ID, PROP_STATE_TIMER, value);
         }
         protected override void UpdateStateAttack(Entity enemy)
         {

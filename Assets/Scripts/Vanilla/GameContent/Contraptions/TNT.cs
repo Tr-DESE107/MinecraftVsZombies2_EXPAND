@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
@@ -55,20 +56,20 @@ namespace MVZ2.GameContent.Contraptions
         public static void Ignite(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.fuse);
-            entity.SetProperty("Ignited", true);
+            entity.SetBehaviourField(ID, "Ignited", true);
             entity.AddBuff<TNTIgnitedBuff>();
         }
         public static bool IsIgnited(Entity entity)
         {
-            return entity.GetProperty<bool>("Ignited");
+            return entity.GetBehaviourField<bool>(ID, "Ignited");
         }
         public static FrameTimer GetExplosionTimer(Entity entity)
         {
-            return entity.GetProperty<FrameTimer>("ExplosionTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "ExplosionTimer");
         }
         public static void SetExplosionTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetProperty("ExplosionTimer", timer);
+            entity.SetBehaviourField(ID, "ExplosionTimer", timer);
         }
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
@@ -158,5 +159,6 @@ namespace MVZ2.GameContent.Contraptions
             }
             entity.PlaySound(VanillaSoundID.thunder);
         }
+        private static readonly NamespaceID ID = VanillaContraptionID.tnt;
     }
 }

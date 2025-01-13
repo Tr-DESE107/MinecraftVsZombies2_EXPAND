@@ -1,8 +1,10 @@
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -49,9 +51,10 @@ namespace MVZ2.GameContent.Effects
             var lightPercentage = Mathf.Max(0, (entity.Timeout / (float)MAX_TIMEOUT) * 3 - 2);
             entity.SetProperty(PROP_LIGHT_RANGE_MULTIPLIER, Vector3.one * lightPercentage);
         }
-        public static int GetDamageCooldown(Entity entity) => entity.GetProperty<int>("DamageCooldown");
-        public static void SetDamageCooldown(Entity entity, int value) => entity.SetProperty("DamageCooldown", value);
+        public static int GetDamageCooldown(Entity entity) => entity.GetBehaviourField<int>(ID, "DamageCooldown");
+        public static void SetDamageCooldown(Entity entity, int value) => entity.SetBehaviourField(ID, "DamageCooldown", value);
         #endregion
+        private static readonly NamespaceID ID = VanillaEffectID.fireBreath;
         public const int DAMAGE_COOLDOWN = 15;
         public const int MAX_TIMEOUT = 30;
         public const string PROP_LIGHT_RANGE_MULTIPLIER = "LightRangeMultiplier";

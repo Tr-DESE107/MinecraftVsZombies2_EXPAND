@@ -79,19 +79,19 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void SetCasting(Entity entity, bool timer)
         {
-            entity.SetBehaviourProperty(ID, "Casting", timer);
+            entity.SetBehaviourField(ID, "Casting", timer);
         }
         public static bool IsCasting(Entity entity)
         {
-            return entity.GetBehaviourProperty<bool>(ID, "Casting");
+            return entity.GetBehaviourField<bool>(ID, "Casting");
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourProperty(ID, "StateTimer", timer);
+            entity.SetBehaviourField(ID, "StateTimer", timer);
         }
         public static FrameTimer GetStateTimer(Entity entity)
         {
-            return entity.GetBehaviourProperty<FrameTimer>(ID, "StateTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
         }
 
         private void StartCasting(Entity entity)

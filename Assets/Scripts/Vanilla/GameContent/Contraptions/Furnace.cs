@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -58,19 +59,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetProductionTimer(Entity entity)
         {
-            return entity.GetProperty<FrameTimer>("ProductionTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "ProductionTimer");
         }
         public static void SetProductionTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetProperty("ProductionTimer", timer);
+            entity.SetBehaviourField(ID, "ProductionTimer", timer);
         }
         public static FrameTimer GetEvocationTimer(Entity entity)
         {
-            return entity.GetProperty<FrameTimer>("EvocationTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
         }
         public static void SetEvocationTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetProperty("EvocationTimer", timer);
+            entity.SetBehaviourField(ID, "EvocationTimer", timer);
         }
         private void ProductionUpdate(Entity entity)
         {
@@ -122,5 +123,6 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
         private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);
+        private static readonly NamespaceID ID = VanillaContraptionID.furnace;
     }
 }

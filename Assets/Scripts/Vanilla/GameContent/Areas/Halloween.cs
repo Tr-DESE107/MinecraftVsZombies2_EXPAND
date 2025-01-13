@@ -9,6 +9,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Areas
         public override void Setup(LevelEngine level)
         {
             base.Setup(level);
-            level.SetProperty(PROP_RNG, level.CreateRNG());
+            SetRNG(level, level.CreateRNG());
         }
         public override void PrepareForBattle(LevelEngine level)
         {
@@ -99,7 +100,7 @@ namespace MVZ2.GameContent.Areas
             if (count <= 0)
                 return;
 
-            var rng = level.GetProperty<RandomGenerator>(PROP_RNG);
+            var rng = GetRNG(level);
             var grids = valid.WeightedRandomTake(weights.ToArray(), count, rng);
             foreach (var grid in grids)
             {
@@ -122,7 +123,10 @@ namespace MVZ2.GameContent.Areas
         {
             return column - STATUE_MIN_COLUMN + 1;
         }
+        public static RandomGenerator GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_RNG);
+        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(ID, PROP_RNG, rng);
 
+        private static readonly NamespaceID ID = VanillaAreaID.halloween;
         public const string PROP_RNG = "HalloweenRNG";
         public const int STATUE_MIN_COLUMN = 5;
     }

@@ -48,19 +48,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetEvocationTimer(Entity entity)
         {
-            return entity.GetBehaviourProperty<FrameTimer>(ID, "EvocationTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
         }
         public static void SetEvocationTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourProperty(ID, "EvocationTimer", timer);
+            entity.SetBehaviourField(ID, "EvocationTimer", timer);
         }
         public static Vector3[] GetEvocationTargetPositions(Entity entity)
         {
-            return entity.GetBehaviourProperty<Vector3[]>(ID, "EvocationTargetPositions");
+            return entity.GetBehaviourField<Vector3[]>(ID, "EvocationTargetPositions");
         }
         public static void SetEvocationTargetPositions(Entity entity, Vector3[] timer)
         {
-            entity.SetBehaviourProperty(ID, "EvocationTargetPositions", timer);
+            entity.SetBehaviourField(ID, "EvocationTargetPositions", timer);
         }
         private void EvokedUpdate(Entity entity)
         {

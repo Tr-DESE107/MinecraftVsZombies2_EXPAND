@@ -65,8 +65,8 @@ namespace MVZ2.GameContent.Effects
                 nightmareaper.AddBuff<NightmareaperEnragedBuff>();
             }
         }
-        public static int GetTimeout(Entity entity) => entity.GetBehaviourProperty<int>(ID, PROP_TIMEOUT);
-        public static void SetTimeout(Entity entity, int value) => entity.SetBehaviourProperty(ID, PROP_TIMEOUT, value);
+        public static int GetTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_TIMEOUT);
+        public static void SetTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_TIMEOUT, value);
         public const string PROP_TIMEOUT = "Timeout";
         public static readonly NamespaceID ID = VanillaEffectID.nightmareaperTimer;
     }

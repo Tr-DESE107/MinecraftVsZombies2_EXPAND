@@ -5,6 +5,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -120,21 +121,22 @@ namespace MVZ2.GameContent.Contraptions
             }
             SetEvocationTime(entity, evocationTime);
         }
-        public static FrameTimer GetFireDetectTimer(Entity entity) => entity.GetProperty<FrameTimer>("FireDetectTimer");
-        public static void SetFireDetectTimer(Entity entity, FrameTimer value) => entity.SetProperty("FireDetectTimer", value);
-        public static int GetEvocationTime(Entity entity) => entity.GetProperty<int>("EvocationTime");
-        public static void SetEvocationTime(Entity entity, int value) => entity.SetProperty("EvocationTime", value);
+        public static FrameTimer GetFireDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "FireDetectTimer");
+        public static void SetFireDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, "FireDetectTimer", value);
+        public static int GetEvocationTime(Entity entity) => entity.GetBehaviourField<int>(ID, "EvocationTime");
+        public static void SetEvocationTime(Entity entity, int value) => entity.SetBehaviourField(ID, "EvocationTime", value);
         public static Entity GetFireBreath(Entity entity)
         {
-            var entityID = entity.GetProperty<EntityID>("FireBreath");
+            var entityID = entity.GetBehaviourField<EntityID>(ID, "FireBreath");
             if (entityID == null)
                 return null;
             return entityID.GetEntity(entity.Level);
         }
         public static void SetFireBreath(Entity entity, Entity value)
         {
-            entity.SetProperty("FireBreath", new EntityID(value));
+            entity.SetBehaviourField(ID, "FireBreath", new EntityID(value));
         }
+        private static readonly NamespaceID ID = VanillaContraptionID.totenser;
         private Detector fireBreathDetector;
         public const int FIRE_DETECT_INTERVAL = 7;
         public const int THROW_JAVELIN_TIME = 30;

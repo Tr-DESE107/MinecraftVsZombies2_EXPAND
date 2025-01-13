@@ -455,41 +455,41 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 属性
-        public static int GetSelectedFateTimes(Entity boss) => boss.GetBehaviourProperty<int>(ID, PROP_SELECTED_FATE_TIMES);
-        public static void SetSelectedFateTimes(Entity boss, int value) => boss.SetBehaviourProperty(ID, PROP_SELECTED_FATE_TIMES, value);
-        public static int GetReadyFateTimes(Entity boss) => boss.GetBehaviourProperty<int>(ID, PROP_READY_FATE_TIMES);
-        public static void SetReadyFateTimes(Entity boss, int value) => boss.SetBehaviourProperty(ID, PROP_READY_FATE_TIMES, value);
+        public static int GetSelectedFateTimes(Entity boss) => boss.GetBehaviourField<int>(ID, PROP_SELECTED_FATE_TIMES);
+        public static void SetSelectedFateTimes(Entity boss, int value) => boss.SetBehaviourField(ID, PROP_SELECTED_FATE_TIMES, value);
+        public static int GetReadyFateTimes(Entity boss) => boss.GetBehaviourField<int>(ID, PROP_READY_FATE_TIMES);
+        public static void SetReadyFateTimes(Entity boss, int value) => boss.SetBehaviourField(ID, PROP_READY_FATE_TIMES, value);
 
         #region 移动
-        public static FrameTimer GetMoveTimer(Entity boss) => boss.GetBehaviourProperty<FrameTimer>(ID, PROP_MOVE_TIMER);
-        public static void SetMoveTimer(Entity boss, FrameTimer value) => boss.SetBehaviourProperty(ID, PROP_MOVE_TIMER, value);
-        public static int GetMoveTimeout(Entity boss) => boss.GetBehaviourProperty<int>(ID, PROP_MOVE_TIMEOUT);
-        public static void SetMoveTimeout(Entity boss, int value) => boss.SetBehaviourProperty(ID, PROP_MOVE_TIMEOUT, value);
-        public static Vector3 GetMoveDisplacement(Entity boss) => boss.GetBehaviourProperty<Vector3>(ID, PROP_MOVE_DISPLACEMENT);
-        public static void SetMoveDisplacement(Entity boss, Vector3 value) => boss.SetBehaviourProperty(ID, PROP_MOVE_DISPLACEMENT, value);
+        public static FrameTimer GetMoveTimer(Entity boss) => boss.GetBehaviourField<FrameTimer>(ID, PROP_MOVE_TIMER);
+        public static void SetMoveTimer(Entity boss, FrameTimer value) => boss.SetBehaviourField(ID, PROP_MOVE_TIMER, value);
+        public static int GetMoveTimeout(Entity boss) => boss.GetBehaviourField<int>(ID, PROP_MOVE_TIMEOUT);
+        public static void SetMoveTimeout(Entity boss, int value) => boss.SetBehaviourField(ID, PROP_MOVE_TIMEOUT, value);
+        public static Vector3 GetMoveDisplacement(Entity boss) => boss.GetBehaviourField<Vector3>(ID, PROP_MOVE_DISPLACEMENT);
+        public static void SetMoveDisplacement(Entity boss, Vector3 value) => boss.SetBehaviourField(ID, PROP_MOVE_DISPLACEMENT, value);
         #endregion
 
         #region 传送门
-        public static FrameTimer GetPortalTimer(Entity boss) => boss.GetBehaviourProperty<FrameTimer>(ID, PROP_PORTAL_TIMER);
-        public static void SetPortalTimer(Entity boss, FrameTimer value) => boss.SetBehaviourProperty(ID, PROP_PORTAL_TIMER, value);
+        public static FrameTimer GetPortalTimer(Entity boss) => boss.GetBehaviourField<FrameTimer>(ID, PROP_PORTAL_TIMER);
+        public static void SetPortalTimer(Entity boss, FrameTimer value) => boss.SetBehaviourField(ID, PROP_PORTAL_TIMER, value);
         #endregion
 
         #region 精神交换
-        public static FrameTimer GetMindSwapTimer(Entity boss) => boss.GetBehaviourProperty<FrameTimer>(ID, PROP_MIND_SWAP_TIMER);
-        public static void SetMindSwapTimer(Entity boss, FrameTimer value) => boss.SetBehaviourProperty(ID, PROP_MIND_SWAP_TIMER, value);
+        public static FrameTimer GetMindSwapTimer(Entity boss) => boss.GetBehaviourField<FrameTimer>(ID, PROP_MIND_SWAP_TIMER);
+        public static void SetMindSwapTimer(Entity boss, FrameTimer value) => boss.SetBehaviourField(ID, PROP_MIND_SWAP_TIMER, value);
         #endregion
 
         #region RNG
-        public static RandomGenerator GetMoveRNG(Entity boss) => boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_MOVE_RNG);
-        public static void SetMoveRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourProperty(ID, PROP_MOVE_RNG, value);
-        public static RandomGenerator GetPortalRNG(Entity boss) => boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_PORTAL_RNG);
-        public static void SetPortalRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourProperty(ID, PROP_PORTAL_RNG, value);
-        public static RandomGenerator GetMindSwapRNG(Entity boss) => boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_MIND_SWAP_RNG);
-        public static void SetMindSwapRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourProperty(ID, PROP_MIND_SWAP_RNG, value);
-        public static RandomGenerator GetFateOptionRNG(Entity boss) => boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_FATE_OPTION_RNG);
-        public static void SetFateOptionRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourProperty(ID, PROP_FATE_OPTION_RNG, value);
-        public static RandomGenerator GetEventRNG(Entity boss) => boss.GetBehaviourProperty<RandomGenerator>(ID, PROP_EVENT_RNG);
-        public static void SetEventRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourProperty(ID, PROP_EVENT_RNG, value);
+        public static RandomGenerator GetMoveRNG(Entity boss) => boss.GetBehaviourField<RandomGenerator>(ID, PROP_MOVE_RNG);
+        public static void SetMoveRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_MOVE_RNG, value);
+        public static RandomGenerator GetPortalRNG(Entity boss) => boss.GetBehaviourField<RandomGenerator>(ID, PROP_PORTAL_RNG);
+        public static void SetPortalRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_PORTAL_RNG, value);
+        public static RandomGenerator GetMindSwapRNG(Entity boss) => boss.GetBehaviourField<RandomGenerator>(ID, PROP_MIND_SWAP_RNG);
+        public static void SetMindSwapRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_MIND_SWAP_RNG, value);
+        public static RandomGenerator GetFateOptionRNG(Entity boss) => boss.GetBehaviourField<RandomGenerator>(ID, PROP_FATE_OPTION_RNG);
+        public static void SetFateOptionRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_FATE_OPTION_RNG, value);
+        public static RandomGenerator GetEventRNG(Entity boss) => boss.GetBehaviourField<RandomGenerator>(ID, PROP_EVENT_RNG);
+        public static void SetEventRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_EVENT_RNG, value);
         #endregion
 
         #endregion 属性
