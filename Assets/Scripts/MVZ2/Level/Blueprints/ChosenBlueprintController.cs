@@ -45,6 +45,8 @@ namespace MVZ2.Level
         public override void Click()
         {
             base.Click();
+            if (!Controller.CanChooseBlueprints())
+                return;
             Controller.BlueprintChoosePart.UnchooseBlueprint(Index);
         }
         public override SeedDefinition GetSeedDefinition()

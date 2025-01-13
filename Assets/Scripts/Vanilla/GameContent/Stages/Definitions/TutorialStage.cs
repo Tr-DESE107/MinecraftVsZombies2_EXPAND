@@ -357,6 +357,7 @@ namespace MVZ2.GameContent.Stages
                         level.PlayMusic(VanillaMusicID.mainmenu);
                         level.HideAdvice();
                         level.SetEnergy(level.Option.StartEnergy);
+                        level.ResetAllRechargeProgress();
                         level.ClearSeedPacks();
                         level.SetNoProduction(false);
                         level.ChangeStage(VanillaStageID.prologue);

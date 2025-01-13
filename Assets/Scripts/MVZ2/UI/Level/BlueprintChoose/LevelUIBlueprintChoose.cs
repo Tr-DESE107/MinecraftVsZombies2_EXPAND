@@ -75,10 +75,6 @@ namespace MVZ2.UI
         {
             return chosenBlueprints.CreateBlueprint();
         }
-        public void AddChosenBlueprint(Blueprint blueprint)
-        {
-            chosenBlueprints.AddBlueprint(blueprint);
-        }
         public void InsertChosenBlueprint(int index, Blueprint blueprint)
         {
             chosenBlueprints.InsertBlueprint(index, blueprint);
@@ -110,6 +106,10 @@ namespace MVZ2.UI
         public Vector3 GetChosenBlueprintPosition(int index)
         {
             return chosenBlueprints.GetBlueprintPosition(index);
+        }
+        public void AlignRemainChosenBlueprint(int removeIndex)
+        {
+            chosenBlueprints.AlignRemainBlueprints(removeIndex);
         }
         #endregion
 

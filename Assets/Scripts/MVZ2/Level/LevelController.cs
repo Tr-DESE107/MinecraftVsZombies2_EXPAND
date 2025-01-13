@@ -44,6 +44,7 @@ namespace MVZ2.Level
         ILevelBlueprintController BlueprintController { get; }
         ILevelBlueprintChooseController BlueprintChoosePart { get; }
 
+        bool CanChooseBlueprints();
         void OpenAlmanac();
         void OpenStore();
     }

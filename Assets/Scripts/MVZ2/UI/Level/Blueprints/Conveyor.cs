@@ -12,6 +12,53 @@ namespace MVZ2.Level.UI
             structureList.updateList(count);
             LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
         }
+        public override Blueprint CreateBlueprint()
+        {
+            return blueprints.CreateItem().GetComponent<Blueprint>();
+        }
+        public override void InsertBlueprint(int index, Blueprint blueprint)
+        {
+            if (!blueprint)
+                return;
+            blueprints.Insert(index, blueprint.gameObject);
+            blueprint.OnPointerEnter += OnBlueprintPointerEnterCallback;
+            blueprint.OnPointerExit += OnBlueprintPointerExitCallback;
+            blueprint.OnPointerDown += OnBlueprintPointerDownCallback;
+        }
+        public override bool RemoveBlueprint(Blueprint blueprint)
+        {
+            if (!blueprint)
+                return false;
+            if (blueprints.Remove(blueprint.gameObject))
+            {
+                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
+                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
+                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+                return true;
+            }
+            return false;
+        }
+        public override bool DestroyBlueprint(Blueprint blueprint)
+        {
+            if (!blueprint)
+                return false;
+            if (blueprints.DestroyItem(blueprint.gameObject))
+            {
+                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
+                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
+                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+                return true;
+            }
+            return false;
+        }
+        public override Blueprint GetBlueprintAt(int index)
+        {
+            return blueprints.getElement<Blueprint>(index);
+        }
+        public override int GetBlueprintIndex(Blueprint value)
+        {
+            return blueprints.indexOf(value);
+        }
         public void SetBlueprintNormalizedPosition(int index, float position)
         {
             Blueprint blueprint = GetBlueprintAt(index);
@@ -20,6 +67,8 @@ namespace MVZ2.Level.UI
             blueprint.transform.position = Vector3.LerpUnclamped(startPositionAnchor.position, endPositionAnchor.position, position / (slotCount - 1));
         }
         private int slotCount;
+        [SerializeField]
+        private ElementList blueprints;
         [SerializeField]
         private ElementList structureList;
         [SerializeField]

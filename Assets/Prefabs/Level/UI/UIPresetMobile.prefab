@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ead245e8a4165f4ab54f10843034b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprints: {fileID: 1406806627738035409}
   horizontal: 0
+  blueprints: {fileID: 1406806627738035409}
   structureList: {fileID: 5700996523455727948}
   startPositionAnchor: {fileID: 5551426212127495510}
   endPositionAnchor: {fileID: 803031487421388981}
@@ -1007,7 +1007,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4721218176977772978}
-  - component: {fileID: 1221108853348371697}
+  - component: {fileID: 1570222038415795848}
   m_Layer: 5
   m_Name: BlueprintList
   m_TagString: Untagged
@@ -1035,7 +1035,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 550}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1221108853348371697
+--- !u!114 &1570222038415795848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1044,12 +1044,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4240708914627384639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326e7704b1d5f2648a9291bddf3d8c99, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fab26d30691a4b42afaa12c3f03d721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _listRoot: {fileID: 4721218176977772978}
   _template: {fileID: 8386950805745164151}
-  itemList: []
+  itemArray: []
 --- !u!1 &4332177382874172320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,8 +1686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88f993462edd224d86a6abb5b6250c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprints: {fileID: 1221108853348371697}
   horizontal: 0
+  blueprints: {fileID: 1570222038415795848}
   slots: {fileID: 1422470223339313208}
   offset: {x: 0, y: 0}
   cellSize: {x: 120, y: 55}

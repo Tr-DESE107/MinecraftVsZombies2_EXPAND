@@ -48,10 +48,6 @@ namespace MVZ2.UI
         {
             return blueprints.CreateBlueprint();
         }
-        public void AddClassicBlueprint(Blueprint blueprint)
-        {
-            blueprints.AddBlueprint(blueprint);
-        }
         public void InsertClassicBlueprint(int index, Blueprint blueprint)
         {
             blueprints.InsertBlueprint(index, blueprint);
@@ -94,10 +90,6 @@ namespace MVZ2.UI
         public Blueprint ConveyBlueprint()
         {
             return conveyor.CreateBlueprint();
-        }
-        public void AddConveyorBlueprint(Blueprint blueprint)
-        {
-            conveyor.AddBlueprint(blueprint);
         }
         public void InsertConveyorBlueprint(int index, Blueprint blueprint)
         {

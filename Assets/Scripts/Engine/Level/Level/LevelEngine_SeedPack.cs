@@ -234,7 +234,17 @@ namespace PVZEngine.Level
         {
             foreach (var seedPack in seedPacks)
             {
+                if (seedPack == null)
+                    continue;
                 SetRechargeTimeToStart(seedPack);
+                seedPack.ResetRecharge();
+            }
+            foreach (var seedPack in seedPackPool)
+            {
+                if (seedPack == null)
+                    continue;
+                SetRechargeTimeToStart(seedPack);
+                seedPack.ResetRecharge();
             }
         }
         #endregion

@@ -7,49 +7,10 @@ namespace MVZ2.Level.UI
 {
     public abstract class BlueprintSet : MonoBehaviour
     {
-        public Blueprint CreateBlueprint()
-        {
-            return blueprints.CreateItem().GetComponent<Blueprint>();
-        }
-        public void AddBlueprint(Blueprint blueprint)
-        {
-            InsertBlueprint(blueprints.Count, blueprint);
-        }
-        public void InsertBlueprint(int index, Blueprint blueprint)
-        {
-            if (!blueprint)
-                return;
-            blueprints.Insert(index, blueprint.gameObject);
-            blueprint.OnPointerEnter += OnBlueprintPointerEnterCallback;
-            blueprint.OnPointerExit += OnBlueprintPointerExitCallback;
-            blueprint.OnPointerDown += OnBlueprintPointerDownCallback;
-        }
-        public bool RemoveBlueprint(Blueprint blueprint)
-        {
-            if (!blueprint)
-                return false;
-            if (blueprints.Remove(blueprint.gameObject))
-            {
-                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
-                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
-                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
-                return true;
-            }
-            return false;
-        }
-        public bool DestroyBlueprint(Blueprint blueprint)
-        {
-            if (!blueprint)
-                return false;
-            if (blueprints.DestroyItem(blueprint.gameObject))
-            {
-                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
-                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
-                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
-                return true;
-            }
-            return false;
-        }
+        public abstract Blueprint CreateBlueprint();
+        public abstract void InsertBlueprint(int index, Blueprint blueprint);
+        public abstract bool RemoveBlueprint(Blueprint blueprint);
+        public abstract bool DestroyBlueprint(Blueprint blueprint);
         public void RemoveBlueprintAt(int index)
         {
             RemoveBlueprint(GetBlueprintAt(index));
@@ -58,31 +19,23 @@ namespace MVZ2.Level.UI
         {
             DestroyBlueprint(GetBlueprintAt(index));
         }
-        public Blueprint GetBlueprintAt(int index)
+        public abstract Blueprint GetBlueprintAt(int index);
+        public abstract int GetBlueprintIndex(Blueprint value);
+        protected void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData data)
         {
-            return blueprints.getElement<Blueprint>(index);
+            OnBlueprintPointerEnter?.Invoke(GetBlueprintIndex(blueprint), data);
         }
-        public int GetBlueprintIndex(Blueprint value)
+        protected void OnBlueprintPointerExitCallback(Blueprint blueprint, PointerEventData data)
         {
-            return blueprints.indexOf(value);
+            OnBlueprintPointerExit?.Invoke(GetBlueprintIndex(blueprint), data);
         }
-        private void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData data)
+        protected void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData data)
         {
-            OnBlueprintPointerEnter?.Invoke(blueprints.indexOf(blueprint), data);
-        }
-        private void OnBlueprintPointerExitCallback(Blueprint blueprint, PointerEventData data)
-        {
-            OnBlueprintPointerExit?.Invoke(blueprints.indexOf(blueprint), data);
-        }
-        private void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData data)
-        {
-            OnBlueprintPointerDown?.Invoke(blueprints.indexOf(blueprint), data);
+            OnBlueprintPointerDown?.Invoke(GetBlueprintIndex(blueprint), data);
         }
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintPointerDown;
-        [SerializeField]
-        protected ElementList blueprints;
         [SerializeField]
         protected bool horizontal;
     }

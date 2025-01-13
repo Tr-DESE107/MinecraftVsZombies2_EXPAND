@@ -77,10 +77,17 @@ namespace MVZ2.Level
         public void ApplyChoose()
         {
             ClearChosenBlueprintControllers();
-            for (int i = 0; i < chosenBlueprints.Count; i++)
+            // 如果根本没有进行选卡，那就不进行替换。
+            if (choosingBlueprints == null)
+                return;
+            for (int i = 0; i < Level.GetSeedSlotCount(); i++)
             {
-                var index = chosenBlueprints[i];
-                var blueprintID = choosingBlueprints[index];
+                NamespaceID blueprintID = null;
+                if (i < chosenBlueprints.Count)
+                {
+                    var index = chosenBlueprints[i];
+                    blueprintID = choosingBlueprints[index];
+                }
                 Level.ReplaceSeedPackAt(i, blueprintID);
             }
             chosenBlueprints.Clear();
@@ -180,6 +187,9 @@ namespace MVZ2.Level
                 UpdateBlueprintChooseItem(choosingIndex);
                 chooseUI.RemoveMovingBlueprint(movingBlueprint);
             };
+
+            // 右侧的可选蓝图全部左移。
+            chooseUI.AlignRemainChosenBlueprint(index);
 
             Level.PlaySound(VanillaSoundID.tap);
             Controller.HideTooltip();
@@ -672,6 +682,7 @@ namespace MVZ2.Level
         void RemoveChosenBlueprintAt(int index);
         Blueprint GetChosenBlueprintAt(int index);
         Vector3 GetChosenBlueprintPosition(int index);
+        void AlignRemainChosenBlueprint(int removeIndex);
 
 
         MovingBlueprint CreateMovingBlueprint();

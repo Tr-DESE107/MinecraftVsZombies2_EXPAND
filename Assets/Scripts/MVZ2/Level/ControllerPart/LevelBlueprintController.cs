@@ -160,12 +160,6 @@ namespace MVZ2.Level
             }
         }
 
-        public override void PostLevelStart()
-        {
-            base.PostLevelStart();
-            UpdateUIClassicBlueprintCount();
-            UpdateUIConveyorBlueprintCount();
-        }
         #region 更新
 
         public override void UpdateLogic()
@@ -215,6 +209,7 @@ namespace MVZ2.Level
         {
             if (seri is not SerializableLevelBlueprintController serializable)
                 return;
+            UpdateUIClassicBlueprintCount();
             var seedPacks = Level.GetAllSeedPacks();
             classicBlueprints = new ClassicBlueprintController[seedPacks.Length];
             for (int i = 0; i < seedPacks.Length; i++)
@@ -228,6 +223,7 @@ namespace MVZ2.Level
                 controller.LoadFromSerializable(seriSeed);
                 controller.UpdateFrame(0);
             }
+            UpdateUIConveyorBlueprintCount();
             var conveyorSeedPacks = Level.GetAllConveyorSeedPacks();
             for (int i = 0; i < conveyorSeedPacks.Length; i++)
             {

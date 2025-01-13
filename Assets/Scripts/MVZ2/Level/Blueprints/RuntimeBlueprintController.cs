@@ -18,7 +18,7 @@ namespace MVZ2.Level
         public RuntimeBlueprintController(ILevelController controller, Blueprint ui, int index, SeedPack seedPack) : base(controller, ui, index)
         {
             SeedPack = seedPack;
-            ui.gameObject.name = seedPack.ToString();
+            ui.gameObject.name = seedPack.GetDefinitionID().ToString();
             seedPack.SetModelInterface(modelInterface);
         }
         public override void Remove()
