@@ -59,11 +59,11 @@ namespace MVZ2.Models
                 return supportedColorFormat;
             }
             Debug.Log("Checking supported color formats...");
-            var format = SystemInfo.GetCompatibleFormat(GraphicsFormat.R8G8B8A8_UNorm, FormatUsage.Render);
+            var format = SystemInfo.GetCompatibleFormat(GraphicsFormat.R8G8B8A8_SRGB, FormatUsage.Render);
             if (format == GraphicsFormat.None)
             {
                 Debug.LogWarning("Cannot find a supported color format for device, using default color format.");
-                return GraphicsFormat.R8G8B8A8_UNorm;
+                return GraphicsFormat.R8G8B8A8_SRGB;
             }
             else
             {
@@ -96,7 +96,7 @@ namespace MVZ2.Models
         }
         public MainManager Main => main;
         private bool confirmedColorFormat = false;
-        private GraphicsFormat supportedColorFormat = GraphicsFormat.R8G8B8A8_UNorm;
+        private GraphicsFormat supportedColorFormat = GraphicsFormat.R8G8B8A8_SRGB;
         private bool confirmedDepthFormat = false;
         private GraphicsFormat supportedDepthFormat = GraphicsFormat.D32_SFloat_S8_UInt;
         [SerializeField]
