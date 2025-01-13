@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594388681679383592}
   - component: {fileID: 5678720928449327898}
+  - component: {fileID: 8181201171632956605}
   m_Layer: 10
   m_Name: ColliderMobile
   m_TagString: Untagged
@@ -77,6 +78,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.55}
   m_EdgeRadius: 0
+--- !u!114 &8181201171632956605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4790499447578343109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2463ff9d0c1d8054a9ed8b9d322f26a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2268413341374404726
 PrefabInstance:
   m_ObjectHideFlags: 0
