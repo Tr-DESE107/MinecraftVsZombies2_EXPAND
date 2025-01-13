@@ -1,3 +1,4 @@
+using System.IO;
 using MVZ2.Games;
 using MVZ2.Modding;
 using MVZ2.Vanilla;
@@ -11,6 +12,11 @@ namespace MVZ2
     {
         void Start()
         {
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                logger.gameObject.SetActive(true);
+                DontDestroyOnLoad(logger.gameObject);
+            }
             ModManager.OnRegisterMod += RegisterMod;
             Addressables.LoadSceneAsync("Main", LoadSceneMode.Single);
         }
@@ -18,5 +24,7 @@ namespace MVZ2
         {
             manager.RegisterModLogic(VanillaMod.spaceName, new VanillaMod());
         }
+        [SerializeField]
+        private AndroidLogger logger;
     }
 }
