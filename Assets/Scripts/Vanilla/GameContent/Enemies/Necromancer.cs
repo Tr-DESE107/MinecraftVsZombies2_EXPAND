@@ -24,11 +24,12 @@ namespace MVZ2.GameContent.Enemies
         }
         protected override int GetActionState(Entity enemy)
         {
-            if (IsCasting(enemy))
+            var state = base.GetActionState(enemy);
+            if (state == VanillaEntityStates.WALK && IsCasting(enemy))
             {
                 return VanillaEntityStates.NECROMANCER_CAST;
             }
-            return base.GetActionState(enemy);
+            return state;
         }
         protected override void UpdateLogic(Entity entity)
         {
