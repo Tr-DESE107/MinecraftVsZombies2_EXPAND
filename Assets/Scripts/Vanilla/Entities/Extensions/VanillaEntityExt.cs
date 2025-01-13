@@ -106,7 +106,7 @@ namespace MVZ2.Vanilla.Entities
             var triggers = damageInfo.Entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
             foreach (var trigger in triggers)
             {
-                trigger.Invoke(damageInfo);
+                trigger.Run(c => c(damageInfo));
                 if (damageInfo.Canceled)
                 {
                     return false;
@@ -120,7 +120,7 @@ namespace MVZ2.Vanilla.Entities
             if (entity == null)
                 return;
             entity.Definition.PostTakeDamage(result);
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, result);
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, c => c(result));
         }
         private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
         {
@@ -428,7 +428,7 @@ namespace MVZ2.Vanilla.Entities
             var triggers = entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_HEAL);
             foreach (var trigger in triggers)
             {
-                trigger.Invoke(info);
+                trigger.Run(c => c(info));
                 if (info.Canceled)
                 {
                     return false;
@@ -441,7 +441,7 @@ namespace MVZ2.Vanilla.Entities
             var entity = result.Entity;
             if (entity == null)
                 return;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, result);
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, c => c(result));
         }
         private static HealOutput ArmorHeal(HealInput info)
         {

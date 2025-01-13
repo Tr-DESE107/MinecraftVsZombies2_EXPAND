@@ -15,24 +15,24 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PostEntityHeal(HealOutput result);
 
         public delegate void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error);
-        public delegate void PrePlaceEntity(LawnGrid grid, NamespaceID entityID);
+        public delegate void PrePlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultBoolean cancel);
         public delegate void PostPlaceEntity(LawnGrid grid, Entity entity);
 
         public delegate void PostContraptionTrigger(Entity entity);
         public delegate void PostContraptionEvoke(Entity entity);
         public delegate void PostContraptionDestroy(Entity entity);
-        public delegate bool CanContraptionSacrifice(Entity entity, Entity soulFurnace);
-        public delegate int GetContraptionSacrificeFuel(Entity entity, Entity soulFurnace);
+        public delegate void CanContraptionSacrifice(Entity entity, Entity soulFurnace, TriggerResultBoolean result);
+        public delegate void GetContraptionSacrificeFuel(Entity entity, Entity soulFurnace, TriggerResultInt fuel);
         public delegate void PreContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
         public delegate void PostContraptionSacrifice(Entity entity, Entity soulFurnace, int fuel);
 
         public delegate void PostWaterInteraction(Entity entity, int action);
 
-        public delegate bool PreEnemyNeutralize(Entity entity);
+        public delegate void PreEnemyNeutralize(Entity entity, TriggerResultBoolean result);
         public delegate void PostEnemyNeutralize(Entity entity);
         public delegate void EnemyDropRewards(Entity entity);
 
-        public delegate void PrePickupCollect(Entity entity);
+        public delegate void PrePickupCollect(Entity entity, TriggerResultBoolean result);
 
         public delegate void PreProjectileHit(ProjectileHitInput hit, DamageInput damage);
         public delegate void PostProjectileHit(ProjectileHitOutput hit, DamageOutput damage);

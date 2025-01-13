@@ -13,6 +13,7 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -113,15 +114,13 @@ namespace MVZ2.GameContent.Contraptions
         }
         public bool CanSacrifice(Entity entity, Entity soulFurnace)
         {
+            var result = new TriggerResultBoolean();
+            result.Result = GetFuel(soulFurnace) <= REFUEL_THRESOLD && !entity.IsDead;
             foreach (var trigger in Global.Game.GetTriggers(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE))
             {
-                var result = trigger.Invoke(entity, soulFurnace);
-                if (result is not bool boolValue)
-                    continue;
-                if (!boolValue)
-                    return false;
+                trigger.Run((c) => c(entity, soulFurnace, result));
             }
-            return GetFuel(soulFurnace) <= REFUEL_THRESOLD && !entity.IsDead;
+            return result.Result;
         }
         public static int GetSacrificeFuel(Entity entity, Entity soulFurnace)
         {
@@ -139,19 +138,14 @@ namespace MVZ2.GameContent.Contraptions
             }
 
             fuel = Mathf.CeilToInt((fuel + cost / 6f) * fuelMultiplier);
-            foreach (var trigger in Global.Game.GetTriggers(VanillaLevelCallbacks.GET_CONTRAPTION_SACRIFICE_FUEL))
-            {
-                var result = trigger.Invoke(entity, soulFurnace, fuel);
-                if (result is int intValue)
-                {
-                    fuel = intValue;
-                }
-            }
-            return fuel;
+            var result = new TriggerResultInt();
+            result.Result = fuel;
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.GET_CONTRAPTION_SACRIFICE_FUEL, result, c => c(entity, soulFurnace, result));
+            return result.Result;
         }
         public void Sacrifice(Entity entity, Entity soulFurnace, int fuel)
         {
-            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.PRE_CONTRAPTION_SACRIFICE, entity.GetDefinitionID(), entity, soulFurnace, fuel);
+            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.PRE_CONTRAPTION_SACRIFICE, entity.GetDefinitionID(), c => c(entity, soulFurnace, fuel));
 
             var effects = new DamageEffectList(VanillaDamageEffects.SACRIFICE, VanillaDamageEffects.SELF_DAMAGE);
             entity.Die(effects, soulFurnace);
@@ -159,7 +153,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.Spawn(VanillaEffectID.soulfireBurn, entity.GetCenter(), soulFurnace);
             entity.PlaySound(VanillaSoundID.refuel);
 
-            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, entity.GetDefinitionID(), entity, soulFurnace, fuel);
+            Global.Game.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, entity.GetDefinitionID(), c => c(entity, soulFurnace, fuel));
         }
         private void UpdateSacrifice(Entity furnace)
         {

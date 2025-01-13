@@ -13,6 +13,7 @@ using PVZEngine.Armors;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -125,7 +126,7 @@ namespace MVZ2.GameContent.Stages
             level.WaveState = STATE_HUGE_WAVE_APPROACHING;
             var waveTimer = GetWaveTimer(level);
             waveTimer.ResetTime(180);
-            level.Triggers.RunCallback(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, level);
+            level.Triggers.RunCallback(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, c => c(level));
         }
         private void NextWave(LevelEngine level)
         {
@@ -144,7 +145,7 @@ namespace MVZ2.GameContent.Stages
             if (ShouldTriggerFinalWaveEvent(level))
             {
                 SetFinalWaveEventTimer(level, new FrameTimer(60));
-                level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, level);
+                level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, c => c(level));
             }
         }
         protected virtual bool ShouldTriggerFinalWaveEvent(LevelEngine level)

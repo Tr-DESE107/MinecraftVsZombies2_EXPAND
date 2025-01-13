@@ -4,6 +4,7 @@ using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -27,15 +28,10 @@ namespace MVZ2.Vanilla.Entities
             if (collectible.PreCollect(entity) == false)
                 return false;
             var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PRE_PICKUP_COLLECT);
-            foreach (var trigger in triggers)
-            {
-                var result = trigger.Invoke(entity);
-                if (result is bool boolValue && !boolValue)
-                {
-                    return false;
-                }
-            }
-            return true;
+            var result = new TriggerResultBoolean();
+            result.Result = true;
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_PICKUP_COLLECT, result, c => c(entity, result));
+            return result.Result;
         }
         public static bool IsCollected(this Entity entity)
         {

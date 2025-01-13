@@ -1,3 +1,4 @@
+using System;
 using PVZEngine;
 using PVZEngine.Triggers;
 
@@ -6,25 +7,17 @@ namespace MVZ2.Games
     public partial class Game : IGameTriggerSystem
     {
         #region 公有方法
-        public void AddTrigger(Trigger trigger)
+        public void AddTrigger(ITrigger trigger)
         {
             triggerSystem.AddTrigger(trigger);
         }
-        public bool RemoveTrigger(Trigger trigger)
+        public bool RemoveTrigger(ITrigger trigger)
         {
             return triggerSystem.RemoveTrigger(trigger);
         }
-        public Trigger[] GetTriggers(CallbackReference callbackID)
+        public Trigger<T>[] GetTriggers<T>(CallbackReference<T> callbackID) where T: Delegate
         {
-            return triggerSystem.GetTriggers(callbackID);
-        }
-        public void RunCallback(CallbackReference callbackID, params object[] parameters)
-        {
-            triggerSystem.RunCallback(callbackID, parameters);
-        }
-        public void RunCallbackFiltered(CallbackReference callbackID, object filterValue, params object[] parameters)
-        {
-            triggerSystem.RunCallbackFiltered(callbackID, filterValue, parameters);
+            return triggerSystem.GetTriggers<T>(callbackID);
         }
         #endregion
 

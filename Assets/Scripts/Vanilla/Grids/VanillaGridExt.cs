@@ -72,7 +72,7 @@ namespace MVZ2.Vanilla.Grids
             {
                 if (!trigger.Filter(entityID))
                     continue;
-                trigger.Run(grid, entityID, error);
+                trigger.Run(c => c(grid, entityID, error));
             }
             return error.Result;
         }
@@ -98,12 +98,7 @@ namespace MVZ2.Vanilla.Grids
             if (grid == null)
                 return;
             var level = grid.Level;
-            foreach (var trigger in level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_PLACE_ENTITY))
-            {
-                if (!trigger.Filter(entityID))
-                    continue;
-                trigger.Run(grid, entityID, cancelPlace);
-            }
+            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PLACE_ENTITY, entityID, cancelPlace, c => c(grid, entityID, cancelPlace));
         }
         public static Entity PlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
@@ -121,7 +116,7 @@ namespace MVZ2.Vanilla.Grids
             var entityDef = level.Content.GetEntityDefinition(entityID);
             var entity = level.Spawn(entityID, position, null);
             entity.PlaySound(grid.GetPlaceSound(entity));
-            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, entity.GetDefinitionID(), grid, entity);
+            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, entity.GetDefinitionID(), c => c(grid, entity));
             return entity;
         }
     }

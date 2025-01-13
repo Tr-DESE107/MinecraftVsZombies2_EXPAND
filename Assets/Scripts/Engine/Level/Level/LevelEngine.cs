@@ -9,6 +9,7 @@ using PVZEngine.Grids;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -94,7 +95,7 @@ namespace PVZEngine.Level
         {
             AreaDefinition.Setup(this);
             StageDefinition.Setup(this);
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_SETUP, this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_SETUP, c => c(this));
         }
         public void Start()
         {
@@ -103,7 +104,7 @@ namespace PVZEngine.Level
                 component.OnStart();
             }
             StageDefinition.Start(this);
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_START, this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_START, c => c(this));
         }
         public void SetDifficulty(NamespaceID difficulty)
         {
@@ -144,13 +145,13 @@ namespace PVZEngine.Level
             }
             AreaDefinition.Update(this);
             StageDefinition.Update(this);
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, c => c(this));
         }
         public void Clear()
         {
             IsCleared = true;
             OnClear?.Invoke();
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, this);
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, c => c(this));
         }
         #endregion
 

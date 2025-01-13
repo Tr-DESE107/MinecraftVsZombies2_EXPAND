@@ -12,6 +12,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Notes;
 using MVZ2Logic.Talk;
 using PVZEngine;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Note
@@ -63,7 +64,7 @@ namespace MVZ2.Note
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, talkSystem, cmd, parameters);
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, c => c(talkSystem, cmd, parameters));
         }
         #endregion
 

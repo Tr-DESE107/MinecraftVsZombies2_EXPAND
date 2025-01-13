@@ -9,6 +9,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Implements
@@ -35,7 +36,7 @@ namespace MVZ2.GameContent.Implements
                 entity.PlaySplashEffect();
                 entity.PlaySplashSound();
                 entity.Remove();
-                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_REMOVE, entity, WaterInteraction.ACTION_REMOVE);
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_REMOVE, c => c(entity, WaterInteraction.ACTION_REMOVE));
 
                 return;
             }
@@ -48,7 +49,7 @@ namespace MVZ2.GameContent.Implements
                     entity.AddBuff<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySplashSound();
-                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_ENTER, entity, WaterInteraction.ACTION_ENTER);
+                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_ENTER, c => c(entity, WaterInteraction.ACTION_ENTER));
                 }
             }
             else
@@ -58,7 +59,7 @@ namespace MVZ2.GameContent.Implements
                     entity.RemoveBuffs(entity.GetBuffs<InWaterBuff>());
                     entity.PlaySplashEffect();
                     entity.PlaySound(VanillaSoundID.water);
-                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_EXIT, entity, WaterInteraction.ACTION_EXIT);
+                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_EXIT, c => c(entity, WaterInteraction.ACTION_EXIT));
                 }
             }
             entity.SetAnimationBool("InWater", isInWater && floatInWater);

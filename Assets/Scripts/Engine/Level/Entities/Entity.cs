@@ -11,6 +11,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -49,7 +50,7 @@ namespace PVZEngine.Entities
             OnInit(spawner);
             Definition.Init(this);
             auras.PostAdd();
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, Type, this);
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, Type, c => c(this));
             PostInit?.Invoke();
         }
         public void Update()
@@ -67,7 +68,7 @@ namespace PVZEngine.Entities
                 {
                     buff.Update();
                 }
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, this);
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, c => c(this));
                 // 更新碰撞体位置，用于碰撞检测。
                 UpdateColliders();
             }
@@ -124,7 +125,7 @@ namespace PVZEngine.Entities
                 takenConveyorSeeds.Clear();
                 Definition.PostRemove(this);
                 auras.PostRemove();
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, Type, this);
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, Type, c => c(this));
             }
         }
         public bool IsEntityOf(NamespaceID id)
@@ -155,7 +156,7 @@ namespace PVZEngine.Entities
             info = info ?? new DeathInfo(this, new DamageEffectList(), new EntityReferenceChain(null), null);
             IsDead = true;
             Definition.PostDeath(this, info);
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, this, info);
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, c => c(this, info));
         }
         #endregion
 
@@ -574,13 +575,13 @@ namespace PVZEngine.Entities
             EquipedArmor = armor;
 
             Definition.PostEquipArmor(this, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, this, armor);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, c => c(this, armor));
             OnEquipArmor?.Invoke(armor);
         }
         public void DestroyArmor(Armor armor, ArmorDamageResult result)
         {
             Definition.PostDestroyArmor(this, armor, result);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, this, armor, result);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, c => c(this, armor, result));
             OnDestroyArmor?.Invoke(armor, result);
         }
         public void RemoveArmor()
@@ -590,7 +591,7 @@ namespace PVZEngine.Entities
                 return;
             EquipedArmor = null;
             Definition.PostRemoveArmor(this, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, this, armor);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, c => c(this, armor));
             OnRemoveArmor?.Invoke(armor);
         }
         public Armor GetShield()
@@ -822,30 +823,25 @@ namespace PVZEngine.Entities
         {
             var velocity = Velocity;
             Definition.PostContactGround(this, velocity);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, this, velocity);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, c => c(this, velocity));
         }
         private void OnLeaveGround()
         {
             Definition.PostLeaveGround(this);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, this);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, c => c(this));
         }
         private bool PreCollisionCallback(EntityCollision collision)
         {
             bool canCollide = Definition.PreCollision(collision);
-            if (!canCollide)
-                return false;
-            foreach (var trigger in Level.Triggers.GetTriggers(LevelCallbacks.PRE_ENTITY_COLLISION))
-            {
-                var result = trigger.Invoke(collision);
-                if (result is bool boolValue && !boolValue)
-                    return false;
-            }
-            return true;
+            var result = new TriggerResultBoolean();
+            result.Result = canCollide;
+            Level.Triggers.RunCallback(LevelCallbacks.PRE_ENTITY_COLLISION, result, c => c(collision, result));
+            return result.Result;
         }
         private void PostCollisionCallback(EntityCollision collision, int state)
         {
             Definition.PostCollision(collision, state);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, collision, state);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, c => c(collision, state));
         }
         private void OnBuffModelAddCallback(string anchorName, NamespaceID key, NamespaceID modelID)
         {

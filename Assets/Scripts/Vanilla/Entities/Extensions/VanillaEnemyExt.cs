@@ -2,6 +2,7 @@
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -12,21 +13,23 @@ namespace MVZ2.Vanilla.Entities
             if (enemy.IsNeutralized())
                 return;
 
+            var result = new TriggerResultBoolean();
+            result.Result = true;
             foreach (var trigger in enemy.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENEMY_NEUTRALIZE))
             {
-                var result = trigger.Invoke(enemy);
-                if (result is bool boolValue && !boolValue)
+                trigger.Run(c => c(enemy, result));
+                if (result.Result == false)
                     return;
             }
             enemy.SetNeutralized(true);
             enemy.DropRewards();
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, enemy);
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, c => c(enemy));
         }
         public static void DropRewards(this Entity enemy)
         {
             if (enemy.HasNoReward())
                 return;
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, enemy);
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, c => c(enemy));
         }
         public static void InflictWeakness(this Entity enemy, int time)
         {

@@ -28,6 +28,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -191,7 +192,7 @@ namespace MVZ2.Level
         }
         public void StopLevel()
         {
-            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, level);
+            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, c => c(level));
             SetUIVisibleState(VisibleState.Nothing);
             pointingGridLane = -1;
             pointingGridColumn = -1;

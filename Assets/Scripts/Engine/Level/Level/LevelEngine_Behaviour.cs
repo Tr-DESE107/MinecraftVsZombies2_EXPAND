@@ -4,6 +4,7 @@ using System.Linq;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 using Tools;
 
 namespace PVZEngine.Level
@@ -13,17 +14,17 @@ namespace PVZEngine.Level
         public void PrepareForBattle()
         {
             StageDefinition.PrepareForBattle(this);
-            Triggers.RunCallback(LevelCallbacks.POST_PREPARE_FOR_BATTLE, this);
+            Triggers.RunCallback(LevelCallbacks.POST_PREPARE_FOR_BATTLE, c => c(this));
         }
         public void RunFinalWaveEvent()
         {
             StageDefinition.PostFinalWaveEvent(this);
-            Triggers.RunCallback(LevelCallbacks.POST_FINAL_WAVE_EVENT, this);
+            Triggers.RunCallback(LevelCallbacks.POST_FINAL_WAVE_EVENT, c => c(this));
         }
         public void RunHugeWaveEvent()
         {
             StageDefinition.PostHugeWaveEvent(this);
-            Triggers.RunCallback(LevelCallbacks.POST_HUGE_WAVE_EVENT, this);
+            Triggers.RunCallback(LevelCallbacks.POST_HUGE_WAVE_EVENT, c => c(this));
         }
         public void AddSpawnedEnemyID(NamespaceID enemyId)
         {
@@ -51,7 +52,7 @@ namespace PVZEngine.Level
         {
             KillerEnemy = killer;
             OnGameOver?.Invoke(type, killer, message);
-            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, type, this, type, killer, message);
+            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, type, c => c(this, type, killer, message));
         }
         public int GetRandomEnemySpawnLane()
         {

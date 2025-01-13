@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -7,7 +8,7 @@ namespace PVZEngine.Triggers
 {
     public class TriggerSystem
     {
-        public void AddTrigger(Trigger trigger)
+        public void AddTrigger(ITrigger trigger)
         {
             if (trigger == null)
                 return;
@@ -21,7 +22,7 @@ namespace PVZEngine.Triggers
             triggerList.triggers.Add(trigger);
             triggerList.triggers.Sort((t1, t2) => t1.Priority.CompareTo(t2.Priority));
         }
-        public bool RemoveTrigger(Trigger trigger)
+        public bool RemoveTrigger(ITrigger trigger)
         {
             if (trigger == null)
                 return false;
@@ -36,34 +37,12 @@ namespace PVZEngine.Triggers
             }
             return removed;
         }
-        public Trigger[] GetTriggers(CallbackReference callbackID)
+        public Trigger<T>[] GetTriggers<T>(CallbackReference callbackID) where T : Delegate
         {
             var triggerList = GetTriggerList(callbackID);
             if (triggerList == null)
-                return Array.Empty<Trigger>();
-            return triggerList.triggers.ToArray();
-        }
-        public void RunCallback(CallbackReference callbackID, params object[] args)
-        {
-            var triggerList = GetTriggerList(callbackID);
-            if (triggerList == null)
-                return;
-            foreach (var trigger in triggerList.triggers)
-            {
-                trigger.Run(args);
-            }
-        }
-        public void RunCallbackFiltered(CallbackReference callbackID, object filterValue, params object[] args)
-        {
-            var triggerList = GetTriggerList(callbackID);
-            if (triggerList == null)
-                return;
-            foreach (var trigger in triggerList.triggers)
-            {
-                if (!trigger.Filter(filterValue))
-                    continue;
-                trigger.Run(args);
-            }
+                return Array.Empty<Trigger<T>>();
+            return triggerList.triggers.OfType<Trigger<T>>().ToArray();
         }
         private EventTriggerList GetTriggerList(CallbackReference callbackID)
         {
@@ -82,80 +61,41 @@ namespace PVZEngine.Triggers
                 this.callbackID = callbackID;
             }
             public CallbackReference callbackID;
-            public List<Trigger> triggers = new List<Trigger>();
+            public List<ITrigger> triggers = new List<ITrigger>();
         }
     }
-    public class Trigger
+    public interface ITrigger
     {
-        public Trigger(CallbackReference callbackID, Delegate action, int priorty = 0, object filterValue = null)
+        CallbackReference CallbackID { get; }
+        int Priority { get; }
+    }
+    public class Trigger<T> : ITrigger where T: Delegate
+    {
+        public Trigger(CallbackReference<T> callbackID, T action, int priorty = 0, object filterValue = null)
         {
             CallbackID = callbackID;
             Action = action;
-            cache = WrapDelegate(action);
             Priority = priorty;
             FilterValue = filterValue;
         }
-        public void Run(params object[] args)
+        public void Run(Action<T> runner)
         {
-            Invoke(args);
+            runner?.Invoke(Action);
         }
-        public virtual object Invoke(params object[] args)
+        public virtual TResult Invoke<TResult>(Func<T, TResult> runner)
         {
-            return cache.Invoke(Action, args);
+            return runner.Invoke(Action);
         }
         public bool Filter(object value)
         {
+            if (value == null)
+                return true;
             return FilterValue == null || FilterValue.Equals(value);
         }
-        private static CachedMethodDelegate WrapDelegate(Delegate del)
-        {
-            if (del == null)
-                throw new ArgumentNullException(nameof(del));
-
-            var type = del.GetType();
-            var method = del.GetMethodInfo();
-
-            CreateParamsExpressions(method, out ParameterExpression argsExp, out Expression[] paramsExps);
-
-            var targetExp = Expression.Parameter(typeof(object), "target");
-            var castTargetExp = Expression.Convert(targetExp, type);
-            var invokeExp = Expression.Invoke(castTargetExp, paramsExps);
-
-            Expression bodyExp;
-
-            if (method.ReturnType != typeof(void))
-            {
-                bodyExp = Expression.Convert(invokeExp, typeof(object));
-            }
-            else
-            {
-                var nullExp = Expression.Constant(null, typeof(object));
-                bodyExp = Expression.Block(invokeExp, nullExp);
-            }
-            var lambdaExp = Expression.Lambda<CachedMethodDelegate>(bodyExp, targetExp, argsExp);
-            var lambda = lambdaExp.Compile();
-            return lambda;
-        }
-
-        private static void CreateParamsExpressions(MethodBase method, out ParameterExpression argsExp, out Expression[] paramsExps)
-        {
-            argsExp = Expression.Parameter(typeof(object[]), "args");
-
-            var parameters = method.GetParameters();
-            paramsExps = new Expression[parameters.Length];
-
-            for (var i = 0; i < parameters.Length; i++)
-            {
-                var constExp = Expression.Constant(i, typeof(int));
-                var argExp = Expression.ArrayIndex(argsExp, constExp);
-                paramsExps[i] = Expression.Convert(argExp, parameters[i].ParameterType);
-            }
-        }
-        private delegate object CachedMethodDelegate(object target, object[] args);
-        public CallbackReference CallbackID { get; }
-        public Delegate Action { get; }
+        CallbackReference ITrigger.CallbackID => CallbackID;
+        public CallbackReference<T> CallbackID { get; }
+        public T Action { get; }
         public int Priority { get; }
         public object FilterValue { get; }
-        private CachedMethodDelegate cache;
     }
 }

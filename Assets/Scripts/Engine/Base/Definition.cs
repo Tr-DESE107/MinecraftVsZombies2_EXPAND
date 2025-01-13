@@ -26,13 +26,13 @@ namespace PVZEngine.Base
         {
             return propertyDict.GetPropertyNames();
         }
-        public Trigger[] GetTriggers()
+        public ITrigger[] GetTriggers()
         {
             return triggers.ToArray();
         }
         public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
         {
-            triggers.Add(new Trigger(callbackID, action, priority, filter));
+            triggers.Add(new Trigger<T>(callbackID, action, priority, filter));
         }
         public NamespaceID GetID()
         {
@@ -47,6 +47,6 @@ namespace PVZEngine.Base
         public string Name => id.Path;
         private NamespaceID id;
         protected PropertyDictionary propertyDict = new PropertyDictionary();
-        protected List<Trigger> triggers = new List<Trigger>();
+        protected List<ITrigger> triggers = new List<ITrigger>();
     }
 }

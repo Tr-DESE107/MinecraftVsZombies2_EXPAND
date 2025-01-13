@@ -16,7 +16,7 @@ namespace MVZ2Logic.Level
             {
                 if (!trigger.Filter(blueprint))
                     continue;
-                trigger.Run(level, blueprint, result);
+                trigger.Run(c => c(level, blueprint, result));
             }
             return result.Result;
         }

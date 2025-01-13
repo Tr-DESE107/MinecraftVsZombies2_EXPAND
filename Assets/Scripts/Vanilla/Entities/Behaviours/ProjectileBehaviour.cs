@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -146,7 +147,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 if (!trigger.Filter(filterValue))
                     continue;
-                trigger.Run(hitInput, damageInput);
+                trigger.Run(c => c(hitInput, damageInput));
                 if (hitInput.Canceled)
                     return;
             }
@@ -178,7 +179,7 @@ namespace MVZ2.Vanilla.Entities
 
             // 触发击中后回调。
             PostHitEntity(hitOutput, damageOutput);
-            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, projectile.GetDefinitionID(), hitOutput, damageOutput);
+            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, projectile.GetDefinitionID(), c => c(hitOutput, damageOutput));
 
             if (!hitOutput.Pierce)
             {

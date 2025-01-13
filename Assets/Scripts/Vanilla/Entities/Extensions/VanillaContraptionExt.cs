@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -24,7 +25,7 @@ namespace MVZ2.Vanilla.Entities
             if (evokable == null)
                 return;
             evokable.Evoke(contraption);
-            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), contraption);
+            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), c => c(contraption));
         }
         public static bool HasPassenger(this Entity contraption)
         {
@@ -57,11 +58,7 @@ namespace MVZ2.Vanilla.Entities
             if (triggerable == null)
                 return;
             triggerable.Trigger(contraption);
-            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER);
-            foreach (var trigger in triggers)
-            {
-                trigger.Invoke(contraption);
-            }
+            contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, c => c(contraption));
         }
         public static void UpgradeToContraption(this Entity contraption, NamespaceID target)
         {

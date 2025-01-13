@@ -25,6 +25,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -186,7 +187,7 @@ namespace MVZ2.Vanilla.Level
             {
                 level.CurrentFlag++;
             }
-            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, wave, level, wave);
+            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, wave, c => c(level, wave));
         }
         public static void NextWave(this LevelEngine level)
         {
@@ -202,7 +203,7 @@ namespace MVZ2.Vanilla.Level
 
             var wave = level.CurrentWave;
             level.StageDefinition.PostWave(level, wave);
-            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, level, wave);
+            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, c => c(level, wave));
         }
         public static int GetLevelTotalWaves(this LevelEngine level, int wave, int flags)
         {
@@ -325,7 +326,7 @@ namespace MVZ2.Vanilla.Level
             var enemy = level.Spawn(spawnDef.EntityID, pos, null);
             level.AddSpawnedEnemyID(spawnDef.GetID());
             level.StageDefinition.PostEnemySpawned(enemy);
-            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, enemy);
+            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, c => c(enemy));
             return enemy;
         }
         public static Entity SpawnFlagZombie(this LevelEngine level)

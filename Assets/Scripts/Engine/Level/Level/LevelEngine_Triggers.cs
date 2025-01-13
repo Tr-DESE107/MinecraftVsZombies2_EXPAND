@@ -8,16 +8,16 @@ namespace PVZEngine.Level
     public partial class LevelEngine
     {
         #region 公有方法
-        public void AddTrigger(Trigger trigger)
+        public void AddTrigger(ITrigger trigger)
         {
             Triggers.AddTrigger(trigger);
             addedTriggers.Add(trigger);
         }
         public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
         {
-            AddTrigger(new Trigger(callbackID, action, priority, filter));
+            AddTrigger(new Trigger<T>(callbackID, action, priority, filter));
         }
-        public bool RemoveTrigger(Trigger trigger)
+        public bool RemoveTrigger(ITrigger trigger)
         {
             if (Triggers.RemoveTrigger(trigger))
             {
@@ -26,14 +26,14 @@ namespace PVZEngine.Level
             }
             return false;
         }
-        public void AddTriggers(IEnumerable<Trigger> triggers)
+        public void AddTriggers(IEnumerable<ITrigger> triggers)
         {
             foreach (var trigger in triggers)
             {
                 AddTrigger(trigger);
             }
         }
-        public int RemoveTriggers(IEnumerable<Trigger> triggers)
+        public int RemoveTriggers(IEnumerable<ITrigger> triggers)
         {
             int value = 0;
             foreach (var trigger in triggers.ToArray())
@@ -46,7 +46,7 @@ namespace PVZEngine.Level
 
         #region 属性字段
         public IGameTriggerSystem Triggers { get; }
-        private List<Trigger> addedTriggers = new List<Trigger>();
+        private List<ITrigger> addedTriggers = new List<ITrigger>();
         #endregion
     }
 }

@@ -24,7 +24,7 @@ namespace PVZEngine.Base
                 Triggers.RemoveTrigger(trigger);
             }
         }
-        public void AddTrigger(Trigger trigger)
+        public void AddTrigger(ITrigger trigger)
         {
             triggers.Add(trigger);
         }
@@ -32,7 +32,7 @@ namespace PVZEngine.Base
 
         #region 属性字段
         public IGameTriggerSystem Triggers { get; }
-        protected List<Trigger> triggers = new List<Trigger>();
+        protected List<ITrigger> triggers = new List<ITrigger>();
         #endregion
     }
 }

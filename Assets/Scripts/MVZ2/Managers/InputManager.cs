@@ -1,6 +1,7 @@
 ﻿using MVZ2.Managers;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
+using PVZEngine.Triggers;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -44,7 +45,7 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
         }
         private void RunPointerCallback(int type, int index, Vector2 screenPosition, PointerPhase phase)
         {
-            Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, phase, type, index, screenPosition, phase);
+            Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, phase, c => c(type, index, screenPosition, phase));
         }
         public MainManager Main => MainManager.Instance;
     }

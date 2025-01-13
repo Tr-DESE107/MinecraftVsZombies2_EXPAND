@@ -54,7 +54,7 @@ namespace MVZ2Logic.Modding
         }
         public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
         {
-            triggers.AddTrigger(new Trigger(callbackID, action, priority, filter));
+            triggers.AddTrigger(new Trigger<T>(callbackID, action, priority, filter));
         }
         public string Namespace { get; }
         private DefinitionGroup definitionGroup = new DefinitionGroup();

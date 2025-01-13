@@ -138,7 +138,7 @@ namespace PVZEngine
         {
             if (concatCache == null)
             {
-                concatCache = $"{SpaceName}:{Path}";
+                concatCache = string.Intern($"{SpaceName}:{Path}");
             }
             return concatCache;
         }

@@ -4,6 +4,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
+using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -15,14 +16,15 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new BooleanModifier(VanillaEntityProps.INVISIBLE, true));
             AddTrigger(LevelCallbacks.PRE_ENTITY_COLLISION, PreEntityCollisionCallback);
         }
-        private bool PreEntityCollisionCallback(EntityCollision collision)
+        private void PreEntityCollisionCallback(EntityCollision collision, TriggerResultBoolean result)
         {
             var entity = collision.Entity;
             var other = collision.Other;
             if (entity == null || other == null)
-                return true;
+                return;
             var entityBuffs = entity.HasBuff<FrankensteinTransformingBuff>();
-            return !entity.HasBuff<FrankensteinTransformingBuff>() && !other.HasBuff<FrankensteinTransformingBuff>();
+            result.Result = !entity.HasBuff<FrankensteinTransformingBuff>() && !other.HasBuff<FrankensteinTransformingBuff>();
+            result.Interrupt();
         }
     }
 }
