@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe7118bcb306af43a71df659e3054f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderTextureFormats: 0700000000000000020000000a0000000b00000011000000
   main: {fileID: 2802494976120551623}
   modelShotRoot: {fileID: 8849956115305183702}
   modelShotPositionTransform: {fileID: 12475491309609206}

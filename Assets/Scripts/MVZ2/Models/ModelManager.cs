@@ -17,7 +17,8 @@ namespace MVZ2.Models
             modelInstance.transform.localPosition = Vector3.zero;
 
             //创建一个用于渲染图片的RenderTexture
-            RenderTexture renderTexture = new RenderTexture(width, height, 32);
+            var format = GetSupportedRenderTextureFormat();
+            RenderTexture renderTexture = new RenderTexture(width, height, 32, format);
             renderTexture.antiAliasing = 2;
             modelShotCamera.targetTexture = renderTexture;
             modelShotCamera.enabled = false;
@@ -49,7 +50,28 @@ namespace MVZ2.Models
 
             return sprite;
         }
+        private RenderTextureFormat GetSupportedRenderTextureFormat()
+        {
+            if (confirmedFormat)
+            {
+                return supportedRenderTextureFormat;
+            }
+            foreach (var format in renderTextureFormats)
+            {
+                if (SystemInfo.SupportsRenderTextureFormat(format))
+                {
+                    supportedRenderTextureFormat = format;
+                    confirmedFormat = true;
+                    return format;
+                }
+            }
+            return RenderTextureFormat.Default;
+        }
         public MainManager Main => main;
+        private bool confirmedFormat = false;
+        private RenderTextureFormat supportedRenderTextureFormat = RenderTextureFormat.Default;
+        [SerializeField]
+        private RenderTextureFormat[] renderTextureFormats;
         [SerializeField]
         private MainManager main;
         [SerializeField]
