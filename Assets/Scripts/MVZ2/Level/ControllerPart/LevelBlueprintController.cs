@@ -237,17 +237,13 @@ namespace MVZ2.Level
                 controller.UpdateFrame(0);
             }
         }
-        public override void PostLevelLoad()
-        {
-            base.PostLevelLoad();
-            UpdateUIClassicBlueprintCount();
-            UpdateUIConveyorBlueprintCount();
-        }
 
         #region 传送带
         public void SetUIConveyorMode(bool mode)
         {
             UI.Blueprints.SetConveyorMode(mode);
+            UpdateUIClassicBlueprintCount();
+            UpdateUIConveyorBlueprintCount();
         }
         public float GetConveyorSpeed()
         {
