@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Stages
 
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.soulFurnace,
-                VanillaContraptionID.smallDispenser,
+                VanillaEnemyID.mummy,
 
                 VanillaEnemyID.zombie,
                 VanillaEffectID.nightmareDarkness,

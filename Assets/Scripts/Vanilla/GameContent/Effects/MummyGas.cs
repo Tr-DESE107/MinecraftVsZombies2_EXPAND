@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Effects
                 Burn(entity);
                 return;
             }
-            if (other.IsDead)
+            if (!other.IsVulnerableEntity() || other.IsDead)
                 return;
             if (other.IsUndead())
             {
