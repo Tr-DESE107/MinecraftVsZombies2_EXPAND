@@ -17,6 +17,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Level.BsonSerializers;
 using PVZEngine.SeedPacks;
 using Tools;
 using Tools.BsonSerializers;
@@ -35,6 +36,7 @@ namespace MVZ2Logic
             RegisterSerializer(new ColorSerializer());
             RegisterSerializer(new RandomGeneratorSerializer());
             RegisterSerializer(new NamespaceIDSerializer(defaultNsp));
+            RegisterSerializer(new PropertyBlockSerializer());
 
             // Tools
             RegisterClass<FrameTimer>();

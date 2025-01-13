@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -46,7 +47,7 @@ namespace PVZEngine.Entities
         public float health;
         public bool isOnGround;
         public long currentBuffID;
-        public SerializablePropertyDictionary propertyDict;
+        public SerializablePropertyBlock properties;
         public SerializableBuffList buffs;
         public List<long> children;
         public List<TakenGridInfo> takenGrids;

@@ -4,15 +4,16 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
-using Tools;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Armors
 {
-    public class Armor : IBuffTarget
+    public class Armor : IBuffTarget, IPropertyModifyTarget
     {
         private Armor()
         {
+            properties = new PropertyBlock(this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
         }
         public Armor(Entity owner, ArmorDefinition definition) : this()
@@ -39,42 +40,61 @@ namespace PVZEngine.Armors
         }
 
         #region 属性
-        public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
+        public T GetProperty<T>(string name, bool ignoreBuffs = false)
         {
-            if (!ignoreBuffs)
-            {
-                if (buffedProperties.TryGetProperty(name, out var value))
-                    return value;
-            }
-            object result = null;
-            if (propertyDict.TryGetProperty(name, out var prop))
-                result = prop;
-            else if (!ignoreDefinition && Definition != null)
-                result = Definition.GetProperty<object>(name);
-            return result;
-        }
-        public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
-        {
-            return GetProperty(name, ignoreDefinition, ignoreBuffs).ToGeneric<T>();
+            return properties.GetProperty<T>(name, ignoreBuffs);
         }
         public void SetProperty(string name, object value)
         {
-            propertyDict.SetProperty(name, value);
-            UpdateBuffedProperty(name);
+            properties.SetProperty(name, value);
         }
         private void UpdateAllBuffedProperties()
         {
-            var propertyNames = buffs.GetModifierPropertyNames();
-            foreach (var name in propertyNames)
-            {
-                UpdateBuffedProperty(name);
-            }
+            properties.UpdateAllModifiedProperties();
         }
         private void UpdateBuffedProperty(string name)
         {
-            var baseValue = GetProperty(name, ignoreBuffs: true);
-            var value = buffs.CalculateProperty(name, baseValue);
-            buffedProperties.SetProperty(name, value);
+            properties.UpdateModifiedProperty(name);
+        }
+        bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
+        {
+            if (Definition != null)
+            {
+                if (Definition.TryGetProperty<object>(name, out var prop))
+                {
+                    value = prop;
+                    return true;
+                }
+            }
+            value = null;
+            return false;
+        }
+
+        void IPropertyModifyTarget.GetModifierItems(string name, List<ModifierContainerItem> results)
+        {
+            buffs.GetModifierItems(name, results);
+        }
+        void IPropertyModifyTarget.UpdateModifiedProperty(string name, object value)
+        {
+        }
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(string name)
+        {
+            return null;
+        }
+        IEnumerable<string> IPropertyModifyTarget.GetModifiedProperties()
+        {
+            return buffs.GetModifierPropertyNames();
+        }
+        #endregion
+
+        #region 字段
+        public T GetField<T>(string category, string name)
+        {
+            return properties.GetField<T>(category, name);
+        }
+        public void SetField(string category, string name, object value)
+        {
+            properties.SetField(category, name, value);
         }
         #endregion
 
@@ -170,7 +190,7 @@ namespace PVZEngine.Armors
                 currentBuffID = currentBuffID,
                 definitionID = Definition.GetID(),
                 buffs = buffs.ToSerializable(),
-                propertyDict = propertyDict.Serialize()
+                properties = properties.ToSerializable()
             };
         }
         public static Armor Deserialize(SerializableArmor seri, Entity owner)
@@ -183,7 +203,7 @@ namespace PVZEngine.Armors
             armor.currentBuffID = seri.currentBuffID;
             armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
             armor.buffs.OnPropertyChanged += armor.UpdateBuffedProperty;
-            armor.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            armor.properties = PropertyBlock.FromSerializable(seri.properties, armor);
             armor.UpdateAllBuffedProperties();
             return armor;
         }
@@ -199,8 +219,7 @@ namespace PVZEngine.Armors
         public float Health { get; set; }
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
-        private PropertyDictionary buffedProperties = new PropertyDictionary();
-        private PropertyDictionary propertyDict = new PropertyDictionary();
+        private PropertyBlock properties;
         #endregion
     }
 }

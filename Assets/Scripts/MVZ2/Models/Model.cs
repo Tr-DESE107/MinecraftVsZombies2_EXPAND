@@ -120,7 +120,7 @@ namespace MVZ2.Models
             serializable.key = parentKey;
             serializable.anchor = parentAnchor;
             serializable.rng = rng.ToSerializable();
-            serializable.propertyDict = propertyDict != null ? propertyDict.Serialize() : null;
+            serializable.propertyDict = propertyDict != null ? propertyDict.ToSerializable() : null;
             serializable.childModels = childModels.Select(c => c.ToSerializable()).ToArray();
             serializable.destroyTimeout = destroyTimeout;
             serializable.graphicGroup = GraphicGroup.ToSerializable();
@@ -133,7 +133,7 @@ namespace MVZ2.Models
             GraphicGroup.LoadFromSerializable(serializable.graphicGroup);
             if (serializable.propertyDict != null)
             {
-                var dict = PropertyDictionary.Deserialize(serializable.propertyDict);
+                var dict = PropertyDictionary.FromSerializable(serializable.propertyDict);
                 foreach (var name in dict.GetPropertyNames())
                 {
                     SetProperty(name, dict.GetProperty(name));

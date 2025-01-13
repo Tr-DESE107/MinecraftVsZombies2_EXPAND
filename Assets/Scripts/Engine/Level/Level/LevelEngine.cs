@@ -7,13 +7,14 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Models;
+using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Level
 {
-    public partial class LevelEngine : IBuffTarget, IDisposable
+    public partial class LevelEngine : IBuffTarget, IDisposable, IPropertyModifyTarget
     {
         #region 公有方法
         public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers)
@@ -22,6 +23,7 @@ namespace PVZEngine.Level
             Localization = translator;
             Triggers = triggers;
             buffs.OnPropertyChanged += UpdateBuffedProperty;
+            properties = new PropertyBlock(this);
         }
 
         public void Dispose()
@@ -153,44 +155,63 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性
+        public T GetProperty<T>(string name, bool ignoreBuffs = false)
+        {
+            return properties.GetProperty<T>(name, ignoreBuffs);
+        }
         public void SetProperty(string name, object value)
         {
-            propertyDict.SetProperty(name, value);
-            UpdateBuffedProperty(name);
-        }
-        public object GetProperty(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false, bool ignoreBuffs = false)
-        {
-            if (!ignoreBuffs)
-            {
-                if (buffedProperties.TryGetProperty(name, out var v))
-                    return v;
-            }
-            object result = null;
-            if (propertyDict.TryGetProperty(name, out var value))
-                result = value;
-            else if (!ignoreStageDefinition && StageDefinition.TryGetProperty<object>(name, out var stageProp))
-                result = stageProp;
-            else if (!ignoreAreaDefinition && AreaDefinition.TryGetProperty<object>(name, out var areaProp))
-                result = areaProp;
-            return result;
-        }
-        public T GetProperty<T>(string name, bool ignoreStageDefinition = false, bool ignoreAreaDefinition = false)
-        {
-            return GetProperty(name, ignoreStageDefinition, ignoreAreaDefinition).ToGeneric<T>();
+            properties.SetProperty(name, value);
         }
         private void UpdateAllBuffedProperties()
         {
-            var propertyNames = buffs.GetModifierPropertyNames();
-            foreach (var name in propertyNames)
-            {
-                UpdateBuffedProperty(name);
-            }
+            properties.UpdateAllModifiedProperties();
         }
         private void UpdateBuffedProperty(string name)
         {
-            var baseValue = GetProperty(name, ignoreBuffs: true);
-            var value = buffs.CalculateProperty(name, baseValue);
-            buffedProperties.SetProperty(name, value);
+            properties.UpdateModifiedProperty(name);
+        }
+        bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
+        {
+            if (StageDefinition != null && StageDefinition.TryGetProperty<object>(name, out var stageProp))
+            {
+                value = stageProp;
+                return true;
+            }
+            if (AreaDefinition != null && AreaDefinition.TryGetProperty<object>(name, out var areaProp))
+            {
+                value = areaProp;
+                return true;
+            }
+            value = null;
+            return false;
+        }
+
+        void IPropertyModifyTarget.GetModifierItems(string name, List<ModifierContainerItem> results)
+        {
+            buffs.GetModifierItems(name, results);
+        }
+        void IPropertyModifyTarget.UpdateModifiedProperty(string name, object value)
+        {
+        }
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(string name)
+        {
+            return null;
+        }
+        IEnumerable<string> IPropertyModifyTarget.GetModifiedProperties()
+        {
+            return buffs.GetModifierPropertyNames();
+        }
+        #endregion
+
+        #region 字段
+        public T GetField<T>(string category, string name)
+        {
+            return properties.GetField<T>(category, name);
+        }
+        public void SetField(string category, string name, object value)
+        {
+            properties.SetField(category, name, value);
         }
         #endregion
 
@@ -379,7 +400,7 @@ namespace PVZEngine.Level
                 conveyorRandom = conveyorRandom.ToSerializable(),
                 miscRandom = miscRandom.ToSerializable(),
 
-                propertyDict = propertyDict.Serialize(),
+                properties = properties.ToSerializable(),
                 grids = grids.Select(g => g.Serialize()).ToArray(),
                 rechargeSpeed = RechargeSpeed,
                 rechargeTimeMultiplier = RechargeTimeMultiplier,
@@ -430,7 +451,7 @@ namespace PVZEngine.Level
             level.Difficulty = seri.difficulty;
             level.Option = LevelOption.Deserialize(seri.Option);
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
-            level.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            level.properties = PropertyBlock.FromSerializable(seri.properties, level);
 
             level.RechargeSpeed = seri.rechargeSpeed;
             level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
@@ -466,7 +487,7 @@ namespace PVZEngine.Level
             }
             // 在实体加载后面
             // 加载所有网格的属性。
-            for (int i = 0; i< level.grids.Length; i++)
+            for (int i = 0; i < level.grids.Length; i++)
             {
                 var grid = level.grids[i];
                 var seriGrid = seri.grids[i];
@@ -566,8 +587,7 @@ namespace PVZEngine.Level
         private long currentBuffID = 1;
         private string deathMessage;
 
-        private PropertyDictionary buffedProperties = new PropertyDictionary();
-        private PropertyDictionary propertyDict = new PropertyDictionary();
+        private PropertyBlock properties;
         private LawnGrid[] grids;
         private BuffList buffs = new BuffList();
 

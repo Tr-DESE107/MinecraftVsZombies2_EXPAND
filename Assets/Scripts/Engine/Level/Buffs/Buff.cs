@@ -110,7 +110,7 @@ namespace PVZEngine.Buffs
             {
                 id = ID,
                 definitionID = Definition.GetID(),
-                propertyDict = propertyDict.Serialize(),
+                propertyDict = propertyDict.ToSerializable(),
                 auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
             };
         }
@@ -119,7 +119,7 @@ namespace PVZEngine.Buffs
             var definition = level.Content.GetBuffDefinition(seri.definitionID);
             var buff = new Buff(level, definition, seri.id);
             buff.Target = target;
-            buff.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            buff.propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);
             buff.auras.LoadFromSerializable(level, seri.auras);
             return buff;
         }

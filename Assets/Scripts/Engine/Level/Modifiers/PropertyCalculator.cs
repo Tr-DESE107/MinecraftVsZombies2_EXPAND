@@ -10,7 +10,7 @@ namespace PVZEngine.Modifiers
 {
     public static class PropertyCalculator
     {
-        public static object CalculateProperty(this IEnumerable<ModifierContainerItem> modifiers, string name, object value)
+        public static object CalculateProperty(this IEnumerable<ModifierContainerItem> modifiers, object value)
         {
             if (modifiers == null || modifiers.Count() == 0)
                 return value;
@@ -20,11 +20,11 @@ namespace PVZEngine.Modifiers
             foreach (var calc in calculators)
             {
                 if (calculator != null)
-                    throw new MultipleValueModifierException($"Modifiers of property {name} has multiple different calculators: {string.Join(',', calculators)}");
+                    throw new MultipleValueModifierException($"Modifiers of property has multiple different calculators: {string.Join(',', calculators)}");
                 calculator = calc;
             }
             if (calculator == null)
-                throw new NullReferenceException($"Calculator for property {name} does not exists.");
+                throw new NullReferenceException($"Calculator for property does not exists.");
             return calculator.Calculate(value, modifiers);
         }
     }

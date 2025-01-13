@@ -64,7 +64,7 @@ namespace MVZ2Logic.Artifacts
             return new SerializableArtifact()
             {
                 definitionID = Definition.GetID(),
-                propertyDict = propertyDict.Serialize(),
+                propertyDict = propertyDict.ToSerializable(),
                 auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
             };
         }
@@ -72,7 +72,7 @@ namespace MVZ2Logic.Artifacts
         {
             var definition = level.Content.GetArtifactDefinition(seri.definitionID);
             var artifact = new Artifact(level, definition);
-            artifact.propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            artifact.propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);
             artifact.auras.LoadFromSerializable(level, seri.auras);
             return artifact;
         }

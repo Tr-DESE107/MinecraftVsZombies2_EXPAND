@@ -36,7 +36,9 @@ namespace PVZEngine.Level
         public SerializableRNG conveyorRandom;
         public SerializableRNG debugRandom;
         public SerializableRNG miscRandom;
-        public SerializablePropertyDictionary propertyDict;
+
+        public SerializablePropertyBlock properties;
+
         public SerializableGrid[] grids;
         public float rechargeSpeed;
         public float rechargeTimeMultiplier;

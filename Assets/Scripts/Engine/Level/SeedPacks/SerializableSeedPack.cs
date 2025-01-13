@@ -1,5 +1,6 @@
 ﻿using System;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 
 namespace PVZEngine.SeedPacks
 {
@@ -9,7 +10,7 @@ namespace PVZEngine.SeedPacks
         public NamespaceID seedID;
         public long currentBuffID;
         public SerializableBuffList buffs;
-        public SerializablePropertyDictionary propertyDict;
+        public SerializablePropertyBlock properties;
     }
     [Serializable]
     public class SerializableClassicSeedPack : SerializableSeedPack

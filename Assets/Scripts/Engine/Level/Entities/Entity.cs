@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -15,7 +16,7 @@ using UnityEngine;
 
 namespace PVZEngine.Entities
 {
-    public sealed class Entity : IBuffTarget, IAuraSource, IModifierContainer
+    public sealed class Entity : IBuffTarget, IAuraSource, IModifierContainer, IPropertyModifyTarget
     {
         #region 公有方法
 
@@ -37,10 +38,11 @@ namespace PVZEngine.Entities
             ID = id;
             SpawnerReference = spawnerReference;
             MainHitbox = new EntityHitbox(this);
-            buffs.OnPropertyChanged += UpdateBuffedProperty;
+            buffs.OnPropertyChanged += UpdateModifiedProperty;
             buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
             buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
             Cache = new EntityCache();
+            properties = new PropertyBlock(this);
         }
         public void Init(Entity spawner)
         {
@@ -186,85 +188,78 @@ namespace PVZEngine.Entities
 
         #endregion 魅惑
 
-        #region 属性
-        public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
+        #region 增益属性
+        public T GetProperty<T>(string name, bool ignoreBuffs = false)
         {
-            if (!ignoreBuffs)
-            {
-                if (buffedProperties.TryGetProperty(name, out var value))
-                    return value;
-            }
-            if (propertyDict.TryGetProperty(name, out var prop))
-                return prop;
-
-            if (ignoreDefinition)
-                return null;
-
-            if (Definition != null && Definition.TryGetProperty<object>(name, out var defProp))
-                return defProp;
-
-            var behaviours = Definition.GetBehaviours();
-            foreach (var behaviour in behaviours)
-            {
-                if (behaviour.TryGetProperty<object>(name, out var behProp))
-                    return behProp;
-            }
-            return null;
-        }
-        public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
-        {
-            return GetProperty(name, ignoreDefinition, ignoreBuffs).ToGeneric<T>();
+            return properties.GetProperty<T>(name, ignoreBuffs);
         }
         public void SetProperty(string name, object value)
         {
-            if (propertyDict.SetProperty(name, value))
-            {
-                UpdateBuffedProperty(name);
-                // 实体属性更改时，如果有利用该实体属性修改属性的修改器，更新一次该属性。
-                foreach (var modifier in Definition.GetModifiers())
-                {
-                    if (modifier.UsingContainerPropertyName == name)
-                    {
-                        UpdateBuffedProperty(modifier.PropertyName);
-                    }
-                }
-            }
-        }
-        private void UpdateAllBuffedProperties()
-        {
-            var entityPropertyNames = modifierCaches.Keys;
-            var buffPropertyNames = buffs.GetModifierPropertyNames();
-            var propertyNames = entityPropertyNames.Union(buffPropertyNames);
-            foreach (var name in propertyNames)
-            {
-                UpdateBuffedProperty(name);
-            }
-        }
-        private void UpdateBuffedProperty(string name)
-        {
-            var baseValue = GetProperty(name, ignoreBuffs: true);
-
-            modifierContainerBuffer.Clear();
-            GetModifierItems(name, modifierContainerBuffer);
-            buffs.GetModifierItems(name, modifierContainerBuffer);
-
-            var value = baseValue;
-            if (modifierContainerBuffer.Count > 0)
-            {
-                value = modifierContainerBuffer.CalculateProperty(name, baseValue);
-                buffedProperties.SetProperty(name, value);
-            }
-            else
-            {
-                buffedProperties.RemoveProperty(name);
-            }
-            Cache.UpdateProperty(this, name, value);
+            properties.SetProperty(name, value);
         }
         private void GetModifierItems(string name, List<ModifierContainerItem> results)
         {
             if (!modifierCaches.TryGetValue(name, out var list))
                 return;
             results.AddRange(list);
+        }
+        private void UpdateAllBuffedProperties()
+        {
+            properties.UpdateAllModifiedProperties();
+        }
+        private void UpdateModifiedProperty(string name)
+        {
+            properties.UpdateModifiedProperty(name);
+        }
+        bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
+        {
+            if (Definition != null && Definition.TryGetProperty<object>(name, out var defProp))
+            {
+                value = defProp;
+                return true;
+            }
+
+            var behaviours = Definition.GetBehaviours();
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour.TryGetProperty<object>(name, out var behProp))
+                {
+                    value = behProp;
+                    return true;
+                }
+            }
+            value = null;
+            return false;
+        }
+        IEnumerable<string> IPropertyModifyTarget.GetModifiedProperties()
+        {
+            var entityPropertyNames = modifierCaches.Keys;
+            var buffPropertyNames = buffs.GetModifierPropertyNames();
+            return entityPropertyNames.Union(buffPropertyNames);
+        }
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(string name)
+        {
+            return Definition.GetModifiers().Where(m => m.UsingContainerPropertyName == name).ToArray();
+        }
+        void IPropertyModifyTarget.GetModifierItems(string name, List<ModifierContainerItem> results)
+        {
+            GetModifierItems(name, results);
+            buffs.GetModifierItems(name, results);
+        }
+        void IPropertyModifyTarget.UpdateModifiedProperty(string name, object value)
+        {
+            Cache.UpdateProperty(this, name, value);
+        }
+        #endregion
+
+        #region 字段属性
+        public T GetField<T>(string category, string name)
+        {
+            return properties.GetField<T>(category, name);
+        }
+        public void SetField(string category, string name, object value)
+        {
+            properties.SetField(category, name, value);
         }
         #endregion
 
@@ -728,7 +723,7 @@ namespace PVZEngine.Entities
             seri.health = Health;
             seri.isOnGround = IsOnGround;
             seri.currentBuffID = currentBuffID;
-            seri.propertyDict = propertyDict.Serialize();
+            seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
             seri.takenGrids = takenGrids.ConvertAll(i => new SerializableEntity.TakenGridInfo() { grid = i.grid.GetIndex(), layers = i.takenLayers.ToArray() });
@@ -767,10 +762,10 @@ namespace PVZEngine.Entities
             Health = seri.health;
             IsOnGround = seri.isOnGround;
             currentBuffID = seri.currentBuffID;
-            propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            properties = PropertyBlock.FromSerializable(seri.properties, this);
 
             buffs = BuffList.FromSerializable(seri.buffs, Level, this);
-            buffs.OnPropertyChanged += UpdateBuffedProperty;
+            buffs.OnPropertyChanged += UpdateModifiedProperty;
             buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
             buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
 
@@ -888,7 +883,7 @@ namespace PVZEngine.Entities
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
-        object IModifierContainer.GetProperty(string name) => GetProperty(name);
+        object IModifierContainer.GetProperty(string name) => GetProperty<object>(name);
         #endregion
 
         #region 事件
@@ -935,8 +930,7 @@ namespace PVZEngine.Entities
         internal int TypeCollisionFlag { get; }
         internal EntityCache Cache { get; }
 
-        private PropertyDictionary propertyDict = new PropertyDictionary();
-        private PropertyDictionary buffedProperties = new PropertyDictionary();
+        private PropertyBlock properties;
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
@@ -944,7 +938,6 @@ namespace PVZEngine.Entities
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
         private Dictionary<string, List<ModifierContainerItem>> modifierCaches = new Dictionary<string, List<ModifierContainerItem>>();
-        private List<ModifierContainerItem> modifierContainerBuffer = new List<ModifierContainerItem>();
         #endregion
 
         private class TakenGridInfo

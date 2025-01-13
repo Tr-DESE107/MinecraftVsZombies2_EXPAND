@@ -1,5 +1,6 @@
 ﻿using System;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 
 namespace PVZEngine.Armors
 {
@@ -10,6 +11,6 @@ namespace PVZEngine.Armors
         public float health;
         public long currentBuffID;
         public SerializableBuffList buffs;
-        public SerializablePropertyDictionary propertyDict;
+        public SerializablePropertyBlock properties;
     }
 }

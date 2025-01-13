@@ -1,0 +1,120 @@
+﻿using System.Collections.Generic;
+using MongoDB.Bson;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
+using Tools.BsonSerializers;
+
+namespace PVZEngine.Level.BsonSerializers
+{
+    public class PropertyBlockSerializer : WrappedSerializerBase<SerializablePropertyBlock>
+    {
+        protected override void SerializeValue(BsonSerializationContext context, BsonSerializationArgs args, SerializablePropertyBlock value)
+        {
+            var writer = context.Writer;
+            writer.WriteStartDocument();
+
+            writer.WriteName("modifiable");
+            writer.WriteStartDocument();
+            foreach (var pair in value.modifiable.properties.properties)
+            {
+                writer.WriteName(pair.Key);
+                var v = pair.Value;
+                BsonSerializer.Serialize(writer, typeof(object), v);
+            }
+            writer.WriteEndDocument();
+
+            writer.WriteName("fields");
+            writer.WriteStartDocument();
+            foreach (var categoryPair in value.fields.dictionaries)
+            {
+                writer.WriteName(categoryPair.Key);
+                writer.WriteStartDocument();
+
+                foreach (var pair in categoryPair.Value.properties)
+                {
+                    writer.WriteName(pair.Key);
+                    var v = pair.Value;
+                    BsonSerializer.Serialize(writer, typeof(object), v);
+                }
+
+                writer.WriteEndDocument();
+            }
+            writer.WriteEndDocument();
+
+            writer.WriteEndDocument();
+        }
+        protected override SerializablePropertyBlock DeserializeClassValue(BsonDeserializationContext context, BsonDeserializationArgs args)
+        {
+            var properties = new Dictionary<string, object>();
+            var fieldCategories = new Dictionary<string, SerializablePropertyDictionary>();
+
+            var reader = context.Reader;
+
+            var bsonType = reader.GetCurrentBsonType();
+            switch (bsonType)
+            {
+                case BsonType.Document:
+                    reader.ReadStartDocument();
+                    while (reader.ReadBsonType() != BsonType.EndOfDocument)
+                    {
+                        var name = reader.ReadName();
+                        switch (name)
+                        {
+                            case "modifiable":
+                                {
+                                    DeserializeDictionary(reader, properties);
+                                }
+                                break;
+                            case "fields":
+                                {
+                                    reader.ReadStartDocument();
+
+                                    while (reader.ReadBsonType() != BsonType.EndOfDocument)
+                                    {
+                                        var category = reader.ReadName();
+                                        var categoryDictionary = new Dictionary<string, object>();
+                                        DeserializeDictionary(reader, categoryDictionary);
+                                        fieldCategories.Add(category, new SerializablePropertyDictionary()
+                                        {
+                                            properties = categoryDictionary
+                                        });
+                                    }
+
+                                    reader.ReadEndDocument();
+                                }
+                                break;
+                        }
+                    }
+                    reader.ReadEndDocument();
+                    return new SerializablePropertyBlock()
+                    {
+                        modifiable = new SerializableModifiableProperties()
+                        {
+                            properties = new SerializablePropertyDictionary()
+                            {
+                                properties = properties
+                            }
+                        },
+                        fields = new SerializablePropertyCategoryDictionary()
+                        {
+                            dictionaries = fieldCategories
+                        }
+                    };
+
+                default:
+                    throw CreateCannotDeserializeFromBsonTypeException(bsonType);
+            }
+        }
+        private void DeserializeDictionary(IBsonReader reader, Dictionary<string, object> properties)
+        {
+            reader.ReadStartDocument();
+            while (reader.ReadBsonType() != BsonType.EndOfDocument)
+            {
+                var key = reader.ReadName();
+                var value = BsonSerializer.Deserialize(reader, typeof(object));
+                properties.Add(key, value);
+            }
+            reader.ReadEndDocument();
+        }
+    }
+}

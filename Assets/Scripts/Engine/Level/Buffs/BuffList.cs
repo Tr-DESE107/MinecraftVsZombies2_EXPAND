@@ -110,7 +110,7 @@ namespace PVZEngine.Buffs
 
             modifierItemBuffer.Clear();
             GetModifierItems(name, modifierItemBuffer);
-            return modifierItemBuffer.CalculateProperty(name, value);
+            return modifierItemBuffer.CalculateProperty(value);
         }
         private void OnPropertyChangedCallback(string name)
         {

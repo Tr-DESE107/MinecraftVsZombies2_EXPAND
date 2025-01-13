@@ -5,12 +5,13 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
+using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace PVZEngine.SeedPacks
 {
-    public abstract class SeedPack : IBuffTarget
+    public abstract class SeedPack : IBuffTarget, IPropertyModifyTarget
     {
         public SeedPack(LevelEngine level, SeedDefinition definition, long id)
         {
@@ -20,6 +21,7 @@ namespace PVZEngine.SeedPacks
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+            properties = new PropertyBlock(this);
         }
         public abstract int GetIndex();
         public NamespaceID GetDefinitionID()
@@ -33,42 +35,58 @@ namespace PVZEngine.SeedPacks
             OnDefinitionChanged?.Invoke(definition);
         }
         #region 属性
-        public object GetProperty(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
+        public T GetProperty<T>(string name, bool ignoreBuffs = false)
         {
-            if (!ignoreBuffs)
-            {
-                if (buffedProperties.TryGetProperty(name, out var v))
-                    return v;
-            }
-            object result = null;
-            if (propertyDict.TryGetProperty(name, out var prop))
-                result = prop;
-            else if (!ignoreDefinition)
-                result = Definition.GetProperty<object>(name);
-            return result;
-        }
-        public T GetProperty<T>(string name, bool ignoreDefinition = false, bool ignoreBuffs = false)
-        {
-            return GetProperty(name, ignoreDefinition, ignoreBuffs).ToGeneric<T>();
+            return properties.GetProperty<T>(name, ignoreBuffs);
         }
         public void SetProperty(string name, object value)
         {
-            propertyDict.SetProperty(name, value);
-            UpdateBuffedProperty(name);
+            properties.SetProperty(name, value);
         }
         private void UpdateAllBuffedProperties()
         {
-            var propertyNames = buffs.GetModifierPropertyNames();
-            foreach (var name in propertyNames)
-            {
-                UpdateBuffedProperty(name);
-            }
+            properties.UpdateAllModifiedProperties();
         }
         private void UpdateBuffedProperty(string name)
         {
-            var baseValue = GetProperty(name, ignoreBuffs: true);
-            var value = buffs.CalculateProperty(name, baseValue);
-            buffedProperties.SetProperty(name, value);
+            properties.UpdateModifiedProperty(name);
+        }
+        bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
+        {
+            if (Definition != null && Definition.TryGetProperty<object>(name, out var prop))
+            {
+                value = prop;
+                return true;
+            }
+            value = null;
+            return false;
+        }
+
+        void IPropertyModifyTarget.GetModifierItems(string name, List<ModifierContainerItem> results)
+        {
+            buffs.GetModifierItems(name, results);
+        }
+        void IPropertyModifyTarget.UpdateModifiedProperty(string name, object value)
+        {
+        }
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(string name)
+        {
+            return null;
+        }
+        IEnumerable<string> IPropertyModifyTarget.GetModifiedProperties()
+        {
+            return buffs.GetModifierPropertyNames();
+        }
+        #endregion
+
+        #region 字段
+        public T GetField<T>(string category, string name)
+        {
+            return properties.GetField<T>(category, name);
+        }
+        public void SetField(string category, string name, object value)
+        {
+            properties.SetField(category, name, value);
         }
         #endregion
 
@@ -191,13 +209,13 @@ namespace PVZEngine.SeedPacks
         {
             seri.id = ID;
             seri.seedID = Definition.GetID();
-            seri.propertyDict = propertyDict.Serialize();
+            seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
             seri.currentBuffID = currentBuffID;
         }
         protected void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
         {
-            propertyDict = PropertyDictionary.Deserialize(seri.propertyDict);
+            properties = PropertyBlock.FromSerializable(seri.properties, this);
             currentBuffID = seri.currentBuffID;
             buffs = BuffList.FromSerializable(seri.buffs, level, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
@@ -219,8 +237,7 @@ namespace PVZEngine.SeedPacks
         public SeedDefinition Definition { get; private set; }
         private IModelInterface modelInterface;
         protected long currentBuffID = 1;
-        protected PropertyDictionary buffedProperties = new PropertyDictionary();
-        protected PropertyDictionary propertyDict = new PropertyDictionary();
+        private PropertyBlock properties;
         protected BuffList buffs = new BuffList();
         #endregion
     }

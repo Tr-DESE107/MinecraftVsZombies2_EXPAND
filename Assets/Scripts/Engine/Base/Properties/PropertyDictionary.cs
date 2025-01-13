@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Tools;
 
@@ -59,17 +60,31 @@ namespace PVZEngine
         {
             return propertyDict.Keys.ToArray();
         }
-        public SerializablePropertyDictionary Serialize()
+        public SerializablePropertyDictionary ToSerializable()
         {
-            return new SerializablePropertyDictionary(propertyDict);
-        }
-        public static PropertyDictionary Deserialize(SerializablePropertyDictionary seri)
-        {
-            return new PropertyDictionary()
+            return new SerializablePropertyDictionary()
             {
-                propertyDict = seri.ToDictionary(p => string.Intern(p.Key), p => p.Value)
+                properties = propertyDict.ToDictionary(p => p.Key, p => p.Value)
             };
         }
+        public static PropertyDictionary FromSerializable(SerializablePropertyDictionary seri)
+        {
+            var dict = new PropertyDictionary();
+            dict.propertyDict.Clear();
+            foreach (var pair in seri.properties)
+            {
+                var key = string.Intern(pair.Key);
+                var value = pair.Value;
+                dict.propertyDict.Add(key, value);
+            }
+            return dict;
+        }
+        public int Count => propertyDict.Count;
         private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
+    }
+    [Serializable]
+    public class SerializablePropertyDictionary
+    {
+        public Dictionary<string, object> properties;
     }
 }
