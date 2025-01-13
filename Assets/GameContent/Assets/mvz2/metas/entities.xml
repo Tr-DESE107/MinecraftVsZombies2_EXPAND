@@ -71,7 +71,6 @@
             <bool name="faceLeftAtDefault" value="true"/>
         </boss>
         <cart id="5" parent="entity">
-            <float name="groundLimitOffset" value="-1000"/>
             <vector3 name="size" x="56" y="32" z="56"/>
             <id name="cartTriggerSound" value="mvz2:minecart"/>
             <float name="gravity" value="1"/>

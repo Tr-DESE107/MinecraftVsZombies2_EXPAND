@@ -29,19 +29,20 @@ namespace MVZ2.Vanilla.Entities
         public override void Update(Entity entity)
         {
             base.Update(entity);
+            var velocity = entity.Velocity;
             switch (entity.State)
             {
                 default:
                     if (entity.Position.x < VanillaLevelExt.CART_TARGET_X)
                     {
-                        entity.Velocity = Vector3.right * 10;
+                        velocity.x = 10;
                     }
                     else
                     {
                         var pos = entity.Position;
                         pos.x = VanillaLevelExt.CART_TARGET_X;
                         entity.Position = pos;
-                        entity.Velocity = Vector3.zero;
+                        velocity.x = 0;
                     }
 
                     bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
@@ -52,7 +53,7 @@ namespace MVZ2.Vanilla.Entities
                     }
                     break;
                 case VanillaEntityStates.CART_TRIGGERED:
-                    entity.Velocity = Vector3.right * 10;
+                    velocity.x = 10;
                     // 获取所有接触到的僵尸。
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
                     {
@@ -66,6 +67,7 @@ namespace MVZ2.Vanilla.Entities
                     }
                     break;
             }
+            entity.Velocity = velocity;
             TurnToMoneyUpdate(entity);
         }
         private void TurnToMoneyUpdate(Entity entity)
