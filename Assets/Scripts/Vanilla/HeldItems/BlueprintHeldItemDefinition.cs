@@ -76,8 +76,8 @@ namespace MVZ2.Vanilla.HeldItems
 
                         if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                         {
-                            seed.UseOnGrid(grid, data);
                             OnUseBlueprint(grid, data, seed);
+                            seed.UseOnGrid(grid, data);
                             level.ResetHeldItem();
                         }
                     }
