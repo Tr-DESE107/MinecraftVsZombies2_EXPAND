@@ -279,7 +279,8 @@ namespace MVZ2.GameContent.Stages
         public const int STATE_FINAL_WAVE = 3;
         public const int STATE_AFTER_FINAL_WAVE = 4;
         public const int STATE_BOSS_FIGHT = 5;
-        public const int STATE_AFTER_BOSS = 6;
+        public const int STATE_BOSS_FIGHT_2 = 6;
+        public const int STATE_AFTER_BOSS = 100;
         #endregion
     }
 }

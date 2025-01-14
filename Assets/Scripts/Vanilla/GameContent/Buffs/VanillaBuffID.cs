@@ -101,6 +101,8 @@ namespace MVZ2.GameContent.Buffs
             public const string pagodaBranchLevel = "pagoda_branch_level";
             public const string nightmareDecrepify = "nightmare_decrepify";
             public const string nightmareaperDarkness = "nightmareaper_darkness";
+            public const string slendermanTransition = "slenderman_transition";
+            public const string nightmareaperTransition = "nightmareaper_transition";
         }
         public static class Boss
         {

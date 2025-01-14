@@ -1,19 +1,20 @@
 ﻿using System.Linq;
+using System.Threading;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.Level;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.XR;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -25,70 +26,120 @@ namespace MVZ2.GameContent.Stages
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
             base.AfterFinalWaveUpdate(level);
-            var waveTimer = GetWaveTimer(level);
-
-            // 让眼睛闭眼。
-            foreach (var eye in level.FindEntities(VanillaEffectID.nightmareWatchingEye))
-            {
-                if (eye.Timeout < 0)
-                {
-                    eye.Timeout = 30;
-                }
-            }
-
-            // 音乐放缓。
-            level.SetMusicVolume(Mathf.Clamp01(level.GetMusicVolume() - (1 / 30f)));
-
-            //waveTimer.Run();
-            //if (waveTimer.Expired)
-            //{
-            //    level.WaveState = STATE_BOSS_FIGHT;
-            //    var frankenstein = level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy);
-            //    foreach (var ent in level.FindEntities(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>()))
-            //    {
-            //        ent.Remove();
-            //    }
-            //    Frankenstein.DoTransformationEffects(frankenstein);
-            //    // 音乐。
-            //    level.PlayMusic(VanillaMusicID.halloweenBoss);
-            //    level.SetMusicVolume(1);
-            //    // 血条。
-            //    level.SetProgressBarToBoss(VanillaProgressBarID.frankenstein);
-            //    // 重置下一波计时器。
-            //    waveTimer.ResetTime(200);
-            //}
+            SlendermanTransitionUpdate(level);
         }
         protected override void BossFightWaveUpdate(LevelEngine level)
         {
             base.BossFightWaveUpdate(level);
+            var state = GetBossState(level);
+            if (state == BOSS_STATE_SLENDERMAN)
+            {
+                SlendermanUpdate(level);
+            }
+            else if (state == BOSS_STATE_NIGHTMAREAPER_TRANSITION)
+            {
+                NightmareaperTransitionUpdate(level);
+            }
+            else if (state == BOSS_STATE_NIGHTMAREAPER)
+            {
+                NightmareaperUpdate(level);
+            }
+        }
+        private void SlendermanTransitionUpdate(LevelEngine level)
+        {
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead))
+            {
+                // 瘦长鬼影出现
+                level.WaveState = STATE_BOSS_FIGHT;
+                return;
+            }
+            if (!level.HasBuff<SlendermanTransitionBuff>())
+            {
+                level.AddBuff<SlendermanTransitionBuff>();
+            }
+        }
+        private void SlendermanUpdate(LevelEngine level)
+        {
+            // 瘦长鬼影战斗
             // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
             // 如果有Boss存活，不停生成怪物。
-            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy());
-            if (targetBosses.Length <= 0 || targetBosses.All(b => b.IsDead))
+            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead);
+            if (targetBosses.Length <= 0)
             {
-                level.WaveState = STATE_AFTER_BOSS;
+                SetBossState(level, BOSS_STATE_NIGHTMAREAPER_TRANSITION);
+                level.AddBuff<NightmareaperTransitionBuff>();
+
+                // 隐藏UI，关闭输入
+                level.ResetHeldItem();
+                level.SetUIAndInputDisabled(true);
                 level.StopMusic();
             }
             else
             {
-                var waveTimer = GetWaveTimer(level);
-                waveTimer.Run();
-                CheckWaveAdvancement(level);
-                if (waveTimer.Expired)
+                RunWave(level);
+            }
+        }
+        private void NightmareaperTransitionUpdate(LevelEngine level)
+        {
+            ClearEnemies(level);
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead))
+            {
+                // 梦魇收割者出现
+                level.SetUIAndInputDisabled(false);
+                SetBossState(level, BOSS_STATE_NIGHTMAREAPER);
+                return;
+            }
+            if (!level.HasBuff<NightmareaperTransitionBuff>())
+            {
+                level.AddBuff<NightmareaperTransitionBuff>();
+            }
+        }
+        private void NightmareaperUpdate(LevelEngine level)
+        {
+            // 梦魇收割者战斗
+            // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
+            // 如果有Boss存活，不停生成怪物。
+            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead);
+            if (targetBosses.Length <= 0)
+            {
+                level.WaveState = STATE_AFTER_BOSS;
+                level.StopMusic();
+                if (!level.IsRerun)
                 {
-                    SetWaveMaxHealth(level, 0);
-                    waveTimer.ResetTime(level.GetWaveMaxTime());
-                    level.RunWave();
+                    // 隐藏UI，关闭输入
+                    level.SetUIAndInputDisabled(false);
+                    Global.Game.Relock(VanillaUnlockID.dreamIsNightmare);
+                    level.Clear();
                 }
+            }
+            else
+            {
+                RunWave(level);
+            }
+        }
+        private void ClearEnemies(LevelEngine level)
+        {
+            foreach (var entity in level.FindEntities(e => e.Type == EntityTypes.ENEMY && !e.IsDead && e.IsHostileEnemy()))
+            {
+                entity.Die();
             }
         }
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
             base.AfterBossWaveUpdate(level);
-            foreach (var entity in level.FindEntities(e => !e.IsDead && e.IsHostileEnemy()))
+            ClearEnemies(level);
+            if (!level.IsRerun)
             {
-                entity.Die();
+                var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy());
+                if (targetBosses.Length <= 0)
+                {
+                    level.Clear();
+                }
             }
         }
+
+        public const int BOSS_STATE_SLENDERMAN = 0;
+        public const int BOSS_STATE_NIGHTMAREAPER_TRANSITION = 1;
+        public const int BOSS_STATE_NIGHTMAREAPER = 2;
     }
 }

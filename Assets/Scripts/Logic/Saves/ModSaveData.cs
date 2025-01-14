@@ -16,6 +16,10 @@ namespace MVZ2Logic.Saves
         {
             unlocks.Add(unlockID);
         }
+        public void Relock(string unlockID)
+        {
+            unlocks.Remove(unlockID);
+        }
         public bool IsUnlocked(string unlockID)
         {
             return unlocks.Contains(unlockID);

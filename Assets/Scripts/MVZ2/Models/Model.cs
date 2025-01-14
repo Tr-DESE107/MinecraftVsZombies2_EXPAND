@@ -62,6 +62,8 @@ namespace MVZ2.Models
         }
         public void UpdateFrame(float deltaTime)
         {
+            if (!gameObject.activeInHierarchy)
+                return;
             GraphicGroup.UpdateFrame(deltaTime);
             foreach (var comp in modelComponents)
             {

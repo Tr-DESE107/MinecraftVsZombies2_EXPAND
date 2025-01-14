@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Bosses
     public partial class Nightmareaper : BossBehaviour
     {
         #region 状态机
-        private class NightmareaperStateMachine : StateMachine
+        private class NightmareaperStateMachine : EntityStateMachine
         {
             public NightmareaperStateMachine()
             {
@@ -74,17 +74,17 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 出现
-        public class AppearState : StateMachineState
+        public class AppearState : EntityStateMachineState
         {
             public AppearState() : base(STATE_APPEAR) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 entity.Position = APPEAR_POSITION;
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetTime(72);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
@@ -97,17 +97,17 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 空闲
-        public class IdleState : StateMachineState
+        public class IdleState : EntityStateMachineState
         {
             public IdleState() : base(STATE_IDLE) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetTime(150);
                 entity.SetAnimationBool("FlapWing", true);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
@@ -119,7 +119,7 @@ namespace MVZ2.GameContent.Bosses
                 UpdateMoveDirection(entity);
                 StopSpinSound(entity);
             }
-            public void SwitchState(StateMachine stateMachine, Entity entity)
+            public void SwitchState(EntityStateMachine stateMachine, Entity entity)
             {
                 var lastState = stateMachine.GetPreviousState(entity);
                 var lastStateIndex = statePool.IndexOf(lastState);
@@ -202,17 +202,17 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 戳刺
-        public class JabState : StateMachineState
+        public class JabState : EntityStateMachineState
         {
             public JabState() : base(STATE_JAB) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 entity.TriggerAnimation("Jab");
                 var subStateTimer = stateMachine.GetSubStateTimer(entity);
                 subStateTimer.ResetTime(21);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -307,10 +307,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 旋转
-        public class SpinState : StateMachineState
+        public class SpinState : EntityStateMachineState
         {
             public SpinState() : base(STATE_SPIN) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var subStateTimer = stateMachine.GetSubStateTimer(entity);
@@ -318,7 +318,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.SetAnimationBool("FlapWing", false);
                 entity.PlaySound(VanillaSoundID.wheelOfDeathStart);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -354,7 +354,7 @@ namespace MVZ2.GameContent.Bosses
                         break;
                 }
             }
-            public override void OnExit(StateMachine stateMachine, Entity entity)
+            public override void OnExit(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnExit(stateMachine, entity);
                 StopSpinSound(entity);
@@ -454,10 +454,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 黑暗
-        public class DarknessState : StateMachineState
+        public class DarknessState : EntityStateMachineState
         {
             public DarknessState() : base(STATE_DARKNESS) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 entity.TriggerAnimation("Cast");
@@ -469,7 +469,7 @@ namespace MVZ2.GameContent.Bosses
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetTime(30);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
@@ -484,18 +484,18 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 复活
-        public class ResurrectState : StateMachineState
+        public class ResurrectState : EntityStateMachineState
         {
             public ResurrectState() : base(STATE_REVIVE) { }
 
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 Resurrect(entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetTime(30);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
@@ -530,10 +530,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 激怒
-        public class EnragedState : StateMachineState
+        public class EnragedState : EntityStateMachineState
         {
             public EnragedState() : base(STATE_ENRAGE) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -551,7 +551,7 @@ namespace MVZ2.GameContent.Bosses
 
                 CancelDarkness(entity.Level);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
 
@@ -619,10 +619,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 死亡
-        public class DeathState : StateMachineState
+        public class DeathState : EntityStateMachineState
         {
             public DeathState() : base(STATE_DEATH) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 entity.SetAnimationBool("Shake", true);
@@ -632,7 +632,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.RemoveBuffs<FlyBuff>();
                 StopSpinSound(entity);
             }
-            public override void OnUpdateLogic(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateLogic(stateMachine, entity);
 

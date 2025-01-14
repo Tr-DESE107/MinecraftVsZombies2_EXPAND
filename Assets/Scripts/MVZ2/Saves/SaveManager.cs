@@ -194,6 +194,16 @@ namespace MVZ2.Saves
             modSaveData.Unlock(unlockId.Path);
             EvaluateUnlocks(false);
         }
+        public void Relock(NamespaceID unlockId)
+        {
+            if (unlockId == null)
+                return;
+            var modSaveData = GetModSaveData(unlockId.SpaceName);
+            if (modSaveData == null)
+                return;
+            modSaveData.Relock(unlockId.Path);
+            EvaluateUnlocks(false);
+        }
         public void AddLevelDifficultyRecord(NamespaceID stageID, NamespaceID difficulty)
         {
             if (stageID == null || difficulty == null)

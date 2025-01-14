@@ -149,6 +149,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9471881cde5f3d841abcd44501e0f922, type: 3}
   - name: mobile_blueprint/necromancer
     sprite: {fileID: 21300000, guid: 8a0fa8e6a83d14c4581f8cee8ce07eed, type: 3}
+  - name: mobile_blueprint/nightmareaper
+    sprite: {fileID: 21300000, guid: dfe9b9c4204e8234d86ec16eb408a6da, type: 3}
   - name: mobile_blueprint/obsidian
     sprite: {fileID: 21300000, guid: 4d49d253e83fc104d9eb629a8a238ee3, type: 3}
   - name: mobile_blueprint/pistenser
@@ -163,6 +165,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
     sprite: {fileID: 21300000, guid: f8d0d1426f88a6b4bb83eb101121870e, type: 3}
+  - name: mobile_blueprint/slenderman
+    sprite: {fileID: 21300000, guid: 9c37df297dc5c5a47a8448c48eba0204, type: 3}
   - name: mobile_blueprint/small_dispenser
     sprite: {fileID: 21300000, guid: df4339844dabc79468b681d3c124227f, type: 3}
   - name: mobile_blueprint/soul_furnace

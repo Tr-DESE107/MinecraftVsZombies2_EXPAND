@@ -357,6 +357,10 @@ namespace MVZ2.Level.UI
         {
             animator.SetInteger("UIState", (int)state);
         }
+        public void SetUIDisabled(bool disabled)
+        {
+            animator.SetBool("DisableUI", disabled);
+        }
         public Receiver GetReceiverType(RaycastReceiver receiver)
         {
             if (receiver == sideReceiver)

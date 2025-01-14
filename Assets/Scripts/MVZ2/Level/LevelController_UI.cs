@@ -217,6 +217,11 @@ namespace MVZ2.Level
         {
             return Main.SaveManager.IsUnlocked(VanillaUnlockID.trigger) && Main.OptionsManager.IsTriggerSwapped();
         }
+        public void SetUIAndInputDisabled(bool disabled)
+        {
+            inputAndUIDisabled = disabled;
+            ui.SetUIDisabled(disabled);
+        }
         public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
@@ -358,10 +363,17 @@ namespace MVZ2.Level
         {
             if (IsGameRunning())
             {
-                PauseGame();
-                level.PlaySound(VanillaSoundID.pause);
+                if (!IsPauseDisabled())
+                {
+                    PauseGame();
+                    level.PlaySound(VanillaSoundID.pause);
+                    ShowOptionsDialog();
+                }
             }
-            ShowOptionsDialog();
+            else
+            {
+                ShowOptionsDialog();
+            }
         }
         private void UI_OnOptionsMenuCloseCallback()
         {
@@ -900,6 +912,7 @@ namespace MVZ2.Level
         private OptionsLogicLevel optionsLogic;
         private IModelInterface heldItemModelInterface;
         private CursorSource heldItemCursorSource;
+        private bool inputAndUIDisabled;
 
         [Header("UI")]
         [SerializeField]

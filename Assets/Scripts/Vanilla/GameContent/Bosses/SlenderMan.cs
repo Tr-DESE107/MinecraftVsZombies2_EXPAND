@@ -60,6 +60,8 @@ namespace MVZ2.GameContent.Bosses
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
+            if (entity.IsDead)
+                return;
             MoveUpdate(entity);
             PortalUpdate(entity);
             MindSwapUpdate(entity);
@@ -117,7 +119,7 @@ namespace MVZ2.GameContent.Bosses
             base.PostDeath(entity, deathInfo);
             entity.PlaySound(VanillaSoundID.slendermanDeath);
 
-            var darkMatter = entity.Spawn(VanillaEffectID.darkMatterParticles, entity.Position);
+            var darkMatter = entity.Spawn(VanillaEffectID.darkMatterParticles, entity.GetCenter());
             darkMatter.SetParent(entity);
 
             entity.SetAnimationBool("IsDead", true);

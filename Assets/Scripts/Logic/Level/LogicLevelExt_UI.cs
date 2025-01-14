@@ -118,6 +118,11 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.ResumeGame(pauseLevel);
         }
+        public static void SetUIAndInputDisabled(this LevelEngine level, bool value)
+        {
+            var component = level.GetUIComponent();
+            component.SetUIAndInputDisabled(value);
+        }
         public static void ShowDialog(this LevelEngine level, string title, string desc, string[] options, Action<int> onSelect = null)
         {
             var component = level.GetUIComponent();

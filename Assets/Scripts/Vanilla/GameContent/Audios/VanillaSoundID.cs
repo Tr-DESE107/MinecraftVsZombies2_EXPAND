@@ -27,6 +27,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID decrepify = Get("decrepify"); 
         public readonly static NamespaceID dialogItemShow = Get("dialog_item_show");
         public readonly static NamespaceID dialogItemHide = Get("dialog_item_hide");
+        public readonly static NamespaceID dialogJudge = Get("dialog_judge");
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
         public readonly static NamespaceID dreamAlarm = Get("dream_alarm");

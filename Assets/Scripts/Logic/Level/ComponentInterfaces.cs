@@ -109,6 +109,7 @@ namespace MVZ2Logic.Level.Components
         void SetProgressBarToStage();
         void PauseGame(int level = 0);
         void ResumeGame(int level = 0);
+        void SetUIAndInputDisabled(bool value);
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
         void SetAreaModelPreset(string name);
         void TriggerModelAnimator(string name);

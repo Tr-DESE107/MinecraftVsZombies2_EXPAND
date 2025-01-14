@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Difficulties;
+﻿using System.Collections.Generic;
 using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public class StateMachine
+    public class EntityStateMachine
     {
-        public StateMachine()
+        public EntityStateMachine()
         {
 
         }
@@ -33,11 +29,11 @@ namespace MVZ2.Vanilla.Entities
                 return;
             state.OnUpdateLogic(this, entity);
         }
-        public void AddState(StateMachineState state)
+        public void AddState(EntityStateMachineState state)
         {
             states.Add(state);
         }
-        public StateMachineState GetState(int stateNumber)
+        public EntityStateMachineState GetState(int stateNumber)
         {
             foreach (var state in states)
             {
@@ -120,24 +116,12 @@ namespace MVZ2.Vanilla.Entities
         protected virtual void OnExitState(Entity entity, int state) { }
 
 
-        private List<StateMachineState> states = new List<StateMachineState>();
+        private List<EntityStateMachineState> states = new List<EntityStateMachineState>();
 
         private const string PROP_SUBSTATE = "SubState";
         private const string PROP_PREVIOUS_STATE = "PreviousState";
         private const string PROP_STATE_TIMER = "StateTimer";
         private const string PROP_SUBSTATE_TIMER = "SubStateTimer";
         public static readonly NamespaceID ID = new NamespaceID("mvz2", "state_machine");
-    }
-    public abstract class StateMachineState
-    {
-        protected StateMachineState(int state)
-        {
-            this.state = state;
-        }
-        public int state;
-        public virtual void OnEnter(StateMachine machine, Entity entity) { }
-        public virtual void OnUpdateAI(StateMachine machine, Entity entity) { }
-        public virtual void OnUpdateLogic(StateMachine machine, Entity entity) { }
-        public virtual void OnExit(StateMachine machine, Entity entity) { }
     }
 }

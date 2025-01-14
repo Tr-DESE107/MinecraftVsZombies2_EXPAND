@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.Position = Vector3.zero;
-            entity.SetSortingLayer(SortingLayers.shadow);
+            entity.SetSortingLayer(SortingLayers.night);
             GenerateEyes(entity);
         }
         private void GenerateEyes(Entity entity)
@@ -72,19 +72,6 @@ namespace MVZ2.GameContent.Effects
                 var level = entity.Level;
                 level.SetModelAnimatorBool("Boss", true);
                 level.ShakeScreen(0, 50, 30);
-            }
-            if (entity.Timeout == 0)
-            {
-                var level = entity.Level;
-                Vector3 pos = new Vector3(level.GetEntityColumnX(4), 0, level.GetEntityLaneZ(2));
-                var boss = entity.Spawn(VanillaBossID.slenderman, pos);
-                boss.Velocity = Vector3.up * 5;
-                boss.PlaySound(VanillaSoundID.splashBig);
-                boss.PlaySound(VanillaSoundID.glassBreakBig);
-                level.ShakeScreen(30, 0, 30);
-                boss.Spawn(VanillaEffectID.nightmareaperSplash, pos);
-
-                level.SetProgressBarToBoss(VanillaProgressBarID.nightmare);
             }
         }
         private int GetInfoTimeByIndex(int index)

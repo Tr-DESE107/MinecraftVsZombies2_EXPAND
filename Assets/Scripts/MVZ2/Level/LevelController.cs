@@ -426,6 +426,7 @@ namespace MVZ2.Level
                 // 设置光照。
                 ui.SetNightValue(level.GetNightValue());
                 SetDarknessValue(level.GetDarknessValue());
+                ui.SetBlackscreen(level.GetBlackscreen());
                 UpdateMoney();
                 ValidateHeldItem();
                 foreach (var component in level.GetComponents())
@@ -441,17 +442,17 @@ namespace MVZ2.Level
                 }
             }
         }
-        public void PauseGame(int level = 0)
+        public void PauseGame(int pauseLevel = 0)
         {
             if (isPaused)
             {
-                if (level > pauseLevel)
+                if (pauseLevel > this.pauseLevel)
                 {
-                    pauseLevel = level;
+                    this.pauseLevel = pauseLevel;
                 }
                 return;
             }
-            pauseLevel = level;
+            this.pauseLevel = pauseLevel;
             isPaused = true;
             Music.Pause();
         }
@@ -628,9 +629,16 @@ namespace MVZ2.Level
                 return;
             if (!Options.GetPauseOnFocusLost())
                 return;
-
+            if (IsPauseDisabled())
+                return;
             PauseGame();
             ShowPausedDialog();
+        }
+        private bool IsPauseDisabled()
+        {
+            if (level == null)
+                return true;
+            return level.IsPauseDisabled();
         }
         #endregion
 
@@ -751,9 +759,12 @@ namespace MVZ2.Level
                     {
                         if (!isPaused)
                         {
-                            PauseGame();
-                            level.PlaySound(VanillaSoundID.pause);
-                            ShowPausedDialog();
+                            if (!IsPauseDisabled())
+                            {
+                                PauseGame();
+                                level.PlaySound(VanillaSoundID.pause);
+                                ShowPausedDialog();
+                            }
                         }
                         else
                         {
@@ -764,9 +775,12 @@ namespace MVZ2.Level
                     {
                         if (!isPaused)
                         {
-                            PauseGame();
-                            level.PlaySound(VanillaSoundID.pause);
-                            ShowOptionsDialog();
+                            if (!IsPauseDisabled())
+                            {
+                                PauseGame();
+                                level.PlaySound(VanillaSoundID.pause);
+                                ShowOptionsDialog();
+                            }
                         }
                         else
                         {
@@ -824,7 +838,7 @@ namespace MVZ2.Level
         }
         private bool IsInputDisabled()
         {
-            return level == null || level.IsCleared || isOpeningAlmanac || isOpeningStore;
+            return level == null || level.IsCleared || isOpeningAlmanac || isOpeningStore || inputAndUIDisabled;
         }
 
         private void CreateLevelModel(NamespaceID areaId)

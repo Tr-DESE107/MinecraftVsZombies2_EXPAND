@@ -3052,6 +3052,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c37df297dc5c5a47a8448c48eba0204
+    m_Address: mvz2:mobile_blueprint/slenderman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c4432515b7c03f4c975a42ad7bb46f4
     m_Address: mvz2:entity/pot/pot_break4
     m_ReadOnly: 0
@@ -3489,6 +3495,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b165419e360617343bbb86eb9acb98f5
+    m_Address: mvz2:effect/nightmare_glass
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b183abb28c7b13c4995d0fc7bfaa8299
     m_Address: mvz2:mainmenu/more_menus
@@ -4407,6 +4419,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfe9b9c4204e8234d86ec16eb408a6da
+    m_Address: mvz2:mobile_blueprint/nightmareaper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0c7697228ff843469a11a3a633766bb
     m_Address: mvz2:ui/gear

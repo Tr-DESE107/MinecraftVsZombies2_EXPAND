@@ -7,6 +7,7 @@ namespace MVZ2Logic.Games
     {
         bool IsUnlocked(NamespaceID unlockID);
         void Unlock(NamespaceID unlockID);
+        void Relock(NamespaceID unlockID);
         NamespaceID[] GetUnlockedEnemies();
         T GetModSaveData<T>(string spaceName);
         ModSaveData GetModSaveData(string spaceName);

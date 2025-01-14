@@ -57,6 +57,8 @@ namespace MVZ2.UI
         }
         public void SetTwinkling(bool twinkling)
         {
+            if (!animator.gameObject.activeInHierarchy)
+                return;
             animator.SetBool("Twinkling", twinkling);
         }
         public void PointerRelease()

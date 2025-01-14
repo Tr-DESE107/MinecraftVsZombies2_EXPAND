@@ -14,8 +14,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 2f));
             AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, 2f));
-            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 2f));
-            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 2f));
         }
         public override void PostAdd(Buff buff)
         {

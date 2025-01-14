@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Bosses
     public partial class Frankenstein
     {
         #region 状态机
-        private class FrankensteinStateMachine : StateMachine
+        private class FrankensteinStateMachine : EntityStateMachine
         {
             public FrankensteinStateMachine()
             {
@@ -57,16 +57,16 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 状态
-        private class IdleState : StateMachineState
+        private class IdleState : EntityStateMachineState
         {
             public IdleState() : base(STATE_IDLE) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetTime(90);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var nextStateTimer = stateMachine.GetStateTimer(entity);
@@ -118,10 +118,10 @@ namespace MVZ2.GameContent.Bosses
                 stateMachine.SetPreviousState(entity, lastState);
             }
         }
-        private class AwakeState : StateMachineState
+        private class AwakeState : EntityStateMachineState
         {
             public AwakeState() : base(STATE_WAKING) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 SetParalyzed(entity, false);
@@ -129,7 +129,7 @@ namespace MVZ2.GameContent.Bosses
                 substateTimer.ResetTime(30);
                 entity.PlaySound(VanillaSoundID.powerOn);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -157,10 +157,10 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
         }
-        private class DeadState : StateMachineState
+        private class DeadState : EntityStateMachineState
         {
             public DeadState() : base(STATE_DEAD) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
 
@@ -170,7 +170,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.SetAnimationBool("Sparks", true);
                 entity.Level.AddLoopSoundEntity(VanillaSoundID.electricSpark, entity.ID);
             }
-            public override void OnUpdateLogic(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateLogic(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -212,10 +212,10 @@ namespace MVZ2.GameContent.Bosses
                 expPart.SetSize(Vector3.one * 60);
             }
         }
-        private class FaintState : StateMachineState
+        private class FaintState : EntityStateMachineState
         {
             public FaintState() : base(STATE_FAINT) { }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -231,12 +231,12 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
         }
-        private class GunState : StateMachineState
+        private class GunState : EntityStateMachineState
         {
             public GunState() : base(STATE_GUN)
             {
             }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -247,7 +247,7 @@ namespace MVZ2.GameContent.Bosses
 
                 entity.PlaySound(VanillaSoundID.gunReload);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substate = stateMachine.GetSubState(entity);
@@ -290,7 +290,7 @@ namespace MVZ2.GameContent.Bosses
             /// <summary>
             /// 停止发射子弹。
             /// </summary>
-            private void EndFiringBullets(StateMachine stateMachine, Entity boss)
+            private void EndFiringBullets(EntityStateMachine stateMachine, Entity boss)
             {
                 boss.Target = FindMissileTarget(boss);
                 if (boss.Target != null)
@@ -336,7 +336,7 @@ namespace MVZ2.GameContent.Bosses
             /// <summary>
             /// 持续发射子弹。
             /// </summary>
-            private void ShootBullets(StateMachine stateMachine, Entity boss)
+            private void ShootBullets(EntityStateMachine stateMachine, Entity boss)
             {
                 var substateTimer = stateMachine.GetSubStateTimer(boss);
                 substateTimer.Run(stateMachine.GetSpeed(boss));
@@ -351,11 +351,11 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
         }
-        private class MissileState : StateMachineState
+        private class MissileState : EntityStateMachineState
         {
             public MissileState() : base(STATE_MISSILE) { }
 
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -365,7 +365,7 @@ namespace MVZ2.GameContent.Bosses
                 SetMissileDirection(entity, entity.GetFacingDirection());
                 entity.PlaySound(VanillaSoundID.gunReload);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var detectTimer = GetDetectTimer(entity);
@@ -398,7 +398,7 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
 
-            private void FireMissile(StateMachine stateMachine, Entity boss)
+            private void FireMissile(EntityStateMachine stateMachine, Entity boss)
             {
                 stateMachine.SetSubState(boss, SUBSTATE_MISSILE_FIRED);
                 var substateTimer = stateMachine.GetSubStateTimer(boss);
@@ -420,16 +420,16 @@ namespace MVZ2.GameContent.Bosses
                 });
             }
         }
-        private class JumpState : StateMachineState
+        private class JumpState : EntityStateMachineState
         {
             public JumpState() : base(STATE_JUMP) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetTime(24);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -472,7 +472,7 @@ namespace MVZ2.GameContent.Bosses
                 boss.PlaySound(VanillaSoundID.thunder);
             }
 
-            private void Land(StateMachine stateMachine, Entity boss)
+            private void Land(EntityStateMachine stateMachine, Entity boss)
             {
                 stateMachine.StartState(boss, STATE_IDLE);
 
@@ -544,17 +544,17 @@ namespace MVZ2.GameContent.Bosses
                 return level.GetGrid(column, lane);
             }
         }
-        private class PunchState : StateMachineState
+        private class PunchState : EntityStateMachineState
         {
             public PunchState() : base(STATE_PUNCH) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetTime(30);
                 entity.PlaySound(VanillaSoundID.teslaPower);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
@@ -598,17 +598,17 @@ namespace MVZ2.GameContent.Bosses
                 boss.PlaySound(VanillaSoundID.smash);
             }
         }
-        private class ShockState : StateMachineState
+        private class ShockState : EntityStateMachineState
         {
             public ShockState() : base(STATE_SHOCK) { }
-            public override void OnEnter(StateMachine stateMachine, Entity entity)
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetTime(30);
                 entity.PlaySound(VanillaSoundID.teslaPower);
             }
-            public override void OnUpdateAI(StateMachine stateMachine, Entity entity)
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);

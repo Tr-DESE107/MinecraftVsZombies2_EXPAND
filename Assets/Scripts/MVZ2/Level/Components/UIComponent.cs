@@ -107,6 +107,10 @@ namespace MVZ2.Level.Components
         {
             Controller.ResumeGame(level);
         }
+        public void SetUIAndInputDisabled(bool disabled)
+        {
+            Controller.SetUIAndInputDisabled(disabled);
+        }
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
         {
             Main.Scene.ShowDialog(title, desc, options, onSelect);

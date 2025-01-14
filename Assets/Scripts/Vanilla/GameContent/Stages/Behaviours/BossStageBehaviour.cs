@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 
@@ -33,9 +35,13 @@ namespace MVZ2.GameContent.Stages
             var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
             if (lastEnemy == null)
             {
-                level.WaveState = STATE_AFTER_FINAL_WAVE;
-                level.PostWaveFinished(level.CurrentWave);
+                StartAfterFinalWave(level);
             }
+        }
+        protected virtual void StartAfterFinalWave(LevelEngine level)
+        {
+            level.WaveState = STATE_AFTER_FINAL_WAVE;
+            level.PostWaveFinished(level.CurrentWave);
         }
         protected virtual void AfterFinalWaveUpdate(LevelEngine level)
         {
@@ -49,5 +55,21 @@ namespace MVZ2.GameContent.Stages
         {
 
         }
+        protected void RunWave(LevelEngine level)
+        {
+            var waveTimer = GetWaveTimer(level);
+            waveTimer.Run();
+            CheckWaveAdvancement(level);
+            if (waveTimer.Expired)
+            {
+                SetWaveMaxHealth(level, 0);
+                waveTimer.ResetTime(level.GetWaveMaxTime());
+                level.RunWave();
+            }
+        }
+        protected static void SetBossState(LevelEngine level, int value) => level.SetBehaviourField(ID, FIELD_BOSS_PHASE, value);
+        protected static int GetBossState(LevelEngine level) => level.GetBehaviourField<int>(ID, FIELD_BOSS_PHASE);
+        private static readonly NamespaceID ID = new NamespaceID("mvz2", "boss_stage_behaviour");
+        private const string FIELD_BOSS_PHASE = "BossPhase";
     }
 }

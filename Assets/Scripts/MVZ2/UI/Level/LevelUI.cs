@@ -25,6 +25,12 @@ namespace MVZ2.UI
             color.a = value;
             darknessImage.color = color;
         }
+        public void SetBlackscreen(float value)
+        {
+            var color = blackscreenImage.color;
+            color.a = value;
+            blackscreenImage.color = color;
+        }
         public void SetRaycastDisabled(bool disabled)
         {
             animator.SetBool("RaycastDisabled", disabled);
@@ -51,6 +57,11 @@ namespace MVZ2.UI
         public LevelUIPreset GetUIPreset()
         {
             return isMobile ? mobileUI : standaloneUI;
+        }
+        public void SetUIDisabled(bool disabled)
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.SetUIDisabled(disabled);
         }
 
         #region 手持物品
@@ -191,6 +202,8 @@ namespace MVZ2.UI
         private Image nightImage;
         [SerializeField]
         private Image darknessImage;
+        [SerializeField]
+        private Image blackscreenImage;
 
         [Header("HeldItem")]
         [SerializeField]

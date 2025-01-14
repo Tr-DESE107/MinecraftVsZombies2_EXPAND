@@ -15,6 +15,10 @@ namespace MVZ2.Games
         {
             saveDataProvider.Unlock(unlockID);
         }
+        public void Relock(NamespaceID unlockID)
+        {
+            saveDataProvider.Relock(unlockID);
+        }
 
         public NamespaceID[] GetUnlockedEnemies()
         {

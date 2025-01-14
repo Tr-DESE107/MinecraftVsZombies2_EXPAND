@@ -1,6 +1,8 @@
+using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
@@ -35,6 +37,10 @@ namespace MVZ2.GameContent.Effects
                 {
                     entity.TriggerModel("Break");
                     entity.PlaySound(VanillaSoundID.glassBreakBig);
+                    entity.Level.ShakeScreen(10, 0, 15);
+                    var buff = entity.AddBuff<WhiteFlashBuff>();
+                    buff.SetProperty(WhiteFlashBuff.PROP_TIMEOUT, 2);
+                    buff.SetProperty(WhiteFlashBuff.PROP_MAX_TIMEOUT, 2);
                 }
             }
 

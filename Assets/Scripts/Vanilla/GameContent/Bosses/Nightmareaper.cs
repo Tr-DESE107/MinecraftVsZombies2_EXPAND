@@ -100,6 +100,10 @@ namespace MVZ2.GameContent.Bosses
                 deathPositions.RemoveAt(0);
             }
         }
+        public static void Appear(Entity entity)
+        {
+            stateMachine.StartState(entity, STATE_APPEAR);
+        }
         public static void Enrage(Entity entity)
         {
             stateMachine.StartState(entity, STATE_ENRAGE);
@@ -195,6 +199,6 @@ namespace MVZ2.GameContent.Bosses
         private const int MAX_REVIVE_COUNT = 10;
 
         private static readonly NamespaceID ID = VanillaBossID.nightmareaper;
-        private static StateMachine stateMachine = new NightmareaperStateMachine();
+        private static EntityStateMachine stateMachine = new NightmareaperStateMachine();
     }
 }

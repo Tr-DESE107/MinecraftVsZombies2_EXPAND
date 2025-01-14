@@ -6,6 +6,7 @@ namespace MVZ2Logic.Models
     {
         public static readonly int background = SortingLayer.NameToID("Background");
         public static readonly int pool = SortingLayer.NameToID("Pool");
+        public static readonly int night = SortingLayer.NameToID("Night");
         public static readonly int shadow = SortingLayer.NameToID("Shadow");
         public static readonly int places = SortingLayer.NameToID("Places");
         public static readonly int carriers = SortingLayer.NameToID("Carriers");
