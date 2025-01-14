@@ -19,7 +19,7 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
                 }
                 if (Input.GetMouseButton(mouse))
                 {
-                    RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Stay);
+                    RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Hold);
                 }
                 if (Input.GetMouseButtonUp(mouse))
                 {
@@ -29,7 +29,7 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
             for (int i = 0; i < Input.touchCount; i++)
             {
                 var touch = Input.GetTouch(i);
-                PointerPhase phase = PointerPhase.Stay; 
+                PointerPhase phase = PointerPhase.Hold; 
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
@@ -48,5 +48,11 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
             Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, phase, c => c(type, index, screenPosition, phase));
         }
         public MainManager Main => MainManager.Instance;
+    }
+    public static class MouseButton
+    {
+        public const int LEFT = 0;
+        public const int RIGHT = 1;
+        public const int MIDDLE = 2;
     }
 }

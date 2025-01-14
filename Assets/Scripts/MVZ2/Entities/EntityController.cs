@@ -8,6 +8,7 @@ using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -19,10 +20,13 @@ using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UIElements;
+using MVZ2Logic.Level;
 
 namespace MVZ2.Entities
 {
-    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, ILevelRaycastReceiver, ITooltipTarget
+    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ILevelRaycastReceiver, ITooltipTarget
     {
         #region 公有方法
         public void Init(LevelController level, Entity entity)
@@ -94,6 +98,12 @@ namespace MVZ2.Entities
             {
                 Model.UpdateFixed();
             }
+            if (Level.IsGameRunning() && pointerHovered && pointerPressed)
+            {
+                // 自动拾取
+                var target = new HeldItemTargetEntity(Entity);
+                Entity.Level.UseHeldItem(target, PointerPhase.Hold);
+            }
         }
         public void UpdateFrame(float deltaTime)
         {
@@ -115,9 +125,8 @@ namespace MVZ2.Entities
         }
         #endregion
 
-        public void SetHovered(bool hovered, bool highlight)
+        public void SetHighlight(bool highlight)
         {
-            isHovered = hovered;
             isHighlight = highlight;
         }
         public SerializableEntityController ToSerializable()
@@ -143,7 +152,7 @@ namespace MVZ2.Entities
         private void Update()
         {
             var engine = Entity.Level;
-            bool cursorValid = isHovered && Level.IsGameRunning() && !engine.IsHoldingItem();
+            bool cursorValid = pointerHovered && Level.IsGameRunning() && !engine.IsHoldingItem();
             if (cursorValid)
             {
                 if (_cursorSource == null)
@@ -268,15 +277,23 @@ namespace MVZ2.Entities
         #region 接口实现
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
+            pointerHovered = true;
             OnPointerEnter?.Invoke(this, eventData);
         }
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
+            pointerHovered = false;
             OnPointerExit?.Invoke(this, eventData);
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
+            pointerPressed = true;
             OnPointerDown?.Invoke(this, eventData);
+        }
+        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
+        {
+            pointerPressed = false;
+            OnPointerUp?.Invoke(this, eventData);
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data)
         {
@@ -437,6 +454,7 @@ namespace MVZ2.Entities
         public event Action<EntityController, PointerEventData> OnPointerEnter;
         public event Action<EntityController, PointerEventData> OnPointerExit;
         public event Action<EntityController, PointerEventData> OnPointerDown;
+        public event Action<EntityController, PointerEventData> OnPointerUp;
         #endregion
 
         #region 属性字段
@@ -457,7 +475,8 @@ namespace MVZ2.Entities
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
         private RandomGenerator rng;
-        private bool isHovered;
+        private bool pointerHovered;
+        private bool pointerPressed;
         private bool isHighlight;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;

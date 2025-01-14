@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MVZ2.Almanacs;
+using MVZ2.Assets.Scripts.MVZ2.Managers;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Cursors;
@@ -230,6 +231,7 @@ namespace MVZ2.Managers
         public SceneLoadingManager SceneManager => sceneLoadingManager;
         public AlmanacManager AlmanacManager => almanacManager;
         public StoreManager StoreManager => storeManager;
+        public InputManager InputManager => inputManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -276,6 +278,8 @@ namespace MVZ2.Managers
         private AlmanacManager almanacManager;
         [SerializeField]
         private StoreManager storeManager;
+        [SerializeField]
+        private InputManager inputManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

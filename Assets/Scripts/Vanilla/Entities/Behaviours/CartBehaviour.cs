@@ -6,10 +6,10 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -29,6 +29,12 @@ namespace MVZ2.Vanilla.Entities
         public override void Update(Entity entity)
         {
             base.Update(entity);
+            StateUpdate(entity);
+            TriggerChargeUpdate(entity);
+            TurnToMoneyUpdate(entity);
+        }
+        private void StateUpdate(Entity entity)
+        {
             var velocity = entity.Velocity;
             switch (entity.State)
             {
@@ -68,7 +74,15 @@ namespace MVZ2.Vanilla.Entities
                     break;
             }
             entity.Velocity = velocity;
-            TurnToMoneyUpdate(entity);
+        }
+        private void TriggerChargeUpdate(Entity entity)
+        {
+            if (!IsCartTriggerCharging(entity))
+            {
+                SetCartTriggerCharge(entity, 0);
+            }
+            SetCartTriggerCharging(entity, false);
+            entity.SetModelProperty("Charge", GetCartTriggerCharge(entity) / (float)MAX_TRIGGER_CHARGE);
         }
         private void TurnToMoneyUpdate(Entity entity)
         {
@@ -90,7 +104,29 @@ namespace MVZ2.Vanilla.Entities
                 entity.Remove();
             }
         }
+        public static void ChargeUpTrigger(Entity entity)
+        {
+            SetCartTriggerCharging(entity, true);
+            var charge = GetCartTriggerCharge(entity);
+            charge++;
+            if (charge >= MAX_TRIGGER_CHARGE)
+            {
+                charge = 0;
+                entity.TriggerCart();
+            }
+            SetCartTriggerCharge(entity, charge);
+        }
+
+        public static void SetCartTriggerCharge(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_TRIGGER_CHARGE, value);
+        public static int GetCartTriggerCharge(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_TRIGGER_CHARGE);
+        public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_TRIGGER_CHARGING, value);
+        public static bool IsCartTriggerCharging(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_TRIGGER_CHARGING);
+
+        public const string FIELD_TRIGGER_CHARGE = "TriggerCharge";
+        public const string FIELD_TRIGGER_CHARGING = "TriggerCharging";
         public const float TRIGGER_DISTANCE = 28;
+        public const int MAX_TRIGGER_CHARGE = 30;
+        private static readonly NamespaceID ID = new NamespaceID("mvz2", "cart_behaviour");
     }
 
 }

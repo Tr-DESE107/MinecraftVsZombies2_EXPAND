@@ -28,5 +28,9 @@ namespace MVZ2.Vanilla.Entities
             entity.PlaySound(entity.GetCartTriggerSound());
             entity.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, false);
         }
+        public static void ChargeUpCartTrigger(this Entity entity)
+        {
+            CartBehaviour.ChargeUpTrigger(entity);
+        }
     }
 }

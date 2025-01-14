@@ -60,10 +60,12 @@ namespace MVZ2.Vanilla.HeldItems
                     }
                     break;
                 case EntityTypes.CART:
-                    if (phase == PointerPhase.Press)
+                    if (phase == PointerPhase.Hold)
                     {
                         if (!entity.IsCartTriggered())
-                            entity.TriggerCart();
+                        {
+                            entity.ChargeUpCartTrigger();
+                        }
                     }
                     break;
             }

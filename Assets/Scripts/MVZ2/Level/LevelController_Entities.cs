@@ -43,16 +43,8 @@ namespace MVZ2.Level
         {
             var target = new HeldItemTargetEntity(entityCtrl.Entity);
             var highlight = level.GetHeldHighlight(target);
-            entityCtrl.SetHovered(true, highlight == HeldHighlight.Entity);
-            if (IsGameRunning())
-            {
-                // 自动拾取
-                if (Input.GetMouseButton((int)MouseButton.LeftMouse))
-                {
-                    level.UseHeldItem(target, PointerPhase.Enter);
-                }
-            }
-            else
+            entityCtrl.SetHighlight(highlight == HeldHighlight.Entity);
+            if (!IsGameRunning())
             {
                 // 显示查看图鉴提示
                 if (entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
@@ -74,7 +66,7 @@ namespace MVZ2.Level
         }
         private void UI_OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
         {
-            entity.SetHovered(false, false);
+            entity.SetHighlight(false);
             // 隐藏查看图鉴提示
             if (entity.Entity.IsPreviewEnemy())
             {

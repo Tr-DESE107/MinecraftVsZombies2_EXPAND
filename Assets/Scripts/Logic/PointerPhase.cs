@@ -3,8 +3,7 @@
     public enum PointerPhase
     {
         Press,
-        Enter,
-        Stay,
+        Hold,
         Release
     }
 }

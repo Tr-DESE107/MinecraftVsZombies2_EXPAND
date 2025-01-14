@@ -100,7 +100,9 @@ namespace MVZ2.GameContent.HeldItems
                                 if (phase == PointerPhase.Press)
                                 {
                                     if (!entity.IsCartTriggered())
-                                        entity.TriggerCart();
+                                    {
+                                        entity.ChargeUpCartTrigger();
+                                    }
                                 }
                                 break;
                         }
