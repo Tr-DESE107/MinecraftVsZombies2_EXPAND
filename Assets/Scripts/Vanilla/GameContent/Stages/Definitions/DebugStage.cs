@@ -43,14 +43,14 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.moonlightSensor,
                 VanillaContraptionID.dispenser,
-                VanillaContraptionID.totenser,
+                VanillaContraptionID.silvenser,
 
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.soulFurnace,
                 VanillaEnemyID.mummy,
 
                 VanillaEnemyID.zombie,
-                VanillaEffectID.nightmareDarkness,
+                VanillaBossID.frankenstein,
                 VanillaBossID.nightmareaper,
             });
             level.SetArtifactSlotCount(3);

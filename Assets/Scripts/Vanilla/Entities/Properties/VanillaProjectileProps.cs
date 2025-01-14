@@ -10,7 +10,6 @@ namespace MVZ2.Vanilla.Entities
         public const string POINT_TO_DIRECTION = "pointToDirection";
         public const string DAMAGE_EFFECTS = "damageEffects";
         public const string NO_DESTROY_OUTSIDE_LAWN = "noDestroyOutsideLawn";
-        public const string CAN_HIT_SPAWNER = "canHitSpawner";
         public const string COLLIDING_ENTITIES = "collidingEntities";
         public const string NO_HIT_ENTITIES = "noHitEntities";
 
@@ -29,14 +28,6 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID[] GetDamageEffects(this Entity projectile)
         {
             return projectile.GetProperty<NamespaceID[]>(DAMAGE_EFFECTS);
-        }
-        public static bool CanHitSpawner(this Entity projectile)
-        {
-            return projectile.GetProperty<bool>(CAN_HIT_SPAWNER);
-        }
-        public static void SetCanHitSpawner(this Entity projectile, bool value)
-        {
-            projectile.SetProperty(CAN_HIT_SPAWNER, value);
         }
         public static List<EntityColliderReference> GetProjectileCollidingColliders(this Entity projectile)
         {

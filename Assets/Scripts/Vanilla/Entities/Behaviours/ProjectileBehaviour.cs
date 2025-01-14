@@ -6,6 +6,7 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -24,6 +25,7 @@ namespace MVZ2.Vanilla.Entities
                 | EntityCollisionHelper.MASK_OBSTACLE
                 | EntityCollisionHelper.MASK_BOSS;
             entity.UpdatePointTowardsDirection();
+            SetStartHitSpawnerProtectTimeout(entity, 2);
         }
 
         public override void Update(Entity projectile)
@@ -41,6 +43,13 @@ namespace MVZ2.Vanilla.Entities
                 return;
             }
             projectile.UpdatePointTowardsDirection();
+
+            var protectTimout = GetStartHitSpawnerProtectTimeout(projectile);
+            if (protectTimout > 0)
+            {
+                protectTimout--;
+                SetStartHitSpawnerProtectTimeout(projectile, protectTimout);
+            }
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
@@ -48,17 +57,29 @@ namespace MVZ2.Vanilla.Entities
             var entity = collision.Entity;
             if (entity.GetProperty<bool>(VanillaProjectileProps.NO_HIT_ENTITIES))
                 return;
+            var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
             if (state == EntityCollisionHelper.STATE_EXIT)
             {
-                UnitExit(collision);
-                var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
-                if (collision.Other == spawner)
+                if (collision.Other == spawner && HasHitSpawnerProtect(entity))
                 {
-                    entity.SetCanHitSpawner(true);
+                    SetHitSpawnerProtect(entity, false);
                 }
+                UnitExit(collision);
             }
             else
             {
+                if (collision.Other == spawner)
+                {
+                    if (GetStartHitSpawnerProtectTimeout(entity) > 0) 
+                    {
+                        SetHitSpawnerProtect(entity, true);
+                        SetStartHitSpawnerProtectTimeout(entity, 0);
+                    }
+                    if (HasHitSpawnerProtect(entity))
+                    {
+                        return;
+                    }
+                }
                 UnitCollide(collision);
             }
         }
@@ -106,11 +127,6 @@ namespace MVZ2.Vanilla.Entities
             // 不能击中死亡的实体。
             var other = collision.Other;
             if (other.IsDead)
-                return;
-
-            // 不能击中发射者。
-            var spawner = projectile.SpawnerReference?.GetEntity(projectile.Level);
-            if (other == spawner && !projectile.CanHitSpawner())
                 return;
 
             // 不是敌方
@@ -189,7 +205,18 @@ namespace MVZ2.Vanilla.Entities
         }
         private void UnitExit(EntityCollision collision)
         {
-            collision.Entity.RemoveProjectileCollidingEntity(collision.OtherCollider.ToReference());
+            var entity = collision.Entity;
+            entity.RemoveProjectileCollidingEntity(collision.OtherCollider.ToReference());
         }
+
+        #region 创建者保护
+        private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT, value);
+        private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_HIT_SPAWNER_PROTECT);
+        private void SetHitSpawnerProtect(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT, value);
+        private bool HasHitSpawnerProtect(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_HIT_SPAWNER_PROTECT);
+        #endregion
+        private static readonly NamespaceID ID = new NamespaceID("mvz2", "projectile_behaviour");
+        public const string FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = "HitSpawnerProtectTimeout";
+        public const string FIELD_HIT_SPAWNER_PROTECT = "HitSpawnerProtect";
     }
 }
