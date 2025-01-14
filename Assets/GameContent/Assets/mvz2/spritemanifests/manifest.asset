@@ -205,6 +205,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
   - name: products/starshard_slot
     sprite: {fileID: 21300000, guid: b944e3154656ac74f8054ed14cb53335, type: 3}
+  - name: shading/charge_bar
+    sprite: {fileID: 21300000, guid: 875c02db89f827e4fb926c954366d39e, type: 3}
   - name: shading/nightmare_boss_sky
     sprite: {fileID: 21300000, guid: 0d2c48cde3441c649b93560520f96272, type: 3}
   - name: shading/nightmare_boss_sky_censored
@@ -245,6 +247,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 249bff1de5d47004baf9588eba3757a7, type: 3}
   - name: ui/button_highlighted
     sprite: {fileID: 21300000, guid: 54d15402f15189c42a0e0e0955892f6e, type: 3}
+  - name: ui/charge_bar_background
+    sprite: {fileID: 21300000, guid: 43fcd92f2a72ca443ab18701d0b8563c, type: 3}
   - name: ui/form
     sprite: {fileID: 21300000, guid: ecdea1f2d39df2049be852b3107d40a4, type: 3}
   - name: ui/form_hollow

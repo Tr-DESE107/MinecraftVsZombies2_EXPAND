@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-14 12:13+0800\n"
+"POT-Creation-Date: 2025-01-14 02:41+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -899,7 +899,7 @@ msgstr ""
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得300点能量，但敌人出现数量+200%。</color>"
+msgid "效果：<color=red>开始战斗时获得一个星之碎片，但敌人出现数量+200%。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:pagoda_branch

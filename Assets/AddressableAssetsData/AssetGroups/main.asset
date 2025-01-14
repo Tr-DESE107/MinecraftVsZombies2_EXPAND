@@ -1348,6 +1348,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43fcd92f2a72ca443ab18701d0b8563c
+    m_Address: mvz2:ui/charge_bar_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44e37404bb36ebe4f82cd83676899ff5
     m_Address: mvz2:awooga
     m_ReadOnly: 0
@@ -2571,6 +2577,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 875c02db89f827e4fb926c954366d39e
+    m_Address: mvz2:shading/charge_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87605de12ede6fe43818bbbae557666e
     m_Address: mvz2:entity/contraptions/gravity_force
