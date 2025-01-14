@@ -619,7 +619,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 161
+    m_Bits: 4257
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 28663
   m_MaxRayIntersections: 0
 --- !u!1 &6097844117976439207
 GameObject:
@@ -1213,6 +1213,8 @@ MonoBehaviour:
   minCameraSize: 2
   buttonColorMinigame: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   buttonColorLocked: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  buttonColorBoss: {r: 1, g: 0, b: 0, a: 1}
+  buttonColorEndless: {r: 1, g: 0, b: 1, a: 1}
   buttonColorUncleared: {r: 0, g: 1, b: 0, a: 1}
   buttonColorCleared: {r: 0, g: 0.5, b: 1, a: 1}
 --- !u!1001 &303547042816422767
