@@ -33,9 +33,9 @@ namespace MVZ2.GameContent.Contraptions
             var level = entity.Level;
             var column = entity.GetColumn();
             var lane = entity.GetLane();
-            for (int x = column - 2; x <= column + 2; x++)
+            for (int x = column - 1; x <= column + 1; x++)
             {
-                for (int y = lane - 2; y <= lane + 2; y++)
+                for (int y = lane - 1; y <= lane + 1; y++)
                 {
                     var grid = level.GetGrid(x, y);
                     if (grid == null || !grid.IsWater() || !grid.IsEmpty())
