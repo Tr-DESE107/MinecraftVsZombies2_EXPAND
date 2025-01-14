@@ -90,14 +90,14 @@ namespace MVZ2.GameContent.HeldItem
             }
             return HeldHighlight.None;
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
             switch (target)
             {
                 case HeldItemTargetLawn lawnTarget:
                     {
-                        var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
-                        if (phase != targetPhase)
+                        var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
+                        if (interaction != targetPhase)
                             return;
 
                         var level = lawnTarget.Level;
@@ -110,7 +110,7 @@ namespace MVZ2.GameContent.HeldItem
                     }
                 case HeldItemTargetEntity entityTarget:
                     {
-                        if (phase != PointerPhase.Press)
+                        if (interaction != PointerInteraction.Press)
                             return;
                         var entity = entityTarget.Target;
                         entity.Level.ResetHeldItem();
@@ -119,7 +119,7 @@ namespace MVZ2.GameContent.HeldItem
                     break;
                 case HeldItemTargetGrid gridTarget:
                     {
-                        if (phase != PointerPhase.Release)
+                        if (interaction != PointerInteraction.Release)
                             return;
 
                         var grid = gridTarget.Target;

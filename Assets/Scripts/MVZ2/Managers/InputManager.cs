@@ -1,4 +1,5 @@
-﻿using MVZ2.Managers;
+﻿using System.Collections.Generic;
+using MVZ2.Managers;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
 using PVZEngine.Triggers;
@@ -9,6 +10,68 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
 {
     public class InputManager : MonoBehaviour
     {
+        public bool IsPointerDown(int pointerId)
+        {
+            return IsPointerOfPhase(pointerId, PointerPhase.Press);
+        }
+        public bool IsPointerHolding(int pointerId)
+        {
+            return IsPointerOfPhase(pointerId, PointerPhase.Hold);
+        }
+        public bool IsPointerUp(int pointerId)
+        {
+            return IsPointerOfPhase(pointerId, PointerPhase.Release);
+        }
+        public bool IsPointerOfPhase(int pointerId, PointerPhase phase)
+        {
+            if (pointerId < 0)
+            {
+                var mouseButton = -pointerId - 1;
+                switch (phase)
+                {
+                    case PointerPhase.Press:
+                        return Input.GetMouseButtonDown(mouseButton);
+                    case PointerPhase.Hold:
+                        return Input.GetMouseButton(mouseButton);
+                    case PointerPhase.Release:
+                        return Input.GetMouseButtonUp(mouseButton);
+                }
+            }
+            var touches = Input.touches;
+            for (int i = 0; i < touches.Length; i++)
+            {
+                var touch = touches[i];
+                if (touch.fingerId == pointerId)
+                {
+                    switch (phase)
+                    {
+                        case PointerPhase.Press:
+                            return touch.phase == TouchPhase.Began;
+                        case PointerPhase.Hold:
+                            return touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved;
+                        case PointerPhase.Release:
+                            return touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled;
+                    }
+                }
+            }
+            return false;
+        }
+        public IEnumerable<Vector2> GetLeftPointerUps()
+        {
+            if (Input.GetMouseButtonUp(MouseButton.LEFT))
+            {
+                yield return Input.mousePosition;
+            }
+            var touches = Input.touches;
+            for (int i = 0; i < touches.Length; i++)
+            {
+                var touch = touches[i];
+                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                {
+                    yield return touch.position;
+                }
+            }
+        }
         private void Update()
         {
             for (int mouse = 0; mouse <= 2; mouse++)

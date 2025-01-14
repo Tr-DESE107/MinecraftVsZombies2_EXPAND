@@ -57,12 +57,12 @@ namespace MVZ2.GameContent.HeldItems
             }
             return HeldHighlight.None;
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction phase)
         {
             switch (target)
             {
                 case HeldItemTargetLawn lawnTarget:
-                    if (phase == PointerPhase.Press)
+                    if (phase == PointerInteraction.Press)
                     {
                         Swing(lawnTarget.Level);
                     }
@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.HeldItems
                         switch (entity.Type)
                         {
                             case EntityTypes.ENEMY:
-                                if (phase == PointerPhase.Press)
+                                if (phase == PointerInteraction.Press)
                                 {
                                     if (IsParalyzed(entity.Level))
                                         break;
@@ -90,14 +90,14 @@ namespace MVZ2.GameContent.HeldItems
                                 }
                                 break;
                             case EntityTypes.PICKUP:
-                                if (phase != PointerPhase.Release)
+                                if (phase != PointerInteraction.Release)
                                 {
                                     if (!entity.IsCollected())
                                         entity.Collect();
                                 }
                                 break;
                             case EntityTypes.CART:
-                                if (phase == PointerPhase.Press)
+                                if (phase == PointerInteraction.Press)
                                 {
                                     if (!entity.IsCartTriggered())
                                     {
@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.HeldItems
                                 }
                                 break;
                         }
-                        if (phase == PointerPhase.Press)
+                        if (phase == PointerInteraction.Press)
                         {
                             Swing(entity.Level);
                         }

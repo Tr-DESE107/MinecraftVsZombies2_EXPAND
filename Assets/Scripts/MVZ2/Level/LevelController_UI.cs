@@ -317,7 +317,7 @@ namespace MVZ2.Level
             if (!IsGameStarted())
                 return;
 
-            ClickOnReceiver(receiver, PointerPhase.Press);
+            ClickOnReceiver(receiver, PointerInteraction.Press);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
@@ -720,13 +720,13 @@ namespace MVZ2.Level
         #endregion
 
         #region 战场射线接收器
-        private void ClickOnReceiver(RaycastReceiver receiver, PointerPhase phase)
+        private void ClickOnReceiver(RaycastReceiver receiver, PointerInteraction interaction)
         {
             var levelUI = GetUIPreset();
             var type = levelUI.GetReceiverType(receiver);
-            ClickOnReceiver(type, phase);
+            ClickOnReceiver(type, interaction);
         }
-        private void ClickOnReceiver(LevelUIPreset.Receiver receiver, PointerPhase phase)
+        private void ClickOnReceiver(LevelUIPreset.Receiver receiver, PointerInteraction interaction)
         {
             if (!IsGameRunning())
                 return;
@@ -741,7 +741,7 @@ namespace MVZ2.Level
                     break;
             }
             var target = new HeldItemTargetLawn(level, area);
-            level.UseHeldItem(target, phase);
+            level.UseHeldItem(target, interaction);
         }
         #endregion
 

@@ -356,10 +356,10 @@ namespace MVZ2.GameContent.Contraptions
             return HeldHighlight.Green;
         }
 
-        void IEntityHeldItemBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        void IEntityHeldItemBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
-            var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
-            if (phase != targetPhase)
+            var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
+            if (interaction != targetPhase)
                 return;
             if (target is not HeldItemTargetGrid targetGrid)
                 return;

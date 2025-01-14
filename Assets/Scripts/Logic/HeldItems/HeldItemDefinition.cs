@@ -15,7 +15,7 @@ namespace MVZ2Logic.HeldItems
         }
         public virtual bool CheckRaycast(HeldItemTarget target, IHeldItemData data) => false;
         public virtual HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data) => HeldHighlight.None;
-        public virtual void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase) { }
+        public virtual void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction) { }
         public virtual NamespaceID GetModelID(LevelEngine level, IHeldItemData data) => null;
         public virtual float GetRadius(LevelEngine level, IHeldItemData data) => 0;
         public virtual SeedPack GetSeedPack(LevelEngine level, IHeldItemData data) => null;

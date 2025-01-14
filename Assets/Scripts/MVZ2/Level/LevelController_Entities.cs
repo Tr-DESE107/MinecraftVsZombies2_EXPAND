@@ -83,7 +83,7 @@ namespace MVZ2.Level
             if (IsGameRunning())
             {
                 var target = new HeldItemTargetEntity(entity);
-                level.UseHeldItem(target, PointerPhase.Press);
+                level.UseHeldItem(target, PointerInteraction.Press);
             }
             else
             {

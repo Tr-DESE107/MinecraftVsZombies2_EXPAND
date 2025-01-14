@@ -6,4 +6,11 @@
         Hold,
         Release
     }
+    public enum PointerInteraction
+    {
+        Press,
+        Hold,
+        Streak,
+        Release
+    }
 }

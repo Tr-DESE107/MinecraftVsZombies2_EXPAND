@@ -47,14 +47,14 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return HeldHighlight.None;
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
             switch (target)
             {
                 case HeldItemTargetGrid gridTarget:
                     {
-                        var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
-                        if (phase != targetPhase)
+                        var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
+                        if (interaction != targetPhase)
                             return;
 
                         var grid = gridTarget.Target;

@@ -666,18 +666,9 @@ namespace MVZ2.Level
         }
         private void UpdatePointerUp()
         {
-            if (Input.GetMouseButtonUp(0))
+            foreach (var position in Main.InputManager.GetLeftPointerUps())
             {
-                OnLeftPointerUp(Input.mousePosition);
-            }
-            var touches = Input.touches;
-            for (int i = 0; i < touches.Length; i++)
-            {
-                var touch = touches[i];
-                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
-                {
-                    OnLeftPointerUp(touch.position);
-                }
+                OnLeftPointerUp(position);
             }
         }
         private GameObject GetRaycastGameObject(Vector2 screenPosition)
@@ -708,14 +699,14 @@ namespace MVZ2.Level
             var grid = gameObject.GetComponentInParent<GridController>();
             if (grid)
             {
-                ClickOnGrid(grid.Lane, grid.Column, PointerPhase.Release, Vector2.down);
+                ClickOnGrid(grid.Lane, grid.Column, PointerInteraction.Release, Vector2.down);
                 return;
             }
 
             var receiver = gameObject.GetComponentInParent<RaycastReceiver>();
             if (receiver)
             {
-                ClickOnReceiver(receiver, PointerPhase.Release);
+                ClickOnReceiver(receiver, PointerInteraction.Release);
                 return;
             }
         }

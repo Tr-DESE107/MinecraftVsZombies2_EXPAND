@@ -61,18 +61,18 @@ namespace MVZ2Logic.Level
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
             return heldItemDef.CheckRaycast(target, data);
         }
-        public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data, PointerPhase phase)
+        public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data, PointerInteraction interaction)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            heldItemDef.Use(target, data, phase);
+            heldItemDef.Use(target, data, interaction);
         }
         public static HeldHighlight GetHeldHighlight(this LevelEngine level, HeldItemTarget target)
         {
             return level.GetHeldHighlight(target, level.GetHeldItemType(), level.GetHeldItemData());
         }
-        public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, PointerPhase phase)
+        public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, PointerInteraction interaction)
         {
-            level.UseHeldItem(target, level.GetHeldItemType(), level.GetHeldItemData(), phase);
+            level.UseHeldItem(target, level.GetHeldItemType(), level.GetHeldItemData(), interaction);
         }
         public static IModelInterface GetHeldItemModelInterface(this LevelEngine level)
         {

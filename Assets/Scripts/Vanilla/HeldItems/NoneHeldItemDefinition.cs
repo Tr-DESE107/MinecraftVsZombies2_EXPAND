@@ -44,7 +44,7 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return HeldHighlight.None;
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
             if (target is not HeldItemTargetEntity entityTarget)
                 return;
@@ -53,14 +53,14 @@ namespace MVZ2.Vanilla.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    if (phase != PointerPhase.Release)
+                    if (interaction != PointerInteraction.Release)
                     {
                         if (!entity.IsCollected())
                             entity.Collect();
                     }
                     break;
                 case EntityTypes.CART:
-                    if (phase == PointerPhase.Hold)
+                    if (interaction == PointerInteraction.Hold)
                     {
                         if (!entity.IsCartTriggered())
                         {

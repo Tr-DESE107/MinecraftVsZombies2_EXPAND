@@ -23,6 +23,7 @@ using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
 using MVZ2Logic.Level;
+using System.Linq;
 
 namespace MVZ2.Entities
 {
@@ -98,11 +99,22 @@ namespace MVZ2.Entities
             {
                 Model.UpdateFixed();
             }
-            if (Level.IsGameRunning() && pointerHovered && pointerPressed)
+            if (Level.IsGameRunning())
             {
-                // 自动拾取
-                var target = new HeldItemTargetEntity(Entity);
-                Entity.Level.UseHeldItem(target, PointerPhase.Hold);
+                var pressed = hoveredPointerId.Any(id => pressedPointerId.Contains(id));
+                var holding = hoveredPointerId.Any(id => Main.InputManager.IsPointerHolding(id));
+                if (pressed)
+                {
+                    // 按住
+                    var target = new HeldItemTargetEntity(Entity);
+                    Entity.Level.UseHeldItem(target, PointerInteraction.Hold);
+                }
+                else if (holding)
+                {
+                    // 划过
+                    var target = new HeldItemTargetEntity(Entity);
+                    Entity.Level.UseHeldItem(target, PointerInteraction.Streak);
+                }
             }
         }
         public void UpdateFrame(float deltaTime)
@@ -129,6 +141,14 @@ namespace MVZ2.Entities
         {
             isHighlight = highlight;
         }
+        public bool IsHovered()
+        {
+            return hoveredPointerId.Count > 0;
+        }
+        public bool IsPressed()
+        {
+            return pressedPointerId.Count > 0;
+        }
         public SerializableEntityController ToSerializable()
         {
             return new SerializableEntityController()
@@ -152,7 +172,7 @@ namespace MVZ2.Entities
         private void Update()
         {
             var engine = Entity.Level;
-            bool cursorValid = pointerHovered && Level.IsGameRunning() && !engine.IsHoldingItem();
+            bool cursorValid = IsHovered() && Level.IsGameRunning() && !engine.IsHoldingItem();
             if (cursorValid)
             {
                 if (_cursorSource == null)
@@ -277,22 +297,22 @@ namespace MVZ2.Entities
         #region 接口实现
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
-            pointerHovered = true;
+            hoveredPointerId.Add(eventData.pointerId);
             OnPointerEnter?.Invoke(this, eventData);
         }
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
-            pointerHovered = false;
+            hoveredPointerId.Remove(eventData.pointerId);
             OnPointerExit?.Invoke(this, eventData);
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
-            pointerPressed = true;
+            pressedPointerId.Add(eventData.pointerId);
             OnPointerDown?.Invoke(this, eventData);
         }
         void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
         {
-            pointerPressed = false;
+            pressedPointerId.Remove(eventData.pointerId);
             OnPointerUp?.Invoke(this, eventData);
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data)
@@ -475,8 +495,8 @@ namespace MVZ2.Entities
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
         private RandomGenerator rng;
-        private bool pointerHovered;
-        private bool pointerPressed;
+        private List<int> hoveredPointerId = new List<int>();
+        private List<int> pressedPointerId = new List<int>();
         private bool isHighlight;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;

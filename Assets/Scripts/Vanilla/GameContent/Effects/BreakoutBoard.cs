@@ -247,10 +247,10 @@ namespace MVZ2.GameContent.Effects
             return HeldHighlight.None;
         }
 
-        void IEntityHeldItemBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        void IEntityHeldItemBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
-            var targetPhase = Global.IsMobile() ? PointerPhase.Release : PointerPhase.Press;
-            if (phase != targetPhase)
+            var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
+            if (interaction != targetPhase)
                 return;
             FirePearl(entity);
         }

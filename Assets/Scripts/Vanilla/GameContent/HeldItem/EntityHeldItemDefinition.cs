@@ -32,13 +32,13 @@ namespace MVZ2.GameContent.HeldItems
                 return HeldHighlight.None;
             return behaviour.GetHighlight(entity, target, data);
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerPhase phase)
+        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
             var entity = GetEntity(target.GetLevel(), data.ID);
             var behaviour = GetBehaviour(entity);
             if (behaviour == null)
                 return;
-            behaviour.Use(entity, target, data, phase);
+            behaviour.Use(entity, target, data, interaction);
         }
         public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
         {
@@ -88,7 +88,7 @@ namespace MVZ2.GameContent.HeldItems
     {
         bool CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data);
         HeldHighlight GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data);
-        void Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerPhase phase);
+        void Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction phase);
         SeedPack GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data);
         NamespaceID GetModelID(Entity entity, LevelEngine level, IHeldItemData data);
         float GetRadius(Entity entity, LevelEngine level, IHeldItemData data);

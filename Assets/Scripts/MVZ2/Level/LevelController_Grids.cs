@@ -45,17 +45,17 @@ namespace MVZ2.Level
         {
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            ClickOnGrid(lane, column, PointerPhase.Press, Vector2.down);
+            ClickOnGrid(lane, column, PointerInteraction.Press, Vector2.down);
         }
 
         #endregion
-        private void ClickOnGrid(int lane, int column, PointerPhase phase, Vector2 pointerPosition)
+        private void ClickOnGrid(int lane, int column, PointerInteraction interaction, Vector2 pointerPosition)
         {
             if (!IsGameRunning())
                 return;
             var grid = level.GetGrid(column, lane);
             var target = new HeldItemTargetGrid(grid, pointerPosition);
-            level.UseHeldItem(target, phase);
+            level.UseHeldItem(target, interaction);
         }
         private void ClearGridHighlight()
         {
