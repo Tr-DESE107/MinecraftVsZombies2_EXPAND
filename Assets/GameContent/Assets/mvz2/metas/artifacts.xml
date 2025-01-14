@@ -6,7 +6,7 @@
     <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少5" sprite="mvz2:artifacts/the_creatures_heart" unlock="mvz2:artifact.the_creatures_heart" />
     
     <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点生命值" sprite="mvz2:artifacts/sweet_sleep_pillow" unlock="mvz2:level.dream_2" />
-    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得300能量，但敌人数量+200%" sprite="mvz2:artifacts/pagoda_branch" unlock="mvz2:artifact.pagoda_branch" />
+    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得1个星之碎片，但敌人数量+200%" sprite="mvz2:artifacts/pagoda_branch" unlock="mvz2:artifact.pagoda_branch" />
     <artifact id="dream_butterfly" name="梦蝶" tooltip="刚放置的器械无敌3秒" sprite="mvz2:artifacts/dream_butterfly" unlock="mvz2:level.dream_11" />
     <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter" unlock="mvz2:artifact.dark_matter" />
 </artifacts>

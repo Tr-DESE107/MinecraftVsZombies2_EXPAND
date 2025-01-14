@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-13 09:57+0800\n"
+"POT-Creation-Date: 2025-01-14 12:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -868,7 +868,7 @@ msgid "版本{0}"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:708
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:714
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1543,7 +1543,7 @@ msgstr ""
 #. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得300能量，但是会出现原先3倍多的敌人！"
+msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现原先3倍多的敌人！"
 msgstr ""
 
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager

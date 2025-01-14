@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-13 09:44+0800\n"
-"PO-Revision-Date: 2025-01-13 21:44+0800\n"
+"POT-Creation-Date: 2025-01-14 12:13+0800\n"
+"PO-Revision-Date: 2025-01-14 12:13+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -785,7 +785,7 @@ msgid "版本{0}"
 msgstr "Version {0}"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:708
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:714
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1466,11 +1466,11 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid ""
-"产自梦境世界的槐树的树枝！你在开始战斗时额外获得300能量，但是会出现原先3倍多"
-"的敌人！"
+"产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现原先"
+"3倍多的敌人！"
 msgstr ""
-"The branch of a pagoda tree from the Dream World! It gives you 300 more "
-"energy to start with in every battle, but there will be 3 times the enemies!"
+"The branch of a pagoda tree from the Dream World! It gives you a starshard "
+"to start with in every battle, but there will be 3 times the enemies!"
 
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
 #: Store meta file

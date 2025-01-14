@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
@@ -33,7 +35,8 @@ namespace MVZ2.GameContent.Artifacts
                 if (artifact.Definition.GetID() != VanillaArtifactID.pagodaBranch)
                     continue;
                 artifact.Highlight();
-                level.AddEnergy(300);
+                level.AddStarshardCount(1);
+                level.PlaySound(VanillaSoundID.starshardUse);
             }
         }
         public class LevelAura : AuraEffectDefinition

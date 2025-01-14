@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-13 09:57+0800\n"
+"POT-Creation-Date: 2025-01-14 12:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2059,7 +2059,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得300能量，但敌人数量+200%"
+msgid "战斗开始时获得1个星之碎片，但敌人数量+200%"
 msgstr ""
 
 #. Name for artifact mvz2:dream_butterfly
