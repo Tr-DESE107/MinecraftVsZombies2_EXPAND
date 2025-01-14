@@ -180,7 +180,7 @@ namespace MVZ2.Level
         private void StartExitLevelTransition(float delay)
         {
             var endNoteId = level.GetEndNoteID();
-            if (NamespaceID.IsValid(endNoteId))
+            if (NamespaceID.IsValid(endNoteId) && !level.IsRerun)
             {
                 StartCoroutine(ExitLevelToNoteTransition(endNoteId, delay));
             }

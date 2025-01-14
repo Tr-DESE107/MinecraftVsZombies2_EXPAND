@@ -31,10 +31,13 @@ namespace MVZ2.GameContent.Pickups
                 if (NamespaceID.IsValid(blueprintID))
                     entity.SetModelProperty("BlueprintID", blueprintID);
             }
-            var noteID = level.GetEndNoteID();
-            if (NamespaceID.IsValid(noteID))
+            if (!level.IsRerun)
             {
-                entity.SetProperty(VanillaPickupProps.REMOVE_ON_COLLECT, true);
+                var noteID = level.GetEndNoteID();
+                if (NamespaceID.IsValid(noteID))
+                {
+                    entity.SetProperty(VanillaPickupProps.REMOVE_ON_COLLECT, true);
+                }
             }
             if (entity.ModelID == VanillaModelID.mapPickup)
             {
