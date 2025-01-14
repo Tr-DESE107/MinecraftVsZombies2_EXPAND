@@ -192,6 +192,7 @@ namespace MVZ2.Level
         }
         public void StopLevel()
         {
+            level.ResetHeldItem();
             level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, c => c(level));
             SetUIVisibleState(VisibleState.Nothing);
             pointingGridLane = -1;
