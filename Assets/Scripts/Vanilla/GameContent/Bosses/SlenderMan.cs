@@ -26,6 +26,7 @@ using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
 using Tools.Mathematics;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -115,6 +116,12 @@ namespace MVZ2.GameContent.Bosses
         {
             base.PostDeath(entity, deathInfo);
             entity.PlaySound(VanillaSoundID.slendermanDeath);
+
+            var darkMatter = entity.Spawn(VanillaEffectID.darkMatterParticles, entity.Position);
+            darkMatter.SetParent(entity);
+
+            entity.SetAnimationBool("IsDead", true);
+            entity.Timeout = 180;
         }
         #endregion
 

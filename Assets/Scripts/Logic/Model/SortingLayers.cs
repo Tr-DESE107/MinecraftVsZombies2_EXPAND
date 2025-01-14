@@ -15,7 +15,6 @@ namespace MVZ2Logic.Models
         public static readonly int drops = SortingLayer.NameToID("Drops");
         public static readonly int frontUI = SortingLayer.NameToID("FrontUI");
         public static readonly int money = SortingLayer.NameToID("Money");
-        public static readonly int screens = SortingLayer.NameToID("Screens");
-        public static readonly int gui = SortingLayer.NameToID("GUI");
+        public static readonly int screenCover = SortingLayer.NameToID("ScreenCover");
     }
 }

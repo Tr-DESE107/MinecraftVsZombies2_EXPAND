@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.mummy,
 
                 VanillaEnemyID.zombie,
-                VanillaBossID.frankenstein,
+                VanillaBossID.slenderman,
                 VanillaBossID.nightmareaper,
             });
             level.SetArtifactSlotCount(3);

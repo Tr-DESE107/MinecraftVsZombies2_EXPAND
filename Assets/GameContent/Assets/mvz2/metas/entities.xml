@@ -922,5 +922,8 @@
         <effect id="nightmare_darkness">
             <int name="maxTimeout" value="180"/>
         </effect>
+        <effect id="nightmare_glass">
+            <int name="maxTimeout" value="60"/>
+        </effect>
     </entries>
 </entities>
