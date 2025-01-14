@@ -75,6 +75,7 @@ namespace MVZ2.Talk
             ui.SetSkipButtonActive(true);
 
             // 开始语句。
+            canClick = true;
             StartSentence();
 
             await tcs.Task;
@@ -135,6 +136,8 @@ namespace MVZ2.Talk
         #region 事件回调
         private void OnClickCallback()
         {
+            if (!canClick)
+                return;
             var sentence = GetTalkSentence();
             IEnumerable<TalkScript> scripts = sentence.clickScripts != null ? sentence.clickScripts : defaultClickScripts;
             _ = ExecuteScriptsAsync(scripts);
@@ -480,7 +483,9 @@ namespace MVZ2.Talk
             switch (script.function)
             {
                 case "delay":
+                    canClick = false;
                     await Main.CoroutineManager.DelaySeconds(ParseArgumentFloat(args[0]));
+                    canClick = true;
                     break;
                 default:
                     ExecuteScriptSync(script);
@@ -620,6 +625,7 @@ namespace MVZ2.Talk
             sentenceIndex = -1;
 
             IsTalking = false;
+            canClick = false;
 
             for (int i = characterList.Count - 1; i >= 0; i--)
             {
@@ -729,6 +735,7 @@ namespace MVZ2.Talk
         };
         private MainManager Main => MainManager.Instance;
 
+        private bool canClick = false;
         private int sectionIndex = 0;
         private int sentenceIndex = 0;
         private NamespaceID groupID;
