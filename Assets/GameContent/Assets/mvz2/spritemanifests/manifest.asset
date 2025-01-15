@@ -95,6 +95,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 95c5376f1e749954692fa0c793e7dafb, type: 3}
   - name: misc/frankenstein
     sprite: {fileID: 21300000, guid: c52ffe26b09fa8d43bfa1881edcd3b04, type: 3}
+  - name: misc/grave_in_dream
+    sprite: {fileID: 21300000, guid: 7aa4f566f4d21f94ab8a60d2c9dac47c, type: 3}
   - name: misc/nightmare
     sprite: {fileID: 21300000, guid: 8f515a416fe31cb4b8033bfb9fb4dc5b, type: 3}
   - name: misc/nightmare_appear

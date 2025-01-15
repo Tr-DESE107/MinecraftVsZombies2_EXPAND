@@ -735,7 +735,7 @@
                     <p>她的过去与你无关。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_boss" name="梦魇" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:nightmare_boss" name="梦魇" sprite="mvz2:misc/nightmare_art" unlock="mvz2:level.dream_11">
                 <header>
                     <p>梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。</p>
                 </header>
@@ -935,7 +935,7 @@
                     <p>？？？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" sprite="mvz2:misc/grave_in_dream" unlock="mvz2:level.dream_11">
                 <header>
                     <p>哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
                 </header>
