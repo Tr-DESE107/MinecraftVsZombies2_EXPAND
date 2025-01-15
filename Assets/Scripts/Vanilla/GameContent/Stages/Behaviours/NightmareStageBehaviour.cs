@@ -4,10 +4,12 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
@@ -15,6 +17,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -99,17 +102,31 @@ namespace MVZ2.GameContent.Stages
             // 梦魇收割者战斗
             // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
             // 如果有Boss存活，不停生成怪物。
-            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead);
-            if (targetBosses.Length <= 0)
+            if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead))
             {
                 level.WaveState = STATE_AFTER_BOSS;
                 level.StopMusic();
                 if (!level.IsRerun)
                 {
                     // 隐藏UI，关闭输入
-                    level.SetUIAndInputDisabled(false);
-                    Global.Game.Relock(VanillaUnlockID.dreamIsNightmare);
-                    level.Clear();
+                    level.SetUIAndInputDisabled(true);
+                }
+                else
+                {
+                    var reaper = level.FindFirstEntity(VanillaBossID.nightmareaper);
+                    Vector3 position;
+                    if (reaper != null)
+                    {
+                        position = reaper.Position;
+                    }
+                    else
+                    {
+                        var x = (level.GetGridLeftX() + level.GetGridRightX()) * 0.5f;
+                        var z = (level.GetGridTopZ() + level.GetGridBottomZ()) * 0.5f;
+                        var y = level.GetGroundY(x, z);
+                        position = new Vector3(x, y, z);
+                    }
+                    level.Produce(VanillaPickupID.clearPickup, position, null);
                 }
             }
             else
@@ -130,10 +147,15 @@ namespace MVZ2.GameContent.Stages
             ClearEnemies(level);
             if (!level.IsRerun)
             {
-                var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy());
-                if (targetBosses.Length <= 0)
+                if (!level.IsCleared)
                 {
-                    level.Clear();
+                    if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy()))
+                    {
+                        if (!level.HasBuff<NightmareClearedBuff>())
+                        {
+                            level.AddBuff<NightmareClearedBuff>();
+                        }
+                    }
                 }
             }
         }

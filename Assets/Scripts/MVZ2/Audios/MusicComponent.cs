@@ -18,6 +18,14 @@ namespace MVZ2.Level.Components
         {
             Main.MusicManager.Stop();
         }
+        public bool IsPlayingMusic(NamespaceID id)
+        {
+            return Main.MusicManager.IsPlaying(id);
+        }
+        public void SetPlayingMusic(NamespaceID id)
+        {
+            Main.MusicManager.SetPlayingMusic(id);
+        }
         public void SetMusicVolume(float volume)
         {
             Main.MusicManager.SetVolume(volume);

@@ -24,6 +24,8 @@ namespace MVZ2.Vanilla
         public const string ADVICE_ONLY_PLACE_ON_CAN_SLEEP = "只能放置在可以睡觉的器械上";
         [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
         public const string ADVICE_ONLY_UPGRADE = "只能放置在目标器械上";
+        [TranslateMsg("梦魇战斗提示", CONTEXT_ADVICE)]
+        public const string ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS = "点击屏幕阻止碾压墙！";
 
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";

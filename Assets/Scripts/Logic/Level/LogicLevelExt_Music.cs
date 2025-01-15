@@ -10,6 +10,16 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<IMusicComponent>();
         }
+        public static bool IsPlayingMusic(this LevelEngine level, NamespaceID id)
+        {
+            var component = level.GetMusicComponent();
+            return component.IsPlayingMusic(id);
+        }
+        public static void SetPlayingMusic(this LevelEngine level, NamespaceID id)
+        {
+            var component = level.GetMusicComponent();
+            component.SetPlayingMusic(id);
+        }
         public static void PlayMusic(this LevelEngine level, NamespaceID id)
         {
             var component = level.GetMusicComponent();

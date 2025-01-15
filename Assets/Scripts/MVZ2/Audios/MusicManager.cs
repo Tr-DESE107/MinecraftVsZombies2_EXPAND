@@ -18,6 +18,15 @@ namespace MVZ2.Audios
             Play(clip);
             musicID = id;
         }
+        public void SetPlayingMusic(NamespaceID id)
+        {
+            var meta = main.ResourceManager.GetMusicMeta(id);
+            if (meta == null)
+                return;
+            var clip = main.ResourceManager.GetMusicClip(meta.Path);
+            SetPlayingMusic(clip);
+            musicID = id;
+        }
         public void Pause()
         {
             if (IsPaused)
@@ -78,6 +87,13 @@ namespace MVZ2.Audios
             musicSource.clip = clip;
             IsPaused = false;
             musicSource.Play();
+        }
+        private void SetPlayingMusic(AudioClip clip)
+        {
+            if (!clip)
+                return;
+            musicSource.clip = clip;
+            musicSource.time = 0;
         }
         public MainManager Main => main;
         public float Time

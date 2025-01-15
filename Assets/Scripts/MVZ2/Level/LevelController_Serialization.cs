@@ -166,6 +166,8 @@ namespace MVZ2.Level
             PauseGame();
             ShowLevelLoadedDialog();
             levelLoaded = true;
+
+            level.AreaDefinition.PostLoad(level);
         }
 
         #endregion

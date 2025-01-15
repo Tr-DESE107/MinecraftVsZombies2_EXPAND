@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public NightmareaperTransitionBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(LogicLevelProps.BLACKSCREEN, NumberOperator.Add, PROP_BLACK_SCREEN));
+            AddModifier(new ColorModifier(LogicLevelProps.SCREEN_COVER, PROP_SCREEN_COVER));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
         }
         public override void PostAdd(Buff buff)
@@ -49,11 +49,16 @@ namespace MVZ2.GameContent.Buffs.Level
                 var boss = level.Spawn(VanillaBossID.nightmareaper, pos, null);
                 Nightmareaper.Appear(boss);
 
+                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS, 100, 120);
+
                 buff.Remove();
             }
+            var blackScreen = buff.GetProperty<Color>(PROP_SCREEN_COVER);
+            blackScreen.a = Mathf.Clamp01(blackScreen.a + BLACK_SCREEN_SPEED);
+            buff.SetProperty(PROP_SCREEN_COVER, blackScreen);
         }
         public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_BLACK_SCREEN = "BlackScreen";
+        public const string PROP_SCREEN_COVER = "ScreenCover";
         public const float BLACK_SCREEN_SPEED = 1 / 180f;
         public const int MAX_TIMEOUT = 270;
         public const int CREATE_GLASS_TIMEOUT = 60;

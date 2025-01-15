@@ -10,6 +10,7 @@ namespace PVZEngine.Definitions
         {
         }
         public virtual void Setup(LevelEngine level) { }
+        public virtual void PostLoad(LevelEngine level) { }
         public void SetGridLayout(NamespaceID[] layout)
         {
             grids.Clear();

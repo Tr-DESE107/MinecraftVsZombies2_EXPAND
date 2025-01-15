@@ -347,6 +347,7 @@ namespace PVZEngine.Level
             return buff;
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
+        public int RemoveBuffs<T>() where T : BuffDefinition => this.buffs.RemoveBuffs(GetBuffs<T>());
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
         public int RemoveBuffs(BuffDefinition buffDef) => RemoveBuffs(GetBuffs(buffDef));
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();

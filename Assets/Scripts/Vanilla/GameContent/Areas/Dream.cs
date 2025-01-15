@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
@@ -25,22 +26,12 @@ namespace MVZ2.GameContent.Areas
         {
             base.Setup(level);
             level.Spawn(VanillaEffectID.miner, new Vector3(600, 0, 40), null);
-            if (Global.Game.IsUnlocked(VanillaUnlockID.dreamIsNightmare))
-            {
-                if (Global.HasBloodAndGore())
-                {
-                    level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmare);
-                }
-                else
-                {
-                    level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmareCensored);
-                }
-                level.AddBuff<NightmareLevelBuff>();
-                if (level.GetMusicID() == VanillaMusicID.dreamLevel)
-                {
-                    level.SetMusicID(VanillaMusicID.nightmareLevel);
-                }
-            }
+            UpdateNightmareOrDream(level);
+        }
+        public override void PostLoad(LevelEngine level)
+        {
+            base.PostLoad(level);
+            UpdateNightmareOrDream(level);
         }
         public override void Update(LevelEngine level)
         {
@@ -74,6 +65,49 @@ namespace MVZ2.GameContent.Areas
             level.SetBehaviourField(ID, PROP_POOL_WAVE, value);
         }
 
+        private void UpdateNightmareOrDream(LevelEngine level)
+        {
+            if (Global.Game.IsUnlocked(VanillaUnlockID.dreamIsNightmare))
+            {
+                SetToNightmare(level);
+            }
+            else
+            {
+                SetToDream(level);
+            }
+        }
+        public static void SetToDream(LevelEngine level)
+        {
+            level.SetAreaModelPreset(VanillaAreaModelPresets.defaultPreset);
+            if (level.HasBuff<NightmareLevelBuff>())
+            {
+                level.RemoveBuffs<NightmareLevelBuff>();
+            }
+            if (level.GetMusicID() == VanillaMusicID.nightmareLevel)
+            {
+                level.SetMusicID(VanillaMusicID.dreamLevel);
+            }
+            if (level.IsPlayingMusic(VanillaMusicID.nightmareLevel))
+            {
+                level.SetPlayingMusic(VanillaMusicID.dreamLevel);
+            }
+        }
+        public static void SetToNightmare(LevelEngine level)
+        {
+            level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmare);
+            if (!level.HasBuff<NightmareLevelBuff>())
+            {
+                level.AddBuff<NightmareLevelBuff>();
+            }
+            if (level.GetMusicID() == VanillaMusicID.dreamLevel)
+            {
+                level.SetMusicID(VanillaMusicID.nightmareLevel);
+            }
+            if (level.IsPlayingMusic(VanillaMusicID.dreamLevel))
+            {
+                level.SetPlayingMusic(VanillaMusicID.nightmareLevel);
+            }
+        }
         private static readonly NamespaceID ID = VanillaAreaID.dream;
         public const string PROP_POOL_WAVE = "PoolWave";
     }

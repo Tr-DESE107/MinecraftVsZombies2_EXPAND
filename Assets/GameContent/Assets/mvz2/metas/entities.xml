@@ -923,7 +923,7 @@
             <int name="maxTimeout" value="180"/>
         </effect>
         <effect id="nightmare_glass">
-            <int name="maxTimeout" value="60"/>
+            <int name="maxTimeout" value="90"/>
         </effect>
     </entries>
 </entities>

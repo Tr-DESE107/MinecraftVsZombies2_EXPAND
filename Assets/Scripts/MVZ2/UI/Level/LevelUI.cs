@@ -25,11 +25,9 @@ namespace MVZ2.UI
             color.a = value;
             darknessImage.color = color;
         }
-        public void SetBlackscreen(float value)
+        public void SetScreenCover(Color value)
         {
-            var color = blackscreenImage.color;
-            color.a = value;
-            blackscreenImage.color = color;
+            blackscreenImage.color = value;
         }
         public void SetRaycastDisabled(bool disabled)
         {

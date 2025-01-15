@@ -573,7 +573,7 @@
   </group>
   <group id="dream_11_over" tags="mvz2:dream;mvz2:over">
     <archive name="梦境世界第11天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_11" />
-    <section>
+    <section onSkip="end;playsound mvz2:final_item">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />

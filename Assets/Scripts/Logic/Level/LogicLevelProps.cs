@@ -5,19 +5,20 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Triggers;
+using UnityEngine;
 
 namespace MVZ2Logic.Level
 {
     public static class LogicLevelProps
     {
-        public const string BLACKSCREEN = "blackscreen";
-        public static float GetBlackscreen(this LevelEngine level)
+        public const string SCREEN_COVER = "screenCover";
+        public static Color GetScreenCover(this LevelEngine level)
         {
-            return level.GetProperty<float>(BLACKSCREEN);
+            return level.GetProperty<Color>(SCREEN_COVER);
         }
-        public static void SetBlackscreen(this LevelEngine level, float value)
+        public static void SetScreenCover(this LevelEngine level, Color value)
         {
-            level.SetProperty(BLACKSCREEN, value);
+            level.SetProperty(SCREEN_COVER, value);
         }
         public const string PAUSE_DISABLED = "pause_disabled";
         public static bool IsPauseDisabled(this LevelEngine level)

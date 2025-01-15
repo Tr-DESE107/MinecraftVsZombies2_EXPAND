@@ -7,7 +7,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Level
 {
     [Definition(VanillaBuffNames.Level.nightmareLevel)]
     public class NightmareLevelBuff : BuffDefinition

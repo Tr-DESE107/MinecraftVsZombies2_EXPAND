@@ -38,6 +38,8 @@ namespace MVZ2Logic.Level.Components
     {
         void Play(NamespaceID id);
         void Stop();
+        bool IsPlayingMusic(NamespaceID id);
+        void SetPlayingMusic(NamespaceID id);
         void SetMusicVolume(float volume);
         float GetMusicVolume();
     }

@@ -429,7 +429,7 @@ namespace MVZ2.Level
                 // 设置光照。
                 ui.SetNightValue(level.GetNightValue());
                 SetDarknessValue(level.GetDarknessValue());
-                ui.SetBlackscreen(level.GetBlackscreen());
+                ui.SetScreenCover(level.GetScreenCover());
                 UpdateMoney();
                 ValidateHeldItem();
                 foreach (var component in level.GetComponents())

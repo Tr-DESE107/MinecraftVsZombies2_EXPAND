@@ -103,6 +103,7 @@ namespace MVZ2.GameContent.Buffs
             public const string nightmareaperDarkness = "nightmareaper_darkness";
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
+            public const string nightmareCleared = "nightmare_cleared";
         }
         public static class Boss
         {
