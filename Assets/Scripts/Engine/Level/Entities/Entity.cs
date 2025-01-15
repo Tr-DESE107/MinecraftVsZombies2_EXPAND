@@ -220,9 +220,10 @@ namespace PVZEngine.Entities
                 return true;
             }
 
-            var behaviours = Definition.GetBehaviours();
-            foreach (var behaviour in behaviours)
+            var behaviourCount = Definition.GetBehaviourCount();
+            for (int i = 0; i < behaviourCount; i++)
             {
+                var behaviour = Definition.GetBehaviourAt(i);
                 if (behaviour.TryGetProperty<object>(name, out var behProp))
                 {
                     value = behProp;

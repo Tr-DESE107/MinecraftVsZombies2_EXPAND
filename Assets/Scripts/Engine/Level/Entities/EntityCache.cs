@@ -13,6 +13,7 @@ namespace PVZEngine.Entities
             GroundLimitOffset = entity.GetGroundLimitOffset();
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
+            Scale = entity.GetScale();
             BoundsOffset = entity.GetBoundsOffset();
             CollisionDetection = entity.GetCollisionDetection();
             CollisionSampleLength = entity.GetCollisionSampleLength();
@@ -39,6 +40,9 @@ namespace PVZEngine.Entities
                 case EngineEntityProps.SIZE:
                     Size = value.ToGeneric<Vector3>();
                     break;
+                case EngineEntityProps.SCALE:
+                    Scale = value.ToGeneric<Vector3>();
+                    break;
                 case EngineEntityProps.BOUNDS_OFFSET:
                     BoundsOffset = value.ToGeneric<Vector3>();
                     break;
@@ -56,6 +60,7 @@ namespace PVZEngine.Entities
         public float GroundLimitOffset { get; private set; }
         public Vector3 VelocityDampen { get; private set; }
         public Vector3 Size { get; private set; }
+        public Vector3 Scale { get; private set; }
         public Vector3 BoundsOffset { get; private set; }
         public int CollisionDetection { get; private set; }
         public float CollisionSampleLength { get; private set; }

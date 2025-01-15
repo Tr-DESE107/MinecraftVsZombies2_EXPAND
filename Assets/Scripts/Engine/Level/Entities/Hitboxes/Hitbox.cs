@@ -11,7 +11,7 @@ namespace PVZEngine.Entities
         }
         public void Update()
         {
-            var scale = Entity.GetScale();
+            var scale = Entity.Cache.Scale;
 
             Vector3 offset = GetOffset();
             offset.Scale(scale);

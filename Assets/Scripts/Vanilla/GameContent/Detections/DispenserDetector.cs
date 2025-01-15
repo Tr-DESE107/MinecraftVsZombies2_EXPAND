@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Detections
 
             var projectileID = self.GetProjectileID();
             var shootOffset = self.GetShotOffset();
-            var projectileDef = self.Level.Content.GetEntityDefinition(projectileID);
+            var projectileDef = GetEntityDefinition(self.Level, projectileID);
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
             if (TargetInLawn(target) &&
                 TargetInFront(self, target) &&

@@ -51,19 +51,34 @@ namespace PVZEngine.Level
         {
             if (filterTypes == null || filterTypes.Length <= 0)
                 return entities.ToArray();
-            return FindEntities(e => filterTypes.Contains(e.Type));
+            return FindEntities(predicate);
+
+            bool predicate(Entity e)
+            {
+                return filterTypes.Contains(e.Type);
+            }
         }
         public Entity[] FindEntities(EntityDefinition def)
         {
             if (def == null)
                 return Array.Empty<Entity>();
-            return FindEntities(e => e.Definition == def);
+            return FindEntities(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.Definition == def;
+            }
         }
         public Entity[] FindEntities(NamespaceID id)
         {
             if (!NamespaceID.IsValid(id))
                 return Array.Empty<Entity>();
-            return FindEntities(e => e.IsEntityOf(id));
+            return FindEntities(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.IsEntityOf(id);
+            }
         }
         public Entity[] FindEntities(Func<Entity, bool> predicate)
         {
@@ -81,24 +96,34 @@ namespace PVZEngine.Level
         }
         public Entity FindEntityByID(long id)
         {
-            var entity = FindFirstEntity(i => i.ID == id);
-            if (entity == null)
+            foreach (var entity in entities)
             {
-                entity = FindEntityInTrash(id);
+                if (entity.ID == id)
+                    return entity;
             }
-            return entity;
+            return FindEntityInTrash(id);
         }
         public Entity FindFirstEntity(EntityDefinition def)
         {
             if (def == null)
                 return null;
-            return FindFirstEntity(e => e.Definition == def);
+            return FindFirstEntity(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.Definition == def;
+            }
         }
         public Entity FindFirstEntity(NamespaceID id)
         {
             if (!NamespaceID.IsValid(id))
                 return null;
-            return FindFirstEntity(e => e.IsEntityOf(id));
+            return FindFirstEntity(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.IsEntityOf(id);
+            }
         }
         public Entity FindFirstEntity(Func<Entity, bool> predicate)
         {
@@ -109,35 +134,64 @@ namespace PVZEngine.Level
             }
             return null;
         }
-        public Entity FindFirstEntityOrderBy<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
+        public Entity FindFirstEntityWithTheLeast<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
         {
-            foreach (var entity in entities.OrderBy(keySelector))
+            Entity targetEntity = null;
+            TKey targetKey = default;
+            var comparer = Comparer<TKey>.Default;
+            foreach (var entity in entities)
             {
-                if (predicate(entity))
-                    return entity;
+                if (!predicate(entity))
+                    continue;
+                var key = keySelector(entity);
+                if (targetEntity != null && comparer.Compare(targetKey, key) < 0)
+                    continue;
+                targetEntity = entity;
             }
-            return null;
+            return targetEntity;
         }
-        public Entity FindFirstEntityOrderByDescending<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
+        public Entity FindFirstEntityWithTheMost<TKey>(Func<Entity, bool> predicate, Func<Entity, TKey> keySelector)
         {
-            foreach (var entity in entities.OrderByDescending(keySelector))
+            Entity targetEntity = null;
+            TKey targetKey = default;
+            var comparer = Comparer<TKey>.Default;
+            foreach (var entity in entities)
             {
-                if (predicate(entity))
-                    return entity;
+                if (!predicate(entity))
+                    continue;
+                var key = keySelector(entity);
+                if (targetEntity != null && comparer.Compare(targetKey, key) > 0)
+                    continue;
+                targetEntity = entity;
             }
-            return null;
+            return targetEntity;
         }
         public bool EntityExists(long id)
         {
-            return entities.Exists(e => e.ID == id);
+            return entities.Exists(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.ID == id;
+            }
         }
         public bool EntityExists(EntityDefinition def)
         {
-            return entities.Exists(e => e.Definition == def);
+            return entities.Exists(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.Definition == def;
+            }
         }
         public bool EntityExists(NamespaceID id)
         {
-            return entities.Exists(e => e.IsEntityOf(id));
+            return entities.Exists(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.IsEntityOf(id);
+            }
         }
         public bool EntityExists(Predicate<Entity> predicate)
         {

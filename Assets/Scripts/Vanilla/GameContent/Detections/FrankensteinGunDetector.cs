@@ -17,8 +17,7 @@ namespace MVZ2.GameContent.Detections
                 return false;
             if (!TargetInLawn(target))
                 return false;
-
-            var projectileDef = self.Level.Content.GetEntityDefinition(projectileID);
+            var projectileDef = GetEntityDefinition(self.Level, projectileID);
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
             var targetSize = target.GetScaledSize();
             return Detection.IsZCoincide(self.Position.z, projectileSize.z, target.Position.z, targetSize.z);

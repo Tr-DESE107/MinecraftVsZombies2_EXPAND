@@ -47,11 +47,11 @@ TagManager:
   - name: Receivers
     uniqueID: 683829979
     locked: 0
-  - name: Grid
-    uniqueID: 2302159725
-    locked: 0
   - name: Night
     uniqueID: 3927748679
+    locked: 0
+  - name: Grid
+    uniqueID: 2302159725
     locked: 0
   - name: Carriers
     uniqueID: 2266745205

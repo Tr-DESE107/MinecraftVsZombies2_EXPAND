@@ -48,9 +48,13 @@ namespace PVZEngine.Entities
             }
             return default;
         }
-        public EntityBehaviourDefinition[] GetBehaviours()
+        public EntityBehaviourDefinition GetBehaviourAt(int behaviour)
         {
-            return behaviours.ToArray();
+            return behaviours[behaviour];
+        }
+        public int GetBehaviourCount()
+        {
+            return behaviours.Count;
         }
         public T[] GetBehaviours<T>()
         {

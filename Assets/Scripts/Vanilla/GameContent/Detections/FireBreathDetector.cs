@@ -9,7 +9,7 @@ namespace MVZ2.GameContent.Detections
     {
         public override bool IsInRange(Entity self, Entity target)
         {
-            var fireBreathDef = self.Level.Content.GetEntityDefinition(fireBreathID);
+            var fireBreathDef = GetEntityDefinition(self.Level, fireBreathID);
             if (fireBreathDef == null)
                 return false;
             var size = fireBreathDef.GetSize();

@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.SetSortingLayer(SortingLayers.screenCover);
-            SetBreakTimeout(entity, 30);
+            SetBreakTimeout(entity, 60);
         }
         public override void Update(Entity entity)
         {
