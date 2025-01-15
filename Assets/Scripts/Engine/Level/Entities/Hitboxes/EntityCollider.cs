@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Level;
+using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace PVZEngine.Entities
 {
-    public class EntityCollider
+    public class EntityCollider : IQuadTreeNodeObject
     {
         public EntityCollider(Entity entity, string name, params Hitbox[] hitboxes)
         {
@@ -19,6 +20,21 @@ namespace PVZEngine.Entities
         private EntityCollider()
         {
         }
+        public void SetEnabled(bool enabled)
+        {
+            if (Enabled == enabled)
+                return;
+            Enabled = enabled;
+            if (Enabled)
+            {
+                OnEnabled?.Invoke(this);
+            }
+            else
+            {
+                OnDisabled?.Invoke(this);
+            }
+        }
+
         #region 碰撞箱
         public void Update()
         {
@@ -26,6 +42,7 @@ namespace PVZEngine.Entities
             {
                 hitbox.Update();
             }
+            EvaluateBoundingBox();
         }
         public void DoCollision(EntityCollider other, Vector3 selfMotion, Vector3 otherMotion, int checkPoints)
         {
@@ -66,10 +83,12 @@ namespace PVZEngine.Entities
         public void AddHitbox(Hitbox hitbox)
         {
             hitboxes.Add(hitbox);
+            EvaluateBoundingBox();
         }
         public void RemoveHitbox(Hitbox hitbox)
         {
             hitboxes.Remove(hitbox);
+            EvaluateBoundingBox();
         }
         public Hitbox GetHitbox(int index)
         {
@@ -78,6 +97,31 @@ namespace PVZEngine.Entities
         public int GetHitboxCount()
         {
             return hitboxes.Count;
+        }
+        private void EvaluateBoundingBox()
+        {
+            if (hitboxes.Count <= 0)
+            {
+                boundingBox = new Bounds(Vector3.zero, Vector3.zero);
+                bottomRect = new Rect(Vector2.zero, Vector2.zero);
+                return;
+            }
+            var min = new Vector3(10000, 10000, 10000);
+            var max = new Vector3(-10000, -10000, -10000);
+            foreach (var hitbox in hitboxes)
+            {
+                var bounds = hitbox.GetBounds();
+                min = Vector3.Min(bounds.min, min);
+                max = Vector3.Max(bounds.max, max);
+            }
+            var size = max - min;
+            var center = min + size * 0.5f;
+            boundingBox = new Bounds(center, size);
+            bottomRect = new Rect(min.x, min.z, size.x, size.z);
+        }
+        public Rect GetCollisionRect()
+        {
+            return bottomRect;
         }
         #endregion
 
@@ -131,6 +175,7 @@ namespace PVZEngine.Entities
             collider.Name = seri.name;
             collider.Enabled = seri.enabled;
             collider.hitboxes = seri.hitboxes.Select(h => h.ToDeserialized(entity)).ToList();
+            collider.EvaluateBoundingBox();
             return collider;
         }
         public void LoadCollisions(LevelEngine level, SerializableEntityCollider seri)
@@ -141,9 +186,13 @@ namespace PVZEngine.Entities
 
         public event Func<EntityCollision, bool> PreCollision;
         public event Action<EntityCollision, int> PostCollision;
-        public bool Enabled { get; set; } = true;
+        public event Action<EntityCollider> OnEnabled;
+        public event Action<EntityCollider> OnDisabled;
+        public bool Enabled { get; private set; } = true;
         public string Name { get; set; }
         public Entity Entity { get; set; }
+        private Bounds boundingBox;
+        private Rect bottomRect;
         private List<Hitbox> hitboxes = new List<Hitbox>();
         private List<EntityCollision> collisionThisTick = new List<EntityCollision>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();

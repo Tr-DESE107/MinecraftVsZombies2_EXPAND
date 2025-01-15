@@ -26,5 +26,13 @@ namespace PVZEngine.Entities
         {
             return entity.Level.Spawn(id, position, entity);
         }
+        public static bool IsHostile(int faction1, int faction2)
+        {
+            return faction1 != faction2;
+        }
+        public static bool IsFriendly(int faction1, int faction2)
+        {
+            return faction1 == faction2;
+        }
     }
 }

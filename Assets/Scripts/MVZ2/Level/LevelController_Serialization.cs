@@ -68,7 +68,7 @@ namespace MVZ2.Level
             try
             {
                 rng = RandomGenerator.FromSerializable(seri.rng);
-                level = LevelEngine.Deserialize(seri.level, game, game, game);
+                level = LevelEngine.Deserialize(seri.level, game, game, game, GetQuadTreeParams());
                 InitLevelEngine(level, game, areaID, stageID);
 
                 level.DeserializeComponents(seri.level);

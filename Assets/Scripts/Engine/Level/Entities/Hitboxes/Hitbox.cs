@@ -40,7 +40,7 @@ namespace PVZEngine.Entities
         }
         public bool Intersects(Hitbox other)
         {
-            return cache.Intersects(other.cache);
+            return cache.Intersects(cache);
         }
         public bool DoCollision(Hitbox other, Vector3 selfMotion, Vector3 otherMotion, int checkPoints, out Vector3 seperation)
         {

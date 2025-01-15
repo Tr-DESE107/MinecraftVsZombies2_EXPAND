@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MVZ2.Cursors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
@@ -10,6 +11,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
@@ -20,10 +22,6 @@ using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.UIElements;
-using MVZ2Logic.Level;
-using System.Linq;
 
 namespace MVZ2.Entities
 {
@@ -194,8 +192,10 @@ namespace MVZ2.Entities
         {
             float pixelUnit = Level?.LawnToTransScale ?? 0.01f;
 
-            foreach (var collider in Entity.GetEnabledColliders())
+            int colliderCount = Entity.GetEnabledColliderCount();
+            for (var c = 0; c < colliderCount; c++)
             {
+                var collider = Entity.GetEnabledColliderAt(c);
                 for (int h = 0; h < collider.GetHitboxCount(); h++)
                 {
                     var hitbox = collider.GetHitbox(h);

@@ -6,6 +6,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
@@ -18,14 +19,16 @@ namespace PVZEngine.Level
     public partial class LevelEngine : IBuffTarget, IDisposable, IPropertyModifyTarget
     {
         #region 公有方法
-        public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers)
+        public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers, QuadTreeParams quadTreeParams)
         {
             Content = contentProvider;
             Localization = translator;
             Triggers = triggers;
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             properties = new PropertyBlock(this);
+            this.quadTreeParams = quadTreeParams;
         }
+
 
         public void Dispose()
         {
@@ -131,10 +134,7 @@ namespace PVZEngine.Level
             {
                 entity.Update();
             }
-            foreach (var entity in entities)
-            {
-                CollisionUpdate(entity, entities);
-            }
+            CollisionUpdate();
             foreach (var buff in buffs.GetAllBuffs())
             {
                 buff.Update();
@@ -432,9 +432,9 @@ namespace PVZEngine.Level
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers)
+        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, QuadTreeParams quadTreeParams)
         {
-            var level = new LevelEngine(provider, translator, triggers);
+            var level = new LevelEngine(provider, translator, triggers, quadTreeParams);
             level.Seed = seri.seed;
             level.levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
             level.entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
@@ -476,7 +476,12 @@ namespace PVZEngine.Level
 
             // 在网格加载后面
             // 加载所有实体。
-            level.entities = seri.entities.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
+            level.entities = seri.entities.ConvertAll(e => 
+            {
+                var entity = Entity.CreateDeserializingEntity(e, level);
+                level.AddEntityToQuadTree(entity);
+                return entity;
+            });
             level.entityTrash = seri.entityTrash.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
             for (int i = 0; i < level.entities.Count; i++)
             {

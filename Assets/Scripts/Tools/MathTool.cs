@@ -305,7 +305,7 @@ namespace Tools.Mathematics
             return a * Mathf.Pow((variable - startX) - h, 2) + k + startY;
         }
 
-        public static bool CollideBetweenCudeAndCylinder(Cylinder cylinder, Bounds cube)
+        public static bool CollideBetweenCubeAndCylinder(Cylinder cylinder, Bounds cube)
         {
             Rect cylinderRectSide;
             Rect cubeRectSide;
@@ -350,11 +350,11 @@ namespace Tools.Mathematics
 
             return CollideBetweenRectangleAndCircle(cylinderCenterTop, cylinder.radius, cubeRectTop.center, cubeRectTop.size);
         }
-        public static bool CollideBetweenCudeAndRoundCube(RoundCube roundCube, Bounds cube)
+        public static bool CollideBetweenCubeAndRoundCube(RoundCube roundCube, Bounds cube)
         {
-            return CollideBetweenCudeAndRoundCube(roundCube.center, roundCube.size, roundCube.radius, cube.center, cube.size);
+            return CollideBetweenCubeAndRoundCube(roundCube.center, roundCube.size, roundCube.radius, cube.center, cube.size);
         }
-        public static bool CollideBetweenCudeAndRoundCube(Vector3 roundCubeCenter, Vector3 roundCubeSize, float roundCubeRadius, Vector3 cubeCenter, Vector3 cubeSize)
+        public static bool CollideBetweenCubeAndRoundCube(Vector3 roundCubeCenter, Vector3 roundCubeSize, float roundCubeRadius, Vector3 cubeCenter, Vector3 cubeSize)
         {
             // 检测x-y平面和x-z平面的投影相交。
             for (int i = 0; i < 2; i++)

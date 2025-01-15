@@ -80,15 +80,10 @@ namespace PVZEngine.Entities
 
         private void UpdateColliders()
         {
-            enabledColliders.Clear();
             MainHitbox.Update();
-            foreach (var collider in colliders)
+            foreach (var collider in enabledColliders)
             {
-                if (collider.Enabled)
-                {
-                    collider.Update();
-                    enabledColliders.Add(collider);
-                }
+                collider.Update();
             }
         }
         public void SetParent(Entity parent)
@@ -169,7 +164,7 @@ namespace PVZEngine.Entities
         }
         public bool IsFriendly(int faction)
         {
-            return Cache.Faction == faction;
+            return EngineEntityExt.IsFriendly(Cache.Faction, faction);
         }
         public bool IsHostile(Entity entity)
         {
@@ -180,7 +175,7 @@ namespace PVZEngine.Entities
 
         public bool IsHostile(int faction)
         {
-            return Cache.Faction != faction;
+            return EngineEntityExt.IsHostile(Cache.Faction, faction);
         }
         public bool IsActiveEntity(bool includeDead = false)
         {
@@ -493,15 +488,27 @@ namespace PVZEngine.Entities
             if (GetCollider(collider.Name) != null)
                 throw new ArgumentException($"Attempting to add a collider with name \"{collider.Name}\" to an entity while it already has a collider with the same name.");
             colliders.Add(collider);
+            if (collider.Enabled)
+            {
+                enabledColliders.Add(collider);
+            }
             collider.PreCollision += PreCollisionCallback;
             collider.PostCollision += PostCollisionCallback;
+            collider.OnEnabled += OnColliderEnabledCallback;
+            collider.OnDisabled += OnColliderDisabledCallback;
         }
         public bool RemoveCollider(EntityCollider collider)
         {
             if (colliders.Remove(collider))
             {
+                if (collider.Enabled)
+                {
+                    enabledColliders.Remove(collider);
+                }
                 collider.PreCollision -= PreCollisionCallback;
                 collider.PostCollision -= PostCollisionCallback;
+                collider.OnEnabled -= OnColliderEnabledCallback;
+                collider.OnDisabled -= OnColliderDisabledCallback;
                 return true;
             }
             return false;
@@ -514,28 +521,13 @@ namespace PVZEngine.Entities
         {
             return colliders.ToArray();
         }
-        public EntityCollider[] GetEnabledColliders()
+        public int GetEnabledColliderCount()
         {
-            return enabledColliders.ToArray();
+            return enabledColliders.Count;
         }
-        public void DoCollision(Entity other)
+        public EntityCollider GetEnabledColliderAt(int i)
         {
-            var motion = Position - PreviousPosition;
-            var otherMotion = other.Position - other.PreviousPosition;
-            var collisionPoints = 1;
-            var detection = Cache.CollisionDetection;
-            if (detection == EntityCollisionHelper.DETECTION_CONTINUOUS)
-            {
-                collisionPoints = Mathf.CeilToInt(motion.magnitude / Cache.CollisionSampleLength);
-            }
-
-            foreach (var collider1 in enabledColliders)
-            {
-                foreach (var collider2 in other.enabledColliders)
-                {
-                    collider1.DoCollision(collider2, motion, otherMotion, collisionPoints);
-                }
-            }
+            return enabledColliders[i];
         }
         public IEnumerable<EntityCollision> GetCurrentCollisions()
         {
@@ -809,6 +801,7 @@ namespace PVZEngine.Entities
         {
             PreviousPosition = Position;
             Health = this.GetMaxHealth();
+            Cache.UpdateAll(this);
             var collider = new EntityCollider(this, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(this));
             AddCollider(collider);
             UpdateAllBuffedProperties();
@@ -843,6 +836,16 @@ namespace PVZEngine.Entities
         {
             Definition.PostCollision(collision, state);
             Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, c => c(collision, state));
+        }
+        private void OnColliderEnabledCallback(EntityCollider collider)
+        {
+            OnColliderEnabled?.Invoke(collider);
+            enabledColliders.Add(collider);
+        }
+        private void OnColliderDisabledCallback(EntityCollider collider)
+        {
+            OnColliderDisabled?.Invoke(collider);
+            enabledColliders.Remove(collider);
         }
         private void OnBuffModelAddCallback(string anchorName, NamespaceID key, NamespaceID modelID)
         {
@@ -889,6 +892,9 @@ namespace PVZEngine.Entities
         public event Action<Armor> OnEquipArmor;
         public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
         public event Action<Armor> OnRemoveArmor;
+
+        public event Action<EntityCollider> OnColliderEnabled;
+        public event Action<EntityCollider> OnColliderDisabled;
         #endregion
 
         #region 属性字段

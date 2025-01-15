@@ -43,11 +43,11 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.moonlightSensor,
                 VanillaContraptionID.dispenser,
-                VanillaContraptionID.silvenser,
+                VanillaContraptionID.pistenser,
 
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.soulFurnace,
-                VanillaEnemyID.mummy,
+                VanillaEnemyID.ghast,
 
                 VanillaEnemyID.zombie,
                 VanillaBossID.slenderman,

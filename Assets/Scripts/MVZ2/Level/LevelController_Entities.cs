@@ -12,6 +12,7 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level.Collisions;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -159,6 +160,16 @@ namespace MVZ2.Level
             return false;
         }
         #endregion
+
+        private QuadTreeParams GetQuadTreeParams()
+        {
+            return new QuadTreeParams()
+            {
+                size = new Rect(0, -500, 1600, 1600),
+                maxDepth = 6,
+                maxObjects = 1
+            };
+        }
 
         #endregion
 

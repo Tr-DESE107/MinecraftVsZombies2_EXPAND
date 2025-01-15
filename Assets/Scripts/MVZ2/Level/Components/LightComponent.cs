@@ -134,7 +134,7 @@ namespace MVZ2.Level.Components
             foreach (var target in allEntities)
             {
                 var bounds = target.GetBounds();
-                bool inLight = maxBounds.Intersects(bounds) && MathTool.CollideBetweenCudeAndRoundCube(center, size, radius, bounds.center, bounds.size);
+                bool inLight = maxBounds.Intersects(bounds) && MathTool.CollideBetweenCubeAndRoundCube(center, size, radius, bounds.center, bounds.size);
                 var id = target.ID;
                 if (inLight)
                 {
