@@ -128,7 +128,8 @@ namespace MVZ2.GameContent.Bosses
         }
         private static Entity FindMissileTarget(Entity boss)
         {
-            return missileDetector.DetectOrderBy(boss, e => e.Position.x - boss.Position.x);
+            var collider = missileDetector.DetectWithTheMost(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
+            return collider?.Entity;
         }
         private static Entity FindPunchTarget(Entity boss)
         {
@@ -138,10 +139,10 @@ namespace MVZ2.GameContent.Bosses
         /// <summary>
         /// 寻找机枪目标。
         /// </summary>
-        private static Entity FindGunTarget(Entity entity)
+        private static Entity FindGunTarget(Entity boss)
         {
-            var level = entity.Level;
-            return gunDetector.DetectOrderBy(entity, t => entity.Position.x - t.Position.x);
+            var collider = gunDetector.DetectWithTheLeast(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
+            return collider?.Entity;
         }
         private static Entity FindShockingTarget(Entity boss)
         {

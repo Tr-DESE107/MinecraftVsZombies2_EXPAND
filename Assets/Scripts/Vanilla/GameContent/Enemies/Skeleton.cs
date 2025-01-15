@@ -70,11 +70,12 @@ namespace MVZ2.GameContent.Enemies
         }
         protected virtual Entity FindTarget(Entity entity)
         {
-            return detector.Detect(entity);
+            var collider = detector.Detect(entity);
+            return collider?.Entity;
         }
         protected virtual bool ValidateTarget(Entity entity, Entity target)
         {
-            return detector.Validate(entity, target);
+            return detector.ValidateTarget(entity, target);
         }
         protected virtual void RangedAttack(Entity entity, Entity target)
         {

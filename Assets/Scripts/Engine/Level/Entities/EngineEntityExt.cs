@@ -34,5 +34,34 @@ namespace PVZEngine.Entities
         {
             return faction1 == faction2;
         }
+        public static bool IsFactionTarget(this Entity entity, Entity other, FactionTarget target)
+        {
+            var faction2 = other.Cache.Faction;
+            return IsFactionTarget(entity, faction2, target);
+        }
+        public static bool IsFactionTarget(this Entity entity, int faction2, FactionTarget target)
+        {
+            var faction1 = entity.Cache.Faction;
+            return IsFactionTarget(faction1, faction2, target);
+        }
+        public static bool IsFactionTarget(int faction1, int faction2, FactionTarget target)
+        {
+            switch (target)
+            {
+                case FactionTarget.Any:
+                    return true;
+                case FactionTarget.Friendly:
+                    return IsFriendly(faction1, faction2);
+                case FactionTarget.Hostile:
+                    return IsHostile(faction1, faction2);
+            }
+            return false;
+        }
+    }
+    public enum FactionTarget
+    {
+        Any,
+        Friendly,
+        Hostile
     }
 }

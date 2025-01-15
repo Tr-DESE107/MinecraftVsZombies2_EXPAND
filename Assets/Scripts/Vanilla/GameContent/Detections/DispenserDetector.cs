@@ -1,6 +1,5 @@
 ﻿using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -8,50 +7,63 @@ namespace MVZ2.GameContent.Detections
 {
     public class DispenserDetector : Detector
     {
-        public override bool IsInRange(Entity self, Entity target)
+        protected override Bounds GetDetectionBounds(Entity self)
         {
-            var targetSize = target.GetScaledSize();
-            float enemyHeight = targetSize.y;
-
-            var projectileID = self.GetProjectileID();
             var shootOffset = self.GetShotOffset();
+            var projectileID = self.GetProjectileID();
             var projectileDef = GetEntityDefinition(self.Level, projectileID);
+            var range = self.GetRange();
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
-            if (TargetInLawn(target) &&
-                TargetInFront(self, target) &&
-                Detection.IsZCoincide(self.Position.z, projectileSize.z, target.Position.z, targetSize.z))
+
+            var source = self.Position + shootOffset;
+
+            var sizeX = range < 0 ? 800 : range;
+            var centerX = source.x + sizeX * 0.5f * self.GetFacingX();
+
+            float sizeY;
+            float centerY;
+            if (ignoreHighEnemy)
             {
-                if (ignoreHighEnemy)
+                if (ignoreLowEnemy)
                 {
-                    if (ignoreLowEnemy)
-                    {
-                        return Detection.IsYCoincide(target.Position.y, enemyHeight, self.Position.y + shootOffset.y, projectileSize.y);
-                    }
-                    else
-                    {
-                        return target.MainHitbox.CoincidesYDown(self.Position.y + shootOffset.y + projectileSize.y);
-                    }
+                    sizeY = projectileSize.y;
+                    centerY = source.y;
                 }
                 else
                 {
-                    if (ignoreLowEnemy)
-                    {
-                        return target.MainHitbox.CoincidesYUp(self.Position.y + shootOffset.y);
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                    sizeY = 1000;
+                    centerY = source.y + projectileSize.y * 0.5f - sizeY * 0.5f;
                 }
             }
-            return false;
-        }
+            else
+            {
+                if (ignoreLowEnemy)
+                {
+                    sizeY = 1000;
+                    centerY = source.y - projectileSize.y * 0.5f + sizeY * 0.5f;
+                }
+                else
+                {
+                    sizeY = 1000;
+                    centerY = source.y;
+                }
+            }
 
-        private bool TargetInFront(Entity self, Entity target)
+            var sizeZ = projectileSize.z;
+            var centerZ = source.z;
+
+
+            return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
+        }
+        protected override bool ValidateCollider(DetectionParams self, EntityCollider collider)
         {
-            var shootOffset = self.GetShotOffset();
-            var range = self.GetRange();
-            return range < 0 ? Detection.IsInFrontOf(self, target, shootOffset.x) : Detection.IsInFrontOf(self, target, shootOffset.x, range);
+            if (!ValidateTarget(self, collider.Entity))
+                return false;
+            Bounds targetBounds = collider.GetBoundingBox();
+            var center = targetBounds.center;
+            if (!TargetInLawn(center.x))
+                return false;
+            return true;
         }
         public bool ignoreLowEnemy;
         public bool ignoreHighEnemy;

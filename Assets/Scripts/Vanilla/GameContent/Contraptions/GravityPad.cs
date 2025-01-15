@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -18,6 +19,7 @@ namespace MVZ2.GameContent.Contraptions
         public GravityPad(string nsp, string name) : base(nsp, name)
         {
             AddAura(new GravityAura());
+            projectileDetector = new GravityPadDetector(false, AFFECT_HEIGHT);
         }
         public override void Init(Entity entity)
         {
@@ -29,7 +31,9 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateAI(entity);
             var level = entity.Level;
             var minY = entity.Position.y + MIN_HEIGHT;
-            foreach (var projectile in level.FindEntities(e => ValidatePullDown(entity, e)))
+            detectBuffer.Clear();
+            projectileDetector.DetectEntities(entity, detectBuffer);
+            foreach (var projectile in detectBuffer)
             {
                 Vector3 pos = projectile.Position;
                 pos.y = Mathf.Max(pos.y + PULL_DOWN_SPEED, minY);
@@ -47,34 +51,11 @@ namespace MVZ2.GameContent.Contraptions
             var pos = entity.Position + Vector3.up * 600;
             entity.Level.Spawn(VanillaContraptionID.anvil, pos, entity);
         }
-        public static bool ValidatePullDown(Entity pad, Entity entity)
-        {
-            if (entity.Type != EntityTypes.PROJECTILE)
-                return false;
-            if (!pad.IsFriendly(entity))
-                return false;
-            return IsOver(pad, entity) && entity.Position.y > pad.Position.y + MIN_HEIGHT;
-        }
-
-        public static bool ValidateEnemy(Entity pad, Entity entity)
-        {
-            if (entity.Type != EntityTypes.ENEMY)
-                return false;
-            if (!pad.IsHostile(entity))
-                return false;
-            return IsOver(pad, entity);
-        }
-        private static bool IsOver(Entity pad, Entity entity)
-        {
-            var padSize = pad.GetScaledSize();
-            var entitySize = entity.GetScaledSize();
-            return Detection.IsXCoincide(pad.Position.x, padSize.x, entity.Position.x, entitySize.x) &&
-                Detection.IsYCoincide(pad.Position.y, AFFECT_HEIGHT, entity.Position.y, entitySize.y) &&
-                Detection.IsZCoincide(pad.Position.z, padSize.z, entity.Position.z, entitySize.z);
-        }
         public const float AFFECT_HEIGHT = 64;
         public const float MIN_HEIGHT = 5;
         public const float PULL_DOWN_SPEED = -3.333f;
+        private Detector projectileDetector;
+        private List<Entity> detectBuffer = new List<Entity>();
 
         public class GravityAura : AuraEffectDefinition
         {
@@ -82,6 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 BuffID = VanillaBuffID.gravityPadGravity;
                 UpdateInterval = 7;
+                enemyDetector = new GravityPadDetector(true, AFFECT_HEIGHT);
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
@@ -90,8 +72,12 @@ namespace MVZ2.GameContent.Contraptions
                 var entity = source.GetEntity();
                 if (entity == null)
                     return;
-                results.AddRange(entity.Level.FindEntities(e => ValidateEnemy(entity, e)));
+                detectBuffer.Clear();
+                enemyDetector.DetectEntities(entity, detectBuffer);
+                results.AddRange(detectBuffer);
             }
+            private Detector enemyDetector;
+            private List<Entity> detectBuffer = new List<Entity>();
         }
     }
 }

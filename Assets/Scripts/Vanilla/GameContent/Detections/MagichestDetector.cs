@@ -9,23 +9,26 @@ namespace MVZ2.GameContent.Detections
     {
         public MagichestDetector(float rangeAddition = 0)
         {
+            mask = EntityCollisionHelper.MASK_ENEMY;
             this.rangeAddition = rangeAddition;
-            ignoreBoss = true;
         }
-        public override bool IsInRange(Entity self, Entity target)
+        protected override Bounds GetDetectionBounds(Entity self)
         {
-            if (target.Type != EntityTypes.ENEMY)
+            var sizeX = self.GetRange() + rangeAddition;
+            var sizeY = 48;
+            var sizeZ = 48;
+            var source = self.Position;
+            var centerX = source.x + sizeX * 0.5f * self.GetFacingX();
+            var centerY = source.y + sizeY * 0.5f;
+            var centerZ = source.z;
+            return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
+        }
+        protected override bool ValidateCollider(DetectionParams self, EntityCollider collider)
+        {
+            if (!base.ValidateCollider(self, collider))
                 return false;
+            var target = collider.Entity;
             if (!TargetInLawn(target))
-                return false;
-            var targetSize = target.GetScaledSize();
-            var rangeOffset = Vector3.zero;
-            var rangeSize = new Vector3(self.GetRange() + rangeAddition, 48, 48);
-            if (!Detection.IsInFrontOf(self, target, rangeOffset.x, rangeSize.x))
-                return false;
-            if (!Detection.IsYCoincide(self.Position.y + rangeOffset.y, rangeSize.y, target.Position.y, targetSize.y))
-                return false;
-            if (!Detection.IsZCoincide(self.Position.z + rangeOffset.z, rangeSize.z, target.Position.z, targetSize.z))
                 return false;
             return true;
         }

@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
@@ -20,13 +21,9 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Punchton(string nsp, string name) : base(nsp, name)
         {
-            detector = new PunchtonDetector()
-            {
-                ignoreBoss = true
-            };
+            detector = new PunchtonDetector();
             evokedDetector = new PunchtonDetector()
             {
-                ignoreBoss = true,
                 infiniteRange = true
             };
         }
@@ -118,9 +115,13 @@ namespace MVZ2.GameContent.Contraptions
         private void Punch(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.punch);
-            foreach (var ent in detector.DetectMutiple(entity))
+            detectBuffer.Clear();
+            detector.DetectMultiple(entity, detectBuffer);
+            foreach (var collider in detectBuffer)
             {
-                ent.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
+                collider.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
+
+                var ent = collider.Entity;
                 ent.Velocity += entity.GetFacingDirection() * 20;
                 CheckAchievement(ent);
             }
@@ -161,9 +162,12 @@ namespace MVZ2.GameContent.Contraptions
         private void LongPunch(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.punch);
-            foreach (var ent in evokedDetector.DetectMutiple(entity))
+            detectBuffer.Clear();
+            evokedDetector.DetectMultiple(entity, detectBuffer);
+            foreach (var collider in detectBuffer)
             {
-                ent.TakeDamage(entity.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
+                collider.TakeDamage(entity.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
+                var ent = collider.Entity;
                 if (ent.Type == EntityTypes.ENEMY)
                 {
                     var pos = ent.Position;
@@ -213,5 +217,6 @@ namespace MVZ2.GameContent.Contraptions
         public const float EVOKED_DAMAGE_MULTIPLIER = 5;
         private Detector detector;
         private Detector evokedDetector;
+        private List<EntityCollider> detectBuffer = new List<EntityCollider>();
     }
 }

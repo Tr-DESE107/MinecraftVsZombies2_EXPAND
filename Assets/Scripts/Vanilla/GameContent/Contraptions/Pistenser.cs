@@ -66,7 +66,8 @@ namespace MVZ2.GameContent.Contraptions
             detectTimer.Run();
             if (detectTimer.Expired)
             {
-                SetExtendTarget(pistenser, detector.DetectOrderByDescending(pistenser, e => e.GetRelativeY()));
+                var collider = detector.DetectWithTheMost(pistenser, e => e.Entity.GetRelativeY());
+                SetExtendTarget(pistenser, collider?.Entity);
                 detectTimer.Reset();
             }
 

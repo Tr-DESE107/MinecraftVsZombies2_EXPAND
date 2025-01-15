@@ -118,8 +118,7 @@ namespace MVZ2.GameContent.Effects
             }
             else
             {
-                var pearls = level.FindEntities(VanillaProjectileID.breakoutPearl);
-                if (pearls.Length <= 0)
+                if (!level.EntityExists(VanillaProjectileID.breakoutPearl))
                 {
                     pearlExists = false;
                 }

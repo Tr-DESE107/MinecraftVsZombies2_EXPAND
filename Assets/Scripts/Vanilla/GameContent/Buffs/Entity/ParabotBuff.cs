@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.GameContent.Projectiles;
@@ -16,6 +18,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Buffs
 {
@@ -24,6 +27,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public ParabotBuff(string nsp, string name) : base(nsp, name)
         {
+            detector = new ParabotDetector(RANGE);
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.parabotInsected, VanillaModelID.parabotInsected);
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
         }
@@ -58,9 +62,12 @@ namespace MVZ2.GameContent.Buffs
             var level = buff.Level;
             Vector3 centerPos = entity.GetCenter();
 
-            var validTargets = level.FindEntities(e => IsParabotValidEnemy(buff, entity, e));
-            var ordered = validTargets.OrderBy(e => e.HasBuff<ParabotBuff>() ? 1 : 0).ThenBy(e => (centerPos - e.GetCenter()).sqrMagnitude);
-            Entity target = ordered.FirstOrDefault();
+            var param = new DetectionParams() 
+            { 
+                entity = entity, 
+                faction = GetFaction(buff) 
+            };
+            var target = detector.DetectEntityWithTheLeast(param, e => GetTargetPriority(centerPos, e));
             if (target != null)
             {
                 Vector3 otherCenter = target.GetCenter();
@@ -123,21 +130,6 @@ namespace MVZ2.GameContent.Buffs
                 return;
             }
         }
-        private bool IsParabotValidEnemy(Buff buff, Entity self, Entity other)
-        {
-            if (other == self)
-                return false;
-            if (!other.IsVulnerableEntity())
-                return false;
-            if (other.IsDead)
-                return false;
-            if (!Detection.CanDetect(other))
-                return false;
-            if (!other.IsHostile(GetFaction(buff)))
-                return false;
-
-            return Vector3.Distance(self.GetCenter(), other.GetCenter()) < RANGE;
-        }
         private int GetFaction(Buff buff)
         {
             return buff.GetProperty<int>(PROP_FACTION);
@@ -158,6 +150,13 @@ namespace MVZ2.GameContent.Buffs
             }
             entity.RemoveBuffs(buffs);
         }
+        private float GetTargetPriority(Vector3 sourcePos, Entity target) 
+        {
+            var priority = (sourcePos - target.GetCenter()).magnitude;
+            if (target.HasBuff<ParabotBuff>())
+                priority += 100000000;
+            return priority;
+        }
         public const string PROP_TIMEOUT = "Timeout";
         public const string PROP_COOLDOWN = "Cooldown";
         public const string PROP_FACTION = "Faction";
@@ -165,5 +164,6 @@ namespace MVZ2.GameContent.Buffs
         public const int MAX_COOLDOWN = 45;
         public const int MAX_EXPLODE_TIME = 24;
         public const float RANGE = 280;
+        private ParabotDetector detector;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
@@ -176,23 +177,20 @@ namespace MVZ2.GameContent.Contraptions
                 break;
             }
         }
-        private bool IsEvocationEnemy(Entity entity, Entity target)
-        {
-            return evocationDetector.Validate(entity, target);
-        }
         private void EvokedUpdate(Entity entity)
         {
-            var level = entity.Level;
-            var targets = level.FindEntities(target => IsEvocationEnemy(entity, target));
+            detectBuffer.Clear();
+            evocationDetector.DetectMultiple(entity, detectBuffer);
             var shootPoint = entity.GetShootPoint();
             Vector3 shootDir;
-            if (targets.Length <= 0)
+            if (detectBuffer.Count <= 0)
             {
                 shootDir = entity.GetFacingDirection();
             }
             else
             {
-                var target = targets.Random(entity.RNG);
+                var targetCollider = detectBuffer.Random(entity.RNG);
+                var target = targetCollider?.Entity;
                 shootDir = (target.Position - shootPoint).normalized;
                 shootDir.y = 0;
             }
@@ -214,5 +212,6 @@ namespace MVZ2.GameContent.Contraptions
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
         private Detector evocationDetector;
+        private List<EntityCollider> detectBuffer = new List<EntityCollider>();
     }
 }

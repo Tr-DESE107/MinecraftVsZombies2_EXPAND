@@ -98,11 +98,12 @@ namespace MVZ2.GameContent.Enemies
         }
         protected virtual Entity FindTarget(Entity entity)
         {
-            return detector.DetectOrderBy(entity, e => (e.Position - entity.Position).sqrMagnitude);
+            var collider = detector.DetectWithTheLeast(entity, e => (e.GetCenter() - entity.Position).sqrMagnitude);
+            return collider?.Entity;
         }
         protected virtual bool ValidateTarget(Entity entity, Entity target)
         {
-            return detector.Validate(entity, target);
+            return detector.ValidateTarget(entity, target);
         }
         private void Fire(Entity self, Entity target)
         {

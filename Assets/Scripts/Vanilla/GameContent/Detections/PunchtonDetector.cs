@@ -7,26 +7,31 @@ namespace MVZ2.GameContent.Detections
 {
     public class PunchtonDetector : Detector
     {
-        public override bool IsInRange(Entity self, Entity target)
+        public PunchtonDetector()
         {
-            if (!TargetInLawn(target))
-                return false;
-            var targetSize = target.GetScaledSize();
-            var rangeOffset = Vector3.zero;
-            var rangeSize = new Vector3(self.GetRange(), 48, 48);
+            mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE;
+        }
+        protected override Bounds GetDetectionBounds(Entity self)
+        {
+            var sizeX = self.GetRange();
             if (infiniteRange)
             {
-                if (!Detection.IsInFrontOf(self, target))
-                    return false;
+                sizeX = 800;
             }
-            else
-            {
-                if (!Detection.IsInFrontOf(self, target, rangeOffset.x, rangeSize.x))
-                    return false;
-            }
-            if (!Detection.IsYCoincide(self.Position.y + rangeOffset.y, rangeSize.y, target.Position.y, targetSize.y))
+            var sizeY = 48;
+            var sizeZ = 48;
+            var source = self.Position;
+            var centerX = source.x + sizeX * 0.5f * self.GetFacingX();
+            var centerY = source.y + sizeY * 0.5f;
+            var centerZ = source.z;
+            return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
+        }
+        protected override bool ValidateCollider(DetectionParams param, EntityCollider collider)
+        {
+            if (!base.ValidateCollider(param, collider))
                 return false;
-            if (!Detection.IsZCoincide(self.Position.z + rangeOffset.z, rangeSize.z, target.Position.z, targetSize.z))
+            var target = collider.Entity;
+            if (!TargetInLawn(target))
                 return false;
             return true;
         }

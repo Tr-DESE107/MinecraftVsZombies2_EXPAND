@@ -1,4 +1,6 @@
-﻿using MVZ2.Vanilla.Detections;
+﻿using System.Collections.Generic;
+using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -11,16 +13,29 @@ namespace MVZ2.GameContent.Detections
         {
             this.projectileID = projectileID;
         }
-        public override bool IsInRange(Entity self, Entity target)
+        protected override Bounds GetDetectionBounds(Entity self)
         {
-            if (!Detection.IsInFrontOf(self, target))
-                return false;
-            if (!TargetInLawn(target))
-                return false;
             var projectileDef = GetEntityDefinition(self.Level, projectileID);
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
-            var targetSize = target.GetScaledSize();
-            return Detection.IsZCoincide(self.Position.z, projectileSize.z, target.Position.z, targetSize.z);
+
+            var source = self.Position;
+
+            var sizeX = 800;
+            var sizeY = 1000;
+            var sizeZ = projectileSize.z;
+            var centerX = source.x + sizeX * 0.5f * self.GetFacingX();
+            var centerY = source.y;
+            var centerZ = source.z;
+            return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
+        }
+        protected override bool ValidateCollider(DetectionParams self, EntityCollider collider)
+        {
+            if (!base.ValidateCollider(self, collider))
+                return false;
+            var target = collider.Entity;
+            if (!TargetInLawn(target))
+                return false;
+            return true;
         }
         private NamespaceID projectileID;
     }

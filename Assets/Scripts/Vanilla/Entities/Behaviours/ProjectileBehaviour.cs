@@ -210,8 +210,8 @@ namespace MVZ2.Vanilla.Entities
         }
 
         #region 创建者保护
-        private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT, value);
-        private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_HIT_SPAWNER_PROTECT);
+        private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
+        private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
         private void SetHitSpawnerProtect(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT, value);
         private bool HasHitSpawnerProtect(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_HIT_SPAWNER_PROTECT);
         #endregion

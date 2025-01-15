@@ -26,7 +26,6 @@ using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
 using Tools.Mathematics;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses

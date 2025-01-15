@@ -7,23 +7,32 @@ namespace MVZ2.GameContent.Detections
 {
     public class FireBreathDetector : Detector
     {
-        public override bool IsInRange(Entity self, Entity target)
+        protected override Bounds GetDetectionBounds(Entity self)
         {
             var fireBreathDef = GetEntityDefinition(self.Level, fireBreathID);
             if (fireBreathDef == null)
-                return false;
-            var size = fireBreathDef.GetSize();
-            var boundsOffset = fireBreathDef.GetBoundsOffset();
+                return new Bounds(Vector3.zero, Vector3.zero);
+            var fireSize = fireBreathDef.GetSize();
+            var fireBoundsOffset = fireBreathDef.GetBoundsOffset();
+
             var positionOffset = offset;
-            positionOffset += boundsOffset;
+            positionOffset += fireBoundsOffset;
             if (self.IsFacingLeft())
             {
                 positionOffset.x *= -1;
             }
-            var selfBounds = new Bounds(self.Position + positionOffset, size);
-            var targetBounds = target.GetBounds();
-
-            return TargetInLawn(target) && selfBounds.Intersects(targetBounds);
+            return new Bounds(self.Position + positionOffset, fireSize);
+        }
+        protected override bool ValidateCollider(DetectionParams self, EntityCollider collider)
+        {
+            if (!base.ValidateCollider(self, collider))
+                return false;
+            if (!ValidateTarget(self, collider.Entity))
+                return false;
+            var targetBounds = collider.GetBoundingBox();
+            if (!TargetInLawn(targetBounds.center.x))
+                return false;
+            return true;
         }
         public NamespaceID fireBreathID;
         public Vector3 offset;

@@ -5,6 +5,12 @@ namespace Tools.Mathematics
 {
     public static class MathTool
     {
+        public static Rect GetBottomRect(this Bounds bounds)
+        {
+            var boundsMin = bounds.min;
+            var boundsSize = bounds.size; 
+            return new Rect(boundsMin.x, bounds.min.z, boundsSize.x, boundsSize.z);
+        }
         public static bool DoRectAndRayIntersect(Rect rect, Vector2 point, Vector2 dir, out Vector2 intersection)
         {
             for (int i = 0; i < 4; i++)

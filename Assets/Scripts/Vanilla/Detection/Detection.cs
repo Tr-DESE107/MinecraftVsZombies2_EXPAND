@@ -80,11 +80,19 @@ namespace MVZ2.Vanilla.Detections
         #endregion
 
         #region Y related
+        public static bool CoincidesYDown(this Bounds bounds, float y)
+        {
+            return bounds.min.y < y;
+        }
         public static bool CoincidesYDown(this Hitbox hitbox, float y)
         {
             return hitbox.GetBounds().min.y < y;
         }
 
+        public static bool CoincidesYUp(this Bounds bounds, float y)
+        {
+            return bounds.max.y > y;
+        }
         public static bool CoincidesYUp(this Hitbox hitbox, float y)
         {
             return hitbox.GetBounds().max.y > y;

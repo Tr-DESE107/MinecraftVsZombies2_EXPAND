@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -89,8 +90,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 case VanillaEntityStates.MAGICHEST_IDLE:
                     {
-                        var enemy = openDetector.Detect(entity);
-                        if (enemy != null && enemy.Exists())
+                        if (openDetector.DetectExists(entity))
                         {
                             entity.State = VanillaEntityStates.MAGICHEST_OPEN;
                             entity.PlaySound(VanillaSoundID.chestOpen);
@@ -105,19 +105,17 @@ namespace MVZ2.GameContent.Contraptions
                     {
                         var stateTimer = GetStateTimer(entity);
                         stateTimer.Run();
-                        var enemy = openDetector.Detect(entity);
-                        if (enemy == null || !enemy.Exists())
+                        if (!openDetector.DetectExists(entity))
                         {
                             entity.State = VanillaEntityStates.IDLE;
                             entity.PlaySound(VanillaSoundID.chestClose);
                         }
                         else if (stateTimer.Expired)
                         {
-                            var enemies = eatDetector.DetectMutiple(entity);
-                            if (enemies.Length > 0)
+                            var nearest = eatDetector.DetectWithTheLeast(entity, e => (e.GetCenter() - entity.Position).magnitude);
+                            if (nearest != null)
                             {
-                                var nearest = enemies.OrderBy(e => (e.Position - entity.Position).magnitude).FirstOrDefault();
-                                Eat(entity, nearest);
+                                Eat(entity, nearest.Entity);
                                 entity.State = VanillaEntityStates.MAGICHEST_EAT;
                                 stateTimer.ResetTime(30);
                             }

@@ -2,6 +2,7 @@
 using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Projectiles;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Models;
@@ -32,6 +33,8 @@ namespace MVZ2.GameContent.Contraptions
         public ForcePad(string nsp, string name) : base(nsp, name)
         {
             AddAura(new DragAura());
+            enemyDetector = new ForcePadDetector(EntityCollisionHelper.MASK_ENEMY, AFFECT_HEIGHT, 1);
+            projectileDetector = new ForcePadDetector(EntityCollisionHelper.MASK_PROJECTILE, AFFECT_HEIGHT, 0.5f);
         }
         public override void Init(Entity entity)
         {
@@ -111,7 +114,10 @@ namespace MVZ2.GameContent.Contraptions
                 affectedEntities = new List<EntityID>();
                 SetAffectedEntities(entity, affectedEntities);
             }
-            foreach (Entity target in level.FindEntities(e => CanAffect(entity, e)))
+            detectBuffer.Clear();
+            enemyDetector.DetectEntities(entity, detectBuffer);
+            projectileDetector.DetectEntities(entity, detectBuffer);
+            foreach (Entity target in detectBuffer)
             {
                 bool start = false;
                 if (!affectedEntities.Exists(e => e.ID == target.ID))
@@ -121,7 +127,7 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 AffectEntity(entity, target, start);
             }
-            affectedEntities.RemoveAll(e => !CanAffect(entity, e.GetEntity(level)));
+            affectedEntities.RemoveAll(e => !detectBuffer.Contains(e.GetEntity(level)));
         }
         private void AffectEntity(Entity pad, Entity target, bool start)
         {
@@ -263,27 +269,9 @@ namespace MVZ2.GameContent.Contraptions
                 SetDragTargetLocked(pad, false);
             }
         }
-        private bool CanAffect(Entity pad, Entity target)
-        {
-            if (target == null || !target.Exists())
-                return false;
-            return IsOver(pad, target);
-        }
         private bool CanDrag(Entity self, Entity target)
         {
             return !target.IsDead && self.IsHostile(target) && Vector3.Distance(self.Position, target.Position) < DRAG_RADIUS;
-        }
-        private static bool IsOver(Entity pad, Entity target)
-        {
-            var padSize = pad.GetScaledSize();
-            var entitySize = target.GetScaledSize();
-            if (target.Type == EntityTypes.PROJECTILE)
-            {
-                padSize *= 0.5f;
-            }
-            return Detection.IsXCoincide(pad.Position.x, padSize.x, target.Position.x, entitySize.x) &&
-                Detection.IsYCoincide(pad.Position.y, AFFECT_HEIGHT, target.Position.y, entitySize.y) &&
-                Detection.IsZCoincide(pad.Position.z, padSize.z, target.Position.z, entitySize.z);
         }
 
         #region 属性
@@ -345,6 +333,9 @@ namespace MVZ2.GameContent.Contraptions
         public const int DIRECTION_UP = 3;
         public const float PROJECTILE_SPEED_BOOST = 1;
         public static readonly NamespaceID ID = VanillaContraptionID.forcePad;
+        private Detector enemyDetector;
+        private Detector projectileDetector;
+        private List<Entity> detectBuffer = new List<Entity>();
 
         bool IEntityHeldItemBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
         {

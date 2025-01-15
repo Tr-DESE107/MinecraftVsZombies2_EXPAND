@@ -119,6 +119,14 @@ namespace PVZEngine.Entities
             boundingBox = new Bounds(center, size);
             bottomRect = new Rect(min.x, min.z, size.x, size.z);
         }
+        public Bounds GetBoundingBox()
+        {
+            return boundingBox;
+        }
+        public Vector3 GetCenter()
+        {
+            return boundingBox.center;
+        }
         public Rect GetCollisionRect()
         {
             return bottomRect;
