@@ -103,6 +103,13 @@
             <key alpha="0.5" time="1"/>
         </alphaKeys>
     </fragment>
+    <fragment name="infectenser">
+        <colorKeys>
+            <key hex="#FF0000" time="0.2"/>
+            <key hex="#4F4F4F" time="0.6"/>
+            <key hex="#ABABAB" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="force_pad">
         <colorKeys>
             <key hex="#0000FF" time="0.75"/>
