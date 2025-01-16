@@ -79,7 +79,7 @@ namespace PVZEngine.Level
         }
         public NamespaceID GetSeedPackIDAt(int index)
         {
-            return seedPacks[index]?.GetDefinitionID();
+            return GetSeedPackAt(index)?.GetDefinitionID();
         }
         public ClassicSeedPack GetSeedPackAt(int index)
         {
@@ -91,7 +91,7 @@ namespace PVZEngine.Level
         }
         public ClassicSeedPack GetSeedPackByID(long id)
         {
-            return seedPacks.FirstOrDefault(s => s.ID == id) ?? seedPackPool.FirstOrDefault(s => s.ID == id);
+            return seedPacks.FirstOrDefault(s => s != null && s.ID == id) ?? seedPackPool.FirstOrDefault(s => s.ID == id);
         }
         #endregion
 
