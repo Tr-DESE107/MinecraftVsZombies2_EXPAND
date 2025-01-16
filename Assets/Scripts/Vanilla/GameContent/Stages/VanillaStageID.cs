@@ -9,14 +9,34 @@ namespace MVZ2.GameContent.Stages
         public const string tutorial = "tutorial";
         public const string starshardTutorial = "starshard_tutorial";
         public const string triggerTutorial = "trigger_tutorial";
+
         public const string prologue = "prologue";
+
         public const string halloween1 = "halloween_1";
         public const string halloween2 = "halloween_2";
+        public const string halloween3 = "halloween_3";
+        public const string halloween4 = "halloween_4";
+        public const string halloween5 = "halloween_5";
+        public const string halloween6 = "halloween_6";
         public const string halloween7 = "halloween_7";
+        public const string halloween8 = "halloween_8";
+        public const string halloween9 = "halloween_9";
         public const string halloween10 = "halloween_10";
         public const string halloween11 = "halloween_11";
+        public const string halloweenEndless = "halloween_endless";
+
         public const string dream1 = "dream_1";
+        public const string dream2 = "dream_2";
+        public const string dream3 = "dream_3";
+        public const string dream4 = "dream_4";
+        public const string dream5 = "dream_5";
+        public const string dream6 = "dream_6";
+        public const string dream7 = "dream_7";
+        public const string dream8 = "dream_8";
+        public const string dream9 = "dream_9";
+        public const string dream10 = "dream_10";
         public const string dream11 = "dream_11";
+        public const string dreamEndless = "dream_endless";
     }
     public static class VanillaStageID
     {

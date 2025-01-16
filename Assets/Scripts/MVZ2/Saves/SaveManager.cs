@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using MVZ2.IO;
 using MVZ2.Managers;
+using MVZ2.OldSave;
+using MVZ2.OldSaves;
+using MVZ2.Save;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
@@ -45,6 +48,19 @@ namespace MVZ2.Saves
         #region 加载
         public void Load()
         {
+            var rootDirectory = GetSaveDataRoot();
+            if (!Directory.Exists(rootDirectory))
+            {
+                try
+                {
+                    var oldSaveData = OldSaveDataImporter.Import();
+                    ImportOldSaveData(oldSaveData);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"An error has occured while importing save data from old version: {e}");
+                }
+            }
             LoadUserList();
             LoadInitialUserData();
         }

@@ -1,4 +1,6 @@
-﻿using PVZEngine;
+﻿using MVZ2.GameContent.Stages;
+using MVZ2.Vanilla.Saves;
+using PVZEngine;
 
 namespace MVZ2.Vanilla
 {
@@ -14,27 +16,47 @@ namespace MVZ2.Vanilla
 
         public const string artifactSlot1 = "artifact_slot.1";
         public const string artifactSlot2 = "artifact_slot.2";
+
+        public const string infectenser = "contraption.infectenser";
+        public const string forcePad = "contraption.force_pad";
+
+        public const string money = "money";
+        public const string starshard = "starshard";
+        public const string trigger = "trigger";
+
+        public const string enteredDream = "entered_dream";
+
+        public const string dreamIsNightmare = "dream_is_nightmare";
+
+        public const string ghostBuster = "achievement.ghost_buster";
+        public const string doubleTrouble = "achievement.double_trouble";
+        public const string rickrollDrown = "achievement.rickroll_drown";
+        public const string returnToSender = "achievement.return_to_sender";
     }
     public static class VanillaUnlockID
     {
-        public static readonly NamespaceID halloween5 = Get("level.halloween_5");
-        public static readonly NamespaceID halloween11 = Get("level.halloween_11");
-        public static readonly NamespaceID dream5 = Get("level.dream_5");
+        public static readonly NamespaceID halloween5 = GetStage(VanillaStageNames.halloween5);
+        public static readonly NamespaceID halloween11 = GetStage(VanillaStageNames.halloween11);
+        public static readonly NamespaceID dream5 = GetStage(VanillaStageNames.dream5);
         public static readonly NamespaceID almanac = halloween5;
         public static readonly NamespaceID store = dream5;
-        public static readonly NamespaceID trigger = Get("trigger");
-        public static readonly NamespaceID starshard = Get("starshard");
-        public static readonly NamespaceID money = Get("money");
-        public static readonly NamespaceID ghostBuster = Get("achievement.ghost_buster");
-        public static readonly NamespaceID doubleTrouble = Get("achievement.double_trouble");
-        public static readonly NamespaceID rickrollDrown = Get("achievement.rickroll_drown");
-        public static readonly NamespaceID returnToSender = Get("achievement.return_to_sender");
-        public static readonly NamespaceID enteredDream = Get("entered_dream");
-        public static readonly NamespaceID dreamIsNightmare = Get("dream_is_nightmare");
+        public static readonly NamespaceID trigger = Get(VanillaUnlockNames.trigger);
+        public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
+        public static readonly NamespaceID money = Get(VanillaUnlockNames.money);
+        public static readonly NamespaceID ghostBuster = Get(VanillaUnlockNames.ghostBuster);
+        public static readonly NamespaceID doubleTrouble = Get(VanillaUnlockNames.doubleTrouble);
+        public static readonly NamespaceID rickrollDrown = Get(VanillaUnlockNames.rickrollDrown);
+        public static readonly NamespaceID returnToSender = Get(VanillaUnlockNames.returnToSender);
+        public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
+        public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
         public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
+        }
+        private static NamespaceID GetStage(string name)
+        {
+            return Get(VanillaSaveExt.GetLevelClearUnlockID(name));
         }
     }
 }
