@@ -4,8 +4,8 @@ using MVZ2Logic;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.AddTrigger(VanillaLevelCallbacks.POST_PLACE_ENTITY, PostPlaceEntityCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, PostUseEntityBlueprintCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, PostContraptionDestroyCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, PostContraptionEvokeCallback);
 
@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, PostEnemyNeutralizeCallback);
             mod.AddTrigger(LevelCallbacks.POST_GAME_OVER, PostGameOverCallback);
         }
-        private void PostPlaceEntityCallback(LawnGrid grid, Entity entity)
+        private void PostUseEntityBlueprintCallback(SeedPack blueprint, Entity entity)
         {
             if (entity.Type != EntityTypes.PLANT)
                 return;

@@ -60,21 +60,21 @@ namespace MVZ2.Vanilla.Entities
             triggerable.Trigger(contraption);
             contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, c => c(contraption));
         }
-        public static void UpgradeToContraption(this Entity contraption, NamespaceID target)
+        public static Entity UpgradeToContraption(this Entity contraption, NamespaceID target)
         {
             var grid = contraption.GetGrid();
             if (grid == null)
-                return;
+                return null;
             var awake = !contraption.HasBuff<NocturnalBuff>();
             contraption.Remove();
             var upgraded = contraption.GetGrid().PlaceEntity(target);
             if (upgraded == null)
-                return;
+                return null;
             if (awake)
             {
                 upgraded.RemoveBuffs<NocturnalBuff>();
             }
-
+            return upgraded;
         }
         public static bool IsEvoked(this Entity contraption)
         {

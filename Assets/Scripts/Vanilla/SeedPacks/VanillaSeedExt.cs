@@ -1,14 +1,15 @@
 ﻿using System.Linq;
 using MVZ2.HeldItems;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using UnityEngine;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.SeedPacks
 {
@@ -29,62 +30,46 @@ namespace MVZ2.Vanilla.SeedPacks
                 var entityDef = level.Content.GetEntityDefinition(entityID);
                 if (entityDef == null)
                     return;
+                var stackOnEntity = entityDef.GetStackOnEntity();
+                if (NamespaceID.IsValid(stackOnEntity))
+                {
+                    var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(stackOnEntity));
+                    if (entity != null && entity.Exists() && entity.CanStackFrom(entityID))
+                    {    
+                        entity.StackFromEntity(entityID);
+                        PostUseEntityBlueprint(seed, entity, heldItemData);
+                        return;
+                    }
+                }
                 var upgradeFromEntity = entityDef.GetUpgradeFromEntity();
                 if (NamespaceID.IsValid(upgradeFromEntity))
                 {
                     var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(upgradeFromEntity));
                     if (entity != null && entity.Exists())
                     {
-                        seed.UpgradeToContraption(entity, entityID);
+                        var upgraded = entity.UpgradeToContraption(entityID);
+                        PostUseEntityBlueprint(seed, upgraded, heldItemData);
                         return;
                     }
                 }
-                var stackOnEntity = entityDef.GetStackOnEntity();
-                if (NamespaceID.IsValid(stackOnEntity))
-                {
-                    var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(stackOnEntity));
-                    if (entity != null && entity.Exists() && entity.CanStackFrom(entityID))
-                    {
-                        seed.StackEntityOnGrid(entity, entityID);
-                        return;
-                    }
-                }
-                seed.PlaceEntityOnGrid(grid, entityID, heldItemData);
+                var placedEntity = grid.PlaceEntity(entityID);
+                PostUseEntityBlueprint(seed, placedEntity, heldItemData);
             }
         }
-        public static void StackEntityOnGrid(this SeedPack seed, Entity target, NamespaceID entityID)
+        private static void PostUseEntityBlueprint(SeedPack seed, Entity entity, IHeldItemData heldItemData)
         {
-            target.StackFromEntity(entityID);
+            if (entity == null)
+                return;
+            if (heldItemData.InstantTrigger && entity.CanTrigger())
+            {
+                entity.Trigger();
+            }
             var drawnFromPool = seed.GetDrawnConveyorSeed();
             if (NamespaceID.IsValid(drawnFromPool))
             {
-                target.AddTakenConveyorSeed(drawnFromPool);
+                entity.AddTakenConveyorSeed(drawnFromPool);
             }
-        }
-        public static void UpgradeToContraption(this SeedPack seed, Entity target, NamespaceID entityID)
-        {
-            target.UpgradeToContraption(entityID);
-            var drawnFromPool = seed.GetDrawnConveyorSeed();
-            if (NamespaceID.IsValid(drawnFromPool))
-            {
-                target.AddTakenConveyorSeed(drawnFromPool);
-            }
-        }
-        public static void PlaceEntityOnGrid(this SeedPack seed, LawnGrid grid, NamespaceID entityID, IHeldItemData heldItemData)
-        {
-            var entity = grid.PlaceEntity(entityID);
-            if (entity != null)
-            {
-                var drawnFromPool = seed.GetDrawnConveyorSeed();
-                if (NamespaceID.IsValid(drawnFromPool))
-                {
-                    entity.AddTakenConveyorSeed(drawnFromPool);
-                }
-                if (heldItemData.InstantTrigger && entity.CanTrigger())
-                {
-                    entity.Trigger();
-                }
-            }
+            seed.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, c => c(seed, entity));
         }
     }
 }
