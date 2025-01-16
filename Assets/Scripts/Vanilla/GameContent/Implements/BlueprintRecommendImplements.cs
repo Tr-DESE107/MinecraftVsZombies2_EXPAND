@@ -35,21 +35,39 @@ namespace MVZ2.GameContent.Implements
             if (blueprintDef == null)
                 return;
 
-            if (level.IsDay())
+            if (blueprintDef.GetSeedType() == SeedTypes.ENTITY)
             {
-                if (blueprintDef.GetSeedType() == SeedTypes.ENTITY)
+                var entityID = blueprintDef.GetSeedEntityID();
+                var entityDef = content.GetEntityDefinition(entityID);
+                if (entityDef == null)
+                    return;
+                if (level.IsDay())
                 {
-                    var entityID = blueprintDef.GetSeedEntityID();
+                    // 白天的荧石
                     if (entityID == VanillaContraptionID.glowstone)
                     {
                         result.Result = true;
                         return;
                     }
-                    var entityDef = content.GetEntityDefinition(entityID);
-                    if (entityDef != null && entityDef.IsNocturnal())
+
+                    // 白天的夜间器械
+                    if (entityDef.IsNocturnal())
                     {
                         result.Result = true;
                         return;
+                    }
+                }
+                var areaTags = level.AreaDefinition.GetAreaTags();
+                if (areaTags != null)
+                {
+                    if (areaTags.Contains(VanillaAreaTags.noWater))
+                    {
+                        // 无水地形的水生器械
+                        if (entityDef.GetPlacementID() == VanillaPlacementID.aquatic)
+                        {
+                            result.Result = true;
+                            return;
+                        }
                     }
                 }
             }
