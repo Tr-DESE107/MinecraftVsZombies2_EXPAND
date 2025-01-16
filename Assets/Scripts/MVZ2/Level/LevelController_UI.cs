@@ -649,7 +649,7 @@ namespace MVZ2.Level
                 isOpeningStore = false;
                 levelCamera.gameObject.SetActive(true);
                 level.UpdatePersistentLevelUnlocks();
-                BlueprintChoosePart.UpdateChosenArtifacts();
+                BlueprintChoosePart.Refresh(Saves.GetUnlockedContraptions());
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
                     Music.Play(VanillaMusicID.choosing);
             });

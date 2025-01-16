@@ -37,7 +37,7 @@ namespace MVZ2.Level
         string GetBlueprintTooltip(NamespaceID blueprintID);
         bool IsInteractable();
         void UnchooseBlueprint(int index);
-        void UpdateChosenArtifacts();
+        void Refresh(IEnumerable<NamespaceID> blueprints);
     }
     public class LevelBlueprintChooseController : LevelControllerPart, ILevelBlueprintChooseController
     {
@@ -200,6 +200,29 @@ namespace MVZ2.Level
         {
             chooseUI.SetSideUIBlend(0);
             chooseUI.SetBlueprintChooseBlend(0);
+
+            isChoosingBlueprints = true;
+
+            // 制品。
+            InheritChosenArtifacts();
+
+            Refresh(blueprints);
+
+            // 边缘UI。
+            chooseUI.SetSideUIDisplaying(true);
+            chooseUI.SetBlueprintChooseDisplaying(true);
+        }
+        public void Refresh(IEnumerable<NamespaceID> blueprints)
+        {
+            RefreshChosenArtifacts();
+            RefreshBlueprintChoosePanel(blueprints);
+        }
+        private void RefreshBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
+        {
+            // 保存之前的选卡ID。
+            var chosenBlueprintID = chosenBlueprints.Select(i => choosingBlueprints[i]).ToArray();
+
+            // 更新可选蓝图。
             var panelViewData = new BlueprintChoosePanelViewData()
             {
                 canViewLawn = Level.CurrentFlag > 0,
@@ -208,28 +231,30 @@ namespace MVZ2.Level
             var orderedBlueprints = new List<NamespaceID>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
             var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
-            isChoosingBlueprints = true;
             choosingBlueprints = orderedBlueprints.ToArray();
 
-            // 制品。
-            var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
-            chooseUI.SetArtifactSlotsActive(hasArtifacts);
-            InheritChosenArtifacts();
-            UpdateChosenArtifacts();
+            // 重新计算选卡映射。
+            chosenBlueprints.Clear();
+            chosenBlueprints.AddRange(chosenBlueprintID.Select(id => Array.IndexOf(choosingBlueprints, id)));
 
-            // 边缘UI。
+            // 更新UI。
             chooseUI.SetBlueprintChooseViewAlmanacButtonActive(Main.SaveManager.IsAlmanacUnlocked());
             chooseUI.SetBlueprintChooseViewStoreButtonActive(Main.SaveManager.IsStoreUnlocked());
-            chooseUI.SetSideUIDisplaying(true);
-            chooseUI.SetBlueprintChooseDisplaying(true);
             chooseUI.UpdateBlueprintChooseElements(panelViewData);
             chooseUI.UpdateBlueprintChooseItems(blueprintViewDatas);
             for (int i = 0; i < orderedBlueprints.Count; i++)
             {
                 UpdateBlueprintChooseItem(i);
             }
-
             UpdateChosenBlueprints();
+
+            // 如果有丢失的卡牌，取消他们的选择。
+            for (int i = chosenBlueprints.Count - 1; i >= 0; i--)
+            {
+                if (chosenBlueprints[i] >= 0)
+                    continue;
+                UnchooseBlueprint(i);
+            }
         }
         private void UpdateChosenBlueprints()
         {
@@ -342,8 +367,11 @@ namespace MVZ2.Level
         #endregion
 
         #region 制品
-        public void UpdateChosenArtifacts()
+        private void RefreshChosenArtifacts()
         {
+            var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
+            chooseUI.SetArtifactSlotsActive(hasArtifacts);
+
             int artifactCount = Level.GetArtifactSlotCount();
             chooseUI.ResetArtifactSlotCount(artifactCount);
 
