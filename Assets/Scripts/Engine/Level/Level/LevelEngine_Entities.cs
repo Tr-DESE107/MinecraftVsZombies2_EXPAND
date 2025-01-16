@@ -82,6 +82,40 @@ namespace PVZEngine.Level
         {
             return entities.Where(predicate).ToArray();
         }
+        public int GetEntityCount(EntityDefinition def)
+        {
+            if (def == null)
+                return 0;
+            return GetEntityCount(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.Definition == def;
+            }
+        }
+        public int GetEntityCount(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return 0;
+            return GetEntityCount(predicate);
+
+            bool predicate(Entity e)
+            {
+                return e.IsEntityOf(id);
+            }
+        }
+        public int GetEntityCount(Func<Entity, bool> predicate)
+        {
+            int count = 0;
+            foreach (var entity in entities)
+            {
+                if (predicate(entity))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
         public void FindEntitiesNonAlloc(Func<Entity, bool> predicate, List<Entity> results)
         {
             foreach (var entity in entities)

@@ -1,5 +1,5 @@
 <maps>
-    <map id="halloween" endlessUnlock="mvz2:level.halloween_11" area="mvz2:halloween" >
+    <map id="halloween" area="mvz2:halloween" >
         <presets>
             <preset id="mvz2:halloween" model="mvz2:halloween" backgroundColor="#00001A" music="mvz2:halloween_map" />
         </presets>
@@ -17,7 +17,7 @@
             <stage id="mvz2:halloween_11"/>
         </stages>
     </map>
-    <map id="dream" endlessUnlock="mvz2:level.dream_11" area="mvz2:dream" >
+    <map id="dream" area="mvz2:dream" >
         <presets>
             <preset id="mvz2:dream" model="mvz2:dream" backgroundColor="#000E24" music="mvz2:dream_map">
                 <conditions>

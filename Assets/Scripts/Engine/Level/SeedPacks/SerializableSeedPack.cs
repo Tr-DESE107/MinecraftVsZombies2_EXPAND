@@ -1,4 +1,5 @@
 ﻿using System;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 
@@ -11,6 +12,7 @@ namespace PVZEngine.SeedPacks
         public long currentBuffID;
         public SerializableBuffList buffs;
         public SerializablePropertyBlock properties;
+        public SerializableAuraEffect[] auras;
     }
     [Serializable]
     public class SerializableClassicSeedPack : SerializableSeedPack

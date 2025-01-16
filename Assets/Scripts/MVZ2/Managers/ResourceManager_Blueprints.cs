@@ -1,9 +1,11 @@
 ﻿using System.Linq;
+using System.Text;
 using MVZ2.Level.UI;
 using MVZ2.Metas;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.SeedPacks;
@@ -56,11 +58,11 @@ namespace MVZ2.Managers
         {
             if (seed == null)
                 return BlueprintViewData.Empty;
-            var viewData = GetBlueprintViewData(seed.Definition);
+            var viewData = GetBlueprintViewData(seed.Definition, seed.Level.IsEndless());
             viewData.cost = seed.GetCost().ToString();
             return viewData;
         }
-        public BlueprintViewData GetBlueprintViewData(SeedDefinition seedDef)
+        public BlueprintViewData GetBlueprintViewData(SeedDefinition seedDef, bool isEndless)
         {
             if (seedDef == null)
             {
@@ -72,15 +74,21 @@ namespace MVZ2.Managers
                 };
             }
             var sprite = GetBlueprintIcon(seedDef);
+            var costSB = new StringBuilder();
+            costSB.Append(seedDef.GetCost());
+            if (seedDef.IsUpgradeBlueprint() && isEndless)
+            {
+                costSB.Append("+");
+            }
             return new BlueprintViewData()
             {
                 icon = sprite,
-                cost = seedDef.GetCost().ToString(),
+                cost = costSB.ToString(),
                 triggerActive = seedDef.IsTriggerActive(),
                 preset = seedDef.IsUpgradeBlueprint() ? BlueprintPreset.Upgrade : BlueprintPreset.Normal
             };
         }
-        public BlueprintViewData GetBlueprintViewData(NamespaceID seedID)
+        public BlueprintViewData GetBlueprintViewData(NamespaceID seedID, bool isEndless)
         {
             if (!NamespaceID.IsValid(seedID))
             {
@@ -92,7 +100,7 @@ namespace MVZ2.Managers
                 };
             }
             var definition = main.Game.GetSeedDefinition(seedID);
-            return GetBlueprintViewData(definition);
+            return GetBlueprintViewData(definition, isEndless);
         }
         public Sprite GetBlueprintIconMobile(SeedDefinition seedDef)
         {

@@ -1,6 +1,9 @@
-﻿using PVZEngine.Base;
+﻿using PVZEngine.Auras;
+using System.Collections.Generic;
+using PVZEngine.Base;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using UnityEditor.Experimental;
 
 namespace PVZEngine.Definitions
 {
@@ -12,5 +15,18 @@ namespace PVZEngine.Definitions
         }
         public virtual void Update(SeedPack seedPack, float rechargeSpeed) { }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.SEED;
+        public int GetAuraCount()
+        {
+            return auraDefinitions.Count;
+        }
+        public AuraEffectDefinition GetAuraAt(int index)
+        {
+            return auraDefinitions[index];
+        }
+        protected void AddAura(AuraEffectDefinition aura)
+        {
+            auraDefinitions.Add(aura);
+        }
+        private List<AuraEffectDefinition> auraDefinitions = new List<AuraEffectDefinition>();
     }
 }

@@ -85,6 +85,7 @@ namespace MVZ2.GameContent.Buffs
             public const string easyBlueprint = "easy_blueprint";
             public const string theCreaturesHeartReduceCost = "the_creatures_heart_reduce_cost";
             public const string slendermanMindSwap = "slenderman_mind_swap";
+            public const string upgradeEndlessCost = "upgrade_endless_cost";
         }
         public static class Level
         {
@@ -143,6 +144,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID tutorialDisable = Get(VanillaBuffNames.SeedPack.tutorialDisable);
             public static readonly NamespaceID easyBlueprint = Get(VanillaBuffNames.SeedPack.easyBlueprint);
             public static readonly NamespaceID theCreaturesHeartReduceCost = Get(VanillaBuffNames.SeedPack.theCreaturesHeartReduceCost);
+            public static readonly NamespaceID upgradeEndlessCost = Get(VanillaBuffNames.SeedPack.upgradeEndlessCost);
         }
         public static class Level
         {

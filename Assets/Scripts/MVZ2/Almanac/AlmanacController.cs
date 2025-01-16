@@ -292,7 +292,7 @@ namespace MVZ2.Almanacs
             Main.AlmanacManager.GetUnlockedMiscGroups(miscGroups);
 
 
-            var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c)).ToArray();
+            var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c, false)).ToArray();
             ui.SetContraptionEntries(contraptionViewDatas, false);
 
             var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyEntryViewData(c)).ToArray();

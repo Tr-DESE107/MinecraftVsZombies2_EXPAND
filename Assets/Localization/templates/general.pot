@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-16 02:30+0800\n"
+"POT-Creation-Date: 2025-01-16 04:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -500,22 +500,22 @@ msgid "试着挖掉所有器械！"
 msgstr ""
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:117
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:132
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr ""
 
 # 选卡警告，{0}为目标敌人
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:119
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:134
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:121
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:136
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:123
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:138
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
@@ -1047,26 +1047,26 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:534
+#: Scripts\MVZ2\Map\MapController.cs:560
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:536
+#: Scripts\MVZ2\Map\MapController.cs:562
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:538
+#: Scripts\MVZ2\Map\MapController.cs:564
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:540
+#: Scripts\MVZ2\Map\MapController.cs:566
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1098,7 +1098,7 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:630
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:667
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
@@ -1200,6 +1200,12 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "梦境世界"
+msgstr ""
+
+#. Name for stage mvz2:dream_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦境世界无尽"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place

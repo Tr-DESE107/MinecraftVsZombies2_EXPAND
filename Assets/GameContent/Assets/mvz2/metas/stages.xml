@@ -429,4 +429,11 @@
             <bool name="noProduction" value="true"/>
         </properties>
     </stage>
+    <stage id="dream_endless" name="梦境世界无尽" type="endless" unlock="mvz2:level.dream_11" >
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+        </spawns>
+    </stage>
 </stages>

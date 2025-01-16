@@ -9,14 +9,12 @@ namespace MVZ2.Metas
     {
         public string id;
         public NamespaceID area;
-        public NamespaceID endlessUnlock;
         public MapPreset[] presets;
         public NamespaceID[] stages;
         public NamespaceID endlessStage;
         public static MapMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var endlessUnlock = node.GetAttributeNamespaceID("endlessUnlock", defaultNsp);
             var area = node.GetAttributeNamespaceID("area", defaultNsp);
 
             var presetsNode = node["presets"];
@@ -40,7 +38,6 @@ namespace MVZ2.Metas
             return new MapMeta()
             {
                 id = id,
-                endlessUnlock = endlessUnlock,
                 area = area,
                 presets = presets,
                 stages = stages,

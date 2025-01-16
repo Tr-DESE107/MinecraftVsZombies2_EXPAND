@@ -576,7 +576,6 @@ namespace PVZEngine.Level
         /// 进屋的僵尸。
         /// </summary>
         public Entity KillerEnemy { get; private set; }
-        public bool IsEndless { get; set; }
         public NamespaceID Difficulty { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; }

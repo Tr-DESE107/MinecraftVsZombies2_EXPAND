@@ -45,7 +45,7 @@ namespace MVZ2.Almanacs
             }).Where(g => g != null && g.entries.Count() > 0);
             appendList.AddRange(groups);
         }
-        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID id)
+        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID id, bool isEndless)
         {
             if (!NamespaceID.IsValid(id))
                 return ChoosingBlueprintViewData.Empty;
@@ -54,7 +54,7 @@ namespace MVZ2.Almanacs
                 return ChoosingBlueprintViewData.Empty;
             return new ChoosingBlueprintViewData()
             {
-                blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef),
+                blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef, isEndless),
                 disabled = false
             };
         }

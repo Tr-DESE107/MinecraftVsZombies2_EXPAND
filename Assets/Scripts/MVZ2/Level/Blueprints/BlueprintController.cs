@@ -3,6 +3,7 @@ using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.SeedPacks;
 using MVZ2.UI;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.SeedPacks;
 using PVZEngine.Definitions;
@@ -54,7 +55,7 @@ namespace MVZ2.Level
         }
         public virtual BlueprintViewData GetBlueprintViewData()
         {
-            return Main.ResourceManager.GetBlueprintViewData(GetSeedDefinition());
+            return Main.ResourceManager.GetBlueprintViewData(GetSeedDefinition(), Level.IsEndless());
         }
         public virtual TooltipViewData GetTooltipViewData()
         {

@@ -22,6 +22,7 @@ namespace PVZEngine.Level
                 return;
             var seedPack = PopSeedPackFromPool(id);
             seedPacks[index] = seedPack;
+            seedPack.PostAdd(this);
             OnSeedAdded?.Invoke(index);
         }
         public bool RemoveSeedPackAt(int index)
@@ -33,6 +34,7 @@ namespace PVZEngine.Level
                 return false;
             PushSeedPackToPool(seedPack);
             seedPacks[index] = null;
+            seedPack.PostRemove(this);
             OnSeedRemoved?.Invoke(index);
             return true;
         }
@@ -132,6 +134,7 @@ namespace PVZEngine.Level
                 return null;
             var seedPack = new ConveyorSeedPack(this, seedDefinition, currentSeedPackID++);
             conveyorSeedPacks.Insert(index, seedPack);
+            seedPack.PostAdd(this);
             OnConveyorSeedAdded?.Invoke(index);
             return seedPack;
         }
@@ -141,6 +144,7 @@ namespace PVZEngine.Level
                 return false;
             var seedPack = conveyorSeedPacks[index];
             conveyorSeedPacks.RemoveAt(index);
+            seedPack.PostRemove(this);
             OnConveyorSeedRemoved?.Invoke(index);
             return true;
         }

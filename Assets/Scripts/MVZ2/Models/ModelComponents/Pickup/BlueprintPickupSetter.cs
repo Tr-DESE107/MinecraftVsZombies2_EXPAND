@@ -16,7 +16,7 @@ namespace MVZ2.Models
                 var main = MainManager.Instance;
                 lastID = blueprintID;
                 var resourceManager = main.ResourceManager;
-                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID);
+                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID, false);
                 bool isMobile = main.IsMobile();
                 var blueprintSprite = isMobile ? blueprintSpriteMobile : blueprintSpriteStandalone;
                 blueprintSpriteStandalone.gameObject.SetActive(!isMobile);

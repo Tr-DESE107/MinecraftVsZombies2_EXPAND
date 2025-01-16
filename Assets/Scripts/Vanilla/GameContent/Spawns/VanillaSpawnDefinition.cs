@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Spawns
             var allLanes = level.GetAllLanes();
             var waterLanes = level.GetWaterLanes();
             var resultLanes = allLanes;
-            if (level.CurrentWave <= 3 || !CanSpawnAtWaterLane)
+            if ((level.CurrentFlag <= 0 && level.CurrentWave <= 3) || !CanSpawnAtWaterLane)
             {
                 resultLanes = allLanes.Except(waterLanes);
                 if (resultLanes.Count() <= 0)

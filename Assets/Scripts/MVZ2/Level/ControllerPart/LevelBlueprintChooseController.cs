@@ -11,6 +11,7 @@ using MVZ2.Level.UI;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Artifacts;
@@ -230,7 +231,7 @@ namespace MVZ2.Level
             };
             var orderedBlueprints = new List<NamespaceID>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
-            var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id)).ToArray();
+            var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless())).ToArray();
             choosingBlueprints = orderedBlueprints.ToArray();
 
             // 重新计算选卡映射。
@@ -269,7 +270,7 @@ namespace MVZ2.Level
                     var seedDef = Game.GetSeedDefinition(blueprint);
                     if (seedDef != null)
                     {
-                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef);
+                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef, Level.IsEndless());
                     }
                 }
                 var blueprintUI = chooseUI.GetChosenBlueprintAt(i);

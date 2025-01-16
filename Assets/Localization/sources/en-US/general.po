@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-16 02:30+0800\n"
-"PO-Revision-Date: 2025-01-16 14:39+0800\n"
+"POT-Creation-Date: 2025-01-16 04:24+0800\n"
+"PO-Revision-Date: 2025-01-16 16:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -470,29 +470,28 @@ msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:117
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:132
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr "Are you sure you want to use the {1} without the {0}?"
 
 # 对话框内容
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:119
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:134
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any plants that fight off {0}, are you sure you want to "
 "continue?"
 
 # 对话框内容
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:121
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:136
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any energy producing contraptions, are you sure you want "
 "to continue?"
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:123
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:138
 msgid "你确定这关不使用任何水生器械吗？"
-msgstr ""
-"Are you sure want to play this level without any aquatic contraptions?"
+msgstr "Are you sure want to play this level without any aquatic contraptions?"
 
 #: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
 msgctxt "advice.collect_money"
@@ -962,7 +961,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:534
+#: Scripts\MVZ2\Map\MapController.cs:560
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -970,7 +969,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:536
+#: Scripts\MVZ2\Map\MapController.cs:562
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -978,12 +977,12 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:538
+#: Scripts\MVZ2\Map\MapController.cs:564
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:540
+#: Scripts\MVZ2\Map\MapController.cs:566
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1015,7 +1014,7 @@ msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:630
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:667
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
@@ -1120,6 +1119,12 @@ msgstr "Halloween Endless"
 msgctxt "levelname"
 msgid "梦境世界"
 msgstr "Dream World"
+
+#. Name for stage mvz2:dream_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦境世界无尽"
+msgstr "Dream World Endless"
 
 #. Name for stat category mvz2:contraption_place
 #: Stats meta file
@@ -1497,8 +1502,8 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid ""
-"产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现原先"
-"3倍多的敌人！"
+"产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现原先3"
+"倍多的敌人！"
 msgstr ""
 "The branch of a pagoda tree from the Dream World! It gives you a starshard "
 "to start with in every battle, but there will be 3 times the enemies!"

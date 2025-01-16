@@ -253,12 +253,16 @@ namespace MVZ2.Map
         {
             return mapMeta.stages[index];
         }
-        private StageMeta GetStageMeta(int index)
+        private StageMeta GetStageMeta(NamespaceID stageID)
         {
-            var stageID = GetStageID(index);
             if (stageID == null)
                 return null;
             return Main.ResourceManager.GetStageMeta(stageID);
+        }
+        private StageMeta GetStageMeta(int index)
+        {
+            var stageID = GetStageID(index);
+            return GetStageMeta(stageID);
         }
         private string GetStageType(int index)
         {
@@ -267,12 +271,17 @@ namespace MVZ2.Map
                 return string.Empty;
             return stageMeta.Type;
         }
-        private bool IsLevelUnlocked(int index)
+        private bool IsLevelUnlocked(NamespaceID stageID)
         {
-            var stageMeta = GetStageMeta(index);
+            var stageMeta = GetStageMeta(stageID);
             if (stageMeta == null)
                 return false;
             return Main.SaveManager.IsUnlocked(stageMeta.Unlock);
+        }
+        private bool IsLevelUnlocked(int index)
+        {
+            var stageID = GetStageID(index);
+            return IsLevelUnlocked(stageID);
         }
         private NamespaceID GetLevelDifficulty(int index)
         {
@@ -290,7 +299,8 @@ namespace MVZ2.Map
         }
         private bool IsEndlessUnlocked()
         {
-            return Main.SaveManager.IsUnlocked(mapMeta.endlessUnlock);
+            var stageID = mapMeta.endlessStage;
+            return IsLevelUnlocked(stageID);
         }
         private bool IsLevelCleared(int index)
         {

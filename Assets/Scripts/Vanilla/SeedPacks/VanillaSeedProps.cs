@@ -14,6 +14,10 @@ namespace MVZ2.Vanilla.SeedPacks
         public const string CAN_INSTANT_TRIGGER = "canInstantTrigger";
         public const string DRAWN_CONVEYOR_SEED = "drawnConveyorSeed";
         public const string UPGRADE_BLUEPRINT = "upgradeBlueprint";
+        public static bool IsUpgradeBlueprint(this SeedPack seed)
+        {
+            return seed.GetProperty<bool>(UPGRADE_BLUEPRINT);
+        }
         public static bool IsUpgradeBlueprint(this SeedDefinition definition)
         {
             return definition.GetProperty<bool>(UPGRADE_BLUEPRINT);

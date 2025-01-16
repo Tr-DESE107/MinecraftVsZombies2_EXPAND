@@ -37,7 +37,7 @@ namespace MVZ2.Almanacs
 
             bool isBlueprint = NamespaceID.IsValid(productMeta.BlueprintID);
             var icon = Main.GetFinalSprite(productMeta.Sprite);
-            var blueprint = Main.ResourceManager.GetBlueprintViewData(productMeta.BlueprintID);
+            var blueprint = Main.ResourceManager.GetBlueprintViewData(productMeta.BlueprintID, false);
 
             string price = string.Empty;
             bool interactable = false;

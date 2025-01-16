@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -11,7 +13,7 @@ using UnityEngine;
 
 namespace PVZEngine.SeedPacks
 {
-    public abstract class SeedPack : IBuffTarget, IPropertyModifyTarget
+    public abstract class SeedPack : IBuffTarget, IPropertyModifyTarget, IAuraSource
     {
         public SeedPack(LevelEngine level, SeedDefinition definition, long id)
         {
@@ -22,6 +24,13 @@ namespace PVZEngine.SeedPacks
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
             properties = new PropertyBlock(this);
+
+            var auraCount = definition.GetAuraCount();
+            for (int i = 0; i < auraCount; i++)
+            {
+                var auraDef = definition.GetAuraAt(i);
+                auras.Add(level, new AuraEffect(auraDef, i, this));
+            }
         }
         public abstract int GetIndex();
         public NamespaceID GetDefinitionID()
@@ -34,6 +43,16 @@ namespace PVZEngine.SeedPacks
             UpdateAllBuffedProperties();
             OnDefinitionChanged?.Invoke(definition);
         }
+
+        public void PostAdd(LevelEngine level)
+        {
+            auras.PostAdd();
+        }
+        public void PostRemove(LevelEngine level)
+        {
+            auras.PostRemove();
+        }
+
         #region 属性
         public T GetProperty<T>(string name, bool ignoreBuffs = false)
         {
@@ -164,6 +183,7 @@ namespace PVZEngine.SeedPacks
         }
         public void Update(float rechargeSpeed)
         {
+            auras.Update();
             OnUpdate(rechargeSpeed);
             foreach (var buff in buffs.GetAllBuffs())
             {
@@ -212,6 +232,7 @@ namespace PVZEngine.SeedPacks
             seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
             seri.currentBuffID = currentBuffID;
+            seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
         }
         protected void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
         {
@@ -221,6 +242,7 @@ namespace PVZEngine.SeedPacks
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+            auras.LoadFromSerializable(level, seri.auras);
             UpdateAllBuffedProperties();
         }
         #endregion
@@ -228,6 +250,8 @@ namespace PVZEngine.SeedPacks
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
         Entity IBuffTarget.GetEntity() => null;
+        Entity IAuraSource.GetEntity() => null;
+        LevelEngine IAuraSource.GetLevel() => Level;
         bool IBuffTarget.Exists() => true;
         public event Action<SeedDefinition> OnDefinitionChanged;
 
@@ -239,6 +263,7 @@ namespace PVZEngine.SeedPacks
         protected long currentBuffID = 1;
         private PropertyBlock properties;
         protected BuffList buffs = new BuffList();
+        protected AuraEffectList auras = new AuraEffectList();
         #endregion
     }
 }

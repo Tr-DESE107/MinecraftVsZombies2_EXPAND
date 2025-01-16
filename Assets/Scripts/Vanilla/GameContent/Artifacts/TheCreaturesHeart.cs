@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Artifacts
                 var entityID = seed?.Definition?.GetSeedEntityID();
                 if (!NamespaceID.IsValid(entityID))
                     return;
-                buff.SetProperty(TheCreaturesHeartReduceCostBuff.PROP_ADDITION, seed.Level.FindEntities(entityID).Length * REDUCTION);
+                buff.SetProperty(TheCreaturesHeartReduceCostBuff.PROP_ADDITION, seed.Level.GetEntityCount(entityID) * REDUCTION);
             }
             public const float REDUCTION = -5;
         }
