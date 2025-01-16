@@ -9,6 +9,7 @@ namespace MVZ2Logic.Games
         LevelEngine GetLevel();
         int GetGridLayerPriority(NamespaceID layer);
         string GetGridErrorMessage(NamespaceID error);
+        string GetEntityName(NamespaceID entityID);
         string DefaultNamespace { get; }
     }
 }

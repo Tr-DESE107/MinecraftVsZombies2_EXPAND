@@ -1,19 +1,16 @@
 ﻿using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 using UnityEngine;
-using static UnityEngine.UI.CanvasScaler;
+using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.GameContent.Contraptions
 {
     [Definition(VanillaContraptionNames.infectenser)]
-    public class Infectenser : DispenserFamily, IStackEntity
+    public class Infectenser : DispenserFamily
     {
         public Infectenser(string nsp, string name) : base(nsp, name)
         {
@@ -60,20 +57,6 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.PlaySound(VanillaSoundID.parabotTick);
             }
-        }
-
-        void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
-        {
-            if (!target.IsEntityOf(VanillaContraptionID.smallDispenser))
-                return;
-            result.Result = true;
-        }
-
-        void IStackEntity.StackOnEntity(Entity target)
-        {
-            if (!target.IsEntityOf(VanillaContraptionID.smallDispenser))
-                return;
-            target.UpgradeToContraption(VanillaContraptionID.infectenser);
         }
         public const int MAX_EXPLOSION_TIMEOUT = 24;
     }

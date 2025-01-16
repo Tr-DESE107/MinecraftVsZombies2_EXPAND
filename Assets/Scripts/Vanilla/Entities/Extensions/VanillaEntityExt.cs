@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
@@ -21,6 +22,7 @@ using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.Vanilla.Entities
 {

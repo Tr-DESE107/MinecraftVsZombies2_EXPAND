@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Placements
         public override void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entity, TriggerResultNamespaceID error)
         {
             var entities = grid.GetEntities();
-            if (entities.Count() <= 0 || !entities.Any(e => e.IsEntityOf(entity.GetStackOnEntity())))
+            if (entities.Count() <= 0 || !entities.Any(e => e.IsEntityOf(entity.GetUpgradeFromEntity())))
             {
                 error.Result = VanillaGridStatus.onlyUpgrade;
                 return;

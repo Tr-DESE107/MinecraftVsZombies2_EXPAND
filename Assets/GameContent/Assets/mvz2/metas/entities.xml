@@ -116,6 +116,8 @@
         <!-- Contraptions -->
         <dispenser id="dispenser" name="发射器" tooltip="向敌人射出箭" />
         <contraption id="furnace" name="熔炉" tooltip="提供给你额外的红石" >
+            <bool name="producer" value="true" />
+
             <bool name="isFire" value="true" />
             <vector3 name="size" x="48" y="48" z="48"/>
 
@@ -167,6 +169,8 @@
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
         <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量" unlock="mvz2:level.halloween_2">
+            <bool name="producer" value="true" />
+            
             <bool name="nocturnal" value="true"/>
             <vector3 name="size" x="48" y="24" z="48"/>
             <color name="lightColor" value="#0000FF"/>
@@ -284,6 +288,7 @@
             <id name="placement" value="mvz2:pad"/>
             <vector3 name="size" x="64" y="2" z="64"/>
             <idArray name="gridLayers" value="mvz2:carrier"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
 
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:short" />
@@ -306,6 +311,7 @@
         <dispenser id="pistenser" name="活塞发射器" tooltip="能够伸长自己来攻击空中敌人" unlock="mvz2:level.dream_6">
             <id name="fragmentId" value="mvz2:dispenser"/>
             <id name="projectileId" value="mvz2:spike" />
+            <idArray name="attackerFor" value="mvz2:flying_enemy"/>
 
             <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:short" />
@@ -313,6 +319,7 @@
         <dispenser id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸" unlock="mvz2:level.dream_7">
             <float name="damage" value="15"/>
             <id name="projectileId" value="mvz2:dart" />
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
 
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:short" />
@@ -356,11 +363,11 @@
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
             <bool name="nocturnal" value="true"/>
             <bool name="upgradeBlueprint" value="true"/>
+            <id name="upgradeFrom" value="mvz2:small_dispenser"/>
 
             <float name="range" value="255"/>
             <id name="projectileId" value="mvz2:parabot"/>
             <id name="shootSound" value="mvz2:bow"/>
-            <id name="stackOn" value="mvz2:small_dispenser"/>
             <id name="placement" value="mvz2:upgrade"/>
             <vector3 name="shotOffset" x="25" y="15" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
@@ -371,6 +378,7 @@
         <contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力" unlock="mvz2:contraption.force_pad">
 
             <bool name="upgradeBlueprint" value="true"/>
+            <id name="upgradeFrom" value="mvz2:gravity_pad"/>
             <bool name="loyal" value="true"/>
 
             <bool name="triggerActive" value="true"/>
@@ -378,7 +386,6 @@
             <bool name="isFloor" value="true"/>
             <id name="shell" value="mvz2:metal"/>
             <id name="placement" value="mvz2:upgrade"/>
-            <id name="stackOn" value="mvz2:gravity_pad"/>
             <vector3 name="size" x="64" y="2" z="64"/>
             <idArray name="gridLayers" value="mvz2:carrier"/>
 
@@ -497,6 +504,7 @@
             <vector3 name="size" x="52" y="24" z="24"/>
             <id name="crySound" value="mvz2:spider_cry"/>
             <id name="deathSound" value="mvz2:spider_death"/>
+            <idArray name="attackerTags" value="mvz2:low_enemy"/>
 
             <vector3 name="shadowScale" x="1" y="1" z="1"/>
 
@@ -518,6 +526,7 @@
             <id name="projectileId" value="mvz2:fire_charge"/>
             <id name="crySound" value="mvz2:ghast_cry"/>
             <id name="deathSound" value="mvz2:ghast_death"/>
+            <idArray name="attackerTags" value="mvz2:flying_enemy"/>
 
             <int name="cost" value="125" />
             <int name="waterInteraction" value="3"/>
@@ -530,6 +539,7 @@
             <vector3 name="size" x="104" y="48" z="48"/>
             <id name="crySound" value="mvz2:terror_cry"/>
             <id name="deathSound" value="mvz2:terror_death"/>
+            <idArray name="attackerTags" value="mvz2:low_enemy"/>
 
             <vector3 name="shadowScale" x="2" y="1" z="1"/>
 
@@ -547,6 +557,7 @@
             <vector3 name="size" x="52" y="24" z="24"/>
             <id name="crySound" value="mvz2:terror_cry"/>
             <id name="deathSound" value="mvz2:terror_death"/>
+            <idArray name="attackerTags" value="mvz2:low_enemy"/>
 
             <vector3 name="shadowScale" x="1" y="1" z="1"/>
 

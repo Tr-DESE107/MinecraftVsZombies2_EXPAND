@@ -16,11 +16,31 @@ namespace MVZ2.Vanilla.Contraptions
             return entity.GetProperty<bool>(NOCTURNAL);
         }
         #endregion
+
+        #region 防御性
         public const string DEFENSIVE = "defensive";
         public static bool IsDefensive(this Entity contraption)
         {
             return contraption.GetProperty<bool>(DEFENSIVE);
         }
+        #endregion
+
+        #region 克制
+        public const string ATTACKER_TAGS_FOR = "attackerFor";
+        public static NamespaceID[] GetAttackerTagsFor(this EntityDefinition contraption)
+        {
+            return contraption.GetProperty<NamespaceID[]>(ATTACKER_TAGS_FOR);
+        }
+        #endregion
+
+        #region 生产者
+        public const string PRODUCER = "producer";
+        public static bool IsProducer(this EntityDefinition contraption)
+        {
+            return contraption.GetProperty<bool>(PRODUCER);
+        }
+        #endregion
+
         public const string CANNOT_DIG = "cannotDig";
         public static bool CannotDig(this Entity contraption)
         {

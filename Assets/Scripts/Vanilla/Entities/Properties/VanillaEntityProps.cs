@@ -303,6 +303,14 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 升级
+        public const string UPGRADE_FROM = "upgradeFrom";
+        public static NamespaceID GetUpgradeFromEntity(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(UPGRADE_FROM);
+        }
+        #endregion
+
         #region 摩擦力
         public const string KEEP_GROUND_FRICTION = "KeepGroundFriction";
         public static bool KeepGroundFriction(this Entity entity)

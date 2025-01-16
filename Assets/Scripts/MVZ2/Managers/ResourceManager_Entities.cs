@@ -51,13 +51,7 @@ namespace MVZ2.Managers
         }
         public string GetEntityName(NamespaceID entityID)
         {
-            if (entityID == null)
-                return "null";
-            var meta = GetEntityMeta(entityID);
-            if (meta == null)
-                return entityID.ToString();
-            var name = meta.Name ?? VanillaStrings.UNKNOWN_ENTITY_NAME;
-            return Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, name);
+            return Main.Game.GetEntityName(entityID);
         }
         public string GetEntityTooltip(NamespaceID entityID)
         {

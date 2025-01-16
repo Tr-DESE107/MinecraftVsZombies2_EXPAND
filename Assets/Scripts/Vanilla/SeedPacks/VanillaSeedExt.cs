@@ -29,6 +29,16 @@ namespace MVZ2.Vanilla.SeedPacks
                 var entityDef = level.Content.GetEntityDefinition(entityID);
                 if (entityDef == null)
                     return;
+                var upgradeFromEntity = entityDef.GetUpgradeFromEntity();
+                if (NamespaceID.IsValid(upgradeFromEntity))
+                {
+                    var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(upgradeFromEntity));
+                    if (entity != null && entity.Exists())
+                    {
+                        seed.UpgradeToContraption(entity, entityID);
+                        return;
+                    }
+                }
                 var stackOnEntity = entityDef.GetStackOnEntity();
                 if (NamespaceID.IsValid(stackOnEntity))
                 {
@@ -45,6 +55,15 @@ namespace MVZ2.Vanilla.SeedPacks
         public static void StackEntityOnGrid(this SeedPack seed, Entity target, NamespaceID entityID)
         {
             target.StackFromEntity(entityID);
+            var drawnFromPool = seed.GetDrawnConveyorSeed();
+            if (NamespaceID.IsValid(drawnFromPool))
+            {
+                target.AddTakenConveyorSeed(drawnFromPool);
+            }
+        }
+        public static void UpgradeToContraption(this SeedPack seed, Entity target, NamespaceID entityID)
+        {
+            target.UpgradeToContraption(entityID);
             var drawnFromPool = seed.GetDrawnConveyorSeed();
             if (NamespaceID.IsValid(drawnFromPool))
             {

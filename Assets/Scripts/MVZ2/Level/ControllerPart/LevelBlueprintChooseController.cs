@@ -14,6 +14,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
@@ -21,6 +22,7 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -333,6 +335,10 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
+        private bool CanChooseBlueprint(NamespaceID id)
+        {
+            return true;
+        }
         #endregion
 
         #region 制品
@@ -507,6 +513,9 @@ namespace MVZ2.Level
         }
         private void UI_OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
         {
+            var id = choosingBlueprints[index];
+            if (!CanChooseBlueprint(id))
+                return;
             ChooseBlueprint(index);
         }
         #endregion
@@ -533,10 +542,19 @@ namespace MVZ2.Level
         #region 界面元素
         private async void UI_OnStartClickCallback()
         {
+            List<string> warnings = new List<string>();
+            
             if (chosenBlueprints.Count < Level.GetSeedSlotCount())
             {
+                warnings.Add(Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL));
+            }
+            NamespaceID[] blueprintsForChoose = choosingBlueprints.Where(i => CanChooseBlueprint(i)).ToArray();
+            NamespaceID[] chosenBlueprintID = chosenBlueprints.Select(i => choosingBlueprints[i]).ToArray();
+            Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, c => c(Level, blueprintsForChoose, chosenBlueprintID, warnings));
+            foreach (var warning in warnings)
+            {
                 var title = Main.LanguageManager._(VanillaStrings.WARNING);
-                var desc = Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL);
+                var desc = warning;
                 var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
                 if (!result)
                     return;

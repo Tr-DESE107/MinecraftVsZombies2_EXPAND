@@ -54,5 +54,12 @@ namespace MVZ2.Vanilla.Entities
         {
             return definition.GetProperty<NamespaceID[]>(EXCLUDED_AREA_TAGS);
         }
+        #region 克制
+        public const string ATTACKER_TAGS = "attackerTags";
+        public static NamespaceID[] GetAttackerTags(this EntityDefinition enemy)
+        {
+            return enemy.GetProperty<NamespaceID[]>(ATTACKER_TAGS);
+        }
+        #endregion
     }
 }
