@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.Map
 {
-    public class MapKey : Selectable, IPointerClickHandler
+    public class MapElementButton : Selectable, IPointerClickHandler
     {
         void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {

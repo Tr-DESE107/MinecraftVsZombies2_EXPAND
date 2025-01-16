@@ -3670,6 +3670,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b75237ff7ac07d84ca23add635c58097
+    m_Address: mvz2:map/dream/nightmare_box_open
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7c80b168e4da364f97d8787bc49699a
     m_Address: mvz2:effect/breakout_board
     m_ReadOnly: 0
@@ -3990,6 +3996,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
     m_Address: mvz2:map/dream/nightmare_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbf4d95aac8683e4db2faa1ae9e6cdfe
+    m_Address: mvz2:map/dream/nightmare_box
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

@@ -477,6 +477,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 508b6af64add28a4aa27df24e84640ff, type: 3}
   - name: map/dream/nightmare
     sprite: {fileID: 21300000, guid: 482bc6c937f3f2345b34075e5d1a3f69, type: 3}
+  - name: map/dream/nightmare_box
+    sprite: {fileID: 21300000, guid: cbf4d95aac8683e4db2faa1ae9e6cdfe, type: 3}
+  - name: map/dream/nightmare_box_open
+    sprite: {fileID: 21300000, guid: b75237ff7ac07d84ca23add635c58097, type: 3}
   - name: map/dream/nightmare_censored
     sprite: {fileID: 21300000, guid: cbe2117cde68d914493afb8f0aaa9bb0, type: 3}
   - name: map/dream/nightmare_sleepenser

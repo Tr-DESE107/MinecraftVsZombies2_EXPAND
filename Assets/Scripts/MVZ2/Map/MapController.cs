@@ -58,6 +58,7 @@ namespace MVZ2.Map
                 model.OnMapButtonClick -= OnMapButtonClickCallback;
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
                 model.OnMapKeyClick -= OnMapKeyClickCallback;
+                model.OnMapNightmareBoxClick -= OnMapNightmareBoxClickCallback;
                 Destroy(model.gameObject);
                 model = null;
             }
@@ -91,6 +92,7 @@ namespace MVZ2.Map
                 model.OnMapButtonClick -= OnMapButtonClickCallback;
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
                 model.OnMapKeyClick -= OnMapKeyClickCallback;
+                model.OnMapNightmareBoxClick -= OnMapNightmareBoxClickCallback;
                 Destroy(model.gameObject);
             }
 
@@ -98,6 +100,7 @@ namespace MVZ2.Map
             model.OnMapButtonClick += OnMapButtonClickCallback;
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
             model.OnMapKeyClick += OnMapKeyClickCallback;
+            model.OnMapNightmareBoxClick += OnMapNightmareBoxClickCallback;
 
             UpdateModelButtons();
             UpdateModelElements();
@@ -198,6 +201,18 @@ namespace MVZ2.Map
                     Main.Scene.DisplayMap(VanillaMapID.halloween);
                 }
             }
+        }
+        private void OnMapNightmareBoxClickCallback()
+        {
+            if (Main.SaveManager.IsUnlocked(VanillaUnlockID.dreamIsNightmare))
+            {
+                Main.SaveManager.Relock(VanillaUnlockID.dreamIsNightmare);
+            }
+            else
+            {
+                Main.SaveManager.Unlock(VanillaUnlockID.dreamIsNightmare);
+            }
+            Main.Scene.DisplayMap(MapID);
         }
         #endregion
 

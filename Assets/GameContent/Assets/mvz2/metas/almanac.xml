@@ -923,7 +923,7 @@
                     <p>“梦里。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_box" name="梦魇魔盒" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:nightmare_box" name="梦魇魔盒" sprite="mvz2:map/dream/nightmare_box" unlock="mvz2:level.dream_11">
                 <header>
                     <p>梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。</p>
                 </header>

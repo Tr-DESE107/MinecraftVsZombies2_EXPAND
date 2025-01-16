@@ -94,16 +94,23 @@ namespace MVZ2.Map
             {
                 mapKey.OnClick += () => OnMapKeyClick?.Invoke();
             }
+            if (nightmareBox)
+            {
+                nightmareBox.OnClick += () => OnMapNightmareBoxClick?.Invoke();
+            }
         }
         public event Action<int> OnMapButtonClick;
         public event Action OnEndlessButtonClick;
         public event Action OnMapKeyClick;
+        public event Action OnMapNightmareBoxClick;
         [SerializeField]
         private TextMeshPro endlessFlagsText;
         [SerializeField]
         private MapButton endlessButton;
         [SerializeField]
-        private MapKey mapKey;
+        private MapElementButton mapKey;
+        [SerializeField]
+        private MapElementButton nightmareBox;
         [SerializeField]
         private MapButton[] mapButtons;
         [SerializeField]

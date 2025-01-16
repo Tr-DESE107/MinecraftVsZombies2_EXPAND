@@ -37,7 +37,10 @@ namespace MVZ2.Audios
         public void Resume()
         {
             if (!IsPaused)
+            {
+                musicSource.Play();
                 return;
+            }
             IsPaused = false;
             musicSource.UnPause();
         }
@@ -93,6 +96,7 @@ namespace MVZ2.Audios
             if (!clip)
                 return;
             musicSource.clip = clip;
+            IsPaused = false;
             musicSource.time = 0;
         }
         public MainManager Main => main;
