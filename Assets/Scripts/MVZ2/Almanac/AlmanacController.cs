@@ -171,10 +171,16 @@ namespace MVZ2.Almanacs
             if (entry == null)
                 return;
             var name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(VanillaAlmanacCategories.MISC), entry.name);
-            var header = GetTranslatedString(VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC), entry.header);
+
+            var descContext = VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC);
+            var header = GetTranslatedString(descContext, entry.header);
             header = $"<color=#00007F>{header}</color>";
-            var properties = GetTranslatedString(VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC), entry.properties);
-            var flavor = GetTranslatedString(VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC), entry.flavor);
+            var properties = GetTranslatedString(descContext, entry.properties);
+
+            var flavorKeys = entry.GetValidFlavors(Main.SaveManager);
+            var flavors = flavorKeys.Select(f => GetTranslatedString(descContext, f));
+            var flavor = string.Join("\n\n", flavors);
+
             var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
             var description = string.Join("\n\n", strings);
 
@@ -261,7 +267,9 @@ namespace MVZ2.Almanacs
                 {
                     properties += extraPropertyText;
                 }
-                var flavor = GetTranslatedString(context, almanacMeta.flavor);
+                var flavorKeys = almanacMeta.GetValidFlavors(Main.SaveManager);
+                var flavors = flavorKeys.Select(f => GetTranslatedString(context, f));
+                var flavor = string.Join("\n\n", flavors);
                 var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
                 return string.Join("\n\n", strings);
             }

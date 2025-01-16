@@ -854,9 +854,14 @@
                 <header>
                     <p>时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。</p>
                 </header>
-                <flavor>
-                    <p>由于欧兰特设置了权限，本条目的部分内容不予显示。</p>
-                </flavor>
+                <flavors>
+                    <flavor>
+                        <p>由于欧兰特设置了权限，本条目的部分内容不予显示。</p>
+                    </flavor>
+                    <flavor>
+                        <p>据说，这里存在着一只沼怪，它只会在雨势特别凶猛时出现。然而真正见到它的人少之又少。</p>
+                    </flavor>
+                </flavors>
             </entry>
             <entry id="mvz2:dream_world" name="梦境世界" sprite="mvz2:misc/dream" unlock="mvz2:level.dream_1">
                 <header>
@@ -866,6 +871,8 @@
                     <p>所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。</p>
                     <p>哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。</p>
                     <p>史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。</p>
+                    <p/>
+                    <p>这里和宇宙相通，某些宇宙中的天体在这里可能会产生奇特的反应。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:nightmare_world" name="噩梦世界" sprite="mvz2:misc/nightmare" unlock="mvz2:level.dream_7">

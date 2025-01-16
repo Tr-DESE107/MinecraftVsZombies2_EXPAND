@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 02:41+0800\n"
-"PO-Revision-Date: 2025-01-14 14:42+0800\n"
+"POT-Creation-Date: 2025-01-16 01:06+0800\n"
+"PO-Revision-Date: 2025-01-16 13:07+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1495,6 +1495,14 @@ msgctxt "misc.description"
 msgid "由于欧兰特设置了权限，本条目的部分内容不予显示。"
 msgstr "Some contents of this entry will not be displayed due to the restrictions set by Orant."
 
+#. Flavor for misc mvz2:eternal_night_swamp
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "据说，这里存在着一只沼怪，它只会在雨势特别凶猛时出现。然而真正见到它的人少之又少。"
+msgstr ""
+"It is said that there is a swamp monster here, which only appears when the rain is particularly fierce. However, very few people "
+"actually see it."
+
 #. Name for misc mvz2:dream_world
 #: Almanac meta file
 msgctxt "misc.name"
@@ -1513,12 +1521,17 @@ msgctxt "misc.description"
 msgid ""
 "所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。\n"
 "哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。\n"
-"史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。"
+"史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。\n"
+"\n"
+"这里和宇宙相通，某些宇宙中的天体在这里可能会产生奇特的反应。"
 msgstr ""
 "The dreams of all creatures are interconnected, and the Dream World is where these dreams are located.\n"
 "Doremy watches and manages the Dream World, as well as prevents anyone who attempts to use the Dream World to disrupt its order and "
 "interfere with the reality world.\n"
-"After Steve and Villager came to the dream world, the Dream World showed the shape of a pool lawn, which became their main battlefield."
+"After Steve and Villager came to the dream world, the Dream World showed the shape of a pool lawn, which became their main "
+"battlefield.\n"
+"\n"
+"This place is connected to the universe, and some celestial bodies in the universe may produce peculiar reactions here."
 
 #. Name for misc mvz2:nightmare_world
 #: Almanac meta file

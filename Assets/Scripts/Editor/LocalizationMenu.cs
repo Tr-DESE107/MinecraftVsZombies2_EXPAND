@@ -317,7 +317,10 @@ namespace MVZ2.Editor
             var context = VanillaStrings.GetAlmanacDescriptionContext(categoryName);
             AddTranslation(potGenerator, entry.header, almanacReference, $"Header for {categoryName} {entry.id}", context);
             AddTranslation(potGenerator, entry.properties, almanacReference, $"Properties for {categoryName} {entry.id}", context);
-            AddTranslation(potGenerator, entry.flavor, almanacReference, $"Flavor for {categoryName} {entry.id}", context);
+            foreach (var flavor in entry.GetAllFlavors())
+            {
+                AddTranslation(potGenerator, flavor, almanacReference, $"Flavor for {categoryName} {entry.id}", context);
+            }
         }
         private static void AddTranslation(MukioPotGenerator potGenerator, string text, string reference = null, string comment = null, string context = null)
         {
