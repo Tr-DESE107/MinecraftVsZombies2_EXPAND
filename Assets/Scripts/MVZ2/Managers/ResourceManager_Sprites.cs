@@ -45,6 +45,8 @@ namespace MVZ2.Managers
         }
         public SpriteReference GetSpriteReference(Sprite sprite)
         {
+            if (!sprite)
+                return null;
             if (spriteReferenceCacheDict.TryGetValue(sprite, out var sprRef))
             {
                 return sprRef;
