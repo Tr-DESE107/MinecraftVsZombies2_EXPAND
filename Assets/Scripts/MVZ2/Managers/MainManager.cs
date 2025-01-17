@@ -16,6 +16,7 @@ using MVZ2.Options;
 using MVZ2.Save;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+using MVZ2.Supporters;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using PVZEngine;
@@ -50,6 +51,8 @@ namespace MVZ2.Managers
 
             // 在MOD逻辑加载之后
             SaveManager.Load();
+
+            await SponsorManager.PullSponsors();
 
             Scene.Init();
 
@@ -232,6 +235,7 @@ namespace MVZ2.Managers
         public AlmanacManager AlmanacManager => almanacManager;
         public StoreManager StoreManager => storeManager;
         public InputManager InputManager => inputManager;
+        public SponsorManager SponsorManager => sponsorManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -280,6 +284,8 @@ namespace MVZ2.Managers
         private StoreManager storeManager;
         [SerializeField]
         private InputManager inputManager;
+        [SerializeField]
+        private SponsorManager sponsorManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

@@ -547,6 +547,54 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &2090265737244313979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8994448404940021086}
+  - component: {fileID: 7089875096155935536}
+  m_Layer: 0
+  m_Name: SponsorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8994448404940021086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090265737244313979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2702837359376535132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7089875096155935536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090265737244313979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb605c52c00946248aee66f8f41e3413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userID: f8724bbc95c311eb8ebb52540025c377
+  apiToken: P4TcpWfmC59qdMBG8akURuYxn6Hj3Jwv
+  baseUrl: https://afdian.com/api
+  sponsorQueryPath: /open/query-sponsor
 --- !u!1 &2233805287241954040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1402,7 @@ Transform:
   - {fileID: 6782359495703196160}
   - {fileID: 664033168216589380}
   - {fileID: 3051656010451754638}
+  - {fileID: 8994448404940021086}
   m_Father: {fileID: 791871319312073938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2802494976120551623
@@ -1389,6 +1438,7 @@ MonoBehaviour:
   almanacManager: {fileID: 3119549594860226040}
   storeManager: {fileID: 5951992477103989543}
   inputManager: {fileID: 993784861722068660}
+  sponsorManager: {fileID: 7089875096155935536}
   scene: {fileID: 127843766599020872}
 --- !u!1 &4822075168359775463
 GameObject:
