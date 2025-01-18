@@ -26,6 +26,10 @@ namespace PVZEngine.Entities
         {
             return entity.Level.Spawn(id, position, entity);
         }
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, int seed)
+        {
+            return entity.Level.Spawn(id, position, entity, seed);
+        }
         public static bool IsHostile(int faction1, int faction2)
         {
             return faction1 != faction2;

@@ -21,6 +21,7 @@ namespace MVZ2.Options
             InitResolutionDropdown();
             UpdateResolutionDropdown();
             UpdateSkipAllTalksButton();
+            UpdateShowSponsorNamesButton();
 
             base.InitDialog();
 
@@ -51,6 +52,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.SwitchSkipAllTalks();
                         UpdateSkipAllTalksButton();
+                    }
+                    break;
+                case ButtonType.ShowSponsorNames:
+                    {
+                        Main.OptionsManager.SwitchShowSponsorNames();
+                        UpdateShowSponsorNamesButton();
                     }
                     break;
             }
@@ -136,11 +143,6 @@ namespace MVZ2.Options
                 index = resolutionValues.Length - 1;
             }
             dialog.SetDropdownValue(DropdownType.Resolution, index);
-        }
-        private void UpdateSkipAllTalksButton()
-        {
-            var value = Main.OptionsManager.SkipAllTalks();
-            UpdateButtonText(value, OPTION_SKIP_ALL_TALKS, TextButtonType.SkipAllTalks);
         }
         #endregion
         private Vector2Int[] resolutionValues;

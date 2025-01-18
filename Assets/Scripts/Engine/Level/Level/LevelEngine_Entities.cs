@@ -21,14 +21,7 @@ namespace PVZEngine.Level
         }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
         {
-            long id = AllocEntityID();
-            var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, entityRandom.Next());
-            spawned.Position = pos;
-            entities.Add(spawned);
-            OnEntitySpawn?.Invoke(spawned);
-            spawned.Init(spawner);
-            AddEntityToQuadTree(spawned);
-            return spawned;
+            return Spawn(entityDef, pos, spawner, entityRandom.Next());
         }
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner)
         {
@@ -36,6 +29,24 @@ namespace PVZEngine.Level
             if (entityDef == null)
                 return null;
             return Spawn(entityDef, pos, spawner);
+        }
+        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, int seed)
+        {
+            long id = AllocEntityID();
+            var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, seed);
+            spawned.Position = pos;
+            entities.Add(spawned);
+            OnEntitySpawn?.Invoke(spawned);
+            spawned.Init(spawner);
+            AddEntityToQuadTree(spawned);
+            return spawned;
+        }
+        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, int seed)
+        {
+            var entityDef = Content.GetEntityDefinition(entityRef);
+            if (entityDef == null)
+                return null;
+            return Spawn(entityDef, pos, spawner, seed);
         }
         public QuadTreeCollider GetCollisionQuadTree(int flag)
         {

@@ -29,6 +29,7 @@ namespace MVZ2.Options
             options.shakeAmount = GetPlayerPrefsFloat(PREFS_SHAKE_AMOUNT, 1);
 
             options.language = GetPlayerPrefsString(PREFS_LANGUAGE, GetEnvironmentLanguage());
+            options.showSponsorNames = GetPlayerPrefsBool(PREFS_SHOW_SPONSOR_NAMES, false);
 
             UpdateMusicVolume();
             UpdateSoundVolume();
@@ -142,6 +143,22 @@ namespace MVZ2.Options
         public void SwitchPauseOnFocusLost()
         {
             SetPauseOnFocusLost(!GetPauseOnFocusLost());
+        }
+        #endregion
+
+        #region 显示赞助者名称
+        public bool ShowSponsorNames()
+        {
+            return options.showSponsorNames;
+        }
+        public void SetShowSponsorNames(bool value)
+        {
+            options.showSponsorNames = value;
+            PlayerPrefs.SetInt(PREFS_SHOW_SPONSOR_NAMES, BoolToInt(value));
+        }
+        public void SwitchShowSponsorNames()
+        {
+            SetShowSponsorNames(!ShowSponsorNames());
         }
         #endregion
 
@@ -285,6 +302,7 @@ namespace MVZ2.Options
         public const string PREFS_BLOOD_AND_GORE = "BloodAndGore";
         public const string PREFS_PAUSE_ON_FOCUS_LOST = "PauseOnFocusLost";
         public const string PREFS_SKIP_ALL_TALKS = "SkipAllTalks";
+        public const string PREFS_SHOW_SPONSOR_NAMES = "ShowSponsorNames";
 
         public const string PREFS_MUSIC_VOLUME = "MusicVolume";
         public const string PREFS_SOUND_VOLUME = "SoundVolume";
@@ -308,5 +326,6 @@ namespace MVZ2.Options
         public float shakeAmount;
 
         public string language;
+        public bool showSponsorNames;
     }
 }

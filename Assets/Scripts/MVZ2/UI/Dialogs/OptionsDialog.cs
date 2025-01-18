@@ -86,6 +86,7 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.LeaveLevel, leaveLevelButton);
             textButtonDict.Add(TextButtonType.BloodAndGore, bloodAndGoreButton);
             textButtonDict.Add(TextButtonType.SkipAllTalks, skipAllTalksButton);
+            textButtonDict.Add(TextButtonType.ShowSponsorNames, showSponsorNamesButton);
 
             buttonDict.Add(ButtonType.SwapTrigger, swapTriggerButton.Button);
             buttonDict.Add(ButtonType.PauseOnFocusLost, pauseOnFocusLostButton.Button);
@@ -107,6 +108,7 @@ namespace MVZ2.UI
 
             buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
             buttonDict.Add(ButtonType.SkipAllTalks, skipAllTalksButton.Button);
+            buttonDict.Add(ButtonType.ShowSponsorNames, showSponsorNamesButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
 
 
@@ -189,6 +191,8 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton skipAllTalksButton;
         [SerializeField]
+        private TextButton showSponsorNamesButton;
+        [SerializeField]
         private Button moreBackButton;
         public enum Page
         {
@@ -216,7 +220,8 @@ namespace MVZ2.UI
             Difficulty,
             LeaveLevel,
             BloodAndGore,
-            SkipAllTalks
+            SkipAllTalks,
+            ShowSponsorNames,
         }
         public enum ButtonType
         {
@@ -237,6 +242,7 @@ namespace MVZ2.UI
             MoreBack,
             BloodAndGore,
             SkipAllTalks,
+            ShowSponsorNames,
         }
     }
 

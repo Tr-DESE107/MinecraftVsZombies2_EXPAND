@@ -930,6 +930,9 @@
         </effect>
         <effect id="crushing_walls" name="梦魇碾压墙" />
         <effect id="nightmareaper_timer"/>
+        <effect id="floating_text" >
+            <int name="maxTimeout" value="90"/>
+        </effect>
         <effect id="nightmare_darkness">
             <int name="maxTimeout" value="180"/>
         </effect>

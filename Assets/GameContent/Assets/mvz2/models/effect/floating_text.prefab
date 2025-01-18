@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2446164616065827562}
   - component: {fileID: 6492224158594505310}
   m_Layer: 0
-  m_Name: Countdown
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.6, y: 0.5}
+  m_SizeDelta: {x: 1.6, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6919448814417152839
 MeshRenderer:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 23:59.99
+  m_text: "\u60AC\u6D6E\u6587\u5B57"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3271dde185726664f9327d84700c9c21, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 0253ed2339497eb43a7e9753f34de79a, type: 2}
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 1.5
+  m_fontSizeBase: 1.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -225,6 +225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -66.32001
       objectReference: {fileID: 0}
+    - target: {fileID: 3946098556087542135, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 67f3fd0665ad4ba4790386890dff3b00, type: 2}
     - target: {fileID: 5800025478509911982, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -267,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: m_Name
-      value: nightmareaper_timer
+      value: floating_text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -278,7 +282,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8510043238210403082, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6679548379176568108}
+      addedObject: {fileID: 8585202925812098842}
   m_SourcePrefab: {fileID: 100100000, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
 --- !u!4 &2400154825091619501 stripped
 Transform:
@@ -295,7 +299,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8510043238210403082, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
   m_PrefabInstance: {fileID: 1411313375228467585}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6679548379176568108
+--- !u!114 &8585202925812098842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,7 +308,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7317295191029637771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6113cbd420ea5bc49b8ee1c6736d7195, type: 3}
+  m_Script: {fileID: 11500000, guid: f462b4ad8a7fd3b4ca33959ea83492d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownText: {fileID: 2446164616065827562}
+  text: {fileID: 2446164616065827562}

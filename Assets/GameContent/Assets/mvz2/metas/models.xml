@@ -126,6 +126,7 @@
     <model name="nightmareaper_timer" type="entity" path="mvz2:effect/nightmareaper_timer" width="160" height="50" xOffset="0" yOffset="0"/>
     <model name="nightmare_darkness" type="entity" path="mvz2:effect/nightmare_darkness" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="nightmare_glass" type="entity" path="mvz2:effect/nightmare_glass" width="1020" height="600" xOffset="510" yOffset="300"/>
+    <model name="floating_text" type="entity" path="mvz2:effect/floating_text" width="80" height="25" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

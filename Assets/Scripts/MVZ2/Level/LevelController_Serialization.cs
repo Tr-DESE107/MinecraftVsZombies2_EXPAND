@@ -6,6 +6,7 @@ using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -191,6 +192,8 @@ namespace MVZ2.Level
             level.AddTrigger(LevelCallbacks.POST_WAVE_FINISHED, PostWaveFinishedCallback);
             level.AddTrigger(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
             level.AddTrigger(VanillaCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
+
+            level.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, Engine_PostUseEntityBlueprintCallback);
         }
         private void ApplyComponents(LevelEngine level)
         {

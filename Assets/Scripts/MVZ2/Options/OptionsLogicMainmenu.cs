@@ -29,6 +29,7 @@ namespace MVZ2.Options
 
             UpdateBloodAndGoreButton();
             UpdateSkipAllTalksButton();
+            UpdateShowSponsorNamesButton();
 
             base.InitDialog();
 
@@ -65,6 +66,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.SwitchSkipAllTalks();
                         UpdateSkipAllTalksButton();
+                    }
+                    break;
+                case ButtonType.ShowSponsorNames:
+                    {
+                        Main.OptionsManager.SwitchShowSponsorNames();
+                        UpdateShowSponsorNamesButton();
                     }
                     break;
             }
@@ -174,11 +181,6 @@ namespace MVZ2.Options
         {
             var value = BloodAndGore;
             UpdateButtonText(value, OPTION_BLOOD_AND_GORE, TextButtonType.BloodAndGore);
-        }
-        private void UpdateSkipAllTalksButton()
-        {
-            var value = Main.OptionsManager.SkipAllTalks();
-            UpdateButtonText(value, OPTION_SKIP_ALL_TALKS, TextButtonType.SkipAllTalks);
         }
         #endregion
         public bool NeedsReload { get; private set; }

@@ -47,13 +47,13 @@ namespace MVZ2.Supporters
                 Debug.LogError($"更新赞助者名单时出现错误：{e}");
             }
         }
-        public string[] GetSponsorPlanNames(int rank, int rankType)
+        public string[] GetSponsorPlanNames(int rankType, int rank)
         {
             if (currentSponsors == null)
                 return Array.Empty<string>();
             return currentSponsors.sponsors.Where(s => s.plans.Any(p => p.rankType == rankType && p.rank >= rank)).Select(s => s.name).ToArray();
         }
-        public bool HasSponsorPlan(string name, int rank, int rankType)
+        public bool HasSponsorPlan(string name, int rankType, int rank)
         {
             if (currentSponsors == null)
                 return false;

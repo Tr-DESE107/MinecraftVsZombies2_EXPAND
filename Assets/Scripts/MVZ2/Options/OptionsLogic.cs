@@ -162,6 +162,16 @@ namespace MVZ2.Options
             var value = Main.OptionsManager.GetPauseOnFocusLost();
             UpdateButtonText(value, OPTION_PAUSE_ON_FOCUS_LOST, TextButtonType.PauseOnFocusLost);
         }
+        protected void UpdateSkipAllTalksButton()
+        {
+            var value = Main.OptionsManager.SkipAllTalks();
+            UpdateButtonText(value, OPTION_SKIP_ALL_TALKS, TextButtonType.SkipAllTalks);
+        }
+        protected void UpdateShowSponsorNamesButton()
+        {
+            var value = Main.OptionsManager.ShowSponsorNames();
+            UpdateButtonText(value, OPTION_SHOW_SPONSOR_NAMES, TextButtonType.ShowSponsorNames);
+        }
         #endregion
 
         public event Action OnClose;
@@ -189,6 +199,8 @@ namespace MVZ2.Options
 
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_SKIP_ALL_TALKS = "跳过对话：{0}";
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_SHOW_SPONSOR_NAMES = "赞助者名称：{0}";
 
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_PARTICLE_AMOUNT = "粒子数量：{0}";

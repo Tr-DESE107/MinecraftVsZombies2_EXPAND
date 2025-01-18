@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Entities;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.Level.UI;
+using MVZ2.Supporters;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -13,6 +16,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
+using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -39,6 +43,19 @@ namespace MVZ2.Level
         private void Engine_OnEntityRemoveCallback(Entity entity)
         {
             RemoveControllerFromEntity(entity);
+        }
+        private void Engine_PostUseEntityBlueprintCallback(SeedPack blueprint, Entity entity)
+        {
+            if (!Main.OptionsManager.ShowSponsorNames())
+                return;
+            if (entity.IsEntityOf(VanillaContraptionID.furnace))
+            {
+                ShowFurnaceSponsorName(entity);
+            }
+            else if (entity.IsEntityOf(VanillaContraptionID.moonlightSensor))
+            {
+                ShowMoonlightSensorSponsorName(entity);
+            }
         }
         private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
         {
@@ -158,6 +175,27 @@ namespace MVZ2.Level
                 return entities.Remove(entityController);
             }
             return false;
+        }
+        #endregion
+
+        #region 赞助者
+        private void ShowFurnaceSponsorName(Entity furnace)
+        {
+            var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.FURNACE);
+            if (names.Length <= 0)
+                return;
+            var text = furnace.Spawn(VanillaEffectID.floatingText, furnace.GetCenter(), rng.Next());
+            var name = names.Random(text.RNG);
+            FloatingText.SetText(text, name);
+        }
+        private void ShowMoonlightSensorSponsorName(Entity sensor)
+        {
+            var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR);
+            if (names.Length <= 0)
+                return;
+            var text = sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next());
+            var name = names.Random(text.RNG);
+            FloatingText.SetText(text, name);
         }
         #endregion
 

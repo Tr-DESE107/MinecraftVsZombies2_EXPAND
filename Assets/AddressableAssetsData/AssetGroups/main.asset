@@ -3862,6 +3862,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4d251e55c6e0b04d9ba8c2f6a8bb997
+    m_Address: mvz2:effect/floating_text
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
     m_ReadOnly: 0
