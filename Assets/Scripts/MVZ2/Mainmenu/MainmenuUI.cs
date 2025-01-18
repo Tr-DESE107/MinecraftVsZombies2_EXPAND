@@ -11,6 +11,12 @@ namespace MVZ2.Mainmenu.UI
         public void SetUserName(string name)
         {
             userNameText.text = name;
+            userNameGoldText.text = name;
+        }
+        public void SetUserNameGold(bool gold)
+        {
+            userNameText.gameObject.SetActive(!gold);
+            userNameGoldText.gameObject.SetActive(gold);
         }
         public void SetOptionsDialogVisible(bool visible)
         {
@@ -125,6 +131,8 @@ namespace MVZ2.Mainmenu.UI
         private GameObject backgroundDark;
         [SerializeField]
         private TextMeshPro userNameText;
+        [SerializeField]
+        private TextMeshPro userNameGoldText;
         [SerializeField]
         private SpriteRenderer windowViewSpriteRenderer;
 
