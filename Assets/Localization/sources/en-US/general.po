@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-16 04:24+0800\n"
-"PO-Revision-Date: 2025-01-16 16:25+0800\n"
+"POT-Creation-Date: 2025-01-18 08:39+0800\n"
+"PO-Revision-Date: 2025-01-18 20:42+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -18,11 +18,6 @@ msgstr ""
 #: /MainGame/MainScene/Landing/Canvas/Creator
 msgid "Cuerzor制作"
 msgstr "Made by Cuerzor"
-
-#. 标题界面按钮文本
-#: /MainGame/MainScene/Titlescreen/Canvas/StartButton/Text
-msgid "点击以开始！"
-msgstr "Click to start!"
 
 #. 主界面文字
 #: /MainGame/MainScene/Mainmenu/Elements/Labels/YourName/Label
@@ -97,11 +92,13 @@ msgstr "Restart"
 msgid "更多选项"
 msgstr "More Options"
 
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown1/LanguageDropdown/Label
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
+#: View/Viewport/Content/Dropdowns/Dropdown1/LanguageDropdown/Label
 msgid "语言"
 msgstr "Language"
 
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Dropdowns/Dropdown2/ResolutionDropdown/Label
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
+#: View/Viewport/Content/Dropdowns/Dropdown2/ResolutionDropdown/Label
 msgid "分辨率"
 msgstr "Resolution"
 
@@ -134,7 +131,7 @@ msgstr "View Artifacts"
 msgid "查看杂项"
 msgstr "View Misc"
 
-#: /MainGame/MainScene/Almanac/Canvas/Almanac/ContraptionsStandalone/Center/BlueprintList/Title
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/ContraptionsStandalone/Center/BlueprintList/TitleRegion/Title
 msgid "器械图鉴"
 msgstr "Contraptions"
 
@@ -235,7 +232,7 @@ msgstr "Please input your name"
 msgid "取消"
 msgstr "Cancel"
 
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Title
+#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/TitleRegion/Title
 msgid "选择你的蓝图"
 msgstr "Choose your blueprints"
 
@@ -470,26 +467,26 @@ msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:132
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:150
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr "Are you sure you want to use the {1} without the {0}?"
 
 # 对话框内容
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:134
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:152
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any plants that fight off {0}, are you sure you want to "
 "continue?"
 
 # 对话框内容
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:136
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:154
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any energy producing contraptions, are you sure you want "
 "to continue?"
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:138
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:156
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr "Are you sure want to play this level without any aquatic contraptions?"
 
@@ -810,9 +807,13 @@ msgctxt "music.name"
 msgid "无"
 msgstr "None"
 
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:37
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:68
 msgid "版本{0}"
 msgstr "Version {0}"
+
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:70
+msgid "点击以开始！"
+msgstr "Click to start!"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
 #: Scripts\MVZ2\Talks\Components\TalkController.cs:714
@@ -903,53 +904,58 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:168
+#: Scripts\MVZ2\Options\OptionsLogic.cs:178
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:170
+#: Scripts\MVZ2\Options\OptionsLogic.cs:180
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:172
+#: Scripts\MVZ2\Options\OptionsLogic.cs:182
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:174
+#: Scripts\MVZ2\Options\OptionsLogic.cs:184
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:176
+#: Scripts\MVZ2\Options\OptionsLogic.cs:186
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:180
+#: Scripts\MVZ2\Options\OptionsLogic.cs:190
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:182
+#: Scripts\MVZ2\Options\OptionsLogic.cs:192
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Options\OptionsLogic.cs:184
+#: Scripts\MVZ2\Options\OptionsLogic.cs:194
 msgid "{0}%"
 msgstr "{0}%"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:187
+#: Scripts\MVZ2\Options\OptionsLogic.cs:197
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:190
+#: Scripts\MVZ2\Options\OptionsLogic.cs:200
 msgid "跳过对话：{0}"
 msgstr "Skip talks: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:193
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:202
+msgid "赞助者名称：{0}"
+msgstr "Sponsor Names: {0}"
+
+#: Scripts\MVZ2\Options\OptionsLogic.cs:205
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:195
+#: Scripts\MVZ2\Options\OptionsLogic.cs:207
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -961,7 +967,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:560
+#: Scripts\MVZ2\Map\MapController.cs:559
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -969,7 +975,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:562
+#: Scripts\MVZ2\Map\MapController.cs:561
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -977,12 +983,12 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:564
+#: Scripts\MVZ2\Map\MapController.cs:563
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:566
+#: Scripts\MVZ2\Map\MapController.cs:565
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -990,21 +996,26 @@ msgstr ""
 "Flags\n"
 "{0}/{1}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:567
+# 初始化任务名称
+#: Scripts\MVZ2\Managers\MainManager.cs:235
+msgid "获取赞助者列表……"
+msgstr "Getting Sponsors..."
+
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:571
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:569
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:573
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:571
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:575
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:573
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:577
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
@@ -1014,11 +1025,35 @@ msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:667
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:850
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:184
+# 重选蓝图的验证错误信息
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:854
+msgid "上一次选择的蓝图中包含多个相同的器械。"
+msgstr "The blueprint selected last time contained multiple same contraptions."
+
+# 重选蓝图的验证错误信息
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:856
+msgid "上一次选择的蓝图中包含未解锁的器械。"
+msgstr ""
+"The blueprint selected last time contained contraptions that are not "
+"unlocked yet."
+
+# 重选蓝图的验证错误信息
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:858
+msgid "上一次选择的制品中包含多个相同的制品。"
+msgstr "The blueprint selected last time contained multiple same artifacts."
+
+# 重选蓝图的验证错误信息
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:860
+msgid "上一次选择的制品中包含未解锁的制品。"
+msgstr ""
+"The blueprint selected last time contained artifacts that are not unlocked "
+"yet."
+
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:222
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"

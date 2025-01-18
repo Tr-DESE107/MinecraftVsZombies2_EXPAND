@@ -2902,6 +2902,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92e692ae88b62a541bef812a89e2bac3
+    m_Address: mvz2:ui/refresh
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9314f1d33a68e1e40b9abba26d9eb400
     m_Address: mvz2:options/return_pearl
     m_ReadOnly: 0
@@ -3759,6 +3765,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd020c04ecf41f542b2e72b0e73bf3d7
+    m_Address: mvz2:mainmenu/gold_name_shine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd7b2da4545106b46b4afbf8863f9926
     m_Address: mvz2:level/halloween/halloween

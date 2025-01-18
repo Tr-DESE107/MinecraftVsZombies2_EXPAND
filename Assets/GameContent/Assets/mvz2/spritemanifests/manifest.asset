@@ -77,6 +77,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 85fc4cf81c16b5f40a5aca54cdc85565, type: 3}
   - name: mainmenu/birch_planks
     sprite: {fileID: 21300000, guid: c833ac401af4ce44c872c8fe55574646, type: 3}
+  - name: mainmenu/gold_name_shine
+    sprite: {fileID: 21300000, guid: bd020c04ecf41f542b2e72b0e73bf3d7, type: 3}
   - name: mainmenu/logo
     sprite: {fileID: 21300000, guid: a422491a28838f04aa763d050d8aa766, type: 3}
   - name: mainmenu/mainmenu
@@ -263,6 +265,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
   - name: ui/gear_banned
     sprite: {fileID: 21300000, guid: d7ad17d08589c04459d3a3030abbf9f5, type: 3}
+  - name: ui/refresh
+    sprite: {fileID: 21300000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
   - name: ui/sword
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
   - name: ui/ui_arrow
