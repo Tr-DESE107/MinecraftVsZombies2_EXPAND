@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
+using MVZ2.IO;
 using MVZ2.Managers;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -17,29 +18,60 @@ namespace MVZ2.Supporters
     {
         public async Task PullSponsors(TaskProgress progress)
         {
+            SponsorInfos sponserCache = null;
             try
             {
-                await GetAllSponsors(progress);
+                sponserCache = LoadSponsorsCache();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"加载赞助者名单缓存时出现错误：{e}");
+            }
+            try
+            {
+                if (!ShouldRepull(sponserCache))
+                {
+                    SetCurrentSponsorInfos(sponserCache);
+                    progress.SetProgress(1);
+                    return;
+                }
+                var items = await GetAllSponsors(progress);
+                var test = items.OrderByDescending(s => s.LastPayTime).Select(s => s.User.Name).ToArray();
+                sponserCache = new SponsorInfos(items);
+                sponserCache.lastUpdateTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                SetCurrentSponsorInfos(sponserCache);
+                SaveSponsorsCache(sponserCache);
             }
             catch (Exception e)
             {
                 Debug.LogError($"更新赞助者名单时出现错误：{e}");
             }
         }
+        public string[] GetSponsorPlanNames(int rank, int rankType)
+        {
+            if (currentSponsors == null)
+                return Array.Empty<string>();
+            return currentSponsors.sponsors.Where(s => s.plans.Any(p => p.rankType == rankType && p.rank >= rank)).Select(s => s.name).ToArray();
+        }
+        public bool HasSponsorPlan(string name, int rank, int rankType)
+        {
+            if (currentSponsors == null)
+                return false;
+            return currentSponsors.sponsors.Any(s => s.plans.Any(p => p.rankType == rankType && p.rank >= rank));
+        }
         private async Task<SponsorItem[]> GetAllSponsors(TaskProgress progress)
         {
             List<SponsorItem> sponsorList = new List<SponsorItem>();
             int numPerPage = 100;
-            var resp = await RequestSponsors(0, numPerPage);
-            sponsorList.AddRange(resp.Result.List.Where(p => p.Plans.Length > 0));
-
+            var resp = await RequestSponsors(1, numPerPage);
+            sponsorList.AddRange(resp.Result.List);
             var totalPage = resp.Result.TotalPage;
             progress.SetProgress(1 / (float)totalPage);
 
-            for (int i = 1; i < resp.Result.TotalPage; i++)
+            for (int i = 2; i <= resp.Result.TotalPage; i++)
             {
-                var obj = await RequestSponsors(i + 1, numPerPage);
-                sponsorList.AddRange(obj.Result.List.Where(p => p.Plans.Length > 0));
+                var obj = await RequestSponsors(i, numPerPage);
+                sponsorList.AddRange(obj.Result.List);
                 progress.SetProgress(i / (float)totalPage);
             }
 
@@ -111,6 +143,45 @@ namespace MVZ2.Supporters
             return request;
         }
 
+        private SponsorInfos LoadSponsorsCache()
+        {
+            var path = GetSponsorCacheFilePath();
+            if (!File.Exists(path))
+            {
+                return null;
+            }
+            var json = Main.FileManager.ReadJsonFile(path);
+            return BsonSerializer.Deserialize<SponsorInfos>(json);
+        }
+        private void SaveSponsorsCache(SponsorInfos saveInfo)
+        {
+            var path = GetSponsorCacheFilePath();
+            FileHelper.ValidateDirectory(path);
+            var json = saveInfo.ToJson();
+            Main.FileManager.WriteJsonFile(path, json);
+        }
+        private bool ShouldRepull(SponsorInfos infos)
+        {
+            if (infos == null)
+                return true;
+            var lastTime = DateTimeOffset.FromUnixTimeSeconds(infos.lastUpdateTime).LocalDateTime;
+            var nowTime = DateTimeOffset.Now;
+            if (nowTime.Date != lastTime.Date)
+            {
+                return true;
+            }
+            return false;
+        }
+        private string GetSponsorCacheFilePath()
+        {
+            return Path.Combine(Application.persistentDataPath, "sponsors.dat");
+        }
+        private void SetCurrentSponsorInfos(SponsorInfos infos)
+        {
+            currentSponsors = infos;
+        }
+        public MainManager Main => MainManager.Instance;
+        private SponsorInfos currentSponsors;
         [SerializeField]
         private string userID;
         [SerializeField]
@@ -120,124 +191,4 @@ namespace MVZ2.Supporters
         [SerializeField]
         private string sponsorQueryPath = "/open/query-sponsor";
     }
-    class SponsorNetworkException : Exception
-    {
-        public SponsorNetworkException(string message) : base(message) { }
-    }
-    [SerializeField]
-    class SponsorQueryParams
-    {
-        public int page;
-        public int numPerPage;
-        public string userID;
-
-        public SponsorQueryParams(int page, int numPerPage = 100, int[] userID = null)
-        {
-            this.page = page;
-            this.numPerPage = numPerPage;
-            if (userID != null)
-            {
-                this.userID = string.Join(",", userID.Select(i => i.ToString()));
-            }
-        }
-    }
-    [BsonIgnoreExtraElements]
-    [Serializable]
-    class GenericResp<T>
-    {
-        [BsonElement("ec")]
-        public int ErrorCode { get; set; }
-
-        [BsonElement("em")]
-        public string Message { get; set; }
-
-        [BsonElement("data")]
-        public T Result { get; set; }
-    }
-
-    [BsonIgnoreExtraElements]
-    [Serializable]
-    class ItemList<T>
-    {
-        [BsonElement("total_count")]
-        public int TotalCount { get; set; }
-        [BsonElement("total_page")]
-        public int TotalPage { get; set; }
-        [BsonElement("list")]
-        public T[] List { get; set; }
-    }
-
-    [BsonIgnoreExtraElements]
-    [Serializable]
-    class SponsorItem
-    {
-        [BsonElement("sponsor_plans")]
-        public Plan[] Plans { get; set; }
-        [BsonElement("current_plan")]
-        public Plan CurrentPlan { get; set; }
-        [BsonElement("all_sum_amount")]
-        public string AllSumAmount { get; set; }
-        [BsonElement("first_pay_time")]
-        public int FirstPayTime { get; set; }
-        [BsonElement("last_pay_time")]
-        public int LastPayTime { get; set; }
-        [BsonElement("user")]
-        public User User { get; set; }
-
-    }
-    [BsonIgnoreExtraElements]
-    [Serializable]
-    class Plan
-    {
-        [BsonElement("plan_id")]
-        public string PlanID { get; set; }
-        [BsonElement("rank")]
-        public int Rank { get; set; }
-        [BsonElement("user_id")]
-        public string UserID { get; set; }
-        [BsonElement("status")]
-        public int Status { get; set; }
-        [BsonElement("name")]
-        public string Name { get; set; }
-        [BsonElement("pic")]
-        public string Picture { get; set; }
-        [BsonElement("desc")]
-        public string Description { get; set; }
-        [BsonElement("price")]
-        public string Price { get; set; }
-        [BsonElement("update_time")]
-        public int UpdateTime { get; set; }
-        [BsonElement("pay_month")]
-        public int PayMonth { get; set; }
-        [BsonElement("show_price")]
-        public string ShowPrice { get; set; }
-        [BsonElement("independent")]
-        public int Independent { get; set; }
-        [BsonElement("permanent")]
-        public int Permanent { get; set; }
-        [BsonElement("can_buy_hide")]
-        public int CanBuyHide { get; set; }
-        [BsonElement("need_address")]
-        public int NeedAddress { get; set; }
-        [BsonElement("product_type")]
-        public int ProductType { get; set; }
-        [BsonElement("sale_limit_count")]
-        public int SaleLimitCount { get; set; }
-        [BsonElement("need_invite_code")]
-        public bool NeedInviteCode { get; set; }
-        [BsonElement("expire_time")]
-        public int ExpireTime { get; set; }
-        [BsonElement("rankType")]
-        public int RankType { get; set; }
-    }
-
-    [BsonIgnoreExtraElements]
-    [Serializable]
-    class User
-    {
-
-        [BsonElement("name")]
-        public string Name { get; set; }
-    }
-
 }

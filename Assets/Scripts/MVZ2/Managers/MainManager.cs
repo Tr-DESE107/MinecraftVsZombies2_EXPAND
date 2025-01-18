@@ -96,7 +96,10 @@ namespace MVZ2.Managers
         {
             var sponsorProgress = new TaskProgress(TASK_LOAD_SPONSORS);
             pipeline.AddTask(sponsorProgress);
+
+            pipeline.SetCurrentTask(0);
             await SponsorManager.PullSponsors(sponsorProgress);
+            pipeline.SetCurrentTask(1);
         }
         public Sprite GetFinalSprite(SpriteReference spriteRef)
         {
