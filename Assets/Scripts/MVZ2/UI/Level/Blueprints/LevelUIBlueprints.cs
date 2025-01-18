@@ -134,7 +134,7 @@ namespace MVZ2.UI
 
         [Header("Blueprints")]
         [SerializeField]
-        BlueprintList blueprints;
+        BlueprintArray blueprints;
         [SerializeField]
         Conveyor conveyor;
     }

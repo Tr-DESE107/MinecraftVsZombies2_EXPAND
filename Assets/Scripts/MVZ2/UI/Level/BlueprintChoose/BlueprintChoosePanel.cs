@@ -11,6 +11,7 @@ namespace MVZ2.Level.UI
         public void UpdateElements(BlueprintChoosePanelViewData viewData)
         {
             viewLawnButton.gameObject.SetActive(viewData.canViewLawn);
+            repickButton.gameObject.SetActive(viewData.canRepick);
             displayer.SetCommandBlockActive(viewData.hasCommandBlock);
         }
         public void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
@@ -25,6 +26,7 @@ namespace MVZ2.Level.UI
         {
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
             viewLawnButton.onClick.AddListener(() => OnViewLawnButtonClick?.Invoke());
+            repickButton.onClick.AddListener(() => OnRepickButtonClick?.Invoke());
             displayer.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
             displayer.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             displayer.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
@@ -44,6 +46,7 @@ namespace MVZ2.Level.UI
         }
         public event Action OnStartButtonClick;
         public event Action OnViewLawnButtonClick;
+        public event Action OnRepickButtonClick;
         public event Action OnCommandBlockBlueprintClick;
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
@@ -53,11 +56,14 @@ namespace MVZ2.Level.UI
         [SerializeField]
         Button viewLawnButton;
         [SerializeField]
+        Button repickButton;
+        [SerializeField]
         BlueprintDisplayer displayer;
     }
     public struct BlueprintChoosePanelViewData
     {
         public bool canViewLawn;
         public bool hasCommandBlock;
+        public bool canRepick;
     }
 }

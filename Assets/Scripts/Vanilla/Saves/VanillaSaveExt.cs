@@ -24,6 +24,20 @@ namespace MVZ2.Vanilla.Saves
                 return;
             saveData.LastMapID = value;
         }
+        public static BlueprintSelection GetLastSelection(this IGameSaveData save)
+        {
+            var saveData = save.GetVanillaSaveData();
+            if (saveData == null)
+                return null;
+            return saveData.LastSelection;
+        }
+        public static void SetLastSelection(this IGameSaveData save, BlueprintSelection value)
+        {
+            var saveData = save.GetVanillaSaveData();
+            if (saveData == null)
+                return;
+            saveData.LastSelection = value;
+        }
         public static void SetMoney(this IGameSaveData save, int money)
         {
             var saveData = save.GetVanillaSaveData();

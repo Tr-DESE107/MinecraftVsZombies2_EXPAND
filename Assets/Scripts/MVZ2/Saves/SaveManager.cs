@@ -180,6 +180,14 @@ namespace MVZ2.Saves
                 return false;
             return modSaveData.HasLevelDifficultyRecord(stageID.Path, difficulty);
         }
+        public bool IsContraptionUnlocked(NamespaceID contraptionID)
+        {
+            return unlockedContraptionsCache.Contains(contraptionID);
+        }
+        public bool IsArtifactUnlocked(NamespaceID artifactID)
+        {
+            return unlockedArtifactsCache.Contains(artifactID);
+        }
         public NamespaceID[] GetUnlockedContraptions()
         {
             return unlockedContraptionsCache.ToArray();

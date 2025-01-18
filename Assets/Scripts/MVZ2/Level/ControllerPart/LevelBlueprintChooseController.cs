@@ -2,11 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
 using MukioI18n;
-using MVZ2.GameContent.Effects;
-using MVZ2.Games;
 using MVZ2.Level.UI;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -20,9 +16,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
 using PVZEngine.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -56,6 +50,7 @@ namespace MVZ2.Level
             chooseUI.OnCommandBlockClick += UI_OnCommandBlockClickCallback;
             chooseUI.OnStartClick += UI_OnStartClickCallback;
             chooseUI.OnViewLawnClick += UI_OnViewLawnClickCallback;
+            chooseUI.OnRepickClick += UI_OnRepickClickCallback;
             chooseUI.OnViewAlmanacClick += UI_OnViewAlmanacClickCallback;
             chooseUI.OnViewStoreClick += UI_OnViewStoreClickCallback;
 
@@ -80,6 +75,8 @@ namespace MVZ2.Level
         public void ApplyChoose()
         {
             ClearChosenBlueprintControllers();
+
+            chooseUI.SetChosenBlueprintsVisible(false);
             // 如果根本没有进行选卡，那就不进行替换。
             if (choosingBlueprints == null)
                 return;
@@ -109,7 +106,8 @@ namespace MVZ2.Level
         {
             var controller = new ChosenBlueprintController(Controller, blueprint, index, seedDef);
             controller.Init();
-            chosenBlueprintControllers.Add(controller);
+            chosenBlueprintControllers.Insert(index, controller);
+            UpdateControllerIndexes();
         }
         private bool RemoveChosenBlueprintController(int index)
         {
@@ -119,10 +117,7 @@ namespace MVZ2.Level
             controller.Remove();
             chooseUI.RemoveChosenBlueprintAt(index);
             chosenBlueprintControllers.Remove(controller);
-            for (int i = index; i < chosenBlueprintControllers.Count; i++)
-            {
-                chosenBlueprintControllers[i].Index--;
-            }
+            UpdateControllerIndexes();
             return true;
         }
         private void ClearChosenBlueprintControllers()
@@ -134,6 +129,8 @@ namespace MVZ2.Level
             }
             chosenBlueprintControllers.Clear();
         }
+
+        #region 蓝图移动
         public void ChooseBlueprint(int index)
         {
             var seedSlots = Level.GetSeedSlotCount();
@@ -142,15 +139,31 @@ namespace MVZ2.Level
                 return;
             if (chosenBlueprints.Contains(index))
                 return;
-            chosenBlueprints.Add(index);
+            LoadBlueprint(seedPackIndex, index);
 
-            // 更新UI。
+            // 播放音效。
+            Level.PlaySound(VanillaSoundID.tap);
+        }
+        public void UnchooseBlueprint(int index)
+        {
+            UnloadBlueprint(index);
+
+            Level.PlaySound(VanillaSoundID.tap);
+            Controller.HideTooltip();
+        }
+        private void LoadBlueprint(int seedPackIndex, int index)
+        {
+            chosenBlueprints.Insert(seedPackIndex, index);
+
+            // 更新可选蓝图UI。
             UpdateBlueprintChooseItem(index);
 
-            // 更新蓝图贴图。
+            // 创造已选蓝图UI。
             var seedID = choosingBlueprints[index];
             var seedDef = Game.GetSeedDefinition(seedID);
             var blueprint = chooseUI.CreateChosenBlueprint();
+
+            // 创建已选蓝图控制器。
             CreateChosenBlueprintController(blueprint, seedPackIndex, seedDef);
 
             // 将蓝图移动到目标位置。
@@ -158,20 +171,25 @@ namespace MVZ2.Level
             blueprint.transform.position = choosingBlueprintItem.transform.position;
             var startPos = blueprint.transform.position;
             var targetPos = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
+
+            // 加一个占位符
+            var placeHolder = chooseUI.CreateChosenBlueprint();
+            placeHolder.UpdateView(BlueprintViewData.Empty);
+            chooseUI.InsertChosenBlueprint(seedPackIndex, placeHolder);
+
             var movingBlueprint = chooseUI.CreateMovingBlueprint();
             movingBlueprint.transform.position = startPos;
             movingBlueprint.SetBlueprint(blueprint);
             movingBlueprint.SetMotion(startPos, targetPos);
             movingBlueprint.OnMotionFinished += () =>
             {
+                // 移除占位符并替换为该蓝图
+                chooseUI.DestroyChosenBlueprint(placeHolder);
                 chooseUI.InsertChosenBlueprint(seedPackIndex, blueprint);
                 chooseUI.RemoveMovingBlueprint(movingBlueprint);
             };
-
-            // 播放音效。
-            Level.PlaySound(VanillaSoundID.tap);
         }
-        public void UnchooseBlueprint(int index)
+        private void UnloadBlueprint(int index)
         {
             var choosingIndex = chosenBlueprints[index];
             chosenBlueprints.RemoveAt(index);
@@ -181,6 +199,7 @@ namespace MVZ2.Level
 
             var startPos = blueprintUI.transform.position;
             var targetBlueprint = chooseUI.GetBlueprintChooseItem(choosingIndex);
+
             var movingBlueprint = chooseUI.CreateMovingBlueprint();
             movingBlueprint.transform.position = startPos;
             movingBlueprint.SetBlueprint(blueprintUI);
@@ -190,13 +209,155 @@ namespace MVZ2.Level
                 UpdateBlueprintChooseItem(choosingIndex);
                 chooseUI.RemoveMovingBlueprint(movingBlueprint);
             };
-
-            // 右侧的可选蓝图全部左移。
-            chooseUI.AlignRemainChosenBlueprint(index);
-
-            Level.PlaySound(VanillaSoundID.tap);
-            Controller.HideTooltip();
         }
+        private void MoveChosenBlueprint(int fromIndex, int toIndex)
+        {
+            if (fromIndex == toIndex)
+                return;
+            var index = chosenBlueprints[fromIndex];
+            var controller = chosenBlueprintControllers[fromIndex];
+            var blueprint = chooseUI.GetChosenBlueprintAt(fromIndex);
+
+            chosenBlueprints.RemoveAt(fromIndex);
+            chosenBlueprintControllers.RemoveAt(fromIndex);
+            chooseUI.RemoveChosenBlueprintAt(fromIndex);
+
+            if (toIndex > chosenBlueprints.Count)
+            {
+                toIndex = chosenBlueprints.Count;
+            }
+            chosenBlueprints.Insert(toIndex, index);
+            chosenBlueprintControllers.Insert(toIndex, controller);
+            chooseUI.InsertChosenBlueprint(toIndex, blueprint);
+
+            UpdateControllerIndexes();
+        }
+        private void SwapChosenBlueprints(int index1, int index2)
+        {
+            if (index1 == index2)
+                return;
+            var min = Mathf.Min(index1, index2);
+            var max = Mathf.Max(index1, index2);
+            MoveChosenBlueprint(min, max);
+            MoveChosenBlueprint(max - 1, min);
+        }
+        private void UpdateControllerIndexes()
+        {
+            for (int i = 0; i < chosenBlueprintControllers.Count; i++)
+            {
+                chosenBlueprintControllers[i].Index = i;
+            }
+        }
+        #endregion
+
+        #region 替换
+        public async void ReplaceChoosing(BlueprintSelectionItem[] blueprints, ArtifactSelectionItem[] artifacts)
+        {
+            if (blueprints != null)
+            {
+                if (ValidateReplaceBlueprints(blueprints, out var contraptionMessage))
+                {
+                    var alignedBlueprints = blueprints.Where(i => NamespaceID.IsValid(i.id)).ToArray();
+                    ReplaceBlueprints(alignedBlueprints);
+                }
+                else
+                {
+                    var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                    var desc = Main.LanguageManager._(contraptionMessage);
+                    await Main.Scene.ShowDialogMessageAsync(title, desc);
+                }
+            }
+            if (artifacts != null)
+            {
+                if (ValidateReplaceArtifacts(artifacts, out var artifactMessage))
+                {
+                    var alignedArtifacts = artifacts.Where(i => NamespaceID.IsValid(i.id)).ToArray();
+                    ReplaceArtifacts(alignedArtifacts);
+                }
+                else
+                {
+                    var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                    var desc = Main.LanguageManager._(artifactMessage);
+                    await Main.Scene.ShowDialogMessageAsync(title, desc);
+                }
+            }
+        }
+        private bool ValidateReplaceBlueprints(BlueprintSelectionItem[] blueprints, out string errorMessage)
+        {
+            if (blueprints.GroupBy(x => x).Any(g => g.Count() > 1))
+            {
+                errorMessage = REPLACE_ERROR_DUPLICATE_BLUEPRINTS;
+                return false;
+            }
+            if (blueprints.Any(item => !Main.SaveManager.IsContraptionUnlocked(item.id)))
+            {
+                errorMessage = REPLACE_ERROR_CONTRAPTION_LOCKED;
+                return false;
+            }
+            errorMessage = null;
+            return true;
+        }
+        private bool ValidateReplaceArtifacts(ArtifactSelectionItem[] artifacts, out string errorMessage)
+        {
+            if (artifacts.GroupBy(x => x).Any(g => g.Count() > 1))
+            {
+                errorMessage = REPLACE_ERROR_DUPLICATE_ARTIFACTS;
+                return false;
+            }
+            if (artifacts.Any(item => !Main.SaveManager.IsArtifactUnlocked(item.id)))
+            {
+                errorMessage = REPLACE_ERROR_ARTIFACT_LOCKED;
+                return false;
+            }
+            errorMessage = null;
+            return true;
+        }
+        private void ReplaceBlueprints(BlueprintSelectionItem[] blueprints)
+        {
+            var chosenID = chosenBlueprints.Select(i => choosingBlueprints[i]);
+            var retainBlueprints = blueprints.Where(item => chosenID.Contains(item.id)).ToArray();
+            var pickBlueprints = blueprints.Except(retainBlueprints).ToArray();
+            var removeBlueprints = chosenID.Where(id => !blueprints.Any(item => item.id == id)).ToArray();
+
+            // 首先卸下要移除的蓝图。
+            foreach (var id in removeBlueprints)
+            {
+                var existingIndex = chosenBlueprints.FindIndex(i => choosingBlueprints[i] == id);
+                UnloadBlueprint(existingIndex);
+            }
+            // 然后装载要添加的蓝图。
+            foreach (var item in pickBlueprints)
+            {
+                var id = item.id;
+                var targetIndex = Array.IndexOf(blueprints, item);
+                var choosingIndex = Array.IndexOf(choosingBlueprints, id);
+                LoadBlueprint(targetIndex, choosingIndex);
+            }
+            // 最后将要保留的蓝图交换位置。
+            foreach (var item in retainBlueprints)
+            {
+                var id = item.id;
+                var targetIndex = Array.IndexOf(blueprints, item);
+                var existingIndex = chosenBlueprints.FindIndex(i => choosingBlueprints[i] == id);
+                SwapChosenBlueprints(existingIndex, targetIndex);
+            }
+        }
+        private void ReplaceArtifacts(ArtifactSelectionItem[] artifactsID)
+        {
+            for (int i = 0; i < chosenArtifacts.Length; i++)
+            {
+                if (i < artifactsID.Length)
+                {
+                    SetChosenArtifact(i, artifactsID[i]?.id);
+                }
+                else
+                {
+                    SetChosenArtifact(i, null);
+                }
+            }
+        }
+        #endregion
+
         public void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
         {
             chooseUI.SetSideUIBlend(0);
@@ -204,6 +365,7 @@ namespace MVZ2.Level
 
             isChoosingBlueprints = true;
 
+            chooseUI.SetChosenBlueprintsVisible(true);
             // 制品。
             InheritChosenArtifacts();
 
@@ -215,6 +377,7 @@ namespace MVZ2.Level
         }
         public void Refresh(IEnumerable<NamespaceID> blueprints)
         {
+            chooseUI.SetChosenBlueprintsSlotCount(Level.GetSeedSlotCount());
             RefreshChosenArtifacts();
             RefreshBlueprintChoosePanel(blueprints);
         }
@@ -224,10 +387,12 @@ namespace MVZ2.Level
             var chosenBlueprintID = chosenBlueprints.Select(i => choosingBlueprints[i]).ToArray();
 
             // 更新可选蓝图。
+            bool canRepick = Main.SaveManager.GetLastSelection() != null;
             var panelViewData = new BlueprintChoosePanelViewData()
             {
                 canViewLawn = Level.CurrentFlag > 0,
                 hasCommandBlock = false,
+                canRepick = canRepick,
             };
             var orderedBlueprints = new List<NamespaceID>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
@@ -572,7 +737,7 @@ namespace MVZ2.Level
         private async void UI_OnStartClickCallback()
         {
             List<string> warnings = new List<string>();
-            
+
             if (chosenBlueprints.Count < Level.GetSeedSlotCount())
             {
                 warnings.Add(Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL));
@@ -589,6 +754,15 @@ namespace MVZ2.Level
                     return;
             }
             isChoosingBlueprints = false;
+
+            var selectionBlueprints = chosenBlueprintID.Select(id => new BlueprintSelectionItem() { id = id, isCommandBlock = false }).ToArray();
+            var selection = new BlueprintSelection()
+            {
+                blueprints = selectionBlueprints,
+                artifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e)).Select(id => new ArtifactSelectionItem() { id = id }).ToArray()
+            };
+            Main.SaveManager.SetLastSelection(selection);
+
             StartCoroutine(BlueprintChosenTransition());
         }
         private void UI_OnViewLawnClickCallback()
@@ -612,6 +786,15 @@ namespace MVZ2.Level
         private void UI_OnViewStoreClickCallback()
         {
             Controller.OpenStore();
+        }
+        private void UI_OnRepickClickCallback()
+        {
+            var lastSelection = Main.SaveManager.GetLastSelection();
+            if (lastSelection == null)
+                return;
+            var blueprints = lastSelection.blueprints;
+            var artifacts = lastSelection.artifacts;
+            ReplaceChoosing(blueprints, artifacts);
         }
         #endregion
 
@@ -668,7 +851,15 @@ namespace MVZ2.Level
         public const string WARNING_SELECTED_BLUEPRINTS_NOT_FULL = "你没有携带满蓝图，确认要继续吗？";
         [TranslateMsg("关卡UI")]
         public const string CHOOSE_ARTIFACT = "选择制品";
-        private ILevelBlueprintChooseUI chooseUI => UI.BlueprintChoose;
+        [TranslateMsg("重选蓝图的验证错误信息")]
+        public const string REPLACE_ERROR_DUPLICATE_BLUEPRINTS = "上一次选择的蓝图中包含多个相同的器械。";
+        [TranslateMsg("重选蓝图的验证错误信息")]
+        public const string REPLACE_ERROR_CONTRAPTION_LOCKED = "上一次选择的蓝图中包含未解锁的器械。";
+        [TranslateMsg("重选蓝图的验证错误信息")]
+        public const string REPLACE_ERROR_DUPLICATE_ARTIFACTS = "上一次选择的制品中包含多个相同的制品。";
+        [TranslateMsg("重选蓝图的验证错误信息")]
+        public const string REPLACE_ERROR_ARTIFACT_LOCKED = "上一次选择的制品中包含未解锁的制品。";
+        private LevelUIBlueprintChoose chooseUI => UI.BlueprintChoose;
 
         private bool isChoosingBlueprints;
         private List<int> chosenBlueprints = new List<int>();
@@ -685,67 +876,5 @@ namespace MVZ2.Level
     [Serializable]
     public class SerializableLevelBlueprintChooseController : SerializableLevelControllerPart
     {
-    }
-    public interface ILevelBlueprintChooseUI
-    {
-        event Action<int, PointerEventData> OnBlueprintItemPointerEnter;
-        event Action<int, PointerEventData> OnBlueprintItemPointerExit;
-        event Action<int, PointerEventData> OnBlueprintItemPointerDown;
-
-        event Action OnCommandBlockClick;
-        event Action OnStartClick;
-        event Action OnViewLawnClick;
-        event Action OnViewAlmanacClick;
-        event Action OnViewStoreClick;
-        event Action OnViewLawnReturnClick;
-
-        event Action<int> OnArtifactSlotClick;
-        event Action<int> OnArtifactSlotPointerEnter;
-        event Action<int> OnArtifactSlotPointerExit;
-        event Action<int> OnArtifactChoosingItemClicked;
-        event Action<int> OnArtifactChoosingItemEnter;
-        event Action<int> OnArtifactChoosingItemExit;
-        event Action OnArtifactChoosingBackClicked;
-
-        void SetSideUIDisplaying(bool displaying);
-        void SetBlueprintChooseDisplaying(bool visible);
-        void SetSideUIBlend(float blend);
-        void SetBlueprintChooseBlend(float blend);
-
-
-        void SetBlueprintChooseViewAlmanacButtonActive(bool active);
-        void SetBlueprintChooseViewStoreButtonActive(bool active);
-        void UpdateBlueprintChooseElements(BlueprintChoosePanelViewData viewData);
-
-
-        void UpdateBlueprintChooseItems(ChoosingBlueprintViewData[] viewDatas);
-        Blueprint GetBlueprintChooseItem(int index);
-
-
-
-        Blueprint CreateChosenBlueprint();
-        void InsertChosenBlueprint(int index, Blueprint blueprint);
-        void DestroyChosenBlueprintAt(int index);
-        void RemoveChosenBlueprintAt(int index);
-        Blueprint GetChosenBlueprintAt(int index);
-        Vector3 GetChosenBlueprintPosition(int index);
-        void AlignRemainChosenBlueprint(int removeIndex);
-
-
-        MovingBlueprint CreateMovingBlueprint();
-        void RemoveMovingBlueprint(MovingBlueprint blueprint);
-
-
-        void SetViewLawnReturnBlockerActive(bool active);
-
-
-
-        void SetArtifactSlotsActive(bool visible);
-        void ShowArtifactChoosePanel(ArtifactSelectItemViewData[] viewDatas);
-        void UpdateArtifactSlotAt(int index, ArtifactViewData viewData);
-        ArtifactSlot GetArtifactSlotAt(int index);
-        ArtifactSelectItem GetArtifactSelectItem(int index);
-        void HideArtifactChoosePanel();
-        void ResetArtifactSlotCount(int count);
     }
 }

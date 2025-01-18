@@ -183,7 +183,7 @@ namespace MVZ2.UI
         public OptionsDialog OptionsDialog => optionsDialog;
 
 
-        public ILevelBlueprintChooseUI BlueprintChoose => GetUIPreset().BlueprintChoose;
+        public LevelUIBlueprintChoose BlueprintChoose => GetUIPreset().BlueprintChoose;
         public ILevelBlueprintRuntimeUI Blueprints => GetUIPreset().Blueprints;
 
         private bool isMobile;

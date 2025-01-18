@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   builtinNamespace: mvz2
   platformMode: 0
-  fastMode: 0
+  fastMode: 1
   coroutine: {fileID: 6609048864218312467}
   resource: {fileID: 4464093358690779615}
   model: {fileID: 3695309188560387282}

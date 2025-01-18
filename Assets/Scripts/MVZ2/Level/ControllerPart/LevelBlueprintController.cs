@@ -316,6 +316,6 @@ namespace MVZ2.Level
     {
         void SetReceiveRaycasts(bool receive);
         ILevelBlueprintRuntimeUI Blueprints { get; }
-        ILevelBlueprintChooseUI BlueprintChoose { get; }
+        LevelUIBlueprintChoose BlueprintChoose { get; }
     }
 }

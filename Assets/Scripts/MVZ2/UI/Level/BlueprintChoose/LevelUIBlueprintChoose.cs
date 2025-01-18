@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class LevelUIBlueprintChoose : MonoBehaviour, ILevelBlueprintChooseUI
+    public class LevelUIBlueprintChoose : MonoBehaviour
     {
         #region 移动蓝图
         public MovingBlueprint CreateMovingBlueprint()
@@ -26,6 +26,15 @@ namespace MVZ2.UI
         #endregion
 
         #region 选择蓝图
+        public void SetChosenBlueprintsVisible(bool visible)
+        {
+            choosingBlueprintRoot.SetActive(visible);
+            runtimeBlueprintRoot.SetActive(!visible);
+        }
+        public void SetChosenBlueprintsSlotCount(int count)
+        {
+            chosenBlueprints.SetSlotCount(count);
+        }
         public void SetViewLawnReturnBlockerActive(bool active)
         {
             viewLawnReturnBlocker.SetActive(active);
@@ -107,9 +116,9 @@ namespace MVZ2.UI
         {
             return chosenBlueprints.GetBlueprintPosition(index);
         }
-        public void AlignRemainChosenBlueprint(int removeIndex)
+        public int GetChosenBlueprintCount()
         {
-            chosenBlueprints.AlignRemainBlueprints(removeIndex);
+            return chosenBlueprints.GetBlueprintCount();
         }
         #endregion
 
@@ -177,6 +186,7 @@ namespace MVZ2.UI
 
             blueprintChoosePanel.OnStartButtonClick += () => OnStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnViewLawnClick?.Invoke();
+            blueprintChoosePanel.OnRepickButtonClick += () => OnRepickClick?.Invoke();
             blueprintChoosePanel.OnCommandBlockBlueprintClick += () => OnCommandBlockClick?.Invoke();
 
             blueprintChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintItemPointerEnter?.Invoke(index, data);
@@ -215,6 +225,7 @@ namespace MVZ2.UI
         #region 事件
         public event Action OnStartClick;
         public event Action OnViewLawnClick;
+        public event Action OnRepickClick;
         public event Action OnCommandBlockClick;
         public event Action<int> OnArtifactSlotClick;
         public event Action<int> OnArtifactSlotPointerEnter;
@@ -238,6 +249,10 @@ namespace MVZ2.UI
         [SerializeField]
         Animator animator;
         [Header("Blueprint Choose")]
+        [SerializeField]
+        GameObject choosingBlueprintRoot;
+        [SerializeField]
+        GameObject runtimeBlueprintRoot;
         [SerializeField]
         BlueprintList chosenBlueprints;
         [SerializeField]
