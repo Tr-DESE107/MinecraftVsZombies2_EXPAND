@@ -13,6 +13,7 @@ using MVZ2.Map;
 using MVZ2.Note;
 using MVZ2.Save;
 using MVZ2.Store;
+using MVZ2.Supporters;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -141,6 +142,11 @@ namespace MVZ2.Scenes
             {
                 pair.Value.Hide();
             }
+        }
+        public void DisplayTitlescreen()
+        {
+            DisplayPage(MainScenePageType.Titlescreen);
+            titlescreen.Init();
         }
         public void DisplayMap(NamespaceID mapId)
         {

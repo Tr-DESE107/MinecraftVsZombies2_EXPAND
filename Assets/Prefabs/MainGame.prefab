@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   builtinNamespace: mvz2
   platformMode: 0
-  fastMode: 1
+  fastMode: 0
   coroutine: {fileID: 6609048864218312467}
   resource: {fileID: 4464093358690779615}
   model: {fileID: 3695309188560387282}
@@ -2986,10 +2986,6 @@ PrefabInstance:
     - target: {fileID: 4309749717546174466, guid: be8a1b6b3f3933e48b251906c6ab34e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 100.000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 4895077946257471919, guid: be8a1b6b3f3933e48b251906c6ab34e6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100.000015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

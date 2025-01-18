@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using MukioI18n;
 using MVZ2.Almanacs;
 using MVZ2.Assets.Scripts.MVZ2.Managers;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Cursors;
+using MVZ2.GameContent.Effects;
 using MVZ2.Games;
 using MVZ2.IO;
 using MVZ2.Level;
@@ -52,7 +56,11 @@ namespace MVZ2.Managers
             // 在MOD逻辑加载之后
             SaveManager.Load();
 
-            await SponsorManager.PullSponsors();
+            if (IsFastMode())
+            {
+                var pipeline = new TaskPipeline();
+                await InitLoad(pipeline);
+            }
 
             Scene.Init();
 
@@ -83,6 +91,12 @@ namespace MVZ2.Managers
 #else
             return false;
 #endif
+        }
+        public async Task InitLoad(TaskPipeline pipeline)
+        {
+            var sponsorProgress = new TaskProgress(TASK_LOAD_SPONSORS);
+            pipeline.AddTask(sponsorProgress);
+            await SponsorManager.PullSponsors(sponsorProgress);
         }
         public Sprite GetFinalSprite(SpriteReference spriteRef)
         {
@@ -214,6 +228,9 @@ namespace MVZ2.Managers
             Debug.LogError(e.Exception);
         }
         IGame IMainManager.Game => Game;
+
+        [TranslateMsg("初始化任务名称")]
+        public const string TASK_LOAD_SPONSORS = "获取赞助者列表……";
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }
         public string BuiltinNamespace => builtinNamespace;
@@ -301,5 +318,69 @@ namespace MVZ2.Managers
         {
 
         }
+    }
+    public class TaskPipeline
+    {
+        public void AddTask(TaskProgress child)
+        {
+            tasks.Add(child);
+        }
+        public void RemoveTask(TaskProgress child)
+        {
+            tasks.Remove(child);
+        }
+        public void SetCurrentTask(int index)
+        {
+            currentTaskIndex = index;
+        }
+        public bool IsFinished()
+        {
+            return currentTaskIndex >= tasks.Count;
+        }
+        public string GetCurrentTaskName()
+        {
+            var task = GetCurrentTask();
+            if (task == null)
+                return string.Empty;
+            return task.GetName();
+        }
+        public float GetProgress()
+        {
+            if (tasks.Count > 0)
+            {
+                return tasks.Sum(c => c.GetProgress()) / tasks.Count;
+            }
+            return 1;
+        }
+        private TaskProgress GetCurrentTask()
+        {
+            if (currentTaskIndex < 0 || currentTaskIndex >= tasks.Count)
+                return null;
+            return tasks[currentTaskIndex];
+        }
+        private int currentTaskIndex;
+        private List<TaskProgress> tasks = new List<TaskProgress>();
+        private float progress;
+    }
+    public class TaskProgress
+    {
+        public TaskProgress(string name)
+        {
+            this.name = name;
+        }
+        public void SetProgress(float progress)
+        {
+            this.progress = progress;
+        }
+        public float GetProgress()
+        {
+            return progress;
+        }
+        public string GetName()
+        {
+            return name;
+        }
+        private float progress;
+        private string name;
     }
 }

@@ -7,7 +7,7 @@ namespace MVZ2.Scenes
     {
         public void EnterTitleScreen()
         {
-            MainManager.Instance.Scene.DisplayPage(MainScenePageType.Titlescreen);
+            MainManager.Instance.Scene.DisplayTitlescreen();
         }
     }
 }

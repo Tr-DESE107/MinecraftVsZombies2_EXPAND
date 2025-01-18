@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
+using MVZ2.Managers;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -15,28 +15,32 @@ namespace MVZ2.Supporters
 {
     public class SponsorManager : MonoBehaviour
     {
-        public async Task PullSponsors()
+        public async Task PullSponsors(TaskProgress progress)
         {
             try
             {
-                await GetAllSponsors();
+                await GetAllSponsors(progress);
             }
             catch (Exception e)
             {
                 Debug.LogError($"更新赞助者名单时出现错误：{e}");
             }
         }
-        private async Task<SponsorItem[]> GetAllSponsors()
+        private async Task<SponsorItem[]> GetAllSponsors(TaskProgress progress)
         {
             List<SponsorItem> sponsorList = new List<SponsorItem>();
             int numPerPage = 100;
             var resp = await RequestSponsors(0, numPerPage);
             sponsorList.AddRange(resp.Result.List.Where(p => p.Plans.Length > 0));
 
+            var totalPage = resp.Result.TotalPage;
+            progress.SetProgress(1 / (float)totalPage);
+
             for (int i = 1; i < resp.Result.TotalPage; i++)
             {
                 var obj = await RequestSponsors(i + 1, numPerPage);
                 sponsorList.AddRange(obj.Result.List.Where(p => p.Plans.Length > 0));
+                progress.SetProgress(i / (float)totalPage);
             }
 
             return sponsorList.ToArray();
