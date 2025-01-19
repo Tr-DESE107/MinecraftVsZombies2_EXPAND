@@ -25,10 +25,6 @@ namespace MVZ2.GameContent.Areas
     {
         public Halloween(string nsp, string name) : base(nsp, name)
         {
-            for (int i = 0; i < 45; i++)
-            {
-                grids.Add(VanillaGridID.grass);
-            }
         }
         public override void Setup(LevelEngine level)
         {

@@ -6,7 +6,6 @@
             <vector3 name="shadowScale" x="1" y="1" z="1"/>
             <vector3 name="scale" x="1" y="1" z="1"/>
             <vector3 name="displayScale" x="1" y="1" z="1"/>
-            <id name="placeSound" value="mvz2:grass"/>
             <color name="tint" value="#FFFFFF"/>
             <id name="placement" value="mvz2:any"/>
 
@@ -646,6 +645,7 @@
             <float name="gravity" value="0"/>
             <int name="waterInteraction" value="0"/>
         </cart>
+        <cart id="bowl_chariot" name="碗车"/>
 
         <!-- Pickups -->
         <pickup id="redstone" name="红石">
@@ -768,6 +768,10 @@
             <vector3 name="size" x="32" y="32" z="32" />
             <bool name="piercing" value="true" />
             <float name="damage" value="800" />
+        </projectile>
+        <projectile id="boulder">
+            <float name="gravity" value="1" />
+            <vector3 name="size" x="48" y="48" z="48" />
         </projectile>
 
         <!-- Effects -->

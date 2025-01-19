@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Carts
         public const string pumpkinCarriage = "pumpkin_carriage";
         public const string nyanCat = "nyan_cat";
         public const string nyaightmare = "nyaightmare";
+        public const string bowlChariot = "bowl_chariot";
     }
     public static class VanillaCartID
     {
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent.Carts
         public static readonly NamespaceID pumpkinCarriage = Get(VanillaCartNames.pumpkinCarriage);
         public static readonly NamespaceID nyanCat = Get(VanillaCartNames.nyanCat);
         public static readonly NamespaceID nyaightmare = Get(VanillaCartNames.nyaightmare);
+        public static readonly NamespaceID bowlChariot = Get(VanillaCartNames.bowlChariot);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

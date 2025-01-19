@@ -233,12 +233,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 870eee8567c7c8948aa1357afdc15d62, type: 3}
   - name: starshards/halloween
     sprite: {fileID: 21300000, guid: ead2b534e897e48469cac6037a937e50, type: 3}
+  - name: starshards/teruharijou
+    sprite: {fileID: 21300000, guid: 32a9da2bd3c99b64298ce54bba1a8611, type: 3}
   - name: starshard_rings/default
     sprite: {fileID: 21300000, guid: a87b33e84a23ca14eb7f301beca38504, type: 3}
   - name: starshard_rings/dream
     sprite: {fileID: 21300000, guid: e8196c198b390f343b2370b0aa2c81b3, type: 3}
   - name: starshard_rings/halloween
     sprite: {fileID: 21300000, guid: b71a3502ba3935b49a514559f8734478, type: 3}
+  - name: starshard_rings/teruharijou
+    sprite: {fileID: 21300000, guid: f70064fbad3e8e249acbd5365f606f06, type: 3}
   - name: store/background_village
     sprite: {fileID: 21300000, guid: c7f50d8658623a44886293ea828537fd, type: 3}
   - name: talk/speech_bubble
@@ -405,6 +409,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 99fdfba4aeff67c43b3124c97a3a0dd7, type: 3}
   - name: entity/projectiles/arrow
     sprite: {fileID: 21300000, guid: 01ea06eaff14a0746a137123701e46b3, type: 3}
+  - name: entity/projectiles/boulder
+    sprite: {fileID: 21300000, guid: 844a4d9460ff7f340960531d826fa7f0, type: 3}
   - name: entity/projectiles/breakout_pearl
     sprite: {fileID: 21300000, guid: 1180289811b708d4781f5bd9065fb543, type: 3}
   - name: entity/projectiles/bullet
@@ -463,6 +469,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 227ed731d72488f4aa762e37f9d60767, type: 3}
   - name: level/dream/pool_sparkle
     sprite: {fileID: 21300000, guid: bfce65959617bce4ab0ffb4a5d19df4c, type: 3}
+  - name: level/grids/bevel
+    sprite: {fileID: 21300000, guid: 173171cbb92903f4abbd185ff17f0e74, type: 3}
+  - name: level/grids/normal
+    sprite: {fileID: 21300000, guid: 50c9e8ccf09318c4c811ae6d530b985a, type: 3}
   - name: level/halloween/halloween
     sprite: {fileID: 21300000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
   - name: level/halloween/halloween_cloudy
@@ -471,6 +481,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6c353c60defe28b4e917138418d92484, type: 3}
   - name: level/halloween/halloween_house_cover
     sprite: {fileID: 21300000, guid: ec5ff71ab8787124f871adc517ed1852, type: 3}
+  - name: level/teruharijou/foreground
+    sprite: {fileID: 21300000, guid: 7eb25f3d547617c4bb047d1f95e5f495, type: 3}
+  - name: level/teruharijou/teruharijou
+    sprite: {fileID: 21300000, guid: aba492ffb3d38f745a0619b198a8ff73, type: 3}
   - name: map/dream/apollo_meridian_blue
     sprite: {fileID: 21300000, guid: c2578011139751f4ebed15184256f29d, type: 3}
   - name: map/dream/apollo_meridian_red
@@ -495,6 +509,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 5f078c67087fbfb4aa46cf7965c4f6c2, type: 3}
   - name: map/halloween/map
     sprite: {fileID: 21300000, guid: 18170164ed705914ebb03c0ee8ca6ef9, type: 3}
+  - name: map/teruharijou/map
+    sprite: {fileID: 21300000, guid: eb7696c6ae30a5844aeb6c8c789f3acc, type: 3}
   - name: ui/achievements/frame
     sprite: {fileID: 21300000, guid: 8e4506b73a85267499be23c6916344ef, type: 3}
   - name: ui/achievements/pop_up_frame
@@ -801,6 +817,10 @@ MonoBehaviour:
     - {fileID: 6494446197138225416, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
     - {fileID: 5653982790268467409, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
     - {fileID: 5039749940984752654, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
+  - name: entity/cart/bowl_chariot
+    spritesheet:
+    - {fileID: -1314042680, guid: 66fb8eb08bbc74b40895bb373bead3ee, type: 3}
+    - {fileID: -1447101269, guid: 66fb8eb08bbc74b40895bb373bead3ee, type: 3}
   - name: entity/cart/nightmare_trail
     spritesheet:
     - {fileID: 3762937400720167656, guid: 7fb868cd756467a47a78f7ef5cd25ba2, type: 3}

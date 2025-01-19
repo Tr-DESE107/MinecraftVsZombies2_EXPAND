@@ -175,4 +175,60 @@
             <grid id="mvz2:grass" />
         </grids>
     </area>
+    <area id="teruharijou" model="mvz2:teruharijou" music="mvz2:teruharijou_level" cart="mvz2:bowl_chariot" starshard="mvz2:starshards/teruharijou" tags="mvz2:night;mvz2:no_water">
+        <positions enemySpawnX="1080" doorZ="240" />
+        <lighting night="0.5" />
+        <grids width="80" height="80" leftX="260" bottomZ="40" lanes="5" columns="9">
+            <!-- Lane 1 -->
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <!-- Lane 2 -->
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <!-- Lane 3 -->
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <!-- Lane 4 -->
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <!-- Lane 5 -->
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:wood" />
+        </grids>
+    </area>
 </areas>

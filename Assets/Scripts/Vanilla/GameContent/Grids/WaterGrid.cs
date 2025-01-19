@@ -14,13 +14,13 @@ using PVZEngine.Triggers;
 namespace MVZ2.GameContent.Grids
 {
     [Definition(VanillaGridNames.water)]
-    public class WaterGrid : GridDefinition, IPlaceSoundGrid
+    public class WaterGrid : GridDefinition
     {
         public WaterGrid(string nsp, string name) : base(nsp, name)
         {
         }
 
-        public NamespaceID GetPlaceSound(Entity entity)
+        public override NamespaceID GetPlaceSound(Entity entity)
         {
             return VanillaSoundID.water;
         }

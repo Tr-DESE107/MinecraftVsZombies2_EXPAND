@@ -10,6 +10,10 @@ namespace PVZEngine.Grids
         public GridDefinition(string nsp, string name) : base(nsp, name)
         {
         }
+        public virtual NamespaceID GetPlaceSound(Entity entity)
+        {
+            return null;
+        }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.GRID;
     }
 }

@@ -27,6 +27,10 @@ namespace MVZ2.Vanilla.Entities
             entity.Velocity = Vector3.right * 10;
             entity.PlaySound(entity.GetCartTriggerSound());
             entity.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, false);
+            foreach (var behaviour in entity.Definition.GetBehaviours<CartBehaviour>())
+            {
+                behaviour.PostTrigger(entity);
+            }
         }
         public static void ChargeUpCartTrigger(this Entity entity)
         {

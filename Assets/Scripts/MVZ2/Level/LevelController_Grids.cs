@@ -136,7 +136,15 @@ namespace MVZ2.Level
                     var pos = new Vector3(x, y, z);
                     var worldPos = LawnToTrans(pos);
 
-                    var sprite = Main.GetFinalSprite(defaultGridSprite);
+                    Sprite sprite;
+                    if (gridMeta != null && SpriteReference.IsValid(gridMeta.Sprite))
+                    {
+                        sprite = Main.GetFinalSprite(gridMeta.Sprite);
+                    }
+                    else
+                    {
+                        sprite = Main.GetFinalSprite(defaultGridSprite);
+                    }
                     viewDatas[lane][column] = new GridViewData()
                     {
                         position = new Vector2(worldPos.x, worldPos.y),

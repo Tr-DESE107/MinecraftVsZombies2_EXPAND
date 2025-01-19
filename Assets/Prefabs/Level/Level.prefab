@@ -302,7 +302,7 @@ MonoBehaviour:
   entitiesRoot: {fileID: 1458902122031359015}
   gridColorTransparent: {r: 1, g: 1, b: 1, a: 0.5}
   gridLayout: {fileID: 3480427647060660223}
-  defaultGridSprite: {fileID: 21300000, guid: e4248bf9361ced74c8135ccc08eb2f44, type: 3}
+  defaultGridSprite: {fileID: 21300000, guid: 50c9e8ccf09318c4c811ae6d530b985a, type: 3}
   talkController: {fileID: 7008064119095903814}
   levelRaycaster: {fileID: 3990864811830621097}
   pauseImages:
@@ -1045,7 +1045,7 @@ Transform:
   m_GameObject: {fileID: 3580299581115580701}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.620408, y: 3, z: -10}
+  m_LocalPosition: {x: 5.3333335, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3522,6 +3522,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8591015305096167452, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640298212613310298, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640298212613310298, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640298212613310298, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640298212613310298, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640298212613310298, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640298212613310298, guid: 14a8cec67e379a543860bff015c512c6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

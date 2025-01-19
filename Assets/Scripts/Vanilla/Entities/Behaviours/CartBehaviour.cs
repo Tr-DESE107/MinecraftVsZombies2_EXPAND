@@ -33,6 +33,10 @@ namespace MVZ2.Vanilla.Entities
             TriggerChargeUpdate(entity);
             TurnToMoneyUpdate(entity);
         }
+        public virtual void PostTrigger(Entity entity)
+        {
+
+        }
         private void StateUpdate(Entity entity)
         {
             var velocity = entity.Velocity;

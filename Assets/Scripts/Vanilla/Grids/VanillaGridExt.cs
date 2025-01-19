@@ -38,9 +38,7 @@ namespace MVZ2.Vanilla.Grids
         }
         public static NamespaceID GetPlaceSound(this LawnGrid grid, Entity entity)
         {
-            if (grid.Definition is not IPlaceSoundGrid soundGrid)
-                return entity.GetPlaceSound();
-            return soundGrid.GetPlaceSound(entity);
+            return grid.Definition.GetPlaceSound(entity);
         }
         public static bool CanPlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {

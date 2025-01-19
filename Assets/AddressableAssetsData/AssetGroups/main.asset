@@ -923,6 +923,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32a9da2bd3c99b64298ce54bba1a8611
+    m_Address: mvz2:starshards/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32bf431d8ac58764cb0070360418c14d
     m_Address: mvz2:ui/store/product_frame
     m_ReadOnly: 0
@@ -1335,6 +1341,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4271c9d7e6193c044a10215c84843613
+    m_Address: mvz2:cart/bowl_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4339bf5f9f84c374c80373f3c986dc65
     m_Address: mvz2:ui/level/pickaxe_slot
@@ -2044,6 +2056,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66fb8eb08bbc74b40895bb373bead3ee
+    m_Address: mvz2:entity/cart/bowl_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67570966ddb5b0d4688ecc6f6b0d3508
     m_Address: mvz2:random/glass1
     m_ReadOnly: 0
@@ -2374,6 +2392,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7eb25f3d547617c4bb047d1f95e5f495
+    m_Address: mvz2:level/teruharijou/foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ebac2534124b00449659de6a1056649
     m_Address: mvz2:entity/boss/nightmareaper_head
     m_ReadOnly: 0
@@ -2514,6 +2538,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 842c7ddcc4687ac43bd7fd5d478c0b7f
     m_Address: mvz2:entity/pickups/diamond
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 844a4d9460ff7f340960531d826fa7f0
+    m_Address: mvz2:entity/projectiles/boulder
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2836,6 +2866,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9072b816e8a6de046affddf04e5e95c3
+    m_Address: mvz2:held/starshards/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90b1efed9d95d3b43a897fa9d566324a
     m_Address: mvz2:mobile_blueprint/return_pearl
     m_ReadOnly: 0
@@ -3081,6 +3117,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c8eef82c98cc73429569c81597c1516
+    m_Address: mvz2:pickup/starshards/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cb472c3c1348464db552f84dadec941
     m_Address: mvz2:stats
@@ -3406,6 +3448,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aba492ffb3d38f745a0619b198a8ff73
+    m_Address: mvz2:level/teruharijou/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac1f70b601142f7408e769da02898fc5
     m_Address: mvz2:ui/achievements/pop_up_frame
     m_ReadOnly: 0
@@ -3519,6 +3567,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1da62f094155624ea05cde4b24f1f3d
+    m_Address: mvz2:projectile/boulder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b27d973956921144f81710753ef50c35
     m_Address: mvz2:ui/level/pause_image_4
@@ -3670,6 +3724,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b71e8718063e89145bbb9f65653a6fcb
+    m_Address: mvz2:teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b72151badb68c8846ac8c796bf412fa4
     m_Address: mvz2:mobile_blueprint/gargoyle
     m_ReadOnly: 0
@@ -3802,6 +3862,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c02848a0a5cea0844956b0d53c190349
+    m_Address: mvz2:teruharijou_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0b72b3636804414f96e1cc48809743f
     m_Address: mvz2:held/sword
     m_ReadOnly: 0
@@ -3909,6 +3975,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c604f1896c2593b43bf7fd73fcb300ff
+    m_Address: mvz2:teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c61536478b6af914d8fb75660813567d
     m_Address: mvz2:effect/nightmareaper_shadow
@@ -4654,6 +4726,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb7696c6ae30a5844aeb6c8c789f3acc
+    m_Address: mvz2:map/teruharijou/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb843392916225841887629da91a91fa
     m_Address: mvz2:gun_shot
     m_ReadOnly: 0
@@ -4900,6 +4978,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f70064fbad3e8e249acbd5365f606f06
+    m_Address: mvz2:starshard_rings/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74ea0e5623da9347962fc99538ad869
     m_Address: mvz2:mainmenu/archive
     m_ReadOnly: 0
@@ -5019,6 +5103,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff1139cf5b4ce3e408ba7ca6e7fd9ab0
+    m_Address: mvz2:teruharijou_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff57a0ead1bc10f4fb8737e77bd61164
     m_Address: mvz2:chime

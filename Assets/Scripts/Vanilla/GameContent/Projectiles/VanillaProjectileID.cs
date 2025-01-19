@@ -25,6 +25,8 @@ namespace MVZ2.GameContent.Projectiles
         public const string dart = "dart";
         public const string poisonJavelin = "poison_javelin";
         public const string weaknessGas = "weakness_gas";
+
+        public const string boulder = "boulder";
     }
     public static class VanillaProjectileID
     {
@@ -48,6 +50,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID dart = Get(VanillaProjectileNames.dart);
         public static readonly NamespaceID poisonJavelin = Get(VanillaProjectileNames.poisonJavelin);
         public static readonly NamespaceID weaknessGas = Get(VanillaProjectileNames.weaknessGas);
+
+        public static readonly NamespaceID boulder = Get(VanillaProjectileNames.boulder);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
