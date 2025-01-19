@@ -192,6 +192,13 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        bool IEquatable<IQuadTreeNodeObject>.Equals(IQuadTreeNodeObject other)
+        {
+            if (other is not EntityCollider collider)
+                return false;
+            return this == collider;
+        }
+
         public event Func<EntityCollision, bool> PreCollision;
         public event Action<EntityCollision, int> PostCollision;
         public event Action<EntityCollider> OnEnabled;

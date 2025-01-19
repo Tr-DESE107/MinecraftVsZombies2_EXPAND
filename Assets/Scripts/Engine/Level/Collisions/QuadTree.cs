@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Level.Collisions
@@ -8,24 +8,26 @@ namespace PVZEngine.Level.Collisions
     {
         public QuadTree(Rect size, int maxObjects = 1, int maxDepth = 5)
         {
-            root = new QuadTreeNode<T>(this, null, size, 0);
+            root = CreateNode(this, null, size, 0);
             MaxObjects = maxObjects;
             MaxDepth = maxDepth;
         }
-        public QuadTreeNode<T> Insert(T target)
+        public void Insert(T target)
         {
-            var node = root.Insert(target);
-            SetTargetNode(target, node);
-            return node;
-        }
-        public void SetTargetNode(T target, QuadTreeNode<T> node)
-        {
-            targets[target] = node;
+            var item = AddItem(target);
+            var rect = target.GetCollisionRect();
+            var nodeToInsert = root.EvaluateNode(rect);
+            if (nodeToInsert == null)
+                return;
+            nodeToInsert.Insert(item);
         }
         public void Remove(T target)
         {
-            root.Remove(target);
-            targets.Remove(target);
+            var item = GetItem(target);
+            if (item == null)
+                return;
+            item.node.Remove(item);
+            RemoveItem(item);
         }
         public void FindTargetsInRect(Rect rect, List<T> results)
         {
@@ -33,7 +35,10 @@ namespace PVZEngine.Level.Collisions
         }
         public void GetAllTargets(List<T> results)
         {
-            results.AddRange(targets.Keys);
+            foreach (var item in items)
+            {
+                results.Add(item.target);
+            }
         }
         public QuadTreeNode<T> GetRootNode()
         {
@@ -42,17 +47,81 @@ namespace PVZEngine.Level.Collisions
         public void Update()
         {
             refreshTargetBuffer.Clear();
-            root.GetObjectsToUpdate(refreshTargetBuffer);
-            foreach (var target in refreshTargetBuffer)
+            refreshTargetBuffer.AddRange(items);
+            foreach (var item in refreshTargetBuffer)
             {
-                Remove(target);
-                Insert(target);
+                UpdateTarget(item);
             }
+        }
+        public QuadTreeNode<T> CreateNode(QuadTree<T> tree, QuadTreeNode<T> parent, Rect size, int depth = 0)
+        {
+            var node = nodePool.Get();
+            node.Init(tree, parent, size, depth);
+            return node;
+        }
+        public void ReleaseNode(QuadTreeNode<T> node)
+        {
+            nodePool.Release(node);
+        }
+        private void UpdateTarget(QuadTreeItem<T> item)
+        {
+            var rect = item.target.GetCollisionRect();
+            var node = root.EvaluateNode(rect);
+            item.node.MoveItemTo(item, node);
+        }
+        private QuadTreeItem<T> AddItem(T target)
+        {
+            var item = itemPool.Get();
+            item.target = target;
+            items.Add(item);
+            return item;
+        }
+        private void RemoveItem(QuadTreeItem<T> item)
+        {
+            items.Remove(item);
+            itemPool.Release(item);
+        }
+        private QuadTreeItem<T> GetItem(T target)
+        {
+            foreach (var item in items)
+            {
+                if (item.target.Equals(target))
+                {
+                    return item;
+                }
+            }
+            return null;
         }
         public int MaxObjects { get; }
         public int MaxDepth { get; }
         private QuadTreeNode<T> root;
-        private Dictionary<T, QuadTreeNode<T>> targets = new Dictionary<T, QuadTreeNode<T>>();
-        private List<T> refreshTargetBuffer = new List<T>();
+        private List<QuadTreeItem<T>> items = new List<QuadTreeItem<T>>();
+        private List<QuadTreeItem<T>> refreshTargetBuffer = new List<QuadTreeItem<T>>();
+        private QuadTreeItemPool<T> itemPool = new QuadTreeItemPool<T>();
+        private QuadTreeNodePool<T> nodePool = new QuadTreeNodePool<T>();
+    }
+    public class QuadTreeItem<T> : IPoolable where T : IQuadTreeNodeObject
+    {
+        public void Reset()
+        {
+            target = default;
+            node = null;
+        }
+        public T target;
+        public QuadTreeNode<T> node;
+    }
+    internal class QuadTreeNodePool<T> : ObjectPool<QuadTreeNode<T>> where T : IQuadTreeNodeObject
+    {
+        protected override QuadTreeNode<T> Create()
+        {
+            return new QuadTreeNode<T>();
+        }
+    }
+    internal class QuadTreeItemPool<T> : ObjectPool<QuadTreeItem<T>> where T : IQuadTreeNodeObject
+    {
+        protected override QuadTreeItem<T> Create()
+        {
+            return new QuadTreeItem<T>();
+        }
     }
 }

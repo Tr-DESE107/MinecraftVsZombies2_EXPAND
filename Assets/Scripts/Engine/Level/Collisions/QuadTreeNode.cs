@@ -1,14 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Tools;
+using Tools.Mathematics;
 using UnityEngine;
 
 namespace PVZEngine.Level.Collisions
 {
-    public class QuadTreeNode<T> where T : IQuadTreeNodeObject
+    public class QuadTreeNode<T> : IPoolable where T : IQuadTreeNodeObject
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public QuadTreeNode(QuadTree<T> tree, QuadTreeNode<T> parent, Rect size, int depth = 0)
+        public QuadTreeNode()
+        {
+        }
+        public void Init(QuadTree<T> tree, QuadTreeNode<T> parent, Rect size, int depth = 0)
         {
             Tree = tree;
             Parent = parent;
@@ -22,6 +29,8 @@ namespace PVZEngine.Level.Collisions
         {
             return bounds;
         }
+
+        #region 获取子节点
         public int GetChildCount()
         {
             return children.Count;
@@ -30,82 +39,133 @@ namespace PVZEngine.Level.Collisions
         {
             return children[i];
         }
-        public bool ContainsStrict(Rect rect)
-        {
-            return rect.xMin > bounds.xMin && rect.xMax < bounds.xMax && rect.yMin > bounds.yMin && rect.yMax < bounds.yMax;
-        }
-        public bool ContainsLoose(Rect rect)
-        {
-            return rect.xMin > looseBounds.xMin && rect.xMax < looseBounds.xMax && rect.yMin > looseBounds.yMin && rect.yMax < looseBounds.yMax;
-        }
+        #endregion
+
+        #region 插入
         /// <summary>
         /// 插入一个新的Rect
         /// </summary>
-        public QuadTreeNode<T> Insert(T target)
+        public void Insert(QuadTreeItem<T> item)
         {
-            //获取到这个物体的Rect
-            Rect rect = target.GetCollisionRect();
+            items.Add(item);
+            item.node = this;
+            GainObject();
+        }
+        private void GainObject()
+        {
+            totalTargetCount++;
+            var parent = Parent;
+            while (parent != null)
+            {
+                parent.totalTargetCount++;
+                parent = parent.Parent;
+            }
 
             //判断是否创建子节点
-            if (children.Count <= 0 && (totalTargetCount >= Tree.MaxObjects && depth < Tree.MaxDepth))
+            if (children.Count <= 0 && (totalTargetCount > Tree.MaxObjects && depth < Tree.MaxDepth))
             {
                 // 分裂，并将完全位于子节点中的物体分给子节点。
                 CreateChildren();
                 //填充对象到新创建的子节点中
                 SpreadObjectsToChildren();
             }
-            // 如果有子节点
-            if (children.Count > 0)
-            {
-                //尽可能地分到子节点
-                foreach (var child in children)
-                {
-                    if (child.ContainsStrict(rect))
-                    {
-                        // 完全位于子节点中，加入到子节点中。
-                        totalTargetCount++;
-                        return child.Insert(target);
-                    }
-                }
-            }
-            // 没有子节点，或者踩线了
-            targets.Add(target);
-            totalTargetCount++;
-            return this;
         }
-        public bool Remove(T target)
+        #endregion
+
+        #region 移除
+        public bool Remove(QuadTreeItem<T> item)
         {
             //父节点坍缩
             //遍历移除
-            if (targets.Remove(target))
+            if (items.Remove(item))
             {
                 LoseObject();
                 return true;
             }
-
-            //如果当前节点没有匹配对象，则遍历子节点寻找需要移除的对象
-            if (children.Count > 0)
-            {
-                foreach (var child in children)
-                {
-                    if (child.Remove(target))
-                    {
-                        LoseObject();
-                        return true;
-                    }
-                }
-            }
             return false;
         }
+        private void LoseObject()
+        {
+            totalTargetCount--;
+            if (totalTargetCount <= Tree.MaxObjects)
+            {
+                RecycleObjectsFromChildren();
+                RemoveChildren();
+            }
+            if (Parent != null)
+            {
+                Parent.LoseObject();
+            }
+        }
+        #endregion
+
+        #region 移动
+        public void MoveItemTo(QuadTreeItem<T> item, QuadTreeNode<T> targetNode)
+        {
+            if (this == targetNode)
+                return;
+            if (!items.Remove(item))
+                return;
+            targetNode.items.Add(item);
+            item.node = targetNode;
+            targetNode.GainObject();
+            LoseObject();
+        }
+        #endregion
+
+        #region 评估目标节点
+        public QuadTreeNode<T> EvaluateNode(Rect rect)
+        {
+            if (children.Count <= 0)
+            {
+                return this;
+            }
+            if (!CanChildContain(rect))
+                return this;
+            var child = GetContainerChild(rect);
+            return child.EvaluateNode(rect);
+        }
+        public bool CanContain(Rect rect)
+        {
+            var thisSize = bounds.size;
+            var rectSize = rect.size;
+            return rectSize.x < thisSize.y && rectSize.y < thisSize.y;
+        }
+        public bool CanChildContain(Rect rect)
+        {
+            var thisSize = bounds.size;
+            var childSize = thisSize * 0.5f;
+            var rectSize = rect.size;
+            return rectSize.x < childSize.y && rectSize.y < childSize.y;
+        }
+        public QuadTreeNode<T> GetContainerChild(Rect rect)
+        {
+            var thisCenter = bounds.center;
+            var center = rect.center;
+            int index = 0;
+            if (center.x >= thisCenter.x)
+            {
+                index |= 1;
+            }
+            if (center.y >= thisCenter.y)
+            {
+                index |= 2;
+            }
+            return children[index];
+        }
+        #endregion
+
+        #region 查找目标
         public void FindTargetsInRect(Rect rect, List<T> results)
         {
-            if (!rect.Overlaps(looseBounds))
+            if (!rect.Intersects(looseBounds))
                 return;
 
             //查找匹配对象
-            foreach (var target in targets)
+            foreach (var item in items)
             {
-                if (rect.Overlaps(target.GetCollisionRect()))
+                var target = item.target;
+                if (rect.Intersects(target.GetCollisionRect()))
                 {
                     results.Add(target);
                 }
@@ -117,22 +177,9 @@ namespace PVZEngine.Level.Collisions
                 child.FindTargetsInRect(rect, results);
             }
         }
-        public void GetObjectsToUpdate(List<T> results)
-        {
-            foreach (var target in targets)
-            {
-                var rect = target.GetCollisionRect();
-                if (!bounds.Overlaps(rect))
-                {
-                    // 完全离开所属区域
-                    results.Add(target);
-                }
-            }
-            foreach (var child in children)
-            {
-                child.GetObjectsToUpdate(results);
-            }
-        }
+        #endregion
+
+        #region 创建子节点
         /// <summary>
         /// 分割四叉树，为这个结点计算出四个子结点
         /// </summary>
@@ -143,71 +190,81 @@ namespace PVZEngine.Level.Collisions
             float halfHeight = bounds.height / 2;
             float x = bounds.x;
             float y = bounds.y;
-            children.Add(new QuadTreeNode<T>(Tree, this, new Rect(x, y + halfHeight, halfWidth, halfHeight), depth + 1));
-            children.Add(new QuadTreeNode<T>(Tree, this, new Rect(x + halfWidth, y + halfHeight, halfWidth, halfHeight), depth + 1));
-            children.Add(new QuadTreeNode<T>(Tree, this, new Rect(x, y, halfWidth, halfHeight), depth + 1));
-            children.Add(new QuadTreeNode<T>(Tree, this, new Rect(x + halfWidth, y, halfWidth, halfHeight), depth + 1));
-        }
-        private void RemoveChildren()
-        {
-            children.Clear();
+            children.Add(Tree.CreateNode(Tree, this, new Rect(x, y, halfWidth, halfHeight), depth + 1));
+            children.Add(Tree.CreateNode(Tree, this, new Rect(x + halfWidth, y, halfWidth, halfHeight), depth + 1));
+            children.Add(Tree.CreateNode(Tree, this, new Rect(x, y + halfHeight, halfWidth, halfHeight), depth + 1));
+            children.Add(Tree.CreateNode(Tree, this, new Rect(x + halfWidth, y + halfHeight, halfWidth, halfHeight), depth + 1));
         }
         private void SpreadObjectsToChildren()
         {
-            for (var i = targets.Count - 1; i >= 0; i--)
+            var thisSize = bounds.size;
+            var childSize = thisSize * 0.5f;
+            for (var i = items.Count - 1; i >= 0; i--)
             {
-                var movingTarget = targets[i];
-                var movingRect = movingTarget.GetCollisionRect();
-                //遍历子节点
-                foreach (var child in children)
-                {
-                    //对象满足子节点条件的，插入到子节点中
-                    if (child.ContainsStrict(movingRect))
-                    {
-                        var newNode = child.Insert(movingTarget);
-                        targets.RemoveAt(i);
-                        Tree.SetTargetNode(movingTarget, newNode);
-                        break;
-                    }
-                }
+                var movingItem = items[i];
+                var target = movingItem.target;
+                var movingRect = target.GetCollisionRect();
+                if (!CanChildContain(movingRect))
+                    continue;
+                var child = GetContainerChild(movingRect);
+                child.items.Add(movingItem);
+                child.totalTargetCount++;
+                movingItem.node = child;
+                items.RemoveAt(i);
             }
+        }
+        #endregion 
+
+        #region 回收子节点
+        private void RemoveChildren()
+        {
+            foreach (var child in children)
+            {
+                Tree.ReleaseNode(child);
+            }
+            children.Clear();
         }
         private void RecycleObjectsFromChildren()
         {
             //遍历子节点
             foreach (var child in children)
             {
-                for (var i = child.targets.Count - 1; i >= 0; i--)
+                for (var i = child.items.Count - 1; i >= 0; i--)
                 {
-                    var recycling = child.targets[i];
-                    targets.Add(recycling);
-                    Tree.SetTargetNode(recycling, this);
+                    var recycling = child.items[i];
+                    items.Add(recycling);
+                    recycling.node = this;
                 }
             }
         }
-        private void LoseObject()
+        #endregion
+
+        void IPoolable.Reset()
         {
-            totalTargetCount--;
-            if (totalTargetCount <= Tree.MaxObjects)
-            {
-                RecycleObjectsFromChildren();
-                RemoveChildren();
-            }
+            Tree = null;
+            Parent = null;
+            bounds = default;
+            looseBounds = default;
+            items.Clear();
+            totalTargetCount = 0;
+            children.Clear();
+            depth = 0;
         }
-        public QuadTree<T> Tree { get; }
-        public QuadTreeNode<T> Parent { get; }
+
+        public QuadTree<T> Tree { get; private set; }
+        public QuadTreeNode<T> Parent { get; private set; }
         //rect范围
         private Rect bounds;
         private Rect looseBounds;
         //当前层级内的对象
-        private List<T> targets = new List<T>();
+        private List<QuadTreeItem<T>> items = new List<QuadTreeItem<T>>();
         private int totalTargetCount;
         //子节点
-        private readonly List<QuadTreeNode<T>> children = new List<QuadTreeNode<T>>();
+        private List<QuadTreeNode<T>> children = new List<QuadTreeNode<T>>();
         //当前层级
-        private readonly int depth;
+        private int depth;
     }
-    public interface IQuadTreeNodeObject
+    public interface IQuadTreeNodeObject : IEquatable<IQuadTreeNodeObject>
     {
         Rect GetCollisionRect();
     }

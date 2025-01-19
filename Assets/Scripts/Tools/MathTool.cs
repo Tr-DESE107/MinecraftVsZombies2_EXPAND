@@ -588,6 +588,26 @@ namespace Tools.Mathematics
             //before the last time of overlap
             return firstTime <= lastTime;
         }
+        public static bool Intersects(this Rect rect, Rect target)
+        {
+            if (rect.yMin > target.yMax)
+            {
+                return false;
+            }
+            if (rect.yMax < target.yMin)
+            {
+                return false;
+            }
+            if (rect.xMax < target.xMin)
+            {
+                return false;
+            }
+            if (rect.xMin > target.xMax)
+            {
+                return false;
+            }
+            return true;
+        }
     }
     public enum Axis
     {
