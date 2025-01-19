@@ -43,7 +43,11 @@
     </stage>
     <stage id="halloween_2" name="万圣夜" dayNumber="2" unlock="mvz2:level.halloween_1">
         <talks>
-            <talk type="start" value="mvz2:starshard_tutorial"/>
+            <talk type="start" value="mvz2:starshard_tutorial">
+                <repeat>
+                    <condition requiredNot="mvz2:starshard"/>
+                </repeat>
+            </talk>
             <talk type="end" value="mvz2:halloween_2_over"/>
             <talk type="map" value="mvz2:halloween_2_map"/>
         </talks>
@@ -124,7 +128,11 @@
     </stage>
     <stage id="halloween_7" name="万圣夜" dayNumber="7" unlock="mvz2:level.halloween_6" >
         <talks>
-            <talk type="start" value="mvz2:trigger_tutorial"/>
+            <talk type="start" value="mvz2:trigger_tutorial">
+                <repeat>
+                    <condition requiredNot="mvz2:trigger"/>
+                </repeat>
+            </talk>
             <talk type="end" value="mvz2:halloween_7_over"/>
             <talk type="map" value="mvz2:halloween_7_map"/>
         </talks>

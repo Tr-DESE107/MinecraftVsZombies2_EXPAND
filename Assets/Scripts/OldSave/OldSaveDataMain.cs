@@ -76,7 +76,7 @@ namespace MVZ2.OldSaves
             byte sidePlot = nbt.LoadByte("side_plot", 0);
             bool moneyFound = nbt.LoadBool("money_found", false);
             int money = nbt.LoadInt("money", 0);
-            bool starshardLearnt = nbt.LoadBool("tarshard_learnt", false);
+            bool starshardLearnt = nbt.LoadBool("starshard_learnt", false);
             bool triggerLearnt = nbt.LoadBool("trigger_learnt", false);
             byte cardSlots = nbt.LoadByte("card_slots", 0);
             byte starshardSlots = nbt.LoadByte("starshard_slots", 0);
