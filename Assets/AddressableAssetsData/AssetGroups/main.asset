@@ -395,6 +395,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 173171cbb92903f4abbd185ff17f0e74
+    m_Address: mvz2:level/grids/bevel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1743bdeeec6c4c8499f9e6ae65ff400d
     m_Address: mvz2:fire
     m_ReadOnly: 0
@@ -1632,6 +1638,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 508b6af64add28a4aa27df24e84640ff
     m_Address: mvz2:map/dream/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50c9e8ccf09318c4c811ae6d530b985a
+    m_Address: mvz2:level/grids/normal
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
