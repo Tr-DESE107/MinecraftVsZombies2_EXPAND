@@ -5,5 +5,5 @@
     <category id="enemy_spawn" name="敌人生成" type="entity" />
     <category id="enemy_neutralize" name="消灭敌人" type="entity" />
     <category id="enemy_gameover" name="被敌人击杀" type="entity" />
-    <category id="max_endless_flags" name="无尽模式最高轮数" type="stage" />
+    <category id="max_endless_flags" name="无尽模式最高轮数" type="stage" operation="max" />
 </stats>

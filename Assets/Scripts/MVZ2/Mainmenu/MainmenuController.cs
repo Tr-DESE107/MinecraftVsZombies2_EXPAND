@@ -509,9 +509,19 @@ namespace MVZ2.Mainmenu
                 var meta = main.ResourceManager.GetStatCategoryMeta(new NamespaceID(nsp, category.Name));
                 var metaName = meta?.Name ?? category.Name;
                 var metaType = meta?.Type ?? StatCategoryType.Entity;
+                var metaOperation = meta?.Operation ?? StatOperation.Sum;
 
                 var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
-                var sum = category.GetSum();
+                long categoryNumber = 0;
+                switch (metaOperation) 
+                {
+                    case StatOperation.Sum:
+                        categoryNumber = category.GetSum();
+                        break;
+                    case StatOperation.Max:
+                        categoryNumber = category.GetMax();
+                        break;
+                }
                 var entries = category.GetAllEntries();
                 var entriesViewData = new List<StatEntryViewData>();
                 for (int j = 0; j < entries.Length; j++)
@@ -528,7 +538,7 @@ namespace MVZ2.Mainmenu
                 viewDatas[i] = new StatCategoryViewData()
                 {
                     entries = entriesViewData.OrderByDescending(e => e.count).ToArray(),
-                    sum = sum.ToString(),
+                    sum = categoryNumber.ToString(),
                     title = title
                 };
             }
