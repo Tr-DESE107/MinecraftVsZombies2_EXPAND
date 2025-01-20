@@ -64,10 +64,7 @@ namespace PVZEngine.Entities
                 if (EquipedArmor != null)
                     EquipedArmor.Update();
                 auras.Update();
-                foreach (var buff in buffs.GetAllBuffs())
-                {
-                    buff.Update();
-                }
+                buffs.Update();
                 Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, c => c(this));
                 // 更新碰撞体位置，用于碰撞检测。
                 UpdateColliders();
@@ -290,11 +287,13 @@ namespace PVZEngine.Entities
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
-        public int RemoveBuffs<T>() where T : BuffDefinition => RemoveBuffs(GetBuffs<T>());
+        public int RemoveBuffs<T>() where T : BuffDefinition => buffs.RemoveBuffs<T>();
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
+        public Buff GetFirstBuff<T>() where T : BuffDefinition => buffs.GetFirstBuff<T>();
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
+        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceEntity(ID, buff.ID);
         private long AllocBuffID()
         {
@@ -880,7 +879,8 @@ namespace PVZEngine.Entities
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         Entity IBuffTarget.GetEntity() => this;
-        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
+        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
         object IModifierContainer.GetProperty(string name) => GetProperty<object>(name);

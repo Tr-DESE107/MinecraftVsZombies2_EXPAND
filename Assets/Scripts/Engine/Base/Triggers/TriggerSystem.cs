@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using Tools;
 
 namespace PVZEngine.Triggers
 {
@@ -37,12 +38,12 @@ namespace PVZEngine.Triggers
             }
             return removed;
         }
-        public Trigger<T>[] GetTriggers<T>(CallbackReference callbackID) where T : Delegate
+        public void GetTriggers(CallbackReference callbackID, List<ITrigger> triggers)
         {
             var triggerList = GetTriggerList(callbackID);
             if (triggerList == null)
-                return Array.Empty<Trigger<T>>();
-            return triggerList.triggers.OfType<Trigger<T>>().ToArray();
+                return;
+            triggers.AddRange(triggerList.triggers);
         }
         private EventTriggerList GetTriggerList(CallbackReference callbackID)
         {
@@ -68,6 +69,7 @@ namespace PVZEngine.Triggers
     {
         CallbackReference CallbackID { get; }
         int Priority { get; }
+        bool Filter(object value);
     }
     public class Trigger<T> : ITrigger where T: Delegate
     {

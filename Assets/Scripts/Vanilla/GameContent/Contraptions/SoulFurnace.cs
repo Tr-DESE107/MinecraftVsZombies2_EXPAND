@@ -117,10 +117,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var result = new TriggerResultBoolean();
             result.Result = GetFuel(soulFurnace) <= REFUEL_THRESOLD && !entity.IsDead;
-            foreach (var trigger in Global.Game.GetTriggers(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE))
-            {
-                trigger.Run((c) => c(entity, soulFurnace, result));
-            }
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE, result, c => c(entity, soulFurnace, result));
             return result.Result;
         }
         public static int GetSacrificeFuel(Entity entity, Entity soulFurnace)

@@ -129,16 +129,9 @@ namespace PVZEngine.Level
             ClearEntityTrash();
             UpdateSeedPacks();
             UpdateDelayedEnergyEntities();
-            var entities = GetEntities();
-            foreach (var entity in entities)
-            {
-                entity.Update();
-            }
+            UpdateEntities();
             CollisionUpdate();
-            foreach (var buff in buffs.GetAllBuffs())
-            {
-                buff.Update();
-            }
+            buffs.Update();
             foreach (var component in levelComponents)
             {
                 component.Update();
@@ -347,15 +340,15 @@ namespace PVZEngine.Level
             return buff;
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
-        public int RemoveBuffs<T>() where T : BuffDefinition => this.buffs.RemoveBuffs(GetBuffs<T>());
+        public int RemoveBuffs<T>() where T : BuffDefinition => this.buffs.RemoveBuffs<T>();
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
-        public int RemoveBuffs(BuffDefinition buffDef) => RemoveBuffs(GetBuffs(buffDef));
+        public int RemoveBuffs(BuffDefinition buffDef) => this.buffs.RemoveBuffs(buffDef);
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public bool HasBuff(BuffDefinition buffDef) => buffs.HasBuff(buffDef);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public Buff[] GetBuffs(BuffDefinition buffDef) => buffs.GetBuffs(buffDef);
-        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
+        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceLevel(buff.ID);
         private long AllocBuffID()
         {
@@ -555,7 +548,8 @@ namespace PVZEngine.Level
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => null;
-        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
+        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Buff IBuffTarget.CreateBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());
         bool IBuffTarget.Exists() => true;
         #endregion

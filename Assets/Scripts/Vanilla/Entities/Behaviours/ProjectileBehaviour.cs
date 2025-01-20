@@ -156,17 +156,10 @@ namespace MVZ2.Vanilla.Entities
 
             // 触发击中前回调。
             PreHitEntity(hitInput, damageInput);
-            if (hitInput.Canceled)
+            if (hitInput.IsInterrupted)
                 return;
             var filterValue = projectile.GetDefinitionID();
-            foreach (var trigger in projectile.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_PROJECTILE_HIT))
-            {
-                if (!trigger.Filter(filterValue))
-                    continue;
-                trigger.Run(c => c(hitInput, damageInput));
-                if (hitInput.Canceled)
-                    return;
-            }
+            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, filterValue, hitInput, c => c(hitInput, damageInput));
 
             // 对敌人造成伤害
             DamageOutput damageOutput = VanillaEntityExt.TakeDamage(damageInput);

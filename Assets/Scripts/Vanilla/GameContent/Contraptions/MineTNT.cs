@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Contraptions
             else
             {
                 if (entity.HasBuff<MineTNTInvincibleBuff>())
-                    entity.RemoveBuffs(entity.GetBuffs<MineTNTInvincibleBuff>());
+                    entity.RemoveBuffs<MineTNTInvincibleBuff>();
             }
             entity.SetAnimationBool("Ready", riseTimer.Frame < 30);
         }

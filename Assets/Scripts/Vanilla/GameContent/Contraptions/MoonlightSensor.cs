@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Contraptions
             var timer = GetUpgradeTimer(entity);
             timer?.Reset();
             SetUpgraded(entity, true);
-            entity.RemoveBuffs(entity.GetBuffs<MoonlightSensorLaunchingBuff>());
+            entity.RemoveBuffs<MoonlightSensorLaunchingBuff>();
             entity.PlaySound(VanillaSoundID.screw);
         }
         public static FrameTimer GetProductionTimer(Entity entity)

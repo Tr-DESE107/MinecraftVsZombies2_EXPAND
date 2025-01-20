@@ -59,7 +59,7 @@ namespace MVZ2.Level
         }
         private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
         {
-            var target = new HeldItemTargetEntity(entityCtrl.Entity);
+            var target = entityCtrl.HeldItemTarget;
             var highlight = level.GetHeldHighlight(target);
             entityCtrl.SetHighlight(highlight == HeldHighlight.Entity);
             if (!IsGameRunning())
@@ -100,7 +100,7 @@ namespace MVZ2.Level
             var entity = entityCtrl.Entity;
             if (IsGameRunning())
             {
-                var target = new HeldItemTargetEntity(entity);
+                var target = entityCtrl.HeldItemTarget;
                 level.UseHeldItem(target, PointerInteraction.Press);
             }
             else
@@ -223,7 +223,6 @@ namespace MVZ2.Level
         public const string VIEW_IN_ALMANAC = "在图鉴中查看";
 
         private List<EntityController> entities = new List<EntityController>();
-
 
         #region 保存属性
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);

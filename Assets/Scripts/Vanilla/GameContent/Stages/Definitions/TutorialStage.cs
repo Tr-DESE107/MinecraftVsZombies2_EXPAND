@@ -219,8 +219,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_HOLD_PICKAXE:
                     {
-                        var buffs = level.GetBuffs<TutorialPickaxeDisableBuff>();
-                        level.RemoveBuffs(buffs);
+                        level.RemoveBuffs<TutorialPickaxeDisableBuff>();
                         level.SetNoProduction(true);
                         level.SetHintArrowPointToPickaxe();
                     }

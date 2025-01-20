@@ -60,12 +60,48 @@ namespace PVZEngine.Entities
         {
             return behaviours.OfType<T>().ToArray();
         }
-        public void Init(Entity entity) { behaviours.ForEach(b => b.Init(entity)); }
-        public void Update(Entity entity) { behaviours.ForEach(b => b.Update(entity)); }
-        public void PreTakeDamage(DamageInput input) { behaviours.ForEach(b => b.PreTakeDamage(input)); }
-        public void PostTakeDamage(DamageOutput result) { behaviours.ForEach(b => b.PostTakeDamage(result)); }
-        public void PostContactGround(Entity entity, Vector3 velocity) { behaviours.ForEach(b => b.PostContactGround(entity, velocity)); }
-        public void PostLeaveGround(Entity entity) { behaviours.ForEach(b => b.PostLeaveGround(entity)); }
+        public void Init(Entity entity)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.Init(entity);
+            }
+        }
+        public void Update(Entity entity)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.Update(entity);
+            }
+        }
+        public void PreTakeDamage(DamageInput input)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PreTakeDamage(input);
+            }
+        }
+        public void PostTakeDamage(DamageOutput result)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostTakeDamage(result);
+            }
+        }
+        public void PostContactGround(Entity entity, Vector3 velocity)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostContactGround(entity, velocity);
+            }
+        }
+        public void PostLeaveGround(Entity entity)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostLeaveGround(entity);
+            }
+        }
         public bool PreCollision(EntityCollision collision)
         {
             foreach (var behaviour in behaviours)
@@ -75,12 +111,48 @@ namespace PVZEngine.Entities
             }
             return true;
         }
-        public void PostCollision(EntityCollision collision, int state) { behaviours.ForEach(b => b.PostCollision(collision, state)); }
-        public void PostDeath(Entity entity, DeathInfo deathInfo) { behaviours.ForEach(b => b.PostDeath(entity, deathInfo)); }
-        public void PostRemove(Entity entity) { behaviours.ForEach(b => b.PostRemove(entity)); }
-        public void PostEquipArmor(Entity entity, Armor armor) { behaviours.ForEach(b => b.PostEquipArmor(entity, armor)); }
-        public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage) { behaviours.ForEach(b => b.PostDestroyArmor(entity, armor, damage)); }
-        public void PostRemoveArmor(Entity entity, Armor armor) { behaviours.ForEach(b => b.PostRemoveArmor(entity, armor)); }
+        public void PostCollision(EntityCollision collision, int state)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostCollision(collision, state);
+            }
+        }
+        public void PostDeath(Entity entity, DeathInfo deathInfo)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostDeath(entity, deathInfo);
+            }
+        }
+        public void PostRemove(Entity entity)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostRemove(entity);
+            }
+        }
+        public void PostEquipArmor(Entity entity, Armor armor)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostEquipArmor(entity, armor);
+            }
+        }
+        public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostDestroyArmor(entity, armor, damage);
+            }
+        }
+        public void PostRemoveArmor(Entity entity, Armor armor)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.PostRemoveArmor(entity, armor);
+            }
+        }
         public NamespaceID GetModelID()
         {
             NamespaceID id;

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Tools;
 
 namespace PVZEngine.Triggers
 {
@@ -18,17 +20,35 @@ namespace PVZEngine.Triggers
         }
         public static void RunCallbackFiltered<T>(this IGameTriggerSystem triggers, CallbackReference<T> callbackID, object filterValue, IInterruptSource source, Action<T> runner) where T : Delegate
         {
-            var triggerList = triggers.GetTriggers<T>(callbackID);
-            if (triggerList == null)
-                return;
-            foreach (var trigger in triggerList)
+            var buffer = pool.Get();
+            triggers.GetTriggers(callbackID, buffer.list);
+            foreach (var trigger in buffer.list)
             {
                 if (source != null && source.IsInterrupted)
                     return;
                 if (!trigger.Filter(filterValue))
                     continue;
-                trigger.Run(runner);
+                if (trigger is not Trigger<T> tTrigger)
+                    continue;
+                tTrigger.Run(runner);
             }
+            pool.Release(buffer);
+        }
+        private static TriggerBufferPool pool = new TriggerBufferPool();
+    }
+    internal class TriggerBuffer : IPoolable
+    {
+        public void Reset()
+        {
+            list.Clear();
+        }
+        public List<ITrigger> list = new List<ITrigger>();
+    }
+    internal class TriggerBufferPool : ObjectPool<TriggerBuffer>
+    {
+        protected override TriggerBuffer Create()
+        {
+            return new TriggerBuffer();
         }
     }
 }

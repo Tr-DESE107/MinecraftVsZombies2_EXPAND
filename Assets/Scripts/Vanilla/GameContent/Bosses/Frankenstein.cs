@@ -237,7 +237,7 @@ namespace MVZ2.GameContent.Bosses
             }
             else
             {
-                boss.RemoveBuffs(boss.GetBuffs<FrankensteinSteelBuff>());
+                boss.RemoveBuffs<FrankensteinSteelBuff>();
             }
             boss.SetAnimationBool("Steel", value);
         }

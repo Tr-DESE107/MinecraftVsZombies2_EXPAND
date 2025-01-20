@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using PVZEngine.Triggers;
 
 namespace PVZEngine
@@ -7,6 +8,6 @@ namespace PVZEngine
     {
         void AddTrigger(ITrigger trigger);
         bool RemoveTrigger(ITrigger trigger);
-        Trigger<T>[] GetTriggers<T>(CallbackReference<T> callbackID) where T : Delegate;
+        void GetTriggers(CallbackReference callbackID, List<ITrigger> results);
     }
 }

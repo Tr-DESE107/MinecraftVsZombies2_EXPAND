@@ -20,13 +20,8 @@ namespace MVZ2.GameContent.Projectiles
             if (hitResult.Shield != null)
                 return;
             var other = hitResult.Other;
-            var buffs = other.GetBuffs<ParabotBuff>();
-            Buff buff;
-            if (buffs.Length > 0)
-            {
-                buff = buffs[0];
-            }
-            else
+            var buff = other.GetFirstBuff<ParabotBuff>();
+            if (buff == null)
             {
                 buff = other.AddBuff<ParabotBuff>();
             }

@@ -68,12 +68,7 @@ namespace MVZ2.Vanilla.Grids
                     return null;
                 placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
             }
-            foreach (var trigger in level.Triggers.GetTriggers(VanillaLevelCallbacks.CAN_PLACE_ENTITY))
-            {
-                if (!trigger.Filter(entityID))
-                    continue;
-                trigger.Run(c => c(grid, entityID, error));
-            }
+            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, entityID, error, c => c(grid, entityID, error));
             return error.Result;
         }
         public static bool CanPlaceBlueprint(this LawnGrid grid, NamespaceID seedID, out NamespaceID error)

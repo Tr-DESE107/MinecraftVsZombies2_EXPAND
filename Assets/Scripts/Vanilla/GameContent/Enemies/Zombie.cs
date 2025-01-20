@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (entity.HasBuff<BoatBuff>())
             {
-                entity.RemoveBuffs(entity.GetBuffs<BoatBuff>());
+                entity.RemoveBuffs<BoatBuff>();
                 // 掉落碎船掉落物
                 var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
                 effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);

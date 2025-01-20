@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Implements
             {
                 if (entity.HasBuff<InWaterBuff>())
                 {
-                    entity.RemoveBuffs(entity.GetBuffs<InWaterBuff>());
+                    entity.RemoveBuffs<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySound(VanillaSoundID.water);
                     entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_EXIT, c => c(entity, WaterInteraction.ACTION_EXIT));

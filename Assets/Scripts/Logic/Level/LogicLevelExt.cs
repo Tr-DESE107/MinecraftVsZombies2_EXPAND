@@ -12,12 +12,7 @@ namespace MVZ2Logic.Level
         public static bool IsBlueprintNotRecommmended(this LevelEngine level, NamespaceID blueprint)
         {
             var result = new TriggerResultBoolean();
-            foreach (var trigger in level.Triggers.GetTriggers(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED))
-            {
-                if (!trigger.Filter(blueprint))
-                    continue;
-                trigger.Run(c => c(level, blueprint, result));
-            }
+            level.Triggers.RunCallbackFiltered(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED, blueprint, result, c => c(level, blueprint, result));
             return result.Result;
         }
         public static void SetBehaviourField(this LevelEngine level, NamespaceID id, string name, object value)

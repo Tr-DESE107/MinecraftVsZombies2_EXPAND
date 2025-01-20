@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Contraptions
                 state = GetArmoredHealthState(contraption, maxHP);
                 if (contraption.Health <= maxHP * 0.4f)
                 {
-                    contraption.RemoveBuffs(contraption.GetBuffs<ObsidianArmorBuff>());
+                    contraption.RemoveBuffs<ObsidianArmorBuff>();
                 }
             }
             else

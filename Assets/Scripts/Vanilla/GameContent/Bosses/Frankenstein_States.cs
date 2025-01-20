@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Bosses
                 }
                 else
                 {
-                    entity.RemoveBuffs(entity.GetBuffs<FrankensteinTransformingBuff>());
+                    entity.RemoveBuffs<FrankensteinTransformingBuff>();
                 }
                 entity.SetAnimationBool("EyelightStable", state != STATE_FAINT && state != STATE_DEAD);
 

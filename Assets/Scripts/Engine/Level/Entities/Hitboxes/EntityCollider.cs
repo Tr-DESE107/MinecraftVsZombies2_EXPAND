@@ -140,8 +140,13 @@ namespace PVZEngine.Entities
         }
         public void ExitCollision(LevelEngine level)
         {
-            var notCollided = collisionList.Except(collisionThisTick).ToArray();
-            foreach (var collision in notCollided)
+            exitBuffer.Clear();
+            exitBuffer.AddRange(collisionList);
+            foreach (var collision in collisionThisTick)
+            {
+                exitBuffer.Remove(collision);
+            }
+            foreach (var collision in exitBuffer)
             {
                 if (collision != null)
                 {
@@ -211,5 +216,6 @@ namespace PVZEngine.Entities
         private List<Hitbox> hitboxes = new List<Hitbox>();
         private List<EntityCollision> collisionThisTick = new List<EntityCollision>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
+        private List<EntityCollision> exitBuffer = new List<EntityCollision>();
     }
 }

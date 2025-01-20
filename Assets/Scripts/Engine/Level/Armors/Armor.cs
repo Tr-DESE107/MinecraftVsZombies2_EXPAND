@@ -29,10 +29,7 @@ namespace PVZEngine.Armors
             Health = Mathf.Min(Health, this.GetMaxHealth());
             if (Definition != null)
                 Definition.PostUpdate(this);
-            foreach (var buff in buffs.GetAllBuffs())
-            {
-                buff.Update();
-            }
+            buffs.Update();
         }
         public void Destroy(ArmorDamageResult result)
         {
@@ -128,8 +125,8 @@ namespace PVZEngine.Armors
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
-        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
+        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID, buff.ID);
         private long AllocBuffID()
         {
@@ -209,7 +206,8 @@ namespace PVZEngine.Armors
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => Owner;
-        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
+        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.EquipedArmor == this;
 
         #region 属性字段

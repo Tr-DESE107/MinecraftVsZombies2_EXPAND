@@ -101,20 +101,10 @@ namespace MVZ2.Vanilla.Entities
             if (entity == null)
                 return false;
             entity.Definition.PreTakeDamage(damageInfo);
-            if (damageInfo.Canceled)
-            {
+            if (damageInfo.IsInterrupted)
                 return false;
-            }
-            var triggers = damageInfo.Entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE);
-            foreach (var trigger in triggers)
-            {
-                trigger.Run(c => c(damageInfo));
-                if (damageInfo.Canceled)
-                {
-                    return false;
-                }
-            }
-            return true;
+            damageInfo.Entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, damageInfo, c => c(damageInfo));
+            return !damageInfo.IsInterrupted;
         }
         private static void PostTakeDamage(DamageOutput result)
         {
@@ -427,16 +417,8 @@ namespace MVZ2.Vanilla.Entities
             var entity = info.Entity;
             if (entity == null)
                 return false;
-            var triggers = entity.Level.Triggers.GetTriggers(VanillaLevelCallbacks.PRE_ENTITY_HEAL);
-            foreach (var trigger in triggers)
-            {
-                trigger.Run(c => c(info));
-                if (info.Canceled)
-                {
-                    return false;
-                }
-            }
-            return true;
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENTITY_HEAL, info, c => c(info));
+            return !info.IsInterrupted;
         }
         private static void PostHeal(HealOutput result)
         {

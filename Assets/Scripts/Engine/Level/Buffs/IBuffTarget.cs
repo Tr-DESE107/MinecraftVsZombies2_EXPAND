@@ -12,12 +12,9 @@ namespace PVZEngine.Buffs
         bool RemoveBuff(Buff buff);
         IModelInterface GetInsertedModel(NamespaceID key);
         Entity GetEntity();
-        IEnumerable<Buff> GetBuffs();
+        void GetBuffs(List<Buff> results);
         BuffReference GetBuffReference(Buff buff);
-        Buff GetBuff(long id)
-        {
-            return GetBuffs().FirstOrDefault(b => b.ID == id);
-        }
+        Buff GetBuff(long id);
         bool Exists();
     }
 }

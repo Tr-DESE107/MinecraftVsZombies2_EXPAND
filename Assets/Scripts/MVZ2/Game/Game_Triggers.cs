@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using PVZEngine;
 using PVZEngine.Triggers;
 
@@ -15,9 +16,9 @@ namespace MVZ2.Games
         {
             return triggerSystem.RemoveTrigger(trigger);
         }
-        public Trigger<T>[] GetTriggers<T>(CallbackReference<T> callbackID) where T: Delegate
+        public void GetTriggers(CallbackReference callbackID, List<ITrigger> results)
         {
-            return triggerSystem.GetTriggers<T>(callbackID);
+            triggerSystem.GetTriggers(callbackID, results);
         }
         #endregion
 

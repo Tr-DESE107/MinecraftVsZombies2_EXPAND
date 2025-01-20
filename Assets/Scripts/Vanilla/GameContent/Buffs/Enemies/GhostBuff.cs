@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
@@ -41,22 +42,27 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = damageInfo.Entity;
             if (entity == null)
                 return;
-            var buffs = entity.GetBuffs<GhostBuff>();
-            if (buffs.Length <= 0)
-                return;
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.WHACK))
+                return;
+            buffBuffer.Clear();
+            entity.GetBuffs<GhostBuff>(buffBuffer);
+            if (buffBuffer.Count <= 0)
                 return;
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))
             {
-                foreach (var buff in buffs)
+                foreach (var buff in buffBuffer)
                 {
                     buff.SetProperty(PROP_ETHEREAL, false);
                     SetEverIlluminated(buff, true);
                 }
             }
-            if (buffs.Any(b => b.GetProperty<bool>(PROP_ETHEREAL)))
+            foreach (var buff in buffBuffer)
             {
-                damageInfo.Multiply(0.1f);
+                if (buff.GetProperty<bool>(PROP_ETHEREAL))
+                {
+                    damageInfo.Multiply(0.1f);
+                    break;
+                }
             }
         }
         private void UpdateIllumination(Buff buff)
@@ -114,7 +120,16 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public static bool IsEverIlluminated(Entity entity)
         {
-            return entity.GetBuffs<GhostBuff>().Any(b => GhostBuff.IsEverIlluminated(b));
+            checkBuffer.Clear();
+            entity.GetBuffs<GhostBuff>(checkBuffer);
+            foreach (var buff in checkBuffer)
+            {
+                if (GhostBuff.IsEverIlluminated(buff))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public const string PROP_EVER_ILLUMINATED = "EverIlluminated";
         public const string PROP_TINT_MULTIPLIER = "TintMultiplier";
@@ -126,5 +141,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public const float SHADOW_ALPHA_MIN = 0;
         public const float SHADOW_ALPHA_MAX = 1;
         public const float SHADOW_ALPHA_SPEED = 0.04f;
+        private List<Buff> buffBuffer = new List<Buff>();
+        private static List<Buff> checkBuffer = new List<Buff>();
     }
 }

@@ -1,16 +1,17 @@
 ﻿using PVZEngine.Armors;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace PVZEngine.Damages
 {
-    public class HealInput
+    public class HealInput : IInterruptSource
     {
         public float OriginalAmount { get; private set; }
         public float Amount { get; private set; }
         public Entity Entity { get; private set; }
         public Armor Armor { get; private set; }
         public EntityReferenceChain Source { get; set; }
-        public bool Canceled { get; private set; }
+        public bool IsInterrupted { get; private set; }
         public bool ToArmor { get; private set; }
 
         public HealInput(float amount, Entity entity, EntityReferenceChain source)
@@ -40,7 +41,7 @@ namespace PVZEngine.Damages
         }
         public void Cancel()
         {
-            Canceled = true;
+            IsInterrupted = true;
         }
     }
 }

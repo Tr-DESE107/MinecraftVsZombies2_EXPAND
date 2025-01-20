@@ -48,6 +48,7 @@ namespace MVZ2.Entities
 
             transform.position = Level.LawnToTrans(Entity.Position);
             lastPosition = transform.position;
+            HeldItemTarget = new HeldItemTargetEntity(Entity);
         }
 
         #region 模型
@@ -85,33 +86,34 @@ namespace MVZ2.Entities
         #region 更新
         public void UpdateFixed()
         {
-            var posOffset = GetTransformOffset();
-
-            var pos = Entity.Position;
-            var currentTransPos = Level.LawnToTrans(pos);
-            transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
-            var finalOffset = transform.position - currentTransPos;
-
-            UpdateShadow(finalOffset);
             if (Model)
             {
                 Model.UpdateFixed();
             }
             if (Level.IsGameRunning())
             {
-                var pressed = hoveredPointerId.Any(id => pressedPointerId.Contains(id));
-                var holding = hoveredPointerId.Any(id => Main.InputManager.IsPointerHolding(id));
+                bool pressed = false;
+                bool holding = false;
+                foreach (var id in hoveredPointerId)
+                {
+                    if (!pressed && pressedPointerId.Contains(id))
+                    {
+                        pressed = true;
+                    }
+                    if (!holding && Main.InputManager.IsPointerHolding(id))
+                    {
+                        holding = true;
+                    }
+                }
                 if (pressed)
                 {
                     // 按住
-                    var target = new HeldItemTargetEntity(Entity);
-                    Entity.Level.UseHeldItem(target, PointerInteraction.Hold);
+                    Entity.Level.UseHeldItem(HeldItemTarget, PointerInteraction.Hold);
                 }
                 else if (holding)
                 {
                     // 划过
-                    var target = new HeldItemTargetEntity(Entity);
-                    Entity.Level.UseHeldItem(target, PointerInteraction.Streak);
+                    Entity.Level.UseHeldItem(HeldItemTarget, PointerInteraction.Streak);
                 }
             }
         }
@@ -321,8 +323,7 @@ namespace MVZ2.Entities
                 return true;
             if (definition == null)
                 return false;
-            var target = new HeldItemTargetEntity(Entity);
-            return definition.CheckRaycast(target, data);
+            return definition.CheckRaycast(HeldItemTarget, data);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
@@ -494,6 +495,7 @@ namespace MVZ2.Entities
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
+        public HeldItemTargetEntity HeldItemTarget { get; private set; }
         private RandomGenerator rng;
         private List<int> hoveredPointerId = new List<int>();
         private List<int> pressedPointerId = new List<int>();

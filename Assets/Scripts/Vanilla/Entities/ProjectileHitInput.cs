@@ -1,16 +1,17 @@
 ﻿using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public class ProjectileHitInput
+    public class ProjectileHitInput : IInterruptSource
     {
         public Entity Projectile { get; set; }
         public Entity Other { get; set; }
         public bool Pierce { get; set; }
-        public bool Canceled { get; private set; }
+        public bool IsInterrupted { get; private set; }
         public void Cancel()
         {
-            Canceled = true;
+            IsInterrupted = true;
         }
     }
 }

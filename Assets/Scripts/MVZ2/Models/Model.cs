@@ -192,10 +192,14 @@ namespace MVZ2.Models
         }
         public Model GetChildModel(NamespaceID key)
         {
-            var model = childModels.FirstOrDefault(m => !m.IsDestroying() && m.parentKey == key);
-            if (!model)
-                return null;
-            return model;
+            foreach (var child in childModels)
+            {
+                if (!child.IsDestroying() && child.parentKey == key)
+                {
+                    return child;
+                }
+            }
+            return null;
         }
         public void ChangeChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {
@@ -293,7 +297,12 @@ namespace MVZ2.Models
         }
         public ModelAnchor GetAnchor(string name)
         {
-            return modelAnchors.FirstOrDefault(a => a.key == name);
+            foreach (var anchor in modelAnchors)
+            {
+                if (anchor.key == name)
+                    return anchor;
+            }
+            return null;
         }
         public RandomGenerator GetRNG()
         {

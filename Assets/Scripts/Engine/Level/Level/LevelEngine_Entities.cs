@@ -264,6 +264,15 @@ namespace PVZEngine.Level
             entityTrash.Clear();
         }
 
+        private void UpdateEntities()
+        {
+            entityUpdateBuffer.Clear();
+            entityUpdateBuffer.AddRange(entities);
+            foreach (var entity in entityUpdateBuffer)
+            {
+                entity.Update();
+            }
+        }
         #region 碰撞
         public void FindCollidersRange(int mask, Rect rect, List<EntityCollider> collider)
         {
@@ -389,6 +398,7 @@ namespace PVZEngine.Level
         private long currentEntityID = 1;
         private List<Entity> entities = new List<Entity>();
         private List<Entity> entityTrash = new List<Entity>();
+        private List<Entity> entityUpdateBuffer = new List<Entity>();
         private List<EntityCollider> colliderBuffer = new List<EntityCollider>();
         private List<EntityCollider> collisionBuffer = new List<EntityCollider>();
         private Dictionary<int, QuadTreeCollider> quadTrees = new Dictionary<int, QuadTreeCollider>();

@@ -142,7 +142,7 @@ namespace PVZEngine.SeedPacks
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public Buff[] GetAllBuffs() => buffs.GetAllBuffs();
+        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public abstract BuffReference GetBuffReference(Buff buff);
         private long AllocBuffID()
         {
@@ -185,10 +185,7 @@ namespace PVZEngine.SeedPacks
         {
             auras.Update();
             OnUpdate(rechargeSpeed);
-            foreach (var buff in buffs.GetAllBuffs())
-            {
-                buff.Update();
-            }
+            buffs.Update();
             Definition.Update(this, rechargeSpeed);
         }
         protected virtual void OnUpdate(float rechargeSpeed)
@@ -248,7 +245,8 @@ namespace PVZEngine.SeedPacks
         #endregion
 
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
-        IEnumerable<Buff> IBuffTarget.GetBuffs() => buffs.GetAllBuffs();
+        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
+        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IBuffTarget.GetEntity() => null;
         Entity IAuraSource.GetEntity() => null;
         LevelEngine IAuraSource.GetLevel() => Level;

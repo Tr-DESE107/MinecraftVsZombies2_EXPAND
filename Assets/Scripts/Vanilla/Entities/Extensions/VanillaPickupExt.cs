@@ -27,7 +27,6 @@ namespace MVZ2.Vanilla.Entities
                 return false;
             if (collectible.PreCollect(entity) == false)
                 return false;
-            var triggers = Global.Game.GetTriggers(VanillaLevelCallbacks.PRE_PICKUP_COLLECT);
             var result = new TriggerResultBoolean();
             result.Result = true;
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_PICKUP_COLLECT, result, c => c(entity, result));

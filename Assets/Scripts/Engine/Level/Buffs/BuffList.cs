@@ -22,6 +22,8 @@ namespace PVZEngine.Buffs
             }
             return false;
         }
+
+        #region 移除
         public bool RemoveBuff(Buff buff)
         {
             changedPropertiesBuffer.Clear();
@@ -34,6 +36,29 @@ namespace PVZEngine.Buffs
                 return true;
             }
             return false;
+        }
+        #endregion
+
+        #region 移除多个
+        public int RemoveBuffs(BuffDefinition buffDef)
+        {
+            if (buffDef == null)
+                return 0;
+
+            changedPropertiesBuffer.Clear();
+            int count = 0;
+            for (int i = buffs.Count - 1; i >= 0; i--)
+            {
+                var buff = buffs[i];
+                if (buff.Definition != buffDef)
+                    continue;
+                count += RemoveBuffImplement(buff) ? 1 : 0;
+            }
+            foreach (var prop in changedPropertiesBuffer)
+            {
+                OnPropertyChangedCallback(prop);
+            }
+            return count;
         }
         public int RemoveBuffs(IEnumerable<Buff> buffs)
         {
@@ -52,29 +77,107 @@ namespace PVZEngine.Buffs
             }
             return count;
         }
+        public int RemoveBuffs<T>() where T : BuffDefinition
+        {
+            changedPropertiesBuffer.Clear();
+            int count = 0;
+            for (int i = buffs.Count - 1; i >= 0; i --)
+            {
+                var buff = buffs[i];
+                if (buff.Definition is not T)
+                    continue;
+                count += RemoveBuffImplement(buff) ? 1 : 0;
+            }
+            foreach (var prop in changedPropertiesBuffer)
+            {
+                OnPropertyChangedCallback(prop);
+            }
+            return count;
+        }
+        #endregion
+
+        #region 包含
         public bool HasBuff<T>() where T : BuffDefinition
         {
-            return buffs.Any(b => b.Definition is T);
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition is T)
+                    return true;
+            }
+            return false;
         }
         public bool HasBuff(BuffDefinition buffDef)
         {
-            return buffs.Any(b => b.Definition == buffDef);
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition == buffDef)
+                    return true;
+            }
+            return false;
         }
         public bool HasBuff(Buff buff)
         {
             return buffs.Contains(buff);
         }
+        #endregion
+
+        #region 获取单个
+        public Buff GetBuff(long id)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.ID == id)
+                    return buff;
+            }
+            return null;
+        }
+        public Buff GetFirstBuff<T>() where T : BuffDefinition
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition is T)
+                {
+                    return buff;
+                }
+            }
+            return null;
+        }
+        #endregion
+
+        #region 获取多个
         public Buff[] GetBuffs<T>() where T : BuffDefinition
         {
-            return buffs.Where(b => b.Definition is T).ToArray();
+            var list = new List<Buff>();
+            GetBuffsNonAlloc<T>(list);
+            return list.ToArray();
         }
-        public Buff[] GetBuffs(BuffDefinition buffDef)
+        public void GetBuffsNonAlloc<T>(List<Buff> results) where T : BuffDefinition
         {
-            return buffs.Where(b => b.Definition == buffDef).ToArray();
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition is T)
+                {
+                    results.Add(buff);
+                }
+            }
         }
-        public Buff[] GetAllBuffs()
+        #endregion
+
+        #region 获取全部
+        public void GetAllBuffs(List<Buff> results)
         {
-            return buffs.ToArray();
+            results.AddRange(buffs);
+        }
+        #endregion
+
+        public void Update()
+        {
+            updateBuffer.Clear();
+            GetAllBuffs(updateBuffer);
+            foreach (var buff in updateBuffer)
+            {
+                buff.Update();
+            }
         }
         private bool AddBuffImplement(Buff buff)
         {
@@ -224,6 +327,7 @@ namespace PVZEngine.Buffs
         public event Action<NamespaceID> OnModelInsertionRemoved;
         public event Action<string> OnPropertyChanged;
         private HashSet<string> changedPropertiesBuffer = new HashSet<string>();
+        private List<Buff> updateBuffer = new List<Buff>();
         private List<Buff> buffs = new List<Buff>();
         private List<NamespaceID> createdModelInsertions = new List<NamespaceID>();
         private Dictionary<string, List<ModifierContainerItem>> modifierCaches = new Dictionary<string, List<ModifierContainerItem>>();
