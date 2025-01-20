@@ -10,10 +10,14 @@ namespace MVZ2.Map
     {
         public void SetEndlessFlagsTextActive(bool active)
         {
+            if (!endlessFlagsText)
+                return;
             endlessFlagsText.gameObject.SetActive(active);
         }
         public void SetEndlessFlagsText(string text)
         {
+            if (!endlessFlagsText)
+                return;
             endlessFlagsText.text = text;
         }
         public int GetMapButtonCount()
@@ -28,14 +32,20 @@ namespace MVZ2.Map
         }
         public void SetEndlessButtonInteractable(bool interactable)
         {
+            if (!endlessButton)
+                return;
             endlessButton.interactable = interactable;
         }
         public void SetEndlessButtonColor(Color color)
         {
+            if (!endlessButton)
+                return;
             endlessButton.SetColor(color);
         }
         public void SetEndlessButtonText(string text)
         {
+            if (!endlessButton)
+                return;
             endlessButton.SetText(text);
         }
         public void SetMapKeyActive(bool active)
@@ -89,7 +99,10 @@ namespace MVZ2.Map
                 var index = Array.IndexOf(mapButtons, button);
                 button.OnClick += () => OnMapButtonClick?.Invoke(index);
             }
-            endlessButton.OnClick += () => OnEndlessButtonClick?.Invoke();
+            if (endlessButton)
+            {
+                endlessButton.OnClick += () => OnEndlessButtonClick?.Invoke();
+            }
             if (mapKey)
             {
                 mapKey.OnClick += () => OnMapKeyClick?.Invoke();

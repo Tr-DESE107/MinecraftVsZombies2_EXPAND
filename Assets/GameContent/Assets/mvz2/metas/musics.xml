@@ -18,6 +18,8 @@
     <music id="nightmare_boss" path="mvz2:nightmare_boss" name="Pandemonic Planet（前段）" />
     <music id="nightmare_boss2" path="mvz2:nightmare_boss2" name="Pandemonic Planet（后段）" />
 
+    <music id="gensokyo_map" path="mvz2:gensokyo_map" name="青空之影" />
+
     <music id="teruharijou_map" path="mvz2:teruharijou_map" name="沉默空洞的辉针城" />
     <music id="teruharijou_level" path="mvz2:teruharijou_level" name="凋灵舞曲" />
 

@@ -44,9 +44,14 @@
             <stage id="mvz2:dream_11"/>
         </stages>
     </map>
+    <map id="gensokyo" width="1020" height="600">
+        <presets>
+            <preset id="mvz2:gensokyo" model="mvz2:gensokyo" backgroundColor="#7F7F7F" music="mvz2:gensokyo_map"/>
+        </presets>
+    </map>
     <map id="teruharijou" area="mvz2:teruharijou" >
         <presets>
-            <preset id="mvz2:teruharijou" model="mvz2:teruharijou" backgroundColor="#ffc895" music="mvz2:teruharijou_map"/>
+            <preset id="mvz2:teruharijou" model="mvz2:teruharijou" backgroundColor="#552400" music="mvz2:teruharijou_map"/>
         </presets>
         <stages endless="mvz2:teruharijou_endless">
             <stage id="mvz2:teruharijou_1"/>

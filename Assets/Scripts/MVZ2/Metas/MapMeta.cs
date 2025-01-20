@@ -8,6 +8,7 @@ namespace MVZ2.Metas
     public class MapMeta
     {
         public string id;
+        public Vector2 size;
         public NamespaceID area;
         public MapPreset[] presets;
         public NamespaceID[] stages;
@@ -16,6 +17,9 @@ namespace MVZ2.Metas
         {
             var id = node.GetAttribute("id");
             var area = node.GetAttributeNamespaceID("area", defaultNsp);
+            var width = node.GetAttributeFloat("width") ?? 4080;
+            var height = node.GetAttributeFloat("height") ?? 2400;
+            var size = new Vector2(width, height);
 
             var presetsNode = node["presets"];
             var presets = new MapPreset[presetsNode?.ChildNodes.Count ?? 0];
@@ -38,6 +42,7 @@ namespace MVZ2.Metas
             return new MapMeta()
             {
                 id = id,
+                size = size,
                 area = area,
                 presets = presets,
                 stages = stages,

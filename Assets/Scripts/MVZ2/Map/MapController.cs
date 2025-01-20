@@ -130,7 +130,8 @@ namespace MVZ2.Map
             {
                 UpdateMouse();
             }
-            mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraY);
+            var maxCameraSize = mapMeta.size.y / 100 * 0.5f;
+            mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraSize);
             LimitCameraPosition();
             cameraScaleSpeed *= 0.8f;
             mapCameraShakeRoot.localPosition = (Vector3)Main.ShakeManager.GetShake2D();
@@ -238,10 +239,12 @@ namespace MVZ2.Map
             var fullHeight = mapCamera.orthographicSize * 2;
             var cameraHeight = mapCamera.rect.height * fullHeight;
             var cameraWidth = cameraHeight * aspect;
-            var minX = -maxCameraY * maxCameraAspect;
-            var maxX = maxCameraY * maxCameraAspect;
-            var minY = -maxCameraY;
-            var maxY = maxCameraY;
+
+            var mapSize = mapMeta.size * 0.01f;
+            var minX = -mapSize.x * 0.5f;
+            var maxX = mapSize.x * 0.5f;
+            var minY = -mapSize.y * 0.5f;
+            var maxY = mapSize.y * 0.5f;
             position.x = Mathf.Clamp(position.x, minX + cameraWidth * 0.5f, maxX - cameraWidth * 0.5f);
             position.y = Mathf.Clamp(position.y, minY + cameraHeight * 0.5f, maxY - cameraHeight * 0.5f);
             mapCamera.transform.position = position;
@@ -336,7 +339,8 @@ namespace MVZ2.Map
                 var currentCenter = (position0 + position1) * 0.5f;
                 var motion = lastCenter - currentCenter;
 
-                mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize * scale, minCameraSize, maxCameraY);
+                var maxCameraSize = mapMeta.size.y / 100 * 0.5f;
+                mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize * scale, minCameraSize, maxCameraSize);
                 mapCamera.transform.position += (Vector3)motion;
             }
             else if (touchDatas.Count > 0)
@@ -551,6 +555,8 @@ namespace MVZ2.Map
         private int GetMaxEndlessFlags()
         {
             var stageID = mapMeta.endlessStage;
+            if (!NamespaceID.IsValid(stageID))
+                return 0;
             return (int)Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
         }
 
@@ -587,10 +593,6 @@ namespace MVZ2.Map
         private Transform mapCameraShakeRoot;
         [SerializeField]
         private Camera mapCamera;
-        [SerializeField]
-        private float maxCameraY = 12;
-        [SerializeField]
-        private float maxCameraAspect = 1.7f;
         [SerializeField]
         private float minCameraSize = 2;
 

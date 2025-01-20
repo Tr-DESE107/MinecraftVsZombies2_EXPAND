@@ -2272,6 +2272,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7653a3ea24e1f0e41b42d54f5d1fed14
+    m_Address: mvz2:map_pin
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7667a381c5230374d9c5b5a7bf629dd9
     m_Address: mvz2:entity/enemies/ghost_headwear
     m_ReadOnly: 0
@@ -2992,6 +2997,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94f2e4ecd6b77ab49ba575570f0518d5
+    m_Address: mvz2:gensokyo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94fea040886646944ba16a0a2d2f51af
     m_Address: mvz2:en_us/general
     m_ReadOnly: 0
@@ -3016,6 +3027,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9696331d07114754fbccc29acd1b4846
+    m_Address: mvz2:map/gensokyo/pins/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 979b0f01b79ee2e44b3c30b91c0df16e
     m_Address: mvz2:talks/prologue
     m_ReadOnly: 0
@@ -3027,6 +3044,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 982248cc3f9823f4a9f759db1e00184f
+    m_Address: mvz2:map/gensokyo/pins/kourindou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 985fbd93414b34845b4a0a7ee830eb1a
     m_Address: mvz2:entity/projectiles/gas
@@ -4696,6 +4719,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9ab803f0d271bd48b365bc8766feb6b
+    m_Address: mvz2:map/gensokyo/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: mvz2:random/crystal/crystal_place4
     m_ReadOnly: 0
@@ -4740,6 +4769,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb7696c6ae30a5844aeb6c8c789f3acc
     m_Address: mvz2:map/teruharijou/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb819ad3a375c2248a3df6dcb7023435
+    m_Address: mvz2:map/gensokyo/pins/halloween
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4900,6 +4935,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f118069775e649f44960158e67eb7339
+    m_Address: mvz2:map/gensokyo/pins/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1647e2400793da43be7f9344136d81d
     m_Address: mvz2:portal
     m_ReadOnly: 0
@@ -5013,6 +5054,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7d6a28bd57da4c4cb97d8ea57f49a26
+    m_Address: mvz2:gensokyo_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f80db95b91adf0d4ab2472fc428ad43e
     m_Address: mvz2:armor/iron_helmet

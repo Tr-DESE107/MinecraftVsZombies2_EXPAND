@@ -277,6 +277,8 @@ namespace MVZ2.Saves
 
         public int GetCurrentEndlessFlag(NamespaceID stageID)
         {
+            if (!NamespaceID.IsValid(stageID))
+                return 0;
             var saveData = GetModSaveData(stageID.SpaceName);
             if (saveData == null)
                 return 0;
@@ -284,6 +286,8 @@ namespace MVZ2.Saves
         }
         public void SetCurrentEndlessFlag(NamespaceID stageID, int value)
         {
+            if (!NamespaceID.IsValid(stageID))
+                return;
             var saveData = GetModSaveData(stageID.SpaceName);
             if (saveData == null)
                 return;
