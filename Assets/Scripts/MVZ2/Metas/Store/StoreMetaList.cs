@@ -6,6 +6,7 @@ namespace MVZ2.Metas
     public class StoreMetaList
     {
         public StorePresetMeta[] Presets { get; private set; }
+        public LoreTalkMetaList LoreTalks { get; private set; }
         public StoreChatGroupMeta[] Chats { get; private set; }
         public ProductMeta[] Products { get; private set; }
         public static StoreMetaList FromXmlNode(XmlNode node, string defaultNsp)
@@ -23,6 +24,8 @@ namespace MVZ2.Metas
                     }
                 }
             }
+            var loreTalks = LoreTalkMetaList.FromXmlNode(node["talks"], defaultNsp);
+
             var chatsNode = node["chats"];
             var chats = new List<StoreChatGroupMeta>();
             if (chatsNode != null)
@@ -52,6 +55,7 @@ namespace MVZ2.Metas
             return new StoreMetaList()
             {
                 Presets = presets.ToArray(),
+                LoreTalks = loreTalks,
                 Chats = chats.ToArray(),
                 Products = products.ToArray()
             };

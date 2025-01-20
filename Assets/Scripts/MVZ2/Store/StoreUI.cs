@@ -15,6 +15,11 @@ namespace MVZ2.Store
             character.SetSpeaking(true);
             character.ResetMotion();
         }
+        public void SetStoreUIVisible(bool visible)
+        {
+            storeUIRoot.SetActive(visible);
+            speechBubble.SetDirection(SpeechBubbleDirection.Left);
+        }
         public void SetMoney(string money)
         {
             moneyPanel.SetMoney(money);
@@ -90,6 +95,8 @@ namespace MVZ2.Store
         public event Action<int> OnProductClick;
         public event Action<int> OnProductPointerEnter;
         public event Action<int> OnProductPointerExit;
+        [SerializeField]
+        private GameObject storeUIRoot;
         [SerializeField]
         private SpriteRenderer background;
         [SerializeField]

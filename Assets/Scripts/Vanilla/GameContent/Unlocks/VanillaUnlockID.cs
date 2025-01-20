@@ -25,6 +25,7 @@ namespace MVZ2.Vanilla
         public const string trigger = "trigger";
 
         public const string enteredDream = "entered_dream";
+        public const string mapStoreArrow = "map_store_arrow";
 
         public const string dreamIsNightmare = "dream_is_nightmare";
 
@@ -38,8 +39,10 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID halloween5 = GetStage(VanillaStageNames.halloween5);
         public static readonly NamespaceID halloween11 = GetStage(VanillaStageNames.halloween11);
         public static readonly NamespaceID dream5 = GetStage(VanillaStageNames.dream5);
+        public static readonly NamespaceID dream11 = GetStage(VanillaStageNames.dream11);
         public static readonly NamespaceID almanac = halloween5;
         public static readonly NamespaceID store = dream5;
+        public static readonly NamespaceID gensokyo = dream11;
         public static readonly NamespaceID trigger = Get(VanillaUnlockNames.trigger);
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);
@@ -50,6 +53,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
         public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
         public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
+        public static readonly NamespaceID mapStoreArrow = Get(VanillaUnlockNames.mapStoreArrow);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

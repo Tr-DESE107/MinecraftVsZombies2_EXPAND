@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using MVZ2.GameContent.Effects;
 using MVZ2.IO;
+using MVZ2.Managers;
 using PVZEngine;
 
 namespace MVZ2.TalkData
@@ -11,6 +13,7 @@ namespace MVZ2.TalkData
         public string text;
         public string description;
         public NamespaceID speaker;
+        public string speakerName;
         public List<NamespaceID> sounds;
         public NamespaceID variant;
         public List<TalkScript> startScripts;
@@ -21,6 +24,7 @@ namespace MVZ2.TalkData
             var textNode = document.CreateTextNode(text);
             node.AppendChild(textNode);
             node.CreateAttribute("speaker", speaker?.ToString());
+            node.CreateAttribute("speakerName", speakerName);
             node.CreateAttribute("description", description);
             node.CreateAttribute("sounds", sounds != null ? string.Join(";", sounds.Select(s => s.ToString())) : null);
             node.CreateAttribute("variant", variant?.ToString());
@@ -31,6 +35,7 @@ namespace MVZ2.TalkData
         public static TalkSentence FromXmlNode(XmlNode node, string defaultNsp)
         {
             var speaker = node.GetAttributeNamespaceID("speaker", defaultNsp);
+            var speakerName = node.GetAttribute("speakerName");
             var description = node.GetAttribute("description");
             var sounds = node.GetAttributeNamespaceIDArray("sounds", defaultNsp)?.ToList();
             var variant = node.GetAttributeNamespaceID("variant", defaultNsp);
@@ -40,6 +45,7 @@ namespace MVZ2.TalkData
             return new TalkSentence()
             {
                 speaker = speaker,
+                speakerName = speakerName,
                 description = description,
                 sounds = sounds,
                 variant = variant,
@@ -47,6 +53,18 @@ namespace MVZ2.TalkData
                 startScripts = startScripts,
                 clickScripts = clickScripts,
             };
+        }
+        public string GetSpeakerName(MainManager main)
+        {
+            if (!string.IsNullOrEmpty(speakerName))
+            {
+                return main.ResourceManager.GetCharacterName(speakerName);
+            }
+            else
+            {
+                return main.ResourceManager.GetCharacterName(speaker);
+            }
+
         }
     }
 }

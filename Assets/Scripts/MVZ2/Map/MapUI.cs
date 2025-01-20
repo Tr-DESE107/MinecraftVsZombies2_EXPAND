@@ -49,11 +49,16 @@ namespace MVZ2.Map
             var localPos = (Vector2)dragArrowRoot.parent.InverseTransformPoint(worldPos);
             dragArrowRoot.sizeDelta = new Vector2(0, localPos.magnitude);
         }
+        public void SetStoreArrowVisible(bool visible)
+        {
+            storeButtonArrow.SetActive(visible);
+        }
         private void Awake()
         {
             buttonDict.Add(ButtonType.Back, backButton);
             buttonDict.Add(ButtonType.Almanac, almanacButton);
             buttonDict.Add(ButtonType.Store, storeButton);
+            buttonDict.Add(ButtonType.Map, mapButton);
             buttonDict.Add(ButtonType.Setting, settingButton);
 
             foreach (var pair in buttonDict)
@@ -76,7 +81,11 @@ namespace MVZ2.Map
         [SerializeField]
         private Button storeButton;
         [SerializeField]
+        private Button mapButton;
+        [SerializeField]
         private Button settingButton;
+        [SerializeField]
+        private GameObject storeButtonArrow;
         [SerializeField]
         private TextMeshProUGUI hintText;
         [SerializeField]
@@ -99,6 +108,7 @@ namespace MVZ2.Map
             Back,
             Almanac,
             Store,
+            Map,
             Setting
         }
     }

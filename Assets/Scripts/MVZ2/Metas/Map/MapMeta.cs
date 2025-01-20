@@ -10,6 +10,7 @@ namespace MVZ2.Metas
         public string id;
         public Vector2 size;
         public NamespaceID area;
+        public LoreTalkMetaList loreTalks;
         public MapPreset[] presets;
         public NamespaceID[] stages;
         public NamespaceID endlessStage;
@@ -28,6 +29,8 @@ namespace MVZ2.Metas
                 presets[i] = MapPreset.FromXmlNode(presetsNode.ChildNodes[i], defaultNsp);
             }
 
+            var loreTalks = LoreTalkMetaList.FromXmlNode(node["talks"], defaultNsp);
+
             var stagesNode = node["stages"];
             var stages = new NamespaceID[stagesNode?.ChildNodes?.Count ?? 0];
             NamespaceID endlessStage = null;
@@ -44,6 +47,7 @@ namespace MVZ2.Metas
                 id = id,
                 size = size,
                 area = area,
+                loreTalks = loreTalks,
                 presets = presets,
                 stages = stages,
                 endlessStage = endlessStage,

@@ -33,6 +33,7 @@ namespace MVZ2.UI
             var color = blackscreenImage.color;
             color.a = value;
             blackscreenImage.color = color;
+            blackscreenImage.raycastTarget = blackscreenFader.Value > 0;
         }
         [SerializeField]
         private CustomDialog dialog;

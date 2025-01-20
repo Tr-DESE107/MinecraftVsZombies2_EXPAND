@@ -17,8 +17,10 @@ namespace MVZ2.Map
             // Not left mouse nor first touch.
             if (eventData.pointerId != -1 && eventData.pointerId != 0)
                 return;
-            OnClick?.Invoke();
+            OnClick?.Invoke(id.Get());
         }
-        public event Action OnClick;
+        public event Action<NamespaceID> OnClick;
+        [SerializeField]
+        private NamespaceIDReference id;
     }
 }

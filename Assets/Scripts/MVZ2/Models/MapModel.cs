@@ -105,17 +105,25 @@ namespace MVZ2.Map
             }
             if (mapKey)
             {
-                mapKey.OnClick += () => OnMapKeyClick?.Invoke();
+                mapKey.OnClick += (id) => OnMapKeyClick?.Invoke();
             }
             if (nightmareBox)
             {
-                nightmareBox.OnClick += () => OnMapNightmareBoxClick?.Invoke();
+                nightmareBox.OnClick += (id) => OnMapNightmareBoxClick?.Invoke();
+            }
+            if (mapPins != null)
+            {
+                foreach (var pin in mapPins)
+                {
+                    pin.OnClick += (id) => OnMapPinClick?.Invoke(id);
+                }
             }
         }
         public event Action<int> OnMapButtonClick;
         public event Action OnEndlessButtonClick;
         public event Action OnMapKeyClick;
         public event Action OnMapNightmareBoxClick;
+        public event Action<NamespaceID> OnMapPinClick;
         [SerializeField]
         private TextMeshPro endlessFlagsText;
         [SerializeField]
@@ -128,5 +136,7 @@ namespace MVZ2.Map
         private MapButton[] mapButtons;
         [SerializeField]
         private MapElement[] mapElements;
+        [SerializeField]
+        private MapElementButton[] mapPins;
     }
 }

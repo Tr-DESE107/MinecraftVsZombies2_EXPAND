@@ -17,7 +17,8 @@ namespace MVZ2.UI
         }
         private void Update()
         {
-            UpdatePosition();
+            if (updatesPosition)
+                UpdatePosition();
         }
         private void UpdatePosition()
         {
@@ -33,6 +34,8 @@ namespace MVZ2.UI
                 transform.position = new Vector3(-1000, -1000, 0);
             }
         }
+        [SerializeField]
+        private bool updatesPosition = true;
         [SerializeField]
         private Transform targetTransform;
         [SerializeField]

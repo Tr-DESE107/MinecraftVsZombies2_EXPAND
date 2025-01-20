@@ -1,4 +1,5 @@
 <transitions>
     <transition id="halloween" angle="30" noRotate="true" textSprite="mvz2:chapter_transition/title_halloween"/>
     <transition id="dream" angle="60" textSprite="mvz2:chapter_transition/title_dream"/>
+    <transition id="teruharijou" angle="90" textSprite="mvz2:chapter_transition/title_teruharijou"/>
 </transitions>

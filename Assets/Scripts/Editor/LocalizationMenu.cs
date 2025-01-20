@@ -216,7 +216,8 @@ namespace MVZ2.Editor
                         {
                             var sentence = section.sentences[j];
                             AddTranslation(potGenerator, sentence.text, reference, $"Text for talk sentence {j} in talk group {group.id}'s section {i}", groupContext);
-                            AddTranslation(potGenerator, sentence.description, reference, $"Description for talk sentence {j} in talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE); 
+                            AddTranslation(potGenerator, sentence.description, reference, $"Description for talk sentence {j} in talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE);
+                            AddTranslation(potGenerator, sentence.speakerName, reference, $"Speaker Name for talk sentence {j} in talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_CHARACTER_NAME);
                         }
                     }
                 }

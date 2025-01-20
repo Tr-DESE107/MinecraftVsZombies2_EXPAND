@@ -26,9 +26,13 @@ namespace MVZ2.GameContent.Areas
         }
         public override float GetGroundY(LevelEngine level, float x, float z)
         {
-            if (x < 660 && z > 40 && z < 440)
+            if (x < 660)
             {
                 return Mathf.Lerp(80, 0, (x - 260) / 400);
+            }
+            if (x > 980)
+            {
+                return Mathf.Lerp(0, 80, (x - 980) / 400);
             }
             return base.GetGroundY(level, x, z);
         }

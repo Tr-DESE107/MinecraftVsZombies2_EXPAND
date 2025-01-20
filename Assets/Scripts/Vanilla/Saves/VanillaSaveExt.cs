@@ -103,6 +103,10 @@ namespace MVZ2.Vanilla.Saves
         {
             return save.IsUnlocked(VanillaUnlockID.store);
         }
+        public static bool IsGensokyoUnlocked(this IGameSaveData save)
+        {
+            return save.IsUnlocked(VanillaUnlockID.gensokyo);
+        }
         public static bool IsTriggerUnlocked(this IGameSaveData save)
         {
             return save.IsUnlocked(VanillaUnlockID.trigger);

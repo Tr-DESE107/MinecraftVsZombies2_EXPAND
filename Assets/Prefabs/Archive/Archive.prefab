@@ -4745,6 +4745,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3856315457389709807, guid: bf689ec965f1a93419d22bcf54d03206, type: 3}
+      propertyPath: canUnlock
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5352697095018158009, guid: bf689ec965f1a93419d22bcf54d03206, type: 3}
       propertyPath: m_Name
       value: Talk

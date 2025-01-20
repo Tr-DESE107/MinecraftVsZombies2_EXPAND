@@ -162,15 +162,15 @@ namespace MVZ2.Archives
                 var talks = section.sentences.Select(s =>
                 {
                     var description = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, s.description);
-                    var character = Main.ResourceManager.GetCharacterName(s.speaker);
+                    string characterName = s.GetSpeakerName(Main);
                     var text = GetTranslatedString(VanillaStrings.GetTalkTextContext(groupID), s.text);
                     if (string.IsNullOrEmpty(description))
                     {
-                        return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE, character, text);
+                        return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE, characterName, text);
                     }
                     else
                     {
-                        return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE_DESCRIPTION, description, character, text);
+                        return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE_DESCRIPTION, description, characterName, text);
                     }
                 });
                 var talksString = string.Join('\n', talks);
@@ -219,6 +219,8 @@ namespace MVZ2.Archives
             ui.SetSimulationBackground(background);
             ui.DisplayPage(ArchiveUI.Page.Simulation);
             simulationTalk.StartTalk(viewingTalkID, 0, onEnd: ShowReplayDialog);
+            Main.MusicManager.StopFade();
+            Main.MusicManager.SetVolume(1);
             if (NamespaceID.IsValid(musicID))
             {
                 Main.MusicManager.Play(musicID);
@@ -232,6 +234,8 @@ namespace MVZ2.Archives
         {
             if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
                 Main.MusicManager.Play(VanillaMusicID.choosing);
+            Main.MusicManager.StopFade();
+            Main.MusicManager.SetVolume(1);
             ui.DisplayPage(ArchiveUI.Page.Details);
         }
         private string GetTranslatedString(string context, string text, params object[] args)

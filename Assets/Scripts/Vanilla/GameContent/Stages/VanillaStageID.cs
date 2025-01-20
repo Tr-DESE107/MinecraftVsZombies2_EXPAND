@@ -37,6 +37,19 @@ namespace MVZ2.GameContent.Stages
         public const string dream10 = "dream_10";
         public const string dream11 = "dream_11";
         public const string dreamEndless = "dream_endless";
+
+        public const string teruharijou1 = "teruharijou_1";
+        public const string teruharijou2 = "teruharijou_2";
+        public const string teruharijou3 = "teruharijou_3";
+        public const string teruharijou4 = "teruharijou_4";
+        public const string teruharijou5 = "teruharijou_5";
+        public const string teruharijou6 = "teruharijou_6";
+        public const string teruharijou7 = "teruharijou_7";
+        public const string teruharijou8 = "teruharijou_8";
+        public const string teruharijou9 = "teruharijou_9";
+        public const string teruharijou10 = "teruharijou_10";
+        public const string teruharijou11 = "teruharijou_11";
+        public const string teruharijouEndless = "teruharijou_endless";
     }
     public static class VanillaStageID
     {
@@ -52,6 +65,7 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID halloween11 = Get(VanillaStageNames.halloween11);
         public static readonly NamespaceID dream1 = Get(VanillaStageNames.dream1);
         public static readonly NamespaceID dream11 = Get(VanillaStageNames.dream11);
+        public static readonly NamespaceID teruharijou1 = Get(VanillaStageNames.teruharijou1);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

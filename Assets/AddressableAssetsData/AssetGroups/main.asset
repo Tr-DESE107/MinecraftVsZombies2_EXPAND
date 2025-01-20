@@ -161,6 +161,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bbae907f96e6c648a0990646a551c2c
+    m_Address: mvz2:chapter_transition/title_teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bd6aa9fcaba0594388f9760fec17286
     m_Address: mvz2:random/glass3
     m_ReadOnly: 0
@@ -1312,6 +1318,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40e041939468c904abb1e4e902039f30
+    m_Address: mvz2:talks/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410c602e03a209e49a68674fd0551a89
     m_Address: mvz2:difficulties
     m_ReadOnly: 0
@@ -2378,6 +2390,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c77b2bc79808994aaee8edec5031dc8
+    m_Address: mvz2:misc/letter_for_help
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c9f7602979795d4da2daa0e5dc2429b
     m_Address: mvz2:entity/gargoyle/gargoyle1
@@ -3614,6 +3632,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2bf598c00945bb44bb3ca45c9a2a9f6
+    m_Address: mvz2:characters/tokiko
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2d31dd0c8208b34192a17491789d379
     m_Address: mvz2:effect/splash_particles
@@ -4937,6 +4961,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f118069775e649f44960158e67eb7339
     m_Address: mvz2:map/gensokyo/pins/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f14a7915d621a6d41b9c33aa5e927a0c
+    m_Address: mvz2:store/background_kourindou
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

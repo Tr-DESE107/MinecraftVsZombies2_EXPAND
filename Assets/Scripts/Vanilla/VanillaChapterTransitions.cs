@@ -11,6 +11,7 @@ namespace MVZ2.Vanilla
     {
         public readonly static NamespaceID halloween = Get("halloween");
         public readonly static NamespaceID dream = Get("dream");
+        public readonly static NamespaceID teruharijou = Get("teruharijou");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

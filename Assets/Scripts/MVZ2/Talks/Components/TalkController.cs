@@ -12,6 +12,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Talk
 {
@@ -434,6 +435,9 @@ namespace MVZ2.Talk
                             NamespaceID musicId = ParseArgumentNamespaceID(args[1]);
                             Main.MusicManager.Play(musicId);
                             break;
+                        case "stop":
+                            Main.MusicManager.Stop();
+                            break;
                     }
                     break;
                 case "playsound":
@@ -463,6 +467,26 @@ namespace MVZ2.Talk
                 #endregion
 
                 #region 其他
+                case "unlock":
+                    {
+                        if (!canUnlock)
+                            break;
+                        if (args.Length <= 0)
+                            break;
+                        Main.SaveManager.Unlock(ParseArgumentNamespaceID(args[0]));
+                    }
+                    break;
+
+                case "relock":
+                    {
+                        if (!canUnlock)
+                            break;
+                        if (args.Length <= 0)
+                            break;
+                        Main.SaveManager.Relock(ParseArgumentNamespaceID(args[0]));
+                    }
+                    break;
+
                 case "action":
                     ExecuteAction(args);
                     break;
@@ -596,20 +620,34 @@ namespace MVZ2.Talk
                 ui.SetCharacterSprite(speakerIndex, sprite);
             }
 
+            var context = VanillaStrings.GetTalkTextContext(groupID);
+            var textKey = sentence.text;
+            var bubbleText = Main.LanguageManager._p(context, textKey);
+
+
+            string speakerName = sentence.GetSpeakerName(Main);
+
             // 气泡位置。
             SpeechBubbleDirection bubbleDirection = SpeechBubbleDirection.Up;
+            bool showSpeakerName = false;
             if (speakerIndex >= 0)
             {
                 var characterData = characterList[speakerIndex];
                 bubbleDirection = GetSpeechBubbleDirectionBySide(characterData.side);
             }
-            var context = VanillaStrings.GetTalkTextContext(groupID);
-            var textKey = sentence.text;
-            var bubbleText = Main.LanguageManager._p(context, textKey);
+            else
+            {
+                bubbleDirection = SpeechBubbleDirection.Up;
+                showSpeakerName = true;
+            }
+
             if (ui.GetForegroundAlpha() > 0.1f)
             {
                 bubbleDirection = SpeechBubbleDirection.Down;
-                var speakerName = Main.ResourceManager.GetCharacterName(speakerID);
+                showSpeakerName = true;
+            }
+            if (showSpeakerName)
+            {
                 bubbleText = Main.LanguageManager._p(VanillaStrings.CONTEXT_TALK, FORGROUND_TALK_TEMPLATE, speakerName, bubbleText);
             }
             ui.SetSpeechBubbleText(bubbleText);
@@ -638,8 +676,9 @@ namespace MVZ2.Talk
             ui.SetRaycastReceiverActive(false);
             if (tcs != null)
             {
-                tcs.SetResult(null);
+                var source = tcs;
                 tcs = null;
+                source.SetResult(null);
             }
         }
         #endregion
@@ -743,6 +782,8 @@ namespace MVZ2.Talk
         private TaskCompletionSource<object> tcs;
         [SerializeField]
         private TalkUI ui;
+        [SerializeField]
+        private bool canUnlock = true;
         #endregion 属性
 
         public class CharacterData

@@ -48,6 +48,18 @@
         <presets>
             <preset id="mvz2:gensokyo" model="mvz2:gensokyo" backgroundColor="#7F7F7F" music="mvz2:gensokyo_map"/>
         </presets>
+        <talks>
+            <talk id="mvz2:entered_gensokyo">
+                <conditions>
+                    <condition required="mvz2:level.dream_11" requiredNot="mvz2:entered_gensokyo"/>
+                </conditions>
+            </talk>
+            <talk id="mvz2:exited_kourindou">
+                <conditions>
+                    <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_teruharijou"/>
+                </conditions>
+            </talk>
+        </talks>
     </map>
     <map id="teruharijou" area="mvz2:teruharijou" >
         <presets>

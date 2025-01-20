@@ -7,10 +7,12 @@ using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
+using MVZ2.Talks;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Map;
 using PVZEngine;
 using Tools;
 using UnityEngine;
@@ -30,10 +32,14 @@ namespace MVZ2.Store
             UpdateMoney();
             ui.Display();
 
+            Main.SaveManager.Relock(VanillaUnlockID.mapStoreArrow);
+
             var presets = Main.ResourceManager.GetAllStorePresets();
             var filteredPresets = presets.Where(p => p.Conditions == null || Main.SaveManager.MeetsXMLConditions(p.Conditions));
             var preset = filteredPresets.OrderByDescending(p => p.Priority).FirstOrDefault();
             SetPreset(preset);
+
+            StartTalks();
         }
         public void SetPreset(StorePresetMeta preset)
         {
@@ -46,6 +52,8 @@ namespace MVZ2.Store
             if (!Main.MusicManager.IsPlaying(preset.Music))
                 Main.MusicManager.Play(preset.Music);
         }
+
+        #region 生命周期
         private void Awake()
         {
             ui.OnReturnClick += OnReturnClickCallback;
@@ -58,7 +66,7 @@ namespace MVZ2.Store
         }
         private void Update()
         {
-            if (!pointingProduct)
+            if (!pointingProduct && !talkController.IsTalking)
             {
                 chatTimeout -= Time.deltaTime;
                 if (chatTimeout <= 0)
@@ -73,7 +81,11 @@ namespace MVZ2.Store
                     ui.HideTalk();
                 }
             }
+            cameraShakeRoot.localPosition = (Vector3)Main.ShakeManager.GetShake2D();
         }
+        #endregion
+
+        #region UI 事件回调
         private void OnReturnClickCallback()
         {
             Hide();
@@ -145,6 +157,7 @@ namespace MVZ2.Store
                 Main.Scene.ShowDialogMessage(title, desc);
             }
         }
+        #endregion
         private void UpdateProducts()
         {
             products.Clear();
@@ -190,6 +203,29 @@ namespace MVZ2.Store
         {
             chatTimeout = MAX_CHAT_TIMEOUT;
         }
+        private async void StartTalks()
+        {
+            var loreTalks = Main.ResourceManager.GetStoreLoreTalks();
+            if (loreTalks == null)
+                return;
+            // 对话
+            var queue = new Queue<NamespaceID>();
+            foreach (var lore in loreTalks)
+            {
+                if (!queue.Contains(lore))
+                    queue.Enqueue(lore);
+            }
+
+            while (queue.Count > 0)
+            {
+                var talk = queue.Dequeue();
+                if (!NamespaceID.IsValid(talk))
+                    continue;
+                ui.SetStoreUIVisible(false);
+                await talkController.SimpleStartTalkAsync(talk, 0, 3);
+            }
+            ui.SetStoreUIVisible(true);
+        }
         private string GetTranslatedString(string context, string text, params object[] args)
         {
             if (string.IsNullOrEmpty(text))
@@ -218,8 +254,14 @@ namespace MVZ2.Store
         private bool pointingProduct;
         private int page;
         private RandomGenerator chatRNG;
+
+
+        [SerializeField]
+        private Transform cameraShakeRoot;
         [SerializeField]
         private StoreUI ui;
+        [SerializeField]
+        private TalkController talkController;
         [SerializeField]
         private int productsPerRow = 4;
         [SerializeField]

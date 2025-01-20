@@ -26,6 +26,8 @@
             <spawn id="mvz2:iron_helmetted_zombie"/>
         </spawns>
     </stage>
+
+    <!-- Halloween -->
     <stage id="halloween_1" name="万圣夜" dayNumber="1" unlock="mvz2:level.prologue">
         <talks>
             <talk type="start" value="mvz2:halloween_1"/>
@@ -254,6 +256,8 @@
             <integer name="statueCount" value="2" />
         </properties>
     </stage>
+
+    <!-- Dream -->
     <stage id="dream_1" name="梦境世界" dayNumber="1" unlock="mvz2:entered_dream">
         <talks>
             <talk type="start" value="mvz2:dream_1"/>
@@ -440,6 +444,20 @@
     <stage id="dream_endless" name="梦境世界无尽" type="endless" unlock="mvz2:level.dream_11" >
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+        </spawns>
+    </stage>
+
+    <!-- Teruharijou -->
+    <stage id="teruharijou_1" name="辉针城" dayNumber="1" unlock="mvz2:entered_teruharijou">
+        <talks>
+            <talk type="start" value="mvz2:teruharijou_1"/>
+            <talk type="end" value="mvz2:teruharijou_1_over"/>
+            <talk type="map" value="mvz2:teruharijou_1_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_dropper"/>
+        <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
         </spawns>

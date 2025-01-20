@@ -39,6 +39,7 @@ namespace MVZ2.Map
             ResetCamera();
             ui.SetButtonActive(MapUI.ButtonType.Almanac, Main.SaveManager.IsAlmanacUnlocked());
             ui.SetButtonActive(MapUI.ButtonType.Store, Main.SaveManager.IsStoreUnlocked());
+            ui.SetButtonActive(MapUI.ButtonType.Map, Main.SaveManager.IsGensokyoUnlocked());
             ui.SetHintText(Main.LanguageManager._(Main.IsMobile() ? HINT_TEXT_MOBILE : HINT_TEXT));
             ui.SetDragRootVisible(false);
             ui.SetOptionsDialogActive(false);
@@ -59,6 +60,7 @@ namespace MVZ2.Map
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
                 model.OnMapKeyClick -= OnMapKeyClickCallback;
                 model.OnMapNightmareBoxClick -= OnMapNightmareBoxClickCallback;
+                model.OnMapPinClick -= OnMapPinClickCallback;
                 Destroy(model.gameObject);
                 model = null;
             }
@@ -78,8 +80,38 @@ namespace MVZ2.Map
             Main.MusicManager.Play(mapPreset.music);
             Main.SaveManager.SetLastMapID(mapId);
 
+            if (mapId == VanillaMapID.gensokyo)
+            {
+                ui.SetButtonActive(MapUI.ButtonType.Map, false);
+            }
+
+            // 对话
+            HideUIArrows();
+            // 上一次地图的对话
             var mapTalk = Main.SaveManager.GetMapTalk();
-            await talkController.SimpleStartTalkAsync(mapTalk, 0, 3);
+            var queue = new Queue<NamespaceID>();
+            queue.Enqueue(mapTalk);
+
+            // 地图自带剧情对话
+            var mapLores = mapMeta.loreTalks?.GetLoreTalks(Main.SaveManager);
+            if (mapLores != null)
+            {
+                foreach (var lore in mapLores)
+                {
+                    if (!queue.Contains(lore))
+                        queue.Enqueue(lore);
+                }
+            }
+
+            while (queue.Count > 0)
+            {
+                var talk = queue.Dequeue();
+                if (!NamespaceID.IsValid(talk))
+                    continue;
+                Main.SaveManager.SetMapTalk(talk);
+                await talkController.SimpleStartTalkAsync(talk, 0, 3);
+            }
+            UpdateUIArrows();
             Main.SaveManager.SetMapTalk(null);
         }
         public void SetMapPreset(MapPreset mapPreset)
@@ -93,6 +125,7 @@ namespace MVZ2.Map
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
                 model.OnMapKeyClick -= OnMapKeyClickCallback;
                 model.OnMapNightmareBoxClick -= OnMapNightmareBoxClickCallback;
+                model.OnMapPinClick -= OnMapPinClickCallback;
                 Destroy(model.gameObject);
             }
 
@@ -101,6 +134,7 @@ namespace MVZ2.Map
             model.OnEndlessButtonClick += OnEndlessButtonClickCallback;
             model.OnMapKeyClick += OnMapKeyClickCallback;
             model.OnMapNightmareBoxClick += OnMapNightmareBoxClickCallback;
+            model.OnMapPinClick += OnMapPinClickCallback;
 
             UpdateModelButtons();
             UpdateModelElements();
@@ -152,6 +186,9 @@ namespace MVZ2.Map
                     break;
                 case MapUI.ButtonType.Store:
                     Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID));
+                    break;
+                case MapUI.ButtonType.Map:
+                    Main.Scene.DisplayMap(VanillaMapID.gensokyo);
                     break;
                 case MapUI.ButtonType.Setting:
                     ui.SetOptionsDialogActive(true);
@@ -214,6 +251,25 @@ namespace MVZ2.Map
                 Main.SaveManager.Unlock(VanillaUnlockID.dreamIsNightmare);
             }
             Main.Scene.DisplayMap(MapID);
+        }
+        private void OnMapPinClickCallback(NamespaceID id)
+        {
+            if (id == MapPinID.halloween)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.halloween);
+            }
+            else if (id == MapPinID.dream)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.dream);
+            }
+            else if (id == MapPinID.teruharijou)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.teruharijou);
+            }
+            else if (id == MapPinID.kourindou)
+            {
+                Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID));
+            }
         }
         #endregion
 
@@ -546,6 +602,14 @@ namespace MVZ2.Map
             var text = Main.LanguageManager._(ENDLESS_FLAGS_TEMPLATE, currentFlags, maxFlags);
             model.SetEndlessFlagsTextActive(IsEndlessUnlocked());
             model.SetEndlessFlagsText(text);
+        }
+        private void UpdateUIArrows()
+        {
+            ui.SetStoreArrowVisible(Main.SaveManager.IsUnlocked(VanillaUnlockID.mapStoreArrow));
+        }
+        private void HideUIArrows()
+        {
+            ui.SetStoreArrowVisible(false);
         }
         private int GetEndlessFlags()
         {

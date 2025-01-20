@@ -2,7 +2,9 @@
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.Modding;
+using MVZ2Logic.Games;
 using PVZEngine;
+using UnityEditor.Presets;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -36,6 +38,23 @@ namespace MVZ2.Managers
                 return null;
             }
             return chats.ToArray();
+        }
+        #endregion
+
+        #region 剧情对话
+        public NamespaceID[] GetStoreLoreTalks()
+        {
+            List<NamespaceID> talks = new List<NamespaceID>();
+            foreach (var modResource in modResources)
+            {
+                if (modResource == null)
+                    continue;
+                var loreTalks = modResource.StoreMetaList?.LoreTalks;
+                if (loreTalks == null)
+                    continue;
+                talks.AddRange(loreTalks.GetLoreTalks(Main.SaveManager));
+            }
+            return talks.ToArray();
         }
         #endregion
 

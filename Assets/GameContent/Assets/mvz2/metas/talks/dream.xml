@@ -646,4 +646,124 @@
       </sentences>
     </section>
   </group>
+  <group id="entered_gensokyo" tags="mvz2:gensokyo">
+    <archive name="进入幻想乡" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_gensokyo" />
+    <section onSkip="unlock mvz2:entered_gensokyo;unlock mvz2:map_store_arrow;end">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">好了！我们终于到幻想乡了！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这里……居然真的存在？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我还以为你一直以来都是在发疯呢。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">你以为我是谁呢，邻居！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">我这次还特地画了张地图呢！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">好简陋？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">方向标和比例尺都没有啊你这地图。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">问题不大！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那么，接下来去哪儿？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">嗯……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">诶，我有个想法！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">要不先去卖货的香霖堂吧，我正好有点缺货了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="unlock mvz2:entered_gensokyo;unlock mvz2:map_store_arrow;end">去吧，邻居，该进货了！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="kourindou_first_visit" tags="mvz2:gensokyo;mvz2:store">
+    <archive name="首次访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited" />
+    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited;end">
+      <characters>
+        <character id="mvz2:tokiko" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk">啊！有人来了！</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk" onClick="bubble hide;character create mvz2:crazy_villager left;delay 0.5;playsound mvz2:dialog_weird;music stop;delay 1;next">欢迎来到——</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" description="（村民出现）" variant="mvz2:surprised" sounds="mvz2:dialog_surprised" onStart="forecolor fade white #FFF0 0.01" >！！！</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" variant="mvz2:afraid" sounds="mvz2:dialog_explosive" onStart="forecolor fade white #FFF0 0.01;shake" onClick="bubble hide;playsound mvz2:dialog_flashback;character leave mvz2:tokiko;delay 2;next">呀啊啊啊啊啊啊啊！</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" description="（店主躲起来了）" sounds="mvz2:dialog_beat" onStart="shake">方块怪物！不要吃我！！我不好吃！！！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">嗯？是说我吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那个，不是的，我们不是怪物，不会吃你的。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这位是我的朋友戴夫，他很友善，不会伤害你的。</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;character create mvz2:tokiko right mvz2:worried;delay 2;next">是、是吗？</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" description="（店主出来了）" sounds="mvz2:talk" >不、不好意思，我失态了。</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk" >最近方块怪物实在是太多了，我太害怕了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >没事的，我们只是普普通通的顾客而已，放心。</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk" >那、不好意思——</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" variant="mvz2:normal" sounds="mvz2:talk" onStart="music play mvz2:gensokyo_map;" >重新问候一遍吧，欢迎来到香霖堂！这里有来自外界的各种稀奇小玩意！</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >我是这家店的店主，你们可以叫我……朱鹭子！</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >随便看看吧，有什么感兴趣的东西么？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird" onStart="music stop" >……？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >等等，你是这家店的——店主？</sentence>
+        <sentence speaker="mvz2:tokiko" variant="mvz2:surprised" sounds="mvz2:dialog_surprised" >！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >我从朋友那里听说过这家店，这里确实是香霖堂，但我记得店主应该叫……森近 霖之助才对。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >这是怎么回事？</sentence>
+        <sentence speaker="mvz2:tokiko" variant="mvz2:worried" sounds="mvz2:talk" >森近 霖之助……</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >已经有三年没人提过这个名字了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >……三年没有提过？发生什么事了吗？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >……</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >你们是外界来的人吧。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >如果是幻想乡的居民，肯定听说过他的事情。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >什么？</sentence>
+
+        
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >在异变开始的时候，他就已经不在这里了。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >好像是……三年前的那个时候。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >幻想乡开始慢慢地出现那些由方块组成的僵尸怪物。它们如同行尸走肉一般，攻击我们所有人。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >而霖之助——他是整个异变中第一个死……失踪的人。三年来一直杳无音讯。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >没有人能找到他的人——或者是尸体，他就这么突然地消失了，留下我一个人……</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >这起异变直到现在还在持续着，大街上到处都是方块僵尸，这让我一直很害怕……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >霖之助，他失踪了是吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >所以，你才会一直待在这里，为他照顾这个店？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >不过，你并没有这个理由啊。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >你应该只是在喜欢在店门口读书的一只普通的妖怪而已，和他应该没有什么太大的关系吧？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >那是因为……</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onStart="music fade 0" >不好意思，我不想说。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;delay 1;next" >是么，很抱歉问了你这么难过的问题。</sentence>
+
+
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onStart="music volume 1;music play mvz2:gensokyo_map;character variant mvz2:tokiko mvz2:surprised" >对了，不如我们把这里作为我们在幻想乡的作战基地吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" >正巧了！我也有想卖的对付怪物的利器！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" >？你怎么突然开腔了？</sentence>
+        <sentence speaker="mvz2:tokiko" variant="mvz2:normal" sounds="mvz2:talk" >把这里作为作战基地……？听起来好像很不错的样子！</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >我也挺讨厌这些方块怪物的，这样一来应该就能把那些家伙赶走了！</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >而且，我在这里一直挺孤单的，有几个人陪着的话应该也不错。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" >很高兴你能同意！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" >好了！那这里就变成了坑爹村民和我邻居的新基地了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="unlock mvz2:kourindou_visited;end" >商店也再次开张了！有什么想买的吗？</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="exited_kourindou" tags="mvz2:gensokyo">
+    <archive name="离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_teruharijou" />
+    <section onSkip="foreground alpha 0;end;unlock mvz2:entered_teruharijou;action goto_teruharijou">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">差不多该走了吧？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">没错，但……该去哪儿呢？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="bubble hide;character create mvz2:tokiko right;delay 0.5;next">得先有个目标吧！</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">那个那个，如果说是帮忙的话，我这里有个东西。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">什么？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">有天，我在窗口发呆的时候，外面突然飘来一封信。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:misc/letter_for_help;foreground fade 2;delay 1;next">就是这个。</sentence>
+
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这是？辉针城的求助信？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">看来，我们的下一站就是辉针城了！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="music fade 0;foreground alpha 0">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我事先问一下，这个辉针城，该不会是半空中的那个倒过来的城……吧？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">没错！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">怎么上去？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">你不是会机械吗？造个活塞虫呗！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake;character variant mvz2:tokiko mvz2:surprised">这能行吗！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="unlock mvz2:entered_teruharijou;end;action goto_teruharijou">试试就知道了！</sentence>
+      </sentences>
+    </section>
+  </group>
 </talks>

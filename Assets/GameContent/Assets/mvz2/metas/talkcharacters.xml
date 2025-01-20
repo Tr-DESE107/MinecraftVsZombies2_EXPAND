@@ -71,4 +71,18 @@
             <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
         </variant>
     </character>
+    <character id="tokiko" name="朱鹭子">
+        <variant id="mvz2:normal" width="738" height="1280" extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/tokiko[0]" />
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/tokiko[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/tokiko[2]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:afraid" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/tokiko[3]" positionX="0" positionY="0" />
+        </variant>
+    </character>
 </characters>

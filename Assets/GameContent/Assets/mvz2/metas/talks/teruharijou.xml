@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<talks>
+  <group id="teruharijou_1" tags="mvz2:teruharijou;mvz2:intro">
+    <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/teruharijou" unlock="mvz2:level.teruharijou_1" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我们到了！这里就是辉针城！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">好高的地方啊，我都有点怕了。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">总感觉很安静呢，房子里也没有僵尸，和下面真不一样。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">是吗？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end">嘿，等等！刚说完，就有僵尸攻过来了！</sentence>
+      </sentences>
+    </section>
+  </group>
+</talks>
