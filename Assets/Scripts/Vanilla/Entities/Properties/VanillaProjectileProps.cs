@@ -25,6 +25,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return projectile.GetProperty<bool>(PIERCING);
         }
+        public static void SetPiercing(this Entity projectile, bool value)
+        {
+            projectile.SetProperty(PIERCING, value);
+        }
         public static NamespaceID[] GetDamageEffects(this Entity projectile)
         {
             return projectile.GetProperty<NamespaceID[]>(DAMAGE_EFFECTS);
