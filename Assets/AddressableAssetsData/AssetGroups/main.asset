@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03dafdf2ab6ba7e499b6f7a6f350be32
+    m_Address: mvz2:mainmenu/view/teruharijou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04449195224ad4244a17407dc21b85f1
     m_Address: mvz2:damage/bone/bone_hit1
     m_ReadOnly: 0
@@ -685,6 +691,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25c22dffe2340ef439d6ebbc3478357e
+    m_Address: mvz2:misc/teruharijou
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
