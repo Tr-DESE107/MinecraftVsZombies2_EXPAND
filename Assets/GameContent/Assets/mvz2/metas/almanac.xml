@@ -266,7 +266,7 @@
                 <p>梦境结晶会慢慢地恢复自己的生命。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>2000</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>2000</color>]]></p>
                 <p>恢复速度：<![CDATA[<color=red>40/秒</color>]]></p>
                 <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复生命值</color>]]></p>
             </properties>
@@ -483,7 +483,22 @@
         <entry/>
         <entry/>
         <entry/>
-        <entry/>
+        <entry id="mvz2:diamond_spikes">
+            <header>
+                <p>钻石尖刺会对走在上面的敌人造成双重伤害，并具有更高的耐久。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red>2700</color>]]></p>
+                <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>]]></p>
+                <p><![CDATA[<color=red>必须放置在尖刺方块上</color>]]></p>
+            </properties>
+            <flavor>
+                <p>可以用于购买游戏物品，比如一种能毁天灭地的蔬菜。</p>
+                <p>……哈哈，怎么可能会有这种荒唐的事情呢？</p>
+            </flavor>
+        </entry>
         <entry/>
     </contraptions>
     <enemies>

@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string cobble = "cobble";
         public const string boulder = "boulder";
         public const string goldenBall = "golden_ball";
+        public const string diamondCaltrop = "diamond_caltrop";
     }
     public static class VanillaProjectileID
     {
@@ -58,6 +59,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID cobble = Get(VanillaProjectileNames.cobble);
         public static readonly NamespaceID boulder = Get(VanillaProjectileNames.boulder);
         public static readonly NamespaceID goldenBall = Get(VanillaProjectileNames.goldenBall);
+        public static readonly NamespaceID diamondCaltrop = Get(VanillaProjectileNames.diamondCaltrop);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

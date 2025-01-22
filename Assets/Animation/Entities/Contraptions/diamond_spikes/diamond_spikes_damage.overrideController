@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: diamond_spikes_damage
+  m_Controller: {fileID: 9100000, guid: bb21078ed338c3245b2a55bf1506e4b9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4e1f29d40687cc846ad356fd7fb657ea, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a8b5b71e929939047bb7f20fa37ad26b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7adae14e4bbcb0d45a736e7363ca1a09, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3ec23c8854a365f48b46ae7a8b4779d6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 382f44a114a08ba4294afd3f2da0056e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81257d63755793d47ad3cc985ca9d2c1, type: 2}

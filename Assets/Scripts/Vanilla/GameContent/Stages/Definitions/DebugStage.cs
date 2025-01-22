@@ -43,7 +43,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.goldenDropper,
                 VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.forcePad,
+                VanillaContraptionID.diamondSpikes,
                 VanillaContraptionID.totenser,
                 VanillaContraptionID.gravityPad,
 

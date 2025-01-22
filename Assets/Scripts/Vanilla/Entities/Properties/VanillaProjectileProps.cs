@@ -6,6 +6,8 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaProjectileProps
     {
+        public const string ROLLS = "rolls";
+        public static bool Rolls(this Entity entity) => entity.GetProperty<bool>(ROLLS);
         public const string PIERCING = "piercing";
         public const string POINT_TO_DIRECTION = "pointToDirection";
         public const string DAMAGE_EFFECTS = "damageEffects";

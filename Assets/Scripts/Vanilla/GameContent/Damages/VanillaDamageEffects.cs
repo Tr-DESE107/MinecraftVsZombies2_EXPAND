@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID WHACK = Get("whack");
         public static readonly NamespaceID LIGHTNING = Get("lightning");
         public static readonly NamespaceID TINY = Get("tiny");
+        public static readonly NamespaceID GROUND_SPIKES = Get("ground_spikes");
 
         public static NamespaceID Get(string name)
         {

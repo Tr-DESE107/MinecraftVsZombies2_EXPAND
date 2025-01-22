@@ -447,6 +447,27 @@
             <int name="cost" value="275" />
             <id name="rechargeId" value="mvz2:very_long" />
         </dispenser>
+        <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久" unlock="mvz2:level.teruharijou_5">
+            <float name="maxHealth" value="2700"/>
+            <float name="damage" value="20"/>
+            <bool name="shadowHidden" value="true"/>
+            <bool name="isFloor" value="true"/>
+            <id name="shell" value="mvz2:stone"/>
+            <vector3 name="size" x="64" y="16" z="64"/>
+            <idArray name="gridLayers" value="mvz2:carrier mvz2:main"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
+            <bool name="upgradeBlueprint" value="true"/>
+            <id name="upgradeFrom" value="mvz2:spike_block"/>
+            <id name="placement" value="mvz2:upgrade"/>
+            <float name="takenCrushDamage" value="300"/>
+
+            <id name="placeSound" value="mvz2:crystal_place"/>
+            <id name="deathSound" value="mvz2:crystal_break"/>
+            <id name="hitSound" value="mvz2:crystal"/>
+
+            <int name="cost" value="125" />
+            <id name="rechargeId" value="mvz2:very_long" />
+        </contraption>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
@@ -749,6 +770,7 @@
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
         <projectile id="large_snowball">
+            <bool name="rolls" value="true" />
             <bool name="piercing" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="24" y="24" z="24" />
@@ -805,6 +827,15 @@
             <float name="gravity" value="1"/>
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
+        <projectile id="diamond_caltrop">
+            <int name="maxTimeout" value="900"/>
+            <float name="gravity" value="1"/>
+            <float name="friction" value="0.1" />
+            <bool name="piercing" value="true" />
+            <vector3 name="shadowScale" x="0.25" y="0.25" z="0.25" />
+            <vector3 name="size" x="16" y="16" z="16" />
+            <idArray name="damageEffects" value="mvz2:ground_spikes" />
+        </projectile>
         <projectile id="dart">
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="32" y="6" z="6" />
@@ -826,20 +857,24 @@
             <float name="damage" value="800" />
         </projectile>
         <projectile id="wooden_ball">
+            <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="24" y="24" z="24" />
             <int name="waterInteraction" value="3"/>
         </projectile>
         <projectile id="cobble">
+            <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="12" y="12" z="12" />
             <idArray name="damageEffects" value="mvz2:tiny" />
         </projectile>
         <projectile id="boulder">
+            <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="48" y="48" z="48" />
         </projectile>
         <projectile id="golden_ball">
+            <bool name="rolls" value="true" />
             <bool name="piercing" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="24" y="24" z="24" />
@@ -1015,6 +1050,9 @@
             <int name="maxTimeout" value="90"/>
         </effect>
         <effect id="spike_particles">
+            <int name="maxTimeout" value="4"/>
+        </effect>
+        <effect id="diamond_spike_particles">
             <int name="maxTimeout" value="4"/>
         </effect>
     </entries>

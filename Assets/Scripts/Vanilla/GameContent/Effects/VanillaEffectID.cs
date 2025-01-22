@@ -54,6 +54,7 @@ namespace MVZ2.GameContent.Effects
         public const string nightmareGlass = "nightmare_glass";
         public const string floatingText = "floating_text";
         public const string spikeParticles = "spike_particles";
+        public const string diamondSpikeParticles = "diamond_spike_particles";
     }
     public static class VanillaEffectID
     {
@@ -106,6 +107,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID nightmareGlass = Get(VanillaEffectNames.nightmareGlass);
         public static readonly NamespaceID floatingText = Get(VanillaEffectNames.floatingText);
         public static readonly NamespaceID spikeParticles = Get(VanillaEffectNames.spikeParticles);
+        public static readonly NamespaceID diamondSpikeParticles = Get(VanillaEffectNames.diamondSpikeParticles);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

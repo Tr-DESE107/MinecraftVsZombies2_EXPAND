@@ -206,6 +206,8 @@ namespace MVZ2.Vanilla.Entities
         }
         private void RollUpdate(Entity projectile)
         {
+            if (!projectile.Rolls())
+                return;
             var gravity = projectile.GetGravity();
             if (gravity > 0 && projectile.GetRelativeY() <= 0)
             {

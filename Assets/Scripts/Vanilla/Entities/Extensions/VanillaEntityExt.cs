@@ -22,7 +22,6 @@ using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.Vanilla.Entities
 {

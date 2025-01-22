@@ -117,6 +117,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: mobile_blueprint/add_pearl
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
+  - name: mobile_blueprint/diamond_spikes
+    sprite: {fileID: 21300000, guid: a91f725ba10a5c545a6a951003948a10, type: 3}
   - name: mobile_blueprint/dispenser
     sprite: {fileID: 21300000, guid: ec64b1f344d5e534899c5676939afb2e, type: 3}
   - name: mobile_blueprint/dream_crystal
@@ -359,6 +361,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6a18698f112f8244db4b1e5de5873248, type: 3}
   - name: entity/effects/crushing_wall_right_censored
     sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
+  - name: entity/effects/diamond_spike_particles
+    sprite: {fileID: 21300000, guid: 832e7d1ecf7d7eb42a2921e2909679f6, type: 3}
   - name: entity/effects/evocation_star
     sprite: {fileID: 21300000, guid: 8b93445b685c42440938fc5154ea419c, type: 3}
   - name: entity/effects/fire_particle
@@ -405,6 +409,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7f3395beab3ab1e48af75779a006eae7, type: 3}
   - name: entity/effects/speed_line
     sprite: {fileID: 21300000, guid: e94aed10d8dd86742a549eb789938806, type: 3}
+  - name: entity/effects/spike_particles
+    sprite: {fileID: 21300000, guid: f09ba06086cfa354b8cfda77f33d71aa, type: 3}
   - name: entity/effects/star
     sprite: {fileID: 21300000, guid: 9274a6de61534f940b4da30c3fffcb67, type: 3}
   - name: entity/effects/thunder_bolt
@@ -918,6 +924,11 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/diamond_spikes
+    spritesheet:
+    - {fileID: 1691000209, guid: a3186b48658bcbe458396f03e2f38590, type: 3}
+    - {fileID: 156208573, guid: a3186b48658bcbe458396f03e2f38590, type: 3}
+    - {fileID: 811311826, guid: a3186b48658bcbe458396f03e2f38590, type: 3}
   - name: entity/contraption/dispenser
     spritesheet:
     - {fileID: 207085780836861793, guid: a3ffec953f3b51d4fbe1130f7e6f67e5, type: 3}

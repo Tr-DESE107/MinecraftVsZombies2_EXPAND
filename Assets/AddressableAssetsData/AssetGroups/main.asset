@@ -2637,6 +2637,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Language
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 832e7d1ecf7d7eb42a2921e2909679f6
+    m_Address: mvz2:entity/effects/diamond_spike_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8377ca22c43dd784f85308891f7c59a7
     m_Address: mvz2:ui/level/card_curtain
     m_ReadOnly: 0
@@ -2930,6 +2936,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eb46ba6806a1bd4a9c513acc51f3523
+    m_Address: mvz2:effect/diamond_spike_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ee7e3c6233a6be4191bfd80ff87e80e
     m_Address: mvz2:entity/enemy/boat
@@ -3368,6 +3380,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3186b48658bcbe458396f03e2f38590
+    m_Address: mvz2:entity/contraption/diamond_spikes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3399410694747943aee3e605146f887
     m_Address: mvz2:level/dream/dream_ground
@@ -5336,6 +5354,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd0564e8ade3f984fb22a344c641970a
+    m_Address: mvz2:projectile/diamond_caltrop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdd0e6446538d484b9e6fb81268f0a8a
     m_Address: mvz2:effect/fragment

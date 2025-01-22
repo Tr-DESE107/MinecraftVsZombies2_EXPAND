@@ -103,6 +103,18 @@
             <key alpha="0.5" time="1"/>
         </alphaKeys>
     </fragment>
+    <fragment name="wooden_dropper">
+        <colorKeys>
+            <key hex="#C6A570" time="0.5"/>
+            <key hex="#805E36" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="spike_block">
+        <colorKeys>
+            <key hex="#9D9D9D" time="0.5"/>
+            <key hex="#7A7A7A" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>
@@ -116,16 +128,16 @@
             <key hex="#0080FF" time="1"/>
         </colorKeys>
     </fragment>
-    <fragment name="wooden_dropper">
-        <colorKeys>
-            <key hex="#C6A570" time="0.5"/>
-            <key hex="#805E36" time="1"/>
-        </colorKeys>
-    </fragment>
     <fragment name="golden_dropper">
         <colorKeys>
             <key hex="#FFD400" time="0.5"/>
             <key hex="#FFA900" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="diamond_spikes">
+        <colorKeys>
+            <key hex="#48FFFF" time="0.75"/>
+            <key hex="#30C6C6" time="1"/>
         </colorKeys>
     </fragment>
 </fragments>
