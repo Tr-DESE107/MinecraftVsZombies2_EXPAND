@@ -45,6 +45,29 @@ namespace MVZ2.Vanilla.Entities
             }
             return false;
         }
+        public static Entity GetProtectingTarget(this Entity contraption)
+        {
+            var grid = contraption?.GetGrid();
+            if (grid == null || grid.GetProtectorEntity() != contraption)
+                return null;
+            var main = grid.GetMainEntity();
+            if (main != null && main.Exists() && main != contraption)
+                return main;
+            var carrier = grid.GetCarrierEntity();
+            if (carrier != null && carrier.Exists() && carrier != contraption)
+                return carrier;
+            return null;
+        }
+        public static Entity GetProtector(this Entity contraption)
+        {
+            var grid = contraption?.GetGrid();
+            if (grid == null)
+                return null;
+            var protector = grid.GetProtectorEntity();
+            if (protector != null && protector.Exists() && protector != contraption)
+                return protector;
+            return null;
+        }
         public static bool CanTrigger(this Entity contraption)
         {
             var triggerable = contraption.Definition.GetBehaviour<ITriggerableContraption>();

@@ -84,7 +84,7 @@ namespace MVZ2.Level
                 var receiver = go.GetComponentInParent<ILevelRaycastReceiver>();
                 if (receiver == null)
                     continue;
-                if (!receiver.IsValidReceiver(level, heldItemDefinition, heldItemData))
+                if (!receiver.IsValidReceiver(level, heldItemDefinition, heldItemData, eventData))
                     continue;
 
                 var result = new RaycastResult

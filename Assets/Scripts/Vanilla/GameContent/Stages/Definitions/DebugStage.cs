@@ -40,12 +40,12 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.woodenDropper,
-                VanillaContraptionID.goldenDropper,
+                VanillaContraptionID.lilyPad,
+                VanillaContraptionID.gravityPad,
                 VanillaContraptionID.spikeBlock,
                 VanillaContraptionID.diamondSpikes,
                 VanillaContraptionID.totenser,
-                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.stoneShield,
 
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.ghast,

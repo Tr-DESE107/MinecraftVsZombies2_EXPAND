@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.HeldItems
                 return false;
             if (entity.Type != EntityTypes.PLANT)
                 return false;
-            if (entity.HasPassenger())
+            if (entity.NoHeldTarget())
                 return false;
             return entity.GetFaction() == entity.Level.Option.LeftFaction && !entity.CannotDig();
         }

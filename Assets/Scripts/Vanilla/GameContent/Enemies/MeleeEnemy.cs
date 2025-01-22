@@ -38,7 +38,13 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (ValidateMeleeTarget(enemy, enemy.Target))
                 return;
-            if (ValidateMeleeTarget(enemy, other))
+            var target = other;
+            var protector = target.GetProtector();
+            if (protector != null && protector.Exists())
+            {
+                target = protector;
+            }
+            if (ValidateMeleeTarget(enemy, target))
             {
                 enemy.Target = other;
             }
@@ -53,10 +59,16 @@ namespace MVZ2.Vanilla.Enemies
                 return false;
             if (!Detection.CanDetect(target))
                 return false;
-            if (target.Type == EntityTypes.PLANT && target.IsFloor())
-                return false;
             if (target.Position.y > enemy.Position.y + enemy.GetMaxAttackHeight())
                 return false;
+            if (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE) 
+            {
+                if (target.IsFloor())
+                    return false;
+                var protector = target.GetProtector();
+                if (protector != null && protector.Exists())
+                    return false;
+            }
             return true;
         }
         protected void CancelMeleeAttack(Entity enemy, Entity other)

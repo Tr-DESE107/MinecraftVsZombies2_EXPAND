@@ -27,6 +27,7 @@
     <model name="wooden_dropper" type="entity" path="mvz2:contraption/wooden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="spike_block" type="entity" path="mvz2:contraption/spike_block" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="stone_dropper" type="entity" path="mvz2:contraption/stone_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="stone_shield" type="entity" path="mvz2:contraption/stone_shield" width="80" height="80" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>

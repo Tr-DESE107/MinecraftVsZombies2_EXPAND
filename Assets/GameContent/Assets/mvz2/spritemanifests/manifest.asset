@@ -189,6 +189,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d0f973bcd4babdc40b8ee0cfc233300c, type: 3}
   - name: mobile_blueprint/stone_dropper
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
+  - name: mobile_blueprint/stone_shield
+    sprite: {fileID: 21300000, guid: a001063ac6b540b42a716f3b66388328, type: 3}
   - name: mobile_blueprint/tnt
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
@@ -1036,6 +1038,12 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1795380811, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
     - {fileID: 1116002968, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
+  - name: entity/contraption/stone_shield
+    spritesheet:
+    - {fileID: 1538110737, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+    - {fileID: 1259003968, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+    - {fileID: 757936343, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+    - {fileID: -273153786, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
   - name: entity/contraption/totenser
     spritesheet:
     - {fileID: 1662629785, guid: ec212abe3448fae468e8a869c194bb7c, type: 3}

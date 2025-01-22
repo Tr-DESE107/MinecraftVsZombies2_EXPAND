@@ -373,6 +373,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
         <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人" unlock="mvz2:level.teruharijou_2">
+            <bool name="canDeactive" value="false"/>
             <float name="damage" value="20"/>
             <bool name="shadowHidden" value="true"/>
             <bool name="isFloor" value="true"/>
@@ -395,6 +396,15 @@
 
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
+        </dispenser>
+        <dispenser id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.teruharijou_4">
+            <float name="maxHealth" value="4000"/>
+            <id name="fragmentId" value="mvz2:furnace" />
+            <vector3 name="size" x="80" y="40" z="80"/>
+            <idArray name="gridLayers" value="mvz2:protector"/>
+
+            <int name="cost" value="125" />
+            <id name="rechargeId" value="mvz2:long" />
         </dispenser>
 
         <!-- Upgrade Contraptions -->

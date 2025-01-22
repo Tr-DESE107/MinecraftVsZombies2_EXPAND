@@ -37,6 +37,8 @@ namespace MVZ2.GameContent.Buffs
         public const string vortexHopperEvoked = "vortex_hopper_evoked";
         public const string dreamCrystalEvocation = "dream_crystal_evocation";
         public const string dreamSilk = "dream_silk";
+        public const string stoneShieldProtected = "stone_shield_protected";
+        public const string ironCurtain = "iron_curtain";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -135,6 +137,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID darkMatterProduction = Get(VanillaBuffNames.darkMatterProduction);
         public static readonly NamespaceID gravityPadGravity = Get(VanillaBuffNames.gravityPadGravity);
         public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.forcePadDrag);
+        public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.stoneShieldProtected);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

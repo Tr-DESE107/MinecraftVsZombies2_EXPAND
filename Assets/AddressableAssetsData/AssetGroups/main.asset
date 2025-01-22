@@ -191,6 +191,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c0cc12ade778154394fe3b0bb1982c3
+    m_Address: mvz2:contraption/diamond_spikes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d2aba7e3e7fc2b44a60708edca144b6
     m_Address: mvz2:archive/dream_note
     m_ReadOnly: 0
@@ -2499,6 +2505,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e530d21185c00548b56d2627d93d61f
+    m_Address: mvz2:iron_curtain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e7c3fe785fc77648b8a02074a0fccc8
     m_Address: mvz2:entity/bone_wall/bone_wall_build3
     m_ReadOnly: 0
@@ -3135,6 +3147,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 966a0e1617ca8a143ac09df2e9c328ff
+    m_Address: mvz2:entity/contraption/stone_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9696331d07114754fbccc29acd1b4846
     m_Address: mvz2:map/gensokyo/pins/teruharijou
     m_ReadOnly: 0
@@ -3345,6 +3363,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a001063ac6b540b42a716f3b66388328
+    m_Address: mvz2:mobile_blueprint/stone_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a02daf75bb803ad4a9a1307f593ad6a1
     m_Address: mvz2:mainmenu/mods
     m_ReadOnly: 0
@@ -3554,6 +3578,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a91f725ba10a5c545a6a951003948a10
+    m_Address: mvz2:mobile_blueprint/diamond_spikes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9d9e0468df93c84ea575c28aa3d81ac
     m_Address: mvz2:random/wood4
@@ -5108,6 +5138,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f085da7c74324734eb3998b3ea1a3dd0
+    m_Address: mvz2:contraption/stone_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f09ba06086cfa354b8cfda77f33d71aa
     m_Address: mvz2:entity/effects/spike_particles

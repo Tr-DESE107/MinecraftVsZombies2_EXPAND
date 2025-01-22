@@ -279,6 +279,9 @@
     <sound name="huge_wave" priority="64">
         <sample path="mvz2:huge_wave" weight="1" />
     </sound>
+    <sound name="iron_curtain">
+        <sample path="mvz2:iron_curtain" weight="1" />
+    </sound>
     <sound name="launch">
         <sample path="mvz2:launch" weight="1" />
     </sound>

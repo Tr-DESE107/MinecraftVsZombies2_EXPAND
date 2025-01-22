@@ -180,51 +180,51 @@
         <lighting night="0.5" />
         <grids width="80" height="80" leftX="260" bottomZ="40" lanes="5" columns="9">
             <!-- Lane 1 -->
-            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" slope="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 2 -->
-            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" slope="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 3 -->
-            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" slope="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 4 -->
-            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" slope="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 5 -->
-            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" />
-            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" />
+            <grid id="mvz2:wood" yOffset="80" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="64" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="48" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="32" sprite="mvz2:level/grids/bevel" slope="16" />
+            <grid id="mvz2:wood" yOffset="16" sprite="mvz2:level/grids/bevel" slope="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />

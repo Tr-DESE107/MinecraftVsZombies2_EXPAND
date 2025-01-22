@@ -7,24 +7,17 @@ namespace MVZ2.Editor
     [CustomEditor(typeof(ModelRendererGroup))]
     public class ModelRendererGroupEditor : UnityEditor.Editor
     {
-        private ModelRendererGroup group;
-        private SerializedProperty sortingGroupProperty;
-        private SerializedProperty renderersProperty;
-        private SerializedProperty transformsProperty;
-        private SerializedProperty particlesProperty;
-        private SerializedProperty animatorsProperty;
-        private void OnEnable()
-        {
-            group = target as ModelRendererGroup;
-            sortingGroupProperty = serializedObject.FindProperty("sortingGroup");
-            renderersProperty = serializedObject.FindProperty("renderers");
-            transformsProperty = serializedObject.FindProperty("transforms");
-            particlesProperty = serializedObject.FindProperty("particles");
-            animatorsProperty = serializedObject.FindProperty("animators");
-        }
         public override void OnInspectorGUI()
         {
+            var group = target as ModelRendererGroup;
+            var sortingGroupProperty = serializedObject.FindProperty("sortingGroup");
+            var subSortingGroupsProperty = serializedObject.FindProperty("subSortingGroups");
+            var renderersProperty = serializedObject.FindProperty("renderers");
+            var transformsProperty = serializedObject.FindProperty("transforms");
+            var  particlesProperty = serializedObject.FindProperty("particles");
+            var animatorsProperty = serializedObject.FindProperty("animators");
             EditorGUILayout.PropertyField(sortingGroupProperty);
+            EditorGUILayout.PropertyField(subSortingGroupsProperty);
             EditorGUILayout.PropertyField(renderersProperty);
             EditorGUILayout.PropertyField(transformsProperty);
             EditorGUILayout.PropertyField(particlesProperty);

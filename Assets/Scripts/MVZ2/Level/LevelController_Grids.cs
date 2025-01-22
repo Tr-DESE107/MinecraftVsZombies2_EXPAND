@@ -31,6 +31,7 @@ namespace MVZ2.Level
                 return;
             pointingGridLane = lane;
             pointingGridColumn = column;
+            pointingPointerId = data.pointerId;
             UpdateGridHighlight();
         }
         private void UI_OnGridExitCallback(int lane, int column, PointerEventData data)
@@ -39,13 +40,20 @@ namespace MVZ2.Level
                 return;
             pointingGridLane = -1;
             pointingGridColumn = -1;
+            pointingPointerId = -1;
             UpdateGridHighlight();
         }
         private void UI_OnGridPointerDownCallback(int lane, int column, PointerEventData data)
         {
             if (data.button != PointerEventData.InputButton.Left)
                 return;
-            ClickOnGrid(lane, column, PointerInteraction.Press, Vector2.down);
+            var gridUI = gridLayout.GetGrid(lane, column);
+            var pointerPosition = Vector2.zero;
+            if (gridUI)
+            {
+                pointerPosition = gridUI.TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
+            }
+            ClickOnGrid(lane, column, PointerInteraction.Press, pointerPosition);
         }
 
         #endregion
@@ -62,6 +70,7 @@ namespace MVZ2.Level
             foreach (var grid in gridLayout.GetGrids())
             {
                 grid.SetColor(Color.clear);
+                grid.SetDisplaySection(0, 1);
             }
         }
         private void UpdateGridHighlight()
@@ -76,7 +85,20 @@ namespace MVZ2.Level
             if (pointingGrid)
             {
                 var grid = level.GetGrid(pointingGridColumn, pointingGridLane);
-                var target = new HeldItemTargetGrid(grid, Vector2.down);
+                var gridUI = gridLayout.GetGrid(pointingGridLane, pointingGridColumn);
+
+                Vector2 position;
+                if (gridUI)
+                {
+                    var screenPos = Main.InputManager.GetPointerPosition(pointingPointerId);
+                    var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
+                    position = gridUI.TransformWorld2ColliderPosition(worldPos);
+                }
+                else
+                {
+                    position = Vector2.zero;
+                }
+                var target = new HeldItemTargetGrid(grid, position);
                 var highlight = level.GetHeldHighlight(target);
                 HighlightGrid(pointingGridLane, pointingGridColumn, highlight);
             }
@@ -84,12 +106,20 @@ namespace MVZ2.Level
         private void HighlightGrid(int lane, int column, HeldHighlight highlight)
         {
             Color color = Color.clear;
+            float rangeStart = 0;
+            float rangeEnd = 1;
             switch (highlight)
             {
                 case HeldHighlight.Green:
+                    color = Color.green;
+                    break;
                 case HeldHighlight.UpperGreen:
+                    color = Color.green;
+                    rangeStart = 0.5f;
+                    break;
                 case HeldHighlight.LowerGreen:
                     color = Color.green;
+                    rangeEnd = 0.5f;
                     break;
                 case HeldHighlight.Red:
                     color = Color.red;
@@ -97,6 +127,7 @@ namespace MVZ2.Level
             }
             var gridUI = gridLayout.GetGrid(lane, column);
             gridUI.SetColor(color);
+            gridUI.SetDisplaySection(rangeStart, rangeEnd);
         }
         private void HighlightAxisGrids(int lane, int column)
         {
@@ -110,6 +141,7 @@ namespace MVZ2.Level
                     {
                         var g = gridLayout.GetGrid(l, c);
                         g.SetColor(gridColorTransparent);
+                        g.SetDisplaySection(0, 1);
                     }
                 }
             }
@@ -145,10 +177,14 @@ namespace MVZ2.Level
                     {
                         sprite = Main.GetFinalSprite(defaultGridSprite);
                     }
+
+                    var slope = (gridMeta?.Slope ?? 0) * LawnToTransScale;
+
                     viewDatas[lane][column] = new GridViewData()
                     {
                         position = new Vector2(worldPos.x, worldPos.y),
-                        sprite = sprite
+                        sprite = sprite,
+                        slope = slope,
                     };
                 }
             }
@@ -157,6 +193,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 属性字段
+        private int pointingPointerId = -1;
         private int pointingGridLane = -1;
         private int pointingGridColumn = -1;
         private bool lastPointingGrid;

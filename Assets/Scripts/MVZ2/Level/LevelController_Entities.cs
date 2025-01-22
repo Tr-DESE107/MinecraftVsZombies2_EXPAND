@@ -20,7 +20,6 @@ using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Level
 {
@@ -59,9 +58,7 @@ namespace MVZ2.Level
         }
         private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
         {
-            var target = entityCtrl.HeldItemTarget;
-            var highlight = level.GetHeldHighlight(target);
-            entityCtrl.SetHighlight(highlight == HeldHighlight.Entity);
+            SetHoveredEntity(entityCtrl);
             if (!IsGameRunning())
             {
                 // 显示查看图鉴提示
@@ -84,7 +81,7 @@ namespace MVZ2.Level
         }
         private void UI_OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
         {
-            entity.SetHighlight(false);
+            SetHoveredEntity(null);
             // 隐藏查看图鉴提示
             if (entity.Entity.IsPreviewEnemy())
             {
@@ -100,7 +97,7 @@ namespace MVZ2.Level
             var entity = entityCtrl.Entity;
             if (IsGameRunning())
             {
-                var target = entityCtrl.HeldItemTarget;
+                var target = entityCtrl.GetHeldItemTarget(eventData);
                 level.UseHeldItem(target, PointerInteraction.Press);
             }
             else
@@ -199,6 +196,50 @@ namespace MVZ2.Level
         }
         #endregion
 
+        private void SetHoveredEntity(EntityController entity)
+        {
+            hoveredEntity = entity;
+            UpdateEntityHighlight();
+        }
+        private void UpdateEntityHighlight()
+        {
+            if (!hoveredEntity || hoveredEntity.GetHoveredPointerCount() <= 0)
+            {
+                SetHighlightedEntity(null);
+                return;
+            }
+            var pointerId = hoveredEntity.GetHoveredPointerId(0);
+            var pointerPosition = Main.InputManager.GetPointerPosition(pointerId);
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
+            var target = hoveredEntity.GetHeldItemTarget(worldPosition);
+            var highlight = level.GetHeldHighlight(target);
+            if (highlight == HeldHighlight.Entity)
+            {
+                SetHighlightedEntity(hoveredEntity);
+            }
+            else if (highlight == HeldHighlight.ProtectedEntity)
+            {
+                var protectTarget = hoveredEntity.Entity.GetProtectingTarget();
+                if (protectTarget != null)
+                {
+                    var protectCtrl = GetEntityController(protectTarget);
+                    SetHighlightedEntity(protectCtrl);
+                }
+            }
+        }
+        private void SetHighlightedEntity(EntityController entity)
+        {
+            if (highlightedEntity)
+            {
+                highlightedEntity.SetHighlight(false);
+            }
+            highlightedEntity = entity;
+            if (highlightedEntity)
+            {
+                highlightedEntity.SetHighlight(true);
+            }
+        }
+
         private QuadTreeParams GetQuadTreeParams()
         {
             return new QuadTreeParams()
@@ -223,6 +264,8 @@ namespace MVZ2.Level
         public const string VIEW_IN_ALMANAC = "在图鉴中查看";
 
         private List<EntityController> entities = new List<EntityController>();
+        private EntityController hoveredEntity;
+        private EntityController highlightedEntity;
 
         #region 保存属性
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);

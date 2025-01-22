@@ -24,8 +24,25 @@ namespace MVZ2.Models
                 throw new ArgumentException("Wrong model group element type.", nameof(element));
             renderers.Add(rendererElement);
         }
+        public void CancelSortAtRoot()
+        {
+            foreach (var group in subSortingGroups)
+            {
+                group.sortAtRoot = false;
+            }
+        }
         public override void UpdateElements()
         {
+            subSortingGroups.Clear();
+            foreach (var sortingGroup in GetComponentsInChildren<SortingGroup>(true))
+            {
+                if (!IsChildOfGroup(sortingGroup.transform, this))
+                    continue;
+                if (sortingGroup.gameObject == gameObject)
+                    continue;
+                subSortingGroups.Add(sortingGroup);
+            }
+
             renderers.Clear();
             foreach (var renderer in GetComponentsInChildren<Renderer>(true))
             {
@@ -139,14 +156,47 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性字段
-        public override int SortingLayerID { get => sortingGroup.sortingLayerID; set => sortingGroup.sortingLayerID = value; }
-
-        public override string SortingLayerName { get => sortingGroup.sortingLayerName; set => sortingGroup.sortingLayerName = value; }
-
-        public override int SortingOrder { get => sortingGroup.sortingOrder; set => sortingGroup.sortingOrder = value; }
+        public override int SortingLayerID 
+        { 
+            get => sortingGroup.sortingLayerID; 
+            set
+            {
+                sortingGroup.sortingLayerID = value;
+                foreach (var group in subSortingGroups)
+                {
+                    group.sortingLayerID = value;
+                }
+            }
+        }
+        public override string SortingLayerName 
+        { 
+            get => sortingGroup.sortingLayerName;
+            set
+            {
+                sortingGroup.sortingLayerName = value;
+                foreach (var group in subSortingGroups)
+                {
+                    group.sortingLayerName = value;
+                }
+            }
+        }
+        public override int SortingOrder 
+        { 
+            get => sortingGroup.sortingOrder;
+            set
+            {
+                sortingGroup.sortingOrder = value;
+                foreach (var group in subSortingGroups)
+                {
+                    group.sortingOrder = value;
+                }
+            }
+        }
 
         [SerializeField]
         private SortingGroup sortingGroup;
+        [SerializeField]
+        private List<SortingGroup> subSortingGroups = new List<SortingGroup>();
         [SerializeField]
         private List<RendererElement> renderers = new List<RendererElement>();
         [SerializeField]

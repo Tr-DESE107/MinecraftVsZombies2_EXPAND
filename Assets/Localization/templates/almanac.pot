@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-22 05:21+0800\n"
+"POT-Creation-Date: 2025-01-22 10:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -422,7 +422,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"生命：<color=red>2000</color>\n"
+"耐久：<color=red>2000</color>\n"
 "恢复速度：<color=red>40/秒</color>\n"
 "技能：<color=red>进入无敌状态，并为周围的器械恢复生命值</color>"
 msgstr ""
@@ -523,6 +523,29 @@ msgctxt "contraptions.description"
 msgid "它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。"
 msgstr ""
 
+#. Header for contraptions mvz2:stone_shield
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "石护罩可以和其他器械放在一起，并保护其内部的器械。"
+msgstr ""
+
+#. Properties for contraptions mvz2:stone_shield
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>4000</color>\n"
+"技能：<color=red>3x3范围内的器械无敌5秒</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:stone_shield
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"无法访问该页面：\n"
+"458 Protected\n"
+"页面受到保护，请先挖掉石护罩再继续。"
+msgstr ""
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -587,6 +610,31 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
+msgstr ""
+
+#. Header for contraptions mvz2:diamond_spikes
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "钻石尖刺会对走在上面的敌人造成双重伤害，并具有更高的耐久。"
+msgstr ""
+
+#. Properties for contraptions mvz2:diamond_spikes
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>2700</color>\n"
+"攻击频率：<color=red>0.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>\n"
+"<color=red>必须放置在尖刺方块上</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:diamond_spikes
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"可以用于购买游戏物品，比如一种能毁天灭地的蔬菜。\n"
+"……哈哈，怎么可能会有这种荒唐的事情呢？"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1909,6 +1957,18 @@ msgctxt "entity.tooltip"
 msgid "投出石子或巨石"
 msgstr ""
 
+#. Header for entity mvz2:stone_shield
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石护罩"
+msgstr ""
+
+#. Properties for entity mvz2:stone_shield
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "保护内部的器械"
+msgstr ""
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -1949,6 +2009,20 @@ msgctxt "entity.tooltip"
 msgid ""
 "（需要木制投掷器）\n"
 "投出反弹并产生绿宝石的金球"
+msgstr ""
+
+#. Header for entity mvz2:diamond_spikes
+#: Entity meta file
+msgctxt "entity.name"
+msgid "钻石尖刺"
+msgstr ""
+
+#. Properties for entity mvz2:diamond_spikes
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要尖刺方块）\n"
+"更快扎伤上面的敌人，并具有更高耐久"
 msgstr ""
 
 #. Header for entity mvz2:anvil

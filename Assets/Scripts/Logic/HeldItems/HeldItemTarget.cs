@@ -2,7 +2,6 @@
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -12,12 +11,14 @@ namespace MVZ2Logic.HeldItems
     }
     public class HeldItemTargetEntity : HeldItemTarget
     {
-        public HeldItemTargetEntity(Entity target)
+        public HeldItemTargetEntity(Entity target, Vector2 pointerPosition)
         {
             Target = target;
+            PointerPosition = pointerPosition;
         }
         public override LevelEngine GetLevel() => Target.Level;
         public Entity Target { get; }
+        public Vector2 PointerPosition { get; }
     }
     public class HeldItemTargetGrid : HeldItemTarget
     {

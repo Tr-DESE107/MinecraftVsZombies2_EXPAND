@@ -126,7 +126,7 @@ namespace MVZ2.Vanilla.Detections
         {
             if (target == null)
                 return false;
-            if (self.entity == target)
+            if (self.entity == target && !includeSelf)
                 return false;
             if (target.IsDead)
                 return false;
@@ -184,6 +184,7 @@ namespace MVZ2.Vanilla.Detections
         public FactionTarget factionTarget = FactionTarget.Hostile;
         public bool canDetectInvisible;
         public bool ignoreBoss;
+        public bool includeSelf;
         public Func<DetectionParams, Entity, bool> invulnerableFilter;
         private List<EntityCollider> resultsBuffer = new List<EntityCollider>();
         private List<Entity> entityBuffer = new List<Entity>();

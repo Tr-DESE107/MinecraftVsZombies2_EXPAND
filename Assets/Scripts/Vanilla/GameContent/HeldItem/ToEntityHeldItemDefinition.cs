@@ -6,7 +6,6 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.HeldItem
 {
@@ -33,7 +32,41 @@ namespace MVZ2.GameContent.HeldItem
             switch (target)
             {
                 case HeldItemTargetEntity entityTarget:
-                    return HeldHighlight.Entity;
+                    {
+                        var entity = entityTarget.Target;
+
+                        var protector = entity;
+                        var protectTarget = entity.GetProtectingTarget();
+                        if (protectTarget == null)
+                        {
+                            return HeldHighlight.Entity;
+                        }
+                        var canUseOnProtector = CanUseOnEntity(protector);
+                        var canUseOnMain = CanUseOnEntity(protectTarget);
+                        if (canUseOnProtector && canUseOnMain)
+                        {
+                            // 保护层和主要层器械都可以用，根据光标位置决定。
+                            if (entityTarget.PointerPosition.y < 0.5f)
+                            {
+                                return HeldHighlight.Entity;
+                            }
+                            else
+                            {
+                                return HeldHighlight.ProtectedEntity;
+                            }
+                        }
+                        else if (canUseOnProtector)
+                        {
+                            // 只有保护层可以用。
+                            return HeldHighlight.Entity;
+                        }
+                        else if (canUseOnMain)
+                        {
+                            // 只有主要层器械可以用。
+                            return HeldHighlight.ProtectedEntity;
+                        }
+                        return HeldHighlight.None;
+                    }
                 case HeldItemTargetGrid gridTarget:
                     {
                         var grid = gridTarget.Target;
@@ -41,12 +74,19 @@ namespace MVZ2.GameContent.HeldItem
                         var protector = grid.GetProtectorEntity();
                         var main = grid.GetMainEntity();
                         var carrier = grid.GetCarrierEntity();
+
+                        var protectedEntity = main;
+                        if (!CanUseOnEntity(main))
+                        {
+                            protectedEntity = carrier;
+                        }
+
                         var canUseOnProtector = CanUseOnEntity(protector);
-                        var canUseOnMain = CanUseOnEntity(main);
-                        if (canUseOnProtector && canUseOnMain)
+                        var canUseOnProtected = CanUseOnEntity(protectedEntity);
+                        if (canUseOnProtector && canUseOnProtected)
                         {
                             // 保护层和主要层器械都可以用，根据光标位置决定。
-                            if (gridTarget.PointerPosition.y >= 0.5f)
+                            if (gridTarget.PointerPosition.y < 0.5f)
                             {
                                 return HeldHighlight.LowerGreen;
                             }
@@ -67,7 +107,7 @@ namespace MVZ2.GameContent.HeldItem
                                 return HeldHighlight.LowerGreen;
                             }
                         }
-                        else if (canUseOnMain)
+                        else if (canUseOnProtected)
                         {
                             // 只有主要层器械可以用。
                             if (protector == null)
@@ -78,12 +118,6 @@ namespace MVZ2.GameContent.HeldItem
                             {
                                 return HeldHighlight.UpperGreen;
                             }
-                        }
-                        else if (protector == null && main == null)
-                        {
-                            // 保护层和主要层器械不存在，检测承载层。
-                            if (CanUseOnEntity(carrier))
-                                return HeldHighlight.Green;
                         }
                         return HeldHighlight.Red;
                     }
@@ -112,9 +146,31 @@ namespace MVZ2.GameContent.HeldItem
                     {
                         if (interaction != PointerInteraction.Press)
                             return;
+
                         var entity = entityTarget.Target;
-                        entity.Level.ResetHeldItem();
-                        UseOnEntity(entity);
+                        var targetEntity = entity;
+                        var protector = entity;
+                        var protectTarget = entity.GetProtectingTarget();
+                        if (protectTarget != null)
+                        {
+                            var canUseOnProtector = CanUseOnEntity(protector);
+                            var canUseOnMain = CanUseOnEntity(protectTarget);
+                            if (canUseOnProtector && canUseOnMain)
+                            {
+                                // 保护层和主要层器械都可以用，根据光标位置决定。
+                                if (entityTarget.PointerPosition.y >= 0.5f)
+                                {
+                                    targetEntity = protectTarget;
+                                }
+                            }
+                            else if (!canUseOnProtector)
+                            {
+                                // 只有主要层器械可以用。
+                                targetEntity = protectTarget;
+                            }
+                        }
+                        targetEntity.Level.ResetHeldItem();
+                        UseOnEntity(targetEntity);
                     }
                     break;
                 case HeldItemTargetGrid gridTarget:
@@ -126,20 +182,27 @@ namespace MVZ2.GameContent.HeldItem
                         var protector = grid.GetProtectorEntity();
                         var main = grid.GetMainEntity();
                         var carrier = grid.GetCarrierEntity();
+
+                        var protectedEntity = main;
+                        if (!CanUseOnEntity(main))
+                        {
+                            protectedEntity = carrier;
+                        }
+
                         var canUseOnProtector = CanUseOnEntity(protector);
-                        var canUseOnMain = CanUseOnEntity(main);
+                        var canUseOnProtected = CanUseOnEntity(protectedEntity);
 
                         Entity entity = null;
-                        if (canUseOnProtector && canUseOnMain)
+                        if (canUseOnProtector && canUseOnProtected)
                         {
                             // 保护层和主要层器械都可以用，根据光标位置决定。
-                            if (gridTarget.PointerPosition.y >= 0.5f)
+                            if (gridTarget.PointerPosition.y < 0.5f)
                             {
                                 entity = protector;
                             }
                             else
                             {
-                                entity = main;
+                                entity = protectedEntity;
                             }
                         }
                         else if (canUseOnProtector)
@@ -147,18 +210,10 @@ namespace MVZ2.GameContent.HeldItem
                             // 只有保护层可以用。
                             entity = protector;
                         }
-                        else if (canUseOnMain)
+                        else if (canUseOnProtected)
                         {
                             // 只有主要层器械可以用。
-                            entity = main;
-                        }
-                        else if (protector == null && main == null)
-                        {
-                            // 保护层和主要层器械不存在，检测承载层。
-                            if (CanUseOnEntity(carrier))
-                            {
-                                entity = carrier;
-                            }
+                            entity = protectedEntity;
                         }
                         grid.Level.ResetHeldItem();
                         if (CanUseOnEntity(entity))

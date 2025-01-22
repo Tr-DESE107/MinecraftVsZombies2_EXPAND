@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MVZ2.Cursors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
@@ -48,7 +47,6 @@ namespace MVZ2.Entities
 
             transform.position = Level.LawnToTrans(Entity.Position);
             lastPosition = transform.position;
-            HeldItemTarget = new HeldItemTargetEntity(Entity);
         }
 
         #region 模型
@@ -92,29 +90,7 @@ namespace MVZ2.Entities
             }
             if (Level.IsGameRunning())
             {
-                bool pressed = false;
-                bool holding = false;
-                foreach (var id in hoveredPointerId)
-                {
-                    if (!pressed && pressedPointerId.Contains(id))
-                    {
-                        pressed = true;
-                    }
-                    if (!holding && Main.InputManager.IsPointerHolding(id))
-                    {
-                        holding = true;
-                    }
-                }
-                if (pressed)
-                {
-                    // 按住
-                    Entity.Level.UseHeldItem(HeldItemTarget, PointerInteraction.Hold);
-                }
-                else if (holding)
-                {
-                    // 划过
-                    Entity.Level.UseHeldItem(HeldItemTarget, PointerInteraction.Streak);
-                }
+                UpdateHoldAndStreak();
             }
         }
         public void UpdateFrame(float deltaTime)
@@ -135,6 +111,34 @@ namespace MVZ2.Entities
                 Model.UpdateFrame(deltaTime);
             }
         }
+        private void UpdateHoldAndStreak()
+        {
+            bool pressed = false;
+            bool holding = false;
+            foreach (var id in hoveredPointerId)
+            {
+                if (!pressed && pressedPointerId.Contains(id))
+                {
+                    pressed = true;
+                }
+                if (!holding && Main.InputManager.IsPointerHolding(id))
+                {
+                    holding = true;
+                }
+            }
+            if (pressed)
+            {
+                // 按住
+                var target = GetHeldItemTarget();
+                Entity.Level.UseHeldItem(target, PointerInteraction.Hold);
+            }
+            else if (holding)
+            {
+                // 划过
+                var target = GetHeldItemTarget();
+                Entity.Level.UseHeldItem(target, PointerInteraction.Streak);
+            }
+        }
         #endregion
 
         public void SetHighlight(bool highlight)
@@ -148,6 +152,47 @@ namespace MVZ2.Entities
         public bool IsPressed()
         {
             return pressedPointerId.Count > 0;
+        }
+        public int GetHoveredPointerCount()
+        {
+            return hoveredPointerId.Count;
+        }
+        public int GetHoveredPointerId(int index)
+        {
+            return hoveredPointerId[index];
+        }
+        public Vector2 TransformWorld2ColliderPosition(Vector3 worldPosition)
+        {
+            if (Model is not SpriteModel spriteModel)
+                return Vector2.zero;
+            var collider = spriteModel.Collider;
+            if (collider is not BoxCollider2D boxCollider)
+                return Vector2.zero;
+            var pos2D = (Vector2)(collider.transform.position + collider.transform.TransformDirection(collider.offset));
+            var lossyScale = (Vector2)collider.transform.lossyScale;
+            var size = boxCollider.size;
+            var lossySize = Vector2.Scale(size, lossyScale);
+            var origin = pos2D - lossySize * 0.5f;
+
+            var relativeWorldPos = (Vector2)worldPosition - origin;
+            var colliderX = relativeWorldPos.x / lossySize.x;
+            var colliderY = relativeWorldPos.y / lossySize.y;
+
+            return new Vector2(colliderX, colliderY);
+        }
+        public HeldItemTargetEntity GetHeldItemTarget(Vector3 worldPosition)
+        {
+            var pos = TransformWorld2ColliderPosition(worldPosition);
+            return new HeldItemTargetEntity(Entity, pos);
+        }
+        public HeldItemTargetEntity GetHeldItemTarget(PointerEventData data = null)
+        {
+            var pos = Vector2.zero;
+            if (data != null)
+            {
+                pos = TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
+            }
+            return new HeldItemTargetEntity(Entity, pos);
         }
         public SerializableEntityController ToSerializable()
         {
@@ -317,13 +362,14 @@ namespace MVZ2.Entities
             pressedPointerId.Remove(eventData.pointerId);
             OnPointerUp?.Invoke(this, eventData);
         }
-        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data)
+        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData d)
         {
             if (Entity.IsPreviewEnemy())
                 return true;
             if (definition == null)
                 return false;
-            return definition.CheckRaycast(HeldItemTarget, data);
+            var target = GetHeldItemTarget(d);
+            return definition.CheckRaycast(target, data);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
@@ -495,7 +541,6 @@ namespace MVZ2.Entities
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
-        public HeldItemTargetEntity HeldItemTarget { get; private set; }
         private RandomGenerator rng;
         private List<int> hoveredPointerId = new List<int>();
         private List<int> pressedPointerId = new List<int>();

@@ -326,5 +326,10 @@ namespace MVZ2.Vanilla.Entities
             return entity.GetProperty<bool>(LOYAL);
         }
         #endregion
+        public const string NO_HELD_TARGET = "noHeldTarget";
+        public static bool NoHeldTarget(this Entity entity)
+        {
+            return entity.GetProperty<bool>(NO_HELD_TARGET);
+        }
     }
 }

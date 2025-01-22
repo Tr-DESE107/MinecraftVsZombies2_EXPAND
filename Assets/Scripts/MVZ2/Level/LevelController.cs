@@ -200,6 +200,7 @@ namespace MVZ2.Level
             SetUIVisibleState(VisibleState.Nothing);
             pointingGridLane = -1;
             pointingGridColumn = -1;
+            pointingPointerId = -1;
             level.ClearEnergyDelayedEntities();
             level.ClearDelayedMoney();
             UpdateGridHighlight();
@@ -432,6 +433,7 @@ namespace MVZ2.Level
                 ui.SetScreenCover(level.GetScreenCover());
                 UpdateMoney();
                 ValidateHeldItem();
+                UpdateEntityHighlight();
                 foreach (var component in level.GetComponents())
                 {
                     if (component is IMVZ2LevelComponent comp)
@@ -744,7 +746,9 @@ namespace MVZ2.Level
             var grid = gameObject.GetComponentInParent<GridController>();
             if (grid)
             {
-                ClickOnGrid(grid.Lane, grid.Column, PointerInteraction.Release, Vector2.down);
+                var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+                var pointerPosition = grid.TransformWorld2ColliderPosition(worldPos);
+                ClickOnGrid(grid.Lane, grid.Column, PointerInteraction.Release, pointerPosition);
                 return;
             }
 

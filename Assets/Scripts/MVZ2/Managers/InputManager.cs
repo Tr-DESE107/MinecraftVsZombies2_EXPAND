@@ -56,6 +56,23 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
             }
             return false;
         }
+        public Vector2 GetPointerPosition(int pointerId)
+        {
+            if (pointerId < 0)
+            {
+                return Input.mousePosition;
+            }
+            var touches = Input.touches;
+            for (int i = 0; i < touches.Length; i++)
+            {
+                var touch = touches[i];
+                if (touch.fingerId == pointerId)
+                {
+                    return touch.position;
+                }
+            }
+            return Vector2.zero;
+        }
         public IEnumerable<Vector2> GetLeftPointerUps()
         {
             if (Input.GetMouseButtonUp(MouseButton.LEFT))
