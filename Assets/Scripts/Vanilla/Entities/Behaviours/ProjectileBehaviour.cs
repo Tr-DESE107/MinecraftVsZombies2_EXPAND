@@ -6,6 +6,7 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -50,6 +51,8 @@ namespace MVZ2.Vanilla.Entities
                 protectTimout--;
                 SetStartHitSpawnerProtectTimeout(projectile, protectTimout);
             }
+
+            RollUpdate(projectile);
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
@@ -200,6 +203,35 @@ namespace MVZ2.Vanilla.Entities
         {
             var entity = collision.Entity;
             entity.RemoveProjectileCollidingEntity(collision.OtherCollider.ToReference());
+        }
+        private void RollUpdate(Entity projectile)
+        {
+            var gravity = projectile.GetGravity();
+            if (gravity > 0 && projectile.GetRelativeY() <= 0)
+            {
+                var level = projectile.Level;
+                var x = projectile.Position.x;
+                var z = projectile.Position.z;
+                var groundY = projectile.GetGroundY();
+                var velocityAddition = Vector2.zero;
+                var checkDistance = 1;
+                for (int i = 0; i < 8; i++)
+                {
+                    var direction = Vector2.right.RotateClockwise(i * 45);
+                    var opposite = -direction;
+                    var checkPoint = direction * checkDistance;
+                    var relativeGroundY = level.GetGroundY(x + checkPoint.x, z + checkPoint.y) - groundY;
+
+                    var slope = Mathf.Atan2(relativeGroundY, checkDistance);
+
+                    var horiSpeed = gravity * Mathf.Sin(slope) * Mathf.Cos(slope);
+                    velocityAddition += opposite * horiSpeed;
+                }
+                var vel = projectile.Velocity;
+                vel.x += velocityAddition.x;
+                vel.z += velocityAddition.y;
+                projectile.Velocity = vel;
+            }
         }
 
         #region 创建者保护

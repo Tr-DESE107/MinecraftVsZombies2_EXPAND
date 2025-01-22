@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 08:39+0800\n"
-"PO-Revision-Date: 2025-01-18 20:40+0800\n"
+"POT-Creation-Date: 2025-01-22 01:47+0800\n"
+"PO-Revision-Date: 2025-01-22 13:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -571,6 +571,34 @@ msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡�
 msgstr ""
 "Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
 "because of this."
+
+#. Header for contraptions mvz2:wooden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "木制投掷器向敌人发射滚动的木球。"
+msgstr "Wooden Dropper fires rolling wooden balls."
+
+#. Properties for contraptions mvz2:wooden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>立即喷射30发木球</color>"
+msgstr ""
+"Fire rate: <color=red>1.5 seconds</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Fires 30 wooden balls instantly</color>"
+
+#. Flavor for contraptions mvz2:wooden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"使用技能前：木制投掷器\n"
+"使用技能后：森森森森森森森森森森制投掷器"
+msgstr ""
+"Before evoked: Wooden Dropper\n"
+"After evoked: Wooooooooooooooooooooooooooooooden Dropper"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -1402,6 +1430,24 @@ msgctxt "misc.description"
 msgid "“我恨你。”"
 msgstr "\"I HATE YOU.\""
 
+#. Name for misc mvz2:bowl_chariot
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "碗车"
+msgstr "Bowl Chariot"
+
+#. Header for misc mvz2:bowl_chariot
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "碗车在碰到敌人后会冲锋，并把碗里的巨石掉出来二次打击敌人。"
+msgstr ""
+
+#. Flavor for misc mvz2:bowl_chariot
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "之前的小人族剩下的部分防御工事，不过巨石的效果对凋灵骷髅们没什么作用就是了——甚至还不如直接用车撞死它们。"
+msgstr ""
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -1473,6 +1519,28 @@ msgid ""
 msgstr ""
 "A baku who administers the Dream World, has the ability to observe, change and consume others' dreams.\n"
 "Was shocked by Steve and Villager who arrived in their physical bodies, but she seems to have seen some interesting dreams from Steve."
+
+#. Name for misc mvz2:tokiko
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "朱鹭子"
+msgstr "Tokiko"
+
+#. Header for misc mvz2:tokiko
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。"
+msgstr ""
+
+#. Flavor for misc mvz2:tokiko
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"她其实原本并没有名字，被大家叫多了“朱鹭子”，这世上便就有了“朱鹭子”。\n"
+"鸟脑袋，有些呆呆的。比较天真，喜欢看童话故事。\n"
+"喜欢看书，书被抢走了的话还会大发雷霆。\n"
+"所以不要随便抢别人的书哦。"
+msgstr ""
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
@@ -1577,6 +1645,31 @@ msgstr ""
 "corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
 "What you now see is the true appearance of the Dream World."
 
+#. Name for misc mvz2:teruharijou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "辉针城"
+msgstr "Teruharijou"
+
+#. Header for misc mvz2:teruharijou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "辉针城是小人族们的城池，在一年前遭到了凋灵骷髅们的入侵。"
+msgstr ""
+
+#. Flavor for misc mvz2:teruharijou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"一座倒挂在天上的城池，其来源相当悠久。\n"
+"第一代小人族——一寸法师，从鬼手中夺来万宝槌后，因为它是鬼的秘宝，所以一直不敢过多使用。\n"
+"后来小人族的后裔遗忘了这一祖训，过量使用了万宝槌的魔力，导致了这座倒城的出现，小人族也被囚禁在了这里。\n"
+"再然后，小人族的末裔——少名针妙丸又受到了天邪鬼的蛊惑，用万宝槌在幻想乡惹出了大乱子。\n"
+"不知道多少年过去之后，小人们会再次遗忘之前的惨痛教训呢？\n"
+"\n"
+"顺带一提，天花板——哦不，地板上好像有什么东西在微微发光。"
+msgstr ""
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -1640,6 +1733,27 @@ msgstr ""
 "She seemed to be busy with her own business and didn't notice me. Then I fell into a bottomless abyss.\n"
 "I opened my eyes and found myself in a plain field, surrounded by trees with pink flowers."
 
+#. Name for misc mvz2:starshard.miracle_mallet
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：万宝槌"
+msgstr "Starshard: Miracle Mallet"
+
+#. Flavor for misc mvz2:starshard.miracle_mallet
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"星之记录 其三：\n"
+"我来到这里已经三年了。这三年来，我一直独居在某个荒无人烟的地方，常打交道的那位店主似乎也没有发现我的真实身份。\n"
+"最近几天，我又做了一个梦。\n"
+"我梦见，我的朋友回来了，他亲切地对我微笑着。\n"
+"然后，我的家人也因为我带来的东西，终于摆脱了苦难。\n"
+"周围的人都称赞我，为我感到高兴。仿佛他们之前从来都没对我做过什么一样。\n"
+"多么好的愿望啊。我真的希望，我的这个愿望能够实现。\n"
+"……如果真的有能实现这些愿望的东西，那才真的有鬼了。"
+msgstr ""
+
 #. Name for almanac group mvz2:important
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -1686,6 +1800,26 @@ msgstr ""
 msgctxt "misc.description"
 msgid "梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。"
 msgstr "The Nightmare Box no longer contains any harmful magic. All it can do now is projecting the Nightmare World's image."
+
+#. Name for misc mvz2:gensokyo_map
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "幻想乡地图"
+msgstr "Gensokyo Map"
+
+#. Header for misc mvz2:gensokyo_map
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "坑爹村民绘制的幻想乡地图。"
+msgstr "A map of Gensokyo drawn by Crazy Villager."
+
+#. Flavor for misc mvz2:gensokyo_map
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"没有比例尺，没有方向标，只靠图例和注记找路的地图。\n"
+"能用这张地图的也是神人了。"
+msgstr ""
 
 #. Name for almanac group mvz2:lore
 #: Almanac meta file
@@ -1970,6 +2104,18 @@ msgctxt "entity.tooltip"
 msgid "让一个器械睡着，醒来后生成一个星之碎片"
 msgstr "Make a contraption sleep, create a Starshard when it wakes up"
 
+#. Header for entity mvz2:wooden_dropper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "木制投掷器"
+msgstr "Wooden Dropper"
+
+#. Properties for entity mvz2:wooden_dropper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "投出木制小球"
+msgstr "Fires wooden balls"
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -2240,6 +2386,12 @@ msgctxt "entity.name"
 msgid "噩梦猫"
 msgstr "Nyaightmare"
 
+#. Header for entity mvz2:bowl_chariot
+#: Entity meta file
+msgctxt "entity.name"
+msgid "碗车"
+msgstr "Bowl Chariot"
+
 #. Header for entity mvz2:redstone
 #: Entity meta file
 msgctxt "entity.name"
@@ -2305,6 +2457,12 @@ msgstr "Orant"
 msgctxt "character.name"
 msgid "哆来咪"
 msgstr "Doremy"
+
+#. Name for character mvz2:tokiko
+#: Character meta file
+msgctxt "character.name"
+msgid "朱鹭子"
+msgstr "Tokiko"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file

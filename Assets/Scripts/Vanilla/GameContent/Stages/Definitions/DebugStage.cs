@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.smallDispenser,
+                VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.infectenser,
                 VanillaContraptionID.pistenser,
                 VanillaContraptionID.forcePad,

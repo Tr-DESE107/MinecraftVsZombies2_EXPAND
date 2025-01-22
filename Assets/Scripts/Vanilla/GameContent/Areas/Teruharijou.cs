@@ -30,9 +30,9 @@ namespace MVZ2.GameContent.Areas
             {
                 return Mathf.Lerp(80, 0, (x - 260) / 400);
             }
-            if (x > 980)
+            if (x > 1060)
             {
-                return Mathf.Lerp(0, 80, (x - 980) / 400);
+                return Mathf.Lerp(0, 80, (x - 1060) / 400);
             }
             return base.GetGroundY(level, x, z);
         }

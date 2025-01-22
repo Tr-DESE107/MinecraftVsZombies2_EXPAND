@@ -116,4 +116,10 @@
             <key hex="#0080FF" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="wooden_dropper">
+        <colorKeys>
+            <key hex="#C6A570" time="0.5"/>
+            <key hex="#805E36" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>
