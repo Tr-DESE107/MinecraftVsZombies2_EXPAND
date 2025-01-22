@@ -362,6 +362,18 @@
         <dispenser id="wooden_dropper" name="木制投掷器" tooltip="投出木制小球" unlock="mvz2:level.teruharijou_1">
             <id name="projectileId" value="mvz2:wooden_ball" />
             <id name="shootSound" value="mvz2:click"/>
+            <id name="shell" value="mvz2:wood"/>
+            <vector3 name="shotOffset" x="25" y="3" z="0"/>
+            <vector3 name="size" x="32" y="32" z="32"/>
+
+            <int name="cost" value="100" />
+            <id name="rechargeId" value="mvz2:short" />
+        </dispenser>
+        <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" unlock="mvz2:level.teruharijou_3">
+            <id name="fragmentId" value="mvz2:furnace" />
+            <id name="projectileId" value="mvz2:cobble" />
+            <id name="shootSound" value="mvz2:click"/>
+            <float name="damage" value="10"/>
             <vector3 name="shotOffset" x="25" y="3" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
 
@@ -402,6 +414,22 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:very_long" />
         </contraption>
+        <dispenser id="golden_dropper" name="金制投掷器" tooltip="（需要木制投掷器）\n投出反弹并产生绿宝石的金球" unlock="mvz2:contraption.golden_dropper">
+            <id name="projectileId" value="mvz2:golden_ball" />
+            <id name="shootSound" value="mvz2:click"/>
+            <id name="shell" value="mvz2:metal"/>
+
+            <float name="damage" value="60"/>
+            <bool name="upgradeBlueprint" value="true"/>
+            <id name="upgradeFrom" value="mvz2:wooden_dropper"/>
+            <id name="placement" value="mvz2:upgrade"/>
+
+            <vector3 name="shotOffset" x="25" y="3" z="0"/>
+            <vector3 name="size" x="32" y="32" z="32"/>
+
+            <int name="cost" value="275" />
+            <id name="rechargeId" value="mvz2:very_long" />
+        </dispenser>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
@@ -785,9 +813,19 @@
             <vector3 name="size" x="24" y="24" z="24" />
             <int name="waterInteraction" value="3"/>
         </projectile>
+        <projectile id="cobble">
+            <float name="gravity" value="1" />
+            <vector3 name="size" x="12" y="12" z="12" />
+            <idArray name="damageEffects" value="mvz2:tiny" />
+        </projectile>
         <projectile id="boulder">
             <float name="gravity" value="1" />
             <vector3 name="size" x="48" y="48" z="48" />
+        </projectile>
+        <projectile id="golden_ball">
+            <bool name="piercing" value="true" />
+            <float name="gravity" value="1" />
+            <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
 
         <!-- Effects -->

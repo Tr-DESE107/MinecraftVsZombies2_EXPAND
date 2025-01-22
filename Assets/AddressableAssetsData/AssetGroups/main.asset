@@ -599,6 +599,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2278771cb0da5f7419b3f5448a28cc89
+    m_Address: mvz2:projectile/wooden_ball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227ed731d72488f4aa762e37f9d60767
     m_Address: mvz2:level/dream/nightmare_sky_censored
     m_ReadOnly: 0
@@ -1044,6 +1050,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35fd6562d8d55e844bb4890023b8cd31
     m_Address: mvz2:dirt_rise
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3609f311f920abd4aaedc3504de8b41e
+    m_Address: mvz2:launch
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -2068,6 +2080,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64ae02f38e804074894acb6967767dff
+    m_Address: mvz2:entity/projectiles/wooden_ball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6514a857fb8b7fc4d992741ae15f66e5
     m_Address: mvz2:mobile_blueprint/zombie
     m_ReadOnly: 0
@@ -3087,6 +3105,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98ceb6465d489164ab22b423d1a3d218
+    m_Address: mvz2:mobile_blueprint/wooden_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98f6783386f0a7b43bea535a34495e61
     m_Address: mvz2:entity/projectiles/fire_charge
     m_ReadOnly: 0
@@ -3248,6 +3272,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ff472ab3deed244c8552a2bd5d7c949
+    m_Address: mvz2:entity/contraptions/wooden_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: mvz2:talk/villager/villager_scream1
@@ -4094,6 +4124,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8b2b4261dd98254d919be8f10acd519
+    m_Address: mvz2:contraption/wooden_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8dfc340d86d05145af208e89a9521d5
     m_Address: mvz2:effect/shine_ring

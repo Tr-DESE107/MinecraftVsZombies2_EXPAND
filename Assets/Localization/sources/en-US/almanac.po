@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 01:47+0800\n"
-"PO-Revision-Date: 2025-01-22 13:50+0800\n"
+"POT-Creation-Date: 2025-01-22 03:23+0800\n"
+"PO-Revision-Date: 2025-01-22 15:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -600,6 +600,34 @@ msgstr ""
 "Before evoked: Wooden Dropper\n"
 "After evoked: Wooooooooooooooooooooooooooooooden Dropper"
 
+#. Header for contraptions mvz2:stone_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。"
+msgstr "Stone Dropper fires tiny cobbles, or sometimes boulders which can knockback enemies and split."
+
+#. Properties for contraptions mvz2:stone_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"巨石概率：<color=red>25%</color>\n"
+"伤害：<color=red>10（卵石），40（巨石）</color>\n"
+"技能：<color=red>立即喷射30发巨石</color>"
+msgstr ""
+"Fire rate: <color=red>1.5 seconds</color>\n"
+"Rate of boulders: <color=red>25%</color>\n"
+"Damage: <color=red>10 (Cobble), 40 (Boulder)</color>\n"
+"Evocation: <color=red>Fires 30 boulders instantly</color>"
+
+#. Flavor for contraptions mvz2:stone_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。"
+msgstr ""
+"It once wanted to imitate Wooden Dropper to play a joke about Stoooooooooooooooooooooooooooooone Dropper, unfortunately Wooden Dropper "
+"applied for a patent for this joke."
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -660,6 +688,33 @@ msgstr ""
 "Contrary to what people think, Force Pad doesn't like forcing others to do things, he believes that everyone should follow their own "
 "will, and have the right to do whatever they want. But sometimes, he is forced to force some people to change their decision, and he "
 "can't do anything about it."
+
+#. Header for contraptions mvz2:golden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "金质投掷器向敌人发射金球，金球在击中敌人后会产生绿宝石并在敌人间反弹。"
+msgstr "Golden Dropper fires golden balls, which bounce between enemies and produce emeralds on hit."
+
+#. Properties for contraptions mvz2:golden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：<color=red>60</color>\n"
+"技能：<color=red>立即喷射30发金球</color>\n"
+"<color=red>必须放置在木制投掷器上</color>"
+msgstr ""
+"Fire rate: <color=red>1.5 seconds</color>\n"
+"Damage: <color=red>60</color>\n"
+"Evocation: <color=red>Fires 30 golden balls instantly</color>\n"
+"<color=red>Must be placed on Wooden Dropper</color>"
+
+#. Flavor for contraptions mvz2:golden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
+msgstr ""
+"It bought the joke patent of the Wooden Dropper, so it can play the joke of Goooooooooooooooooooooooooooooolden Dropper deservedly!"
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -2116,6 +2171,18 @@ msgctxt "entity.tooltip"
 msgid "投出木制小球"
 msgstr "Fires wooden balls"
 
+#. Header for entity mvz2:stone_dropper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石制投掷器"
+msgstr "Stone Dropper"
+
+#. Properties for entity mvz2:stone_dropper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "投出石子或巨石"
+msgstr "Fires cobbles or boulders"
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -2147,6 +2214,22 @@ msgid ""
 msgstr ""
 "(Requires Gravity Pad)\n"
 "Change the force of objects above it"
+
+#. Header for entity mvz2:golden_dropper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "金制投掷器"
+msgstr "Golden Dropper"
+
+#. Properties for entity mvz2:golden_dropper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要木制投掷器）\n"
+"投出反弹并产生绿宝石的金球"
+msgstr ""
+"(Requires Wooden Dropper)\n"
+"Fires bouncing golden balls which produce emeralds"
 
 #. Header for entity mvz2:anvil
 #: Entity meta file

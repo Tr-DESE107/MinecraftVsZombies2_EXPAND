@@ -15,6 +15,9 @@
     <sound name="awooga">
         <sample path="mvz2:awooga" weight="1" />
     </sound>
+    <sound name="bash">
+        <sample path="mvz2:bash" weight="1" />
+    </sound>
     <sound name="bloody">
         <sample path="mvz2:bloody" weight="1" />
     </sound>
@@ -454,6 +457,10 @@
     </sound>
     <sound name="small_explosion">
         <sample path="mvz2:small_explosion" weight="1" />
+    </sound>
+    <sound name="small_hit">
+        <sample path="mvz2:damage/small_hit1" weight="1" />
+        <sample path="mvz2:damage/small_hit2" weight="1" />
     </sound>
     <sound name="smash">
         <sample path="mvz2:smash" weight="1" />

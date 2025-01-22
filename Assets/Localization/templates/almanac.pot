@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-22 01:47+0800\n"
+"POT-Creation-Date: 2025-01-22 03:23+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -478,6 +478,28 @@ msgid ""
 "使用技能后：森森森森森森森森森森制投掷器"
 msgstr ""
 
+#. Header for contraptions mvz2:stone_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。"
+msgstr ""
+
+#. Properties for contraptions mvz2:stone_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"巨石概率：<color=red>25%</color>\n"
+"伤害：<color=red>10（卵石），40（巨石）</color>\n"
+"技能：<color=red>立即喷射30发巨石</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:stone_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。"
+msgstr ""
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -520,6 +542,28 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。"
+msgstr ""
+
+#. Header for contraptions mvz2:golden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "金质投掷器向敌人发射金球，金球在击中敌人后会产生绿宝石并在敌人间反弹。"
+msgstr ""
+
+#. Properties for contraptions mvz2:golden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1.5秒</color>\n"
+"伤害：<color=red>60</color>\n"
+"技能：<color=red>立即喷射30发金球</color>\n"
+"<color=red>必须放置在木制投掷器上</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:golden_dropper
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
 msgstr ""
 
 #. Header for enemies mvz2:zombie
@@ -1818,6 +1862,18 @@ msgctxt "entity.tooltip"
 msgid "投出木制小球"
 msgstr ""
 
+#. Header for entity mvz2:stone_dropper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石制投掷器"
+msgstr ""
+
+#. Properties for entity mvz2:stone_dropper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "投出石子或巨石"
+msgstr ""
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -1844,6 +1900,20 @@ msgctxt "entity.tooltip"
 msgid ""
 "（需要重力板）\n"
 "改变上方物体的力"
+msgstr ""
+
+#. Header for entity mvz2:golden_dropper
+#: Entity meta file
+msgctxt "entity.name"
+msgid "金制投掷器"
+msgstr ""
+
+#. Properties for entity mvz2:golden_dropper
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要木制投掷器）\n"
+"投出反弹并产生绿宝石的金球"
 msgstr ""
 
 #. Header for entity mvz2:anvil

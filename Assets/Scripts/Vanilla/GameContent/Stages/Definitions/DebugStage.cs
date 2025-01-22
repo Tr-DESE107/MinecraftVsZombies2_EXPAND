@@ -41,8 +41,8 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.woodenDropper,
-                VanillaContraptionID.infectenser,
-                VanillaContraptionID.pistenser,
+                VanillaContraptionID.goldenDropper,
+                VanillaContraptionID.stoneDropper,
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.totenser,
                 VanillaContraptionID.gravityPad,

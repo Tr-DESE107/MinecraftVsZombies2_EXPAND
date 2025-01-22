@@ -122,4 +122,10 @@
             <key hex="#805E36" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="golden_dropper">
+        <colorKeys>
+            <key hex="#FFD400" time="0.5"/>
+            <key hex="#FFA900" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

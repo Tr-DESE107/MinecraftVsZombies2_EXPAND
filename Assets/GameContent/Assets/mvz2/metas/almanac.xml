@@ -304,7 +304,20 @@
             </flavor>
         </entry>
         <entry/>
-        <entry/>
+        <entry id="mvz2:stone_dropper">
+            <header>
+                <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>
@@ -430,7 +443,20 @@
                 <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:golden_dropper">
+            <header>
+                <p>金质投掷器向敌人发射金球，金球在击中敌人后会产生绿宝石并在敌人间反弹。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>60</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
+                <p><![CDATA[<color=red>必须放置在木制投掷器上</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

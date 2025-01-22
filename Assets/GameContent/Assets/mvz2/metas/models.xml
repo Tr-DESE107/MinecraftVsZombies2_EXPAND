@@ -25,9 +25,11 @@
     <model name="dream_silk" type="entity" path="mvz2:contraption/dream_silk" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="wooden_dropper" type="entity" path="mvz2:contraption/wooden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="stone_dropper" type="entity" path="mvz2:contraption/stone_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="golden_dropper" type="entity" path="mvz2:contraption/golden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
 
@@ -150,7 +152,9 @@
     <model name="parabot" type="entity" path="mvz2:projectile/parabot" width="32" height="16" xOffset="0" yOffset="0"/>
     <model name="breakout_pearl" type="entity" path="mvz2:projectile/breakout_pearl" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="wooden_ball" type="entity" path="mvz2:projectile/wooden_ball" width="24" height="24" xOffset="0" yOffset="12"/>
+    <model name="cobble" type="entity" path="mvz2:projectile/cobble" width="12" height="12" xOffset="0" yOffset="6"/>
     <model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="24"/>
+    <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="12"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>

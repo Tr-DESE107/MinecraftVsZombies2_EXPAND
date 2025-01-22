@@ -9,6 +9,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID anvil = Get("anvil");
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
+        public readonly static NamespaceID bash = Get("bash");
         public readonly static NamespaceID biohazard = Get("biohazard");
         public readonly static NamespaceID bloody = Get("bloody");
         public readonly static NamespaceID boneHit = Get("bone_hit");
@@ -107,6 +108,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID slendermanDeath = Get("slenderman_death");
         public readonly static NamespaceID slowDown = Get("slow_down");
         public readonly static NamespaceID smallExplosion = Get("small_explosion");
+        public readonly static NamespaceID smallHit = Get("small_hit");
         public readonly static NamespaceID smash = Get("smash");
         public readonly static NamespaceID sparkle = Get("sparkle");
         public readonly static NamespaceID spellCard = Get("spell_card");

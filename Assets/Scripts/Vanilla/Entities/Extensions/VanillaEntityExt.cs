@@ -264,6 +264,10 @@ namespace MVZ2.Vanilla.Entities
             {
                 entity.PlaySound(VanillaSoundID.slice);
             }
+            else if (damageEffects.HasEffect(VanillaDamageEffects.TINY))
+            {
+                entity.PlaySound(VanillaSoundID.smallHit);
+            }
             else
             {
                 var hitSound = entity.GetHitSound();

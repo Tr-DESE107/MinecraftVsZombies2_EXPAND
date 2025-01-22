@@ -137,6 +137,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2eb6e56aede81b84988e3f747de09c05, type: 3}
   - name: mobile_blueprint/glowstone
     sprite: {fileID: 21300000, guid: eb5396e8d49b71b4b899a73dae8c9ce9, type: 3}
+  - name: mobile_blueprint/golden_dropper
+    sprite: {fileID: 21300000, guid: 55c4fb06ca097e24eaa9171673390143, type: 3}
   - name: mobile_blueprint/gravity_pad
     sprite: {fileID: 21300000, guid: b362171cd0a32824e9b3ac7c42f24dd7, type: 3}
   - name: mobile_blueprint/infectenser
@@ -181,6 +183,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: df4339844dabc79468b681d3c124227f, type: 3}
   - name: mobile_blueprint/soul_furnace
     sprite: {fileID: 21300000, guid: 11ac6f32e59e29e4aa1067a79c215185, type: 3}
+  - name: mobile_blueprint/stone_dropper
+    sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/tnt
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
@@ -305,6 +309,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c91919e3f10e9004f85638cba2384e3e, type: 3}
   - name: entity/contraptions/glowstone
     sprite: {fileID: 21300000, guid: 9b11711b1da870544827beb40076b98b, type: 3}
+  - name: entity/contraptions/golden_dropper
+    sprite: {fileID: 21300000, guid: 49ce9f6fb80015c47ae81c9411d9d103, type: 3}
   - name: entity/contraptions/gravity_force
     sprite: {fileID: 21300000, guid: 87605de12ede6fe43818bbbae557666e, type: 3}
   - name: entity/contraptions/gravity_pad
@@ -327,6 +333,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 24543ba35a4b2b248b19964dc8587095, type: 3}
   - name: entity/contraptions/soul_furnace_light
     sprite: {fileID: 21300000, guid: d04fa54aea815bb44be98b8a3bb2ed5b, type: 3}
+  - name: entity/contraptions/stone_dropper
+    sprite: {fileID: 21300000, guid: b54fb45c2064c9149942a6ea99c593f3, type: 3}
   - name: entity/contraptions/tnt
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
   - name: entity/contraptions/wooden_dropper
@@ -427,6 +435,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1180289811b708d4781f5bd9065fb543, type: 3}
   - name: entity/projectiles/bullet
     sprite: {fileID: 21300000, guid: ee8a95d990407e34ea9ff1aa13122998, type: 3}
+  - name: entity/projectiles/cobble
+    sprite: {fileID: 21300000, guid: b619b60be7108ed4fafb8ba9257d68ce, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
   - name: entity/projectiles/fire_charge
@@ -437,6 +447,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 985fbd93414b34845b4a0a7ee830eb1a, type: 3}
   - name: entity/projectiles/giant_spike
     sprite: {fileID: 21300000, guid: 4d88a598c5aab984891215c1f4414390, type: 3}
+  - name: entity/projectiles/golden_ball
+    sprite: {fileID: 21300000, guid: 77e47ba4e4bc65a46bf4e84b41c40576, type: 3}
   - name: entity/projectiles/javelin
     sprite: {fileID: 21300000, guid: 8af07b31f932791429fddf24a251679f, type: 3}
   - name: entity/projectiles/knife
