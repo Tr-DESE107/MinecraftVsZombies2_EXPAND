@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 03:23+0800\n"
-"PO-Revision-Date: 2025-01-22 15:27+0800\n"
+"POT-Creation-Date: 2025-01-22 05:21+0800\n"
+"PO-Revision-Date: 2025-01-22 17:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -599,6 +599,34 @@ msgid ""
 msgstr ""
 "Before evoked: Wooden Dropper\n"
 "After evoked: Wooooooooooooooooooooooooooooooden Dropper"
+
+#. Header for contraptions mvz2:spike_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "尖刺方块会对走在上面的敌人造成伤害。"
+msgstr "Spike Block deals damage to enemies stepped on it."
+
+#. Properties for contraptions mvz2:spike_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"攻击频率：<color=red>1秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>"
+msgstr ""
+"Attack rate: <color=red>1 second</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Deals damage rapidly to enemies on the ground in the whole lane, and pulls them to the Spike Block</color>"
+
+#. Flavor for contraptions mvz2:spike_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"我是文字，我现在非常疼\n"
+"WWWWWWWWWWWWWWWWWWWW"
+msgstr ""
+"Text here, I'm painful now\n"
+"WWWWWWWWWWWWWWWWWWWW"
 
 #. Header for contraptions mvz2:stone_dropper
 #: Almanac meta file
@@ -2170,6 +2198,18 @@ msgstr "Wooden Dropper"
 msgctxt "entity.tooltip"
 msgid "投出木制小球"
 msgstr "Fires wooden balls"
+
+#. Header for entity mvz2:spike_block
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尖刺方块"
+msgstr "Spike Block"
+
+#. Properties for entity mvz2:spike_block
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "扎伤上面的敌人"
+msgstr "Damage enemies above"
 
 #. Header for entity mvz2:stone_dropper
 #: Entity meta file

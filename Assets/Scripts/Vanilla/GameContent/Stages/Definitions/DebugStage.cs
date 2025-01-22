@@ -42,14 +42,14 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.goldenDropper,
-                VanillaContraptionID.stoneDropper,
+                VanillaContraptionID.spikeBlock,
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.totenser,
                 VanillaContraptionID.gravityPad,
 
                 VanillaEnemyID.zombie,
+                VanillaEnemyID.ghast,
 
-                VanillaBossID.frankenstein,
                 VanillaBossID.slenderman,
                 VanillaBossID.nightmareaper,
             });

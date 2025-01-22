@@ -183,6 +183,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: df4339844dabc79468b681d3c124227f, type: 3}
   - name: mobile_blueprint/soul_furnace
     sprite: {fileID: 21300000, guid: 11ac6f32e59e29e4aa1067a79c215185, type: 3}
+  - name: mobile_blueprint/spike_block
+    sprite: {fileID: 21300000, guid: d0f973bcd4babdc40b8ee0cfc233300c, type: 3}
   - name: mobile_blueprint/stone_dropper
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/tnt
@@ -333,6 +335,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 24543ba35a4b2b248b19964dc8587095, type: 3}
   - name: entity/contraptions/soul_furnace_light
     sprite: {fileID: 21300000, guid: d04fa54aea815bb44be98b8a3bb2ed5b, type: 3}
+  - name: entity/contraptions/spike_block
+    sprite: {fileID: 21300000, guid: 44bd337d7a161b2498137668fbec6e35, type: 3}
   - name: entity/contraptions/stone_dropper
     sprite: {fileID: 21300000, guid: b54fb45c2064c9149942a6ea99c593f3, type: 3}
   - name: entity/contraptions/tnt

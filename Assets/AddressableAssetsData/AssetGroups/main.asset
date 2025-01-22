@@ -1414,6 +1414,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44bd337d7a161b2498137668fbec6e35
+    m_Address: mvz2:entity/contraptions/spike_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44e37404bb36ebe4f82cd83676899ff5
     m_Address: mvz2:awooga
     m_ReadOnly: 0
@@ -1605,6 +1611,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b68efa70206e3f449899738d61ed591
+    m_Address: mvz2:contraption/spike_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf17da5ebe2d2a4eb8257f66201b808
     m_Address: mvz2:final_wave
@@ -1995,6 +2007,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6004faf07896b4840ae0abc27a316346
+    m_Address: mvz2:effect/spike_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6010ff70670e67442819cac44a583438
     m_Address: mvz2:musics
@@ -4365,6 +4383,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0f973bcd4babdc40b8ee0cfc233300c
+    m_Address: mvz2:mobile_blueprint/spike_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d12e7157df0411749ab53333da0a507d
     m_Address: mvz2:artifacts/upside_down_mirror
     m_ReadOnly: 0
@@ -5066,6 +5090,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09ba06086cfa354b8cfda77f33d71aa
+    m_Address: mvz2:entity/effects/spike_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f09e031ca46908a48afb4b32b3c00351
     m_Address: mvz2:projectile/large_snowball

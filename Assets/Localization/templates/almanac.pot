@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-22 03:23+0800\n"
+"POT-Creation-Date: 2025-01-22 05:21+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -476,6 +476,29 @@ msgctxt "contraptions.description"
 msgid ""
 "使用技能前：木制投掷器\n"
 "使用技能后：森森森森森森森森森森制投掷器"
+msgstr ""
+
+#. Header for contraptions mvz2:spike_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "尖刺方块会对走在上面的敌人造成伤害。"
+msgstr ""
+
+#. Properties for contraptions mvz2:spike_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"攻击频率：<color=red>1秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:spike_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"我是文字，我现在非常疼\n"
+"WWWWWWWWWWWWWWWWWWWW"
 msgstr ""
 
 #. Header for contraptions mvz2:stone_dropper
@@ -1860,6 +1883,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "投出木制小球"
+msgstr ""
+
+#. Header for entity mvz2:spike_block
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尖刺方块"
+msgstr ""
+
+#. Properties for entity mvz2:spike_block
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "扎伤上面的敌人"
 msgstr ""
 
 #. Header for entity mvz2:stone_dropper

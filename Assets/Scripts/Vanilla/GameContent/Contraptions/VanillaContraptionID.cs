@@ -28,6 +28,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string dreamCrystal = "dream_crystal";
         public const string dreamSilk = "dream_silk";
         public const string woodenDropper = "wooden_dropper";
+        public const string spikeBlock = "spike_block";
         public const string stoneDropper = "stone_dropper";
 
         public const string infectenser = "infectenser";
@@ -62,6 +63,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID dreamSilk = Get(VanillaContraptionNames.dreamSilk);
 
         public static readonly NamespaceID woodenDropper = Get(VanillaContraptionNames.woodenDropper);
+        public static readonly NamespaceID spikeBlock = Get(VanillaContraptionNames.spikeBlock);
         public static readonly NamespaceID stoneDropper = Get(VanillaContraptionNames.stoneDropper);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);

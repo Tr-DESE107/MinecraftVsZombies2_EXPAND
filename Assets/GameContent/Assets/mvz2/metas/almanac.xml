@@ -303,7 +303,20 @@
                 <p>使用技能后：森森森森森森森森森森制投掷器</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:spike_block">
+            <header>
+                <p>尖刺方块会对走在上面的敌人造成伤害。</p>
+            </header>
+            <properties>
+                <p>攻击频率：<![CDATA[<color=red>1秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
+            </properties>
+            <flavor>
+                <p>我是文字，我现在非常疼</p>
+                <p>WWWWWWWWWWWWWWWWWWWW</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:stone_dropper">
             <header>
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>

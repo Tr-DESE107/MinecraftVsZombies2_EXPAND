@@ -367,10 +367,23 @@
             <id name="deathSound" value="mvz2:wood"/>
             <vector3 name="shotOffset" x="25" y="3" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
 
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
+        <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人" unlock="mvz2:level.teruharijou_2">
+            <float name="damage" value="20"/>
+            <bool name="shadowHidden" value="true"/>
+            <bool name="isFloor" value="true"/>
+            <id name="shell" value="mvz2:metal"/>
+            <vector3 name="size" x="64" y="16" z="64"/>
+            <idArray name="gridLayers" value="mvz2:carrier mvz2:main"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
+
+            <int name="cost" value="100" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
         <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" unlock="mvz2:level.teruharijou_3">
             <id name="fragmentId" value="mvz2:furnace" />
             <id name="projectileId" value="mvz2:cobble" />
@@ -378,6 +391,7 @@
             <float name="damage" value="10"/>
             <vector3 name="shotOffset" x="25" y="3" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
 
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
@@ -425,6 +439,7 @@
             <bool name="upgradeBlueprint" value="true"/>
             <id name="upgradeFrom" value="mvz2:wooden_dropper"/>
             <id name="placement" value="mvz2:upgrade"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
 
             <vector3 name="shotOffset" x="25" y="3" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
@@ -998,6 +1013,9 @@
         </effect>
         <effect id="nightmare_glass">
             <int name="maxTimeout" value="90"/>
+        </effect>
+        <effect id="spike_particles">
+            <int name="maxTimeout" value="4"/>
         </effect>
     </entries>
 </entities>

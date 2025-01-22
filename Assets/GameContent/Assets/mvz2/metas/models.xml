@@ -25,6 +25,7 @@
     <model name="dream_silk" type="entity" path="mvz2:contraption/dream_silk" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="wooden_dropper" type="entity" path="mvz2:contraption/wooden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="spike_block" type="entity" path="mvz2:contraption/spike_block" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="stone_dropper" type="entity" path="mvz2:contraption/stone_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -133,6 +134,7 @@
     <model name="nightmare_darkness" type="entity" path="mvz2:effect/nightmare_darkness" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="nightmare_glass" type="entity" path="mvz2:effect/nightmare_glass" width="1020" height="600" xOffset="510" yOffset="300"/>
     <model name="floating_text" type="entity" path="mvz2:effect/floating_text" width="80" height="25" xOffset="0" yOffset="0"/>
+    <model name="spike_particles" type="entity" path="mvz2:effect/spike_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
