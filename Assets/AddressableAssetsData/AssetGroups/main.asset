@@ -419,6 +419,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17f5395d50f99fb4db1fd94d850e5eba
+    m_Address: mvz2:damage/small_hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18170164ed705914ebb03c0ee8ca6ef9
     m_Address: mvz2:map/halloween/map
     m_ReadOnly: 0
@@ -1546,6 +1552,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49ce9f6fb80015c47ae81c9411d9d103
+    m_Address: mvz2:entity/contraptions/golden_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a34d2e0337c5e24196eb44240e1b00c
     m_Address: mvz2:level/dream/nightmare_ground
     m_ReadOnly: 0
@@ -1773,6 +1785,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55c4fb06ca097e24eaa9171673390143
+    m_Address: mvz2:mobile_blueprint/golden_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5676d56fcc308f743a4ba59674e4cea5
     m_Address: mvz2:pickup/dream_key
@@ -2355,6 +2373,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77e47ba4e4bc65a46bf4e84b41c40576
+    m_Address: mvz2:entity/projectiles/golden_ball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7865af6122289884aa1160a9bb226b43
     m_Address: mvz2:pickup/ruby
     m_ReadOnly: 0
@@ -2441,6 +2465,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cd67e193c23b1f46ae2e123c4a0bd3a
     m_Address: mvz2:entity/contraptions/pressure_plate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7daa974a99689d84d8b0323b1817ce90
+    m_Address: mvz2:mobile_blueprint/stone_dropper
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3771,6 +3801,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54fb45c2064c9149942a6ea99c593f3
+    m_Address: mvz2:entity/contraptions/stone_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b559c020339362849b5c76dce17cdd39
     m_Address: mvz2:effect/stunning_flash
     m_ReadOnly: 0
@@ -3785,6 +3821,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5ccd0b2064964141897d244b8b815bf
     m_Address: mvz2:ui/level/mobile/trigger_gear_slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b619b60be7108ed4fafb8ba9257d68ce
+    m_Address: mvz2:entity/projectiles/cobble
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3845,6 +3887,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7c80b168e4da364f97d8787bc49699a
     m_Address: mvz2:effect/breakout_board
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b817bd6b5917ccb4399c12157028cd39
+    m_Address: mvz2:contraption/golden_dropper
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3975,6 +4023,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c10d5cdc8afb68b48a2e80b9dae85b0f
+    m_Address: mvz2:bash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1f7123b5f8de1640b46858b3fc6914e
     m_Address: mvz2:entity/effect/flesh_part_censored
     m_ReadOnly: 0
@@ -4088,6 +4142,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c67b6cd5c40921f4596a819c40eef4e9
+    m_Address: mvz2:damage/small_hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6834e54b22c072438a7aa1583ebc4f5
     m_Address: mvz2:entity/boss/gun_fire
@@ -4214,6 +4274,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc3e8f1dad412cb4a8a8824b00e175fe
+    m_Address: mvz2:contraption/stone_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc72cbbb5be7e854aa7c3ffe31234464
     m_Address: mvz2:projectile/soulfire_ball
@@ -4689,11 +4755,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3a86cb447a966943a12653f25a88e3b
+    m_Address: mvz2:projectile/golden_ball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3db0a973aafd3c49b0bcb73e3353e59
     m_Address: mvz2:random/stone4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e43bf2e6bd3ab0540812539bf867050b
+    m_Address: mvz2:projectile/cobble
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e54f2595624bbc447b98881de587ce72
     m_Address: mvz2:ui/level/hint_arrow

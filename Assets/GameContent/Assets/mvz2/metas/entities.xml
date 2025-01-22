@@ -363,6 +363,8 @@
             <id name="projectileId" value="mvz2:wooden_ball" />
             <id name="shootSound" value="mvz2:click"/>
             <id name="shell" value="mvz2:wood"/>
+            <id name="placeSound" value="mvz2:wood"/>
+            <id name="deathSound" value="mvz2:wood"/>
             <vector3 name="shotOffset" x="25" y="3" z="0"/>
             <vector3 name="size" x="32" y="32" z="32"/>
 
