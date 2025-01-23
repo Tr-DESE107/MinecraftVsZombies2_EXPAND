@@ -90,7 +90,7 @@ namespace MVZ2.Vanilla.Entities
             }
             if (!entity.HasBuff<DamageColorBuff>())
                 entity.AddBuff<DamageColorBuff>();
-            entity.PlaySound(entity.GetDeathSound());
+            entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
         }
         protected virtual bool IsOutsideView(Entity enemy)
         {

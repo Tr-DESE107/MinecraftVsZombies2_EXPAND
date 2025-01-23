@@ -55,6 +55,11 @@
     <model name="mother_terror" type="entity" path="mvz2:enemy/mother_terror" width="108" height="108" xOffset="0" yOffset="-48"/>
     <model name="parasite_terror" type="entity" path="mvz2:enemy/parasite_terror" width="54" height="54" xOffset="0" yOffset="-24"/>
 
+
+    <model name="mutant_zombie" type="entity" path="mvz2:enemy/mutant_zombie" width="200" height="200" xOffset="0" yOffset="-100"/>
+    <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/mega_mutant_zombie" width="200" height="200" xOffset="0" yOffset="-100"/>
+    <model name="imp" type="entity" path="mvz2:enemy/imp" width="48" height="56" xOffset="0" yOffset="-28"/>
+
     <model name="bone_wall" type="entity" path="mvz2:enemy/bone_wall" width="80" height="80" xOffset="0" yOffset="-40"/>
     <model name="napstablook" type="entity" path="mvz2:enemy/napstablook" width="64" height="88" xOffset="0" yOffset="-44"/>
 
@@ -139,6 +144,8 @@
     <model name="floating_text" type="entity" path="mvz2:effect/floating_text" width="80" height="25" xOffset="0" yOffset="0"/>
     <model name="spike_particles" type="entity" path="mvz2:effect/spike_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="diamond_spike_particles" type="entity" path="mvz2:effect/diamond_spike_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="mind_control_lines" type="entity" path="mvz2:effect/mind_control_lines" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="mutant_zombie_weapon" type="entity" path="mvz2:effect/mutant_zombie_weapon" width="180" height="50" xOffset="0" yOffset="-25"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

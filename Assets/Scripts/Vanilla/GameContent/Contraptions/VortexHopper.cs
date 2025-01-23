@@ -109,6 +109,8 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (enemy.IsDead || enemy.HasBuff<VortexHopperDragBuff>())
                 return;
+            if (enemy.ImmuneVortex())
+                return;
             enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN), hopper);
             var hopperPos = hopper.Position;
             hopperPos.y = hopper.GetGroundY();

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-22 11:49+0800\n"
+"POT-Creation-Date: 2025-01-24 12:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -544,6 +544,26 @@ msgid ""
 "无法访问该页面：\n"
 "458 Protected\n"
 "页面受到保护，请先挖掉石护罩再继续。"
+msgstr ""
+
+#. Header for contraptions mvz2:golden_apple
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "金苹果可以魅惑一个近战攻击它的敌人，使其为你而战。"
+msgstr ""
+
+#. Properties for contraptions mvz2:golden_apple
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：<color=red>发出彩色炫光，被魅惑的敌人变为突变僵尸</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:golden_apple
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。\n"
+"这就是为什么重力板是紫色的。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -1969,6 +1989,18 @@ msgctxt "entity.tooltip"
 msgid "保护内部的器械"
 msgstr ""
 
+#. Header for entity mvz2:golden_apple
+#: Entity meta file
+msgctxt "entity.name"
+msgid "金苹果"
+msgstr ""
+
+#. Properties for entity mvz2:golden_apple
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "魅惑攻击它的敌人"
+msgstr ""
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -2187,6 +2219,36 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "恐怖寄生虫 已消灭世界上的所有……"
+msgstr ""
+
+#. Header for entity mvz2:mutant_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "突变僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:mutant_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "你怎么进门的？"
+msgstr ""
+
+#. Header for entity mvz2:mega_mutant_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "超级突变僵尸"
+msgstr ""
+
+#. Header for entity mvz2:imp
+#: Entity meta file
+msgctxt "entity.name"
+msgid "小鬼僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:imp
+#: Entity meta file
+msgctxt "death_message"
+msgid "被偷家了"
 msgstr ""
 
 #. Header for entity mvz2:bone_wall

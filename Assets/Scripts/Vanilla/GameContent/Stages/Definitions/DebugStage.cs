@@ -42,14 +42,14 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.goldenApple,
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.skeleton,
-                VanillaEnemyID.gargoyle,
-                VanillaEnemyID.mummy,
-                VanillaEnemyID.necromancer,
-                VanillaEnemyID.spider,
-                VanillaEnemyID.caveSpider,
-                VanillaEnemyID.motherTerror,
+                VanillaContraptionID.spikeBlock,
+                VanillaContraptionID.diamondSpikes,
+                VanillaContraptionID.lilyPad,
+                VanillaContraptionID.vortexHopper,
+                VanillaContraptionID.pistenser,
+                VanillaContraptionID.totenser,
+                VanillaEnemyID.mutantZombie,
+                VanillaEnemyID.imp,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

@@ -81,17 +81,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         protected virtual void WalkUpdate(Entity enemy)
         {
-            var velocity = enemy.Velocity;
-            var speed = enemy.GetSpeed() * 0.4f;
-            if (Mathf.Abs(velocity.x) < speed)
-            {
-                float min = Mathf.Min(speed, -speed);
-                float max = Mathf.Max(speed, -speed);
-                float direciton = enemy.GetFacingX();
-                velocity.x += speed * direciton;
-                velocity.x = Mathf.Clamp(velocity.x, min, max);
-            }
-            enemy.Velocity = velocity;
+            enemy.UpdateWalkVelocity();
         }
         protected virtual void UpdateStateWalk(Entity enemy)
         {

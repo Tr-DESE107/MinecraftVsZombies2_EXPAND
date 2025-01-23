@@ -157,12 +157,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d502efd9e6fce1543ae6919e926b244c, type: 3}
   - name: mobile_blueprint/magichest
     sprite: {fileID: 21300000, guid: 2f3ddf82a6251b743b3e647d2f839e64, type: 3}
+  - name: mobile_blueprint/mega_mutant_zombie
+    sprite: {fileID: 21300000, guid: a06de87c0a73e074abeebac969e592ec, type: 3}
   - name: mobile_blueprint/mine_tnt
     sprite: {fileID: 21300000, guid: 3eeaaee3b5925f349bc67370a4813884, type: 3}
   - name: mobile_blueprint/moonlight_sensor
     sprite: {fileID: 21300000, guid: 579cf24a5de6c3449ba61159e5649187, type: 3}
   - name: mobile_blueprint/mummy
     sprite: {fileID: 21300000, guid: 9471881cde5f3d841abcd44501e0f922, type: 3}
+  - name: mobile_blueprint/mutant_zombie
+    sprite: {fileID: 21300000, guid: 4bc6ce89adce4a6418ff0875e511fd9b, type: 3}
   - name: mobile_blueprint/necromancer
     sprite: {fileID: 21300000, guid: 8a0fa8e6a83d14c4581f8cee8ce07eed, type: 3}
   - name: mobile_blueprint/nightmareaper
@@ -1238,6 +1242,27 @@ MonoBehaviour:
     - {fileID: 815634889, guid: eb1d4fd287008034c97609f5686628e6, type: 3}
     - {fileID: 1592818675, guid: eb1d4fd287008034c97609f5686628e6, type: 3}
     - {fileID: -1885844829, guid: eb1d4fd287008034c97609f5686628e6, type: 3}
+  - name: entity/enemy/mutant_zombie
+    spritesheet:
+    - {fileID: 1281193560, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1519020018, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -675439430, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: 774336345, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -684971467, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1490466964, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1264761547, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -511729236, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: 439551358, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: 445885301, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1888681215, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1370449428, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1794390886, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: 1142279472, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1341616442, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: 68611881, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -1265360557, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: -568583180, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
+    - {fileID: 1760482193, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
   - name: entity/enemy/napstablook
     spritesheet:
     - {fileID: 21300000, guid: 3b8ba75cdb635b54db18d67e1674ea4d, type: 3}

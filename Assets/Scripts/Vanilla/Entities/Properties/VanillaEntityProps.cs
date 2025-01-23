@@ -111,6 +111,7 @@ namespace MVZ2.Vanilla.Entities
         public const string HIT_SOUND = "hitSound";
         public const string DEATH_SOUND = "deathSound";
         public const string PLACE_SOUND = "placeSound";
+        public const string CRY_PITCH = "cryPitch";
         public static NamespaceID GetHitSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(HIT_SOUND);
@@ -126,6 +127,10 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID GetDeathSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(DEATH_SOUND);
+        }
+        public static float GetCryPitch(this Entity entity)
+        {
+            return entity.GetProperty<float>(CRY_PITCH);
         }
         #endregion
 
@@ -330,6 +335,13 @@ namespace MVZ2.Vanilla.Entities
         public static bool NoHeldTarget(this Entity entity)
         {
             return entity.GetProperty<bool>(NO_HELD_TARGET);
+        }
+
+
+        public const string TAKEN_CRUSH_DAMAGE = "takenCrushDamage";
+        public static float GetTakenCrushDamage(this Entity entity)
+        {
+            return entity.GetProperty<float>(TAKEN_CRUSH_DAMAGE);
         }
     }
 }

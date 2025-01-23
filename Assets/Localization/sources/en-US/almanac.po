@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 11:49+0800\n"
-"PO-Revision-Date: 2025-01-22 23:51+0800\n"
+"POT-Creation-Date: 2025-01-24 12:55+0800\n"
+"PO-Revision-Date: 2025-01-24 14:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -683,6 +683,28 @@ msgstr ""
 "Unable to access this page: \n"
 "458 Protected\n"
 "The page is protected, please dig the stone shield and retry."
+
+#. Header for contraptions mvz2:golden_apple
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "金苹果可以魅惑一个近战攻击它的敌人，使其为你而战。"
+msgstr "Golden Apple can charm an enemy that attacks it, makes it fight for you."
+
+#. Properties for contraptions mvz2:golden_apple
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：<color=red>发出彩色炫光，被魅惑的敌人变为突变僵尸</color>"
+msgstr "Evocation: <color=red>Radiates colorful light, the charmed enemy transforms into a mutant zombie</color>"
+
+#. Flavor for contraptions mvz2:golden_apple
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。\n"
+"这就是为什么重力板是紫色的。"
+msgstr ""
+"Golden Apple is very sorry for damaging Gravity Block, so it compensated Gravity Block with its own piece of gold skin.\n"
+"That's why Gravity Pad is purple."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -2296,6 +2318,18 @@ msgctxt "entity.tooltip"
 msgid "保护内部的器械"
 msgstr "Protect the contraption inside"
 
+#. Header for entity mvz2:golden_apple
+#: Entity meta file
+msgctxt "entity.name"
+msgid "金苹果"
+msgstr "Golden Apple"
+
+#. Properties for entity mvz2:golden_apple
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "魅惑攻击它的敌人"
+msgstr "Charms the enemy that attacks it"
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -2525,6 +2559,36 @@ msgstr "Parasite Terror"
 msgctxt "death_message"
 msgid "恐怖寄生虫 已消灭世界上的所有……"
 msgstr "There are no healthy people left in the world..."
+
+#. Header for entity mvz2:mutant_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "突变僵尸"
+msgstr "Mutant Zombie"
+
+#. Death message for entity mvz2:mutant_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "你怎么进门的？"
+msgstr "How did you get in the door?"
+
+#. Header for entity mvz2:mega_mutant_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "超级突变僵尸"
+msgstr "Mega Mutant Zombie"
+
+#. Header for entity mvz2:imp
+#: Entity meta file
+msgctxt "entity.name"
+msgid "小鬼僵尸"
+msgstr "Imp"
+
+#. Death message for entity mvz2:imp
+#: Entity meta file
+msgctxt "death_message"
+msgid "被偷家了"
+msgstr "Base stolen"
 
 #. Header for entity mvz2:bone_wall
 #: Entity meta file

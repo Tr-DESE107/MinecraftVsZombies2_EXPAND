@@ -61,5 +61,10 @@ namespace MVZ2.Vanilla.Entities
             return enemy.GetProperty<NamespaceID[]>(ATTACKER_TAGS);
         }
         #endregion
+        public const string IMMUNE_VORTEX = "immuneVortex";
+        public static bool ImmuneVortex(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(IMMUNE_VORTEX);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Shells
         public const string metal = "metal";
         public const string wood = "wood";
         public const string nether = "nether";
+        public const string diamond = "diamond";
     }
     public static class VanillaShellID
     {
@@ -26,6 +27,7 @@ namespace MVZ2.GameContent.Shells
         public static readonly NamespaceID metal = Get(VanillaShellNames.metal);
         public static readonly NamespaceID wood = Get(VanillaShellNames.wood);
         public static readonly NamespaceID nether = Get(VanillaShellNames.nether);
+        public static readonly NamespaceID diamond = Get(VanillaShellNames.diamond);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

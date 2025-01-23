@@ -3,6 +3,7 @@ using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -36,6 +37,20 @@ namespace MVZ2.Vanilla.Entities
                 buff = enemy.AddBuff<EnemyWeaknessBuff>();
             }
             buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
+        }
+        public static void UpdateWalkVelocity(this Entity enemy)
+        {
+            var velocity = enemy.Velocity;
+            var speed = enemy.GetSpeed() * 0.4f;
+            if (Mathf.Abs(velocity.x) < speed)
+            {
+                float min = Mathf.Min(speed, -speed);
+                float max = Mathf.Max(speed, -speed);
+                float direciton = enemy.GetFacingX();
+                velocity.x += speed * direciton;
+                velocity.x = Mathf.Clamp(velocity.x, min, max);
+            }
+            enemy.Velocity = velocity;
         }
     }
 }

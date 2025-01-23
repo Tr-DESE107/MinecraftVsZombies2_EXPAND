@@ -285,6 +285,10 @@
     <sound name="huge_wave" priority="64">
         <sample path="mvz2:huge_wave" weight="1" />
     </sound>
+    <sound name="imp_laugh">
+        <sample path="mvz2:entity/imp/imp_laugh1" weight="1" />
+        <sample path="mvz2:entity/imp/imp_laugh2" weight="1" />
+    </sound>
     <sound name="iron_curtain">
         <sample path="mvz2:iron_curtain" weight="1" />
     </sound>
@@ -332,6 +336,13 @@
     </sound>
     <sound name="mummy_death">
         <sample path="mvz2:entity/mummy/mummy_death" weight="1" />
+    </sound>
+    <sound name="mutant_cry">
+        <sample path="mvz2:entity/mutant_zombie/mutant_cry1" weight="1" />
+        <sample path="mvz2:entity/mutant_zombie/mutant_cry2" weight="1" />
+    </sound>
+    <sound name="mutant_death">
+        <sample path="mvz2:entity/mutant_zombie/mutant_death" weight="1" />
     </sound>
     <sound name="nightmare_portal">
         <sample path="mvz2:nightmare_portal" weight="1" />

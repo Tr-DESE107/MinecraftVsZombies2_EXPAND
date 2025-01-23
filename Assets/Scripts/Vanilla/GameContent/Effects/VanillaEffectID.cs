@@ -55,6 +55,8 @@ namespace MVZ2.GameContent.Effects
         public const string floatingText = "floating_text";
         public const string spikeParticles = "spike_particles";
         public const string diamondSpikeParticles = "diamond_spike_particles";
+        public const string mindControlLines = "mind_control_lines";
+        public const string mutantZombieWeapon = "mutant_zombie_weapon";
     }
     public static class VanillaEffectID
     {
@@ -108,6 +110,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID floatingText = Get(VanillaEffectNames.floatingText);
         public static readonly NamespaceID spikeParticles = Get(VanillaEffectNames.spikeParticles);
         public static readonly NamespaceID diamondSpikeParticles = Get(VanillaEffectNames.diamondSpikeParticles);
+        public static readonly NamespaceID mindControlLines = Get(VanillaEffectNames.mindControlLines);
+        public static readonly NamespaceID mutantZombieWeapon = Get(VanillaEffectNames.mutantZombieWeapon);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

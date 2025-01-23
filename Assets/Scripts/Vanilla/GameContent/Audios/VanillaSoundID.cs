@@ -24,6 +24,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID chime = Get("chime");
         public readonly static NamespaceID coin = Get("coin");
         public readonly static NamespaceID confuse = Get("confuse");
+        public readonly static NamespaceID crystal = Get("crystal");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
         public readonly static NamespaceID decrepify = Get("decrepify"); 
@@ -60,6 +61,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID hit = Get("hit");
         public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID hugeWave = Get("huge_wave");
+        public readonly static NamespaceID impLaugh = Get("imp_laugh");
         public readonly static NamespaceID ironCurtain = Get("iron_curtain");
         public readonly static NamespaceID launch = Get("launch");
         public readonly static NamespaceID leatherHit = Get("leather_hit");
@@ -72,6 +74,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID minecart = Get("minecart");
         public readonly static NamespaceID missile = Get("missile");
         public readonly static NamespaceID moneyFall = Get("money_fall");
+        public readonly static NamespaceID mutantCry = Get("mutant_cry");
         public readonly static NamespaceID nightmareaperRage = Get("nightmareaper_rage");
         public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");
         public readonly static NamespaceID nightmarePortal = Get("nightmare_portal");

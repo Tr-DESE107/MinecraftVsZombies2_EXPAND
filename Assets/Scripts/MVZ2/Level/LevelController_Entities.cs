@@ -137,7 +137,7 @@ namespace MVZ2.Level
                 if (enemyCount <= 0)
                     return;
                 var crySoundEnemy = crySoundEnemies.Random(rng);
-                crySoundEnemy.PlaySound(crySoundEnemy.GetCrySound());
+                crySoundEnemy.PlaySound(crySoundEnemy.GetCrySound(), crySoundEnemy.GetCryPitch());
             }
         }
         private IEnumerable<Entity> GetCrySoundEnemies()

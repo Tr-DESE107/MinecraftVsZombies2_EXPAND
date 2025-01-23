@@ -66,7 +66,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 entity.PostFragmentDeath(damageInfo);
 
-                entity.PlaySound(entity.GetDeathSound());
+                entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
                 entity.Remove();
             }
             if (!damageInfo.Effects.HasEffect(VanillaDamageEffects.SELF_DAMAGE))

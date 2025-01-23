@@ -38,7 +38,7 @@ namespace MVZ2.Vanilla.Entities
                 entity.Remove();
                 return;
             }
-            entity.PlaySound(entity.GetDeathSound());
+            entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
         }
         public override void Update(Entity entity)
         {

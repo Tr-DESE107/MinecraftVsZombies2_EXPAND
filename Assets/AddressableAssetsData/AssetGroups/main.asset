@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03a01e1df2865d441a9fa227eab6a1f6
+    m_Address: mvz2:mobile_blueprint/golden_apple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03dafdf2ab6ba7e499b6f7a6f350be32
     m_Address: mvz2:mainmenu/view/teruharijou
     m_ReadOnly: 0
@@ -82,6 +88,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05a6ec8521020404c9c82ea5d9243bbc
+    m_Address: mvz2:entity/contraptions/golden_apple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06bd83f6d02e8394fab6740abdfe9321
     m_Address: mvz2:entity/bone_wall/bone_wall_destroyed
@@ -214,6 +226,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d4af8afe02894146b1bf6b83fd5c2e6
+    m_Address: mvz2:enemy/imp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d4ebeebf58039f44b54ff10434c99d4
     m_Address: mvz2:entity/effect/static
@@ -574,6 +592,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20dd94ff8494e4549982cfaea1303a84
+    m_Address: mvz2:entity/imp/imp_laugh1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20e366ae3ad04144489c4e881a2d2b4a
     m_Address: mvz2:entity/enemy/skeleton
@@ -1336,6 +1360,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4074c24824910164aa409abafc84e583
+    m_Address: mvz2:floop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 407fad964d6763c4485f90c8ab1d907a
     m_Address: mvz2:entity/contraption/drivenser_gears
     m_ReadOnly: 0
@@ -1486,6 +1516,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4605e1989dbbcba43aaa16e9691cb235
+    m_Address: mvz2:entity/imp/imp_laugh2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46439a16cb17e7a44bdc1fe397877f2b
     m_Address: mvz2:spider_death
     m_ReadOnly: 0
@@ -1623,6 +1659,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bc6ce89adce4a6418ff0875e511fd9b
+    m_Address: mvz2:mobile_blueprint/mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf17da5ebe2d2a4eb8257f66201b808
     m_Address: mvz2:final_wave
@@ -1810,6 +1852,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 565b39729d8fd1b469bef688b67f08d3
+    m_Address: mvz2:contraption/golden_apple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5676d56fcc308f743a4ba59674e4cea5
     m_Address: mvz2:pickup/dream_key
     m_ReadOnly: 0
@@ -1978,6 +2026,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d8ca2a31157783449fded634ef57f1f
+    m_Address: mvz2:entity/effects/mind_control_line
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d9cc3cbf5c7d5a4f9187cca6ead0f39
     m_Address: mvz2:splash
     m_ReadOnly: 0
@@ -2110,6 +2164,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 640498c4a0c1e9e478d0ce0218f62222
+    m_Address: mvz2:enemy/mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64951a0026f5ef54bbb28092c064d4ea
     m_Address: mvz2:level/dream/dream_house_cover
     m_ReadOnly: 0
@@ -2163,6 +2223,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6794bb31d9d949f4398a80691187140f
+    m_Address: mvz2:entity/contraptions/golden_apple_halo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67e48334d4595cf49923ddb4b0725fff
     m_Address: mvz2:stages
@@ -3297,6 +3363,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d154f9c691d05c42917f982f9de86ca
+    m_Address: mvz2:entity/mutant_zombie/mutant_cry2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d42af99014807345b8b7fa93e6acadf
     m_Address: mvz2:ui/level/pause_image_1
     m_ReadOnly: 0
@@ -3377,6 +3449,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a06be91936876c74d8f5b245197688cf
     m_Address: mvz2:ui/almanac/book
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a06de87c0a73e074abeebac969e592ec
+    m_Address: mvz2:mobile_blueprint/mega_mutant_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3662,6 +3740,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad58ee3d88ea4ef499f70667527aeb20
+    m_Address: mvz2:charmed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
@@ -4275,6 +4359,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c93e39c5ab85d6940ba717234f2be33c
+    m_Address: mvz2:enemy/mega_mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c98850842ba8ff14f919f63ce5114326
     m_Address: mvz2:ui/level/pickaxe
     m_ReadOnly: 0
@@ -4292,6 +4382,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca8167ed573876f4ea54f79aecaa9514
+    m_Address: mvz2:entity/mutant_zombie/mutant_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caad8c3049dedbb4796afa81b872ead5
     m_Address: mvz2:entity/contraption/mine_dirt
@@ -4646,6 +4742,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da45371eb5d449a4b9360aa8fba923f6
+    m_Address: mvz2:effect/mind_control_lines
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da694241d06a5a0429d9929813653171
     m_Address: mvz2:achievements/rickroll_drown
@@ -5259,6 +5361,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f661948e8fac49542be1f0cbf157b316
+    m_Address: mvz2:entity/enemy/mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6655a00eb7e10343929a4e216bb0f2b
     m_Address: mvz2:entity/contraptions/dream_crystal_supernatural
     m_ReadOnly: 0
@@ -5396,6 +5504,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd845dda8b361cb47bfd69eef5399607
+    m_Address: mvz2:entity/mutant_zombie/mutant_cry1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdd0e6446538d484b9e6fb81268f0a8a
     m_Address: mvz2:effect/fragment

@@ -488,14 +488,18 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void PlaySplashEffect(this Entity entity)
         {
-            var level = entity.Level;
             var size = entity.GetScaledSize();
+            var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
+            entity.PlaySplashEffect(scale * Vector3.one);
+        }
+        public static void PlaySplashEffect(this Entity entity, Vector3 scale)
+        {
+            var level = entity.Level;
             var pos = entity.Position;
             pos.y = entity.GetGroundY();
             var splash = level.Spawn(VanillaEffectID.splashParticles, pos, entity);
             splash.SetTint(level.GetWaterColor());
-            var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
-            splash.SetDisplayScale(scale * Vector3.one);
+            splash.SetDisplayScale(scale);
         }
 
         public static void PlaySplashSound(this Entity entity)
