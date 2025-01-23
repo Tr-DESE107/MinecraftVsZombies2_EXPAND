@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 08:39+0800\n"
-"PO-Revision-Date: 2025-01-18 20:42+0800\n"
+"POT-Creation-Date: 2025-01-22 11:49+0800\n"
+"PO-Revision-Date: 2025-01-22 23:56+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -147,12 +147,12 @@ msgstr "Artifacts"
 msgid "杂项图鉴"
 msgstr "Misc"
 
-#: /MainGame/MainScene/Store/Canvas/Items/Title
+#: /MainGame/MainScene/Store/Canvas/StoreUI/Items/Title
 msgctxt "商店界面"
 msgid "商店"
 msgstr "Store"
 
-#: /MainGame/MainScene/Store/Canvas/ReturnButton/Text
+#: /MainGame/MainScene/Store/Canvas/StoreUI/ReturnButton/Text
 msgctxt "商店界面"
 msgid "返回"
 msgstr "Back"
@@ -376,92 +376,92 @@ msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr "Good luck!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:452
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:451
 msgctxt "advice.tutorial.0"
 msgid "左键点击器械卡牌选中器械！"
 msgstr "Click a blueprint to choose a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:454
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:453
 msgctxt "advice.tutorial.1"
 msgid "点击草坪放置器械！"
 msgstr "Click the lawn to place a contraption!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:456
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:455
 msgctxt "advice.tutorial.2"
 msgid "干得漂亮！"
 msgstr "Nicely done!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:458
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:457
 msgctxt "advice.tutorial.3"
 msgid "点击红石收集能量！"
 msgstr "Click redstone to collect energy!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:460
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:459
 msgctxt "advice.tutorial.4"
 msgid "收集足够的能量来放置器械！"
 msgstr "Collect enough energy to place contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:462
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:461
 msgctxt "advice.tutorial.5"
 msgid "用发射器干掉僵尸！"
 msgstr "Defeat the zombie with your Dispenser!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:464
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:463
 msgctxt "advice.tutorial.6"
 msgid "干得漂亮！"
 msgstr "Well done!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:466
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:465
 msgctxt "advice.tutorial.7"
 msgid "选择熔炉并放置！"
 msgstr "Select Furnace and place it!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:468
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:467
 msgctxt "advice.tutorial.8"
 msgid "熔炉能为你提供额外的红石！"
 msgstr "Furnaces can provide you additional redstone!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:470
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:469
 msgctxt "advice.tutorial.9"
 msgid "熔炉越多，你放器械的速度就越快！"
 msgstr "The more Furnaces you have, the faster you can build!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:472
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:471
 msgctxt "advice.tutorial.10"
 msgid "请至少放下三个熔炉！"
 msgstr "Place at least three Furnaces!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:474
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:473
 msgctxt "advice.tutorial.11"
 msgid "用黑曜石来挡住僵尸的进攻！"
 msgstr "Block the zombie with Obsidian!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:476
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:475
 msgctxt "advice.tutorial.12"
 msgid "干得漂亮！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:478
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:477
 msgctxt "advice.tutorial.13"
 msgid "地雷TNT在一段时间的填装后能炸飞敌人！"
 msgstr "Mine TNTs can blow up enemies after arming itself!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:480
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:479
 msgctxt "advice.tutorial.14"
 msgid "用地雷TNT炸死铁盔僵尸！"
 msgstr "Blow up the Iron Helmet Zombie with Mine TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:482
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:481
 msgctxt "advice.tutorial.15"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:484
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:483
 msgctxt "advice.tutorial.16"
 msgid "最后，镐子能够挖掉你所放下的器械！"
 msgstr "Finally, the pickaxe can dig out placed contraptions!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:486
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:485
 msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
@@ -816,7 +816,7 @@ msgid "点击以开始！"
 msgstr "Click to start!"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:714
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:753
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -825,25 +825,25 @@ msgstr ""
 "{1}"
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:201
+#: Scripts\MVZ2\Store\StoreController.cs:237
 msgid "购买物品"
 msgstr "Purchase"
 
-#: Scripts\MVZ2\Store\StoreController.cs:203
+#: Scripts\MVZ2\Store\StoreController.cs:239
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgstr "Are you sure you want to purchase this for {0:N0}?"
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:205
+#: Scripts\MVZ2\Store\StoreController.cs:241
 msgid "金钱不足"
 msgstr "Insufficient Money"
 
-#: Scripts\MVZ2\Store\StoreController.cs:207
+#: Scripts\MVZ2\Store\StoreController.cs:243
 msgid "你没有足够的金钱！"
 msgstr ""
 "You don't have enough money! Come back when you're a little mmmm... richer!"
 
-#: Scripts\MVZ2\Store\StoreController.cs:209
+#: Scripts\MVZ2\Store\StoreController.cs:245
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
@@ -967,7 +967,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:559
+#: Scripts\MVZ2\Map\MapController.cs:629
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -975,7 +975,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:561
+#: Scripts\MVZ2\Map\MapController.cs:631
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -983,12 +983,12 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:563
+#: Scripts\MVZ2\Map\MapController.cs:633
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:565
+#: Scripts\MVZ2\Map\MapController.cs:635
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1001,21 +1001,21 @@ msgstr ""
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:571
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:581
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:573
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:583
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:575
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:585
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:577
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:587
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
@@ -1053,7 +1053,7 @@ msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:222
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:263
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
@@ -1077,12 +1077,12 @@ msgstr ""
 "game state."
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:245
+#: Scripts\MVZ2\Archive\ArchiveController.cs:249
 msgid "<b>[{0}]</b> {1}"
 msgstr "<b>[{0}]</b> {1}"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:247
+#: Scripts\MVZ2\Archive\ArchiveController.cs:251
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -1160,6 +1160,12 @@ msgstr "Dream World"
 msgctxt "levelname"
 msgid "梦境世界无尽"
 msgstr "Dream World Endless"
+
+#. Name for stage mvz2:teruharijou_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "辉针城"
+msgstr "Castle"
 
 #. Name for stat category mvz2:contraption_place
 #: Stats meta file
@@ -1347,6 +1353,24 @@ msgctxt "music.name"
 msgid "Pandemonic Planet（后段）"
 msgstr "Pandemonic Planet (2nd part)"
 
+#. Name for music mvz2:gensokyo_map
+#: Music meta file
+msgctxt "music.name"
+msgid "青空之影"
+msgstr "A Shadow in the Blue Sky"
+
+#. Name for music mvz2:teruharijou_map
+#: Music meta file
+msgctxt "music.name"
+msgid "沉默空洞的辉针城"
+msgstr "The Shining Needle Castle Sinking to the Void"
+
+#. Name for music mvz2:teruharijou_level
+#: Music meta file
+msgctxt "music.name"
+msgid "凋灵舞曲"
+msgstr "Witherstep"
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -1364,6 +1388,18 @@ msgstr "Halloween"
 msgctxt "archive.tagname"
 msgid "梦境世界"
 msgstr "Dream World"
+
+#. Name for archive tag mvz2:gensokyo
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "幻想乡"
+msgstr "Gensokyo"
+
+#. Name for archive tag mvz2:teruharijou
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "辉针城"
+msgstr "Castle"
 
 #. Name for archive tag mvz2:tutorial
 #: Archive meta file
@@ -1400,6 +1436,12 @@ msgstr "Outro"
 msgctxt "archive.tagname"
 msgid "地图对话"
 msgstr "Map"
+
+#. Name for archive tag mvz2:store
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "商店对话"
+msgstr "Store"
 
 #. Store chat from character mvz2:crazy_villager
 #: Store meta file
@@ -1449,12 +1491,66 @@ msgctxt "store_talk"
 msgid "有人放彩色石头的悬崖下面通常有好东西！"
 msgstr "Cliffs with some rainbow rubbles usually hide treasures below!"
 
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "以后能教教我这些机器怎么用吗？"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "要读读看这本书吗？很有趣的！"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "听说，外界的公主一旦陷入危机，就会有一位骑士前来救她呢。"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "你们那里的人都是方形的吗？"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "虽然这里存在着危险的妖怪，不过像我一样比较弱的妖怪还是更多呢。"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "科幻故事我看不懂，我还是更喜欢童话故事一点……"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "嗯？这个不是切菜用的砧板？"
+msgstr ""
+
+#. Store chat from character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "发射器为什么长着一张这么可爱的脸呢？"
+msgstr ""
+
 #. Store item description of mvz2:blueprint_slot by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
 msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
 msgstr ""
 "Extra blueprint slot! Allowing you to carry one more contraption to battle!"
+
+#. Store item description of mvz2:blueprint_slot by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "这个是额外的蓝图槽，可以让你多带一个器械！"
+msgstr ""
 
 #. Store item text of mvz2:blueprint_slot
 #: Store meta file
@@ -1482,6 +1578,12 @@ msgctxt "store_talk"
 msgid "更多的星之碎片槽！让你的器械爆发吧！"
 msgstr "More Starshard slots! Let your contraptions evoke more!"
 
+#. Store item description of mvz2:starshard_slot by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "这个可以让你多带一些很神奇的东西，据说器械们很喜欢呢！"
+msgstr ""
+
 #. Store item text of mvz2:starshard_slot
 #: Store meta file
 msgid "4 槽"
@@ -1498,6 +1600,12 @@ msgctxt "store_talk"
 msgid "更多的制品槽！让你能带更多亮闪闪的小玩意！"
 msgstr ""
 "Additional artifact slots! Decorate yourself by more precious trinkets!"
+
+#. Store item description of mvz2:artifact_slot by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "这个可以让你带更多的小装饰品！我可喜欢打扮了！"
+msgstr ""
 
 #. Store item text of mvz2:artifact_slot
 #: Store meta file
@@ -1517,6 +1625,12 @@ msgstr ""
 "Place Infectensers on your Small Dispensers. Projectiles shot by them can "
 "spread between enemies!"
 
+#. Store item description of mvz2:infectenser by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "传染发射器能升级小型发射器，这样它就能在怪物之间散播互相攻击的种子了！"
+msgstr ""
+
 #. Store item description of mvz2:force_pad by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -1524,6 +1638,12 @@ msgid "把传动力板放在重力板上，让它能够操纵上方子弹和敌�
 msgstr ""
 "Place Force Pads on your Gravity Pads. They can control the motion of "
 "objects over them!"
+
+#. Store item description of mvz2:force_pad by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "传动力板能升级重力板，能改变很多很多东西的位置，很方便！"
+msgstr ""
 
 #. Store item description of mvz2:hoe by character mvz2:crazy_villager
 #: Store meta file
@@ -1533,15 +1653,33 @@ msgstr ""
 "The hoe I used to use! It can kill the first enemy that appears in every "
 "battle!"
 
+#. Store item description of mvz2:hoe by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "村民先生的锄头，每场战斗都能给第一只来的怪物当头一棒！"
+msgstr ""
+"Mr. Villager's hoe, it can knock out the first enemy that appears in every "
+"battle!"
+
 #. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
 msgid ""
-"产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现原先3"
+"产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现额外2"
 "倍多的敌人！"
 msgstr ""
 "The branch of a pagoda tree from the Dream World! It gives you a starshard "
-"to start with in every battle, but there will be 3 times the enemies!"
+"to start with in every battle, but there will be 2 more times the enemies!"
+
+#. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"来自槐树上的树枝，战斗开始时它能额外给你一个神奇的碎片，但是也会额外出现2倍多"
+"的怪物！"
+msgstr ""
+"A branch of a pagoda tree, It gives you a starshard to start with in every "
+"battle, but there will be 2 more times the enemies!"
 
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
 #: Store meta file
@@ -1553,6 +1691,17 @@ msgstr ""
 "The heart of The Creature! For each copy of a contraption you have on the "
 "lawn, the cost of this contraption is decreased by 5!"
 
+#. Store item description of mvz2:the_creatures_heart by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"很奇怪的心脏……由于它在渴望同类，你的场上每有一个相同的器械，这个器械的能量消"
+"耗就会减少5！"
+msgstr ""
+"A strange heart...Due to it's yearning for its own kind, for each copy of a "
+"contraption you have on the lawn, the cost of this contraption is decreased "
+"by 5!"
+
 #. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -1560,6 +1709,14 @@ msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但�
 msgstr ""
 "Dark matter extracted from the Nightmare itself! Contraptions produce at "
 "twice the speed, but the stage will become dark!"
+
+#. Store item description of mvz2:dark_matter by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！"
+msgstr ""
+"Some dark thing, it makes contraptions produce at twice the speed, but the "
+"stage will become dark!"
 
 #~ msgctxt "music.name"
 #~ msgid "猩红之地"
