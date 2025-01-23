@@ -206,7 +206,12 @@ namespace PVZEngine.Entities
         }
         bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
         {
-            if (Definition != null && Definition.TryGetProperty<object>(name, out var defProp))
+            if (Definition == null)
+            {
+                value = null;
+                return false;
+            }
+            if (Definition.TryGetProperty(name, out var defProp))
             {
                 value = defProp;
                 return true;
@@ -216,7 +221,7 @@ namespace PVZEngine.Entities
             for (int i = 0; i < behaviourCount; i++)
             {
                 var behaviour = Definition.GetBehaviourAt(i);
-                if (behaviour.TryGetProperty<object>(name, out var behProp))
+                if (behaviour.TryGetProperty(name, out var behProp))
                 {
                     value = behProp;
                     return true;

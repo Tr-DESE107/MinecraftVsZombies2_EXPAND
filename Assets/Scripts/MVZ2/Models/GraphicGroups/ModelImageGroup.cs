@@ -52,15 +52,15 @@ namespace MVZ2.Models
                 animators.Add(animator);
             }
         }
-        public override void SetPropertyInt(string name, int value)
+        public override void SetShaderInt(string name, int value)
         {
         }
 
-        public override void SetPropertyFloat(string name, float alpha)
+        public override void SetShaderFloat(string name, float alpha)
         {
         }
 
-        public override void SetPropertyColor(string name, Color color)
+        public override void SetShaderColor(string name, Color color)
         {
         }
         protected override SerializableModelGraphicGroup CreateSerializable()

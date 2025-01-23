@@ -30,16 +30,16 @@ namespace MVZ2.Models
             }
         }
         public abstract void UpdateElements();
-        public abstract void SetPropertyInt(string name, int value);
-        public abstract void SetPropertyFloat(string name, float alpha);
-        public abstract void SetPropertyColor(string name, Color color);
+        public abstract void SetShaderInt(string name, int value);
+        public abstract void SetShaderFloat(string name, float alpha);
+        public abstract void SetShaderColor(string name, Color color);
         public void SetTint(Color color)
         {
-            SetPropertyColor("_Color", color);
+            SetShaderColor("_Color", color);
         }
         public void SetColorOffset(Color color)
         {
-            SetPropertyColor("_ColorOffset", color);
+            SetShaderColor("_ColorOffset", color);
         }
         public void TriggerAnimator(string name)
         {

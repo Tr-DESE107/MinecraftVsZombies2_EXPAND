@@ -10,6 +10,14 @@ namespace PVZEngine.Base
         {
             id = new NamespaceID(nsp, name);
         }
+        public virtual bool TryGetProperty(string name, out object value)
+        {
+            return propertyDict.TryGetProperty(name, out value);
+        }
+        public virtual object GetProperty(string name)
+        {
+            return propertyDict.GetProperty(name);
+        }
         public virtual bool TryGetProperty<T>(string name, out T value)
         {
             return propertyDict.TryGetProperty<T>(name, out value);

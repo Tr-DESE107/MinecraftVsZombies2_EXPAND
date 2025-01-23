@@ -179,6 +179,9 @@ namespace MVZ2.GameContent.Bosses
 
         public static List<Vector3> GetCorpsePositions(Entity entity) => GetBehaviourProperty<List<Vector3>>(entity, PROP_CORPSE_POSITIONS);
         public static void SetCorpsePositions(Entity entity, List<Vector3> value) => SetBehaviourProperty(entity, PROP_CORPSE_POSITIONS, value);
+
+        public static FrameTimer GetSpinDamageTimer(Entity entity) => GetBehaviourProperty<FrameTimer>(entity, PROP_SPIN_DAMAGE_TIMER);
+        public static void SetSpinDamageTimer(Entity entity, FrameTimer value) => SetBehaviourProperty(entity, PROP_SPIN_DAMAGE_TIMER, value);
         #endregion
 
         private const string PROP_MOVE_DIRECTION = "MoveDirection";
@@ -186,14 +189,16 @@ namespace MVZ2.GameContent.Bosses
         private const string PROP_STATE_RNG = "StateRNG";
         private const string PROP_SPARK_RNG = "SparkRNG";
         private const string PROP_CORPSE_POSITIONS = "CorpsePositions";
+        private const string PROP_SPIN_DAMAGE_TIMER = "SpinDamageTimer";
 
         private const float FLY_HEIGHT = 20;
 
         private static readonly Vector3 CENTER_POSITION = new Vector3(620, 0, 300);
         private static readonly Vector3 APPEAR_POSITION = new Vector3(620, 300, 0);
         private const float JAB_DAMAGE = 10000;
-        private const float SPIN_DAMAGE_HARD = 5;
-        private const float SPIN_DAMAGE = 5;
+        private const float SPIN_DAMAGE_HARD = 5 * SPIN_DAMAGE_INTERVAL;
+        private const float SPIN_DAMAGE = 5 * SPIN_DAMAGE_INTERVAL;
+        private const int SPIN_DAMAGE_INTERVAL = 3;
         private const float SPIN_RADIUS = 120;
         private const float SPIN_HEIGHT = 50;
         private const int MAX_REVIVE_COUNT = 10;

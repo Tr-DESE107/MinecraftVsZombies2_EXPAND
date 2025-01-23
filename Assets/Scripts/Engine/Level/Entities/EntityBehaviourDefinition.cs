@@ -31,14 +31,6 @@ namespace PVZEngine.Entities
         {
             return origin;
         }
-        public T GetEntityProperty<T>(Entity entity, string name)
-        {
-            return entity.GetProperty<T>($"{GetID()}/{name}");
-        }
-        public void SetEntityProperty(Entity entity, string name, object value)
-        {
-            entity.SetProperty($"{GetID()}/{name}", value);
-        }
         public virtual NamespaceID GetMatchEntityID()
         {
             return GetID();

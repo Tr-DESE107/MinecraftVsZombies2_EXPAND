@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
@@ -184,22 +185,10 @@ namespace MVZ2.GameContent.Contraptions
                 return 1;
             return 0;
         }
-        public float GetArmExtension(Entity entity)
-        {
-            return GetEntityProperty<float>(entity, "ArmExtension");
-        }
-        public void SetArmExtension(Entity entity, float timer)
-        {
-            SetEntityProperty(entity, "ArmExtension", timer);
-        }
-        public FrameTimer GetStateTimer(Entity entity)
-        {
-            return GetEntityProperty<FrameTimer>(entity, "StateTimer");
-        }
-        public void SetStateTimer(Entity entity, FrameTimer timer)
-        {
-            SetEntityProperty(entity, "StateTimer", timer);
-        }
+        public float GetArmExtension(Entity entity) => entity.GetBehaviourField<float>(ID, "ArmExtension");
+        public void SetArmExtension(Entity entity, float value) => entity.SetBehaviourField(ID, "ArmExtension", value);
+        public FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
+        public void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "StateTimer", timer);
         private void CheckAchievement(Entity entity)
         {
             if (entity.Type != EntityTypes.ENEMY)
@@ -215,6 +204,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int RESTORE_TIME = 600;
         public const float EVOKED_DAMAGE_MULTIPLIER = 5;
+        private static readonly NamespaceID ID = VanillaContraptionID.punchton;
         private Detector detector;
         private Detector evokedDetector;
         private List<EntityCollider> detectBuffer = new List<EntityCollider>();

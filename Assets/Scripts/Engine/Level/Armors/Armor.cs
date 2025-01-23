@@ -57,7 +57,7 @@ namespace PVZEngine.Armors
         {
             if (Definition != null)
             {
-                if (Definition.TryGetProperty<object>(name, out var prop))
+                if (Definition.TryGetProperty(name, out var prop))
                 {
                     value = prop;
                     return true;

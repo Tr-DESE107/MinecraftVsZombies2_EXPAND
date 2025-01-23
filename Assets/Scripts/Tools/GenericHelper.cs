@@ -10,7 +10,7 @@
         }
         public static bool TryToGeneric<T>(this object value, out T result)
         {
-            if (value == null)
+            if (value is null)
             {
                 result = default(T);
                 return true;

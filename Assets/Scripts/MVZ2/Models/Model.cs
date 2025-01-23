@@ -249,15 +249,15 @@ namespace MVZ2.Models
         #region 着色器属性
         public void SetShaderFloat(string name, float value)
         {
-            GraphicGroup.SetPropertyFloat(name, value);
+            GraphicGroup.SetShaderFloat(name, value);
         }
         public void SetShaderInt(string name, int value)
         {
-            GraphicGroup.SetPropertyInt(name, value);
+            GraphicGroup.SetShaderInt(name, value);
         }
         public void SetShaderColor(string name, Color value)
         {
-            GraphicGroup.SetPropertyColor(name, value);
+            GraphicGroup.SetShaderColor(name, value);
         }
         #endregion
 

@@ -72,7 +72,7 @@ namespace PVZEngine.SeedPacks
         }
         bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
         {
-            if (Definition != null && Definition.TryGetProperty<object>(name, out var prop))
+            if (Definition != null && Definition.TryGetProperty(name, out var prop))
             {
                 value = prop;
                 return true;

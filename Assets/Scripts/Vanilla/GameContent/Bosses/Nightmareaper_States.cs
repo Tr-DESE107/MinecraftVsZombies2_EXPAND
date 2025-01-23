@@ -398,15 +398,26 @@ namespace MVZ2.GameContent.Bosses
             {
                 SetSpinVelocity(entity);
 
-                var level = entity.Level;
-                var rng = GetStateRNG(entity);
-                foreach (EntityCollider collider in level.OverlapCylinder(entity.GetCenter(), SPIN_RADIUS, SPIN_HEIGHT, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
+                var spinDamageTimer = GetSpinDamageTimer(entity);
+                if (spinDamageTimer == null)
                 {
-                    var target = collider.Entity;
-                    var colliderReference = collider.ToReference();
-                    var damage = level.Difficulty == VanillaDifficulties.hard ? SPIN_DAMAGE_HARD : SPIN_DAMAGE;
-                    var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
-                    PostSpinDamage(entity, damageOutput);
+                    spinDamageTimer = new FrameTimer(SPIN_DAMAGE_INTERVAL);
+                    SetSpinDamageTimer(entity, spinDamageTimer);
+                }
+                var level = entity.Level;
+                spinDamageTimer.Run();
+                if (spinDamageTimer.Expired)
+                {
+                    spinDamageTimer.Reset();
+                    var rng = GetStateRNG(entity);
+                    foreach (EntityCollider collider in level.OverlapCylinder(entity.GetCenter(), SPIN_RADIUS, SPIN_HEIGHT, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
+                    {
+                        var target = collider.Entity;
+                        var colliderReference = collider.ToReference();
+                        var damage = level.Difficulty == VanillaDifficulties.hard ? SPIN_DAMAGE_HARD : SPIN_DAMAGE;
+                        var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
+                        PostSpinDamage(entity, damageOutput);
+                    }
                 }
                 if (!level.HasLoopSoundEntity(VanillaSoundID.wheelOfDeathLoop, entity.ID))
                 {

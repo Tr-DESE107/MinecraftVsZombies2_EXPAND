@@ -2378,7 +2378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441237328102164597, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: animators.Array.size
@@ -2470,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f39ea6fe31e0c85479f090ce17fcd29e, type: 2}
     - target: {fileID: 7999499151332666377, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: 0.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

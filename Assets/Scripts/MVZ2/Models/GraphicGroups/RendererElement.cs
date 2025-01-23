@@ -8,27 +8,33 @@ namespace MVZ2.Models
     {
         public void SetInt(string name, int value)
         {
-            PropertyBlock.Clear();
-            Renderer.GetPropertyBlock(PropertyBlock);
-            PropertyBlock.SetInt(name, value);
-            Renderer.SetPropertyBlock(PropertyBlock);
+            var propertyBlock = PropertyBlock;
+            var renderer = Renderer;
+            propertyBlock.Clear();
+            renderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetInt(name, value);
+            renderer.SetPropertyBlock(propertyBlock);
             intProperties[name] = value;
         }
         public void SetFloat(string name, float value)
         {
-            PropertyBlock.Clear();
-            Renderer.GetPropertyBlock(PropertyBlock);
-            PropertyBlock.SetFloat(name, value);
-            Renderer.SetPropertyBlock(PropertyBlock);
+            var propertyBlock = PropertyBlock;
+            var renderer = Renderer;
+            propertyBlock.Clear();
+            renderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetFloat(name, value);
+            renderer.SetPropertyBlock(propertyBlock);
             floatProperties[name] = value;
         }
 
         public void SetColor(string name, Color value)
         {
-            PropertyBlock.Clear();
-            Renderer.GetPropertyBlock(PropertyBlock);
-            PropertyBlock.SetColor(name, value);
-            Renderer.SetPropertyBlock(PropertyBlock);
+            var propertyBlock = PropertyBlock;
+            var renderer = Renderer;
+            propertyBlock.Clear();
+            renderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetColor(name, value);
+            renderer.SetPropertyBlock(propertyBlock);
             colorProperties[name] = value;
         }
 
@@ -49,24 +55,26 @@ namespace MVZ2.Models
             floatProperties.Clear();
             colorProperties.Clear();
 
-            PropertyBlock.Clear();
-            Renderer.GetPropertyBlock(PropertyBlock);
+            var propertyBlock = PropertyBlock;
+            var renderer = Renderer;
+            propertyBlock.Clear();
+            renderer.GetPropertyBlock(propertyBlock);
             foreach (var prop in rendererElement.intProperties)
             {
-                PropertyBlock.SetInt(prop.Key, prop.Value);
+                propertyBlock.SetInt(prop.Key, prop.Value);
                 intProperties[prop.Key] = prop.Value;
             }
             foreach (var prop in rendererElement.floatProperties)
             {
-                PropertyBlock.SetFloat(prop.Key, prop.Value);
+                propertyBlock.SetFloat(prop.Key, prop.Value);
                 floatProperties[prop.Key] = prop.Value;
             }
             foreach (var prop in rendererElement.colorProperties)
             {
-                PropertyBlock.SetColor(prop.Key, prop.Value);
+                propertyBlock.SetColor(prop.Key, prop.Value);
                 colorProperties[prop.Key] = prop.Value;
             }
-            Renderer.SetPropertyBlock(PropertyBlock);
+            renderer.SetPropertyBlock(propertyBlock);
         }
         public MaterialPropertyBlock PropertyBlock
         {

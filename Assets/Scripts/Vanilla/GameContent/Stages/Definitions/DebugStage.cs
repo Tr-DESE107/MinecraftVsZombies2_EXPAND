@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.infectenser,
                 VanillaContraptionID.pistenser,
                 VanillaContraptionID.forcePad,
-                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.totenser,
                 VanillaContraptionID.gravityPad,
 
                 VanillaEnemyID.zombie,

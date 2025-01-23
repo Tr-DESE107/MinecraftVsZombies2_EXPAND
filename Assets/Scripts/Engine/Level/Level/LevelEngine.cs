@@ -167,12 +167,12 @@ namespace PVZEngine.Level
         }
         bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
         {
-            if (StageDefinition != null && StageDefinition.TryGetProperty<object>(name, out var stageProp))
+            if (StageDefinition != null && StageDefinition.TryGetProperty(name, out var stageProp))
             {
                 value = stageProp;
                 return true;
             }
-            if (AreaDefinition != null && AreaDefinition.TryGetProperty<object>(name, out var areaProp))
+            if (AreaDefinition != null && AreaDefinition.TryGetProperty(name, out var areaProp))
             {
                 value = areaProp;
                 return true;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using PVZEngine.Modifiers;
 using Tools;
+using static UnityEngine.Networking.UnityWebRequest;
 
 namespace PVZEngine.Level
 {
@@ -56,7 +57,7 @@ namespace PVZEngine.Level
                 result = fallback;
                 return true;
             }
-            result = false;
+            result = null;
             return false;
         }
         public T GetProperty<T>(string name, bool ignoreBuffs = false)
@@ -65,7 +66,7 @@ namespace PVZEngine.Level
             {
                 return result;
             }
-            return default;
+            return result;
         }
         public bool TryGetProperty<T>(string name, out T value, bool ignoreBuffs = false)
         {
