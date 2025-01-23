@@ -397,7 +397,7 @@
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
-        <dispenser id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.teruharijou_4">
+        <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.teruharijou_4">
             <float name="maxHealth" value="4000"/>
             <id name="fragmentId" value="mvz2:furnace" />
             <vector3 name="size" x="80" y="40" z="80"/>
@@ -405,7 +405,18 @@
 
             <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:long" />
-        </dispenser>
+        </contraption>
+        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的敌人" unlock="mvz2:level.teruharijou_6">
+            <bool name="nocturnal" value="true"/>
+            <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
+            <id name="shell" value="mvz2:metal"/>
+            <id name="fragmentId" value="mvz2:golden_dropper" />
+            <vector3 name="size" x="48" y="48" z="48"/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
@@ -819,6 +830,7 @@
             <vector3 name="size" x="64" y="8" z="8" />
         </projectile>
         <projectile id="fire_charge">
+            <bool name="isFire" value="true" />
             <float name="range" value="40"/>
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>

@@ -55,6 +55,9 @@
     <sound name="chapter_transition" maxCount="1" priority="0">
         <sample path="mvz2:chapter_transition" weight="1" />
     </sound>
+    <sound name="charmed">
+        <sample path="mvz2:charmed" weight="1" />
+    </sound>
     <sound name="chest_open">
         <sample path="mvz2:chest_open" weight="1" />
     </sound>
@@ -186,6 +189,9 @@
     </sound>
     <sound name="fling">
         <sample path="mvz2:entity/totenser/fling" weight="1" />
+    </sound>
+    <sound name="floop">
+        <sample path="mvz2:floop" weight="1" />
     </sound>
     <sound name="frankenstein_laugh">
         <sample path="mvz2:frankenstein_laugh" weight="1" />

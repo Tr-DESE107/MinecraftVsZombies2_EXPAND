@@ -382,6 +382,7 @@ MonoBehaviour:
   darknessRenderer: {fileID: 4268236396667527406}
   eyes: []
   maxRadius: 1200
+  darknessCenter: {x: 510, y: 0, z: 300}
 --- !u!4 &5687295266573721509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3664503004788589356, guid: 7b69825c292961840a29fdc677b9453a, type: 3}

@@ -33,6 +33,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreEnemyNeutralize(Entity entity, TriggerResultBoolean result);
         public delegate void PostEnemyNeutralize(Entity entity);
         public delegate void EnemyDropRewards(Entity entity);
+        public delegate void PostEnemyMeleeAttack(Entity enemy, Entity target);
 
         public delegate void PrePickupCollect(Entity entity, TriggerResultBoolean result);
 
@@ -64,6 +65,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<PreEnemyNeutralize> PRE_ENEMY_NEUTRALIZE = new();
         public readonly static CallbackReference<PostEnemyNeutralize> POST_ENEMY_NEUTRALIZE = new();
         public readonly static CallbackReference<EnemyDropRewards> ENEMY_DROP_REWARDS = new();
+        public readonly static CallbackReference<PostEnemyMeleeAttack> POST_ENEMY_MELEE_ATTACK = new();
 
         public readonly static CallbackReference<PrePickupCollect> PRE_PICKUP_COLLECT = new();
 

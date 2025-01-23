@@ -1,9 +1,11 @@
 using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -87,6 +89,7 @@ namespace MVZ2.Vanilla.Enemies
             if (target == null)
                 return;
             target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(VanillaDamageEffects.MUTE), enemy);
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, c => c(enemy, target));
         }
     }
 
