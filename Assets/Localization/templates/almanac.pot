@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-24 12:55+0800\n"
+"POT-Creation-Date: 2025-01-24 04:43+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -564,6 +564,26 @@ msgctxt "contraptions.description"
 msgid ""
 "金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。\n"
 "这就是为什么重力板是紫色的。"
+msgstr ""
+
+#. Header for contraptions mvz2:thunder_drum
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "雷鼓在触发后会震飞所有地面上的敌人，使其后退并换行。之后进入破损状态，需要时间修复。"
+msgstr ""
+
+#. Properties for contraptions mvz2:thunder_drum
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"修复时间：<color=red>20秒</color>\n"
+"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命值的伤害</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:thunder_drum
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "<rotate=\"-20\">别乱震啊卧槽！</rotate>"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -1999,6 +2019,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "魅惑攻击它的敌人"
+msgstr ""
+
+#. Header for entity mvz2:thunder_drum
+#: Entity meta file
+msgctxt "entity.name"
+msgid "雷鼓"
+msgstr ""
+
+#. Properties for entity mvz2:thunder_drum
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "触发后震退敌人"
 msgstr ""
 
 #. Header for entity mvz2:infectenser

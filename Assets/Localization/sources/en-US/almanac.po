@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 12:55+0800\n"
-"PO-Revision-Date: 2025-01-24 14:22+0800\n"
+"POT-Creation-Date: 2025-01-24 04:43+0800\n"
+"PO-Revision-Date: 2025-01-24 16:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -705,6 +705,31 @@ msgid ""
 msgstr ""
 "Golden Apple is very sorry for damaging Gravity Block, so it compensated Gravity Block with its own piece of gold skin.\n"
 "That's why Gravity Pad is purple."
+
+#. Header for contraptions mvz2:thunder_drum
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "雷鼓在触发后会震飞所有地面上的敌人，使其后退并换行。之后进入破损状态，需要时间修复。"
+msgstr ""
+"Thunder Drum will knock all enemies on the ground into the air after being triggered, this knocks back them and changes their lanes. "
+"Afterwards the drum breaks and needs time to repair itself."
+
+#. Properties for contraptions mvz2:thunder_drum
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"修复时间：<color=red>20秒</color>\n"
+"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命值的伤害</color>"
+msgstr ""
+"Repair time：<color=red>20 seconds</color>\n"
+"Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemies on the ground</"
+"color>"
+
+#. Flavor for contraptions mvz2:thunder_drum
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "<rotate=\"-20\">别乱震啊卧槽！</rotate>"
+msgstr "<rotate=\"-20\">STOP TRIGGERING IT!</rotate>"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -2329,6 +2354,18 @@ msgstr "Golden Apple"
 msgctxt "entity.tooltip"
 msgid "魅惑攻击它的敌人"
 msgstr "Charms the enemy that attacks it"
+
+#. Header for entity mvz2:thunder_drum
+#: Entity meta file
+msgctxt "entity.name"
+msgid "雷鼓"
+msgstr "Thunder Drum"
+
+#. Properties for entity mvz2:thunder_drum
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "触发后震退敌人"
+msgstr "Knock back enemies on triggered"
 
 #. Header for entity mvz2:infectenser
 #: Entity meta file

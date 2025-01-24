@@ -115,6 +115,12 @@
             <key hex="#7A7A7A" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="thunder_drum">
+        <colorKeys>
+            <key hex="#F0DABE" time="0.5"/>
+            <key hex="#FF0000" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

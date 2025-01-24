@@ -148,6 +148,9 @@
     <sound name="dream_alarm">
         <sample path="mvz2:entity/dream_alarm" weight="1" />
     </sound>
+    <sound name="earthquake">
+        <sample path="mvz2:earthquake" weight="1" />
+    </sound>
     <sound name="electric_spark">
         <sample path="mvz2:electric_spark" weight="1" />
     </sound>
@@ -298,6 +301,9 @@
     <sound name="leather_hit">
         <sample path="mvz2:damage/leather/leather_hit1" weight="1" />
         <sample path="mvz2:damage/leather/leather_hit2" weight="1" />
+    </sound>
+    <sound name="lightning_attack">
+        <sample path="mvz2:lightning_attack" weight="1" />
     </sound>
     <sound name="lose_music" priority="0">
         <sample path="mvz2:lose_music" weight="1" />

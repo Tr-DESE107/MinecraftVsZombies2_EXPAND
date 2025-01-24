@@ -22,6 +22,7 @@ using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -243,6 +244,10 @@ namespace MVZ2.Vanilla.Entities
                 {
                     entity.PlaySound(VanillaSoundID.bonk);
                 }
+                else if (bodyResult.Effects.HasEffect(VanillaDamageEffects.FALL_DAMAGE))
+                {
+                    entity.PlaySound(bodyResult.Amount > 100 ? VanillaSoundID.fallBig : VanillaSoundID.fallSmall);
+                }
                 else
                 {
                     PlayHitSound(entity, bodyResult.Effects, bodyResult.ShellDefinition);
@@ -290,6 +295,25 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 换行
+        public static void RandomChangeAdjacentLane(this Entity entity, RandomGenerator rng)
+        {
+            var lane = entity.GetLane();
+            int laneDir;
+            if (lane <= 0)
+            {
+                laneDir = 1;
+            }
+            else if (lane >= entity.Level.GetMaxLaneCount() - 1)
+            {
+                laneDir = -1;
+            }
+            else
+            {
+                laneDir = rng.Next(2) * 2 - 1;
+            }
+            var targetLane = lane + laneDir;
+            entity.StartChangingLane(targetLane);
+        }
         public static void StartChangingLane(this Entity entity, int target)
         {
             var changeLane = entity.Definition.GetBehaviour<IChangeLaneEntity>();

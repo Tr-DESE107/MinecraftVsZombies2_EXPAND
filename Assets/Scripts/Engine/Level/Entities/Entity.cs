@@ -377,6 +377,7 @@ namespace PVZEngine.Entities
             float groundY = Level.GetGroundY(nextPos.x, nextPos.z);
             var groundLimit = groundY + Cache.GroundLimitOffset;
             var contactingGround = nextPos.y <= groundY;
+            var contactVelocity = nextVelocity;
             if (nextPos.y <= groundLimit)
             {
                 nextPos.y = groundLimit;
@@ -391,7 +392,7 @@ namespace PVZEngine.Entities
             {
                 if (!IsOnGround)
                 {
-                    OnContactGround();
+                    OnContactGround(contactVelocity);
                     IsOnGround = true;
                 }
             }
@@ -817,9 +818,8 @@ namespace PVZEngine.Entities
             UpdatePhysics(1);
             Health = Mathf.Min(Health, this.GetMaxHealth());
         }
-        private void OnContactGround()
+        private void OnContactGround(Vector3 velocity)
         {
-            var velocity = Velocity;
             Definition.PostContactGround(this, velocity);
             Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, c => c(this, velocity));
         }

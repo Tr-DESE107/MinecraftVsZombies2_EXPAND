@@ -34,10 +34,13 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID diamond = Get("diamond");
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
         public readonly static NamespaceID dreamAlarm = Get("dream_alarm");
+        public readonly static NamespaceID earthquake = Get("earthquake");
         public readonly static NamespaceID electricSpark = Get("electric_spark");
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID fastForward = Get("fast_forward");
+        public readonly static NamespaceID fallBig = Get("fall_big");
+        public readonly static NamespaceID fallSmall = Get("fall_small");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID fireBreath = Get("fire_breath");
         public readonly static NamespaceID fireCharge = Get("fire_charge");
@@ -65,6 +68,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID ironCurtain = Get("iron_curtain");
         public readonly static NamespaceID launch = Get("launch");
         public readonly static NamespaceID leatherHit = Get("leather_hit");
+        public readonly static NamespaceID lightningAttack = Get("lightning_attack");
         public readonly static NamespaceID loseMusic = Get("lose_music");
         public readonly static NamespaceID lurker = Get("lurker");
         public readonly static NamespaceID magical = Get("magical");

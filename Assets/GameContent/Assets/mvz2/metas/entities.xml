@@ -25,7 +25,7 @@
             <float name="attackSpeed" value="1"/>
             <float name="produceSpeed" value="1"/>
             <float name="damage" value="100"/>
-            <float name="fallDamage" value="-22.5"/>
+            <float name="fallResistance" value="6.5"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="placement" value="mvz2:normal"/>
             <id name="placeSound" value="mvz2:stone"/>
@@ -40,7 +40,7 @@
             <float name="maxAttackHeight" value="60"/>
             <float name="speed" value="1"/>
             <float name="damage" value="100"/>
-            <float name="fallDamage" value="-22.5"/>
+            <float name="fallResistance" value="6.5"/>
             <id name="shell" value="mvz2:flesh"/>
             <id name="crySound" value="mvz2:zombie_cry"/>
             <id name="deathSound" value="mvz2:zombie_death"/>
@@ -56,7 +56,7 @@
             <float name="maxHealth" value="200"/>
             <float name="friction" value="0.2"/>
             <float name="gravity" value="1"/>
-            <float name="fallDamage" value="-22.5"/>
+            <float name="fallResistance" value="6.5"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
             <bool name="faceLeftAtDefault" value="true"/>
@@ -420,6 +420,19 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" unlock="mvz2:level.teruharijou_7">
+            <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
+            <id name="shell" value="mvz2:wood"/>
+            <id name="hitSound" value="mvz2:wood"/>
+            <id name="placeSound" value="mvz2:wood"/>
+            <id name="deathSound" value="mvz2:wood"/>
+            <bool name="triggerActive" value="true" />
+            <vector3 name="size" x="48" y="48" z="48"/>
+
+            <int name="cost" value="150" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
@@ -498,7 +511,7 @@
             <bool name="canDeactive" value="false"/>
             <bool name="defensive" value="true"/>
             <float name="maxHealth" value="2500"/>
-            <float name="fallDamage" value="-10000"/>
+            <float name="fallResistance" value="10000"/>
             <vector3 name="size" x="48" y="48" z="48"/>
 
             <int name="cost" value="25" />
@@ -701,6 +714,7 @@
             <int name="waterInteraction" value="3"/>
         </enemy>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
+            <float name="fallResistance" value="30"/>
             <float name="cryPitch" value="2"/>
             <int name="cost" value="25" />
             <int name="waterInteraction" value="2"/>

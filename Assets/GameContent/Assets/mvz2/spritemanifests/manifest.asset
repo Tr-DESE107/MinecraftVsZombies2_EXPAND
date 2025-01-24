@@ -197,6 +197,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/stone_shield
     sprite: {fileID: 21300000, guid: a001063ac6b540b42a716f3b66388328, type: 3}
+  - name: mobile_blueprint/thunder_drum
+    sprite: {fileID: 21300000, guid: 904706dca625dc84db7ba9432de30ec2, type: 3}
   - name: mobile_blueprint/tnt
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
@@ -389,6 +391,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e5e566d19ad3e024c8c3e91f928d8be1, type: 3}
   - name: entity/effects/magic_star
     sprite: {fileID: 21300000, guid: 6a6baf812492dec40ba2154d360755bb, type: 3}
+  - name: entity/effects/mind_control_line
+    sprite: {fileID: 21300000, guid: 5d8ca2a31157783449fded634ef57f1f, type: 3}
   - name: entity/effects/mine_debris
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
   - name: entity/effects/nightmareaper_shadow
@@ -1054,6 +1058,10 @@ MonoBehaviour:
     - {fileID: 1259003968, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
     - {fileID: 757936343, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
     - {fileID: -273153786, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+  - name: entity/contraption/thunder_drum
+    spritesheet:
+    - {fileID: 473868895, guid: 824ceee383f361649b57e79656c673da, type: 3}
+    - {fileID: -502181682, guid: 824ceee383f361649b57e79656c673da, type: 3}
   - name: entity/contraption/totenser
     spritesheet:
     - {fileID: 1662629785, guid: ec212abe3448fae468e8a869c194bb7c, type: 3}

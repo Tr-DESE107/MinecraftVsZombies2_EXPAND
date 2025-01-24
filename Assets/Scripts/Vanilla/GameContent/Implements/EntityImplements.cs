@@ -33,8 +33,13 @@ namespace MVZ2.GameContent.Implements
                 return;
             if (entity.IsOnWater())
                 return;
-            float fallHeight = Mathf.Max(0, entity.GetFallDamage() - velocity.y * 5);
-            float fallDamage = Mathf.Pow(fallHeight, 2);
+            if (velocity.y >= 0)
+                return;
+
+            var damageThresold = -entity.GetFallResistance();
+            if (velocity.y > damageThresold)
+                return;
+            var fallDamage = Mathf.Pow(velocity.y - damageThresold, 2);
             if (fallDamage > 0)
             {
                 var effects = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.FALL_DAMAGE);

@@ -58,14 +58,14 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 摔落
-        public const string FALL_DAMAGE = "fallDamage";
-        public static float GetFallDamage(this Entity entity)
+        public const string FALL_RESISTANCE = "fallResistance";
+        public static float GetFallResistance(this Entity entity)
         {
-            return entity.GetProperty<float>(FALL_DAMAGE);
+            return entity.GetProperty<float>(FALL_RESISTANCE);
         }
-        public static void SetFallDamage(this Entity entity, float value)
+        public static void SetFallResistance(this Entity entity, float value)
         {
-            entity.SetProperty(FALL_DAMAGE, value);
+            entity.SetProperty(FALL_RESISTANCE, value);
         }
         #endregion
 

@@ -45,9 +45,9 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.spikeBlock,
                 VanillaContraptionID.diamondSpikes,
                 VanillaContraptionID.lilyPad,
-                VanillaContraptionID.vortexHopper,
+                VanillaContraptionID.thunderDrum,
                 VanillaContraptionID.pistenser,
-                VanillaContraptionID.totenser,
+                VanillaEnemyID.zombie,
                 VanillaEnemyID.mutantZombie,
                 VanillaEnemyID.imp,
             });

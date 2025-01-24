@@ -33,6 +33,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string stoneDropper = "stone_dropper";
         public const string stoneShield = "stone_shield";
         public const string goldenApple = "golden_apple";
+        public const string thunderDrum = "thunder_drum";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
@@ -71,6 +72,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID stoneDropper = Get(VanillaContraptionNames.stoneDropper);
         public static readonly NamespaceID stoneShield = Get(VanillaContraptionNames.stoneShield);
         public static readonly NamespaceID goldenApple = Get(VanillaContraptionNames.goldenApple);
+        public static readonly NamespaceID thunderDrum = Get(VanillaContraptionNames.thunderDrum);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);

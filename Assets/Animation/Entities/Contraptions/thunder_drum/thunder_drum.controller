@@ -8,8 +8,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: Frozen
+  - m_ConditionMode: 1
+    m_ConditionEvent: Broken
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102803901888711400}
@@ -31,10 +31,10 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: furnace
+  m_Name: thunder_drum
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Frozen
+  - m_Name: Broken
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -61,8 +61,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Frozen
+  - m_ConditionMode: 2
+    m_ConditionEvent: Broken
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102523514539821644}
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d85cbeb77563b9c448535146d352551c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 740529b9ce61bce47bc6517304dba95c, type: 2}
   m_Tag: 
   m_SpeedParameter: Speed
   m_MirrorParameter: 
@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Work
+  m_Name: Broken
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a9eaaff40137b4a48ae370a62af9d163, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0cf07fca2dbd16b49b5f31576bdb4be6, type: 2}
   m_Tag: 
   m_SpeedParameter: Speed
   m_MirrorParameter: 

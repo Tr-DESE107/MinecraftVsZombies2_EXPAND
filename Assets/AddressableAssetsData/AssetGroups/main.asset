@@ -401,6 +401,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15ce728e9e2a2b24d8c46704c5c59b8c
+    m_Address: mvz2:earthquake
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15cffa14a87e80e4f9bba2a9e9ab1ec9
     m_Address: mvz2:stunned
     m_ReadOnly: 0
@@ -1524,6 +1530,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46439a16cb17e7a44bdc1fe397877f2b
     m_Address: mvz2:spider_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46e4738e7670514408193864ddcf6e34
+    m_Address: mvz2:lightning_attack
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -2697,6 +2709,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 824ceee383f361649b57e79656c673da
+    m_Address: mvz2:entity/contraption/thunder_drum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82a10341e3b6a454d9c21086c64d5367
     m_Address: mvz2:halloween
     m_ReadOnly: 0
@@ -3056,6 +3074,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 904706dca625dc84db7ba9432de30ec2
+    m_Address: mvz2:mobile_blueprint/thunder_drum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9060b852db8277d41a1432ec241fa646
     m_Address: mvz2:pickup/starshards/dream
@@ -3441,6 +3465,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0117ab50a780264582a3c3b3f8cfd25
+    m_Address: mvz2:contraption/thunder_drum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a02daf75bb803ad4a9a1307f593ad6a1
     m_Address: mvz2:mainmenu/mods
     m_ReadOnly: 0
@@ -3704,6 +3734,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaf08432e15cc9a4d987bf66ebb9c962
+    m_Address: mvz2:effect/mutant_zombie_weapon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab1cac139d76a6f478c12842a619042d
     m_Address: mvz2:entity/contraptions/magichest_flash
