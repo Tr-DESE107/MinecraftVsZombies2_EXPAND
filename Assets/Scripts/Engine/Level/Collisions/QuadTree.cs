@@ -29,9 +29,9 @@ namespace PVZEngine.Level.Collisions
             item.node.Remove(item);
             RemoveItem(item);
         }
-        public void FindTargetsInRect(Rect rect, List<T> results)
+        public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0)
         {
-            root.FindTargetsInRect(rect, results);
+            root.FindTargetsInRect(rect, results, rewind);
         }
         public void GetAllTargets(List<T> results)
         {

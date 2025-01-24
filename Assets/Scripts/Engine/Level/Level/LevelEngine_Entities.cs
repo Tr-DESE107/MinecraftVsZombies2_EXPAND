@@ -354,38 +354,51 @@ namespace PVZEngine.Level
                 int ent1Faction = ent1.Cache.Faction;
 
                 var ent1Motion = ent1.Position - ent1.PreviousPosition;
+
+
+                var rect1 = collider1.GetCollisionRect();
                 var collisionPoints = 1;
                 var detection = ent1.Cache.CollisionDetection;
                 if (detection == EntityCollisionHelper.DETECTION_CONTINUOUS)
                 {
                     collisionPoints = Mathf.CeilToInt(ent1Motion.magnitude / ent1.Cache.CollisionSampleLength);
+                    collisionPoints = Mathf.Max(collisionPoints, 1);
+                }
+                for (int p = collisionPoints - 1; p >= 0; p--) // 从上一帧的位置开始向当前位置回溯
+                {
+                    var rewind = p / (float)collisionPoints;
+                    var ent1Offset = -ent1Motion * rewind;
+                    var offsetedRect = rect1;
+                    offsetedRect.x += ent1Offset.x;
+                    offsetedRect.y += ent1Offset.z;
+
+                    collisionBuffer.Clear();
+                    foreach (var pair in quadTrees)
+                    {
+                        var flag = pair.Key;
+                        if ((flag & maskTotal) == 0)
+                            continue;
+                        var tree = pair.Value;
+                        tree.FindTargetsInRect(offsetedRect, collisionBuffer, rewind);
+                    }
+                    foreach (var collider2 in collisionBuffer)
+                    {
+                        if (collider1 == collider2)
+                            continue;
+                        var ent2 = collider2.Entity;
+                        if (ent1 == ent2)
+                            continue;
+                        var ent2Faction = ent2.Cache.Faction;
+                        var mask = EngineEntityExt.IsHostile(ent1Faction, ent2Faction) ? ent1.CollisionMaskHostile : ent1.CollisionMaskFriendly;
+                        if (!EntityCollisionHelper.CanCollide(mask, ent2))
+                            continue;
+                        var ent2Motion = ent2.Position - ent2.PreviousPosition;
+                        var ent2Offset = -ent2Motion * rewind;
+
+                        collider1.DoCollision(collider2, ent1Offset - ent2Offset);
+                    }
                 }
 
-                collisionBuffer.Clear();
-                var rect1 = collider1.GetCollisionRect();
-                foreach (var pair in quadTrees)
-                {
-                    var flag = pair.Key;
-                    if ((flag & maskTotal) == 0)
-                        continue;
-                    var tree = pair.Value;
-                    tree.FindTargetsInRect(rect1, collisionBuffer);
-                }
-
-                foreach (var collider2 in collisionBuffer)
-                {
-                    if (collider1 == collider2)
-                        continue;
-                    var ent2 = collider2.Entity;
-                    if (ent1 == ent2)
-                        continue;
-                    var ent2Faction = ent2.Cache.Faction;
-                    var mask = EngineEntityExt.IsHostile(ent1Faction, ent2Faction) ? ent1.CollisionMaskHostile : ent1.CollisionMaskFriendly;
-                    if (!EntityCollisionHelper.CanCollide(mask, ent2))
-                        continue;
-                    var otherMotion = ent2.Position - ent2.PreviousPosition;
-                    collider1.DoCollision(collider2, ent1Motion, otherMotion, collisionPoints);
-                }
                 ent1.ExitCollision(this);
             }
         }

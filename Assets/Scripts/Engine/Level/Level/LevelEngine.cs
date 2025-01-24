@@ -129,8 +129,10 @@ namespace PVZEngine.Level
             ClearEntityTrash();
             UpdateSeedPacks();
             UpdateDelayedEnergyEntities();
+
             UpdateEntities();
             CollisionUpdate();
+
             buffs.Update();
             foreach (var component in levelComponents)
             {

@@ -156,7 +156,7 @@ namespace PVZEngine.Level.Collisions
         #endregion
 
         #region 查找目标
-        public void FindTargetsInRect(Rect rect, List<T> results)
+        public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0)
         {
             if (!rect.Intersects(looseBounds))
                 return;
@@ -165,7 +165,7 @@ namespace PVZEngine.Level.Collisions
             foreach (var item in items)
             {
                 var target = item.target;
-                if (rect.Intersects(target.GetCollisionRect()))
+                if (rect.Intersects(target.GetCollisionRect(rewind)))
                 {
                     results.Add(target);
                 }
@@ -174,7 +174,7 @@ namespace PVZEngine.Level.Collisions
             //遍历子节点
             foreach (var child in children)
             {
-                child.FindTargetsInRect(rect, results);
+                child.FindTargetsInRect(rect, results, rewind);
             }
         }
         #endregion
@@ -266,6 +266,6 @@ namespace PVZEngine.Level.Collisions
     }
     public interface IQuadTreeNodeObject : IEquatable<IQuadTreeNodeObject>
     {
-        Rect GetCollisionRect();
+        Rect GetCollisionRect(float rewind = 0);
     }
 }

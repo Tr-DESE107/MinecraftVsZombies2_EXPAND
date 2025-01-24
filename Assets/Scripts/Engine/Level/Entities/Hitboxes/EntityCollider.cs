@@ -44,7 +44,7 @@ namespace PVZEngine.Entities
             }
             EvaluateBoundingBox();
         }
-        public void DoCollision(EntityCollider other, Vector3 selfMotion, Vector3 otherMotion, int checkPoints)
+        public void DoCollision(EntityCollider other, Vector3 offset)
         {
             for (int i1 = 0; i1 < hitboxes.Count; i1++)
             {
@@ -52,7 +52,7 @@ namespace PVZEngine.Entities
                 for (int i2 = 0; i2 < other.hitboxes.Count; i2++)
                 {
                     var hitbox2 = other.hitboxes[i2];
-                    if (hitbox1.DoCollision(hitbox2, selfMotion, otherMotion, checkPoints, out var seperation))
+                    if (hitbox1.DoCollision(hitbox2, offset, out var seperation))
                     {
                         var collision = collisionList.Find(c => c.OtherCollider == other);
                         bool enter = false;
@@ -127,9 +127,16 @@ namespace PVZEngine.Entities
         {
             return boundingBox.center;
         }
-        public Rect GetCollisionRect()
+        public Rect GetCollisionRect(float rewind = 0)
         {
-            return bottomRect;
+            if (rewind == 0)
+                return bottomRect;
+            var rect = bottomRect;
+            var entityMotion = Entity.Position - Entity.PreviousPosition;
+            var offset = -entityMotion * rewind;
+            rect.x += offset.x;
+            rect.y += offset.z;
+            return rect;
         }
         #endregion
 

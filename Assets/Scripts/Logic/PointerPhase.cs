@@ -2,6 +2,7 @@
 {
     public enum PointerPhase
     {
+        None,
         Press,
         Hold,
         Release

@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
 using PVZEngine.Triggers;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Assets.Scripts.MVZ2.Managers
 {
@@ -73,6 +72,14 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
             }
             return Vector2.zero;
         }
+        public Vector2 GetPointerPosition()
+        {
+            if (Input.touchCount > 0)
+            {
+                return Input.GetTouch(0).position;
+            }
+            return Input.mousePosition;
+        }
         public IEnumerable<Vector2> GetLeftPointerUps()
         {
             if (Input.GetMouseButtonUp(MouseButton.LEFT))
@@ -91,36 +98,79 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
         }
         private void Update()
         {
-            for (int mouse = 0; mouse <= 2; mouse++)
+            if (currentPointerType == PointerTypes.MOUSE)
             {
-                if (Input.GetMouseButtonDown(mouse))
+                if (Input.touchCount > 0)
                 {
-                    RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Press);
-                }
-                if (Input.GetMouseButton(mouse))
-                {
-                    RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Hold);
-                }
-                if (Input.GetMouseButtonUp(mouse))
-                {
-                    RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Release);
+                    currentPointerType = PointerTypes.TOUCH;
                 }
             }
-            for (int i = 0; i < Input.touchCount; i++)
+            else if (currentPointerType == PointerTypes.TOUCH)
             {
-                var touch = Input.GetTouch(i);
-                PointerPhase phase = PointerPhase.Hold; 
-                switch (touch.phase)
+                if (Input.touchCount <= 0 && Input.mousePresent)
                 {
-                    case TouchPhase.Began:
-                        phase = PointerPhase.Press;
-                        break;
-                    case TouchPhase.Ended:
-                    case TouchPhase.Canceled:
-                        phase = PointerPhase.Release;
-                        break;
+                    var mousePos = Input.mousePosition;
+                    if (mousePos.x >= 0 && mousePos.y >= 0 && mousePos.x <= Screen.width && mousePos.y <= Screen.height)
+                    {
+                        for (int mouse = 0; mouse <= 2; mouse++)
+                        {
+                            if (Input.GetMouseButtonDown(mouse))
+                            {
+                                currentPointerType = PointerTypes.MOUSE;
+                                break;
+                            }
+                        }
+                    }
                 }
-                RunPointerCallback(PointerTypes.TOUCH, touch.fingerId, touch.position, phase);
+            }
+
+            switch (currentPointerType)
+            {
+                case PointerTypes.MOUSE:
+                    {
+                        for (int mouse = 0; mouse <= 2; mouse++)
+                        {
+                            bool hasState = false;
+                            if (Input.GetMouseButtonDown(mouse))
+                            {
+                                hasState = true;
+                                RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Press);
+                            }
+                            if (Input.GetMouseButton(mouse))
+                            {
+                                hasState = true;
+                                RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Hold);
+                            }
+                            if (Input.GetMouseButtonUp(mouse))
+                            {
+                                hasState = true;
+                                RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.Release);
+                            }
+                            if (!hasState)
+                            {
+                                RunPointerCallback(PointerTypes.MOUSE, mouse, Input.mousePosition, PointerPhase.None);
+                            }
+                        }
+                    }
+                    break;
+                case PointerTypes.TOUCH:
+                    for (int i = 0; i < Input.touchCount; i++)
+                    {
+                        var touch = Input.GetTouch(i);
+                        PointerPhase phase = PointerPhase.Hold;
+                        switch (touch.phase)
+                        {
+                            case TouchPhase.Began:
+                                phase = PointerPhase.Press;
+                                break;
+                            case TouchPhase.Ended:
+                            case TouchPhase.Canceled:
+                                phase = PointerPhase.Release;
+                                break;
+                        }
+                        RunPointerCallback(PointerTypes.TOUCH, touch.fingerId, touch.position, phase);
+                    }
+                    break;
             }
         }
         private void RunPointerCallback(int type, int index, Vector2 screenPosition, PointerPhase phase)
@@ -128,6 +178,7 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
             Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, phase, c => c(type, index, screenPosition, phase));
         }
         public MainManager Main => MainManager.Instance;
+        private int currentPointerType = PointerTypes.MOUSE;
     }
     public static class MouseButton
     {

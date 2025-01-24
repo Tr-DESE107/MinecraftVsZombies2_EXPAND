@@ -36,6 +36,14 @@ namespace MVZ2Logic
         {
             return Input.GetTouch(index).position;
         }
+        public static bool IsMousePresent()
+        {
+            return Input.mousePresent;
+        }
+        public static Vector2 GetMousePosition()
+        {
+            return Input.mousePosition;
+        }
 
         public static Coroutine StartCoroutine(IEnumerator enumerator)
         {

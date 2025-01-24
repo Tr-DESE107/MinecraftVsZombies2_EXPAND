@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -13,8 +15,8 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using Tools.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -25,6 +27,7 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public BreakoutBoard(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaCallbacks.POST_POINTER_ACTION, PostPointerActionCallback);
         }
         public override void Init(Entity entity)
         {
@@ -46,26 +49,7 @@ namespace MVZ2.GameContent.Effects
                 return;
             if (!board.IsFriendly(bullet))
                 return;
-            PushBullet(board, bullet, collision.Seperation);
-
-            var boardVelocity = board.Position - board.PreviousPosition;
-            var targetVelocity = bullet.Position - board.Position;
-            if (targetVelocity.x * boardVelocity.x > 0)
-            {
-                targetVelocity.x += boardVelocity.x;
-            }
-            if (targetVelocity.z * boardVelocity.z > 0)
-            {
-                targetVelocity.z += boardVelocity.z;
-            }
-            targetVelocity.y = 0;
-
-            var velocity = bullet.Velocity;
-            var newVelocity = targetVelocity.normalized * PEARL_SPEED;
-            velocity.x = newVelocity.x;
-            velocity.y = 0;
-            velocity.z = newVelocity.z;
-            bullet.Velocity = velocity;
+            PushBullet(board, bullet);
 
             board.PlaySound(VanillaSoundID.reflection);
 
@@ -74,32 +58,6 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             var level = entity.Level;
-            Vector3 position;
-            if (Global.IsMobile())
-            {
-                if (Global.GetTouchCount() > 0)
-                {
-                    var touchDelta = Global.GetTouchDelta(0);
-                    var touchPosition = Global.GetTouchPosition(0);
-                    var lastScreenPosition = touchPosition - touchDelta;
-                    var pointerPosition = level.ScreenToLawnPositionByY(touchPosition, 32);
-                    var lastPointerPosition = level.ScreenToLawnPositionByY(lastScreenPosition, 32);
-                    position = entity.Position + pointerPosition - lastPointerPosition;
-                }
-                else
-                {
-                    position = entity.Position;
-                }
-            }
-            else
-            {
-                var screenPosition = Global.GetPointerScreenPosition();
-                var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
-                position = pointerPosition;
-            }
-            position.x = Mathf.Clamp(position.x, MIN_X, MAX_X);
-            position.z = Mathf.Clamp(position.z, level.GetGridBottomZ(), level.GetGridTopZ());
-            entity.Position = position;
 
             bool pearlExists = true;
             var target = entity.Target;
@@ -146,6 +104,39 @@ namespace MVZ2.GameContent.Effects
             }
             entity.SetAnimationBool("Upgraded", IsUpgraded(entity));
         }
+        private void PostPointerActionCallback(int type, int index, Vector2 screenPosition, PointerPhase phase)
+        {
+            if (!Global.Game.IsInLevel())
+                return;
+            var level = Global.Game.GetLevel();
+            if (!level.IsGameRunning())
+                return;
+            boardsBuffer.Clear();
+            level.FindEntitiesNonAlloc(e => e.IsEntityOf(VanillaEffectID.breakoutBoard), boardsBuffer);
+            foreach (var board in boardsBuffer)
+            {
+                Vector3 position = board.Position;
+                if (type == PointerTypes.TOUCH)
+                {
+                    if (phase == PointerPhase.Press || phase == PointerPhase.Hold)
+                    {
+                        var touchDelta = Global.GetTouchDelta(index);
+                        var lastScreenPosition = screenPosition - touchDelta;
+                        var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
+                        var lastPointerPosition = level.ScreenToLawnPositionByY(lastScreenPosition, 32);
+                        position = board.Position + pointerPosition - lastPointerPosition;
+                    }
+                }
+                else if (type == PointerTypes.MOUSE)
+                {
+                    var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
+                    position = pointerPosition;
+                }
+                position.x = Mathf.Clamp(position.x, MIN_X, MAX_X);
+                position.z = Mathf.Clamp(position.z, level.GetGridBottomZ(), level.GetGridTopZ());
+                board.Position = position;
+            }
+        }
         #endregion
         public static Entity SpawnPearl(Entity board)
         {
@@ -191,49 +182,112 @@ namespace MVZ2.GameContent.Effects
         {
             board.SetBehaviourField(ID, PROP_RESPAWN_COUNTDOWN, value);
         }
-        private void PushBullet(Entity board, Entity bullet, Vector3 bullet2Board)
+        private void PushBullet(Entity board, Entity bullet)
         {
             // 挤开子弹。
             // 获取板子和子弹的碰撞箱。
             var boardBounds = board.GetBounds();
             var bulletBounds = bullet.GetBounds();
-            var bulletDisplacement = bullet.Position - bullet.PreviousPosition;
-            var boardDisplacement = board.Position - board.PreviousPosition;
-            var relativeDisplacement = bulletDisplacement - boardDisplacement;
-            // 获取子弹和板子的数值最低和最高的两个角落。
-            var boardMin = boardBounds.min;
-            var boardMax = boardBounds.max;
-            var bulletMin = bulletBounds.min;
-            var bulletMax = bulletBounds.max;
+
             var bulletPos = bulletBounds.center;
             var boardPos = boardBounds.center;
-            // 获取挤开所需要的最小数值。
-            Vector3 impluse = Vector2.zero;
-            if (bulletMin.x <= boardMax.x && bulletMin.x - relativeDisplacement.x > boardMax.x)
-            {
-                // 触碰到右边缘。
-                impluse.x = boardMax.x - bulletMin.x;
-            }
-            else if (bulletMax.x >= boardMin.x && bulletMax.x - relativeDisplacement.x < boardMin.x)
-            {
-                // 触碰到左边缘。
-                impluse.x = boardMin.x - bulletMax.x;
-            }
-            if (bulletMin.z <= boardMax.z && bulletMin.z - relativeDisplacement.z > boardMax.z)
-            {
-                impluse.z = boardMax.z - bulletMin.z;
-            }
-            else if (bulletMax.z >= boardMin.z && bulletMax.z - relativeDisplacement.z < boardMin.z)
-            {
-                impluse.z = boardMin.z - bulletMax.z;
-            }
-            // 计算挤开子弹所需要的额外距离。
-            Vector3 finalImpluse;
-            finalImpluse = new Vector3(impluse.x, 0, impluse.z);
+            // 获取子弹和板子体积相加的值。
+            var extentsX = boardBounds.extents.x + bulletBounds.extents.x;
+            var extentsZ = boardBounds.extents.z + bulletBounds.extents.z;
 
-            var finalDistance = bullet2Board + finalImpluse;
+            // 从子弹的上一处位置相对于板子上一处的位置，向当前位置相对于板子的位置画一条线段。
+            var bulletLineStart = bullet.PreviousPosition - board.PreviousPosition;
+            var bulletLineEnd = bullet.Position - board.Position;
 
-            bullet.SetCenter(board.GetCenter() + finalDistance);
+            // X方向不相交。
+            if (!MathTool.DoRangesIntersect(bulletLineStart.x, bulletLineEnd.x, -extentsX, extentsX))
+                return;
+            // Z方向不相交。
+            if (!MathTool.DoRangesIntersect(bulletLineStart.z, bulletLineEnd.z, -extentsZ, extentsZ))
+                return;
+
+            var bulletLine = bulletLineEnd - bulletLineStart;
+            // 获取相交前，X轴和Z轴的有效移动距离。
+            float hitLineLengthX;
+            if (bulletLineStart.x < 0)
+            {
+                hitLineLengthX = Mathf.Min(bulletLineEnd.x, -extentsX) - bulletLineStart.x;
+            }
+            else
+            {
+                hitLineLengthX = bulletLineStart.x - Mathf.Max(bulletLineEnd.x, extentsX);
+            }
+            float hitLineLengthZ;
+            if (bulletLineStart.z < 0)
+            {
+                hitLineLengthZ = Mathf.Min(bulletLineEnd.z, -extentsZ) - bulletLineStart.z;
+            }
+            else
+            {
+                hitLineLengthZ = bulletLineStart.z - Mathf.Max(bulletLineEnd.z, extentsZ);
+            }
+
+            // 获取在X轴和Z轴上的有效移动距离的有效百分比。
+            float bulletHitPercent = 0;
+            if (bulletLine.x != 0 && bulletLine.z != 0)
+            {
+                if (hitLineLengthX >= 0 && hitLineLengthZ >= 0)
+                {
+                    // 两个轴全部接触，取距离最近的
+                    float linePercentX = hitLineLengthX / Mathf.Abs(bulletLine.x);
+                    float linePercentZ = hitLineLengthZ / Mathf.Abs(bulletLine.z);
+                    bulletHitPercent = Mathf.Min(linePercentX, linePercentZ);
+                }
+                else if (hitLineLengthZ >= 0)
+                {
+                    // Z轴接触
+                    bulletHitPercent = hitLineLengthZ / Mathf.Abs(bulletLine.z);
+                }
+                else if (hitLineLengthX >= 0)
+                {
+                    // X轴接触
+                    bulletHitPercent = hitLineLengthX / Mathf.Abs(bulletLine.x);
+                }
+                else
+                {
+                    // 两个轴全在内部，穿模了
+                    return;
+                }
+            }
+            else if (bulletLine.x != 0)
+            {
+                bulletHitPercent = hitLineLengthX / Mathf.Abs(bulletLine.x);
+            }
+            else if (bulletLine.z != 0)
+            {
+                bulletHitPercent = hitLineLengthZ / Mathf.Abs(bulletLine.z);
+            }
+            else
+            {
+                // 根本没有在移动
+                return;
+            }
+
+            var bulletHitOffset = bulletLine * bulletHitPercent + bulletLineStart;
+            var finalPosition = boardPos + bulletHitOffset;
+            finalPosition.y = bulletPos.y;
+            bullet.SetCenter(finalPosition);
+
+
+
+            var boardDisplacement = board.Position - board.PreviousPosition;
+            var targetVelocity = bullet.Position - board.Position;
+            if (targetVelocity.x * boardDisplacement.x > 0)
+            {
+                targetVelocity.x += boardDisplacement.x;
+            }
+            if (targetVelocity.z * boardDisplacement.z > 0)
+            {
+                targetVelocity.z += boardDisplacement.z;
+            }
+            targetVelocity.y = 0;
+            bullet.Velocity = targetVelocity.normalized * PEARL_SPEED;
+
         }
 
         bool IEntityHeldItemBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
@@ -278,5 +332,6 @@ namespace MVZ2.GameContent.Effects
         public const float PEARL_SPEED = 15;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
         public const float MIN_X = VanillaLevelExt.LEFT_BORDER + 40;
+        private List<Entity> boardsBuffer = new List<Entity>();
     }
 }
