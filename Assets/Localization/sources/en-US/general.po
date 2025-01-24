@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 11:49+0800\n"
-"PO-Revision-Date: 2025-01-22 23:56+0800\n"
+"POT-Creation-Date: 2025-01-24 04:58+0800\n"
+"PO-Revision-Date: 2025-01-24 16:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -1665,21 +1665,21 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid ""
-"产自梦境世界的槐树的树枝！你在开始战斗时额外获得一个星之碎片，但是会出现额外2"
+"产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2"
 "倍多的敌人！"
 msgstr ""
-"The branch of a pagoda tree from the Dream World! It gives you a starshard "
+"The branch of a pagoda tree from the Dream World! It gives you 2 starshards "
 "to start with in every battle, but there will be 2 more times the enemies!"
 
 #. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid ""
-"来自槐树上的树枝，战斗开始时它能额外给你一个神奇的碎片，但是也会额外出现2倍多"
+"来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多"
 "的怪物！"
 msgstr ""
-"A branch of a pagoda tree, It gives you a starshard to start with in every "
-"battle, but there will be 2 more times the enemies!"
+"A branch of a pagoda tree, It gives you 2 magical shards to start with in "
+"every battle, but there will be 2 more times the enemies!"
 
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
 #: Store meta file

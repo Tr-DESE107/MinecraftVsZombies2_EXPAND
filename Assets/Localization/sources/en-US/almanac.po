@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 04:43+0800\n"
-"PO-Revision-Date: 2025-01-24 16:48+0800\n"
+"POT-Creation-Date: 2025-01-24 04:58+0800\n"
+"PO-Revision-Date: 2025-01-24 16:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -53,11 +53,11 @@ msgctxt "contraptions.description"
 msgid ""
 "生产速度：<color=red>24秒</color>\n"
 "提供能量：<color=red>25</color>\n"
-"技能：<color=red>瞬间生成12枚红石</color>"
+"技能：<color=red>瞬间生成6枚红石</color>"
 msgstr ""
 "Produce time: <color=red>24 seconds</color>\n"
 "Energy production: <color=red>25</color>\n"
-"Evocation: <color=red>Rapidly generate 12 redstones</color>"
+"Evocation: <color=red>Rapidly generates 6 redstones</color>"
 
 #. Flavor for contraptions mvz2:furnace
 #: Almanac meta file
@@ -1329,8 +1329,8 @@ msgstr "A branch on the pagoda tree."
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得一个星之碎片，但敌人出现数量+200%。</color>"
-msgstr "Effect: <color=red>+1 starshard at start, but +200% amount of spawned enemies.</color>"
+msgid "效果：<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%。</color>"
+msgstr "Effect: <color=red>+2 starshards at start, but +200% amount of spawned enemies.</color>"
 
 #. Flavor for artifacts mvz2:pagoda_branch
 #: Almanac meta file
@@ -2846,8 +2846,8 @@ msgstr "Pagoda Branch"
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得1个星之碎片，但敌人数量+200%"
-msgstr "+1 starshard at start, but +200% amount of spawned enemies"
+msgid "战斗开始时获得2个星之碎片，但敌人数量+200%"
+msgstr "+2 starshards at start, but +200% amount of spawned enemies"
 
 #. Name for artifact mvz2:dream_butterfly
 #: Artifact meta file

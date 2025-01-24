@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Contraptions
             var productionTimer = new FrameTimer(entity.RNG.Next(90, 375));
             SetProductionTimer(entity, productionTimer);
 
-            var evocationTimer = new FrameTimer(60);
+            var evocationTimer = new FrameTimer(EVOCATION_DURATION);
             SetEvocationTimer(entity, evocationTimer);
         }
         protected override void UpdateAI(Entity entity)
@@ -112,7 +112,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Run();
-            if (evocationTimer.PassedInterval(5))
+            if (evocationTimer.PassedInterval(EVOCATION_INTERVAL))
             {
                 entity.Produce(VanillaPickupID.redstone);
                 entity.PlaySound(VanillaSoundID.potion);
@@ -122,6 +122,9 @@ namespace MVZ2.GameContent.Contraptions
                 entity.SetEvoked(false);
             }
         }
+        public const int EVOCATION_INTERVAL = 5;
+        public const int EVOCATION_REDSTONES = 6;
+        public const int EVOCATION_DURATION = EVOCATION_INTERVAL * EVOCATION_REDSTONES;
         private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);
         private static readonly NamespaceID ID = VanillaContraptionID.furnace;
     }

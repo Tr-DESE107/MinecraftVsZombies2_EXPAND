@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 08:39+0800\n"
-"PO-Revision-Date: 2025-01-18 20:42+0800\n"
+"POT-Creation-Date: 2025-01-24 04:58+0800\n"
+"PO-Revision-Date: 2025-01-24 17:04+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/talk/en_US/>\n"
@@ -2229,6 +2229,534 @@ msgctxt "talk-mvz2:dream_11_map"
 msgid "我们早就已经准备好了！出发吧！"
 msgstr "We were always ready for it! Let's go!"
 
+#. Archive name for talk group entered_gensokyo
+#: Talk meta file
+msgctxt "archive"
+msgid "进入幻想乡"
+msgstr "Entered Gensokyo"
+
+#. Text for talk sentence 0 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "好了！我们终于到幻想乡了！"
+msgstr "Great! we finally reached Gensokyo!"
+
+#. Text for talk sentence 1 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "这里……居然真的存在？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "我还以为你一直以来都是在发疯呢。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "你以为我是谁呢，邻居！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "我这次还特地画了张地图呢！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 6 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "好简陋？"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "方向标和比例尺都没有啊你这地图。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "问题不大！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "那么，接下来去哪儿？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "嗯……"
+msgstr "Hmm..."
+
+#. Text for talk sentence 11 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "诶，我有个想法！"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "要不先去卖货的香霖堂吧，我正好有点缺货了！"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group entered_gensokyo's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:entered_gensokyo"
+msgid "去吧，邻居，该进货了！"
+msgstr ""
+
+#. Archive name for talk group kourindou_first_visit
+#: Talk meta file
+msgctxt "archive"
+msgid "首次访问香霖堂"
+msgstr "First Visit to Kourindou"
+
+#. Text for talk sentence 0 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "啊！有人来了！"
+msgstr ""
+
+#. Speaker Name for talk sentence 0 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "character.name"
+msgid "店主"
+msgstr "Storekeeper"
+
+#. Text for talk sentence 1 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "欢迎来到——"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "！！！"
+msgstr "!!!"
+
+#. Description for talk sentence 2 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（村民出现）"
+msgstr "(Villager Appears)"
+
+#. Text for talk sentence 3 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "呀啊啊啊啊啊啊啊！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "方块怪物！不要吃我！！我不好吃！！！"
+msgstr ""
+
+#. Description for talk sentence 4 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（店主躲起来了）"
+msgstr "(Storekeeper hides)"
+
+#. Text for talk sentence 5 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "……？"
+msgstr "…?"
+
+#. Text for talk sentence 6 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "嗯？是说我吗？"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "那个，不是的，我们不是怪物，不会吃你的。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "这位是我的朋友戴夫，他很友善，不会伤害你的。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "是、是吗？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "不、不好意思，我失态了。"
+msgstr ""
+
+#. Description for talk sentence 10 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（店主出来了）"
+msgstr "(Storekeeper comes out)"
+
+#. Text for talk sentence 11 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "最近方块怪物实在是太多了，我太害怕了。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "没事的，我们只是普普通通的顾客而已，放心。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "那、不好意思——"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "重新问候一遍吧，欢迎来到香霖堂！这里有来自外界的各种稀奇小玩意！"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "我是这家店的店主，你们可以叫我……朱鹭子！"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "随便看看吧，有什么感兴趣的东西么？"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "等等，你是这家店的——店主？"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "！"
+msgstr "!"
+
+#. Text for talk sentence 20 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid ""
+"我从朋友那里听说过这家店，这里确实是香霖堂，但我记得店主应该叫……森近 霖之助才"
+"对。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "这是怎么回事？"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "森近 霖之助……"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "已经有三年没人提过这个名字了。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "……三年没有提过？发生什么事了吗？"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 26 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "你们是外界来的人吧。"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "如果是幻想乡的居民，肯定听说过他的事情。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "什么？"
+msgstr "What?"
+
+#. Text for talk sentence 29 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "在异变开始的时候，他就已经不在这里了。"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "好像是……三年前的那个时候。"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid ""
+"幻想乡开始慢慢地出现那些由方块组成的僵尸怪物。它们如同行尸走肉一般，攻击我们"
+"所有人。"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "而霖之助——他是整个异变中第一个死……失踪的人。三年来一直杳无音讯。"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "没有人能找到他的人——或者是尸体，他就这么突然地消失了，留下我一个人……"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "这起异变直到现在还在持续着，大街上到处都是方块僵尸，这让我一直很害怕……"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "霖之助，他失踪了是吗？"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "所以，你才会一直待在这里，为他照顾这个店？"
+msgstr ""
+
+#. Text for talk sentence 37 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "不过，你并没有这个理由啊。"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid ""
+"你应该只是在喜欢在店门口读书的一只普通的妖怪而已，和他应该没有什么太大的关系"
+"吧？"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "那是因为……"
+msgstr ""
+
+#. Text for talk sentence 40 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "不好意思，我不想说。"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "是么，很抱歉问了你这么难过的问题。"
+msgstr ""
+
+#. Text for talk sentence 42 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "对了，不如我们把这里作为我们在幻想乡的作战基地吧！"
+msgstr ""
+
+#. Text for talk sentence 43 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "正巧了！我也有想卖的对付怪物的利器！"
+msgstr ""
+
+#. Text for talk sentence 44 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "？你怎么突然开腔了？"
+msgstr ""
+
+#. Text for talk sentence 45 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "把这里作为作战基地……？听起来好像很不错的样子！"
+msgstr ""
+
+#. Text for talk sentence 46 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "我也挺讨厌这些方块怪物的，这样一来应该就能把那些家伙赶走了！"
+msgstr ""
+
+#. Text for talk sentence 47 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "而且，我在这里一直挺孤单的，有几个人陪着的话应该也不错。"
+msgstr ""
+
+#. Text for talk sentence 48 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "很高兴你能同意！"
+msgstr ""
+
+#. Text for talk sentence 49 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "好了！那这里就变成了坑爹村民和我邻居的新基地了！"
+msgstr ""
+
+#. Text for talk sentence 50 in talk group kourindou_first_visit's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_first_visit"
+msgid "商店也再次开张了！有什么想买的吗？"
+msgstr ""
+
+#. Archive name for talk group exited_kourindou
+#: Talk meta file
+msgctxt "archive"
+msgid "离开香霖堂"
+msgstr "Leave Kourindou"
+
+#. Text for talk sentence 0 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "差不多该走了吧？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "没错，但……该去哪儿呢？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "得先有个目标吧！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "那个那个，如果说是帮忙的话，我这里有个东西。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "什么？"
+msgstr "What?"
+
+#. Text for talk sentence 5 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "有天，我在窗口发呆的时候，外面突然飘来一封信。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "就是这个。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "这是？辉针城的求助信？"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "看来，我们的下一站就是辉针城了！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 10 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "我事先问一下，这个辉针城，该不会是半空中的那个倒过来的城……吧？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "没错！"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "怎么上去？"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "你不是会机械吗？造个活塞虫呗！"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "这能行吗！"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group exited_kourindou's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou"
+msgid "试试就知道了！"
+msgstr ""
+
 #. Archive name for talk group halloween_1
 #: Talk meta file
 msgctxt "archive"
@@ -3691,6 +4219,48 @@ msgctxt "talk-mvz2:prologue_note"
 msgid "很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！"
 msgstr ""
 "CRAAZZYY, RIGHT??? We’re coming for ya, very-suspicious-looking portal!"
+
+#. Archive name for talk group teruharijou_1
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第1天入场"
+msgstr "Teruharijou Day 1 Intro"
+
+#. Text for talk sentence 0 in talk group teruharijou_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:teruharijou_1"
+msgid "我们到了！这里就是辉针城！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group teruharijou_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:teruharijou_1"
+msgid "好高的地方啊，我都有点怕了。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group teruharijou_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:teruharijou_1"
+msgid "总感觉很安静呢，房子里也没有僵尸，和下面真不一样。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group teruharijou_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:teruharijou_1"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 4 in talk group teruharijou_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:teruharijou_1"
+msgid "是吗？"
+msgstr "Is it?"
+
+#. Text for talk sentence 5 in talk group teruharijou_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:teruharijou_1"
+msgid "嘿，等等！刚说完，就有僵尸攻过来了！"
+msgstr ""
 
 #~ msgctxt "talk-mvz2:halloween_3_map"
 #~ msgid "这个是……荧石吧？"

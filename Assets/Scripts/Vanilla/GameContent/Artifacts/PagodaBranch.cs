@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Artifacts
                 if (artifact.Definition.GetID() != VanillaArtifactID.pagodaBranch)
                     continue;
                 artifact.Highlight();
-                level.AddStarshardCount(1);
+                level.AddStarshardCount(2);
                 level.PlaySound(VanillaSoundID.starshardUse);
             }
         }

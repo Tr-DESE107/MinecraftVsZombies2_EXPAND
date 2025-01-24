@@ -20,7 +20,7 @@
             <properties>
                 <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
-                <p>技能：<![CDATA[<color=red>瞬间生成12枚红石</color>]]></p>
+                <p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
             </properties>
             <flavor>
                 <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
@@ -788,7 +788,7 @@
                 <p>槐树上的树枝。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>开始战斗时获得一个星之碎片，但敌人出现数量+200%。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%。</color>]]></p>
             </properties>
             <flavor>
                 <p>据说能让你一生荣华富贵，最终却也会因战火流离失所。</p>

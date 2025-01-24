@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-24 04:43+0800\n"
+"POT-Creation-Date: 2025-01-24 04:58+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgctxt "contraptions.description"
 msgid ""
 "生产速度：<color=red>24秒</color>\n"
 "提供能量：<color=red>25</color>\n"
-"技能：<color=red>瞬间生成12枚红石</color>"
+"技能：<color=red>瞬间生成6枚红石</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:furnace
@@ -1077,7 +1077,7 @@ msgstr ""
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得一个星之碎片，但敌人出现数量+200%。</color>"
+msgid "效果：<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%。</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:pagoda_branch
@@ -2502,7 +2502,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得1个星之碎片，但敌人数量+200%"
+msgid "战斗开始时获得2个星之碎片，但敌人数量+200%"
 msgstr ""
 
 #. Name for artifact mvz2:dream_butterfly
