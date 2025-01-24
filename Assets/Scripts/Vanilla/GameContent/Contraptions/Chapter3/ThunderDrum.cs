@@ -35,6 +35,8 @@ namespace MVZ2.GameContent.Contraptions
                 entity.Level.FindEntitiesNonAlloc(e => IsValidTarget(entity, e), detectBuffer);
                 foreach (var target in detectBuffer)
                 {
+                    if (target.Type == EntityTypes.BOSS)
+                        continue;
                     target.TakeDamage(target.GetMaxHealth() * TOTAL_HP_LOSS / (float)EVOCATION_DURATION, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE), entity);
                 }
                 entity.Level.ShakeScreen(3, 0, 3);

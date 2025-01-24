@@ -23,7 +23,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.PostTakeDamage(result);
             var armorResult = result.ArmorResult;
-            if (armorResult != null)
+            if (armorResult != null && armorResult.Amount > 0)
             {
                 var armor = armorResult.Armor;
                 if (armor != null && !armor.HasBuff<ArmorDamageColorBuff>())

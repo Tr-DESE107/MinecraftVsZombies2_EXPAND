@@ -23,7 +23,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.PostTakeDamage(result);
             var bodyResult = result.BodyResult;
-            if (bodyResult != null)
+            if (bodyResult != null && bodyResult.Amount > 0)
             {
                 var entity = bodyResult.Entity;
                 if (!entity.HasBuff<DamageColorBuff>())
