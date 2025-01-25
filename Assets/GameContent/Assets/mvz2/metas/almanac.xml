@@ -369,7 +369,20 @@
                 <p><![CDATA[<rotate="-20">别乱震啊卧槽！</rotate>]]></p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:tesla_coil">
+            <header>
+                <p>磁暴线圈会电击周围大范围内的敌人。</p>
+            </header>
+            <properties>
+                <p>攻击速度：<![CDATA[<color=red>3秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>80</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
+            </properties>
+            <flavor>
+                <p>我在玩什么游戏？</p>
+            </flavor>
+        </entry>
         <entry/>
 
         <!-- Chapter 4 -->

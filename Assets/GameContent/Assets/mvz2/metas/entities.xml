@@ -433,6 +433,17 @@
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+        <contraption id="tesla_coil" name="磁暴线圈" tooltip="电击大范围内的敌人" unlock="mvz2:level.teruharijou_8">
+            <float name="range" value="200" />
+            <float name="damage" value="80" />
+            <id name="shell" value="mvz2:metal"/>
+            <id name="placeSound" value="mvz2:tesla_construction"/>
+            <id name="deathSound" value="mvz2:tesla_destroy"/>
+            <vector3 name="size" x="36" y="100" z="36"/>
+
+            <int name="cost" value="175" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
@@ -1140,6 +1151,15 @@
             <float name="friction" value="0.1"/>
             <float name="gravity" value="1"/>
             <vector3 name="size" x="180" y="50" z="50"/>
+        </effect>
+        <effect id="water_lightning_particles">
+            <int name="maxTimeout" value="20"/>
+        </effect>
+        <effect id="thunder_cloud">
+            <int name="maxTimeout" value="150"/>
+            <float name="damage" value="100" />
+            <color name="tint" value="#101010" />
+            <vector3 name="size" x="400" y="40" z="400" />
         </effect>
     </entries>
 </entities>

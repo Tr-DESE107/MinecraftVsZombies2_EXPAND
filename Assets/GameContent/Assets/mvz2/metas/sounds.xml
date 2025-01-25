@@ -558,6 +558,12 @@
     <sound name="tesla_attack">
         <sample path="mvz2:tesla_attack" weight="1" />
     </sound>
+    <sound name="tesla_construction">
+        <sample path="mvz2:tesla_construction" weight="1" />
+    </sound>
+    <sound name="tesla_destroy">
+        <sample path="mvz2:tesla_destroy" weight="1" />
+    </sound>
     <sound name="tesla_power">
         <sample path="mvz2:tesla_power" weight="1" />
     </sound>
@@ -567,7 +573,7 @@
     <sound name="thump">
         <sample path="mvz2:thump" weight="1" />
     </sound>
-    <sound name="thunder" priority="64">
+    <sound name="thunder" priority="64" maxCount="5">
         <sample path="mvz2:random/thunder1" weight="1" />
         <sample path="mvz2:random/thunder2" weight="1" />
         <sample path="mvz2:random/thunder3" weight="1" />

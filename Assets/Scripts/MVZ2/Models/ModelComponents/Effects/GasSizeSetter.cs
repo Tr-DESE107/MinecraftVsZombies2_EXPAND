@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MVZ2.GameContent.Effects;
+using UnityEngine;
 
 namespace MVZ2.Models
 {
@@ -11,40 +12,63 @@ namespace MVZ2.Models
             size = Lawn2TransScale(size);
             var volume = size.x * (size.y + size.z);
 
-            var gasPS = gas.Particles;
-            var gasLightPS = gasLight.Particles;
-            var smokePS = smoke.Particles;
-
-            var gasLightEmission = gasLightPS.emission;
-            var gasLightShape = gasLightPS.shape;
-            var gasEmission = gasPS.emission;
-            var gasShape = gasPS.shape;
-            var smokeShape = smokePS.shape;
-            gas.OverrideRateOverTime(volume * ratePerVolume);
-            gasLight.OverrideRateOverTime(volume * ratePerVolume);
-
-            gasShape.scale = new Vector3(size.x, size.y + size.z, 1);
-            gasLightShape.scale = new Vector3(size.x, size.y + size.z, 1);
-
-            smokeShape.scale = new Vector3(size.x, 1, 0.1f);
-
-            if (Model.GetProperty<bool>(PROP_STOPPED))
+            bool stopped = Model.GetProperty<bool>(PROP_STOPPED);
+            if (gas)
             {
-                if (gasPS.isEmitting)
-                    gasPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                if (gasLightPS.isEmitting)
-                    gasLightPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                if (smokePS.isEmitting)
-                    smokePS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                var gasPS = gas.Particles;
+                var gasEmission = gasPS.emission;
+                var gasShape = gasPS.shape;
+                gas.OverrideRateOverTime(volume * ratePerVolume);
+                gasShape.scale = new Vector3(size.x, size.y + size.z, 1);
+                if (stopped)
+                {
+                    if (gasPS.isEmitting)
+                        gasPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                }
+                else
+                {
+                    if (!gasPS.isEmitting)
+                        gasPS.Play(true);
+                }
             }
-            else
+
+            if (gasLight)
             {
-                if (!gasPS.isEmitting)
-                    gasPS.Play(true);
-                if (!gasLightPS.isEmitting)
-                    gasLightPS.Play(true);
-                if (!smokePS.isEmitting)
-                    smokePS.Play(true);
+                var gasLightPS = gasLight.Particles;
+                var gasLightEmission = gasLightPS.emission;
+                var gasLightShape = gasLightPS.shape;
+                gasLight.OverrideRateOverTime(volume * ratePerVolume);
+
+                gasLightShape.scale = new Vector3(size.x, size.y + size.z, 1);
+
+                if (stopped)
+                {
+                    if (gasLightPS.isEmitting)
+                        gasLightPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                }
+                else
+                {
+                    if (!gasLightPS.isEmitting)
+                        gasLightPS.Play(true);
+                }
+
+            }
+
+            if (smoke)
+            {
+                var smokePS = smoke.Particles;
+                var smokeShape = smokePS.shape;
+                smokeShape.scale = new Vector3(size.x, 1, 0.1f);
+                if (stopped)
+                {
+                    if (smokePS.isEmitting)
+                        smokePS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                }
+                else
+                {
+                    if (!smokePS.isEmitting)
+                        smokePS.Play(true);
+                }
             }
         }
         [SerializeField]

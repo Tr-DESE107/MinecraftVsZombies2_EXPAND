@@ -24,6 +24,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using PVZEngine.Triggers;
@@ -516,14 +517,40 @@ namespace MVZ2.Vanilla.Level
             }
             return false;
         }
-        public static bool IsWaterAt(this LevelEngine level, float x, float z)
+        public static bool IsWaterGrid(this LevelEngine level, int column, int lane)
         {
-            var column = level.GetColumn(x);
-            var lane = level.GetLane(z);
             var grid = level.GetGrid(column, lane);
             if (grid == null)
                 return false;
             return grid.IsWater();
+        }
+        public static bool IsWaterAt(this LevelEngine level, float x, float z)
+        {
+            var column = level.GetColumn(x);
+            var lane = level.GetLane(z);
+            return level.IsWaterGrid(column, lane);
+        }
+        public static void GetConnectedWaterGrids(this LevelEngine level, Vector3 pos, int xExpand, int yExpand, HashSet<LawnGrid> results)
+        {
+            var column = level.GetColumn(pos.x);
+            var lane = level.GetLane(pos.z);
+            level.GetConnectedWaterGrids(column, lane, xExpand, yExpand, results);
+        }
+        public static void GetConnectedWaterGrids(this LevelEngine level, int column, int lane, int xExpand, int yExpand, HashSet<LawnGrid> results)
+        {
+            for (int xOff = -xExpand; xOff <= xExpand; xOff++)
+            {
+                for (int yOff = -yExpand; yOff <= yExpand; yOff++)
+                {
+                    var col = column + xOff;
+                    var lan = lane + yOff;
+                    var grid = level.GetGrid(col, lan);
+                    if (grid != null && grid.IsWater())
+                    {
+                        results.Add(grid);
+                    }
+                }
+            }
         }
         public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
         {

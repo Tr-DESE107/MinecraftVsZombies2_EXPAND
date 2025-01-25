@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
 using static System.Collections.Specialized.BitVector32;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Detections
 {
@@ -132,7 +137,7 @@ namespace MVZ2.Vanilla.Detections
             }
             return false;
         }
-        private static IEnumerable<EntityCollider> Overlap(this LevelEngine level, Rect filterRect, int faction, int hostileMask, int friendlyMask, Predicate<Hitbox> predicate)
+        public static IEnumerable<EntityCollider> Overlap(this LevelEngine level, Rect filterRect, int faction, int hostileMask, int friendlyMask, Predicate<Hitbox> predicate)
         {
             if (predicate == null)
                 yield break;
@@ -156,6 +161,30 @@ namespace MVZ2.Vanilla.Detections
                 }
             }
         }
+        public static void OverlapNonAlloc(this LevelEngine level, Rect filterRect, int faction, int hostileMask, int friendlyMask, Predicate<Hitbox> predicate, HashSet<EntityCollider> results)
+        {
+            if (predicate == null)
+                return;
+            var entityColliders = new List<EntityCollider>();
+            var totalMask = hostileMask | friendlyMask;
+            level.FindCollidersRange(totalMask, filterRect, entityColliders);
+            foreach (var collider in entityColliders)
+            {
+                var entity = collider.Entity;
+                var mask = entity.IsHostile(faction) ? hostileMask : friendlyMask;
+                if (!EntityCollisionHelper.CanCollide(mask, entity))
+                    continue;
+                for (int i = 0; i < collider.GetHitboxCount(); i++)
+                {
+                    var hitbox = collider.GetHitbox(i);
+                    if (predicate(hitbox))
+                    {
+                        results.Add(collider);
+                        break;
+                    }
+                }
+            }
+        }
         public static IEnumerable<EntityCollider> OverlapBox(this LevelEngine level, Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask)
         {
             var min = center - size * 0.5f;
@@ -174,6 +203,19 @@ namespace MVZ2.Vanilla.Detections
             var min = center - Vector3.one * radius;
             var filterRect = new Rect(min.x, min.z, radius * 2, radius * 2);
             return level.Overlap(filterRect, faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCubeAndSphere(center, radius, h.GetBoundsCenter(), h.GetBoundsSize()));
+        }
+        public static void OverlapSphereNonAlloc(this LevelEngine level, Vector3 center, float radius, int faction, int hostileMask, int friendlyMask, HashSet<EntityCollider> results)
+        {
+            var min = center - Vector3.one * radius;
+            var filterRect = new Rect(min.x, min.z, radius * 2, radius * 2);
+            level.OverlapNonAlloc(filterRect, faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCubeAndSphere(center, radius, h.GetBoundsCenter(), h.GetBoundsSize()), results);
+        }
+        public static void OverlapGridGroundNonAlloc(this LevelEngine level, int column, int lane, int faction, int hostileMask, int friendlyMask, HashSet<EntityCollider> results)
+        {
+            var minX = level.GetColumnX(column);
+            var minZ = level.GetLaneZ(lane);
+            var filterRect = new Rect(minX, minZ, level.GetGridWidth(), level.GetGridHeight());
+            level.OverlapNonAlloc(filterRect, faction, hostileMask, friendlyMask, h => h.Entity.GetRelativeY() <= 0, results);
         }
     }
 }

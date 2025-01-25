@@ -30,6 +30,7 @@
     <model name="stone_shield" type="entity" path="mvz2:contraption/stone_shield" width="80" height="80" xOffset="0" yOffset="-28"/>
     <model name="golden_apple" type="entity" path="mvz2:contraption/golden_apple" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="thunder_drum" type="entity" path="mvz2:contraption/thunder_drum" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="tesla_coil" type="entity" path="mvz2:contraption/tesla_coil" width="64" height="128" xOffset="0" yOffset="-60"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -147,6 +148,8 @@
     <model name="diamond_spike_particles" type="entity" path="mvz2:effect/diamond_spike_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mind_control_lines" type="entity" path="mvz2:effect/mind_control_lines" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mutant_zombie_weapon" type="entity" path="mvz2:effect/mutant_zombie_weapon" width="180" height="50" xOffset="0" yOffset="-25"/>
+    <model name="water_lightning_particles" type="entity" path="mvz2:effect/water_lightning_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="thunder_cloud" type="entity" path="mvz2:effect/thunder_cloud" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

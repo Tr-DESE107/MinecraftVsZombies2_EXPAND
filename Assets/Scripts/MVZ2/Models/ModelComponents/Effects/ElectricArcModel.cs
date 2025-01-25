@@ -7,7 +7,6 @@ namespace MVZ2.Models
         public override void Init()
         {
             base.Init();
-            UpdateLines();
         }
         public override void UpdateLogic()
         {
@@ -36,6 +35,19 @@ namespace MVZ2.Models
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
+            UpdateDirection();
+        }
+        public override void OnTrigger(string name)
+        {
+            base.OnTrigger(name);
+            if (name == "Update")
+            {
+                UpdateLines();
+                UpdateDirection();
+            }
+        }
+        private void UpdateDirection()
+        {
             var source = sourceTransform.position;
             var dest = Lawn2TransPosition(Model.GetProperty<Vector3>("Dest"));
             var distance = dest - source;
@@ -44,6 +56,7 @@ namespace MVZ2.Models
         }
         private void UpdateLines()
         {
+            var pointCount = Model.GetProperty<int>("PointCount");
             foreach (LightningGenerator lightning in lightnings)
             {
                 lightning.GenerateLightning(pointCount, sourceTransform.localPosition, destTransform.localPosition, Model.GetRNG());
@@ -59,7 +72,5 @@ namespace MVZ2.Models
         private float arcShiver = 0.03f;
         [SerializeField]
         private float arcLevitation = 0.01f;
-        [SerializeField]
-        private int pointCount = 50;
     }
 }

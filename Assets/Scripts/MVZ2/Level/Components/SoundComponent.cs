@@ -6,6 +6,7 @@ using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Level.Components
 {
@@ -25,13 +26,15 @@ namespace MVZ2.Level.Components
             }
             UpdatePlayingLoopSounds(deltaTime);
         }
-        public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1)
+        public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1, float volume = 1)
         {
-            Main.SoundManager.Play(id, Controller.LawnToTrans(position), pitch, 1);
+            var source = Main.SoundManager.Play(id, Controller.LawnToTrans(position), pitch, 1);
+            source.volume = volume;
         }
-        public void PlaySound(NamespaceID id, float pitch = 1)
+        public void PlaySound(NamespaceID id, float pitch = 1, float volume = 1)
         {
-            Main.SoundManager.Play(id, Vector3.zero, pitch, 0);
+            var source = Main.SoundManager.Play(id, Vector3.zero, pitch, 0);
+            source.volume = volume;
         }
         #region —≠ª∑“Ù–ß
         public bool IsPlayingLoopSound(NamespaceID id)

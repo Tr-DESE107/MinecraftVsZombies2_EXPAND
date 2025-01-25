@@ -148,6 +148,7 @@ namespace MVZ2.GameContent.Contraptions
                 float rad = degree * Mathf.Deg2Rad;
                 Vector3 pos = entity.Position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
                 ElectricArc.Connect(arc, pos);
+                ElectricArc.UpdateArc(arc);
             }
             foreach (Entity unit in level.FindEntities(e => entity.IsHostile(e)))
             {

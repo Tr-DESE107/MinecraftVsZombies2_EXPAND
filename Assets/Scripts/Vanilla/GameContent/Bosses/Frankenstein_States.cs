@@ -653,6 +653,7 @@ namespace MVZ2.GameContent.Bosses
                         contraption.AddBuff<TNTChargedBuff>();
                         var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
                         ElectricArc.Connect(arc, contraption.Position);
+                        ElectricArc.UpdateArc(arc);
                     }
                     else if (contraption.IsEntityOf(contrapId))
                     {
@@ -664,6 +665,7 @@ namespace MVZ2.GameContent.Bosses
                         }
                         var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
                         ElectricArc.Connect(arc, contraption.Position);
+                        ElectricArc.UpdateArc(arc);
                     }
                 }
                 boss.PlaySound(VanillaSoundID.teslaAttack);

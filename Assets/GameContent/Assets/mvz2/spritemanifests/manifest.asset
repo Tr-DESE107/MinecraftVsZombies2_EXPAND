@@ -135,6 +135,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: acc2e6159831cab4bb25141293768c3c, type: 3}
   - name: mobile_blueprint/gargoyle
     sprite: {fileID: 21300000, guid: b72151badb68c8846ac8c796bf412fa4, type: 3}
+  - name: mobile_blueprint/ghast
+    sprite: {fileID: 21300000, guid: 91391702dfa4fa749b9e1ea735de8da2, type: 3}
   - name: mobile_blueprint/ghost
     sprite: {fileID: 21300000, guid: 2eb6e56aede81b84988e3f747de09c05, type: 3}
   - name: mobile_blueprint/glowstone
@@ -197,6 +199,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/stone_shield
     sprite: {fileID: 21300000, guid: a001063ac6b540b42a716f3b66388328, type: 3}
+  - name: mobile_blueprint/tesla_coil
+    sprite: {fileID: 21300000, guid: d8b4a6fef193f41428666f3177af2af7, type: 3}
   - name: mobile_blueprint/thunder_drum
     sprite: {fileID: 21300000, guid: 904706dca625dc84db7ba9432de30ec2, type: 3}
   - name: mobile_blueprint/tnt
@@ -1058,6 +1062,17 @@ MonoBehaviour:
     - {fileID: 1259003968, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
     - {fileID: 757936343, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
     - {fileID: -273153786, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+  - name: entity/contraption/tesla_coil
+    spritesheet:
+    - {fileID: -1887129046, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: -1599486860, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 1438537895, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 1521357864, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 1523809617, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 624461650, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 1271693312, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 2000059407, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
+    - {fileID: 1033207621, guid: 073caa400cee98e4f9adafc78fdd521a, type: 3}
   - name: entity/contraption/thunder_drum
     spritesheet:
     - {fileID: 473868895, guid: 824ceee383f361649b57e79656c673da, type: 3}

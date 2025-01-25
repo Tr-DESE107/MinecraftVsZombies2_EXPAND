@@ -45,8 +45,8 @@ namespace MVZ2Logic.Level.Components
     }
     public interface ISoundComponent : ILevelComponent
     {
-        void PlaySound(NamespaceID id, Vector3 position, float pitch = 1);
-        void PlaySound(NamespaceID id, float pitch = 1);
+        void PlaySound(NamespaceID id, Vector3 position, float pitch = 1, float volume = 1);
+        void PlaySound(NamespaceID id, float pitch = 1, float volume = 1);
         void StopAllLoopSounds();
         bool IsPlayingLoopSound(NamespaceID id);
         bool HasLoopSoundEntity(NamespaceID id, long entityId);

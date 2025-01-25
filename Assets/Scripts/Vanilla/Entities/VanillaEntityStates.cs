@@ -41,6 +41,8 @@
 
         public const int TOTENSER_FIRE_BREATH = ATTACK;
 
+        public const int TESLA_COIL_IDLE = IDLE;
+        public const int TESLA_COIL_ATTACK = ATTACK;
 
 
         public const int NECROMANCER_CAST = ENEMY_CAST;

@@ -185,6 +185,7 @@ namespace MVZ2.GameContent.Bosses
                 var arc = level.Spawn(VanillaEffectID.electricArc, centerPos + Vector3.up, boss);
                 Vector3 arcTargetPos = centerPos + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * 100;
                 ElectricArc.Connect(arc, arcTargetPos);
+                ElectricArc.UpdateArc(arc);
             }
 
             level.ShakeScreen(20, 0, 15);

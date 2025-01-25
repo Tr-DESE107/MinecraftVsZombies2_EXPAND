@@ -11,19 +11,19 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<ISoundComponent>();
         }
-        public static void PlaySound(this LevelEngine level, NamespaceID id, Vector3 position, float pitch = 1)
+        public static void PlaySound(this LevelEngine level, NamespaceID id, Vector3 position, float pitch = 1, float volume = 1)
         {
             var component = level.GetSoundComponent();
             if (component == null)
                 return;
-            component.PlaySound(id, position, pitch);
+            component.PlaySound(id, position, pitch, volume);
         }
-        public static void PlaySound(this LevelEngine level, NamespaceID id, float pitch = 1)
+        public static void PlaySound(this LevelEngine level, NamespaceID id, float pitch = 1, float volume = 1)
         {
             var component = level.GetSoundComponent();
             if (component == null)
                 return;
-            component.PlaySound(id, pitch);
+            component.PlaySound(id, pitch, volume);
         }
         public static void AddLoopSoundEntity(this LevelEngine level, NamespaceID soundID, long id)
         {
