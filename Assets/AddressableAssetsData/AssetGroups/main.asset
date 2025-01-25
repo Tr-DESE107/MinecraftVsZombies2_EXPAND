@@ -971,6 +971,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 311e353cabcefad4497f399a5a53758d
+    m_Address: mvz2:contraption/giant_bowl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 317389ec4fe5a994ba7f042745b0f045
     m_Address: mvz2:pickup/starshards/default
     m_ReadOnly: 0
@@ -1125,6 +1131,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36b2d82a0eba62b4fa29a20e722ca6a3
+    m_Address: mvz2:mobile_blueprint/giant_bowl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36c76d9d43fd1e841a97ef2e0d658b84
     m_Address: mvz2:effect/pow
@@ -2440,6 +2452,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75127238d9b7c934395ce66830a82cf1
+    m_Address: mvz2:entity/contraptions/giant_bowl_point
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75aeaeb2218da954b8273a0ea8a1b93f
     m_Address: mvz2:enemy/necromancer
     m_ReadOnly: 0
@@ -2789,6 +2807,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8494573086f607245af4f3dd35644156
     m_Address: mvz2:ui/level/pause_image_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84a7f7624ce186d43bdfe0a7c6d53f6b
+    m_Address: mvz2:entity/contraptions/giant_bowl
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4226,6 +4250,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bff3002c8b7ed6d48830a7f00ff48c0e
+    m_Address: mvz2:effect/thunder_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0143cb0af20efc499da5943439d6197
     m_Address: mvz2:grind1

@@ -139,6 +139,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 91391702dfa4fa749b9e1ea735de8da2, type: 3}
   - name: mobile_blueprint/ghost
     sprite: {fileID: 21300000, guid: 2eb6e56aede81b84988e3f747de09c05, type: 3}
+  - name: mobile_blueprint/giant_bowl
+    sprite: {fileID: 21300000, guid: 36b2d82a0eba62b4fa29a20e722ca6a3, type: 3}
   - name: mobile_blueprint/glowstone
     sprite: {fileID: 21300000, guid: eb5396e8d49b71b4b899a73dae8c9ce9, type: 3}
   - name: mobile_blueprint/golden_apple
@@ -325,6 +327,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ab45c539e2bb18040b691583b08639f1, type: 3}
   - name: entity/contraptions/force_wave
     sprite: {fileID: 21300000, guid: c91919e3f10e9004f85638cba2384e3e, type: 3}
+  - name: entity/contraptions/giant_bowl
+    sprite: {fileID: 21300000, guid: 84a7f7624ce186d43bdfe0a7c6d53f6b, type: 3}
+  - name: entity/contraptions/giant_bowl_point
+    sprite: {fileID: 21300000, guid: 75127238d9b7c934395ce66830a82cf1, type: 3}
   - name: entity/contraptions/glowstone
     sprite: {fileID: 21300000, guid: 9b11711b1da870544827beb40076b98b, type: 3}
   - name: entity/contraptions/golden_apple

@@ -127,6 +127,13 @@
             <key hex="#FF0000" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="giant_bowl">
+        <colorKeys>
+            <key hex="#C87878" time="0.45"/>
+            <key hex="#000000" time="0.9"/>
+            <key hex="#FFFF00" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

@@ -444,6 +444,13 @@
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+        <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片" unlock="mvz2:level.teruharijou_9">
+            <vector3 name="size" x="60" y="40" z="60"/>
+            <id name="deathSound" value="mvz2:pot_break"/>
+
+            <int name="cost" value="100" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">

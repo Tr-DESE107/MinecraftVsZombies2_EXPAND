@@ -31,6 +31,7 @@
     <model name="golden_apple" type="entity" path="mvz2:contraption/golden_apple" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="thunder_drum" type="entity" path="mvz2:contraption/thunder_drum" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="tesla_coil" type="entity" path="mvz2:contraption/tesla_coil" width="64" height="128" xOffset="0" yOffset="-60"/>
+    <model name="giant_bowl" type="entity" path="mvz2:contraption/giant_bowl" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
