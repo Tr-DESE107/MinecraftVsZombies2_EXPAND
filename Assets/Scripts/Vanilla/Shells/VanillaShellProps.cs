@@ -1,4 +1,5 @@
-﻿using PVZEngine.Damages;
+﻿using PVZEngine;
+using PVZEngine.Damages;
 
 namespace MVZ2.Vanilla.Shells
 {
@@ -20,6 +21,10 @@ namespace MVZ2.Vanilla.Shells
         public static bool BlocksSlice(this ShellDefinition shell)
         {
             return shell.GetProperty<bool>(BLOCKS_SLICE);
+        }
+        public static NamespaceID GetHitSound(this ShellDefinition shell)
+        {
+            return shell.GetProperty<NamespaceID>(HIT_SOUND);
         }
     }
 }

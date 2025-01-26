@@ -18,7 +18,9 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
+using UnityEditor;
 using UnityEngine;
+using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -231,56 +233,74 @@ namespace MVZ2.Vanilla.Entities
             var armorResult = damage.ArmorResult;
             if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
-                PlayHitSound(entity, armorResult.Effects, armorResult.ShellDefinition);
-            }
-            var bodyResult = damage.BodyResult;
-            if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
-            {
-                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.WHACK))
+                var shell = armorResult.ShellDefinition;
+                NamespaceID hitSound = null;
+                if (shell.GetSpecialShellHitSound(armorResult, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
                 {
-                    entity.PlaySound(VanillaSoundID.bonk);
+                    hitSound = specialSound;
                 }
-                else if (bodyResult.Effects.HasEffect(VanillaDamageEffects.FALL_DAMAGE))
+                else if (shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
                 {
-                    entity.PlaySound(bodyResult.Amount > 100 ? VanillaSoundID.fallBig : VanillaSoundID.fallSmall);
+                    hitSound = shellSound;
                 }
-                else
-                {
-                    PlayHitSound(entity, bodyResult.Effects, bodyResult.ShellDefinition);
-                }
-            }
-        }
-        public static void PlayHitSound(this Entity entity, DamageEffectList damageEffects, ShellDefinition shell)
-        {
-            if (entity == null || shell == null)
-                return;
-            var level = entity.Level;
-            var blocksFire = shell.BlocksFire();
-            if (damageEffects.HasEffect(VanillaDamageEffects.FIRE) && !blocksFire)
-            {
-                entity.PlaySound(VanillaSoundID.fire);
-            }
-            else if (damageEffects.HasEffect(VanillaDamageEffects.SLICE) && shell.IsSliceCritical())
-            {
-                entity.PlaySound(VanillaSoundID.slice);
-            }
-            else if (damageEffects.HasEffect(VanillaDamageEffects.TINY))
-            {
-                entity.PlaySound(VanillaSoundID.smallHit);
-            }
-            else
-            {
-                var hitSound = entity.GetHitSound();
                 if (NamespaceID.IsValid(hitSound))
                 {
                     entity.PlaySound(hitSound);
                 }
-                else
+            }
+            var bodyResult = damage.BodyResult;
+            if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            {
+                var shell = bodyResult.ShellDefinition;
+                NamespaceID hitSound = null;
+                if (shell.GetSpecialShellHitSound(bodyResult, false) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
                 {
-                    var shellHitSound = shell.GetProperty<NamespaceID>(VanillaShellProps.HIT_SOUND);
-                    entity.PlaySound(shellHitSound);
+                    hitSound = specialSound;
+                }
+                else if (entity.GetHitSound() is NamespaceID specificSound && NamespaceID.IsValid(specificSound))
+                {
+                    hitSound = specificSound;
+                }
+                else if (shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
+                {
+                    hitSound = shellSound;
+                }
+                if (NamespaceID.IsValid(hitSound))
+                {
+                    entity.PlaySound(hitSound);
                 }
             }
+        }
+        public static NamespaceID GetSpecialShellHitSound(this ShellDefinition shell, DamageResult result, bool isArmor)
+        {
+            if (shell == null)
+                return null;
+            var damageEffects = result.Effects;
+            if (!isArmor)
+            {
+                if (damageEffects.HasEffect(VanillaDamageEffects.WHACK))
+                {
+                    return VanillaSoundID.bonk;
+                }
+                else if (damageEffects.HasEffect(VanillaDamageEffects.FALL_DAMAGE))
+                {
+                    return result.Amount > 100 ? VanillaSoundID.fallBig : VanillaSoundID.fallSmall;
+                }
+            }
+
+            if (damageEffects.HasEffect(VanillaDamageEffects.FIRE) && !shell.BlocksFire())
+            {
+                return VanillaSoundID.fire;
+            }
+            else if (damageEffects.HasEffect(VanillaDamageEffects.SLICE) && shell.IsSliceCritical())
+            {
+                return VanillaSoundID.slice;
+            }
+            else if (damageEffects.HasEffect(VanillaDamageEffects.TINY))
+            {
+                return VanillaSoundID.smallHit;
+            }
+            return null;
         }
         public static void EmitBlood(this Entity entity)
         {

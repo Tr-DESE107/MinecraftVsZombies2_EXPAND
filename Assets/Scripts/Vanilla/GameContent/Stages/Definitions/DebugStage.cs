@@ -48,8 +48,8 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.obsidian,
-                VanillaEnemyID.mutantZombie,
                 VanillaEnemyID.mesmerizer,
+                VanillaEnemyID.berserker,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

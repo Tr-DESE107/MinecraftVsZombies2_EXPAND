@@ -34,31 +34,31 @@
     </entry>
     <entry id="mummy" entity="mvz2:mummy" >
         <spawn level="2" />
-        <weight base="2000" />
+        <weight base="2500" />
     </entry>
     <entry id="necromancer" entity="mvz2:necromancer" >
         <spawn level="3" />
-        <weight base="1000" />
+        <weight base="2000" />
     </entry>
 
     <!-- Dream -->
     <entry id="spider" entity="mvz2:spider" >
         <spawn level="2" />
-        <weight base="2000" />
+        <weight base="3000" />
     </entry>
     <entry id="cave_spider" entity="mvz2:cave_spider" >
         <spawn level="3" />
         <terrain water="true"/>
-        <weight base="2000" />
+        <weight base="3000" />
     </entry>
     <entry id="ghast" entity="mvz2:ghast" >
         <spawn level="3" />
         <terrain water="true" air="true"/>
-        <weight base="1000" />
+        <weight base="2000" />
     </entry>
     <entry id="mother_terror" entity="mvz2:mother_terror" >
         <spawn level="3"/>
-        <weight base="1500" />
+        <weight base="2500" />
     </entry>
 
     

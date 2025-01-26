@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02d02d3206dc8484c8e80a0aa53c8725
+    m_Address: mvz2:mobile_blueprint/berserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 031db6b738540f14aae3f26d4d1daff6
     m_Address: mvz2:final_item
     m_ReadOnly: 0
@@ -1373,7 +1379,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f506694625dacb4c929261f901c2f2b
-    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_1
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -2063,7 +2069,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5cb65fd577d7e08419b04d3ec0a43859
-    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_2
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -2482,6 +2488,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71622a34f9dcc4f4689cee2fc30656c3
+    m_Address: mvz2:enemy/teruharijou/berserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
     m_ReadOnly: 0
@@ -2627,6 +2639,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ad59fee145905345a3241aca0804d48
     m_Address: mvz2:mobile_blueprint/infectenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b5b04fa7d4703a48867a2ec9b7c31f6
+    m_Address: mvz2:entity/armor/berserker_helmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5344,7 +5362,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed29c06e3f488bc40908374e95542758
-    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_3
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -5384,6 +5402,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef795c582f7db4c4bb415a889f011de9
+    m_Address: mvz2:armor/berserker_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef8e70ac08eeb9a4aa57ec0abfff3b47
     m_Address: mvz2:icons/short_circuited
@@ -5537,6 +5561,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5346a49dd46a2a4194dcbca45d9a022
     m_Address: mvz2:map/dream/sleepenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5471f5e7879eec41accb98281bd3d2c
+    m_Address: mvz2:entity/enemies/berserker_head
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5738,6 +5768,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffc82409076aa3e4481bb54a1438d1db
+    m_Address: mvz2:entity/enemies/golden_axe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffe7678ba632c984daedf8d9223f6c42
     m_Address: mvz2:entity/effects/nightmare_portal_frame_censored

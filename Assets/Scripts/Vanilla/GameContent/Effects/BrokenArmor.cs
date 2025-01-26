@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.PostContactGround(entity, velocity);
             var vel = entity.Velocity;
-            vel.y *= -0.4f;
+            vel.y = velocity.y * -0.4f;
             entity.Velocity = vel;
         }
         #endregion

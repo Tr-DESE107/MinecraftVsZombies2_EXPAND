@@ -59,9 +59,10 @@
     <model name="parasite_terror" type="entity" path="mvz2:enemy/parasite_terror" width="54" height="54" xOffset="0" yOffset="-24"/>
 
     <model name="mesmerizer" type="entity" path="mvz2:enemy/teruharijou/mesmerizer" width="64" height="116" xOffset="10" yOffset="-64"/>
+    <model name="berserker" type="entity" path="mvz2:enemy/teruharijou/berserker" width="64" height="100" xOffset="10" yOffset="-46"/>
 
-    <model name="mutant_zombie" type="entity" path="mvz2:enemy/mutant_zombie" width="200" height="200" xOffset="0" yOffset="-100"/>
-    <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/mega_mutant_zombie" width="200" height="200" xOffset="0" yOffset="-100"/>
+    <model name="mutant_zombie" type="entity" path="mvz2:enemy/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
+    <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="imp" type="entity" path="mvz2:enemy/imp" width="48" height="56" xOffset="0" yOffset="-28"/>
 
     <model name="bone_wall" type="entity" path="mvz2:enemy/bone_wall" width="80" height="80" xOffset="0" yOffset="-40"/>
@@ -144,7 +145,7 @@
     <model name="crushing_walls" type="entity" path="mvz2:effect/crushing_walls" width="800" height="600" xOffset="0" yOffset="0"/>
     <model name="nightmareaper_timer" type="entity" path="mvz2:effect/nightmareaper_timer" width="160" height="50" xOffset="0" yOffset="0"/>
     <model name="nightmare_darkness" type="entity" path="mvz2:effect/nightmare_darkness" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="nightmare_glass" type="entity" path="mvz2:effect/nightmare_glass" width="1020" height="600" xOffset="510" yOffset="300"/>
+    <model name="nightmare_glass" type="entity" path="mvz2:effect/nightmare_glass" shot="false" width="1020" height="600" xOffset="510" yOffset="300"/>
     <model name="floating_text" type="entity" path="mvz2:effect/floating_text" width="80" height="25" xOffset="0" yOffset="0"/>
     <model name="spike_particles" type="entity" path="mvz2:effect/spike_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="diamond_spike_particles" type="entity" path="mvz2:effect/diamond_spike_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
@@ -170,18 +171,19 @@
     <model name="poison_javelin" type="entity" path="mvz2:projectile/poison_javelin" width="96" height="10" xOffset="0" yOffset="0"/>
     <model name="parabot" type="entity" path="mvz2:projectile/parabot" width="32" height="16" xOffset="0" yOffset="0"/>
     <model name="breakout_pearl" type="entity" path="mvz2:projectile/breakout_pearl" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="wooden_ball" type="entity" path="mvz2:projectile/wooden_ball" width="24" height="24" xOffset="0" yOffset="12"/>
-    <model name="cobble" type="entity" path="mvz2:projectile/cobble" width="12" height="12" xOffset="0" yOffset="6"/>
-    <model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="24"/>
-    <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="12"/>
-    <model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="8"/>
+    <model name="wooden_ball" type="entity" path="mvz2:projectile/wooden_ball" width="24" height="24" xOffset="0" yOffset="-12"/>
+    <model name="cobble" type="entity" path="mvz2:projectile/cobble" width="12" height="12" xOffset="0" yOffset="-6"/>
+    <model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="-24"/>
+    <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="-12"/>
+    <model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="-8"/>
     <model name="compelling_orb" type="entity" path="mvz2:projectile/compelling_orb" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="boat_item" type="armor" path="mvz2:armor/boat_item" width="32" height="32" xOffset="0" yOffset="0"/>
-    <model name="mesmerizer_crown" type="armor" path="mvz2:armor/mesmerizer_crown" width="34" height="40" xOffset="0" yOffset="21"/>
+    <model name="mesmerizer_crown" type="armor" path="mvz2:armor/mesmerizer_crown" width="34" height="40" xOffset="0" yOffset="-21"/>
+    <model name="berserker_helmet" type="armor" path="mvz2:armor/berserker_helmet" width="32" height="14" xOffset="0" yOffset="-9"/>
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>

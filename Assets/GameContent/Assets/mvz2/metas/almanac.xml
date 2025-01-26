@@ -756,6 +756,20 @@
                 <p><![CDATA[<color=#F0F>什么催眠？你不要乱说好不好！</color>]]></p>
             </flavor>
         </entry>
+        <entry id="mvz2:berserker">
+            <header>
+                <p>狂战士在死亡时会产生猛烈的爆炸。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+100</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>爆炸伤害：<![CDATA[<color=red>300</color>]]></p>
+            </properties>
+            <flavor>
+                <p>没人喜欢狂战士，他们就是一群到处搞破坏的疯子，追究起责任时还要倒打你一耙，穷途末路了还要拉几个人下水。</p>
+                <p>奉劝各位在现实生活中离这种人远一点。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

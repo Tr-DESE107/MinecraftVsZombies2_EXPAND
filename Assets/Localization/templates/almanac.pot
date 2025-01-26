@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-26 03:50+0800\n"
+"POT-Creation-Date: 2025-01-26 05:48+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1031,6 +1031,29 @@ msgctxt "enemies.description"
 msgid ""
 "<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>\n"
 "<color=#F0F>什么催眠？你不要乱说好不好！</color>"
+msgstr ""
+
+#. Header for enemies mvz2:berserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "狂战士在死亡时会产生猛烈的爆炸。"
+msgstr ""
+
+#. Properties for enemies mvz2:berserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+100</color>\n"
+"速度：<color=red>2</color>\n"
+"爆炸伤害：<color=red>300</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:berserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"没人喜欢狂战士，他们就是一群到处搞破坏的疯子，追究起责任时还要倒打你一耙，穷途末路了还要拉几个人下水。\n"
+"奉劝各位在现实生活中离这种人远一点。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -2352,6 +2375,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "服从凋灵吧"
+msgstr ""
+
+#. Header for entity mvz2:berserker
+#: Entity meta file
+msgctxt "entity.name"
+msgid "狂战士"
+msgstr ""
+
+#. Death message for entity mvz2:berserker
+#: Entity meta file
+msgctxt "death_message"
+msgid "爆！"
 msgstr ""
 
 #. Header for entity mvz2:mutant_zombie
