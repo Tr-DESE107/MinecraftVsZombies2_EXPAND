@@ -206,6 +206,18 @@ namespace MVZ2.Models
             RemoveChildModel(key);
             CreateChildModel(anchorName, key, modelID);
         }
+        public void ClearModelAnchor(string anchorName)
+        {
+            var anchor = GetAnchor(anchorName);
+            if (!anchor)
+                return;
+            var childCount = anchor.transform.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+            {
+                var child = anchor.transform.GetChild(i);
+                Destroy(child.gameObject);
+            }
+        }
         public IModelInterface GetParentModelInterface()
         {
             return modelInterface;

@@ -29,11 +29,15 @@ namespace MVZ2.Level.Components
         public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1, float volume = 1)
         {
             var source = Main.SoundManager.Play(id, Controller.LawnToTrans(position), pitch, 1);
+            if (!source)
+                return;
             source.volume = volume;
         }
         public void PlaySound(NamespaceID id, float pitch = 1, float volume = 1)
         {
             var source = Main.SoundManager.Play(id, Vector3.zero, pitch, 0);
+            if (!source)
+                return;
             source.volume = volume;
         }
         #region —≠ª∑“Ù–ß

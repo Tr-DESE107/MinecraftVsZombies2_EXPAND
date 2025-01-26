@@ -17,5 +17,9 @@ namespace MVZ2.Models
         {
             return model.GetChildModel(LogicModelHelper.KEY_ARMOR);
         }
+        public static void ClearArmorModel(this Model model)
+        {
+            model.ClearModelAnchor(LogicModelHelper.ANCHOR_ARMOR);
+        }
     }
 }

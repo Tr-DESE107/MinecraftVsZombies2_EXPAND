@@ -44,6 +44,10 @@ namespace MVZ2.Entities
             armorModelInterface = new ArmorModelInterface(this);
             entity.SetModelInterface(bodyModelInterface, armorModelInterface);
             SetModel(Entity.ModelID);
+            if (Model)
+            {
+                Model.ClearArmorModel();
+            }
 
             transform.position = Level.LawnToTrans(Entity.Position);
             lastPosition = transform.position;

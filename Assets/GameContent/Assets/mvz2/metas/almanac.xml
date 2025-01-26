@@ -742,6 +742,20 @@
                 <p>它还没想好自己的网络冷笑话该怎么写。</p>
             </flavor>
         </entry>
+
+        <entry id="mvz2:mesmerizer">
+            <header>
+                <p>催眠者能够精神控制你的器械使其倒戈。杀死催眠者可以解除精神控制。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+100</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            </properties>
+            <flavor>
+                <p><![CDATA[<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>]]></p>
+                <p><![CDATA[<color=#F0F>什么催眠？你不要乱说好不好！</color>]]></p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

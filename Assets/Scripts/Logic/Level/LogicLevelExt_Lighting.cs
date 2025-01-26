@@ -26,5 +26,10 @@ namespace MVZ2Logic.Level
             var component = level.GetLightComponent();
             return component.GetAllIlluminationLightSources(entity);
         }
+        public static void GetIlluminatiingEntities(this LevelEngine level, Entity entity, HashSet<long> results)
+        {
+            var component = level.GetLightComponent();
+            component.GetIlluminatingEntities(entity, results);
+        }
     }
 }

@@ -167,6 +167,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a654acffda7ecc44b0a1ce2adcf0fd3
+    m_Address: mvz2:armor/mesmerizer_crown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ad952a54ac62cc40aa4243ede0e6468
     m_Address: mvz2:boss/slenderman
     m_ReadOnly: 0
@@ -515,6 +521,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bbe75d5487a3c0488fa0041cebec312
+    m_Address: mvz2:enemy/teruharijou/wither_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
     m_Address: mvz2:entity/enemy/zombie
     m_ReadOnly: 0
@@ -640,6 +652,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2223b622235c77b41858ab56433232a5
+    m_Address: mvz2:entity/enemy/wither_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227276bdfee6c7545b14314ef224f18b
     m_Address: mvz2:random/wood3
@@ -796,6 +814,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28a1bd2b08b2bc14a82c730358b3d338
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: mvz2:entity/ghast/ghast_fire
@@ -1156,6 +1180,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 373ddc881d262e440915df6ac070ed4a
+    m_Address: mvz2:mind_clear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37615d759a134794786c955d0039509e
     m_Address: mvz2:options/lengthen_board
     m_ReadOnly: 0
@@ -1341,6 +1371,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f506694625dacb4c929261f901c2f2b
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f5e236374b253e42aef461b398f82a2
     m_Address: mvz2:fire_charge
@@ -1894,6 +1930,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56017a37b9eab0d489db5ba250433934
+    m_Address: mvz2:mobile_blueprint/mesmerizer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 565b39729d8fd1b469bef688b67f08d3
     m_Address: mvz2:contraption/golden_apple
     m_ReadOnly: 0
@@ -1914,6 +1956,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57a43fd6f9e8d124fb3ac37bc690d4aa
     m_Address: mvz2:entity/effects/vortex
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 580a757d547930b41a026df31631b7c9
+    m_Address: mvz2:entity/enemies/mesmerizer_head
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1960,6 +2008,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a0ed5d8cf792294fb28827ccdea1c42
+    m_Address: mvz2:entity/armor/mesmerizer_crown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a43bbbdfc2dfc64382269576cdd5203
     m_Address: mvz2:shading/pool
     m_ReadOnly: 0
@@ -2004,6 +2058,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ca362fac41be824dbf32d58fb7bb26c
     m_Address: mvz2:entity/terror/terror_cry3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cb65fd577d7e08419b04d3ec0a43859
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -2331,6 +2391,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b99780004967464787b9b86745a18c2
+    m_Address: mvz2:enemy/teruharijou/mesmerizer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bb178ba4eb3df242b3c6663a7c840fc
     m_Address: mvz2:tap
@@ -3855,6 +3921,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae2fd96d8a1219c40a3b374c8724b0a6
+    m_Address: mvz2:projectile/compelling_orb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae53b18b9d39d3f4e86f2a75e0d7e479
     m_Address: mvz2:effect/magic_stars
     m_ReadOnly: 0
@@ -4403,6 +4475,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6834e54b22c072438a7aa1583ebc4f5
     m_Address: mvz2:entity/boss/gun_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c722a1dec874bb34e9a87bb1dd009e63
+    m_Address: mvz2:entity/enemies/mesmerizer_rod
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5265,6 +5343,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed29c06e3f488bc40908374e95542758
+    m_Address: mvz2:entity/wither_skeleton/wither_skeleton_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed576f37fbc44b44d9396b8ea59f7911
     m_Address: mvz2:mobile_blueprint/totenser
     m_ReadOnly: 0
@@ -5405,6 +5489,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1aefc59239478744b6bdc884a1fc842
     m_Address: mvz2:ui/level/wallet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1e4625420d356e4eb58b79513629607
+    m_Address: mvz2:entity/projectiles/compelling_orb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5612,6 +5702,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd39fe758a297d8448167d0de18eceff
+    m_Address: mvz2:mind_control
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd845dda8b361cb47bfd69eef5399607
     m_Address: mvz2:entity/mutant_zombie/mutant_cry1

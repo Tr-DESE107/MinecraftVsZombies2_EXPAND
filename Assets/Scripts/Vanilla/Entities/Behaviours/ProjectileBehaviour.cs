@@ -35,7 +35,7 @@ namespace MVZ2.Vanilla.Entities
             projectile.Timeout--;
             if (projectile.Timeout <= 0)
             {
-                projectile.Remove();
+                projectile.Die();
                 return;
             }
             if (projectile.WillDestroyOutsideLawn() && IsOutsideView(projectile))
@@ -195,7 +195,7 @@ namespace MVZ2.Vanilla.Entities
 
             if (!hitOutput.Pierce)
             {
-                projectile.Remove();
+                projectile.Die();
                 return;
             }
         }

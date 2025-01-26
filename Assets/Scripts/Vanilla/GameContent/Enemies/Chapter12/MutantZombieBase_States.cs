@@ -144,13 +144,13 @@ namespace MVZ2.Vanilla.Enemies
                     var target = collider.Entity;
                     if (target.IsOnWater())
                     {
-                        var damageResult = collider.TakeDamage(target.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.REMOVE_ON_DEATH), self);
+                        var damageResult = collider.TakeDamage(target.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
 
                         target.PlaySplashEffect(Vector3.one * 3);
                     }
                     else
                     {
-                        var damageResult = collider.TakeDamage(target.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.PUNCH), self);
+                        var damageResult = collider.TakeDamage(target.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                         if (damageResult != null && damageResult.BodyResult != null && damageResult.BodyResult.Fatal && damageResult.BodyResult.Entity.Type == EntityTypes.PLANT)
                         {
                             damageResult.Entity.PlaySound(VanillaSoundID.smash);

@@ -1,11 +1,8 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Grids;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -22,14 +19,13 @@ using PVZEngine.Entities;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityExt
     {
         #region 面朝方向
-        public static float GetFacingX(this Entity entity)
+        public static int GetFacingX(this Entity entity)
         {
             return entity.IsFacingLeft() ? -1 : 1;
         }
@@ -569,14 +565,25 @@ namespace MVZ2.Vanilla.Entities
         #region 阵营
         public static void Charm(this Entity entity, int faction)
         {
-            var buff = entity.AddBuff<CharmBuff>();
+            var buff = entity.GetFirstBuff<CharmBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<CharmBuff>();
+            }
             buff.SetProperty(CharmBuff.PROP_FACTION, faction);
         }
-        public static void CharmWithSource(this Entity entity, int faction, Entity source)
+        public static void CharmWithSource(this Entity entity, Entity source)
         {
-            var buff = entity.AddBuff<CharmWithSourceBuff>();
-            buff.SetProperty(CharmWithSourceBuff.PROP_FACTION, faction);
+            var buff = entity.GetFirstBuff<CharmWithSourceBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<CharmWithSourceBuff>();
+            }
             buff.SetProperty(CharmWithSourceBuff.PROP_SOURCE, new EntityID(source));
+        }
+        public static bool IsCharmed(this Entity entity)
+        {
+            return entity.HasBuff<CharmBuff>() || entity.HasBuff<CharmWithSourceBuff>();
         }
         public static void SetFactionAndDirection(this Entity entity, int faction)
         {

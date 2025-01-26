@@ -94,8 +94,11 @@ namespace MVZ2.Editor
             var factory = new SpriteDataProviderFactories();
             factory.Init();
 
-            foreach (string filePath in filePaths)
+            List<string> dirtySprites = new List<string>();
+
+            for (int i = 0; i < filePaths.Length; i++)
             {
+                var filePath = filePaths[i];
                 var relativePath = Path.GetRelativePath(directory, filePath);
                 var splitPath = relativePath.Split('/', '\\');
 
@@ -108,24 +111,36 @@ namespace MVZ2.Editor
                 dataProvider.InitSpriteEditorDataProvider();
                 var spriteRects = dataProvider.GetSpriteRects();//if you don't have the initial sprite rects, just create them manually, this example just changes the pivot points
 
+                bool dirty = false;
                 bool isSheet = spriteRects.Length > 1;
-                for (int i = 0; i < spriteRects.Length; i++)
+                for (int r = 0; r < spriteRects.Length; r++)
                 {
                     var format = isSheet ? "{0}_{1}" : "{0}";
-                    spriteRects[i].name = string.Format(format, texture2D.name, i);
+                    var oldName = spriteRects[r].name;
+                    var newName = string.Format(format, texture2D.name, r);
+                    if (newName == oldName)
+                    {
+                        continue;
+                    }
+                    spriteRects[r].name = newName;
+                    dirty = true;
+                    renamedDict.Add(oldName, newName);
                 }
+                if (!dirty)
+                    continue;
                 dataProvider.SetSpriteRects(spriteRects);
                 dataProvider.Apply();
+                dirtySprites.Add(filePath);
 
                 EditorUtility.SetDirty(textureImporter);
                 textureImporter.SaveAndReimport();
-                EditorUtility.DisplayProgressBar("Renaming sprites...", filePath, (float)renamedDict.Count / filePaths.Length);
+                EditorUtility.DisplayProgressBar("Renaming sprites...", filePath, (float)i / filePaths.Length);
             }
-            foreach (var filePath in filePaths)
+            foreach (var filePath in dirtySprites)
             {
                 AssetDatabase.ImportAsset(filePath, ImportAssetOptions.ForceUpdate);
             }
-            Debug.Log($"Rename sprites completed, expected {filePaths.Length}, updated {renamedDict.Count}.");
+            Debug.Log($"Rename sprites completed, expected {filePaths.Length}, updated {dirtySprites.Count}.");
             Debug.Log($"Renamed sprites:\n{string.Join("\n", renamedDict.Select(p => $"{p.Key} => {p.Value}"))}");
 
             EditorUtility.ClearProgressBar();

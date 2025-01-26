@@ -164,6 +164,8 @@ namespace MVZ2.Models
                 sortingGroup.sortingLayerID = value;
                 foreach (var group in subSortingGroups)
                 {
+                    if (!group.sortAtRoot)
+                        continue;
                     group.sortingLayerID = value;
                 }
             }
@@ -176,6 +178,8 @@ namespace MVZ2.Models
                 sortingGroup.sortingLayerName = value;
                 foreach (var group in subSortingGroups)
                 {
+                    if (!group.sortAtRoot)
+                        continue;
                     group.sortingLayerName = value;
                 }
             }
@@ -188,6 +192,8 @@ namespace MVZ2.Models
                 sortingGroup.sortingOrder = value;
                 foreach (var group in subSortingGroups)
                 {
+                    if (!group.sortAtRoot)
+                        continue;
                     group.sortingOrder = value;
                 }
             }

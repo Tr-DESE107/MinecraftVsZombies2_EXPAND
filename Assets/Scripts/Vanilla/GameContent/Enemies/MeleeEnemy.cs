@@ -42,7 +42,7 @@ namespace MVZ2.Vanilla.Enemies
                 return;
             var target = other;
             var protector = target.GetProtector();
-            if (protector != null && protector.Exists())
+            if (protector != null && protector.Exists() && !protector.IsFriendly(enemy))
             {
                 target = protector;
             }
@@ -68,7 +68,7 @@ namespace MVZ2.Vanilla.Enemies
                 if (target.IsFloor())
                     return false;
                 var protector = target.GetProtector();
-                if (protector != null && protector.Exists())
+                if (protector != null && protector.Exists() && !protector.IsFriendly(enemy))
                     return false;
             }
             return true;

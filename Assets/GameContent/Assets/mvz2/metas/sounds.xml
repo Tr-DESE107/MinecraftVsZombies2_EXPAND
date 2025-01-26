@@ -323,6 +323,12 @@
     <sound name="meow">
         <sample path="mvz2:meow" weight="1" />
     </sound>
+    <sound name="mind_control">
+        <sample path="mvz2:mind_control" weight="1" />
+    </sound>
+    <sound name="mind_clear">
+        <sample path="mvz2:mind_clear" weight="1" />
+    </sound>
     <sound name="mine_explode">
         <sample path="mvz2:mine_explode" weight="1" />
     </sound>
@@ -470,6 +476,14 @@
     </sound>
     <sound name="skeleton_death">
         <sample path="mvz2:entity/skeleton/skeleton_death" weight="1" />
+    </sound>
+    <sound name="wither_skeleton_cry">
+        <sample path="mvz2:entity/wither_skeleton/wither_skeleton1" weight="1" />
+        <sample path="mvz2:entity/wither_skeleton/wither_skeleton2" weight="1" />
+        <sample path="mvz2:entity/wither_skeleton/wither_skeleton3" weight="1" />
+    </sound>
+    <sound name="wither_skeleton_death">
+        <sample path="mvz2:entity/wither_skeleton/wither_skeleton_death" weight="1" />
     </sound>
     <sound name="slice">
         <sample path="mvz2:damage/slice/slice1" weight="1" />

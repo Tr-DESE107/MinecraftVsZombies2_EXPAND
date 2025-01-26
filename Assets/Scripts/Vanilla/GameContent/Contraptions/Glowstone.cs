@@ -1,9 +1,14 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Auras;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions
@@ -13,6 +18,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Glowstone(string nsp, string name) : base(nsp, name)
         {
+            AddAura(new GlowstoneAura());
         }
         public override void Init(Entity entity)
         {
@@ -40,6 +46,32 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.PlaySound(VanillaSoundID.stunned);
             }
+        }
+        public class GlowstoneAura : AuraEffectDefinition
+        {
+            public GlowstoneAura()
+            {
+                BuffID = VanillaBuffID.glowstoneProtected;
+                UpdateInterval = 4;
+            }
+
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
+            {
+                var source = auraEffect.Source as Entity;
+                if (source == null)
+                    return;
+                detectBuffer.Clear();
+                var level = auraEffect.Level;
+                level.GetIlluminatiingEntities(source, detectBuffer);
+                foreach (var id in detectBuffer)
+                {
+                    var ent = level.FindEntityByID(id);
+                    if (ent == null)
+                        continue;
+                    results.Add(ent);
+                }
+            }
+            private HashSet<long> detectBuffer = new HashSet<long>();
         }
     }
 }

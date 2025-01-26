@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -104,7 +105,8 @@ namespace MVZ2.GameContent.Contraptions
             }
             if (productionTimer.Expired)
             {
-                entity.Level.AddEnergy(1);
+                var energyDirection = entity.IsFriendlyEntity() ? 1 : -1;
+                entity.Level.AddEnergy(1 * energyDirection);
                 productionTimer.Reset();
             }
         }

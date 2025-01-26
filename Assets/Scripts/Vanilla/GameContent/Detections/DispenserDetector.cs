@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Detections;
+﻿using System;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -63,9 +64,12 @@ namespace MVZ2.GameContent.Detections
             var center = targetBounds.center;
             if (!TargetInLawn(center.x))
                 return false;
+            if (colliderFilter != null && !colliderFilter(self, collider))
+                return false;
             return true;
         }
         public bool ignoreLowEnemy;
         public bool ignoreHighEnemy;
+        public Func<DetectionParams, EntityCollider, bool> colliderFilter;
     }
 }

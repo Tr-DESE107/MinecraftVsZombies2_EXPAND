@@ -22,6 +22,8 @@ namespace MVZ2.GameContent.Enemies
         public const string motherTerror = "mother_terror";
         public const string parasiteTerror = "parasite_terror";
 
+        public const string mesmerizer = "mesmerizer";
+
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
         public const string imp = "imp";
@@ -47,6 +49,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ghast = Get(VanillaEnemyNames.ghast);
         public static readonly NamespaceID motherTerror = Get(VanillaEnemyNames.motherTerror);
         public static readonly NamespaceID parasiteTerror = Get(VanillaEnemyNames.parasiteTerror);
+
+        public static readonly NamespaceID mesmerizer = Get(VanillaEnemyNames.mesmerizer);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

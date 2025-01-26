@@ -103,8 +103,15 @@ namespace MVZ2.GameContent.Contraptions
             }
             if (productionTimer.Expired)
             {
-                entity.Produce(VanillaPickupID.redstone);
-                entity.PlaySound(VanillaSoundID.throwSound);
+                if (entity.IsFriendlyEntity())
+                {
+                    entity.Produce(VanillaPickupID.redstone);
+                    entity.PlaySound(VanillaSoundID.throwSound);
+                }
+                else
+                {
+                    entity.Level.AddEnergy(-25);
+                }
                 productionTimer.ResetTime(720);
             }
         }

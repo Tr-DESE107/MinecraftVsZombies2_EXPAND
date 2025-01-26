@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Contraptions
         public Pistenser(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHOT_OFFSET, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
+            AddModifier(new Vector3Modifier(EngineEntityProps.SIZE, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
             detector.ignoreHighEnemy = false;
         }
 

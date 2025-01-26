@@ -133,6 +133,7 @@ namespace MVZ2Logic.Level.Components
         bool IsIlluminated(Entity entity);
         long GetIlluminationLightSourceID(Entity entity);
         IEnumerable<long> GetAllIlluminationLightSources(Entity entity);
+        void GetIlluminatingEntities(Entity entity, HashSet<long> results);
     }
     public interface IArtifactComponent : ILevelComponent
     {

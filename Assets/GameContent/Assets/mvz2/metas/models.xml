@@ -58,6 +58,7 @@
     <model name="mother_terror" type="entity" path="mvz2:enemy/mother_terror" width="108" height="108" xOffset="0" yOffset="-48"/>
     <model name="parasite_terror" type="entity" path="mvz2:enemy/parasite_terror" width="54" height="54" xOffset="0" yOffset="-24"/>
 
+    <model name="mesmerizer" type="entity" path="mvz2:enemy/teruharijou/mesmerizer" width="64" height="116" xOffset="10" yOffset="-64"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/mutant_zombie" width="200" height="200" xOffset="0" yOffset="-100"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/mega_mutant_zombie" width="200" height="200" xOffset="0" yOffset="-100"/>
@@ -174,11 +175,13 @@
     <model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="24"/>
     <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="12"/>
     <model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="8"/>
+    <model name="compelling_orb" type="entity" path="mvz2:projectile/compelling_orb" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="boat_item" type="armor" path="mvz2:armor/boat_item" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="mesmerizer_crown" type="armor" path="mvz2:armor/mesmerizer_crown" width="34" height="40" xOffset="0" yOffset="21"/>
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>

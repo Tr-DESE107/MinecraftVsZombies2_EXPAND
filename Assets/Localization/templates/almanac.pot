@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-24 04:58+0800\n"
+"POT-Creation-Date: 2025-01-26 03:50+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -586,6 +586,49 @@ msgctxt "contraptions.description"
 msgid "<rotate=\"-20\">别乱震啊卧槽！</rotate>"
 msgstr ""
 
+#. Header for contraptions mvz2:tesla_coil
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "磁暴线圈会电击周围大范围内的敌人。"
+msgstr ""
+
+#. Properties for contraptions mvz2:tesla_coil
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"攻击速度：<color=red>3秒</color>\n"
+"伤害：<color=red>80</color>\n"
+"特殊：<color=red>可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>\n"
+"技能：<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:tesla_coil
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "我在玩什么游戏？"
+msgstr ""
+
+#. Header for contraptions mvz2:giant_bowl
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "巨碗能够缓慢生产并存储星之碎片，这些星之碎片只能通过摧毁巨碗取出。"
+msgstr ""
+
+#. Properties for contraptions mvz2:giant_bowl
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"生产速度：<color=red>60秒</color>\n"
+"存储上限：<color=red>5</color>\n"
+"技能：<color=red>向内部存储一颗星之碎片</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:giant_bowl
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "话说这该叫盆了吧？"
+msgstr ""
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -966,6 +1009,28 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "它还没想好自己的网络冷笑话该怎么写。"
+msgstr ""
+
+#. Header for enemies mvz2:mesmerizer
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "催眠者能够精神控制你的器械使其倒戈。杀死催眠者可以解除精神控制。"
+msgstr ""
+
+#. Properties for enemies mvz2:mesmerizer
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+100</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:mesmerizer
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>\n"
+"<color=#F0F>什么催眠？你不要乱说好不好！</color>"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -2033,6 +2098,30 @@ msgctxt "entity.tooltip"
 msgid "触发后震退敌人"
 msgstr ""
 
+#. Header for entity mvz2:tesla_coil
+#: Entity meta file
+msgctxt "entity.name"
+msgid "磁暴线圈"
+msgstr ""
+
+#. Properties for entity mvz2:tesla_coil
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "电击大范围内的敌人"
+msgstr ""
+
+#. Header for entity mvz2:giant_bowl
+#: Entity meta file
+msgctxt "entity.name"
+msgid "巨碗"
+msgstr ""
+
+#. Properties for entity mvz2:giant_bowl
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "生产并储存星之碎片"
+msgstr ""
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -2251,6 +2340,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "恐怖寄生虫 已消灭世界上的所有……"
+msgstr ""
+
+#. Header for entity mvz2:mesmerizer
+#: Entity meta file
+msgctxt "entity.name"
+msgid "催眠者"
+msgstr ""
+
+#. Death message for entity mvz2:mesmerizer
+#: Entity meta file
+msgctxt "death_message"
+msgid "服从凋灵吧"
 msgstr ""
 
 #. Header for entity mvz2:mutant_zombie

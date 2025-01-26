@@ -73,6 +73,16 @@ namespace MVZ2.Level.Components
                     yield return pair.Key;
             }
         }
+        public void GetIlluminatingEntities(Entity entity, HashSet<long> results)
+        {
+            if (lightSourceInfo.TryGetValue(entity.ID, out var info))
+            {
+                foreach (var ent in info.illuminatingEntities)
+                {
+                    results.Add(ent);
+                }
+            }
+        }
         private void UpdateLighting()
         {
             var entities = Level.GetEntities();

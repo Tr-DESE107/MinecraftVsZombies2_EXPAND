@@ -163,6 +163,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2f3ddf82a6251b743b3e647d2f839e64, type: 3}
   - name: mobile_blueprint/mega_mutant_zombie
     sprite: {fileID: 21300000, guid: a06de87c0a73e074abeebac969e592ec, type: 3}
+  - name: mobile_blueprint/mesmerizer
+    sprite: {fileID: 21300000, guid: 56017a37b9eab0d489db5ba250433934, type: 3}
   - name: mobile_blueprint/mine_tnt
     sprite: {fileID: 21300000, guid: 3eeaaee3b5925f349bc67370a4813884, type: 3}
   - name: mobile_blueprint/moonlight_sensor
@@ -309,6 +311,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
   - name: ui/ui_arrow
     sprite: {fileID: 21300000, guid: 410f8ec80407d6e4ab481954c0ce2d49, type: 3}
+  - name: entity/armor/mesmerizer_crown
+    sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - name: entity/boss/gun_fire
     sprite: {fileID: 21300000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
   - name: entity/boss/slenderman
@@ -451,6 +455,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7667a381c5230374d9c5b5a7bf629dd9, type: 3}
   - name: entity/enemies/ghost_tail
     sprite: {fileID: 21300000, guid: 8b9310b7e61da30448b5d9b66c4cf9f3, type: 3}
+  - name: entity/enemies/mesmerizer_head
+    sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
+  - name: entity/enemies/mesmerizer_rod
+    sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
   - name: entity/pickups/almanac_book
     sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: entity/pickups/diamond
@@ -473,6 +481,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ee8a95d990407e34ea9ff1aa13122998, type: 3}
   - name: entity/projectiles/cobble
     sprite: {fileID: 21300000, guid: b619b60be7108ed4fafb8ba9257d68ce, type: 3}
+  - name: entity/projectiles/compelling_orb
+    sprite: {fileID: 21300000, guid: f1e4625420d356e4eb58b79513629607, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
   - name: entity/projectiles/fire_charge
@@ -1336,6 +1346,13 @@ MonoBehaviour:
     - {fileID: 1747900964, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
     - {fileID: 2035029268, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
     - {fileID: -1930513632, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+  - name: entity/enemy/wither_skeleton
+    spritesheet:
+    - {fileID: 21300000, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+    - {fileID: 21300002, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+    - {fileID: 21300004, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+    - {fileID: 21300006, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+    - {fileID: 21300008, guid: 2223b622235c77b41858ab56433232a5, type: 3}
   - name: entity/enemy/zombie
     spritesheet:
     - {fileID: 21300000, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}

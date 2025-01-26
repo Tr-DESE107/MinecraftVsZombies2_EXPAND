@@ -129,8 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abc2d1d73694ef4798b808c036c46ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rendererGroup: {fileID: 3485482240055686899}
-  lightController: {fileID: 2506431363863272896}
   modelAnchors:
   - {fileID: 6266323775592047825}
   - {fileID: 905553599597623908}
@@ -142,6 +140,9 @@ MonoBehaviour:
   onDelayedDestroy:
     m_PersistentCalls:
       m_Calls: []
+  modelCollider: {fileID: 0}
+  rendererGroup: {fileID: 3485482240055686899}
+  lightController: {fileID: 2506431363863272896}
 --- !u!114 &3485482240055686899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,10 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0518633751bb81b40aeb929df85a1a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingGroup: {fileID: 6247621814009837820}
   animators:
   - {fileID: 547804964397208255}
   transforms: []
+  sortingGroup: {fileID: 6247621814009837820}
+  subSortingGroups: []
   renderers: []
   particles: []
 --- !u!1 &6576236377435692889

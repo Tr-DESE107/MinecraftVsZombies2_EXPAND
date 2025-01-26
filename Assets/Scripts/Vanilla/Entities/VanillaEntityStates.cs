@@ -49,6 +49,8 @@
 
         public const int SPIDER_CLIMB = ENEMY_CAST;
 
+        public const int MESMERIZER_CAST = ENEMY_CAST;
+
         public const int MUTANT_ZOMBIE_IDLE = IDLE;
         public const int MUTANT_ZOMBIE_WALK = WALK;
         public const int MUTANT_ZOMBIE_ATTACK = ATTACK;
