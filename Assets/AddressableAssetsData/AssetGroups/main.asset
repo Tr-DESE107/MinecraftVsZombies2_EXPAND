@@ -821,6 +821,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28812d474fb31d6429933250b567c371
+    m_Address: mvz2:entity/skeleton_horse/skeleton_horse3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28a1bd2b08b2bc14a82c730358b3d338
     m_Address: mvz2:entity/wither_skeleton/wither_skeleton_death
     m_ReadOnly: 0
@@ -1224,6 +1230,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 388a6266b2292d34ea34eb9864284d7b
     m_Address: mvz2:dark_skies_cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 389663d0aad9d4b46bf2873962bdd3d8
+    m_Address: mvz2:entity/skeleton_horse/skeleton_horse_death
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -1756,6 +1768,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c5926539a5244c4aaba729490fbbed6
+    m_Address: mvz2:enemy/skeleton_horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark
     m_ReadOnly: 0
@@ -2278,6 +2296,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6423a491a15f75342ad5caf161cf634d
+    m_Address: mvz2:mobile_blueprint/skeleton_horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64951a0026f5ef54bbb28092c064d4ea
     m_Address: mvz2:level/dream/dream_house_cover
     m_ReadOnly: 0
@@ -2469,6 +2493,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fd8c4c1aa016fb4ca753e7d793584a7
+    m_Address: mvz2:horse_gallop4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 700aed4be18069141a38feb57b823f77
     m_Address: mvz2:entity/effect/filled_smoke
@@ -3266,6 +3296,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 920b141a3aa01fa4cade9dd0da5d5b7a
+    m_Address: mvz2:horse_gallop1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 924887d4b0c49ca4a95e462a77626841
     m_Address: mvz2:random/crystal/crystal_place3
@@ -4251,6 +4287,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9619c28f3ceeb8459f0dd1912cf572a
+    m_Address: mvz2:entity/enemy/skeleton_horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9c39bb1453520844927684f519182e9
     m_Address: mvz2:sounds
     m_ReadOnly: 0
@@ -4334,6 +4376,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf5a097a085986e4fbd7a8fe61808df5
+    m_Address: mvz2:entity/skeleton_horse/skeleton_horse1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle
@@ -5403,6 +5451,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef5ee485e90ae3a4cafeb446d07a548c
+    m_Address: mvz2:entity/skeleton_horse/skeleton_horse2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef795c582f7db4c4bb415a889f011de9
     m_Address: mvz2:armor/berserker_helmet
     m_ReadOnly: 0
@@ -5483,6 +5537,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0f372846ca34a64fa85f299b0504928
     m_Address: mvz2:random/grass2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f115be270bd4d9641a0bb207cb5e0cc0
+    m_Address: mvz2:horse_gallop3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -5699,6 +5759,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9e41baad400019469f7019b99199145
     m_Address: mvz2:vortex
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9eab93ceb5a09042947f5dc9d9e80e6
+    m_Address: mvz2:horse_gallop2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound

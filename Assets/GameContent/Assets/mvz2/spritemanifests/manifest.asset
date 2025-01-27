@@ -193,6 +193,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
     sprite: {fileID: 21300000, guid: f8d0d1426f88a6b4bb83eb101121870e, type: 3}
+  - name: mobile_blueprint/skeleton_horse
+    sprite: {fileID: 21300000, guid: 6423a491a15f75342ad5caf161cf634d, type: 3}
   - name: mobile_blueprint/slenderman
     sprite: {fileID: 21300000, guid: 9c37df297dc5c5a47a8448c48eba0204, type: 3}
   - name: mobile_blueprint/small_dispenser
@@ -1342,6 +1344,17 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - {fileID: 21300006, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - {fileID: 21300008, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+  - name: entity/enemy/skeleton_horse
+    spritesheet:
+    - {fileID: 1514677016, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: 161236097, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: -970891008, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: 259435915, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: -1324990429, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: 1414419147, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: -2120333596, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: 971033789, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+    - {fileID: -1137348783, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
   - name: entity/enemy/spider
     spritesheet:
     - {fileID: -939527422, guid: b05d578e666fa614c871c4984041189f, type: 3}

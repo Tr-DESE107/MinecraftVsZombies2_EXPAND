@@ -285,6 +285,12 @@
     <sound name="horse_angry" priority="64">
         <sample path="mvz2:horse_angry" weight="1" />
     </sound>
+    <sound name="horse_gallop">
+        <sample path="mvz2:horse_gallop1" weight="1" />
+        <sample path="mvz2:horse_gallop2" weight="1" />
+        <sample path="mvz2:horse_gallop3" weight="1" />
+        <sample path="mvz2:horse_gallop4" weight="1" />
+    </sound>
     <sound name="huge_wave" priority="64">
         <sample path="mvz2:huge_wave" weight="1" />
     </sound>
@@ -476,6 +482,14 @@
     </sound>
     <sound name="skeleton_death">
         <sample path="mvz2:entity/skeleton/skeleton_death" weight="1" />
+    </sound>
+    <sound name="skeleton_horse_cry">
+        <sample path="mvz2:entity/skeleton_horse/skeleton_horse_cry1" weight="1" />
+        <sample path="mvz2:entity/skeleton_horse/skeleton_horse_cry2" weight="1" />
+        <sample path="mvz2:entity/skeleton_horse/skeleton_horse_cry3" weight="1" />
+    </sound>
+    <sound name="skeleton_horse_death">
+        <sample path="mvz2:entity/skeleton_horse/skeleton_horse_death" weight="1" />
     </sound>
     <sound name="wither_skeleton_cry">
         <sample path="mvz2:entity/wither_skeleton/wither_skeleton1" weight="1" />

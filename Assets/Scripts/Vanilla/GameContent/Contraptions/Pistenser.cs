@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
@@ -19,6 +20,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHOT_OFFSET, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
             AddModifier(new Vector3Modifier(EngineEntityProps.SIZE, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
+            AddModifier(new BooleanModifier(VanillaContraptionProps.BLOCKS_JUMP, PROP_BLOCKS_JUMP));
             detector.ignoreHighEnemy = false;
         }
 
@@ -48,6 +50,7 @@ namespace MVZ2.GameContent.Contraptions
             var extend = GetExtend(entity);
             entity.SetAnimationFloat("Extend", extend);
             entity.SetProperty(PROP_EXTEND_SHOOT_OFFSET, Vector3.up * extend);
+            entity.SetProperty(PROP_BLOCKS_JUMP, extend > 0);
         }
 
         protected override void OnEvoke(Entity entity)
@@ -225,6 +228,7 @@ namespace MVZ2.GameContent.Contraptions
         private static readonly NamespaceID ID = VanillaContraptionID.pistenser;
         public const string PROP_EXTEND = "Extend";
         public const string PROP_EXTEND_SHOOT_OFFSET = "ExtendShootOffset";
+        public const string PROP_BLOCKS_JUMP = "BlocksJump";
         public const float BASE_SHOT_HEIGHT = 30;
         public const float EXTEND_SPEED = 10;
         public const int DETECT_INTERVAL = 8;

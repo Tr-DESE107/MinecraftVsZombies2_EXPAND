@@ -11,6 +11,8 @@
         public const int CONTRAPTION_SPECIAL = 102;
 
         public const int ENEMY_CAST = 200;
+        public const int ENEMY_RUN = 201;
+        public const int ENEMY_SPECIAL = 202;
 
         public const int BOSS_APPEAR = 300;
         public const int BOSS_ATTACK_2 = 301;
@@ -24,7 +26,7 @@
         public const int PICKUP_COLLECTED = 600;
 
 
-
+        // Contraptions
         public const int PUNCHTON_IDLE = IDLE;
         public const int PUNCHTON_PUNCH = ATTACK;
         public const int PUNCHTON_BROKEN = CONTRAPTION_COOLDOWN;
@@ -44,12 +46,16 @@
         public const int TESLA_COIL_IDLE = IDLE;
         public const int TESLA_COIL_ATTACK = ATTACK;
 
-
+        // Enemies
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
         public const int SPIDER_CLIMB = ENEMY_CAST;
 
         public const int MESMERIZER_CAST = ENEMY_CAST;
+
+        public const int SKELETON_HORSE_GALLOP = ENEMY_RUN;
+        public const int SKELETON_HORSE_JUMP = ENEMY_CAST;
+        public const int SKELETON_HORSE_LAND = ENEMY_SPECIAL;
 
         public const int MUTANT_ZOMBIE_IDLE = IDLE;
         public const int MUTANT_ZOMBIE_WALK = WALK;
@@ -57,7 +63,7 @@
         public const int MUTANT_ZOMBIE_THROW = ENEMY_CAST;
         public const int MUTANT_ZOMBIE_DEATH = DEAD;
 
-
+        // Bosses
         public const int FRANKENSTEIN_IDLE = IDLE;
         public const int FRANKENSTEIN_JUMP = WALK;
         public const int FRANKENSTEIN_GUN = ATTACK;

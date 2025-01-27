@@ -50,6 +50,17 @@ namespace MVZ2.Vanilla.Detections
         }
 
         #region X related
+        public static bool IsInFrontOf(Entity self, float x, float rangeStart = 0)
+        {
+            if (self.IsFacingLeft())
+            {
+                return x <= self.Position.x - rangeStart;
+            }
+            else
+            {
+                return x >= self.Position.x + rangeStart;
+            }
+        }
         public static bool IsInFrontOf(Entity self, Entity other, float rangeStart, float rangeLength)
         {
             float nearRange = rangeStart;
@@ -66,14 +77,7 @@ namespace MVZ2.Vanilla.Detections
 
         public static bool IsInFrontOf(Entity self, Entity other, float rangeStart = 0)
         {
-            if (self.IsFacingLeft())
-            {
-                return other.Position.x <= self.Position.x - rangeStart;
-            }
-            else
-            {
-                return other.Position.x >= self.Position.x + rangeStart;
-            }
+            return IsInFrontOf(self, other.Position.x, rangeStart);
         }
 
         public static bool IsXCoincide(float x1, float xLength1, float x2, float xLength2)

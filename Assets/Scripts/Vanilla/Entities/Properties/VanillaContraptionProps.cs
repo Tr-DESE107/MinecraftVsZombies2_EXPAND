@@ -41,6 +41,12 @@ namespace MVZ2.Vanilla.Contraptions
         }
         #endregion
 
+        public const string BLOCKS_JUMP = "blocksJump";
+        public static bool BlocksJump(this Entity contraption)
+        {
+            return contraption.GetProperty<bool>(BLOCKS_JUMP);
+        }
+
         public const string CANNOT_DIG = "cannotDig";
         public static bool CannotDig(this Entity contraption)
         {
