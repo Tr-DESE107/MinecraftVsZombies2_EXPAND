@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Detections;
+﻿using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -21,6 +22,9 @@ namespace MVZ2.GameContent.Detections
         protected override bool ValidateCollider(DetectionParams param, EntityCollider collider)
         {
             if (!base.ValidateCollider(param, collider))
+                return false;
+            var target = collider.Entity;
+            if (target.IsFloor())
                 return false;
             var bounds = collider.GetBoundingBox();
             if (!Detection.IsInFrontOf(param.entity, bounds.center.x))

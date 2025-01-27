@@ -1,5 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic.Models;
+using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
@@ -52,5 +54,57 @@ namespace MVZ2.Vanilla.Entities
             }
             enemy.Velocity = velocity;
         }
+
+        #region 骑乘
+        public static void RideOn(this Entity passenger, Entity horse)
+        {
+            if (passenger == null || horse == null)
+                return;
+            passenger.GetOffPassenger();
+            horse.GetOffHorse();
+
+            var passengerBuff = passenger.AddBuff<RidingPassengerBuff>();
+            RidingPassengerBuff.SetRidingEntity(passengerBuff, horse);
+
+            var horseBuff = horse.AddBuff<BeingRidenBuff>();
+            BeingRidenBuff.SetPassenger(horseBuff, passenger);
+        }
+        public static void GetOffPassenger(this Entity passenger)
+        {
+            if (passenger == null)
+                return;
+            var horse = passenger.GetRidingEntity();
+            if (horse != null)
+            {
+                horse.RemoveBuffs<BeingRidenBuff>();
+            }
+            passenger.RemoveBuffs<RidingPassengerBuff>();
+        }
+        public static void GetOffHorse(this Entity horse)
+        {
+            if (horse == null)
+                return;
+            var passenger = horse.GetRideablePassenger();
+            if (passenger != null)
+            {
+                passenger.RemoveBuffs<RidingPassengerBuff>();
+            }
+            horse.RemoveBuffs<BeingRidenBuff>();
+        }
+        public static Entity GetRidingEntity(this Entity entity)
+        {
+            var buff = entity.GetFirstBuff<RidingPassengerBuff>();
+            if (buff == null)
+                return null;
+            return RidingPassengerBuff.GetRidingEntity(buff);
+        }
+        public static Entity GetRideablePassenger(this Entity entity)
+        {
+            var buff = entity.GetFirstBuff<BeingRidenBuff>();
+            if (buff == null)
+                return null;
+            return BeingRidenBuff.GetPassenger(buff);
+        }
+        #endregion
     }
 }

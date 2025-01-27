@@ -13,6 +13,7 @@
         public const int ENEMY_CAST = 200;
         public const int ENEMY_RUN = 201;
         public const int ENEMY_SPECIAL = 202;
+        public const int ENEMY_SIT = 203;
 
         public const int BOSS_APPEAR = 300;
         public const int BOSS_ATTACK_2 = 301;

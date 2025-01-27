@@ -1097,6 +1097,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 342257987d5162245a6f427eb6e3dc9b
+    m_Address: mvz2:enemy/teruharijou/dullahan_main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 343af9cde9d29df4eb4188060da23847
     m_Address: mvz2:entity/pickups/almanac_book
     m_ReadOnly: 0
@@ -1769,7 +1775,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c5926539a5244c4aaba729490fbbed6
-    m_Address: mvz2:enemy/skeleton_horse
+    m_Address: mvz2:enemy/teruharijou/skeleton_horse
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -1914,6 +1920,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 536be77b316de444c86963d500ad1922
     m_Address: mvz2:icons/dream_key_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53ae426afe3ebb8438ab6c1165ed0448
+    m_Address: mvz2:entity/enemies/stone_sword
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3027,6 +3039,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8866a258ae8eb3e458f9c444ebdba22c
+    m_Address: mvz2:mobile_blueprint/dullahan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8887a1348e7752d4bb4aab022fbc8847
     m_Address: mvz2:mainmenu/view/nightmare
     m_ReadOnly: 0
@@ -3152,6 +3170,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d11feb529f6b9c42b607c5acd5b44f7
+    m_Address: mvz2:enemy/teruharijou/dullahan_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d55b7a649c53f34c914877ea928893e
     m_Address: mvz2:entity/ghast/ghast_death
@@ -3599,6 +3623,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e43064c78598fd4493a1d5c14308edb
     m_Address: mvz2:mobile_blueprint/vortex_hopper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e859336bcdaf054593a5dc4ca4b79ae
+    m_Address: mvz2:mobile_blueprint/dullahan_head
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4521,6 +4551,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5e542b668451eb45987e6cfc2d49ead
+    m_Address: mvz2:entity/enemies/dullahan_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c604f1896c2593b43bf7fd73fcb300ff
     m_Address: mvz2:teruharijou
     m_ReadOnly: 0
@@ -4613,6 +4649,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c98850842ba8ff14f919f63ce5114326
     m_Address: mvz2:ui/level/pickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9bb0408ef5a7624eb4980e99c0c4888
+    m_Address: mvz2:entity/enemies/dullahan_bended_arm
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5306,6 +5348,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eac964fb32d58454ca025c76381a04f6
+    m_Address: mvz2:enemy/teruharijou/dullahan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ead2b534e897e48469cac6037a937e50
     m_Address: mvz2:starshards/halloween

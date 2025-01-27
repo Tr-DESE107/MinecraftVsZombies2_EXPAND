@@ -717,9 +717,19 @@
             <int name="cost" value="150" />
             <int name="waterInteraction" value="2"/>
         </enemy>
-        <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2/:level.teruharijou_3">
+        <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.teruharijou_3">
             <float name="range" value="120"/>
             <float name="speed" value="2"/>
+            <id name="shell" value="mvz2:nether"/>
+            <id name="crySound" value="mvz2:wither_skeleton_cry"/>
+            <id name="hitSound" value="mvz2:bone_hit"/>
+            <id name="deathSound" value="mvz2:wither_skeleton_death"/>
+
+            <int name="cost" value="150" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
+        <enemy id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.teruharijou_6">
+            <float name="maxHealth" value="300"/>
             <id name="shell" value="mvz2:nether"/>
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>
             <id name="hitSound" value="mvz2:bone_hit"/>
@@ -771,6 +781,7 @@
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
             <bool name="harmless" value="true"/>
+            <bool name="notActiveEnemy" value="true"/>
             <bool name="noReward" value="true"/>
             <int name="maxTimeout" value="240"/>
             <float name="friction" value="1"/>
@@ -785,6 +796,7 @@
         </enemy>
         <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……" unlock="mvz2:level.halloween_6">
             <bool name="harmless" value="true"/>
+            <bool name="notActiveEnemy" value="true"/>
             <bool name="noReward" value="true"/>
             <float name="friction" value="0.05"/>
             <float name="maxHealth" value="10000"/>
@@ -801,6 +813,7 @@
             <id name="crySound" value="mvz2:skeleton_horse_cry"/>
             <id name="deathSound" value="mvz2:skeleton_horse_death"/>
             <vector3 name="size" x="56" y="50" z="40"/>
+            <vector3 name="passengerOffset" x="10" y="20" z="-1"/>
 
             <int name="cost" value="75" />
         </enemy>
@@ -1022,6 +1035,7 @@
             <bool name="piercing" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="24" y="24" z="24" />
+            <idArray name="damageEffects" value="mvz2:gold" />
         </projectile>
         <projectile id="compelling_orb">
             <vector3 name="size" x="24" y="24" z="24" />

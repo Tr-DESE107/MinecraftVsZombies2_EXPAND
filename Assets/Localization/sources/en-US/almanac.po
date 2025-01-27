@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 05:48+0800\n"
-"PO-Revision-Date: 2025-01-26 17:56+0800\n"
+"POT-Creation-Date: 2025-01-27 08:51+0800\n"
+"PO-Revision-Date: 2025-01-27 21:00+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1312,6 +1312,36 @@ msgstr ""
 "No one likes Berserkers, they are just a group of madmen who destroy things everywhere. When you hold their accountable, they "
 "recriminate you. When they are driven into a corner, they drag others down.\n"
 "I wish everyone to stay away from such guys in real life."
+
+#. Header for enemies mvz2:dullahan
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的敌人。"
+msgstr ""
+"Dullahan appears with a skeleton horse that can jump over contraptions. Then Dullahan will leave his head, making there 3 different "
+"enemies eventually."
+
+#. Properties for enemies mvz2:dullahan
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>400（马），300（身体），200（头）</color>\n"
+"马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
+"身体速度：<color=red>1</color>\n"
+"头颅速度：<color=red>2</color>\n"
+"弱点：<color=red>无法跳过高器械、金质品</color>"
+msgstr ""
+"Toughness: <color=red>400 (Horse), 300 (Body), 200 (Head)</color>\n"
+"Horse Speed: <color=red>2 (Before jump), 1 (After jump)</color>\n"
+"Body Speed: <color=red>1</color>\n"
+"Head Speed: <color=red>2</color>\n"
+"Weakness: <color=red>Could not jump over high contraptions; Gold things</color>"
+
+#. Flavor for enemies mvz2:dullahan
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "因为无头骑士总是喜欢在写文章的时候把开头擦掉。"
+msgstr "Because it always writes without the heading."
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -2750,6 +2780,18 @@ msgctxt "death_message"
 msgid "爆！"
 msgstr "BOOOOOOM!"
 
+#. Header for entity mvz2:dullahan
+#: Entity meta file
+msgctxt "entity.name"
+msgid "无头骑士"
+msgstr "Dullahan"
+
+#. Death message for entity mvz2:dullahan
+#: Entity meta file
+msgctxt "death_message"
+msgid "真让人摸不着头脑。"
+msgstr "That's over my head."
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -2803,6 +2845,30 @@ msgstr "Napstablook"
 msgctxt "death_message"
 msgid "抱歉……我不是有意这么做的……"
 msgstr "Sorry...I didn't mean to do this..."
+
+#. Header for entity mvz2:skeleton_horse
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骷髅马"
+msgstr "Skeleton Horse"
+
+#. Death message for entity mvz2:skeleton_horse
+#: Entity meta file
+msgctxt "death_message"
+msgid "死因：死马"
+msgstr "Juan."
+
+#. Header for entity mvz2:dullahan_head
+#: Entity meta file
+msgctxt "entity.name"
+msgid "无头骑士的头"
+msgstr "Dullahan's Head"
+
+#. Death message for entity mvz2:dullahan_head
+#: Entity meta file
+msgctxt "death_message"
+msgid "吾头在否？！"
+msgstr "Is my head still here?!"
 
 #. Header for entity mvz2:gargoyle_statue
 #: Entity meta file

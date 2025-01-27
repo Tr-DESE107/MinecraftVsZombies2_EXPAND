@@ -1,5 +1,6 @@
 ﻿using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -19,6 +20,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PrePlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultBoolean cancel);
         public delegate void PostPlaceEntity(LawnGrid grid, Entity entity);
         public delegate void PostUseEntityBlueprint(SeedPack blueprint, Entity entity);
+        public delegate void PostEntityCharm(Entity entity, Buff buff);
 
         public delegate void PostContraptionTrigger(Entity entity);
         public delegate void PostContraptionEvoke(Entity entity);
@@ -51,6 +53,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<PrePlaceEntity> PRE_PLACE_ENTITY = new();
         public readonly static CallbackReference<PostPlaceEntity> POST_PLACE_ENTITY = new();
         public readonly static CallbackReference<PostUseEntityBlueprint> POST_USE_ENTITY_BLUEPRINT = new();
+        public readonly static CallbackReference<PostEntityCharm> POST_ENTITY_CHARM = new();
 
         public readonly static CallbackReference<PostContraptionTrigger> POST_CONTRAPTION_TRIGGER = new();
         public readonly static CallbackReference<PostContraptionEvoke> POST_CONTRAPTION_EVOKE = new();

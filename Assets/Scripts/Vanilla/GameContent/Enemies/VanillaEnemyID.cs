@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Enemies
 
         public const string mesmerizer = "mesmerizer";
         public const string berserker = "berserker";
+        public const string dullahan = "dullahan";
 
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
@@ -55,6 +56,7 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly NamespaceID mesmerizer = Get(VanillaEnemyNames.mesmerizer);
         public static readonly NamespaceID berserker = Get(VanillaEnemyNames.berserker);
+        public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

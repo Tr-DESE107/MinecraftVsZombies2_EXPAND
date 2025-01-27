@@ -311,6 +311,8 @@ namespace MVZ2.Models
         {
             foreach (var anchor in modelAnchors)
             {
+                if (anchor == null)
+                    continue;
                 if (anchor.key == name)
                     return anchor;
             }

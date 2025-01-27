@@ -61,6 +61,10 @@ namespace MVZ2.GameContent.Buffs
         public const string forcePadDrag = "force_pad_frag";
         public const string redstoneCarrier = "redstone_carrier";
         public const string nightmareComeTrue = "nightmare_come_true";
+
+        public const string beingRiden = "being_riden";
+        public const string ridingPassenger = "riding_passenger";
+        public const string passengerEnterHouse = "passenger_enter_house";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string thunderLightFadeout = "thunder_light_fadeout";
@@ -140,6 +144,8 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.forcePadDrag);
         public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.stoneShieldProtected);
         public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.glowstoneProtected);
+
+        public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

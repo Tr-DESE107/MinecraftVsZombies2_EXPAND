@@ -110,6 +110,13 @@ namespace MVZ2.GameContent.Contraptions
                 vel.y = 15;
                 target.Velocity = vel;
                 target.RandomChangeAdjacentLane(self.RNG);
+
+                var passenger = target.GetRideablePassenger();
+                if (passenger != null)
+                {
+                    passenger.Stun(90);
+                    target.GetOffHorse();
+                }
             }
             self.Level.ShakeScreen(15, 0, 30);
             self.PlaySound(VanillaSoundID.lightningAttack);

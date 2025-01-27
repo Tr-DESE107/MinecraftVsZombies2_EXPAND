@@ -294,14 +294,27 @@ namespace MVZ2.Level
         {
             if (isGameOver)
             {
-                if (killerEntity)
+                var killerCtrl = killerEntity;
+                if (killerCtrl)
                 {
-                    var pos = killerEntity.Entity.Position;
+                    var killerEnt = killerCtrl.Entity;
+                    var pos = killerEnt.Position;
                     pos.x -= 1;
                     pos.z = pos.z * 0.5f + level.GetDoorZ() * 0.5f;
                     pos.y = pos.y * 0.5f + level.GetGroundY(pos.x, pos.z) * 0.5f;
-                    killerEntity.Entity.Position = pos;
-                    killerEntity.UpdateFixed();
+                    killerEnt.Position = pos;
+                    killerCtrl.UpdateFixed();
+
+                    var passenger = killerEnt.GetRideablePassenger();
+                    if (passenger != null)
+                    {
+                        passenger.Position = pos + killerEnt.GetPassengerOffset();
+                        var passengerCtrl = GetEntityController(passenger);
+                        if (passengerCtrl)
+                        {
+                            passengerCtrl.UpdateFixed();
+                        }
+                    }
                 }
                 foreach (var entity in entities.ToArray())
                 {
@@ -368,7 +381,7 @@ namespace MVZ2.Level
                 if (isGameOver)
                 {
                     // 如果游戏结束，则只有在实体是杀死玩家的实体，或者在游戏结束后能行动时，才会动起来。
-                    modelActive = CanUpdateAfterGameOver(entity.Entity) || entity == killerEntity;
+                    modelActive = CanUpdateAfterGameOver(entity.Entity) || entity == killerEntity || entity.Entity == killerEntity.Entity.GetRideablePassenger();
                 }
                 else
                 {

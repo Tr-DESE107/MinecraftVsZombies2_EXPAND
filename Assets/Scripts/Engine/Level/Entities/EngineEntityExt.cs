@@ -61,6 +61,10 @@ namespace PVZEngine.Entities
             }
             return false;
         }
+        public static bool ExistsAndAlive(this Entity entity)
+        {
+            return entity != null && entity.Exists() && !entity.IsDead;
+        }
     }
     public enum FactionTarget
     {

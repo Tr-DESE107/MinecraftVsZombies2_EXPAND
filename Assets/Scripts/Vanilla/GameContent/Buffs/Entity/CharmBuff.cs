@@ -1,4 +1,6 @@
 ﻿using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -27,12 +29,66 @@ namespace MVZ2.GameContent.Buffs
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            var faction = buff.GetProperty<int>(PROP_FACTION);
-            var faceRight = faction == buff.Level.Option.LeftFaction;
+
+            var mode = buff.GetProperty<int>(PROP_MODE);
+            int targetFaction = buff.GetProperty<int>(PROP_FACTION);
+            if (mode == CharmModes.SOURCE)
+            {
+                var sourceID = buff.GetProperty<EntityID>(PROP_SOURCE);
+                var source = sourceID?.GetEntity(buff.Level);
+                if (source == null || !source.Exists() || source.IsDead)
+                {
+                    entity.PlaySound(VanillaSoundID.mindClear);
+                    buff.Remove();
+                    return;
+                }
+                else
+                {
+                    targetFaction = source.GetFaction();
+                    buff.SetProperty(PROP_FACTION, targetFaction);
+                }
+            }
+
+
+            var faceRight = targetFaction == buff.Level.Option.LeftFaction;
             var xScale = entity.FaceLeftAtDefault() == faceRight ? -1 : 1;
             buff.SetProperty(PROP_SIZE_MULTIPLIER, new Vector3(xScale, 1, 1));
         }
+
+        public static void SetPermanent(Buff buff, int faction)
+        {
+            buff.SetProperty(PROP_MODE, CharmModes.PERMANENT);
+            buff.SetProperty(PROP_FACTION, faction);
+        }
+        public static void SetSource(Buff buff, Entity source)
+        {
+            buff.SetProperty(PROP_MODE, CharmModes.SOURCE);
+            buff.SetProperty(PROP_SOURCE, new EntityID(source));
+        }
+        public static void CloneCharm(Buff buff, Entity target)
+        {
+            var targetBuff = target.GetFirstBuff<CharmBuff>();
+            if (targetBuff == null)
+            {
+                targetBuff = target.AddBuff<CharmBuff>();
+            }
+            targetBuff.SetProperty(PROP_MODE, buff.GetProperty<int>(PROP_MODE));
+            targetBuff.SetProperty(PROP_FACTION, buff.GetProperty<int>(PROP_FACTION));
+            var oldSource = buff.GetProperty<EntityID>(PROP_SOURCE);
+            var newSource = oldSource != null ? new EntityID(oldSource.ID) : null;
+            targetBuff.SetProperty(PROP_SOURCE, newSource);
+        }
+
+        public const string PROP_MODE = "Mode";
         public const string PROP_FACTION = "Faction";
         public const string PROP_SIZE_MULTIPLIER = "SizeMultiplier";
+        public const string PROP_SOURCE = "Source";
+    }
+
+    public static class CharmModes
+    {
+        public const int PERMANENT = 0;
+        public const int SOURCE = 1;
+        public const int TIMEOUT = 2;
     }
 }

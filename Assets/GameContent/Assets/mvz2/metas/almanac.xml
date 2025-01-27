@@ -770,6 +770,21 @@
                 <p>奉劝各位在现实生活中离这种人远一点。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:dullahan">
+            <header>
+                <p>无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的敌人。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>400（马），300（身体），200（头）</color>]]></p>
+                <p>马速度：<![CDATA[<color=red>2（跳跃前），1（跳跃后）</color>]]></p>
+                <p>身体速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>头颅速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>无法跳过高器械、金质品</color>]]></p>
+            </properties>
+            <flavor>
+                <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

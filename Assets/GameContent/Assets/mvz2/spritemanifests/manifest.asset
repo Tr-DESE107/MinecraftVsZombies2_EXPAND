@@ -129,6 +129,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4b5d435139279434d9a7cc073987d99f, type: 3}
   - name: mobile_blueprint/drivenser
     sprite: {fileID: 21300000, guid: dc3f43337866cef4c94af92af1159b8f, type: 3}
+  - name: mobile_blueprint/dullahan
+    sprite: {fileID: 21300000, guid: 8866a258ae8eb3e458f9c444ebdba22c, type: 3}
   - name: mobile_blueprint/dullahan_head
     sprite: {fileID: 21300000, guid: 9e859336bcdaf054593a5dc4ca4b79ae, type: 3}
   - name: mobile_blueprint/flag_zombie
@@ -461,6 +463,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f5471f5e7879eec41accb98281bd3d2c, type: 3}
   - name: entity/enemies/bow_texture
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
+  - name: entity/enemies/dullahan_bended_arm
+    sprite: {fileID: 21300000, guid: c9bb0408ef5a7624eb4980e99c0c4888, type: 3}
   - name: entity/enemies/dullahan_head
     sprite: {fileID: 21300000, guid: c5e542b668451eb45987e6cfc2d49ead, type: 3}
   - name: entity/enemies/ghost_headwear
@@ -473,6 +477,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
   - name: entity/enemies/mesmerizer_rod
     sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
+  - name: entity/enemies/stone_sword
+    sprite: {fileID: 21300000, guid: 53ae426afe3ebb8438ab6c1165ed0448, type: 3}
   - name: entity/pickups/almanac_book
     sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: entity/pickups/diamond
