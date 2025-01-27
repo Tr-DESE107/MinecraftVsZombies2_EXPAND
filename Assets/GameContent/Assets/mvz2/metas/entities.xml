@@ -800,9 +800,19 @@
             <id name="shell" value="mvz2:bone"/>
             <id name="crySound" value="mvz2:skeleton_horse_cry"/>
             <id name="deathSound" value="mvz2:skeleton_horse_death"/>
+            <vector3 name="size" x="56" y="50" z="40"/>
 
             <int name="cost" value="75" />
-            <int name="waterInteraction" value="2"/>
+        </enemy>
+        <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.teruharijou_6">
+            <float name="speed" value="2"/>
+            <id name="shell" value="mvz2:nether"/>
+            <id name="crySound" value="mvz2:wither_skeleton_cry"/>
+            <id name="hitSound" value="mvz2:bone_hit"/>
+            <id name="deathSound" value="mvz2:wither_skeleton_death"/>
+            <vector3 name="size" x="32" y="22" z="32"/>
+
+            <int name="cost" value="50" />
         </enemy>
 
         <!-- Obstacles -->

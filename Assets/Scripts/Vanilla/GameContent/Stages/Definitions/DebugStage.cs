@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.obsidian,
-                VanillaEnemyID.spider,
+                VanillaEnemyID.dullahanHead,
                 VanillaEnemyID.skeletonHorse,
             });
             level.SetArtifactSlotCount(3);

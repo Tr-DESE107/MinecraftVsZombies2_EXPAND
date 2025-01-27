@@ -129,6 +129,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4b5d435139279434d9a7cc073987d99f, type: 3}
   - name: mobile_blueprint/drivenser
     sprite: {fileID: 21300000, guid: dc3f43337866cef4c94af92af1159b8f, type: 3}
+  - name: mobile_blueprint/dullahan_head
+    sprite: {fileID: 21300000, guid: 9e859336bcdaf054593a5dc4ca4b79ae, type: 3}
   - name: mobile_blueprint/flag_zombie
     sprite: {fileID: 21300000, guid: 4756509eba10d744bb3323a794303f92, type: 3}
   - name: mobile_blueprint/force_pad
@@ -459,6 +461,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f5471f5e7879eec41accb98281bd3d2c, type: 3}
   - name: entity/enemies/bow_texture
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
+  - name: entity/enemies/dullahan_head
+    sprite: {fileID: 21300000, guid: c5e542b668451eb45987e6cfc2d49ead, type: 3}
   - name: entity/enemies/ghost_headwear
     sprite: {fileID: 21300000, guid: 7667a381c5230374d9c5b5a7bf629dd9, type: 3}
   - name: entity/enemies/ghost_tail
