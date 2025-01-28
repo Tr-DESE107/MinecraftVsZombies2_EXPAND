@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             buff.SetProperty(PROP_TIMEOUT, timeout);
 
             var comp = Mathf.Cos(Mathf.Deg2Rad * timeout * 24) * 0.25f + 0.5f;
-            var tint = new Color(comp, comp, comp, 1);
+            var tint = new Color(comp, 0, 0, 1);
             buff.SetProperty(PROP_TINT, tint);
 
             if (timeout <= 0)

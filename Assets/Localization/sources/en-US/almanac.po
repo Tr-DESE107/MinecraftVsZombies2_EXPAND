@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-27 08:51+0800\n"
-"PO-Revision-Date: 2025-01-27 21:00+0800\n"
+"POT-Creation-Date: 2025-01-28 09:07+0800\n"
+"PO-Revision-Date: 2025-01-28 21:09+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1269,10 +1269,12 @@ msgstr "Mesmerizers can mind-control your contraptions to make them switch sides
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+100</color>\n"
-"速度：<color=red>1</color>"
+"速度：<color=red>1</color>\n"
+"弱点：<color=red>荧石周围的器械无法被控制</color>"
 msgstr ""
 "Toughness: <color=red>200+100</color>\n"
-"Speed: <color=red>1</color>"
+"Speed: <color=red>1</color>\n"
+"Weakness: <color=red>Could not mind control contraptions near Glowstone</color>"
 
 #. Flavor for enemies mvz2:mesmerizer
 #: Almanac meta file
@@ -2792,6 +2794,18 @@ msgctxt "death_message"
 msgid "真让人摸不着头脑。"
 msgstr "That's over my head."
 
+#. Header for entity mvz2:hell_chariot
+#: Entity meta file
+msgctxt "entity.name"
+msgid "地狱战车"
+msgstr "Hell Chariot"
+
+#. Death message for entity mvz2:hell_chariot
+#: Entity meta file
+msgctxt "death_message"
+msgid "我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
+msgstr "All we had to do, was follow the damn train, Steve!"
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -3091,6 +3105,14 @@ msgstr "Dark Matter"
 msgctxt "artifact.tooltip"
 msgid "器械生产效率×200%，但场景变得黑暗"
 msgstr "x200% contraption produce speed, but the battlefield is pitch black"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>200+100</color>\n"
+#~ "速度：<color=red>1</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>200+100</color>\n"
+#~ "Speed: <color=red>1</color>"
 
 #~ msgctxt "artifact.tooltip"
 #~ msgid "战斗开始时获得一个星之碎片"

@@ -155,6 +155,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 55c4fb06ca097e24eaa9171673390143, type: 3}
   - name: mobile_blueprint/gravity_pad
     sprite: {fileID: 21300000, guid: b362171cd0a32824e9b3ac7c42f24dd7, type: 3}
+  - name: mobile_blueprint/hell_chariot
+    sprite: {fileID: 21300000, guid: b9be44ffa4015754eaf65066f0522ab8, type: 3}
   - name: mobile_blueprint/infectenser
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/iron_helmetted_zombie
@@ -1282,6 +1284,30 @@ MonoBehaviour:
     - {fileID: 1603489236, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
     - {fileID: -786789113, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
     - {fileID: -471910337, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
+  - name: entity/enemy/hell_chariot
+    spritesheet:
+    - {fileID: -871321623, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1615551263, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -914027420, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -563538090, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -958869249, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1562427276, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1189656442, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 765416115, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -597705717, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1152507765, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 687968501, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -288904361, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1869730344, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1323014741, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1207663936, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1650585276, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1905601455, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1193850301, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1333508399, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1223060804, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: 1724208358, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
+    - {fileID: -1594074141, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - name: entity/enemy/mother_terror
     spritesheet:
     - {fileID: -105107332, guid: 614ed32a96b18ee45b196d855175f379, type: 3}

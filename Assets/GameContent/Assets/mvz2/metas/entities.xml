@@ -384,6 +384,7 @@
             <vector3 name="size" x="64" y="16" z="64"/>
             <idArray name="gridLayers" value="mvz2:carrier mvz2:main"/>
             <idArray name="attackerFor" value="mvz2:low_enemy"/>
+            <int name="vehicleInteraction" value="1"/>
 
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
@@ -441,6 +442,7 @@
             <id name="shell" value="mvz2:metal"/>
             <id name="placeSound" value="mvz2:tesla_construction"/>
             <id name="deathSound" value="mvz2:tesla_destroy"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy"/>
             <vector3 name="size" x="36" y="100" z="36"/>
 
             <int name="cost" value="175" />
@@ -518,6 +520,7 @@
             <id name="upgradeFrom" value="mvz2:spike_block"/>
             <id name="placement" value="mvz2:upgrade"/>
             <float name="takenCrushDamage" value="300"/>
+            <int name="vehicleInteraction" value="1"/>
 
             <id name="placeSound" value="mvz2:crystal_place"/>
             <id name="deathSound" value="mvz2:crystal_break"/>
@@ -738,6 +741,18 @@
             <int name="cost" value="150" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+        <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！" unlock="mvz2:level.teruharijou_8">
+            <float name="maxHealth" value="1350"/>
+            <id name="fragmentId" value="mvz2:hell_chariot"/>
+            <id name="shell" value="mvz2:stone"/>
+            <id name="crySound" value="mvz2:wither_skeleton_cry"/>
+            <id name="deathSound" value="mvz2:large_explosion"/>
+            <int name="vehicleInteraction" value="2"/>
+            <bool name="undead" value="false"/>
+            <vector3 name="size" x="130" y="70" z="40"/>
+
+            <int name="cost" value="200" />
+        </enemy>
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <float name="maxHealth" value="3000"/>
@@ -749,6 +764,7 @@
             <id name="deathSound" value="mvz2:mutant_death"/>
             <float name="takenCrushDamage" value="900"/>
             <bool name="immuneVortex" value="true"/>
+            <int name="vehicleInteraction" value="2"/>
 
             <vector3 name="shadowScale" x="2" y="2" z="1"/>
 
@@ -765,6 +781,7 @@
             <id name="deathSound" value="mvz2:mutant_death"/>
             <float name="takenCrushDamage" value="900"/>
             <bool name="immuneVortex" value="true"/>
+            <int name="vehicleInteraction" value="2"/>
 
             <vector3 name="shadowScale" x="2" y="2" z="1"/>
 

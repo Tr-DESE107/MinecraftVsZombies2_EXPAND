@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-27 08:51+0800\n"
+"POT-Creation-Date: 2025-01-28 09:07+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1022,7 +1022,8 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+100</color>\n"
-"速度：<color=red>1</color>"
+"速度：<color=red>1</color>\n"
+"弱点：<color=red>荧石周围的器械无法被控制</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:mesmerizer
@@ -2422,6 +2423,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "真让人摸不着头脑。"
+msgstr ""
+
+#. Header for entity mvz2:hell_chariot
+#: Entity meta file
+msgctxt "entity.name"
+msgid "地狱战车"
+msgstr ""
+
+#. Death message for entity mvz2:hell_chariot
+#: Entity meta file
+msgctxt "death_message"
+msgid "我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
 msgstr ""
 
 #. Header for entity mvz2:mutant_zombie

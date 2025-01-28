@@ -163,8 +163,6 @@ namespace MVZ2.GameContent.Enemies
         public const string FIELD_GALLOP_SOUND_TIME = "GallopSoundTime";
         public const string FIELD_JUMP_STATE = "JumpState";
         public const string FIELD_LAND_TIMER = "LandTimer";
-        public const string FIELD_HORSE = "Horse";
-        public const string FIELD_PASSENGER = "Passenger";
         public const string PROP_SPEED_MULTIPLIER = "SpeedMultiplier";
         public const int GALLOP_SOUND_INTERVAL = 15;
         public const int JUMP_STATE_NONE = 0;

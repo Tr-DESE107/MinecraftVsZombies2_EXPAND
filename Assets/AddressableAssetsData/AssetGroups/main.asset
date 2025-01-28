@@ -2625,6 +2625,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77368c50d8aca2e4f81857daf8321e25
+    m_Address: mvz2:large_explosion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77a624db6fcfb1240a49f8d8130aedbe
     m_Address: mvz2:piston_out
     m_ReadOnly: 0
@@ -4077,6 +4083,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0a9828998f854a41ab899af5c9cc3d7
+    m_Address: mvz2:enemy/teruharijou/hell_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0dadde6313f7754d883172449da1188
     m_Address: mvz2:mainmenuviews
     m_ReadOnly: 0
@@ -4323,6 +4335,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9be44ffa4015754eaf65066f0522ab8
+    m_Address: mvz2:mobile_blueprint/hell_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9c39bb1453520844927684f519182e9
     m_Address: mvz2:sounds
     m_ReadOnly: 0
@@ -4505,6 +4523,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c382f6ef6a4cfc54e81d2ebfbc75de10
     m_Address: mvz2:talk/dialog_item_show
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c39134b3c0baf9e4f82b02bb2bd0274a
+    m_Address: mvz2:train_travel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -4766,6 +4790,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ceec15b71aff0eb4e83a89a84d1bf886
+    m_Address: mvz2:train_whistle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf07278ba3ead524cbc99190282cd556
     m_Address: mvz2:enemy/mummy
@@ -5060,6 +5090,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db4a7538480f6ac45bd2ed7e224f0bb5
+    m_Address: mvz2:entity/enemy/hell_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: mvz2:entity/zombie/zombie_cry2

@@ -750,6 +750,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200+100</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>荧石周围的器械无法被控制</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>]]></p>

@@ -159,4 +159,12 @@
             <key hex="#30C6C6" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="hell_chariot">
+        <colorKeys>
+            <key hex="#24232B" time="0.25"/>
+            <key hex="#161112" time="0.5"/>
+            <key hex="#46262C" time="0.75"/>
+            <key hex="#381A1F" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

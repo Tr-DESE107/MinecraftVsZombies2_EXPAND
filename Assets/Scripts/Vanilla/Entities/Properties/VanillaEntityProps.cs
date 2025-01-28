@@ -77,6 +77,14 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 车辆
+        public const string VEHICLE_INTERACTION = "vehicleInteraction";
+        public static int GetVehicleInteraction(this Entity entity)
+        {
+            return entity.GetProperty<int>(VEHICLE_INTERACTION);
+        }
+        #endregion
+
         #region 虚无
         public const string ETHEREAL = "ethereal";
         public static bool IsEthereal(this Entity entity)

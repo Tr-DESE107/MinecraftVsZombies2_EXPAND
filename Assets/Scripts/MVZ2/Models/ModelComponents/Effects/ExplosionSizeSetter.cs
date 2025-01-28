@@ -25,10 +25,10 @@ namespace MVZ2.Models
             var smokeMain = smokePs.main;
 
             explosionShape.scale = size;
-            explosionParticles.Emit(explosionParticleCount * volume);
+            explosionParticles.Emit(explosionParticleCount * volume + additionExplosionParticles);
 
             smokeMain.startSpeedMultiplier = maxRadius * smokeSpeedMultiplier;
-            smokeParticles.Emit(smokeParticleCount * volume);
+            smokeParticles.Emit(smokeParticleCount * volume + additionSmokeParticles);
         }
         [SerializeField]
         private ParticlePlayer explosionParticles;
@@ -38,6 +38,10 @@ namespace MVZ2.Models
         private float explosionParticleCount = 5;
         [SerializeField]
         private float smokeParticleCount = 5;
+        [SerializeField]
+        private float additionExplosionParticles = 10;
+        [SerializeField]
+        private float additionSmokeParticles = 10;
         [SerializeField]
         private float smokeSpeedMultiplier = 0.5f;
         public const string PROP_EMITTED = "Emitted";

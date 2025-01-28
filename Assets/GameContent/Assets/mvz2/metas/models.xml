@@ -61,6 +61,7 @@
     <model name="mesmerizer" type="entity" path="mvz2:enemy/teruharijou/mesmerizer" width="64" height="116" xOffset="10" yOffset="-64"/>
     <model name="berserker" type="entity" path="mvz2:enemy/teruharijou/berserker" width="64" height="100" xOffset="10" yOffset="-46"/>
     <model name="dullahan" type="entity" path="mvz2:enemy/teruharijou/dullahan" width="94" height="120" xOffset="9" yOffset="-53"/>
+    <model name="hell_chariot" type="entity" path="mvz2:enemy/teruharijou/hell_chariot" width="152" height="120" xOffset="9" yOffset="-60"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>

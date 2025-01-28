@@ -301,6 +301,9 @@
     <sound name="iron_curtain">
         <sample path="mvz2:iron_curtain" weight="1" />
     </sound>
+    <sound name="large_explosion">
+        <sample path="mvz2:large_explosion" weight="1" />
+    </sound>
     <sound name="launch">
         <sample path="mvz2:launch" weight="1" />
     </sound>
@@ -605,6 +608,12 @@
         <sample path="mvz2:random/thunder1" weight="1" />
         <sample path="mvz2:random/thunder2" weight="1" />
         <sample path="mvz2:random/thunder3" weight="1" />
+    </sound>
+    <sound name="train_travel">
+        <sample path="mvz2:train_travel" weight="1" />
+    </sound>
+    <sound name="train_whistle" maxCount="1">
+        <sample path="mvz2:train_whistle" weight="1" />
     </sound>
     <sound name="travel" priority="64">
         <sample path="mvz2:travel" weight="1" />

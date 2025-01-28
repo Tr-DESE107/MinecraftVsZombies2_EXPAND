@@ -20,7 +20,6 @@ using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -40,9 +39,12 @@ namespace MVZ2.Vanilla.Entities
         #region 伤害和血量
         public static int GetHealthState(this Entity entity, int stateCount)
         {
-            float maxHP = entity.GetMaxHealth();
-            float stateHP = maxHP / stateCount;
-            return Mathf.CeilToInt(entity.Health / stateHP) - 1;
+            return GetHealthState(entity.Health, entity.GetMaxHealth(), stateCount);
+        }
+        public static int GetHealthState(float health, float maxHealth, int stateCount)
+        {
+            float stateHP = maxHealth / stateCount;
+            return Mathf.CeilToInt(health / stateHP) - 1;
         }
         public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, bool toBody = true, bool toShield = false)
         {
