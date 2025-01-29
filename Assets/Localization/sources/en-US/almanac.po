@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 09:07+0800\n"
-"PO-Revision-Date: 2025-01-28 21:09+0800\n"
+"POT-Creation-Date: 2025-01-29 07:18+0800\n"
+"PO-Revision-Date: 2025-01-29 19:44+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1344,6 +1344,67 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "因为无头骑士总是喜欢在写文章的时候把开头擦掉。"
 msgstr "Because it always writes without the heading."
+
+#. Header for enemies mvz2:hell_chariot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的灵魂沙王。"
+msgstr "Hell Chariot will crush all contraptions on its path. It also releases Anubisand from the coffin after being destroyed."
+
+#. Properties for enemies mvz2:hell_chariot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>1350，低于200时每秒失去60生命值</color>\n"
+"速度：<color=red>1</color>\n"
+"碾压伤害：<color=red>10000000</color>\n"
+"弱点：<color=red>尖刺方块</color>"
+msgstr ""
+"Toughness: <color=red>1350, loses 60/s while under 200</color>\n"
+"Speed: <color=red>1</color>\n"
+"Crush Damage: <color=red>10000000</color>\n"
+"Weakness: <color=red>Spike Block</color>"
+
+#. Flavor for enemies mvz2:hell_chariot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"地狱战车的司机怎么一脸不情愿的样子？\n"
+"呃，准确地说，那不是司机，那是不小心坐上去，然后被黏住的一个倒霉蛋。"
+msgstr ""
+"Why does the driver of Hell Chariot look unwilling?\n"
+"Uh, to be precise, that's not the driver, that's an unlucky guy who accidentally got stuck on it."
+
+#. Header for enemies mvz2:anubisand
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "灵魂沙王飞在空中，不时向下方召唤阻挡子弹的灵魂沙。"
+msgstr "Anubisand flies in the air, it summons Soulsand to the below to block your bullets."
+
+#. Properties for enemies mvz2:anubisand
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>1</color>\n"
+"灵魂沙生命：<color=red>300</color>\n"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Speed: <color=red>1</color>\n"
+"Soulsand Toughness: <color=red>300</color>\n"
+"Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
+
+#. Flavor for enemies mvz2:anubisand
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"其实他用来审判罪行的天平已经坏了很久了，它常放羽毛的那一端比较重一些。\n"
+"不过他自己不知道，也没有多少人知道——知道的也没人敢告诉他就是了。"
+msgstr ""
+"The scale he uses to judge crimes has actually been broken for a long time. It's ever-so-slightly heavier on the pan where feathers "
+"are often placed.\n"
+"But he doesn't know this, nor many others—and those who do wouldn't dare tell him anyways."
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -2806,6 +2867,18 @@ msgctxt "death_message"
 msgid "我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
 msgstr "All we had to do, was follow the damn train, Steve!"
 
+#. Header for entity mvz2:anubisand
+#: Entity meta file
+msgctxt "entity.name"
+msgid "灵魂沙王"
+msgstr "Anubisand"
+
+#. Death message for entity mvz2:anubisand
+#: Entity meta file
+msgctxt "death_message"
+msgid "别把头埋在沙子里！"
+msgstr "Don't bury your head in the sand!"
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -2883,6 +2956,18 @@ msgstr "Dullahan's Head"
 msgctxt "death_message"
 msgid "吾头在否？！"
 msgstr "Is my head still here?!"
+
+#. Header for entity mvz2:soulsand
+#: Entity meta file
+msgctxt "entity.name"
+msgid "灵魂沙"
+msgstr "Soulsand"
+
+#. Death message for entity mvz2:soulsand
+#: Entity meta file
+msgctxt "death_message"
+msgid "你被埋了？"
+msgstr "You are buried?"
 
 #. Header for entity mvz2:gargoyle_statue
 #: Entity meta file

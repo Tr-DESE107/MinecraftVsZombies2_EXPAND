@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-28 09:07+0800\n"
+"POT-Creation-Date: 2025-01-29 07:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1078,6 +1078,54 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "因为无头骑士总是喜欢在写文章的时候把开头擦掉。"
+msgstr ""
+
+#. Header for enemies mvz2:hell_chariot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的灵魂沙王。"
+msgstr ""
+
+#. Properties for enemies mvz2:hell_chariot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>1350，低于200时每秒失去60生命值</color>\n"
+"速度：<color=red>1</color>\n"
+"碾压伤害：<color=red>10000000</color>\n"
+"弱点：<color=red>尖刺方块</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:hell_chariot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"地狱战车的司机怎么一脸不情愿的样子？\n"
+"呃，准确地说，那不是司机，那是不小心坐上去，然后被黏住的一个倒霉蛋。"
+msgstr ""
+
+#. Header for enemies mvz2:anubisand
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "灵魂沙王飞在空中，不时向下方召唤阻挡子弹的灵魂沙。"
+msgstr ""
+
+#. Properties for enemies mvz2:anubisand
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>1</color>\n"
+"灵魂沙生命：<color=red>300</color>\n"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:anubisand
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"其实他用来审判罪行的天平已经坏了很久了，它常放羽毛的那一端比较重一些。\n"
+"不过他自己不知道，也没有多少人知道——知道的也没人敢告诉他就是了。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -2437,6 +2485,18 @@ msgctxt "death_message"
 msgid "我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
 msgstr ""
 
+#. Header for entity mvz2:anubisand
+#: Entity meta file
+msgctxt "entity.name"
+msgid "灵魂沙王"
+msgstr ""
+
+#. Death message for entity mvz2:anubisand
+#: Entity meta file
+msgctxt "death_message"
+msgid "别把头埋在沙子里！"
+msgstr ""
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -2513,6 +2573,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "吾头在否？！"
+msgstr ""
+
+#. Header for entity mvz2:soulsand
+#: Entity meta file
+msgctxt "entity.name"
+msgid "灵魂沙"
+msgstr ""
+
+#. Death message for entity mvz2:soulsand
+#: Entity meta file
+msgctxt "death_message"
+msgid "你被埋了？"
 msgstr ""
 
 #. Header for entity mvz2:gargoyle_statue

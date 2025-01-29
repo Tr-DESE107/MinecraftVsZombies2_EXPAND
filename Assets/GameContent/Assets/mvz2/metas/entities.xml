@@ -592,7 +592,7 @@
 
             <idArray name="excludedAreaTags" value="mvz2:day" />
 
-            <int name="cost" value="100" />
+            <int name="cost" value="125" />
             <int name="waterInteraction" value="3"/>
         </enemy>
         <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
@@ -603,7 +603,7 @@
             <color name="bloodColor" value="#7F000F00"/>
             <color name="bloodColorCensored" value="#00007F00"/>
 
-            <int name="cost" value="75" />
+            <int name="cost" value="125" />
             <int name="waterInteraction" value="2"/>
         </enemy>
         <enemy id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值" unlock="mvz2:level.halloween_8">
@@ -611,7 +611,7 @@
             <id name="crySound" value="mvz2:skeleton_cry"/>
             <id name="deathSound" value="mvz2:skeleton_death"/>
 
-            <int name="cost" value="75" />
+            <int name="cost" value="175" />
             <int name="waterInteraction" value="2"/>
         </enemy>
 
@@ -649,7 +649,7 @@
             <color name="bloodColor" value="#007F00FF"/>
             <color name="bloodColorCensored" value="#007F00FF"/>
 
-            <int name="cost" value="75" />
+            <int name="cost" value="150" />
             <int name="waterInteraction" value="3"/>
         </enemy>
         <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
@@ -684,7 +684,7 @@
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
 
-            <int name="cost" value="125" />
+            <int name="cost" value="175" />
             <int name="waterInteraction" value="2"/>
         </enemy>
         <enemy id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……" unlock="mvz2:level.dream_9">
@@ -702,7 +702,7 @@
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
 
-            <int name="cost" value="25" />
+            <int name="cost" value="125" />
             <int name="waterInteraction" value="2"/>
         </enemy>
 
@@ -728,7 +728,7 @@
             <id name="hitSound" value="mvz2:bone_hit"/>
             <id name="deathSound" value="mvz2:wither_skeleton_death"/>
 
-            <int name="cost" value="150" />
+            <int name="cost" value="200" />
             <int name="waterInteraction" value="2"/>
         </enemy>
         <enemy id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.teruharijou_6">
@@ -738,7 +738,7 @@
             <id name="hitSound" value="mvz2:bone_hit"/>
             <id name="deathSound" value="mvz2:wither_skeleton_death"/>
 
-            <int name="cost" value="150" />
+            <int name="cost" value="200" />
             <int name="waterInteraction" value="2"/>
         </enemy>
         <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！" unlock="mvz2:level.teruharijou_8">
@@ -750,8 +750,18 @@
             <int name="vehicleInteraction" value="2"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="130" y="70" z="40"/>
+            <idArray name="attackerTags" value="mvz2:flying_enemy"/>
 
-            <int name="cost" value="200" />
+            <int name="cost" value="300" />
+        </enemy>
+        <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" unlock="mvz2:level.teruharijou_9">
+            <id name="shell" value="mvz2:nether"/>
+            <id name="crySound" value="mvz2:wither_skeleton_cry"/>
+            <id name="hitSound" value="mvz2:bone_hit"/>
+            <id name="deathSound" value="mvz2:wither_skeleton_death"/>
+            <idArray name="attackerTags" value="mvz2:flying_enemy"/>
+
+            <int name="cost" value="100" />
         </enemy>
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
@@ -791,7 +801,7 @@
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
             <float name="fallResistance" value="30"/>
             <float name="cryPitch" value="2"/>
-            <int name="cost" value="25" />
+            <int name="cost" value="50" />
             <int name="waterInteraction" value="2"/>
         </enemy>
 
@@ -832,7 +842,7 @@
             <vector3 name="size" x="56" y="50" z="40"/>
             <vector3 name="passengerOffset" x="10" y="20" z="-1"/>
 
-            <int name="cost" value="75" />
+            <int name="cost" value="125" />
         </enemy>
         <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.teruharijou_6">
             <float name="speed" value="2"/>
@@ -843,6 +853,22 @@
             <vector3 name="size" x="32" y="22" z="32"/>
 
             <int name="cost" value="50" />
+        </enemy>
+        <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.teruharijou_9">
+            <bool name="harmless" value="true" />
+            <bool name="notActiveEnemy" value="true"/>
+            <bool name="loyal" value="true"/>
+            <float name="fallResistance" value="10000"/>
+            <id name="shell" value="mvz2:sand"/>
+            <id name="crySound" null="true"/>
+            <id name="hitSound" value="mvz2:soul_sand"/>
+            <id name="deathSound" value="mvz2:soul_sand_break"/>
+            <id name="fragmentId" value="mvz2:soul_sand"/>
+            <float name="maxHealth" value="300"/>
+            <int name="maxTimeout" value="1800"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+
+            <int name="cost" value="25" />
         </enemy>
 
         <!-- Obstacles -->

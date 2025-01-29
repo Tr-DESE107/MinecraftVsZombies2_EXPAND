@@ -49,6 +49,9 @@
     <sound name="cash_register">
         <sample path="mvz2:cash_register" weight="1" />
     </sound>
+    <sound name="cave">
+        <sample path="mvz2:cave" weight="1" />
+    </sound>
     <sound name="chapter_wheel_spin" maxCount="1" priority="0">
         <sample path="mvz2:chapter_wheel_spin" weight="1" />
     </sound>
@@ -502,6 +505,18 @@
     <sound name="wither_skeleton_death">
         <sample path="mvz2:entity/wither_skeleton/wither_skeleton_death" weight="1" />
     </sound>
+    <sound name="sand">
+        <sample path="mvz2:sand1" weight="1" />
+        <sample path="mvz2:sand2" weight="1" />
+        <sample path="mvz2:sand3" weight="1" />
+        <sample path="mvz2:sand4" weight="1" />
+    </sound>
+    <sound name="sand_dig">
+        <sample path="mvz2:sand_dig1" weight="1" />
+        <sample path="mvz2:sand_dig2" weight="1" />
+        <sample path="mvz2:sand_dig3" weight="1" />
+        <sample path="mvz2:sand_dig4" weight="1" />
+    </sound>
     <sound name="slice">
         <sample path="mvz2:damage/slice/slice1" weight="1" />
         <sample path="mvz2:damage/slice/slice2" weight="1" />
@@ -521,6 +536,24 @@
     </sound>
     <sound name="smash">
         <sample path="mvz2:smash" weight="1" />
+    </sound>
+    <sound name="soul_sand">
+        <sample path="mvz2:soul_sand1" weight="1" />
+        <sample path="mvz2:soul_sand2" weight="1" />
+        <sample path="mvz2:soul_sand3" weight="1" />
+        <sample path="mvz2:soul_sand4" weight="1" />
+        <sample path="mvz2:soul_sand5" weight="1" />
+    </sound>
+    <sound name="soul_sand_break">
+        <sample path="mvz2:soul_sand_break1" weight="1" />
+        <sample path="mvz2:soul_sand_break2" weight="1" />
+        <sample path="mvz2:soul_sand_break3" weight="1" />
+        <sample path="mvz2:soul_sand_break4" weight="1" />
+        <sample path="mvz2:soul_sand_break5" weight="1" />
+        <sample path="mvz2:soul_sand_break6" weight="1" />
+        <sample path="mvz2:soul_sand_break7" weight="1" />
+        <sample path="mvz2:soul_sand_break8" weight="1" />
+        <sample path="mvz2:soul_sand_break9" weight="1" />
     </sound>
     <sound name="sparkle">
         <sample path="mvz2:sparkle" weight="1" />

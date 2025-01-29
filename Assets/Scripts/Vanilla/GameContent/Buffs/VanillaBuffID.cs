@@ -61,6 +61,7 @@ namespace MVZ2.GameContent.Buffs
         public const string forcePadDrag = "force_pad_frag";
         public const string redstoneCarrier = "redstone_carrier";
         public const string nightmareComeTrue = "nightmare_come_true";
+        public const string soulsandSummoned = "soulsand_summoned";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";

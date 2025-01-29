@@ -167,4 +167,9 @@
             <key hex="#381A1F" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="soul_sand">
+        <colorKeys>
+            <key hex="#463529" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

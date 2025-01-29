@@ -786,6 +786,36 @@
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:hell_chariot">
+            <header>
+                <p>地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的灵魂沙王。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>1350，低于200时每秒失去60生命值</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
+            </properties>
+            <flavor>
+                <p>地狱战车的司机怎么一脸不情愿的样子？</p>
+                <p>呃，准确地说，那不是司机，那是不小心坐上去，然后被卡住的一个倒霉蛋。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:anubisand">
+            <header>
+                <p>灵魂沙王飞在空中，不时向下方召唤阻挡子弹的灵魂沙。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>灵魂沙生命：<![CDATA[<color=red>300</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
+            </properties>
+            <flavor>
+                <p>其实他用来审判罪行的天平已经坏了很久了，它常放羽毛的那一端比较重一些。</p>
+                <p>不过他自己不知道，也没有多少人知道——知道的也没人敢告诉他就是了。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

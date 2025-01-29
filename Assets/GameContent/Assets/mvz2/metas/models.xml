@@ -62,6 +62,7 @@
     <model name="berserker" type="entity" path="mvz2:enemy/teruharijou/berserker" width="64" height="100" xOffset="10" yOffset="-46"/>
     <model name="dullahan" type="entity" path="mvz2:enemy/teruharijou/dullahan" width="94" height="120" xOffset="9" yOffset="-53"/>
     <model name="hell_chariot" type="entity" path="mvz2:enemy/teruharijou/hell_chariot" width="152" height="120" xOffset="9" yOffset="-60"/>
+    <model name="anubisand" type="entity" path="mvz2:enemy/teruharijou/anubisand" width="52" height="88" xOffset="12" yOffset="-41"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
@@ -72,6 +73,7 @@
     <model name="skeleton_horse" type="entity" path="mvz2:enemy/teruharijou/skeleton_horse" width="94" height="80" xOffset="9" yOffset="-33"/>
     <model name="dullahan_head" type="entity" path="mvz2:enemy/teruharijou/dullahan_head" width="32" height="22" xOffset="0" yOffset="-11"/>
     <model name="dullahan_main" type="entity" path="mvz2:enemy/teruharijou/dullahan_main" width="64" height="100" xOffset="10" yOffset="-46"/>
+    <model name="soulsand" type="entity" path="mvz2:enemy/teruharijou/soulsand" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44"/>

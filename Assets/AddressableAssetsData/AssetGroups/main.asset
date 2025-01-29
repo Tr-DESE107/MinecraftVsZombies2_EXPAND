@@ -101,6 +101,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0647dca389a10684db3237b158058da6
+    m_Address: mvz2:soul_sand4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06bd83f6d02e8394fab6740abdfe9321
     m_Address: mvz2:entity/bone_wall/bone_wall_destroyed
     m_ReadOnly: 0
@@ -178,6 +184,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a6995e49d92570479a5af478f6f63cd
+    m_Address: mvz2:sand_dig3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ad952a54ac62cc40aa4243ede0e6468
     m_Address: mvz2:boss/slenderman
@@ -460,6 +472,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 173dc896967aec746a68bf5ae2ca55cc
+    m_Address: mvz2:cave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1743bdeeec6c4c8499f9e6ae65ff400d
     m_Address: mvz2:fire
@@ -923,6 +941,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Scene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d37eb66e5d769343ab9e6ee42496b68
+    m_Address: mvz2:mobile_blueprint/anubisand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d8cc2e256684364897cd68a561a74bf
     m_Address: mvz2:entity/effects/mine_debris
     m_ReadOnly: 0
@@ -1109,6 +1133,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34816f027e0f87342850b19b65eab54d
+    m_Address: mvz2:soul_sand_break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34e619cc0502d6c499f470950cf5acec
     m_Address: mvz2:artifacts/dream_key
     m_ReadOnly: 0
@@ -1263,6 +1293,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a34c7d7f5c53ba409dc7c851fd09788
+    m_Address: mvz2:soul_sand1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a6ff83055599244a872a7e3cd5865cd
     m_Address: mvz2:effect/crushing_walls
@@ -1677,6 +1713,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48edce81d4a541b44932e7b68f4ee414
+    m_Address: mvz2:soul_sand_break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49104201ac8c1304080fff41261daa11
     m_Address: mvz2:contraption/tesla_coil
@@ -2110,6 +2152,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ce360998e6e83e4b946d478e4ef0dcc
+    m_Address: mvz2:sand3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ce8038d74bfbca429e3e9ad92eded0f
     m_Address: mvz2:entity/enemy/mother_terror_death
     m_ReadOnly: 0
@@ -2260,6 +2308,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61b14cad219541948a6115b847dd946b
+    m_Address: mvz2:soul_sand3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61ca227b36b8e184cbc60d52d7e3d01c
     m_Address: mvz2:spider_cry1
     m_ReadOnly: 0
@@ -2295,6 +2349,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Language
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63931386c553c1940b368a0c2054db20
+    m_Address: mvz2:soul_sand_break7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63a05174c3979bc4997142266dc829d8
     m_Address: mvz2:contraption/mine_tnt
@@ -2488,6 +2548,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6df58b28f03d1f9479095d6398aec3a7
+    m_Address: mvz2:soul_sand5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6e18c83488c045c4db8f73faf2cd8a8c
     m_Address: mvz2:dream
     m_ReadOnly: 0
@@ -2541,6 +2607,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72ab79aa07a6b4b44b40ccea8c6d5bd8
+    m_Address: mvz2:entity/enemy/soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 733266dbebe372949b508891f27eed17
     m_Address: mvz2:fuse
@@ -2678,6 +2750,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a9b56ca03eb87b44a784cb2e7e40208
+    m_Address: mvz2:sand2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7aa4f566f4d21f94ab8a60d2c9dac47c
     m_Address: mvz2:misc/grave_in_dream
@@ -3237,6 +3315,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f0549f9c8e9dd84d96e7d8dd50ece84
+    m_Address: mvz2:soul_sand_break6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f515a416fe31cb4b8033bfb9fb4dc5b
     m_Address: mvz2:misc/nightmare
     m_ReadOnly: 0
@@ -3597,6 +3681,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d331dc6440132d4fb05abe000d1f042
+    m_Address: mvz2:soul_sand_break9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d42af99014807345b8b7fa93e6acadf
     m_Address: mvz2:ui/level/pause_image_1
     m_ReadOnly: 0
@@ -3665,6 +3755,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff8573fa6c49994aaf0659c434bcff7
     m_Address: mvz2:talk/villager/villager_scream1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ffac11ea746d1042b2ddb21d85a61ca
+    m_Address: mvz2:soul_sand_break8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -3993,6 +4089,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad459762f7203424488a8ef163260d48
+    m_Address: mvz2:sand_dig5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad58ee3d88ea4ef499f70667527aeb20
     m_Address: mvz2:charmed
     m_ReadOnly: 0
@@ -4191,6 +4293,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4e9422216680bb4fa02c86bd69e4f47
+    m_Address: mvz2:sand4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f225f0cc6c7994baa6e1a69bc2bbab
     m_Address: mvz2:random/crystal/crystal2
     m_ReadOnly: 0
@@ -4347,6 +4455,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9ce880352825224584eda984eb72a38
+    m_Address: mvz2:sand1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9edefea292182b489711acd39777a42
     m_Address: mvz2:entity/projectiles/spike_ball
     m_ReadOnly: 0
@@ -4382,6 +4496,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb9cb8c96cd65034d97163c167129eb9
+    m_Address: mvz2:entity/enemy/anubisand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbacff986e7017645a25055965caa967
     m_Address: mvz2:effect/nightmareaper_splash
@@ -4467,6 +4587,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15c0ad358a95a2418ff64fa1c67a224
+    m_Address: mvz2:soul_sand_break5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1f7123b5f8de1640b46858b3fc6914e
     m_Address: mvz2:entity/effect/flesh_part_censored
     m_ReadOnly: 0
@@ -4533,6 +4659,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3943691c339ad14aa2d078cb96db777
+    m_Address: mvz2:soul_sand2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3b5feba947804640b9e3e2d5f1603f9
+    m_Address: mvz2:sand_dig1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4b8257cfe3564b43890a309b80d59ac
     m_Address: mvz2:effect/nightmare_portal
     m_ReadOnly: 0
@@ -4593,6 +4731,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c67ac6fb6a8e1a24b8a720bfc82bb845
+    m_Address: mvz2:soul_sand_break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c67b6cd5c40921f4596a819c40eef4e9
     m_Address: mvz2:damage/small_hit1
     m_ReadOnly: 0
@@ -4646,6 +4790,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8de6d57c5e5dfb45b69e31604cfe2ab
+    m_Address: mvz2:sand_dig4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8dfc340d86d05145af208e89a9521d5
     m_Address: mvz2:effect/shine_ring
@@ -5241,6 +5391,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e24fa12a26dfd2648ac35cf11b7c632f
+    m_Address: mvz2:sand_dig2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2706efed3170484cb03bec469ea14aa
     m_Address: mvz2:smash
     m_ReadOnly: 0
@@ -5505,11 +5661,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed6fefcd13fc8b243b3429b80571c274
+    m_Address: mvz2:enemy/teruharijou/anubisand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee0a778b8029fb145a6764e65f31fbac
     m_Address: mvz2:icon/static_particles
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee236b9bf29256844b94ea76798c4239
+    m_Address: mvz2:mobile_blueprint/soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee8a95d990407e34ea9ff1aa13122998
     m_Address: mvz2:entity/projectiles/bullet
@@ -5865,6 +6033,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa8fc80a727b0a549974a51278bbe414
+    m_Address: mvz2:soul_sand_break1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbd4f223bde2b0548986faf783bc0f17
     m_Address: mvz2:effect/magnetic_line
     m_ReadOnly: 0
@@ -5876,6 +6050,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc5450a9e1bd5d24ba24e41daeb61fbf
+    m_Address: mvz2:enemy/teruharijou/soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd0564e8ade3f984fb22a344c641970a
     m_Address: mvz2:projectile/diamond_caltrop

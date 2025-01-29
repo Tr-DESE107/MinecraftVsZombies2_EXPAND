@@ -117,6 +117,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: mobile_blueprint/add_pearl
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
+  - name: mobile_blueprint/anubisand
+    sprite: {fileID: 21300000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
   - name: mobile_blueprint/berserker
     sprite: {fileID: 21300000, guid: 02d02d3206dc8484c8e80a0aa53c8725, type: 3}
   - name: mobile_blueprint/diamond_spikes
@@ -205,6 +207,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9c37df297dc5c5a47a8448c48eba0204, type: 3}
   - name: mobile_blueprint/small_dispenser
     sprite: {fileID: 21300000, guid: df4339844dabc79468b681d3c124227f, type: 3}
+  - name: mobile_blueprint/soulsand
+    sprite: {fileID: 21300000, guid: ee236b9bf29256844b94ea76798c4239, type: 3}
   - name: mobile_blueprint/soul_furnace
     sprite: {fileID: 21300000, guid: 11ac6f32e59e29e4aa1067a79c215185, type: 3}
   - name: mobile_blueprint/spike_block
@@ -1251,6 +1255,16 @@ MonoBehaviour:
     - {fileID: 6916147962263402732, guid: 0d4ebeebf58039f44b54ff10434c99d4, type: 3}
     - {fileID: 4338010438354958151, guid: 0d4ebeebf58039f44b54ff10434c99d4, type: 3}
     - {fileID: -1979033402243225559, guid: 0d4ebeebf58039f44b54ff10434c99d4, type: 3}
+  - name: entity/enemy/anubisand
+    spritesheet:
+    - {fileID: 728664072, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: 772551344, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: 165268741, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: -115133763, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: -188787461, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: 1314159517, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: 1066920086, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+    - {fileID: -1741756473, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
   - name: entity/enemy/boat
     spritesheet:
     - {fileID: 21300000, guid: 8ee7e3c6233a6be4191bfd80ff87e80e, type: 3}
@@ -1391,6 +1405,11 @@ MonoBehaviour:
     - {fileID: -2120333596, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
     - {fileID: 971033789, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
     - {fileID: -1137348783, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+  - name: entity/enemy/soulsand
+    spritesheet:
+    - {fileID: 486244025, guid: 72ab79aa07a6b4b44b40ccea8c6d5bd8, type: 3}
+    - {fileID: 880596139, guid: 72ab79aa07a6b4b44b40ccea8c6d5bd8, type: 3}
+    - {fileID: 836079748, guid: 72ab79aa07a6b4b44b40ccea8c6d5bd8, type: 3}
   - name: entity/enemy/spider
     spritesheet:
     - {fileID: -939527422, guid: b05d578e666fa614c871c4984041189f, type: 3}

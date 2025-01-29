@@ -9,6 +9,8 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
+using UnityEngine;
+using UnityEngine.XR;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -135,6 +137,11 @@ namespace MVZ2.GameContent.Enemies
             var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
             explosion.SetSize(entity.GetScaledSize());
             entity.PostFragmentDeath(info);
+
+            var anubisandOffset = ANUBISAND_OFFSET;
+            anubisandOffset.x *= entity.GetFacingX();
+            var anubisand = entity.Spawn(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
+            anubisand.SetFactionAndDirection(entity.GetFaction());
             entity.Remove();
         }
         #endregion
@@ -157,6 +164,7 @@ namespace MVZ2.GameContent.Enemies
         #endregion
 
         public const float BROKEN_THRESOLD = 200;
+        public static readonly Vector3 ANUBISAND_OFFSET = new Vector3(-48, 32, 0);
         public const int PUNCTURE_TIME = 40;
         private const string FIELD_PUNCTURED = "Punctured";
         private const string FIELD_PUNCTURE_TIMER = "PunctureTimer";

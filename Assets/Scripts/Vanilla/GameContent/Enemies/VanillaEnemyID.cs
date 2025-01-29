@@ -26,6 +26,7 @@ namespace MVZ2.GameContent.Enemies
         public const string berserker = "berserker";
         public const string dullahan = "dullahan";
         public const string hellChariot = "hell_chariot";
+        public const string anubisand = "anubisand";
 
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
@@ -35,6 +36,7 @@ namespace MVZ2.GameContent.Enemies
         public const string napstablook = "napstablook";
         public const string skeletonHorse = "skeleton_horse";
         public const string dullahanHead = "dullahan_head";
+        public const string soulsand = "soulsand";
     }
     public static class VanillaEnemyID
     {
@@ -59,6 +61,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID berserker = Get(VanillaEnemyNames.berserker);
         public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);
         public static readonly NamespaceID hellChariot = Get(VanillaEnemyNames.hellChariot);
+        public static readonly NamespaceID anubisand = Get(VanillaEnemyNames.anubisand);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);
@@ -68,6 +71,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID napstablook = Get(VanillaEnemyNames.napstablook);
         public static readonly NamespaceID skeletonHorse = Get(VanillaEnemyNames.skeletonHorse);
         public static readonly NamespaceID dullahanHead = Get(VanillaEnemyNames.dullahanHead);
+        public static readonly NamespaceID soulsand = Get(VanillaEnemyNames.soulsand);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
