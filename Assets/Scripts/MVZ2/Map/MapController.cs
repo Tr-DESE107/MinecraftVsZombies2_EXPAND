@@ -605,7 +605,8 @@ namespace MVZ2.Map
         }
         private void UpdateUIArrows()
         {
-            ui.SetStoreArrowVisible(Main.SaveManager.IsUnlocked(VanillaUnlockID.mapStoreArrow));
+            var talks = Main.ResourceManager.GetCurrentStoreLoreTalks();
+            ui.SetStoreArrowVisible(talks.Length > 0);
         }
         private void HideUIArrows()
         {

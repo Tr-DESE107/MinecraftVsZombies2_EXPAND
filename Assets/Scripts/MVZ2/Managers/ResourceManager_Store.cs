@@ -42,7 +42,7 @@ namespace MVZ2.Managers
         #endregion
 
         #region 剧情对话
-        public NamespaceID[] GetStoreLoreTalks()
+        public NamespaceID[] GetCurrentStoreLoreTalks()
         {
             List<NamespaceID> talks = new List<NamespaceID>();
             foreach (var modResource in modResources)

@@ -648,7 +648,7 @@
   </group>
   <group id="entered_gensokyo" tags="mvz2:gensokyo">
     <archive name="进入幻想乡" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_gensokyo" />
-    <section onSkip="unlock mvz2:entered_gensokyo;unlock mvz2:map_store_arrow;end">
+    <section onSkip="unlock mvz2:entered_gensokyo;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
@@ -667,7 +667,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">嗯……</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">诶，我有个想法！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">要不先去卖货的香霖堂吧，我正好有点缺货了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="unlock mvz2:entered_gensokyo;unlock mvz2:map_store_arrow;end">去吧，邻居，该进货了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="unlock mvz2:entered_gensokyo;end">去吧，邻居，该进货了！</sentence>
       </sentences>
     </section>
   </group>
@@ -705,11 +705,10 @@
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >已经有三年没人提过这个名字了。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" >……三年没有提过？发生什么事了吗？</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >……</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >你们是外界来的人吧。</sentence>
+
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onStart="music volume 1;music play mvz2:distress" >你们是外界来的人吧。</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >如果是幻想乡的居民，肯定听说过他的事情。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" >什么？</sentence>
-
-        
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >在异变开始的时候，他就已经不在这里了。</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >好像是……三年前的那个时候。</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" >幻想乡开始慢慢地出现那些由方块组成的僵尸怪物。它们如同行尸走肉一般，攻击我们所有人。</sentence>

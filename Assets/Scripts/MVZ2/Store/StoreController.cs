@@ -32,7 +32,6 @@ namespace MVZ2.Store
             UpdateMoney();
             ui.Display();
 
-            Main.SaveManager.Relock(VanillaUnlockID.mapStoreArrow);
 
             var presets = Main.ResourceManager.GetAllStorePresets();
             var filteredPresets = presets.Where(p => p.Conditions == null || Main.SaveManager.MeetsXMLConditions(p.Conditions));
@@ -205,7 +204,7 @@ namespace MVZ2.Store
         }
         private async void StartTalks()
         {
-            var loreTalks = Main.ResourceManager.GetStoreLoreTalks();
+            var loreTalks = Main.ResourceManager.GetCurrentStoreLoreTalks();
             if (loreTalks == null)
                 return;
             // ¶Ô»°
