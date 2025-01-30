@@ -764,7 +764,7 @@ namespace MVZ2.Level
             if (progressBarMode)
             {
                 // BOSS血条
-                var bosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy());
+                var bosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity());
                 if (bosses.Count() <= 0)
                 {
                     bossProgress = 0;

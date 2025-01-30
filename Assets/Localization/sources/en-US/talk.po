@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 05:48+0800\n"
-"PO-Revision-Date: 2025-01-29 21:14+0800\n"
+"PO-Revision-Date: 2025-01-30 14:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/talk/en_US/>\n"
@@ -2245,25 +2245,25 @@ msgstr "Great! we finally reached Gensokyo!"
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "这里……居然真的存在？"
-msgstr "This place... it actually exists?"
+msgstr "This place... actually exists?"
 
 #. Text for talk sentence 2 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "我还以为你一直以来都是在发疯呢。"
-msgstr "I always thought you were just being crazy all this time."
+msgstr "I thought it was just your insane ramblings."
 
 #. Text for talk sentence 3 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "你以为我是谁呢，邻居！"
-msgstr "Who do you think I am, neighbor!"
+msgstr "Think about who you're talking to, Neighbor!"
 
 #. Text for talk sentence 4 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "我这次还特地画了张地图呢！"
-msgstr "I even went through the trouble of drawing a map this time!"
+msgstr "I even brought a map with me this time!"
 
 #. Text for talk sentence 5 in talk group entered_gensokyo's section 0
 #: Talk meta file
@@ -2275,19 +2275,19 @@ msgstr "…"
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "好简陋？"
-msgstr "How crude..."
+msgstr "It's very... rustic."
 
 #. Text for talk sentence 7 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "方向标和比例尺都没有啊你这地图。"
-msgstr "There's even no compass rose or scale on this map."
+msgstr "It doesn't even have a compass or a scale. Some map this is."
 
 #. Text for talk sentence 8 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "问题不大！"
-msgstr "No big deal!"
+msgstr "Yup, it works!"
 
 #. Text for talk sentence 9 in talk group entered_gensokyo's section 0
 #: Talk meta file
@@ -2305,21 +2305,21 @@ msgstr "Hmm..."
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "诶，我有个想法！"
-msgstr "Hey, I've got an idea!"
+msgstr "Ah, I have an idea!"
 
 #. Text for talk sentence 12 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "要不先去卖货的香霖堂吧，我正好有点缺货了！"
 msgstr ""
-"Let's hit Kourindou first - that shop that sells stuff. I'm running low on "
-"supplies anyway!"
+"Why don't we pay Kourindou a visit? It sells stuff, and I happen to be "
+"lacking stuff!"
 
 #. Text for talk sentence 13 in talk group entered_gensokyo's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:entered_gensokyo"
 msgid "去吧，邻居，该进货了！"
-msgstr "Let's go, neighbor! Time to restock!"
+msgstr "Let's go, Neighbor! Time to stock up!"
 
 #. Archive name for talk group kourindou_first_visit
 #: Talk meta file

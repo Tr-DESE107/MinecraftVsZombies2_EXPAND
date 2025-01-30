@@ -96,10 +96,6 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(COLOR_OFFSET, value);
         }
-        public static int GetFaction(this Entity entity, bool ignoreBuffs = false)
-        {
-            return entity.GetProperty<int>(FACTION, ignoreBuffs: ignoreBuffs);
-        }
         public static void SetFaction(this Entity entity, int value)
         {
             entity.SetProperty(FACTION, value);

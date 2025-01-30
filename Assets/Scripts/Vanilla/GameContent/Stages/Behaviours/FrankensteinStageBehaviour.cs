@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.Stages
             // 如果不存在Boss，继续播放传送带关音乐，进入到Boss后阶段
             // 如果所有Boss死亡，音乐放缓
             // 如果有Boss存活，不停生成怪物。
-            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy());
+            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity());
             if (targetBosses.Length <= 0)
             {
                 level.WaveState = STATE_AFTER_BOSS;

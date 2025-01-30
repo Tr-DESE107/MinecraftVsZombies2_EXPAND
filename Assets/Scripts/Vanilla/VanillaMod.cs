@@ -52,6 +52,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new TalkActionImplements());
             ImplementCallbacks(new BlueprintRecommendImplements());
             ImplementCallbacks(new WaterImplements());
+            ImplementCallbacks(new AchievementsImplements());
         }
         public override void PostGameInit()
         {

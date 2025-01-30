@@ -32,6 +32,8 @@ namespace MVZ2.Vanilla
         public const string doubleTrouble = "achievement.double_trouble";
         public const string rickrollDrown = "achievement.rickroll_drown";
         public const string returnToSender = "achievement.return_to_sender";
+        public const string mesmerisedMatchup = "achievement.mesmerised_matchup";
+        public const string bonebreaker = "achievement.bonebreaker";
     }
     public static class VanillaUnlockID
     {
@@ -45,13 +47,16 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID trigger = Get(VanillaUnlockNames.trigger);
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);
+        public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
+        public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
+        public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
+
         public static readonly NamespaceID ghostBuster = Get(VanillaUnlockNames.ghostBuster);
         public static readonly NamespaceID doubleTrouble = Get(VanillaUnlockNames.doubleTrouble);
         public static readonly NamespaceID rickrollDrown = Get(VanillaUnlockNames.rickrollDrown);
         public static readonly NamespaceID returnToSender = Get(VanillaUnlockNames.returnToSender);
-        public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
-        public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
-        public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
+        public static readonly NamespaceID mesmerisedMatchup = Get(VanillaUnlockNames.mesmerisedMatchup);
+        public static readonly NamespaceID bonebreaker = Get(VanillaUnlockNames.bonebreaker);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

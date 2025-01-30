@@ -124,10 +124,6 @@ namespace PVZEngine.Entities
         {
             return Definition.GetID() == id;
         }
-        public EntityReferenceChain GetReference()
-        {
-            return new EntityReferenceChain(this);
-        }
 
         #region 伤害
 
@@ -153,6 +149,10 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 阵营
+        public int GetFaction()
+        {
+            return Cache.Faction;
+        }
         public bool IsFriendly(Entity entity)
         {
             if (entity == null)
@@ -161,7 +161,7 @@ namespace PVZEngine.Entities
         }
         public bool IsFriendly(int faction)
         {
-            return EngineEntityExt.IsFriendly(Cache.Faction, faction);
+            return EngineEntityExt.IsFriendly(GetFaction(), faction);
         }
         public bool IsHostile(Entity entity)
         {
@@ -169,16 +169,10 @@ namespace PVZEngine.Entities
                 return false;
             return IsHostile(entity.GetFaction());
         }
-
         public bool IsHostile(int faction)
         {
-            return EngineEntityExt.IsHostile(Cache.Faction, faction);
+            return EngineEntityExt.IsHostile(GetFaction(), faction);
         }
-        public bool IsActiveEntity(bool includeDead = false)
-        {
-            return (!IsDead || includeDead) && !Removed;
-        }
-
         #endregion 魅惑
 
         #region 增益属性

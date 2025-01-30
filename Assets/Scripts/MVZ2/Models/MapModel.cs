@@ -87,10 +87,12 @@ namespace MVZ2.Map
         }
         public void SetMapElementUnlocked(NamespaceID unlock, bool unlocked)
         {
-            var element = mapElements.FirstOrDefault(e => e.unlock.Get() == unlock);
-            if (element == null)
-                return;
-            element.SetActive(unlocked);
+            foreach (var element in mapElements)
+            {
+                if (element.unlock.Get() != unlock)
+                    continue;
+                element.SetActive(unlocked);
+            }
         }
         private void Awake()
         {

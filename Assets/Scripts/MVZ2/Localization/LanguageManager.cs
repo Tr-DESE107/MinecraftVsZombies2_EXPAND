@@ -137,6 +137,10 @@ namespace MVZ2.Localization
 #endif
             return Main.OptionsManager.GetLanguage();
         }
+        public void CallLanguageChanged(string lang)
+        {
+            OnLanguageChanged?.Invoke(lang);
+        }
         public string[] GetAllLanguages()
         {
             return allLanguages.ToArray();

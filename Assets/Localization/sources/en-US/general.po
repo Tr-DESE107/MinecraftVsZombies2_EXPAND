@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 04:58+0800\n"
-"PO-Revision-Date: 2025-01-24 16:59+0800\n"
+"POT-Creation-Date: 2025-01-30 02:40+0800\n"
+"PO-Revision-Date: 2025-01-30 15:04+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -825,25 +825,25 @@ msgstr ""
 "{1}"
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:237
+#: Scripts\MVZ2\Store\StoreController.cs:236
 msgid "购买物品"
 msgstr "Purchase"
 
-#: Scripts\MVZ2\Store\StoreController.cs:239
+#: Scripts\MVZ2\Store\StoreController.cs:238
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgstr "Are you sure you want to purchase this for {0:N0}?"
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:241
+#: Scripts\MVZ2\Store\StoreController.cs:240
 msgid "金钱不足"
 msgstr "Insufficient Money"
 
-#: Scripts\MVZ2\Store\StoreController.cs:243
+#: Scripts\MVZ2\Store\StoreController.cs:242
 msgid "你没有足够的金钱！"
 msgstr ""
 "You don't have enough money! Come back when you're a little mmmm... richer!"
 
-#: Scripts\MVZ2\Store\StoreController.cs:245
+#: Scripts\MVZ2\Store\StoreController.cs:244
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
@@ -967,7 +967,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:629
+#: Scripts\MVZ2\Map\MapController.cs:630
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -975,7 +975,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:631
+#: Scripts\MVZ2\Map\MapController.cs:632
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -983,12 +983,12 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:633
+#: Scripts\MVZ2\Map\MapController.cs:634
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:635
+#: Scripts\MVZ2\Map\MapController.cs:636
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1257,6 +1257,32 @@ msgctxt "achievement"
 msgid "用一枚火焰弹杀死一只恶魂。"
 msgstr "Kill a ghast using a fire charge."
 
+#. Name for achievement mvz2:mesmerised_matchup
+#: Achievements meta file
+msgctxt "achievement"
+msgid "倒反天罡"
+msgstr "Mesmerized Matchup"
+
+#. Description for achievement mvz2:mesmerised_matchup
+#: Achievements meta file
+msgctxt "achievement"
+msgid "用友好的怪物杀死敌对的器械，或者让器械反杀怪物。"
+msgstr ""
+"Kill a hostile contraption by a friendly monster, or kill the monster by the "
+"contraption."
+
+#. Name for achievement mvz2:bonebreaker
+#: Achievements meta file
+msgctxt "achievement"
+msgid "碎骨者"
+msgstr "Bonebreaker"
+
+#. Description for achievement mvz2:bonebreaker
+#: Achievements meta file
+msgctxt "achievement"
+msgid "摔死一只骷髅。（射箭的那个！）"
+msgstr "Make a Skeleton (which shoots arrows!) fall to its death."
+
 #. Name for music mvz2:mainmenu
 #: Music meta file
 msgctxt "music.name"
@@ -1358,6 +1384,12 @@ msgstr "Pandemonic Planet (2nd part)"
 msgctxt "music.name"
 msgid "青空之影"
 msgstr "A Shadow in the Blue Sky"
+
+#. Name for music mvz2:distress
+#: Music meta file
+msgctxt "music.name"
+msgid "记忆的回响"
+msgstr "Fading Echoes of Memory"
 
 #. Name for music mvz2:teruharijou_map
 #: Music meta file
@@ -1495,49 +1527,53 @@ msgstr "Cliffs with some rainbow rubbles usually hide treasures below!"
 #: Store meta file
 msgctxt "store_talk"
 msgid "以后能教教我这些机器怎么用吗？"
-msgstr ""
+msgstr "Could you teach me how to use these machines sometime?"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "要读读看这本书吗？很有趣的！"
-msgstr ""
+msgstr "Try to read this book? It’s really interesting!"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "听说，外界的公主一旦陷入危机，就会有一位骑士前来救她呢。"
 msgstr ""
+"I heard that in the outside world, when a princess is in trouble, a knight "
+"always comes to rescue her."
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "你们那里的人都是方形的吗？"
-msgstr ""
+msgstr "Are all the people from your world cubic?"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "虽然这里存在着危险的妖怪，不过像我一样比较弱的妖怪还是更多呢。"
 msgstr ""
+"Even though there are dangerous youkai here, there are actually more weaker "
+"ones like me."
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "科幻故事我看不懂，我还是更喜欢童话故事一点……"
-msgstr ""
+msgstr "I can’t really get into sci-fi stories. I prefer fairy tales more…"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "嗯？这个不是切菜用的砧板？"
-msgstr ""
+msgstr "Hmm? Isn’t this a cutting board for chopping vegetables?"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "发射器为什么长着一张这么可爱的脸呢？"
-msgstr ""
+msgstr "Why do dispensers have such a cute face?"
 
 #. Store item description of mvz2:blueprint_slot by character mvz2:crazy_villager
 #: Store meta file
@@ -1551,6 +1587,7 @@ msgstr ""
 msgctxt "store_talk"
 msgid "这个是额外的蓝图槽，可以让你多带一个器械！"
 msgstr ""
+"This is an extra blueprint slot, it allows you to carry one more contraption!"
 
 #. Store item text of mvz2:blueprint_slot
 #: Store meta file
@@ -1583,6 +1620,8 @@ msgstr "More Starshard slots! Let your contraptions evoke more!"
 msgctxt "store_talk"
 msgid "这个可以让你多带一些很神奇的东西，据说器械们很喜欢呢！"
 msgstr ""
+"This lets you carry more magical stuff—they say contraptions absolutely "
+"adore these!"
 
 #. Store item text of mvz2:starshard_slot
 #: Store meta file
@@ -1606,6 +1645,8 @@ msgstr ""
 msgctxt "store_talk"
 msgid "这个可以让你带更多的小装饰品！我可喜欢打扮了！"
 msgstr ""
+"This'll let you pack more fancy trinkets! Accessorizing is my favorite, you "
+"know!"
 
 #. Store item text of mvz2:artifact_slot
 #: Store meta file
@@ -1630,6 +1671,8 @@ msgstr ""
 msgctxt "store_talk"
 msgid "传染发射器能升级小型发射器，这样它就能在怪物之间散播互相攻击的种子了！"
 msgstr ""
+"Infectenser is upgraded from a Small Dispenser, it fires parasitic micro-"
+"bots that can spread to nearby foes!"
 
 #. Store item description of mvz2:force_pad by character mvz2:crazy_villager
 #: Store meta file
@@ -1644,6 +1687,8 @@ msgstr ""
 msgctxt "store_talk"
 msgid "传动力板能升级重力板，能改变很多很多东西的位置，很方便！"
 msgstr ""
+"Force Pad is upgraded from Gravity Pad, it can change the position of many "
+"things, conveniently!"
 
 #. Store item description of mvz2:hoe by character mvz2:crazy_villager
 #: Store meta file
@@ -1717,6 +1762,10 @@ msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景�
 msgstr ""
 "Some dark thing, it makes contraptions produce at twice the speed, but the "
 "stage will become dark!"
+
+#~ msgctxt "music.name"
+#~ msgid "留不住回忆"
+#~ msgstr "Fading Echoes of Memory"
 
 #~ msgctxt "music.name"
 #~ msgid "猩红之地"

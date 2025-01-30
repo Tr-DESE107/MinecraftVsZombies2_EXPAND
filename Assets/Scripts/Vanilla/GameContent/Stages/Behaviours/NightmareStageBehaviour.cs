@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void SlendermanTransitionUpdate(LevelEngine level)
         {
-            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead))
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
             {
                 // 瘦长鬼影出现
                 level.WaveState = STATE_BOSS_FIGHT;
@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Stages
             // 瘦长鬼影战斗
             // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
             // 如果有Boss存活，不停生成怪物。
-            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead);
+            var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead);
             if (targetBosses.Length <= 0)
             {
                 SetBossState(level, BOSS_STATE_NIGHTMAREAPER_TRANSITION);
@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Stages
         private void NightmareaperTransitionUpdate(LevelEngine level)
         {
             ClearEnemies(level);
-            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead))
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
             {
                 // 梦魇收割者出现
                 level.SetUIAndInputDisabled(false);
@@ -102,7 +102,7 @@ namespace MVZ2.GameContent.Stages
             // 梦魇收割者战斗
             // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
             // 如果有Boss存活，不停生成怪物。
-            if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy() && !e.IsDead))
+            if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
             {
                 level.WaveState = STATE_AFTER_BOSS;
                 level.StopMusic();
@@ -136,7 +136,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void ClearEnemies(LevelEngine level)
         {
-            foreach (var entity in level.FindEntities(e => e.Type == EntityTypes.ENEMY && !e.IsDead && e.IsHostileEnemy()))
+            foreach (var entity in level.FindEntities(e => e.Type == EntityTypes.ENEMY && !e.IsDead && e.IsHostileEntity()))
             {
                 entity.Die();
             }
@@ -149,7 +149,7 @@ namespace MVZ2.GameContent.Stages
             {
                 if (!level.IsCleared)
                 {
-                    if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEnemy()))
+                    if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity()))
                     {
                         if (!level.HasBuff<NightmareClearedBuff>())
                         {

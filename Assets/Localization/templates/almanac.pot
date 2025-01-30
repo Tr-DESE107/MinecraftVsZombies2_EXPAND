@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-29 07:18+0800\n"
+"POT-Creation-Date: 2025-01-30 02:26+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1101,7 +1101,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "地狱战车的司机怎么一脸不情愿的样子？\n"
-"呃，准确地说，那不是司机，那是不小心坐上去，然后被黏住的一个倒霉蛋。"
+"呃，准确地说，那不是司机，那是不小心坐上去，然后被卡住的一个倒霉蛋。"
 msgstr ""
 
 #. Header for enemies mvz2:anubisand

@@ -44,6 +44,7 @@ namespace MVZ2.Options
         {
             options.language = language;
             PlayerPrefs.SetString(PREFS_LANGUAGE, language);
+            Main.LanguageManager.CallLanguageChanged(language);
         }
         #endregion
 

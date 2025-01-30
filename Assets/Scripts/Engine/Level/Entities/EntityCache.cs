@@ -7,7 +7,7 @@ namespace PVZEngine.Entities
     {
         public void UpdateAll(Entity entity)
         {
-            Faction = entity.GetFaction();
+            Faction = entity.GetProperty<int>(EngineEntityProps.FACTION);
             Gravity = entity.GetGravity();
             Friction = entity.GetFriction();
             GroundLimitOffset = entity.GetGroundLimitOffset();

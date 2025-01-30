@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.ENEMY:
-                    return entity.IsHostileEnemy();
+                    return entity.IsHostileEntity();
                 case EntityTypes.PICKUP:
                     return !entity.IsCollected();
                 case EntityTypes.CART:

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-26 05:48+0800\n"
+"POT-Creation-Date: 2025-01-30 02:40+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -901,27 +901,27 @@ msgid ""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:237
+#: Scripts\MVZ2\Store\StoreController.cs:236
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:239
+#: Scripts\MVZ2\Store\StoreController.cs:238
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:241
+#: Scripts\MVZ2\Store\StoreController.cs:240
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:243
+#: Scripts\MVZ2\Store\StoreController.cs:242
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:245
+#: Scripts\MVZ2\Store\StoreController.cs:244
 msgid "{0}/{1}"
 msgstr ""
 
@@ -1052,26 +1052,26 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:629
+#: Scripts\MVZ2\Map\MapController.cs:630
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:631
+#: Scripts\MVZ2\Map\MapController.cs:632
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:633
+#: Scripts\MVZ2\Map\MapController.cs:634
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:635
+#: Scripts\MVZ2\Map\MapController.cs:636
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1334,6 +1334,30 @@ msgctxt "achievement"
 msgid "用一枚火焰弹杀死一只恶魂。"
 msgstr ""
 
+#. Name for achievement mvz2:mesmerised_matchup
+#: Achievements meta file
+msgctxt "achievement"
+msgid "倒反天罡"
+msgstr ""
+
+#. Description for achievement mvz2:mesmerised_matchup
+#: Achievements meta file
+msgctxt "achievement"
+msgid "用友好的怪物杀死敌对的器械，或者让器械反杀怪物。"
+msgstr ""
+
+#. Name for achievement mvz2:bonebreaker
+#: Achievements meta file
+msgctxt "achievement"
+msgid "碎骨者"
+msgstr ""
+
+#. Description for achievement mvz2:bonebreaker
+#: Achievements meta file
+msgctxt "achievement"
+msgid "摔死一只骷髅。（射箭的那个！）"
+msgstr ""
+
 #. Name for music mvz2:mainmenu
 #: Music meta file
 msgctxt "music.name"
@@ -1434,6 +1458,12 @@ msgstr ""
 #: Music meta file
 msgctxt "music.name"
 msgid "青空之影"
+msgstr ""
+
+#. Name for music mvz2:distress
+#: Music meta file
+msgctxt "music.name"
+msgid "记忆的回响"
 msgstr ""
 
 #. Name for music mvz2:teruharijou_map

@@ -10,12 +10,12 @@ namespace PVZEngine.Entities
         }
         public EntityReferenceChain(Entity entity)
         {
-            if (entity != null)
-            {
-                id = entity.ID;
-                definitionID = entity.Definition.GetID();
-                spawnerReference = entity.SpawnerReference?.Clone();
-            }
+            if (entity == null)
+                return;
+            id = entity.ID;
+            definitionID = entity.Definition.GetID();
+            spawnerReference = entity.SpawnerReference?.Clone();
+            faction = entity.Cache.Faction;
         }
         public EntityReferenceChain Clone()
         {
@@ -23,7 +23,8 @@ namespace PVZEngine.Entities
             {
                 id = ID,
                 definitionID = DefinitionID,
-                spawnerReference = SpawnerReference?.Clone()
+                spawnerReference = SpawnerReference?.Clone(),
+                faction = faction,
             };
         }
         public Entity GetEntity(LevelEngine game)
@@ -51,10 +52,12 @@ namespace PVZEngine.Entities
             return !(lhs == rhs);
         }
         public EntityReferenceChain SpawnerReference => spawnerReference;
+        public int Faction => faction;
         public NamespaceID DefinitionID => definitionID;
         public long ID => id;
-        private EntityReferenceChain spawnerReference;
         private NamespaceID definitionID;
+        private EntityReferenceChain spawnerReference;
+        private int faction = -1;
         private long id;
     }
 }

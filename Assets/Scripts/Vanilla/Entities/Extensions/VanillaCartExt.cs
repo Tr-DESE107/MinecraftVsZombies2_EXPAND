@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla.Entities
             var bounds = cart.GetBounds();
             return target.Type != EntityTypes.BOSS &&
                 cart.IsHostile(target) &&
-                target.IsActiveEntity() &&
+                target.ExistsAndAlive() &&
                 cart.GetLane() == target.GetLane() &&
                 target.Position.x >= bounds.min.x &&
                 target.Position.x <= bounds.max.x;

@@ -16,6 +16,7 @@ using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
@@ -371,11 +372,19 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool IsFriendlyEntity(this Entity entity)
         {
-            return entity.IsFriendly(entity.Level.Option.LeftFaction);
+            return entity.Level.IsFriendlyFaction(entity.GetFaction());
         }
-        public static bool IsHostileEnemy(this Entity entity)
+        public static bool IsHostileEntity(this Entity entity)
         {
-            return !entity.IsFriendlyEntity();
+            return entity.Level.IsHostileFaction(entity.GetFaction());
+        }
+        public static bool IsFriendlyFaction(this LevelEngine level, int faction)
+        {
+            return EngineEntityExt.IsFriendly(faction, level.Option.LeftFaction);
+        }
+        public static bool IsHostileFaction(this LevelEngine level, int faction)
+        {
+            return !IsFriendlyFaction(level, faction);
         }
         public static EntitySeed GetEntitySeedDefinition(this Entity entity)
         {

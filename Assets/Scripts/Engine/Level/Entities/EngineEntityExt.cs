@@ -1,5 +1,8 @@
-﻿using PVZEngine.Damages;
+﻿using System;
+using PVZEngine.Damages;
+using PVZEngine.Level;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine.Entities
 {
@@ -64,6 +67,35 @@ namespace PVZEngine.Entities
         public static bool ExistsAndAlive(this Entity entity)
         {
             return entity != null && entity.Exists() && !entity.IsDead;
+        }
+        public static bool IsEntitySourceOf(this EntityReferenceChain reference, LevelEngine level, Func<EntityReferenceChain, EntityDefinition, bool> predicate)
+        {
+            if (reference == null)
+                return false;
+            if (level == null)
+                throw new ArgumentNullException(nameof(level));
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
+            var source = reference;
+            while (source != null)
+            {
+                var defID = source.DefinitionID;
+                var entityDef = level.Content.GetEntityDefinition(defID);
+                if (entityDef != null)
+                {
+                    if (predicate(source, entityDef))
+                    {
+                        return true;
+                    }
+                    if (entityDef.Type != EntityTypes.PROJECTILE && entityDef.Type != EntityTypes.EFFECT && entityDef.Type != EntityTypes.PICKUP)
+                    {
+                        break;
+                    }
+                }
+                source = source.SpawnerReference;
+            }
+            return false;
         }
     }
     public enum FactionTarget
