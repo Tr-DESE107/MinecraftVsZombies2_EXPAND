@@ -1,6 +1,8 @@
 ﻿using System;
+using MVZ2.Vanilla.Callbacks;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -48,6 +50,8 @@ namespace MVZ2.Vanilla.Entities
             projectile.SetFaction(parameters.faction);
             projectile.Velocity = velocity;
             projectile.UpdatePointTowardsDirection();
+
+            game.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, projectile.Definition.GetID(), c => c(projectile));
             return projectile;
         }
         public static ShootParams GetShootParams(this Entity entity)

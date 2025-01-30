@@ -919,6 +919,18 @@
             </flavor>
         </entry>
         <entry />
+        <entry id="mvz2:inverted_mirror">
+            <header>
+                <p>被放反了的镜子。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>敌人发射的子弹可以击中其他敌人。</color>]]></p>
+            </properties>
+            <flavor>
+                <p><![CDATA[<rotate="180">让我这样看，你很开心吗？</rotate>]]></p>
+            </flavor>
+        </entry>
+        <entry />
     </artifacts>
     <misc>
         <!-- Bosses -->

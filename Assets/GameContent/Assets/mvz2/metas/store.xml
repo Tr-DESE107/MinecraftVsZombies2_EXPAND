@@ -131,7 +131,16 @@
                 <talk character="mvz2:tokiko">来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多的怪物！</talk>
             </talks>
             <stages>
-                <stage price="3333" unlocks="mvz2:artifact.pagoda_branch"/>
+                <stage price="3330" unlocks="mvz2:artifact.pagoda_branch"/>
+            </stages>
+        </product>
+        <product id="inverted_mirror" sprite="mvz2:artifacts/inverted_mirror" required="mvz2:level.teruharijou_6">
+            <talks>
+                <talk character="mvz2:crazy_villager">我不小心把这个镜子放反了！现在它可以让敌人发射的子弹击中其他敌人了！</talk>
+                <talk character="mvz2:tokiko">不知道为什么倒过来的镜子……总之它可以让敌人的子弹击中他们自己！</talk>
+            </talks>
+            <stages>
+                <stage price="3330" unlocks="mvz2:artifact.inverted_mirror"/>
             </stages>
         </product>
         <product id="the_creatures_heart" sprite="mvz2:artifacts/the_creatures_heart">

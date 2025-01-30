@@ -41,6 +41,7 @@ namespace MVZ2.Vanilla.Callbacks
 
         public delegate void PreProjectileHit(ProjectileHitInput hit, DamageInput damage);
         public delegate void PostProjectileHit(ProjectileHitOutput hit, DamageOutput damage);
+        public delegate void PostProjectileShot(Entity projectile);
 
 
 
@@ -72,6 +73,7 @@ namespace MVZ2.Vanilla.Callbacks
 
         public readonly static CallbackReference<PrePickupCollect> PRE_PICKUP_COLLECT = new();
 
+        public readonly static CallbackReference<PostProjectileShot> POST_PROJECTILE_SHOT = new();
         public readonly static CallbackReference<PreProjectileHit> PRE_PROJECTILE_HIT = new();
         public readonly static CallbackReference<PostProjectileHit> POST_PROJECTILE_HIT = new();
     }

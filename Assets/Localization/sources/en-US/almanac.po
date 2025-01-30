@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 07:18+0800\n"
-"PO-Revision-Date: 2025-01-29 19:44+0800\n"
+"POT-Creation-Date: 2025-01-30 03:54+0800\n"
+"PO-Revision-Date: 2025-01-30 15:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1370,7 +1370,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "地狱战车的司机怎么一脸不情愿的样子？\n"
-"呃，准确地说，那不是司机，那是不小心坐上去，然后被黏住的一个倒霉蛋。"
+"呃，准确地说，那不是司机，那是不小心坐上去，然后被卡住的一个倒霉蛋。"
 msgstr ""
 "Why does the driver of Hell Chariot look unwilling?\n"
 "Uh, to be precise, that's not the driver, that's an unlucky guy who accidentally got stuck on it."
@@ -1584,6 +1584,24 @@ msgstr "Effect: <color=red>x200% contraption produce speed, but the battlefield 
 msgctxt "artifacts.description"
 msgid "<color=white>你看不见我</color>"
 msgstr "<color=white>You can't see me</color>"
+
+#. Header for artifacts mvz2:inverted_mirror
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "被放反了的镜子。"
+msgstr "An upside-down mirror."
+
+#. Properties for artifacts mvz2:inverted_mirror
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>敌人发射的子弹可以击中其他敌人。</color>"
+msgstr "Effects: <color=red>Projectiles shot by enemies can hit other enemies.</color>"
+
+#. Flavor for artifacts mvz2:inverted_mirror
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "<rotate=\"180\">让我这样看，你很开心吗？</rotate>"
+msgstr "<rotate=\"180\">Having a laugh torturing our necks, are we?</rotate>"
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -3190,6 +3208,66 @@ msgstr "Dark Matter"
 msgctxt "artifact.tooltip"
 msgid "器械生产效率×200%，但场景变得黑暗"
 msgstr "x200% contraption produce speed, but the battlefield is pitch black"
+
+#. Name for artifact mvz2:smart_phone
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "智能手机"
+msgstr ""
+
+#. Tooltip for artifact mvz2:smart_phone
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "关卡结束后消耗所有能量，每消耗50能量获得10金钱"
+msgstr ""
+
+#. Name for artifact mvz2:inverted_mirror
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "倒置的镜子"
+msgstr "Inverted Mirror"
+
+#. Tooltip for artifact mvz2:inverted_mirror
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "敌人的敌弹能够击中其他敌人"
+msgstr "Enemy projectiles can hit other enemies"
+
+#. Name for artifact mvz2:miracle_mallet_replica
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "万宝槌仿制品"
+msgstr ""
+
+#. Tooltip for artifact mvz2:miracle_mallet_replica
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "+10%器械伤害"
+msgstr ""
+
+#. Name for artifact mvz2:wither_skeleton_skull
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "凋灵骷髅头"
+msgstr ""
+
+#. Tooltip for artifact mvz2:wither_skeleton_skull
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "-25%蓝图消耗，但新放下的器械的生命值×50%"
+msgstr ""
+
+#. Name for artifact mvz2:broken_lantern
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "破灯笼"
+msgstr ""
+
+#. Tooltip for artifact mvz2:broken_lantern
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "-50%光照范围，发光的器械生产速度和射速+25%"
+msgstr ""
 
 #~ msgctxt "enemies.description"
 #~ msgid ""

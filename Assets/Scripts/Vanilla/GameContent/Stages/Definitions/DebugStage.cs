@@ -46,15 +46,15 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.stoneShield,
-                VanillaContraptionID.thunderDrum,
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.mesmerizer,
+                VanillaBossID.frankenstein,
                 VanillaEnemyID.skeleton,
+                VanillaEnemyID.ghast,
+                VanillaEnemyID.mesmerizer,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.sweetSleepPillow,
+                VanillaArtifactID.invertedMirror,
                 VanillaArtifactID.dreamKey,
                 VanillaArtifactID.theCreaturesHeart,
             });

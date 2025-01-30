@@ -402,6 +402,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
         <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.teruharijou_4">
+            <bool name="canDeactive" value="false"/>
             <float name="maxHealth" value="4000"/>
             <bool name="defensive" value="true"/>
             <id name="fragmentId" value="mvz2:furnace" />
@@ -449,6 +450,7 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
         <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片" unlock="mvz2:level.teruharijou_9">
+            <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
             <vector3 name="size" x="60" y="40" z="60"/>
             <id name="deathSound" value="mvz2:pot_break"/>
