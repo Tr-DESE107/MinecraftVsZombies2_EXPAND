@@ -268,7 +268,7 @@
             <properties>
                 <p>耐久：<![CDATA[<color=red>2000</color>]]></p>
                 <p>恢复速度：<![CDATA[<color=red>40/秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复生命值</color>]]></p>
+                <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复耐久</color>]]></p>
             </properties>
             <flavor>
                 <p>化学课就像是：</p>
@@ -363,7 +363,7 @@
             </header>
             <properties>
                 <p>修复时间：<![CDATA[<color=red>20秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命值的伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<rotate="-20">别乱震啊卧槽！</rotate>]]></p>
@@ -791,7 +791,7 @@
                 <p>地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的灵魂沙王。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>1350，低于200时每秒失去60生命值</color>]]></p>
+                <p>生命：<![CDATA[<color=red>1350，低于200时每秒失去60生命</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
@@ -823,7 +823,7 @@
                 <p>欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>战斗开始时，本场战斗每出现3种怪物，获得25能量。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>战斗开始时，本场战斗每出现3种怪物，获得25能量</color>]]></p>
             </properties>
             <flavor>
                 <p>这本书被记载到了这本书中，而你正在这本书里面看着这本书自己描述这本书。</p>
@@ -836,7 +836,7 @@
                 <p>农具。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的僵尸。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的僵尸</color>]]></p>
             </properties>
             <flavor>
                 <p>踩到了的话被打一下很痛。真的。</p>
@@ -847,7 +847,7 @@
                 <p>欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>对器械使用星之碎片会为其恢复所有生命值，并在此期间无敌。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>对器械使用星之碎片会为其恢复所有耐久，并在此期间无敌</color>]]></p>
             </properties>
             <flavor>
                 <p>能够打开一道通向其他世界的大门的，充满魔力的钥匙。</p>
@@ -864,7 +864,7 @@
                 <p>科学怪人的怪物的心脏。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗减少5</color>]]></p>
             </properties>
             <flavor>
                 <p>……爱……？</p>
@@ -876,7 +876,7 @@
                 <p>哆来咪赠予的奇妙枕头，拥有让人安眠的效果。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>器械每秒钟恢复10点生命值。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>器械每秒钟恢复10点耐久</color>]]></p>
             </properties>
             <flavor>
                 <p>好困啊，先不写趣文了。</p>
@@ -887,7 +887,7 @@
                 <p>槐树上的树枝。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%</color>]]></p>
             </properties>
             <flavor>
                 <p>据说能让你一生荣华富贵，最终却也会因战火流离失所。</p>
@@ -899,7 +899,7 @@
                 <p>梦境世界的蝴蝶，两翼异色，分别代表着美梦和噩梦。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>刚放下的器械无敌3秒。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>刚放下的器械无敌3秒</color>]]></p>
             </properties>
             <flavor>
                 <p>这种蝴蝶生长在梦境世界，吸取人们的美梦的幸福、放松的甜蜜，沾染噩梦的痛苦、疲劳的花粉。</p>
@@ -912,7 +912,7 @@
                 <p>暗物质是宇宙中大量存在的一种不可见的物质。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>器械生产效率×200%，但场景变得黑暗。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>器械生产效率×200%，但场景变得黑暗</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<color=white>你看不见我</color>]]></p>
@@ -924,7 +924,7 @@
                 <p>被放反了的镜子。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>敌人发射的子弹可以击中其他敌人。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>敌人发射的子弹可以击中其他敌人</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<rotate="180">让我这样看，你很开心吗？</rotate>]]></p>
@@ -935,7 +935,7 @@
                 <p>针妙丸公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被正邪用于逃离通缉。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>+15%器械伤害。</color>]]></p>
+                <p>效果：<![CDATA[<color=red>+15%器械伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。</p>
@@ -947,7 +947,17 @@
                 <p>一城之君，怎会落得这般下场？</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:wither_skeleton_skull">
+            <header>
+                <p>凋灵骷髅的头颅。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×50%</color>]]></p>
+            </properties>
+            <flavor>
+                <p>多么惊悚恐怖的骷髅头！</p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->

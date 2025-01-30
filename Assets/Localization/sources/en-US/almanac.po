@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 03:54+0800\n"
-"PO-Revision-Date: 2025-01-30 15:58+0800\n"
+"POT-Creation-Date: 2025-01-30 04:55+0800\n"
+"PO-Revision-Date: 2025-01-30 16:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -529,11 +529,11 @@ msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>2000</color>\n"
 "恢复速度：<color=red>40/秒</color>\n"
-"技能：<color=red>进入无敌状态，并为周围的器械恢复生命值</color>"
+"技能：<color=red>进入无敌状态，并为周围的器械恢复耐久</color>"
 msgstr ""
 "Toughness: <color=red>2000</color>\n"
 "Regeneration: <color=red>40/s</color>\n"
-"Evocation: <color=red>Become invincible, regenerate health for surrounding contraptions</color>"
+"Evocation: <color=red>Become invincible, regenerate toughness for surrounding contraptions</color>"
 
 #. Flavor for contraptions mvz2:dream_crystal
 #: Almanac meta file
@@ -719,7 +719,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>20秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命值的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>"
 msgstr ""
 "Repair time：<color=red>20 seconds</color>\n"
 "Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemies on the ground</"
@@ -1355,7 +1355,7 @@ msgstr "Hell Chariot will crush all contraptions on its path. It also releases A
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>1350，低于200时每秒失去60生命值</color>\n"
+"生命：<color=red>1350，低于200时每秒失去60生命</color>\n"
 "速度：<color=red>1</color>\n"
 "碾压伤害：<color=red>10000000</color>\n"
 "弱点：<color=red>尖刺方块</color>"
@@ -1415,7 +1415,7 @@ msgstr "A magical almanac, once owned by Orant, will automatically record everyt
 #. Properties for artifacts mvz2:almanac
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>战斗开始时，本场战斗每出现3种怪物，获得25能量。</color>"
+msgid "效果：<color=red>战斗开始时，本场战斗每出现3种怪物，获得25能量</color>"
 msgstr "Effect: <color=red>+25 energy at the start of the battle for every 3 enemy types present in this battle</color>"
 
 #. Flavor for artifacts mvz2:almanac
@@ -1440,8 +1440,8 @@ msgstr "An agricultural tool."
 #. Properties for artifacts mvz2:hoe
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸。</color>"
-msgstr "Effect: <color=red>Kills the first enemy of every battle.</color>"
+msgid "效果：<color=red>每场战斗中，击杀最先出场的僵尸</color>"
+msgstr "Effect: <color=red>Kills the first enemy of every battle</color>"
 
 #. Flavor for artifacts mvz2:hoe
 #: Almanac meta file
@@ -1458,8 +1458,8 @@ msgstr "A key used to open gates towards the dreamland of other worlds, allowing
 #. Properties for artifacts mvz2:dream_key
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>对器械使用星之碎片会为其恢复所有生命值，并在此期间无敌。</color>"
-msgstr "Effect: <color=red>Contraptions restore all toughness after being evoked, and is invincible during evocation.</color>"
+msgid "效果：<color=red>对器械使用星之碎片会为其恢复所有耐久，并在此期间无敌</color>"
+msgstr "Effect: <color=red>Contraptions restore all toughness after being evoked, and is invincible during evocation</color>"
 
 #. Flavor for artifacts mvz2:dream_key
 #: Almanac meta file
@@ -1491,8 +1491,8 @@ msgstr "The Frankenstein's monster's heart."
 #. Properties for artifacts mvz2:the_creatures_heart
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5。</color>"
-msgstr "Effect: <color=red>-5 contraption cost for each same contraption on the battlefield.</color>"
+msgid "效果：<color=red>场上每有一个同类器械，该器械的能量消耗减少5</color>"
+msgstr "Effect: <color=red>-5 contraption cost for each same contraption on the battlefield</color>"
 
 #. Flavor for artifacts mvz2:the_creatures_heart
 #: Almanac meta file
@@ -1509,7 +1509,7 @@ msgstr "A wonderful pillow gifted by Doremy, with the ability of making people s
 #. Properties for artifacts mvz2:sweet_sleep_pillow
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械每秒钟恢复10点生命值。</color>"
+msgid "效果：<color=red>器械每秒钟恢复10点耐久</color>"
 msgstr "Effect: <color=red>Contraptions restore 10 toughness per second</color>"
 
 #. Flavor for artifacts mvz2:sweet_sleep_pillow
@@ -1527,8 +1527,8 @@ msgstr "A branch on the pagoda tree."
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%。</color>"
-msgstr "Effect: <color=red>+2 starshards at start, but +200% amount of spawned enemies.</color>"
+msgid "效果：<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%</color>"
+msgstr "Effect: <color=red>+2 starshards at start, but +200% amount of spawned enemies</color>"
 
 #. Flavor for artifacts mvz2:pagoda_branch
 #: Almanac meta file
@@ -1549,8 +1549,8 @@ msgstr "A dichromatic butterfly in the Dream World, which the wings represent dr
 #. Properties for artifacts mvz2:dream_butterfly
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>刚放下的器械无敌3秒。</color>"
-msgstr "Effect: <color=red>Contraptions are invincible for 3 seconds after build.</color>"
+msgid "效果：<color=red>刚放下的器械无敌3秒</color>"
+msgstr "Effect: <color=red>Contraptions are invincible for 3 seconds after build</color>"
 
 #. Flavor for artifacts mvz2:dream_butterfly
 #: Almanac meta file
@@ -1576,7 +1576,7 @@ msgstr "Dark Matter is an invisible substance that exists in large quantities in
 #. Properties for artifacts mvz2:dark_matter
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械生产效率×200%，但场景变得黑暗。</color>"
+msgid "效果：<color=red>器械生产效率×200%，但场景变得黑暗</color>"
 msgstr "Effect: <color=red>x200% contraption produce speed, but the battlefield is pitch black</color>"
 
 #. Flavor for artifacts mvz2:dark_matter
@@ -1594,14 +1594,59 @@ msgstr "An upside-down mirror."
 #. Properties for artifacts mvz2:inverted_mirror
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌人发射的子弹可以击中其他敌人。</color>"
-msgstr "Effects: <color=red>Projectiles shot by enemies can hit other enemies.</color>"
+msgid "效果：<color=red>敌人发射的子弹可以击中其他敌人</color>"
+msgstr "Effects: <color=red>Projectiles shot by enemies can hit other enemies</color>"
 
 #. Flavor for artifacts mvz2:inverted_mirror
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "<rotate=\"180\">让我这样看，你很开心吗？</rotate>"
 msgstr "<rotate=\"180\">Having a laugh torturing our necks, are we?</rotate>"
+
+#. Header for artifacts mvz2:miracle_mallet_replica
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "针妙丸公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被正邪用于逃离通缉。"
+msgstr ""
+"A replica of the Mallet (treasure bestowed by Princess Shinmyoumaru upon her meritorious vassal Steve), which was once wielded by "
+"Seija to evade pursuit."
+
+#. Properties for artifacts mvz2:miracle_mallet_replica
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>+15%器械伤害</color>"
+msgstr "Effect: <color=red>+15% contraption damage</color>"
+
+#. Flavor for artifacts mvz2:miracle_mallet_replica
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。\n"
+"\n"
+"却说那小人参见小人，图谋以小搏大。蚍蜉欲撼参天木，终作金靴踏下尘。\n"
+"小人遭缚，小人遁形。小人间彼此算计，最终却成了知己。\n"
+"然族民百姓叫苦不迭，城内苍生忧心忡忡。\n"
+"亡者之劫已解，天下信任尽失。\n"
+"一城之君，怎会落得这般下场？"
+msgstr ""
+
+#. Header for artifacts mvz2:wither_skeleton_skull
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "凋灵骷髅的头颅。"
+msgstr "A wither skeleton's skull."
+
+#. Properties for artifacts mvz2:wither_skeleton_skull
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>×75%蓝图消耗，但新放下的器械的最大耐久×50%</color>"
+msgstr "Effect: <color=red>x75% blueprint cost, but x50% max toughness of newly built contraptions</color>"
+
+#. Flavor for artifacts mvz2:wither_skeleton_skull
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "多么惊悚恐怖的骷髅头！"
+msgstr "What a spooky scary skull!"
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -3146,7 +3191,7 @@ msgstr "Dream Key"
 #. Tooltip for artifact mvz2:dream_key
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "对器械使用星之碎片会恢复所有生命值，并在此期间无敌"
+msgid "对器械使用星之碎片会恢复所有耐久，并在此期间无敌"
 msgstr "Contraptions restore all toughness after being evoked, and is invincible during evocation"
 
 #. Name for artifact mvz2:the_creatures_heart
@@ -3170,7 +3215,7 @@ msgstr "Sweet Sleep Pillow"
 #. Tooltip for artifact mvz2:sweet_sleep_pillow
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每秒恢复10点生命值"
+msgid "器械每秒恢复10点耐久"
 msgstr "Contraptions restore 10 toughness per second"
 
 #. Name for artifact mvz2:pagoda_branch
@@ -3237,25 +3282,25 @@ msgstr "Enemy projectiles can hit other enemies"
 #: Artifact meta file
 msgctxt "artifact.name"
 msgid "万宝槌仿制品"
-msgstr ""
+msgstr "Miracle Mallet Replica"
 
 #. Tooltip for artifact mvz2:miracle_mallet_replica
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "+10%器械伤害"
-msgstr ""
+msgid "+15%器械伤害"
+msgstr "+15% contraption damage"
 
 #. Name for artifact mvz2:wither_skeleton_skull
 #: Artifact meta file
 msgctxt "artifact.name"
 msgid "凋灵骷髅头"
-msgstr ""
+msgstr "Wither Skeleton Skull"
 
 #. Tooltip for artifact mvz2:wither_skeleton_skull
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "-25%蓝图消耗，但新放下的器械的生命值×50%"
-msgstr ""
+msgid "×75%蓝图消耗，但新放下的器械的最大耐久×50%"
+msgstr "x75% blueprint cost, but x50% max toughness of newly built contraptions"
 
 #. Name for artifact mvz2:broken_lantern
 #: Artifact meta file

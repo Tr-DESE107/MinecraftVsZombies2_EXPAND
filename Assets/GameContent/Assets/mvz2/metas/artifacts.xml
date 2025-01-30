@@ -2,10 +2,10 @@
     
     <artifact id="almanac" name="图鉴" tooltip="本场战斗每出现3种怪物，开始战斗时+25能量" sprite="mvz2:artifacts/almanac" unlock="mvz2:level.halloween_5" />
     <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌人" sprite="mvz2:artifacts/hoe" unlock="mvz2:artifact.hoe" />
-    <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有生命值，并在此期间无敌" sprite="mvz2:artifacts/dream_key" unlock="mvz2:level.halloween_11" />
+    <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有耐久，并在此期间无敌" sprite="mvz2:artifacts/dream_key" unlock="mvz2:level.halloween_11" />
     <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少5" sprite="mvz2:artifacts/the_creatures_heart" unlock="mvz2:artifact.the_creatures_heart" />
     
-    <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点生命值" sprite="mvz2:artifacts/sweet_sleep_pillow" unlock="mvz2:level.dream_2" />
+    <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow" unlock="mvz2:level.dream_2" />
     <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但敌人数量+200%" sprite="mvz2:artifacts/pagoda_branch" unlock="mvz2:artifact.pagoda_branch" />
     <artifact id="dream_butterfly" name="梦蝶" tooltip="刚放置的器械无敌3秒" sprite="mvz2:artifacts/dream_butterfly" unlock="mvz2:level.dream_11" />
     <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter" unlock="mvz2:artifact.dark_matter" />
@@ -13,7 +13,7 @@
     <artifact id="smart_phone" name="智能手机" tooltip="关卡结束后消耗所有能量，每消耗50能量获得10金钱" sprite="mvz2:artifacts/smart_phone" unlock="mvz2:kourindow_visited_2" />
     <artifact id="inverted_mirror" name="倒置的镜子" tooltip="敌人的敌弹能够击中其他敌人" sprite="mvz2:artifacts/inverted_mirror" unlock="mvz2:artifact.inverted_mirror" />
     <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+15%器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica" unlock="mvz2:level.teruharijou_11" />
-    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="-25%蓝图消耗，但新放下的器械的生命值×50%" sprite="mvz2:artifacts/wither_skeleton_skull" unlock="mvz2:artifact.wither_skeleton_skull" />
+    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×50%" sprite="mvz2:artifacts/wither_skeleton_skull" unlock="mvz2:artifact.wither_skeleton_skull" />
     <artifact id="broken_lantern" name="破灯笼" tooltip="-50%光照范围，发光的器械生产速度和射速+25%" sprite="mvz2:artifacts/broken_lantern" unlock="mvz2:artifact.broken_lantern" />
 
 </artifacts>

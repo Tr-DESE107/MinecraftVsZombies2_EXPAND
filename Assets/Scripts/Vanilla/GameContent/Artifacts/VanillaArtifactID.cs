@@ -17,6 +17,7 @@ namespace MVZ2.GameContent.Artifacts
 
         public const string invertedMirror = "inverted_mirror";
         public const string miracleMalletReplica = "miracle_mallet_replica";
+        public const string witherSkeletonSkull = "wither_skeleton_skull";
     }
     public static class VanillaArtifactID
     {
@@ -32,6 +33,7 @@ namespace MVZ2.GameContent.Artifacts
 
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
         public static readonly NamespaceID miracleMalletReplica = Get(VanillaArtifactNames.miracleMalletReplica);
+        public static readonly NamespaceID witherSkeletonSkull = Get(VanillaArtifactNames.witherSkeletonSkull);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

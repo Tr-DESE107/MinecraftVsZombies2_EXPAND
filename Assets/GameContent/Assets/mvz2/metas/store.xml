@@ -125,6 +125,15 @@
                 <stage price="1000" unlocks="mvz2:artifact.hoe"/>
             </stages>
         </product>
+        <product id="the_creatures_heart" sprite="mvz2:artifacts/the_creatures_heart">
+            <talks>
+                <talk character="mvz2:crazy_villager">科学怪人的怪物的心脏！你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！</talk>
+                <talk character="mvz2:tokiko">很奇怪的心脏……由于它在渴望同类，你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.the_creatures_heart"/>
+            </stages>
+        </product>
         <product id="pagoda_branch" sprite="mvz2:artifacts/pagoda_branch">
             <talks>
                 <talk character="mvz2:crazy_villager">产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的敌人！</talk>
@@ -132,6 +141,15 @@
             </talks>
             <stages>
                 <stage price="3330" unlocks="mvz2:artifact.pagoda_branch"/>
+            </stages>
+        </product>
+        <product id="dark_matter" sprite="mvz2:artifacts/dark_matter" required="mvz2:level.dream_11">
+            <talks>
+                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！</talk>
+                <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.dark_matter"/>
             </stages>
         </product>
         <product id="inverted_mirror" sprite="mvz2:artifacts/inverted_mirror" required="mvz2:level.teruharijou_6">
@@ -143,22 +161,13 @@
                 <stage price="3330" unlocks="mvz2:artifact.inverted_mirror"/>
             </stages>
         </product>
-        <product id="the_creatures_heart" sprite="mvz2:artifacts/the_creatures_heart">
+        <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull" required="mvz2:level.teruharijou_11">
             <talks>
-                <talk character="mvz2:crazy_villager">科学怪人的怪物的心脏！你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！</talk>
-                <talk character="mvz2:tokiko">很奇怪的心脏……由于它在渴望同类，你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！</talk>
+                <talk character="mvz2:crazy_villager">凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为50%！</talk>
+                <talk character="mvz2:tokiko">很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们也会因此比之前脆弱一半！</talk>
             </talks>
             <stages>
-                <stage price="15000" unlocks="mvz2:artifact.the_creatures_heart"/>
-            </stages>
-        </product>
-        <product id="dark_matter" sprite="mvz2:artifacts/dark_matter" required="mvz2:level.dream_11">
-            <talks>
-                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！</talk>
-                <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！</talk>
-            </talks>
-            <stages>
-                <stage price="15000" unlocks="mvz2:artifact.dark_matter"/>
+                <stage price="15000" unlocks="mvz2:artifact.wither_skeleton_skull"/>
             </stages>
         </product>
     </products>
