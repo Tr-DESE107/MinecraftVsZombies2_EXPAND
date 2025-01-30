@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 07:00+0800\n"
+"POT-Creation-Date: 2025-01-30 08:23+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1784,19 +1784,19 @@ msgctxt "misc.description"
 msgid "哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。"
 msgstr ""
 
-#. Name for misc mvz2:teruharijou
+#. Name for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "辉针城"
 msgstr ""
 
-#. Header for misc mvz2:teruharijou
+#. Header for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "辉针城是小人族们的城池，在一年前遭到了凋灵骷髅们的入侵。"
 msgstr ""
 
-#. Flavor for misc mvz2:teruharijou
+#. Flavor for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""

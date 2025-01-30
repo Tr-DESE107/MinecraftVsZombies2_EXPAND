@@ -361,8 +361,8 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
 
-        <!-- Teruharijou Contraptions -->
-        <dispenser id="wooden_dropper" name="木制投掷器" tooltip="投出木制小球" unlock="mvz2:level.teruharijou_1">
+        <!-- Castle Contraptions -->
+        <dispenser id="wooden_dropper" name="木制投掷器" tooltip="投出木制小球" unlock="mvz2:level.castle_1">
             <id name="projectileId" value="mvz2:wooden_ball" />
             <id name="shootSound" value="mvz2:click"/>
             <id name="shell" value="mvz2:wood"/>
@@ -375,7 +375,7 @@
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
-        <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人" unlock="mvz2:level.teruharijou_2">
+        <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人" unlock="mvz2:level.castle_2">
             <bool name="canDeactive" value="false"/>
             <float name="damage" value="20"/>
             <bool name="shadowHidden" value="true"/>
@@ -389,7 +389,7 @@
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
-        <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" unlock="mvz2:level.teruharijou_3">
+        <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" unlock="mvz2:level.castle_3">
             <id name="fragmentId" value="mvz2:furnace" />
             <id name="projectileId" value="mvz2:cobble" />
             <id name="shootSound" value="mvz2:click"/>
@@ -401,7 +401,7 @@
             <int name="cost" value="100" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
-        <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.teruharijou_4">
+        <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.castle_4">
             <bool name="canDeactive" value="false"/>
             <float name="maxHealth" value="4000"/>
             <bool name="defensive" value="true"/>
@@ -412,7 +412,7 @@
             <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
-        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的敌人" unlock="mvz2:level.teruharijou_6">
+        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的敌人" unlock="mvz2:level.castle_6">
             <bool name="nocturnal" value="true"/>
             <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
@@ -423,7 +423,7 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
-        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" unlock="mvz2:level.teruharijou_7">
+        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" unlock="mvz2:level.castle_7">
             <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
             <id name="shell" value="mvz2:wood"/>
@@ -436,7 +436,7 @@
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
-        <contraption id="tesla_coil" name="磁暴线圈" tooltip="电击大范围内的敌人" unlock="mvz2:level.teruharijou_8">
+        <contraption id="tesla_coil" name="磁暴线圈" tooltip="电击大范围内的敌人" unlock="mvz2:level.castle_8">
             <float name="range" value="200" />
             <float name="damage" value="80" />
             <bool name="blocksJump" value="true" />
@@ -449,7 +449,7 @@
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
-        <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片" unlock="mvz2:level.teruharijou_9">
+        <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片" unlock="mvz2:level.castle_9">
             <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
             <vector3 name="size" x="60" y="40" z="60"/>
@@ -509,7 +509,7 @@
             <int name="cost" value="275" />
             <id name="rechargeId" value="mvz2:very_long" />
         </dispenser>
-        <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久" unlock="mvz2:level.teruharijou_5">
+        <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久" unlock="mvz2:level.castle_5">
             <float name="maxHealth" value="2700"/>
             <float name="damage" value="20"/>
             <bool name="shadowHidden" value="true"/>
@@ -708,8 +708,8 @@
             <int name="waterInteraction" value="2"/>
         </enemy>
 
-        <!-- Teruharijou Enemies -->
-        <enemy id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.teruharijou_1">
+        <!-- Castle Enemies -->
+        <enemy id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
             <float name="range" value="800"/>
             <vector3 name="shotOffset" x="30" y="96" z="0"/>
             <vector3 name="shotVelocity" x="0" y="0" z="0"/>
@@ -722,7 +722,7 @@
             <int name="cost" value="150" />
             <int name="waterInteraction" value="2"/>
         </enemy>
-        <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.teruharijou_3">
+        <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
             <float name="range" value="120"/>
             <float name="speed" value="2"/>
             <id name="shell" value="mvz2:nether"/>
@@ -733,7 +733,7 @@
             <int name="cost" value="200" />
             <int name="waterInteraction" value="2"/>
         </enemy>
-        <enemy id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.teruharijou_6">
+        <enemy id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.castle_6">
             <float name="maxHealth" value="300"/>
             <id name="shell" value="mvz2:nether"/>
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>
@@ -743,7 +743,7 @@
             <int name="cost" value="200" />
             <int name="waterInteraction" value="2"/>
         </enemy>
-        <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！" unlock="mvz2:level.teruharijou_8">
+        <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！" unlock="mvz2:level.castle_8">
             <float name="maxHealth" value="1350"/>
             <id name="fragmentId" value="mvz2:hell_chariot"/>
             <id name="shell" value="mvz2:stone"/>
@@ -756,7 +756,7 @@
 
             <int name="cost" value="300" />
         </enemy>
-        <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" unlock="mvz2:level.teruharijou_9">
+        <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" unlock="mvz2:level.castle_9">
             <id name="shell" value="mvz2:nether"/>
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>
             <id name="hitSound" value="mvz2:bone_hit"/>
@@ -835,7 +835,7 @@
 
             <int name="cost" value="0" />
         </enemy>
-        <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.teruharijou_6">
+        <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.castle_6">
             <float name="maxHealth" value="400"/>
             <float name="fallResistance" value="30"/>
             <id name="shell" value="mvz2:bone"/>
@@ -846,7 +846,7 @@
 
             <int name="cost" value="125" />
         </enemy>
-        <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.teruharijou_6">
+        <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
             <float name="speed" value="2"/>
             <id name="shell" value="mvz2:nether"/>
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>
@@ -856,7 +856,7 @@
 
             <int name="cost" value="50" />
         </enemy>
-        <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.teruharijou_9">
+        <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.castle_9">
             <bool name="harmless" value="true" />
             <bool name="notActiveEnemy" value="true"/>
             <bool name="loyal" value="true"/>

@@ -14,10 +14,10 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [Definition(VanillaAreaNames.teruharijou)]
-    public class Teruharijou : AreaDefinition
+    [Definition(VanillaAreaNames.castle)]
+    public class Castle : AreaDefinition
     {
-        public Teruharijou(string nsp, string name) : base(nsp, name)
+        public Castle(string nsp, string name) : base(nsp, name)
         {
         }
         public override void PostHugeWaveEvent(LevelEngine level)
@@ -36,6 +36,6 @@ namespace MVZ2.GameContent.Areas
             }
             return base.GetGroundY(level, x, z);
         }
-        private static readonly NamespaceID ID = VanillaAreaID.teruharijou;
+        private static readonly NamespaceID ID = VanillaAreaID.castle;
     }
 }

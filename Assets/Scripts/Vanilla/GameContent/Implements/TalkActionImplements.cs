@@ -185,9 +185,9 @@ namespace MVZ2.GameContent.Implements
                         map.SetPreset(VanillaMapPresetID.nightmare);
                         Global.Game.Unlock(VanillaUnlockID.dreamIsNightmare);
                         break;
-                    case "goto_teruharijou":
-                        Global.Game.SetLastMapID(VanillaMapID.teruharijou);
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.teruharijou, VanillaAreaID.teruharijou, VanillaStageID.teruharijou1));
+                    case "goto_castle":
+                        Global.Game.SetLastMapID(VanillaMapID.castle);
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
                         break;
                 }
             }

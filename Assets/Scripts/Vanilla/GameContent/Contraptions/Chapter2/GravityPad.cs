@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             var pos = entity.Position + Vector3.up * 600;
             var level = entity.Level;
-            if (level.AreaID == VanillaAreaID.teruharijou && !Global.Game.IsUnlocked(VanillaUnlockID.brokenLantern))
+            if (level.AreaID == VanillaAreaID.castle && !Global.Game.IsUnlocked(VanillaUnlockID.brokenLantern))
             {
                 if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && ArtifactPickup.GetArtifactID(e) == VanillaArtifactID.brokenLantern))
                 {

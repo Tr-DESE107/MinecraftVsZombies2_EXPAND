@@ -298,11 +298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2783835787699341151, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_Name
-      value: Teruharijou
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: unlock.path
-      value: entered_teruharijou
+      value: entered_castle
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -346,7 +346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9039985123214844168, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: id.path
-      value: teruharijou
+      value: castle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

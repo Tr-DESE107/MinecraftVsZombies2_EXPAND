@@ -262,9 +262,9 @@ namespace MVZ2.Map
             {
                 Main.Scene.DisplayMap(VanillaMapID.dream);
             }
-            else if (id == MapPinID.teruharijou)
+            else if (id == MapPinID.castle)
             {
-                Main.Scene.DisplayMap(VanillaMapID.teruharijou);
+                Main.Scene.DisplayMap(VanillaMapID.castle);
             }
             else if (id == MapPinID.kourindou)
             {

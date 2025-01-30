@@ -449,12 +449,12 @@
         </spawns>
     </stage>
 
-    <!-- Teruharijou -->
-    <stage id="teruharijou_1" name="辉针城" dayNumber="1" unlock="mvz2:entered_teruharijou">
+    <!-- Castle -->
+    <stage id="castle_1" name="辉针城" dayNumber="1" unlock="mvz2:entered_castle">
         <talks>
-            <talk type="start" value="mvz2:teruharijou_1"/>
-            <talk type="end" value="mvz2:teruharijou_1_over"/>
-            <talk type="map" value="mvz2:teruharijou_1_map"/>
+            <talk type="start" value="mvz2:castle_1"/>
+            <talk type="end" value="mvz2:castle_1_over"/>
+            <talk type="map" value="mvz2:castle_1_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_dropper"/>
         <spawns flags="1">

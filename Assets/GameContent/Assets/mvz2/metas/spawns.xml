@@ -61,7 +61,7 @@
         <weight base="2000" />
     </entry>
 
-    <!-- Teruharijou -->
+    <!-- Castle -->
     <entry id="mesmerizer" entity="mvz2:mesmerizer" >
         <spawn level="3" />
         <weight base="2500" />

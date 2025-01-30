@@ -56,27 +56,27 @@
             </talk>
             <talk id="mvz2:exited_kourindou">
                 <conditions>
-                    <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_teruharijou"/>
+                    <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_castle"/>
                 </conditions>
             </talk>
         </talks>
     </map>
-    <map id="teruharijou" area="mvz2:teruharijou" >
+    <map id="castle" area="mvz2:castle" >
         <presets>
-            <preset id="mvz2:teruharijou" model="mvz2:teruharijou" backgroundColor="#552400" music="mvz2:teruharijou_map"/>
+            <preset id="mvz2:castle" model="mvz2:castle" backgroundColor="#552400" music="mvz2:castle_map"/>
         </presets>
-        <stages endless="mvz2:teruharijou_endless">
-            <stage id="mvz2:teruharijou_1"/>
-            <stage id="mvz2:teruharijou_2"/>
-            <stage id="mvz2:teruharijou_3"/>
-            <stage id="mvz2:teruharijou_4"/>
-            <stage id="mvz2:teruharijou_5"/>
-            <stage id="mvz2:teruharijou_6"/>
-            <stage id="mvz2:teruharijou_7"/>
-            <stage id="mvz2:teruharijou_8"/>
-            <stage id="mvz2:teruharijou_9"/>
-            <stage id="mvz2:teruharijou_10"/>
-            <stage id="mvz2:teruharijou_11"/>
+        <stages endless="mvz2:castle_endless">
+            <stage id="mvz2:castle_1"/>
+            <stage id="mvz2:castle_2"/>
+            <stage id="mvz2:castle_3"/>
+            <stage id="mvz2:castle_4"/>
+            <stage id="mvz2:castle_5"/>
+            <stage id="mvz2:castle_6"/>
+            <stage id="mvz2:castle_7"/>
+            <stage id="mvz2:castle_8"/>
+            <stage id="mvz2:castle_9"/>
+            <stage id="mvz2:castle_10"/>
+            <stage id="mvz2:castle_11"/>
         </stages>
     </map>
 </maps>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 02:40+0800\n"
+"POT-Creation-Date: 2025-01-30 08:23+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -629,256 +629,262 @@ msgctxt "advice"
 msgid "点击屏幕阻止碾压墙！"
 msgstr ""
 
+# 获得新制品提示
+#: Scripts\Vanilla\VanillaStrings.cs:29
+msgctxt "advice"
+msgid "你找到了新制品！"
+msgstr ""
+
 # 无尽模式的提示
-#: Scripts\Vanilla\VanillaStrings.cs:30
+#: Scripts\Vanilla\VanillaStrings.cs:32
 msgctxt "advice"
 msgid "更多的敌人要来了！"
 msgstr ""
 
 # 预览战场的提示
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgctxt "advice"
 msgid "点击以继续"
 msgstr ""
 
 # 不推荐使用的提示
-#: Scripts\Vanilla\VanillaStrings.cs:35
+#: Scripts\Vanilla\VanillaStrings.cs:37
 msgid "不推荐在这关使用"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:38
+#: Scripts\Vanilla\VanillaStrings.cs:40
 msgid "购买"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:40
+#: Scripts\Vanilla\VanillaStrings.cs:42
 msgid "购买第七个器械槽位？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:42
+#: Scripts\Vanilla\VanillaStrings.cs:44
 msgid "是否进行新手教程？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:44
+#: Scripts\Vanilla\VanillaStrings.cs:46
 msgid "新手教程"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:47
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "用户名不能为空"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:49
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid "已经存在该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\VanillaStrings.cs:53
 msgid "第一次游戏必须输入用户名"
 msgstr ""
 
 # 删除用户时的警告，{0}为名称
-#: Scripts\Vanilla\VanillaStrings.cs:53
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgctxt "recharge_time"
 msgid "无"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgctxt "recharge_time"
 msgid "短"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "recharge_time"
 msgid "长"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgctxt "archive"
 msgid "剧情分支"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:69
+#: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:71
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "archive"
 msgid "对话结束"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr ""
 
 # 通用的是
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:79
 msgid "是"
 msgstr ""
 
 # 通用的否
-#: Scripts\Vanilla\VanillaStrings.cs:79
+#: Scripts\Vanilla\VanillaStrings.cs:81
 msgid "否"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:87
 msgid "返回地图"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgid "返回主菜单"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:93
 msgid "警告"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgid "退出"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:97
+#: Scripts\Vanilla\VanillaStrings.cs:99
 msgid "确认"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:100
+#: Scripts\Vanilla\VanillaStrings.cs:102
 msgid "能量不足"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:102
+#: Scripts\Vanilla\VanillaStrings.cs:104
 msgid "重新充能中…"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:104
+#: Scripts\Vanilla\VanillaStrings.cs:106
 msgid "挖掉器械"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:106
+#: Scripts\Vanilla\VanillaStrings.cs:108
 msgid "触发器械"
-msgstr ""
-
-# 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:110
-msgctxt "difficulty"
-msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:112
 msgctxt "difficulty"
-msgid "普通"
+msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:114
 msgctxt "difficulty"
-msgid "困难"
+msgid "普通"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:116
 msgctxt "difficulty"
+msgid "困难"
+msgstr ""
+
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:118
+msgctxt "difficulty"
 msgid "未知难度"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:120
+#: Scripts\Vanilla\VanillaStrings.cs:122
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:124
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为无尽模式轮数
-#: Scripts\Vanilla\VanillaStrings.cs:124
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:128
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:132
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:133
+#: Scripts\Vanilla\VanillaStrings.cs:135
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 蓝图选项名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "option.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:139
+#: Scripts\Vanilla\VanillaStrings.cs:141
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:142
+#: Scripts\Vanilla\VanillaStrings.cs:144
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:145
+#: Scripts\Vanilla\VanillaStrings.cs:147
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:148
+#: Scripts\Vanilla\VanillaStrings.cs:150
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:152
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "music.name"
 msgid "无"
 msgstr ""
@@ -1238,7 +1244,7 @@ msgctxt "levelname"
 msgid "梦境世界无尽"
 msgstr ""
 
-#. Name for stage mvz2:teruharijou_1
+#. Name for stage mvz2:castle_1
 #: Stage meta file
 msgctxt "levelname"
 msgid "辉针城"
@@ -1466,13 +1472,13 @@ msgctxt "music.name"
 msgid "记忆的回响"
 msgstr ""
 
-#. Name for music mvz2:teruharijou_map
+#. Name for music mvz2:castle_map
 #: Music meta file
 msgctxt "music.name"
 msgid "沉默空洞的辉针城"
 msgstr ""
 
-#. Name for music mvz2:teruharijou_level
+#. Name for music mvz2:castle_level
 #: Music meta file
 msgctxt "music.name"
 msgid "凋灵舞曲"
@@ -1502,7 +1508,7 @@ msgctxt "archive.tagname"
 msgid "幻想乡"
 msgstr ""
 
-#. Name for archive tag mvz2:teruharijou
+#. Name for archive tag mvz2:castle
 #: Archive meta file
 msgctxt "archive.tagname"
 msgid "辉针城"
@@ -1758,18 +1764,6 @@ msgctxt "store_talk"
 msgid "村民先生的锄头，每场战斗都能给第一只来的怪物当头一棒！"
 msgstr ""
 
-#. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
-#: Store meta file
-msgctxt "store_talk"
-msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的敌人！"
-msgstr ""
-
-#. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
-#: Store meta file
-msgctxt "store_talk"
-msgid "来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多的怪物！"
-msgstr ""
-
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -1782,6 +1776,18 @@ msgctxt "store_talk"
 msgid "很奇怪的心脏……由于它在渴望同类，你的场上每有一个相同的器械，这个器械的能量消耗就会减少5！"
 msgstr ""
 
+#. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的敌人！"
+msgstr ""
+
+#. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多的怪物！"
+msgstr ""
+
 #. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -1792,5 +1798,29 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！"
+msgstr ""
+
+#. Store item description of mvz2:inverted_mirror by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我不小心把这个镜子放反了！现在它可以让敌人发射的子弹击中其他敌人了！"
+msgstr ""
+
+#. Store item description of mvz2:inverted_mirror by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "不知道为什么倒过来的镜子……总之它可以让敌人的子弹击中他们自己！"
+msgstr ""
+
+#. Store item description of mvz2:wither_skeleton_skull by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为50%！"
+msgstr ""
+
+#. Store item description of mvz2:wither_skeleton_skull by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们也会因此比之前脆弱一半！"
 msgstr ""
 

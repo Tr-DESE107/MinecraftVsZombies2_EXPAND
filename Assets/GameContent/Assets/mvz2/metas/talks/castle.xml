@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <talks>
-  <group id="teruharijou_1" tags="mvz2:teruharijou;mvz2:intro">
-    <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/teruharijou" unlock="mvz2:level.teruharijou_1" />
+  <group id="castle_1" tags="mvz2:castle;mvz2:intro">
+    <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_1" />
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />

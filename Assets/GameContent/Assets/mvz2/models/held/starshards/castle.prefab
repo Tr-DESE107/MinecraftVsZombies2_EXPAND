@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3152729976638313519, guid: af7d1bd9aa694004aa4cdcca998d3a98, type: 3}
       propertyPath: m_Name
-      value: teruharijou
+      value: castle
       objectReference: {fileID: 0}
     - target: {fileID: 5441237328102164597, guid: af7d1bd9aa694004aa4cdcca998d3a98, type: 3}
       propertyPath: m_LocalPosition.y

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 07:00+0800\n"
-"PO-Revision-Date: 2025-01-30 19:07+0800\n"
+"POT-Creation-Date: 2025-01-30 08:23+0800\n"
+"PO-Revision-Date: 2025-01-30 20:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1675,7 +1675,7 @@ msgstr "What a spooky scary skull!"
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "辉针城内装饰用的灯笼，被扯坏了。"
-msgstr "A lantern used for decoration in Teruharijou, it was torn apart."
+msgstr "A lantern used for decoration in Shining Needle Castle, it was torn apart."
 
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
@@ -2138,19 +2138,19 @@ msgstr ""
 "corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
 "What you now see is the true appearance of the Dream World."
 
-#. Name for misc mvz2:teruharijou
+#. Name for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "辉针城"
-msgstr "Teruharijou"
+msgstr "Shining Needle Castle"
 
-#. Header for misc mvz2:teruharijou
+#. Header for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "辉针城是小人族们的城池，在一年前遭到了凋灵骷髅们的入侵。"
 msgstr ""
 
-#. Flavor for misc mvz2:teruharijou
+#. Flavor for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""

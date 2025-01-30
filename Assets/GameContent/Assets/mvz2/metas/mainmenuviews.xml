@@ -15,9 +15,9 @@
             <condition required="mvz2:entered_dream;mvz2:dream_is_nightmare" />
         </conditions>
     </view>
-    <view id="teruharijou" priority="300" spritesheet="mvz2:mainmenu/view/teruharijou">
+    <view id="castle" priority="300" spritesheet="mvz2:mainmenu/view/castle">
         <conditions>
-            <condition required="mvz2:entered_teruharijou" />
+            <condition required="mvz2:entered_castle" />
         </conditions>
     </view>
 </views>

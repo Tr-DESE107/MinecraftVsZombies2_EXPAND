@@ -737,8 +737,8 @@
     </section>
   </group>
   <group id="exited_kourindou" tags="mvz2:gensokyo">
-    <archive name="离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_teruharijou" />
-    <section onSkip="foreground alpha 0;end;unlock mvz2:entered_teruharijou;action goto_teruharijou">
+    <archive name="离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_castle" />
+    <section onSkip="foreground alpha 0;end;unlock mvz2:entered_castle;action goto_castle">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
@@ -761,7 +761,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">怎么上去？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">你不是会机械吗？造个活塞虫呗！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake;character variant mvz2:tokiko mvz2:surprised">这能行吗！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="unlock mvz2:entered_teruharijou;end;action goto_teruharijou">试试就知道了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="unlock mvz2:entered_castle;end;action goto_castle">试试就知道了！</sentence>
       </sentences>
     </section>
   </group>

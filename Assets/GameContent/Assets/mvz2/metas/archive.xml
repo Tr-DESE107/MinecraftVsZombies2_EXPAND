@@ -4,7 +4,7 @@
         <tag id="halloween" name="万圣夜" priority="1"/>
         <tag id="dream" name="梦境世界" priority="2"/>
         <tag id="gensokyo" name="幻想乡" priority="2"/>
-        <tag id="teruharijou" name="辉针城" priority="3"/>
+        <tag id="castle" name="辉针城" priority="3"/>
         <tag id="tutorial" name="教程" priority="100"/>
         <tag id="note" name="纸条" priority="100"/>
         <tag id="special" name="特殊" priority="100"/>

@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: teruharijou_0
+      name: castle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teruharijou_1
+      name: castle_1
       rect:
         serializedVersion: 2
         x: 0
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      teruharijou_0: 1026532252
-      teruharijou_1: 211612225
+      castle_0: 1026532252
+      castle_1: 211612225
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 1596198688027653719}
   - component: {fileID: 3146854895338399448}
   m_Layer: 0
-  m_Name: teruharijou
+  m_Name: castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +423,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_4
+      value: castle
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -507,7 +507,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_8
+      value: castle
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -738,7 +738,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_3
+      value: castle_3
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -822,7 +822,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_6
+      value: castle_6
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -906,7 +906,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_7
+      value: castle_7
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1052,7 +1052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_9
+      value: castle_9
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1144,7 +1144,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_1
+      value: castle_1
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1228,7 +1228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_7
+      value: castle_7
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1312,7 +1312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlock.path
-      value: teruharijou_2
+      value: castle_2
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name

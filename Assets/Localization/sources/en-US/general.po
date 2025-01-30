@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 02:40+0800\n"
-"PO-Revision-Date: 2025-01-30 15:04+0800\n"
+"POT-Creation-Date: 2025-01-30 08:23+0800\n"
+"PO-Revision-Date: 2025-01-30 20:31+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -588,49 +588,55 @@ msgctxt "advice"
 msgid "点击屏幕阻止碾压墙！"
 msgstr "Click to stop the crushing walls!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:30
+# 获得新制品提示
+#: Scripts\Vanilla\VanillaStrings.cs:29
+msgctxt "advice"
+msgid "你找到了新制品！"
+msgstr "You found a new artifact!"
+
+#: Scripts\Vanilla\VanillaStrings.cs:32
 msgctxt "advice"
 msgid "更多的敌人要来了！"
 msgstr "More enemies approaching!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgctxt "advice"
 msgid "点击以继续"
 msgstr "Click to continue"
 
-#: Scripts\Vanilla\VanillaStrings.cs:35
+#: Scripts\Vanilla\VanillaStrings.cs:37
 msgid "不推荐在这关使用"
 msgstr "Not recommended for level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:38
+#: Scripts\Vanilla\VanillaStrings.cs:40
 msgid "购买"
 msgstr "Purchase"
 
-#: Scripts\Vanilla\VanillaStrings.cs:40
+#: Scripts\Vanilla\VanillaStrings.cs:42
 msgid "购买第七个器械槽位？"
 msgstr "Buy the 7th contraption slot?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:42
+#: Scripts\Vanilla\VanillaStrings.cs:44
 msgid "是否进行新手教程？"
 msgstr "Do you want to have a tutorial?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:44
+#: Scripts\Vanilla\VanillaStrings.cs:46
 msgid "新手教程"
 msgstr "Tutorial"
 
-#: Scripts\Vanilla\VanillaStrings.cs:47
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "用户名不能为空"
 msgstr "Username cannot be empty"
 
-#: Scripts\Vanilla\VanillaStrings.cs:49
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid "已经存在该用户名"
 msgstr "This username already exists"
 
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\VanillaStrings.cs:53
 msgid "第一次游戏必须输入用户名"
 msgstr "Username must be set when starting the game for the first time"
 
-#: Scripts\Vanilla\VanillaStrings.cs:53
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
@@ -638,171 +644,171 @@ msgstr ""
 "Delete User {0}?\n"
 "This user's data will be all deleted!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgctxt "recharge_time"
 msgid "无"
 msgstr "None"
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgctxt "recharge_time"
 msgid "短"
 msgstr "Short"
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "recharge_time"
 msgid "长"
 msgstr "Long"
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgctxt "recharge_time"
 msgid "很长"
 msgstr "Very Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgctxt "archive"
 msgid "剧情分支"
 msgstr "Plot Branch"
 
-#: Scripts\Vanilla\VanillaStrings.cs:69
+#: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr "Do you have enough money to buy this?"
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:71
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "archive"
 msgid "对话结束"
 msgstr "Replay Ended"
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr "Play again?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:79
 msgid "是"
 msgstr "Yes"
 
-#: Scripts\Vanilla\VanillaStrings.cs:79
+#: Scripts\Vanilla\VanillaStrings.cs:81
 msgid "否"
 msgstr "No"
 
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:87
 msgid "返回地图"
 msgstr "Back to map"
 
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:93
 msgid "警告"
 msgstr "Warning"
 
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:97
+#: Scripts\Vanilla\VanillaStrings.cs:99
 msgid "确认"
 msgstr "Accept"
 
-#: Scripts\Vanilla\VanillaStrings.cs:100
+#: Scripts\Vanilla\VanillaStrings.cs:102
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:102
+#: Scripts\Vanilla\VanillaStrings.cs:104
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:104
+#: Scripts\Vanilla\VanillaStrings.cs:106
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:106
+#: Scripts\Vanilla\VanillaStrings.cs:108
 msgid "触发器械"
 msgstr "Trigger a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:110
+#: Scripts\Vanilla\VanillaStrings.cs:112
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:112
+#: Scripts\Vanilla\VanillaStrings.cs:114
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:114
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:116
+#: Scripts\Vanilla\VanillaStrings.cs:118
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:120
+#: Scripts\Vanilla\VanillaStrings.cs:122
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:124
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:124
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgstr "{0} - Flag {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:128
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:132
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr "<color=red>COME TO US</color>"
 
-#: Scripts\Vanilla\VanillaStrings.cs:133
+#: Scripts\Vanilla\VanillaStrings.cs:135
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "option.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:139
+#: Scripts\Vanilla\VanillaStrings.cs:141
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:142
+#: Scripts\Vanilla\VanillaStrings.cs:144
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:145
+#: Scripts\Vanilla\VanillaStrings.cs:147
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:148
+#: Scripts\Vanilla\VanillaStrings.cs:150
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:152
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
@@ -1161,7 +1167,7 @@ msgctxt "levelname"
 msgid "梦境世界无尽"
 msgstr "Dream World Endless"
 
-#. Name for stage mvz2:teruharijou_1
+#. Name for stage mvz2:castle_1
 #: Stage meta file
 msgctxt "levelname"
 msgid "辉针城"
@@ -1391,13 +1397,13 @@ msgctxt "music.name"
 msgid "记忆的回响"
 msgstr "Fading Echoes of Memory"
 
-#. Name for music mvz2:teruharijou_map
+#. Name for music mvz2:castle_map
 #: Music meta file
 msgctxt "music.name"
 msgid "沉默空洞的辉针城"
 msgstr "The Shining Needle Castle Sinking to the Void"
 
-#. Name for music mvz2:teruharijou_level
+#. Name for music mvz2:castle_level
 #: Music meta file
 msgctxt "music.name"
 msgid "凋灵舞曲"
@@ -1427,7 +1433,7 @@ msgctxt "archive.tagname"
 msgid "幻想乡"
 msgstr "Gensokyo"
 
-#. Name for archive tag mvz2:teruharijou
+#. Name for archive tag mvz2:castle
 #: Archive meta file
 msgctxt "archive.tagname"
 msgid "辉针城"
@@ -1706,26 +1712,6 @@ msgstr ""
 "Mr. Villager's hoe, it can knock out the first enemy that appears in every "
 "battle!"
 
-#. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
-#: Store meta file
-msgctxt "store_talk"
-msgid ""
-"产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2"
-"倍多的敌人！"
-msgstr ""
-"The branch of a pagoda tree from the Dream World! It gives you 2 starshards "
-"to start with in every battle, but there will be 2 more times the enemies!"
-
-#. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
-#: Store meta file
-msgctxt "store_talk"
-msgid ""
-"来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多"
-"的怪物！"
-msgstr ""
-"A branch of a pagoda tree, It gives you 2 magical shards to start with in "
-"every battle, but there will be 2 more times the enemies!"
-
 #. Store item description of mvz2:the_creatures_heart by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -1747,6 +1733,26 @@ msgstr ""
 "contraption you have on the lawn, the cost of this contraption is decreased "
 "by 5!"
 
+#. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2"
+"倍多的敌人！"
+msgstr ""
+"The branch of a pagoda tree from the Dream World! It gives you 2 starshards "
+"to start with in every battle, but there will be 2 more times the enemies!"
+
+#. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多"
+"的怪物！"
+msgstr ""
+"A branch of a pagoda tree, It gives you 2 magical shards to start with in "
+"every battle, but there will be 2 more times the enemies!"
+
 #. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -1762,6 +1768,39 @@ msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景�
 msgstr ""
 "Some dark thing, it makes contraptions produce at twice the speed, but the "
 "stage will become dark!"
+
+#. Store item description of mvz2:inverted_mirror by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我不小心把这个镜子放反了！现在它可以让敌人发射的子弹击中其他敌人了！"
+msgstr ""
+"I accidentally turned this mirror upside down! Now it can make enemy "
+"projectiles hit other enemies!"
+
+#. Store item description of mvz2:inverted_mirror by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "不知道为什么倒过来的镜子……总之它可以让敌人的子弹击中他们自己！"
+msgstr ""
+"I don't know why this mirror is inverted... Anyway, it can make enemies' "
+"projectiles hit themselves!"
+
+#. Store item description of mvz2:wither_skeleton_skull by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为50%！"
+msgstr ""
+"A wither skeleton's skull! Blueprint costs become 80%, but the toughness of "
+"newly placed contraptions become 50%!"
+
+#. Store item description of mvz2:wither_skeleton_skull by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们也会因此比之前脆弱一半！"
+msgstr ""
+"A spooky scary skull... It can reduce your blueprint costs to 80%, but the "
+"contraptions will also be half as tough as before!"
 
 #~ msgctxt "music.name"
 #~ msgid "留不住回忆"

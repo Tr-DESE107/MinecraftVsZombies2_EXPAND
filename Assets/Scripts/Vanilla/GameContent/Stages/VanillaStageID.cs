@@ -38,18 +38,18 @@ namespace MVZ2.GameContent.Stages
         public const string dream11 = "dream_11";
         public const string dreamEndless = "dream_endless";
 
-        public const string teruharijou1 = "teruharijou_1";
-        public const string teruharijou2 = "teruharijou_2";
-        public const string teruharijou3 = "teruharijou_3";
-        public const string teruharijou4 = "teruharijou_4";
-        public const string teruharijou5 = "teruharijou_5";
-        public const string teruharijou6 = "teruharijou_6";
-        public const string teruharijou7 = "teruharijou_7";
-        public const string teruharijou8 = "teruharijou_8";
-        public const string teruharijou9 = "teruharijou_9";
-        public const string teruharijou10 = "teruharijou_10";
-        public const string teruharijou11 = "teruharijou_11";
-        public const string teruharijouEndless = "teruharijou_endless";
+        public const string castle1 = "castle_1";
+        public const string castle2 = "castle_2";
+        public const string castle3 = "castle_3";
+        public const string castle4 = "castle_4";
+        public const string castle5 = "castle_5";
+        public const string castle6 = "castle_6";
+        public const string castle7 = "castle_7";
+        public const string castle8 = "castle_8";
+        public const string castle9 = "castle_9";
+        public const string castle10 = "castle_10";
+        public const string castle11 = "castle_11";
+        public const string castleEndless = "castle_endless";
     }
     public static class VanillaStageID
     {
@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID halloween11 = Get(VanillaStageNames.halloween11);
         public static readonly NamespaceID dream1 = Get(VanillaStageNames.dream1);
         public static readonly NamespaceID dream11 = Get(VanillaStageNames.dream11);
-        public static readonly NamespaceID teruharijou1 = Get(VanillaStageNames.teruharijou1);
+        public static readonly NamespaceID castle1 = Get(VanillaStageNames.castle1);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
