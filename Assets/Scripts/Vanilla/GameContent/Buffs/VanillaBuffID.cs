@@ -40,6 +40,7 @@ namespace MVZ2.GameContent.Buffs
         public const string stoneShieldProtected = "stone_shield_protected";
         public const string glowstoneProtected = "glowstone_protected";
         public const string ironCurtain = "iron_curtain";
+        public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -73,6 +74,7 @@ namespace MVZ2.GameContent.Buffs
         // Projectile
         public const string projectileWait = "projectile_wait";
         public const string projectileKnockback = "projectile_knockback";
+        public const string invertedMirror = "inverted_mirror";
 
         // Cart
         public const string cartFadeIn = "cart_fade_in";
@@ -145,6 +147,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.forcePadDrag);
         public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.stoneShieldProtected);
         public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.glowstoneProtected);
+        public static readonly NamespaceID miracleMalletReplicaDamage = Get(VanillaBuffNames.miracleMalletReplicaDamage);
 
         public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)

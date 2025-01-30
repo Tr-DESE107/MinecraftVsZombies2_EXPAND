@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Stages
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.invertedMirror,
+                VanillaArtifactID.miracleMalletReplica,
                 VanillaArtifactID.dreamKey,
                 VanillaArtifactID.theCreaturesHeart,
             });

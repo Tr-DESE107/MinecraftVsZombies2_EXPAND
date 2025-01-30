@@ -14,6 +14,9 @@ namespace MVZ2.GameContent.Artifacts
         public const string sweetSleepPillow = "sweet_sleep_pillow";
         public const string pagodaBranch = "pagoda_branch";
         public const string darkMatter = "dark_matter";
+
+        public const string invertedMirror = "inverted_mirror";
+        public const string miracleMalletReplica = "miracle_mallet_replica";
     }
     public static class VanillaArtifactID
     {
@@ -26,6 +29,9 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID darkMatter = Get(VanillaArtifactNames.darkMatter);
         public static readonly NamespaceID hoe = Get(VanillaArtifactNames.hoe);
         public static readonly NamespaceID pagodaBranch = Get(VanillaArtifactNames.pagodaBranch);
+
+        public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
+        public static readonly NamespaceID miracleMalletReplica = Get(VanillaArtifactNames.miracleMalletReplica);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

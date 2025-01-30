@@ -12,7 +12,7 @@
 
     <artifact id="smart_phone" name="智能手机" tooltip="关卡结束后消耗所有能量，每消耗50能量获得10金钱" sprite="mvz2:artifacts/smart_phone" unlock="mvz2:kourindow_visited_2" />
     <artifact id="inverted_mirror" name="倒置的镜子" tooltip="敌人的敌弹能够击中其他敌人" sprite="mvz2:artifacts/inverted_mirror" unlock="mvz2:artifact.inverted_mirror" />
-    <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+10%器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica" unlock="mvz2:level.teruharijou_11" />
+    <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+15%器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica" unlock="mvz2:level.teruharijou_11" />
     <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="-25%蓝图消耗，但新放下的器械的生命值×50%" sprite="mvz2:artifacts/wither_skeleton_skull" unlock="mvz2:artifact.wither_skeleton_skull" />
     <artifact id="broken_lantern" name="破灯笼" tooltip="-50%光照范围，发光的器械生产速度和射速+25%" sprite="mvz2:artifacts/broken_lantern" unlock="mvz2:artifact.broken_lantern" />
 

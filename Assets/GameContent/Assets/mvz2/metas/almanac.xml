@@ -930,6 +930,23 @@
                 <p><![CDATA[<rotate="180">让我这样看，你很开心吗？</rotate>]]></p>
             </flavor>
         </entry>
+        <entry id="mvz2:miracle_mallet_replica">
+            <header>
+                <p>针妙丸公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被正邪用于逃离通缉。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>+15%器械伤害。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。</p>
+                <p/>
+                <p>却说那小人参见小人，图谋以小搏大。蚍蜉欲撼参天木，终作金靴踏下尘。</p>
+                <p>小人遭缚，小人遁形。小人间彼此算计，最终却成了知己。</p>
+                <p>然族民百姓叫苦不迭，城内苍生忧心忡忡。</p>
+                <p>亡者之劫已解，天下信任尽失。</p>
+                <p>一城之君，怎会落得这般下场？</p>
+            </flavor>
+        </entry>
         <entry />
     </artifacts>
     <misc>
