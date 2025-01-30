@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 06:40+0800\n"
-"PO-Revision-Date: 2025-01-30 18:41+0800\n"
+"POT-Creation-Date: 2025-01-30 07:00+0800\n"
+"PO-Revision-Date: 2025-01-30 19:07+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1585,6 +1585,29 @@ msgctxt "artifacts.description"
 msgid "<color=white>你看不见我</color>"
 msgstr "<color=white>You can't see me</color>"
 
+#. Header for artifacts mvz2:smart_phone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "从外界流落到香霖堂的无主智能手机，必要时可以和朱鹭子通话。"
+msgstr "An unclaimed smartphone that drifted into Kourindou from the outside world. It can contact Tokiko in emergencies."
+
+#. Properties for artifacts mvz2:smart_phone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>关卡结束时消耗所有能量，每消耗50能量获得10金钱</color>"
+msgstr "Effect: <color=red>Consumes all energy after level cleared, +10 money for every 50 energy consumed</color>"
+
+#. Flavor for artifacts mvz2:smart_phone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这部手机上装着电话啊，联系人啊，短信啊这些手机必备的应用程序。不过有一个好像有点奇怪，它叫……《MC大战僵尸2》？\n"
+"不知道这是什么应用。"
+msgstr ""
+"This phone comes preloaded with all the essential apps—calls, contacts, messaging—but there's one oddball here called... <i>Minecraft "
+"VS Zombies 2</i>?\n"
+"No clue what this is."
+
 #. Header for artifacts mvz2:inverted_mirror
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -1595,7 +1618,7 @@ msgstr "An upside-down mirror."
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "效果：<color=red>敌人发射的子弹可以击中其他敌人</color>"
-msgstr "Effects: <color=red>Projectiles shot by enemies can hit other enemies</color>"
+msgstr "Effect: <color=red>Projectiles shot by enemies can hit other enemies</color>"
 
 #. Flavor for artifacts mvz2:inverted_mirror
 #: Almanac meta file
@@ -1658,7 +1681,7 @@ msgstr "A lantern used for decoration in Teruharijou, it was torn apart."
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "效果：<color=red>发光的器械×50%光照范围，+25%生产速度和攻击速度</color>"
-msgstr "Effects: <color=red>x50% light range, +25% produce speed and attack speed for glowing contraptions</color>"
+msgstr "Effect: <color=red>x50% light range, +25% produce speed and attack speed for glowing contraptions</color>"
 
 #. Flavor for artifacts mvz2:broken_lantern
 #: Almanac meta file
@@ -3282,13 +3305,13 @@ msgstr "x200% contraption produce speed, but the battlefield is pitch black"
 #: Artifact meta file
 msgctxt "artifact.name"
 msgid "智能手机"
-msgstr ""
+msgstr "Smart Phone"
 
 #. Tooltip for artifact mvz2:smart_phone
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "关卡结束后消耗所有能量，每消耗50能量获得10金钱"
-msgstr ""
+msgstr "Consumes all energy after level cleared, +10 money for every 50 energy consumed"
 
 #. Name for artifact mvz2:inverted_mirror
 #: Artifact meta file

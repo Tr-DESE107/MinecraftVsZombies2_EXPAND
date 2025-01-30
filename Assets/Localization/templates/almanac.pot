@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 06:40+0800\n"
+"POT-Creation-Date: 2025-01-30 07:00+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1285,6 +1285,26 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "<color=white>你看不见我</color>"
+msgstr ""
+
+#. Header for artifacts mvz2:smart_phone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "从外界流落到香霖堂的无主智能手机，必要时可以和朱鹭子通话。"
+msgstr ""
+
+#. Properties for artifacts mvz2:smart_phone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>关卡结束时消耗所有能量，每消耗50能量获得10金钱</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:smart_phone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这部手机上装着电话啊，联系人啊，短信啊这些手机必备的应用程序。不过有一个好像有点奇怪，它叫……《MC大战僵尸2》？\n"
+"不知道这是什么应用。"
 msgstr ""
 
 #. Header for artifacts mvz2:inverted_mirror

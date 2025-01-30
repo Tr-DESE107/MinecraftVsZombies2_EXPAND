@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string pagodaBranch = "pagoda_branch";
         public const string darkMatter = "dark_matter";
 
+        public const string smartPhone = "smart_phone";
         public const string invertedMirror = "inverted_mirror";
         public const string miracleMalletReplica = "miracle_mallet_replica";
         public const string witherSkeletonSkull = "wither_skeleton_skull";
@@ -32,6 +33,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID hoe = Get(VanillaArtifactNames.hoe);
         public static readonly NamespaceID pagodaBranch = Get(VanillaArtifactNames.pagodaBranch);
 
+        public static readonly NamespaceID smartPhone = Get(VanillaArtifactNames.smartPhone);
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
         public static readonly NamespaceID miracleMalletReplica = Get(VanillaArtifactNames.miracleMalletReplica);
         public static readonly NamespaceID witherSkeletonSkull = Get(VanillaArtifactNames.witherSkeletonSkull);

@@ -919,6 +919,18 @@
             </flavor>
         </entry>
         <entry />
+        <entry id="mvz2:smart_phone">
+            <header>
+                <p>从外界流落到香霖堂的无主智能手机，必要时可以和朱鹭子通话。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>关卡结束时消耗所有能量，每消耗50能量获得10金钱</color>]]></p>
+            </properties>
+            <flavor>
+                <p>这部手机上装着电话啊，联系人啊，短信啊这些手机必备的应用程序。不过有一个好像有点奇怪，它叫……《MC大战僵尸2》？</p>
+                <p>不知道这是什么应用。</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:inverted_mirror">
             <header>
                 <p>被放反了的镜子。</p>
