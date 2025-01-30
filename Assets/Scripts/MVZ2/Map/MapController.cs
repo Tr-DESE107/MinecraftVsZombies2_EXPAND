@@ -83,6 +83,7 @@ namespace MVZ2.Map
             if (mapId == VanillaMapID.gensokyo)
             {
                 ui.SetButtonActive(MapUI.ButtonType.Map, false);
+                ui.SetHintText(null);
             }
 
             // 对话

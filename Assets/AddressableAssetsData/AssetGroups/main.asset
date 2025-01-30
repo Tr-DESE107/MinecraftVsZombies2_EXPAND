@@ -60,7 +60,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03dafdf2ab6ba7e499b6f7a6f350be32
-    m_Address: mvz2:mainmenu/view/teruharijou
+    m_Address: mvz2:mainmenu/view/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -210,7 +210,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bbae907f96e6c648a0990646a551c2c
-    m_Address: mvz2:chapter_transition/title_teruharijou
+    m_Address: mvz2:chapter_transition/title_castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -546,7 +546,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bbe75d5487a3c0488fa0041cebec312
-    m_Address: mvz2:enemy/teruharijou/wither_skeleton
+    m_Address: mvz2:enemy/castle/wither_skeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -798,7 +798,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c22dffe2340ef439d6ebbc3478357e
-    m_Address: mvz2:misc/teruharijou
+    m_Address: mvz2:misc/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1038,7 +1038,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 311e353cabcefad4497f399a5a53758d
-    m_Address: mvz2:contraption/teruharijou/giant_bowl
+    m_Address: mvz2:contraption/castle/giant_bowl
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -1074,7 +1074,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32a9da2bd3c99b64298ce54bba1a8611
-    m_Address: mvz2:starshards/teruharijou
+    m_Address: mvz2:starshards/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1128,7 +1128,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 342257987d5162245a6f427eb6e3dc9b
-    m_Address: mvz2:enemy/teruharijou/dullahan_main
+    m_Address: mvz2:enemy/castle/dullahan_main
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -1511,7 +1511,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40e041939468c904abb1e4e902039f30
-    m_Address: mvz2:talks/teruharijou
+    m_Address: mvz2:talks/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
@@ -1727,7 +1727,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49104201ac8c1304080fff41261daa11
-    m_Address: mvz2:contraption/teruharijou/tesla_coil
+    m_Address: mvz2:contraption/castle/tesla_coil
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -1799,7 +1799,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b68efa70206e3f449899738d61ed591
-    m_Address: mvz2:contraption/teruharijou/spike_block
+    m_Address: mvz2:contraption/castle/spike_block
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c5926539a5244c4aaba729490fbbed6
-    m_Address: mvz2:enemy/teruharijou/skeleton_horse
+    m_Address: mvz2:enemy/castle/skeleton_horse
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2021,7 +2021,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 565b39729d8fd1b469bef688b67f08d3
-    m_Address: mvz2:contraption/teruharijou/golden_apple
+    m_Address: mvz2:contraption/castle/golden_apple
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2105,7 +2105,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a71c983a20b667478dd88d44c1a96b3
-    m_Address: mvz2:artifacts/cellphone
+    m_Address: mvz2:artifacts/smart_phone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2501,7 +2501,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b99780004967464787b9b86745a18c2
-    m_Address: mvz2:enemy/teruharijou/mesmerizer
+    m_Address: mvz2:enemy/castle/mesmerizer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2603,7 +2603,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71622a34f9dcc4f4689cee2fc30656c3
-    m_Address: mvz2:enemy/teruharijou/berserker
+    m_Address: mvz2:enemy/castle/berserker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2860,7 +2860,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7eb25f3d547617c4bb047d1f95e5f495
-    m_Address: mvz2:level/teruharijou/foreground
+    m_Address: mvz2:level/castle/foreground
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3011,6 +3011,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83ec2275e6001c34d99dc8ab93aa2907
     m_Address: mvz2:contraption/dream/totenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84180d46f5217ab4da20639d6b4b9f40
+    m_Address: mvz2:pickup/artifact_pickup
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3268,7 +3274,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d11feb529f6b9c42b607c5acd5b44f7
-    m_Address: mvz2:enemy/teruharijou/dullahan_head
+    m_Address: mvz2:enemy/castle/dullahan_head
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3382,7 +3388,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9072b816e8a6de046affddf04e5e95c3
-    m_Address: mvz2:held/starshards/teruharijou
+    m_Address: mvz2:held/starshards/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3544,7 +3550,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9696331d07114754fbccc29acd1b4846
-    m_Address: mvz2:map/gensokyo/pins/teruharijou
+    m_Address: mvz2:map/gensokyo/pins/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3676,7 +3682,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c8eef82c98cc73429569c81597c1516
-    m_Address: mvz2:pickup/starshards/teruharijou
+    m_Address: mvz2:pickup/starshards/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3784,7 +3790,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0117ab50a780264582a3c3b3f8cfd25
-    m_Address: mvz2:contraption/teruharijou/thunder_drum
+    m_Address: mvz2:contraption/castle/thunder_drum
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -4072,7 +4078,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aba492ffb3d38f745a0619b198a8ff73
-    m_Address: mvz2:level/teruharijou/teruharijou
+    m_Address: mvz2:level/castle/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4198,7 +4204,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0a9828998f854a41ab899af5c9cc3d7
-    m_Address: mvz2:enemy/teruharijou/hell_chariot
+    m_Address: mvz2:enemy/castle/hell_chariot
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -4408,7 +4414,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b71e8718063e89145bbb9f65653a6fcb
-    m_Address: mvz2:teruharijou
+    m_Address: mvz2:castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - MapModel
@@ -4588,7 +4594,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c02848a0a5cea0844956b0d53c190349
-    m_Address: mvz2:teruharijou_map
+    m_Address: mvz2:castle_map
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
@@ -4616,6 +4622,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2307bc3371a5c04f873383a0bfb9fe5
+    m_Address: mvz2:prize
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2578011139751f4ebed15184256f29d
     m_Address: mvz2:map/dream/apollo_meridian_blue
@@ -4738,7 +4750,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c604f1896c2593b43bf7fd73fcb300ff
-    m_Address: mvz2:teruharijou
+    m_Address: mvz2:castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - AreaModel
@@ -4804,7 +4816,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8b2b4261dd98254d919be8f10acd519
-    m_Address: mvz2:contraption/teruharijou/wooden_dropper
+    m_Address: mvz2:contraption/castle/wooden_dropper
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -4918,7 +4930,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc3e8f1dad412cb4a8a8824b00e175fe
-    m_Address: mvz2:contraption/teruharijou/stone_dropper
+    m_Address: mvz2:contraption/castle/stone_dropper
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -5560,7 +5572,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac964fb32d58454ca025c76381a04f6
-    m_Address: mvz2:enemy/teruharijou/dullahan
+    m_Address: mvz2:enemy/castle/dullahan
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -5602,7 +5614,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb7696c6ae30a5844aeb6c8c789f3acc
-    m_Address: mvz2:map/teruharijou/map
+    m_Address: mvz2:map/castle/map
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5680,7 +5692,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed6fefcd13fc8b243b3429b80571c274
-    m_Address: mvz2:enemy/teruharijou/anubisand
+    m_Address: mvz2:enemy/castle/anubisand
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -5782,7 +5794,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f085da7c74324734eb3998b3ea1a3dd0
-    m_Address: mvz2:contraption/teruharijou/stone_shield
+    m_Address: mvz2:contraption/castle/stone_shield
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -5938,7 +5950,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f70064fbad3e8e249acbd5365f606f06
-    m_Address: mvz2:starshard_rings/teruharijou
+    m_Address: mvz2:starshard_rings/castle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -6070,7 +6082,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc5450a9e1bd5d24ba24e41daeb61fbf
-    m_Address: mvz2:enemy/teruharijou/soulsand
+    m_Address: mvz2:enemy/castle/soulsand
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -6106,7 +6118,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff1139cf5b4ce3e408ba7ca6e7fd9ab0
-    m_Address: mvz2:teruharijou_level
+    m_Address: mvz2:castle_level
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music

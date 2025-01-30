@@ -288,14 +288,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9696331d07114754fbccc29acd1b4846, type: 3}
-    - target: {fileID: 2742368800274667079, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742368800274667079, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.48
-      objectReference: {fileID: 0}
     - target: {fileID: 2783835787699341151, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_Name
       value: Castle
@@ -306,11 +298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.75
+      value: -0.76
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.39
+      value: 2.09
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.z

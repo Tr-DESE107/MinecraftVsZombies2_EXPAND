@@ -25,8 +25,8 @@ namespace MVZ2.Talk
             var widthExtend = viewData.widthExtend;
             var anchoredPos = imageRectTransform.anchoredPosition;
             var sizeDelta = imageRectTransform.sizeDelta;
-            anchoredPos.x -= (widthExtend.x - widthExtend.y) * 0.5f;
-            sizeDelta.x += widthExtend.x + widthExtend.y;
+            anchoredPos.x = (widthExtend.x - widthExtend.y) * -0.5f;
+            sizeDelta.x = widthExtend.x + widthExtend.y;
             imageRectTransform.anchoredPosition = anchoredPos;
             imageRectTransform.sizeDelta = sizeDelta;
         }
