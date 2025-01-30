@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic;
 using MVZ2Logic.Models;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -49,7 +53,17 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var pos = entity.Position + Vector3.up * 600;
-            entity.Level.Spawn(VanillaContraptionID.anvil, pos, entity);
+            var level = entity.Level;
+            if (level.AreaID == VanillaAreaID.teruharijou && !Global.Game.IsUnlocked(VanillaUnlockID.brokenLantern))
+            {
+                if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && ArtifactPickup.GetArtifactID(e) == VanillaArtifactID.brokenLantern))
+                {
+                    var lantern = level.Spawn(VanillaPickupID.artifactPickup, pos + Vector3.up * 100, entity);
+                    ArtifactPickup.SetArtifactID(lantern, VanillaArtifactID.brokenLantern);
+                }
+            }
+            var anvil = level.Spawn(VanillaContraptionID.anvil, pos, entity);
+            anvil.SetFactionAndDirection(entity.GetFaction());
         }
         public const float AFFECT_HEIGHT = 64;
         public const float MIN_HEIGHT = 5;

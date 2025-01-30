@@ -40,13 +40,13 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.dispenser,
-                VanillaContraptionID.punchton,
-                VanillaContraptionID.magichest,
-                VanillaContraptionID.teslaCoil,
+                VanillaContraptionID.furnace,
+                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.glowstone,
+                VanillaContraptionID.moonlightSensor,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.stoneShield,
-                VanillaBossID.frankenstein,
+                VanillaContraptionID.gravityPad,
                 VanillaEnemyID.skeleton,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.mesmerizer,
@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Stages
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.witherSkeletonSkull,
+                VanillaArtifactID.brokenLantern,
                 VanillaArtifactID.dreamKey,
                 VanillaArtifactID.theCreaturesHeart,
             });

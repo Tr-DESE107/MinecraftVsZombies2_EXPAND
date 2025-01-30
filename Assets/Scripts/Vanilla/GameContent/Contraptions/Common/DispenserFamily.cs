@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Contraptions
         public void ShootTick(Entity entity)
         {
             var shootTimer = GetShootTimer(entity);
-            shootTimer.Run();
+            shootTimer.Run(entity.GetAttackSpeed());
             if (shootTimer.Expired)
             {
                 var target = detector.Detect(entity);

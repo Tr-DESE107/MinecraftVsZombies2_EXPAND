@@ -948,6 +948,10 @@
             <id name="collectSound" value="mvz2:tap"/>
             <id name="modelId" value="mvz2:entity.money_chest"/>
         </pickup>
+        <pickup id="artifact_pickup" name="制品掉落物">
+            <bool name="important" value="true"/>
+            <id name="collectSound" value="mvz2:prize"/>
+        </pickup>
         <pickup id="starshard" name="星之碎片">
             <float name="groundLimitOffset" value="-1000"/>
             <bool name="shadowHidden" value="true"/>

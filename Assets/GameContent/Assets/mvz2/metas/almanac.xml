@@ -958,6 +958,17 @@
                 <p>多么惊悚恐怖的骷髅头！</p>
             </flavor>
         </entry>
+        <entry id="mvz2:broken_lantern">
+            <header>
+                <p>辉针城内装饰用的灯笼，被扯坏了。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>发光的器械×50%光照范围，+25%生产速度和攻击速度</color>]]></p>
+            </properties>
+            <flavor>
+                <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->

@@ -34,6 +34,8 @@ namespace MVZ2.Vanilla
         public const string returnToSender = "achievement.return_to_sender";
         public const string mesmerisedMatchup = "achievement.mesmerised_matchup";
         public const string bonebreaker = "achievement.bonebreaker";
+
+        public const string brokenLantern = "artifact.broken_lantern";
     }
     public static class VanillaUnlockID
     {
@@ -57,6 +59,8 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID returnToSender = Get(VanillaUnlockNames.returnToSender);
         public static readonly NamespaceID mesmerisedMatchup = Get(VanillaUnlockNames.mesmerisedMatchup);
         public static readonly NamespaceID bonebreaker = Get(VanillaUnlockNames.bonebreaker);
+
+        public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -623,6 +623,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f79614fcb97c93488cfbb1f01cd6ec4
+    m_Address: mvz2:achievements/mesmerised_matchup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fa7f21a7f8675f47a19b64ae5086153
     m_Address: mvz2:mainmenu/mainmenu
     m_ReadOnly: 0
@@ -2801,6 +2807,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c77b2bc79808994aaee8edec5031dc8
     m_Address: mvz2:misc/letter_for_help
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c96fdff5dc5fde4ab6559e24a67dc99
+    m_Address: mvz2:achievements/bonebreaker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5008,7 +5020,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d12e7157df0411749ab53333da0a507d
-    m_Address: mvz2:artifacts/upside_down_mirror
+    m_Address: mvz2:artifacts/inverted_mirror
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

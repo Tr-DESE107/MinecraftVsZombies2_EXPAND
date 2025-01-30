@@ -1,4 +1,6 @@
-﻿namespace MVZ2Logic.Artifacts
+﻿using PVZEngine;
+
+namespace MVZ2Logic.Artifacts
 {
     public static class LogicArtifactProps
     {
@@ -33,6 +35,15 @@
         public static bool GetGlowing(this Artifact artifact)
         {
             return artifact.GetProperty<bool>(GLOWING);
+        }
+        public const string UNLOCK_ID = "unlockID";
+        public static void SetUnlockID(this ArtifactDefinition artifact, NamespaceID id)
+        {
+            artifact.SetProperty(UNLOCK_ID, id);
+        }
+        public static NamespaceID GetUnlockID(this ArtifactDefinition artifact)
+        {
+            return artifact.GetProperty<NamespaceID>(UNLOCK_ID);
         }
     }
 }

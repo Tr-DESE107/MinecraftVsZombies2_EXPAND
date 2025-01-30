@@ -42,6 +42,7 @@ namespace MVZ2.GameContent.Buffs
         public const string ironCurtain = "iron_curtain";
         public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
         public const string witherSkeletonSkullReduceHealth = "wither_skeleton_skull_reduce_health";
+        public const string brokenLantern = "broken_lantern";
         // Enemy
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
@@ -150,6 +151,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.stoneShieldProtected);
         public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.glowstoneProtected);
         public static readonly NamespaceID miracleMalletReplicaDamage = Get(VanillaBuffNames.miracleMalletReplicaDamage);
+        public static readonly NamespaceID brokenLantern = Get(VanillaBuffNames.brokenLantern);
 
         public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)

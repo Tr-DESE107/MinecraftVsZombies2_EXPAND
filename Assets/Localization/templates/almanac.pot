@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 04:55+0800\n"
+"POT-Creation-Date: 2025-01-30 06:40+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1339,13 +1339,31 @@ msgstr ""
 #. Properties for artifacts mvz2:wither_skeleton_skull
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>×75%蓝图消耗，但新放下的器械的最大耐久×50%</color>"
+msgid "效果：<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×50%</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:wither_skeleton_skull
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "多么惊悚恐怖的骷髅头！"
+msgstr ""
+
+#. Header for artifacts mvz2:broken_lantern
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "辉针城内装饰用的灯笼，被扯坏了。"
+msgstr ""
+
+#. Properties for artifacts mvz2:broken_lantern
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>发光的器械×50%光照范围，+25%生产速度和攻击速度</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:broken_lantern
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "呃，还是别告诉针妙丸了吧，她可能会生气的。"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -2732,6 +2750,12 @@ msgctxt "entity.name"
 msgid "通关掉落物"
 msgstr ""
 
+#. Header for entity mvz2:artifact_pickup
+#: Entity meta file
+msgctxt "entity.name"
+msgid "制品掉落物"
+msgstr ""
+
 #. Header for entity mvz2:starshard
 #: Entity meta file
 msgctxt "entity.name"
@@ -2891,7 +2915,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:inverted_mirror
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "敌人的敌弹能够击中其他敌人"
+msgid "敌人的射弹能够击中其他敌人"
 msgstr ""
 
 #. Name for artifact mvz2:miracle_mallet_replica
@@ -2915,7 +2939,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:wither_skeleton_skull
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "×75%蓝图消耗，但新放下的器械的最大耐久×50%"
+msgid "×80%蓝图消耗，但新放下的器械的最大耐久×50%"
 msgstr ""
 
 #. Name for artifact mvz2:broken_lantern
@@ -2927,6 +2951,6 @@ msgstr ""
 #. Tooltip for artifact mvz2:broken_lantern
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "-50%光照范围，发光的器械生产速度和射速+25%"
+msgid "发光的器械×50%光照范围，+25%生产速度和攻击速度"
 msgstr ""
 
