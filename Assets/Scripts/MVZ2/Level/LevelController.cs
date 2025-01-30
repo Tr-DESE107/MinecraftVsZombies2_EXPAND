@@ -378,15 +378,18 @@ namespace MVZ2.Level
             foreach (var entity in entities)
             {
                 bool modelActive = false;
+                var ent = entity.Entity;
                 if (isGameOver)
                 {
                     // 如果游戏结束，则只有在实体是杀死玩家的实体，或者在游戏结束后能行动时，才会动起来。
-                    modelActive = CanUpdateAfterGameOver(entity.Entity) || entity == killerEntity || entity.Entity == killerEntity.Entity.GetRideablePassenger();
+                    var killerCtrl = killerEntity;
+                    var killerEnt = killerCtrl?.Entity;
+                    modelActive = CanUpdateAfterGameOver(ent) || ent == killerEnt || ent == killerEnt?.GetRideablePassenger();
                 }
                 else
                 {
                     // 游戏没有结束，则只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
-                    modelActive = gameRunning || CanUpdateBeforeGameStart(entity.Entity) || entity.Entity.IsPreviewEnemy();
+                    modelActive = gameRunning || CanUpdateBeforeGameStart(ent) || ent.IsPreviewEnemy();
                 }
                 float speed = modelActive ? gameSpeed : 0;
                 entity.SetSimulationSpeed(speed);
