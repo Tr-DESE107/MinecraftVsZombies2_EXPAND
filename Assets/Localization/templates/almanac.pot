@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 08:23+0800\n"
+"POT-Creation-Date: 2025-01-31 03:41+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1359,7 +1359,7 @@ msgstr ""
 #. Properties for artifacts mvz2:wither_skeleton_skull
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×50%</color>"
+msgid "效果：<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:wither_skeleton_skull
@@ -2959,7 +2959,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:wither_skeleton_skull
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "×80%蓝图消耗，但新放下的器械的最大耐久×50%"
+msgid "×80%蓝图消耗，但新放下的器械的最大耐久×60%"
 msgstr ""
 
 #. Name for artifact mvz2:broken_lantern

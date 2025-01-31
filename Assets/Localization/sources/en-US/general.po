@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 08:23+0800\n"
-"PO-Revision-Date: 2025-01-30 20:31+0800\n"
+"POT-Creation-Date: 2025-01-31 03:42+0800\n"
+"PO-Revision-Date: 2025-01-31 15:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -973,7 +973,7 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\Map\MapController.cs:630
+#: Scripts\MVZ2\Map\MapController.cs:631
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -981,7 +981,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:632
+#: Scripts\MVZ2\Map\MapController.cs:633
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -989,12 +989,12 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:634
+#: Scripts\MVZ2\Map\MapController.cs:635
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:636
+#: Scripts\MVZ2\Map\MapController.cs:637
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1788,19 +1788,19 @@ msgstr ""
 #. Store item description of mvz2:wither_skeleton_skull by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为50%！"
+msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！"
 msgstr ""
 "A wither skeleton's skull! Blueprint costs become 80%, but the toughness of "
-"newly placed contraptions become 50%!"
+"newly placed contraptions become 60%!"
 
 #. Store item description of mvz2:wither_skeleton_skull by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid ""
-"很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们也会因此比之前脆弱一半！"
+"很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们的耐久也会因此变为60%！"
 msgstr ""
 "A spooky scary skull... It can reduce your blueprint costs to 80%, but the "
-"contraptions will also be half as tough as before!"
+"contraptions will also be 60% as tough as before!"
 
 #~ msgctxt "music.name"
 #~ msgid "留不住回忆"

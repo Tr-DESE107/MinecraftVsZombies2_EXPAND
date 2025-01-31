@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 08:23+0800\n"
-"PO-Revision-Date: 2025-01-30 21:10+0800\n"
+"POT-Creation-Date: 2025-01-31 03:41+0800\n"
+"PO-Revision-Date: 2025-01-31 15:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -1662,8 +1662,8 @@ msgstr "A wither skeleton's skull."
 #. Properties for artifacts mvz2:wither_skeleton_skull
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×50%</color>"
-msgstr "Effect: <color=red>x80% blueprint cost, but x50% max toughness of newly built contraptions</color>"
+msgid "效果：<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>"
+msgstr "Effect: <color=red>x80% blueprint cost, but x60% max toughness of newly built contraptions</color>"
 
 #. Flavor for artifacts mvz2:wither_skeleton_skull
 #: Almanac meta file
@@ -3350,8 +3350,8 @@ msgstr "Wither Skeleton Skull"
 #. Tooltip for artifact mvz2:wither_skeleton_skull
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "×80%蓝图消耗，但新放下的器械的最大耐久×50%"
-msgstr "x80% blueprint cost, but x50% max toughness of newly built contraptions"
+msgid "×80%蓝图消耗，但新放下的器械的最大耐久×60%"
+msgstr "x80% blueprint cost, but x60% max toughness of newly built contraptions"
 
 #. Name for artifact mvz2:broken_lantern
 #: Artifact meta file

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 08:23+0800\n"
+"POT-Creation-Date: 2025-01-31 03:42+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1058,26 +1058,26 @@ msgid ""
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:630
+#: Scripts\MVZ2\Map\MapController.cs:631
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:632
+#: Scripts\MVZ2\Map\MapController.cs:633
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:634
+#: Scripts\MVZ2\Map\MapController.cs:635
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:636
+#: Scripts\MVZ2\Map\MapController.cs:637
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1815,12 +1815,12 @@ msgstr ""
 #. Store item description of mvz2:wither_skeleton_skull by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为50%！"
+msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！"
 msgstr ""
 
 #. Store item description of mvz2:wither_skeleton_skull by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
-msgid "很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们也会因此比之前脆弱一半！"
+msgid "很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们的耐久也会因此变为60%！"
 msgstr ""
 
