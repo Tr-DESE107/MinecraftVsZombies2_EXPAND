@@ -52,9 +52,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300006, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300008, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
+    - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300010, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
     - target: {fileID: 3138126465319318176, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Name
-      value: gargoyle 1
+      value: gargoyle
       objectReference: {fileID: 0}
     - target: {fileID: 4082094317340779113, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Sprite

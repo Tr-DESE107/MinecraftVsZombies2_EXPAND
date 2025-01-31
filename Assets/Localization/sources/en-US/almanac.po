@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-30 08:23+0800\n"
-"PO-Revision-Date: 2025-01-30 20:24+0800\n"
+"PO-Revision-Date: 2025-01-30 21:10+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -2023,7 +2023,7 @@ msgstr "Tokiko"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。"
-msgstr ""
+msgstr "A book-reading youkai who usually hangs around near Kourindou, when Rinnosuke went missing she became the owner of Kourindou."
 
 #. Flavor for misc mvz2:tokiko
 #: Almanac meta file
@@ -2034,6 +2034,10 @@ msgid ""
 "喜欢看书，书被抢走了的话还会大发雷霆。\n"
 "所以不要随便抢别人的书哦。"
 msgstr ""
+"She actually doesn't have a name, got called \"Tokiko\" by everyone a lot, then the world has a \"Tokiko\".\n"
+"Bird brain, sometimes dumb. Relatively naive, likes to read fairy tales.\n"
+"Likes to read books, when her books get snatched she will throw a tantrum.\n"
+"So don't simply snatch other people's books kids."
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file

@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public LevelHardBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS, NumberOperator.AddMultiplie, 0.5f));
+            AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiplie, 0.2f));
             AddAura(new EnemyAura());
         }
 

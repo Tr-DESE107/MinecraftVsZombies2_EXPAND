@@ -31,7 +31,9 @@ namespace MVZ2Logic.Level
         IConveyorPoolEntry[] ConveyorPool { get; }
         int FirstWaveTime { get; }
         bool NeedBlueprints { get; }
+        float SpawnPointsPower { get; }
         float SpawnPointsMultiplier { get; }
+        float SpawnPointsAddition { get; }
 
         Dictionary<string, object> Properties { get; }
     }

@@ -124,7 +124,7 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:tnt"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" >
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:ghost"/>
         </spawns>
     </stage>

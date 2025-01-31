@@ -227,7 +227,9 @@ namespace MVZ2.Vanilla
                 stage.SetProperty(VanillaLevelProps.CONVEYOR_POOL, meta.ConveyorPool);
 
                 stage.SetNeedBlueprints(meta.NeedBlueprints);
+                stage.SetSpawnPointPower(meta.SpawnPointsPower);
                 stage.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
+                stage.SetSpawnPointAddition(meta.SpawnPointsAddition);
 
                 foreach (var pair in meta.Properties)
                 {

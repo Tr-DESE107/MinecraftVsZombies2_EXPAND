@@ -28,8 +28,6 @@ namespace MVZ2.Vanilla.Level
         public const string START_TRANSITION = "startTransition";
         public const string START_CAMERA_POSITION = "startCameraPosition";
 
-        public const string SPAWN_POINTS_MULTIPLIER = "spawnPointsMultiplier";
-
         public const string NEED_BLUEPRINTS = "needBlueprints";
         public const string CLEAR_SOUND = "clearSound";
 
@@ -105,14 +103,6 @@ namespace MVZ2.Vanilla.Level
         public static LevelCameraPosition GetStartCameraPosition(this StageDefinition stage)
         {
             return (LevelCameraPosition)stage.GetProperty<int>(START_CAMERA_POSITION);
-        }
-        public static void SetSpawnPointMultiplier(this StageDefinition stage, float value)
-        {
-            stage.SetProperty(SPAWN_POINTS_MULTIPLIER, value);
-        }
-        public static float GetSpawnPointMultiplier(this LevelEngine level)
-        {
-            return level.GetProperty<float>(SPAWN_POINTS_MULTIPLIER);
         }
         public static void SetNeedBlueprints(this StageDefinition stage, bool value)
         {

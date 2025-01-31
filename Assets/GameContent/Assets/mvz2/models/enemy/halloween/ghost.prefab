@@ -5115,6 +5115,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300002, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+    - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300004, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - target: {fileID: 3138126465319318176, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Name
       value: ghost
@@ -5242,7 +5250,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3992541656275917738}
     - targetCorrespondingSourceObject: {fileID: 1769270375021608237, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 5187385123118930615}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}

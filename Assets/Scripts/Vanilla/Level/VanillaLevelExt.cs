@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -30,6 +31,7 @@ using PVZEngine.SeedPacks;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MVZ2.Vanilla.Level
 {
@@ -193,8 +195,6 @@ namespace MVZ2.Vanilla.Level
         }
         public static void RunWave(this LevelEngine level)
         {
-            var totalPoints = level.GetBaseSpawnPoints(level.CurrentWave, level.CurrentFlag);
-            level.SetSpawnPoints(totalPoints);
             level.SpawnWaveEnemies(level.CurrentWave);
 
             var wave = level.CurrentWave;
@@ -205,7 +205,14 @@ namespace MVZ2.Vanilla.Level
         {
             var wavesPerFlag = level.GetWavesPerFlag();
             var waveModular = (wave - 1) % wavesPerFlag + 1;
-            return waveModular + flags * wavesPerFlag;
+            try
+            {
+                return checked(waveModular + flags * wavesPerFlag);
+            }
+            catch (OverflowException)
+            {
+                return int.MaxValue;
+            }
         }
         /// <summary>
         /// 波次生成敌人所需要的总等级花费。
@@ -214,17 +221,22 @@ namespace MVZ2.Vanilla.Level
         /// <param name="wave"></param>
         /// <param name="flags"></param>
         /// <returns></returns>
-        public static float GetBaseSpawnPoints(this LevelEngine level, int wave, int flags)
+        public static float CalculateSpawnPoints(this LevelEngine level, int wave, int flags)
         {
             var totalWave = level.GetLevelTotalWaves(wave, flags);
-            var points = Mathf.Min(totalWave / 3f, 500);
+            var basePoints = totalWave / 3f;
+            var power = level.GetSpawnPointPower();
+            var multiplier = level.GetSpawnPointMultiplier();
+            var addition = level.GetSpawnPointAddition();
             if (level.IsHugeWave(wave))
             {
-                points *= 2.5f;
+                multiplier *= 2.5f;
             }
-            points = Mathf.Ceil(points);
-            points *= level.GetSpawnPointMultiplier();
-            return Mathf.Ceil(points);
+            return Mathf.Ceil(Mathf.Min(Mathf.Pow(basePoints, power) * multiplier + addition, 500));
+        }
+        public static float CalculateSpawnPoints(this LevelEngine level)
+        {
+            return level.CalculateSpawnPoints(level.CurrentWave, level.CurrentFlag);
         }
         /// <summary>
         /// 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
@@ -246,7 +258,7 @@ namespace MVZ2.Vanilla.Level
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {
             // 获取本波的生成点数。
-            var totalPoints = level.GetSpawnPoints();
+            var totalPoints = level.CalculateSpawnPoints();
 
             // 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
             var currentWaveLevelLimit = level.GetWaveSpawnLevelLimit(wave, level.CurrentFlag);

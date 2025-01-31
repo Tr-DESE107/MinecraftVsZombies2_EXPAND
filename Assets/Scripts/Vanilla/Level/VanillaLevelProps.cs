@@ -1,5 +1,6 @@
 ﻿using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -129,15 +130,35 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetProperty(VanillaLevelProps.ALL_ENEMIES_CLEARED, value);
         }
-        public const string SPAWN_POINTS = "SpawnPoints";
-        public static float GetSpawnPoints(this LevelEngine level)
+        #region 出怪
+        public const string SPAWN_POINTS_POWER = "spawnPointsPower";
+        public const string SPAWN_POINTS_MUTLIPLIER = "spawnPointsMultiplier";
+        public const string SPAWN_POINTS_ADDITION = "spawnPointsAddition";
+        public static float GetSpawnPointPower(this LevelEngine level)
         {
-            return level.GetProperty<float>(SPAWN_POINTS);
+            return level.GetProperty<float>(SPAWN_POINTS_POWER);
         }
-        public static void SetSpawnPoints(this LevelEngine level, float value)
+        public static void SetSpawnPointPower(this StageDefinition stageDef, float value)
         {
-            level.SetProperty(SPAWN_POINTS, value);
+            stageDef.SetProperty(SPAWN_POINTS_POWER, value);
         }
+        public static float GetSpawnPointMultiplier(this LevelEngine level)
+        {
+            return level.GetProperty<float>(SPAWN_POINTS_MUTLIPLIER);
+        }
+        public static void SetSpawnPointMultiplier(this StageDefinition stageDef, float value)
+        {
+            stageDef.SetProperty(SPAWN_POINTS_MUTLIPLIER, value);
+        }
+        public static float GetSpawnPointAddition(this LevelEngine level)
+        {
+            return level.GetProperty<float>(SPAWN_POINTS_ADDITION);
+        }
+        public static void SetSpawnPointAddition(this StageDefinition stageDef, float value)
+        {
+            stageDef.SetProperty(SPAWN_POINTS_ADDITION, value);
+        }
+        #endregion
         public const string IGNORE_HUGE_WAVE_EVENT = "ignoreHugeWaveEvent";
         public static bool IgnoreHugeWaveEvent(this LevelEngine level)
         {
