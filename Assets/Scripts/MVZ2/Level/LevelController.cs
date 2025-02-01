@@ -136,6 +136,7 @@ namespace MVZ2.Level
             bannerProgresses = new float[level.GetTotalFlags()];
 
             // 设置UI可见状态
+            ui.SetBlueprintsSortingToChoosing(false);
             SetUIVisibleState(VisibleState.InLevel);
             // 可解锁UI
             SetUnlockedUIActive();

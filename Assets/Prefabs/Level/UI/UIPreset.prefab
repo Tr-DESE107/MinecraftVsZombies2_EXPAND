@@ -379,6 +379,11 @@ MonoBehaviour:
   blueprintConveyorEnabledObj: {fileID: 0}
   blueprintClassicModeObjects: []
   blueprintConveyorModeObjects: []
+  blueprintCanvas: {fileID: 0}
+  battleSortingLayer:
+    id: -2092243167
+  choosingSortingLayer:
+    id: 1393130353
   blueprints: {fileID: 0}
   conveyor: {fileID: 0}
 --- !u!114 &427722801915550483
@@ -394,6 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4993244994921985823}
+  choosingBlueprintRoot: {fileID: 0}
+  runtimeBlueprintRoot: {fileID: 0}
   chosenBlueprints: {fileID: 0}
   viewLawnReturnButton: {fileID: 7535112443319622556}
   viewLawnReturnBlocker: {fileID: 2928275841659474861}
@@ -958,8 +965,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -184251447
-  m_SortingOrder: 200
+  m_SortingLayerID: 1393130353
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &2536398662654184778
 MonoBehaviour:

@@ -62,6 +62,14 @@ namespace MVZ2.UI
             uiPreset.SetUIDisabled(disabled);
         }
 
+        #region 蓝图
+        public void SetBlueprintsSortingToChoosing(bool choosing)
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.SetBlueprintsSortingToChoosing(choosing);
+        }
+        #endregion
+
         #region 手持物品
         public void SetHeldItemPosition(Vector2 worldPos)
         {

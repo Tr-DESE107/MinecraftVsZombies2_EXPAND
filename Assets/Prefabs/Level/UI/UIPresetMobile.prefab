@@ -907,6 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 317414156748861433}
   - component: {fileID: 2224621752374834862}
+  - component: {fileID: 5792658766411754612}
   m_Layer: 5
   m_Name: Blueprints
   m_TagString: Untagged
@@ -955,6 +956,29 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!223 &5792658766411754612
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285169025816261938}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: -184251447
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
 --- !u!1 &4332177382874172320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3592424738935780151}
+  - component: {fileID: 6023571109194714294}
   m_Layer: 5
   m_Name: ClassicEnergyRoot
   m_TagString: Untagged
@@ -1076,6 +1101,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!223 &6023571109194714294
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732509494555792317}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: -184251447
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
 --- !u!1 &4768535740375958858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,7 +3721,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 98205920557924259, guid: 3797a666ec2b66844ba158667be7226a, type: 3}
       propertyPath: m_fontSize
-      value: 21.75
+      value: 22.2
       objectReference: {fileID: 0}
     - target: {fileID: 2984931518002308876, guid: 3797a666ec2b66844ba158667be7226a, type: 3}
       propertyPath: m_Pivot.x
@@ -4100,6 +4148,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3182011112133468251}
     - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintCanvas
+      value: 
+      objectReference: {fileID: 5792658766411754612}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintRootObj
       value: 
       objectReference: {fileID: 3285169025816261938}
@@ -4111,6 +4163,10 @@ PrefabInstance:
       propertyPath: blueprintConveyorObj
       value: 
       objectReference: {fileID: 3042553211520452539}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: battleSortingLayer.id
+      value: -184251447
+      objectReference: {fileID: 0}
     - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintClassicModeObj
       value: 
@@ -4136,9 +4192,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3285169025816261938}
     - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintSortingCanvases.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintClassicModeObjects.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintSortingCanvases.Array.data[0]
+      value: 
+      objectReference: {fileID: 5792658766411754612}
+    - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: blueprintSortingCanvases.Array.data[1]
+      value: 
+      objectReference: {fileID: 6023571109194714294}
     - target: {fileID: 2677479568226820075, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintConveyorModeObjects.Array.size
       value: 1

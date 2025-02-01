@@ -370,6 +370,10 @@ namespace MVZ2.Level.UI
             else
                 return Receiver.Lawn;
         }
+        public void SetBlueprintsSortingToChoosing(bool choosing)
+        {
+            blueprints.SetSortingToChoosing(choosing);
+        }
 
         public SerializableLevelUIPreset ToSerializable()
         {
@@ -526,6 +530,7 @@ namespace MVZ2.Level.UI
         LevelUIBlueprints blueprints;
         [SerializeField]
         LevelUIBlueprintChoose blueprintChoose;
+
 
         [Header("Tools")]
         [SerializeField]

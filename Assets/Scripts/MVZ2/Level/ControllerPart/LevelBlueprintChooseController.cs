@@ -14,6 +14,7 @@ using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -365,6 +366,7 @@ namespace MVZ2.Level
 
             isChoosingBlueprints = true;
 
+            UI.SetBlueprintsSortingToChoosing(true);
             chooseUI.SetChosenBlueprintsVisible(true);
             // 制品。
             InheritChosenArtifacts();
@@ -833,12 +835,14 @@ namespace MVZ2.Level
             yield return new WaitForSeconds(1);
             yield return Controller.MoveCameraToLawn();
             UI.SetReceiveRaycasts(true);
+            UI.SetBlueprintsSortingToChoosing(false);
             chooseUI.SetViewLawnReturnBlockerActive(true);
             Level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_CONTINUE, 1000, -1);
             while (!viewLawnFinished)
             {
                 yield return null;
             }
+            UI.SetBlueprintsSortingToChoosing(true);
             chooseUI.SetViewLawnReturnBlockerActive(false);
             Level.HideAdvice();
             yield return Controller.MoveCameraToChoose();

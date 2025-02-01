@@ -315,6 +315,7 @@ namespace MVZ2.Level
     public interface ILevelUI
     {
         void SetReceiveRaycasts(bool receive);
+        void SetBlueprintsSortingToChoosing(bool choosing);
         ILevelBlueprintRuntimeUI Blueprints { get; }
         LevelUIBlueprintChoose BlueprintChoose { get; }
     }

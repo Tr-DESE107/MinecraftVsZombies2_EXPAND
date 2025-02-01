@@ -32,7 +32,14 @@ namespace MVZ2.UI
         {
             return isConveyor ? GetConveyorBlueprintAt(index) : GetClassicBlueprintAt(index);
         }
-
+        public void SetSortingToChoosing(bool choosing)
+        {
+            var layer = choosing ? choosingSortingLayer : battleSortingLayer;
+            foreach (var canvas in blueprintSortingCanvases)
+            {
+                canvas.sortingLayerID = layer.id;
+            }
+        }
 
         #region 经典模式蓝图
         public void SetBlueprintsActive(bool visible)
@@ -131,6 +138,14 @@ namespace MVZ2.UI
         GameObject[] blueprintClassicModeObjects;
         [SerializeField]
         GameObject[] blueprintConveyorModeObjects;
+
+        [Header("Sorting")]
+        [SerializeField]
+        Canvas[] blueprintSortingCanvases;
+        [SerializeField]
+        SortingLayerPicker battleSortingLayer;
+        [SerializeField]
+        SortingLayerPicker choosingSortingLayer;
 
         [Header("Blueprints")]
         [SerializeField]
