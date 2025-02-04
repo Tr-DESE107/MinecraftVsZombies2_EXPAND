@@ -57,7 +57,7 @@ namespace MVZ2.Supporters
         {
             if (currentSponsors == null)
                 return false;
-            return currentSponsors.sponsors.Any(s => s.plans.Any(p => p.rankType == rankType && p.rank >= rank));
+            return currentSponsors.sponsors.Any(s => s.name == name && s.plans.Any(p => p.rankType == rankType && p.rank >= rank));
         }
         private async Task<SponsorItem[]> GetAllSponsors(TaskProgress progress)
         {
