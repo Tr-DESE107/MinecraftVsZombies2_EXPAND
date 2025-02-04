@@ -4097,6 +4097,30 @@ PrefabInstance:
       propertyPath: choosingViewAlmanacButton
       value: 
       objectReference: {fileID: 6840109664925857295}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 901218314835338990, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_Name
       value: UIPresetMobile
@@ -4309,6 +4333,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 160
       objectReference: {fileID: 0}
+    - target: {fileID: 7450390636950723967, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_MinWidth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7519046934948024633, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4340,6 +4368,22 @@ PrefabInstance:
     - target: {fileID: 7706876224896348862, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8482161472644000845, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4425,6 +4469,10 @@ PrefabInstance:
       propertyPath: progressBarRoot
       value: 
       objectReference: {fileID: 6954718769910588831}
+    - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: cameraLimitWidth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8895750592136595875, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintClassicObj
       value: 

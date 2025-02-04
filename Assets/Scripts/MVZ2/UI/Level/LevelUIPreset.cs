@@ -353,6 +353,11 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        public void SetCameraLimitWidth(float t)
+        {
+            t = Mathf.Clamp01(t);
+            limitRegionLayoutElement.minWidth = cameraLimitWidth * t;
+        }
         public void SetUIVisibleState(VisibleState state)
         {
             animator.SetInteger("UIState", (int)state);
@@ -440,38 +445,6 @@ namespace MVZ2.Level.UI
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
         }
-        private void Update()
-        {
-            UpdateCameraLimit();
-        }
-        #region ÉãÏñ»ú
-        private void UpdateCameraLimit()
-        {
-            foreach (var rectTrans in limitRectTransforms)
-            {
-                if (!rectTrans)
-                    continue;
-                var parentTrans = rectTrans.parent as RectTransform;
-                if (!parentTrans)
-                    continue;
-                var localToWorldMatrix = parentTrans.localToWorldMatrix;
-                var worldToLocalMatrix = parentTrans.worldToLocalMatrix;
-
-                var parentRect = parentTrans.rect;
-                var lastLocalMinPos = parentRect.min;
-
-                var worldMinPos = localToWorldMatrix.MultiplyPoint(lastLocalMinPos);
-                worldMinPos.x = Mathf.Max(cameraLimitMinX, worldMinPos.x);
-                var localMinPos = worldToLocalMatrix.MultiplyPoint(worldMinPos);
-
-                rectTrans.anchorMin = Vector2.zero;
-                rectTrans.anchorMax = Vector2.one;
-
-                rectTrans.sizeDelta = new Vector2(lastLocalMinPos.x - localMinPos.x, 0);
-                rectTrans.anchoredPosition = new Vector2(rectTrans.sizeDelta.x * -0.5f, 0);
-            }
-        }
-        #endregion
 
         private void OnArtifactPointerEnterCallback(ArtifactItemUI item)
         {
@@ -552,9 +525,9 @@ namespace MVZ2.Level.UI
 
         [Header("CameraLimit")]
         [SerializeField]
-        RectTransform[] limitRectTransforms;
+        LayoutElement limitRegionLayoutElement;
         [SerializeField]
-        float cameraLimitMinX = 2.2f;
+        float cameraLimitWidth = 220f;
 
         [Header("Artifacts")]
         [SerializeField]

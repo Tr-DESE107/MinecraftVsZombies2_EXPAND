@@ -191,6 +191,29 @@ namespace MVZ2.Level
         }
         #endregion
 
+        private void UpdateCamera()
+        {
+            var targetRotation = level.GetCameraRotation();
+            if (!IsGameStarted() || IsGameOver())
+            {
+                targetRotation = 0;
+            }
+            var rotation = levelCamera.GetRotation();
+            levelCamera.SetSpace(Main.IsMobile() ? cameraLeftSpaceMobile : cameraLeftSpaceStandalone);
+            levelCamera.SetRotation(rotation * 0.8f + targetRotation * 0.2f);
+
+            var camera = levelCamera.Camera;
+            var cameraHeight = camera.orthographicSize * 2;
+            var cameraWidth = cameraHeight * camera.aspect;
+            var cameraSize = new Vector2(cameraWidth, cameraHeight);
+            var anchorOffset = levelCamera.CameraAnchor - Vector2.one * 0.5f;
+            var cameraCenter = levelCamera.CameraPosition - (Vector3)(anchorOffset * cameraSize);
+            var cameraMin = cameraCenter - (Vector3)(cameraSize * 0.5f);
+            var width = (cameraLimitX - cameraMin.x) / cameraLimitX;
+            var preset = ui.GetUIPreset();
+            preset.SetCameraLimitWidth(width);
+        }
+
         #endregion
 
         #region 属性字段
@@ -200,6 +223,12 @@ namespace MVZ2.Level
         private LevelCamera levelCamera;
         [SerializeField]
         private AnimationCurve cameraMoveCurve;
+        [SerializeField]
+        private float cameraLimitX = 2.2f;
+        [SerializeField]
+        private float cameraLeftSpaceMobile = 2.2f;
+        [SerializeField]
+        private float cameraLeftSpaceStandalone = 0;
         [SerializeField]
         private Vector3 cameraHousePosition = new Vector3(0, 3, -10);
         [SerializeField]

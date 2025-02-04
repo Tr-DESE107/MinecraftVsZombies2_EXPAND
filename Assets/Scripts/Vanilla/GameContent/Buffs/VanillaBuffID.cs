@@ -118,6 +118,7 @@ namespace MVZ2.GameContent.Buffs
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
+            public const string reverseSatellite = "reverse_satellite";
         }
         public static class Boss
         {

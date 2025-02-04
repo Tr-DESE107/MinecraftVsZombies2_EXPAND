@@ -225,12 +225,12 @@ msgstr ""
 msgid "取消"
 msgstr ""
 
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/TitleRegion/Title
+#: /Level/UI/Presets/UIPresetMobile/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/TitleRegion/Title
 msgid "选择你的蓝图"
 msgstr ""
 
 #. 按钮文本
-#: /Level/UI/Presets/UIPresetMobile/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+#: /Level/UI/Presets/UIPresetMobile/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
 msgid "一起摇滚吧！"
 msgstr ""
 
@@ -240,17 +240,17 @@ msgid "选择制品"
 msgstr ""
 
 #. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
 msgid "查看战场"
 msgstr ""
 
 #. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
 msgid "查看图鉴"
 msgstr ""
 
 #. 按钮文本
-#: /Level/UI/Presets/UIPresetStandalone/Canvas/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
 msgid "进入商店"
 msgstr ""
 

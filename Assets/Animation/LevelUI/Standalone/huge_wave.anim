@@ -40,7 +40,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -59,7 +59,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -107,7 +107,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
     flags: 0
@@ -185,7 +185,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -215,7 +215,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -245,7 +245,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -275,7 +275,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -323,7 +323,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Canvas/CameraLimit/Front/Texts/HugeWave
+    path: Canvas/Limitation/CameraLimit/Front/Texts/HugeWave
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
     flags: 0

@@ -14,8 +14,9 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID bloody = Get("bloody");
         public readonly static NamespaceID boneHit = Get("bone_hit");
         public readonly static NamespaceID boneWallBuild = Get("bone_wall_build");
-        public readonly static NamespaceID bow = Get("bow");
         public readonly static NamespaceID bonk = Get("bonk");
+        public readonly static NamespaceID boon = Get("boon");
+        public readonly static NamespaceID bow = Get("bow");
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID cashRegister = Get("cash_register");
         public readonly static NamespaceID cave = Get("cave");
@@ -82,6 +83,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID minecart = Get("minecart");
         public readonly static NamespaceID missile = Get("missile");
         public readonly static NamespaceID moneyFall = Get("money_fall");
+        public readonly static NamespaceID morseCodeReverse = Get("morse_code_reverse");
         public readonly static NamespaceID mutantCry = Get("mutant_cry");
         public readonly static NamespaceID nightmareaperRage = Get("nightmareaper_rage");
         public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");

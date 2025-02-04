@@ -201,6 +201,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 739dc404e782a0c4dae8390f142f0cc5, type: 3}
   - name: mobile_blueprint/return_pearl
     sprite: {fileID: 21300000, guid: 90b1efed9d95d3b43a897fa9d566324a, type: 3}
+  - name: mobile_blueprint/reverse_satellite
+    sprite: {fileID: 21300000, guid: 35f80fb8af94a064f86a987dc6dae8e0, type: 3}
   - name: mobile_blueprint/silvenser
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
@@ -1391,6 +1393,16 @@ MonoBehaviour:
     - {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+  - name: entity/enemy/reverse_satellite
+    spritesheet:
+    - {fileID: 1053308388, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: -686557980, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: -711159052, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: -262481996, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: 869258913, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: 93071313, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: -1939588279, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+    - {fileID: 1767264598, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
   - name: entity/enemy/skeleton
     spritesheet:
     - {fileID: 21300000, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}

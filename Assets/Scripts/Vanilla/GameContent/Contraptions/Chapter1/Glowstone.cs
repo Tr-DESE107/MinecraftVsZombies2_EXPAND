@@ -5,6 +5,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
@@ -37,7 +38,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
             bool stunned = false;
-            foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsHostile(entity)))
+            foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsHostile(entity) && e.CanDeactive()))
             {
                 enemy.Stun(150);
                 stunned = true;

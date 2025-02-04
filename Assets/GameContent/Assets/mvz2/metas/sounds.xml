@@ -40,6 +40,9 @@
     <sound name="bonk">
         <sample path="mvz2:bonk" weight="1" />
     </sound>
+    <sound name="boon">
+        <sample path="mvz2:boon" weight="1" />
+    </sound>
     <sound name="bow">
         <sample path="mvz2:bow" weight="1" />
     </sound>
@@ -352,6 +355,9 @@
     </sound>
     <sound name="money_fall">
         <sample path="mvz2:money_fall" weight="1" />
+    </sound>
+    <sound name="morse_code_reverse">
+        <sample path="mvz2:morse_code_reverse" weight="1" />
     </sound>
     <sound name="mummy_cry">
         <sample path="mvz2:entity/mummy/mummy1" weight="1" />

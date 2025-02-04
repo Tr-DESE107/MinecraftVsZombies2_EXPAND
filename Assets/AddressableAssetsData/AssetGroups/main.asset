@@ -1180,6 +1180,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35f80fb8af94a064f86a987dc6dae8e0
+    m_Address: mvz2:mobile_blueprint/reverse_satellite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35fd6562d8d55e844bb4890023b8cd31
     m_Address: mvz2:dirt_rise
     m_ReadOnly: 0
@@ -3525,6 +3531,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Language
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95a0ff4bc65b3c3489a4dd2274848c9d
+    m_Address: mvz2:entity/enemy/reverse_satellite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95bc9497de9a837428640f78dd1b595f
     m_Address: mvz2:contraption/dream/dream_silk
     m_ReadOnly: 0
@@ -4509,6 +4521,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb38144aa3758594b92a9ca609b00b85
+    m_Address: mvz2:enemy/castle/reverse_satellite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb7758770170e2f458ee96acd41ef78f
     m_Address: mvz2:effect/nightmareaper_timer
     m_ReadOnly: 0
@@ -4946,6 +4964,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd9fb24b2c51dc9499b06218585ad8b9
+    m_Address: mvz2:boon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdec7faf255eabe4195b58d4652126e3
     m_Address: mvz2:mobile_blueprint/pistenser
@@ -6086,6 +6110,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc7453eba6c52d340834cd81aef0fc98
+    m_Address: mvz2:morse_code_reverse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd0564e8ade3f984fb22a344c641970a
     m_Address: mvz2:projectile/diamond_caltrop

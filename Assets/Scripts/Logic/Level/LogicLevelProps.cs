@@ -29,5 +29,14 @@ namespace MVZ2Logic.Level
         {
             level.SetProperty(PAUSE_DISABLED, value);
         }
+        public const string CAMERA_ROTATION = "cameraRotation";
+        public static float GetCameraRotation(this LevelEngine level)
+        {
+            return level.GetProperty<float>(CAMERA_ROTATION);
+        }
+        public static void SetCameraRotation(this LevelEngine level, float value)
+        {
+            level.SetProperty(CAMERA_ROTATION, value);
+        }
     }
 }

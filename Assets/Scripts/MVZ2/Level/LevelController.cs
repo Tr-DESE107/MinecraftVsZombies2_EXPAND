@@ -448,6 +448,7 @@ namespace MVZ2.Level
                 ui.SetNightValue(level.GetNightValue());
                 SetDarknessValue(level.GetDarknessValue());
                 ui.SetScreenCover(level.GetScreenCover());
+                UpdateCamera();
                 UpdateMoney();
                 ValidateHeldItem();
                 UpdateEntityHighlight();

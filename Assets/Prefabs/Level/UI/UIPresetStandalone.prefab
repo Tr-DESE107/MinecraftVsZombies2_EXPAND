@@ -2529,7 +2529,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 98205920557924259, guid: 3797a666ec2b66844ba158667be7226a, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 11.95
       objectReference: {fileID: 0}
     - target: {fileID: 98205920557924259, guid: 3797a666ec2b66844ba158667be7226a, type: 3}
       propertyPath: m_fontSizeMax
@@ -3595,6 +3595,30 @@ PrefabInstance:
       propertyPath: choosingViewAlmanacButton
       value: 
       objectReference: {fileID: 4389611976723145299}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563631685626767535, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 901218314835338990, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_Name
       value: UIPresetStandalone
@@ -3809,6 +3833,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7519046934948024633, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044684928039338099, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8482161472644000845, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}

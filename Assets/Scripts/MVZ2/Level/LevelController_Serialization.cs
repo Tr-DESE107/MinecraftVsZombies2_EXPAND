@@ -146,6 +146,7 @@ namespace MVZ2.Level
             UpdateInLevelUI(0);
             // 金钱
             UpdateMoney();
+            UpdateCamera();
             ShowMoney();
 
             // 游戏开始状态

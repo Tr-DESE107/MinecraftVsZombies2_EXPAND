@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Back/Side
+    path: Canvas/Limitation/CameraLimit/Back/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -55,7 +55,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Bottom
+    path: Canvas/Limitation/CameraLimit/Front/Bottom
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -76,7 +76,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/TopRight
+    path: Canvas/Limitation/CameraLimit/Front/TopRight
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -97,7 +97,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Progress
+    path: Canvas/Limitation/CameraLimit/Front/Progress
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -118,7 +118,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Receivers/Bottom
+    path: Canvas/Limitation/CameraLimit/Receivers/Bottom
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -139,7 +139,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Receivers/Lawn
+    path: Canvas/Limitation/CameraLimit/Receivers/Lawn
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -160,7 +160,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Receivers/Side
+    path: Canvas/Limitation/CameraLimit/Receivers/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -274,7 +274,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Back/Side
+    path: Canvas/Limitation/CameraLimit/Back/Side
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -295,7 +295,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Bottom
+    path: Canvas/Limitation/CameraLimit/Front/Bottom
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -316,7 +316,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/TopRight
+    path: Canvas/Limitation/CameraLimit/Front/TopRight
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -337,7 +337,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Front/Progress
+    path: Canvas/Limitation/CameraLimit/Front/Progress
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -358,7 +358,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Receivers/Bottom
+    path: Canvas/Limitation/CameraLimit/Receivers/Bottom
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -379,7 +379,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Receivers/Lawn
+    path: Canvas/Limitation/CameraLimit/Receivers/Lawn
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -400,7 +400,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/CameraLimit/Receivers/Side
+    path: Canvas/Limitation/CameraLimit/Receivers/Side
     classID: 1
     script: {fileID: 0}
     flags: 0

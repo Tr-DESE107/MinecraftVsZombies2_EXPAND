@@ -448,6 +448,7 @@ namespace MVZ2.Vanilla.Level
         public const float SCREEN_HEIGHT = 600;
         public const float LEFT_BORDER = 220;
         public const float RIGHT_BORDER = LEFT_BORDER + SCREEN_WIDTH;
+        public const float LAWN_CENTER_X = (LEFT_BORDER + RIGHT_BORDER) * 0.5f;
         public const float PICKUP_LEFT_BORDER = LEFT_BORDER + 50;
         public const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
         public const float ATTACK_LEFT_BORDER = LEFT_BORDER;

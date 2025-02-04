@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/CameraLimit/Back/Side/Blueprints
+    path: Canvas/Limitation/CameraLimit/Back/Side/Blueprints
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -55,7 +55,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/CameraLimit/Front/TopRight
+    path: Canvas/Limitation/CameraLimit/Front/TopRight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -124,7 +124,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/CameraLimit/Back/Side/Blueprints
+    path: Canvas/Limitation/CameraLimit/Back/Side/Blueprints
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -145,7 +145,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/CameraLimit/Front/TopRight
+    path: Canvas/Limitation/CameraLimit/Front/TopRight
     classID: 224
     script: {fileID: 0}
     flags: 0

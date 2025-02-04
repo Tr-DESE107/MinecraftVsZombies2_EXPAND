@@ -43,7 +43,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Canvas/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
+    path: Canvas/Limitation/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -73,7 +73,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: Canvas/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
+    path: Canvas/Limitation/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -151,7 +151,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Canvas/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
+    path: Canvas/Limitation/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -181,7 +181,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: Canvas/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
+    path: Canvas/Limitation/CameraLimit/Back/Side/Blueprints/Conveyor/BlueprintRoot/Hollow/BeltMask/Belt
     classID: 224
     script: {fileID: 0}
     flags: 0

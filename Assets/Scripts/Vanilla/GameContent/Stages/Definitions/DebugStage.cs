@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.gravityPad,
                 VanillaEnemyID.skeleton,
-                VanillaEnemyID.ghast,
+                VanillaEnemyID.reverseSatellite,
                 VanillaEnemyID.mesmerizer,
             });
             level.SetArtifactSlotCount(3);

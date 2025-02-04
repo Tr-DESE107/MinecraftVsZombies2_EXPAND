@@ -46,6 +46,7 @@
             <id name="deathSound" value="mvz2:zombie_death"/>
             <bool name="faceLeftAtDefault" value="true"/>
             <bool name="undead" value="true"/>
+            <bool name="canDeactive" value="true"/>
             <vector3 name="size" x="32" y="86" z="32"/>
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
@@ -812,6 +813,7 @@
             <bool name="harmless" value="true"/>
             <bool name="notActiveEnemy" value="true"/>
             <bool name="noReward" value="true"/>
+            <bool name="canDeactive" value="false"/>
             <int name="maxTimeout" value="240"/>
             <float name="friction" value="1"/>
             <float name="speed" value="0"/>
@@ -834,6 +836,20 @@
             <id name="deathSound" null="true"/>
 
             <int name="cost" value="0" />
+        </enemy>
+        <enemy id="reverse_satellite" name="反则卫星" deathMessage="？" unlock="mvz2:level.castle_1">
+            <bool name="harmless" value="true" />
+            <bool name="notActiveEnemy" value="true"/>
+            <bool name="loyal" value="true"/>
+            <id name="shell" value="mvz2:metal"/>
+            <id name="crySound" null="true"/>
+            <id name="deathSound" value="mvz2:power_off"/>
+            <float name="maxHealth" value="200"/>
+            <float name="damage" value="150"/>
+            <float name="range" value="40"/>
+            <vector3 name="size" x="20" y="64" z="20"/>
+
+            <int name="cost" value="25" />
         </enemy>
         <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.castle_6">
             <float name="maxHealth" value="400"/>
@@ -860,6 +876,7 @@
             <bool name="harmless" value="true" />
             <bool name="notActiveEnemy" value="true"/>
             <bool name="loyal" value="true"/>
+            <bool name="canDeactive" value="false"/>
             <float name="fallResistance" value="10000"/>
             <id name="shell" value="mvz2:sand"/>
             <id name="crySound" null="true"/>
