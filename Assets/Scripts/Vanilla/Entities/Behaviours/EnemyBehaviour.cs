@@ -56,8 +56,9 @@ namespace MVZ2.Vanilla.Entities
                 pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
                 entity.Position = pos;
             }
-            var attackSpeed = entity.GetAttackSpeed() / entity.GetAttackSpeed(ignoreBuffs: true);
-            var speed = entity.GetSpeed() / entity.GetSpeed(ignoreBuffs: true);
+            var scale = entity.GetDisplayScale();
+            var attackSpeed = entity.GetAttackSpeed() / entity.GetAttackSpeed(ignoreBuffs: true) / scale.x;
+            var speed = entity.GetSpeed() / entity.GetSpeed(ignoreBuffs: true) / scale.x;
             if (entity.IsAIFrozen())
             {
                 attackSpeed = 0;

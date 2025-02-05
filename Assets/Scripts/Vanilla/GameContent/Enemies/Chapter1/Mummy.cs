@@ -27,6 +27,7 @@ namespace MVZ2.GameContent.Enemies
                 return;
             var gas = entity.Level.Spawn(VanillaEffectID.mummyGas, entity.Position, entity);
             gas.SetFaction(entity.GetFaction());
+            gas.SetScale(entity.GetScale());
             entity.PlaySound(VanillaSoundID.poisonCast);
         }
     }

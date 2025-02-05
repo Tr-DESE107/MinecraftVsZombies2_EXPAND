@@ -65,6 +65,8 @@ namespace MVZ2.GameContent.Buffs
         public const string redstoneCarrier = "redstone_carrier";
         public const string nightmareComeTrue = "nightmare_come_true";
         public const string soulsandSummoned = "soulsand_summoned";
+        public const string littleZombie = "little_zombie";
+        public const string bigTrouble = "big_trouble";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
@@ -85,6 +87,9 @@ namespace MVZ2.GameContent.Buffs
         public const string easyContraption = "easy_contraption";
         public const string easyArmor = "easy_armor";
         public const string hardEnemy = "hard_enemy";
+
+        public const string littleZombieArmor = "little_zombie_armor";
+        public const string bigTroubleArmor = "big_trouble_armor";
 
         public static class Effect 
         {
@@ -119,6 +124,7 @@ namespace MVZ2.GameContent.Buffs
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
             public const string reverseSatellite = "reverse_satellite";
+            public const string littleZombieLevel = "little_zombie_level";
         }
         public static class Boss
         {

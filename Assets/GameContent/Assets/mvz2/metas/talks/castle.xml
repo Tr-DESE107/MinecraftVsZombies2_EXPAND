@@ -435,7 +435,7 @@
   </group>
   <group id="kourindou_visit_castle" requiresNot="mvz2:kourindou_visited_castle" tags="mvz2:castle;mvz2:store">
     <archive name="访问香霖堂-辉针城" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_castle" />
-    <section onSkip="music volume 1;music play mvz2:gensokyo_map;end">
+    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_castle;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />

@@ -277,6 +277,9 @@
         <sample path="mvz2:grind1" weight="1" />
         <sample path="mvz2:grind2" weight="1" />
     </sound>
+    <sound name="grow_big">
+        <sample path="mvz2:grow_big" weight="1" />
+    </sound>
     <sound name="gun_reload">
         <sample path="mvz2:gun_reload" weight="1" />
     </sound>

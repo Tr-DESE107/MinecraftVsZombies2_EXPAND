@@ -42,6 +42,7 @@ namespace MVZ2.Vanilla.Entities
                 moveDirection = (entity.Position - sourcePosition.Value).normalized;
             }
             effect.Velocity = moveDirection * 10;
+            effect.SetDisplayScale(entity.GetDisplayScale());
             effect.ChangeModel(armor.Definition.GetModelID());
         }
         #endregion

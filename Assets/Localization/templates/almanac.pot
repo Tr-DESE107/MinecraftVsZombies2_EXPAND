@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-02-05 02:33+0800\n"
+"POT-Creation-Date: 2025-02-05 08:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1607,6 +1607,36 @@ msgctxt "misc.description"
 msgid "之前的小人族剩下的部分防御工事，不过巨石的效果对凋灵骷髅们没什么作用就是了——甚至还不如直接用车撞死它们。"
 msgstr ""
 
+#. Name for misc mvz2:reverse_satellite
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "反则卫星"
+msgstr ""
+
+#. Header for misc mvz2:reverse_satellite
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。"
+msgstr ""
+
+#. Properties for misc mvz2:reverse_satellite
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"停留时间：<color=red>30秒</color>\n"
+"特点：<color=red>不会被一般高度的子弹打中</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:reverse_satellite
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"这些卫星似乎是城内的凋灵骷髅根据辉针城的魔力制成的武器，用于干扰敌人的判断。\n"
+"……不过话说回来，凋灵骷髅们居然有这种智慧？这种科技水平？\n"
+"……甚至还可以影响人们的认知？"
+msgstr ""
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -1693,6 +1723,51 @@ msgid ""
 "鸟脑袋，有些呆呆的。比较天真，喜欢看童话故事。\n"
 "喜欢看书，书被抢走了的话还会大发雷霆。\n"
 "所以不要随便抢别人的书哦。"
+msgstr ""
+
+#. Name for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "鬼人 正邪"
+msgstr ""
+
+#. Header for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。"
+msgstr ""
+
+#. Flavor for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"正邪是一名天邪鬼。天邪鬼这种妖怪性格扭曲，喜欢和正常人反着干，渴望着把一切事物逆转过去。\n"
+"曾为了颠覆幻想乡的格局而利用了针妙丸，使用了她的万宝槌，甚至动员了幻想乡的弱势妖怪妄图推翻一切。\n"
+"不过，最终这种荒唐的闹剧还是遭到了幻想乡众人的镇压，她自己也因此曾遭到通缉。\n"
+"如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。"
+msgstr ""
+
+#. Name for misc mvz2:shinmyoumaru
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "少名 针妙丸"
+msgstr ""
+
+#. Header for misc mvz2:shinmyoumaru
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一寸法师的后代，辉针城的城主，如今小人族的领导者。"
+msgstr ""
+
+#. Flavor for misc mvz2:shinmyoumaru
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"针妙丸是第一位小人族——一寸法师的后代。\n"
+"曾因为听信了天邪鬼——鬼人正邪的谗言，使用了万宝槌的力量给幻想乡造成了混乱，因此曾被前来解决异变的一众人俘获。\n"
+"后来参与了针对鬼人正邪的围剿，但在之后，两人还是成为了朋友。\n"
+"曾也有小人族的先祖遗忘一寸法师的祖训，试图利用万宝槌的力量改变一切，但是却付出了惨痛的代价。如今针妙丸也遗忘了这段历史，重蹈覆辙。\n"
+"不过，至少在她这一代，这些教训是再也忘不掉的了。"
 msgstr ""
 
 #. Name for almanac group mvz2:areas
@@ -1978,6 +2053,26 @@ msgid ""
 "史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被戴夫所抚养。\n"
 "史蒂夫并不是和村民一样的方块生物，因此常常受到歧视和嘲笑，史蒂夫也因此特别想知道自己的父母是谁。\n"
 "似乎，这个谜就要从这场冒险中解开了。"
+msgstr ""
+
+#. Name for misc mvz2:explosion_before_3_years
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "三年前的爆炸"
+msgstr ""
+
+#. Header for misc mvz2:explosion_before_3_years
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在三年前，幻想乡内曾经发生过一起巨大的爆炸。"
+msgstr ""
+
+#. Flavor for misc mvz2:explosion_before_3_years
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"根据针妙丸所说，三年前，城下面的某处似乎发生过爆炸，然后这些方块怪物就开始慢慢出现了。\n"
+"后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。"
 msgstr ""
 
 #. Header for entity mvz2:dispenser

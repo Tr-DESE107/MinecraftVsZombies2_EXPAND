@@ -221,7 +221,7 @@ namespace MVZ2.Store
                 if (!NamespaceID.IsValid(talk))
                     continue;
                 ui.SetStoreUIVisible(false);
-                await talkController.SimpleStartTalkAsync(talk, 0, 3);
+                await talkController.SimpleStartTalkAsync(talk, 0, 1);
             }
             ui.SetStoreUIVisible(true);
         }

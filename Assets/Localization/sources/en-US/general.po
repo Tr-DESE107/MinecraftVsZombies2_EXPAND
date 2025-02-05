@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 09:56+0800\n"
-"PO-Revision-Date: 2025-02-04 22:01+0800\n"
+"POT-Creation-Date: 2025-02-05 08:46+0800\n"
+"PO-Revision-Date: 2025-02-05 20:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -467,26 +467,26 @@ msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:150
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:152
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr "Are you sure you want to use the {1} without the {0}?"
 
 # 对话框内容
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:152
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:154
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any plants that fight off {0}, are you sure you want to "
 "continue?"
 
 # 对话框内容
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:154
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:156
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any energy producing contraptions, are you sure you want "
 "to continue?"
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:156
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:158
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr "Are you sure want to play this level without any aquatic contraptions?"
 
@@ -822,7 +822,7 @@ msgid "点击以开始！"
 msgstr "Click to start!"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:758
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:761
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1409,6 +1409,12 @@ msgctxt "music.name"
 msgid "凋灵舞曲"
 msgstr "Witherstep"
 
+#. Name for music mvz2:phone_ring
+#: Music meta file
+msgctxt "music.name"
+msgid "有只僵尸在你的手机里"
+msgstr "Zombies in your phone"
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -1695,6 +1701,19 @@ msgid "传动力板能升级重力板，能改变很多很多东西的位置，�
 msgstr ""
 "Force Pad is upgraded from Gravity Pad, it can change the position of many "
 "things, conveniently!"
+
+#. Store item description of mvz2:golden_dropper by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"把金质投掷器放在木质投掷器上，让它能够发射可以反弹，并产生绿宝石的金球！"
+msgstr ""
+
+#. Store item description of mvz2:golden_dropper by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "金质投掷器能升级木质投掷器，能发出不停弹来弹去，并且可以赚钱的金球！"
+msgstr ""
 
 #. Store item description of mvz2:hoe by character mvz2:crazy_villager
 #: Store meta file
