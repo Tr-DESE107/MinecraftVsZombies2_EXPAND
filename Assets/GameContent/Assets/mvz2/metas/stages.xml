@@ -8,8 +8,8 @@
             <entry id="mvz2:vortex_hopper" count="3"/>
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:totenser" count="12"/>
-            <entry id="mvz2:dream_crystal" count="6"/>
-            <entry id="mvz2:dream_silk" count="2"/>
+            <entry id="mvz2:castle_crystal" count="6"/>
+            <entry id="mvz2:castle_silk" count="2"/>
         </conveyor>
     </stage>
     <stage id="tutorial" name="教程关" type="special">
@@ -157,7 +157,7 @@
         <talks>
             <talk type="start" value="mvz2:seventh_slot">
                 <repeat>
-                    <condition requiredNot="mvz2:blueprint_slot.1;mvz2:level.dream_5"/>
+                    <condition requiredNot="mvz2:blueprint_slot.1;mvz2:level.castle_5"/>
                 </repeat>
             </talk>
             <talk type="end" value="mvz2:halloween_8_over"/>
@@ -232,7 +232,7 @@
             <entry id="mvz2:silvenser" count="8"/>
             <entry id="mvz2:magichest" count="4"/>
         </conveyor>
-        <clear pickupModel="mvz2:entity.dream_key"/>
+        <clear pickupModel="mvz2:entity.castle_key"/>
         <spawns flags="2" firstWaveTime="30" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -461,5 +461,87 @@
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
         </spawns>
+    </stage>
+    <stage id="castle_2" name="辉针城" dayNumber="2" unlock="mvz2:level.castle_1">
+        <talks>
+            <talk type="start" value="mvz2:castle_2"/>
+            <talk type="end" value="mvz2:castle_2_over"/>
+            <talk type="map" value="mvz2:castle_2_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:spike_block"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+        </spawns>
+    </stage>
+    <stage id="castle_3" name="辉针城" dayNumber="3" unlock="mvz2:level.castle_2">
+        <talks>
+            <talk type="start" value="mvz2:castle_3"/>
+            <talk type="end" value="mvz2:castle_3_over"/>
+            <talk type="map" value="mvz2:castle_3_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:stone_dropper"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+        </spawns>
+    </stage>
+    <stage id="castle_4" name="辉针城" dayNumber="4" unlock="mvz2:level.castle_3">
+        <talks>
+            <talk type="start" value="mvz2:castle_4"/>
+            <talk type="end" value="mvz2:castle_4_over"/>
+            <talk type="map" value="mvz2:castle_4_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:stone_shield"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+        </spawns>
+    </stage>
+    <stage id="castle_5" name="辉针城" dayNumber="5" unlock="mvz2:level.castle_4">
+        <talks>
+            <talk type="start" value="mvz2:castle_5"/>
+            <talk type="end" value="mvz2:castle_5_over"/>
+            <talk type="map" value="mvz2:castle_5_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:diamond_spikes"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:skeleton"/>
+        </spawns>
+    </stage>
+    <stage id="castle_6" name="辉针城" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.castle_5" music="mvz2:minigame">
+        <talks>
+            <talk type="start" value="mvz2:castle_6"/>
+            <talk type="end" value="mvz2:castle_6_over"/>
+            <talk type="map" value="mvz2:castle_6_map"/>
+        </talks>
+        <conveyor>
+            <entry id="mvz2:wooden_dropper" count="10"/>
+            <entry id="mvz2:stone_dropper" count="10"/>
+            <entry id="mvz2:obsidian" count="5"/>
+            <entry id="mvz2:tnt" count="5"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:golden_apple"/>
+        <camera position="lawn" transition="instant"/>
+        <spawns flags="2" firstWaveTime="30">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mummy"/>
+        </spawns>
+        <properties>
+            <bool name="noProduction" value="true"/>
+        </properties>
     </stage>
 </stages>

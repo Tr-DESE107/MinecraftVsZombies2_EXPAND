@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -8,6 +9,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -23,6 +25,11 @@ namespace MVZ2.GameContent.Areas
         public override void PostHugeWaveEvent(LevelEngine level)
         {
             base.PostHugeWaveEvent(level);
+            var x = level.GetEnemySpawnX();
+            var z = level.GetEntityLaneZ(level.GetMaxLaneCount() / 2);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            level.Spawn(VanillaEnemyID.reverseSatellite, pos, null);
         }
         public override float GetGroundY(LevelEngine level, float x, float z)
         {

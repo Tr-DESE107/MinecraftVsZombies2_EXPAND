@@ -405,8 +405,6 @@ namespace MVZ2.Level
 
                     UpdateHeldItemPosition();
                     UpdateInLevelUI(deltaTime * gameSpeed);
-
-                    levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
                 }
                 // 更新手持物品。
                 var speed = gameRunning ? gameSpeed : 0;
@@ -415,6 +413,8 @@ namespace MVZ2.Level
             }
             // 更新光标。
             UpdateHeldItemCursor();
+
+            levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
 
             bool paused = IsGamePaused();
             // 暂停时显示金钱。

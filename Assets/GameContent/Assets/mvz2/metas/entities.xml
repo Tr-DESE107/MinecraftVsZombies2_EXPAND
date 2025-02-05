@@ -724,7 +724,7 @@
             <int name="waterInteraction" value="2"/>
         </enemy>
         <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
-            <float name="range" value="120"/>
+            <float name="range" value="80"/>
             <float name="speed" value="2"/>
             <id name="shell" value="mvz2:nether"/>
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>

@@ -293,7 +293,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   cameraLimitX: 2.2
-  cameraLeftSpaceMobile: 2.2
+  cameraLeftSpaceMobile: 1.2
   cameraLeftSpaceStandalone: 0
   cameraHousePosition: {x: 0, y: 3, z: -10}
   cameraHouseAnchor: {x: 0, y: 0.5}

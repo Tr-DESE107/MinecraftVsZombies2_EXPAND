@@ -3009,6 +3009,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Language
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 831f7ad8d2311d448970951982d07ad8
+    m_Address: mvz2:misc/explosion_before_3_years
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 832e7d1ecf7d7eb42a2921e2909679f6
     m_Address: mvz2:entity/effects/diamond_spike_particles
     m_ReadOnly: 0
@@ -5474,6 +5480,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2de8f00c91d8ad498a0031ee7f96f5e
+    m_Address: mvz2:phone_ring
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e331ed1f540bbb04db318b073f0720ac
     m_Address: mvz2:talk/dialog_faint

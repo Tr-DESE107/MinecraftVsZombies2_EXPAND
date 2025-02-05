@@ -43,6 +43,14 @@ namespace MVZ2.Models
                 emission.SetBurst(i, burst);
             }
         }
+        private void Update()
+        {
+            if (particlesToEmit > 0 && particles.main.simulationSpeed > 0)
+            {
+                Particles.Emit(particlesToEmit);
+                particlesToEmit = 0;
+            }
+        }
         public void OverrideRateOverTime(float rate)
         {
             var emission = Particles.emission;
@@ -62,7 +70,9 @@ namespace MVZ2.Models
                 intCount += (int)emitModular;
                 emitModular %= 1;
             }
-            Particles.Emit(intCount);
+            if (intCount <= 0)
+                return;
+            particlesToEmit += intCount;
         }
         public static ParticleSystem.MinMaxCurve MultiplyCurve(ParticleSystem.MinMaxCurve curve, float multiplier)
         {
@@ -117,6 +127,7 @@ namespace MVZ2.Models
         [SerializeField]
         private float minAmount = 0;
         private float emitModular = 0;
+        private int particlesToEmit = 0;
     }
     public class SerializableParticleSystem
     {

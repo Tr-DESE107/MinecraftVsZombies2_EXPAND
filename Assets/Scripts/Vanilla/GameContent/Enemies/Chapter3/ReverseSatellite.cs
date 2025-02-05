@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -14,6 +15,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -104,7 +106,7 @@ namespace MVZ2.GameContent.Enemies
             if (state == STATE_STAY) 
             {
                 var leavingTimer = GetLeaveTimer(enemy);
-                if (leavingTimer == null || leavingTimer.Expired)
+                if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == WaveStageBehaviour.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
                 {
                     state = STATE_LEAVING;
                 }
@@ -121,24 +123,35 @@ namespace MVZ2.GameContent.Enemies
             var backDistanceZ = 80;
             if (pos.x > centerX + backDistanceX)
             {
-                velocity.x -= 0.1f;
+                if (velocity.x > -3)
+                {
+                    velocity.x -= 0.1f;
+                }
             }
             else if (pos.x < centerX - backDistanceX)
             {
-                velocity.x += 0.1f;
+                if (velocity.x < 3)
+                {
+                    velocity.x += 0.1f;
+                }
             }
             if (pos.z > centerZ + backDistanceZ)
             {
-                velocity.z -= 0.1f;
+                if (velocity.z > -3)
+                {
+                    velocity.z -= 0.1f;
+                }
             }
             else if (pos.z < centerZ - backDistanceZ)
             {
-                velocity.z += 0.1f;
+                if (velocity.z < 3)
+                {
+                    velocity.z += 0.1f;
+                }
             }
             var magnitude = velocity.magnitude;
-            magnitude = magnitude * 0.8f + 3 * 0.2f;
-            velocity = velocity.normalized * magnitude;
-            enemy.Velocity = velocity;
+            magnitude += 0.05f;
+            enemy.Velocity = velocity.normalized * magnitude;
 
             var leaveTimer = GetLeaveTimer(enemy);
             leaveTimer.Run();
