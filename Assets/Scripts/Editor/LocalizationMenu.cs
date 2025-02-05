@@ -93,6 +93,10 @@ namespace MVZ2.Editor
             {
                 var id = new NamespaceID(spaceName, music.ID);
                 AddTranslation(potGenerator, music.Name, musicsReference, $"Name for music {id}", VanillaStrings.CONTEXT_MUSIC_NAME);
+                AddTranslation(potGenerator, music.Source, musicsReference, $"Source for music {id}", VanillaStrings.CONTEXT_MUSIC_SOURCE);
+                AddTranslation(potGenerator, music.Origin, musicsReference, $"Origin for music {id}", VanillaStrings.CONTEXT_MUSIC_ORIGIN);
+                AddTranslation(potGenerator, music.Author, musicsReference, $"Author for music {id}", VanillaStrings.CONTEXT_MUSIC_AUTHOR);
+                AddTranslation(potGenerator, music.Description, musicsReference, $"Description for music {id}", VanillaStrings.CONTEXT_MUSIC_DESCRIPTION);
             }
             // 档案
             var archiveDocument = LoadMetaXmlDocument(spaceName, "archive.xml");

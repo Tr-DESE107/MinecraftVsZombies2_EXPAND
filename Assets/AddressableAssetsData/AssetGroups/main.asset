@@ -2602,6 +2602,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7017edb31ab2f3a418840893c3162370
+    m_Address: mvz2:grow_big
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 706b7253177e8ab4f87b65901d915482
     m_Address: mvz2:projectile/missile
     m_ReadOnly: 0

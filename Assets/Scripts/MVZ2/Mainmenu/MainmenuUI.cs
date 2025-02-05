@@ -52,14 +52,9 @@ namespace MVZ2.Mainmenu.UI
         }
         public void SetButtonActive(MainmenuButtonType type, bool active)
         {
-            switch (type)
+            if (mainmenuButtonDict.TryGetValue(type, out var button))
             {
-                case MainmenuButtonType.Almanac:
-                    almanacButton.gameObject.SetActive(active);
-                    break;
-                case MainmenuButtonType.Store:
-                    storeButton.gameObject.SetActive(active);
-                    break;
+                button.gameObject.SetActive(active);
             }
         }
         public void SetRayblockerActive(bool active)
@@ -92,6 +87,7 @@ namespace MVZ2.Mainmenu.UI
             mainmenuButtonDict.Add(MainmenuButtonType.Archive, archiveButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Stats, statsButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Achievement, achievementButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.MusicRoom, musicRoomButton);
 
             foreach (var pair in mainmenuButtonDict)
             {
@@ -167,6 +163,8 @@ namespace MVZ2.Mainmenu.UI
         private MainmenuButton statsButton;
         [SerializeField]
         private MainmenuButton achievementButton;
+        [SerializeField]
+        private MainmenuButton musicRoomButton;
     }
     public enum MainmenuButtonType
     {
@@ -181,6 +179,7 @@ namespace MVZ2.Mainmenu.UI
         BackToMenu,
         Archive,
         Stats,
-        Achievement
+        Achievement,
+        MusicRoom
     }
 }

@@ -174,6 +174,10 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_CHARACTER_NAME = "character.name";
         public const string CONTEXT_MUSIC_NAME = "music.name";
+        public const string CONTEXT_MUSIC_ORIGIN = "music.origin";
+        public const string CONTEXT_MUSIC_SOURCE = "music.source";
+        public const string CONTEXT_MUSIC_AUTHOR = "music.author";
+        public const string CONTEXT_MUSIC_DESCRIPTION = "music.description";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
         public const string CONTEXT_ARTIFACT_NAME = "artifact.name";
         public const string CONTEXT_ARTIFACT_TOOLTIP = "artifact.tooltip";

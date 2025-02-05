@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Metas;
 using MVZ2.Vanilla;
@@ -22,10 +23,21 @@ namespace MVZ2.Managers
         #region 元数据
         public MusicMeta GetMusicMeta(NamespaceID music)
         {
-            var modResource = main.ResourceManager.GetModResource(music.SpaceName);
+            var modResource = GetModResource(music.SpaceName);
             if (modResource == null)
                 return null;
             return modResource.MusicMetaList.metas.FirstOrDefault(m => m.ID == music.Path);
+        }
+        public NamespaceID[] GetAllMusicID()
+        {
+            List<NamespaceID> list = new List<NamespaceID>();
+            foreach (var modResource in modResources)
+            {
+                if (modResource == null)
+                    continue;
+                list.AddRange(modResource.MusicMetaList.metas.Select(m => new NamespaceID(modResource.Namespace, m.ID)));
+            }
+            return list.ToArray();
         }
         #endregion
 

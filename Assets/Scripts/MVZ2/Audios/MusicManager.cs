@@ -78,6 +78,18 @@ namespace MVZ2.Audios
         {
             mixer.SetFloat("MusicVolume", AudioHelper.PercentageToDbA(volume));
         }
+        public void SetNormalizedMusicTime(float time)
+        {
+            if (!musicSource || !musicSource.clip)
+                return;
+            musicSource.time = time * musicSource.clip.length;
+        }
+        public float GetNormalizedMusicTime()
+        {
+            if (!musicSource || !musicSource.clip)
+                return 0;
+            return musicSource.time / musicSource.clip.length;
+        }
         private void Awake()
         {
             volumeFader.OnValueChanged += value => musicSource.volume = value;

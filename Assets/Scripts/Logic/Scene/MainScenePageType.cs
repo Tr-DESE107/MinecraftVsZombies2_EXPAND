@@ -9,6 +9,7 @@
         Map,
         Almanac,
         Store,
-        Archive
+        Archive,
+        MusicRoom
     }
 }

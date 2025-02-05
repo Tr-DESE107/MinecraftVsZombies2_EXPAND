@@ -10,6 +10,7 @@ using MVZ2.Mainmenu;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Map;
+using MVZ2.MusicRoom;
 using MVZ2.Note;
 using MVZ2.Save;
 using MVZ2.Store;
@@ -189,6 +190,16 @@ namespace MVZ2.Scenes
                 archive.OnReturnClick -= OnReturn;
             }
         }
+        public void DisplayMusicRoom(Action onReturn)
+        {
+            DisplayPage(MainScenePageType.MusicRoom);
+            musicRoom.OnReturnClick += OnReturn;
+            void OnReturn()
+            {
+                onReturn?.Invoke();
+                musicRoom.OnReturnClick -= OnReturn;
+            }
+        }
         public void DisplayEnemyAlmanac(NamespaceID enemyID)
         {
             almanac.OpenEnemyAlmanac(enemyID);
@@ -232,6 +243,7 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Almanac, almanac);
             pages.Add(MainScenePageType.Store, store);
             pages.Add(MainScenePageType.Archive, archive);
+            pages.Add(MainScenePageType.MusicRoom, musicRoom);
         }
         #endregion
 
@@ -260,6 +272,8 @@ namespace MVZ2.Scenes
         private StoreController store;
         [SerializeField]
         private ArchiveController archive;
+        [SerializeField]
+        private MusicRoomController musicRoom;
         [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]
