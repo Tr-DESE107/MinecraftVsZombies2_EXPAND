@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2bf598c00945bb44bb3ca45c9a2a9f6
+guid: 1723b13d8d44a654a8424dc59197b0aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,106 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tokiko_0
+      name: seija_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 738
+        width: 550
         height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9683a6dfdbf205040a09c988e9c69e9b
-      internalID: 1468632406
+      spriteID: b7458c1cc0cfb5d449381b0cabf50701
+      internalID: -793165027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tokiko_1
+      name: seija_1
       rect:
         serializedVersion: 2
-        x: 739
-        y: 544
-        width: 528
-        height: 736
+        x: 550
+        y: 704
+        width: 550
+        height: 576
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6f19b520ec6016498c2c957903ea605
-      internalID: -1940438872
+      spriteID: 161aa9c697a785946acf9150885fb6c9
+      internalID: -1739069774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tokiko_2
+      name: seija_2
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 544
-        width: 528
-        height: 736
+        x: 550
+        y: 384
+        width: 550
+        height: 319
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a109dffafb984ea4783b7907532d1c57
-      internalID: 5995139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tokiko_3
-      rect:
-        serializedVersion: 2
-        x: 1797
-        y: 544
-        width: 528
-        height: 736
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19e94802a3c61294b838c074f5ef68e9
-      internalID: -377323089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tokiko_4
-      rect:
-        serializedVersion: 2
-        x: 739
-        y: 272
-        width: 352
-        height: 271
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eca5eb095654e1b48965fed8e883cb79
-      internalID: -79018707
+      spriteID: 80dffde1bcd624541b33bd9f2d72bc4c
+      internalID: -239630804
       vertices: []
       indices: 
       edges: []
@@ -225,11 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tokiko_0: 1468632406
-      tokiko_1: -1940438872
-      tokiko_2: 5995139
-      tokiko_3: -377323089
-      tokiko_4: -79018707
+      seija_0: -793165027
+      seija_1: -1739069774
+      seija_2: -239630804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

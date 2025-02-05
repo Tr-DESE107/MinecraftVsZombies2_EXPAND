@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-30 08:23+0800\n"
+"POT-Creation-Date: 2025-02-05 02:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,6 +51,1182 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:castle_1"
 msgid "嘿，等等！刚说完，就有僵尸攻过来了！"
+msgstr ""
+
+#. Archive name for talk group castle_1_over
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第1天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_over"
+msgid "这是木质投掷器！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_over"
+msgid "它能投出木球，木球能从斜坡上滚下去，打击下方的僵尸！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_over"
+msgid "感受物理学的力量吧！"
+msgstr ""
+
+#. Archive name for talk group castle_1_map
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第1天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "清理完毕，现在已经安全了。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "说起来，我们此行的目的是找到针妙丸吧？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "不知道。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "从一开始我就有点在意，这些瓶瓶罐罐是什么？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "可能是用来装空气用的！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "……行。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "说起来，这座城里真的很安静，一个活着的人都没见到过。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "而且啊，还有——"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "看招！"
+msgstr ""
+
+#. Speaker Name for talk sentence 9 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "character.name"
+msgid "？？？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "哇啊！搞、搞什么啊！"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "你们这群看起来很闲的家伙是谁啊？"
+msgstr ""
+
+#. Description for talk sentence 11 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（正邪出现）"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "你、你是——"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "<color=blue>（……戴夫完全被这家伙踩在脚下了。）</color>"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "你是——鬼人正邪吧？"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "哇！居然直呼我的名字，你好大的胆子啊。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "你们这些家伙是来干什么的？这里可没有人类居住吧？"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "就、就是针妙丸啊，针妙丸。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "……针妙丸？"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "我们找到了一封针妙丸写下的求助信，所以就——"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "那家伙还写了那东西吗？真是胆小鬼呢。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "不过我可以告诉你们，这里绝对没你们的份。那家伙，我自己一个人来就够了，用不着你们。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "哎呀，我干嘛要跟一介人类说这么多呢？"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "再见，废物们，哈哈哈哈哈哈哈哈！"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "真的，如同想象中的一般，是个怪人。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "我还没死呢……"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group castle_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_1_map"
+msgid "哇啊！"
+msgstr ""
+
+#. Archive name for talk group castle_2
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第2天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2"
+msgid "……嗯？这个凋灵骷髅是？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2"
+msgid "头上戴着个金质头冠，手里拿着法杖。是干什么的呢？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2"
+msgid "我也不知道啊，不过我有一种预感！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2"
+msgid "你会用到萤石的，邻居！"
+msgstr ""
+
+#. Archive name for talk group castle_2_over
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第2天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_over"
+msgid "这是尖刺方块！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_over"
+msgid "它能对走在它上面的敌人造成伤害！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_over"
+msgid "还能破坏敌人的车辆！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_over"
+msgid "让战场上洒满钉子吧！"
+msgstr ""
+
+#. Archive name for talk group castle_2_map
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第2天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "这么多瓶瓶罐罐，到底怎么回事？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "……嗯？好像有动静？有人在敲玻璃？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "这里！这里！过来！过来！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "！是瓶子里的小人族！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "呼——啊~终于从这该死的瓶子里出来了！"
+msgstr ""
+
+#. Description for talk sentence 4 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（史蒂夫打开了瓶子）"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "感谢你们来救我，请问你们是？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "我是坑爹村民！这位是我的邻居！"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "我们看到了你从城中扔下的信，所以才来到这里查看情况。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "喔，那封信居然真的有人看到了！谢天谢地！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "我是少名针妙丸，辉针城的城主，也是小人族的公主。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "原来您就是城主啊。听您在信中说，这里被黑色骷髅入侵了？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "是的。一年前，辉针城突然遭到了这些黑色骷髅的入侵。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "我们不知道它们是从哪儿来的，只能不停抵抗。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "然后我们就败下阵来，最终被它们俘虏了。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "它们把我和我的同胞们装进了这些瓶子里。我好不容易逃了出去，结果却还是在这里中了它们的陷阱。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "所以，我想请求你们，救救我的其他同胞们，可以吗？"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group castle_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_2_map"
+msgid "当然了，我们就是为此而来的。"
+msgstr ""
+
+#. Archive name for talk group castle_3
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第3天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "啊，那些戴金冠的骷髅！一定要小心！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "它们能控制人的神智！我们好多场败仗都是拜这些家伙所赐！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "不过，荧石的光能够防止周围的器械被它们控制。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "诶，有这种事？荧石是什么？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "就是一种发光的石头。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "啊，原来如此！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "早知道我就在城里多放点灯笼了！"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group castle_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3"
+msgid "这俩不一样吧……"
+msgstr ""
+
+#. Archive name for talk group castle_3_over
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第3天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_over"
+msgid "这个是石质投掷器！他能弹射出微小的石子！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_over"
+msgid "不过，有时候它也能射出能击退敌人并且分裂的巨石！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_over"
+msgid "在洞穴中，你最好当心脚下的踏板！"
+msgstr ""
+
+#. Archive name for talk group castle_3_map
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第3天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "你们真的好厉害！那些黑骷髅在你们的器械面前简直就是溃不成军！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "当然，谁让我是坑爹村民呢！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "<color=blue>（谁问你了……）</color>"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "你的同胞还在更远的地方吗？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "是的，我离开那里之后其实还跑了挺远的……都快累死了。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "<color=blue>（……还真能跑。）</color>"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "……其实我稍微有些顾虑。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "在我们被抓进去之前，同胞们，似乎对我有些——怎么说呢。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "他们好像不相信我了。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "怎么说？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "好几年前，我因为被天邪鬼灌输了虚假的历史，导致了一场范围浩大的混乱。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "我搞出了乱子，最后也必须为这件事负责。从那之后，小人族的地位就有些——下降。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "大家常常有时抬不起头。实际上，我确实也没为大家做出过什么贡献……"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "别这么想，你还是在乎你的子民们的，对吧？"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "你为了他们抵御外敌，还写下那封信请求帮忙，最后也没有放弃他们。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "我想，他们应该也会理解您的。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "嗯……"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "话说您刚才说天邪鬼？我们之前还在这座城里见过她。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "还狠狠地踩了我的背！"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "……那真是抱歉了。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "其实，在那次事件之后，我和那位天邪鬼反而成为了朋友。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group castle_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_3_map"
+msgid "她来，其实应该是来救我的。"
+msgstr ""
+
+#. Archive name for talk group castle_4
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第4天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4"
+msgid "史蒂夫，这里出现了相当有危险的敌人。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4"
+msgid "看到那些拿着金斧子的骷髅了嘛？他们会在死掉的时候爆炸！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4"
+msgid "就像身上绑着炸弹一样！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4"
+msgid "一定、千万、绝对、必须要注意！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4"
+msgid "我知道了我知道了……"
+msgstr ""
+
+#. Archive name for talk group castle_4_over
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第4天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_over"
+msgid "这个是石护罩！他能和普通的器械重叠放置！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_over"
+msgid "它的硬度能够保护它里面的器械不受伤害！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_over"
+msgid "有个小技巧，如果你拿着铁镐，并且瞄准它的下部，就会挖掉石护罩！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_over"
+msgid "如果你瞄准上部，则会挖掉里面的器械！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_over"
+msgid "当然，星之碎片也是同理的！"
+msgstr ""
+
+#. Archive name for talk group castle_4_map
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第4天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "针妙丸，关于这场入侵的原因，你有什么想法吗？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "嗯……有。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "这场入侵的怪物全部都是方块吧？我听说幻想乡内地也出现了大量的方块怪物。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "首次出现这些方块怪物的时间，我听别人说是三年前。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "而在这三年前，幻想乡发生了一件奇怪的事情。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "什么事情？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "某个地方<color=red>爆炸</color>了。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "啊？"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "那时我还在辉针城里，下方突然传来一声巨响，我往外看了一眼，但是并没有看到是哪里。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "后来听说，似乎有一处地方发生了爆炸。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "那件事跟我没什么关系，所以我也就只了解了这些了。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "没想到，结果却会影响到我们辉针城……"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "<color=blue>（爆炸，是吗？）</color>"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group castle_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_4_map"
+msgid "<color=blue>（会和这场异变有关系吗？）</color>"
+msgstr ""
+
+#. Archive name for talk group castle_5_over
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第5天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_over"
+msgid "钻石尖刺回来了！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_over"
+msgid "它能够放置在尖刺方块上把它升级！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_over"
+msgid "升级过后的钻石尖刺耐久更高，并且会连续扎两次！ "
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_over"
+msgid "欢迎我们的老朋友！"
+msgstr ""
+
+#. Archive name for talk group castle_5_map
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第5天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "对了，关于那位天邪鬼，鬼人正邪。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "那家伙在我们眼前出现，而且说要自己一个人解决这座城中的异变。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "还狠狠的踩了我。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "我们已经好多天都没看见她了，也不知道她去哪儿了。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "我挺担心她的……"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "怎么了？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "其实我被困的时候见过她。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "她一眼就看到了我，要把我的瓶子撬开。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "但是她突然就倒下了，我的瓶子就这样滚到一边去，我也陷入了昏迷，之后的事情就不知道了。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "可能只是想把瓶子摔碎吧！"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "你能不要说话了么……"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "你还记得那些会控制他人精神的骷髅么？"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "我怕她被那群家伙精神控制了。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "以前和它们作战期间，被俘虏的小人们全部都被精神控制，转而攻击我们，无一例外。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group castle_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_5_map"
+msgid "如果她变成我们的敌人，那就……太糟了。"
+msgstr ""
+
+#. Archive name for talk group castle_6
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第6天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6"
+msgid "不知道怎么回事，僵尸的体型受到了影响！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6"
+msgid "他们突然之间变得非常小了！而且数量非常多！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6"
+msgid "诶，怎么回事？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6"
+msgid "小僵尸是吗？我来试试解决他们！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6"
+msgid "当然，好像也不止是小……"
+msgstr ""
+
+#. Archive name for talk group castle_6_over
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第6天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_over"
+msgid "这是金苹果！不过它可不是用来回血的！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_over"
+msgid "实际上它是一个魅惑果实，能魅惑第一个攻击它的敌人！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_over"
+msgid "然后！这个敌人就会为你作战！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_over"
+msgid "不过，要注意它也是只能在晚上用的！"
+msgstr ""
+
+#. Archive name for talk group castle_6_map
+#: Talk meta file
+msgctxt "archive"
+msgid "辉针城第6天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "话说，该回香霖堂一趟了吧！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "我又有东西要卖你了！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "所以你为什么要把东西卖我？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "因为只要有了这些东西你才能变强啊！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "不，我的意思是，你为什么不直接给我……"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "因为只有充钱才能变强啊！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group castle_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_6_map"
+msgid "<color=blue>（完全听不懂！）</color>"
+msgstr ""
+
+#. Archive name for talk group kourindou_visit_castle
+#: Talk meta file
+msgctxt "archive"
+msgid "访问香霖堂-辉针城"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "难道是乘法吗？3，4，12……也不对啊。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "诶，你们回来了啊！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "进展怎么样了？找到那个小人族公主了吗？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "已经找到了，现在她很安全，估计不久辉针城就能解放了。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "哇，你们好厉害啊！居然这么快就做到了！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "您过奖了。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "不过，朱鹭子，刚才看你在玩什么东西？"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "啊，刚才啊，是我在香霖堂里找到的数字谜题哦！我一直在尝试破解它！"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "……这个，不是电话吗？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "电……话？哦！是可以让你说的话带电嘛？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "不是。这是个远程通讯工具，不是什么谜题。我来教你怎么用吧。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "点开这个，然后输入对应我们的数字，再按这个按钮，一会就可以在里面听到电话那头的声音了。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "是吗？我试试……"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "叮铃铃铃……"
+msgstr ""
+
+#. Description for talk sentence 13 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（朱鹭子离开）"
+msgstr ""
+
+#. Speaker Name for talk sentence 13 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "character.name"
+msgid "手机"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "哔。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "是史蒂夫吗？"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "喂，这里是史蒂夫，你好！"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "真的诶，居然是这么神奇的东西！"
+msgstr ""
+
+#. Description for talk sentence 17 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（朱鹭子回来）"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "你们的知识真的很渊博呢！"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "如果想跟我们说话的话，你随时可以用它打过来！"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "知道了！"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "啊，对了！"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "我在这几天里我找到了一个新的器械，还闪闪发着光呢！"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "接下来，让你看看吧！"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "当然，得买！"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group kourindou_visit_castle's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_castle"
+msgid "你从来没让我失望过……"
 msgstr ""
 
 #. Archive name for talk group dream_1

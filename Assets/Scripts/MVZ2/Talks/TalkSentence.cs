@@ -39,9 +39,39 @@ namespace MVZ2.TalkData
             var description = node.GetAttribute("description");
             var sounds = node.GetAttributeNamespaceIDArray("sounds", defaultNsp)?.ToList();
             var variant = node.GetAttributeNamespaceID("variant", defaultNsp);
-            var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart"))?.ToList();
-            var clickScripts = TalkScript.ParseArray(node.GetAttribute("onClick"))?.ToList();
-            var text = node.InnerText;
+            string text;
+            List<TalkScript> startScripts = null;
+            List<TalkScript> clickScripts = null;
+            var textNode = node["text"];
+            if (textNode != null)
+            {
+                text = textNode.InnerText;
+                var startScriptNode = node["start"];
+                if (startScriptNode != null)
+                {
+                    startScripts = TalkScript.FromArrayXmlNode(startScriptNode)?.ToList();
+                }
+                var clickScriptNode = node["click"];
+                if (clickScriptNode != null)
+                {
+                    clickScripts = TalkScript.FromArrayXmlNode(clickScriptNode)?.ToList();
+                }
+            }
+            else
+            {
+                text = node.InnerText;
+                var startScriptStr = node.GetAttribute("onStart");
+                if (!string.IsNullOrEmpty(startScriptStr))
+                {
+                    startScripts = TalkScript.ParseArray(startScriptStr)?.ToList();
+                }
+                var clickScriptStr = node.GetAttribute("onClick");
+                if (!string.IsNullOrEmpty(clickScriptStr))
+                {
+                    clickScripts = TalkScript.ParseArray(clickScriptStr)?.ToList();
+                }
+            }
+
             return new TalkSentence()
             {
                 speaker = speaker,

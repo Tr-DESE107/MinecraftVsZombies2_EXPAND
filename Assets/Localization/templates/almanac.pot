@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-31 03:41+0800\n"
+"POT-Creation-Date: 2025-02-05 02:33+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2650,6 +2650,18 @@ msgctxt "death_message"
 msgid "抱歉……我不是有意这么做的……"
 msgstr ""
 
+#. Header for entity mvz2:reverse_satellite
+#: Entity meta file
+msgctxt "entity.name"
+msgid "反则卫星"
+msgstr ""
+
+#. Death message for entity mvz2:reverse_satellite
+#: Entity meta file
+msgctxt "death_message"
+msgid "？"
+msgstr ""
+
 #. Header for entity mvz2:skeleton_horse
 #: Entity meta file
 msgctxt "entity.name"
@@ -2816,6 +2828,18 @@ msgstr ""
 #: Character meta file
 msgctxt "character.name"
 msgid "朱鹭子"
+msgstr ""
+
+#. Name for character mvz2:seija
+#: Character meta file
+msgctxt "character.name"
+msgid "正邪"
+msgstr ""
+
+#. Name for character mvz2:shinmyoumaru
+#: Character meta file
+msgctxt "character.name"
+msgid "针妙丸"
 msgstr ""
 
 #. Name for artifact mvz2:almanac

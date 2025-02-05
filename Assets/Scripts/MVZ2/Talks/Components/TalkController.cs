@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
@@ -287,11 +288,7 @@ namespace MVZ2.Talk
                                     {
                                         duration = ParseArgumentFloat(args[2]);
                                     }
-
-                                    var characterIndex = GetCharacterIndex(characterId);
-                                    if (characterIndex < 0)
-                                        break;
-                                    ui.CharacterDisappear(characterIndex, 1 / duration);
+                                    FaintCharacter(characterId, duration);
                                 }
                                 break;
                         }
@@ -594,9 +591,12 @@ namespace MVZ2.Talk
             // 获取脚本组。
             var sentence = GetTalkSentence();
 
-            foreach (var sound in sentence.sounds)
+            if (sentence.sounds != null)
             {
-                Main.SoundManager.Play2D(sound);
+                foreach (var sound in sentence.sounds)
+                {
+                    Main.SoundManager.Play2D(sound);
+                }
             }
 
             IEnumerable<TalkScript> scripts = sentence.startScripts != null ? sentence.startScripts : defaultStartScripts;
@@ -702,8 +702,8 @@ namespace MVZ2.Talk
             var index = GetCharacterIndex(characterID);
             if (index < 0)
                 return false;
-            ui.RemoveCharacterAt(index);
             characterList.RemoveAt(index);
+            ui.RemoveCharacterAt(index);
             return true;
         }
         private void LeaveCharacter(NamespaceID id)
@@ -711,16 +711,24 @@ namespace MVZ2.Talk
             var index = GetCharacterIndex(id);
             if (index < 0)
                 return;
-            ui.LeaveCharacterAt(index);
             characterList.RemoveAt(index);
+            ui.LeaveCharacterAt(index);
+        }
+        private void FaintCharacter(NamespaceID id, float duration)
+        {
+            var index = GetCharacterIndex(id);
+            if (index < 0)
+                return;
+            characterList.RemoveAt(index);
+            ui.CharacterDisappear(index, 1 / duration);
         }
         public bool DestroyCharacter(NamespaceID characterID)
         {
             var index = GetCharacterIndex(characterID);
             if (index < 0)
                 return false;
-            ui.DestroyCharacterAt(index);
             characterList.RemoveAt(index);
+            ui.DestroyCharacterAt(index);
             return true;
         }
         public void ClearCharacters()

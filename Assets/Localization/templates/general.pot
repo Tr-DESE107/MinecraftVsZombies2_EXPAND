@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-01-31 03:42+0800\n"
+"POT-Creation-Date: 2025-02-04 09:56+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -900,7 +900,7 @@ msgid "点击以开始！"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:753
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:758
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1114,27 +1114,27 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:850
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:854
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:854
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:858
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:856
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:860
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:858
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:862
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:860
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:864
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 

@@ -49,6 +49,7 @@ namespace MVZ2.Talk
             var character = GetCharacter(index);
             character.SetDisappear(true);
             character.SetDisappearSpeed(disappearSpeed);
+            RemoveCharacterAt(index);
         }
         public void StopCharacterDisappear(int index)
         {

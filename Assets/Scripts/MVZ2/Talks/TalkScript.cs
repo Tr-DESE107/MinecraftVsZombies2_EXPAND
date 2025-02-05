@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 
 namespace MVZ2.TalkData
 {
@@ -42,6 +44,23 @@ namespace MVZ2.TalkData
         public static TalkScript[] ParseArray(string str)
         {
             return str?.Split(';')?.Select(s => Parse(s))?.ToArray();
+        }
+        public static TalkScript[] FromArrayXmlNode(XmlNode node)
+        {
+            List<TalkScript> scripts = new List<TalkScript>();
+            var childNodes = node.ChildNodes;
+            for (int i = 0; i < childNodes.Count;i++)
+            {
+                var child = childNodes[i];
+                if (child.Name == "script")
+                {
+                    if (TryParse(child.InnerText, out var script))
+                    {
+                        scripts.Add(script);
+                    }
+                }
+            }
+            return scripts.ToArray();
         }
         public override string ToString()
         {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2bf598c00945bb44bb3ca45c9a2a9f6
+guid: d0159b237963ff745a734fae1c80132f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tokiko_0
+      name: shinmyoumaru_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 738
-        height: 1280
+        width: 160
+        height: 448
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9683a6dfdbf205040a09c988e9c69e9b
-      internalID: 1468632406
+      spriteID: d41f1eee97d814048b388ec51157a85e
+      internalID: 1774088793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tokiko_1
+      name: shinmyoumaru_1
       rect:
         serializedVersion: 2
-        x: 739
-        y: 544
-        width: 528
-        height: 736
+        x: 160
+        y: 336
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6f19b520ec6016498c2c957903ea605
-      internalID: -1940438872
+      spriteID: 1e211a4601d75854e8d6aba44a57f94e
+      internalID: 816372431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tokiko_2
+      name: shinmyoumaru_2
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 544
-        width: 528
-        height: 736
+        x: 272
+        y: 336
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a109dffafb984ea4783b7907532d1c57
-      internalID: 5995139
+      spriteID: 3809748c3bd7ff6429804e1e96ebd41f
+      internalID: 288931703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tokiko_3
+      name: shinmyoumaru_3
       rect:
         serializedVersion: 2
-        x: 1797
-        y: 544
-        width: 528
-        height: 736
+        x: 384
+        y: 336
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19e94802a3c61294b838c074f5ef68e9
-      internalID: -377323089
+      spriteID: b6042d29cce9cf64fa9fa8681d3bef19
+      internalID: -1372606439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tokiko_4
+      name: shinmyoumaru_4
       rect:
         serializedVersion: 2
-        x: 739
-        y: 272
-        width: 352
-        height: 271
+        x: 496
+        y: 336
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eca5eb095654e1b48965fed8e883cb79
-      internalID: -79018707
+      spriteID: 9fa0136038c975647a03a1252e46deb0
+      internalID: 178899031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 144
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f5a0b97cf90434c92bed1d772f4742
+      internalID: 1320239278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 80
+        width: 144
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74263a8fd7a568646bb7289db2cc9be2
+      internalID: 1789357715
       vertices: []
       indices: 
       edges: []
@@ -225,11 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tokiko_0: 1468632406
-      tokiko_1: -1940438872
-      tokiko_2: 5995139
-      tokiko_3: -377323089
-      tokiko_4: -79018707
+      shinmyoumaru_0: 1774088793
+      shinmyoumaru_1: 816372431
+      shinmyoumaru_2: 288931703
+      shinmyoumaru_3: -1372606439
+      shinmyoumaru_4: 178899031
+      shinmyoumaru_5: 1320239278
+      shinmyoumaru_6: 1789357715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -467,6 +467,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1723b13d8d44a654a8424dc59197b0aa
+    m_Address: mvz2:characters/seija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 173171cbb92903f4abbd185ff17f0e74
     m_Address: mvz2:level/grids/bevel
     m_ReadOnly: 0
@@ -4659,6 +4665,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2e6ace3e57f0964eb3d1cfe1113a3cd
+    m_Address: mvz2:characters/shinmyoumaru_bottle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2fee4be52329b84cad8cea5bb42445a
     m_Address: mvz2:enemy/prologue/leather_capped_zombie
     m_ReadOnly: 0
@@ -5024,6 +5036,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0159b237963ff745a734fae1c80132f
+    m_Address: mvz2:characters/shinmyoumaru
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d01a2a78c4760e3408aba65d73824db6
     m_Address: mvz2:random/crystal/crystal_break4

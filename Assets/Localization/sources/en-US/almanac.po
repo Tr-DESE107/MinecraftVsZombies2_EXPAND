@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-31 03:41+0800\n"
-"PO-Revision-Date: 2025-01-31 15:43+0800\n"
+"POT-Creation-Date: 2025-02-04 09:56+0800\n"
+"PO-Revision-Date: 2025-02-04 21:56+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/mvz2/almanac/en_US/>\n"
 "Language: en_US\n"
@@ -3041,6 +3041,18 @@ msgctxt "death_message"
 msgid "抱歉……我不是有意这么做的……"
 msgstr "Sorry...I didn't mean to do this..."
 
+#. Header for entity mvz2:reverse_satellite
+#: Entity meta file
+msgctxt "entity.name"
+msgid "反则卫星"
+msgstr "Reverse Satellite"
+
+#. Death message for entity mvz2:reverse_satellite
+#: Entity meta file
+msgctxt "death_message"
+msgid "？"
+msgstr "?"
+
 #. Header for entity mvz2:skeleton_horse
 #: Entity meta file
 msgctxt "entity.name"
@@ -3208,6 +3220,18 @@ msgstr "Doremy"
 msgctxt "character.name"
 msgid "朱鹭子"
 msgstr "Tokiko"
+
+#. Name for character mvz2:seija
+#: Character meta file
+msgctxt "character.name"
+msgid "正邪"
+msgstr "Seija"
+
+#. Name for character mvz2:shinmyoumaru
+#: Character meta file
+msgctxt "character.name"
+msgid "针妙丸"
+msgstr "Shinmyoumaru"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file

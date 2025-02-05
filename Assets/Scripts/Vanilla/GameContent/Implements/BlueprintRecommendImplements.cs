@@ -43,15 +43,17 @@ namespace MVZ2.GameContent.Implements
                     return;
                 if (level.IsDay())
                 {
-                    // 白天的荧石
-                    if (entityID == VanillaContraptionID.glowstone)
+                    // 白天的夜间器械
+                    if (entityDef.IsNocturnal())
                     {
                         result.Result = true;
                         return;
                     }
-
-                    // 白天的夜间器械
-                    if (entityDef.IsNocturnal())
+                }
+                // 白天的荧石
+                if (entityID == VanillaContraptionID.glowstone)
+                {
+                    if (level.IsDay() && level.AreaID != VanillaAreaID.dream)
                     {
                         result.Result = true;
                         return;

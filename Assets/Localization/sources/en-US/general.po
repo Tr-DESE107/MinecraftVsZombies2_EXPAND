@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: English (United States) (Minecraft大战僵尸2)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-31 03:42+0800\n"
-"PO-Revision-Date: 2025-01-31 15:43+0800\n"
+"POT-Creation-Date: 2025-02-04 09:56+0800\n"
+"PO-Revision-Date: 2025-02-04 22:01+0800\n"
 "Last-Translator: \n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "mvz2/general/en_US/>\n"
@@ -822,7 +822,7 @@ msgid "点击以开始！"
 msgstr "Click to start!"
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:753
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:758
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1031,29 +1031,29 @@ msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:850
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:854
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:854
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:858
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr "The blueprint selected last time contained multiple same contraptions."
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:856
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:860
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprint selected last time contained contraptions that are not "
 "unlocked yet."
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:858
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:862
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr "The blueprint selected last time contained multiple same artifacts."
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:860
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:864
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "

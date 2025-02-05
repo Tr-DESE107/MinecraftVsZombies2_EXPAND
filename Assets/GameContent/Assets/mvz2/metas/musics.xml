@@ -23,5 +23,6 @@
 
     <music id="castle_map" path="mvz2:castle_map" name="沉默空洞的辉针城" />
     <music id="castle_level" path="mvz2:castle_level" name="凋灵舞曲" />
+    <music id="phone_ring" path="mvz2:phone_ring" name="有只僵尸在你的手机里" />
 
 </musics>

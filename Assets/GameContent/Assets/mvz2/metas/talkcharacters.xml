@@ -72,7 +72,7 @@
         </variant>
     </character>
     <character id="tokiko" name="朱鹭子">
-        <variant id="mvz2:normal" width="738" height="1280" extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
+        <variant id="mvz2:normal" width="738" height="1280" extendLeft="50" extendRight="150" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/tokiko[0]" />
         </variant>
         <variant id="mvz2:surprised" parent="mvz2:normal">
@@ -81,8 +81,54 @@
         <variant id="mvz2:worried" parent="mvz2:normal">
             <layer sprite="mvz2:characters/tokiko[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:afraid" parent="mvz2:normal">
+        <variant id="mvz2:happy" parent="mvz2:normal">
             <layer sprite="mvz2:characters/tokiko[3]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:afraid" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/tokiko[4]" positionX="0" positionY="0" />
+        </variant>
+    </character>
+    <character id="seija" name="正邪">
+        <variant id="mvz2:normal" width="550" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/seija[0]" />
+        </variant>
+        <variant id="mvz2:pride" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:laugh" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[2]" positionX="0" positionY="0" />
+        </variant>
+    </character>
+    <character id="shinmyoumaru" name="针妙丸">
+        <variant id="mvz2:normal" width="160" height="448" extendLeft="-80" extendRight="-80" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shinmyoumaru[0]" />
+        </variant>
+        <variant id="mvz2:cringe" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:happy" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[2]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:relax" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[3]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[4]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:think" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[5]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[6]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:bottle_normal" width="432" height="716" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shinmyoumaru_bottle[0]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:bottle_relax" parent="mvz2:bottle_normal">
+            <layer sprite="mvz2:characters/shinmyoumaru_bottle[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:bottle_worried" parent="mvz2:bottle_normal">
+            <layer sprite="mvz2:characters/shinmyoumaru_bottle[2]" positionX="0" positionY="0" />
         </variant>
     </character>
 </characters>
