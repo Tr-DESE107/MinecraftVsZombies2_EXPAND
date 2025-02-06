@@ -65,6 +65,7 @@
             <int name="waterInteraction" value="1"/>
         </obstacle>
         <boss id="4" parent="entity">
+            <float name="fallResistance" value="10000"/>
             <float name="maxHealth" value="1000"/>
             <float name="friction" value="0.15"/>
             <float name="gravity" value="1"/>

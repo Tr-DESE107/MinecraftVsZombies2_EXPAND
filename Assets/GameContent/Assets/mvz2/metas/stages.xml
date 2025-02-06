@@ -8,8 +8,8 @@
             <entry id="mvz2:vortex_hopper" count="3"/>
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:totenser" count="12"/>
-            <entry id="mvz2:castle_crystal" count="6"/>
-            <entry id="mvz2:castle_silk" count="2"/>
+            <entry id="mvz2:dream_crystal" count="6"/>
+            <entry id="mvz2:dream_silk" count="2"/>
         </conveyor>
     </stage>
     <stage id="tutorial" name="教程关" type="special">
@@ -157,7 +157,7 @@
         <talks>
             <talk type="start" value="mvz2:seventh_slot">
                 <repeat>
-                    <condition requiredNot="mvz2:blueprint_slot.1;mvz2:level.castle_5"/>
+                    <condition requiredNot="mvz2:blueprint_slot.1;mvz2:level.dream_5"/>
                 </repeat>
             </talk>
             <talk type="end" value="mvz2:halloween_8_over"/>
@@ -232,7 +232,7 @@
             <entry id="mvz2:silvenser" count="8"/>
             <entry id="mvz2:magichest" count="4"/>
         </conveyor>
-        <clear pickupModel="mvz2:entity.castle_key"/>
+        <clear pickupModel="mvz2:entity.dream_key"/>
         <spawns flags="2" firstWaveTime="30" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
