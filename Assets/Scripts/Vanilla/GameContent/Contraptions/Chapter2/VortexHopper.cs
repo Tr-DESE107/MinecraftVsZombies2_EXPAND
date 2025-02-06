@@ -64,7 +64,14 @@ namespace MVZ2.GameContent.Contraptions
             StartSpin(hopper);
             DragEnemy(hopper, other);
         }
-
+        public override bool CanEvoke(Entity entity)
+        {
+            if (entity.State == VanillaEntityStates.VORTEX_HOPPER_SPIN)
+            {
+                return false;
+            }
+            return base.CanEvoke(entity);
+        }
         public override void Evoke(Entity entity)
         {
             base.Evoke(entity);

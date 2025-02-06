@@ -77,6 +77,8 @@ namespace MVZ2.GameContent.Effects
         {
             foreach (var collision in gas.GetCurrentCollisions())
             {
+                if (!collision.Entity.IsVulnerableEntity())
+                    continue;
                 if (gas.IsHostile(collision.Entity))
                     continue;
                 var damageEffectList = new DamageEffectList(VanillaDamageEffects.FIRE);
