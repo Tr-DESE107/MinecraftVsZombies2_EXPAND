@@ -419,6 +419,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 148c98d98027b904fbf234d5a5b60f7a
+    m_Address: mvz2:ui/musicroom/bar_frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14f0b44ea30c9d44b9f8321e5e2d63f8
     m_Address: mvz2:talk
     m_ReadOnly: 0
@@ -911,6 +917,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b4a63ffd329fbf43a452a8934978807
+    m_Address: mvz2:ui/musicroom/pause_button
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b7ddde9b7a3533498e973193163290c
     m_Address: mvz2:lose_music
     m_ReadOnly: 0
@@ -1072,6 +1084,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3263647cc04cd5d45a3c765536cceb47
+    m_Address: mvz2:ui/musicroom/bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 329b9a3401e28284e914a54eee51e840
     m_Address: mvz2:entity/pickups/ender_chest
@@ -1293,6 +1311,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 392d5a1a4322ba24193d5f42088e6c59
+    m_Address: mvz2:ui/musicroom/bar_handler
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 397b6bb85fb44e64991eac4dd82cd72a
     m_Address: mvz2:effect/slice_spark
@@ -2763,6 +2787,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 794c8f0b77af644418898bcd66583207
+    m_Address: mvz2:shading/musicroom/background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79c9b442bcec07f4c8e4327a27c716c8
     m_Address: mvz2:archive
     m_ReadOnly: 0
@@ -3879,6 +3909,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3466850321615b4a9148287cd926dd3
+    m_Address: mvz2:mainmenu/music_room
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a375b3420dd9da54b8197294f005405b
     m_Address: mvz2:huge_wave
     m_ReadOnly: 0
@@ -4677,6 +4713,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2b1b19c4c98a0e4390a8b7320626240
+    m_Address: mvz2:ui/musicroom/play_button
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2e6ace3e57f0964eb3d1cfe1113a3cd
     m_Address: mvz2:characters/shinmyoumaru_bottle
     m_ReadOnly: 0
@@ -5378,6 +5420,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddecb2750e06a86449911b2ad608969f
+    m_Address: mvz2:ui/musicroom/frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddf1e55cb17d1c948912567efd67c1ce
     m_Address: mvz2:dream
@@ -6086,6 +6134,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f904563dade24ec4cb7f5defb42d07a0
+    m_Address: mvz2:shading/musicroom/starmap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f997f16a236d16f44a380a07a0235df6
     m_Address: mvz2:talk/dialog_flashback

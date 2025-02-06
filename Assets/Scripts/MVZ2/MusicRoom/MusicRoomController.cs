@@ -57,7 +57,7 @@ namespace MVZ2.MusicRoom
         }
         private void OnPlayButtonClickCallback()
         {
-            if (Main.MusicManager.IsPaused)
+            if (Main.MusicManager.IsPaused && currentMusicId == Main.MusicManager.GetCurrentMusicID())
             {
                 Main.MusicManager.Resume();
             }
