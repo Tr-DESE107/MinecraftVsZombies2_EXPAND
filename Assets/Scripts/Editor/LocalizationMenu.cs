@@ -239,7 +239,7 @@ namespace MVZ2.Editor
         }
         private static void MoveMOFiles()
         {
-            var sourceDir = Path.Combine(Application.dataPath, "Localization", "sources");
+            var sourceDir = Path.Combine(Application.dataPath, "Translations");
             var targetDir = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2");
             foreach (var file in Directory.GetFiles(sourceDir, "*.mo", SearchOption.AllDirectories))
             {
@@ -298,7 +298,7 @@ namespace MVZ2.Editor
         }
         private static string GetPoTemplatePath(string fileName)
         {
-            return Path.Combine(Application.dataPath, "Localization", "templates", fileName);
+            return Path.Combine(Application.dataPath, "Translations", fileName);
         }
 
         private static string GetMetaDirectory(string nsp)

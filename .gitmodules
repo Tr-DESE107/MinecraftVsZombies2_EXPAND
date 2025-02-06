@@ -7,3 +7,6 @@
 [submodule "Assets/Plugins/tidalwav"]
 	path = Assets/Plugins/tidalwav
 	url = https://github.com/Cuerzor/tidalwav.git
+[submodule "Assets/Translations"]
+	path = Assets/Translations
+	url = https://github.com/Cuerzor/MinecraftVSZombies2Translations.git
