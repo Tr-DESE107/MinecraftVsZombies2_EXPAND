@@ -41,6 +41,8 @@ namespace MVZ2.GameContent.Projectiles
         }
         private bool IsEnemyAndInRange(Entity self, Entity target)
         {
+            if (!target.IsVulnerableEntity())
+                return false;
             if (!Detection.CanDetect(target))
                 return false;
             if (!self.IsHostile(target))

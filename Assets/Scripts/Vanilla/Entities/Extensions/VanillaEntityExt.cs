@@ -238,11 +238,11 @@ namespace MVZ2.Vanilla.Entities
             {
                 var shell = armorResult.ShellDefinition;
                 NamespaceID hitSound = null;
-                if (shell.GetSpecialShellHitSound(armorResult, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
+                if (shell != null && shell.GetSpecialShellHitSound(armorResult, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
                 {
                     hitSound = specialSound;
                 }
-                else if (shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
+                else if (shell != null && shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
                 {
                     hitSound = shellSound;
                 }
@@ -264,7 +264,7 @@ namespace MVZ2.Vanilla.Entities
                 {
                     hitSound = specificSound;
                 }
-                else if (shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
+                else if (shell != null && shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
                 {
                     hitSound = shellSound;
                 }
