@@ -9,8 +9,9 @@ namespace MVZ2.UI
 {
     public class BlueprintDisplayerStandalone : BlueprintDisplayer
     {
-        public void SetCurrentPage(int index, int maxPages)
+        public void SetCurrentPage(int index)
         {
+            currentPage = index;
             pageText.text = $"{index + 1}/{maxPages}";
             for (int i = 0; i < pageList.count; i++)
             {
@@ -47,7 +48,8 @@ namespace MVZ2.UI
                 page.OnBlueprintPointerExit -= OnBlueprintPointerExitCallback;
                 page.OnBlueprintPointerDown -= OnBlueprintPointerDownCallback;
             });
-            SetCurrentPage(0, pageCount);
+            maxPages = pageCount;
+            SetCurrentPage(0);
             pageRoot.SetActive(pageCount > 1);
         }
         public override Blueprint GetItem(int index)
@@ -57,6 +59,11 @@ namespace MVZ2.UI
             if (page == null)
                 return null;
             return page.GetItem(index % maxCountPerPage);
+        }
+        private void Awake()
+        {
+            previousPageButton.onClick.AddListener(() => SetCurrentPage(currentPage - 1));
+            nextPageButton.onClick.AddListener(() => SetCurrentPage(currentPage + 1));
         }
         private void OnBlueprintPointerEnterCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
         {
@@ -83,5 +90,7 @@ namespace MVZ2.UI
         Button nextPageButton;
         [SerializeField]
         int maxCountPerPage = 40;
+        private int currentPage;
+        private int maxPages;
     }
 }
