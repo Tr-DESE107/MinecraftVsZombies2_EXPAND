@@ -57,6 +57,8 @@ namespace PVZEngine.Auras
         }
         public void LoadFromSerializable(LevelEngine level, IEnumerable<SerializableAuraEffect> effects)
         {
+            if (effects == null)
+                return;
             foreach (var aura in auraEffects)
             {
                 var seri = effects.FirstOrDefault(e => e.id == aura.ID);

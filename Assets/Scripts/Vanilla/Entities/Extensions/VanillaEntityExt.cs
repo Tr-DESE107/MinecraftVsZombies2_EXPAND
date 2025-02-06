@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
@@ -16,6 +17,7 @@ using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
@@ -402,22 +404,51 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
         }
 
-        private const float leaveGridHeight = 64;
+
+        #region 网格
         public static void UpdateTakenGrids(this Entity entity)
         {
-            if (entity.GetRelativeY() > leaveGridHeight || entity.Removed)
+            entityGridBuffer.Clear();
+            entity.GetTakenGrids(entityGridBuffer);
+            foreach (var grid in entityGridBuffer)
             {
-                entity.ClearTakenGrids();
-            }
-            else
-            {
-                var grid = entity.Level.GetGrid(entity.GetColumn(), entity.GetLane());
-                foreach (var layer in entity.GetGridLayersToTake())
+                entityGridLayerBuffer.Clear();
+                entity.GetTakingGridLayers(grid, entityGridLayerBuffer);
+                foreach (var layer in entityGridLayerBuffer)
                 {
-                    entity.TakeGrid(grid, layer);
+                    if (CanTakeGrid(entity, grid, layer))
+                        continue;
+                    entity.ReleaseGrid(grid, layer);
                 }
             }
+
+
+            var gridBelow = entity.GetGrid();
+            foreach (var layer in entity.GetGridLayersToTake())
+            {
+                if (!CanTakeGrid(entity, gridBelow, layer))
+                    continue;
+                entity.TakeGrid(gridBelow, layer);
+            }
         }
+        public static bool CanTakeGrid(this Entity entity, LawnGrid grid, NamespaceID layer)
+        {
+            if (!entity.Exists())
+                return false;
+            if (entity.GetRelativeY() > leaveGridHeight)
+                return false;
+            if (entity.GetGrid() != grid)
+                return false;
+            var layersToTake = entity.GetGridLayersToTake();
+            if (!layersToTake.Contains(layer))
+                return false;
+            return true;
+        }
+        private const float leaveGridHeight = 64;
+        private static List<LawnGrid> entityGridBuffer = new List<LawnGrid>();
+        private static List<NamespaceID> entityGridLayerBuffer = new List<NamespaceID>();
+        #endregion
+
 
         #region 治疗
         public static HealOutput HealEffects(this Entity entity, float amount, Entity source)

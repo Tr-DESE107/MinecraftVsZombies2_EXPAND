@@ -1090,6 +1090,7 @@
             <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="12" y="12" z="12" />
+            <vector3 name="shadowScale" x="0.25" y="0.25" z="0.25" />
             <idArray name="damageEffects" value="mvz2:tiny" />
         </projectile>
         <projectile id="boulder">

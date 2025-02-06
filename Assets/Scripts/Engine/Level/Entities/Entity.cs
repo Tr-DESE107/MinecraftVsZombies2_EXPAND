@@ -411,32 +411,32 @@ namespace PVZEngine.Entities
         {
             return Level.GetLane(Position.z);
         }
-        public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
+        public void GetTakingGridLayers(LawnGrid grid, List<NamespaceID> results)
         {
-            var info = GetTakenGridInfo(grid);
-            if (info == null)
-                return null;
-            return info.takenLayers.ToArray();
+            var hashSet = GetTakenGridLayerHashSet(grid);
+            if (hashSet == null)
+                return;
+            results.AddRange(hashSet);
         }
         public bool IsTakingGridLayer(LawnGrid grid, NamespaceID layer)
         {
-            var info = GetTakenGridInfo(grid);
-            if (info == null)
+            var hashSet = GetTakenGridLayerHashSet(grid);
+            if (hashSet == null)
                 return false;
-            return info.takenLayers.Contains(layer);
+            return hashSet.Contains(layer);
         }
         public void TakeGrid(LawnGrid grid, NamespaceID layer)
         {
-            var info = GetOrCreateTakenGridInfo(grid);
-            info.takenLayers.Add(layer);
+            var hashSet = GetOrCreateTakenGridHashSet(grid);
+            hashSet.Add(layer);
             grid.AddLayerEntity(layer, this);
         }
         public bool ReleaseGrid(LawnGrid grid, NamespaceID layer)
         {
-            var info = GetTakenGridInfo(grid);
-            if (info == null)
+            var hashSet = GetTakenGridLayerHashSet(grid);
+            if (hashSet == null)
                 return false;
-            if (info.takenLayers.Remove(layer))
+            if (hashSet.Remove(layer))
             {
                 grid.RemoveLayerEntity(layer);
                 return true;
@@ -445,18 +445,21 @@ namespace PVZEngine.Entities
         }
         public void ClearTakenGrids()
         {
-            foreach (var info in takenGrids)
+            foreach (var pair in takenGrids)
             {
-                foreach (var layer in info.takenLayers)
+                foreach (var layer in pair.Value)
                 {
-                    info.grid.RemoveLayerEntity(layer);
+                    pair.Key.RemoveLayerEntity(layer);
                 }
             }
             takenGrids.Clear();
         }
-        public LawnGrid[] GetTakenGrids()
+        public void GetTakenGrids(List<LawnGrid> results)
         {
-            return takenGrids.Select(i => i.grid).ToArray();
+            foreach (var pair in takenGrids)
+            {
+                results.Add(pair.Key);
+            }
         }
         public int GetGridIndex()
         {
@@ -466,19 +469,21 @@ namespace PVZEngine.Entities
         {
             return Level.GetGrid(GetColumn(), GetLane());
         }
-        private TakenGridInfo GetOrCreateTakenGridInfo(LawnGrid grid)
+        private HashSet<NamespaceID> GetOrCreateTakenGridHashSet(LawnGrid grid)
         {
-            var info = GetTakenGridInfo(grid);
-            if (info == null)
+            var hashSet = GetTakenGridLayerHashSet(grid);
+            if (hashSet == null)
             {
-                info = new TakenGridInfo(grid);
-                takenGrids.Add(info);
+                hashSet = new HashSet<NamespaceID>();
+                takenGrids.Add(grid, hashSet);
             }
-            return info;
+            return hashSet;
         }
-        private TakenGridInfo GetTakenGridInfo(LawnGrid grid)
+        private HashSet<NamespaceID> GetTakenGridLayerHashSet(LawnGrid grid)
         {
-            return takenGrids.FirstOrDefault(g => g.grid == grid);
+            if (takenGrids.TryGetValue(grid, out var set))
+                return set;
+            return null;
         }
         #endregion
 
@@ -720,7 +725,16 @@ namespace PVZEngine.Entities
             seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
-            seri.takenGrids = takenGrids.ConvertAll(i => new SerializableEntity.TakenGridInfo() { grid = i.grid.GetIndex(), layers = i.takenLayers.ToArray() });
+            seri.takenGrids = new List<SerializableEntity.TakenGridInfo>();
+            foreach (var pair in takenGrids)
+            {
+                var info = new SerializableEntity.TakenGridInfo()
+                {
+                    grid = pair.Key.GetIndex(),
+                    layers = pair.Value.ToArray()
+                };
+                seri.takenGrids.Add(info);
+            }
 
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
             return seri;
@@ -765,7 +779,18 @@ namespace PVZEngine.Entities
             buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
-            takenGrids = seri.takenGrids.Select(i => new TakenGridInfo(Level.GetGrid(i.grid)) { takenLayers = i.layers.ToHashSet() }).ToList();
+            if (seri.takenGrids != null)
+            {
+                foreach (var takenGrid in seri.takenGrids)
+                {
+                    if (takenGrid == null || takenGrid.layers == null)
+                        continue;
+                    var grid = Level.GetGrid(takenGrid.grid);
+                    if (grid == null)
+                        continue;
+                    takenGrids.Add(grid, takenGrid.layers.ToHashSet());
+                }
+            }
             for (int i = 0; i < colliders.Count; i++)
             {
                 var collider = colliders[i];
@@ -940,21 +965,11 @@ namespace PVZEngine.Entities
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
-        private List<TakenGridInfo> takenGrids = new List<TakenGridInfo>();
+        private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
         private Dictionary<string, List<ModifierContainerItem>> modifierCaches = new Dictionary<string, List<ModifierContainerItem>>();
         #endregion
-
-        private class TakenGridInfo
-        {
-            public TakenGridInfo(LawnGrid grid)
-            {
-                this.grid = grid;
-            }
-            public LawnGrid grid;
-            public HashSet<NamespaceID> takenLayers = new HashSet<NamespaceID>();
-        }
     }
 }
 
