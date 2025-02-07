@@ -388,13 +388,15 @@ namespace MVZ2.Entities
         #region 位置
         protected void UpdateShadow(Vector3 posOffset)
         {
-            var shadowPos = Entity.Position;
+            var pos = Entity.Position;
+            var groundY = Entity.GetGroundY();
+            var relativeY = pos.y - groundY;
+            var shadowPos = pos;
             shadowPos.y = Entity.GetGroundY();
             shadowPos += Entity.GetShadowOffset();
+            float scale = 1 + relativeY / 300;
+            float alpha = 1 - relativeY / 300;
             Shadow.transform.position = Level.LawnToTrans(shadowPos) + posOffset;
-            float relativeHeight = Entity.GetRelativeY();
-            float scale = 1 + relativeHeight / 300;
-            float alpha = 1 - relativeHeight / 300;
             Shadow.transform.localScale = Entity.GetShadowScale() * scale;
             Shadow.gameObject.SetActive(!Entity.IsShadowHidden());
             Shadow.SetAlpha(Entity.GetShadowAlpha() * alpha);
@@ -474,13 +476,13 @@ namespace MVZ2.Entities
             rendererGroup.SortingLayerID = Entity.GetSortingLayer();
             rendererGroup.SortingOrder = Entity.GetSortingOrder();
 
-            var lightVisible = Entity.IsLightSource();
-            var lightScaleLawn = Entity.GetLightRange();
-            var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
-            var lightColor = Entity.GetLightColor();
-            var randomLightScale = rng.Next(-0.05f, 0.05f);
             if (Model is SpriteModel sprModel)
             {
+                var lightVisible = Entity.IsLightSource();
+                var lightScaleLawn = Entity.GetLightRange();
+                var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
+                var lightColor = Entity.GetLightColor();
+                var randomLightScale = rng.Next(-0.05f, 0.05f);
                 sprModel.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
             }
 

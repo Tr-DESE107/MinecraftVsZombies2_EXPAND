@@ -17,11 +17,14 @@ namespace PVZEngine.Entities
         }
         public EntityID(Entity entity) : this(entity?.ID ?? 0)
         {
+            entityFound = true;
+            entityCache = entity;
         }
         public Entity GetEntity(LevelEngine game)
         {
-            if (entityCache == null)
+            if (!entityFound)
             {
+                entityFound = true;
                 entityCache = game.FindEntityByID(ID);
             }
             return entityCache;
@@ -53,6 +56,9 @@ namespace PVZEngine.Entities
         [BsonElement("id")]
         private long id;
 
+
+        [BsonIgnore]
+        private bool entityFound;
         [BsonIgnore]
         private Entity entityCache;
     }
