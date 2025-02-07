@@ -160,7 +160,7 @@
 
     <music id="castle_map" path="mvz2:castle_map" name="沉默空洞的辉针城">
         <source>东方辉针城</source>
-        <origin>沉向天空的辉针城</origin>
+        <origin>沉向空中的辉针城</origin>
         <author>幻梦忧</author>
         <description>
             <p>辉针城地图的音乐。</p>
