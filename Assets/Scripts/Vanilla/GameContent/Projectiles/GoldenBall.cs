@@ -24,7 +24,10 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.PostHitEntity(hitResult, damage);
             var projectile = hitResult.Projectile;
-            projectile.Produce(VanillaPickupID.emerald);
+            if (projectile.RNG.Next(4) < 1)
+            {
+                projectile.Produce(VanillaPickupID.emerald);
+            }
 
             var vel = projectile.Velocity;
             var vel2D = new Vector2(vel.x, vel.z);
