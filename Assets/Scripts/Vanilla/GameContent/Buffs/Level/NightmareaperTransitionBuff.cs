@@ -3,14 +3,16 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.nightmareaperTransition)]
+    [BuffDefinition(VanillaBuffNames.Level.nightmareaperTransition)]
     public class NightmareaperTransitionBuff : BuffDefinition
     {
         public NightmareaperTransitionBuff(string nsp, string name) : base(nsp, name)
@@ -57,8 +59,8 @@ namespace MVZ2.GameContent.Buffs.Level
             blackScreen.a = Mathf.Clamp01(blackScreen.a + BLACK_SCREEN_SPEED);
             buff.SetProperty(PROP_SCREEN_COVER, blackScreen);
         }
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_SCREEN_COVER = "ScreenCover";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_SCREEN_COVER = new VanillaBuffPropertyMeta("ScreenCover");
         public const float BLACK_SCREEN_SPEED = 1 / 180f;
         public const int MAX_TIMEOUT = 270;
         public const int CREATE_GLASS_TIMEOUT = 60;

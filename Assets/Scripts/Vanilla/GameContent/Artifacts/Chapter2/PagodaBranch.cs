@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
@@ -12,7 +12,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [Definition(VanillaArtifactNames.pagodaBranch)]
+    [ArtifactDefinition(VanillaArtifactNames.pagodaBranch)]
     public class PagodaBranch : ArtifactDefinition
     {
         public PagodaBranch(string nsp, string name) : base(nsp, name)

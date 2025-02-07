@@ -6,9 +6,14 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
 {
+    [PropertyRegistryRegion]
     public static class VanillaAreaProps
     {
-        public const string MODEL_ID = "modelID";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta MODEL_ID = Get("modelID");
         public static NamespaceID GetModelID(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID>(MODEL_ID);
@@ -17,13 +22,13 @@ namespace MVZ2.Vanilla.Level
         {
             return definition.GetProperty<NamespaceID>(MODEL_ID);
         }
-        public const string STARSHARD_ICON = "starshardIcon";
+        public static readonly PropertyMeta STARSHARD_ICON = Get("starshardIcon");
         public static SpriteReference GetStarshardIcon(this LevelEngine game)
         {
             return game.GetProperty<SpriteReference>(STARSHARD_ICON);
         }
-        public const string WATER_COLOR = "waterColor";
-        public const string WATER_COLOR_CENSORED = "waterColorCensored";
+        public static readonly PropertyMeta WATER_COLOR = Get("waterColor");
+        public static readonly PropertyMeta WATER_COLOR_CENSORED = Get("waterColorCensored");
         public static Color GetWaterColorNormal(this LevelEngine game)
         {
             return game.GetProperty<Color>(WATER_COLOR);
@@ -37,9 +42,9 @@ namespace MVZ2.Vanilla.Level
             return Global.HasBloodAndGore() ? game.GetWaterColorNormal() : game.GetWaterColorCensored();
         }
 
-        public const string DOOR_Z = "doorZ";
-        public const string NIGHT_VALUE = "nightValue";
-        public const string DARKNESS_VALUE = "darknessValue";
+        public static readonly PropertyMeta DOOR_Z = Get("doorZ");
+        public static readonly PropertyMeta NIGHT_VALUE = Get("nightValue");
+        public static readonly PropertyMeta DARKNESS_VALUE = Get("darknessValue");
 
         public static float GetDoorZ(this LevelEngine game)
         {

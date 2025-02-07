@@ -1,11 +1,12 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.vortexHopperDrag)]
+    [BuffDefinition(VanillaBuffNames.vortexHopperDrag)]
     public class VortexHopperDragBuff : BuffDefinition
     {
         public VortexHopperDragBuff(string nsp, string name) : base(nsp, name)
@@ -43,8 +44,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
             radius = Mathf.Max(20, radius - 3);
             buff.SetProperty(PROP_RADIUS, radius);
         }
-        public const string PROP_CENTER = "Center";
-        public const string PROP_RADIUS = "Radius";
-        public const string PROP_ANGLE = "Angle";
+        public static readonly VanillaBuffPropertyMeta PROP_CENTER = new VanillaBuffPropertyMeta("Center");
+        public static readonly VanillaBuffPropertyMeta PROP_RADIUS = new VanillaBuffPropertyMeta("Radius");
+        public static readonly VanillaBuffPropertyMeta PROP_ANGLE = new VanillaBuffPropertyMeta("Angle");
     }
 }

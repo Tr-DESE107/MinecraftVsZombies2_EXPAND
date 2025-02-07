@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
@@ -44,38 +45,38 @@ namespace MVZ2.Vanilla.Entities
         }
         public int GetSubState(Entity entity)
         {
-            return entity.GetBehaviourField<int>(ID, PROP_SUBSTATE);
+            return entity.GetBehaviourField<int>(PROP_SUBSTATE);
         }
         public void SetSubState(Entity entity, int value)
         {
-            entity.SetBehaviourField(ID, PROP_SUBSTATE, value);
+            entity.SetBehaviourField(PROP_SUBSTATE, value);
             entity.SetAnimationInt("SubState", value);
         }
         public virtual float GetSpeed(Entity entity)
         {
             return 1;
         }
-        public int GetPreviousState(Entity boss) => boss.GetBehaviourField<int>(ID, PROP_PREVIOUS_STATE);
-        public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourField(ID, PROP_PREVIOUS_STATE, value);
+        public int GetPreviousState(Entity boss) => boss.GetBehaviourField<int>(PROP_PREVIOUS_STATE);
+        public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourField(PROP_PREVIOUS_STATE, value);
 
         public FrameTimer GetStateTimer(Entity entity)
         {
-            var timer = entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
+            var timer = entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
             if (timer == null)
             {
                 timer = new FrameTimer();
-                entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
+                entity.SetBehaviourField(PROP_STATE_TIMER, timer);
             }
             return timer;
         }
 
         public FrameTimer GetSubStateTimer(Entity entity)
         {
-            var timer = entity.GetBehaviourField<FrameTimer>(ID, PROP_SUBSTATE_TIMER);
+            var timer = entity.GetBehaviourField<FrameTimer>(PROP_SUBSTATE_TIMER);
             if (timer == null)
             {
                 timer = new FrameTimer();
-                entity.SetBehaviourField(ID, PROP_SUBSTATE_TIMER, timer);
+                entity.SetBehaviourField(PROP_SUBSTATE_TIMER, timer);
             }
             return timer;
         }
@@ -118,10 +119,14 @@ namespace MVZ2.Vanilla.Entities
 
         private List<EntityStateMachineState> states = new List<EntityStateMachineState>();
 
-        private const string PROP_SUBSTATE = "SubState";
-        private const string PROP_PREVIOUS_STATE = "PreviousState";
-        private const string PROP_STATE_TIMER = "StateTimer";
-        private const string PROP_SUBSTATE_TIMER = "SubStateTimer";
-        public static readonly NamespaceID ID = new NamespaceID("mvz2", "state_machine");
+        [PropertyRegistry(PROP_REGION)]
+        private static readonly VanillaEntityPropertyMeta PROP_SUBSTATE = new VanillaEntityPropertyMeta("SubState");
+        [PropertyRegistry(PROP_REGION)]
+        private static readonly VanillaEntityPropertyMeta PROP_PREVIOUS_STATE = new VanillaEntityPropertyMeta("PreviousState");
+        [PropertyRegistry(PROP_REGION)]
+        private static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        [PropertyRegistry(PROP_REGION)]
+        private static readonly VanillaEntityPropertyMeta PROP_SUBSTATE_TIMER = new VanillaEntityPropertyMeta("SubStateTimer");
+        public const string PROP_REGION = "state_machine";
     }
 }

@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(VanillaBuffNames.whiteFlash)]
+    [BuffDefinition(VanillaBuffNames.whiteFlash)]
     public class WhiteFlashBuff : BuffDefinition
     {
         public WhiteFlashBuff(string nsp, string name) : base(nsp, name)
@@ -33,8 +34,8 @@ namespace MVZ2.GameContent.Buffs
                 buff.Remove();
             }
         }
-        public const string PROP_COLOR = "Color";
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_MAX_TIMEOUT = "MaxTimeout";
+        public static readonly VanillaBuffPropertyMeta PROP_COLOR = new VanillaBuffPropertyMeta("Color");
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_MAX_TIMEOUT = new VanillaBuffPropertyMeta("MaxTimeout");
     }
 }

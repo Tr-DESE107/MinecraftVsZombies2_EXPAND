@@ -176,15 +176,15 @@ namespace PVZEngine.Entities
         #endregion 魅惑
 
         #region 增益属性
-        public T GetProperty<T>(string name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(string name, object value)
+        public void SetProperty(PropertyKey name, object value)
         {
             properties.SetProperty(name, value);
         }
-        private void GetModifierItems(string name, List<ModifierContainerItem> results)
+        private void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
         {
             if (!modifierCaches.TryGetValue(name, out var list))
                 return;
@@ -194,11 +194,11 @@ namespace PVZEngine.Entities
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateModifiedProperty(string name)
+        private void UpdateModifiedProperty(PropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
         {
             if (Definition == null)
             {
@@ -224,35 +224,24 @@ namespace PVZEngine.Entities
             value = null;
             return false;
         }
-        IEnumerable<string> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             var entityPropertyNames = modifierCaches.Keys;
             var buffPropertyNames = buffs.GetModifierPropertyNames();
             return entityPropertyNames.Union(buffPropertyNames);
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(string name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
         {
             return Definition.GetModifiers().Where(m => m.UsingContainerPropertyName == name).ToArray();
         }
-        void IPropertyModifyTarget.GetModifierItems(string name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
         {
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(string name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
         {
             Cache.UpdateProperty(this, name, value);
-        }
-        #endregion
-
-        #region 字段属性
-        public T GetField<T>(string category, string name)
-        {
-            return properties.GetField<T>(category, name);
-        }
-        public void SetField(string category, string name, object value)
-        {
-            properties.SetField(category, name, value);
         }
         #endregion
 
@@ -910,7 +899,7 @@ namespace PVZEngine.Entities
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
-        object IModifierContainer.GetProperty(string name) => GetProperty<object>(name);
+        object IModifierContainer.GetProperty(PropertyKey name) => GetProperty<object>(name);
         #endregion
 
         #region 事件
@@ -968,7 +957,7 @@ namespace PVZEngine.Entities
         private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
-        private Dictionary<string, List<ModifierContainerItem>> modifierCaches = new Dictionary<string, List<ModifierContainerItem>>();
+        private Dictionary<PropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<PropertyKey, List<ModifierContainerItem>>();
         #endregion
     }
 }

@@ -2,19 +2,26 @@
 using PVZEngine.Damages;
 using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine.Entities
 {
     public static class EngineEntityExt
     {
-        public static void SetBehaviourField(this Entity entity, NamespaceID id, string name, object value)
+        public static void SetBehaviourField(this Entity entity, NamespaceID id, PropertyKey name, object value)
         {
-            entity.SetField(id.ToString(), name, value);
+            entity.SetProperty(name, value);
         }
-        public static T GetBehaviourField<T>(this Entity entity, NamespaceID id, string name)
+        public static T GetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey name)
         {
-            return entity.GetField<T>(id.ToString(), name);
+            return entity.GetProperty<T>(name);
+        }
+        public static void SetBehaviourField(this Entity entity, PropertyKey name, object value)
+        {
+            entity.SetProperty(name, value);
+        }
+        public static T GetBehaviourField<T>(this Entity entity, PropertyKey name)
+        {
+            return entity.GetProperty<T>(name);
         }
         public static ShellDefinition GetShellDefinition(this Entity entity)
         {

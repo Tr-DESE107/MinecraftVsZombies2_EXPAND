@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Stages;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;

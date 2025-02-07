@@ -2,12 +2,13 @@
 
 namespace MVZ2Logic.Artifacts
 {
+    [PropertyRegistryRegion]
     public static class LogicArtifactProps
     {
-        public const string SPRITE_REFERENCE = "spriteReference";
-        public const string NUMBER = "number";
-        public const string INACTIVE = "inactive";
-        public const string GLOWING = "glowing";
+        public static readonly PropertyMeta SPRITE_REFERENCE = new PropertyMeta("spriteReference");
+        public static readonly PropertyMeta NUMBER = new PropertyMeta("number");
+        public static readonly PropertyMeta INACTIVE = new PropertyMeta("inactive");
+        public static readonly PropertyMeta GLOWING = new PropertyMeta("glowing");
         public static SpriteReference GetSpriteReference(this ArtifactDefinition definition)
         {
             return definition.GetProperty<SpriteReference>(SPRITE_REFERENCE);
@@ -36,7 +37,7 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<bool>(GLOWING);
         }
-        public const string UNLOCK_ID = "unlockID";
+        public static readonly PropertyMeta UNLOCK_ID = new PropertyMeta("unlockID");
         public static void SetUnlockID(this ArtifactDefinition artifact, NamespaceID id)
         {
             artifact.SetProperty(UNLOCK_ID, id);

@@ -1,15 +1,14 @@
 ﻿using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.infectenser)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.infectenser)]
     public class Infectenser : DispenserFamily
     {
         public Infectenser(string nsp, string name) : base(nsp, name)

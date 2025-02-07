@@ -1,9 +1,9 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.mineDebris)]
+    [EntityBehaviourDefinition(VanillaEffectNames.mineDebris)]
     public class MineDebris : EffectBehaviour
     {
         #region 公有方法

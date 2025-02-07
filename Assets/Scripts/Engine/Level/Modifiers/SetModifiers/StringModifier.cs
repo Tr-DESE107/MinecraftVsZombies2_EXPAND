@@ -2,11 +2,11 @@
 {
     public class StringModifier : PropertyModifier<string>
     {
-        public StringModifier(string propertyName, string valueConst) : base(propertyName, null)
+        public StringModifier(PropertyKey propertyName, string valueConst) : base(propertyName, null)
         {
             ConstValue = valueConst;
         }
-        public static StringModifier FromPropertyName(string propertyName, string buffPropertyName)
+        public static StringModifier FromPropertyName(PropertyKey propertyName, PropertyKey buffPropertyName)
         {
             return new StringModifier(propertyName, null)
             {

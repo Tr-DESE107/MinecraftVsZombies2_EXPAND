@@ -1,20 +1,19 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.dullahan)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.dullahan)]
     public class Dullahan : MeleeEnemy
     {
         public Dullahan(string nsp, string name) : base(nsp, name)
@@ -117,8 +116,8 @@ namespace MVZ2.GameContent.Enemies
             entity.SetBehaviourField(ID, FIELD_HEAD, new EntityID(value));
         }
 
-        public const string FIELD_HEAD = "Head";
-        public const string FIELD_HEAD_DROPPED = "HeadDropped";
+        public static readonly VanillaEntityPropertyMeta FIELD_HEAD = new VanillaEntityPropertyMeta("Head");
+        public static readonly VanillaEntityPropertyMeta FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta("HeadDropped");
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         private static readonly NamespaceID ID = VanillaEnemyID.dullahan;
     }

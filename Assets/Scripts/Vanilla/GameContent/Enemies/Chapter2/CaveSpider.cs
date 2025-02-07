@@ -1,11 +1,11 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Enemies;
+﻿using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.caveSpider)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.caveSpider)]
     public class CaveSpider : MeleeEnemy
     {
         public CaveSpider(string nsp, string name) : base(nsp, name)

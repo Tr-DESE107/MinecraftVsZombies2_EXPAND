@@ -1,16 +1,17 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.spider)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.spider)]
     public class Spider : MeleeEnemy
     {
         public Spider(string nsp, string name) : base(nsp, name)
@@ -164,6 +165,6 @@ namespace MVZ2.GameContent.Enemies
             spider.SetBehaviourField(ID, PROP_CLIMB_TARGET_ID, new EntityID(value));
         }
         public static readonly NamespaceID ID = VanillaEnemyID.spider;
-        public const string PROP_CLIMB_TARGET_ID = "ClimbTargetID";
+        public static readonly VanillaEntityPropertyMeta PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta("ClimbTargetID");
     }
 }

@@ -3,21 +3,22 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.tnt)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.tnt)]
     public class TNT : ContraptionBehaviour
     {
         public TNT(string nsp, string name) : base(nsp, name)
@@ -56,20 +57,20 @@ namespace MVZ2.GameContent.Contraptions
         public static void Ignite(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.fuse);
-            entity.SetBehaviourField(ID, "Ignited", true);
+            entity.SetBehaviourField(ID, PROP_IGNITED, true);
             entity.AddBuff<TNTIgnitedBuff>();
         }
         public static bool IsIgnited(Entity entity)
         {
-            return entity.GetBehaviourField<bool>(ID, "Ignited");
+            return entity.GetBehaviourField<bool>(ID, PROP_IGNITED);
         }
         public static FrameTimer GetExplosionTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "ExplosionTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_EXPLOSION_TIMER);
         }
         public static void SetExplosionTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "ExplosionTimer", timer);
+            entity.SetBehaviourField(ID, PROP_EXPLOSION_TIMER, timer);
         }
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
@@ -162,5 +163,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.thunder);
         }
         private static readonly NamespaceID ID = VanillaContraptionID.tnt;
+        public static readonly VanillaEntityPropertyMeta PROP_IGNITED = new VanillaEntityPropertyMeta("Ignited");
+        public static readonly VanillaEntityPropertyMeta PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta("ExplosionTimer");
     }
 }

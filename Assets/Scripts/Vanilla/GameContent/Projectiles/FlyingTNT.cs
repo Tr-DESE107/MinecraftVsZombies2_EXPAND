@@ -1,11 +1,11 @@
 ﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.flyingTNT)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.flyingTNT)]
     public class FlyingTNT : ProjectileBehaviour
     {
         public FlyingTNT(string nsp, string name) : base(nsp, name)

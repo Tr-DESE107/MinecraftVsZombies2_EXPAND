@@ -1,14 +1,15 @@
 ﻿using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.dreamButterflyShield)]
+    [BuffDefinition(VanillaBuffNames.dreamButterflyShield)]
     public class DreamButterflyShieldBuff : BuffDefinition
     {
         public DreamButterflyShieldBuff(string nsp, string name) : base(nsp, name)
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 buff.Remove();
             }
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 90;
     }
 }

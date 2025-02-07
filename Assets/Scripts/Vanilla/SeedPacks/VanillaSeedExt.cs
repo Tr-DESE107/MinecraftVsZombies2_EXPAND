@@ -7,7 +7,6 @@ using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using PVZEngine.Triggers;
 
@@ -35,7 +34,7 @@ namespace MVZ2.Vanilla.SeedPacks
                 {
                     var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(stackOnEntity));
                     if (entity != null && entity.Exists() && entity.CanStackFrom(entityID))
-                    {    
+                    {
                         entity.StackFromEntity(entityID);
                         PostUseEntityBlueprint(seed, entity, heldItemData);
                         return;

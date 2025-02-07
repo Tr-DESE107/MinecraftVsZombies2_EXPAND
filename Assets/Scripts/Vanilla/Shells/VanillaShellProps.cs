@@ -3,12 +3,17 @@ using PVZEngine.Damages;
 
 namespace MVZ2.Vanilla.Shells
 {
+    [PropertyRegistryRegion]
     public static class VanillaShellProps
     {
-        public const string SLICE_CRITICAL = "sliceCritical";
-        public const string BLOCKS_FIRE = "blocksFire";
-        public const string HIT_SOUND = "hitSound";
-        public const string BLOCKS_SLICE = "blocks_slice";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta SLICE_CRITICAL = Get("sliceCritical");
+        public static readonly PropertyMeta BLOCKS_FIRE = Get("blocksFire");
+        public static readonly PropertyMeta HIT_SOUND = Get("hitSound");
+        public static readonly PropertyMeta BLOCKS_SLICE = Get("blocks_slice");
 
         public static bool IsSliceCritical(this ShellDefinition shell)
         {

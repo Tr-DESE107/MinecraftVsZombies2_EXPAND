@@ -4,16 +4,21 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.SeedPacks
 {
+    [PropertyRegistryRegion]
     public static class VanillaSeedProps
     {
-        public const string SEED_ENTITY_ID = "seedEntityId";
-        public const string SEED_OPTION_ID = "seedOptionId";
-        public const string SEED_TYPE = "seedType";
-        public const string TWINKLING = "twinkling";
-        public const string TRIGGER_ACTIVE = "triggerActive";
-        public const string CAN_INSTANT_TRIGGER = "canInstantTrigger";
-        public const string DRAWN_CONVEYOR_SEED = "drawnConveyorSeed";
-        public const string UPGRADE_BLUEPRINT = "upgradeBlueprint";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta SEED_ENTITY_ID = Get("seedEntityId");
+        public static readonly PropertyMeta SEED_OPTION_ID = Get("seedOptionId");
+        public static readonly PropertyMeta SEED_TYPE = Get("seedType");
+        public static readonly PropertyMeta TWINKLING = Get("twinkling");
+        public static readonly PropertyMeta TRIGGER_ACTIVE = Get("triggerActive");
+        public static readonly PropertyMeta CAN_INSTANT_TRIGGER = Get("canInstantTrigger");
+        public static readonly PropertyMeta DRAWN_CONVEYOR_SEED = Get("drawnConveyorSeed");
+        public static readonly PropertyMeta UPGRADE_BLUEPRINT = Get("upgradeBlueprint");
         public static bool IsUpgradeBlueprint(this SeedPack seed)
         {
             return seed.GetProperty<bool>(UPGRADE_BLUEPRINT);

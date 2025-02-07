@@ -1,11 +1,11 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmareaperSplash)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmareaperSplash)]
     public class NightmareaperSplash : EffectBehaviour
     {
 

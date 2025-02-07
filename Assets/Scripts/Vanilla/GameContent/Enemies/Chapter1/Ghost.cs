@@ -7,10 +7,11 @@ using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.ghost)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.ghost)]
     public class Ghost : MeleeEnemy
     {
         public Ghost(string nsp, string name) : base(nsp, name)

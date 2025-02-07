@@ -1,15 +1,15 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.HeldItems;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.napstablook)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.napstablook)]
     public class Napstablook : StateEnemy
     {
         public Napstablook(string nsp, string name) : base(nsp, name)

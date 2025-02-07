@@ -1,18 +1,17 @@
 ﻿using MVZ2.GameContent.Areas;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.largeSnowball)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.largeSnowball)]
     public class LargeSnowball : ProjectileBehaviour
     {
         public LargeSnowball(string nsp, string name) : base(nsp, name)
@@ -61,7 +60,7 @@ namespace MVZ2.GameContent.Projectiles
         public static void SetSnowballScale(Entity entity, float scale) => entity.SetBehaviourField(ID, PROP_SNOWBALL_SCALE, scale);
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;
-        public const string PROP_SNOWBALL_SCALE = "SnowballScale";
+        public static readonly VanillaEntityPropertyMeta PROP_SNOWBALL_SCALE = new VanillaEntityPropertyMeta("SnowballScale");
         public const float MIN_SCALE = 1;
         public const float SCALE_SPEED = 0.1f;
         public const float MAX_SCALE = 10;

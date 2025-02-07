@@ -4,7 +4,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [Definition(VanillaRechargeNames.shortTime)]
+    [RechargeDefinition(VanillaRechargeNames.shortTime)]
     public class ShortRecharge : RechargeDefinition
     {
         public ShortRecharge(string nsp, string name) : base(nsp, name)

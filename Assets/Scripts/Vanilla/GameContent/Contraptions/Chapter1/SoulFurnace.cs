@@ -4,11 +4,11 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.soulFurnace)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.soulFurnace)]
     public class SoulFurnace : DispenserFamily
     {
         public SoulFurnace(string nsp, string name) : base(nsp, name)
@@ -83,8 +83,8 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
         }
 
-        public int GetFuel(Entity entity) => entity.GetBehaviourField<int>(ID, "Fuel");
-        public void SetFuel(Entity entity, int value) => entity.SetBehaviourField(ID, "Fuel", Mathf.Clamp(value, 0, MAX_FUEL));
+        public int GetFuel(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_FUEL);
+        public void SetFuel(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_FUEL, Mathf.Clamp(value, 0, MAX_FUEL));
         public void AddFuel(Entity entity, int value)
         {
             SetFuel(entity, GetFuel(entity) + value);
@@ -99,8 +99,8 @@ namespace MVZ2.GameContent.Contraptions
                 entity.PlaySound(VanillaSoundID.fizz);
             }
         }
-        public float GetDisplayFuel(Entity entity) => entity.GetBehaviourField<float>(ID, "DisplayFuel");
-        public void SetDisplayFuel(Entity entity, float value) => entity.SetBehaviourField(ID, "DisplayFuel", value);
+        public float GetDisplayFuel(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_DISPLAY_FUEL);
+        public void SetDisplayFuel(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_DISPLAY_FUEL, value);
         public bool CanSacrifice(Entity entity, Entity soulFurnace)
         {
             var result = new TriggerResultBoolean();
@@ -195,6 +195,8 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         private static readonly NamespaceID ID = VanillaContraptionID.soulFurnace;
+        public static readonly VanillaEntityPropertyMeta PROP_FUEL = new VanillaEntityPropertyMeta("Fuel");
+        public static readonly VanillaEntityPropertyMeta PROP_DISPLAY_FUEL = new VanillaEntityPropertyMeta("DisplayFuel");
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
         private Detector evocationDetector;

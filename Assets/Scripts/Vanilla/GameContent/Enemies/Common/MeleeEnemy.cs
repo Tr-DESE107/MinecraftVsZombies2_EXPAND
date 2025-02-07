@@ -63,7 +63,7 @@ namespace MVZ2.Vanilla.Enemies
                 return false;
             if (target.Position.y > enemy.Position.y + enemy.GetMaxAttackHeight())
                 return false;
-            if (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE) 
+            if (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE)
             {
                 if (target.IsFloor())
                     return false;

@@ -1,13 +1,12 @@
-﻿using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
+﻿using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.woodenDropper)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.woodenDropper)]
     public class WoodenDropper : DispenserFamily
     {
         public WoodenDropper(string nsp, string name) : base(nsp, name)

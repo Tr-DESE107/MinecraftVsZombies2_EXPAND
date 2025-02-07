@@ -1,28 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Damages;
+﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(VanillaBuffNames.parabot)]
+    [BuffDefinition(VanillaBuffNames.parabot)]
     public class ParabotBuff : BuffDefinition
     {
         public ParabotBuff(string nsp, string name) : base(nsp, name)
@@ -62,10 +60,10 @@ namespace MVZ2.GameContent.Buffs
             var level = buff.Level;
             Vector3 centerPos = entity.GetCenter();
 
-            var param = new DetectionParams() 
-            { 
-                entity = entity, 
-                faction = GetFaction(buff) 
+            var param = new DetectionParams()
+            {
+                entity = entity,
+                faction = GetFaction(buff)
             };
             var target = detector.DetectEntityWithTheLeast(param, e => GetTargetPriority(centerPos, e));
             if (target != null)
@@ -150,17 +148,17 @@ namespace MVZ2.GameContent.Buffs
             }
             entity.RemoveBuffs(buffs);
         }
-        private float GetTargetPriority(Vector3 sourcePos, Entity target) 
+        private float GetTargetPriority(Vector3 sourcePos, Entity target)
         {
             var priority = (sourcePos - target.GetCenter()).magnitude;
             if (target.HasBuff<ParabotBuff>())
                 priority += 100000000;
             return priority;
         }
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_COOLDOWN = "Cooldown";
-        public const string PROP_FACTION = "Faction";
-        public const string PROP_EXPLODE_TIME = "ExplodeTime";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_COOLDOWN = new VanillaBuffPropertyMeta("Cooldown");
+        public static readonly VanillaBuffPropertyMeta PROP_FACTION = new VanillaBuffPropertyMeta("Faction");
+        public static readonly VanillaBuffPropertyMeta PROP_EXPLODE_TIME = new VanillaBuffPropertyMeta("ExplodeTime");
         public const int MAX_COOLDOWN = 45;
         public const int MAX_EXPLODE_TIME = 24;
         public const float RANGE = 280;

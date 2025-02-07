@@ -1,16 +1,14 @@
 ﻿using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Grids;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
-using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [Definition(VanillaArtifactNames.smartPhone)]
+    [ArtifactDefinition(VanillaArtifactNames.smartPhone)]
     public class SmartPhone : ArtifactDefinition
     {
         public SmartPhone(string nsp, string name) : base(nsp, name)

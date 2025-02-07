@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using PVZEngine.Modifiers;
 using Tools;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace PVZEngine.Level
 {
@@ -12,7 +11,7 @@ namespace PVZEngine.Level
         {
             Container = container;
         }
-        public void SetProperty(string name, object value)
+        public void SetProperty(PropertyKey name, object value)
         {
             if (properties.SetProperty(name, value))
             {
@@ -28,7 +27,7 @@ namespace PVZEngine.Level
                 }
             }
         }
-        public object GetProperty(string name, bool ignoreBuffs = false)
+        public object GetProperty(PropertyKey name, bool ignoreBuffs = false)
         {
             if (TryGetProperty(name, out var result, ignoreBuffs))
             {
@@ -36,7 +35,7 @@ namespace PVZEngine.Level
             }
             return null;
         }
-        public bool TryGetProperty(string name, out object result, bool ignoreBuffs = false)
+        public bool TryGetProperty(PropertyKey name, out object result, bool ignoreBuffs = false)
         {
             if (!ignoreBuffs)
             {
@@ -60,7 +59,7 @@ namespace PVZEngine.Level
             result = null;
             return false;
         }
-        public T GetProperty<T>(string name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
         {
             if (TryGetProperty<T>(name, out var result, ignoreBuffs))
             {
@@ -68,7 +67,7 @@ namespace PVZEngine.Level
             }
             return result;
         }
-        public bool TryGetProperty<T>(string name, out T value, bool ignoreBuffs = false)
+        public bool TryGetProperty<T>(PropertyKey name, out T value, bool ignoreBuffs = false)
         {
             if (TryGetProperty(name, out object prop, ignoreBuffs))
             {
@@ -81,11 +80,11 @@ namespace PVZEngine.Level
             value = default;
             return false;
         }
-        public bool RemoveProperty(string name)
+        public bool RemoveProperty(PropertyKey name)
         {
             return properties.RemoveProperty(name);
         }
-        public string[] GetPropertyNames()
+        public PropertyKey[] GetPropertyNames()
         {
             return properties.GetPropertyNames();
         }
@@ -99,7 +98,7 @@ namespace PVZEngine.Level
                 UpdateModifiedProperty(path);
             }
         }
-        public void UpdateModifiedProperty(string name)
+        public void UpdateModifiedProperty(PropertyKey name)
         {
             var baseValue = GetProperty(name, ignoreBuffs: true);
 

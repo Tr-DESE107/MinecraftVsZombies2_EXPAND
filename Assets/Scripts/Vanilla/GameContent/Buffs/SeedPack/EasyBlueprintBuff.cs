@@ -1,11 +1,10 @@
-﻿using MVZ2.Vanilla;
-using PVZEngine.Buffs;
+﻿using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.SeedPacks
 {
-    [Definition(VanillaBuffNames.SeedPack.easyBlueprint)]
+    [BuffDefinition(VanillaBuffNames.SeedPack.easyBlueprint)]
     public class EasyBlueprintBuff : BuffDefinition
     {
         public EasyBlueprintBuff(string nsp, string name) : base(nsp, name)

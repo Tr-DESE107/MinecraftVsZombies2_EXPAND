@@ -2,11 +2,11 @@
 {
     public class FloatModifier : NumberModifier<float>
     {
-        public FloatModifier(string propertyName, NumberOperator op, float valueConst) : base(propertyName, op, valueConst)
+        public FloatModifier(PropertyKey propertyName, NumberOperator op, float valueConst) : base(propertyName, op, valueConst)
         {
         }
 
-        public FloatModifier(string propertyName, NumberOperator op, string buffPropertyName) : base(propertyName, op, buffPropertyName)
+        public FloatModifier(PropertyKey propertyName, NumberOperator op, PropertyKey buffPropertyName) : base(propertyName, op, buffPropertyName)
         {
         }
         public override ModifierCalculator GetCalculator()

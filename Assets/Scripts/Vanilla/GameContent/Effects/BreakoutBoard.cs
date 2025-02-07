@@ -3,11 +3,11 @@ using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.HeldItems;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.breakoutBoard)]
+    [EntityBehaviourDefinition(VanillaEffectNames.breakoutBoard)]
     public class BreakoutBoard : EffectBehaviour, IEntityHeldItemBehaviour
     {
 
@@ -327,7 +327,7 @@ namespace MVZ2.GameContent.Effects
         {
         }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
-        public const string PROP_RESPAWN_COUNTDOWN = "RespawnCountdown";
+        public static readonly VanillaEntityPropertyMeta PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta("RespawnCountdown");
         public const int MAX_RESPAWN_COUNTDOWN = 90;
         public const float PEARL_SPEED = 15;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;

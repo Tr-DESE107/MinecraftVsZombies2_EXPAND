@@ -1,10 +1,10 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [Definition(VanillaAreaNames.dream)]
+    [AreaDefinition(VanillaAreaNames.dream)]
     public class Dream : AreaDefinition
     {
         public Dream(string nsp, string name) : base(nsp, name)
@@ -109,6 +109,6 @@ namespace MVZ2.GameContent.Areas
             }
         }
         private static readonly NamespaceID ID = VanillaAreaID.dream;
-        public const string PROP_POOL_WAVE = "PoolWave";
+        public static readonly VanillaLevelPropertyMeta PROP_POOL_WAVE = new VanillaLevelPropertyMeta("PoolWave");
     }
 }

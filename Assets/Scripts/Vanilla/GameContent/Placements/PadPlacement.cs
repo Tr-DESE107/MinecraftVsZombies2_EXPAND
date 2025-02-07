@@ -1,17 +1,13 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Obstacles;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
+﻿using MVZ2.Vanilla.Grids;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using PVZEngine.Placements;
 using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Placements
 {
-    [Definition(VanillaPlacementNames.pad)]
+    [PlacementDefinition(VanillaPlacementNames.pad)]
     public class PadPlacement : ContraptionPlacement
     {
         public PadPlacement(string nsp, string name) : base(nsp, name)

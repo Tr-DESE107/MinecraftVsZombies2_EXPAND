@@ -1,13 +1,14 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.fly)]
+    [BuffDefinition(VanillaBuffNames.fly)]
     public class FlyBuff : BuffDefinition
     {
         public FlyBuff(string nsp, string name) : base(nsp, name)
@@ -46,10 +47,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             velocity.y = velocity.y * (1 - flySpeedFactor) + targetSpeed * flySpeedFactor;
             entity.Velocity = velocity;
         }
-        public const string PROP_GRAVITY_MULTIPLIER = "GravityMultiplier";
-        public const string PROP_TARGET_HEIGHT = "TargetHeight";
-        public const string PROP_MAX_FLY_SPEED = "MaxFlySpeed";
-        public const string PROP_FLY_SPEED = "FlySpeed";
-        public const string PROP_FLY_SPEED_FACTOR = "FlySpeedFactor";
+        public static readonly VanillaBuffPropertyMeta PROP_GRAVITY_MULTIPLIER = new VanillaBuffPropertyMeta("GravityMultiplier");
+        public static readonly VanillaBuffPropertyMeta PROP_TARGET_HEIGHT = new VanillaBuffPropertyMeta("TargetHeight");
+        public static readonly VanillaBuffPropertyMeta PROP_MAX_FLY_SPEED = new VanillaBuffPropertyMeta("MaxFlySpeed");
+        public static readonly VanillaBuffPropertyMeta PROP_FLY_SPEED = new VanillaBuffPropertyMeta("FlySpeed");
+        public static readonly VanillaBuffPropertyMeta PROP_FLY_SPEED_FACTOR = new VanillaBuffPropertyMeta("FlySpeedFactor");
     }
 }

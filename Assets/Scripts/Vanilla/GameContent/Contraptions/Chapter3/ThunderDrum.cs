@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.thunderDrum)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.thunderDrum)]
     public class ThunderDrum : ContraptionBehaviour
     {
         public ThunderDrum(string nsp, string name) : base(nsp, name)
@@ -131,9 +132,9 @@ namespace MVZ2.GameContent.Contraptions
         public const int RESTORE_TIME = 600;
         public const int EVOCATION_DURATION = 120;
         public const float TOTAL_HP_LOSS = 0.25f;
-        public const string FIELD_BROKEN = "Broken";
-        public const string FIELD_RESTORE_TIMER = "RestoreTimer";
-        public const string FIELD_EVOCATION_TIMER = "EvocationTimer";
+        public static readonly VanillaEntityPropertyMeta FIELD_BROKEN = new VanillaEntityPropertyMeta("Broken");
+        public static readonly VanillaEntityPropertyMeta FIELD_RESTORE_TIMER = new VanillaEntityPropertyMeta("RestoreTimer");
+        public static readonly VanillaEntityPropertyMeta FIELD_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
         private static readonly NamespaceID ID = VanillaContraptionID.thunderDrum;
         private List<Entity> detectBuffer = new List<Entity>();
     }

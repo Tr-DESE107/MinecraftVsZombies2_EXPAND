@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -9,7 +9,7 @@ using PVZEngine.Grids;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [Definition(VanillaArtifactNames.dreamButterfly)]
+    [ArtifactDefinition(VanillaArtifactNames.dreamButterfly)]
     public class DreamButterfly : ArtifactDefinition
     {
         public DreamButterfly(string nsp, string name) : base(nsp, name)

@@ -1,14 +1,14 @@
 ﻿using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Obstacles
 {
-    [Definition(VanillaObstacleNames.gargoyleStatue)]
+    [EntityBehaviourDefinition(VanillaObstacleNames.gargoyleStatue)]
     public class GargoyleStatue : ObstacleBehaviour
     {
         public GargoyleStatue(string nsp, string name) : base(nsp, name)

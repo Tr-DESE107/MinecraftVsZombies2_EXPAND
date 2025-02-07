@@ -1,13 +1,14 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.glowstoneEvoke)]
+    [BuffDefinition(VanillaBuffNames.glowstoneEvoke)]
     public class GlowstoneEvokeBuff : BuffDefinition
     {
         public GlowstoneEvokeBuff(string nsp, string name) : base(nsp, name)
@@ -40,8 +41,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             buff.SetProperty(PROP_RANGE_MULTIPLIER, Vector3.one * percentage * 10);
             buff.SetProperty(PROP_COLOR_MULTIPLIER, new Color(percentage, percentage, percentage, percentage));
         }
-        public const string PROP_TIMER = "Timer";
-        public const string PROP_RANGE_MULTIPLIER = "RangeMultiplier";
-        public const string PROP_COLOR_MULTIPLIER = "ColorMultiplier";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
+        public static readonly VanillaBuffPropertyMeta PROP_RANGE_MULTIPLIER = new VanillaBuffPropertyMeta("RangeMultiplier");
+        public static readonly VanillaBuffPropertyMeta PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta("ColorMultiplier");
     }
 }

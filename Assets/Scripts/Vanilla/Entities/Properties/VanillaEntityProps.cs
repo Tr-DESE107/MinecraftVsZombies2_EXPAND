@@ -5,14 +5,19 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
+    [PropertyRegistryRegion]
     public static class VanillaEntityProps
     {
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
         #region 射击
-        public const string RANGE = "range";
-        public const string SHOT_VELOCITY = "shotVelocity";
-        public const string SHOT_OFFSET = "shotOffset";
-        public const string SHOOT_SOUND = "shootSound";
-        public const string PROJECTILE_ID = "projectileId";
+        public static readonly PropertyMeta RANGE = Get("range");
+        public static readonly PropertyMeta SHOT_VELOCITY = Get("shotVelocity");
+        public static readonly PropertyMeta SHOT_OFFSET = Get("shotOffset");
+        public static readonly PropertyMeta SHOOT_SOUND = Get("shootSound");
+        public static readonly PropertyMeta PROJECTILE_ID = Get("projectileId");
         public static void SetRange(this Entity entity, float value)
         {
             entity.SetProperty(RANGE, value);
@@ -27,7 +32,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Vector3 GetShotOffset(this Entity entity, bool ignoreBuffs = false)
         {
-            return entity.GetProperty<Vector3>(SHOT_OFFSET, ignoreBuffs : ignoreBuffs);
+            return entity.GetProperty<Vector3>(SHOT_OFFSET, ignoreBuffs: ignoreBuffs);
         }
         public static NamespaceID GetShootSound(this Entity entity)
         {
@@ -40,8 +45,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 攻击
-        public const string DAMAGE = "damage";
-        public const string ATTACK_SPEED = "attackSpeed";
+        public static readonly PropertyMeta DAMAGE = Get("damage");
+        public static readonly PropertyMeta ATTACK_SPEED = Get("attackSpeed");
 
         public static float GetDamage(this Entity entity, bool ignoreBuffs = false)
         {
@@ -58,7 +63,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 摔落
-        public const string FALL_RESISTANCE = "fallResistance";
+        public static readonly PropertyMeta FALL_RESISTANCE = Get("fallResistance");
         public static float GetFallResistance(this Entity entity)
         {
             return entity.GetProperty<float>(FALL_RESISTANCE);
@@ -70,7 +75,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 沉没
-        public const string WATER_INTERACTION = "waterInteraction";
+        public static readonly PropertyMeta WATER_INTERACTION = Get("waterInteraction");
         public static int GetWaterInteraction(this Entity entity)
         {
             return entity.GetProperty<int>(WATER_INTERACTION);
@@ -78,7 +83,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 车辆
-        public const string VEHICLE_INTERACTION = "vehicleInteraction";
+        public static readonly PropertyMeta VEHICLE_INTERACTION = Get("vehicleInteraction");
         public static int GetVehicleInteraction(this Entity entity)
         {
             return entity.GetProperty<int>(VEHICLE_INTERACTION);
@@ -86,7 +91,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 虚无
-        public const string ETHEREAL = "ethereal";
+        public static readonly PropertyMeta ETHEREAL = Get("ethereal");
         public static bool IsEthereal(this Entity entity)
         {
             return entity.GetProperty<bool>(ETHEREAL);
@@ -94,7 +99,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 生产
-        public const string PRODUCE_SPEED = "produceSpeed";
+        public static readonly PropertyMeta PRODUCE_SPEED = Get("produceSpeed");
         public static float GetProduceSpeed(this Entity entity)
         {
             return entity.GetProperty<float>(PRODUCE_SPEED);
@@ -102,8 +107,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 索敌
-        public const string INVISIBLE = "invisible";
-        public const string AI_FROZEN = "aiFrozen";
+        public static readonly PropertyMeta INVISIBLE = Get("invisible");
+        public static readonly PropertyMeta AI_FROZEN = Get("aiFrozen");
 
         public static bool IsInvisible(this Entity entity)
         {
@@ -116,10 +121,10 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 音效
-        public const string HIT_SOUND = "hitSound";
-        public const string DEATH_SOUND = "deathSound";
-        public const string PLACE_SOUND = "placeSound";
-        public const string CRY_PITCH = "cryPitch";
+        public static readonly PropertyMeta HIT_SOUND = Get("hitSound");
+        public static readonly PropertyMeta DEATH_SOUND = Get("deathSound");
+        public static readonly PropertyMeta PLACE_SOUND = Get("placeSound");
+        public static readonly PropertyMeta CRY_PITCH = Get("cryPitch");
         public static NamespaceID GetHitSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(HIT_SOUND);
@@ -143,15 +148,15 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 换行
-        public const string CHANGING_LANE = "isChangingLane";
-        public const string CHANGE_LANE_SPEED = "changeLaneSpeed";
-        public const string CHANGE_LANE_TARGET = "changeLaneTarget";
-        public const string CHANGE_LANE_SOURCE = "changeLaneSource";
+        public static readonly PropertyMeta CHANGING_LANE = Get("isChangingLane");
+        public static readonly PropertyMeta CHANGE_LANE_SPEED = Get("changeLaneSpeed");
+        public static readonly PropertyMeta CHANGE_LANE_TARGET = Get("changeLaneTarget");
+        public static readonly PropertyMeta CHANGE_LANE_SOURCE = Get("changeLaneSource");
         #endregion
 
         #region 显示
-        public const string SORTING_LAYER = "sortingLayer";
-        public const string SORTING_ORDER = "sortingOrder";
+        public static readonly PropertyMeta SORTING_LAYER = Get("sortingLayer");
+        public static readonly PropertyMeta SORTING_ORDER = Get("sortingOrder");
         public static int GetSortingLayer(this Entity entity)
         {
             return entity.GetProperty<int>(VanillaEntityProps.SORTING_LAYER);
@@ -171,8 +176,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 更新
-        public const string UPDATE_BEFORE_GAME = "updateBeforeGame";
-        public const string UPDATE_AFTER_GAME_OVER = "updateAfterGameOver";
+        public static readonly PropertyMeta UPDATE_BEFORE_GAME = Get("updateBeforeGame");
+        public static readonly PropertyMeta UPDATE_AFTER_GAME_OVER = Get("updateAfterGameOver");
         public static bool CanUpdateBeforeGameStart(this Entity entity)
         {
             return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
@@ -185,10 +190,10 @@ namespace MVZ2.Vanilla.Entities
 
         #region 影子
 
-        public const string SHADOW_HIDDEN = "shadowHidden";
-        public const string SHADOW_ALPHA = "shadowAlpha";
-        public const string SHADOW_SCALE = "shadowScale";
-        public const string SHADOW_OFFSET = "shadowOffset";
+        public static readonly PropertyMeta SHADOW_HIDDEN = Get("shadowHidden");
+        public static readonly PropertyMeta SHADOW_ALPHA = Get("shadowAlpha");
+        public static readonly PropertyMeta SHADOW_SCALE = Get("shadowScale");
+        public static readonly PropertyMeta SHADOW_OFFSET = Get("shadowOffset");
         public static bool IsShadowHidden(this Entity entity) => entity.GetProperty<bool>(VanillaEntityProps.SHADOW_HIDDEN);
         public static void SetShadowHidden(this Entity entity, bool value) => entity.SetProperty(VanillaEntityProps.SHADOW_HIDDEN, value);
         public static float GetShadowAlpha(this Entity entity) => entity.GetProperty<float>(VanillaEntityProps.SHADOW_ALPHA);
@@ -200,7 +205,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 时限
-        public const string MAX_TIMEOUT = "maxTimeout";
+        public static readonly PropertyMeta MAX_TIMEOUT = Get("maxTimeout");
         public static int GetMaxTimeout(this Entity entity)
         {
             return entity.GetProperty<int>(MAX_TIMEOUT);
@@ -208,7 +213,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 亡灵
-        public const string IS_UNDEAD = "undead";
+        public static readonly PropertyMeta IS_UNDEAD = Get("undead");
         public static void SetIsUndead(this Entity entity, bool value)
         {
             entity.SetProperty(IS_UNDEAD, value);
@@ -221,7 +226,7 @@ namespace MVZ2.Vanilla.Entities
 
         #region 火焰
 
-        public const string IS_FIRE = "isFire";
+        public static readonly PropertyMeta IS_FIRE = Get("isFire");
         public static void SetIsFire(this Entity entity, bool value)
         {
             entity.SetProperty(IS_FIRE, value);
@@ -233,9 +238,9 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 光照
-        public const string IS_LIGHT_SOURCE = "isLightSource";
-        public const string LIGHT_RANGE = "lightRange";
-        public const string LIGHT_COLOR = "lightColor";
+        public static readonly PropertyMeta IS_LIGHT_SOURCE = Get("isLightSource");
+        public static readonly PropertyMeta LIGHT_RANGE = Get("lightRange");
+        public static readonly PropertyMeta LIGHT_COLOR = Get("lightColor");
         public static void SetLightSource(this Entity entity, bool value)
         {
             entity.SetProperty(IS_LIGHT_SOURCE, value);
@@ -259,8 +264,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 血液
-        public const string BLOOD_COLOR = "bloodColor";
-        public const string BLOOD_COLOR_CENSORED = "bloodColorCensored";
+        public static readonly PropertyMeta BLOOD_COLOR = Get("bloodColor");
+        public static readonly PropertyMeta BLOOD_COLOR_CENSORED = Get("bloodColorCensored");
         public static Color GetBloodColorNormal(this Entity entity)
         {
             return entity.GetProperty<Color>(BLOOD_COLOR);
@@ -276,8 +281,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 蓝图
-        public const string COST = "cost";
-        public const string RECHARGE_ID = "rechargeId";
+        public static readonly PropertyMeta COST = Get("cost");
+        public static readonly PropertyMeta RECHARGE_ID = Get("rechargeId");
         public static int GetCost(this Entity entity)
         {
             return entity.GetProperty<int>(COST);
@@ -297,7 +302,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 单元格
-        public const string GRID_LAYERS = "gridLayers";
+        public static readonly PropertyMeta GRID_LAYERS = Get("gridLayers");
         public static NamespaceID[] GetGridLayersToTake(this EntityDefinition entity)
         {
             return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
@@ -309,7 +314,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 堆叠
-        public const string STACK_ON = "stackOn";
+        public static readonly PropertyMeta STACK_ON = Get("stackOn");
         public static NamespaceID GetStackOnEntity(this EntityDefinition entity)
         {
             return entity.GetProperty<NamespaceID>(STACK_ON);
@@ -317,7 +322,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 升级
-        public const string UPGRADE_FROM = "upgradeFrom";
+        public static readonly PropertyMeta UPGRADE_FROM = Get("upgradeFrom");
         public static NamespaceID GetUpgradeFromEntity(this EntityDefinition entity)
         {
             return entity.GetProperty<NamespaceID>(UPGRADE_FROM);
@@ -325,7 +330,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 摩擦力
-        public const string KEEP_GROUND_FRICTION = "KeepGroundFriction";
+        public static readonly PropertyMeta KEEP_GROUND_FRICTION = Get("KeepGroundFriction");
         public static bool KeepGroundFriction(this Entity entity)
         {
             return entity.GetProperty<bool>(KEEP_GROUND_FRICTION);
@@ -333,20 +338,20 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 忠诚
-        public const string LOYAL = "loyal";
+        public static readonly PropertyMeta LOYAL = Get("loyal");
         public static bool IsLoyal(this Entity entity)
         {
             return entity.GetProperty<bool>(LOYAL);
         }
         #endregion
-        public const string NO_HELD_TARGET = "noHeldTarget";
+        public static readonly PropertyMeta NO_HELD_TARGET = Get("noHeldTarget");
         public static bool NoHeldTarget(this Entity entity)
         {
             return entity.GetProperty<bool>(NO_HELD_TARGET);
         }
 
 
-        public const string TAKEN_CRUSH_DAMAGE = "takenCrushDamage";
+        public static readonly PropertyMeta TAKEN_CRUSH_DAMAGE = Get("takenCrushDamage");
         public static float GetTakenCrushDamage(this Entity entity)
         {
             return entity.GetProperty<float>(TAKEN_CRUSH_DAMAGE);

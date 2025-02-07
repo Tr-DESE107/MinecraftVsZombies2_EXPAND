@@ -1,11 +1,11 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Models;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.vortex)]
+    [EntityBehaviourDefinition(VanillaEffectNames.vortex)]
     public class Vortex : EffectBehaviour
     {
         #region 公有方法

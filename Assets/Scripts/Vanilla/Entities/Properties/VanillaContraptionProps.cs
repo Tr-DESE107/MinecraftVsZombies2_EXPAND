@@ -3,10 +3,15 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Contraptions
 {
+    [PropertyRegistryRegion]
     public static class VanillaContraptionProps
     {
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
         #region 夜用
-        public const string NOCTURNAL = "nocturnal";
+        public static readonly PropertyMeta NOCTURNAL = Get("nocturnal");
         public static bool IsNocturnal(this EntityDefinition definition)
         {
             return definition.GetProperty<bool>(NOCTURNAL);
@@ -18,7 +23,7 @@ namespace MVZ2.Vanilla.Contraptions
         #endregion
 
         #region 防御性
-        public const string DEFENSIVE = "defensive";
+        public static readonly PropertyMeta DEFENSIVE = Get("defensive");
         public static bool IsDefensive(this Entity contraption)
         {
             return contraption.GetProperty<bool>(DEFENSIVE);
@@ -26,7 +31,7 @@ namespace MVZ2.Vanilla.Contraptions
         #endregion
 
         #region 克制
-        public const string ATTACKER_TAGS_FOR = "attackerFor";
+        public static readonly PropertyMeta ATTACKER_TAGS_FOR = Get("attackerFor");
         public static NamespaceID[] GetAttackerTagsFor(this EntityDefinition contraption)
         {
             return contraption.GetProperty<NamespaceID[]>(ATTACKER_TAGS_FOR);
@@ -34,25 +39,25 @@ namespace MVZ2.Vanilla.Contraptions
         #endregion
 
         #region 生产者
-        public const string PRODUCER = "producer";
+        public static readonly PropertyMeta PRODUCER = Get("producer");
         public static bool IsProducer(this EntityDefinition contraption)
         {
             return contraption.GetProperty<bool>(PRODUCER);
         }
         #endregion
 
-        public const string BLOCKS_JUMP = "blocksJump";
+        public static readonly PropertyMeta BLOCKS_JUMP = Get("blocksJump");
         public static bool BlocksJump(this Entity contraption)
         {
             return contraption.GetProperty<bool>(BLOCKS_JUMP);
         }
 
-        public const string CANNOT_DIG = "cannotDig";
+        public static readonly PropertyMeta CANNOT_DIG = Get("cannotDig");
         public static bool CannotDig(this Entity contraption)
         {
             return contraption.GetProperty<bool>(CANNOT_DIG);
         }
-        public const string UPGRADE_BLUEPRINT = "upgradeBlueprint";
+        public static readonly PropertyMeta UPGRADE_BLUEPRINT = Get("upgradeBlueprint");
         public static bool IsUpgradeBlueprint(this EntityDefinition definition)
         {
             return definition.GetProperty<bool>(UPGRADE_BLUEPRINT);
@@ -62,11 +67,11 @@ namespace MVZ2.Vanilla.Contraptions
             return contraption.GetProperty<bool>(UPGRADE_BLUEPRINT);
         }
 
-        public const string IS_FLOOR = "isFloor";
-        public const string CAN_DEACTIVE = "canDeactive";
-        public const string FRAGMENT_ID = "fragmentId";
-        public const string TRIGGER_ACTIVE = "triggerActive";
-        public const string INSTANT_TRIGGER = "instantTrigger";
+        public static readonly PropertyMeta IS_FLOOR = Get("isFloor");
+        public static readonly PropertyMeta CAN_DEACTIVE = Get("canDeactive");
+        public static readonly PropertyMeta FRAGMENT_ID = Get("fragmentId");
+        public static readonly PropertyMeta TRIGGER_ACTIVE = Get("triggerActive");
+        public static readonly PropertyMeta INSTANT_TRIGGER = Get("instantTrigger");
         public static bool IsFloor(this Entity contraption)
         {
             return contraption.GetProperty<bool>(IS_FLOOR);

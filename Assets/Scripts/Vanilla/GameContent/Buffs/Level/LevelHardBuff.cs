@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -9,7 +8,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.levelHard)]
+    [BuffDefinition(VanillaBuffNames.Level.levelHard)]
     public class LevelHardBuff : BuffDefinition
     {
         public LevelHardBuff(string nsp, string name) : base(nsp, name)

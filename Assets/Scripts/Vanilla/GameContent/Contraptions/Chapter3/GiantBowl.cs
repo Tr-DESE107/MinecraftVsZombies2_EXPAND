@@ -1,18 +1,19 @@
 ﻿using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.giantBowl)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.giantBowl)]
     public class GiantBowl : ContraptionBehaviour
     {
         public GiantBowl(string nsp, string name) : base(nsp, name)
@@ -116,11 +117,11 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetPointsRadial(Entity entity, float value) => entity.SetBehaviourField(ID, FIELD_POINTS_RADIAL, value);
 
 
-        private const string FIELD_PRODUCTION_TIMER = "ProductionTimer";
-        private const string FIELD_POINT_COUNT = "PointCount";
-        private const string FIELD_POINTS_ANGLE = "PointsAngle";
-        private const string FIELD_POINTS_RADIAL = "PointsRadial";
-        private const string PROP_PRODUCE_COLOR = "ProduceColor";
+        private static readonly VanillaEntityPropertyMeta FIELD_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
+        private static readonly VanillaEntityPropertyMeta FIELD_POINT_COUNT = new VanillaEntityPropertyMeta("PointCount");
+        private static readonly VanillaEntityPropertyMeta FIELD_POINTS_ANGLE = new VanillaEntityPropertyMeta("PointsAngle");
+        private static readonly VanillaEntityPropertyMeta FIELD_POINTS_RADIAL = new VanillaEntityPropertyMeta("PointsRadial");
+        private static readonly VanillaEntityPropertyMeta PROP_PRODUCE_COLOR = new VanillaEntityPropertyMeta("ProduceColor");
 
         public const int MAX_STARSHARD_COUNT = 5;
         public const int PRODUCT_TIME = 1800;

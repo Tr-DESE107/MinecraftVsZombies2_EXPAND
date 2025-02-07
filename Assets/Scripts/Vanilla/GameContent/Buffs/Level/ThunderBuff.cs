@@ -1,11 +1,12 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.thunder)]
+    [BuffDefinition(VanillaBuffNames.Level.thunder)]
     public class ThunderBuff : BuffDefinition
     {
         public ThunderBuff(string nsp, string name) : base(nsp, name)
@@ -31,8 +32,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public const string PROP_DARKNESS_MULTIPLIER = "DarknessMultiplier";
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_DARKNESS_MULTIPLIER = new VanillaBuffPropertyMeta("DarknessMultiplier");
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 30;
     }
 }

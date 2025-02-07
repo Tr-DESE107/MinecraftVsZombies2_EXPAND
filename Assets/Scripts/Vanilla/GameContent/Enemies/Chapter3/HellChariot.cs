@@ -1,20 +1,20 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using UnityEngine.XR;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.hellChariot)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
     public class HellChariot : StateEnemy
     {
         public HellChariot(string nsp, string name) : base(nsp, name)
@@ -166,8 +166,8 @@ namespace MVZ2.GameContent.Enemies
         public const float BROKEN_THRESOLD = 200;
         public static readonly Vector3 ANUBISAND_OFFSET = new Vector3(-48, 32, 0);
         public const int PUNCTURE_TIME = 40;
-        private const string FIELD_PUNCTURED = "Punctured";
-        private const string FIELD_PUNCTURE_TIMER = "PunctureTimer";
+        private static readonly VanillaEntityPropertyMeta FIELD_PUNCTURED = new VanillaEntityPropertyMeta("Punctured");
+        private static readonly VanillaEntityPropertyMeta FIELD_PUNCTURE_TIMER = new VanillaEntityPropertyMeta("PunctureTimer");
         private static readonly NamespaceID ID = VanillaEnemyID.hellChariot;
     }
 }

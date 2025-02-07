@@ -1,12 +1,12 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Grids;
+﻿using MVZ2.Vanilla.Grids;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Placements
 {
-    [Definition(VanillaPlacementNames.aquatic)]
+    [PlacementDefinition(VanillaPlacementNames.aquatic)]
     public class AquaticPlacement : ContraptionPlacement
     {
         public AquaticPlacement(string nsp, string name) : base(nsp, name)

@@ -1,11 +1,13 @@
 ﻿using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.nightmareDecrepify)]
+    [BuffDefinition(VanillaBuffNames.Level.nightmareDecrepify)]
     public class NightmareDecrepifyBuff : BuffDefinition
     {
         public NightmareDecrepifyBuff(string nsp, string name) : base(nsp, name)
@@ -33,7 +35,7 @@ namespace MVZ2.GameContent.Buffs.Level
                 buff.Remove();
             }
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 1800;
     }
 }

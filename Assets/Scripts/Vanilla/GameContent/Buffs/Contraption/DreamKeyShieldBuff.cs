@@ -1,14 +1,14 @@
 ﻿using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.dreamKeyShield)]
+    [BuffDefinition(VanillaBuffNames.dreamKeyShield)]
     public class DreamKeyShieldBuff : BuffDefinition
     {
         public DreamKeyShieldBuff(string nsp, string name) : base(nsp, name)

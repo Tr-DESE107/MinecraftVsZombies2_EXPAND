@@ -2,9 +2,9 @@
 using MVZ2.GameContent.HeldItem;
 using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -12,7 +12,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [Definition(VanillaHeldItemNames.pickaxe)]
+    [HeldItemDefinition(VanillaHeldItemNames.pickaxe)]
     public class PickaxeHeldItemDefinition : ToEntityHeldItemDefinition
     {
         public PickaxeHeldItemDefinition(string nsp, string name) : base(nsp, name)

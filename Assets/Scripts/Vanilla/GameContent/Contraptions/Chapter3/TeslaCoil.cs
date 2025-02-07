@@ -2,21 +2,22 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.teslaCoil)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.teslaCoil)]
     public class TeslaCoil : ContraptionBehaviour
     {
         public TeslaCoil(string nsp, string name) : base(nsp, name)
@@ -145,7 +146,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public const int ATTACK_COOLDOWN = 65;
         public const int ATTACK_CHARGE = 25;
-        public const string PROP_ATTACK_TIMER = "AttackTimer";
+        public static readonly VanillaEntityPropertyMeta PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta("AttackTimer");
         public const float ATTACK_HEIGHT = 160;
         public static readonly Vector3 ARC_OFFSET = new Vector3(0, 96, 0);
         public const float SHOCK_RADIUS = 20;

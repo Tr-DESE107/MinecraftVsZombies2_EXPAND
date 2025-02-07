@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -14,7 +13,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.gemEffect)]
+    [EntityBehaviourDefinition(VanillaEffectNames.gemEffect)]
     public class GemEffect : EffectBehaviour
     {
         #region 公有方法

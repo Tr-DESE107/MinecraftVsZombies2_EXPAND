@@ -12,7 +12,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.debug)]
+    [StageDefinition(VanillaStageNames.debug)]
     public partial class DebugStage : StageDefinition
     {
         public DebugStage(string nsp, string name) : base(nsp, name)

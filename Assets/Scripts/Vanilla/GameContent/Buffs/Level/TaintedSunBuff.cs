@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.taintedSun)]
+    [BuffDefinition(VanillaBuffNames.Level.taintedSun)]
     public class TaintedSunBuff : BuffDefinition
     {
         public TaintedSunBuff(string nsp, string name) : base(nsp, name)
@@ -31,8 +32,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public const string PROP_DARKNESS_ADDITION = "DarknessAddition";
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_DARKNESS_ADDITION = new VanillaBuffPropertyMeta("DarknessAddition");
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 330;
         public const int FADE_MAX_TIMEOUT = 30;
     }

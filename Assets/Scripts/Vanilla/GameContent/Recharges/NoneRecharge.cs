@@ -4,7 +4,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [Definition(VanillaRechargeNames.none)]
+    [RechargeDefinition(VanillaRechargeNames.none)]
     public class NoneRecharge : RechargeDefinition
     {
         public NoneRecharge(string nsp, string name) : base(nsp, name)

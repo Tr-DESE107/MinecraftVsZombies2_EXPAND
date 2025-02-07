@@ -1,13 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
+﻿using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.breakoutPearl)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.breakoutPearl)]
     public class BreakoutPearl : ProjectileBehaviour
     {
         public BreakoutPearl(string nsp, string name) : base(nsp, name)
@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Projectiles
             {
                 hit.Cancel();
                 return;
-            }    
+            }
         }
         protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
         {

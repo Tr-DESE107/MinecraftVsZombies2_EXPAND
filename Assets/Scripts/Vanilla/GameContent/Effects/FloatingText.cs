@@ -1,17 +1,14 @@
-using MVZ2.GameContent.Bosses;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Difficulties;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
-using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.floatingText)]
+    [EntityBehaviourDefinition(VanillaEffectNames.floatingText)]
     public class FloatingText : EffectBehaviour
     {
         public FloatingText(string nsp, string name) : base(nsp, name)
@@ -29,7 +26,7 @@ namespace MVZ2.GameContent.Effects
         public static string GetText(Entity entity) => entity.GetBehaviourField<string>(ID, PROP_TEXT);
         public static void SetText(Entity entity, string value) => entity.SetBehaviourField(ID, PROP_TEXT, value);
 
-        public const string PROP_TEXT = "Text";
+        public static readonly VanillaEntityPropertyMeta PROP_TEXT = new VanillaEntityPropertyMeta("Text");
         public static readonly NamespaceID ID = VanillaEffectID.floatingText;
     }
 }

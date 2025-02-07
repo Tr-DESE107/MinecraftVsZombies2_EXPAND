@@ -3,17 +3,19 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.crushingWalls)]
+    [EntityBehaviourDefinition(VanillaEffectNames.crushingWalls)]
     public class CrushingWalls : EffectBehaviour
     {
 
@@ -150,8 +152,8 @@ namespace MVZ2.GameContent.Effects
         public static void SetProgress(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_PROGRESS, value);
         public static ShakeInt GetShake(Entity entity) => entity.GetBehaviourField<ShakeInt>(ID, PROP_SHAKE);
         public static void SetShake(Entity entity, ShakeInt value) => entity.SetBehaviourField(ID, PROP_SHAKE, value);
-        public const string PROP_PROGRESS = "Progress";
-        public const string PROP_SHAKE = "Shake";
+        public static readonly VanillaEntityPropertyMeta PROP_PROGRESS = new VanillaEntityPropertyMeta("Progress");
+        public static readonly VanillaEntityPropertyMeta PROP_SHAKE = new VanillaEntityPropertyMeta("Shake");
         public static readonly NamespaceID ID = VanillaEffectID.crushingWalls;
     }
 }

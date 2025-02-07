@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.nightmareaperDarkness)]
+    [BuffDefinition(VanillaBuffNames.Level.nightmareaperDarkness)]
     public class NightmareaperDarknessBuff : BuffDefinition
     {
         public NightmareaperDarknessBuff(string nsp, string name) : base(nsp, name)
@@ -37,9 +38,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             buff.SetProperty(PROP_TIMEOUT, FADE_TIME);
         }
-        public const string PROP_DARKNESS_ADDITION = "DarknessAddition";
-        public const string PROP_TIME = "Time";
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_DARKNESS_ADDITION = new VanillaBuffPropertyMeta("DarknessAddition");
+        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const float MAX_DARKNESS = 1;
         public const int FADE_TIME = 30;
     }

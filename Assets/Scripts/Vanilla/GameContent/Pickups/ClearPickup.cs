@@ -1,18 +1,18 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [Definition(VanillaPickupNames.clearPickup)]
+    [EntityBehaviourDefinition(VanillaPickupNames.clearPickup)]
     public class ClearPickup : PickupBehaviour
     {
         public ClearPickup(string nsp, string name) : base(nsp, name)

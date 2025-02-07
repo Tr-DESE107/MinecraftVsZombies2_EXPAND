@@ -7,17 +7,17 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.Models;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.gravityPad)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.gravityPad)]
     public class GravityPad : ContraptionBehaviour
     {
         public GravityPad(string nsp, string name) : base(nsp, name)

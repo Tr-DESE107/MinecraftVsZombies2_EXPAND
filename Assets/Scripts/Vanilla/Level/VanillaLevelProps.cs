@@ -2,21 +2,25 @@
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
 {
+    [PropertyRegistryRegion]
     public static class VanillaLevelProps
     {
-        public const string ENEMY_POOL = "enemyPool";
-        public const string CONVEYOR_POOL = "conveyorPool";
-        public const string CONVEY_SPEED = "conveySpeed";
-        public const string LAST_ENEMY_POSITION = "lastEnemyPosition";
-        public const string MUSIC_ID = "musicId";
-        public const string KEEP_HELD_ITEM_IN_SCREEN = "keepHeldItemInScreen";
-        public const string TRIGGER_DISABLED = "triggerDisabled";
-        public const string TRIGGER_DISABLE_MESSAGE = "triggerDisableMessage";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta ENEMY_POOL = Get("enemyPool");
+        public static readonly PropertyMeta CONVEYOR_POOL = Get("conveyorPool");
+        public static readonly PropertyMeta CONVEY_SPEED = Get("conveySpeed");
+        public static readonly PropertyMeta LAST_ENEMY_POSITION = Get("lastEnemyPosition");
+        public static readonly PropertyMeta MUSIC_ID = Get("musicId");
+        public static readonly PropertyMeta KEEP_HELD_ITEM_IN_SCREEN = Get("keepHeldItemInScreen");
+        public static readonly PropertyMeta TRIGGER_DISABLED = Get("triggerDisabled");
+        public static readonly PropertyMeta TRIGGER_DISABLE_MESSAGE = Get("triggerDisableMessage");
         public static NamespaceID[] GetEnemyPool(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID[]>(ENEMY_POOL);
@@ -34,11 +38,11 @@ namespace MVZ2.Vanilla.Level
             return game.GetProperty<float>(CONVEY_SPEED);
         }
         #region 星之碎片
-        public const string STARSHARD_COUNT = "starshardCount";
-        public const string STARSHARD_SLOT_COUNT = "starshardSlotCount";
-        public const string STARSHARD_DISABLED = "starshardDisabled";
-        public const string STARSHARD_DISABLE_MESSAGE = "starshardDisableMessage";
-        public const string STARSHARD_DISABLE_ICON = "starshardDisableIcon";
+        public static readonly PropertyMeta STARSHARD_COUNT = Get("starshardCount");
+        public static readonly PropertyMeta STARSHARD_SLOT_COUNT = Get("starshardSlotCount");
+        public static readonly PropertyMeta STARSHARD_DISABLED = Get("starshardDisabled");
+        public static readonly PropertyMeta STARSHARD_DISABLE_MESSAGE = Get("starshardDisableMessage");
+        public static readonly PropertyMeta STARSHARD_DISABLE_ICON = Get("starshardDisableIcon");
         public static int GetStarshardSlotCount(this LevelEngine game)
         {
             return game.GetProperty<int>(STARSHARD_SLOT_COUNT);
@@ -58,9 +62,9 @@ namespace MVZ2.Vanilla.Level
         #endregion
 
         #region 铁镐
-        public const string PICKAXE_DISABLED = "pickaxeDisabled";
-        public const string PICKAXE_DISABLE_MESSAGE = "pickaxeDisableMessage";
-        public const string PICKAXE_DISABLE_ICON = "pickaxeDisableIcon";
+        public static readonly PropertyMeta PICKAXE_DISABLED = Get("pickaxeDisabled");
+        public static readonly PropertyMeta PICKAXE_DISABLE_MESSAGE = Get("pickaxeDisableMessage");
+        public static readonly PropertyMeta PICKAXE_DISABLE_ICON = Get("pickaxeDisableIcon");
         public static bool IsPickaxeDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(PICKAXE_DISABLED);
@@ -115,9 +119,9 @@ namespace MVZ2.Vanilla.Level
             return level.GetProperty<bool>(KEEP_HELD_ITEM_IN_SCREEN);
         }
 
-        public const string FIRST_GEM = "firstGem";
-        public const string ALL_ENEMIES_CLEARED = "allEnemiesCleared";
-        public const string STATUE_COUNT = "statueCount";
+        public static readonly PropertyMeta FIRST_GEM = Get("firstGem");
+        public static readonly PropertyMeta ALL_ENEMIES_CLEARED = Get("allEnemiesCleared");
+        public static readonly PropertyMeta STATUE_COUNT = Get("statueCount");
         public static int GetStatueCount(this LevelEngine level)
         {
             return level.GetProperty<int>(STATUE_COUNT);
@@ -131,9 +135,9 @@ namespace MVZ2.Vanilla.Level
             level.SetProperty(VanillaLevelProps.ALL_ENEMIES_CLEARED, value);
         }
         #region 出怪
-        public const string SPAWN_POINTS_POWER = "spawnPointsPower";
-        public const string SPAWN_POINTS_MUTLIPLIER = "spawnPointsMultiplier";
-        public const string SPAWN_POINTS_ADDITION = "spawnPointsAddition";
+        public static readonly PropertyMeta SPAWN_POINTS_POWER = Get("spawnPointsPower");
+        public static readonly PropertyMeta SPAWN_POINTS_MUTLIPLIER = Get("spawnPointsMultiplier");
+        public static readonly PropertyMeta SPAWN_POINTS_ADDITION = Get("spawnPointsAddition");
         public static float GetSpawnPointPower(this LevelEngine level)
         {
             return level.GetProperty<float>(SPAWN_POINTS_POWER);
@@ -159,7 +163,7 @@ namespace MVZ2.Vanilla.Level
             stageDef.SetProperty(SPAWN_POINTS_ADDITION, value);
         }
         #endregion
-        public const string IGNORE_HUGE_WAVE_EVENT = "ignoreHugeWaveEvent";
+        public static readonly PropertyMeta IGNORE_HUGE_WAVE_EVENT = Get("ignoreHugeWaveEvent");
         public static bool IgnoreHugeWaveEvent(this LevelEngine level)
         {
             return level.GetProperty<bool>(IGNORE_HUGE_WAVE_EVENT);
@@ -168,6 +172,6 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetProperty(IGNORE_HUGE_WAVE_EVENT, value);
         }
-        
+
     }
 }

@@ -1,6 +1,4 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -10,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.dream11)]
+    [StageDefinition(VanillaStageNames.dream11)]
     public partial class NightmareStage : StageDefinition
     {
         public NightmareStage(string nsp, string name) : base(nsp, name)

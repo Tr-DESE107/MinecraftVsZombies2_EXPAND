@@ -1,9 +1,9 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.spikeParticles)]
+    [EntityBehaviourDefinition(VanillaEffectNames.spikeParticles)]
     public class SpikeParticles : EffectBehaviour
     {
 

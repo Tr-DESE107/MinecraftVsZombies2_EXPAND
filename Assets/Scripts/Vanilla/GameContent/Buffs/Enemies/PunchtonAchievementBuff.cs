@@ -1,9 +1,10 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.punchtonAchievement)]
+    [BuffDefinition(VanillaBuffNames.punchtonAchievement)]
     public class PunchtonAchievementBuff : BuffDefinition
     {
         public PunchtonAchievementBuff(string nsp, string name) : base(nsp, name)
@@ -25,6 +26,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
     }
 }

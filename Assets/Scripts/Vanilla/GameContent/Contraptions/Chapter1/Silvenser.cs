@@ -1,16 +1,17 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.silvenser)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.silvenser)]
     public class Silvenser : DispenserFamily
     {
         public Silvenser(string nsp, string name) : base(nsp, name)
@@ -48,19 +49,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetEvocationTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
         }
         public static void SetEvocationTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "EvocationTimer", timer);
+            entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
         }
         public static Vector3[] GetEvocationTargetPositions(Entity entity)
         {
-            return entity.GetBehaviourField<Vector3[]>(ID, "EvocationTargetPositions");
+            return entity.GetBehaviourField<Vector3[]>(ID, PROP_EVOCATION_TARGET_POSITIONS);
         }
         public static void SetEvocationTargetPositions(Entity entity, Vector3[] timer)
         {
-            entity.SetBehaviourField(ID, "EvocationTargetPositions", timer);
+            entity.SetBehaviourField(ID, PROP_EVOCATION_TARGET_POSITIONS, timer);
         }
         private void EvokedUpdate(Entity entity)
         {
@@ -122,6 +123,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_KNIVES_PER_LAYER = 30;
         public const float EVOCATION_RADIUS = 100;
         public const float EVOCATION_DAMAGE_MULTIPLIER = 2;
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TARGET_POSITIONS = new VanillaEntityPropertyMeta("EvocationTargetPositions");
 
         public static readonly NamespaceID ID = VanillaContraptionID.silvenser;
     }

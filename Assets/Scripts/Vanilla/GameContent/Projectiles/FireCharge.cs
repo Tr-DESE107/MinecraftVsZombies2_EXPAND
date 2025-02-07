@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -8,11 +7,12 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.fireCharge)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.fireCharge)]
     public class FireCharge : ProjectileBehaviour
     {
         public FireCharge(string nsp, string name) : base(nsp, name)

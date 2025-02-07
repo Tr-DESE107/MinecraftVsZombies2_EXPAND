@@ -1,18 +1,18 @@
 ﻿using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.drivenser)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.drivenser)]
     public class Drivenser : DispenserFamily, IStackEntity
     {
         public Drivenser(string nsp, string name) : base(nsp, name)
@@ -95,17 +95,17 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             SetRepeatCount(entity, 5);
         }
-        public static FrameTimer GetRepeatTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "RepeatTimer");
-        public static void SetRepeatTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "RepeatTimer", timer);
+        public static FrameTimer GetRepeatTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_REPEAT_TIMER);
+        public static void SetRepeatTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_REPEAT_TIMER, timer);
 
-        public static int GetRepeatCount(Entity entity) => entity.GetBehaviourField<int>(ID, "RepeatCount");
-        public static void SetRepeatCount(Entity entity, int count) => entity.SetBehaviourField(ID, "RepeatCount", count);
+        public static int GetRepeatCount(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_REPEAT_COUNT);
+        public static void SetRepeatCount(Entity entity, int count) => entity.SetBehaviourField(ID, PROP_REPEAT_COUNT, count);
 
-        public static int GetUpgradeLevel(Entity entity) => entity.GetBehaviourField<int>(ID, "UpgradeLevel");
-        public static void SetUpgradeLevel(Entity entity, int value) => entity.SetBehaviourField(ID, "UpgradeLevel", value);
+        public static int GetUpgradeLevel(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_UPGRADE_LEVEL);
+        public static void SetUpgradeLevel(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_UPGRADE_LEVEL, value);
 
-        public static float GetBlockerBlend(Entity entity) => entity.GetBehaviourField<float>(ID, "BlockerBlend");
-        public static void SetBlockerBlend(Entity entity, float value) => entity.SetBehaviourField(ID, "BlockerBlend", value);
+        public static float GetBlockerBlend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_BLOCKER_BLEND);
+        public static void SetBlockerBlend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_BLOCKER_BLEND, value);
 
 
         void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
@@ -126,5 +126,9 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int MAX_UPGRADE_LEVEL = 4;
         private static readonly NamespaceID ID = VanillaContraptionID.drivenser;
+        public static readonly VanillaEntityPropertyMeta PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta("RepeatTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta("RepeatCount");
+        public static readonly VanillaEntityPropertyMeta PROP_UPGRADE_LEVEL = new VanillaEntityPropertyMeta("UpgradeLevel");
+        public static readonly VanillaEntityPropertyMeta PROP_BLOCKER_BLEND = new VanillaEntityPropertyMeta("BlockerBlend");
     }
 }

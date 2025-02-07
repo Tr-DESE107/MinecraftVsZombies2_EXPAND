@@ -1,13 +1,14 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.sacrificed)]
+    [BuffDefinition(VanillaBuffNames.sacrificed)]
     public class SacrificedBuff : BuffDefinition
     {
         public SacrificedBuff(string nsp, string name) : base(nsp, name)
@@ -36,8 +37,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 entity.Remove();
             }
         }
-        public const string PROP_TIME = "Time";
-        public const string PROP_LIGHT_RANGE = "LightRange";
+        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
+        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_RANGE = new VanillaBuffPropertyMeta("LightRange");
         public const int MAX_TIME = 30;
     }
 }

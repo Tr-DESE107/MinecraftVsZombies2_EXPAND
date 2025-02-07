@@ -1,13 +1,11 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.electricArc)]
+    [EntityBehaviourDefinition(VanillaEffectNames.electricArc)]
     public class ElectricArc : EffectBehaviour
     {
         #region 公有方法

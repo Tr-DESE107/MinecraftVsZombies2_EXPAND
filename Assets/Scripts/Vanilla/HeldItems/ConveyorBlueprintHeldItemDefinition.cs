@@ -1,14 +1,12 @@
 ﻿using MVZ2.HeldItems;
-using MVZ2.Vanilla.SeedPacks;
-using PVZEngine;
-using PVZEngine.Entities;
+using MVZ2Logic;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.HeldItems
 {
-    [Definition(BuiltinHeldItemNames.conveyor)]
+    [HeldItemDefinition(BuiltinHeldItemNames.conveyor)]
     public class ConveyorBlueprintHeldItemDefinition : BlueprintHeldItemDefinition
     {
         public ConveyorBlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)

@@ -1,23 +1,12 @@
-﻿using System.Linq;
-using System.Threading;
-using MVZ2.GameContent.Bosses;
-using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic;
 using MVZ2Logic.Level;
-using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.GameContent.Stages
 {

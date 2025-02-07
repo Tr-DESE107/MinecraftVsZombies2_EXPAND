@@ -1,22 +1,23 @@
 ﻿using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.dreamSilk)]
+    [BuffDefinition(VanillaBuffNames.dreamSilk)]
     public class DreamSilkBuff : BuffDefinition
     {
         public DreamSilkBuff(string nsp, string name) : base(nsp, name)
@@ -91,8 +92,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             entity.RemoveBuffs<DreamSilkBuff>();
         }
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_DISPLAY_SCALE = "DisplayScale";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_DISPLAY_SCALE = new VanillaBuffPropertyMeta("DisplayScale");
         public const int MAX_TIMEOUT = 900;
         private const int RING_DURATION = 36;
     }

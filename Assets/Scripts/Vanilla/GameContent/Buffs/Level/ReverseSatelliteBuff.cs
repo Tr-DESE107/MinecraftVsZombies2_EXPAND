@@ -1,16 +1,16 @@
 ﻿using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.reverseSatellite)]
+    [BuffDefinition(VanillaBuffNames.Level.reverseSatellite)]
     public class ReverseSatelliteBuff : BuffDefinition
     {
         public ReverseSatelliteBuff(string nsp, string name) : base(nsp, name)
@@ -49,9 +49,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public const string PROP_CAMERA_ROTATION = "CameraRotation";
-        public const string PROP_TIME = "Time";
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_CAMERA_ROTATION = new VanillaBuffPropertyMeta("CameraRotation");
+        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 30;
         public const int MAX_ROTATION = 180;
     }

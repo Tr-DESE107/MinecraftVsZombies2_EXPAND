@@ -2,12 +2,13 @@
 
 namespace PVZEngine.Level
 {
+    [PropertyRegistryRegion]
     public static class EngineRechargeProps
     {
-        public const string START_MAX_RECHARGE = "startMaxRecharge";
-        public const string MAX_RECHARGE = "maxRecharge";
-        public const string QUALITY = "quality";
-        public const string NAME = "name";
+        public static readonly PropertyMeta START_MAX_RECHARGE = new PropertyMeta("startMaxRecharge");
+        public static readonly PropertyMeta MAX_RECHARGE = new PropertyMeta("maxRecharge");
+        public static readonly PropertyMeta QUALITY = new PropertyMeta("quality");
+        public static readonly PropertyMeta NAME = new PropertyMeta("name");
         public static int GetStartMaxRecharge(this RechargeDefinition def)
         {
             return def.GetProperty<int>(EngineRechargeProps.START_MAX_RECHARGE);

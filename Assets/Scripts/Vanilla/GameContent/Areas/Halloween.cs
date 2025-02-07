@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Carts;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Grids;
 using MVZ2.GameContent.Obstacles;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -20,7 +17,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [Definition(VanillaAreaNames.halloween)]
+    [AreaDefinition(VanillaAreaNames.halloween)]
     public class Halloween : AreaDefinition
     {
         public Halloween(string nsp, string name) : base(nsp, name)
@@ -123,7 +120,7 @@ namespace MVZ2.GameContent.Areas
         public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(ID, PROP_RNG, rng);
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;
-        public const string PROP_RNG = "HalloweenRNG";
+        public static readonly VanillaLevelPropertyMeta PROP_RNG = new VanillaLevelPropertyMeta("HalloweenRNG");
         public const int STATUE_MIN_COLUMN = 5;
     }
 }

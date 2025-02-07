@@ -1,7 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;

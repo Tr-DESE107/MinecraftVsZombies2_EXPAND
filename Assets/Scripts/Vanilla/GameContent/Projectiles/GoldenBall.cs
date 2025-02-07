@@ -1,14 +1,13 @@
 ﻿using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.goldenBall)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.goldenBall)]
     public class GoldenBall : ProjectileBehaviour
     {
         public GoldenBall(string nsp, string name) : base(nsp, name)

@@ -151,11 +151,11 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性
-        public T GetProperty<T>(string name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(string name, object value)
+        public void SetProperty(PropertyKey name, object value)
         {
             properties.SetProperty(name, value);
         }
@@ -163,11 +163,11 @@ namespace PVZEngine.Level
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateBuffedProperty(string name)
+        private void UpdateBuffedProperty(PropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(string name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
         {
             if (StageDefinition != null && StageDefinition.TryGetProperty(name, out var stageProp))
             {
@@ -183,31 +183,20 @@ namespace PVZEngine.Level
             return false;
         }
 
-        void IPropertyModifyTarget.GetModifierItems(string name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(string name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
         {
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(string name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
         {
             return null;
         }
-        IEnumerable<string> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             return buffs.GetModifierPropertyNames();
-        }
-        #endregion
-
-        #region 字段
-        public T GetField<T>(string category, string name)
-        {
-            return properties.GetField<T>(category, name);
-        }
-        public void SetField(string category, string name, object value)
-        {
-            properties.SetField(category, name, value);
         }
         #endregion
 

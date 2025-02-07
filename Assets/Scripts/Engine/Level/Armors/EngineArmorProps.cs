@@ -2,12 +2,17 @@
 
 namespace PVZEngine.Armors
 {
+    [PropertyRegistryRegion]
     public static class EngineArmorProps
     {
-        public const string TINT = "tint";
-        public const string COLOR_OFFSET = "colorOffset";
-        public const string MAX_HEALTH = "maxHealth";
-        public const string SHELL = "shell";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta TINT = Get("tint");
+        public static readonly PropertyMeta COLOR_OFFSET = Get("colorOffset");
+        public static readonly PropertyMeta MAX_HEALTH = Get("maxHealth");
+        public static readonly PropertyMeta SHELL = Get("shell");
         public static NamespaceID GetShellID(this Armor armor, bool ignoreBuffs = false)
         {
             return armor.GetProperty<NamespaceID>(SHELL, ignoreBuffs: ignoreBuffs);

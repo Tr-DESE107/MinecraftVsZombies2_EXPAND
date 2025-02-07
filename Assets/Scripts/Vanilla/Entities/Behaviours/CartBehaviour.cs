@@ -5,6 +5,7 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -121,16 +122,18 @@ namespace MVZ2.Vanilla.Entities
             SetCartTriggerCharge(entity, charge);
         }
 
-        public static void SetCartTriggerCharge(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_TRIGGER_CHARGE, value);
-        public static int GetCartTriggerCharge(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_TRIGGER_CHARGE);
-        public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_TRIGGER_CHARGING, value);
-        public static bool IsCartTriggerCharging(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_TRIGGER_CHARGING);
+        public static void SetCartTriggerCharge(Entity entity, int value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGE, value);
+        public static int GetCartTriggerCharge(Entity entity) => entity.GetBehaviourField<int>(FIELD_TRIGGER_CHARGE);
+        public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGING, value);
+        public static bool IsCartTriggerCharging(Entity entity) => entity.GetBehaviourField<bool>(FIELD_TRIGGER_CHARGING);
 
-        public const string FIELD_TRIGGER_CHARGE = "TriggerCharge";
-        public const string FIELD_TRIGGER_CHARGING = "TriggerCharging";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta FIELD_TRIGGER_CHARGE = new VanillaEntityPropertyMeta("TriggerCharge");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta FIELD_TRIGGER_CHARGING = new VanillaEntityPropertyMeta("TriggerCharging");
         public const float TRIGGER_DISTANCE = 28;
         public const int MAX_TRIGGER_CHARGE = 30;
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "cart_behaviour");
+        private const string PROP_REGION = "cart_behaviour";
     }
 
 }

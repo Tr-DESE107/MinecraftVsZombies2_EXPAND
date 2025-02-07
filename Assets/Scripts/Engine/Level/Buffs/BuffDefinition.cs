@@ -16,7 +16,7 @@ namespace PVZEngine.Buffs
         {
             return modifiers.ToArray();
         }
-        public PropertyModifier[] GetModifiers(string propName)
+        public PropertyModifier[] GetModifiers(PropertyKey propName)
         {
             return modifiers.Where(e => e.PropertyName == propName).ToArray();
         }

@@ -1,15 +1,15 @@
 ﻿using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.goldenApple)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.goldenApple)]
     public class GoldenApple : ContraptionBehaviour
     {
         public GoldenApple(string nsp, string name) : base(nsp, name)

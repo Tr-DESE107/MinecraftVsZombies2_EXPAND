@@ -1,4 +1,5 @@
 ﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -30,13 +31,14 @@ namespace MVZ2.GameContent.Stages
         }
 
         #region 关卡属性
-        public FrameTimer GetConveyorTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, "ConveyorTimer");
-        public void SetConveyorTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, "ConveyorTimer", value);
+        public FrameTimer GetConveyorTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_CONVEYOR_TIMER);
+        public void SetConveyorTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_CONVEYOR_TIMER, value);
         #endregion
 
         #region 属性字段
-        public static readonly NamespaceID ID = new NamespaceID("mvz2", "conveyor");
-        public const string PROP_CONVEYOR_TIMER = "ConveyorTimer";
+        public const string PROP_REGION = "conveyor";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_CONVEYOR_TIMER = new VanillaLevelPropertyMeta("ConveyorTimer");
         public const int CONVEYOR_INTERVAL = 120;
         #endregion
     }

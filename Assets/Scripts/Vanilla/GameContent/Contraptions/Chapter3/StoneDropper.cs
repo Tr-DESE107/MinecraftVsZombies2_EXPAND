@@ -1,13 +1,13 @@
 ﻿using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.stoneDropper)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.stoneDropper)]
     public class StoneDropper : DispenserFamily
     {
         public StoneDropper(string nsp, string name) : base(nsp, name)

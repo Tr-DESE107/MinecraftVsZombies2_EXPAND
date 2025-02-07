@@ -1,30 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [Definition(VanillaBossNames.frankenstein)]
+    [EntityBehaviourDefinition(VanillaBossNames.frankenstein)]
     public partial class Frankenstein : BossBehaviour
     {
         public Frankenstein(string nsp, string name) : base(nsp, name)
@@ -218,11 +215,11 @@ namespace MVZ2.GameContent.Bosses
 
         public static bool IsParalyzed(Entity boss)
         {
-            return boss.GetBehaviourField<bool>(ID, "Paralyzed");
+            return boss.GetBehaviourField<bool>(ID, PROP_PARALYZED);
         }
         public static void SetParalyzed(Entity boss, bool value)
         {
-            boss.SetBehaviourField(ID, "Paralyzed", value);
+            boss.SetBehaviourField(ID, PROP_PARALYZED, value);
         }
 
         public static bool IsSteelPhase(Entity boss)
@@ -327,17 +324,19 @@ namespace MVZ2.GameContent.Bosses
         private static Detector gunDetector = new FrankensteinGunDetector(VanillaProjectileID.bullet);
         private static Detector missileDetector = new FrankensteinGunDetector(VanillaProjectileID.missile);
 
-        private const string PROP_JUMP_TARGET = "JumpTarget";
-        private const string PROP_STEEL_PHASE = "SteelPhase";
+        private static readonly VanillaEntityPropertyMeta PROP_PARALYZED = new VanillaEntityPropertyMeta("Paralyzed");
 
-        private const string PROP_GUN_DIRECTION = "GunDirection";
-        private const string PROP_MISSILE_DIRECTION = "MissileDirection";
+        private static readonly VanillaEntityPropertyMeta PROP_JUMP_TARGET = new VanillaEntityPropertyMeta("JumpTarget");
+        private static readonly VanillaEntityPropertyMeta PROP_STEEL_PHASE = new VanillaEntityPropertyMeta("SteelPhase");
 
-        private const string PROP_DETECT_TIMER = "DetectTimer";
+        private static readonly VanillaEntityPropertyMeta PROP_GUN_DIRECTION = new VanillaEntityPropertyMeta("GunDirection");
+        private static readonly VanillaEntityPropertyMeta PROP_MISSILE_DIRECTION = new VanillaEntityPropertyMeta("MissileDirection");
 
-        private const string PROP_SHOCK_RNG = "ShockRNG";
-        private const string PROP_JUMP_RNG = "JumpRNG";
-        private const string PROP_BULLET_RNG = "BulletRNG";
+        private static readonly VanillaEntityPropertyMeta PROP_DETECT_TIMER = new VanillaEntityPropertyMeta("DetectTimer");
+
+        private static readonly VanillaEntityPropertyMeta PROP_SHOCK_RNG = new VanillaEntityPropertyMeta("ShockRNG");
+        private static readonly VanillaEntityPropertyMeta PROP_JUMP_RNG = new VanillaEntityPropertyMeta("JumpRNG");
+        private static readonly VanillaEntityPropertyMeta PROP_BULLET_RNG = new VanillaEntityPropertyMeta("BulletRNG");
 
         private const int STATE_IDLE = VanillaEntityStates.FRANKENSTEIN_IDLE;
         private const int STATE_JUMP = VanillaEntityStates.FRANKENSTEIN_JUMP;

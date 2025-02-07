@@ -1,10 +1,9 @@
-﻿using MVZ2.Vanilla;
-using MVZ2Logic;
+﻿using MVZ2Logic;
 using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [Definition(VanillaNoteNames.help)]
+    [NoteDefinition(VanillaNoteNames.help)]
     public class HelpNote : NoteDefinition
     {
         public HelpNote(string nsp, string name) : base(nsp, name)

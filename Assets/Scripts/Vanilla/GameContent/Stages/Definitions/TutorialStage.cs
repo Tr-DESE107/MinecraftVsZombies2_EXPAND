@@ -10,10 +10,10 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Talk;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -25,7 +25,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.tutorial)]
+    [StageDefinition(VanillaStageNames.tutorial)]
     public class TutorialStage : StageDefinition
     {
         public TutorialStage(string nsp, string name) : base(nsp, name)
@@ -485,8 +485,8 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "17")]
         public const string STRING_STATE_17 = "试着挖掉所有器械！";
 
-        public const string PROP_STATE = "state";
-        public const string PROP_TUTORIAL_RNG = "tutorialRNG";
-        public const string PROP_TUTORIAL_TIMER = "tutorialTimer";
+        public static readonly VanillaLevelPropertyMeta PROP_STATE = new VanillaLevelPropertyMeta("state");
+        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_RNG = new VanillaLevelPropertyMeta("tutorialRNG");
+        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta("tutorialTimer");
     }
 }

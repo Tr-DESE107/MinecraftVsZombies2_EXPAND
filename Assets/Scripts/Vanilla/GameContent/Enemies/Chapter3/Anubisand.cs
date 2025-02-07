@@ -1,16 +1,17 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.anubisand)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.anubisand)]
     public class Anubisand : StateEnemy
     {
         public Anubisand(string nsp, string name) : base(nsp, name)
@@ -64,8 +65,8 @@ namespace MVZ2.GameContent.Enemies
         public static float GetBlackholeBlend(Entity enemy) => enemy.GetBehaviourField<float>(ID, FIELD_BLACKHOLE_BLEND);
         public static void SetBlackholeBlend(Entity enemy, float value) => enemy.SetBehaviourField(ID, FIELD_BLACKHOLE_BLEND, value);
 
-        public const string FIELD_SUMMON_TIMER = "SummonTimer";
-        public const string FIELD_BLACKHOLE_BLEND = "BlackholeBlend";
+        public static readonly VanillaEntityPropertyMeta FIELD_SUMMON_TIMER = new VanillaEntityPropertyMeta("SummonTimer");
+        public static readonly VanillaEntityPropertyMeta FIELD_BLACKHOLE_BLEND = new VanillaEntityPropertyMeta("BlackholeBlend");
         public const int SUMMON_INTERVAL = 180;
         public static readonly Vector3 SUMMON_OFFSET = new Vector3(30, 80, 0);
         public static readonly NamespaceID ID = VanillaEnemyID.anubisand;

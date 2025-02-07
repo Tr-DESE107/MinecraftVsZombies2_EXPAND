@@ -1,11 +1,10 @@
 ﻿using MVZ2.GameContent.Armors;
-using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.ironHelmettedZombie)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.ironHelmettedZombie)]
     public class IronHelmettedZombie : Zombie
     {
         public IronHelmettedZombie(string nsp, string name) : base(nsp, name)

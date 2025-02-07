@@ -9,12 +9,12 @@ namespace PVZEngine.Modifiers
     }
     public abstract class PropertyModifier : IPropertyModifier
     {
-        public PropertyModifier(string propertyName, object valueConst)
+        public PropertyModifier(PropertyKey propertyName, object valueConst)
         {
             PropertyName = propertyName;
             ConstValue = valueConst;
         }
-        public PropertyModifier(string propertyName, string containerPropertyName)
+        public PropertyModifier(PropertyKey propertyName, PropertyKey containerPropertyName)
         {
             PropertyName = propertyName;
             UsingContainerPropertyName = containerPropertyName;
@@ -29,7 +29,7 @@ namespace PVZEngine.Modifiers
         }
         public object GetModifierValue(IModifierContainer container)
         {
-            if (!string.IsNullOrEmpty(UsingContainerPropertyName))
+            if (PropertyKey.IsValid(UsingContainerPropertyName))
             {
                 return container.GetProperty(UsingContainerPropertyName);
             }
@@ -39,17 +39,17 @@ namespace PVZEngine.Modifiers
             }
         }
         public abstract ModifierCalculator GetCalculator();
-        public string PropertyName { get; set; }
+        public PropertyKey PropertyName { get; set; }
         public object ConstValue { get; set; }
-        public string UsingContainerPropertyName { get; set; }
+        public PropertyKey UsingContainerPropertyName { get; set; }
     }
     public abstract class PropertyModifier<T> : PropertyModifier
     {
-        protected PropertyModifier(string propertyName, T valueConst) : base(propertyName, valueConst)
+        protected PropertyModifier(PropertyKey propertyName, T valueConst) : base(propertyName, valueConst)
         {
         }
 
-        protected PropertyModifier(string propertyName, string buffPropertyName) : base(propertyName, buffPropertyName)
+        protected PropertyModifier(PropertyKey propertyName, PropertyKey buffPropertyName) : base(propertyName, buffPropertyName)
         {
         }
         public T GetModifierValueGeneric(IModifierContainer container)

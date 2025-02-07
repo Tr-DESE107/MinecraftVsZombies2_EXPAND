@@ -1,9 +1,9 @@
-﻿using MVZ2.Vanilla;
-using PVZEngine.Entities;
+﻿using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.flagZombie)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.flagZombie)]
     public class FlagZombie : Zombie
     {
         public FlagZombie(string nsp, string name) : base(nsp, name)

@@ -1,19 +1,20 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.pistenser)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.pistenser)]
     public class Pistenser : DispenserFamily
     {
         public Pistenser(string nsp, string name) : base(nsp, name)
@@ -208,27 +209,31 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static Entity GetExtendTarget(Entity entity)
         {
-            var id = entity.GetBehaviourField<EntityID>(ID, "ExtendTarget");
+            var id = entity.GetBehaviourField<EntityID>(ID, PROP_EXTEND_TARGET);
             if (id == null)
                 return null;
             return id.GetEntity(entity.Level);
         }
         public static void SetExtendTarget(Entity entity, Entity value)
         {
-            entity.SetBehaviourField(ID, "ExtendTarget", new EntityID(value));
+            entity.SetBehaviourField(ID, PROP_EXTEND_TARGET, new EntityID(value));
         }
-        public static FrameTimer GetExtendDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "ExtendDetectTimer");
-        public static void SetExtendDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, "ExtendDetectTimer", value);
-        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
-        public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, "EvocationTimer", value);
+        public static FrameTimer GetExtendDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EXTEND_DETECT_TIMER);
+        public static void SetExtendDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_EXTEND_DETECT_TIMER, value);
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
+        public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, value);
         public static float GetExtend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_EXTEND);
         public static void SetExtend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_EXTEND, value);
-        public static int GetExtendDirection(Entity entity) => entity.GetBehaviourField<int>(ID, "ExtendDirection");
-        public static void SetExtendDirection(Entity entity, int value) => entity.SetBehaviourField(ID, "ExtendDirection", value);
+        public static int GetExtendDirection(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_EXTEND_DIRECTION);
+        public static void SetExtendDirection(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_EXTEND_DIRECTION, value);
         private static readonly NamespaceID ID = VanillaContraptionID.pistenser;
-        public const string PROP_EXTEND = "Extend";
-        public const string PROP_EXTEND_SHOOT_OFFSET = "ExtendShootOffset";
-        public const string PROP_BLOCKS_JUMP = "BlocksJump";
+        public static readonly VanillaEntityPropertyMeta PROP_EXTEND = new VanillaEntityPropertyMeta("Extend");
+        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_SHOOT_OFFSET = new VanillaEntityPropertyMeta("ExtendShootOffset");
+        public static readonly VanillaEntityPropertyMeta PROP_BLOCKS_JUMP = new VanillaEntityPropertyMeta("BlocksJump");
+        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_DIRECTION = new VanillaEntityPropertyMeta("ExtendDirection");
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_DETECT_TIMER = new VanillaEntityPropertyMeta("ExtendDetectTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_TARGET = new VanillaEntityPropertyMeta("ExtendTarget");
         public const float BASE_SHOT_HEIGHT = 30;
         public const float EXTEND_SPEED = 10;
         public const int DETECT_INTERVAL = 8;

@@ -1,16 +1,15 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.hoe)]
+    [EntityBehaviourDefinition(VanillaEffectNames.hoe)]
     public class Hoe : EffectBehaviour
     {
 
@@ -91,6 +90,6 @@ namespace MVZ2.GameContent.Effects
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
 
         public static readonly NamespaceID ID = VanillaEffectID.hoe;
-        public const string PROP_STATE_TIMER = "StateTimer";
+        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
     }
 }

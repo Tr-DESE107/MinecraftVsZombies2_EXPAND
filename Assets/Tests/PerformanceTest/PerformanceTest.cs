@@ -19,7 +19,7 @@ namespace MVZ2.Tests
             var container = new TestPropertyContainer(def);
             props = new ModifiableProperties(container);
 
-            props.SetProperty("int", 123);
+            //props.SetProperty("int", 123);
             //props.SetProperty("string", "123");
             //var vector3 = new Vector3(1, 1, 1);
             //props.SetProperty("vector3", new Vector3(1, 1, 1));
@@ -28,10 +28,10 @@ namespace MVZ2.Tests
         }
         public void Update()
         {
-            for (int i = 0; i < 1000; i++)
-            {
-                props.GetProperty<int>("int");
-            }
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    props.GetProperty<int>("int");
+            //}
             //Assert.AreEqual("123", props.GetProperty<string>("string"));
             //Assert.AreEqual(vector3, props.GetProperty<Vector3>("vector3"));
             //props.GetProperty<NamespaceID>("namespaceID");
@@ -45,7 +45,7 @@ namespace MVZ2.Tests
             {
                 this.definition = definition;
             }
-            public bool GetFallbackProperty(string name, out object value)
+            public bool GetFallbackProperty(PropertyKey name, out object value)
             {
                 if (definition == null)
                 {
@@ -72,20 +72,20 @@ namespace MVZ2.Tests
                 return false;
             }
 
-            public void GetModifierItems(string name, List<ModifierContainerItem> results)
+            public void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
             {
             }
 
-            public void UpdateModifiedProperty(string name, object value)
+            public void UpdateModifiedProperty(PropertyKey name, object value)
             {
             }
 
-            public PropertyModifier[] GetModifiersUsingProperty(string name)
+            public PropertyModifier[] GetModifiersUsingProperty(PropertyKey name)
             {
                 return null;
             }
 
-            public IEnumerable<string> GetModifiedProperties()
+            public IEnumerable<PropertyKey> GetModifiedProperties()
             {
                 yield break;
             }

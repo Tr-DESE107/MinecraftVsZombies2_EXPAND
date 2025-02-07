@@ -1,10 +1,10 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Carts
 {
-    [Definition(VanillaCartNames.nyanCat)]
+    [EntityBehaviourDefinition(VanillaCartNames.nyanCat)]
     public class NyanCat : CartBehaviour
     {
         public NyanCat(string nsp, string name) : base(nsp, name)

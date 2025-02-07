@@ -1,15 +1,16 @@
 ﻿using MVZ2.GameContent.Detections;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.skeleton)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.skeleton)]
     public class Skeleton : StateEnemy
     {
         public Skeleton(string nsp, string name) : base(nsp, name)
@@ -105,8 +106,8 @@ namespace MVZ2.GameContent.Enemies
         }
         private Detector detector;
         private static readonly NamespaceID ID = VanillaEnemyID.skeleton;
-        public const string PROP_BOW_FIRED = "bowFired";
-        public const string PROP_BOW_POWER = "bowPower";
+        public static readonly VanillaEntityPropertyMeta PROP_BOW_FIRED = new VanillaEntityPropertyMeta("bowFired");
+        public static readonly VanillaEntityPropertyMeta PROP_BOW_POWER = new VanillaEntityPropertyMeta("bowPower");
         public const int BOW_POWER_PULL_SPEED = 100;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;

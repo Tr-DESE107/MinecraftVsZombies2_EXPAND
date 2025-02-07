@@ -1,16 +1,14 @@
 ﻿using MVZ2.HeldItems;
-using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [Definition(VanillaHeldItemNames.entity)]
+    [HeldItemDefinition(VanillaHeldItemNames.entity)]
     public class EntityHeldItemDefinition : HeldItemDefinition
     {
         public EntityHeldItemDefinition(string nsp, string name) : base(nsp, name)

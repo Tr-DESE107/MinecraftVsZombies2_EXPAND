@@ -1,12 +1,10 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Grids;
-using MVZ2Logic;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -101,11 +99,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool IsEvoked(this Entity contraption)
         {
-            return contraption.GetProperty<bool>("Evoked");
+            return contraption.GetProperty<bool>(PROP_EVOKED);
         }
         public static void SetEvoked(this Entity contraption, bool value)
         {
-            contraption.SetProperty("Evoked", value);
+            contraption.SetProperty(PROP_EVOKED, value);
         }
 
         public static void ShortCircuit(this Entity contraption, int time)
@@ -113,5 +111,8 @@ namespace MVZ2.Vanilla.Entities
             var buff = contraption.AddBuff<FrankensteinShockedBuff>();
             buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, time);
         }
+        private const string PROP_REGION = "contraptions";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_EVOKED = new VanillaEntityPropertyMeta("Evoked");
     }
 }

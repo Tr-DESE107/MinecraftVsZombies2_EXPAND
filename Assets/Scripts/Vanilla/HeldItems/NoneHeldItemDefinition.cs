@@ -1,15 +1,12 @@
-﻿using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
-using MVZ2.HeldItems;
+﻿using MVZ2.HeldItems;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.HeldItems
 {
-    [Definition(BuiltinHeldItemNames.none)]
+    [HeldItemDefinition(BuiltinHeldItemNames.none)]
     public class NoneHeldItemDefinition : HeldItemDefinition
     {
         public NoneHeldItemDefinition(string nsp, string name) : base(nsp, name)

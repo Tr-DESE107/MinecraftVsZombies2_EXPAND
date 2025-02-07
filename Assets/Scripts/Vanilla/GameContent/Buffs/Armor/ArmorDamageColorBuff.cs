@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Armors
 {
-    [Definition(VanillaBuffNames.armorDamageColor)]
+    [BuffDefinition(VanillaBuffNames.armorDamageColor)]
     public class ArmorDamageColorBuff : BuffDefinition
     {
         public ArmorDamageColorBuff(string nsp, string name) : base(nsp, name)
@@ -28,6 +29,6 @@ namespace MVZ2.GameContent.Buffs.Armors
                 return;
             buff.Remove();
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
     }
 }

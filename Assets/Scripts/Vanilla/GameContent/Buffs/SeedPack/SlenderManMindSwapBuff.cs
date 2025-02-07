@@ -1,20 +1,18 @@
-﻿using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
-using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Buffs.SeedPacks
 {
-    [Definition(VanillaBuffNames.SeedPack.slendermanMindSwap)]
+    [BuffDefinition(VanillaBuffNames.SeedPack.slendermanMindSwap)]
     public class SlenderManMindSwapBuff : BuffDefinition
     {
         public SlenderManMindSwapBuff(string nsp, string name) : base(nsp, name)
@@ -40,7 +38,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
             if (timeout <= 0)
             {
                 buff.Remove();
-            }    
+            }
         }
         private void TransformBlueprint(Buff buff)
         {
@@ -65,7 +63,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
                 buff.Level.ResetHeldItem();
             }
         }
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_TARGET_ID = "TargetID";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_TARGET_ID = new VanillaBuffPropertyMeta("TargetID");
     }
 }

@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.dispenser)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.dispenser)]
     public class Dispenser : DispenserFamily
     {
         public Dispenser(string nsp, string name) : base(nsp, name)
@@ -39,8 +40,8 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Reset();
             entity.SetEvoked(true);
         }
-        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
-        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "EvocationTimer", timer);
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
+        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
         private void EvokedUpdate(Entity entity)
         {
             var evocationTimer = GetEvocationTimer(entity);
@@ -58,5 +59,6 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
         private static readonly NamespaceID ID = VanillaContraptionID.dispenser;
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
     }
 }

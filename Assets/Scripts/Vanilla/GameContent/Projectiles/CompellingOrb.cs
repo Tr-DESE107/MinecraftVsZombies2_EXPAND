@@ -1,17 +1,18 @@
 ﻿using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.compellingOrb)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.compellingOrb)]
     public class CompellingOrb : ProjectileBehaviour
     {
         public CompellingOrb(string nsp, string name) : base(nsp, name)
@@ -70,11 +71,12 @@ namespace MVZ2.GameContent.Projectiles
         {
             return !target.IsLoyal() && !target.IsCharmed();
         }
-        public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "StateTimer", timer);
-        public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
+        public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
+        public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_FLY = VanillaEntityStates.WALK;
 
         private static readonly NamespaceID ID = VanillaProjectileID.compellingOrb;
+        private static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
     }
 }

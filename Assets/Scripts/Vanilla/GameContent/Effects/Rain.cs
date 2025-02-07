@@ -1,13 +1,13 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.rain)]
+    [EntityBehaviourDefinition(VanillaEffectNames.rain)]
     public class Rain : EffectBehaviour
     {
 

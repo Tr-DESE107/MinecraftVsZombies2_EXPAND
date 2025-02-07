@@ -1,14 +1,13 @@
 ﻿using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using PVZEngine.Modifiers;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.redstoneCarrier)]
+    [BuffDefinition(VanillaBuffNames.redstoneCarrier)]
     public class RedstoneCarrierBuff : BuffDefinition
     {
         public RedstoneCarrierBuff(string nsp, string name) : base(nsp, name)

@@ -1,6 +1,6 @@
 ﻿using MVZ2.GameContent.Detections;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
@@ -47,13 +47,15 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("Shoot");
             return entity.ShootProjectile();
         }
-        public static FrameTimer GetShootTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "ShootTimer");
-        public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "ShootTimer", timer);
+        public static FrameTimer GetShootTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_SHOOT_TIMER);
+        public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_SHOOT_TIMER, timer);
         protected virtual int GetTimerTime(Entity entity)
         {
             return Mathf.FloorToInt(entity.RNG.Next(40, 45) * entity.GetAttackSpeed());
         }
         protected DispenserDetector detector;
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "dispenser_family");
+        private const string PROP_REGION = "dispenser_family";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta("ShootTimer");
     }
 }

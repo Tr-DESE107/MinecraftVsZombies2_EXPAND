@@ -1,15 +1,15 @@
 using System;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.mummyGas)]
+    [EntityBehaviourDefinition(VanillaEffectNames.mummyGas)]
     public class MummyGas : EffectBehaviour
     {
 

@@ -1,16 +1,16 @@
 ﻿using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.diamondSpikes)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.diamondSpikes)]
     public class DiamondSpikes : SpikesBehaviour
     {
         public DiamondSpikes(string nsp, string name) : base(nsp, name)

@@ -1,17 +1,18 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.dullahanHead)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.dullahanHead)]
     public class DullahanHead : MeleeEnemy
     {
         public DullahanHead(string nsp, string name) : base(nsp, name)
@@ -50,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
         {
             entity.SetBehaviourField(ID, FIELD_BODY, new EntityID(value));
         }
-        public const string FIELD_BODY = "Body";
+        public static readonly VanillaEntityPropertyMeta FIELD_BODY = new VanillaEntityPropertyMeta("Body");
         private static readonly NamespaceID ID = VanillaEnemyID.dullahanHead;
     }
 }

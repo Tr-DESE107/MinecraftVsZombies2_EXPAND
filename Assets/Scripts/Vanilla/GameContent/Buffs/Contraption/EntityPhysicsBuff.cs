@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(VanillaBuffNames.entityPhysics)]
+    [BuffDefinition(VanillaBuffNames.entityPhysics)]
     public class EntityPhysicsBuff : BuffDefinition
     {
         public EntityPhysicsBuff(string nsp, string name) : base(nsp, name)
@@ -36,6 +37,6 @@ namespace MVZ2.GameContent.Buffs
             }
             buff.SetProperty(PROP_FRICTION, friction);
         }
-        public const string PROP_FRICTION = "Friction";
+        public static readonly VanillaBuffPropertyMeta PROP_FRICTION = new VanillaBuffPropertyMeta("Friction");
     }
 }

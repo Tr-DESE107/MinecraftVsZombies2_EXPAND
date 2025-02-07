@@ -2,20 +2,20 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.motherTerror)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.motherTerror)]
     public class MotherTerror : MeleeEnemy
     {
         public MotherTerror(string nsp, string name) : base(nsp, name)
@@ -125,6 +125,6 @@ namespace MVZ2.GameContent.Enemies
             return HasEggs(entity) ? 1 : -1;
         }
         public static readonly NamespaceID ID = VanillaEnemyID.motherTerror;
-        public const string PROP_RESTORE_EGG_TIMER = "RestoreEggTimer";
+        public static readonly VanillaEntityPropertyMeta PROP_RESTORE_EGG_TIMER = new VanillaEntityPropertyMeta("RestoreEggTimer");
     }
 }

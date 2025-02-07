@@ -1,11 +1,12 @@
 ﻿using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.tutorialTriggerDisable)]
+    [BuffDefinition(VanillaBuffNames.Level.tutorialTriggerDisable)]
     public class TutorialTriggerDisableBuff : BuffDefinition
     {
         public TutorialTriggerDisableBuff(string nsp, string name) : base(nsp, name)

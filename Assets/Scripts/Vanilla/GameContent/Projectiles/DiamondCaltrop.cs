@@ -1,12 +1,11 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
-using PVZEngine.Modifiers;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.diamondCaltrop)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.diamondCaltrop)]
     public class DiamondCaltrop : ProjectileBehaviour
     {
         public DiamondCaltrop(string nsp, string name) : base(nsp, name)

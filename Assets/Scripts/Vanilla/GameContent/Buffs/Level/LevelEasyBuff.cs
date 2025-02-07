@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -10,7 +9,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.levelEasy)]
+    [BuffDefinition(VanillaBuffNames.Level.levelEasy)]
     public class LevelEasyBuff : BuffDefinition
     {
         public LevelEasyBuff(string nsp, string name) : base(nsp, name)

@@ -1,11 +1,12 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.healParticles)]
+    [EntityBehaviourDefinition(VanillaEffectNames.healParticles)]
     public class HealParticles : EffectBehaviour
     {
         #region 公有方法
@@ -27,11 +28,11 @@ namespace MVZ2.GameContent.Effects
         }
         public static float GetEmitSpeed(Entity entity)
         {
-            return entity.GetBehaviourField<float>(ID, "EmitSpeed");
+            return entity.GetBehaviourField<float>(ID, PROP_EMIT_SPEED);
         }
         public static void SetEmitSpeed(Entity entity, float value)
         {
-            entity.SetBehaviourField(ID, "EmitSpeed", value);
+            entity.SetBehaviourField(ID, PROP_EMIT_SPEED, value);
         }
         public static void AddEmitSpeed(Entity entity, float value)
         {
@@ -40,5 +41,6 @@ namespace MVZ2.GameContent.Effects
         #endregion
 
         public static readonly NamespaceID ID = VanillaEffectID.healParticles;
+        public static readonly VanillaEntityPropertyMeta PROP_EMIT_SPEED = new VanillaEntityPropertyMeta("EmitSpeed");
     }
 }

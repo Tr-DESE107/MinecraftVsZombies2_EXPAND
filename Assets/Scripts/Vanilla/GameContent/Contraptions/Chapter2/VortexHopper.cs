@@ -2,18 +2,18 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.vortexHopper)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.vortexHopper)]
     public class VortexHopper : ContraptionBehaviour
     {
         public VortexHopper(string nsp, string name) : base(nsp, name)

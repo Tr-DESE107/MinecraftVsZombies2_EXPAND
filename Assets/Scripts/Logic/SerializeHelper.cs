@@ -45,6 +45,7 @@ namespace MVZ2Logic
             // PVZEngine.Base
             RegisterClass<NamespaceID>();
             RegisterClass<SerializablePropertyDictionary>();
+            RegisterClass<SerializablePropertyDictionaryString>();
 
             // PVZEngine.Level
             RegisterClass<EntityReferenceChain>();

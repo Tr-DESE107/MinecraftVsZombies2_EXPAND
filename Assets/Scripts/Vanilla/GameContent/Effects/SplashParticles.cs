@@ -1,11 +1,10 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
-using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.splashParticles)]
+    [EntityBehaviourDefinition(VanillaEffectNames.splashParticles)]
     public class SplashParticles : EffectBehaviour
     {
         #region 公有方法

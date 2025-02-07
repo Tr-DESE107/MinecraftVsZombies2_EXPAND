@@ -4,7 +4,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [Definition(VanillaRechargeNames.veryLongTime)]
+    [RechargeDefinition(VanillaRechargeNames.veryLongTime)]
     public class VeryLongRecharge : RechargeDefinition
     {
         public VeryLongRecharge(string nsp, string name) : base(nsp, name)

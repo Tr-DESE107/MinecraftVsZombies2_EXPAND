@@ -1,15 +1,14 @@
-﻿using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.soulsandSummoned)]
+    [BuffDefinition(VanillaBuffNames.soulsandSummoned)]
     public class SoulsandSummonedBuff : BuffDefinition
     {
         public SoulsandSummonedBuff(string nsp, string name) : base(nsp, name)
@@ -34,7 +33,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public const string PROP_SCALE = "Scale";
-        public const string PROP_TIMER = "Timer";
+        public static readonly VanillaBuffPropertyMeta PROP_SCALE = new VanillaBuffPropertyMeta("Scale");
+        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
     }
 }

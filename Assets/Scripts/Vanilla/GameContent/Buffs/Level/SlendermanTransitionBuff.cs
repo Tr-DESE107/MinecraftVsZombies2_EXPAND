@@ -1,19 +1,20 @@
 ﻿using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.slendermanTransition)]
+    [BuffDefinition(VanillaBuffNames.Level.slendermanTransition)]
     public class SlendermanTransitionBuff : BuffDefinition
     {
         public SlendermanTransitionBuff(string nsp, string name) : base(nsp, name)
@@ -79,8 +80,8 @@ namespace MVZ2.GameContent.Buffs.Level
             addition = Mathf.Clamp01(addition + nightSpeed);
             buff.SetProperty(PROP_NIGHT_ADDITION, addition);
         }
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_NIGHT_ADDITION = "NightAddition";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_NIGHT_ADDITION = new VanillaBuffPropertyMeta("NightAddition");
         public const float NIGHT_SPEED = 0.07f;
         public const int MAX_TIMEOUT = 270;
         public const int CREATE_DARKNESS_TIMEOUT = MAX_TIMEOUT - 90;

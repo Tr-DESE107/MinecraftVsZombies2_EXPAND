@@ -1,12 +1,11 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -259,20 +258,26 @@ namespace MVZ2.GameContent.Stages
         #endregion
 
         #region 关卡属性
-        public FrameTimer GetWaveTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, "WaveTimer");
-        public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, "WaveTimer", value);
+        public FrameTimer GetWaveTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_WAVE_TIMER);
+        public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_WAVE_TIMER, value);
 
-        public FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, "FinalWaveEventTimer");
-        public void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, "FinalWaveEventTimer", value);
+        public FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_FINAL_WAVE_EVENT_TIMER);
+        public void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_FINAL_WAVE_EVENT_TIMER, value);
 
-        public float GetWaveMaxHealth(LevelEngine level) => level.GetBehaviourField<float>(ID, "WaveMaxHealth");
-        public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetBehaviourField(ID, "WaveMaxHealth", value);
+        public float GetWaveMaxHealth(LevelEngine level) => level.GetBehaviourField<float>(PROP_WAVE_MAX_HEALTH);
+        public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetBehaviourField(PROP_WAVE_MAX_HEALTH, value);
         public void AddWaveMaxHealth(LevelEngine level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
         #endregion
 
         #region 属性字段
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "wave_stage_base");
+        private const string PROP_REGION = "wave_stage_base";
         public bool SpawnFlagZombie { get; set; } = true;
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_WAVE_TIMER = new VanillaLevelPropertyMeta("WaveTimer");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_FINAL_WAVE_EVENT_TIMER = new VanillaLevelPropertyMeta("FinalWaveEventTimer");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_WAVE_MAX_HEALTH = new VanillaLevelPropertyMeta("WaveMaxHealth");
         public const int STATE_NOT_STARTED = 0;
         public const int STATE_STARTED = 1;
         public const int STATE_HUGE_WAVE_APPROACHING = 2;

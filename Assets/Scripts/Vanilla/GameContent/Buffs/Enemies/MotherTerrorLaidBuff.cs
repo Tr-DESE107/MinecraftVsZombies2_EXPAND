@@ -1,13 +1,11 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.motherTerrorLaid)]
+    [BuffDefinition(VanillaBuffNames.motherTerrorLaid)]
     public class MotherTerrorLaidBuff : BuffDefinition
     {
         public MotherTerrorLaidBuff(string nsp, string name) : base(nsp, name)

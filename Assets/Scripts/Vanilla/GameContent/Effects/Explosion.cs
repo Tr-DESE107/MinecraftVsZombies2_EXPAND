@@ -1,10 +1,10 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.explosion)]
+    [EntityBehaviourDefinition(VanillaEffectNames.explosion)]
     public class Explosion : EffectBehaviour
     {
 

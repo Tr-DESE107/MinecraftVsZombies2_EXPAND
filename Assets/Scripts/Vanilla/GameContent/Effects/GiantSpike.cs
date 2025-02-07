@@ -1,14 +1,10 @@
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.giantSpike)]
+    [EntityBehaviourDefinition(VanillaEffectNames.giantSpike)]
     public class GiantSpike : EffectBehaviour
     {
         #region 公有方法

@@ -172,7 +172,7 @@ namespace MVZ2.Vanilla.Detections
             for (int i = resultsBuffer.Count - 1; i >= 0; i--)
             {
                 var collider = resultsBuffer[i];
-                
+
                 if (!bounds.Intersects(collider.GetBoundingBox()))
                 {
                     resultsBuffer.RemoveAt(i);

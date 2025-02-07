@@ -1,18 +1,18 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.moonlightSensor)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.moonlightSensor)]
     public class MoonlightSensor : ContraptionBehaviour
     {
         public MoonlightSensor(string nsp, string name) : base(nsp, name)
@@ -63,19 +63,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetProductionTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "ProductionTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_PRODUCTION_TIMER);
         }
         public static void SetProductionTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "ProductionTimer", timer);
+            entity.SetBehaviourField(ID, PROP_PRODUCTION_TIMER, timer);
         }
         public static FrameTimer GetUpgradeTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "UpgradeTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_UPGRADE_TIMER);
         }
         public static void SetUpgradeTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "UpgradeTimer", timer);
+            entity.SetBehaviourField(ID, PROP_UPGRADE_TIMER, timer);
         }
         public static FrameTimer GetOrCreateUpgradeTimer(Entity entity)
         {
@@ -89,11 +89,11 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static bool GetUpgraded(Entity entity)
         {
-            return entity.GetBehaviourField<bool>(ID, "Upgraded");
+            return entity.GetBehaviourField<bool>(ID, PROP_UPGRADED);
         }
         public static void SetUpgraded(Entity entity, bool value)
         {
-            entity.SetBehaviourField(ID, "Upgraded", value);
+            entity.SetBehaviourField(ID, PROP_UPGRADED, value);
         }
         private void ProductionUpdate(Entity entity)
         {
@@ -125,5 +125,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int UPGRADE_TIME = 3600;
         private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);
         private static readonly NamespaceID ID = VanillaContraptionID.moonlightSensor;
+        public static readonly VanillaEntityPropertyMeta PROP_UPGRADED = new VanillaEntityPropertyMeta("Upgraded");
+        public static readonly VanillaEntityPropertyMeta PROP_UPGRADE_TIMER = new VanillaEntityPropertyMeta("UpgradeTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
     }
 }

@@ -7,39 +7,38 @@ namespace PVZEngine
 {
     public class PropertyDictionary
     {
-        public bool SetProperty(string name, object value)
+        public bool SetProperty(PropertyKey key, object value)
         {
-            name = string.Intern(name);
             if (value == null)
             {
-                if (!propertyDict.TryGetValue(name, out var valueBefore) || valueBefore == null)
+                if (!propertyDict.TryGetValue(key, out var valueBefore) || valueBefore == null)
                     return false;
             }
             else
             {
-                if (propertyDict.TryGetValue(name, out var valueBefore) && value.Equals(valueBefore))
+                if (propertyDict.TryGetValue(key, out var valueBefore) && value.Equals(valueBefore))
                     return false;
             }
-            propertyDict[name] = value;
+            propertyDict[key] = value;
             return true;
         }
-        public object GetProperty(string name)
+        public object GetProperty(PropertyKey name)
         {
             if (TryGetProperty(name, out var prop))
                 return prop;
             return null;
         }
-        public bool TryGetProperty(string name, out object value)
+        public bool TryGetProperty(PropertyKey name, out object value)
         {
-            return propertyDict.TryGetValue(string.Intern(name), out value);
+            return propertyDict.TryGetValue(name, out value);
         }
-        public T GetProperty<T>(string name)
+        public T GetProperty<T>(PropertyKey name)
         {
             if (TryGetProperty<T>(name, out var value))
                 return value;
             return default;
         }
-        public bool TryGetProperty<T>(string name, out T value)
+        public bool TryGetProperty<T>(PropertyKey name, out T value)
         {
             if (TryGetProperty(name, out object prop))
             {
@@ -52,11 +51,11 @@ namespace PVZEngine
             value = default;
             return false;
         }
-        public bool RemoveProperty(string name)
+        public bool RemoveProperty(PropertyKey name)
         {
             return propertyDict.Remove(name);
         }
-        public string[] GetPropertyNames()
+        public PropertyKey[] GetPropertyNames()
         {
             return propertyDict.Keys.ToArray();
         }
@@ -64,23 +63,26 @@ namespace PVZEngine
         {
             return new SerializablePropertyDictionary()
             {
-                properties = propertyDict.ToDictionary(p => p.Key, p => p.Value)
+                properties = propertyDict.ToDictionary(pair => PropertyMapper.ConvertToFullName(pair.Key), pair => pair.Value)
             };
         }
         public static PropertyDictionary FromSerializable(SerializablePropertyDictionary seri)
         {
             var dict = new PropertyDictionary();
             dict.propertyDict.Clear();
-            foreach (var pair in seri.properties)
+            if (seri.properties != null)
             {
-                var key = string.Intern(pair.Key);
-                var value = pair.Value;
-                dict.propertyDict.Add(key, value);
+                foreach (var pair in seri.properties)
+                {
+                    var key = PropertyMapper.ConvertFromName(pair.Key);
+                    var value = pair.Value;
+                    dict.propertyDict.Add(key, value);
+                }
             }
             return dict;
         }
         public int Count => propertyDict.Count;
-        private Dictionary<string, object> propertyDict = new Dictionary<string, object>();
+        private Dictionary<PropertyKey, object> propertyDict = new Dictionary<PropertyKey, object>(32);
     }
     [Serializable]
     public class SerializablePropertyDictionary

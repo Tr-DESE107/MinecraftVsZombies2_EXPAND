@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -67,9 +68,10 @@ namespace MVZ2.GameContent.Stages
                 level.RunWave();
             }
         }
-        protected static void SetBossState(LevelEngine level, int value) => level.SetBehaviourField(ID, FIELD_BOSS_PHASE, value);
-        protected static int GetBossState(LevelEngine level) => level.GetBehaviourField<int>(ID, FIELD_BOSS_PHASE);
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "boss_stage_behaviour");
-        private const string FIELD_BOSS_PHASE = "BossPhase";
+        protected static void SetBossState(LevelEngine level, int value) => level.SetBehaviourField(FIELD_BOSS_PHASE, value);
+        protected static int GetBossState(LevelEngine level) => level.GetBehaviourField<int>(FIELD_BOSS_PHASE);
+        private const string PROP_REGION = "boss_stage_behaviour";
+        [PropertyRegistry(PROP_REGION)]
+        private static readonly VanillaLevelPropertyMeta FIELD_BOSS_PHASE = new VanillaLevelPropertyMeta("BossPhase");
     }
 }

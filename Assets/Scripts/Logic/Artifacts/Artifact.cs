@@ -45,7 +45,7 @@ namespace MVZ2Logic.Artifacts
             auras.PostRemove();
             Definition.PostRemove(this);
         }
-        public T GetProperty<T>(string name)
+        public T GetProperty<T>(PropertyKey name)
         {
             if (propertyDict.TryGetProperty<T>(name, out var thisProp))
                 return thisProp;
@@ -55,7 +55,7 @@ namespace MVZ2Logic.Artifacts
         {
             return auras.Get<T>();
         }
-        public void SetProperty(string name, object value)
+        public void SetProperty(PropertyKey name, object value)
         {
             propertyDict.SetProperty(name, value);
         }

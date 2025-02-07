@@ -1,15 +1,14 @@
 ﻿using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds
 {
-    [Definition(VanillaBlueprintNames.lengthenBoard)]
+    [SeedOptionDefinition(VanillaBlueprintNames.lengthenBoard)]
     public class LengthenBoard : SeedOptionDefinition
     {
         public LengthenBoard(string nsp, string name) : base(nsp, name)

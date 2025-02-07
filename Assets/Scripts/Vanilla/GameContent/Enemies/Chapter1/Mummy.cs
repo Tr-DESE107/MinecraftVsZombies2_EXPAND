@@ -1,15 +1,15 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.mummy)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.mummy)]
     public class Mummy : MeleeEnemy
     {
         public Mummy(string nsp, string name) : base(nsp, name)

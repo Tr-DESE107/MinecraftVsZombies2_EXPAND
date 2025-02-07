@@ -91,7 +91,7 @@ namespace MVZ2.GameContent.Buffs
         public const string littleZombieArmor = "little_zombie_armor";
         public const string bigTroubleArmor = "big_trouble_armor";
 
-        public static class Effect 
+        public static class Effect
         {
             public const string breakoutBoardUpgrade = "breakout_board_upgrade";
         }

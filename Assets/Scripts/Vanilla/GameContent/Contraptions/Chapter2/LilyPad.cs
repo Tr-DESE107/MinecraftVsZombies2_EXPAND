@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
@@ -14,7 +13,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.lilyPad)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.lilyPad)]
     public class LilyPad : ContraptionBehaviour
     {
         public LilyPad(string nsp, string name) : base(nsp, name)

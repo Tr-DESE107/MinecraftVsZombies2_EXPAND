@@ -1,11 +1,11 @@
-﻿using MVZ2.Vanilla;
-using PVZEngine.Buffs;
+﻿using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.vortexHopperSpin)]
+    [BuffDefinition(VanillaBuffNames.vortexHopperSpin)]
     public class VortexHopperSpinBuff : BuffDefinition
     {
         public VortexHopperSpinBuff(string nsp, string name) : base(nsp, name)

@@ -1,13 +1,13 @@
 ﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.mineTNTSeed)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.mineTNTSeed)]
     public class MineTNTSeed : ProjectileBehaviour
     {
         public MineTNTSeed(string nsp, string name) : base(nsp, name)

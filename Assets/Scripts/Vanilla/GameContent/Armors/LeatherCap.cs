@@ -1,11 +1,10 @@
 ﻿using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla;
 using PVZEngine.Armors;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors
 {
-    [Definition(VanillaArmorNames.leatherCap)]
+    [ArmorDefinition(VanillaArmorNames.leatherCap)]
     public class LeatherCap : ArmorDefinition
     {
         public LeatherCap(string nsp, string name) : base(nsp, name)

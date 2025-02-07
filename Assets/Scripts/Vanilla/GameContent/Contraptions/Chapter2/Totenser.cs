@@ -1,19 +1,19 @@
 ﻿using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.totenser)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.totenser)]
     public class Totenser : DispenserFamily
     {
         public Totenser(string nsp, string name) : base(nsp, name)
@@ -121,22 +121,25 @@ namespace MVZ2.GameContent.Contraptions
             }
             SetEvocationTime(entity, evocationTime);
         }
-        public static FrameTimer GetFireDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "FireDetectTimer");
-        public static void SetFireDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, "FireDetectTimer", value);
-        public static int GetEvocationTime(Entity entity) => entity.GetBehaviourField<int>(ID, "EvocationTime");
-        public static void SetEvocationTime(Entity entity, int value) => entity.SetBehaviourField(ID, "EvocationTime", value);
+        public static FrameTimer GetFireDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_FIRE_DETECT_TIMER);
+        public static void SetFireDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_FIRE_DETECT_TIMER, value);
+        public static int GetEvocationTime(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_EVOCATION_TIME);
+        public static void SetEvocationTime(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIME, value);
         public static Entity GetFireBreath(Entity entity)
         {
-            var entityID = entity.GetBehaviourField<EntityID>(ID, "FireBreath");
+            var entityID = entity.GetBehaviourField<EntityID>(ID, PROP_FIRE_BREATH);
             if (entityID == null)
                 return null;
             return entityID.GetEntity(entity.Level);
         }
         public static void SetFireBreath(Entity entity, Entity value)
         {
-            entity.SetBehaviourField(ID, "FireBreath", new EntityID(value));
+            entity.SetBehaviourField(ID, PROP_FIRE_BREATH, new EntityID(value));
         }
         private static readonly NamespaceID ID = VanillaContraptionID.totenser;
+        public static readonly VanillaEntityPropertyMeta PROP_FIRE_DETECT_TIMER = new VanillaEntityPropertyMeta("FireDetectTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIME = new VanillaEntityPropertyMeta("EvocationTime");
+        public static readonly VanillaEntityPropertyMeta PROP_FIRE_BREATH = new VanillaEntityPropertyMeta("FireBreath");
         private Detector fireBreathDetector;
         public const int FIRE_DETECT_INTERVAL = 7;
         public const int THROW_JAVELIN_TIME = 30;

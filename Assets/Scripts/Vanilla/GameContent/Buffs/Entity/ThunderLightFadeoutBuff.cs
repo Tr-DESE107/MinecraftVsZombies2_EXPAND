@@ -1,13 +1,14 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Effects
 {
 
-    [Definition(VanillaBuffNames.thunderLightFadeout)]
+    [BuffDefinition(VanillaBuffNames.thunderLightFadeout)]
     public class ThunderLightFadeoutBuff : BuffDefinition
     {
         public ThunderLightFadeoutBuff(string nsp, string name) : base(nsp, name)
@@ -33,6 +34,6 @@ namespace MVZ2.GameContent.Buffs.Effects
             var color = new Color(1, 1, 1, alpha);
             buff.SetProperty(PROP_COLOR_MULTIPLIER, color);
         }
-        public const string PROP_COLOR_MULTIPLIER = "ColorMultiplier";
+        public static readonly VanillaBuffPropertyMeta PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta("ColorMultiplier");
     }
 }

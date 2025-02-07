@@ -1,12 +1,12 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.weaknessGas)]
+    [EntityBehaviourDefinition(VanillaEffectNames.weaknessGas)]
     public class WeaknessGas : EffectBehaviour
     {
 

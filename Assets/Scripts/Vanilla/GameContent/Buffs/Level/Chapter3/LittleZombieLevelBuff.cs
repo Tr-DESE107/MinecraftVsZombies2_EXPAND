@@ -1,11 +1,11 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [Definition(VanillaBuffNames.Level.littleZombieLevel)]
+    [BuffDefinition(VanillaBuffNames.Level.littleZombieLevel)]
     public class LittleZombieLevelBuff : BuffDefinition
     {
         public LittleZombieLevelBuff(string nsp, string name) : base(nsp, name)

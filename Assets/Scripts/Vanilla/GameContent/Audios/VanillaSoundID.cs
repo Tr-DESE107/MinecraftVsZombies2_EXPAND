@@ -29,7 +29,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID crystal = Get("crystal");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
-        public readonly static NamespaceID decrepify = Get("decrepify"); 
+        public readonly static NamespaceID decrepify = Get("decrepify");
         public readonly static NamespaceID dialogItemShow = Get("dialog_item_show");
         public readonly static NamespaceID dialogItemHide = Get("dialog_item_hide");
         public readonly static NamespaceID dialogJudge = Get("dialog_judge");
@@ -89,11 +89,11 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID nightmareaperRage = Get("nightmareaper_rage");
         public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");
         public readonly static NamespaceID nightmarePortal = Get("nightmare_portal");
-        public readonly static NamespaceID nyaightmareScream = Get("nyaightmare_scream"); 
+        public readonly static NamespaceID nyaightmareScream = Get("nyaightmare_scream");
         public readonly static NamespaceID odd = Get("odd");
         public readonly static NamespaceID paper = Get("paper");
         public readonly static NamespaceID parabotTick = Get("parabot_tick");
-        public readonly static NamespaceID parasitize = Get("parasitize"); 
+        public readonly static NamespaceID parasitize = Get("parasitize");
         public readonly static NamespaceID pause = Get("pause");
         public readonly static NamespaceID pearlTouch = Get("pearl_touch");
         public readonly static NamespaceID pick = Get("pick");

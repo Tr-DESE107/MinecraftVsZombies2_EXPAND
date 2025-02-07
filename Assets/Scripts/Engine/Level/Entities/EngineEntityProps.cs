@@ -2,35 +2,40 @@
 
 namespace PVZEngine.Entities
 {
+    [PropertyRegistryRegion]
     public static class EngineEntityProps
     {
-        public const string MAX_HEALTH = "maxHealth";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta MAX_HEALTH = Get("maxHealth");
 
-        public const string SHELL = "shell";
-        public const string PLACEMENT = "placement";
+        public static readonly PropertyMeta SHELL = Get("shell");
+        public static readonly PropertyMeta PLACEMENT = Get("placement");
 
-        public const string SCALE = "scale";
-        public const string DISPLAY_SCALE = "displayScale";
-        public const string FRICTION = "friction";
-        public const string GRAVITY = "gravity";
-        public const string VELOCITY_DAMPEN = "velocityDampen";
-        public const string SIZE = "size";
-        public const string BOUNDS_OFFSET = "boundsOffset";
-        public const string GROUND_LIMIT_OFFSET = "groundLimitOffset";
+        public static readonly PropertyMeta SCALE = Get("scale");
+        public static readonly PropertyMeta DISPLAY_SCALE = Get("displayScale");
+        public static readonly PropertyMeta FRICTION = Get("friction");
+        public static readonly PropertyMeta GRAVITY = Get("gravity");
+        public static readonly PropertyMeta VELOCITY_DAMPEN = Get("velocityDampen");
+        public static readonly PropertyMeta SIZE = Get("size");
+        public static readonly PropertyMeta BOUNDS_OFFSET = Get("boundsOffset");
+        public static readonly PropertyMeta GROUND_LIMIT_OFFSET = Get("groundLimitOffset");
 
-        public const string HEALTH = "health";
-        public const string TINT = "tint";
-        public const string COLOR_OFFSET = "colorOffset";
-        public const string FACE_LEFT_AT_DEFAULT = "faceLeftAtDefault";
+        public static readonly PropertyMeta HEALTH = Get("health");
+        public static readonly PropertyMeta TINT = Get("tint");
+        public static readonly PropertyMeta COLOR_OFFSET = Get("colorOffset");
+        public static readonly PropertyMeta FACE_LEFT_AT_DEFAULT = Get("faceLeftAtDefault");
         public static bool FaceLeftAtDefault(this Entity entity)
         {
             return entity.GetProperty<bool>(FACE_LEFT_AT_DEFAULT);
         }
 
-        public const string FACTION = "faction";
-        public const string INVINCIBLE = "invincible";
+        public static readonly PropertyMeta FACTION = Get("faction");
+        public static readonly PropertyMeta INVINCIBLE = Get("invincible");
 
-        public const string MODEL_ID = "modelId";
+        public static readonly PropertyMeta MODEL_ID = Get("modelId");
 
         public static bool IsInvincible(this Entity entity)
         {
@@ -144,12 +149,12 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(SHELL, value);
         }
-        public const string COLLISION_DETECTION = "collisionDetection";
+        public static readonly PropertyMeta COLLISION_DETECTION = Get("collisionDetection");
         public static int GetCollisionDetection(this Entity entity)
         {
             return entity.GetProperty<int>(COLLISION_DETECTION);
         }
-        public const string COLLISION_SAMPLE_LENGTH = "collisionSampleLength";
+        public static readonly PropertyMeta COLLISION_SAMPLE_LENGTH = Get("collisionSampleLength");
         public static float GetCollisionSampleLength(this Entity entity)
         {
             return entity.GetProperty<float>(COLLISION_SAMPLE_LENGTH);

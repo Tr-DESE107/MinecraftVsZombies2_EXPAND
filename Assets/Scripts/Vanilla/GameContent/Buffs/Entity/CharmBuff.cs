@@ -1,14 +1,15 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
+﻿using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(VanillaBuffNames.charm)]
+    [BuffDefinition(VanillaBuffNames.charm)]
     public class CharmBuff : BuffDefinition
     {
         public CharmBuff(string nsp, string name) : base(nsp, name)
@@ -79,10 +80,10 @@ namespace MVZ2.GameContent.Buffs
             targetBuff.SetProperty(PROP_SOURCE, newSource);
         }
 
-        public const string PROP_MODE = "Mode";
-        public const string PROP_FACTION = "Faction";
-        public const string PROP_SIZE_MULTIPLIER = "SizeMultiplier";
-        public const string PROP_SOURCE = "Source";
+        public static readonly VanillaBuffPropertyMeta PROP_MODE = new VanillaBuffPropertyMeta("Mode");
+        public static readonly VanillaBuffPropertyMeta PROP_FACTION = new VanillaBuffPropertyMeta("Faction");
+        public static readonly VanillaBuffPropertyMeta PROP_SIZE_MULTIPLIER = new VanillaBuffPropertyMeta("SizeMultiplier");
+        public static readonly VanillaBuffPropertyMeta PROP_SOURCE = new VanillaBuffPropertyMeta("Source");
     }
 
     public static class CharmModes

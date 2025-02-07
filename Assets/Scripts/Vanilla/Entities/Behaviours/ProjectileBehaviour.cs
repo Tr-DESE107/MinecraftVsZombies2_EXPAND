@@ -2,6 +2,7 @@ using System;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -73,7 +74,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 if (collision.Other == spawner)
                 {
-                    if (GetStartHitSpawnerProtectTimeout(entity) > 0) 
+                    if (GetStartHitSpawnerProtectTimeout(entity) > 0)
                     {
                         SetHitSpawnerProtect(entity, true);
                         SetStartHitSpawnerProtectTimeout(entity, 0);
@@ -237,13 +238,15 @@ namespace MVZ2.Vanilla.Entities
         }
 
         #region 创建者保护
-        private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
-        private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
-        private void SetHitSpawnerProtect(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_HIT_SPAWNER_PROTECT, value);
-        private bool HasHitSpawnerProtect(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_HIT_SPAWNER_PROTECT);
+        private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
+        private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
+        private void SetHitSpawnerProtect(Entity entity, bool value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT, value);
+        private bool HasHitSpawnerProtect(Entity entity) => entity.GetBehaviourField<bool>(FIELD_HIT_SPAWNER_PROTECT);
         #endregion
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "projectile_behaviour");
-        public const string FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = "HitSpawnerProtectTimeout";
-        public const string FIELD_HIT_SPAWNER_PROTECT = "HitSpawnerProtect";
+        private const string PROP_REGION = "projectile_behaviour";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = new VanillaEntityPropertyMeta("HitSpawnerProtectTimeout");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta FIELD_HIT_SPAWNER_PROTECT = new VanillaEntityPropertyMeta("HitSpawnerProtect");
     }
 }

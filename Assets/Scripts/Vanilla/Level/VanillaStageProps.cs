@@ -7,31 +7,36 @@ using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Level
 {
+    [PropertyRegistryRegion]
     public static class VanillaStageProps
     {
-        public const string LEVEL_NAME = "levelName";
-        public const string DAY_NUMBER = "dayNumber";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta LEVEL_NAME = Get("levelName");
+        public static readonly PropertyMeta DAY_NUMBER = Get("dayNumber");
 
-        public const string WAVE_MAX_TIME = "waveMaxTime";
-        public const string WAVE_ADVANCE_TIME = "waveAdvanceTime";
-        public const string WAVE_ADVANCE_HEALTH_PERCENT = "waveAdvanceHealthPercent";
+        public static readonly PropertyMeta WAVE_MAX_TIME = Get("waveMaxTime");
+        public static readonly PropertyMeta WAVE_ADVANCE_TIME = Get("waveAdvanceTime");
+        public static readonly PropertyMeta WAVE_ADVANCE_HEALTH_PERCENT = Get("waveAdvanceHealthPercent");
 
-        public const string NO_PRODUCTION = "noProduction";
-        public const string AUTO_COLLECT = "autoCollect";
+        public static readonly PropertyMeta NO_PRODUCTION = Get("noProduction");
+        public static readonly PropertyMeta AUTO_COLLECT = Get("autoCollect");
 
-        public const string TALKS = "talks";
+        public static readonly PropertyMeta TALKS = Get("talks");
 
-        public const string CLEAR_PICKUP_MODEL = "clearPickupModel";
-        public const string CLEAR_PICKUP_BLUEPRINT = "clearPickupBlueprint";
-        public const string END_NOTE_ID = "endNoteId";
+        public static readonly PropertyMeta CLEAR_PICKUP_MODEL = Get("clearPickupModel");
+        public static readonly PropertyMeta CLEAR_PICKUP_BLUEPRINT = Get("clearPickupBlueprint");
+        public static readonly PropertyMeta END_NOTE_ID = Get("endNoteId");
 
-        public const string START_TRANSITION = "startTransition";
-        public const string START_CAMERA_POSITION = "startCameraPosition";
+        public static readonly PropertyMeta START_TRANSITION = Get("startTransition");
+        public static readonly PropertyMeta START_CAMERA_POSITION = Get("startCameraPosition");
 
-        public const string NEED_BLUEPRINTS = "needBlueprints";
-        public const string CLEAR_SOUND = "clearSound";
+        public static readonly PropertyMeta NEED_BLUEPRINTS = Get("needBlueprints");
+        public static readonly PropertyMeta CLEAR_SOUND = Get("clearSound");
 
-        public const string ENDLESS = "endless";
+        public static readonly PropertyMeta ENDLESS = Get("endless");
 
 
         public static int GetWaveMaxTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_MAX_TIME);

@@ -1,11 +1,12 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.frankensteinStage)]
+    [BuffDefinition(VanillaBuffNames.Level.frankensteinStage)]
     public class FrankensteinStageBuff : BuffDefinition
     {
         public FrankensteinStageBuff(string nsp, string name) : base(nsp, name)
@@ -39,9 +40,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             buff.SetProperty(PROP_DARKNESS_ADDITION, (time / (float)MAX_TIME) * 0.5f);
         }
-        public const string PROP_DARKNESS_ADDITION = "DarknessAddition";
-        public const string PROP_TIME = "Time";
-        public const string PROP_THUNDER_TIMEOUT = "ThunderTimeout";
+        public static readonly VanillaBuffPropertyMeta PROP_DARKNESS_ADDITION = new VanillaBuffPropertyMeta("DarknessAddition");
+        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
+        public static readonly VanillaBuffPropertyMeta PROP_THUNDER_TIMEOUT = new VanillaBuffPropertyMeta("ThunderTimeout");
         public const int MAX_THUNDER_TIMEOUT = 150;
         public const int MAX_TIME = 30;
     }

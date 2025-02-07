@@ -7,11 +7,11 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
@@ -27,7 +27,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.forcePad)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
     public class ForcePad : ContraptionBehaviour, IStackEntity, IEntityHeldItemBehaviour
     {
         public ForcePad(string nsp, string name) : base(nsp, name)
@@ -314,13 +314,13 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             target.UpgradeToContraption(VanillaContraptionID.forcePad);
         }
-        public const string PROP_PAD_DIRECTION = "PadDirection";
-        public const string PROP_AFFECTED_ENTITIES = "AffectedEntities";
-        public const string PROP_DRAG_TARGET = "DragTarget";
-        public const string PROP_DRAG_TARGET_LOCKED = "DragTargetLocked";
-        public const string PROP_DRAGGING_LINES = "DraggingLines";
-        public const string PROP_DRAGGING_ENTITIES = "DraggingEntities";
-        public const string PROP_DRAG_TIMEOUT = "DragTimeout";
+        public static readonly VanillaEntityPropertyMeta PROP_PAD_DIRECTION = new VanillaEntityPropertyMeta("PadDirection");
+        public static readonly VanillaEntityPropertyMeta PROP_AFFECTED_ENTITIES = new VanillaEntityPropertyMeta("AffectedEntities");
+        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TARGET = new VanillaEntityPropertyMeta("DragTarget");
+        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TARGET_LOCKED = new VanillaEntityPropertyMeta("DragTargetLocked");
+        public static readonly VanillaEntityPropertyMeta PROP_DRAGGING_LINES = new VanillaEntityPropertyMeta("DraggingLines");
+        public static readonly VanillaEntityPropertyMeta PROP_DRAGGING_ENTITIES = new VanillaEntityPropertyMeta("DraggingEntities");
+        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TIMEOUT = new VanillaEntityPropertyMeta("DragTimeout");
         public const float DRAG_RADIUS = 150;
         public const int MAX_DRAG_TIMEOUT = 150;
 

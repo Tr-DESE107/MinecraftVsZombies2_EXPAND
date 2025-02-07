@@ -1,8 +1,9 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -60,27 +61,30 @@ namespace MVZ2.GameContent.Stages
         }
         public static RandomGenerator GetStarshardRNG(LevelEngine level)
         {
-            return level.GetProperty<RandomGenerator>(STARSHARD_RNG);
+            return level.GetProperty<RandomGenerator>(PROP_STARSHARD_RNG);
         }
         public static void SetStarshardRNG(LevelEngine level, RandomGenerator value)
         {
-            level.SetProperty(STARSHARD_RNG, value);
+            level.SetProperty(PROP_STARSHARD_RNG, value);
         }
-        public static int GetStarshardChance( LevelEngine level)
+        public static int GetStarshardChance(LevelEngine level)
         {
-            return level.GetProperty<int>(STARSHARD_CHANCE);
+            return level.GetProperty<int>(PROP_STARSHARD_CHANCE);
         }
         public static void SetStarshardChance(LevelEngine level, int value)
         {
-            level.SetProperty(STARSHARD_CHANCE, value);
+            level.SetProperty(PROP_STARSHARD_CHANCE, value);
         }
         public static void AddStarshardChance(LevelEngine level, int value)
         {
             SetStarshardChance(level, GetStarshardChance(level) + value);
         }
 
-        public const string STARSHARD_RNG = "StarshardRNG";
-        public const string STARSHARD_CHANCE = "StarshardChance";
+        private const string PROP_REGION = "redstone_drop_stage";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_STARSHARD_RNG = new VanillaLevelPropertyMeta("StarshardRNG");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_STARSHARD_CHANCE = new VanillaLevelPropertyMeta("StarshardChance");
         public const int MIN_STARSHARD_CHANCE = -15;
         public const int STARSHARD_INCREAMENT = 10;
         public const int STARSHARD_REDUCTION = -125;

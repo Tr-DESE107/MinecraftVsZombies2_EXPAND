@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Grids;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;

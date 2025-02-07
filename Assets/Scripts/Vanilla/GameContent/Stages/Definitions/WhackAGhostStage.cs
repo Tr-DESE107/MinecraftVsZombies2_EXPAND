@@ -1,9 +1,9 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -89,17 +89,19 @@ namespace MVZ2.GameContent.Stages
         }
         private void SetThunderTimer(LevelEngine level, FrameTimer timer)
         {
-            level.SetBehaviourField(ID, "ThunderTimer", timer);
+            level.SetBehaviourField(PROP_THUNDER_TIMER, timer);
         }
         private FrameTimer GetThunderTimer(LevelEngine level)
         {
-            return level.GetBehaviourField<FrameTimer>(ID, "ThunderTimer");
+            return level.GetBehaviourField<FrameTimer>(PROP_THUNDER_TIMER);
         }
         private void AddSpeedBuff(Entity entity)
         {
             var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
             buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(3, 5, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "whack_a_ghost");
+        private const string PROP_REGION = "whack_a_ghost";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_THUNDER_TIMER = new VanillaLevelPropertyMeta("ThunderTimer");
     }
 }

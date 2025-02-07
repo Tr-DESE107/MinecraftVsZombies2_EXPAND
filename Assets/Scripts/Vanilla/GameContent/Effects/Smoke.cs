@@ -1,10 +1,10 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.smoke)]
+    [EntityBehaviourDefinition(VanillaEffectNames.smoke)]
     public class Smoke : EffectBehaviour
     {
 

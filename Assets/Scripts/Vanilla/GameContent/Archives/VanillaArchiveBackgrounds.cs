@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Talk;
-using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla;
 using MVZ2Logic;
 using PVZEngine;
 

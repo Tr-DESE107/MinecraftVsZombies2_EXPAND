@@ -1,13 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
+﻿using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.boulder)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.boulder)]
     public class Boulder : ProjectileBehaviour
     {
         public Boulder(string nsp, string name) : base(nsp, name)

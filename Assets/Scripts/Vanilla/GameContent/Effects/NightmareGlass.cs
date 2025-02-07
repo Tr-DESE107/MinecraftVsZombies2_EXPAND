@@ -1,16 +1,16 @@
 using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmareGlass)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmareGlass)]
     public class NightmareGlass : EffectBehaviour
     {
 
@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Effects
         }
         public static int GetBreakTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_BREAK_TIMEOUT);
         public static void SetBreakTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_BREAK_TIMEOUT, value);
-        public const string PROP_BREAK_TIMEOUT = "BreakTimeout";
+        public static readonly VanillaEntityPropertyMeta PROP_BREAK_TIMEOUT = new VanillaEntityPropertyMeta("BreakTimeout");
         public static readonly NamespaceID ID = VanillaEffectID.nightmareGlass;
     }
 }

@@ -1,14 +1,15 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Carts
 {
-    [Definition(VanillaBuffNames.cartFadeIn)]
+    [BuffDefinition(VanillaBuffNames.cartFadeIn)]
     public class CartFadeInBuff : BuffDefinition
     {
         public CartFadeInBuff(string nsp, string name) : base(nsp, name)
@@ -36,7 +37,7 @@ namespace MVZ2.GameContent.Buffs.Carts
             buff.SetProperty(PROP_COLOR_MULTIPLIER, new Color(1, 1, 1, alpha));
             buff.SetProperty(PROP_ALPHA_MULTIPLIER, alpha);
         }
-        public const string PROP_COLOR_MULTIPLIER = "ColorMultiplier";
-        public const string PROP_ALPHA_MULTIPLIER = "AlphaMultiplier";
+        public static readonly VanillaBuffPropertyMeta PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta("ColorMultiplier");
+        public static readonly VanillaBuffPropertyMeta PROP_ALPHA_MULTIPLIER = new VanillaBuffPropertyMeta("AlphaMultiplier");
     }
 }

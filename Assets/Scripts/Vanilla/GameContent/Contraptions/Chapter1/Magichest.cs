@@ -1,24 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
+﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.magichest)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.magichest)]
     public class Magichest : ContraptionBehaviour
     {
         public Magichest(string nsp, string name) : base(nsp, name)
@@ -60,19 +59,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetStateTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "StateTimer", timer);
+            entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         }
         public static bool GetFlashVisible(Entity entity)
         {
-            return entity.GetBehaviourField<bool>(ID, "FlashVisible");
+            return entity.GetBehaviourField<bool>(ID, PROP_FLASH_VISIBLE);
         }
         public static void SetFlashVisible(Entity entity, bool timer)
         {
-            entity.SetBehaviourField(ID, "FlashVisible", timer);
+            entity.SetBehaviourField(ID, PROP_FLASH_VISIBLE, timer);
         }
         public static void Eat(Entity entity, Entity target)
         {
@@ -205,6 +204,8 @@ namespace MVZ2.GameContent.Contraptions
             return entity.State == VanillaEntityStates.MAGICHEST_OPEN || entity.State == VanillaEntityStates.MAGICHEST_EAT;
         }
         public static readonly NamespaceID ID = VanillaContraptionID.magichest;
+        public static readonly VanillaEntityPropertyMeta PROP_FLASH_VISIBLE = new VanillaEntityPropertyMeta("FlashVisible");
+        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
         private Detector openDetector;
         private Detector eatDetector;
     }

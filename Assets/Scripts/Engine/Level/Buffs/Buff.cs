@@ -32,11 +32,11 @@ namespace PVZEngine.Buffs
                 Definition.PostUpdate(this);
             }
         }
-        public T GetProperty<T>(string name)
+        public T GetProperty<T>(PropertyKey name)
         {
             return propertyDict.GetProperty<T>(name);
         }
-        public void SetProperty(string name, object value)
+        public void SetProperty(PropertyKey name, object value)
         {
             if (propertyDict.SetProperty(name, value))
             {
@@ -54,7 +54,7 @@ namespace PVZEngine.Buffs
         {
             return Definition.GetModifiers();
         }
-        public PropertyModifier[] GetModifiers(string propName)
+        public PropertyModifier[] GetModifiers(PropertyKey propName)
         {
             return Definition.GetModifiers(propName);
         }
@@ -124,12 +124,12 @@ namespace PVZEngine.Buffs
             return buff;
         }
         LevelEngine IAuraSource.GetLevel() { return Level; }
-        object IModifierContainer.GetProperty(string name) => GetProperty<object>(name);
-        private void CallPropertyChanged(string name)
+        object IModifierContainer.GetProperty(PropertyKey name) => GetProperty<object>(name);
+        private void CallPropertyChanged(PropertyKey name)
         {
             OnPropertyChanged?.Invoke(name);
         }
-        public event Action<string> OnPropertyChanged;
+        public event Action<PropertyKey> OnPropertyChanged;
         public long ID { get; }
         public LevelEngine Level { get; }
         public BuffDefinition Definition { get; }

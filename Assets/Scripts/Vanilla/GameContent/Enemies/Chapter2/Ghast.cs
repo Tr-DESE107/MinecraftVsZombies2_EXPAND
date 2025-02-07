@@ -6,15 +6,17 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.ghast)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.ghast)]
     public class Ghast : StateEnemy
     {
         public Ghast(string nsp, string name) : base(nsp, name)
@@ -116,7 +118,7 @@ namespace MVZ2.GameContent.Enemies
             self.PlaySound(VanillaSoundID.fireCharge);
         }
         private Detector detector;
-        public const string PROP_STATE_TIMER = "StateTimer";
+        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
         public const int SHOOT_COOLDOWN = 165;
         public const int SHOOT_DURATION = 15;
         public static readonly NamespaceID ID = VanillaEnemyID.ghast;

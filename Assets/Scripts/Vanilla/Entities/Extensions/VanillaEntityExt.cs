@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -210,7 +211,7 @@ namespace MVZ2.Vanilla.Entities
             var lightSource = entity.IsLightSource();
             if (!lightSource)
                 return;
-            var shineRingID = entity.GetProperty<EntityID>("LightShineRing");
+            var shineRingID = entity.GetProperty<EntityID>(PROP_SHINE_RING);
             var shineRing = shineRingID?.GetEntity(entity.Level);
             if (shineRing != null && shineRing.Exists())
                 return;
@@ -219,7 +220,7 @@ namespace MVZ2.Vanilla.Entities
                 return;
             shineRing = entity.Level.Spawn(VanillaEffectID.shineRing, entity.Position, entity);
             shineRing.SetParent(entity);
-            entity.SetProperty("LightShineRing", new EntityID(shineRing));
+            entity.SetProperty(PROP_SHINE_RING, new EntityID(shineRing));
         }
         #endregion
 
@@ -662,6 +663,8 @@ namespace MVZ2.Vanilla.Entities
             entity.SetDisplayScale(new Vector3(xScale, 1, 1));
         }
         #endregion
-
+        private const string PROP_REGION = "entities";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_SHINE_RING = new VanillaEntityPropertyMeta("LightShineRing");
     }
 }

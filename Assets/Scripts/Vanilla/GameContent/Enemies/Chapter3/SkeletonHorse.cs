@@ -1,20 +1,20 @@
 ﻿using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Models;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.skeletonHorse)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.skeletonHorse)]
     public class SkeletonHorse : MeleeEnemy
     {
         public SkeletonHorse(string nsp, string name) : base(nsp, name)
@@ -159,11 +159,11 @@ namespace MVZ2.GameContent.Enemies
         public static void SetGallopSoundTime(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_GALLOP_SOUND_TIME, value);
         #endregion
 
-        public const string FIELD_GALLOP_TIME = "GallopTime";
-        public const string FIELD_GALLOP_SOUND_TIME = "GallopSoundTime";
-        public const string FIELD_JUMP_STATE = "JumpState";
-        public const string FIELD_LAND_TIMER = "LandTimer";
-        public const string PROP_SPEED_MULTIPLIER = "SpeedMultiplier";
+        public static readonly VanillaEntityPropertyMeta FIELD_GALLOP_TIME = new VanillaEntityPropertyMeta("GallopTime");
+        public static readonly VanillaEntityPropertyMeta FIELD_GALLOP_SOUND_TIME = new VanillaEntityPropertyMeta("GallopSoundTime");
+        public static readonly VanillaEntityPropertyMeta FIELD_JUMP_STATE = new VanillaEntityPropertyMeta("JumpState");
+        public static readonly VanillaEntityPropertyMeta FIELD_LAND_TIMER = new VanillaEntityPropertyMeta("LandTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_SPEED_MULTIPLIER = new VanillaEntityPropertyMeta("SpeedMultiplier");
         public const int GALLOP_SOUND_INTERVAL = 15;
         public const int JUMP_STATE_NONE = 0;
         public const int JUMP_STATE_JUMP = 1;

@@ -1,17 +1,15 @@
 ﻿using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic.Modding;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.starshardCarrier)]
+    [BuffDefinition(VanillaBuffNames.starshardCarrier)]
     public class StarshardCarrierBuff : BuffDefinition
     {
         public StarshardCarrierBuff(string nsp, string name) : base(nsp, name)
@@ -50,7 +48,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
         }
         public const int MAX_TIME = 60;
-        public const string PROP_TIME = "Time";
-        public const string PROP_COLOR_OFFSET = "ColorOffset";
+        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
+        public static readonly VanillaBuffPropertyMeta PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta("ColorOffset");
     }
 }

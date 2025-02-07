@@ -2,19 +2,20 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.terrorParasitized)]
+    [BuffDefinition(VanillaBuffNames.terrorParasitized)]
     public class TerrorParasitizedBuff : BuffDefinition
     {
         public TerrorParasitizedBuff(string nsp, string name) : base(nsp, name)
@@ -86,7 +87,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public const float HEALTH_SPEED = 1 / 6f;
         public const float MAX_PARASITE_HEALTH = 50;
-        public const string PROP_PARASITE_HEALTH = "ParasiteHealth";
+        public static readonly VanillaBuffPropertyMeta PROP_PARASITE_HEALTH = new VanillaBuffPropertyMeta("ParasiteHealth");
         public const float DAMAGE = 100;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 
@@ -7,6 +9,7 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class FragmentExt
     {
+        private const string PROP_REGION = "fragments";
         #region 碎片
         public static void InitFragment(this Entity entity)
         {
@@ -29,19 +32,19 @@ namespace MVZ2.Vanilla.Entities
         }
         public static EntityID GetFragment(this Entity entity)
         {
-            return entity.GetProperty<EntityID>("Fragment");
+            return entity.GetProperty<EntityID>(PROP_FRAGMENT);
         }
         public static void SetFragment(this Entity entity, EntityID value)
         {
-            entity.SetProperty("Fragment", value);
+            entity.SetProperty(PROP_FRAGMENT, value);
         }
         public static float GetFragmentTickDamage(this Entity entity)
         {
-            return entity.GetProperty<float>("TickDamage");
+            return entity.GetProperty<float>(PROP_TICK_DAMAGE);
         }
         public static void SetFragmentTickDamage(this Entity entity, float value)
         {
-            entity.SetProperty("TickDamage", value);
+            entity.SetProperty(PROP_TICK_DAMAGE, value);
         }
         public static void AddFragmentTickDamage(this Entity entity, float value)
         {
@@ -66,6 +69,10 @@ namespace MVZ2.Vanilla.Entities
             }
             return fragment;
         }
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_FRAGMENT = new VanillaEntityPropertyMeta("Fragment");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_TICK_DAMAGE = new VanillaEntityPropertyMeta("TickDamage");
         #endregion
 
         #region 治疗粒子
@@ -99,11 +106,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static float GetTickHealing(this Entity entity)
         {
-            return entity.GetProperty<float>("TickHealing");
+            return entity.GetProperty<float>(PROP_TICK_HEALING);
         }
         public static void SetTickHealing(this Entity entity, float value)
         {
-            entity.SetProperty("TickHealing", value);
+            entity.SetProperty(PROP_TICK_HEALING, value);
         }
         public static void AddTickHealing(this Entity entity, float value)
         {
@@ -111,12 +118,16 @@ namespace MVZ2.Vanilla.Entities
         }
         public static EntityID GetHealParticles(this Entity entity)
         {
-            return entity.GetProperty<EntityID>("HealingParticles");
+            return entity.GetProperty<EntityID>(PROP_HEALING_PARTICLES);
         }
         public static void SetHealParticles(this Entity entity, EntityID value)
         {
-            entity.SetProperty("HealingParticles", value);
+            entity.SetProperty(PROP_HEALING_PARTICLES, value);
         }
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_HEALING_PARTICLES = new VanillaEntityPropertyMeta("HealingParticles");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_TICK_HEALING = new VanillaEntityPropertyMeta("TickHealing");
         #endregion
     }
 }

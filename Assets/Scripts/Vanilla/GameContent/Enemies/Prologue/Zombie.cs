@@ -5,17 +5,16 @@ using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
-using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.zombie)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.zombie)]
     public class Zombie : MeleeEnemy
     {
         public Zombie(string nsp, string name) : base(nsp, name)

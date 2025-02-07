@@ -1,11 +1,10 @@
 ﻿using MVZ2.GameContent.Armors;
-using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.leatherCappedZombie)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.leatherCappedZombie)]
     public class LeatherCappedZombie : Zombie
     {
         public LeatherCappedZombie(string nsp, string name) : base(nsp, name)

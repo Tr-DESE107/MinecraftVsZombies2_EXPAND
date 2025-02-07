@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.tntIgnited)]
+    [BuffDefinition(VanillaBuffNames.tntIgnited)]
     public class TNTIgnitedBuff : BuffDefinition
     {
         public TNTIgnitedBuff(string nsp, string name) : base(nsp, name)
@@ -35,7 +36,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var alpha = (Mathf.Sin(time * 24 * Mathf.Deg2Rad) + 1) * 0.5f;
             buff.SetProperty(PROP_COLOR, new Color(1, 1, 1, alpha));
         }
-        public const string PROP_TIME = "Time";
-        public const string PROP_COLOR = "Color";
+        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
+        public static readonly VanillaBuffPropertyMeta PROP_COLOR = new VanillaBuffPropertyMeta("Color");
     }
 }

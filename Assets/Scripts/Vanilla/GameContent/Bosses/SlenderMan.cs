@@ -10,10 +10,10 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -30,7 +30,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [Definition(VanillaBossNames.slenderman)]
+    [EntityBehaviourDefinition(VanillaBossNames.slenderman)]
     public class SlenderMan : BossBehaviour
     {
         public SlenderMan(string nsp, string name) : base(nsp, name)
@@ -526,22 +526,22 @@ namespace MVZ2.GameContent.Bosses
 
         public const int MAX_MOVE_TIMEOUT = 30;
 
-        public const string PROP_SELECTED_FATE_TIMES = "SelectedFateTimes";
-        public const string PROP_READY_FATE_TIMES = "ReadyFateTimes";
+        public static readonly VanillaEntityPropertyMeta PROP_SELECTED_FATE_TIMES = new VanillaEntityPropertyMeta("SelectedFateTimes");
+        public static readonly VanillaEntityPropertyMeta PROP_READY_FATE_TIMES = new VanillaEntityPropertyMeta("ReadyFateTimes");
 
-        public const string PROP_MOVE_TIMER = "MoveTimer";
-        public const string PROP_MOVE_TIMEOUT = "MoveTimeout";
-        public const string PROP_MOVE_DISPLACEMENT = "MoveDisplacement";
+        public static readonly VanillaEntityPropertyMeta PROP_MOVE_TIMER = new VanillaEntityPropertyMeta("MoveTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_MOVE_TIMEOUT = new VanillaEntityPropertyMeta("MoveTimeout");
+        public static readonly VanillaEntityPropertyMeta PROP_MOVE_DISPLACEMENT = new VanillaEntityPropertyMeta("MoveDisplacement");
 
-        public const string PROP_PORTAL_TIMER = "PortalTimer";
+        public static readonly VanillaEntityPropertyMeta PROP_PORTAL_TIMER = new VanillaEntityPropertyMeta("PortalTimer");
 
-        public const string PROP_MIND_SWAP_TIMER = "MindSwapTimer";
+        public static readonly VanillaEntityPropertyMeta PROP_MIND_SWAP_TIMER = new VanillaEntityPropertyMeta("MindSwapTimer");
 
-        public const string PROP_MOVE_RNG = "MoveRNG";
-        public const string PROP_PORTAL_RNG = "PortalRNG";
-        public const string PROP_MIND_SWAP_RNG = "MindSwapRNG";
-        public const string PROP_FATE_OPTION_RNG = "FateOptionRNG";
-        public const string PROP_EVENT_RNG = "EventRNG";
+        public static readonly VanillaEntityPropertyMeta PROP_MOVE_RNG = new VanillaEntityPropertyMeta("MoveRNG");
+        public static readonly VanillaEntityPropertyMeta PROP_PORTAL_RNG = new VanillaEntityPropertyMeta("PortalRNG");
+        public static readonly VanillaEntityPropertyMeta PROP_MIND_SWAP_RNG = new VanillaEntityPropertyMeta("MindSwapRNG");
+        public static readonly VanillaEntityPropertyMeta PROP_FATE_OPTION_RNG = new VanillaEntityPropertyMeta("FateOptionRNG");
+        public static readonly VanillaEntityPropertyMeta PROP_EVENT_RNG = new VanillaEntityPropertyMeta("EventRNG");
 
         public const int FATE_PANDORAS_BOX = 0;
         public const int FATE_BIOHAZARD = 1;

@@ -1,8 +1,8 @@
-using MVZ2.Vanilla;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [Definition(VanillaPickupNames.ruby)]
+    [EntityBehaviourDefinition(VanillaPickupNames.ruby)]
     public class Ruby : Gem
     {
         public Ruby(string nsp, string name) : base(nsp, name)

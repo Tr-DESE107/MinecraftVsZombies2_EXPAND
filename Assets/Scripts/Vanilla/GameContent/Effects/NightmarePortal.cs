@@ -1,16 +1,13 @@
-using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
-using Tools;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmarePortal)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmarePortal)]
     public class NightmarePortal : EffectBehaviour
     {
         #region 公有方法
@@ -52,8 +49,8 @@ namespace MVZ2.GameContent.Effects
         #region 属性字段
         public static readonly NamespaceID ID = VanillaEffectID.nightmarePortal;
         public const int MAX_SPAWN_TIME = 15;
-        public const string PROP_SPAWN_TIME = "SpawnTime";
-        public const string PROP_ENEMY_ID = "EnemyID";
+        public static readonly VanillaEntityPropertyMeta PROP_SPAWN_TIME = new VanillaEntityPropertyMeta("SpawnTime");
+        public static readonly VanillaEntityPropertyMeta PROP_ENEMY_ID = new VanillaEntityPropertyMeta("EnemyID");
         #endregion
     }
 }

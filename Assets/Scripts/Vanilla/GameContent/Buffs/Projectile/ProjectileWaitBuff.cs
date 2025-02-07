@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Projectiles
 {
-    [Definition(VanillaBuffNames.projectileWait)]
+    [BuffDefinition(VanillaBuffNames.projectileWait)]
     public class ProjectileWaitBuff : BuffDefinition
     {
         public ProjectileWaitBuff(string nsp, string name) : base(nsp, name)
@@ -25,6 +26,6 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             timeout--;
             buff.SetProperty(PROP_TIMEOUT, timeout);
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
     }
 }

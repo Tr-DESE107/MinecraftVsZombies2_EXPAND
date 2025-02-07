@@ -1,18 +1,15 @@
-﻿using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -21,7 +18,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.reverseSatellite)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.reverseSatellite)]
     public class ReverseSatellite : StateEnemy
     {
         public ReverseSatellite(string nsp, string name) : base(nsp, name)
@@ -103,7 +100,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 state = STATE_STAY;
             }
-            if (state == STATE_STAY) 
+            if (state == STATE_STAY)
             {
                 var leavingTimer = GetLeaveTimer(enemy);
                 if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == WaveStageBehaviour.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
@@ -161,7 +158,7 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_LEAVING = VanillaEntityStates.ENEMY_SPECIAL;
         public const int LEAVE_TIME = 900;
-        public const string FIELD_LEAVE_TIMER = "LeaveTimer";
+        public static readonly VanillaEntityPropertyMeta FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta("LeaveTimer");
         private static readonly NamespaceID ID = VanillaEnemyID.reverseSatellite;
     }
 }

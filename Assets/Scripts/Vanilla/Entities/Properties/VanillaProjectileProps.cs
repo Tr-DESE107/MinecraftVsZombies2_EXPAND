@@ -4,16 +4,17 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
+    [PropertyRegistryRegion]
     public static class VanillaProjectileProps
     {
-        public const string ROLLS = "rolls";
+        public static readonly PropertyMeta ROLLS = new PropertyMeta("rolls");
         public static bool Rolls(this Entity entity) => entity.GetProperty<bool>(ROLLS);
-        public const string PIERCING = "piercing";
-        public const string POINT_TO_DIRECTION = "pointToDirection";
-        public const string DAMAGE_EFFECTS = "damageEffects";
-        public const string NO_DESTROY_OUTSIDE_LAWN = "noDestroyOutsideLawn";
-        public const string COLLIDING_ENTITIES = "collidingEntities";
-        public const string NO_HIT_ENTITIES = "noHitEntities";
+        public static readonly PropertyMeta PIERCING = new PropertyMeta("piercing");
+        public static readonly PropertyMeta POINT_TO_DIRECTION = new PropertyMeta("pointToDirection");
+        public static readonly PropertyMeta DAMAGE_EFFECTS = new PropertyMeta("damageEffects");
+        public static readonly PropertyMeta NO_DESTROY_OUTSIDE_LAWN = new PropertyMeta("noDestroyOutsideLawn");
+        public static readonly PropertyMeta COLLIDING_ENTITIES = new PropertyMeta("collidingEntities");
+        public static readonly PropertyMeta NO_HIT_ENTITIES = new PropertyMeta("noHitEntities");
 
         public static bool PointsTowardDirection(this Entity entity)
         {

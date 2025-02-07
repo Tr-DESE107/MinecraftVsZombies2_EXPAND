@@ -1,10 +1,10 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Carts
 {
-    [Definition(VanillaCartNames.nyaightmare)]
+    [EntityBehaviourDefinition(VanillaCartNames.nyaightmare)]
     public class Nyaightmare : CartBehaviour
     {
         public Nyaightmare(string nsp, string name) : base(nsp, name)

@@ -1,20 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Bosses;
-using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmareDarkness)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmareDarkness)]
     public class NightmareDarkness : EffectBehaviour
     {
         public NightmareDarkness(string nsp, string name) : base(nsp, name)

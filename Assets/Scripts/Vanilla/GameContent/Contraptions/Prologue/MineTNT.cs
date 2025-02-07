@@ -4,22 +4,23 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.mineTNT)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.mineTNT)]
     public class MineTNT : ContraptionBehaviour
     {
         public MineTNT(string nsp, string name) : base(nsp, name)
@@ -70,11 +71,11 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetRiseTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "RiseTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_RISE_TIMER);
         }
         public static void SetRiseTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "RiseTimer", timer);
+            entity.SetBehaviourField(ID, PROP_RISE_TIMER, timer);
         }
         private void RiseUpdate(Entity entity)
         {
@@ -137,5 +138,6 @@ namespace MVZ2.GameContent.Contraptions
             return seed;
         }
         private static readonly NamespaceID ID = VanillaContraptionID.mineTNT;
+        private static readonly VanillaEntityPropertyMeta PROP_RISE_TIMER = new VanillaEntityPropertyMeta("RiseTimer");
     }
 }

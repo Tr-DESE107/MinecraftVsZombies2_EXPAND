@@ -1,18 +1,18 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmareaperTimer)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmareaperTimer)]
     public class NightmareaperTimer : EffectBehaviour
     {
         public NightmareaperTimer(string nsp, string name) : base(nsp, name)
@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Effects
         }
         public static int GetTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_TIMEOUT);
         public static void SetTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_TIMEOUT, value);
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaEntityPropertyMeta PROP_TIMEOUT = new VanillaEntityPropertyMeta("Timeout");
         public static readonly NamespaceID ID = VanillaEffectID.nightmareaperTimer;
     }
 }

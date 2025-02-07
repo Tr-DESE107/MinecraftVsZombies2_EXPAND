@@ -5,6 +5,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -107,17 +108,20 @@ namespace MVZ2.GameContent.Contraptions
             var attackTimer = GetEvocationAttackTimer(entity);
             attackTimer.ResetTime(EvocationAttackInterval);
         }
-        public static FrameTimer GetAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_ATTACK_TIMER);
-        public static void SetAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_ATTACK_TIMER, timer);
-        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
-        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
-        public static FrameTimer GetEvocationAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_ATTACK_TIMER);
-        public static void SetEvocationAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_EVOCATION_ATTACK_TIMER, timer);
+        public static FrameTimer GetAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_ATTACK_TIMER);
+        public static void SetAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_ATTACK_TIMER, timer);
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
+        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, timer);
+        public static FrameTimer GetEvocationAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_ATTACK_TIMER);
+        public static void SetEvocationAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_ATTACK_TIMER, timer);
         public const float PULL_SPEED = 10;
-        public const string PROP_ATTACK_TIMER = "AttackTimer";
-        public const string PROP_EVOCATION_TIMER = "EvocationTimer";
-        public const string PROP_EVOCATION_ATTACK_TIMER = "EvocationAttackTimer";
-        private static readonly NamespaceID ID = new NamespaceID(VanillaMod.spaceName, "spikes_behaviour");
+        private const string PROP_REGION = "spikes_behaviour";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta("AttackTimer");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_ATTACK_TIMER = new VanillaEntityPropertyMeta("EvocationAttackTimer");
         public virtual int AttackInterval => 30;
         public virtual int EvocationDuration => 120;
         public virtual int EvocationAttackInterval => 4;

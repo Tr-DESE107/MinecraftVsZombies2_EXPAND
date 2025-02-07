@@ -1,10 +1,11 @@
 ﻿using MVZ2.Vanilla;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.SeedPacks
 {
-    [Definition(VanillaBuffNames.SeedPack.tutorialDisable)]
+    [BuffDefinition(VanillaBuffNames.SeedPack.tutorialDisable)]
     public class TutorialDisableBuff : BuffDefinition
     {
         public TutorialDisableBuff(string nsp, string name) : base(nsp, name)

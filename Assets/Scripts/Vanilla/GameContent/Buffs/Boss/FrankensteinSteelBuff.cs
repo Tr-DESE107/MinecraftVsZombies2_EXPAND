@@ -1,19 +1,19 @@
 ﻿using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Boss.frankensteinSteel)]
+    [BuffDefinition(VanillaBuffNames.Boss.frankensteinSteel)]
     public class FrankensteinSteelBuff : BuffDefinition
     {
         public FrankensteinSteelBuff(string nsp, string name) : base(nsp, name)

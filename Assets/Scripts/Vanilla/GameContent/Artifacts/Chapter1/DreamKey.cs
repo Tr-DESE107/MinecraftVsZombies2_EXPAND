@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [Definition(VanillaArtifactNames.dreamKey)]
+    [ArtifactDefinition(VanillaArtifactNames.dreamKey)]
     public class DreamKey : ArtifactDefinition
     {
         public DreamKey(string nsp, string name) : base(nsp, name)

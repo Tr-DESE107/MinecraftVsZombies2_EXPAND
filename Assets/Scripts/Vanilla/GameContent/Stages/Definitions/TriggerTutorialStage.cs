@@ -6,6 +6,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -16,7 +17,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.triggerTutorial)]
+    [StageDefinition(VanillaStageNames.triggerTutorial)]
     public class TriggerTutorialStage : StageDefinition
     {
         public TriggerTutorialStage(string nsp, string name) : base(nsp, name)
@@ -315,7 +316,7 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "10")]
         public const string STRING_STATE_10 = "祝你好运！";
 
-        public const string PROP_STATE = "state";
-        public const string PROP_TUTORIAL_TIMER = "tutorialTimer";
+        public static readonly VanillaLevelPropertyMeta PROP_STATE = new VanillaLevelPropertyMeta("state");
+        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta("tutorialTimer");
     }
 }

@@ -1,13 +1,13 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.evocationStar)]
+    [EntityBehaviourDefinition(VanillaEffectNames.evocationStar)]
     public class EvocationStar : EffectBehaviour
     {
         #region 公有方法

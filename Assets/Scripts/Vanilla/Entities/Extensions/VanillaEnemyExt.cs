@@ -1,7 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic.Models;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;

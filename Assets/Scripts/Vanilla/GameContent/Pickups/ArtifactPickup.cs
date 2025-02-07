@@ -1,17 +1,19 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [Definition(VanillaPickupNames.artifactPickup)]
+    [EntityBehaviourDefinition(VanillaPickupNames.artifactPickup)]
     public class ArtifactPickup : PickupBehaviour
     {
         public ArtifactPickup(string nsp, string name) : base(nsp, name)
@@ -50,7 +52,7 @@ namespace MVZ2.GameContent.Pickups
             pickup.SetBehaviourField(ID, FIELD_ARTIFACT_ID, id);
             pickup.SetModelProperty("ArtifactID", id);
         }
-        public const string FIELD_ARTIFACT_ID = "ArtifactID";
+        public static readonly VanillaEntityPropertyMeta FIELD_ARTIFACT_ID = new VanillaEntityPropertyMeta("ArtifactID");
         private static readonly NamespaceID ID = VanillaPickupID.artifactPickup;
     }
 }

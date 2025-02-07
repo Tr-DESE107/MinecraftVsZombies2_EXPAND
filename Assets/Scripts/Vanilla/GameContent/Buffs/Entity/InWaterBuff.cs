@@ -1,15 +1,16 @@
 ﻿using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [Definition(VanillaBuffNames.inWater)]
+    [BuffDefinition(VanillaBuffNames.inWater)]
     public class InWaterBuff : BuffDefinition
     {
         public InWaterBuff(string nsp, string name) : base(nsp, name)
@@ -26,7 +27,7 @@ namespace MVZ2.GameContent.Buffs
                 return;
             var groundY = entity.GetGroundY();
             float gravityAddition = 0;
-            if (entity.Position.y < groundY) 
+            if (entity.Position.y < groundY)
             {
                 bool willSink = entity.IsDead || entity.GetWaterInteraction() == WaterInteraction.DROWN;
 
@@ -54,6 +55,6 @@ namespace MVZ2.GameContent.Buffs
             }
             buff.SetProperty(PROP_GRAVITY_ADDITION, gravityAddition);
         }
-        public const string PROP_GRAVITY_ADDITION = "GravityAddition";
+        public static readonly VanillaBuffPropertyMeta PROP_GRAVITY_ADDITION = new VanillaBuffPropertyMeta("GravityAddition");
     }
 }

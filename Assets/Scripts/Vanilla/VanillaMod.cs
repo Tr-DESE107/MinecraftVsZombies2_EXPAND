@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using System.Xml.Linq;
 using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Spawns;
@@ -33,10 +32,12 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod() : base(spaceName)
         {
+            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
+            RegisterEntityProperties(assemblies);
             LoadEntityMetas();
             LoadSpawnMetas();
             LoadStageMetas();
-            LoadDefinitionsFromAssemblies(new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) });
+            LoadDefinitionsFromAssemblies(assemblies);
             LoadAreaProperties();
             LoadStageProperties();
             LoadArtifactProperties();
@@ -82,7 +83,7 @@ namespace MVZ2.Vanilla
                 var entityDefinition = new MetaEntityDefinition(meta.Type, spaceName, name);
                 foreach (var pair in meta.Properties)
                 {
-                    entityDefinition.SetProperty(pair.Key, pair.Value);
+                    entityDefinition.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
                 }
                 AddDefinition(entityDefinition);
 
@@ -147,11 +148,20 @@ namespace MVZ2.Vanilla
             AddDefinition(new WhackAGhostStage(spaceName, "halloween_6"));
             AddDefinition(new BreakoutStage(spaceName, "dream_6"));
         }
+        protected void RegisterEntityProperties(Assembly[] assemblies)
+        {
+            foreach (var assembly in assemblies)
+            {
+                var types = assembly.GetTypes();
+                PropertyMapper.InitPropertyMaps(string.Empty, types);
+            }
+        }
         protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
         {
             foreach (var assembly in assemblies)
             {
-                foreach (var type in assembly.GetTypes())
+                var types = assembly.GetTypes();
+                foreach (var type in types)
                 {
                     var definitionAttr = type.GetCustomAttribute<DefinitionAttribute>();
                     if (definitionAttr == null || type.IsAbstract)
@@ -233,7 +243,7 @@ namespace MVZ2.Vanilla
 
                 foreach (var pair in meta.Properties)
                 {
-                    stage.SetProperty(pair.Key, pair.Value);
+                    stage.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
                 }
             }
         }

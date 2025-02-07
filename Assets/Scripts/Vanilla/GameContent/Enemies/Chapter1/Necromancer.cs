@@ -1,16 +1,17 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
+﻿using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.necromancer)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.necromancer)]
     public class Necromancer : MeleeEnemy
     {
         public Necromancer(string nsp, string name) : base(nsp, name)
@@ -80,19 +81,19 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void SetCasting(Entity entity, bool timer)
         {
-            entity.SetBehaviourField(ID, "Casting", timer);
+            entity.SetBehaviourField(ID, PROP_CASTING, timer);
         }
         public static bool IsCasting(Entity entity)
         {
-            return entity.GetBehaviourField<bool>(ID, "Casting");
+            return entity.GetBehaviourField<bool>(ID, PROP_CASTING);
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "StateTimer", timer);
+            entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         }
         public static FrameTimer GetStateTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
         }
 
         private void StartCasting(Entity entity)
@@ -145,7 +146,9 @@ namespace MVZ2.GameContent.Enemies
         private const int CAST_TIME = 30;
         private const int BUILD_DETECT_TIME = 30;
         private const int MAX_BONE_WALL_COUNT = 15;
-        public static NamespaceID ID => VanillaEnemyID.necromancer;
+        public static readonly NamespaceID ID = VanillaEnemyID.necromancer;
+        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_CASTING = new VanillaEntityPropertyMeta("Casting");
         #endregion 常量
     }
 }

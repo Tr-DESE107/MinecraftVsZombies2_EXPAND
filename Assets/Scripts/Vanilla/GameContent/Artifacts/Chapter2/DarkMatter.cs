@@ -1,20 +1,15 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
-using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [Definition(VanillaArtifactNames.darkMatter)]
+    [ArtifactDefinition(VanillaArtifactNames.darkMatter)]
     public class DarkMatter : ArtifactDefinition
     {
         public DarkMatter(string nsp, string name) : base(nsp, name)

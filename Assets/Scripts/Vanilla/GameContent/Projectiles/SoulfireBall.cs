@@ -1,18 +1,19 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.soulfireBall)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.soulfireBall)]
     public class SoulfireBall : ProjectileBehaviour
     {
         public SoulfireBall(string nsp, string name) : base(nsp, name)
@@ -55,12 +56,13 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static void SetBlast(Entity entity, bool value)
         {
-            entity.SetBehaviourField(ID, "Blast", value);
+            entity.SetBehaviourField(ID, PROP_BLAST, value);
         }
         public static bool IsBlast(Entity entity)
         {
-            return entity.GetBehaviourField<bool>(ID, "Blast");
+            return entity.GetBehaviourField<bool>(ID, PROP_BLAST);
         }
         public static NamespaceID ID => VanillaProjectileID.soulfireBall;
+        public static readonly VanillaEntityPropertyMeta PROP_BLAST = new VanillaEntityPropertyMeta("Blast");
     }
 }

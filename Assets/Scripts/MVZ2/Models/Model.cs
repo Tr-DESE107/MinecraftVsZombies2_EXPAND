@@ -135,7 +135,7 @@ namespace MVZ2.Models
             GraphicGroup.LoadFromSerializable(serializable.graphicGroup);
             if (serializable.propertyDict != null)
             {
-                var dict = PropertyDictionary.FromSerializable(serializable.propertyDict);
+                var dict = PropertyDictionaryString.FromSerializable(serializable.propertyDict);
                 foreach (var name in dict.GetPropertyNames())
                 {
                     SetProperty(name, dict.GetProperty(name));
@@ -237,11 +237,11 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性
-        public T GetProperty<T>(string name)
+        public T GetProperty<T>(PropertyKeyString name)
         {
             return propertyDict.GetProperty<T>(name);
         }
-        public void SetProperty(string name, object value)
+        public void SetProperty(PropertyKeyString name, object value)
         {
             propertyDict.SetProperty(name, value);
             foreach (var comp in modelComponents)
@@ -249,7 +249,7 @@ namespace MVZ2.Models
                 comp.OnPropertySet(name, value);
             }
         }
-        public void TriggerModel(string name)
+        public void TriggerModel(PropertyKeyString name)
         {
             foreach (var comp in modelComponents)
             {
@@ -337,7 +337,7 @@ namespace MVZ2.Models
         private int destroyTimeout;
         private ModelParentInterface modelInterface;
         private RandomGenerator rng;
-        private PropertyDictionary propertyDict = new PropertyDictionary();
+        private PropertyDictionaryString propertyDict = new PropertyDictionaryString();
         [Header("General")]
         [SerializeField]
         private ModelAnchor[] modelAnchors;
@@ -364,7 +364,7 @@ namespace MVZ2.Models
         public NamespaceID id;
         public SerializableRNG rng;
         public SerializableModelGraphicGroup graphicGroup;
-        public SerializablePropertyDictionary propertyDict;
+        public SerializablePropertyDictionaryString propertyDict;
         public SerializableModelData[] childModels;
         public int destroyTimeout;
     }

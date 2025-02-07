@@ -2,17 +2,17 @@
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.castle6)]
+    [StageDefinition(VanillaStageNames.castle6)]
     public partial class LittleZombieStage : StageDefinition
     {
         public LittleZombieStage(string nsp, string name) : base(nsp, name)
@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Stages
         public override void OnPostWave(LevelEngine level, int wave)
         {
             base.OnPostWave(level, wave);
-            if (wave == 11) 
+            if (wave == 11)
             {
                 level.PlaySound(VanillaSoundID.growBig);
             }
@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Stages
         public static void SetBigCounter(LevelEngine level, int value) => level.SetBehaviourField(ID, FIELD_BIG_COUNTER, value);
 
         public static readonly NamespaceID ID = new NamespaceID(VanillaMod.spaceName, "little_zombie_stage");
-        public const string FIELD_BIG_COUNTER = "BigCounter";
+        public static readonly VanillaLevelPropertyMeta FIELD_BIG_COUNTER = new VanillaLevelPropertyMeta("BigCounter");
         public const int MAX_BIG_COUNTER = 6;
     }
 }

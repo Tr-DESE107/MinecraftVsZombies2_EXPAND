@@ -4,7 +4,6 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
@@ -17,7 +16,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [Definition(VanillaHeldItemNames.sword)]
+    [HeldItemDefinition(VanillaHeldItemNames.sword)]
     public class SwordHeldItemDefinition : HeldItemDefinition
     {
         public SwordHeldItemDefinition(string nsp, string name) : base(nsp, name)

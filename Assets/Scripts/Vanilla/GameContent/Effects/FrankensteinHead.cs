@@ -1,11 +1,11 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.frankensteinHead)]
+    [EntityBehaviourDefinition(VanillaEffectNames.frankensteinHead)]
     public class FrankensteinHead : EffectBehaviour
     {
         #region 公有方法

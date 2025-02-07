@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Level;
-using PVZEngine.Auras;
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.beingRiden)]
+    [BuffDefinition(VanillaBuffNames.beingRiden)]
     public class BeingRidenBuff : BuffDefinition
     {
         public BeingRidenBuff(string nsp, string name) : base(nsp, name)
@@ -35,6 +33,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             buff.SetProperty(PROP_TARGET, new EntityID(value));
         }
-        public const string PROP_TARGET = "Target";
+        public static readonly VanillaBuffPropertyMeta PROP_TARGET = new VanillaBuffPropertyMeta("Target");
     }
 }

@@ -1,10 +1,10 @@
 ﻿using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla;
 using PVZEngine.Armors;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors
 {
-    [Definition(VanillaArmorNames.berserkerHelmet)]
+    [ArmorDefinition(VanillaArmorNames.berserkerHelmet)]
     public class BerserkerHelmet : ArmorDefinition
     {
         public BerserkerHelmet(string nsp, string name) : base(nsp, name)

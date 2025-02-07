@@ -1,10 +1,10 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -35,11 +35,11 @@ namespace MVZ2.Vanilla.Enemies
         }
         public static FrameTimer GetDeathTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "DeathTimer");
+            return entity.GetBehaviourField<FrameTimer>(PROP_DEATH_TIMER);
         }
         public static void SetDeathTimer(Entity entity, FrameTimer frameTimer)
         {
-            entity.SetBehaviourField(ID, "DeathTimer", frameTimer);
+            entity.SetBehaviourField(PROP_DEATH_TIMER, frameTimer);
         }
         protected virtual int GetActionState(Entity enemy)
         {
@@ -112,7 +112,9 @@ namespace MVZ2.Vanilla.Enemies
         protected virtual void UpdateStateIdle(Entity enemy)
         {
         }
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "state_enemy");
+        private const string PROP_REGION = "state_enemy";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_DEATH_TIMER = new VanillaEntityPropertyMeta("DeathTimer");
     }
 
 }

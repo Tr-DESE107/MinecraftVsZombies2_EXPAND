@@ -9,9 +9,10 @@ using UnityEngine;
 
 namespace MVZ2Logic.Level
 {
+    [PropertyRegistryRegion]
     public static class LogicLevelProps
     {
-        public const string SCREEN_COVER = "screenCover";
+        public static readonly PropertyMeta SCREEN_COVER = new PropertyMeta("screenCover");
         public static Color GetScreenCover(this LevelEngine level)
         {
             return level.GetProperty<Color>(SCREEN_COVER);
@@ -20,7 +21,7 @@ namespace MVZ2Logic.Level
         {
             level.SetProperty(SCREEN_COVER, value);
         }
-        public const string PAUSE_DISABLED = "pause_disabled";
+        public static readonly PropertyMeta PAUSE_DISABLED = new PropertyMeta("pause_disabled");
         public static bool IsPauseDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(PAUSE_DISABLED);
@@ -29,7 +30,7 @@ namespace MVZ2Logic.Level
         {
             level.SetProperty(PAUSE_DISABLED, value);
         }
-        public const string CAMERA_ROTATION = "cameraRotation";
+        public static readonly PropertyMeta CAMERA_ROTATION = new PropertyMeta("cameraRotation");
         public static float GetCameraRotation(this LevelEngine level)
         {
             return level.GetProperty<float>(CAMERA_ROTATION);

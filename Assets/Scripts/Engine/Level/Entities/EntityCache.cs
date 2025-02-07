@@ -18,40 +18,47 @@ namespace PVZEngine.Entities
             CollisionDetection = entity.GetCollisionDetection();
             CollisionSampleLength = entity.GetCollisionSampleLength();
         }
-        public void UpdateProperty(Entity entity, string name, object value)
+        public void UpdateProperty(Entity entity, PropertyKey name, object value)
         {
-            switch (name)
+            if (name == EngineEntityProps.FACTION)
             {
-                case EngineEntityProps.FACTION:
-                    Faction = value.ToGeneric<int>();
-                    break;
-                case EngineEntityProps.GRAVITY:
-                    Gravity = value.ToGeneric<float>();
-                    break;
-                case EngineEntityProps.FRICTION:
-                    Friction = value.ToGeneric<float>();
-                    break;
-                case EngineEntityProps.GROUND_LIMIT_OFFSET:
-                    GroundLimitOffset = value.ToGeneric<float>();
-                    break;
-                case EngineEntityProps.VELOCITY_DAMPEN:
-                    VelocityDampen = value.ToGeneric<Vector3>();
-                    break;
-                case EngineEntityProps.SIZE:
-                    Size = value.ToGeneric<Vector3>();
-                    break;
-                case EngineEntityProps.SCALE:
-                    Scale = value.ToGeneric<Vector3>();
-                    break;
-                case EngineEntityProps.BOUNDS_OFFSET:
-                    BoundsOffset = value.ToGeneric<Vector3>();
-                    break;
-                case EngineEntityProps.COLLISION_DETECTION:
-                    CollisionDetection = value.ToGeneric<int>();
-                    break;
-                case EngineEntityProps.COLLISION_SAMPLE_LENGTH:
-                    CollisionSampleLength = value.ToGeneric<float>();
-                    break;
+                Faction = value.ToGeneric<int>();
+            }
+            else if (name == EngineEntityProps.GRAVITY)
+            {
+                Gravity = value.ToGeneric<float>();
+            }
+            else if (name == EngineEntityProps.FRICTION)
+            {
+                Friction = value.ToGeneric<float>();
+            }
+            else if (name == EngineEntityProps.GROUND_LIMIT_OFFSET)
+            {
+                GroundLimitOffset = value.ToGeneric<float>();
+            }
+            else if (name == EngineEntityProps.VELOCITY_DAMPEN)
+            {
+                VelocityDampen = value.ToGeneric<Vector3>();
+            }
+            else if (name == EngineEntityProps.SIZE)
+            {
+                Size = value.ToGeneric<Vector3>();
+            }
+            else if (name == EngineEntityProps.SCALE)
+            {
+                Scale = value.ToGeneric<Vector3>();
+            }
+            else if (name == EngineEntityProps.BOUNDS_OFFSET)
+            {
+                BoundsOffset = value.ToGeneric<Vector3>();
+            }
+            else if (name == EngineEntityProps.COLLISION_DETECTION)
+            {
+                CollisionDetection = value.ToGeneric<int>();
+            }
+            else if (name == EngineEntityProps.COLLISION_SAMPLE_LENGTH)
+            {
+                CollisionSampleLength = value.ToGeneric<float>();
             }
         }
         public int Faction { get; private set; }

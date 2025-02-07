@@ -1,9 +1,10 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.napstablookAngry)]
+    [BuffDefinition(VanillaBuffNames.napstablookAngry)]
     public class NapstablookAngryBuff : BuffDefinition
     {
         public NapstablookAngryBuff(string nsp, string name) : base(nsp, name)
@@ -25,7 +26,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 30;
     }
 }

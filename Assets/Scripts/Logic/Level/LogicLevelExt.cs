@@ -15,13 +15,21 @@ namespace MVZ2Logic.Level
             level.Triggers.RunCallbackFiltered(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED, blueprint, result, c => c(level, blueprint, result));
             return result.Result;
         }
-        public static void SetBehaviourField(this LevelEngine level, NamespaceID id, string name, object value)
+        public static void SetBehaviourField(this LevelEngine level, NamespaceID id, PropertyKey name, object value)
         {
-            level.SetField(id.ToString(), name, value);
+            level.SetProperty(name, value);
         }
-        public static T GetBehaviourField<T>(this LevelEngine level, NamespaceID id, string name)
+        public static T GetBehaviourField<T>(this LevelEngine level, NamespaceID id, PropertyKey name)
         {
-            return level.GetField<T>(id.ToString(), name);
+            return level.GetProperty<T>(name);
+        }
+        public static void SetBehaviourField(this LevelEngine level, PropertyKey name, object value)
+        {
+            level.SetProperty(name, value);
+        }
+        public static T GetBehaviourField<T>(this LevelEngine level, PropertyKey name)
+        {
+            return level.GetProperty<T>(name);
         }
     }
 }

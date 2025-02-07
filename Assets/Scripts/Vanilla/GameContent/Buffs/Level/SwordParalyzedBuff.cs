@@ -1,11 +1,12 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.swordParalyzed)]
+    [BuffDefinition(VanillaBuffNames.Level.swordParalyzed)]
     public class SwordParalyzedBuff : BuffDefinition
     {
         public SwordParalyzedBuff(string nsp, string name) : base(nsp, name)
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             base.PostRemove(buff);
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 45;
     }
 }

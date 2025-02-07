@@ -1,14 +1,15 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmareWatchingEye)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmareWatchingEye)]
     public class NightmareWatchingEye : EffectBehaviour
     {
         #region 公有方法
@@ -72,8 +73,8 @@ namespace MVZ2.GameContent.Effects
             entity.SetBehaviourField(ID, PROP_EYE_TARGET, value);
         }
         public static readonly NamespaceID ID = VanillaEffectID.nightmareWatchingEye;
-        public const string PROP_EYE_DIRECTION = "EyeDirection";
-        public const string PROP_EYE_TARGET = "EyeTarget";
-        public const string PROP_EYE_MOVE_COOLDOWN = "EyeMoveCooldown";
+        public static readonly VanillaEntityPropertyMeta PROP_EYE_DIRECTION = new VanillaEntityPropertyMeta("EyeDirection");
+        public static readonly VanillaEntityPropertyMeta PROP_EYE_TARGET = new VanillaEntityPropertyMeta("EyeTarget");
+        public static readonly VanillaEntityPropertyMeta PROP_EYE_MOVE_COOLDOWN = new VanillaEntityPropertyMeta("EyeMoveCooldown");
     }
 }

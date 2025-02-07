@@ -1,14 +1,14 @@
 ﻿using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds
 {
-    [Definition(VanillaBlueprintNames.addPearl)]
+    [SeedOptionDefinition(VanillaBlueprintNames.addPearl)]
     public class AddPearl : SeedOptionDefinition
     {
         public AddPearl(string nsp, string name) : base(nsp, name)

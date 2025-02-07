@@ -1,15 +1,15 @@
 ﻿using MVZ2.GameContent.Buffs.Armors;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.littleZombie)]
+    [BuffDefinition(VanillaBuffNames.littleZombie)]
     public class LittleZombieBuff : BuffDefinition
     {
         public LittleZombieBuff(string nsp, string name) : base(nsp, name)

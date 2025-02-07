@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -9,7 +8,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.halloween11)]
+    [StageDefinition(VanillaStageNames.halloween11)]
     public partial class FrankensteinStage : StageDefinition
     {
         public FrankensteinStage(string nsp, string name) : base(nsp, name)

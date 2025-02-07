@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.ghost)]
+    [BuffDefinition(VanillaBuffNames.ghost)]
     public class GhostBuff : BuffDefinition
     {
         public GhostBuff(string nsp, string name) : base(nsp, name)
@@ -131,10 +131,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             return false;
         }
-        public const string PROP_EVER_ILLUMINATED = "EverIlluminated";
-        public const string PROP_TINT_MULTIPLIER = "TintMultiplier";
-        public const string PROP_SHADOW_ALPHA = "ShadowAlpha";
-        public const string PROP_ETHEREAL = "Ethereal";
+        public static readonly VanillaBuffPropertyMeta PROP_EVER_ILLUMINATED = new VanillaBuffPropertyMeta("EverIlluminated");
+        public static readonly VanillaBuffPropertyMeta PROP_TINT_MULTIPLIER = new VanillaBuffPropertyMeta("TintMultiplier");
+        public static readonly VanillaBuffPropertyMeta PROP_SHADOW_ALPHA = new VanillaBuffPropertyMeta("ShadowAlpha");
+        public static readonly VanillaBuffPropertyMeta PROP_ETHEREAL = new VanillaBuffPropertyMeta("Ethereal");
         public const float TINT_ALPHA_MIN = 0.5f;
         public const float TINT_ALPHA_MAX = 1;
         public const float TINT_SPEED = 0.02f;

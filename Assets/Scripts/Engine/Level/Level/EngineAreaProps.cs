@@ -2,17 +2,22 @@
 
 namespace PVZEngine.Definitions
 {
+    [PropertyRegistryRegion]
     public static class EngineAreaProps
     {
-        public const string GRID_WIDTH = "GridWidth";
-        public const string GRID_HEIGHT = "GridHeight";
-        public const string GRID_LEFT_X = "GridLeftX";
-        public const string GRID_BOTTOM_Z = "GridBottomZ";
-        public const string ENEMY_SPAWN_X = "enemySpawnX";
-        public const string MAX_LANE_COUNT = "MaxLaneCount";
-        public const string MAX_COLUMN_COUNT = "MaxColumnCount";
-        public const string CART_REFERENCE = "cartReference";
-        public const string AREA_TAGS = "areaTags";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta GRID_WIDTH = Get("GridWidth");
+        public static readonly PropertyMeta GRID_HEIGHT = Get("GridHeight");
+        public static readonly PropertyMeta GRID_LEFT_X = Get("GridLeftX");
+        public static readonly PropertyMeta GRID_BOTTOM_Z = Get("GridBottomZ");
+        public static readonly PropertyMeta ENEMY_SPAWN_X = Get("enemySpawnX");
+        public static readonly PropertyMeta MAX_LANE_COUNT = Get("MaxLaneCount");
+        public static readonly PropertyMeta MAX_COLUMN_COUNT = Get("MaxColumnCount");
+        public static readonly PropertyMeta CART_REFERENCE = Get("cartReference");
+        public static readonly PropertyMeta AREA_TAGS = Get("areaTags");
         public static NamespaceID[] GetAreaTags(this AreaDefinition definition)
         {
             return definition.GetProperty<NamespaceID[]>(AREA_TAGS);

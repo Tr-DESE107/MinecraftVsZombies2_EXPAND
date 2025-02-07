@@ -9,6 +9,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -19,7 +20,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [Definition(VanillaStageNames.starshardTutorial)]
+    [StageDefinition(VanillaStageNames.starshardTutorial)]
     public class StarshardTutorialStage : StageDefinition
     {
         public StarshardTutorialStage(string nsp, string name) : base(nsp, name)
@@ -208,7 +209,7 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "5")]
         public const string STRING_STATE_5 = "现在干掉铁盔僵尸！";
 
-        public const string PROP_STATE = "state";
-        public const string PROP_TUTORIAL_TIMER = "tutorialTimer";
+        public static readonly VanillaLevelPropertyMeta PROP_STATE = new VanillaLevelPropertyMeta("state");
+        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta("tutorialTimer");
     }
 }

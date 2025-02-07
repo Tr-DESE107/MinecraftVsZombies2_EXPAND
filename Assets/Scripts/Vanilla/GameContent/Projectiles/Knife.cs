@@ -1,11 +1,11 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.knife)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.knife)]
     public class Knife : ProjectileBehaviour
     {
         public Knife(string nsp, string name) : base(nsp, name)

@@ -1,9 +1,6 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

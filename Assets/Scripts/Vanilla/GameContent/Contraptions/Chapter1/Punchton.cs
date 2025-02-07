@@ -9,15 +9,17 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.punchton)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.punchton)]
     public class Punchton : ContraptionBehaviour
     {
         public Punchton(string nsp, string name) : base(nsp, name)
@@ -185,10 +187,10 @@ namespace MVZ2.GameContent.Contraptions
                 return 1;
             return 0;
         }
-        public float GetArmExtension(Entity entity) => entity.GetBehaviourField<float>(ID, "ArmExtension");
-        public void SetArmExtension(Entity entity, float value) => entity.SetBehaviourField(ID, "ArmExtension", value);
-        public FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
-        public void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "StateTimer", timer);
+        public float GetArmExtension(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_ARM_EXTENSION);
+        public void SetArmExtension(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_ARM_EXTENSION, value);
+        public FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
+        public void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         private void CheckAchievement(Entity entity)
         {
             if (entity.Type != EntityTypes.ENEMY)
@@ -205,6 +207,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int RESTORE_TIME = 600;
         public const float EVOKED_DAMAGE_MULTIPLIER = 5;
         private static readonly NamespaceID ID = VanillaContraptionID.punchton;
+        public static readonly VanillaEntityPropertyMeta PROP_ARM_EXTENSION = new VanillaEntityPropertyMeta("ArmExtension");
+        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
         private Detector detector;
         private Detector evokedDetector;
         private List<EntityCollider> detectBuffer = new List<EntityCollider>();

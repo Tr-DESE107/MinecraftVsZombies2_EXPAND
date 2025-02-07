@@ -1,9 +1,9 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Carts
 {
-    [Definition(VanillaCartNames.pumpkinCarriage)]
+    [EntityBehaviourDefinition(VanillaCartNames.pumpkinCarriage)]
     public class PumpkinCarriage : CartBehaviour
     {
         public PumpkinCarriage(string nsp, string name) : base(nsp, name)

@@ -1,20 +1,21 @@
 ﻿using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.mesmerizer)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.mesmerizer)]
     public class Mesmerizer : MeleeEnemy
     {
         public Mesmerizer(string nsp, string name) : base(nsp, name)
@@ -111,12 +112,12 @@ namespace MVZ2.GameContent.Enemies
             return true;
         }
 
-        public static void SetCasting(Entity entity, bool timer) => entity.SetBehaviourField(ID, "Casting", timer);
-        public static bool IsCasting(Entity entity) => entity.GetBehaviourField<bool>(ID, "Casting");
-        public static void SetOrb(Entity entity, EntityID value) => entity.SetBehaviourField(ID, "Orb", value);
-        public static EntityID GetOrb(Entity entity) => entity.GetBehaviourField<EntityID>(ID, "Orb");
-        public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, "StateTimer", timer);
-        public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, "StateTimer");
+        public static void SetCasting(Entity entity, bool timer) => entity.SetBehaviourField(ID, PROP_CASTING, timer);
+        public static bool IsCasting(Entity entity) => entity.GetBehaviourField<bool>(ID, PROP_CASTING);
+        public static void SetOrb(Entity entity, EntityID value) => entity.SetBehaviourField(ID, PROP_ORB, value);
+        public static EntityID GetOrb(Entity entity) => entity.GetBehaviourField<EntityID>(ID, PROP_ORB);
+        public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
+        public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
 
         #region 常量
         private const int CAST_COOLDOWN = 300;
@@ -126,7 +127,10 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
         public const int STATE_CAST = VanillaEntityStates.MESMERIZER_CAST;
         private Detector detector;
-        public static NamespaceID ID => VanillaEnemyID.mesmerizer;
+        public static readonly NamespaceID ID = VanillaEnemyID.mesmerizer;
+        public static readonly VanillaEntityPropertyMeta PROP_CASTING = new VanillaEntityPropertyMeta("Casting");
+        public static readonly VanillaEntityPropertyMeta PROP_ORB = new VanillaEntityPropertyMeta("Orb");
+        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
         #endregion 常量
     }
 }

@@ -1,12 +1,12 @@
 ﻿using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Shells
 {
-    [Definition(VanillaShellNames.wood)]
+    [ShellDefinition(VanillaShellNames.wood)]
     public class WoodShell : ShellDefinition
     {
         public WoodShell(string nsp, string name) : base(nsp, name)

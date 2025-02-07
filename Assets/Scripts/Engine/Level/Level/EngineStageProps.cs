@@ -1,11 +1,16 @@
 ﻿namespace PVZEngine.Level
 {
+    [PropertyRegistryRegion]
     public static class EngineStageProps
     {
-        public const string CONTINUED_FIRST_WAVE_TIME = "continuedFirstWaveTime";
-        public const string FIRST_WAVE_TIME = "firstWaveTime";
-        public const string WAVES_PER_FLAG = "wavesPerFlag";
-        public const string TOTAL_FLAGS = "totalFlags";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta CONTINUED_FIRST_WAVE_TIME = Get("continuedFirstWaveTime");
+        public static readonly PropertyMeta FIRST_WAVE_TIME = Get("firstWaveTime");
+        public static readonly PropertyMeta WAVES_PER_FLAG = Get("wavesPerFlag");
+        public static readonly PropertyMeta TOTAL_FLAGS = Get("totalFlags");
         public static int GetTotalFlags(this LevelEngine level)
         {
             return level.GetProperty<int>(TOTAL_FLAGS);

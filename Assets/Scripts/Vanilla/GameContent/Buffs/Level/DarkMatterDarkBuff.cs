@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.Level.darkMatterDark)]
+    [BuffDefinition(VanillaBuffNames.Level.darkMatterDark)]
     public class DarkMatterDarkBuff : BuffDefinition
     {
         public DarkMatterDarkBuff(string nsp, string name) : base(nsp, name)
@@ -20,7 +21,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             addition = Mathf.Clamp(addition + DARKNESS_SPEED, 0, MAX_DARKNESS);
             buff.SetProperty(PROP_DARKNESS_ADDITION, addition);
         }
-        public const string PROP_DARKNESS_ADDITION = "DarknessAddition";
+        public static readonly VanillaBuffPropertyMeta PROP_DARKNESS_ADDITION = new VanillaBuffPropertyMeta("DarknessAddition");
         public const float DARKNESS_SPEED = 0.03f;
         public const float MAX_DARKNESS = 0.9f;
     }

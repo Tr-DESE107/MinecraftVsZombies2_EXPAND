@@ -1,13 +1,14 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Detections;
+﻿using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.dreamCrystalEvocation)]
+    [BuffDefinition(VanillaBuffNames.dreamCrystalEvocation)]
     public class DreamCrystalEvocationBuff : BuffDefinition
     {
         public DreamCrystalEvocationBuff(string nsp, string name) : base(nsp, name)
@@ -41,7 +42,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             return Detection.IsInSphere(target.MainHitbox, self.GetCenter(), 100) && self.IsFriendly(target);
         }
-        public const string PROP_TIMEOUT = "Timeout";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 150;
         public const float HEAL_PER_FRAME = 20;
     }

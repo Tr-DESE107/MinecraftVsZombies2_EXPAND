@@ -1,18 +1,19 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.furnace)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.furnace)]
     public class Furnace : ContraptionBehaviour
     {
         public Furnace(string nsp, string name) : base(nsp, name)
@@ -59,19 +60,19 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetProductionTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "ProductionTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_PRODUCTION_TIMER);
         }
         public static void SetProductionTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "ProductionTimer", timer);
+            entity.SetBehaviourField(ID, PROP_PRODUCTION_TIMER, timer);
         }
         public static FrameTimer GetEvocationTimer(Entity entity)
         {
-            return entity.GetBehaviourField<FrameTimer>(ID, "EvocationTimer");
+            return entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
         }
         public static void SetEvocationTimer(Entity entity, FrameTimer timer)
         {
-            entity.SetBehaviourField(ID, "EvocationTimer", timer);
+            entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
         }
         private void ProductionUpdate(Entity entity)
         {
@@ -134,5 +135,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_DURATION = EVOCATION_INTERVAL * EVOCATION_REDSTONES;
         private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);
         private static readonly NamespaceID ID = VanillaContraptionID.furnace;
+        private static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
     }
 }

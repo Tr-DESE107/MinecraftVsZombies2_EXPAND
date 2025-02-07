@@ -1,18 +1,17 @@
-using System;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.thunderCloud)]
+    [EntityBehaviourDefinition(VanillaEffectNames.thunderCloud)]
     public class ThunderCloud : EffectBehaviour
     {
         #region 公有方法

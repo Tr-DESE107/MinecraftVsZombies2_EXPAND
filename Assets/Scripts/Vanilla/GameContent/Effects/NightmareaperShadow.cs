@@ -1,10 +1,10 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [Definition(VanillaEffectNames.nightmareaperShadow)]
+    [EntityBehaviourDefinition(VanillaEffectNames.nightmareaperShadow)]
     public class NightmareaperShadow : EffectBehaviour
     {
         #region 公有方法

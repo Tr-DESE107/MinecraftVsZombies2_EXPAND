@@ -1,11 +1,10 @@
 ﻿using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla;
 using PVZEngine.Armors;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors
 {
-    [Definition(VanillaArmorNames.ironHelmet)]
+    [ArmorDefinition(VanillaArmorNames.ironHelmet)]
     public class IronHelmet : ArmorDefinition
     {
         public IronHelmet(string nsp, string name) : base(nsp, name)

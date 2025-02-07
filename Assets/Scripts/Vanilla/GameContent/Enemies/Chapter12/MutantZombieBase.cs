@@ -1,6 +1,7 @@
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -40,15 +41,17 @@ namespace MVZ2.Vanilla.Enemies
             base.PostDeath(entity, info);
             stateMachine.StartState(entity, STATE_DEATH);
         }
-        public static bool HasImp(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_HAS_IMP);
-        public static void SetHasImp(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_HAS_IMP, value);
-        public static int GetWeapon(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_WEAPON);
-        public static void SetWeapon(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_WEAPON, value);
+        public static bool HasImp(Entity entity) => entity.GetBehaviourField<bool>(FIELD_HAS_IMP);
+        public static void SetHasImp(Entity entity, bool value) => entity.SetBehaviourField(FIELD_HAS_IMP, value);
+        public static int GetWeapon(Entity entity) => entity.GetBehaviourField<int>(FIELD_WEAPON);
+        public static void SetWeapon(Entity entity, int value) => entity.SetBehaviourField(FIELD_WEAPON, value);
 
-        public const string FIELD_HAS_IMP = "HasImp";
-        public const string FIELD_WEAPON = "Weapon";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta FIELD_HAS_IMP = new VanillaEntityPropertyMeta("HasImp");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta FIELD_WEAPON = new VanillaEntityPropertyMeta("Weapon");
 
-        private static readonly NamespaceID ID = new NamespaceID("mvz2", "mutant_zombie_base");
+        private const string PROP_REGION = "mutant_zombie_base";
         private static EntityStateMachine stateMachine = new MutantZombieStateMachine();
         private static Detector detector = new MutantZombieDetector();
     }

@@ -1,11 +1,11 @@
-﻿using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [Definition(VanillaProjectileNames.woodenBall)]
+    [EntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
     public class WoodenBall : ProjectileBehaviour
     {
         public WoodenBall(string nsp, string name) : base(nsp, name)

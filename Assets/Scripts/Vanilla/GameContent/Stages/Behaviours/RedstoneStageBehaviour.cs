@@ -1,8 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
+using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -58,27 +57,29 @@ namespace MVZ2.GameContent.Stages
         }
         public static RandomGenerator GetRedstoneRNG(LevelEngine level)
         {
-            return level.GetProperty<RandomGenerator>(REDSTONE_RNG);
+            return level.GetProperty<RandomGenerator>(PROP_REDSTONE_RNG);
         }
         public static void SetRestoneRNG(LevelEngine level, RandomGenerator value)
         {
-            level.SetProperty(REDSTONE_RNG, value);
+            level.SetProperty(PROP_REDSTONE_RNG, value);
         }
         public static int GetRedstoneChance(LevelEngine level)
         {
-            return level.GetProperty<int>(REDSTONE_CHANCE);
+            return level.GetProperty<int>(PROP_REDSTONE_CHANCE);
         }
         public static void SetRedstoneChance(LevelEngine level, int value)
         {
-            level.SetProperty(REDSTONE_CHANCE, value);
+            level.SetProperty(PROP_REDSTONE_CHANCE, value);
         }
         public static void AddRedstoneChance(LevelEngine level, int value)
         {
             SetRedstoneChance(level, GetRedstoneChance(level) + value);
         }
-
-        public const string REDSTONE_RNG = "RedstoneRNG";
-        public const string REDSTONE_CHANCE = "RedstoneChance";
+        private const string PROP_REGION = "redstone_drop_stage";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_REDSTONE_RNG = new VanillaLevelPropertyMeta("RedstoneRNG");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_REDSTONE_CHANCE = new VanillaLevelPropertyMeta("RedstoneChance");
         public const int MIN_CHANCE = -15;
         public const int CHANCE_INCREAMENT = 10;
         public const int CHANCE_REDUCTION = -125;

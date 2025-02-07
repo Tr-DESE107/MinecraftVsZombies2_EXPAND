@@ -3,15 +3,20 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
+    [PropertyRegistryRegion]
     public static class VanillaPickupProps
     {
-        public const string COLLECTED_TIME = "collectedTime";
-        public const string IMPORTANT = "important";
-        public const string NO_AUTO_COLLECT = "noAutoCollect";
-        public const string DROP_SOUND = "dropSound";
-        public const string COLLECT_SOUND = "collectSound";
-        public const string MONEY_VALUE = "moneyValue";
-        public const string REMOVE_ON_COLLECT = "removeOnCollect";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta COLLECTED_TIME = Get("collectedTime");
+        public static readonly PropertyMeta IMPORTANT = Get("important");
+        public static readonly PropertyMeta NO_AUTO_COLLECT = Get("noAutoCollect");
+        public static readonly PropertyMeta DROP_SOUND = Get("dropSound");
+        public static readonly PropertyMeta COLLECT_SOUND = Get("collectSound");
+        public static readonly PropertyMeta MONEY_VALUE = Get("moneyValue");
+        public static readonly PropertyMeta REMOVE_ON_COLLECT = Get("removeOnCollect");
         public static bool IsImportantPickup(this Entity entity)
         {
             return entity.GetProperty<bool>(IMPORTANT);

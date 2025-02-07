@@ -1,14 +1,15 @@
 ﻿using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [Definition(VanillaBuffNames.stun)]
+    [BuffDefinition(VanillaBuffNames.stun)]
     public class StunBuff : BuffDefinition
     {
         public StunBuff(string nsp, string name) : base(nsp, name)
@@ -69,7 +70,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.SetProperty(PROP_STUN_STARS, stars);
             }
         }
-        public const string PROP_TIMER = "Timer";
-        public const string PROP_STUN_STARS = "StunStars";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
+        public static readonly VanillaBuffPropertyMeta PROP_STUN_STARS = new VanillaBuffPropertyMeta("StunStars");
     }
 }

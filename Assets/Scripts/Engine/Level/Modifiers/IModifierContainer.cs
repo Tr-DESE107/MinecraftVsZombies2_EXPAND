@@ -8,6 +8,6 @@ namespace PVZEngine.Modifiers
 {
     public interface IModifierContainer
     {
-        public object GetProperty(string name);
+        public object GetProperty(PropertyKey name);
     }
 }

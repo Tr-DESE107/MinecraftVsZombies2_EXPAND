@@ -1,11 +1,11 @@
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [Definition(VanillaPickupNames.diamond)]
+    [EntityBehaviourDefinition(VanillaPickupNames.diamond)]
     public class Diamond : Gem
     {
         public Diamond(string nsp, string name) : base(nsp, name)

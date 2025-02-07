@@ -2,7 +2,6 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Detections;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -10,10 +9,11 @@ using MVZ2.Vanilla.Grids;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [Definition(VanillaContraptionNames.stoneShield)]
+    [EntityBehaviourDefinition(VanillaContraptionNames.stoneShield)]
     public class StoneShield : ContraptionBehaviour
     {
         public StoneShield(string nsp, string name) : base(nsp, name)

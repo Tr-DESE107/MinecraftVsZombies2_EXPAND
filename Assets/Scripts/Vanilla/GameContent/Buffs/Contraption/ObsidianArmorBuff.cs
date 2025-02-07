@@ -1,13 +1,13 @@
 ﻿using MVZ2.GameContent.Fragments;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.obsidianArmor)]
+    [BuffDefinition(VanillaBuffNames.obsidianArmor)]
     public class ObsidianArmorBuff : BuffDefinition
     {
         public ObsidianArmorBuff(string nsp, string name) : base(nsp, name)

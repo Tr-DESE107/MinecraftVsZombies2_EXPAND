@@ -1,17 +1,16 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [Definition(VanillaEnemyNames.imp)]
+    [EntityBehaviourDefinition(VanillaEnemyNames.imp)]
     public class Imp : MeleeEnemy
     {
         public Imp(string nsp, string name) : base(nsp, name)

@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [Definition(VanillaBuffNames.ironCurtain)]
+    [BuffDefinition(VanillaBuffNames.ironCurtain)]
     public class IronCurtainBuff : BuffDefinition
     {
         public IronCurtainBuff(string nsp, string name) : base(nsp, name)
@@ -35,8 +36,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 buff.Remove();
             }
         }
-        public const string PROP_TIMEOUT = "Timeout";
-        public const string PROP_TINT = "Tint";
+        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta PROP_TINT = new VanillaBuffPropertyMeta("Tint");
         public const int MAX_TIMEOUT = 150;
     }
 }

@@ -3,16 +3,21 @@ using PVZEngine.SeedPacks;
 
 namespace PVZEngine.Level
 {
+    [PropertyRegistryRegion]
     public static class EngineSeedProps
     {
-        public const string RECHARGE_ID = "rechargeId";
-        public const string COST = "cost";
+        private static PropertyMeta Get(string name)
+        {
+            return new PropertyMeta(name);
+        }
+        public static readonly PropertyMeta RECHARGE_ID = Get("rechargeId");
+        public static readonly PropertyMeta COST = Get("cost");
 
-        public const string RECHARGE_SPEED = "rechargeSpeed";
-        public const string RECHARGE = "recharge";
-        public const string IS_START_RECHARGE = "isStartRecharge";
-        public const string DISABLED = "disabled";
-        public const string DISABLE_MESSAGE = "disableMessage";
+        public static readonly PropertyMeta RECHARGE_SPEED = Get("rechargeSpeed");
+        public static readonly PropertyMeta RECHARGE = Get("recharge");
+        public static readonly PropertyMeta IS_START_RECHARGE = Get("isStartRecharge");
+        public static readonly PropertyMeta DISABLED = Get("disabled");
+        public static readonly PropertyMeta DISABLE_MESSAGE = Get("disableMessage");
         public static float GetRechargeSpeed(this SeedPack seed)
         {
             return seed.GetProperty<float>(RECHARGE_SPEED);
