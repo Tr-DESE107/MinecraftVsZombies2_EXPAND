@@ -5,6 +5,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -124,11 +125,8 @@ namespace MVZ2.Vanilla.Enemies
                 {
                     var x = self.Position.x + self.GetFacingX() * self.GetRange() * 0.5f;
                     var z = self.Position.z;
-                    var lane = level.GetLane(z);
-                    var column = level.GetColumn(x);
-                    var grid = level.GetGrid(column, lane);
                     var soundID = VanillaSoundID.thump;
-                    if (grid.IsWater())
+                    if (level.IsWaterAt(x, z))
                     {
                         soundID = VanillaSoundID.splashBig;
                     }
