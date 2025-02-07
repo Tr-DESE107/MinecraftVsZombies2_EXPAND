@@ -186,7 +186,7 @@ namespace MVZ2.Map
                     Main.Scene.DisplayAlmanac(() => Main.Scene.DisplayMap(MapID));
                     break;
                 case MapUI.ButtonType.Store:
-                    Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID));
+                    Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID), true);
                     break;
                 case MapUI.ButtonType.Map:
                     Main.Scene.DisplayMap(VanillaMapID.gensokyo);
@@ -269,7 +269,7 @@ namespace MVZ2.Map
             }
             else if (id == MapPinID.kourindou)
             {
-                Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID));
+                Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID), true);
             }
         }
         #endregion

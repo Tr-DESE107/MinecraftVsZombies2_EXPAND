@@ -170,9 +170,13 @@ namespace MVZ2.Scenes
                 almanac.OnReturnClick -= OnReturn;
             }
         }
-        public void DisplayStore(Action onReturn)
+        public void DisplayStore(Action onReturn, bool showTalk)
         {
             DisplayPage(MainScenePageType.Store);
+            if (showTalk)
+            {
+                store.CheckStartTalks();
+            }
             store.OnReturnClick += OnReturn;
             void OnReturn()
             {

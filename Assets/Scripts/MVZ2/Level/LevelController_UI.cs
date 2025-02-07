@@ -652,7 +652,7 @@ namespace MVZ2.Level
                 BlueprintChoosePart.Refresh(Saves.GetUnlockedContraptions());
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
                     Music.Play(VanillaMusicID.choosing);
-            });
+            }, false);
         }
         #endregion
 

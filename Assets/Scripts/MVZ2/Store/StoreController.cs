@@ -37,8 +37,29 @@ namespace MVZ2.Store
             var filteredPresets = presets.Where(p => p.Conditions == null || Main.SaveManager.MeetsXMLConditions(p.Conditions));
             var preset = filteredPresets.OrderByDescending(p => p.Priority).FirstOrDefault();
             SetPreset(preset);
+        }
+        public async void CheckStartTalks()
+        {
+            var loreTalks = Main.ResourceManager.GetCurrentStoreLoreTalks();
+            if (loreTalks == null)
+                return;
+            // 对话
+            var queue = new Queue<NamespaceID>();
+            foreach (var lore in loreTalks)
+            {
+                if (!queue.Contains(lore))
+                    queue.Enqueue(lore);
+            }
 
-            StartTalks();
+            while (queue.Count > 0)
+            {
+                var talk = queue.Dequeue();
+                if (!NamespaceID.IsValid(talk))
+                    continue;
+                ui.SetStoreUIVisible(false);
+                await talkController.SimpleStartTalkAsync(talk, 0, 1);
+            }
+            ui.SetStoreUIVisible(true);
         }
         public void SetPreset(StorePresetMeta preset)
         {
@@ -201,29 +222,6 @@ namespace MVZ2.Store
         private void ResetChatTimeout()
         {
             chatTimeout = MAX_CHAT_TIMEOUT;
-        }
-        private async void StartTalks()
-        {
-            var loreTalks = Main.ResourceManager.GetCurrentStoreLoreTalks();
-            if (loreTalks == null)
-                return;
-            // 对话
-            var queue = new Queue<NamespaceID>();
-            foreach (var lore in loreTalks)
-            {
-                if (!queue.Contains(lore))
-                    queue.Enqueue(lore);
-            }
-
-            while (queue.Count > 0)
-            {
-                var talk = queue.Dequeue();
-                if (!NamespaceID.IsValid(talk))
-                    continue;
-                ui.SetStoreUIVisible(false);
-                await talkController.SimpleStartTalkAsync(talk, 0, 1);
-            }
-            ui.SetStoreUIVisible(true);
         }
         private string GetTranslatedString(string context, string text, params object[] args)
         {

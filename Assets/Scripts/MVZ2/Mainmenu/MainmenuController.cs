@@ -172,7 +172,7 @@ namespace MVZ2.Mainmenu
         }
         private void OnStoreButtonClickCallback()
         {
-            main.Scene.DisplayStore(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+            main.Scene.DisplayStore(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu), true);
         }
         private void OnMoreMenuButtonClickCallback()
         {
