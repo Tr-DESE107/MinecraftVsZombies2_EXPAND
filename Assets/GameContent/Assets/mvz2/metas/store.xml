@@ -116,8 +116,8 @@
         </product>
         <product id="golden_dropper" blueprintId="mvz2:golden_dropper" required="mvz2:level.castle_6">
             <talks>
-                <talk character="mvz2:crazy_villager">把金质投掷器放在木质投掷器上，让它能够发射可以反弹，并产生绿宝石的金球！</talk>
-                <talk character="mvz2:tokiko">金质投掷器能升级木质投掷器，能发出不停弹来弹去，并且可以赚钱的金球！</talk>
+                <talk character="mvz2:crazy_villager">把金制投掷器放在木制投掷器上，让它能够发射可以反弹，并产生绿宝石的金球！</talk>
+                <talk character="mvz2:tokiko">金制投掷器能升级木制投掷器，能发出不停弹来弹去，并且可以赚钱的金球！</talk>
             </talks>
             <stages>
                 <stage price="10000" unlocks="mvz2:contraption.golden_dropper"/>

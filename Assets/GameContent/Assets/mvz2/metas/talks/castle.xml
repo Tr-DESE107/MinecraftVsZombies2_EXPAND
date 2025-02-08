@@ -26,7 +26,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是木质投掷器！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是木制投掷器！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能投出木球，木球能从斜坡上滚下去，打击下方的僵尸！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">感受物理学的力量吧！</sentence>
       </sentences>
@@ -219,7 +219,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石质投掷器！他能弹射出微小的石子！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石制投掷器！他能弹射出微小的石子！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退敌人并且分裂的巨石！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">在洞穴中，你最好当心脚下的踏板！</sentence>
       </sentences>
