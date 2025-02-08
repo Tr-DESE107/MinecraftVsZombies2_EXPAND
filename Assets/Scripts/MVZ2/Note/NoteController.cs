@@ -23,6 +23,7 @@ namespace MVZ2.Note
         {
             meta = main.ResourceManager.GetNoteMeta(id);
             definition = main.Game.GetNoteDefinition(id);
+            isFlipped = false;
             ui.SetNoteSprite(main.GetFinalSprite(meta.sprite));
             ui.SetBackground(main.GetFinalSprite(meta.background));
             ui.SetCanFlip(meta.canFlip);
