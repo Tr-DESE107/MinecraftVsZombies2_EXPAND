@@ -30,39 +30,41 @@ namespace MVZ2.GameContent.Implements
             // 器械：如果重力大于0，不是水生的，并且没有睡莲，沉没。否则漂在水面上。
             // 障碍物、小推车：如果重力大于0，沉没。否则漂在水面上。
             int interaction = entity.GetWaterInteraction();
-            bool isInWater = entity.IsInWater();
-            if (isInWater && interaction == WaterInteraction.REMOVE)
+            if (interaction == WaterInteraction.NONE)
+            {
+                entity.SetAnimationBool("InWater", false);
+                return;
+            }
+
+            bool inWater = entity.IsInWater();
+            if (interaction == WaterInteraction.REMOVE && inWater)
             {
                 entity.PlaySplashEffect();
                 entity.PlaySplashSound();
                 entity.Remove();
                 entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_REMOVE, c => c(entity, WaterInteraction.ACTION_REMOVE));
-
+                entity.SetAnimationBool("InWater", false);
                 return;
             }
 
-            bool floatInWater = interaction == WaterInteraction.DROWN || interaction == WaterInteraction.FLOAT;
-            if (isInWater && floatInWater)
+            if (inWater != entity.HasBuff<InWaterBuff>())
             {
-                if (!entity.HasBuff<InWaterBuff>())
+                if (inWater)
                 {
                     entity.AddBuff<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySplashSound();
                     entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_ENTER, c => c(entity, WaterInteraction.ACTION_ENTER));
                 }
-            }
-            else
-            {
-                if (entity.HasBuff<InWaterBuff>())
+                else
                 {
                     entity.RemoveBuffs<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySound(VanillaSoundID.water);
                     entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_EXIT, c => c(entity, WaterInteraction.ACTION_EXIT));
                 }
+                entity.SetAnimationBool("InWater", inWater);
             }
-            entity.SetAnimationBool("InWater", isInWater && floatInWater);
         }
     }
 }
