@@ -67,6 +67,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static bool CanSmash(Entity anvil, Entity other)
         {
+            if (anvil == null || other == null)
+                return false;
             if (other == anvil)
                 return false;
             if (!other.IsVulnerableEntity())
