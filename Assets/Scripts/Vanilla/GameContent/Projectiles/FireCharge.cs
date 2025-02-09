@@ -21,15 +21,14 @@ namespace MVZ2.GameContent.Projectiles
         protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage)
         {
             base.PreHitEntity(hit, damage);
-            var entity = hit.Projectile;
-            Explode(entity);
             damage.Cancel();
         }
-        public override void PostContactGround(Entity entity, Vector3 velocity)
+        public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
-            base.PostContactGround(entity, velocity);
+            base.PostDeath(entity, damageInfo);
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
             Explode(entity);
-            entity.Remove();
         }
         public static void Explode(Entity entity)
         {

@@ -87,6 +87,7 @@
             <vector3 name="size" x="32" y="32" z="32"/>
         </pickup>
         <projectile id="7" parent="entity">
+            <bool name="killOnGround" value="true"/>
             <int name="maxTimeout" value="1800"/>
             <float name="changeLaneSpeed" value="10"/>
             <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
@@ -994,6 +995,7 @@
         </projectile>
         <projectile id="large_snowball">
             <bool name="rolls" value="true" />
+            <bool name="killOnGround" value="false" />
             <bool name="piercing" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="24" y="24" z="24" />
@@ -1056,6 +1058,7 @@
             <float name="gravity" value="1"/>
             <float name="friction" value="0.1" />
             <bool name="piercing" value="true" />
+            <bool name="killOnGround" value="false" />
             <vector3 name="shadowScale" x="0.25" y="0.25" z="0.25" />
             <vector3 name="size" x="16" y="16" z="16" />
             <idArray name="damageEffects" value="mvz2:ground_spikes" />
@@ -1081,12 +1084,14 @@
             <float name="damage" value="800" />
         </projectile>
         <projectile id="wooden_ball">
+            <bool name="killOnGround" value="false" />
             <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="24" y="24" z="24" />
             <int name="waterInteraction" value="3"/>
         </projectile>
         <projectile id="cobble">
+            <bool name="killOnGround" value="false" />
             <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="12" y="12" z="12" />
@@ -1094,11 +1099,13 @@
             <idArray name="damageEffects" value="mvz2:tiny" />
         </projectile>
         <projectile id="boulder">
+            <bool name="killOnGround" value="false" />
             <bool name="rolls" value="true" />
             <float name="gravity" value="1" />
             <vector3 name="size" x="48" y="48" z="48" />
         </projectile>
         <projectile id="golden_ball">
+            <bool name="killOnGround" value="false" />
             <bool name="rolls" value="true" />
             <bool name="piercing" value="true" />
             <float name="gravity" value="1" />

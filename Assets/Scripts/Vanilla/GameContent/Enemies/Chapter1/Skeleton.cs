@@ -17,6 +17,7 @@ namespace MVZ2.GameContent.Enemies
         {
             detector = new DispenserDetector()
             {
+                ignoreHighEnemy = true,
                 ignoreLowEnemy = true
             };
         }

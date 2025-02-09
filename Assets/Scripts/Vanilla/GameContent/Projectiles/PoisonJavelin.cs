@@ -27,11 +27,6 @@ namespace MVZ2.GameContent.Projectiles
             }
             SetGasCooldown(projectile, cooldown);
         }
-        public override void PostContactGround(Entity entity, Vector3 velocity)
-        {
-            base.PostContactGround(entity, velocity);
-            entity.Remove();
-        }
         public static int GetGasCooldown(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_GAS_COOLDOWN);
         public static void SetGasCooldown(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_GAS_COOLDOWN, value);
         private static readonly NamespaceID ID = VanillaProjectileID.poisonJavelin;

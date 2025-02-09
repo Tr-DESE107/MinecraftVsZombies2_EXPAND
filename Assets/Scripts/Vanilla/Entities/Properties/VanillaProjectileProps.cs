@@ -9,6 +9,8 @@ namespace MVZ2.Vanilla.Entities
     {
         public static readonly PropertyMeta ROLLS = new PropertyMeta("rolls");
         public static bool Rolls(this Entity entity) => entity.GetProperty<bool>(ROLLS);
+        public static readonly PropertyMeta KILL_ON_GROUND = new PropertyMeta("killOnGround");
+        public static bool KillOnGround(this Entity entity) => entity.GetProperty<bool>(KILL_ON_GROUND); 
         public static readonly PropertyMeta PIERCING = new PropertyMeta("piercing");
         public static readonly PropertyMeta POINT_TO_DIRECTION = new PropertyMeta("pointToDirection");
         public static readonly PropertyMeta DAMAGE_EFFECTS = new PropertyMeta("damageEffects");

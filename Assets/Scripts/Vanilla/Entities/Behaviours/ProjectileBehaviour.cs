@@ -88,6 +88,14 @@ namespace MVZ2.Vanilla.Entities
             }
         }
 
+        public override void PostContactGround(Entity entity, Vector3 velocity)
+        {
+            base.PostContactGround(entity, velocity);
+            if (entity.KillOnGround())
+            {
+                entity.Die();
+            }
+        }
         public override void PostStopChangingLane(Entity entity)
         {
             base.PostStopChangingLane(entity);
