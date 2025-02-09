@@ -5,10 +5,16 @@ namespace MVZ2.Models
     [DisallowMultipleComponent]
     public sealed class SpriteModel : Model
     {
-        public void SetLight(bool visible, Vector2 range, Color color, Vector2 randomOffset)
+        public void SetLightVisible(bool visible)
         {
             lightController.gameObject.SetActive(visible);
+        }
+        public void SetLightColor(Color color)
+        {
             lightController.SetColor(color);
+        }
+        public void SetLightRange(Vector2 range, Vector2 randomOffset)
+        {
             lightController.SetRange(range, randomOffset);
         }
         public void CancelSortAtRoot()

@@ -34,6 +34,7 @@ namespace MVZ2.Entities
             rng = new RandomGenerator(entity.InitSeed);
             gameObject.name = entity.ToString();
             entity.PostInit += PostInitCallback;
+            entity.PostPropertyChanged += PostPropertyChangedCallback;
             entity.OnChangeModel += OnChangeModelCallback;
 
             entity.OnEquipArmor += OnArmorEquipCallback;
@@ -66,6 +67,7 @@ namespace MVZ2.Entities
             if (!Model)
                 return;
             UpdateEntityModel();
+            modelPropertyCache.UpdateAll(this);
             UpdateArmorModel();
             Model.UpdateFrame(0);
         }
@@ -148,6 +150,7 @@ namespace MVZ2.Entities
         public void SetHighlight(bool highlight)
         {
             isHighlight = highlight;
+            modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.ColorOffset);
         }
         public bool IsHovered()
         {
@@ -328,6 +331,10 @@ namespace MVZ2.Entities
         {
             UpdateFrame(0);
         }
+        private void PostPropertyChangedCallback(PropertyKey key)
+        {
+            modelPropertyCache.SetDirtyProperty(key);
+        }
         private void OnChangeModelCallback(NamespaceID modelID)
         {
             SetModel(modelID);
@@ -392,14 +399,16 @@ namespace MVZ2.Entities
             var groundY = Entity.GetGroundY();
             var relativeY = pos.y - groundY;
             var shadowPos = pos;
-            shadowPos.y = Entity.GetGroundY();
-            shadowPos += Entity.GetShadowOffset();
+            shadowPos.y = groundY;
+            shadowPos += modelPropertyCache.ShadowOffset;
+
             float scale = 1 + relativeY / 300;
             float alpha = 1 - relativeY / 300;
-            Shadow.transform.position = Level.LawnToTrans(shadowPos) + posOffset;
-            Shadow.transform.localScale = Entity.GetShadowScale() * scale;
-            Shadow.gameObject.SetActive(!Entity.IsShadowHidden());
-            Shadow.SetAlpha(Entity.GetShadowAlpha() * alpha);
+            var shadowTransform = Shadow.transform;
+            shadowTransform.position = Level.LawnToTrans(shadowPos) + posOffset;
+            shadowTransform.localScale = modelPropertyCache.ShadowScale * scale;
+            Shadow.gameObject.SetActive(!modelPropertyCache.ShadowHidden);
+            Shadow.SetAlpha(modelPropertyCache.ShadowAlpha * alpha);
         }
         protected float GetZOffset()
         {
@@ -470,22 +479,11 @@ namespace MVZ2.Entities
             var rendererGroup = Model.GraphicGroup;
             Model.SetGroundPosition(Level.LawnToTrans(groundPos));
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
-            Model.transform.localScale = Entity.GetDisplayScale();
-            rendererGroup.SetTint(Entity.GetTint());
-            rendererGroup.SetColorOffset(GetColorOffset());
-            rendererGroup.SortingLayerID = Entity.GetSortingLayer();
-            rendererGroup.SortingOrder = Entity.GetSortingOrder();
 
-            if (Model is SpriteModel sprModel)
+            if (modelPropertyCache.IsDirty)
             {
-                var lightVisible = Entity.IsLightSource();
-                var lightScaleLawn = Entity.GetLightRange();
-                var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * Level.LawnToTransScale;
-                var lightColor = Entity.GetLightColor();
-                var randomLightScale = rng.Next(-0.05f, 0.05f);
-                sprModel.SetLight(lightVisible, lightScale, lightColor, Vector2.one * randomLightScale);
+                modelPropertyCache.Update(this);
             }
-
         }
         #endregion
 
@@ -555,6 +553,7 @@ namespace MVZ2.Entities
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface;
         private IModelInterface armorModelInterface;
+        private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         [SerializeField]
         private ShadowController shadow;
         [SerializeField]
@@ -565,6 +564,164 @@ namespace MVZ2.Entities
 
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
 
+        #endregion
+
+        #region 内嵌类
+
+        private class EntityPropertyCache
+        {
+            public void UpdateAll(EntityController entityCtrl)
+            {
+                var entity = entityCtrl.Entity;
+                var model = entityCtrl.Model;
+                var rendererGroup = model.GraphicGroup;
+                rendererGroup.SetTint(entity.GetTint());
+                rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                model.transform.localScale = entity.GetDisplayScale();
+                rendererGroup.SortingLayerID = entity.GetSortingLayer();
+                rendererGroup.SortingOrder = entity.GetSortingOrder();
+                if (model is SpriteModel sprModel)
+                {
+                    sprModel.SetLightVisible(entity.IsLightSource());
+                    sprModel.SetLightColor(entity.GetLightColor());
+                    var lightScaleLawn = entity.GetLightRange();
+                    var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
+                    var randomLightScale = entityCtrl.rng.Next(-0.05f, 0.05f);
+                    sprModel.SetLightRange(lightScale, Vector2.one * randomLightScale);
+                }
+
+                ShadowHidden = entity.IsShadowHidden();
+                ShadowAlpha = entity.GetShadowAlpha();
+                ShadowOffset = entity.GetShadowOffset();
+                ShadowScale = entity.GetShadowScale();
+
+                dirtyProperties.Clear();
+            }
+            public void Update(EntityController entityCtrl)
+            {
+                var entity = entityCtrl.Entity;
+                var model = entityCtrl.Model;
+                var rendererGroup = model.GraphicGroup;
+                foreach (var dirtyProperty in dirtyProperties)
+                {
+                    switch (dirtyProperty)
+                    {
+                        case PropertyName.Tint:
+                            rendererGroup.SetTint(entity.GetTint());
+                            break;
+                        case PropertyName.ColorOffset:
+                            rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                            break;
+                        case PropertyName.DisplayScale:
+                            model.transform.localScale = entity.GetDisplayScale();
+                            break;
+                        case PropertyName.SortingLayer:
+                            rendererGroup.SortingLayerID = entity.GetSortingLayer();
+                            break;
+                        case PropertyName.SortingOrder:
+                            rendererGroup.SortingOrder = entity.GetSortingOrder();
+                            break;
+
+                        case PropertyName.ShadowHidden:
+                            ShadowHidden = entity.IsShadowHidden();
+                            break;
+                        case PropertyName.ShadowAlpha:
+                            ShadowAlpha = entity.GetShadowAlpha();
+                            break;
+                        case PropertyName.ShadowOffset:
+                            ShadowOffset = entity.GetShadowOffset();
+                            break;
+                        case PropertyName.ShadowScale:
+                            ShadowScale = entity.GetShadowScale();
+                            break;
+
+                        case PropertyName.LightSource:
+                            {
+                                if (model is SpriteModel sprModel)
+                                {
+                                    sprModel.SetLightVisible(entity.IsLightSource());
+                                }
+                            }
+                            break;
+                        case PropertyName.LightColor:
+                            {
+                                if (model is SpriteModel sprModel)
+                                {
+                                    sprModel.SetLightColor(entity.GetLightColor());
+                                }
+                            }
+                            break;
+                        case PropertyName.LightRange:
+                            {
+                                if (model is SpriteModel sprModel)
+                                {
+                                    var lightScaleLawn = entity.GetLightRange();
+                                    var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
+                                    var randomLightScale = entityCtrl.rng.Next(-0.05f, 0.05f);
+                                    sprModel.SetLightRange(lightScale, Vector2.one * randomLightScale);
+                                }
+                            }
+                            break;
+                    }
+                }
+                dirtyProperties.Clear();
+            }
+            public void SetDirtyProperty(PropertyName property)
+            {
+                dirtyProperties.Add(property);
+            }
+            public void SetDirtyProperty(PropertyKey key)
+            {
+                foreach (var pair in propertyMap)
+                {
+                    if (pair.Key == key)
+                    {
+                        dirtyProperties.Add(pair.Value);
+                        break;
+                    }
+                }
+            }
+            public bool IsDirty => dirtyProperties.Count > 0;
+            public bool ShadowHidden { get; private set; }
+            public Vector3 ShadowOffset { get; private set; }
+            public Vector3 ShadowScale { get; private set; }
+            public float ShadowAlpha { get; private set; }
+            private HashSet<PropertyName> dirtyProperties = new HashSet<PropertyName>();
+            private static readonly Dictionary<PropertyMeta, PropertyName> propertyMap = new Dictionary<PropertyMeta, PropertyName>()
+            {
+                { EngineEntityProps.TINT, PropertyName.Tint },
+                { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
+                { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
+                { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
+                { VanillaEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
+
+                { VanillaEntityProps.SHADOW_HIDDEN, PropertyName.ShadowHidden },
+                { VanillaEntityProps.SHADOW_OFFSET, PropertyName.ShadowOffset },
+                { VanillaEntityProps.SHADOW_SCALE, PropertyName.ShadowScale },
+                { VanillaEntityProps.SHADOW_ALPHA, PropertyName.ShadowAlpha },
+
+                { VanillaEntityProps.IS_LIGHT_SOURCE, PropertyName.LightSource },
+                { VanillaEntityProps.LIGHT_COLOR, PropertyName.LightColor },
+                { VanillaEntityProps.LIGHT_RANGE, PropertyName.LightRange },
+            };
+            public enum PropertyName
+            {
+                Tint,
+                ColorOffset,
+                DisplayScale,
+                SortingLayer,
+                SortingOrder,
+
+                ShadowHidden,
+                ShadowOffset,
+                ShadowScale,
+                ShadowAlpha,
+
+                LightSource,
+                LightColor,
+                LightRange,
+            }
+        }
         #endregion
     }
     public class EntityCursorSource : CursorSource

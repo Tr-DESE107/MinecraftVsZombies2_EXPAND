@@ -803,9 +803,9 @@ namespace MVZ2.Level
             if (Input.GetKeyDown(KeyCode.F4))
             {
                 var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 50; i++)
                 {
-                    level.SpawnEnemy(spawnDef, 2);
+                    level.SpawnEnemyAtRandomLane(spawnDef);
                 }
             }
 #endif

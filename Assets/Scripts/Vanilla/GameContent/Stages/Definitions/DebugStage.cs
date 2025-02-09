@@ -42,8 +42,8 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.soulFurnace,
-                VanillaContraptionID.glowstone,
-                VanillaContraptionID.moonlightSensor,
+                VanillaContraptionID.pistenser,
+                VanillaContraptionID.lilyPad,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.gravityPad,

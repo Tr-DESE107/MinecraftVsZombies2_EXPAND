@@ -242,6 +242,7 @@ namespace PVZEngine.Entities
         void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
         {
             Cache.UpdateProperty(this, name, value);
+            PostPropertyChanged?.Invoke(name);
         }
         #endregion
 
@@ -904,6 +905,7 @@ namespace PVZEngine.Entities
 
         #region 事件
         public event Action PostInit;
+        public event Action<PropertyKey> PostPropertyChanged;
         public event Action<NamespaceID> OnChangeModel;
         public event Action<Armor> OnEquipArmor;
         public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
