@@ -185,8 +185,6 @@ namespace MVZ2.GameContent.Contraptions
                         {
                             var ghast = entity.Level.Spawn(VanillaEnemyID.ghast, entity.GetCenter(), entity);
                             ghast.SetFactionAndDirection(entity.GetFaction());
-                            ghast.SetScale(new Vector3(-entity.GetFacingX(), 1, 1));
-                            ghast.SetDisplayScale(new Vector3(-entity.GetFacingX(), 1, 1));
                             entity.PlaySound(VanillaSoundID.fireCharge);
                         }
                         if (stateTimer.Expired)

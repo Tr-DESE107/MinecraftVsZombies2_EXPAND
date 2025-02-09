@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Buffs
         public const string parabot = "parabot";
         public const string whiteFlash = "white_flash";
         public const string charm = "charm";
-        public const string charmWithSource = "charm_with_source";
+        public const string faction = "faction";
 
         // Contraption
         public const string productionColor = "production_color";

@@ -16,13 +16,6 @@ namespace MVZ2.GameContent.Buffs
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, new Color(1, 0, 1, 0.5f)));
             AddModifier(new IntModifier(EngineEntityProps.FACTION, NumberOperator.Set, PROP_FACTION));
-            AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, PROP_SIZE_MULTIPLIER));
-            AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SIZE_MULTIPLIER));
-        }
-        public override void PostAdd(Buff buff)
-        {
-            base.PostAdd(buff);
-            buff.SetProperty(PROP_SIZE_MULTIPLIER, Vector3.one);
         }
         public override void PostUpdate(Buff buff)
         {
@@ -49,11 +42,6 @@ namespace MVZ2.GameContent.Buffs
                     buff.SetProperty(PROP_FACTION, targetFaction);
                 }
             }
-
-
-            var faceRight = targetFaction == buff.Level.Option.LeftFaction;
-            var xScale = entity.FaceLeftAtDefault() == faceRight ? -1 : 1;
-            buff.SetProperty(PROP_SIZE_MULTIPLIER, new Vector3(xScale, 1, 1));
         }
 
         public static void SetPermanent(Buff buff, int faction)
@@ -82,7 +70,6 @@ namespace MVZ2.GameContent.Buffs
 
         public static readonly VanillaBuffPropertyMeta PROP_MODE = new VanillaBuffPropertyMeta("Mode");
         public static readonly VanillaBuffPropertyMeta PROP_FACTION = new VanillaBuffPropertyMeta("Faction");
-        public static readonly VanillaBuffPropertyMeta PROP_SIZE_MULTIPLIER = new VanillaBuffPropertyMeta("SizeMultiplier");
         public static readonly VanillaBuffPropertyMeta PROP_SOURCE = new VanillaBuffPropertyMeta("Source");
     }
 

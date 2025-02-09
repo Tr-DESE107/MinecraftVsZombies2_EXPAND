@@ -25,6 +25,10 @@ namespace MVZ2.GameContent.Implements
         private void PostEntityInitCallback(Entity entity)
         {
             entity.AddBuff<EntityPhysicsBuff>();
+            if (entity.IsVulnerableEntity())
+            {
+                entity.AddBuff<FactionBuff>();
+            }
         }
         private void PostContactGroundCallback(Entity entity, Vector3 velocity)
         {

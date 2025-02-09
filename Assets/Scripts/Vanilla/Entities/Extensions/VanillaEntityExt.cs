@@ -638,6 +638,7 @@ namespace MVZ2.Vanilla.Entities
                 buff = entity.AddBuff<CharmBuff>();
             }
             CharmBuff.SetPermanent(buff, faction);
+            buff.Update();
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
         }
         public static void CharmWithSource(this Entity entity, Entity source)
@@ -648,6 +649,7 @@ namespace MVZ2.Vanilla.Entities
                 buff = entity.AddBuff<CharmBuff>();
             }
             CharmBuff.SetSource(buff, source);
+            buff.Update();
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
         }
         public static bool IsCharmed(this Entity entity)
@@ -657,10 +659,12 @@ namespace MVZ2.Vanilla.Entities
         public static void SetFactionAndDirection(this Entity entity, int faction)
         {
             entity.SetFaction(faction);
-            var faceRight = faction == entity.Level.Option.LeftFaction;
-            var xScale = entity.FaceLeftAtDefault() == faceRight ? -1 : 1;
-            entity.SetScale(new Vector3(xScale, 1, 1));
-            entity.SetDisplayScale(new Vector3(xScale, 1, 1));
+            var buff = entity.GetFirstBuff<FactionBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<FactionBuff>();
+            }
+            buff.Update();
         }
         #endregion
         private const string PROP_REGION = "entities";
