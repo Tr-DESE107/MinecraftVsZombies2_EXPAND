@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.PostHitEntity(hitResult, damage);
             var projectile = hitResult.Projectile;
-            if (projectile.RNG.Next(4) < 1)
+            if (projectile.RNG.Next(10) < 1)
             {
                 projectile.Produce(VanillaPickupID.emerald);
             }
