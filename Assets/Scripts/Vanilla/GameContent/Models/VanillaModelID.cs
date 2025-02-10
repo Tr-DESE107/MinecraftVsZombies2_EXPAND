@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID mapPickup = Get("map_pickup", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID emerald = Get("emerald", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID ruby = Get("ruby", EngineModelID.TYPE_ENTITY);
+        public static readonly NamespaceID sapphire = Get("sapphire", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID diamond = Get("diamond", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID pistonPalm = Get("piston_palm", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID dullahanMain = Get("dullahan_main", EngineModelID.TYPE_ENTITY);

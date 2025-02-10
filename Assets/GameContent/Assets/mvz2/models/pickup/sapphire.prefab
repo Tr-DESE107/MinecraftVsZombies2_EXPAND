@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+  m_Sprite: {fileID: -1967336653, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -112,14 +112,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300002, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300004, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300006, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300008, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300010, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300012, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
-  - {fileID: 21300014, guid: de6b0433a1c4ece4bb335cdc66630b49, type: 3}
+  - {fileID: -994784063, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: -1905127434, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: 1902161719, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: -1860484385, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: 2116922471, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: -1967336653, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: 871944358, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
+  - {fileID: 1189697081, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
   index: 0
 --- !u!1001 &2268413341374404726
 PrefabInstance:
@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: a4bcb4a36c4807547bd214731667c8d2, type: 3}
       propertyPath: m_Name
-      value: ruby
+      value: sapphire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

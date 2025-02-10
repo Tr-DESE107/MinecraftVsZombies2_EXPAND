@@ -335,7 +335,7 @@ namespace MVZ2.Mainmenu
             while (!task.IsCompleted)
                 yield return null;
             Hide();
-            main.LevelManager.InitLevel(VanillaAreaID.dream, VanillaStageID.debug);
+            main.LevelManager.InitLevel(VanillaAreaID.castle, VanillaStageID.debug);
         }
 
         #region 用户管理

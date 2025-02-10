@@ -95,6 +95,7 @@
     <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="emerald" type="entity" path="mvz2:pickup/emerald" width="32" height="32" xOffset="0" yOffset="-16"/>
     <model name="ruby" type="entity" path="mvz2:pickup/ruby" width="48" height="48" xOffset="0" yOffset="-20"/>
+    <model name="sapphire" type="entity" path="mvz2:pickup/sapphire" width="48" height="48" xOffset="0" yOffset="-20"/>
     <model name="diamond" type="entity" path="mvz2:pickup/diamond" width="96" height="96" xOffset="0" yOffset="-32"/>
     <model name="map_pickup" type="entity" path="mvz2:pickup/map_pickup" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="money_chest" type="entity" path="mvz2:pickup/money_chest" width="96" height="96" xOffset="0" yOffset="-32"/>

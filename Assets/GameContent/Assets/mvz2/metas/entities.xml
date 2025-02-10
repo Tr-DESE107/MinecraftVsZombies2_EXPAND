@@ -955,6 +955,10 @@
             <int name="moneyValue" value="50"/>
             <vector3 name="size" x="32" y="32" z="32" />
         </gem>
+        <gem id="sapphire" name="蓝宝石">
+            <int name="moneyValue" value="250"/>
+            <vector3 name="size" x="32" y="32" z="32" />
+        </gem>
         <gem id="diamond" name="钻石">
             <int name="maxTimeout" value="-1"/>
             <int name="moneyValue" value="1000"/>

@@ -1,9 +1,14 @@
+using MVZ2.GameContent.Detections;
+using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
+using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
+using MVZ2.Vanilla.Properties;
+using Tools;
 
 namespace MVZ2.GameContent.Pickups
 {
@@ -11,6 +16,43 @@ namespace MVZ2.GameContent.Pickups
     {
         public Gem(string nsp, string name) : base(nsp, name)
         {
+            mergeDetector = new GemMergeDetector(MergeSize, MergeSource);
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            CheckMerge(entity);
+            SetMergeTimer(entity, new FrameTimer(30));
+        }
+
+        private void CheckMerge(Entity entity)
+        {
+            if (!CanMerge)
+                return;
+            mergeDetectBuffer.Clear();
+            mergeDetector.DetectEntities(entity, mergeDetectBuffer);
+            var count = mergeDetectBuffer.Count;
+            if (count < MergeCount)
+                return;
+
+            mergeBuffer.Clear();
+            foreach (var target in mergeDetectBuffer)
+            {
+                if (target.IsCollected())
+                    continue;
+                mergeBuffer.Add(target);
+                if (mergeBuffer.Count >= MergeCount)
+                {
+                    var targetGem = mergeBuffer[0];
+                    var merged = entity.Level.Spawn(MergeTarget, targetGem.Position, null);
+                    merged.Velocity = targetGem.Velocity;
+                    foreach (var mergeGem in mergeBuffer)
+                    {
+                        mergeGem.Remove();
+                    }
+                    mergeBuffer.Clear();
+                }
+            }
         }
         public override void Update(Entity pickup)
         {
@@ -55,6 +97,13 @@ namespace MVZ2.GameContent.Pickups
                     alpha = pickup.Timeout / 15f;
                     shadowAlpha = alpha;
                 }
+                var mergeTimer = GetMergeTimer(pickup);
+                mergeTimer.Run();
+                if (mergeTimer.Expired)
+                {
+                    mergeTimer.Reset();
+                    CheckMerge(pickup);
+                }
             }
             pickup.SetAnimationBool("Rotating", !pickup.IsCollected() && pickup.GetRelativeY() <= 0);
             var color = pickup.GetTint(true);
@@ -96,6 +145,19 @@ namespace MVZ2.GameContent.Pickups
         {
             pickup.Timeout = 15;
         }
+        public static FrameTimer GetMergeTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_MERGE_TIMER);
+        public static void SetMergeTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_MERGE_TIMER, value);
         private const float COLLECTED_Z = -100;
+        private List<Entity> mergeDetectBuffer = new List<Entity>();
+        private List<Entity> mergeBuffer = new List<Entity>();
+        private GemMergeDetector mergeDetector;
+        public const string PROP_REGION = "gem";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_MERGE_TIMER = new VanillaEntityPropertyMeta("mergeTimer");
+        protected virtual bool CanMerge => false;
+        protected virtual int MergeCount => 1;
+        protected virtual float MergeSize => 80;
+        protected virtual NamespaceID MergeSource => null;
+        protected virtual NamespaceID MergeTarget => null;
     }
 }
