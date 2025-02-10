@@ -88,7 +88,7 @@
         </pickup>
         <projectile id="7" parent="entity">
             <bool name="killOnGround" value="true"/>
-            <int name="maxTimeout" value="1800"/>
+            <int name="maxTimeout" value="900"/>
             <float name="changeLaneSpeed" value="10"/>
             <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
             <int name="waterInteraction" value="1"/>
