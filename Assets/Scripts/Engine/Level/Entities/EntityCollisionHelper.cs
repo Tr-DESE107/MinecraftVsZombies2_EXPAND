@@ -6,6 +6,7 @@ namespace PVZEngine.Entities
     {
         public const int DETECTION_DISCRETE = 0;
         public const int DETECTION_CONTINUOUS = 1;
+        public const int DETECTION_IGNORE = 2;
 
         public const string NAME_MAIN = "main";
         public const string NAME_SHIELD = "shield";

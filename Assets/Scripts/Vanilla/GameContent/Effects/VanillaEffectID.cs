@@ -59,6 +59,7 @@ namespace MVZ2.GameContent.Effects
         public const string mutantZombieWeapon = "mutant_zombie_weapon";
         public const string waterLightningParticles = "water_lightning_particles";
         public const string thunderCloud = "thunder_cloud";
+        public const string magicBombExplosion = "magic_bomb_explosion";
     }
     public static class VanillaEffectID
     {
@@ -116,6 +117,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID mutantZombieWeapon = Get(VanillaEffectNames.mutantZombieWeapon);
         public static readonly NamespaceID waterLightningParticles = Get(VanillaEffectNames.waterLightningParticles);
         public static readonly NamespaceID thunderCloud = Get(VanillaEffectNames.thunderCloud);
+        public static readonly NamespaceID magicBombExplosion = Get(VanillaEffectNames.magicBombExplosion);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

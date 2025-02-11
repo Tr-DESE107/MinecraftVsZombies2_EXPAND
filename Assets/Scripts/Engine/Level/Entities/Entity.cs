@@ -806,6 +806,7 @@ namespace PVZEngine.Entities
             return entity;
         }
         #endregion
+
         public override string ToString()
         {
             return $"{ID}({this.Definition.GetID()})";

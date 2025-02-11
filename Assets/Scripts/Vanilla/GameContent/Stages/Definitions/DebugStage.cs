@@ -40,16 +40,16 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.furnace,
+                VanillaContraptionID.dispenser,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.pistenser,
-                VanillaContraptionID.lilyPad,
+                VanillaContraptionID.tnt,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.goldenDropper,
                 VanillaEnemyID.skeleton,
-                VanillaEnemyID.reverseSatellite,
                 VanillaEnemyID.mesmerizer,
+                VanillaBossID.seija
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

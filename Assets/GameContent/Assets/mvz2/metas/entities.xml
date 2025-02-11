@@ -926,6 +926,13 @@
             <color name="bloodColor" value="#000000FF"/>
             <color name="bloodColorCensored" value="#000000FF"/>
         </boss>
+        <boss id="seija" name="鬼人正邪">
+            <int name="waterInteraction" value="1"/>
+            <float name="maxHealth" value="5225"/>
+            <vector3 name="size" x="30" y="88" z="30"/>
+            <color name="bloodColor" value="#7F0000FF"/>
+            <color name="bloodColorCensored" value="#00007FFF"/>
+        </boss>
 
         <!-- Carts -->
         <cart id="minecart" name="矿车"/>
@@ -1122,6 +1129,13 @@
         <projectile id="compelling_orb">
             <vector3 name="size" x="24" y="24" z="24" />
         </projectile>
+        <projectile id="seija_magic_bomb">
+            <bool name="noHitEntities" value="true"/>
+            <float name="gravity" value="1"/>
+            <float name="damage" value="100"/>
+            <float name="range" value="120"/>
+            <vector3 name="size" x="48" y="48" z="48" />
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -1316,6 +1330,9 @@
             <float name="damage" value="100" />
             <color name="tint" value="#101010" />
             <vector3 name="size" x="400" y="40" z="400" />
+        </effect>
+        <effect id="magic_bomb_explosion">
+            <int name="maxTimeout" value="60"/>
         </effect>
     </entries>
 </entities>

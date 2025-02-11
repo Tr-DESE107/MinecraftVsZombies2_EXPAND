@@ -20,6 +20,7 @@
         public const int BOSS_ATTACK_3 = 302;
         public const int BOSS_ATTACK_4 = 303;
         public const int BOSS_SPECIAL = 310;
+        public const int BOSS_SPECIAL_2 = 311;
         public const int BOSS_FAINT = 350;
 
         public const int CART_TRIGGERED = 500;
@@ -83,6 +84,17 @@
         public const int NIGHTMAREAPER_REVIVE = BOSS_ATTACK_4;
         public const int NIGHTMAREAPER_ENRAGE = BOSS_SPECIAL;
         public const int NIGHTMAREAPER_DEATH = DEAD;
+
+        public const int SEIJA_APPEAR = BOSS_APPEAR;
+        public const int SEIJA_IDLE = IDLE;
+        public const int SEIJA_DANMAKU = ATTACK;
+        public const int SEIJA_HAMMER = BOSS_ATTACK_2;
+        public const int SEIJA_GAP_BOMB = BOSS_ATTACK_3;
+        public const int SEIJA_CAMERA = BOSS_ATTACK_4;
+        public const int SEIJA_BACKFLIP = BOSS_SPECIAL;
+        public const int SEIJA_FABRIC = BOSS_SPECIAL_2;
+        public const int SEIJA_FAINT = DEAD;
+
 
 
         public const int BREAKOUT_PEARL_IDLE = IDLE;

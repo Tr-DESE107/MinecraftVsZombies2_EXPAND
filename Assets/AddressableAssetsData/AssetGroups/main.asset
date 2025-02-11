@@ -143,6 +143,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - SpriteManifest
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0812e0f0861318c47b85593400d1388d
+    m_Address: mvz2:entity/boss/seija_doll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 086fdabba3ee34247b66efccb94193d5
+    m_Address: mvz2:nimble_fabric
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09351709b15db8e4ba5f671be2d087d7
     m_Address: mvz2:horse_angry
     m_ReadOnly: 0
@@ -610,6 +622,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e0913b19fcf5c44984c5217dba3a10e
+    m_Address: mvz2:entity/boss/seija_mallet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e784c0427ce232488fd2f10b6bee02f
     m_Address: mvz2:ui/level/speed_up_active
@@ -1275,6 +1293,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3772f2cca3e0b034e8a0d812b33cc507
+    m_Address: mvz2:projectile/seija_magic_bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 377f2bb10d0c6414d87266304f24738f
     m_Address: mvz2:effect/vortex
@@ -2146,6 +2170,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b26f4e24b68dee49b2c8d3592d95d91
+    m_Address: mvz2:entity/boss/seija_camera
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b5807cbe5906d74389da8dcb37a214c
     m_Address: mvz2:money_fall
     m_ReadOnly: 0
@@ -2883,6 +2913,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d587f3c033da1846a38537e4e37d193
+    m_Address: mvz2:entity/pickup/sapphire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d7bc503117076b49827e5fc02ef7b96
+    m_Address: mvz2:entity/boss/seija_gap_mask
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7daa974a99689d84d8b0323b1817ce90
     m_Address: mvz2:mobile_blueprint/stone_dropper
     m_ReadOnly: 0
@@ -2984,6 +3026,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8049c7a1615839440a581a9703083ac7
+    m_Address: mvz2:entity/boss/seija_fabric
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80ab3f88e3042a2429696411af0b0810
     m_Address: mvz2:nightmare_level
@@ -3357,6 +3405,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dd917576b14045488b246e74400b9a3
+    m_Address: mvz2:boss/seija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e0d71e6c2e48c849bcc74bc255e073e
     m_Address: mvz2:small_explosion
     m_ReadOnly: 0
@@ -3459,6 +3513,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90d4102d5e7352d41930ccbbdfb25fd1
+    m_Address: mvz2:effect/magic_bomb_explosion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90e0bafc1bfaa944e927f5dc979efe41
     m_Address: mvz2:bow
     m_ReadOnly: 0
@@ -3549,6 +3609,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9390c4e06c35d1849b57a496ba6b0339
+    m_Address: mvz2:mobile_blueprint/seija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93c5b317cb00bed43987f7d53dbc1dd6
     m_Address: mvz2:bonk
     m_ReadOnly: 0
@@ -3597,6 +3663,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95e29c42277c7fe4797e1b0a1cc74746
+    m_Address: mvz2:people_noise
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9665e7bba6c3e9849887c079a9f4c3cd
     m_Address: mvz2:damage/hit1
     m_ReadOnly: 0
@@ -3614,6 +3686,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9745c6a03a6cf954f8359f1d2bcaf4b9
+    m_Address: mvz2:pickup/sapphire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 979b0f01b79ee2e44b3c30b91c0df16e
     m_Address: mvz2:talks/prologue
@@ -4083,6 +4161,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a983f0772541d504c8614fb33d2a87ec
+    m_Address: mvz2:entity/boss/seija_gap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9d9e0468df93c84ea575c28aa3d81ac
     m_Address: mvz2:random/wood4
     m_ReadOnly: 0
@@ -4298,6 +4382,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2385c35695e45846a215788533e520a
+    m_Address: mvz2:entity/boss/seija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b27d973956921144f81710753ef50c35
     m_Address: mvz2:ui/level/pause_image_4
@@ -5024,6 +5114,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd0fcd035e19f2b4c8f8a3029a1241d3
+    m_Address: mvz2:entity/boss/seija_bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd6294e0e010f934b90fb1f9ca35e623
     m_Address: mvz2:achievements/ghost_buster

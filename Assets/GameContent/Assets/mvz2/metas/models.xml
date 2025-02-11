@@ -83,6 +83,7 @@
     <model name="frankenstein" type="entity" path="mvz2:boss/frankenstein" width="100" height="200" xOffset="24" yOffset="-96"/>
     <model name="slenderman" type="entity" path="mvz2:boss/slenderman" width="200" height="150" xOffset="0" yOffset="-60"/>
     <model name="nightmareaper" type="entity" path="mvz2:boss/nightmareaper" width="240" height="200" xOffset="0" yOffset="-20"/>
+    <model name="seija" type="entity" path="mvz2:boss/seija" width="30" height="88" xOffset="0" yOffset="-44"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -163,6 +164,7 @@
     <model name="mutant_zombie_weapon" type="entity" path="mvz2:effect/mutant_zombie_weapon" width="180" height="50" xOffset="0" yOffset="-25"/>
     <model name="water_lightning_particles" type="entity" path="mvz2:effect/water_lightning_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="thunder_cloud" type="entity" path="mvz2:effect/thunder_cloud" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="magic_bomb_explosion" type="entity" path="mvz2:effect/magic_bomb_explosion" shot="false" width="160" height="160" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
@@ -187,6 +189,7 @@
     <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="-12"/>
     <model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="-8"/>
     <model name="compelling_orb" type="entity" path="mvz2:projectile/compelling_orb" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="seija_magic_bomb" type="entity" path="mvz2:projectile/seija_magic_bomb" width="24" height="24" xOffset="0" yOffset="-12"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>

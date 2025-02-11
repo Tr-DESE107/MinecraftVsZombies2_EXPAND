@@ -146,6 +146,8 @@ namespace MVZ2.Vanilla.Detections
                 var mask = entity.IsHostile(faction) ? hostileMask : friendlyMask;
                 if (!EntityCollisionHelper.CanCollide(mask, entity))
                     continue;
+                if (entity.GetCollisionDetection() == EntityCollisionHelper.DETECTION_IGNORE)
+                    continue;
                 for (int i = 0; i < collider.GetHitboxCount(); i++)
                 {
                     var hitbox = collider.GetHitbox(i);
@@ -169,6 +171,8 @@ namespace MVZ2.Vanilla.Detections
                 var entity = collider.Entity;
                 var mask = entity.IsHostile(faction) ? hostileMask : friendlyMask;
                 if (!EntityCollisionHelper.CanCollide(mask, entity))
+                    continue;
+                if (entity.GetCollisionDetection() == EntityCollisionHelper.DETECTION_IGNORE)
                     continue;
                 for (int i = 0; i < collider.GetHitboxCount(); i++)
                 {

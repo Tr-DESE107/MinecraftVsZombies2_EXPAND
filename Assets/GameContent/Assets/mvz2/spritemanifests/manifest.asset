@@ -205,6 +205,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 90b1efed9d95d3b43a897fa9d566324a, type: 3}
   - name: mobile_blueprint/reverse_satellite
     sprite: {fileID: 21300000, guid: 35f80fb8af94a064f86a987dc6dae8e0, type: 3}
+  - name: mobile_blueprint/seija
+    sprite: {fileID: 21300000, guid: 9390c4e06c35d1849b57a496ba6b0339, type: 3}
   - name: mobile_blueprint/silvenser
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
@@ -339,6 +341,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - name: entity/boss/gun_fire
     sprite: {fileID: 21300000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
+  - name: entity/boss/seija_bomb
+    sprite: {fileID: 21300000, guid: cd0fcd035e19f2b4c8f8a3029a1241d3, type: 3}
+  - name: entity/boss/seija_camera
+    sprite: {fileID: 21300000, guid: 5b26f4e24b68dee49b2c8d3592d95d91, type: 3}
+  - name: entity/boss/seija_doll
+    sprite: {fileID: 21300000, guid: 0812e0f0861318c47b85593400d1388d, type: 3}
+  - name: entity/boss/seija_gap
+    sprite: {fileID: 21300000, guid: a983f0772541d504c8614fb33d2a87ec, type: 3}
+  - name: entity/boss/seija_gap_mask
+    sprite: {fileID: 21300000, guid: 7d7bc503117076b49827e5fc02ef7b96, type: 3}
+  - name: entity/boss/seija_mallet
+    sprite: {fileID: 21300000, guid: 1e0913b19fcf5c44984c5217dba3a10e, type: 3}
   - name: entity/boss/slenderman
     sprite: {fileID: 21300000, guid: 3f675fd783eb69c4ba235b5c1f510cd8, type: 3}
   - name: entity/carts/minecart
@@ -966,6 +980,30 @@ MonoBehaviour:
     - {fileID: -5845912786902687416, guid: 7ebac2534124b00449659de6a1056649, type: 3}
     - {fileID: -6766465614645988480, guid: 7ebac2534124b00449659de6a1056649, type: 3}
     - {fileID: -1571928245095609263, guid: 7ebac2534124b00449659de6a1056649, type: 3}
+  - name: entity/boss/seija
+    spritesheet:
+    - {fileID: 365425591, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: 1439818927, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: -1987708623, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: -1995152917, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: 289394548, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: -1642440731, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: 551835040, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: -1566958087, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: -943881386, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: -697128687, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: 139079745, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: 1325204970, guid: b2385c35695e45846a215788533e520a, type: 3}
+    - {fileID: 716595422, guid: b2385c35695e45846a215788533e520a, type: 3}
+  - name: entity/boss/seija_fabric
+    spritesheet:
+    - {fileID: 775662529, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
+    - {fileID: -117764335, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
+    - {fileID: -1356958421, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
+    - {fileID: 1721050366, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
+    - {fileID: -1225849853, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
+    - {fileID: 2078519052, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
+    - {fileID: -1127649238, guid: 8049c7a1615839440a581a9703083ac7, type: 3}
   - name: entity/boss/slenderman_death
     spritesheet:
     - {fileID: 7192771203455553486, guid: 7ca6a0a6b98011d47ac97026866f323e, type: 3}

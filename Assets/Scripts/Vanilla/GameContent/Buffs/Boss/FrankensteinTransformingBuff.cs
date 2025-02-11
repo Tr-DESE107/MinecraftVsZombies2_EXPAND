@@ -14,17 +14,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public FrankensteinTransformingBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new BooleanModifier(VanillaEntityProps.INVISIBLE, true));
-            AddTrigger(LevelCallbacks.PRE_ENTITY_COLLISION, PreEntityCollisionCallback);
-        }
-        private void PreEntityCollisionCallback(EntityCollision collision, TriggerResultBoolean result)
-        {
-            var entity = collision.Entity;
-            var other = collision.Other;
-            if (entity == null || other == null)
-                return;
-            var entityBuffs = entity.HasBuff<FrankensteinTransformingBuff>();
-            result.Result = !entity.HasBuff<FrankensteinTransformingBuff>() && !other.HasBuff<FrankensteinTransformingBuff>();
-            result.Interrupt();
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, NumberOperator.ForceSet, EntityCollisionHelper.DETECTION_IGNORE));
         }
     }
 }

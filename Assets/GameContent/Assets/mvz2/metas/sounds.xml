@@ -211,6 +211,9 @@
     <sound name="fuse">
         <sample path="mvz2:fuse" weight="1" />
     </sound>
+    <sound name="gap_warp">
+        <sample path="mvz2:gap_warp" weight="1" />
+    </sound>
     <sound name="gargoyle_cry">
         <sample path="mvz2:entity/gargoyle/gargoyle1" weight="1" />
         <sample path="mvz2:entity/gargoyle/gargoyle2" weight="1" />
@@ -385,6 +388,9 @@
     </sound>
     <sound name="nightmareaper_rage">
         <sample path="mvz2:entity/nightmareaper/nightmareaper_rage" weight="1" />
+    </sound>
+    <sound name="nimble_fabric">
+        <sample path="mvz2:nimble_fabric" weight="1" />
     </sound>
     <sound name="nyaightmare_scream">
         <sample path="mvz2:nyaightmare_scream" weight="1" />

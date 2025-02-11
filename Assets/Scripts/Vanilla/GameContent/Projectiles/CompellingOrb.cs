@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static bool CanControl(Entity target)
         {
-            return !target.IsLoyal() && !target.IsCharmed();
+            return !target.IsLoyal() && !target.IsCharmed() && (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.ENEMY || target.Type == EntityTypes.OBSTACLE);
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);

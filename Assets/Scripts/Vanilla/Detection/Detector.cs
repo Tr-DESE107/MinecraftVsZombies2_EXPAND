@@ -122,6 +122,22 @@ namespace MVZ2.Vanilla.Detections
                 results.Add(entity);
             }
         }
+        public int DetectEntityCount(DetectionParams self)
+        {
+            entityBuffer.Clear();
+            int count = 0;
+            foreach (var collider in DetectColliders(self))
+            {
+                if (!ValidateCollider(self, collider))
+                    continue;
+                var entity = collider.Entity;
+                if (entityBuffer.Contains(entity))
+                    continue;
+                entityBuffer.Add(entity);
+                count++;
+            }
+            return count;
+        }
         public bool ValidateTarget(DetectionParams self, Entity target)
         {
             if (target == null)

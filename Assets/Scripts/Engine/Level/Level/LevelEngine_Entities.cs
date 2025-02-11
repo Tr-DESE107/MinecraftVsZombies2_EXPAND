@@ -4,6 +4,7 @@ using System.Linq;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine.Level
 {
@@ -348,6 +349,9 @@ namespace PVZEngine.Level
             foreach (var collider1 in colliderBuffer)
             {
                 var ent1 = collider1.Entity;
+                var detection = ent1.Cache.CollisionDetection;
+                if (detection == EntityCollisionHelper.DETECTION_IGNORE)
+                    continue;
                 int maskHostile = ent1.CollisionMaskHostile;
                 int maskFriendly = ent1.CollisionMaskFriendly;
                 var maskTotal = maskHostile | maskFriendly;
@@ -358,7 +362,6 @@ namespace PVZEngine.Level
 
                 var rect1 = collider1.GetCollisionRect();
                 var collisionPoints = 1;
-                var detection = ent1.Cache.CollisionDetection;
                 if (detection == EntityCollisionHelper.DETECTION_CONTINUOUS)
                 {
                     collisionPoints = Mathf.CeilToInt(ent1Motion.magnitude / ent1.Cache.CollisionSampleLength);
@@ -387,6 +390,9 @@ namespace PVZEngine.Level
                             continue;
                         var ent2 = collider2.Entity;
                         if (ent1 == ent2)
+                            continue;
+                        var detection2 = ent2.Cache.CollisionDetection;
+                        if (detection2 == EntityCollisionHelper.DETECTION_IGNORE)
                             continue;
                         var ent2Faction = ent2.Cache.Faction;
                         var mask = EngineEntityExt.IsHostile(ent1Faction, ent2Faction) ? ent1.CollisionMaskHostile : ent1.CollisionMaskFriendly;

@@ -40,6 +40,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID electricSpark = Get("electric_spark");
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
+        public readonly static NamespaceID gapWarp = Get("gap_warp");
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fallBig = Get("fall_big");
         public readonly static NamespaceID fallSmall = Get("fall_small");
@@ -89,6 +90,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID nightmareaperRage = Get("nightmareaper_rage");
         public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");
         public readonly static NamespaceID nightmarePortal = Get("nightmare_portal");
+        public readonly static NamespaceID nimbleFabric = Get("nimble_fabric");
         public readonly static NamespaceID nyaightmareScream = Get("nyaightmare_scream");
         public readonly static NamespaceID odd = Get("odd");
         public readonly static NamespaceID paper = Get("paper");
