@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -22,6 +23,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new AppearState());
                 AddState(new IdleState());
                 AddState(new BackflipState());
+                AddState(new FrontflipState());
                 AddState(new DanmakuState());
                 AddState(new HammerState());
                 AddState(new GapBombState());
@@ -59,11 +61,23 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(60);
+                stateTimer.ResetTime(30);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
+                if (entity.IsOnGround)
+                {
+                    var pos = entity.Position;
+                    var lane = entity.GetLane();
+                    var targetZ = entity.Level.GetEntityLaneZ(lane);
+                    if (Mathf.Abs(targetZ - pos.z) > ADJUST_Z_THRESOLD)
+                    {
+                        pos.z = pos.z * 0.5f + targetZ * 0.5f;
+                        entity.Position = pos;
+                    }
+                }
+
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.Run(stateMachine.GetSpeed(entity));
                 if (!stateTimer.Expired)
@@ -75,21 +89,33 @@ namespace MVZ2.GameContent.Bosses
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
                 var lastState = stateMachine.GetPreviousState(entity);
-                if (lastState == STATE_IDLE || lastState == STATE_HAMMER)
+                if (lastState == STATE_IDLE || lastState == STATE_FRONTFLIP)
                 {
                     lastState = STATE_DANMAKU;
                     //return lastState;
                 }
 
+                bool forwardFailed = false;
                 if (lastState == STATE_DANMAKU)
                 {
                     lastState = STATE_CAMERA;
+                    forwardFailed = true;
                     if (ShouldCamera(entity))
                     {
                         return lastState;
                     }
                 }
                 if (lastState == STATE_CAMERA)
+                {
+                    lastState = STATE_HAMMER;
+                    forwardFailed = true;
+                    entity.Target = FindHammerTarget(entity);
+                    if (entity.Target.ExistsAndAlive())
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_HAMMER)
                 {
                     lastState = STATE_GAP_BOMB;
                     if (ShouldGapBomb(entity))
@@ -99,9 +125,8 @@ namespace MVZ2.GameContent.Bosses
                 }
                 if (lastState == STATE_GAP_BOMB)
                 {
-                    lastState = STATE_HAMMER;
-                    entity.Target = FindHammerTarget(entity);
-                    if (entity.Target.ExistsAndAlive())
+                    lastState = STATE_FRONTFLIP;
+                    if (forwardFailed && ShouldFrontflip(entity))
                     {
                         return lastState;
                     }
@@ -211,13 +236,10 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_HAMMERED:
                         if (substateTimer.Expired)
                         {
-                            var level = entity.Level;
-                            bool atBounds = entity.IsFacingLeft() ? entity.GetColumn() >= level.GetMaxColumnCount() - 2 : entity.GetColumn() <= 1;
                             int count = hammerPlaceBombDetector.DetectEntityCount(entity);
-                            if (count >= 5 && !atBounds)
+                            if (count >= BACKFLIP_ENEMY_COUNT && ShouldBackflip(entity))
                             {
                                 stateMachine.StartState(entity, STATE_BACKFLIP);
-                                entity.Velocity = new Vector3(-10 * entity.GetFacingX(), 10, 0);
                                 var tnt = entity.Spawn(VanillaProjectileID.seijaMagicBomb, entity.GetCenter());
                                 tnt.SetFaction(entity.GetFaction());
                                 tnt.SetDamage(entity.GetDamage());
@@ -303,6 +325,8 @@ namespace MVZ2.GameContent.Bosses
                             substateTimer.ResetTime(23);
                             var pos = entity.Position;
                             pos.x = level.GetEntityColumnX(entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0);
+                            var lane = entity.RNG.Next(level.GetMaxLaneCount());
+                            pos.z = level.GetEntityLaneZ(lane);
                             pos.y = level.GetGroundY(pos.x, pos.z);
                             entity.Position = pos;
                             entity.PlaySound(VanillaSoundID.gapWarp);
@@ -352,14 +376,28 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_JUMP);
+                            var pos = entity.Position;
+                            pos.x += entity.GetFacingX() * 80;
+                            pos.y = entity.Level.GetGroundY(pos);
+                            var frame = entity.Spawn(VanillaEffectID.seijaCameraFrame, pos);
+                            frame.SetFaction(entity.GetFaction());
+                            frame.Velocity = new Vector3(entity.GetFacingX() * 30, 0, 0);
+                            entity.Velocity = new Vector3(entity.GetFacingX() * 10, 10, GetChangeAdjacentLaneZSpeed(entity));
                         }
                         break;
 
                     case SUBSTATE_JUMP:
                         if (entity.IsOnGround)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_LANDED);
-                            substateTimer.ResetTime(17);
+                            if (ShouldBackflip(entity))
+                            {
+                                stateMachine.StartState(entity, STATE_BACKFLIP);
+                            }
+                            else
+                            {
+                                stateMachine.SetSubState(entity, SUBSTATE_LANDED);
+                                substateTimer.ResetTime(17);
+                            }
                         }
                         break;
 
@@ -378,6 +416,47 @@ namespace MVZ2.GameContent.Bosses
         private class BackflipState : EntityStateMachineState
         {
             public BackflipState() : base(STATE_BACKFLIP) { }
+            public override void OnEnter(EntityStateMachine machine, Entity entity)
+            {
+                base.OnEnter(machine, entity);
+                entity.Velocity = new Vector3(-10 * entity.GetFacingX(), 10, GetChangeAdjacentLaneZSpeed(entity));
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
+                {
+                    case SUBSTATE_JUMP:
+                        if (entity.IsOnGround)
+                        {
+                            stateMachine.SetSubState(entity, SUBSTATE_LANDED);
+                            substateTimer.ResetTime(17);
+                        }
+                        break;
+
+                    case SUBSTATE_LANDED:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public const int SUBSTATE_JUMP = 0;
+            public const int SUBSTATE_LANDED = 1;
+
+        }
+        private class FrontflipState : EntityStateMachineState
+        {
+            public FrontflipState() : base(STATE_FRONTFLIP) { }
+            public override void OnEnter(EntityStateMachine machine, Entity entity)
+            {
+                base.OnEnter(machine, entity);
+                entity.Velocity = new Vector3(10 * entity.GetFacingX(), 10, GetChangeAdjacentLaneZSpeed(entity));
+            }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -438,14 +517,21 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_OFF);
-                            substateTimer.ResetTime(6);
+                            substateTimer.ResetTime(10);
                         }
                         break;
 
                     case SUBSTATE_OFF:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.StartState(entity, STATE_IDLE);
+                            if (ShouldBackflip(entity))
+                            {
+                                stateMachine.StartState(entity, STATE_BACKFLIP);
+                            }
+                            else
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
                         }
                         break;
                 }

@@ -1334,5 +1334,10 @@
         <effect id="magic_bomb_explosion">
             <int name="maxTimeout" value="60"/>
         </effect>
+        <effect id="seija_camera_frame">
+            <float name="friction" value="0.15"/>
+            <int name="maxTimeout" value="45"/>
+            <vector3 name="size" x="160" y="800" z="240" />
+        </effect>
     </entries>
 </entities>

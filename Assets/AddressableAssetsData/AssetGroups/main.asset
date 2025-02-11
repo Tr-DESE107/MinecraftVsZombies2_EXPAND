@@ -821,6 +821,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25949aa543c7a514aa1fd0c3261b5234
+    m_Address: mvz2:gap_warp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
     m_ReadOnly: 0
@@ -1948,6 +1954,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5005e9bfb3edbd84082f1c1dbc01250b
+    m_Address: mvz2:entity/effects/camera_frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 504d237734e4940488bbf711d9083635
     m_Address: mvz2:mainmenu/user_manage
     m_ReadOnly: 0
@@ -2178,6 +2190,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b5807cbe5906d74389da8dcb37a214c
     m_Address: mvz2:money_fall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bcb8a9439e0db24f992f29dd452d520
+    m_Address: mvz2:shutter
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -3704,6 +3722,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9821f965cb5dfe34686c58dae6b8a6d9
+    m_Address: mvz2:effect/seija_camera_frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 982248cc3f9823f4a9f759db1e00184f
     m_Address: mvz2:map/gensokyo/pins/kourindou

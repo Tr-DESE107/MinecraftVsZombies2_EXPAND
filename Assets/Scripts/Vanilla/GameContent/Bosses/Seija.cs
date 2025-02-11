@@ -8,6 +8,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -97,6 +98,36 @@ namespace MVZ2.GameContent.Bosses
         public static void AddRecentTakenDamage(Entity boss, float value) => SetRecentTakenDamage(boss, GetRecentTakenDamage(boss) + value);
         #endregion 属性
 
+        private static float GetChangeAdjacentLaneZSpeed(Entity boss)
+        {
+            var dir = 0;
+            var lane = boss.GetLane();
+            var maxLane = boss.Level.GetMaxLaneCount();
+            if (lane <= 0)
+            {
+                dir = 1;
+            }
+            else if (lane >= maxLane - 1)
+            {
+                dir = -1;
+            }
+            else
+            {
+                dir = boss.RNG.Next(2) * 2 - 1;
+            }
+            var targetLane = Mathf.Clamp(lane + dir, 0, maxLane - 1);
+            return GetChangeLaneZSpeed(boss, targetLane);
+        }
+        private static float GetChangeLaneZSpeed(Entity boss, int targetLane)
+        {
+            var targetZ = boss.Level.GetEntityLaneZ(targetLane);
+            return GetChangeZSpeed(boss, targetZ);
+        }
+        private static float GetChangeZSpeed(Entity boss, float targetZ)
+        {
+            var currentZ = boss.Position.z;
+            return (targetZ - currentZ) / 16.6f;
+        }
         public static bool CanUseFabric(Entity boss)
         {
             var count = GetFabricCount(boss);
@@ -118,7 +149,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool ShouldCamera(Entity boss)
         {
-            return false;
+            return cameraDetector.DetectEntityCount(boss) >= CAMERA_ENEMY_COUNT;
         }
         public static bool ShouldGapBomb(Entity boss)
         {
@@ -132,7 +163,17 @@ namespace MVZ2.GameContent.Bosses
                 if (boss.GetColumn() > 0)
                     return false;
             }
-            return gapBombDetector.DetectEntityCount(boss) >= 5;
+            return gapBombDetector.DetectEntityCount(boss) >= GAP_BOMB_ENEMY_COUNT;
+        }
+        public static bool ShouldFrontflip(Entity boss)
+        {
+            var level = boss.Level;
+            return boss.IsFacingLeft() ? boss.GetColumn() > 1 : boss.GetColumn() < level.GetMaxColumnCount() - 2;
+        }
+        public static bool ShouldBackflip(Entity boss)
+        {
+            var level = boss.Level;
+            return boss.IsFacingLeft() ? boss.GetColumn() < level.GetMaxColumnCount() - 2 : boss.GetColumn() > 1;
         }
         public static Entity FindHammerTarget(Entity boss)
         {
@@ -148,21 +189,28 @@ namespace MVZ2.GameContent.Bosses
         private const float FABRIC_DAMAGE_THRESOLD = 300;
         private const float TAKEN_DAMAGE_FADE = FABRIC_DAMAGE_THRESOLD / 75f;
 
+        private const int CAMERA_ENEMY_COUNT = 3;
+        private const int GAP_BOMB_ENEMY_COUNT = 5;
+        private const int BACKFLIP_ENEMY_COUNT = 3;
+        private const float ADJUST_Z_THRESOLD = 5;
+
         private const int STATE_IDLE = VanillaEntityStates.SEIJA_IDLE;
         private const int STATE_APPEAR = VanillaEntityStates.SEIJA_APPEAR;
         private const int STATE_DANMAKU = VanillaEntityStates.SEIJA_DANMAKU;
         private const int STATE_HAMMER = VanillaEntityStates.SEIJA_HAMMER;
         private const int STATE_BACKFLIP = VanillaEntityStates.SEIJA_BACKFLIP;
+        private const int STATE_FRONTFLIP = VanillaEntityStates.SEIJA_FRONTFLIP;
         private const int STATE_GAP_BOMB = VanillaEntityStates.SEIJA_GAP_BOMB;
         private const int STATE_CAMERA = VanillaEntityStates.SEIJA_CAMERA;
         private const int STATE_FABRIC = VanillaEntityStates.SEIJA_FABRIC;
         private const int STATE_FAINT = VanillaEntityStates.SEIJA_FAINT;
         #endregion 常量
 
-        private static Detector hammerCheckDetector = new SeijaHammerDetector(SeijaHammerDetector.MODE_DETECT);
-        private static Detector hammerSmashDetector = new SeijaHammerDetector(SeijaHammerDetector.MODE_SMASH);
-        private static Detector hammerPlaceBombDetector = new SeijaHammerDetector(SeijaHammerDetector.MODE_PLACE_BOMB);
-        private static Detector gapBombDetector = new SeijaHammerDetector(SeijaHammerDetector.MODE_GAP_BOMB);
+        private static Detector hammerCheckDetector = new SeijaDetector(SeijaDetector.MODE_DETECT);
+        private static Detector hammerSmashDetector = new SeijaDetector(SeijaDetector.MODE_SMASH);
+        private static Detector hammerPlaceBombDetector = new SeijaDetector(SeijaDetector.MODE_PLACE_BOMB);
+        private static Detector gapBombDetector = new SeijaDetector(SeijaDetector.MODE_GAP_BOMB);
+        private static Detector cameraDetector = new SeijaDetector(SeijaDetector.MODE_CAMERA);
         private static SeijaStateMachine stateMachine = new SeijaStateMachine();
     }
 }

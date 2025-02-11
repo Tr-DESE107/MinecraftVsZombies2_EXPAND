@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Detections;
+﻿using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -6,11 +7,15 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Detections
 {
-    public class SeijaHammerDetector : Detector
+    public class SeijaDetector : Detector
     {
-        public SeijaHammerDetector(int mode)
+        public SeijaDetector(int mode)
         {
             this.mode = mode;
+            if (mode == MODE_CAMERA)
+            {
+                mask = EntityCollisionHelper.MASK_PLANT;
+            }
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
@@ -60,6 +65,16 @@ namespace MVZ2.GameContent.Detections
                         centerY = self.Level.GetGroundY(centerX, centerZ);
                     }
                     break;
+                case MODE_CAMERA:
+                    {
+                        sizeX = 160;
+                        sizeY = 800;
+                        sizeZ = 240;
+                        centerX = source.x + self.GetFacingX() * 240;
+                        centerZ = source.z;
+                        centerY = self.Level.GetGroundY(centerX, centerZ);
+                    }
+                    break;
                 default:
                     {
                         sizeX = 240;
@@ -73,10 +88,23 @@ namespace MVZ2.GameContent.Detections
             }
             return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
         }
+        protected override bool ValidateCollider(DetectionParams param, EntityCollider collider)
+        {
+            if (mode == MODE_CAMERA)
+            {
+                var target = collider.Entity;
+                if (!target.CanDeactive())
+                    return false;
+                if (target.IsAIFrozen())
+                    return false;
+            }
+            return base.ValidateCollider(param, collider);
+        }
         private int mode;
         public const int MODE_DETECT = 0;
         public const int MODE_SMASH = 1;
         public const int MODE_PLACE_BOMB = 2;
         public const int MODE_GAP_BOMB = 3;
+        public const int MODE_CAMERA = 4;
     }
 }

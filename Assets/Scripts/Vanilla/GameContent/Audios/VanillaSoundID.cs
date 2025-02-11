@@ -123,6 +123,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID siren = Get("siren");
         public readonly static NamespaceID slice = Get("slice");
         public readonly static NamespaceID shieldHit = Get("shield_hit");
+        public readonly static NamespaceID shutter = Get("shutter");
         public readonly static NamespaceID skeletonCry = Get("skeleton_cry");
         public readonly static NamespaceID skeletonDeath = Get("skeleton_death");
         public readonly static NamespaceID slendermanDeath = Get("slenderman_death");
