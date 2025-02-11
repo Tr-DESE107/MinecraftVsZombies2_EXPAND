@@ -38,6 +38,7 @@ namespace MVZ2.GameContent.Enemies
         public const string skeletonHorse = "skeleton_horse";
         public const string dullahanHead = "dullahan_head";
         public const string soulsand = "soulsand";
+        public const string seijaCursedDoll = "seija_cursed_doll";
     }
     public static class VanillaEnemyID
     {
@@ -74,6 +75,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID skeletonHorse = Get(VanillaEnemyNames.skeletonHorse);
         public static readonly NamespaceID dullahanHead = Get(VanillaEnemyNames.dullahanHead);
         public static readonly NamespaceID soulsand = Get(VanillaEnemyNames.soulsand);
+        public static readonly NamespaceID seijaCursedDoll = Get(VanillaEnemyNames.seijaCursedDoll);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

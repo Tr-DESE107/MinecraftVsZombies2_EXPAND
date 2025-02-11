@@ -75,6 +75,8 @@
     <model name="dullahan_head" type="entity" path="mvz2:enemy/castle/dullahan_head" width="32" height="22" xOffset="0" yOffset="-11"/>
     <model name="dullahan_main" type="entity" path="mvz2:enemy/castle/dullahan_main" width="64" height="100" xOffset="10" yOffset="-46"/>
     <model name="soulsand" type="entity" path="mvz2:enemy/castle/soulsand" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="seija_cursed_doll" type="entity" path="mvz2:enemy/castle/seija_cursed_doll"  width="32" height="32" xOffset="0" yOffset="-16"/>
+
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44"/>

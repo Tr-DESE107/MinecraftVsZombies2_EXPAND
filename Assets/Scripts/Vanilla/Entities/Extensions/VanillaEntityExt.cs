@@ -434,6 +434,8 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool CanTakeGrid(this Entity entity, LawnGrid grid, NamespaceID layer)
         {
+            if (grid == null)
+                return false;
             if (!entity.Exists())
                 return false;
             if (entity.GetRelativeY() > leaveGridHeight)

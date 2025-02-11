@@ -207,6 +207,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 35f80fb8af94a064f86a987dc6dae8e0, type: 3}
   - name: mobile_blueprint/seija
     sprite: {fileID: 21300000, guid: 9390c4e06c35d1849b57a496ba6b0339, type: 3}
+  - name: mobile_blueprint/seija_cursed_doll
+    sprite: {fileID: 21300000, guid: f178164255d2e4740ba2c8e66ba459e5, type: 3}
   - name: mobile_blueprint/silvenser
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
@@ -419,6 +421,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d26b719675efdbf49b1e6342f7270818, type: 3}
   - name: entity/effects/breakout_board_long
     sprite: {fileID: 21300000, guid: a6f5c16aaaa862f4a8000dbbb824d5a0, type: 3}
+  - name: entity/effects/camera_frame
+    sprite: {fileID: 21300000, guid: 5005e9bfb3edbd84082f1c1dbc01250b, type: 3}
   - name: entity/effects/crushing_wall_left
     sprite: {fileID: 21300000, guid: 2574e617cf0030645966d0a257f50050, type: 3}
   - name: entity/effects/crushing_wall_left_censored

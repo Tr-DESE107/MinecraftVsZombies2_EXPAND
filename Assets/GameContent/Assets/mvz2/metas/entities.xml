@@ -894,6 +894,21 @@
 
             <int name="cost" value="25" />
         </enemy>
+        <enemy id="seija_cursed_doll" name="正邪的诅咒人偶" deathMessage="？" unlock="mvz2:level.castle_7">
+            <bool name="harmless" value="true" />
+            <bool name="notActiveEnemy" value="true"/>
+            <bool name="loyal" value="true"/>
+            <bool name="canDeactive" value="false"/>
+            <bool name="invincible" value="true"/>
+            <float name="fallResistance" value="10000"/>
+            <id name="shell" value="mvz2:normal"/>
+            <id name="crySound" null="true"/>
+            <id name="deathSound" null="true"/>
+            <float name="maxHealth" value="9999"/>
+            <vector3 name="size" x="24" y="32" z="24"/>
+
+            <int name="cost" value="25" />
+        </enemy>
 
         <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">

@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -8,7 +9,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -28,6 +28,9 @@ namespace MVZ2.GameContent.Bosses
             var timer = new FrameTimer(90);
             timer.Frame = 0;
             SetFabricCooldownTimer(boss, timer);
+
+            var doll = boss.Spawn(VanillaEnemyID.seijaCursedDoll, boss.Position);
+            doll.SetParent(boss);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -164,6 +167,16 @@ namespace MVZ2.GameContent.Bosses
                     return false;
             }
             return gapBombDetector.DetectEntityCount(boss) >= GAP_BOMB_ENEMY_COUNT;
+        }
+        public static bool IsTooRight(Entity boss)
+        {
+            var level = boss.Level;
+            return boss.IsFacingLeft() ? boss.GetColumn() > level.GetMaxColumnCount() - 2 : boss.GetColumn() < 1;
+        }
+        public static bool IsTooLeft(Entity boss)
+        {
+            var level = boss.Level;
+            return boss.IsFacingLeft() ? boss.GetColumn() <= 1 : boss.GetColumn() >= level.GetMaxColumnCount() - 2;
         }
         public static bool ShouldFrontflip(Entity boss)
         {

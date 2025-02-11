@@ -1,5 +1,4 @@
 ﻿using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -14,6 +13,23 @@ namespace MVZ2.GameContent.Detections
         protected override Bounds GetDetectionBounds(Entity self)
         {
             return self.GetBounds();
+        }
+        protected override bool ValidateCollider(DetectionParams param, EntityCollider collider)
+        {
+            var target = collider.Entity;
+            if (target.Type == EntityTypes.PROJECTILE)
+            {
+                if (target == null)
+                    return false;
+                if (param.entity == target && !includeSelf)
+                    return false;
+                if (target.IsDead)
+                    return false;
+                if (!target.IsFactionTarget(param.faction, factionTarget))
+                    return false;
+                return true;
+            }
+            return base.ValidateCollider(param, collider);
         }
     }
 }

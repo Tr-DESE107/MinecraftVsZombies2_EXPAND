@@ -89,17 +89,15 @@ namespace MVZ2.GameContent.Bosses
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
                 var lastState = stateMachine.GetPreviousState(entity);
-                if (lastState == STATE_IDLE || lastState == STATE_FRONTFLIP)
+                if (lastState == STATE_IDLE || lastState == STATE_BACKFLIP)
                 {
                     lastState = STATE_DANMAKU;
                     //return lastState;
                 }
 
-                bool forwardFailed = false;
                 if (lastState == STATE_DANMAKU)
                 {
                     lastState = STATE_CAMERA;
-                    forwardFailed = true;
                     if (ShouldCamera(entity))
                     {
                         return lastState;
@@ -108,7 +106,6 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_CAMERA)
                 {
                     lastState = STATE_HAMMER;
-                    forwardFailed = true;
                     entity.Target = FindHammerTarget(entity);
                     if (entity.Target.ExistsAndAlive())
                     {
@@ -126,7 +123,15 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_GAP_BOMB)
                 {
                     lastState = STATE_FRONTFLIP;
-                    if (forwardFailed && ShouldFrontflip(entity))
+                    if (IsTooRight(entity) && ShouldFrontflip(entity))
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_FRONTFLIP)
+                {
+                    lastState = STATE_BACKFLIP;
+                    if (IsTooLeft(entity) && ShouldBackflip(entity))
                     {
                         return lastState;
                     }

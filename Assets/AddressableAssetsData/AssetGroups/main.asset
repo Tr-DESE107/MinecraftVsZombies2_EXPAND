@@ -2200,6 +2200,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bd1acbcd90ebbb4fb6dfed80ef2a88b
+    m_Address: mvz2:enemy/castle/seija_cursed_doll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c2a63853e3c0a44ca7d42827e94eb10
     m_Address: mvz2:revive_cast
     m_ReadOnly: 0
@@ -6080,6 +6086,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f178164255d2e4740ba2c8e66ba459e5
+    m_Address: mvz2:mobile_blueprint/seija_cursed_doll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1aefc59239478744b6bdc884a1fc842
     m_Address: mvz2:ui/level/wallet
