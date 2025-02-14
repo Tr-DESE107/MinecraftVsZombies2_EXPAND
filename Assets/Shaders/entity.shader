@@ -17,6 +17,9 @@
 		_BurnEdgeColor("Edge Color", Color) = (0,0.5,0.5,1)
 		_BurnEdgeThreshold("Edge Threshold", Float) = 0.2
 		_BurnFireColor("Fire Color", Color) = (0,1,1,1)
+		
+		[Toggle]
+		_HSVTint("HSVTint", Int) = 0
 	}
 
 	SubShader

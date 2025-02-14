@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.Bosses
                 if (entity.IsOnGround)
                 {
                     var pos = entity.Position;
-                    var lane = entity.GetLane();
+                    var lane = Mathf.Clamp(entity.GetLane(), 0, entity.Level.GetMaxLaneCount() - 1);
                     var targetZ = entity.Level.GetEntityLaneZ(lane);
                     if (Mathf.Abs(targetZ - pos.z) > ADJUST_Z_THRESOLD)
                     {
@@ -92,12 +92,14 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_IDLE || lastState == STATE_BACKFLIP)
                 {
                     lastState = STATE_DANMAKU;
-                    //return lastState;
+                    return lastState;
                 }
 
+                bool attackAttempted = false;
                 if (lastState == STATE_DANMAKU)
                 {
                     lastState = STATE_CAMERA;
+                    attackAttempted = true;
                     if (ShouldCamera(entity))
                     {
                         return lastState;
@@ -106,6 +108,7 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_CAMERA)
                 {
                     lastState = STATE_HAMMER;
+                    attackAttempted = true;
                     entity.Target = FindHammerTarget(entity);
                     if (entity.Target.ExistsAndAlive())
                     {
@@ -123,7 +126,7 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_GAP_BOMB)
                 {
                     lastState = STATE_FRONTFLIP;
-                    if (IsTooRight(entity) && ShouldFrontflip(entity))
+                    if (attackAttempted && ShouldFrontFlip(entity) && CanFrontflip(entity))
                     {
                         return lastState;
                     }
@@ -131,7 +134,7 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_FRONTFLIP)
                 {
                     lastState = STATE_BACKFLIP;
-                    if (IsTooLeft(entity) && ShouldBackflip(entity))
+                    if (attackAttempted && ShouldBackflip(entity) && CanBackflip(entity))
                     {
                         return lastState;
                     }
@@ -154,6 +157,37 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
+                var danmakuTimer = GetDanmakuTimer(entity);
+                danmakuTimer.Run(stateMachine.GetSpeed(entity));
+                if (danmakuTimer.Expired)
+                {
+                    danmakuTimer.Reset();
+                    var substate = stateMachine.GetSubState(entity);
+                    var bulletAngle = GetBulletAngle(entity);
+                    Color color = Color.red;
+                    switch (substate)
+                    {
+                        case SUBSTATE_ROTATE_1:
+                        case SUBSTATE_ROTATE_3:
+                            bulletAngle = (bulletAngle + 5) % 360;
+                            break;
+                        case SUBSTATE_ROTATE_2:
+                            color = Color.blue;
+                            bulletAngle = (bulletAngle - 5) % 360;
+                            break;
+                    }
+                    for (int i = 0; i < 6; i++)
+                    {
+                        var angle = bulletAngle + i * 60;
+                        var bullet = entity.Spawn(VanillaProjectileID.seijaBullet, entity.GetCenter());
+                        bullet.SetFaction(entity.GetFaction());
+                        bullet.SetDamage(entity.GetDamage() * 0.5f);
+                        bullet.SetTint(color);
+                        bullet.Velocity = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * SeijaBullet.LIGHT_SPEED;
+                    }
+                    SetBulletAngle(entity, bulletAngle);
+                    entity.PlaySound(VanillaSoundID.danmaku, volume: 0.5f);
+                }
                 RunTimer(stateMachine, entity);
             }
             private void RunTimer(EntityStateMachine stateMachine, Entity entity)
@@ -172,13 +206,6 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                     case SUBSTATE_ROTATE_2:
-                        if (substateTimer.Expired)
-                        {
-                            stateMachine.SetSubState(entity, SUBSTATE_ROTATE_3);
-                            substateTimer.ResetTime(30);
-                        }
-                        break;
-                    case SUBSTATE_ROTATE_3:
                         if (substateTimer.Expired)
                         {
                             stateMachine.StartState(entity, STATE_IDLE);
@@ -202,7 +229,7 @@ namespace MVZ2.GameContent.Bosses
 
                 if (entity.Target.ExistsAndAlive())
                 {
-                    entity.Velocity = (entity.Target.Position - entity.Position) / 6.5f;
+                    entity.Velocity = (entity.Target.Position - entity.Position) / 6.6667f;
                 }
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
@@ -242,7 +269,7 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             int count = hammerPlaceBombDetector.DetectEntityCount(entity);
-                            if (count >= BACKFLIP_ENEMY_COUNT && ShouldBackflip(entity))
+                            if (count >= BACKFLIP_ENEMY_COUNT && CanBackflip(entity))
                             {
                                 stateMachine.StartState(entity, STATE_BACKFLIP);
                                 var tnt = entity.Spawn(VanillaProjectileID.seijaMagicBomb, entity.GetCenter());
@@ -394,7 +421,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP:
                         if (entity.IsOnGround)
                         {
-                            if (ShouldBackflip(entity))
+                            if (CanBackflip(entity))
                             {
                                 stateMachine.StartState(entity, STATE_BACKFLIP);
                             }
@@ -529,7 +556,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_OFF:
                         if (substateTimer.Expired)
                         {
-                            if (ShouldBackflip(entity))
+                            if (CanBackflip(entity))
                             {
                                 stateMachine.StartState(entity, STATE_BACKFLIP);
                             }

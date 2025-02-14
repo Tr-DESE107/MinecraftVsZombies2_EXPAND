@@ -100,6 +100,9 @@
         <sample path="mvz2:random/crystal/crystal_place3" weight="1" />
         <sample path="mvz2:random/crystal/crystal_place4" weight="1" />
     </sound>
+    <sound name="danmaku">
+        <sample path="mvz2:danmaku" weight="1" />
+    </sound>
     <sound name="dark_skies_cast" maxCount="10">
         <sample path="mvz2:dark_skies_cast" weight="1" />
     </sound>

@@ -33,6 +33,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string diamondCaltrop = "diamond_caltrop";
         public const string compellingOrb = "compelling_orb";
         public const string seijaMagicBomb = "seija_magic_bomb";
+        public const string seijaBullet = "seija_bullet";
     }
     public static class VanillaProjectileID
     {
@@ -64,6 +65,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID diamondCaltrop = Get(VanillaProjectileNames.diamondCaltrop);
         public static readonly NamespaceID compellingOrb = Get(VanillaProjectileNames.compellingOrb);
         public static readonly NamespaceID seijaMagicBomb = Get(VanillaProjectileNames.seijaMagicBomb);
+        public static readonly NamespaceID seijaBullet = Get(VanillaProjectileNames.seijaBullet);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

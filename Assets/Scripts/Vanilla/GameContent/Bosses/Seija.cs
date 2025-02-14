@@ -28,6 +28,7 @@ namespace MVZ2.GameContent.Bosses
             var timer = new FrameTimer(90);
             timer.Frame = 0;
             SetFabricCooldownTimer(boss, timer);
+            SetDanmakuTimer(boss, new FrameTimer(4));
 
             var doll = boss.Spawn(VanillaEnemyID.seijaCursedDoll, boss.Position);
             doll.SetParent(boss);
@@ -99,6 +100,10 @@ namespace MVZ2.GameContent.Bosses
         public static float GetRecentTakenDamage(Entity boss) => boss.GetBehaviourField<float>(PROP_RECENT_TAKEN_DAMAGE);
         public static void SetRecentTakenDamage(Entity boss, float value) => boss.SetBehaviourField(PROP_RECENT_TAKEN_DAMAGE, value);
         public static void AddRecentTakenDamage(Entity boss, float value) => SetRecentTakenDamage(boss, GetRecentTakenDamage(boss) + value);
+        public static float GetBulletAngle(Entity boss) => boss.GetBehaviourField<float>(PROP_BULLET_ANGLE);
+        public static void SetBulletAngle(Entity boss, float value) => boss.SetBehaviourField(PROP_BULLET_ANGLE, value);
+        public static FrameTimer GetDanmakuTimer(Entity boss) => boss.GetBehaviourField<FrameTimer>(PROP_DANMAKU_TIMER);
+        public static void SetDanmakuTimer(Entity boss, FrameTimer value) => boss.SetBehaviourField(PROP_DANMAKU_TIMER, value);
         #endregion 属性
 
         private static float GetChangeAdjacentLaneZSpeed(Entity boss)
@@ -168,22 +173,22 @@ namespace MVZ2.GameContent.Bosses
             }
             return gapBombDetector.DetectEntityCount(boss) >= GAP_BOMB_ENEMY_COUNT;
         }
-        public static bool IsTooRight(Entity boss)
+        public static bool ShouldFrontFlip(Entity boss)
         {
             var level = boss.Level;
-            return boss.IsFacingLeft() ? boss.GetColumn() > level.GetMaxColumnCount() - 2 : boss.GetColumn() < 1;
+            return boss.IsFacingLeft() ? boss.GetColumn() > level.GetMaxColumnCount() / 2 : boss.GetColumn() < level.GetMaxColumnCount() / 2;
         }
-        public static bool IsTooLeft(Entity boss)
+        public static bool ShouldBackflip(Entity boss)
         {
             var level = boss.Level;
-            return boss.IsFacingLeft() ? boss.GetColumn() <= 1 : boss.GetColumn() >= level.GetMaxColumnCount() - 2;
+            return boss.IsFacingLeft() ? boss.GetColumn() <= level.GetMaxColumnCount() / 2 : boss.GetColumn() >= level.GetMaxColumnCount() / 2;
         }
-        public static bool ShouldFrontflip(Entity boss)
+        public static bool CanFrontflip(Entity boss)
         {
             var level = boss.Level;
             return boss.IsFacingLeft() ? boss.GetColumn() > 1 : boss.GetColumn() < level.GetMaxColumnCount() - 2;
         }
-        public static bool ShouldBackflip(Entity boss)
+        public static bool CanBackflip(Entity boss)
         {
             var level = boss.Level;
             return boss.IsFacingLeft() ? boss.GetColumn() < level.GetMaxColumnCount() - 2 : boss.GetColumn() > 1;
@@ -196,7 +201,9 @@ namespace MVZ2.GameContent.Bosses
         #region 常量
         private static readonly VanillaEntityPropertyMeta PROP_FABRIC_COUNT = new VanillaEntityPropertyMeta("FabricCount");
         private static readonly VanillaEntityPropertyMeta PROP_FABRIC_COOLDOWN_TIMER = new VanillaEntityPropertyMeta("FabricCooldownTimer");
+        private static readonly VanillaEntityPropertyMeta PROP_DANMAKU_TIMER = new VanillaEntityPropertyMeta("DanmakuTimer");
         private static readonly VanillaEntityPropertyMeta PROP_RECENT_TAKEN_DAMAGE = new VanillaEntityPropertyMeta("RecentTakenDamage");
+        private static readonly VanillaEntityPropertyMeta PROP_BULLET_ANGLE = new VanillaEntityPropertyMeta("BulletAngle");
 
         private const int MAX_FABRIC_COUNT = 3;
         private const float FABRIC_DAMAGE_THRESOLD = 300;

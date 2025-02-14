@@ -443,6 +443,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15206f91cba867643894b071e1884fc8
+    m_Address: mvz2:entity/projectiles/seija_bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1546c0185bf83ea42991ba610bc03cd9
     m_Address: mvz2:decrepify
     m_ReadOnly: 0
@@ -2301,6 +2307,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d6681133238a864eb4f3882be1730fe
+    m_Address: mvz2:entity/projectiles/seija_bullet_dark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d825d80ad8de344597c020d95cae1f2
     m_Address: mvz2:mine_explode
@@ -5546,6 +5558,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dddc091093821b14bacdbfb39ca079ad
+    m_Address: mvz2:projectile/seija_bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddecb2750e06a86449911b2ad608969f
     m_Address: mvz2:ui/musicroom/frame
