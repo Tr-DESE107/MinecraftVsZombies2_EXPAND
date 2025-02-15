@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7744186435565456276}
   - component: {fileID: 4575991372992862622}
   - component: {fileID: 6976302548209069430}
+  - component: {fileID: 4215096724977971354}
   m_Layer: 0
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35cbd7b091ff134fb70819c318f7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &4215096724977971354
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126737601396360499}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1597954307474370563
 GameObject:
   m_ObjectHideFlags: 0
