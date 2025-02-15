@@ -37,6 +37,10 @@ namespace MVZ2.GameContent.Implements
             {
                 entity.PlaySplashEffect();
                 entity.PlaySplashSound();
+                if (entity.Type == EntityTypes.ENEMY)
+                {
+                    entity.Neutralize();
+                }
                 entity.Remove();
                 entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_REMOVE, c => c(entity, WaterInteraction.ACTION_REMOVE));
                 entity.SetAnimationBool("InWater", false);
