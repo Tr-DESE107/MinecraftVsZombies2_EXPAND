@@ -8,12 +8,7 @@ namespace MVZ2.Level.UI
 {
     public class Tooltip : MonoBehaviour
     {
-        public void SetPivot(Vector2 pivot)
-        {
-            var rectTransform = transform as RectTransform;
-            rectTransform.pivot = pivot;
-        }
-        public void SetData(Transform target, TooltipViewData viewData)
+        public void SetData(Transform target, Vector2 pivot, TooltipViewData viewData)
         {
             targetTransform = target;
             nameText.text = viewData.name;
@@ -24,6 +19,7 @@ namespace MVZ2.Level.UI
             descriptionText.gameObject.SetActive(!string.IsNullOrEmpty(viewData.description));
 
             var rectTransform = transform as RectTransform;
+            rectTransform.pivot = pivot;
             rectTransform.position = targetTransform.position;
             var rootCanvas = rectTransform.GetRootCanvasNonAlloc(canvasListCache);
             if (rootCanvas)
@@ -34,6 +30,11 @@ namespace MVZ2.Level.UI
         }
         private void Update()
         {
+            if (!targetTransform || !targetTransform.gameObject.activeInHierarchy)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             var rectTransform = transform as RectTransform;
             rectTransform.position = targetTransform.position;
 

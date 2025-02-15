@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using MukioI18n;
 using MVZ2.Cursors;
 using MVZ2.GameContent.HeldItems;
@@ -28,6 +29,8 @@ using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
+using UnityEditor.Experimental;
+using UnityEditor.Presets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static MVZ2.Level.UI.LevelUIPreset;
@@ -203,13 +206,22 @@ namespace MVZ2.Level
         }
         #endregion
 
-        public void ShowTooltipOnComponent(ITooltipTarget target, TooltipViewData viewData)
+        public void ShowTooltip(ITooltipSource source)
         {
+            tooltipSource = source;
             var uiPreset = GetUIPreset();
-            uiPreset.ShowTooltipOnComponent(target, viewData);
+            uiPreset.ShowTooltip();
+        }
+        public void UpdateTooltip()
+        {
+            if (tooltipSource == null)
+                return;
+            var uiPreset = GetUIPreset();
+            uiPreset.UpdateTooltip(tooltipSource.GetTarget(this), tooltipSource.GetViewData(this));
         }
         public void HideTooltip()
         {
+            tooltipSource = null;
             var uiPreset = GetUIPreset();
             uiPreset.HideTooltip();
         }
@@ -272,6 +284,8 @@ namespace MVZ2.Level
         private void Awake_UI()
         {
             heldItemModelInterface = new HeldItemModelInterface(this);
+            pickaxeTooltipSource = new PickaxeTooltipSource(this);
+            triggerTooltipSource = new TriggerTooltipSource(this);
             ui.OnPauseDialogResumeClicked += UI_OnPauseDialogResumeClickedCallback;
             ui.OnLevelLoadedDialogButtonClicked += UI_OnLevelLoadedDialogOptionClickedCallback;
             ui.OnLevelErrorLoadingDialogButtonClicked += UI_OnLevelErrorLoadingDialogOptionClickedCallback;
@@ -328,28 +342,11 @@ namespace MVZ2.Level
         {
             if (!IsGameStarted())
                 return;
-            var levelUI = GetUIPreset();
-            string error = null;
-            if (level.IsPickaxeDisabled())
-            {
-                var message = level.GetPickaxeDisableMessage();
-                if (!string.IsNullOrEmpty(message))
-                {
-                    error = Localization._(message);
-                }
-            }
-            var viewData = new TooltipViewData()
-            {
-                name = Localization._(VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
-                error = error,
-                description = null
-            };
-            levelUI.ShowTooltipOnPickaxe(viewData);
+            ShowTooltip(pickaxeTooltipSource);
         }
         private void UI_OnPickaxePointerExitCallback(PointerEventData eventData)
         {
-            var levelUI = GetUIPreset();
-            levelUI.HideTooltip();
+            HideTooltip();
         }
         private void UI_OnPickaxePointerDownCallback(PointerEventData eventData)
         {
@@ -407,28 +404,11 @@ namespace MVZ2.Level
         {
             if (!IsGameStarted())
                 return;
-            var levelUI = GetUIPreset();
-            string error = null;
-            if (level.IsTriggerDisabled())
-            {
-                var message = level.GetTriggerDisableMessage();
-                if (!string.IsNullOrEmpty(message))
-                {
-                    error = Localization._(message);
-                }
-            }
-            var viewData = new TooltipViewData()
-            {
-                name = Localization._(VanillaStrings.TOOLTIP_TRIGGER_CONTRAPTION),
-                error = error,
-                description = null
-            };
-            levelUI.ShowTooltipOnTrigger(viewData);
+            ShowTooltip(triggerTooltipSource);
         }
         private void UI_OnTriggerPointerExitCallback(PointerEventData eventData)
         {
-            var levelUI = GetUIPreset();
-            levelUI.HideTooltip();
+            HideTooltip();
         }
         private void UI_OnTriggerPointerDownCallback(PointerEventData eventData)
         {
@@ -491,20 +471,11 @@ namespace MVZ2.Level
             if (artifact?.Definition == null)
                 return;
             var artifactID = artifact.Definition.GetID();
-            var name = Main.ResourceManager.GetArtifactName(artifactID);
-            var tooltip = Main.ResourceManager.GetArtifactTooltip(artifactID);
-            TooltipViewData viewData = new TooltipViewData()
-            {
-                name = name,
-                error = string.Empty,
-                description = tooltip
-            };
-            uiPreset.ShowTooltipOnComponent(uiPreset.GetArtifactAt(index), viewData);
+            ShowTooltip(new ArtifactTooltipSource(this, artifactID, uiPreset.GetArtifactAt(index)));
         }
         private void UI_OnArtifactPointerExitCallback(int index)
         {
-            var uiPreset = GetUIPreset();
-            uiPreset.HideTooltip();
+            HideTooltip();
         }
         #endregion
 
@@ -913,6 +884,9 @@ namespace MVZ2.Level
         private IModelInterface heldItemModelInterface;
         private CursorSource heldItemCursorSource;
         private bool inputAndUIDisabled;
+        private ITooltipSource tooltipSource;
+        private ITooltipSource pickaxeTooltipSource;
+        private ITooltipSource triggerTooltipSource;
 
         [Header("UI")]
         [SerializeField]
@@ -924,5 +898,101 @@ namespace MVZ2.Level
         [SerializeField]
         private Sprite triggerSprite;
         #endregion
+
+        private class PickaxeTooltipSource : ITooltipSource
+        {
+            private LevelController controller;
+            public PickaxeTooltipSource(LevelController level)
+            {
+                this.controller = level;
+            }
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return level.GetUIPreset().GetPickaxeSlot();
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                string error = null;
+                if (level.level.IsPickaxeDisabled())
+                {
+                    var message = level.level.GetPickaxeDisableMessage();
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        error = level.Localization._(message);
+                    }
+                }
+                return new TooltipViewData()
+                {
+                    name = level.Localization._(VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
+                    error = error,
+                    description = null
+                };
+            }
+        }
+        private class TriggerTooltipSource : ITooltipSource
+        {
+            private LevelController controller;
+            public TriggerTooltipSource(LevelController level)
+            {
+                this.controller = level;
+            }
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return level.GetUIPreset().GetCurrentTriggerUI();
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                string error = null;
+                if (controller.level.IsTriggerDisabled())
+                {
+                    var message = controller.level.GetTriggerDisableMessage();
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        error = controller.Localization._(message);
+                    }
+                }
+                return new TooltipViewData()
+                {
+                    name = controller.Localization._(VanillaStrings.TOOLTIP_TRIGGER_CONTRAPTION),
+                    error = error,
+                    description = null
+                };
+            }
+        }
+        private class ArtifactTooltipSource : ITooltipSource
+        {
+            private LevelController controller;
+            private NamespaceID artifactID;
+            private ITooltipTarget target;
+
+            public ArtifactTooltipSource(LevelController controller, NamespaceID artifactID, ITooltipTarget target)
+            {
+                this.controller = controller;
+                this.artifactID = artifactID;
+                this.target = target;
+            }
+
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return target;
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                var main = controller.Main;
+                var name = main.ResourceManager.GetArtifactName(artifactID);
+                var tooltip = main.ResourceManager.GetArtifactTooltip(artifactID);
+                return new TooltipViewData()
+                {
+                    name = name,
+                    error = string.Empty,
+                    description = tooltip
+                };
+            }
+        }
+    }
+    public interface ITooltipSource
+    {
+        ITooltipTarget GetTarget(LevelController level);
+        TooltipViewData GetViewData(LevelController level);
     }
 }

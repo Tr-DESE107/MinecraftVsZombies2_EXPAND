@@ -21,6 +21,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Level
 {
@@ -465,19 +466,6 @@ namespace MVZ2.Level
         {
             chooseUI.DestroyChosenBlueprintAt(index);
         }
-        private void ShowBlueprintTooltip(NamespaceID blueprintID, ITooltipTarget target)
-        {
-            var name = GetBlueprintName(blueprintID);
-            var tooltip = GetBlueprintTooltip(blueprintID);
-            var error = GetBlueprintTooltipError(blueprintID);
-            var viewData = new TooltipViewData()
-            {
-                name = name,
-                error = error,
-                description = tooltip
-            };
-            Controller.ShowTooltipOnComponent(target, viewData);
-        }
         public string GetBlueprintName(NamespaceID blueprintID)
         {
             var definition = Game.GetSeedDefinition(blueprintID);
@@ -654,44 +642,6 @@ namespace MVZ2.Level
             };
             chooseUI.UpdateArtifactSlotAt(index, artifactViewData);
         }
-        private void ShowArtifactTooltip(NamespaceID artifactID, ITooltipTarget target)
-        {
-            var name = Main.ResourceManager.GetArtifactName(artifactID);
-            var tooltip = Main.ResourceManager.GetArtifactTooltip(artifactID);
-            string error = string.Empty;
-            var viewData = new TooltipViewData()
-            {
-                name = name,
-                error = error,
-                description = tooltip
-            };
-            Controller.ShowTooltipOnComponent(target, viewData);
-        }
-        private void ShowArtifactSlotTooltip(NamespaceID artifactID, ITooltipTarget target)
-        {
-            TooltipViewData viewData;
-            if (NamespaceID.IsValid(artifactID))
-            {
-                var name = Main.ResourceManager.GetArtifactName(artifactID);
-                var tooltip = Main.ResourceManager.GetArtifactTooltip(artifactID);
-                viewData = new TooltipViewData()
-                {
-                    name = name,
-                    error = string.Empty,
-                    description = tooltip
-                };
-            }
-            else
-            {
-                viewData = new TooltipViewData()
-                {
-                    name = Main.LanguageManager._(CHOOSE_ARTIFACT),
-                    error = string.Empty,
-                    description = string.Empty
-                };
-            }
-            Controller.ShowTooltipOnComponent(target, viewData);
-        }
         #endregion
 
         #region UI层
@@ -701,7 +651,9 @@ namespace MVZ2.Level
         #region 可选蓝图
         private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData)
         {
-            ShowBlueprintTooltip(choosingBlueprints[index], chooseUI.GetBlueprintChooseItem(index));
+            var id = choosingBlueprints[index];
+            var ui = chooseUI.GetBlueprintChooseItem(index);
+            Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui));
         }
         private void UI_OnBlueprintPointerExitCallback(int index, PointerEventData eventData)
         {
@@ -719,7 +671,9 @@ namespace MVZ2.Level
         #region 制品选择对话框
         private void UI_OnArtifactChooseItemPointerEnterCallback(int index)
         {
-            ShowArtifactTooltip(choosingArtifacts[index], chooseUI.GetArtifactSelectItem(index));
+            var id = choosingArtifacts[index];
+            var item = chooseUI.GetArtifactSelectItem(index);
+            Controller.ShowTooltip(new ArtifactTooltipSource(this, id, item));
         }
         private void UI_OnArtifactChooseItemPointerExitCallback(int index)
         {
@@ -803,7 +757,9 @@ namespace MVZ2.Level
         #region 制品槽
         private void UI_OnArtifactSlotPointerEnterCallback(int index)
         {
-            ShowArtifactSlotTooltip(chosenArtifacts[index], chooseUI.GetArtifactSlotAt(index));
+            var id = chosenArtifacts[index];
+            var ui = chooseUI.GetArtifactSlotAt(index);
+            Controller.ShowTooltip(new ArtifactSlotTooltipSource(this, id, ui));
         }
         private void UI_OnArtifactSlotPointerExitCallback(int index)
         {
@@ -876,6 +832,102 @@ namespace MVZ2.Level
 
         private bool isViewingLawn;
         private bool viewLawnFinished;
+
+        private class BlueprintTooltipSource : ITooltipSource
+        {
+            public BlueprintTooltipSource(LevelBlueprintChooseController controller, NamespaceID blueprintID, ITooltipTarget target)
+            {
+                this.controller = controller;
+                this.blueprintID = blueprintID;
+                this.target = target;
+            }
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return target;
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                var name = controller.GetBlueprintName(blueprintID);
+                var tooltip = controller.GetBlueprintTooltip(blueprintID);
+                var error = controller.GetBlueprintTooltipError(blueprintID);
+                return new TooltipViewData()
+                {
+                    name = name,
+                    error = error,
+                    description = tooltip
+                };
+            }
+            private LevelBlueprintChooseController controller;
+            private NamespaceID blueprintID;
+            private ITooltipTarget target;
+        }
+        private class ArtifactTooltipSource : ITooltipSource
+        {
+            public ArtifactTooltipSource(LevelBlueprintChooseController controller, NamespaceID artifactID, ITooltipTarget target)
+            {
+                this.controller = controller;
+                this.artifactID = artifactID;
+                this.target = target;
+            }
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return target;
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                var name = controller.Main.ResourceManager.GetArtifactName(artifactID);
+                var tooltip = controller.Main.ResourceManager.GetArtifactTooltip(artifactID);
+                string error = string.Empty;
+                return new TooltipViewData()
+                {
+                    name = name,
+                    error = error,
+                    description = tooltip
+                };
+            }
+            private LevelBlueprintChooseController controller;
+            private NamespaceID artifactID;
+            private ITooltipTarget target;
+        }
+        private class ArtifactSlotTooltipSource : ITooltipSource
+        {
+            public ArtifactSlotTooltipSource(LevelBlueprintChooseController controller, NamespaceID artifactID, ITooltipTarget target)
+            {
+                this.controller = controller;
+                this.artifactID = artifactID;
+                this.target = target;
+            }
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return target;
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                if (NamespaceID.IsValid(artifactID))
+                {
+                    var name = controller.Main.ResourceManager.GetArtifactName(artifactID);
+                    var tooltip = controller.Main.ResourceManager.GetArtifactTooltip(artifactID);
+                    return new TooltipViewData()
+                    {
+                        name = name,
+                        error = string.Empty,
+                        description = tooltip
+                    };
+                }
+                else
+                {
+                    return new TooltipViewData()
+                    {
+                        name = controller.Main.LanguageManager._(CHOOSE_ARTIFACT),
+                        error = string.Empty,
+                        description = string.Empty
+                    };
+                }
+            }
+            private LevelBlueprintChooseController controller;
+            private NamespaceID artifactID;
+            private ITooltipTarget target;
+        }
     }
     [Serializable]
     public class SerializableLevelBlueprintChooseController : SerializableLevelControllerPart

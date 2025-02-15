@@ -23,6 +23,7 @@ namespace MVZ2.Level
             Index = index;
 
             modelInterface = new BlueprintModelInterface(this);
+            tooltipSource = new BlueprintTooltipSource(this);
         }
         public void Init()
         {
@@ -74,8 +75,7 @@ namespace MVZ2.Level
         #region 事件回调
         private void OnPointerEnterCallback(Blueprint blueprint, PointerEventData eventData)
         {
-            var tooltipViewData = GetTooltipViewData();
-            Controller.ShowTooltipOnComponent(ui, tooltipViewData);
+            Controller.ShowTooltip(tooltipSource);
         }
         private void OnPointerExitCallback(Blueprint blueprint, PointerEventData eventData)
         {
@@ -129,7 +129,24 @@ namespace MVZ2.Level
         public ILevelController Controller { get; private set; }
         protected Blueprint ui;
         protected IModelInterface modelInterface;
+        protected ITooltipSource tooltipSource;
         #endregion
+        private class BlueprintTooltipSource : ITooltipSource
+        {
+            public BlueprintTooltipSource(BlueprintController blueprintController)
+            {
+                this.blueprintController = blueprintController;
+            }
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return blueprintController.ui;
+            }
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                return blueprintController.GetTooltipViewData();
+            }
+            private BlueprintController blueprintController;
+        }
     }
     public class SerializableBlueprintController
     {

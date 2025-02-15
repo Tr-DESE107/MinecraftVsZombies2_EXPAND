@@ -68,6 +68,10 @@ namespace MVZ2.Level.UI
         {
             pickaxeSlot.SetDisabled(selected);
         }
+        public PickaxeSlot GetPickaxeSlot()
+        {
+            return pickaxeSlot;
+        }
         #endregion
 
         #region 触发
@@ -81,7 +85,7 @@ namespace MVZ2.Level.UI
             triggerSlot.SetSelected(selected);
             triggerSlotConveyor.SetSelected(selected);
         }
-        private TriggerSlot GetCurrentTriggerUI()
+        public TriggerSlot GetCurrentTriggerUI()
         {
             return Blueprints.IsConveyorMode() ? triggerSlotConveyor : triggerSlot;
         }
@@ -253,47 +257,16 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 工具提示
-        public void ShowTooltipOnBlueprint(int index, TooltipViewData viewData)
+        public void ShowTooltip()
         {
-            var blueprint = Blueprints.GetClassicBlueprintAt(index);
-            if (!blueprint)
-                return;
-            ShowTooltipOnComponent(blueprint, viewData);
+            tooltip.gameObject.SetActive(true);
         }
-        public void ShowTooltipOnConveyorBlueprint(int index, TooltipViewData viewData)
-        {
-            var blueprint = Blueprints.GetConveyorBlueprintAt(index);
-            if (!blueprint)
-                return;
-            ShowTooltipOnComponent(blueprint, viewData);
-        }
-        public void ShowTooltipOnChoosingBlueprint(int index, TooltipViewData viewData)
-        {
-            var blueprint = BlueprintChoose.GetBlueprintChooseItem(index);
-            if (!blueprint)
-                return;
-            ShowTooltipOnComponent(blueprint, viewData);
-        }
-        public void ShowTooltipOnPickaxe(TooltipViewData viewData)
-        {
-            ShowTooltipOnComponent(pickaxeSlot, viewData);
-        }
-        public void ShowTooltipOnTrigger(TooltipViewData viewData)
-        {
-            ShowTooltipOnComponent(GetCurrentTriggerUI(), viewData);
-        }
-        public void ShowTooltipOnEntity(EntityController entity, TooltipViewData viewData)
-        {
-            ShowTooltipOnComponent(entity, viewData);
-        }
-        public void ShowTooltipOnComponent(ITooltipTarget ui, TooltipViewData viewData)
+        public void UpdateTooltip(ITooltipTarget ui, TooltipViewData viewData)
         {
             var anchor = ui.Anchor;
-            if (anchor.IsDisabled)
+            if (!anchor || anchor.IsDisabled)
                 return;
-            tooltip.gameObject.SetActive(true);
-            tooltip.SetPivot(anchor.Pivot);
-            tooltip.SetData(anchor.transform, viewData);
+            tooltip.SetData(anchor.transform, anchor.Pivot, viewData);
         }
         public void HideTooltip()
         {

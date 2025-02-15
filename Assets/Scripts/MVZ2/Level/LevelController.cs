@@ -56,7 +56,7 @@ namespace MVZ2.Level
     }
     public interface ILevelUIController
     {
-        void ShowTooltipOnComponent(ITooltipTarget target, TooltipViewData viewData);
+        void ShowTooltip(ITooltipSource source);
         void HideTooltip();
     }
     public interface ILevelTransitionController
@@ -413,6 +413,7 @@ namespace MVZ2.Level
             }
             // 更新光标。
             UpdateHeldItemCursor();
+            UpdateTooltip();
 
             levelCamera.ShakeOffset = (Vector3)Shakes.GetShake2D();
 

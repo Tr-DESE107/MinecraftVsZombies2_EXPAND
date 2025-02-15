@@ -59,25 +59,12 @@ namespace MVZ2.Level
         private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
         {
             SetHoveredEntity(entityCtrl);
-            if (!IsGameRunning())
-            {
-                // 显示查看图鉴提示
-                if (entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
-                {
-                    var name = Main.ResourceManager.GetEntityName(entityCtrl.Entity.GetDefinitionID());
-                    var description = string.Empty;
-                    if (Main.SaveManager.IsAlmanacUnlocked())
-                    {
-                        description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
-                    }
-                    var uiPreset = GetUIPreset();
-                    uiPreset.ShowTooltipOnComponent(entityCtrl, new TooltipViewData()
-                    {
-                        name = name,
-                        description = description
-                    });
-                }
-            }
+            if (IsGameRunning())
+                return;
+            // 显示查看图鉴提示
+            if (!entityCtrl.Entity.IsPreviewEnemy() || !CanChooseBlueprints())
+                return;
+            ShowTooltip(new EntityTooltipSource(this, entityCtrl));
         }
         private void UI_OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
         {
@@ -85,8 +72,7 @@ namespace MVZ2.Level
             // 隐藏查看图鉴提示
             if (entity.Entity.IsPreviewEnemy())
             {
-                var uiPreset = GetUIPreset();
-                uiPreset.HideTooltip();
+                HideTooltip();
             }
         }
         private void UI_OnEntityPointerDownCallback(EntityController entityCtrl, PointerEventData eventData)
@@ -105,8 +91,7 @@ namespace MVZ2.Level
                 // 打开图鉴
                 if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && CanChooseBlueprints())
                 {
-                    var uiPreset = GetUIPreset();
-                    uiPreset.HideTooltip();
+                    HideTooltip();
                     OpenEnemyAlmanac(entity.GetDefinitionID());
                     Main.SoundManager.Play2D(VanillaSoundID.tap);
                 }
@@ -279,5 +264,38 @@ namespace MVZ2.Level
         [SerializeField]
         private Transform entitiesRoot;
         #endregion
+
+        private class EntityTooltipSource : ITooltipSource
+        {
+            private LevelController controller;
+            private EntityController entityCtrl;
+
+            public EntityTooltipSource(LevelController controller, EntityController entityCtrl)
+            {
+                this.controller = controller;
+                this.entityCtrl = entityCtrl;
+            }
+
+            public ITooltipTarget GetTarget(LevelController level)
+            {
+                return entityCtrl;
+            }
+
+            public TooltipViewData GetViewData(LevelController level)
+            {
+                var main = controller.Main;
+                var name = main.ResourceManager.GetEntityName(entityCtrl.Entity.GetDefinitionID());
+                var description = string.Empty;
+                if (main.SaveManager.IsAlmanacUnlocked())
+                {
+                    description = main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
+                }
+                return new TooltipViewData()
+                {
+                    name = name,
+                    description = description
+                };
+            }
+        }
     }
 }
