@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
@@ -55,6 +56,8 @@ namespace MVZ2.GameContent.Bosses
         public override void PostDeath(Entity boss, DeathInfo damageInfo)
         {
             base.PostDeath(boss, damageInfo);
+            boss.PlaySound(VanillaSoundID.touhouDeath, volume: 0.5f);
+            boss.Spawn(VanillaEffectID.seijaFaintEffect, boss.GetCenter());
             stateMachine.StartState(boss, STATE_FAINT);
         }
         public override void PreTakeDamage(DamageInput damageInfo)

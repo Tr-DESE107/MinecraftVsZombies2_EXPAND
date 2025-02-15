@@ -1358,5 +1358,9 @@
             <int name="maxTimeout" value="45"/>
             <vector3 name="size" x="160" y="800" z="240" />
         </effect>
+        <effect id="seija_faint_effect">
+            <int name="maxTimeout" value="30"/>
+            <int name="sortingOrder" value="9999"/>
+        </effect>
     </entries>
 </entities>

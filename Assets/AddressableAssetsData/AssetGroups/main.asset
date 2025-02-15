@@ -2716,6 +2716,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7165fa933a4015345a9edbd99fe11e0b
+    m_Address: mvz2:effect/seija_faint_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
     m_ReadOnly: 0
@@ -4707,6 +4713,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb18e118fc0daf94cbcc3f5bc0d41d84
+    m_Address: mvz2:touhou_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb38144aa3758594b92a9ca609b00b85
     m_Address: mvz2:enemy/castle/reverse_satellite
     m_ReadOnly: 0
@@ -5282,6 +5294,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d250ca6640bb83b4a98ea6c9fdc46e67
+    m_Address: mvz2:shading/circle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d26b719675efdbf49b1e6342f7270818
     m_Address: mvz2:entity/effects/breakout_board
@@ -6242,6 +6260,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f813476fbf44d7441a4bb31bfd80a35b
+    m_Address: mvz2:danmaku
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f821b6a9d26a8a643b60d869c28ce5fd
     m_Address: mvz2:entity/contraption/punchton
