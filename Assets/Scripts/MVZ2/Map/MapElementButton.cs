@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using MVZ2.UI;
 using PVZEngine;
 using TMPro;
 using UnityEngine;
@@ -19,8 +20,14 @@ namespace MVZ2.Map
                 return;
             OnClick?.Invoke(id.Get());
         }
+        public void SetArrowVisible(bool visible)
+        {
+            arrow.SetActive(visible);
+        }
         public event Action<NamespaceID> OnClick;
         [SerializeField]
         private NamespaceIDReference id;
+        [SerializeField]
+        private GameObject arrow;
     }
 }

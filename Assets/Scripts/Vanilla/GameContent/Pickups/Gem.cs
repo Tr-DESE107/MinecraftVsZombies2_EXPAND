@@ -9,6 +9,7 @@ using PVZEngine.Entities;
 using UnityEngine;
 using MVZ2.Vanilla.Properties;
 using Tools;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Pickups
 {
@@ -22,7 +23,6 @@ namespace MVZ2.GameContent.Pickups
         {
             base.Init(entity);
             CheckMerge(entity);
-            SetMergeTimer(entity, new FrameTimer(30));
         }
 
         private void CheckMerge(Entity entity)
@@ -98,6 +98,11 @@ namespace MVZ2.GameContent.Pickups
                     shadowAlpha = alpha;
                 }
                 var mergeTimer = GetMergeTimer(pickup);
+                if (mergeTimer == null)
+                {
+                    mergeTimer = new FrameTimer(30);
+                    SetMergeTimer(pickup, mergeTimer);
+                }
                 mergeTimer.Run();
                 if (mergeTimer.Expired)
                 {

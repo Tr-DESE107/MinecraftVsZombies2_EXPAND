@@ -141,6 +141,7 @@ namespace MVZ2.Map
             UpdateModelElements();
             UpdateModelEndlessFlags();
             SetCameraBackgroundColor(mapPreset.backgroundColor);
+            model.SetMapKeyArrowVisible(!Main.SaveManager.IsUnlocked(VanillaUnlockID.enteredDream));
         }
         #endregion
 
@@ -606,12 +607,17 @@ namespace MVZ2.Map
         }
         private void UpdateUIArrows()
         {
-            var talks = Main.ResourceManager.GetCurrentStoreLoreTalks();
-            ui.SetStoreArrowVisible(talks.Length > 0);
+            var storeTalks = Main.ResourceManager.GetCurrentStoreLoreTalks();
+            ui.SetStoreArrowVisible(storeTalks.Length > 0);
+
+            var meta = Main.ResourceManager.GetMapMeta(VanillaMapID.gensokyo);
+            var mapTalks = meta?.loreTalks?.GetLoreTalks(Main.SaveManager);
+            ui.SetMapArrowVisible(mapTalks != null && mapTalks.Length > 0);
         }
         private void HideUIArrows()
         {
             ui.SetStoreArrowVisible(false);
+            ui.SetMapArrowVisible(false);
         }
         private int GetEndlessFlags()
         {

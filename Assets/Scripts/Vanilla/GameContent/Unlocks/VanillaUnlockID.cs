@@ -25,6 +25,7 @@ namespace MVZ2.Vanilla
         public const string trigger = "trigger";
 
         public const string enteredDream = "entered_dream";
+        public const string enteredGensokyo = "entered_gensokyo";
 
         public const string dreamIsNightmare = "dream_is_nightmare";
 
@@ -52,6 +53,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);
         public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
+        public static readonly NamespaceID enteredGensokyo = Get(VanillaUnlockNames.enteredGensokyo); 
         public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
         public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
 

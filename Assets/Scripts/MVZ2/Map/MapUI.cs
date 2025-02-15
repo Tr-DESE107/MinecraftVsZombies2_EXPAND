@@ -53,6 +53,10 @@ namespace MVZ2.Map
         {
             storeButtonArrow.SetActive(visible);
         }
+        public void SetMapArrowVisible(bool visible)
+        {
+            mapButtonArrow.SetActive(visible);
+        }
         private void Awake()
         {
             buttonDict.Add(ButtonType.Back, backButton);
@@ -86,6 +90,8 @@ namespace MVZ2.Map
         private Button settingButton;
         [SerializeField]
         private GameObject storeButtonArrow;
+        [SerializeField]
+        private GameObject mapButtonArrow;
         [SerializeField]
         private TextMeshProUGUI hintText;
         [SerializeField]

@@ -53,6 +53,11 @@ namespace MVZ2.Map
             if (mapKey)
                 mapKey.gameObject.SetActive(active);
         }
+        public void SetMapKeyArrowVisible(bool visible)
+        {
+            if (mapKey)
+                mapKey.SetArrowVisible(visible);
+        }
         public void SetMapButtonInteractable(int index, bool interactable)
         {
             var button = GetMapButton(index);
