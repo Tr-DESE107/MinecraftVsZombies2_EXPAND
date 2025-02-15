@@ -72,7 +72,7 @@
         </variant>
     </character>
     <character id="tokiko" name="朱鹭子">
-        <variant id="mvz2:normal" width="738" height="1280" extendLeft="50" extendRight="150" pivotX="0.5" pivotY="0.6">
+        <variant id="mvz2:normal" width="738" height="1280" extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/tokiko[0]" />
         </variant>
         <variant id="mvz2:surprised" parent="mvz2:normal">
@@ -89,7 +89,7 @@
         </variant>
     </character>
     <character id="seija" name="正邪">
-        <variant id="mvz2:normal" width="550" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
+        <variant id="mvz2:normal" width="560" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
             <layer sprite="mvz2:characters/seija[0]" />
         </variant>
         <variant id="mvz2:pride" parent="mvz2:normal">
@@ -97,6 +97,24 @@
         </variant>
         <variant id="mvz2:laugh" parent="mvz2:normal">
             <layer sprite="mvz2:characters/seija[2]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:mind_controlled" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[3]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:stunned" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[4]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[5]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:close_eye_silence" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[6]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:silence" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[7]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seija[8]" positionX="0" positionY="0" />
         </variant>
     </character>
     <character id="shinmyoumaru" name="针妙丸">

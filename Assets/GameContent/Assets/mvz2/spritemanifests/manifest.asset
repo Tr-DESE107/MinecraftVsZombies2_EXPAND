@@ -275,6 +275,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b944e3154656ac74f8054ed14cb53335, type: 3}
   - name: shading/charge_bar
     sprite: {fileID: 21300000, guid: 875c02db89f827e4fb926c954366d39e, type: 3}
+  - name: shading/circle
+    sprite: {fileID: 21300000, guid: d250ca6640bb83b4a98ea6c9fdc46e67, type: 3}
   - name: shading/nightmare_boss_sky
     sprite: {fileID: 21300000, guid: 0d2c48cde3441c649b93560520f96272, type: 3}
   - name: shading/nightmare_boss_sky_censored
@@ -557,6 +559,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a5c1e4e7edb774e48a12ea382df65f15, type: 3}
   - name: entity/projectiles/parabot
     sprite: {fileID: 21300000, guid: d270746c6b1f84442af0d2614257f2e6, type: 3}
+  - name: entity/projectiles/seija_bullet
+    sprite: {fileID: 21300000, guid: 15206f91cba867643894b071e1884fc8, type: 3}
+  - name: entity/projectiles/seija_bullet_dark
+    sprite: {fileID: 21300000, guid: 5d6681133238a864eb4f3882be1730fe, type: 3}
   - name: entity/projectiles/snowball
     sprite: {fileID: 21300000, guid: 0b6aa6449e74e064eb7a4dc5dd9cc283, type: 3}
   - name: entity/projectiles/soulfire_ball
@@ -844,6 +850,12 @@ MonoBehaviour:
     - {fileID: -793165027, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
     - {fileID: -1739069774, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
     - {fileID: -239630804, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    - {fileID: 359176104, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    - {fileID: -654033036, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    - {fileID: -411135304, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    - {fileID: 1063143524, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    - {fileID: -409706261, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    - {fileID: 1360310571, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
   - name: characters/shinmyoumaru
     spritesheet:
     - {fileID: 1774088793, guid: d0159b237963ff745a734fae1c80132f, type: 3}

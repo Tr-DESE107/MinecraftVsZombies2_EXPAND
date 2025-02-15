@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,11 +114,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 550
+        y: 32
+        width: 560
         height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: seija_1
       rect:
         serializedVersion: 2
-        x: 550
-        y: 704
-        width: 550
-        height: 576
+        x: 576
+        y: 720
+        width: 560
+        height: 592
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: seija_2
       rect:
         serializedVersion: 2
-        x: 550
+        x: 1728
         y: 384
-        width: 550
-        height: 319
+        width: 496
+        height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,132 @@ TextureImporter:
       bones: []
       spriteID: 80dffde1bcd624541b33bd9f2d72bc4c
       internalID: -239630804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seija_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 560
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9761cd853c0774f8954295e88194c3
+      internalID: 359176104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seija_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 560
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec515edcaaf741e4c9557ece486a1e86
+      internalID: -654033036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seija_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 496
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7ace9e49ad6e74083da76b1a433511
+      internalID: -411135304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seija_6
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1024
+        width: 496
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0239231ecab3e6e42973d55a2d3f8371
+      internalID: 1063143524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seija_7
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 720
+        width: 496
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60bb86a1d8a3b464fbb4fcfc3154a058
+      internalID: -409706261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seija_8
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 720
+        width: 496
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e366271657e174b902c1a0900f3ea5
+      internalID: 1360310571
       vertices: []
       indices: 
       edges: []
@@ -186,6 +312,12 @@ TextureImporter:
       seija_0: -793165027
       seija_1: -1739069774
       seija_2: -239630804
+      seija_3: 359176104
+      seija_4: -654033036
+      seija_5: -411135304
+      seija_6: 1063143524
+      seija_7: -409706261
+      seija_8: 1360310571
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
