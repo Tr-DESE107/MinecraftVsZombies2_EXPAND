@@ -20,7 +20,7 @@ namespace MVZ2.Vanilla.Entities
             if (!pickup.IsCollected())
             {
                 LimitPosition(pickup);
-                if (pickup.Level.IsAutoCollect() && pickup.CanAutoCollect() && pickup.GetRelativeY() <= 0)
+                if (pickup.Level.IsAutoCollect() && !pickup.NoAutoCollect() && CanAutoCollect(pickup))
                 {
                     pickup.Collect();
                 }
@@ -56,6 +56,10 @@ namespace MVZ2.Vanilla.Entities
             }
             pickup.SetSortingLayer(SortingLayers.frontUI);
             pickup.SetSortingOrder(9999);
+        }
+        public virtual bool CanAutoCollect(Entity pickup)
+        {
+            return pickup.GetRelativeY() <= 0;
         }
     }
 }

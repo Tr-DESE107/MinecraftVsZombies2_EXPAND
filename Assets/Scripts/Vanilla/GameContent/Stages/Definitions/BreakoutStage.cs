@@ -17,7 +17,6 @@ namespace MVZ2.GameContent.Stages
     {
         public BreakoutStage(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaStageProps.AUTO_COLLECT, true);
             AddBehaviour(new WaveStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new RedstoneDropStageBehaviour(this));

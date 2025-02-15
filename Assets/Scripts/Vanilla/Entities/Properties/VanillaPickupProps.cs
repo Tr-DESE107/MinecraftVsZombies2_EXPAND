@@ -33,9 +33,9 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetCollectedTime(entity.GetCollectedTime() + value);
         }
-        public static bool CanAutoCollect(this Entity pickup)
+        public static bool NoAutoCollect(this Entity pickup)
         {
-            return !pickup.GetProperty<bool>(NO_AUTO_COLLECT);
+            return pickup.GetProperty<bool>(NO_AUTO_COLLECT);
         }
         public static NamespaceID GetDropSound(this Entity entity)
         {

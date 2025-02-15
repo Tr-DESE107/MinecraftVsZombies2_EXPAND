@@ -18,8 +18,6 @@ namespace MVZ2.GameContent.Stages
     {
         public WhackAGhostStage(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaAreaProps.DARKNESS_VALUE, 0.5f);
-            SetProperty(VanillaStageProps.AUTO_COLLECT, true);
             var waveStageBehaviour = new WaveStageBehaviour(this);
             waveStageBehaviour.SpawnFlagZombie = false;
             AddBehaviour(waveStageBehaviour);

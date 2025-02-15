@@ -127,6 +127,10 @@
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:ghost"/>
         </spawns>
+        <properties>
+            <float name="darknessValue" value="0.5"/>
+            <bool name="autoCollect" value="true"/>
+        </properties>
     </stage>
     <stage id="halloween_7" name="万圣夜" dayNumber="7" unlock="mvz2:level.halloween_6" >
         <talks>
@@ -343,6 +347,7 @@
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noProduction" value="true"/>
+            <bool name="autoCollect" value="true"/>
         </properties>
     </stage>
     <stage id="dream_7" name="梦境世界" dayNumber="7" unlock="mvz2:level.dream_6" >

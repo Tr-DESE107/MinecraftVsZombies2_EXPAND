@@ -3,6 +3,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
@@ -19,6 +20,7 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             AddModifier(new ColorModifier(LogicLevelProps.SCREEN_COVER, PROP_SCREEN_COVER));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
+            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT, true));
         }
         public override void PostAdd(Buff buff)
         {

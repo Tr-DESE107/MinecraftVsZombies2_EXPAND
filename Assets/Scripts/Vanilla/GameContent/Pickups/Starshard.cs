@@ -79,7 +79,10 @@ namespace MVZ2.GameContent.Pickups
             color.a = alpha;
             pickup.SetTint(color);
         }
-
+        public override bool CanAutoCollect(Entity pickup)
+        {
+            return pickup.Level.GetStarshardCount() < pickup.Level.GetStarshardSlotCount();
+        }
         public override bool? PreCollect(Entity pickup)
         {
             if (pickup.Level.GetStarshardCount() >= pickup.Level.GetStarshardSlotCount())
