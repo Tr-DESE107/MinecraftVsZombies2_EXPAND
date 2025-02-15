@@ -179,11 +179,13 @@ namespace MVZ2.GameContent.Bosses
                     for (int i = 0; i < 6; i++)
                     {
                         var angle = bulletAngle + i * 60;
-                        var bullet = entity.Spawn(VanillaProjectileID.seijaBullet, entity.GetCenter());
-                        bullet.SetFaction(entity.GetFaction());
-                        bullet.SetDamage(entity.GetDamage() * 0.5f);
+                        var param = entity.GetShootParams();
+                        param.projectileID = VanillaProjectileID.seijaBullet;
+                        param.position = entity.GetCenter();
+                        param.damage = entity.GetDamage() * 0.5f;
+                        param.velocity = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * SeijaBullet.LIGHT_SPEED;
+                        var bullet = entity.ShootProjectile(param);
                         bullet.SetTint(color);
-                        bullet.Velocity = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * SeijaBullet.LIGHT_SPEED;
                     }
                     SetBulletAngle(entity, bulletAngle);
                     entity.PlaySound(VanillaSoundID.danmaku, volume: 0.5f);
