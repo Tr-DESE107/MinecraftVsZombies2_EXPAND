@@ -24,6 +24,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -218,6 +219,7 @@ namespace MVZ2.Level
             Music.SetVolume(1);
             level?.StopAllLoopSounds();
             level?.Dispose();
+            Game.SetLevel(null);
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
