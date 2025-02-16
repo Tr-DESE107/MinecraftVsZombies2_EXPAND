@@ -3,6 +3,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -25,6 +26,7 @@ namespace MVZ2.GameContent.Stages
             ClassicStart(level);
             //ConveyorStart(level);
             level.LevelProgressVisible = true;
+            level.SetProgressBarToBoss(VanillaProgressBarID.seija);
             level.SetTriggerActive(true);
         }
         public override void OnUpdate(LevelEngine level)

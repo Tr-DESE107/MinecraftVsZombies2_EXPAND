@@ -191,5 +191,13 @@
             <p>你电话响了。</p>
         </description>
     </music>
+    <music id="seija" path="mvz2:seija" name="Reverse Ideology" unlock="mvz2:level.castle_7">
+        <source>东方辉针城</source>
+        <description>
+            <p>鬼人正邪的音乐。</p>
+            <p>是《东方辉针城》中第五关Boss——鬼人正邪的音乐。</p>
+            <p>一切都倒过来了！</p>
+        </description>
+    </music>
 
 </musics>

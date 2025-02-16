@@ -1,9 +1,11 @@
 ﻿using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -29,20 +31,23 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            var timer = GetProductionTimer(entity);
-            if (GetPointCount(entity) < MAX_STARSHARD_COUNT)
+            if (!entity.Level.IsNoProduction())
             {
-                timer.Run(entity.GetProduceSpeed());
-                if (timer.Expired)
+                var timer = GetProductionTimer(entity);
+                if (GetPointCount(entity) < MAX_STARSHARD_COUNT)
+                {
+                    timer.Run(entity.GetProduceSpeed());
+                    if (timer.Expired)
+                    {
+                        timer.Reset();
+                        AddPointCount(entity, 1);
+                        entity.PlaySound(VanillaSoundID.starshardUse);
+                    }
+                }
+                else
                 {
                     timer.Reset();
-                    AddPointCount(entity, 1);
-                    entity.PlaySound(VanillaSoundID.starshardUse);
                 }
-            }
-            else
-            {
-                timer.Reset();
             }
             var pointsAngle = GetPointsAngle(entity);
             pointsAngle += ANGLE_SPEED;

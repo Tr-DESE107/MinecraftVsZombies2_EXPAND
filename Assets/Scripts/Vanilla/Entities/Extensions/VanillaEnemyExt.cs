@@ -63,6 +63,7 @@ namespace MVZ2.Vanilla.Entities
 
             var passengerBuff = passenger.AddBuff<RidingPassengerBuff>();
             RidingPassengerBuff.SetRidingEntity(passengerBuff, horse);
+            passenger.UpdatePassengerPosition(horse);
 
             var horseBuff = horse.AddBuff<BeingRidenBuff>();
             BeingRidenBuff.SetPassenger(horseBuff, passenger);
@@ -102,6 +103,10 @@ namespace MVZ2.Vanilla.Entities
             if (buff == null)
                 return null;
             return BeingRidenBuff.GetPassenger(buff);
+        }
+        public static void UpdatePassengerPosition(this Entity passenger, Entity horse)
+        {
+            passenger.Position = horse.Position + horse.GetPassengerOffset();
         }
         #endregion
     }

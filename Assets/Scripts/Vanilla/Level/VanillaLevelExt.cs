@@ -168,8 +168,9 @@ namespace MVZ2.Vanilla.Level
                     if (radius > 0 && createdEnemies.Any(e => Vector3.Distance(e.Position, pos) < radius))
                         continue;
 
-                    Entity enm = level.Spawn(spawnDef.EntityID, pos, null);
-                    enm.SetPreviewEnemy(true);
+                    var param = new SpawnParams();
+                    param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
+                    Entity enm = level.Spawn(spawnDef.EntityID, pos, null, param);
                     createdEnemies.Add(enm);
 
                     spawnToCreate.Remove(spawnDef);
@@ -227,7 +228,7 @@ namespace MVZ2.Vanilla.Level
             var power = level.GetSpawnPointPower();
             var multiplier = level.GetSpawnPointMultiplier();
             var addition = level.GetSpawnPointAddition();
-            if (level.IsHugeWave(wave))
+            if (level.IsHugeWave(wave) && (level.WaveState == VanillaLevelStates.STATE_STARTED || level.WaveState == VanillaLevelStates.STATE_FINAL_WAVE))
             {
                 multiplier *= 2.5f;
             }

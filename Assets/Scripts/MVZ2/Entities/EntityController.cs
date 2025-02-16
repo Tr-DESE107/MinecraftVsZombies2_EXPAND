@@ -6,6 +6,7 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -375,7 +376,7 @@ namespace MVZ2.Entities
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData d)
         {
-            if (Entity.IsPreviewEnemy())
+            if (Entity.IsPreviewEnemy() && Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, Entity.GetDefinitionID()) != null)
                 return true;
             if (definition == null)
                 return false;

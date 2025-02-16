@@ -4,7 +4,6 @@ using System.Linq;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace PVZEngine.Level
 {
@@ -20,34 +19,38 @@ namespace PVZEngine.Level
             RemoveEntityFromQuadTree(entity);
             OnEntityRemove?.Invoke(entity);
         }
-        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner)
+        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, SpawnParams param = null)
         {
-            return Spawn(entityDef, pos, spawner, entityRandom.Next());
+            return Spawn(entityDef, pos, spawner, entityRandom.Next(), param);
         }
-        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner)
+        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, SpawnParams param = null)
         {
             var entityDef = Content.GetEntityDefinition(entityRef);
             if (entityDef == null)
                 return null;
-            return Spawn(entityDef, pos, spawner);
+            return Spawn(entityDef, pos, spawner, param);
         }
-        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, int seed)
+        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, int seed, SpawnParams param = null)
         {
             long id = AllocEntityID();
             var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, seed);
             spawned.Position = pos;
+            if (param != null)
+            {
+                param.Apply(spawned);
+            }
             entities.Add(spawned);
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init(spawner);
             AddEntityToQuadTree(spawned);
             return spawned;
         }
-        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, int seed)
+        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, int seed, SpawnParams param = null)
         {
             var entityDef = Content.GetEntityDefinition(entityRef);
             if (entityDef == null)
                 return null;
-            return Spawn(entityDef, pos, spawner, seed);
+            return Spawn(entityDef, pos, spawner, seed, param);
         }
         public QuadTreeCollider GetCollisionQuadTree(int flag)
         {

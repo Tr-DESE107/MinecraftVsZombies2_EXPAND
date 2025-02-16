@@ -10,4 +10,9 @@
         <bar sprite="mvz2:ui/level/progress_bar/nightmare" fromLeft="true" />
         <padding left="44" right="44" top="9" bottom="9" />
     </bar>
+    <bar id="seija" type="boss" width="135" height="39">
+        <background sprite="mvz2:ui/level/progress_bar/seija_background" />
+        <bar sprite="mvz2:ui/level/progress_bar/seija" fromLeft="false" />
+        <padding left="9" right="9" top="8" bottom="25" />
+    </bar>
 </bars>

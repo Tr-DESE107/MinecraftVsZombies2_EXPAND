@@ -70,6 +70,14 @@
         <spawn level="3" />
         <weight base="2000" />
     </entry>
+    <entry id="dullahan" entity="mvz2:dullahan" >
+        <spawn level="4" />
+        <weight base="2000" />
+    </entry>
+    <entry id="hell_chariot" entity="mvz2:hell_chariot" >
+        <spawn level="6" />
+        <weight base="2000" />
+    </entry>
     
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
         <spawn level="10"/>

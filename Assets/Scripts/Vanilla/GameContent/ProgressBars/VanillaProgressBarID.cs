@@ -7,6 +7,7 @@ namespace MVZ2.GameContent.ProgressBars
     {
         public static readonly NamespaceID frankenstein = Get("frankenstein");
         public static readonly NamespaceID nightmare = Get("nightmare");
+        public static readonly NamespaceID seija = Get("seija");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

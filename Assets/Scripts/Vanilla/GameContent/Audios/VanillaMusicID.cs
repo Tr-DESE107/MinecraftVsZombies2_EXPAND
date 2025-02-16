@@ -13,6 +13,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID nightmareLevel = Get("nightmare_level");
         public readonly static NamespaceID nightmareBoss = Get("nightmare_boss");
         public readonly static NamespaceID nightmareBoss2 = Get("nightmare_boss2");
+        public readonly static NamespaceID seija = Get("seija");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

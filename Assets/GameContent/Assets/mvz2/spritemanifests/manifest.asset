@@ -763,6 +763,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b63bdd3991537ac4f9fd0e050c80fa41, type: 3}
   - name: ui/level/progress_bar/nightmare_foreground
     sprite: {fileID: 21300000, guid: f8aa3c3a44b8f774e9b5441b1cb9f0e6, type: 3}
+  - name: ui/level/progress_bar/seija
+    sprite: {fileID: 21300000, guid: 4ffd669e6a8191a468f39575216ef435, type: 3}
+  - name: ui/level/progress_bar/seija_background
+    sprite: {fileID: 21300000, guid: f8e133db9e0078b42bbd5979c7143e76, type: 3}
   spritesheetEntries:
   - name: map_button
     spritesheet:

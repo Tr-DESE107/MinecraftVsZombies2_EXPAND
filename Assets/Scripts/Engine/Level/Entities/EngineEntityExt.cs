@@ -32,13 +32,13 @@ namespace PVZEngine.Entities
         {
             return entity?.Definition?.GetID();
         }
-        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position)
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, SpawnParams param = null)
         {
-            return entity.Level.Spawn(id, position, entity);
+            return entity.Level.Spawn(id, position, entity, param);
         }
-        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, int seed)
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, int seed, SpawnParams param = null)
         {
-            return entity.Level.Spawn(id, position, entity, seed);
+            return entity.Level.Spawn(id, position, entity, seed, param);
         }
         public static bool IsHostile(int faction1, int faction2)
         {

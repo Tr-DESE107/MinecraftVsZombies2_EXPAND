@@ -381,7 +381,6 @@
     </section>
   </group>
 
-
   <!-- Day 6 -->
   <group id="castle_6" tags="mvz2:castle;mvz2:intro">
     <archive name="辉针城第6天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_6" />
@@ -484,6 +483,149 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">接下来，让你看看吧！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">当然，得买！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="unlock mvz2:kourindou_visited_castle;end">你从来没让我失望过……</sentence>
+      </sentences>
+    </section>
+  </group>
+
+  <!-- Day 7 -->
+  <group id="castle_7" tags="mvz2:castle;mvz2:intro">
+    <archive name="辉针城第7天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <section>
+      <characters>
+        <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">看！那些是无头骑士！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">那些家伙骑着马，跳过一般的障碍对他们来说不是什么难事！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">而且不知道为什么，他们砍下自己的脑袋还不会死的！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我不知道他们是怎么砍下自己的脑袋的。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">但我知道不能让他们砍下我们的脑袋！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_7_boss" tags="mvz2:castle;mvz2:special">
+    <archive name="辉针城第7天头目" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <section onSkip="music volume 1;end">
+      <characters>
+        <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="music fade 0" onClick="bubble hide;character create mvz2:seija right mvz2:mind_controlled;delay 0.5;next">等等，好像有人过来了？</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">消灭生命……凋零万物……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" onStart="shake">正邪——！！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:worried" sounds="mvz2:dialog_beat" onStart="shake">你听得到我吗！正邪！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">果然，她被控制了！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="shake">拜托了，史蒂夫，帮帮她！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="shake">你应该有办法解除精神控制的！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸……！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（一般这种情况下，只要把控制她的催眠者杀死就可以了。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（但是，我没有看到任何的催眠者。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake" onClick="music volume 1;end"><![CDATA[<color=blue>（可恶，到底在哪儿？）</color>]]></sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_7_over" tags="mvz2:castle;mvz2:over">
+    <archive name="辉针城第7天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shinmyoumaru" variant="mvz2:worried" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" onStart="shake">正、正邪！你没事吧！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">刚、刚才她倒下的时候，有个催眠者从天花板上掉下来了！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来如此，它利用了正邪的能力反转了自己的重力，让自己处在我们的视线盲区内！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">啊！这个器械是雷鼓！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这玩意可以让地面震动起来，然后把僵尸击退，顺便把它们送到不同的行！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" onClick="end">当心地震！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_7_map" tags="mvz2:castle;mvz2:map">
+    <archive name="辉针城第7天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <section onSkip="music volume 1;end">
+      <characters>
+        <character id="mvz2:shinmyoumaru" side="left" />
+        <character id="mvz2:seija" variant="mvz2:stunned" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" onStart="shake">……可恶，我在哪儿？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">你醒了啊，正邪。</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">针、针妙丸？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:happy">看起来她没有大碍，太好了！</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_surprised" variant="mvz2:surprised">
+          <start>
+            <script>character variant mvz2:shinmyoumaru mvz2:surprised</script>
+            <script>forecolor fade white #FFF0 0.1</script>
+            <script>music fade 0</script>
+          </start>
+          <click>
+            <script>bubble hide</script>
+            <script>character leave mvz2:seija</script>
+            <script>playsound mvz2:dialog_flashback</script>
+            <script>delay 1</script>
+            <script>next</script>
+          </click>
+          <text>！是你们！</text>
+        </sentence>
+        <sentence speaker="mvz2:shinmyoumaru" description="（正邪离开）" sounds="mvz2:dialog_beat">
+          <start>
+            <script>shake</script>
+          </start>
+          <click>
+            <script>bubble hide</script>
+            <script>character create mvz2:seija right mvz2:close_eye_silence</script>
+            <script>delay 1</script>
+            <script>next</script>
+          </click>
+          <text>等等！正邪！</text>
+        </sentence>
+        <sentence speaker="mvz2:seija" description="（正邪回来了）" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">你找我这个背叛者有事情？</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">上次那起异变我为了完成自己的目的，欺骗并利用了你。</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">这次，我甚至还在你们族人处在危难时期时来这里搅局。</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">这对你们普通人来说，应该早就是不可原谅的程度了吧？</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:close_eye_silence">甚至还被那群怪物控制，然后被你们这些人类打败，可真是耻辱啊。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">正邪，你走吧。</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_surprised" variant="mvz2:silence">！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我不想和你多说什么，小人族还处在危机之中。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我们还有更大的敌人要面对，我不希望有人再来这里干扰我们了。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">所以，请你给我离开这里。</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:close_eye_silence">……</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_weird">凋灵。</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">那群家伙的老大叫凋灵。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:surprised">凋灵？</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat" variant="mvz2:angry" onStart="shake">就是你们一直在打的那些黑骷髅的首领！这都听不懂吗！</sentence>
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" onStart="shake">
+          <click>
+            <script>bubble hide</script>
+            <script>character leave mvz2:seija</script>
+            <script>playsound mvz2:dialog_flashback</script>
+            <script>delay 1.5</script>
+            <script>next</script>
+          </click>
+          <text>好了，赶我走是吧！求之不得！</text>
+        </sentence>
+        <sentence speaker="mvz2:shinmyoumaru" description="（正邪离开）" sounds="mvz2:talk" variant="mvz2:worried">
+          <start>
+            <script>item show mvz2:artifacts/miracle_mallet_replica</script>
+          </start>
+          <click>
+            <script>item hide</script>
+            <script>next</script>
+          </click>
+          <text>……</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸，这样真的好吗？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:normal">对于她来说，这样就是最好的办法了。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">天邪鬼，她们的性格就是这样的。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="music fade 1;end">我明白了。</sentence>
       </sentences>
     </section>
   </group>

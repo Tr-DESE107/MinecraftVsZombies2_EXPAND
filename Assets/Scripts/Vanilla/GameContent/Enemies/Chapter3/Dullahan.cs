@@ -24,8 +24,15 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.ChangeModel(VanillaModelID.dullahanMain);
-            var horse = entity.Spawn(VanillaEnemyID.skeletonHorse, entity.Position);
+            var param = new SpawnParams();
+            if (entity.IsPreviewEnemy())
+            {
+                param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
+            }
+            var horse = entity.Spawn(VanillaEnemyID.skeletonHorse, entity.Position, param);
             entity.RideOn(horse);
+            entity.SetAnimationBool("Sitting", true);
+            entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
         public override void PreTakeDamage(DamageInput input)
         {

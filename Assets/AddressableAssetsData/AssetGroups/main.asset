@@ -533,12 +533,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 18f8419a333958a4f9e0b42a7bbdf8b0
-    m_Address: mvz2:zh_hans/general
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Language
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 192fd705260459944b02604fe6907cf5
     m_Address: mvz2:cart/nyaightmare
     m_ReadOnly: 0
@@ -1215,12 +1209,6 @@ MonoBehaviour:
     m_Address: mvz2:map_element
     m_ReadOnly: 0
     m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35158245da5d8a747bde02341b6b6bbe
-    m_Address: mvz2:en_us/talk
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Language
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3562b5fe23861f84b930c43f6d243abc
     m_Address: mvz2:effect/dark_matter_particles
@@ -2452,12 +2440,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62ff205b86d24b04f990bc4811d266ad
-    m_Address: mvz2:zh_hans/talk
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Language
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63931386c553c1940b368a0c2054db20
     m_Address: mvz2:soul_sand_break7
     m_ReadOnly: 0
@@ -3129,12 +3111,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 82e162ff0edf93e43add6d2cf7574c0f
-    m_Address: mvz2:en_us/almanac
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Language
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 831f7ad8d2311d448970951982d07ad8
     m_Address: mvz2:misc/explosion_before_3_years
     m_ReadOnly: 0
@@ -3681,12 +3657,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - MapModel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94fea040886646944ba16a0a2d2f51af
-    m_Address: mvz2:en_us/general
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Language
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95a0ff4bc65b3c3489a4dd2274848c9d
     m_Address: mvz2:entity/enemy/reverse_satellite
     m_ReadOnly: 0
@@ -4160,12 +4130,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7e5a74e481a91a4daa2a145b7cdf50c
-    m_Address: mvz2:zh_hans/almanac
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Language
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a84ced210884b2b4cac4a4b7d7f4f6a6
     m_Address: mvz2:entity/projectiles/soulfire_ball

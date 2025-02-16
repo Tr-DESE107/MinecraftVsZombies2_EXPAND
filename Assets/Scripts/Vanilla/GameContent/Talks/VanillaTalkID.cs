@@ -8,12 +8,14 @@ namespace MVZ2.GameContent.Talk
         public const string tutorial = "tutorial";
         public const string starshardTutorial = "starshard_tutorial";
         public const string halloweenFinal = "halloween_final";
+        public const string castle7Boss = "castle_7_boss";
     }
     public static class VanillaTalkID
     {
         public static readonly NamespaceID tutorial = Get(VanillaTalkNames.tutorial);
         public static readonly NamespaceID starshardTutorial = Get(VanillaTalkNames.starshardTutorial);
         public static readonly NamespaceID halloweenFinal = Get(VanillaTalkNames.halloweenFinal);
+        public static readonly NamespaceID castle7Boss = Get(VanillaTalkNames.castle7Boss);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -20,6 +20,10 @@ namespace MVZ2.GameContent.Bosses
         {
         }
 
+        public static void StartState(Entity boss, int state)
+        {
+            stateMachine.StartState(boss, state);
+        }
         #region 回调
         public override void Init(Entity boss)
         {

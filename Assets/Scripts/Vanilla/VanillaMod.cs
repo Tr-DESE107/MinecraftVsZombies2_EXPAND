@@ -145,8 +145,10 @@ namespace MVZ2.Vanilla
                         break;
                 }
             }
-            AddDefinition(new WhackAGhostStage(spaceName, "halloween_6"));
-            AddDefinition(new BreakoutStage(spaceName, "dream_6"));
+            AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.halloween6));
+            AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.dream6));
+            AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.castle6));
+            AddDefinition(new SeijaStage(spaceName, VanillaStageNames.castle7));
         }
         protected void RegisterEntityProperties(Assembly[] assemblies)
         {

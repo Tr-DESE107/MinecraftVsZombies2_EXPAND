@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             else
             {
-                passenger.Position = horse.Position + horse.GetPassengerOffset();
+                passenger.UpdatePassengerPosition(horse);
                 passenger.Velocity = Vector3.zero;
             }
         }

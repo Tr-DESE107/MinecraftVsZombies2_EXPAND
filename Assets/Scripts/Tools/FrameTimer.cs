@@ -54,6 +54,10 @@ namespace Tools
         {
             return Mathf.CeilToInt(LastFrame / interval) - Mathf.CeilToInt(Frame / interval);
         }
+        public float GetPercentage()
+        {
+            return 1 - (Frame + FrameFraction / (float)Precision) / MaxFrame;
+        }
         public void Stop()
         {
             Frame = 0;

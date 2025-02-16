@@ -943,7 +943,7 @@
         </boss>
         <boss id="seija" name="鬼人正邪">
             <int name="waterInteraction" value="1"/>
-            <float name="maxHealth" value="5225"/>
+            <float name="maxHealth" value="2552"/>
             <vector3 name="size" x="30" y="88" z="30"/>
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
