@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Artifacts
                 var enemies = level.GetEnemyPool();
                 if (enemies == null)
                     continue;
-                var energy = enemies.Length / 3 * 25f;
+                var energy = enemies.Length / 2 * 25f;
                 if (energy <= 0)
                     continue;
                 artifact.Highlight();
