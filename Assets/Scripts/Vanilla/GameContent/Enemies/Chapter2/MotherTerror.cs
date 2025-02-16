@@ -94,6 +94,8 @@ namespace MVZ2.GameContent.Enemies
         {
             if (target == self)
                 return false;
+            if (target.IsDead)
+                return false;
             if (!Detection.CanDetect(target))
                 return false;
             if (!self.IsFriendly(target))
