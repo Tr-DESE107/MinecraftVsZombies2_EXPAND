@@ -6,6 +6,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -18,7 +19,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    public class EndlessStageBehaviour : WaveStageBehaviourBase
+    public class EndlessStageBehaviour : StageBehaviour
     {
         public EndlessStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
@@ -27,9 +28,14 @@ namespace MVZ2.GameContent.Stages
         public override void Update(LevelEngine level)
         {
             base.Update(level);
-            if (level.WaveState == STATE_AFTER_FINAL_WAVE)
+            switch (level.WaveState)
             {
-                AfterFinalWaveUpdate(level);
+                case VanillaLevelStates.STATE_FINAL_WAVE:
+                    FinalWaveUpdate(level);
+                    break;
+                case VanillaLevelStates.STATE_AFTER_FINAL_WAVE:
+                    AfterFinalWaveUpdate(level);
+                    break;
             }
         }
         public override void PostWave(LevelEngine level, int wave)
@@ -37,8 +43,8 @@ namespace MVZ2.GameContent.Stages
             base.PostWave(level, wave);
             if (level.IsFinalWave(wave))
             {
-                var waveTimer = GetWaveTimer(level);
-                waveTimer.ResetTime(1800);
+                var roundTimer = GetOrCreateRoundTimer(level);
+                roundTimer.ResetTime(1800);
             }
         }
         private void PostWaveFinishedCallback(LevelEngine level, int wave)
@@ -50,37 +56,31 @@ namespace MVZ2.GameContent.Stages
                 Global.SetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
             }
         }
-
-        protected override bool ShouldTriggerFinalWaveEvent(LevelEngine level)
-        {
-            return false;
-        }
         #region 更新关卡
-        protected override void FinalWaveUpdate(LevelEngine level)
+        protected virtual void FinalWaveUpdate(LevelEngine level)
         {
-            // 这里不继承原先的FinalWaveUpdate，因为无尽模式不会触发最后一波事件。
             var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
-            var waveTimer = GetWaveTimer(level);
-            waveTimer.Run();
-            if (waveTimer.Expired || lastEnemy == null)
+            var roundTimer = GetOrCreateRoundTimer(level);
+            roundTimer.Run();
+            if (roundTimer.Expired || lastEnemy == null)
             {
                 level.PostWaveFinished(level.CurrentWave);
-                level.WaveState = STATE_AFTER_FINAL_WAVE;
-                waveTimer.ResetTime(150);
+                level.WaveState = VanillaLevelStates.STATE_AFTER_FINAL_WAVE;
+                roundTimer.ResetTime(150);
                 level.PlaySound(VanillaSoundID.hugeWave);
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_MORE_ENEMIES_APPROACHING, 1000, 150);
             }
         }
         protected virtual void AfterFinalWaveUpdate(LevelEngine level)
         {
-            var waveTimer = GetWaveTimer(level);
-            if (waveTimer.Frame == 1)
+            var roundTimer = GetOrCreateRoundTimer(level);
+            if (roundTimer.Frame == 1)
             {
-                waveTimer.Run();
+                roundTimer.Run();
                 level.SaveStateData();
             }
-            waveTimer.Run();
-            if (waveTimer.Expired)
+            roundTimer.Run();
+            if (roundTimer.Expired)
             {
                 level.StopLevel();
                 level.SetEnemyPool(GenerateEnemyPool(level, level.CurrentFlag));
@@ -132,5 +132,20 @@ namespace MVZ2.GameContent.Stages
             }
             return entries.ToArray();
         }
+        public FrameTimer GetRoundTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_ROUND_TIMER);
+        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_ROUND_TIMER, value);
+        public FrameTimer GetOrCreateRoundTimer(LevelEngine level)
+        {
+            var roundTimer = GetRoundTimer(level);
+            if (roundTimer == null)
+            {
+                roundTimer = new FrameTimer(1800);
+                SetRoundTimer(level, roundTimer);
+            }
+            return roundTimer;
+        }
+        private const string PROP_REGION = "endless_stage";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_ROUND_TIMER = new VanillaLevelPropertyMeta("RoundTimer");
     }
 }

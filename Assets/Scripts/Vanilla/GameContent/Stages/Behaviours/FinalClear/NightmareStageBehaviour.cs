@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -24,17 +25,17 @@ namespace MVZ2.GameContent.Stages
         {
             base.BossFightWaveUpdate(level);
             var state = GetBossState(level);
-            if (state == BOSS_STATE_SLENDERMAN)
+            switch (state)
             {
-                SlendermanUpdate(level);
-            }
-            else if (state == BOSS_STATE_NIGHTMAREAPER_TRANSITION)
-            {
-                NightmareaperTransitionUpdate(level);
-            }
-            else if (state == BOSS_STATE_NIGHTMAREAPER)
-            {
-                NightmareaperUpdate(level);
+                case BOSS_STATE_SLENDERMAN:
+                    SlendermanUpdate(level);
+                    break;
+                case BOSS_STATE_NIGHTMAREAPER_TRANSITION:
+                    NightmareaperTransitionUpdate(level);
+                    break;
+                case BOSS_STATE_NIGHTMAREAPER:
+                    NightmareaperUpdate(level);
+                    break;
             }
         }
         private void SlendermanTransitionUpdate(LevelEngine level)
@@ -42,7 +43,7 @@ namespace MVZ2.GameContent.Stages
             if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
             {
                 // 瘦长鬼影出现
-                level.WaveState = STATE_BOSS_FIGHT;
+                level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                 return;
             }
             if (!level.HasBuff<SlendermanTransitionBuff>())
@@ -68,7 +69,7 @@ namespace MVZ2.GameContent.Stages
             }
             else
             {
-                RunWave(level);
+                RunBossWave(level);
             }
         }
         private void NightmareaperTransitionUpdate(LevelEngine level)
@@ -93,7 +94,7 @@ namespace MVZ2.GameContent.Stages
             // 如果有Boss存活，不停生成怪物。
             if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
             {
-                level.WaveState = STATE_AFTER_BOSS;
+                level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
                 level.StopMusic();
                 if (!level.IsRerun)
                 {
@@ -120,7 +121,7 @@ namespace MVZ2.GameContent.Stages
             }
             else
             {
-                RunWave(level);
+                RunBossWave(level);
             }
         }
         private void ClearEnemies(LevelEngine level)

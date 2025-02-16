@@ -9,7 +9,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    public abstract class BossStageBehaviour : WaveStageBehaviourBase
+    public abstract class BossStageBehaviour : StageBehaviour
     {
         public BossStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
@@ -19,20 +19,22 @@ namespace MVZ2.GameContent.Stages
             base.Update(level);
             switch (level.WaveState)
             {
-                case STATE_AFTER_FINAL_WAVE:
+                case VanillaLevelStates.STATE_FINAL_WAVE:
+                    FinalWaveUpdate(level);
+                    break;
+                case VanillaLevelStates.STATE_AFTER_FINAL_WAVE:
                     AfterFinalWaveUpdate(level);
                     break;
-                case STATE_BOSS_FIGHT:
+                case VanillaLevelStates.STATE_BOSS_FIGHT:
                     BossFightWaveUpdate(level);
                     break;
-                case STATE_AFTER_BOSS:
+                case VanillaLevelStates.STATE_AFTER_BOSS:
                     AfterBossWaveUpdate(level);
                     break;
             }
         }
-        protected override void FinalWaveUpdate(LevelEngine level)
+        protected virtual void FinalWaveUpdate(LevelEngine level)
         {
-            base.FinalWaveUpdate(level);
             var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
             if (lastEnemy == null)
             {
@@ -41,7 +43,7 @@ namespace MVZ2.GameContent.Stages
         }
         protected virtual void StartAfterFinalWave(LevelEngine level)
         {
-            level.WaveState = STATE_AFTER_FINAL_WAVE;
+            level.WaveState = VanillaLevelStates.STATE_AFTER_FINAL_WAVE;
             level.PostWaveFinished(level.CurrentWave);
         }
         protected virtual void AfterFinalWaveUpdate(LevelEngine level)
@@ -56,16 +58,12 @@ namespace MVZ2.GameContent.Stages
         {
 
         }
-        protected void RunWave(LevelEngine level)
+        protected void RunBossWave(LevelEngine level)
         {
-            var waveTimer = GetWaveTimer(level);
-            waveTimer.Run();
-            CheckWaveAdvancement(level);
-            if (waveTimer.Expired)
+            var behaviour = level.GetStageBehaviour<WaveStageBehaviour>();
+            if (behaviour != null)
             {
-                SetWaveMaxHealth(level, 0);
-                waveTimer.ResetTime(level.GetWaveMaxTime());
-                level.RunWave();
+                behaviour.RunBossWave(level);
             }
         }
         protected static void SetBossState(LevelEngine level, int value) => level.SetBehaviourField(FIELD_BOSS_PHASE, value);

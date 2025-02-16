@@ -7,6 +7,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -464,6 +465,45 @@ namespace MVZ2.Vanilla.Level
         public const float PROJECTILE_BOTTOM_BORDER = -1000;
         #endregion
 
+        #region Wave
+        public static void CheckClearUpdate(this LevelEngine level)
+        {
+            var lastEnemy = level.FindFirstEntity(e => e.IsAliveEnemy());
+            if (lastEnemy != null)
+            {
+                level.SetLastEnemyPosition(lastEnemy.Position);
+            }
+            else
+            {
+                level.PostWaveFinished(level.CurrentWave);
+                level.SetNoProduction(true);
+                if (!level.IsAllEnemiesCleared())
+                {
+                    level.SetAllEnemiesCleared(true);
+                    var lastEnemyPosition = level.GetLastEnemyPosition();
+                    Vector3 position;
+                    if (lastEnemyPosition.x <= VanillaLevelExt.GetBorderX(false))
+                    {
+                        var x = level.GetEnemySpawnX();
+                        var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
+                        var y = level.GetGroundY(x, z);
+                        position = new Vector3(x, y, z);
+                    }
+                    else
+                    {
+                        position = lastEnemyPosition;
+                    }
+                    level.Produce(VanillaPickupID.clearPickup, position, null);
+                }
+            }
+        }
+        public static T GetStageBehaviour<T>(this LevelEngine level) where T : StageBehaviour
+        {
+            if (level == null || level.StageDefinition == null)
+                return null;
+            return level.StageDefinition.GetBehaviour<T>();
+        }
+        #endregion
         public static SeedPack ConveyRandomSeedPack(this LevelEngine level)
         {
             if (level.CanConveySeedPack())

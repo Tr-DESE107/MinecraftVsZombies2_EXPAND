@@ -103,7 +103,7 @@ namespace MVZ2.GameContent.Enemies
             if (state == STATE_STAY)
             {
                 var leavingTimer = GetLeaveTimer(enemy);
-                if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == WaveStageBehaviour.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
+                if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == VanillaLevelStates.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
                 {
                     state = STATE_LEAVING;
                 }

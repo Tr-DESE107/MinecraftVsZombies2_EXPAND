@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Stages
             var waveStageBehaviour = new WaveStageBehaviour(this);
             waveStageBehaviour.SpawnFlagZombie = false;
             AddBehaviour(waveStageBehaviour);
+            AddBehaviour(new FinalWaveClearBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
         }
         public override void OnSetup(LevelEngine level)

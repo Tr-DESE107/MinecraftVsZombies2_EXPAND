@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Stages
             SetStarshardChance(level, GetStarshardChance(level) + value);
         }
 
-        private const string PROP_REGION = "redstone_drop_stage";
+        private const string PROP_REGION = "starshard_drop_stage";
         [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_STARSHARD_RNG = new VanillaLevelPropertyMeta("StarshardRNG");
         [PropertyRegistry(PROP_REGION)]

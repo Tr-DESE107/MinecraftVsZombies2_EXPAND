@@ -7,9 +7,11 @@ namespace MVZ2.GameContent.Stages
     {
         public EndlessStage(string nsp, string name) : base(nsp, name)
         {
+            AddBehaviour(new WaveStageBehaviour(this) { HasFinalWave = false });
             AddBehaviour(new EndlessStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
+
             SetProperty(VanillaStageProps.ENDLESS, true);
         }
     }

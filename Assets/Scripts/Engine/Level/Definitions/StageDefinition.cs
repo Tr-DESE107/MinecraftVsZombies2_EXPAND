@@ -66,7 +66,21 @@ namespace PVZEngine.Definitions
         }
         public bool HasBehaviour<T>() where T : StageBehaviour
         {
-            return behaviours.OfType<T>().Any();
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour is T tBehaviour)
+                    return true;
+            }
+            return false;
+        }
+        public T GetBehaviour<T>() where T : StageBehaviour
+        {
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour is T tBehaviour)
+                    return tBehaviour;
+            }
+            return null;
         }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.STAGE;
         private List<StageBehaviour> behaviours = new List<StageBehaviour>();

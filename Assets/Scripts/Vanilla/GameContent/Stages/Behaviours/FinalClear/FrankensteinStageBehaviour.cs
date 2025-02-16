@@ -6,10 +6,13 @@ using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -22,7 +25,7 @@ namespace MVZ2.GameContent.Stages
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
             base.AfterFinalWaveUpdate(level);
-            var waveTimer = GetWaveTimer(level);
+            var frankensteinTimer = GetOrCreateFrankensteinTimer(level);
 
             // 如果没有科学怪人的目标，再生成一个。
             var targetEnemy = level.FindFirstEntity(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>());
@@ -31,17 +34,17 @@ namespace MVZ2.GameContent.Stages
                 var position = new Vector3(VanillaLevelExt.ENEMY_RIGHT_BORDER, 0, level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f)));
                 var enemy = level.Spawn(VanillaEnemyID.zombie, position, null);
                 enemy.AddBuff<FrankensteinTransformerBuff>();
-                waveTimer.ResetTime(300);
+                frankensteinTimer.ResetTime(300);
             }
 
 
             // 音乐放缓。
             level.SetMusicVolume(Mathf.Clamp01(level.GetMusicVolume() - (1 / 30f)));
 
-            waveTimer.Run();
-            if (waveTimer.Expired)
+            frankensteinTimer.Run();
+            if (frankensteinTimer.Expired)
             {
-                level.WaveState = STATE_BOSS_FIGHT;
+                level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                 var frankenstein = level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy);
                 foreach (var ent in level.FindEntities(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>()))
                 {
@@ -54,7 +57,13 @@ namespace MVZ2.GameContent.Stages
                 // 血条。
                 level.SetProgressBarToBoss(VanillaProgressBarID.frankenstein);
                 // 重置下一波计时器。
-                waveTimer.ResetTime(200);
+                var behaviour = level.GetStageBehaviour<WaveStageBehaviour>();
+                if (behaviour != null)
+                {
+                    var timer = behaviour.GetWaveTimer(level);
+                    timer.ResetTime(200);
+                }
+                frankensteinTimer.ResetTime(300);
             }
         }
         protected override void BossFightWaveUpdate(LevelEngine level)
@@ -66,7 +75,7 @@ namespace MVZ2.GameContent.Stages
             var targetBosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity());
             if (targetBosses.Length <= 0)
             {
-                level.WaveState = STATE_AFTER_BOSS;
+                level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
                 level.PlayMusic(level.GetMusicID());
                 level.SetMusicVolume(1);
                 level.SetProgressBarToStage();
@@ -78,21 +87,28 @@ namespace MVZ2.GameContent.Stages
             }
             else
             {
-                var waveTimer = GetWaveTimer(level);
-                waveTimer.Run();
-                CheckWaveAdvancement(level);
-                if (waveTimer.Expired)
-                {
-                    SetWaveMaxHealth(level, 0);
-                    waveTimer.ResetTime(level.GetWaveMaxTime());
-                    level.RunWave();
-                }
+                RunBossWave(level);
             }
         }
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
             base.AfterBossWaveUpdate(level);
-            CheckClearUpdate(level);
+            level.CheckClearUpdate();
         }
+        public FrameTimer GetFrankentsteinTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_FRANKENSTEIN_TIMER);
+        public void SetFrankensteinTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_FRANKENSTEIN_TIMER, value);
+        public FrameTimer GetOrCreateFrankensteinTimer(LevelEngine level)
+        {
+            var roundTimer = GetFrankentsteinTimer(level);
+            if (roundTimer == null)
+            {
+                roundTimer = new FrameTimer(300);
+                SetFrankensteinTimer(level, roundTimer);
+            }
+            return roundTimer;
+        }
+        private const string PROP_REGION = "frankenstein_stage";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_FRANKENSTEIN_TIMER = new VanillaLevelPropertyMeta("FrankensteinTimer");
     }
 }

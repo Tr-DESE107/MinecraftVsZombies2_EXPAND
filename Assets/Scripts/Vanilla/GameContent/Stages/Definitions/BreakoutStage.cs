@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Stages
         public BreakoutStage(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new WaveStageBehaviour(this));
+            AddBehaviour(new FinalWaveClearBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new RedstoneDropStageBehaviour(this));
         }

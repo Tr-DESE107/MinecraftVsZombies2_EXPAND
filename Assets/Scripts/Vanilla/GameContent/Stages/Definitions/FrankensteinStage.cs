@@ -13,10 +13,12 @@ namespace MVZ2.GameContent.Stages
     {
         public FrankensteinStage(string nsp, string name) : base(nsp, name)
         {
+            AddBehaviour(new WaveStageBehaviour(this));
             AddBehaviour(new FrankensteinStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
             AddBehaviour(new ConveyorStageBehaviour(this));
+
             this.SetClearSound(VanillaSoundID.finalItem);
         }
         public override void OnStart(LevelEngine level)
