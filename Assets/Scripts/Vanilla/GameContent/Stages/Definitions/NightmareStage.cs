@@ -21,11 +21,6 @@ namespace MVZ2.GameContent.Stages
 
             this.SetClearSound(VanillaSoundID.finalItem);
         }
-        public override void OnStart(LevelEngine level)
-        {
-            base.OnStart(level);
-            level.SetConveyorMode(true);
-        }
         public override void OnPostWave(LevelEngine level, int wave)
         {
             base.OnPostWave(level, wave);

@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Stages
         }
         public override void Start(LevelEngine level)
         {
+            level.SetConveyorMode(true);
             var waveTimer = new FrameTimer(CONVEYOR_INTERVAL);
             SetConveyorTimer(level, waveTimer);
         }

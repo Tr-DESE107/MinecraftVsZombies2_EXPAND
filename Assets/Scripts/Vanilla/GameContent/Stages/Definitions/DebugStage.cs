@@ -62,7 +62,6 @@ namespace MVZ2.GameContent.Stages
         }
         private void ConveyorStart(LevelEngine level)
         {
-            level.SetConveyorMode(true);
             level.SetConveyorSlotCount(10);
             level.AddConveyorSeedPack(VanillaBossID.slenderman);
         }

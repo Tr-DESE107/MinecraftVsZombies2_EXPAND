@@ -28,7 +28,6 @@ namespace MVZ2.GameContent.Stages
         public override void OnStart(LevelEngine level)
         {
             base.OnStart(level);
-            level.SetConveyorMode(true);
             if (!level.HasBuff<LittleZombieLevelBuff>())
             {
                 level.AddBuff<LittleZombieLevelBuff>();
