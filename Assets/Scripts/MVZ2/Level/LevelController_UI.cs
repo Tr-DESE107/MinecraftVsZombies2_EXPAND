@@ -205,6 +205,9 @@ namespace MVZ2.Level
         public void ShowTooltip(ITooltipSource source)
         {
             tooltipSource = source;
+            var target = tooltipSource.GetTarget(this);
+            if (!target.Anchor || !target.Anchor.isActiveAndEnabled || target.Anchor.IsDisabled)
+                return;
             var uiPreset = GetUIPreset();
             uiPreset.ShowTooltip();
         }
