@@ -52,7 +52,7 @@ namespace MVZ2.Vanilla.Grids
             var entityDef = level.Content.GetEntityDefinition(entityID);
             if (entityDef == null)
                 return null;
-            if (grid.GetEntities().Any(e => e.CanStackFrom(entityID)))
+            if (grid.GetEntities().Any(e => e.CanStackFrom(entityID) && e.IsFriendlyEntity()))
             {
                 // 可堆叠
                 error.Result = null;
