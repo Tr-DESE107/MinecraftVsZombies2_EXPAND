@@ -223,7 +223,7 @@ namespace MVZ2.Vanilla.Level
         public static float CalculateSpawnPoints(this LevelEngine level, int wave, int flags)
         {
             var totalWave = level.GetLevelTotalWaves(wave, flags);
-            var basePoints = totalWave / 3f;
+            var basePoints = Mathf.FloorToInt(totalWave * 0.8f) / 2 + 1;
             var power = level.GetSpawnPointPower();
             var multiplier = level.GetSpawnPointMultiplier();
             var addition = level.GetSpawnPointAddition();
