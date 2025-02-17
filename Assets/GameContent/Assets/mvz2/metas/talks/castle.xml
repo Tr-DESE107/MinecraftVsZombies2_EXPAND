@@ -548,6 +548,7 @@
     <archive name="辉针城第7天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
     <section onSkip="music volume 1;end">
       <characters>
+        <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" side="left" />
         <character id="mvz2:seija" variant="mvz2:stunned" side="right" />
         <character id="mvz2:steve" side="self" />
@@ -556,7 +557,7 @@
         <sentence speaker="mvz2:seija" sounds="mvz2:talk" onStart="shake">……可恶，我在哪儿？</sentence>
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">你醒了啊，正邪。</sentence>
         <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">针、针妙丸？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:happy">看起来她没有大碍，太好了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">看起来她没有大碍，太好了！</sentence>
         <sentence speaker="mvz2:seija" sounds="mvz2:dialog_surprised" variant="mvz2:surprised">
           <start>
             <script>character variant mvz2:shinmyoumaru mvz2:surprised</script>

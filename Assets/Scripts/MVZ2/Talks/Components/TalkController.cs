@@ -610,6 +610,10 @@ namespace MVZ2.Talk
                 var characterData = characterList[i];
                 bool isSpeaker = speakerID == characterData.id;
                 ui.SetCharacterSpeaking(i, isSpeaker);
+                if (isSpeaker)
+                {
+                    ui.SetCharacterToTheFirstLayer(i);
+                }
             }
 
             // 切换变种贴图。

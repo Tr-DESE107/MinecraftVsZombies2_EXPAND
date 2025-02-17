@@ -44,6 +44,11 @@ namespace MVZ2.Talk
             var character = GetCharacter(index);
             character.SetSpeaking(value);
         }
+        public void SetCharacterToTheFirstLayer(int index)
+        {
+            var character = GetCharacter(index);
+            character.transform.SetAsLastSibling();
+        }
         public void CharacterDisappear(int index, float disappearSpeed)
         {
             var character = GetCharacter(index);
