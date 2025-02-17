@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Stages
             else
             {
                 level.AddBuff<SeijaAutoCollectBuff>();
-                level.SimpleStartTalk(VanillaTalkID.castle7Boss, 0, delay: 1, onSkipped: onEnd, onEnd: onEnd);
+                level.SimpleStartTalk(VanillaTalkID.castle7Boss, 0, delay: 1, onEnd: onEnd);
                 void onEnd()
                 {
                     StartBattle(level);
