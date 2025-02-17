@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Pickups
         {
         }
         protected override bool CanMerge => true;
-        protected override int MergeCount => 4;
+        protected override int MergeCount => 5;
         protected override NamespaceID MergeSource => VanillaPickupID.sapphire;
         protected override NamespaceID MergeTarget => VanillaPickupID.diamond;
     }
