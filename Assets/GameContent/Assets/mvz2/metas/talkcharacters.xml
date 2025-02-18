@@ -160,11 +160,11 @@
         <variant id="mvz2:weep" parent="mvz2:worried">
             <layer sprite="mvz2:characters/shinmyoumaru_big[5]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:big" width="387" height="1280" pivotX="0.5" pivotY="0.6">
-            <layer sprite="mvz2:characters/shinmyoumaru_big[0]" positionX="0" positionY="0" />
-        </variant>
-        <variant id="mvz2:gift_mallet" width="387" height="1280" pivotX="0.5" pivotY="0.6">
+        <variant id="mvz2:big" width="387" height="1280" pivotX="0.5" extendLeft="-20" extendRight="-20" pivotY="0.6">
             <layer sprite="mvz2:characters/shinmyoumaru_big[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:gift_mallet" width="387" height="1280" extendLeft="-20" extendRight="-20"  pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shinmyoumaru_big[0]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:bottle_normal" width="432" height="716" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/shinmyoumaru_bottle[0]" positionX="0" positionY="0" />

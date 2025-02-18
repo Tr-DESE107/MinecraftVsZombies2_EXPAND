@@ -16,6 +16,7 @@ namespace MVZ2.Metas
 
         public NamespaceID MusicID { get; private set; }
 
+        public bool NoStartTalkMusic { get; private set; }
         public StageMetaTalk[] Talks { get; private set; }
 
         public string ModelPreset { get; private set; }
@@ -56,8 +57,10 @@ namespace MVZ2.Metas
 
             var talks = new List<StageMetaTalk>();
             var talksNode = node["talks"];
+            var noStartTalkMusic = false;
             if (talksNode != null)
             {
+                noStartTalkMusic = talksNode.GetAttributeBool("noStartMusic") ?? false;
                 for (int i = 0; i < talksNode.ChildNodes.Count; i++)
                 {
                     var child = talksNode.ChildNodes[i];
@@ -111,6 +114,7 @@ namespace MVZ2.Metas
 
                 ModelPreset = preset,
 
+                NoStartTalkMusic = noStartTalkMusic,
                 Talks = talks.ToArray(),
 
                 ClearPickupModel = clearPickupModel,

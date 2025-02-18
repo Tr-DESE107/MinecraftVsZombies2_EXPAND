@@ -39,6 +39,11 @@ namespace MVZ2.Talk
             var character = GetCharacter(index);
             character.SetCharacter(sprite);
         }
+        public void SetCharacterWidthExtend(int index, Vector2 extend)
+        {
+            var character = GetCharacter(index);
+            character.SetWidthExtend(extend);
+        }
         public void SetCharacterSpeaking(int index, bool value)
         {
             var character = GetCharacter(index);

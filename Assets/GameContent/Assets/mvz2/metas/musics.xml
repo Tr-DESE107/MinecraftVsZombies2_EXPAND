@@ -209,5 +209,13 @@
             <p>言语如同锋芒，扎向城主的心。</p>
         </description>
     </music>
-
+    <music id="castle_final" path="mvz2:castle_final" name="辉光之针的小人族 ~ Little Princess" unlock="mvz2:level.castle_11">
+        <source>东方辉针城</source>
+        <description>
+            <p>辉针城最终关的音乐。</p>
+            <p>是《东方辉针城》中第六关Boss——少名针妙丸的音乐。</p>
+            <p>“消灭那些夺走我族人生命的敌人，报这不共戴天之仇吧”</p>
+            <p>“这是我唯一剩下的愿望了”</p>
+        </description>
+    </music>
 </musics>

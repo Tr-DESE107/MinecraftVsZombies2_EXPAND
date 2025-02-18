@@ -941,7 +941,13 @@ namespace MVZ2.Level
             {
                 if (!level.IsRerun || startTalk.ShouldRepeat(Main.SaveManager))
                 {
-                    await talkController.SimpleStartTalkAsync(startTalk.Value, 0, 2, () => Music.Play(VanillaMusicID.mainmenu));
+                    await talkController.SimpleStartTalkAsync(startTalk.Value, 0, 2, () => 
+                    {
+                        if (!level.NoStartTalkMusic())
+                        {
+                            Music.Play(VanillaMusicID.mainmenu);
+                        }
+                    });
                 }
             }
             level.BeginLevel();

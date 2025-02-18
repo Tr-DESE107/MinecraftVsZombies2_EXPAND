@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
-using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -13,7 +11,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Talk
 {
@@ -271,7 +268,15 @@ namespace MVZ2.Talk
                                     var variant = ParseArgumentNamespaceID(args[2]);
 
                                     var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
+                                    var meta = Main.ResourceManager.GetCharacterMeta(targetCharacter);
+                                    var variantMeta = meta.variants.FirstOrDefault(v => v.id == variant);
+                                    Vector2 widthExtend = Vector2.zero;
+                                    if (variantMeta != null)
+                                    {
+                                        widthExtend = variantMeta.widthExtend;
+                                    }
                                     ui.SetCharacterSprite(characterIndex, sprite);
+                                    ui.SetCharacterWidthExtend(characterIndex, widthExtend);
                                 }
                                 break;
                             case "leave":
@@ -783,7 +788,7 @@ namespace MVZ2.Talk
             ui.ClearCharacters();
             characterList.Clear();
         }
-        private SpeechBubbleDirection GetSpeechBubbleDirectionBySide(CharacterSide side) 
+        private SpeechBubbleDirection GetSpeechBubbleDirectionBySide(CharacterSide side)
         {
             switch (side)
             {

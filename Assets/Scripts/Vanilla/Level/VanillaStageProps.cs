@@ -24,6 +24,7 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta NO_ENERGY = Get("noEnergy");
         public static readonly PropertyMeta AUTO_COLLECT = Get("autoCollect");
 
+        public static readonly PropertyMeta NO_START_TALK_MUSIC = Get("noStartTalkMusic");
         public static readonly PropertyMeta TALKS = Get("talks");
 
         public static readonly PropertyMeta CLEAR_PICKUP_MODEL = Get("clearPickupModel");
@@ -85,6 +86,10 @@ namespace MVZ2.Vanilla.Level
         public static void SetNoEnergy(this LevelEngine game, bool value)
         {
             game.SetProperty(NO_ENERGY, value);
+        }
+        public static bool NoStartTalkMusic(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(NO_START_TALK_MUSIC);
         }
         public static IStageTalkMeta[] GetTalks(this LevelEngine game)
         {

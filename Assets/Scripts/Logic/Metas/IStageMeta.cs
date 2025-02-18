@@ -17,6 +17,7 @@ namespace MVZ2Logic.Level
 
         NamespaceID MusicID { get; }
 
+        bool NoStartTalkMusic { get; }
         IStageTalkMeta[] Talks { get; }
 
         NamespaceID ClearPickupModel { get; }

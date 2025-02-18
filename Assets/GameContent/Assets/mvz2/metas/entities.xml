@@ -446,7 +446,7 @@
             <id name="shell" value="mvz2:metal"/>
             <id name="placeSound" value="mvz2:tesla_construction"/>
             <id name="deathSound" value="mvz2:tesla_destroy"/>
-            <idArray name="attackerFor" value="mvz2:low_enemy"/>
+            <idArray name="attackerFor" value="mvz2:low_enemy mvz2:flying_enemy"/>
             <vector3 name="size" x="36" y="100" z="36"/>
 
             <int name="cost" value="175" />
@@ -758,6 +758,7 @@
             <int name="vehicleInteraction" value="2"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="130" y="70" z="40"/>
+            <vector3 name="shadowScale" x="3" y="1" z="1"/>
             <idArray name="attackerTags" value="mvz2:flying_enemy"/>
 
             <int name="cost" value="300" />

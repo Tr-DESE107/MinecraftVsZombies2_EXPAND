@@ -71,6 +71,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04587031da372a346b8b1a8c9b7c5026
+    m_Address: mvz2:entity/pickups/wither_scroll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04dcfd1cd164cbb41b834f5a6fdfba4b
     m_Address: mvz2:entity/effects/nightmare_portal_mask
     m_ReadOnly: 0
@@ -1828,6 +1834,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ae8154b67549d64b891e3ffb3b1e551
+    m_Address: mvz2:castle_final
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b231be250a3cbf49a9bb3175eeca43c
     m_Address: mvz2:level/light
     m_ReadOnly: 0
@@ -2718,6 +2730,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7165fa933a4015345a9edbd99fe11e0b
     m_Address: mvz2:effect/seija_faint_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71b25725cf3bab549914b21563c0c4ad
+    m_Address: mvz2:pickup/wither_scroll
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -4473,6 +4491,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b43c7c77cd3ff54418daebbaccf227db
+    m_Address: mvz2:archive/castle_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b47d03bd743710345b665a5cac672aee
     m_Address: mvz2:ui/map/map_back_button
     m_ReadOnly: 0
@@ -5175,6 +5199,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdb5a00e33b0dda46876f58eb7acc614
+    m_Address: mvz2:note/background_castle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdec7faf255eabe4195b58d4652126e3
     m_Address: mvz2:mobile_blueprint/pistenser
     m_ReadOnly: 0
@@ -5594,6 +5624,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de792c288e4a5a2479cdbbca7dfb0fb5
+    m_Address: mvz2:note/castle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de7d04056f4aa6e4d98327f8408d3857
     m_Address: mvz2:entity/totenser/stone_hatch

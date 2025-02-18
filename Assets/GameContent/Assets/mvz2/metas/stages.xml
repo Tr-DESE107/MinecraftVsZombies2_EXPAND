@@ -419,7 +419,7 @@
         </spawns>
     </stage>
     <stage id="dream_11" name="梦境世界" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.dream_10" music="mvz2:nightmare_final" >
-        <talks>
+        <talks noStartMusic="true">
             <talk type="start" value="mvz2:dream_11"/>
             <talk type="end" value="mvz2:dream_11_over"/>
             <talk type="map" value="mvz2:dream_11_map"/>
@@ -583,5 +583,71 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
         </spawns>
+    </stage>
+    <stage id="castle_9" name="辉针城" dayNumber="9" unlock="mvz2:level.castle_8">
+        <talks>
+            <talk type="start" value="mvz2:castle_9"/>
+            <talk type="end" value="mvz2:castle_9_over"/>
+            <talk type="map" value="mvz2:castle_9_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:giant_bowl"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+        </spawns>
+    </stage>
+    <stage id="castle_10" name="辉针城" dayNumber="10" unlock="mvz2:level.castle_9">
+        <talks>
+            <talk type="start" value="mvz2:castle_10"/>
+            <talk type="end" value="mvz2:castle_10_over"/>
+            <talk type="map" value="mvz2:castle_10_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.wither_scroll" note="mvz2:castle"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+        </spawns>
+    </stage>
+    <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.castle_10" music="mvz2:castle_final" >
+        <talks noStartMusic="true">
+            <talk type="start" value="mvz2:castle_11"/>
+            <talk type="end" value="mvz2:castle_11_over"/>
+            <talk type="map" value="mvz2:castle_11_map"/>
+        </talks>
+        <conveyor>
+            <entry id="mvz2:glowstone" count="4"/>
+            <entry id="mvz2:wooden_dropper" count="5"/>
+            <entry id="mvz2:spike_block" count="5"/>
+            <entry id="mvz2:stone_dropper" count="8"/>
+            <entry id="mvz2:stone_shield" count="15"/>
+            <entry id="mvz2:golden_apple" count="3"/>
+            <entry id="mvz2:thunder_drum" count="3"/>
+            <entry id="mvz2:tesla_coil" count="8"/>
+            <entry id="mvz2:giant_bowl" count="2"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" firstWaveTime="30" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+        </spawns>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+        </properties>
     </stage>
 </stages>

@@ -223,6 +223,7 @@ namespace MVZ2.Vanilla
 
                 stage.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
 
+                stage.SetProperty(VanillaStageProps.NO_START_TALK_MUSIC, meta.NoStartTalkMusic);
                 stage.SetProperty(VanillaStageProps.TALKS, meta.Talks);
 
                 stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);

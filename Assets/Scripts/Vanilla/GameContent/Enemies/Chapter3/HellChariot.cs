@@ -27,8 +27,11 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetPunctureTimer(entity, new FrameTimer(PUNCTURE_TIME));
             entity.InitFragment();
-            entity.PlaySound(VanillaSoundID.trainWhistle);
-            entity.Level.AddLoopSoundEntity(VanillaSoundID.trainTravel, entity.ID);
+            if (!entity.IsPreviewEnemy())
+            {
+                entity.PlaySound(VanillaSoundID.trainWhistle);
+                entity.Level.AddLoopSoundEntity(VanillaSoundID.trainTravel, entity.ID);
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -121,10 +124,6 @@ namespace MVZ2.GameContent.Enemies
             var bodyResult = result.BodyResult;
             if (bodyResult != null)
             {
-                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.GROUND_SPIKES))
-                {
-                    Puncture(result.Entity);
-                }
                 result.Entity.AddFragmentTickDamage(result.BodyResult.Amount);
             }
         }

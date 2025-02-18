@@ -749,4 +749,203 @@
       </sentences>
     </section>
   </group>
+  
+  <!-- Day 9 -->
+  <group id="castle_9" tags="mvz2:castle;mvz2:intro">
+    <archive name="辉针城第9天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_9" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸昨天离开了我们，到现在还没有回来。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我有点担心她……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">城里的凋灵骷髅已经被我们清理得差不多了，她不会有危险的，放心吧。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">比起关心这些——那些车辆是什么？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那些车还驮着一些黄色的棺材，里面好像还有绷带和灵魂沙渗出来。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">战车，木乃伊，还有灵魂沙吗……凋灵骷髅的科技比我想象的还要高啊。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">总之，注意别被碾了！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_9_over" tags="mvz2:castle;mvz2:over">
+    <archive name="辉针城第9天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_9" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">啊！这个东西是……巨碗！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">你可以把星之碎片放进里面进行存储，它也会自己缓慢生成星之碎片！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">但是，一旦要取出它里面的星之碎片，就必须要把它砸毁了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">珍惜你放下的每一个巨碗吧！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_9_map" tags="mvz2:castle;mvz2:map">
+    <archive name="辉针城第9天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_9" />
+    <section onSkip="music volume 1;music play mvz2:sad_shinmyoumaru;end">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shinmyoumaru" variant="mvz2:hide_eyes" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="music fade 0">针妙丸……你回来了？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">是，抱歉让你们担心了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">昨天的事情……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="music volume 1;music play mvz2:sad_shinmyoumaru">我果然还是当不好一个领导者。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">对不起，让你们失望了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我不知道该怎么做。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">最后我还是没有靠自己的力量拯救辉针城。全都是因为我害怕万宝槌的力量。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">万宝槌？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:hold_mallet_cry" sounds="mvz2:talk">就是这个。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">它是我们小人族的魔宝，可以实现人的愿望，但也会付出相应的代价。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">在它们入侵的时候，我本来就应该使用它的。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">可是，上次的混乱也是因它而起，我那时才知道万宝槌可怕的能力。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">所以我这次才没有使用它，结果反而……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不，这不是你的错。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">别说了，已经无法改变了不是吗。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:hide_eyes" sounds="mvz2:talk">针妙丸还有最后一个请求，可以吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">什么？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">正邪提到，这些黑色骷髅的首领叫做凋灵。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">请您帮我把它除掉吧——为了我的同胞们……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">我，知道了。</sentence>
+      </sentences>
+    </section>
+  </group>
+  
+  <!-- Day 10 -->
+  <group id="castle_note" tags="mvz2:castle;mvz2:note">
+    <archive name="凋灵战书" background="mvz2:archive/castle_note" unlock="mvz2:level.castle_10" />
+    <section>
+      <characters>
+        <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这个东西是——凋灵骷髅的战书？</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">是时候了。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">该让那些该死的黑色骷髅为我们小人族的牺牲付出代价了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">我明白了，交给我吧。</sentence>
+      </sentences>
+    </section>
+  </group>
+
+  <!-- Day 11 -->
+  <group id="castle_11" tags="mvz2:castle;mvz2:intro">
+    <archive name="辉针城第11天入场" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">小心点，那个可怕的骷髅怪物——凋灵马上就要来了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">它能冲锋，并且以它的威力，很可能一下冲锋就毁掉你一整排的器械！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……听起来确实难搞。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">不过，应该有办法能阻止它的。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">试试用强大的东西挡住它的去路，或者直接在它冲锋前把它击垮！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我们小人族就靠你了，史蒂夫……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">遵命。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（辉针城外乌云密布。这些乌云已经笼罩这里太长时间了。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（是时候该让它们散去了。）</color>]]></sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_11_over" tags="mvz2:castle;mvz2:over">
+    <archive name="辉针城第11天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
+    <section onSkip="end;playsound mvz2:final_item">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">结、结束了吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">看起来是的，凋灵已经支离破碎，骷髅们也已经溃不成军了！</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……谢谢你们。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">这下辉针城就彻底摆脱它们的控制了。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">谢谢你们为我和我的子民们所做的一切。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk;mvz2:final_item" onClick="end">我永远不会忘记你们的这份恩情的。</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_11_map" tags="mvz2:castle;mvz2:map">
+    <archive name="辉针城第11天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
+    <section onSkip="action mvz2:chapter_3_finish;forecolor fade #000F #0000 1;end">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">你们帮我解决了这些怪物，解救了我的子……我们小人族，真的不胜感激。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep_close_eyes">……我不清楚。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我身为小人族的公主，却一次次地没能保护好我的人民。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我真的不算什么合格的领导者。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">别这么说，针妙丸。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">还是你写的信才带我们来到这里的。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">但是，最后事情还是你们解决的。我根本没派上什么用场。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我真的……没脸见他们了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep">为了表示对你们的感谢，我想送你们这个。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="item show mvz2:artifacts/miracle_mallet_replica">这是正邪逃走时留下的一件道具，是我的万宝槌的仿制品。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">虽说是仿制品，但也有不可小觑的力量。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep_close_eyes" onStart="item hide">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep">在送给你们之前，我、想最后一次，有一些君主的尊严，可以吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">嗯。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">好。谢谢。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hold_mallet_weep_close_eyes">
+          <click>
+            <script>bubble hide</script>
+            <script>playsound mvz2:sparkle</script>
+            <script>forecolor fade #FFF0 #FFFF 0.5</script>
+            <script>delay 0.5</script>
+
+            <script>playsound mvz2:grow_big</script>
+            <script>character variant mvz2:shinmyoumaru mvz2:big</script>
+            <script>delay 1</script>
+
+            <script>forecolor fade #FFFF #FFF0 1</script>
+            <script>delay 1</script>
+
+            <script>next</script>
+          </click>
+          <text>万宝槌，把我变大吧。</text>
+        </sentence>
+        <sentence speaker="mvz2:shinmyoumaru" description="（针妙丸变大了）" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">为答谢有功之士史蒂夫为小人族，及辉针城做出的贡献——</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:gift_mallet">本公主今日赐你宝具，务必收下。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #0000 #000F 2</script>
+            <script>delay 3</script>
+
+            <script>next</script>
+          </click>
+          <text>感谢公主此等赏赐。</text>
+          </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（辉针城中，夕阳光下，我半跪在这位孤独的公主面前，用充满仪式感的方式接受她的礼物。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（周围格外的安静，没有臣民，没有其他的小人族见证这一神圣的时刻。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（在那之后，针妙丸公主送我们离开，一直送到了香霖堂。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（那时已经是晚上了。她道过别之后，什么都没有说，便走上了回家的路。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="action mvz2:chapter_3_finish;forecolor fade #000F #0000 1;end"><![CDATA[<color=blue>（只是那背影，无比落寞，逐渐消失在了漆黑的夜空中，化作了一颗小小的星星。）</color>]]></sentence>
+      </sentences>
+    </section>
+  </group>
 </talks>
