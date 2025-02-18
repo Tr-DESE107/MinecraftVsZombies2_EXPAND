@@ -79,6 +79,10 @@ namespace MVZ2.GameContent.Bosses
             {
                 damageInfo.Cancel();
             }
+            if (damageInfo.Amount > 600)
+            {
+                damageInfo.SetAmount(600);
+            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {
