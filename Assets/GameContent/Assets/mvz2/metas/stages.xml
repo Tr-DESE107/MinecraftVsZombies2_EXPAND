@@ -129,6 +129,7 @@
         </spawns>
         <properties>
             <float name="darknessValue" value="0.5"/>
+            <bool name="noEnergy" value="true"/>
             <bool name="autoCollect" value="true"/>
         </properties>
     </stage>
@@ -247,6 +248,7 @@
             <spawn id="mvz2:necromancer"/>
         </spawns>
         <properties>
+            <bool name="noEnergy" value="true"/>
             <integer name="statueCount" value="10" />
         </properties>
     </stage>
@@ -346,7 +348,7 @@
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
-            <bool name="noProduction" value="true"/>
+            <bool name="noEnergy" value="true"/>
             <bool name="autoCollect" value="true"/>
         </properties>
     </stage>
@@ -443,7 +445,7 @@
             <spawn id="mvz2:mother_terror"/>
         </spawns>
         <properties>
-            <bool name="noProduction" value="true"/>
+            <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
     <stage id="dream_endless" name="梦境世界无尽" type="endless" unlock="mvz2:level.dream_11" >
@@ -547,7 +549,7 @@
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
-            <bool name="noProduction" value="true"/>
+            <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
     <stage id="castle_7" name="辉针城" dayNumber="7" type="special" unlock="mvz2:kourindou_visited_castle">

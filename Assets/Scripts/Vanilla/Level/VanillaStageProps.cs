@@ -21,7 +21,7 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta WAVE_ADVANCE_TIME = Get("waveAdvanceTime");
         public static readonly PropertyMeta WAVE_ADVANCE_HEALTH_PERCENT = Get("waveAdvanceHealthPercent");
 
-        public static readonly PropertyMeta NO_PRODUCTION = Get("noProduction");
+        public static readonly PropertyMeta NO_ENERGY = Get("noEnergy");
         public static readonly PropertyMeta AUTO_COLLECT = Get("autoCollect");
 
         public static readonly PropertyMeta TALKS = Get("talks");
@@ -78,13 +78,13 @@ namespace MVZ2.Vanilla.Level
         {
             return game.GetProperty<bool>(AUTO_COLLECT);
         }
-        public static bool IsNoProduction(this LevelEngine game)
+        public static bool IsNoEnergy(this LevelEngine game)
         {
-            return game.GetProperty<bool>(NO_PRODUCTION);
+            return game.GetProperty<bool>(NO_ENERGY);
         }
-        public static void SetNoProduction(this LevelEngine game, bool value)
+        public static void SetNoEnergy(this LevelEngine game, bool value)
         {
-            game.SetProperty(NO_PRODUCTION, value);
+            game.SetProperty(NO_ENERGY, value);
         }
         public static IStageTalkMeta[] GetTalks(this LevelEngine game)
         {

@@ -41,11 +41,9 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var contraption = buff.GetEntity();
             if (contraption == null)
                 return;
-            if (buff.Level.IsNoProduction())
-                return;
             // Dream.
             var timer = buff.GetProperty<FrameTimer>(PROP_TIMER);
-            timer.Run(contraption.GetProduceSpeed());
+            timer.Run();
             if (timer.PassedFrame(RING_DURATION))
             {
                 contraption.PlaySound(VanillaSoundID.dreamAlarm);

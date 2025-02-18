@@ -99,7 +99,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var productionTimer = GetProductionTimer(entity);
             productionTimer.Run(entity.GetProduceSpeed());
-            if (entity.Level.IsNoProduction())
+            if (entity.Level.IsNoEnergy())
             {
                 productionTimer.Frame = productionTimer.MaxFrame;
             }

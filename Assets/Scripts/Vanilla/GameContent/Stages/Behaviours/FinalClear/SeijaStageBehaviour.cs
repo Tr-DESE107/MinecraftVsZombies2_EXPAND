@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Stages
             var y = level.GetGroundY(x, z);
             var seija = level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null);
             Seija.StartState(seija, VanillaEntityStates.SEIJA_FRONTFLIP);
-            level.SetNoProduction(false);
+            level.SetNoEnergy(false);
             // 音乐。
             level.PlayMusic(VanillaMusicID.seija);
             // 血条。

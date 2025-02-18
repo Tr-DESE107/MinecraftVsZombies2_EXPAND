@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Stages
                 waveTimer.Run();
                 if (waveTimer.Expired)
                 {
-                    level.SetNoProduction(true);
+                    level.SetNoEnergy(true);
                 }
             }
         }

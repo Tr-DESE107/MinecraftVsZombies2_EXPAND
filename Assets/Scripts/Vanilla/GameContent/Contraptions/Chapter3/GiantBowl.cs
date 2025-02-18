@@ -31,23 +31,20 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            if (!entity.Level.IsNoProduction())
+            var timer = GetProductionTimer(entity);
+            if (GetPointCount(entity) < MAX_STARSHARD_COUNT)
             {
-                var timer = GetProductionTimer(entity);
-                if (GetPointCount(entity) < MAX_STARSHARD_COUNT)
-                {
-                    timer.Run(entity.GetProduceSpeed());
-                    if (timer.Expired)
-                    {
-                        timer.Reset();
-                        AddPointCount(entity, 1);
-                        entity.PlaySound(VanillaSoundID.starshardUse);
-                    }
-                }
-                else
+                timer.Run(entity.GetProduceSpeed());
+                if (timer.Expired)
                 {
                     timer.Reset();
+                    AddPointCount(entity, 1);
+                    entity.PlaySound(VanillaSoundID.starshardUse);
                 }
+            }
+            else
+            {
+                timer.Reset();
             }
             var pointsAngle = GetPointsAngle(entity);
             pointsAngle += ANGLE_SPEED;

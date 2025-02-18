@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.Stages
                         level.GetSeedPack(VanillaContraptionID.obsidian)?.AddBuff<TutorialDisableBuff>();
                         level.GetSeedPack(VanillaContraptionID.mineTNT)?.AddBuff<TutorialDisableBuff>();
                         level.AddBuff<TutorialPickaxeDisableBuff>();
-                        level.SetNoProduction(true);
+                        level.SetNoEnergy(true);
                         dispenserSeedPack.SetTwinkling(true);
                         level.SetHintArrowPointToBlueprint(dispenserSeedPack.GetIndex());
                     }
@@ -116,7 +116,7 @@ namespace MVZ2.GameContent.Stages
                     level.HideHintArrow();
                     break;
                 case STATE_DISPENSER_PLACED:
-                    level.SetNoProduction(false);
+                    level.SetNoEnergy(false);
                     break;
                 case STATE_COLLECT_REDSTONE:
                     {
@@ -220,7 +220,7 @@ namespace MVZ2.GameContent.Stages
                 case STATE_HOLD_PICKAXE:
                     {
                         level.RemoveBuffs<TutorialPickaxeDisableBuff>();
-                        level.SetNoProduction(true);
+                        level.SetNoEnergy(true);
                         level.SetHintArrowPointToPickaxe();
                     }
                     break;
@@ -358,7 +358,7 @@ namespace MVZ2.GameContent.Stages
                         level.SetEnergy(level.Option.StartEnergy);
                         level.ResetAllRechargeProgress();
                         level.ClearSeedPacks();
-                        level.SetNoProduction(false);
+                        level.SetNoEnergy(false);
                         level.ChangeStage(VanillaStageID.prologue);
                         for (int i = 0; i < level.GetSeedSlotCount(); i++)
                         {
