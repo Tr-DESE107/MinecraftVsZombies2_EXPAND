@@ -416,6 +416,9 @@
     <sound name="pearl_touch">
         <sample path="mvz2:pearl_touch" weight="1" />
     </sound>
+    <sound name="people_noise">
+        <sample path="mvz2:people_noise" weight="1" />
+    </sound>
     <sound name="pick" priority="64">
         <sample path="mvz2:pick" weight="1" />
     </sound>

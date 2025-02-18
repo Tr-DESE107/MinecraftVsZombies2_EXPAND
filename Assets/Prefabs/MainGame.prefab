@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 1489146707216962900}
   - component: {fileID: 2331941278642455871}
   - component: {fileID: 2197685386803654425}
+  - component: {fileID: 5702917050825724934}
   m_Layer: 0
   m_Name: SoundTemplate
   m_TagString: Untagged
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 2197685386803654425}
+  volumeFader: {fileID: 5702917050825724934}
 --- !u!82 &2197685386803654425
 AudioSource:
   m_ObjectHideFlags: 0
@@ -342,6 +344,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5702917050825724934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882495769672525406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbde7b08383e8074a9147fda9c6862f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1186635730786628796
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +622,7 @@ GameObject:
   - component: {fileID: 7360794660825887118}
   - component: {fileID: 3463680419347982325}
   - component: {fileID: 2494195013938036474}
+  - component: {fileID: 2322149166697000203}
   m_Layer: 0
   m_Name: LoopSoundTemplate
   m_TagString: Untagged
@@ -643,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 2494195013938036474}
+  volumeFader: {fileID: 2322149166697000203}
 --- !u!82 &2494195013938036474
 AudioSource:
   m_ObjectHideFlags: 0
@@ -739,6 +755,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2322149166697000203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2233805287241954040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbde7b08383e8074a9147fda9c6862f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2317812717264477780
 GameObject:
   m_ObjectHideFlags: 0

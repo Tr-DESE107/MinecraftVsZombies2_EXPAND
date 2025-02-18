@@ -218,10 +218,10 @@ TextureImporter:
       name: shinmyoumaru_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 80
-        width: 144
-        height: 256
+        x: 608
+        y: 336
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,12 +239,12 @@ TextureImporter:
       name: shinmyoumaru_6
       rect:
         serializedVersion: 2
-        x: 304
-        y: 80
-        width: 144
-        height: 256
+        x: 720
+        y: 336
+        width: 112
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,6 +252,132 @@ TextureImporter:
       bones: []
       spriteID: 74263a8fd7a568646bb7289db2cc9be2
       internalID: 1789357715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_7
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 336
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1c16a03d3b3f24cacf38581358ac83
+      internalID: -692860819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 160
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a75ef565e8c2a4e9cde85c6b600654
+      internalID: 560486081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 80
+        width: 160
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6becd804991c74fb479da5dab8ba9d
+      internalID: 1422142528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 96
+        width: 160
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb8a89736cc8234181828cf9e71f5dc
+      internalID: 1900953859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 96
+        width: 160
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10a3159aad123745a0e7ce5a8471315
+      internalID: -611930349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shinmyoumaru_12
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 96
+        width: 160
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f8a1854a7b6ae46baf31954335744c
+      internalID: -1880878798
       vertices: []
       indices: 
       edges: []
@@ -269,11 +395,17 @@ TextureImporter:
     nameFileIdTable:
       shinmyoumaru_0: 1774088793
       shinmyoumaru_1: 816372431
+      shinmyoumaru_10: 1900953859
+      shinmyoumaru_11: -611930349
+      shinmyoumaru_12: -1880878798
       shinmyoumaru_2: 288931703
       shinmyoumaru_3: -1372606439
       shinmyoumaru_4: 178899031
       shinmyoumaru_5: 1320239278
       shinmyoumaru_6: 1789357715
+      shinmyoumaru_7: -692860819
+      shinmyoumaru_8: 560486081
+      shinmyoumaru_9: 1422142528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

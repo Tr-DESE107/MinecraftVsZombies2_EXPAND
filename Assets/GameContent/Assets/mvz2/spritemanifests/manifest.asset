@@ -869,6 +869,16 @@ MonoBehaviour:
     - {fileID: 178899031, guid: d0159b237963ff745a734fae1c80132f, type: 3}
     - {fileID: 1320239278, guid: d0159b237963ff745a734fae1c80132f, type: 3}
     - {fileID: 1789357715, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+    - {fileID: -692860819, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+    - {fileID: 560486081, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+    - {fileID: 1422142528, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+    - {fileID: 1900953859, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+    - {fileID: -611930349, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+    - {fileID: -1880878798, guid: d0159b237963ff745a734fae1c80132f, type: 3}
+  - name: characters/shinmyoumaru_big
+    spritesheet:
+    - {fileID: 1475992617, guid: bdab62905818ab343b09f4857c660b11, type: 3}
+    - {fileID: 1974874531, guid: bdab62905818ab343b09f4857c660b11, type: 3}
   - name: characters/shinmyoumaru_bottle
     spritesheet:
     - {fileID: 333754236, guid: c2e6ace3e57f0964eb3d1cfe1113a3cd, type: 3}

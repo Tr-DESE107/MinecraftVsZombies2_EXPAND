@@ -199,5 +199,15 @@
             <p>一切都倒过来了！</p>
         </description>
     </music>
+    <music id="sad_shinmyoumaru" path="mvz2:sad_shinmyoumaru" name="针折线断的天守阁" unlock="mvz2:level.castle_8">
+        <source>东方辉针城</source>
+        <origin>针小棒大的天守阁</origin>
+        <author>幻梦忧</author>
+        <description>
+            <p>剧情音乐。</p>
+            <p>原曲是《东方辉针城》中第六关关卡，以及Boss——少名针妙丸的音乐。</p>
+            <p>言语如同锋芒，扎向城主的心。</p>
+        </description>
+    </music>
 
 </musics>

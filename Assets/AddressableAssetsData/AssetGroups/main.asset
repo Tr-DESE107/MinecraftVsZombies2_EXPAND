@@ -1942,6 +1942,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ffd669e6a8191a468f39575216ef435
+    m_Address: mvz2:ui/level/progress_bar/seija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5005bdd978e5a304a871e9d6929ee180
     m_Address: mvz2:entity/contraption/loms
     m_ReadOnly: 0
@@ -2188,6 +2194,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b7fb47f163b0a0449f9284e7fa1ba47
+    m_Address: mvz2:sad_shinmyoumaru
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5bcb8a9439e0db24f992f29dd452d520
     m_Address: mvz2:shutter
     m_ReadOnly: 0
@@ -2331,6 +2343,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ec207595d8c8c7468bb08c2fe7381b7
+    m_Address: mvz2:seija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ef3a090bd393154ca009d99322b04ee
     m_Address: mvz2:entity/bone_wall/bone_wall_build2
@@ -4743,6 +4761,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdab62905818ab343b09f4857c660b11
+    m_Address: mvz2:characters/shinmyoumaru_big
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: beb139d5d07db39408272c27eaea0034
     m_Address: mvz2:products/obsidian_first_aid
     m_ReadOnly: 0
@@ -6263,6 +6287,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8dbc419c62dfc148a2d10db9f0ce0d3
     m_Address: mvz2:note/background_dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8e133db9e0078b42bbd5979c7143e76
+    m_Address: mvz2:ui/level/progress_bar/seija_background
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

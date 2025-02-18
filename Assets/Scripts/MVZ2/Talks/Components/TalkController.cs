@@ -442,6 +442,49 @@ namespace MVZ2.Talk
                         Main.SoundManager.Play2D(ParseArgumentNamespaceID(args[0]));
                     }
                     break;
+                case "loopsound":
+                    switch (args[0])
+                    {
+                        case "play":
+                            {
+                                NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
+                                Main.SoundManager.PlayLoopSound(soundId);
+                            }
+                            break;
+                        case "stop":
+                            {
+                                NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
+                                Main.SoundManager.StopLoopSound(soundId);
+                            }
+                            break;
+                        case "volume":
+                            {
+                                NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
+                                float volume = ParseArgumentFloat(args[2]);
+                                Main.SoundManager.SetLoopSoundVolume(soundId, volume);
+                                Main.SoundManager.StopFadeLoopSound(soundId);
+                            }
+                            break;
+                        case "fade":
+                            {
+                                NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
+                                if (args.Length >= 5)
+                                {
+                                    Main.SoundManager.SetLoopSoundVolume(soundId, ParseArgumentFloat(args[2]));
+                                    Main.SoundManager.StartFadeLoopSound(soundId, ParseArgumentFloat(args[3]), ParseArgumentFloat(args[4]));
+                                }
+                                else if (args.Length == 4)
+                                {
+                                    Main.SoundManager.StartFadeLoopSound(soundId, ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
+                                }
+                                else if (args.Length == 3)
+                                {
+                                    Main.SoundManager.StartFadeLoopSound(soundId, ParseArgumentFloat(args[2]), 1);
+                                }
+                            }
+                            break;
+                    }
+                    break;
                 #endregion
 
                 #region 展示物品

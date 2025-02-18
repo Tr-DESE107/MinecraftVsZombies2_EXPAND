@@ -134,10 +134,37 @@
             <layer sprite="mvz2:characters/shinmyoumaru[4]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:think" parent="mvz2:normal">
-            <layer sprite="mvz2:characters/shinmyoumaru[5]" positionX="0" positionY="0" />
+            <layer sprite="mvz2:characters/shinmyoumaru[8]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:worried" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[9]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:fear" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[10]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:hide_eyes" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[11]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:hold_mallet_cry" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/shinmyoumaru[12]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:hold_mallet_weep_close_eyes" parent="mvz2:hold_mallet_cry">
+            <layer sprite="mvz2:characters/shinmyoumaru[7]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:weep" parent="mvz2:worried">
+            <layer sprite="mvz2:characters/shinmyoumaru[5]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:weep_close_eyes" parent="mvz2:worried">
             <layer sprite="mvz2:characters/shinmyoumaru[6]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:weep" parent="mvz2:worried">
+            <layer sprite="mvz2:characters/shinmyoumaru_big[5]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:big" width="387" height="1280" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shinmyoumaru_big[0]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:gift_mallet" width="387" height="1280" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shinmyoumaru_big[1]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:bottle_normal" width="432" height="716" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/shinmyoumaru_bottle[0]" positionX="0" positionY="0" />

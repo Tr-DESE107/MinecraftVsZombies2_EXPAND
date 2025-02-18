@@ -630,4 +630,123 @@
       </sentences>
     </section>
   </group>
+
+  <!-- Day 8 -->
+  <group id="castle_8" tags="mvz2:castle;mvz2:intro">
+    <archive name="辉针城第8天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_8" />
+    <section>
+      <characters>
+        <character id="mvz2:shinmyoumaru" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">正邪说那些黑骷髅的首领叫做凋灵，你们知道它嘛？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的，凋灵是我们世界的一个极为强大的存在。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">它是个三头的死亡巨怪，所到之处房屋瓦解，植被凋零，是个非常可怕的魔物。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">原来如此，这些黑骷髅是你们世界的魔物。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">但为什么，它们会来到我们幻想乡呢？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这……我就不清楚了。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">说起来，我们已经快要靠近关押同胞的地方了。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="end">再加把劲，我们就能解救族人了！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_8_over" tags="mvz2:castle;mvz2:over">
+    <archive name="辉针城第8天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_8" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">这个是磁暴线圈！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">它能够电击周围的敌人！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">当然，也包括空中的！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird" onClick="end">你确定这是我们世界的东西？</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="castle_8_map" tags="mvz2:castle;mvz2:map">
+    <archive name="辉针城第8天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_8" />
+    <section onSkip="music volume 1;music play mvz2:sad_shinmyoumaru;forecolor fade #0000 0.5;loopsound stop mvz2:people_noise;end">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shinmyoumaru" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">好，族人们被关在这里！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #0000 #000F 0.5</script>
+            <script>delay 1</script>
+
+            <script>playsound mvz2:bow</script>
+            <script>shake</script>
+            <script>delay 0.5</script>
+
+            <script>playsound mvz2:bow</script>
+            <script>shake</script>
+            <script>delay 1</script>
+            <script>next</script>
+          </click>
+          <text>戴夫，我们一起把他们救出来！</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="loopsound play mvz2:people_noise;loopsound fade mvz2:people_noise 0 0.5 1"><![CDATA[<color=blue>（我们小心翼翼地打开每一个罐子，让小人族慢慢的走出来。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（小人族们有的因重获自由而欢喜，有的也因为丧失亲人而不停哭泣。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #0000 0.5</script>
+            <script>delay 1</script>
+            <script>next</script>
+          </click>
+          <text><![CDATA[<color=blue>（最后，所有的小人族都得到了解救。）</color>]]></text>
+        </sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="shake">同胞们，你们能得救真的是太好了！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="loopsound fade mvz2:people_noise 0"><![CDATA[<color=blue>（听到针妙丸的话语，小人族们纷纷看向了她。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="music fade 0"><![CDATA[<color=blue>（……）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird"><![CDATA[<color=blue>（然而，空气却突然在这时冻结了。）</color>]]></sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:surprised">……同胞们？</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk">……</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk">是针妙丸城主啊……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">怎、怎么了？</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk">上次托您的福，小人族至今为止都没有办法抬头。</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk">这次，我们又被这些可怕的怪物杀了不知道多少人。</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk">我们现在境地如此，您……真的有做到什么吗。</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" variant="mvz2:fear" onStart="shake">……！</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk" onStart="shake;loopsound volume mvz2:people_noise 1;music volume 1;music play mvz2:sad_shinmyoumaru">我们好累……好痛……</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:talk" onStart="shake">妈妈！妈妈！呜呜呜！我的妈妈！不要死！</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:dialog_beat" onStart="shake">别再和那可恶的天邪鬼在一块了！</sentence>
+        <sentence speakerName="小人族" sounds="mvz2:dialog_explosive" onStart="shake">该死的，这些怪物一定是你招来的吧！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake"><![CDATA[<color=blue>（怎、怎么回事！怎么会变成这样！）</color>]]></sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hide_eyes">……</sentence>
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="bubble hide;character leave mvz2:shinmyoumaru;delay 0.5;next">对不起。我……</sentence>
+        <sentence speaker="mvz2:steve" description="（针妙丸离开）" sounds="mvz2:talk" onStart="shake">
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #0000 #000F 1</script>
+            <script>delay 2</script>
+            <script>next</script>
+            <script>character leave mvz2:crazy_villager</script>
+          </click>
+          <text>针妙丸！你要去哪儿？！</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（小人族继续喧哗着。只是从自由的欢呼，变成了伤痛的哭嚎，以及质疑的议论。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #000F #0000 1</script>
+            <script>loopsound fade mvz2:people_noise 0</script>
+            <script>delay 1</script>
+
+            <script>loopsound stop mvz2:people_noise</script>
+            <script>end</script>
+          </click>
+          <text><![CDATA[<color=blue>（没有了针妙丸，我们不知所措，最后也只能离开这里。）</color>]]></text>
+        </sentence>
+      </sentences>
+    </section>
+  </group>
 </talks>

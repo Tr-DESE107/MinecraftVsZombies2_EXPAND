@@ -4,6 +4,7 @@ using MVZ2.Managers;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Audios
 {
@@ -42,6 +43,7 @@ namespace MVZ2.Audios
                 RemoveSoundSource(sameSoundSources.FirstOrDefault());
             }
             var source = Instantiate(soundTemplate, pos, Quaternion.identity, soundSourceRoot);
+            source.Volume = 1;
             source.SoundID = id;
             source.gameObject.name = id.ToString();
 
@@ -97,6 +99,18 @@ namespace MVZ2.Audios
             loopSoundSources.Remove(id);
             return true;
         }
+        public void StartFadeLoopSound(NamespaceID id, float target, float time)
+        {
+            if (!loopSoundSources.TryGetValue(id, out var source))
+                return;
+            source.StartFade(target, time);
+        }
+        public void StopFadeLoopSound(NamespaceID id)
+        {
+            if (!loopSoundSources.TryGetValue(id, out var source))
+                return;
+            source.StopFade();
+        }
         public bool IsPlayingLoopSound(NamespaceID id)
         {
             return loopSoundSources.ContainsKey(id);
@@ -111,13 +125,13 @@ namespace MVZ2.Audios
         {
             if (!loopSoundSources.TryGetValue(id, out var source))
                 return -1;
-            return source.AudioSource.volume;
+            return source.Volume;
         }
         public void SetLoopSoundVolume(NamespaceID id, float volume)
         {
             if (!loopSoundSources.TryGetValue(id, out var source))
                 return;
-            source.AudioSource.volume = volume;
+            source.Volume = volume;
         }
         #endregion
         private void Update()
