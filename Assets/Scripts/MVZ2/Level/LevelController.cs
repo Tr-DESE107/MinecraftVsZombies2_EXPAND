@@ -449,7 +449,13 @@ namespace MVZ2.Level
             {
                 // 设置光照。
                 ui.SetNightValue(level.GetNightValue());
-                SetDarknessValue(level.GetDarknessValue());
+                float darknessSpeed = 2;
+                if (!IsGameStarted() || IsGameOver())
+                {
+                    darknessSpeed = -2;
+                }
+                darknessFactor = Mathf.Clamp01(darknessFactor + darknessSpeed * uiDeltaTime);
+                SetDarknessValue(level.GetDarknessValue() * darknessFactor);
                 ui.SetScreenCover(level.GetScreenCover());
                 UpdateCamera();
                 UpdateMoney();
@@ -993,6 +999,7 @@ namespace MVZ2.Level
         private NamespaceID killerID;
         private EntityController killerEntity;
         private string deathMessage;
+        private float darknessFactor = 1;
         private NamespaceID exitTargetNoteID;
         private AreaModel model;
         public NamespaceID StartAreaID { get; set; }
