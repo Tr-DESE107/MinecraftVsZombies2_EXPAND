@@ -9,6 +9,7 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -34,9 +35,15 @@ namespace MVZ2.GameContent.Artifacts
                     continue;
                 if (artifact.Definition.GetID() != VanillaArtifactID.pagodaBranch)
                     continue;
-                artifact.Highlight();
-                level.AddStarshardCount(2);
-                level.PlaySound(VanillaSoundID.starshardUse);
+                var slotCount = level.GetStarshardSlotCount();
+                var starshardCount = level.GetStarshardCount();
+                if (starshardCount < slotCount)
+                {
+                    starshardCount = Mathf.Clamp(starshardCount + 2, 0, slotCount);
+                    artifact.Highlight();
+                    level.PlaySound(VanillaSoundID.starshardUse);
+                }
+                level.SetStarshardCount(starshardCount);
             }
         }
         public class LevelAura : AuraEffectDefinition

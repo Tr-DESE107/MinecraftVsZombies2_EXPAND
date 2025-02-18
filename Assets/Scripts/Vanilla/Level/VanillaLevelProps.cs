@@ -108,6 +108,7 @@ namespace MVZ2.Vanilla.Level
         }
         public static void SetStarshardCount(this LevelEngine game, int value)
         {
+            value = Mathf.Clamp(value, 0, game.GetStarshardSlotCount());
             game.SetProperty(STARSHARD_COUNT, value);
         }
         public static void AddStarshardCount(this LevelEngine game, int value)
