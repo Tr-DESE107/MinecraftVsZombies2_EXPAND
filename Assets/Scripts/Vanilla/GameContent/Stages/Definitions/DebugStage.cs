@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.soulFurnace,
-                VanillaContraptionID.pistenser,
+                VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.tnt,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.woodenDropper,

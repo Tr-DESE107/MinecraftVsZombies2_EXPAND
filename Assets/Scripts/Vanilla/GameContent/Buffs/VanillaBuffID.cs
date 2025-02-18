@@ -94,6 +94,7 @@ namespace MVZ2.GameContent.Buffs
         public static class Effect
         {
             public const string breakoutBoardUpgrade = "breakout_board_upgrade";
+            public const string timeoutLightShrink = "timeout_light_shrink";
         }
 
         public static class SeedPack

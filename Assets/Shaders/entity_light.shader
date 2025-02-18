@@ -1,4 +1,4 @@
-﻿Shader "MinecraftVSZombies2/Entity/Entity"
+﻿Shader "MinecraftVSZombies2/Entity/Light"
 {
     Properties
     {
@@ -31,7 +31,7 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "Entity"
+			"RenderType" = "Light"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
@@ -51,5 +51,5 @@
 			ENDCG
 		}
 	}
-	FallBack "Sprites/Default"
+	FallBack "MinecraftVSZombies2/Entity/Entity"
 }

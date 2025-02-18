@@ -49,10 +49,15 @@
 			#pragma vertex EntityVert
 			#pragma fragment frag
 
+			int _Emission;
+
 			fixed4 frag(v2f i) : SV_Target
 			{
 				fixed4 c = EntityFrag(i);
-				c.rgb = 0;
+				if (_Emission <= 0)
+				{
+					c.rgb = 0;
+				}
 				return c;
 			}
 			ENDCG
