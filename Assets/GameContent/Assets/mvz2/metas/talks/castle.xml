@@ -538,7 +538,8 @@
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" onStart="shake">正、正邪！你没事吧！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">刚、刚才她倒下的时候，有个催眠者从天花板上掉下来了！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来如此，它利用了正邪的能力反转了自己的重力，让自己处在我们的视线盲区内！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">啊！这个器械是雷鼓！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">她好像只是昏过去了，应该没事，等她醒吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">另外，这个器械是雷鼓！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这玩意可以让地面震动起来，然后把僵尸击退，顺便把它们送到不同的行！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" onClick="end">当心地震！</sentence>
       </sentences>
