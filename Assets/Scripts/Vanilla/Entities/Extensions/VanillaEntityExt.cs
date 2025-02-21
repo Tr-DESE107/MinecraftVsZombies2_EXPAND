@@ -654,6 +654,10 @@ namespace MVZ2.Vanilla.Entities
             buff.Update();
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
         }
+        public static void RemoveCharm(this Entity entity)
+        {
+            entity.RemoveBuffs<CharmBuff>();
+        }
         public static bool IsCharmed(this Entity entity)
         {
             return entity.HasBuff<CharmBuff>();

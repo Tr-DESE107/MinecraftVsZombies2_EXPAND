@@ -42,13 +42,13 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.thunderDrum,
+                VanillaContraptionID.glowstone,
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.tnt,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.woodenDropper,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.spider,
+                VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.dullahan,
                 VanillaEnemyID.mutantZombie,
                 VanillaBossID.seija

@@ -113,7 +113,7 @@
             </header>
             <properties>
                 <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>眩晕所有敌人5秒</color>]]></p>
+                <p>技能：<![CDATA[<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>]]></p>
             </properties>
             <flavor>
                 <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>

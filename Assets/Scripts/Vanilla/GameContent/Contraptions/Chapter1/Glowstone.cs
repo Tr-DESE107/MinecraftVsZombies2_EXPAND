@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
@@ -37,10 +38,22 @@ namespace MVZ2.GameContent.Contraptions
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
             bool stunned = false;
-            foreach (var enemy in entity.Level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsHostile(entity) && e.CanDeactive()))
+            foreach (var target in entity.Level.GetEntities())
             {
-                enemy.Stun(150);
-                stunned = true;
+                if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
+                {
+                    target.Stun(150);
+                    stunned = true;
+                }
+                else if (target.Type == EntityTypes.PLANT && target.IsCharmed())
+                {
+                    target.RemoveCharm();
+                    target.PlaySound(VanillaSoundID.mindClear);
+                }
+                else if (target.IsEntityOf(VanillaProjectileID.compellingOrb) && target.IsHostile(entity))
+                {
+                    target.Die();
+                }
             }
             if (stunned)
             {
