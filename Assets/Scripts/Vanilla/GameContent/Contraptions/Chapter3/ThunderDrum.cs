@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Contraptions
             Quake(entity);
             SetBroken(entity, true);
             var restoreTimer = GetRestoreTimer(entity);
-            restoreTimer.Reset();
+            restoreTimer.ResetTime(RESTORE_TIME);
         }
         protected override void OnEvoke(Entity entity)
         {
@@ -129,7 +129,7 @@ namespace MVZ2.GameContent.Contraptions
         public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, FIELD_EVOCATION_TIMER);
         public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, FIELD_EVOCATION_TIMER, timer);
 
-        public const int RESTORE_TIME = 900;
+        public const int RESTORE_TIME = 1800;
         public const int EVOCATION_DURATION = 120;
         public const float TOTAL_HP_LOSS = 0.25f;
         public static readonly VanillaEntityPropertyMeta FIELD_BROKEN = new VanillaEntityPropertyMeta("Broken");
