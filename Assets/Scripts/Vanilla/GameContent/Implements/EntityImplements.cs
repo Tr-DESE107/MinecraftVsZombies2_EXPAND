@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Implements
             var damageThresold = -entity.GetFallResistance();
             if (velocity.y > damageThresold)
                 return;
-            var fallDamage = Mathf.Pow(velocity.y - damageThresold, 2);
+            var fallDamage = 2.5f * Mathf.Pow(velocity.y - damageThresold, 2);
             if (fallDamage > 0)
             {
                 var effects = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.FALL_DAMAGE);

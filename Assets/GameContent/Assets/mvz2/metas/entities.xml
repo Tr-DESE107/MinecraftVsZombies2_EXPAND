@@ -25,7 +25,7 @@
             <float name="attackSpeed" value="1"/>
             <float name="produceSpeed" value="1"/>
             <float name="damage" value="100"/>
-            <float name="fallResistance" value="6.5"/>
+            <float name="fallResistance" value="9"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="placement" value="mvz2:normal"/>
             <id name="placeSound" value="mvz2:stone"/>
@@ -40,7 +40,7 @@
             <float name="maxAttackHeight" value="60"/>
             <float name="speed" value="1"/>
             <float name="damage" value="100"/>
-            <float name="fallResistance" value="6.5"/>
+            <float name="fallResistance" value="9"/>
             <id name="shell" value="mvz2:flesh"/>
             <id name="crySound" value="mvz2:zombie_cry"/>
             <id name="deathSound" value="mvz2:zombie_death"/>
@@ -57,7 +57,7 @@
             <float name="maxHealth" value="200"/>
             <float name="friction" value="0.2"/>
             <float name="gravity" value="1"/>
-            <float name="fallResistance" value="6.5"/>
+            <float name="fallResistance" value="9"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
             <bool name="faceLeftAtDefault" value="true"/>
@@ -625,7 +625,7 @@
             <float name="maxHealth" value="160"/>
             <float name="maxAttackHeight" value="30"/>
             <float name="speed" value="2"/>
-            <float name="fallResistance" value="30"/>
+            <float name="fallResistance" value="15"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="104" y="48" z="48"/>
             <id name="crySound" value="mvz2:spider_cry"/>
@@ -643,7 +643,7 @@
             <float name="maxHealth" value="120"/>
             <float name="maxAttackHeight" value="15"/>
             <float name="speed" value="2"/>
-            <float name="fallResistance" value="30"/>
+            <float name="fallResistance" value="15"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="52" y="24" z="24"/>
             <id name="crySound" value="mvz2:spider_cry"/>
@@ -679,7 +679,7 @@
             <float name="maxHealth" value="200"/>
             <float name="maxAttackHeight" value="30"/>
             <float name="speed" value="2"/>
-            <float name="fallResistance" value="30"/>
+            <float name="fallResistance" value="15"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="104" y="48" z="48"/>
             <id name="crySound" value="mvz2:terror_cry"/>
@@ -698,7 +698,7 @@
             <float name="maxHealth" value="50"/>
             <float name="maxAttackHeight" value="15"/>
             <float name="speed" value="4"/>
-            <float name="fallResistance" value="30"/>
+            <float name="fallResistance" value="15"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="52" y="24" z="24"/>
             <id name="crySound" value="mvz2:terror_cry"/>
@@ -808,7 +808,7 @@
             <int name="waterInteraction" value="3"/>
         </enemy>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
-            <float name="fallResistance" value="30"/>
+            <float name="fallResistance" value="18"/>
             <float name="cryPitch" value="2"/>
             <int name="cost" value="50" />
             <int name="waterInteraction" value="2"/>
@@ -859,7 +859,7 @@
         </enemy>
         <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.castle_6">
             <float name="maxHealth" value="400"/>
-            <float name="fallResistance" value="30"/>
+            <float name="fallResistance" value="15"/>
             <id name="shell" value="mvz2:bone"/>
             <id name="crySound" value="mvz2:skeleton_horse_cry"/>
             <id name="deathSound" value="mvz2:skeleton_horse_death"/>
