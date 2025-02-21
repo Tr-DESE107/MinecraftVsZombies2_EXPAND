@@ -102,20 +102,21 @@ v2f EntityVert(a2v v)
     return o;
 }
 
-fixed4 EntityFrag(v2f i) :SV_Target
+fixed4 FragColor(fixed4 col, fixed4 tint) : SV_Target
 {
-    fixed4 col = tex2D(_MainTex, i.uv);
-    
-    col = Tint(col, i.color);
+    col = Tint(col, tint);
     col = Tint(col, _Color);
     
     col.rgb = _ColorOffset.rgb + col.rgb;
-    //col.rgb = _ColorOffset.rgb * _ColorOffset.a + col.rgb * (1 - _ColorOffset.a);
 
-    #if BURN_ON
+    return col;
+}
+fixed4 EntityFrag(v2f i) :SV_Target
+{
+    fixed4 col = tex2D(_MainTex, i.uv);
+    col = FragColor(col, i.color);
+#if BURN_ON
     col = Burn(col, i);
-    #endif
-    //clip(col.a - 0.15);
-
+#endif
     return col;
 }

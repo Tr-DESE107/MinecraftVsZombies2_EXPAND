@@ -11,8 +11,8 @@ Shader "MinecraftVSZombies2/Model3D"
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
-        ZWrite Off
-        ZTest Always
+        ZWrite On
+        ZTest LEqual
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types

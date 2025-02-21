@@ -45,7 +45,6 @@
 			CGPROGRAM
 			#include "cg/entity.cginc"
 			#pragma shader_feature_local _ BURN_ON
-			#pragma shader_feature_local _ COLORED_ON
 			#pragma vertex EntityVert
 			#pragma fragment EntityFrag
 			ENDCG
