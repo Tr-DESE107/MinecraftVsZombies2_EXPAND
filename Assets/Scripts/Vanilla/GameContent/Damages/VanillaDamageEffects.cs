@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID TINY = Get("tiny");
         public static readonly NamespaceID GROUND_SPIKES = Get("ground_spikes");
         public static readonly NamespaceID GOLD = Get("gold");
+        public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
 
         public static NamespaceID Get(string name)
         {

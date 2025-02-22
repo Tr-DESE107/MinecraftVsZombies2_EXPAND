@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             if (!entity.Parent.ExistsAndAlive())
             {
-                entity.Die(entity);
+                entity.Die(new DamageEffectList(VanillaDamageEffects.NO_NEUTRALIZE), entity);
                 return;
             }
 

@@ -121,6 +121,8 @@ namespace MVZ2.GameContent.Implements
         }
         private void PostEnemyDeathCallback(Entity entity, DeathInfo damage)
         {
+            if (damage.HasEffect(VanillaDamageEffects.NO_NEUTRALIZE))
+                return;
             entity.Neutralize();
         }
         private void HealParticlesUpdateCallback(Entity entity)

@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.woodenDropper,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.mesmerizer,
-                VanillaEnemyID.dullahan,
+                VanillaEnemyID.bedserker,
                 VanillaEnemyID.mutantZombie,
                 VanillaBossID.seija
             });

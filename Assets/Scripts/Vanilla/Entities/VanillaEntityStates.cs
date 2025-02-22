@@ -97,6 +97,13 @@
         public const int SEIJA_FABRIC = BOSS_SPECIAL_3;
         public const int SEIJA_FAINT = DEAD;
 
+        public const int WITHER_APPEAR = BOSS_APPEAR;
+        public const int WITHER_IDLE = IDLE;
+        public const int WITHER_CHARGE = ATTACK;
+        public const int WITHER_EAT = BOSS_ATTACK_2;
+        public const int WITHER_SUMMON = BOSS_SPECIAL;
+        public const int WITHER_DEATH = DEAD;
+
 
 
         public const int BREAKOUT_PEARL_IDLE = IDLE;

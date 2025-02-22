@@ -76,6 +76,7 @@
     <model name="dullahan_main" type="entity" path="mvz2:enemy/castle/dullahan_main" width="64" height="100" xOffset="10" yOffset="-46"/>
     <model name="soulsand" type="entity" path="mvz2:enemy/castle/soulsand" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="seija_cursed_doll" type="entity" path="mvz2:enemy/castle/seija_cursed_doll"  width="32" height="32" xOffset="0" yOffset="-16"/>
+    <model name="bedserker" type="entity" path="mvz2:enemy/castle/bedserker" width="72" height="100" xOffset="10" yOffset="-48"/>
 
 
     <!-- Obstacles -->
@@ -204,6 +205,7 @@
     <model name="boat_item" type="armor" path="mvz2:armor/boat_item" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mesmerizer_crown" type="armor" path="mvz2:armor/mesmerizer_crown" width="34" height="40" xOffset="0" yOffset="-21"/>
     <model name="berserker_helmet" type="armor" path="mvz2:armor/berserker_helmet" width="32" height="14" xOffset="0" yOffset="-9"/>
+    <model name="bedserker_helmet" type="armor" path="mvz2:armor/bedserker_helmet" width="32" height="14" xOffset="0" yOffset="-9"/>
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>

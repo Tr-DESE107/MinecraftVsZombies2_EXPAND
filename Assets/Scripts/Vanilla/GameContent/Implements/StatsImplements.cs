@@ -6,6 +6,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Implements
 {

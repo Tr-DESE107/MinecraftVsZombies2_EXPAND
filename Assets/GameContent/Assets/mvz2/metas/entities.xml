@@ -910,6 +910,18 @@
 
             <int name="cost" value="25" />
         </enemy>
+        <enemy id="bedserker" name="床战士" deathMessage="晚安" unlock="mvz2:level.castle_11">
+            <float name="range" value="80"/>
+            <float name="speed" value="2"/>
+            <float name="maxHealth" value="10000"/>
+            <id name="shell" value="mvz2:nether"/>
+            <id name="crySound" value="mvz2:wither_skeleton_cry"/>
+            <id name="hitSound" value="mvz2:bone_hit"/>
+            <id name="deathSound" value="mvz2:wither_skeleton_death"/>
+
+            <int name="cost" value="1000" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
 
         <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">
@@ -948,6 +960,14 @@
             <vector3 name="size" x="30" y="88" z="30"/>
             <color name="bloodColor" value="#7F0000FF"/>
             <color name="bloodColorCensored" value="#00007FFF"/>
+        </boss>
+        <boss id="wither" name="凋灵">
+            <int name="waterInteraction" value="1"/>
+            <float name="maxHealth" value="5000"/>
+            <id name="shell" value="mvz2:bone"/>
+            <vector3 name="size" x="64" y="128" z="64"/>
+            <color name="bloodColor" value="#00000000"/>
+            <color name="bloodColorCensored" value="#00000000"/>
         </boss>
 
         <!-- Carts -->

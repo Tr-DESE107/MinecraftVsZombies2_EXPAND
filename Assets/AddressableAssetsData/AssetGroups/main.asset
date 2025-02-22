@@ -257,6 +257,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c7e08f6f7eda13479acc61f855b70ff
+    m_Address: mvz2:projectile/wither_skull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d2aba7e3e7fc2b44a60708edca144b6
     m_Address: mvz2:archive/dream_note
     m_ReadOnly: 0
@@ -358,6 +364,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10f0a75a79063264f8e9d4e7413c683f
+    m_Address: mvz2:mobile_blueprint/bedserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 111b8a1b7b5a2be4c9f3830f3523485b
     m_Address: mvz2:effect/stun_stars
@@ -1612,6 +1624,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41e9ae37d1663c94ba25b6f38590132b
+    m_Address: mvz2:entity/enemies/bedserker_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42226c15cb218274b8576006d9f58dc6
     m_Address: mvz2:entity/effects/crushing_wall_left_censored
     m_ReadOnly: 0
@@ -1827,6 +1845,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ac894cccf343c44e81c86c063ac4d75
+    m_Address: mvz2:entity/enemies/bedserker_bed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4acf5b93dbb101c4eac524bde4307b84
     m_Address: mvz2:frankenstein_steel_laugh
@@ -4281,6 +4305,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abf5d1c7941cccc408352d67a4f72003
+    m_Address: mvz2:entity/enemies/bedserker_rope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac1f70b601142f7408e769da02898fc5
     m_Address: mvz2:ui/achievements/pop_up_frame
     m_ReadOnly: 0
@@ -4676,6 +4706,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b98fd1dd920b4ee48b4b6caf7c3030d0
+    m_Address: mvz2:armor/bedserker_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9be44ffa4015754eaf65066f0522ab8
     m_Address: mvz2:mobile_blueprint/hell_chariot
@@ -5757,6 +5793,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e44b0e9757080bf4dbf0ae5b2420e15c
+    m_Address: mvz2:entity/armor/bedserker_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e54f2595624bbc447b98881de587ce72
     m_Address: mvz2:ui/level/hint_arrow
     m_ReadOnly: 0
@@ -6153,6 +6195,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f18e0548569cecb4ebca1db37d027ec7
+    m_Address: mvz2:enemy/castle/bedserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1aefc59239478744b6bdc884a1fc842
     m_Address: mvz2:ui/level/wallet
     m_ReadOnly: 0
@@ -6452,6 +6500,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff83737ccd004a84b8c1149cb98e7ffb
+    m_Address: mvz2:boss/wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc82409076aa3e4481bb54a1438d1db
     m_Address: mvz2:entity/enemies/golden_axe

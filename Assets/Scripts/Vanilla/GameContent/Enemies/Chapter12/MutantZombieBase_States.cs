@@ -104,9 +104,9 @@ namespace MVZ2.Vanilla.Enemies
                     case SUBSTATE_START:
                         if (subStateTimer.Expired)
                         {
-                            Hammer(entity);
                             subStateTimer.ResetTime(20);
                             stateMachine.SetSubState(entity, SUBSTATE_ATTACKED);
+                            Hammer(entity);
                         }
                         break;
                     case SUBSTATE_ATTACKED:

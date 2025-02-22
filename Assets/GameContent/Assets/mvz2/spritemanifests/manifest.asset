@@ -127,6 +127,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
   - name: mobile_blueprint/anubisand
     sprite: {fileID: 21300000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
+  - name: mobile_blueprint/bedserker
+    sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker
     sprite: {fileID: 21300000, guid: 02d02d3206dc8484c8e80a0aa53c8725, type: 3}
   - name: mobile_blueprint/diamond_spikes
@@ -345,6 +347,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
   - name: ui/ui_arrow
     sprite: {fileID: 21300000, guid: 410f8ec80407d6e4ab481954c0ce2d49, type: 3}
+  - name: entity/armor/bedserker_helmet
+    sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet
     sprite: {fileID: 21300000, guid: 7b5b04fa7d4703a48867a2ec9b7c31f6, type: 3}
   - name: entity/armor/mesmerizer_crown
@@ -499,6 +503,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
   - name: entity/effects/water_splash
     sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
+  - name: entity/enemies/bedserker_bed
+    sprite: {fileID: 21300000, guid: 4ac894cccf343c44e81c86c063ac4d75, type: 3}
+  - name: entity/enemies/bedserker_head
+    sprite: {fileID: 21300000, guid: 41e9ae37d1663c94ba25b6f38590132b, type: 3}
+  - name: entity/enemies/bedserker_rope
+    sprite: {fileID: 21300000, guid: abf5d1c7941cccc408352d67a4f72003, type: 3}
   - name: entity/enemies/berserker_head
     sprite: {fileID: 21300000, guid: f5471f5e7879eec41accb98281bd3d2c, type: 3}
   - name: entity/enemies/bow_texture

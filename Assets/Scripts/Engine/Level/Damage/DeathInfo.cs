@@ -16,5 +16,11 @@ namespace PVZEngine.Damages
             Source = source;
             Damage = damage;
         }
+        public bool HasEffect(NamespaceID effect)
+        {
+            if (Effects == null)
+                return false;
+            return Effects.HasEffect(effect);
+        }
     }
 }
