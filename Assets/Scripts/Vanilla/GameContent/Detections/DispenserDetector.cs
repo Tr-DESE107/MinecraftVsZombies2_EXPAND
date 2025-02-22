@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Detections
                 else
                 {
                     sizeY = 1000;
-                    centerY = source.y + projectileSize.y * 0.5f - sizeY * 0.5f;
+                    centerY = source.y + projectileSize.y - sizeY * 0.5f;
                 }
             }
             else
@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Detections
                 if (ignoreLowEnemy)
                 {
                     sizeY = 1000;
-                    centerY = source.y - projectileSize.y * 0.5f + sizeY * 0.5f;
+                    centerY = source.y + sizeY * 0.5f;
                 }
                 else
                 {
