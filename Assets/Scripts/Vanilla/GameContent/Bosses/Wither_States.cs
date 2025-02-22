@@ -1,19 +1,12 @@
 ﻿using System.Collections.Generic;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic.Level;
-using PVZEngine.Armors;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -41,8 +34,14 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                entity.SetAnimationBool("Shaking", true);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetTime(60);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                entity.SetAnimationBool("Shaking", false);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -56,100 +55,42 @@ namespace MVZ2.GameContent.Bosses
         }
         private class IdleState : EntityStateMachineState
         {
-			public List<Entity> searchTargetBuffer = new List<Entity>();
+            public List<Entity> searchTargetBuffer = new List<Entity>();
             public Detector searchTargetDetector = new WitherDetector();
-            public const int MAX_SKULL_CHARGE_MAIN = 180;
-            public const int MAX_SKULL_CHARGE = 120;
+            public const int MAX_SKULL_CHARGE_MAIN = 90;
+            public const int MAX_SKULL_CHARGE = 60;
             public IdleState() : base(STATE_IDLE) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(30);
+                stateTimer.ResetTime(300);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                EntityID[] headTargets = GetHeadTargets(entity);
+                if (headTargets == null)
+                    return;
+                for (int i = 0; i < headTargets.Length; i++)
+                {
+                    headTargets[i] = null;
+                }
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 UpdateAction(stateMachine, entity);
-                var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.Run(stateMachine.GetSpeed(entity));
-                if (!stateTimer.Expired)
-                    return;
-                var nextState = GetNextState(stateMachine, entity);
-                stateMachine.StartState(entity, nextState);
-                stateMachine.SetPreviousState(entity, nextState);
+                UpdateStateSwitch(stateMachine, entity);
             }
-            private void RotateHeadUpdate(Entity entity, int head, Entity target)
+            private void UpdateAction(EntityStateMachine stateMachine, Entity entity)
             {
-                var headPosition = GetHeadPosition(entity, head);
-                float targetAngle = 0;
-                if (target.ExistsAndAlive())
-                {
-                    Vector3 targetDirection = target.GetCenter() - headPosition;
-                    Vector3 facingDirection = entity.GetFacingDirection();
-                    var targetDir2D = new Vector2(targetDirection.x, targetDirection.z);
-                    var facingDir2D = new Vector2(facingDirection.x, facingDirection.z);
-                    targetAngle = Vector2.SignedAngle(targetDir2D, facingDir2D);
-                }
-                var headAngles = GetHeadAngles(entity);
-                if (headAngles == null)
-                {
-                    headAngles = new float[HEAD_COUNT];
-                    SetHeadAngles(entity, headAngles);
-                }
+                var headOpen = GetHeadOpen(entity);
+                headOpen *= 0.5f;
+                SetHeadOpen(entity, headOpen);
 
-                var angle = headAngles[head];
-                if (angle > 180)
-                {
-                    angle = angle - 360;
-                }
-                if (targetAngle > angle)
-				{
-                    if (angle + HEAD_ROTATE_SPEED > targetAngle)
-                    {
-                        angle = targetAngle;
-                    }
-                    else
-                    {
-                        angle += HEAD_ROTATE_SPEED;
-                    }
-                }
-                else
-                {
-                    if (angle - HEAD_ROTATE_SPEED < targetAngle)
-                    {
-                        angle = targetAngle;
-                    }
-                    else
-                    {
-                        angle -= HEAD_ROTATE_SPEED;
-                    }
-                }
-                headAngles[head] = (angle + 360) % 360;
-            }
-            private void FireSkullUpdate(Entity entity, int head, Entity target)
-            {
-                float[] skullCharges = GetSkullCharges(entity);
-                if (skullCharges == null)
-                {
-                    skullCharges = new float[HEAD_COUNT];
-                    SetSkullCharges(entity, skullCharges);
-                }
-                var maxCharges = head == 0 ? MAX_SKULL_CHARGE_MAIN : MAX_SKULL_CHARGE;
-                skullCharges[head]++;
-
-                if (skullCharges[head] >= maxCharges)
-                {
-                    var headPosition = GetHeadPosition(entity, head);
-                    var param = entity.GetShootParams();
-                    param.position = headPosition;
-                    param.projectileID = VanillaProjectileID.witherSkull;
-                    param.damage = entity.GetDamage() * 0.75f;
-                    param.soundID = VanillaSoundID.witherShoot;
-                    param.velocity = 9 * (target.GetCenter() - headPosition).normalized;
-                    entity.ShootProjectile(param);
-                    skullCharges[head] = 0;
-                }
+                UpdateArmored(entity);
+                UpdateHeads(entity);
             }
             private void UpdateArmored(Entity entity)
             {
@@ -188,46 +129,40 @@ namespace MVZ2.GameContent.Bosses
                 }
                 var thisPos = new Vector2(entity.Position.x, entity.Position.z);
                 var dir = targetPos - thisPos;
-                if (dir.magnitude > 10)
+                if (dir.magnitude > 20)
                 {
-                    var moveVel = dir.normalized * 10;
+                    var moveVel = dir.normalized * 20;
                     var pos = entity.Position;
                     pos.x += moveVel.x;
                     pos.z += moveVel.y;
                     entity.Position = pos;
                 }
             }
-            private void UpdateAction(EntityStateMachine stateMachine, Entity entity)
+            private void UpdateHeads(Entity entity)
             {
-				var headOpen = GetHeadOpen(entity);
-				headOpen *= 0.5f;
-				SetHeadOpen(entity, headOpen);
-
-                UpdateArmored(entity);
-
                 EntityID[] headTargets = GetHeadTargets(entity);
-				if (headTargets == null)
-				{
-					headTargets = new EntityID[HEAD_COUNT];
-					SetHeadTargets(entity, headTargets);
+                if (headTargets == null)
+                {
+                    headTargets = new EntityID[HEAD_COUNT];
+                    SetHeadTargets(entity, headTargets);
                 }
                 for (var head = 0; head < headTargets.Length; head++)
-				{
-					//锁定目标
-					var target = headTargets[head]?.GetEntity(entity.Level);
-					if (!target.ExistsAndAlive())
-					{
-						//搜寻物体，看是否有合格的敌人
-						searchTargetBuffer.Clear();
-						searchTargetDetector.DetectEntities(entity, searchTargetBuffer);
-						//若拥有合格的敌人，则随机选取一个
-						if (searchTargetBuffer.Count > 0)
+                {
+                    //锁定目标
+                    var target = headTargets[head]?.GetEntity(entity.Level);
+                    if (!target.ExistsAndAlive())
+                    {
+                        //搜寻物体，看是否有合格的敌人
+                        searchTargetBuffer.Clear();
+                        searchTargetDetector.DetectEntities(entity, searchTargetBuffer);
+                        //若拥有合格的敌人，则随机选取一个
+                        if (searchTargetBuffer.Count > 0)
                         {
                             target = searchTargetBuffer.Random(entity.RNG);
                             headTargets[head] = new EntityID(target);
                         }
-					}
-					else
+                    }
+                    else
                     {
                         //判断目标是否合格，否则取消锁定
                         if (!searchTargetDetector.ValidateTarget(entity, target))
@@ -235,21 +170,60 @@ namespace MVZ2.GameContent.Bosses
                             target = null;
                             headTargets[head] = null;
                         }
-					}
-
-                    //转头
-                    RotateHeadUpdate(entity, head, target);
+                    }
                     //锁定完毕，开始执行
                     if (target.ExistsAndAlive())
                     {
                         //发射凋灵之首
                         FireSkullUpdate(entity, head, target);
-			        }
-		        }
+                    }
+                }
+            }
+            private void FireSkullUpdate(Entity entity, int head, Entity target)
+            {
+                float[] skullCharges = GetSkullCharges(entity);
+                if (skullCharges == null)
+                {
+                    skullCharges = new float[HEAD_COUNT];
+                    SetSkullCharges(entity, skullCharges);
+                }
+                var maxCharges = head == 0 ? MAX_SKULL_CHARGE_MAIN : MAX_SKULL_CHARGE;
+                skullCharges[head]++;
+
+                if (skullCharges[head] >= maxCharges)
+                {
+                    var headPosition = GetHeadPosition(entity, head);
+                    var param = entity.GetShootParams();
+                    param.position = headPosition;
+                    param.projectileID = VanillaProjectileID.witherSkull;
+                    param.damage = entity.GetDamage() * 0.75f;
+                    param.soundID = VanillaSoundID.witherShoot;
+                    param.velocity = 9 * (target.GetCenter() - headPosition).normalized;
+                    entity.ShootProjectile(param);
+                    skullCharges[head] = 0;
+                }
+            }
+            private void UpdateStateSwitch(EntityStateMachine stateMachine, Entity entity)
+            {
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.Run(stateMachine.GetSpeed(entity));
+                if (!stateTimer.Expired)
+                    return;
+                var nextState = GetNextState(stateMachine, entity);
+                stateMachine.StartState(entity, nextState);
+                stateMachine.SetPreviousState(entity, nextState);
             }
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
                 var lastState = stateMachine.GetPreviousState(entity);
+                if (lastState == STATE_IDLE || lastState == STATE_EAT)
+                {
+                    lastState = STATE_CHARGE;
+                    if (CanCharge(entity))
+                    {
+                        return lastState;
+                    }
+                }
 
                 return STATE_IDLE;
             }
@@ -263,35 +237,115 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
-                substateTimer.ResetTime(30);
+                substateTimer.ResetTime(15);
+
+                var lane = FindChargeLane(entity);
+                if (lane < 0)
+                {
+                    lane = entity.GetLane();
+                }
+                SetChargeTargetLane(entity, lane);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
-                RunTimer(stateMachine, entity);
-            }
-            private void RunTimer(EntityStateMachine stateMachine, Entity entity)
-            {
                 var substate = stateMachine.GetSubState(entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.Run(stateMachine.GetSpeed(entity));
 
+                var level = entity.Level;
                 switch (substate)
                 {
-                    case SUBSTATE_READY:
+                    case SUBSTATE_MOVE:
+                        {
+                            //移动
+                            var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
+                            var targetX = level.GetEntityColumnX(column);
+                            var targetZ = level.GetEntityLaneZ(GetChargeTargetLane(entity));
+                            var targetY = level.GetGroundY(targetX, targetZ);
+
+                            var pos = entity.Position;
+                            pos.x = pos.x * 0.85f + targetX * 0.15f;
+                            pos.y = pos.y * 0.85f + targetY * 0.15f;
+                            pos.z = pos.z * 0.85f + targetZ * 0.15f;
+                            entity.Position = pos;
+
+                            if (substateTimer.Expired)
+                            {
+                                substateTimer.ResetTime(90);
+                                stateMachine.SetSubState(entity, SUBSTATE_CHARGING);
+                            }
+                        }
                         break;
+
                     case SUBSTATE_CHARGING:
+                        //聚能
+                        //张嘴
+                        var headOpen = GetHeadOpen(entity);
+                        headOpen = headOpen * 0.7f + 1 * 0.3f;
+                        SetHeadOpen(entity, headOpen);
+
+                        if (substateTimer.Expired)
+                        {
+                            var vel = entity.Velocity;
+                            vel.x = entity.GetFacingX() * -20;
+                            entity.Velocity = vel;
+                            stateMachine.SetSubState(entity, SUBSTATE_DASH);
+                            substateTimer.ResetTime(20);
+                        }
                         break;
                     case SUBSTATE_DASH:
+                        {
+                            var pos = entity.Position;
+                            var vel = entity.Velocity;
+                            vel.x += entity.GetFacingX() * (substateTimer.MaxFrame - substateTimer.Frame) * 0.5f;
+
+                            bool reachEnd = false;
+                            float endX = 0;
+                            if (entity.IsFacingLeft())
+                            {
+                                var column = 0;
+                                endX = level.GetEntityColumnX(column);
+                                reachEnd = pos.x + vel.x <= endX;
+                            }
+                            else
+                            {
+                                var column = level.GetMaxColumnCount() - 1;
+                                endX = level.GetEntityColumnX(column);
+                                reachEnd = pos.x + vel.x >= endX;
+                            }
+                            if (reachEnd)
+                            {
+                                pos.x = endX;
+
+                                vel.x = 0;
+                                stateMachine.SetSubState(entity, SUBSTATE_DASH_END);
+                                substateTimer.ResetTime(30);
+                            }
+                            entity.Position = pos;
+                            entity.Velocity = vel;
+                        }
+                        break;
+                    case SUBSTATE_DASH_END:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
                         break;
                     case SUBSTATE_INTERRUPTED:
+                        if (substateTimer.Expired)
+                        {
+                            entity.SetAnimationBool("Shaking", false);
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
                         break;
                 }
             }
-            public const int SUBSTATE_READY = 0;
+            public const int SUBSTATE_MOVE = 0;
             public const int SUBSTATE_CHARGING = 1;
             public const int SUBSTATE_DASH = 2;
-            public const int SUBSTATE_INTERRUPTED = 3;
+            public const int SUBSTATE_DASH_END = 3;
+            public const int SUBSTATE_INTERRUPTED = 4;
         }
         private class EatState : EntityStateMachineState
         {

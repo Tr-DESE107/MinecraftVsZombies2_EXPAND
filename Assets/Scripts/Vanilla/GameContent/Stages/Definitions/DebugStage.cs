@@ -47,10 +47,10 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.tnt,
                 VanillaContraptionID.goldenApple,
                 VanillaContraptionID.woodenDropper,
+                VanillaContraptionID.stoneShield,
+                VanillaContraptionID.thunderDrum,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.mesmerizer,
-                VanillaEnemyID.bedserker,
-                VanillaEnemyID.mutantZombie,
                 VanillaBossID.wither
             });
             level.SetArtifactSlotCount(3);

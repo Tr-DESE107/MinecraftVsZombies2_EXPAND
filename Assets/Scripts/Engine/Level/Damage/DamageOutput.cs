@@ -18,5 +18,15 @@ namespace PVZEngine.Damages
                 return false;
             return true;
         }
+        public bool HasAnyFatal()
+        {
+            if (ArmorResult != null && ArmorResult.Fatal)
+                return true;
+            if (BodyResult != null && BodyResult.Fatal)
+                return true;
+            if (ShieldResult != null && ShieldResult.Fatal)
+                return true;
+            return false;
+        }
     }
 }
