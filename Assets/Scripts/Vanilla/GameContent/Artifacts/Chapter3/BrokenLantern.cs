@@ -3,8 +3,10 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
@@ -15,11 +17,25 @@ namespace MVZ2.GameContent.Artifacts
         public BrokenLantern(string nsp, string name) : base(nsp, name)
         {
             AddAura(new Aura());
+            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostContraptionInitCallback, filter: EntityTypes.PLANT);
         }
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
+        }
+        private void PostContraptionInitCallback(Entity contraption)
+        {
+            if (!contraption.IsLightSource())
+                return;
+            var level = contraption.Level;
+            var lantern = level.GetArtifact(GetID());
+            if (lantern == null)
+                return;
+            var aura = lantern.GetAuraEffect<Aura>();
+            if (aura == null)
+                return;
+            aura.UpdateAura();
         }
         public class Aura : AuraEffectDefinition
         {
