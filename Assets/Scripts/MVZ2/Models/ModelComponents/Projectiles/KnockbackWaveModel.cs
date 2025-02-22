@@ -9,12 +9,17 @@ namespace MVZ2.Models
             base.Init();
             lastPosition = transform.position;
         }
+        public override void UpdateLogic()
+        {
+            base.UpdateLogic();
+            float angle = Vector2.SignedAngle(Vector2.right, transVelocity);
+            Model.SetProperty("Angle", angle);
+        }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
-            Vector3 transVelocity = transform.position - lastPosition;
-            float angle = Vector2.SignedAngle(Vector2.right, transVelocity);
-            SetDirection(angle);
+            SetDirection(Model.GetProperty<float>("Angle"));
+            transVelocity = transform.position - lastPosition;
             lastPosition = transform.position;
         }
 
@@ -25,5 +30,6 @@ namespace MVZ2.Models
         [SerializeField]
         private ParticleSystem particle;
         private Vector3 lastPosition;
+        private Vector3 transVelocity;
     }
 }

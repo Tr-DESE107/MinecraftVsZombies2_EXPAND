@@ -476,9 +476,12 @@ namespace MVZ2.Entities
             }
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundY();
+            var transGroundPos = Level.LawnToTrans(groundPos);
+            var transPos = Level.LawnToTrans(Entity.Position);
+            var transOffset = transGroundPos - transPos;
 
             var rendererGroup = Model.GraphicGroup;
-            Model.SetGroundPosition(Level.LawnToTrans(groundPos));
+            Model.SetGroundPosition(transform.position + transOffset);
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
 
             if (modelPropertyCache.IsDirty)
