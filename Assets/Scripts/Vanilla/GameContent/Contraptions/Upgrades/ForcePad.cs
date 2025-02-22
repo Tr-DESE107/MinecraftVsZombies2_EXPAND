@@ -271,7 +271,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private bool CanDrag(Entity self, Entity target)
         {
-            return !target.IsDead && self.IsHostile(target) && Vector3.Distance(self.Position, target.Position) < DRAG_RADIUS;
+            return target.Type == EntityTypes.ENEMY && !target.IsDead && self.IsHostile(target) && Vector3.Distance(self.Position, target.Position) < DRAG_RADIUS;
         }
 
         #region 属性
