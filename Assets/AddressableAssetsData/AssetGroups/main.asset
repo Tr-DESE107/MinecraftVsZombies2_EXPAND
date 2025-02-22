@@ -323,6 +323,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e6e9a3e2d2a62c4d9c0415b23320bd9
+    m_Address: mvz2:entity/wither/cry4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f85791f4565cdd48b780ea2b27b64f5
     m_Address: mvz2:random/crystal/crystal_place1
     m_ReadOnly: 0
@@ -1001,6 +1007,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c937555d1ffd534c9b726331504749d
+    m_Address: mvz2:entity/wither/damage4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Level
     m_ReadOnly: 0
@@ -1437,6 +1449,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cd0fd588f959b541adab0c41a346776
+    m_Address: mvz2:entity/wither/cry2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cec68aaec72d1942a14678191bfb6fb
     m_Address: mvz2:power_off
@@ -2104,6 +2122,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54783514b3d3e604a99c6e5cea3f5c98
+    m_Address: mvz2:entity/wither/cry3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54d15402f15189c42a0e0e0955892f6e
     m_Address: mvz2:ui/button_highlighted
     m_ReadOnly: 0
@@ -2494,6 +2518,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6315cd6d957633947b5fcd8b9ec378fb
+    m_Address: mvz2:entity/wither/damage2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 634aff049f6f25d468d50363bc97e25f
+    m_Address: mvz2:entity/wither/damage1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63931386c553c1940b368a0c2054db20
     m_Address: mvz2:soul_sand_break7
     m_ReadOnly: 0
@@ -2745,6 +2781,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 709ed95515e99394794608a94dd8d725
+    m_Address: mvz2:entity/wither/damage3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71622a34f9dcc4f4689cee2fc30656c3
     m_Address: mvz2:enemy/castle/berserker
@@ -3011,6 +3053,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7daa974a99689d84d8b0323b1817ce90
     m_Address: mvz2:mobile_blueprint/stone_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e0654a046a25aa49a4938aded15c81b
+    m_Address: mvz2:mobile_blueprint/wither
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4028,6 +4076,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0b4fd05e1abf0845b33089d39a68f75
+    m_Address: mvz2:entity/wither/death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1132a67883efb442a49359b288bea2a
     m_Address: mvz2:entity/nightmareaper/wheel_of_death_loop
@@ -5307,6 +5361,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d02401159b16dc843bcfb357a5e99732
+    m_Address: mvz2:entity/wither/cry1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d04fa54aea815bb44be98b8a3bb2ed5b
     m_Address: mvz2:entity/contraptions/soul_furnace_light
     m_ReadOnly: 0
@@ -5871,6 +5931,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e840df7e4874294428e3933230bc613a
+    m_Address: mvz2:entity/wither/spawn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8710503c9c16c94d9f45067c0169396
     m_Address: mvz2:mainmenu/view/default
     m_ReadOnly: 0
@@ -6266,6 +6332,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f56ddd979e53e294e860fb0a3c976a55
+    m_Address: mvz2:entity/wither/shoot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f595f40e714ca554fbaa630677a07d0c
     m_Address: mvz2:effect/electric_arc

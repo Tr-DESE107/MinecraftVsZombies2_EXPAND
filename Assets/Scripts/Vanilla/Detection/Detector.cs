@@ -138,7 +138,7 @@ namespace MVZ2.Vanilla.Detections
             }
             return count;
         }
-        public bool ValidateTarget(DetectionParams self, Entity target)
+        public virtual bool ValidateTarget(DetectionParams self, Entity target)
         {
             if (target == null)
                 return false;

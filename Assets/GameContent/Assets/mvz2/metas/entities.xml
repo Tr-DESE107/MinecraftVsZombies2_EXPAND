@@ -1180,6 +1180,10 @@
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="28" y="16" z="16" />
         </projectile>
+        <projectile id="wither_skull">
+            <float name="range" value="40"/>
+            <vector3 name="size" x="24" y="24" z="24" />
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">

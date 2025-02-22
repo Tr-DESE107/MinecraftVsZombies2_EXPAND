@@ -157,6 +157,11 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID vortex = Get("vortex");
         public readonly static NamespaceID wakeup = Get("wakeup");
         public readonly static NamespaceID water = Get("water");
+        public readonly static NamespaceID witherCry = Get("wither_cry");
+        public readonly static NamespaceID witherDamage = Get("wither_damage");
+        public readonly static NamespaceID witherDeath = Get("wither_death");
+        public readonly static NamespaceID witherShoot = Get("wither_shoot");
+        public readonly static NamespaceID witherSpawn = Get("wither_spawn");
         public readonly static NamespaceID wheelOfDeathStart = Get("wheel_of_death_start");
         public readonly static NamespaceID wheelOfDeathLoop = Get("wheel_of_death_loop");
         public readonly static NamespaceID winMusic = Get("win_music");

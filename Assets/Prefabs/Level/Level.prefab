@@ -295,11 +295,11 @@ MonoBehaviour:
   cameraLimitX: 2.2
   cameraLeftSpaceMobile: 1.2
   cameraLeftSpaceStandalone: 0
-  cameraHousePosition: {x: 0, y: 3, z: -10}
+  cameraHousePosition: {x: 0, y: 3, z: -500}
   cameraHouseAnchor: {x: 0, y: 0.5}
-  cameraLawnPosition: {x: 10.2, y: 3, z: -10}
+  cameraLawnPosition: {x: 10.2, y: 3, z: -500}
   cameraLawnAnchor: {x: 1, y: 0.5}
-  cameraChoosePosition: {x: 14, y: 3, z: -10}
+  cameraChoosePosition: {x: 14, y: 3, z: -500}
   cameraChooseAnchor: {x: 1, y: 0.5}
   entityTemplate: {fileID: -1708814885022385043, guid: 033dd59ce2dc153448fa75a2e0c608b3, type: 3}
   entitiesRoot: {fileID: 1458902122031359015}
@@ -824,7 +824,7 @@ Transform:
   m_GameObject: {fileID: 1977725030243821058}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 3, z: -10}
+  m_LocalPosition: {x: 7, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -951,7 +951,7 @@ Transform:
   m_GameObject: {fileID: 3246138205874133111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1203,7 +1203,7 @@ Transform:
   m_GameObject: {fileID: 3711035435634197026}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.3333335, y: 3, z: -10}
+  m_LocalPosition: {x: 5.3333335, y: 3, z: 490}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2310,7 +2310,7 @@ Transform:
   m_GameObject: {fileID: 6793813975919072151}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 3, z: -10}
+  m_LocalPosition: {x: 7, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

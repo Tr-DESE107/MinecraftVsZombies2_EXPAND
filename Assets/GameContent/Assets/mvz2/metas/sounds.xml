@@ -729,6 +729,27 @@
     <sound name="wheel_of_death_loop">
         <sample path="mvz2:entity/nightmareaper/wheel_of_death_loop" weight="1" />
     </sound>
+    <sound name="wither_cry">
+        <sample path="mvz2:entity/wither/cry1" weight="1" />
+        <sample path="mvz2:entity/wither/cry2" weight="1" />
+        <sample path="mvz2:entity/wither/cry3" weight="1" />
+        <sample path="mvz2:entity/wither/cry4" weight="1" />
+    </sound>
+    <sound name="wither_damage">
+        <sample path="mvz2:entity/wither/damage1" weight="1" />
+        <sample path="mvz2:entity/wither/damage2" weight="1" />
+        <sample path="mvz2:entity/wither/damage3" weight="1" />
+        <sample path="mvz2:entity/wither/damage4" weight="1" />
+    </sound>
+    <sound name="wither_shoot">
+        <sample path="mvz2:entity/wither/shoot" weight="1" />
+    </sound>
+    <sound name="wither_shoot">
+        <sample path="mvz2:entity/wither/spawn" weight="1" />
+    </sound>
+    <sound name="wither_death">
+        <sample path="mvz2:entity/wither/death" weight="1" />
+    </sound>
     <sound name="wither_skeleton_cry">
         <sample path="mvz2:entity/wither_skeleton/wither_skeleton1" weight="1" />
         <sample path="mvz2:entity/wither_skeleton/wither_skeleton2" weight="1" />

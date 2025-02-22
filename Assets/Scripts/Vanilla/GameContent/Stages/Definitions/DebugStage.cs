@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.bedserker,
                 VanillaEnemyID.mutantZombie,
-                VanillaBossID.seija
+                VanillaBossID.wither
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
