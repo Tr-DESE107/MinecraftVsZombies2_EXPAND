@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Bosses
         private class IdleState : EntityStateMachineState
         {
             public List<Entity> searchTargetBuffer = new List<Entity>();
-            public Detector searchTargetDetector = new WitherDetector();
+            public Detector searchTargetDetector = new WitherDetector(WitherDetector.MODE_SKULL);
             public const int MAX_SKULL_CHARGE_MAIN = 90;
             public const int MAX_SKULL_CHARGE = 60;
             public IdleState() : base(STATE_IDLE) { }
@@ -224,6 +224,14 @@ namespace MVZ2.GameContent.Bosses
                         return lastState;
                     }
                 }
+                if (lastState == STATE_CHARGE)
+                {
+                    lastState = STATE_EAT;
+                    if (CanEat(entity))
+                    {
+                        return lastState;
+                    }
+                }
 
                 return STATE_IDLE;
             }
@@ -244,7 +252,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     lane = entity.GetLane();
                 }
-                SetChargeTargetLane(entity, lane);
+                SetTargetLane(entity, lane);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -261,7 +269,7 @@ namespace MVZ2.GameContent.Bosses
                             //移动
                             var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
                             var targetX = level.GetEntityColumnX(column);
-                            var targetZ = level.GetEntityLaneZ(GetChargeTargetLane(entity));
+                            var targetZ = level.GetEntityLaneZ(GetTargetLane(entity));
                             var targetY = level.GetGroundY(targetX, targetZ);
 
                             var pos = entity.Position;
@@ -354,15 +362,149 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(15);
+
+                var lane = FindEatLane(entity);
+                if (lane < 0)
+                {
+                    lane = entity.GetLane();
+                }
+                SetTargetLane(entity, lane);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+
+                var level = entity.Level;
+                switch (substate)
+                {
+                    case SUBSTATE_MOVE:
+                        {
+                            //移动
+                            var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
+                            var targetX = level.GetEntityColumnX(column);
+                            var targetZ = level.GetEntityLaneZ(GetTargetLane(entity));
+                            var targetY = level.GetGroundY(targetX, targetZ);
+
+                            var pos = entity.Position;
+                            pos.x = pos.x * 0.85f + targetX * 0.15f;
+                            pos.y = pos.y * 0.85f + targetY * 0.15f;
+                            pos.z = pos.z * 0.85f + targetZ * 0.15f;
+                            entity.Position = pos;
+
+                            if (substateTimer.Expired)
+                            {
+                                substateTimer.ResetTime(30);
+                                stateMachine.SetSubState(entity, SUBSTATE_READY);
+                            }
+                        }
+                        break;
+
+                    case SUBSTATE_READY:
+                        //聚能
+                        //张嘴
+                        var progress = substateTimer.MaxFrame - substateTimer.Frame;
+                        if (progress < 16)
+                        {
+                            var headOpen = GetHeadOpen(entity);
+                            if (progress < 4)
+                            {
+                                headOpen = Mathf.Lerp(0, 1, progress / 4f);
+                            }
+                            else if (progress < 8)
+                            {
+                                headOpen = Mathf.Lerp(1, 0, (progress - 4) / 4f);
+                            }
+                            else if (progress < 12)
+                            {
+                                headOpen = Mathf.Lerp(0, 1, (progress - 8) / 4f);
+                            }
+                            else
+                            {
+                                headOpen = Mathf.Lerp(1, 0, (progress - 12) / 4f);
+                            }
+                            SetHeadOpen(entity, headOpen);
+                        }
+                        if (substateTimer.PassedFrame(substateTimer.MaxFrame - 8) || substateTimer.PassedFrame(substateTimer.MaxFrame - 16))
+                        {
+                            entity.PlaySound(VanillaSoundID.shieldHit, 0.5f);
+                        }
+
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.SetSubState(entity, SUBSTATE_DASH);
+                            substateTimer.ResetTime(20);
+                        }
+                        break;
+                    case SUBSTATE_DASH:
+                        {
+                            var headOpen = GetHeadOpen(entity);
+                            headOpen = headOpen * 0.7f + 1 * 0.3f;
+                            SetHeadOpen(entity, headOpen);
+
+                            var pos = entity.Position;
+                            var vel = entity.Velocity;
+                            vel.x += entity.GetFacingX() * (substateTimer.MaxFrame - substateTimer.Frame) * 0.5f;
+                            entity.Velocity = vel;
+                            if (substateTimer.Expired)
+                            {
+                                FinishEat(entity);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_EATEN:
+                        {
+                            var headOpen = GetHeadOpen(entity);
+                            headOpen = headOpen * 0.7f;
+                            SetHeadOpen(entity, headOpen);
+
+                            var pos = entity.Position;
+                            var vel = entity.Velocity;
+                            vel.x -= entity.GetFacingX() * (substateTimer.MaxFrame - substateTimer.Frame) * 0.5f;
+
+                            bool reachEnd = false;
+                            float endX = 0;
+                            if (entity.IsFacingLeft())
+                            {
+                                var column = level.GetMaxColumnCount() - 1;
+                                endX = level.GetEntityColumnX(column);
+                                reachEnd = pos.x + vel.x >= endX;
+                            }
+                            else
+                            {
+                                var column = 0;
+                                endX = level.GetEntityColumnX(column);
+                                reachEnd = pos.x + vel.x <= endX;
+                            }
+                            if (reachEnd)
+                            {
+                                pos.x = endX;
+                                vel.x = 0;
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                            entity.Position = pos;
+                            entity.Velocity = vel;
+                        }
+                        break;
+                    case SUBSTATE_INTERRUPTED:
+                        if (substateTimer.Expired)
+                        {
+                            entity.SetAnimationBool("Shaking", false);
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
             }
 
-            public const int SUBSTATE_READY = 0;
-            public const int SUBSTATE_DASH = 1;
-            public const int SUBSTATE_EATEN = 2;
+            public const int SUBSTATE_MOVE = 0;
+            public const int SUBSTATE_READY = 1;
+            public const int SUBSTATE_DASH = 2;
+            public const int SUBSTATE_EATEN = 3;
+            public const int SUBSTATE_INTERRUPTED = 4;
         }
         private class SummonState : EntityStateMachineState
         {

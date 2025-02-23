@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
@@ -27,7 +29,11 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_IDLE);
 
-            boss.CollisionMaskHostile |= EntityCollisionHelper.MASK_PLANT;
+            boss.CollisionMaskHostile |= 
+                EntityCollisionHelper.MASK_PLANT | 
+                EntityCollisionHelper.MASK_ENEMY |
+                EntityCollisionHelper.MASK_OBSTACLE |
+                EntityCollisionHelper.MASK_BOSS;
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -61,31 +67,42 @@ namespace MVZ2.GameContent.Bosses
         {
             base.PostCollision(collision, state);
             var other = collision.Other;
-            if (other.Type != EntityTypes.PLANT)
-                return;
             var self = collision.Entity;
             if (!other.IsHostile(self))
                 return;
             var otherCollider = collision.OtherCollider;
             var crushDamage = 1000000;
+            var substate = stateMachine.GetSubState(self);
             if (other.IsInvincible())
             {
-                if (self.State == STATE_CHARGE)
+                if (self.State == STATE_CHARGE && substate == ChargeState.SUBSTATE_DASH)
                 {
-                    var substate = stateMachine.GetSubState(self);
-                    if (substate == ChargeState.SUBSTATE_DASH)
-                    {
-                        InterruptDash(self);
-                    }
+                    InterruptDash(self);
                 }
             }
             else
             {
-                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(), self);
+                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                 if (result != null && result.HasAnyFatal())
                 {
                     other.PlaySound(VanillaSoundID.smash);
+                    if (self.State == STATE_EAT && (substate == EatState.SUBSTATE_DASH || substate == EatState.SUBSTATE_EATEN))
+                    {
+                        if (other.IsEntityOf(VanillaContraptionID.goldenApple))
+                        {
+                            InterruptEat(self);
+                            self.TakeDamage(GOLDEN_APPLE_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), other);
+                        }
+                        else
+                        {
+                            self.HealEffects(EAT_HEALING, other);
+                        }
+                    }
                 }
+            }
+            if (self.State == STATE_EAT && substate == EatState.SUBSTATE_DASH)
+            {
+                FinishEat(self);
             }
         }
         public override void PreTakeDamage(DamageInput damageInfo)
@@ -122,18 +139,45 @@ namespace MVZ2.GameContent.Bosses
         public static void SetHeadTargets(Entity entity, EntityID[] value) => entity.SetBehaviourField(PROP_HEAD_TARGETS, value);
         public static float[] GetSkullCharges(Entity entity) => entity.GetBehaviourField<float[]>(PROP_SKULL_CHARGES);
         public static void SetSkullCharges(Entity entity, float[] value) => entity.SetBehaviourField(PROP_SKULL_CHARGES, value);
-        public static int GetChargeTargetLane(Entity entity) => entity.GetBehaviourField<int>(PROP_CHARGE_TARGET_LANE);
-        public static void SetChargeTargetLane(Entity entity, int value) => entity.SetBehaviourField(PROP_CHARGE_TARGET_LANE, value);
+        public static int GetTargetLane(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_LANE);
+        public static void SetTargetLane(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_LANE, value);
         #endregion
 
         private void InterruptDash(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.witherDamage);
             entity.SetAnimationBool("Shaking", true);
+            entity.TriggerAnimation("Interrupt");
             var vel = entity.Velocity;
             vel.x = 0;
             entity.Velocity = vel;
             stateMachine.SetSubState(entity, ChargeState.SUBSTATE_INTERRUPTED);
+            var substateTimer = stateMachine.GetSubStateTimer(entity);
+            substateTimer.ResetTime(30);
+        }
+        private static void FinishEat(Entity entity)
+        {
+            if (entity.State != STATE_EAT)
+                return;
+            var subState = stateMachine.GetSubState(entity);
+            if (subState != EatState.SUBSTATE_DASH)
+                return;
+            var vel = entity.Velocity;
+            vel.x = 0;
+            entity.Velocity = vel;
+            stateMachine.SetSubState(entity, EatState.SUBSTATE_EATEN);
+            var substateTimer = stateMachine.GetSubStateTimer(entity);
+            substateTimer.ResetTime(20);
+        }
+        private void InterruptEat(Entity entity)
+        {
+            entity.PlaySound(VanillaSoundID.witherDamage);
+            entity.SetAnimationBool("Shaking", true);
+            entity.TriggerAnimation("Interrupt");
+            var vel = entity.Velocity;
+            vel.x = 0;
+            entity.Velocity = vel;
+            stateMachine.SetSubState(entity, EatState.SUBSTATE_INTERRUPTED);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(30);
         }
@@ -230,6 +274,27 @@ namespace MVZ2.GameContent.Bosses
                 return -1;
             return lanes.Random(entity.RNG);
         }
+        private static IEnumerable<int> FindEatLanes(Entity entity)
+        {
+            findEatLaneBuffer.Clear();
+            findEatLaneDetector.DetectEntities(entity, findEatLaneBuffer);
+            if (findEatLaneBuffer.Count <= 0)
+                return null;
+            var groups = findEatLaneBuffer.GroupBy(e => e.GetLane());
+            return groups.Select(g => g.Key);
+        }
+        private static bool CanEat(Entity entity)
+        {
+            var lanes = FindEatLanes(entity);
+            return lanes != null && lanes.Count() > 0;
+        }
+        private static int FindEatLane(Entity entity)
+        {
+            var lanes = FindEatLanes(entity);
+            if (lanes == null || lanes.Count() <= 0)
+                return -1;
+            return lanes.Random(entity.RNG);
+        }
         public static bool HasArmor(Entity entity)
         {
             return GetPhase(entity) == PHASE_2;
@@ -245,7 +310,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta("HeadTargets");
         private static readonly VanillaEntityPropertyMeta PROP_SKULL_CHARGES = new VanillaEntityPropertyMeta("SkullCharges");
         private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
-        private static readonly VanillaEntityPropertyMeta PROP_CHARGE_TARGET_LANE = new VanillaEntityPropertyMeta("ChargeTargetLane");
+        private static readonly VanillaEntityPropertyMeta PROP_TARGET_LANE = new VanillaEntityPropertyMeta("TargetLane");
 
         private static readonly Vector3[] headPositionOffsets = new Vector3[]
         {
@@ -272,10 +337,14 @@ namespace MVZ2.GameContent.Bosses
         public const float HEAD_ROTATE_SPEED = 10;
         public const float FLY_HEIGHT = 80;
         public const float REGENERATION_SPEED = 1 / 3f;
+        public const float EAT_HEALING = 600;
+        public const float GOLDEN_APPLE_DAMAGE = 600;
         #endregion 常量
 
         private static WitherStateMachine stateMachine = new WitherStateMachine();
-        private static Detector findChargeLaneDetector = new WitherDetector();
+        private static Detector findChargeLaneDetector = new WitherDetector(WitherDetector.MODE_CHARGE);
+        private static Detector findEatLaneDetector = new WitherDetector(WitherDetector.MODE_EAT);
         private static List<Entity> findChargeLaneBuffer = new List<Entity>();
+        private static List<Entity> findEatLaneBuffer = new List<Entity>();
     }
 }
