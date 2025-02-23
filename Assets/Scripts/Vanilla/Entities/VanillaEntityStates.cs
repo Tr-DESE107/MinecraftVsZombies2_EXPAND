@@ -101,7 +101,9 @@
         public const int WITHER_IDLE = IDLE;
         public const int WITHER_CHARGE = ATTACK;
         public const int WITHER_EAT = BOSS_ATTACK_2;
-        public const int WITHER_SUMMON = BOSS_SPECIAL;
+        public const int WITHER_SWITCH = BOSS_SPECIAL;
+        public const int WITHER_SUMMON = BOSS_ATTACK_3;
+        public const int WITHER_STUNNED = BOSS_FAINT;
         public const int WITHER_DEATH = DEAD;
 
 

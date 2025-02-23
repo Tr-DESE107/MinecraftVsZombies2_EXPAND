@@ -744,7 +744,7 @@
     <sound name="wither_shoot">
         <sample path="mvz2:entity/wither/shoot" weight="1" />
     </sound>
-    <sound name="wither_shoot">
+    <sound name="wither_spawn">
         <sample path="mvz2:entity/wither/spawn" weight="1" />
     </sound>
     <sound name="wither_death">

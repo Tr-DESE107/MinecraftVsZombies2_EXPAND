@@ -172,6 +172,8 @@ namespace MVZ2.Vanilla.Entities
                 return;
             var filterValue = projectile.GetDefinitionID();
             projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, filterValue, hitInput, c => c(hitInput, damageInput));
+            if (hitInput.IsInterrupted)
+                return;
 
             // 对敌人造成伤害
             DamageOutput damageOutput = VanillaEntityExt.TakeDamage(damageInput);

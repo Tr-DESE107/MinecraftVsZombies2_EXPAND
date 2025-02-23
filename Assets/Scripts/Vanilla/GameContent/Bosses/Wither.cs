@@ -3,7 +3,9 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -20,6 +22,7 @@ namespace MVZ2.GameContent.Bosses
     {
         public Wither(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreProjectileHitCallback);
         }
 
         #region 回调
@@ -77,7 +80,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 if (self.State == STATE_CHARGE && substate == ChargeState.SUBSTATE_DASH)
                 {
-                    InterruptDash(self);
+                    Stun(self);
                 }
             }
             else
@@ -90,7 +93,7 @@ namespace MVZ2.GameContent.Bosses
                     {
                         if (other.IsEntityOf(VanillaContraptionID.goldenApple))
                         {
-                            InterruptEat(self);
+                            Stun(self);
                             self.TakeDamage(GOLDEN_APPLE_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), other);
                         }
                         else
@@ -119,16 +122,43 @@ namespace MVZ2.GameContent.Bosses
 
             var entity = result.Entity;
             //取消蓄能
-            if (entity.State != STATE_CHARGE)
+            if (entity.State == STATE_CHARGE)
+            {
+                var substate = stateMachine.GetSubState(entity);
+                if (substate == ChargeState.SUBSTATE_CHARGING)
+                {
+                    Stun(entity);
+                    return;
+                }
+            }
+            if (result.BodyResult != null)
+            {
+                var source = result.BodyResult.Source;
+                var effects = result.BodyResult.Effects;
+                var sourceEnt = source.GetEntity(entity.Level);
+                if (sourceEnt != null && sourceEnt.IsEntityOf(VanillaEnemyID.bedserker) && effects.HasEffect(VanillaDamageEffects.EXPLOSION))
+                {
+                    Stun(entity);
+                    return;
+                }
+            }
+        }
+        private void PreProjectileHitCallback(ProjectileHitInput hitInput, DamageInput damageInput)
+        {
+            var self = hitInput.Other;
+            if (!self.IsEntityOf(VanillaBossID.wither))
                 return;
-            var substate = stateMachine.GetSubState(entity);
-            if (substate != ChargeState.SUBSTATE_CHARGING)
+            if (!HasArmor(self))
                 return;
-            InterruptDash(entity);
+            hitInput.Cancel();
+            var projectile = hitInput.Projectile;
+            projectile.Remove();
         }
         #endregion 事件
 
         #region 字段
+        public static FrameTimer GetCryTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_CRY_TIMER);
+        public static void SetCryTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_CRY_TIMER, value);
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static float[] GetHeadAngles(Entity entity) => entity.GetBehaviourField<float[]>(PROP_HEAD_ANGLES);
@@ -143,17 +173,17 @@ namespace MVZ2.GameContent.Bosses
         public static void SetTargetLane(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_LANE, value);
         #endregion
 
-        private void InterruptDash(Entity entity)
+        private void Stun(Entity entity)
         {
+            if (entity.IsDead)
+                return;
             entity.PlaySound(VanillaSoundID.witherDamage);
             entity.SetAnimationBool("Shaking", true);
             entity.TriggerAnimation("Interrupt");
             var vel = entity.Velocity;
             vel.x = 0;
             entity.Velocity = vel;
-            stateMachine.SetSubState(entity, ChargeState.SUBSTATE_INTERRUPTED);
-            var substateTimer = stateMachine.GetSubStateTimer(entity);
-            substateTimer.ResetTime(30);
+            stateMachine.StartState(entity, STATE_STUNNED);
         }
         private static void FinishEat(Entity entity)
         {
@@ -168,18 +198,6 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.SetSubState(entity, EatState.SUBSTATE_EATEN);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(20);
-        }
-        private void InterruptEat(Entity entity)
-        {
-            entity.PlaySound(VanillaSoundID.witherDamage);
-            entity.SetAnimationBool("Shaking", true);
-            entity.TriggerAnimation("Interrupt");
-            var vel = entity.Velocity;
-            vel.x = 0;
-            entity.Velocity = vel;
-            stateMachine.SetSubState(entity, EatState.SUBSTATE_INTERRUPTED);
-            var substateTimer = stateMachine.GetSubStateTimer(entity);
-            substateTimer.ResetTime(30);
         }
         private void RotateHeadsUpdate(Entity entity)
         {
@@ -305,6 +323,7 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 常量
+        private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_ANGLES = new VanillaEntityPropertyMeta("HeadAngles");
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_OPEN = new VanillaEntityPropertyMeta("HeadOpen");
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta("HeadTargets");
@@ -323,7 +342,9 @@ namespace MVZ2.GameContent.Bosses
         private const int STATE_APPEAR = VanillaEntityStates.WITHER_APPEAR;
         private const int STATE_CHARGE = VanillaEntityStates.WITHER_CHARGE;
         private const int STATE_EAT = VanillaEntityStates.WITHER_EAT;
+        private const int STATE_SWITCH = VanillaEntityStates.WITHER_SWITCH;
         private const int STATE_SUMMON = VanillaEntityStates.WITHER_SUMMON;
+        private const int STATE_STUNNED = VanillaEntityStates.WITHER_STUNNED;
         private const int STATE_DEATH = VanillaEntityStates.WITHER_DEATH;
 
         public const int PHASE_1 = 0;

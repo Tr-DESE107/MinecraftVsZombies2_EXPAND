@@ -963,10 +963,11 @@
         </boss>
         <boss id="wither" name="凋灵">
             <int name="waterInteraction" value="1"/>
-            <float name="maxHealth" value="5000"/>
+            <float name="maxHealth" value="8000"/>
             <float name="gravity" value="0"/>
             <id name="shell" value="mvz2:bone"/>
             <vector3 name="size" x="64" y="160" z="64"/>
+            <vector3 name="shadowScale" x="2" y="2" z="2"/>
             <color name="bloodColor" value="#00000000"/>
             <color name="bloodColorCensored" value="#00000000"/>
         </boss>

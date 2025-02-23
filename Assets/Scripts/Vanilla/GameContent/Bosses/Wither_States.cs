@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -21,7 +27,9 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new IdleState());
                 AddState(new ChargeState());
                 AddState(new EatState());
+                AddState(new SwitchState());
                 AddState(new SummonState());
+                AddState(new StunState());
                 AddState(new DeathState());
             }
         }
@@ -80,6 +88,12 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
+                if (GetPhase(entity) == PHASE_1 && entity.Health <= entity.GetMaxHealth() * 0.5f)
+                {
+                    SetPhase(entity, PHASE_2);
+                    stateMachine.StartState(entity, STATE_SWITCH);
+                    return;
+                }
                 UpdateAction(stateMachine, entity);
                 UpdateStateSwitch(stateMachine, entity);
             }
@@ -218,6 +232,14 @@ namespace MVZ2.GameContent.Bosses
                 var lastState = stateMachine.GetPreviousState(entity);
                 if (lastState == STATE_IDLE || lastState == STATE_EAT)
                 {
+                    lastState = STATE_SUMMON;
+                    if (GetPhase(entity) == PHASE_2)
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_SUMMON)
+                {
                     lastState = STATE_CHARGE;
                     if (CanCharge(entity))
                     {
@@ -340,20 +362,12 @@ namespace MVZ2.GameContent.Bosses
                             stateMachine.StartState(entity, STATE_IDLE);
                         }
                         break;
-                    case SUBSTATE_INTERRUPTED:
-                        if (substateTimer.Expired)
-                        {
-                            entity.SetAnimationBool("Shaking", false);
-                            stateMachine.StartState(entity, STATE_IDLE);
-                        }
-                        break;
                 }
             }
             public const int SUBSTATE_MOVE = 0;
             public const int SUBSTATE_CHARGING = 1;
             public const int SUBSTATE_DASH = 2;
             public const int SUBSTATE_DASH_END = 3;
-            public const int SUBSTATE_INTERRUPTED = 4;
         }
         private class EatState : EntityStateMachineState
         {
@@ -431,7 +445,7 @@ namespace MVZ2.GameContent.Bosses
                         }
                         if (substateTimer.PassedFrame(substateTimer.MaxFrame - 8) || substateTimer.PassedFrame(substateTimer.MaxFrame - 16))
                         {
-                            entity.PlaySound(VanillaSoundID.shieldHit, 0.5f);
+                            entity.PlaySound(VanillaSoundID.shieldHit, 0.5f, 2);
                         }
 
                         if (substateTimer.Expired)
@@ -490,13 +504,6 @@ namespace MVZ2.GameContent.Bosses
                             entity.Velocity = vel;
                         }
                         break;
-                    case SUBSTATE_INTERRUPTED:
-                        if (substateTimer.Expired)
-                        {
-                            entity.SetAnimationBool("Shaking", false);
-                            stateMachine.StartState(entity, STATE_IDLE);
-                        }
-                        break;
                 }
             }
 
@@ -504,7 +511,97 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_READY = 1;
             public const int SUBSTATE_DASH = 2;
             public const int SUBSTATE_EATEN = 3;
-            public const int SUBSTATE_INTERRUPTED = 4;
+        }
+        private class SwitchState : EntityStateMachineState
+        {
+            public SwitchState() : base(STATE_SWITCH) { }
+            public override void OnEnter(EntityStateMachine machine, Entity entity)
+            {
+                base.OnEnter(machine, entity);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.ResetTime(60);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var headOpen = GetHeadOpen(entity);
+                headOpen *= 0.5f;
+                SetHeadOpen(entity, headOpen);
+
+                var substate = stateMachine.GetSubState(entity);
+                UpdateMotion(stateMachine, entity, substate);
+                if (substate == SUBSTATE_FLYING)
+                {
+                    var distance2D = new Vector2(GetTargetX(entity) - entity.Position.x, GetTargetZ(entity) - entity.Position.z);
+                    if (distance2D.sqrMagnitude < 100)
+                    {
+                        stateMachine.SetSubState(entity, SUBSTATE_FALLING);
+                    }
+                }
+                else if (substate == SUBSTATE_FALLING)
+                {
+                    if (entity.GetRelativeY() <= 1)
+                    {
+                        stateMachine.SetSubState(entity, SUBSTATE_ON_GROUND);
+                        entity.PlaySound(VanillaSoundID.witherSpawn);
+                        entity.PlaySound(VanillaSoundID.explosion);
+                        entity.Level.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
+                        var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
+                        exp.SetSize(Vector3.one * 240);
+                        for (int i = 0; i < entity.Level.GetMaxLaneCount(); i++)
+                        {
+                            if (i == entity.GetLane())
+                                continue;
+                            var x = entity.Position.x;
+                            var z = entity.Level.GetEntityLaneZ(i);
+                            var y = entity.Level.GetGroundY(x, z);
+                            var param = new SpawnParams();
+                            param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+                            entity.Spawn(VanillaEnemyID.dullahan, new Vector3(x, y, z), param);
+                        }
+                    }
+                }
+
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.Run(stateMachine.GetSpeed(entity));
+                if (stateTimer.Expired)
+                {
+                    stateMachine.StartState(entity, STATE_IDLE);
+                }
+            }
+            private void UpdateMotion(EntityStateMachine stateMachine, Entity entity, int substate)
+            {
+                var level = entity.Level;
+                var x = GetTargetX(entity);
+                var z = GetTargetZ(entity);
+                var y = level.GetGroundY(x, z);
+                if (substate == SUBSTATE_FLYING)
+                {
+                    y += 80;
+                }
+                var targetPos = new Vector3(x, y, z);
+                var thisPos = entity.Position;
+                var dir = targetPos - thisPos;
+
+                var pos = entity.Position;
+                pos = pos * 0.5f + targetPos * 0.5f;
+                entity.Position = pos;
+            }
+            private float GetTargetX(Entity entity)
+            {
+                var level = entity.Level;
+                var targetColumn = level.GetMaxColumnCount() - 2;
+                return level.GetEntityColumnX(targetColumn);
+            }
+            private float GetTargetZ(Entity entity)
+            {
+                var level = entity.Level;
+                var targetLane = level.GetMaxLaneCount() / 2;
+                return level.GetEntityLaneZ(targetLane);
+            }
+            public const int SUBSTATE_FLYING = 0;
+            public const int SUBSTATE_FALLING = 1;
+            public const int SUBSTATE_ON_GROUND = 2;
         }
         private class SummonState : EntityStateMachineState
         {
@@ -512,14 +609,109 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
-            }
-            public override void OnExit(EntityStateMachine machine, Entity entity)
-            {
-                base.OnExit(machine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(15);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+
+                var level = entity.Level;
+                switch (substate)
+                {
+                    case SUBSTATE_MOVE:
+                        {
+                            //移动
+                            var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
+                            var lane = level.GetMaxLaneCount() / 2;
+                            var targetX = level.GetEntityColumnX(column);
+                            var targetZ = level.GetEntityLaneZ(lane);
+                            var targetY = level.GetGroundY(targetX, targetZ);
+
+                            var pos = entity.Position;
+                            pos.x = pos.x * 0.85f + targetX * 0.15f;
+                            pos.y = pos.y * 0.85f + targetY * 0.15f;
+                            pos.z = pos.z * 0.85f + targetZ * 0.15f;
+                            entity.Position = pos;
+
+                            if (substateTimer.Expired)
+                            {
+                                substateTimer.ResetTime(30);
+                                stateMachine.SetSubState(entity, SUBSTATE_ROAR);
+                                entity.PlaySound(VanillaSoundID.witherCry);
+                                entity.SetAnimationBool("Shaking", true);
+                            }
+                        }
+                        break;
+
+                    case SUBSTATE_ROAR:
+                        {
+                            //张嘴
+                            var headOpen = GetHeadOpen(entity);
+                            headOpen = headOpen * 0.7f + 1 * 0.3f;
+                            SetHeadOpen(entity, headOpen);
+
+                            if (substateTimer.Expired)
+                            {
+                                entity.SetAnimationBool("Shaking", false);
+                                stateMachine.SetSubState(entity, SUBSTATE_SUMMONED);
+                                substateTimer.ResetTime(30);
+
+                                entity.PlaySound(VanillaSoundID.witherSpawn);
+                                var param = new SpawnParams();
+                                param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+                                var bedserker = entity.Spawn(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80, param);
+
+                                var exp = entity.Spawn(VanillaEffectID.explosion, bedserker.GetCenter());
+                                exp.SetSize(Vector3.one * 120);
+                                entity.PlaySound(VanillaSoundID.explosion);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_SUMMONED:
+                        {
+                            var headOpen = GetHeadOpen(entity);
+                            headOpen = headOpen * 0.7f;
+                            SetHeadOpen(entity, headOpen);
+
+                            if (substateTimer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                        }
+                        break;
+                }
+            }
+            public const int SUBSTATE_MOVE = 0;
+            public const int SUBSTATE_ROAR = 1;
+            public const int SUBSTATE_SUMMONED = 2;
+        }
+        private class StunState : EntityStateMachineState
+        {
+            public StunState() : base(STATE_STUNNED) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.ResetTime(30);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.Run(stateMachine.GetSpeed(entity));
+                var headOpen = GetHeadOpen(entity);
+                headOpen = headOpen * 0.7f + 1 * 0.3f;
+                SetHeadOpen(entity, headOpen);
+
+                if (stateTimer.Expired)
+                {
+                    entity.SetAnimationBool("Shaking", false);
+                    stateMachine.StartState(entity, STATE_IDLE);
+                }
             }
         }
         private class DeathState : EntityStateMachineState
