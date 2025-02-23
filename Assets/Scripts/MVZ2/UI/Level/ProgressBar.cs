@@ -1,4 +1,5 @@
-﻿using MVZ2.UI;
+﻿using MVZ2.Metas;
+using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,17 @@ namespace MVZ2.Level.UI
     {
         public void UpdateTemplate(ProgressBarTemplateViewData viewData)
         {
-            var rectTransform = transform as RectTransform;
-            rectTransform.sizeDelta = viewData.size;
+            layoutElement.minWidth = viewData.size.x;
+            layoutElement.minHeight = viewData.size.y;
             backgroundImage.sprite = viewData.backgroundSprite;
             foregroundImage.sprite = viewData.foregroundSprite;
             foregroundImage.enabled = foregroundImage.sprite;
+
             barImage.sprite = viewData.barSprite;
+            barImage.type = viewData.barMode == ProgressBarMode.Filled ? Image.Type.Filled : Image.Type.Sliced;
+            barImage.fillMethod = Image.FillMethod.Horizontal;
+            barImage.fillOrigin = (int)(viewData.fromLeft ? Image.OriginHorizontal.Left : Image.OriginHorizontal.Right);
+
             iconImage.sprite = viewData.iconSprite;
             iconImage.enabled = iconImage.sprite;
             slider.direction = viewData.fromLeft ? Slider.Direction.LeftToRight : Slider.Direction.RightToLeft;
@@ -43,6 +49,8 @@ namespace MVZ2.Level.UI
         }
 
         [SerializeField]
+        private LayoutElement layoutElement;
+        [SerializeField]
         private ElementListUI flags;
         [SerializeField]
         private Image foregroundImage;
@@ -65,6 +73,7 @@ namespace MVZ2.Level.UI
         public Sprite barSprite;
         public Sprite iconSprite;
         public bool fromLeft;
+        public ProgressBarMode barMode;
         public Vector4 padding;
     }
 }

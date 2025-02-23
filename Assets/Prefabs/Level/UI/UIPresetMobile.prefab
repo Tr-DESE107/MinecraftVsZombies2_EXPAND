@@ -1690,7 +1690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 886905848150701246}
-  - component: {fileID: 4325608492566057923}
+  - component: {fileID: 3151118683281318373}
   m_Layer: 5
   m_Name: ProgressBarRoot
   m_TagString: Untagged
@@ -1719,7 +1719,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4325608492566057923
+--- !u!114 &3151118683281318373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1728,17 +1728,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6954718769910588831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 124
-  m_MinHeight: 24
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &7309855645125159786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,27 +3293,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 124
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848214681634604047, guid: c96dfc1434af4a641a4f84e202b31d6b, type: 3}
       propertyPath: m_LocalScale.x

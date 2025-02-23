@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
             ClassicStart(level);
             //ConveyorStart(level);
             level.LevelProgressVisible = true;
-            level.SetProgressBarToBoss(VanillaProgressBarID.seija);
+            level.SetProgressBarToBoss(VanillaProgressBarID.wither);
             level.SetTriggerActive(true);
         }
         public override void OnUpdate(LevelEngine level)

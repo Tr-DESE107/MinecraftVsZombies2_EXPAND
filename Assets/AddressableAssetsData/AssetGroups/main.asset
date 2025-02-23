@@ -2080,6 +2080,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 529c022f5f623db4db8f49685b84b1a8
+    m_Address: mvz2:ui/level/progress_bar/wither_foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52d0c9dce5e1cc34e97bc3379cbf9f36
     m_Address: mvz2:effect/blood_particles
     m_ReadOnly: 0
@@ -3545,6 +3551,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e4506b73a85267499be23c6916344ef
     m_Address: mvz2:ui/achievements/frame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e5761afd86512d468f5326f1b03e7dd
+    m_Address: mvz2:ui/level/progress_bar/wither_background
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5912,6 +5924,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e815fc79b6c003e4788c0027be0a82e6
+    m_Address: mvz2:ui/level/progress_bar/wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8196c198b390f343b2370b0aa2c81b3
     m_Address: mvz2:starshard_rings/dream

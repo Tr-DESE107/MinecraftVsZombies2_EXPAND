@@ -15,6 +15,7 @@ namespace MVZ2.Metas
         public SpriteReference BarSprite { get; private set; }
         public SpriteReference ForegroundSprite { get; private set; }
         public bool FromLeft { get; private set; }
+        public ProgressBarMode BarMode { get; private set; }
 
         public Vector4 Padding { get; private set; }
 
@@ -43,10 +44,12 @@ namespace MVZ2.Metas
             var barNode = node["bar"];
             SpriteReference barSprite = null;
             bool fromLeft = false;
+            ProgressBarMode barMode = ProgressBarMode.Sliced;
             if (barNode != null)
             {
                 barSprite = barNode.GetAttributeSpriteReference("sprite", defaultNsp);
                 fromLeft = barNode.GetAttributeBool("fromLeft") ?? fromLeft;
+                barMode = ParseBarMode(barNode.GetAttribute("mode"));
             }
 
             var paddingNode = node["padding"];
@@ -76,11 +79,23 @@ namespace MVZ2.Metas
 
                 BarSprite = barSprite,
                 FromLeft = fromLeft,
+                BarMode = barMode,
 
                 Padding = padding,
 
                 IconSprite = iconSprite,
             };
         }
+        public static ProgressBarMode ParseBarMode(string str)
+        {
+            if (str == "filled")
+                return ProgressBarMode.Filled;
+            return ProgressBarMode.Sliced;
+        }
+    }
+    public enum ProgressBarMode
+    {
+        Sliced = 0,
+        Filled = 1
     }
 }

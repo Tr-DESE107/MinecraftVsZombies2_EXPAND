@@ -188,6 +188,7 @@ namespace MVZ2.Level
                 foregroundSprite = foreground,
                 barSprite = bar,
                 fromLeft = meta.FromLeft,
+                barMode = meta.BarMode,
                 iconSprite = icon,
                 padding = meta.Padding,
                 size = meta.Size,

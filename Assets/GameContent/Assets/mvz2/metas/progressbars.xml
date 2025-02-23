@@ -15,4 +15,10 @@
         <bar sprite="mvz2:ui/level/progress_bar/seija" fromLeft="false" />
         <padding left="9" right="9" top="8" bottom="25" />
     </bar>
+    <bar id="wither" type="boss" width="150" height="39">
+        <background sprite="mvz2:ui/level/progress_bar/wither_background" />
+        <foreground sprite="mvz2:ui/level/progress_bar/wither_foreground" />
+        <bar sprite="mvz2:ui/level/progress_bar/wither" fromLeft="true" mode="filled" />
+        <padding left="17" right="17" top="22" bottom="4" />
+    </bar>
 </bars>

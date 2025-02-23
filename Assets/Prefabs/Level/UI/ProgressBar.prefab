@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4575991372992862622}
   - component: {fileID: 6976302548209069430}
   - component: {fileID: 4215096724977971354}
+  - component: {fileID: 39437868084126466}
   m_Layer: 0
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78452808942ee44788486d7d89859bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layoutElement: {fileID: 39437868084126466}
   flags: {fileID: 8138190902696631893}
   foregroundImage: {fileID: 1218860179113567020}
   backgroundImage: {fileID: 4575991372992862622}
@@ -123,6 +125,26 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &39437868084126466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126737601396360499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 124
+  m_MinHeight: 24
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &1597954307474370563
 GameObject:
   m_ObjectHideFlags: 0
