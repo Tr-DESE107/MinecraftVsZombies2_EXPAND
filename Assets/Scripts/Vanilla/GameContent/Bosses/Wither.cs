@@ -46,6 +46,19 @@ namespace MVZ2.GameContent.Bosses
                 return;
             stateMachine.UpdateAI(entity);
             entity.SetRelativeY(Mathf.Max(0, entity.GetRelativeY() - 1));
+
+            var cryTimer = GetCryTimer(entity);
+            if (cryTimer == null)
+            {
+                cryTimer = new FrameTimer(CRY_INTERVAL);
+                SetCryTimer(entity, cryTimer);
+            }
+            cryTimer.Run();
+            if (cryTimer.Expired)
+            {
+                cryTimer.ResetTime(CRY_INTERVAL);
+                entity.PlaySound(VanillaSoundID.witherCry);
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -354,6 +367,7 @@ namespace MVZ2.GameContent.Bosses
         public const int HEAD_RIGHT = 1;
         public const int HEAD_LEFT = 2;
 
+        public const int CRY_INTERVAL = 100;
         public const int HEAD_COUNT = 3;
         public const float HEAD_ROTATE_SPEED = 10;
         public const float FLY_HEIGHT = 80;
