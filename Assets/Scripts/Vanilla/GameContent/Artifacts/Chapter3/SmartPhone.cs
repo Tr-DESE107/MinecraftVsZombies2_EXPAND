@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Artifacts
                 artifact.Highlight();
             }
         }
-        public const int ENERGY_UNIT = 50;
+        public const int ENERGY_UNIT = 10;
         public const int MONEY_UNIT = 10;
     }
 }
