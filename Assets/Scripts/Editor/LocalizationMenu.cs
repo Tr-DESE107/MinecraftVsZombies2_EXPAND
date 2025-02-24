@@ -18,6 +18,25 @@ namespace MVZ2.Editor
 {
     public class LocalizationMenu
     {
+        [MenuItem("Custom/Assets/Localization/Update Localized Sprite Manifest")]
+        public static void UpdateLocalizedSpriteManifest()
+        {
+            // TODO：根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
+        }
+        [MenuItem("Custom/Assets/Localization/Update Language Pack Demo")]
+        public static void UpdateLanguagePackDemo()
+        {
+            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
+            UpdateLocalizedSpriteManifest();
+
+            // TODO：将Localization\pack\assets文件夹复制到LanguagePack\example\assets。
+
+            // TODO：将spriteManifest.json复制到LanguagePack\templates中。
+
+            // TODO：将*.pot文件复制到LanguagePack\templates\text_templates中。
+
+            // TODO：将英文的*.po文件复制到LanguagePack\templates\text_en中。
+        }
         [MenuItem("Custom/Assets/Localization/Update All Translations")]
         public static void UpdateAllTranslations()
         {
@@ -232,6 +251,7 @@ namespace MVZ2.Editor
         [MenuItem("Custom/Assets/Localization/Compress Langauge Pack")]
         public static void CompressLanguagePack()
         {
+            UpdateLocalizedSpriteManifest();
             MoveMOFiles();
 
             var path = GetLanguagePackDirectory();

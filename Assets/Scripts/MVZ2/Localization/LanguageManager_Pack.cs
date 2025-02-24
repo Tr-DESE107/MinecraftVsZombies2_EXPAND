@@ -33,6 +33,8 @@ namespace MVZ2.Localization
                     }
                 }
             });
+
+            // TODO：加载外部语言包。
             return op.Task;
         }
         public LanguagePack[] GetAllLanguagePacks()
@@ -87,6 +89,7 @@ namespace MVZ2.Localization
                 }
                 else if (splitedPaths.Length >= 5)
                 {
+                    // TODO：根据spriteManifest.json加载贴图。
                     string type = splitedPaths[3];
                     var asset = GetOrCreateLanguageAsset(assets, lang);
                     var rootPath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], splitedPaths[3]);

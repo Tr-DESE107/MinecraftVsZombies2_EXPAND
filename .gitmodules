@@ -10,3 +10,6 @@
 [submodule "Assets/Translations"]
 	path = Assets/Translations
 	url = https://github.com/Cuerzor/MinecraftVSZombies2Translations.git
+[submodule "Assets/LanguagePack"]
+	path = Assets/LanguagePack
+	url = https://github.com/Cuerzor/MVZ2LanguagePack.git
