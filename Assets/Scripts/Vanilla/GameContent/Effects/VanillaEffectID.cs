@@ -62,6 +62,7 @@ namespace MVZ2.GameContent.Effects
         public const string magicBombExplosion = "magic_bomb_explosion";
         public const string seijaCameraFrame = "seija_camera_frame";
         public const string seijaFaintEffect = "seija_faint_effect";
+        public const string witherSummoners = "wither_summoners";
     }
     public static class VanillaEffectID
     {
@@ -122,6 +123,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID magicBombExplosion = Get(VanillaEffectNames.magicBombExplosion);
         public static readonly NamespaceID seijaCameraFrame = Get(VanillaEffectNames.seijaCameraFrame);
         public static readonly NamespaceID seijaFaintEffect = Get(VanillaEffectNames.seijaFaintEffect);
+        public static readonly NamespaceID witherSummoners = Get(VanillaEffectNames.witherSummoners);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

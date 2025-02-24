@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
@@ -64,6 +65,13 @@ namespace MVZ2.GameContent.Stages
             if (behaviour != null)
             {
                 behaviour.RunBossWave(level);
+            }
+        }
+        protected void ClearEnemies(LevelEngine level)
+        {
+            foreach (var entity in level.FindEntities(e => e.Type == EntityTypes.ENEMY && !e.IsDead && e.IsHostileEntity()))
+            {
+                entity.Die();
             }
         }
         protected static void SetBossState(LevelEngine level, int value) => level.SetBehaviourField(FIELD_BOSS_PHASE, value);

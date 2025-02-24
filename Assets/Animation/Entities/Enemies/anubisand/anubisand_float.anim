@@ -38,7 +38,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -73,7 +73,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Center/Main/All
+    path: Root/Center/Main/Anubisand/All
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -107,7 +107,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Center/Main/Staff
+    path: Root/Center/Main/Anubisand/Staff
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -119,7 +119,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3151534879
+      path: 3273695394
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -128,7 +128,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4219325944
+      path: 454921425
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -137,7 +137,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 889844282
+      path: 2632174536
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -202,7 +202,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Root/Center/Main/All
+    path: Root/Center/Main/Anubisand/All
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -241,7 +241,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Root/Center/Main/All
+    path: Root/Center/Main/Anubisand/All
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -280,7 +280,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Root/Center/Main/All
+    path: Root/Center/Main/Anubisand/All
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -319,7 +319,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Root/Center/Main/Staff
+    path: Root/Center/Main/Anubisand/Staff
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -358,7 +358,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Root/Center/Main/Staff
+    path: Root/Center/Main/Anubisand/Staff
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -397,7 +397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Root/Center/Main/Staff
+    path: Root/Center/Main/Anubisand/Staff
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -427,10 +427,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
     classID: 4
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   - serializedVersion: 2
     curve:
       serializedVersion: 2
@@ -457,10 +457,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
     classID: 4
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   - serializedVersion: 2
     curve:
       serializedVersion: 2
@@ -487,10 +487,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
     classID: 4
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   m_EulerEditorCurves:
   - serializedVersion: 2
     curve:
@@ -500,7 +500,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -512,7 +512,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -524,7 +524,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/Staff/Blackhole
+    path: Root/Center/Main/Anubisand/Staff/Blackhole
     classID: 4
     script: {fileID: 0}
     flags: 0

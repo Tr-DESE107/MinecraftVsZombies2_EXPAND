@@ -45,7 +45,8 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 entity.SetAnimationBool("Shaking", true);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
-                substateTimer.ResetTime(60);
+                substateTimer.ResetTime(30);
+                SetHeadOpen(entity, 1);
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
@@ -55,6 +56,8 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
+                SetHeadOpen(entity, 1);
+
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.Run(stateMachine.GetSpeed(entity));
                 if (!substateTimer.Expired)
@@ -109,6 +112,8 @@ namespace MVZ2.GameContent.Bosses
             }
             private void UpdateArmored(Entity entity)
             {
+                entity.SetRelativeY(Mathf.Max(0, entity.GetRelativeY() - 1));
+
                 Vector2 targetPos = new Vector2(entity.Position.x, entity.Position.z);
                 if (!HasArmor(entity))
                 {

@@ -124,13 +124,6 @@ namespace MVZ2.GameContent.Stages
                 RunBossWave(level);
             }
         }
-        private void ClearEnemies(LevelEngine level)
-        {
-            foreach (var entity in level.FindEntities(e => e.Type == EntityTypes.ENEMY && !e.IsDead && e.IsHostileEntity()))
-            {
-                entity.Die();
-            }
-        }
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
             base.AfterBossWaveUpdate(level);

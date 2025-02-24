@@ -37,6 +37,8 @@ namespace MVZ2.GameContent.Bosses
                 EntityCollisionHelper.MASK_ENEMY |
                 EntityCollisionHelper.MASK_OBSTACLE |
                 EntityCollisionHelper.MASK_BOSS;
+
+            Appear(boss);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -45,7 +47,6 @@ namespace MVZ2.GameContent.Bosses
             if (entity.IsDead)
                 return;
             stateMachine.UpdateAI(entity);
-            entity.SetRelativeY(Mathf.Max(0, entity.GetRelativeY() - 1));
 
             var cryTimer = GetCryTimer(entity);
             if (cryTimer == null)
@@ -334,6 +335,12 @@ namespace MVZ2.GameContent.Bosses
         public static Vector3 GetHeadPosition(Entity entity, int head)
         {
             return entity.Position + headPositionOffsets[head];
+        }
+        public static void Appear(Entity entity)
+        {
+            stateMachine.StartState(entity, STATE_APPEAR);
+            entity.PlaySound(VanillaSoundID.witherSpawn);
+            entity.PlaySound(VanillaSoundID.witherDeath);
         }
 
         #region 常量

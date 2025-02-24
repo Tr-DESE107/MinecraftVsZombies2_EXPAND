@@ -128,6 +128,8 @@ namespace MVZ2.GameContent.Buffs
             public const string reverseSatellite = "reverse_satellite";
             public const string littleZombieLevel = "little_zombie_level";
             public const string seijaAutoCollect = "seija_auto_collect";
+            public const string witherTransition = "wither_transition";
+            public const string witherCleared = "wither_cleared";
         }
         public static class Boss
         {

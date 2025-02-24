@@ -1394,5 +1394,8 @@
             <int name="maxTimeout" value="30"/>
             <int name="sortingOrder" value="9999"/>
         </effect>
+        <effect id="wither_summoners">
+            <int name="maxTimeout" value="105"/>
+        </effect>
     </entries>
 </entities>

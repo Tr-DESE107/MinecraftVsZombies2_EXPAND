@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Root/Center/Main/Staff/Blackhole/Sprite
+    path: Root/Center/Main/Anubisand/Staff/Blackhole/Sprite
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -47,7 +47,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3108410860
+      path: 1003839880
       attribute: 304273561
       script: {fileID: 0}
       typeID: 212
@@ -94,7 +94,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Root/Center/Main/Staff/Blackhole/Sprite
+    path: Root/Center/Main/Anubisand/Staff/Blackhole/Sprite
     classID: 212
     script: {fileID: 0}
     flags: 0

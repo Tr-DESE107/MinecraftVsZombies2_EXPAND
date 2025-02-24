@@ -218,4 +218,13 @@
             <p>“这是我唯一剩下的愿望了”</p>
         </description>
     </music>
+    <music id="wither_boss" path="mvz2:wither_boss" name="惊疑星球-首领" unlock="mvz2:level.castle_11">
+        <source>书虫大冒险 Vol.2</source>
+        <description>
+            <p>凋灵的音乐。</p>
+            <p>之前提到过书虫大冒险中Lex的故事，我们先跳过第五本书，讲一讲第六本书。</p>
+            <p>Lex穿越的第六本书，也是最后一本书，它叫做《惊疑星球》，包括了大量的科幻小说内容。飞船、机器人、变异、时空穿梭……不过，我已经不能再说了。</p>
+            <p>因为老大哥在看着我。</p>
+        </description>
+    </music>
 </musics>
