@@ -173,6 +173,7 @@
     <model name="seija_camera_frame" type="entity" path="mvz2:effect/seija_camera_frame" shot="false" width="160" height="240" xOffset="0" yOffset="0"/>
     <model name="seija_faint_effect" type="entity" path="mvz2:effect/seija_faint_effect" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="wither_summoners" type="entity" path="mvz2:effect/wither_summoners" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="castle_twilight" type="entity" path="mvz2:effect/castle_twilight" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

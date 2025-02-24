@@ -1397,5 +1397,8 @@
         <effect id="wither_summoners">
             <int name="maxTimeout" value="105"/>
         </effect>
+        <effect id="castle_twilight">
+            <int name="sortingOrder" value="-9999"/>
+        </effect>
     </entries>
 </entities>

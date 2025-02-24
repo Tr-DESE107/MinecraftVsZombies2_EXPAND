@@ -443,6 +443,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 132beb45039de2d47a6cff39a62a56b3
+    m_Address: mvz2:chapter_transition/chapter_title_end
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 134305071b87df346a0a0fe64e2edbdf
     m_Address: mvz2:effect/thunder_bolt
     m_ReadOnly: 0
@@ -1108,6 +1114,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fbe1c7aa4dcf0043a334f7c17c99c24
+    m_Address: mvz2:effect/castle_twilight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3048f7f20bb9bd54fb32018bcd4af2b0
     m_Address: mvz2:contraption/prologue/obsidian
@@ -2223,6 +2235,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58b00e65f2d3cf54e95b866108f55a09
+    m_Address: mvz2:artifacts/nether_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58cd365da4a132942b0437a7a378f1a1
     m_Address: mvz2:entity/ghast/ghast5
@@ -4869,6 +4887,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb5ecf4eaca68cc49be8e39e2b78bda8
+    m_Address: mvz2:entity/effects/castle_twilight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb7758770170e2f458ee96acd41ef78f
     m_Address: mvz2:effect/nightmareaper_timer
     m_ReadOnly: 0
@@ -5282,6 +5306,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb2161762d5c5c54f989ec0a1e6d85e9
+    m_Address: mvz2:misc/wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb62f8c3ae2709d4889b0322abb7a98b
     m_Address: mvz2:talk/dialog_surprised

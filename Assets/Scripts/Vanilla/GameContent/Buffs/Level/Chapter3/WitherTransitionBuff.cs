@@ -38,6 +38,14 @@ namespace MVZ2.GameContent.Buffs.Level
             switch (state)
             {
                 case STATE_START:
+                    // 让辉光消失。
+                    foreach (var eye in level.FindEntities(VanillaEffectID.castleTwilight))
+                    {
+                        if (eye.Timeout <= 0)
+                        {
+                            eye.Timeout = 30;
+                        }
+                    }
                     // 音乐放缓。
                     level.SetMusicVolume(Mathf.Clamp01(level.GetMusicVolume() - (1 / 30f)));
                     if (timer.Expired)
