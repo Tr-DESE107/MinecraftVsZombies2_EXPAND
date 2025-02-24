@@ -4,6 +4,7 @@ using System.Linq;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -112,22 +113,38 @@ namespace MVZ2.GameContent.Stages
             {
                 int maxEnemyTypeCount = Mathf.Min(round + 1, 9);
 
+                if (round >= 5)
+                {
+                    entries.Add(VanillaSpawnID.mutantZombie);
+                    maxEnemyTypeCount--;
+                }
+                if (round >= 10)
+                {
+                    entries.Add(VanillaSpawnID.megaMutantZombie);
+                    maxEnemyTypeCount--;
+                }
+
                 var game = Global.Game;
                 NamespaceID[] enemies = game.GetUnlockedEnemies();
 
                 var areaDef = level.AreaDefinition;
-                var validEnemies = enemies.Select(e => VanillaSpawnID.GetFromEntity(e)).Where(spawnID =>
-                {
-                    var spawnDef = game.GetSpawnDefinition(spawnID);
-                    if (spawnDef == null || spawnDef.SpawnLevel <= 0)
-                        return false;
-                    if (entries.Any(id => id == spawnID))
-                        return false;
-                    var excludedAreaTags = spawnDef.ExcludedAreaTags;
-                    if (areaDef.GetAreaTags().Any(t => excludedAreaTags.Contains(t)))
-                        return false;
-                    return true;
-                }).RandomTake(maxEnemyTypeCount, level.GetRoundRNG());
+                var validEnemies = enemies
+                    .Select(e => VanillaSpawnID.GetFromEntity(e))
+                    .Where(spawnID =>
+                    {
+                        if (spawnID == VanillaSpawnID.mutantZombie || spawnID == VanillaSpawnID.megaMutantZombie)
+                            return false;
+                        var spawnDef = game.GetSpawnDefinition(spawnID);
+                        if (spawnDef == null || spawnDef.SpawnLevel <= 0)
+                            return false;
+                        if (entries.Any(id => id == spawnID))
+                            return false;
+                        var excludedAreaTags = spawnDef.ExcludedAreaTags;
+                        if (areaDef.GetAreaTags().Any(t => excludedAreaTags.Contains(t)))
+                            return false;
+                        return true;
+                    })
+                    .RandomTake(maxEnemyTypeCount, level.GetRoundRNG());
                 entries.AddRange(validEnemies);
             }
             return entries.ToArray();

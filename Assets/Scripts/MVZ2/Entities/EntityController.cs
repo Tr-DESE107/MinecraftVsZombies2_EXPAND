@@ -376,8 +376,17 @@ namespace MVZ2.Entities
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData d)
         {
-            if (Entity.IsPreviewEnemy() && Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, Entity.GetDefinitionID()) != null)
-                return true;
+            if (Entity.IsPreviewEnemy())
+            {
+                var entityID = Entity.GetDefinitionID();
+                if (Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, entityID) != null)
+                {
+                    if (Main.SaveManager.IsEnemyUnlocked(entityID))
+                    {
+                        return true;
+                    }
+                }
+            } 
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);

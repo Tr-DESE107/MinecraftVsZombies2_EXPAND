@@ -188,6 +188,10 @@ namespace MVZ2.Saves
         {
             return unlockedArtifactsCache.Contains(artifactID);
         }
+        public bool IsEnemyUnlocked(NamespaceID enemyID)
+        {
+            return unlockedEnemiesCache.Contains(enemyID);
+        }
         public NamespaceID[] GetUnlockedContraptions()
         {
             return unlockedContraptionsCache.ToArray();
