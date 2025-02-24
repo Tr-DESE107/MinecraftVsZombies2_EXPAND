@@ -522,8 +522,8 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>60</color>]]></p>
-                <p>宝石概率：<![CDATA[<color=red>10%</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
+                <p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
                 <p><![CDATA[<color=red>必须放置在木制投掷器上</color>]]></p>
             </properties>

@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -23,9 +24,22 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.PostHitEntity(hitResult, damage);
             var projectile = hitResult.Projectile;
-            if (projectile.RNG.Next(10) < 1)
+            if (projectile.RNG.Next(100) < 25)
             {
                 projectile.Produce(VanillaPickupID.emerald);
+            }
+
+            var dmg = projectile.GetDamage();
+            dmg *= 0.5f;
+            projectile.SetDamage(dmg);
+
+            var hitCount = GetHitCount(projectile);
+            hitCount++;
+            SetHitCount(projectile, hitCount);
+            if (hitCount >= MAX_HIT_COUNT)
+            {
+                hitResult.Pierce = false;
+                return;
             }
 
             var vel = projectile.Velocity;
@@ -51,5 +65,9 @@ namespace MVZ2.GameContent.Projectiles
             vel.z = zDir * zSpeed;
             projectile.Velocity = vel;
         }
+        public static int GetHitCount(Entity entity) => entity.GetBehaviourField<int>(PROP_HIT_COUNT);
+        public static void SetHitCount(Entity entity, int value) => entity.SetBehaviourField(PROP_HIT_COUNT, value);
+        public static readonly VanillaEntityPropertyMeta PROP_HIT_COUNT = new VanillaEntityPropertyMeta("HitCount");
+        public const int MAX_HIT_COUNT = 5;
     }
 }

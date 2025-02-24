@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.glowstone,
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.goldenApple,
+                VanillaContraptionID.goldenDropper,
                 VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.thunderDrum,
