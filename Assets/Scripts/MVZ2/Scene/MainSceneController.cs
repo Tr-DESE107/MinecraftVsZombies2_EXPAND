@@ -34,6 +34,10 @@ namespace MVZ2.Scenes
             achievementHint.gameObject.SetActive(true);
         }
         #region 对话框
+        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        {
+            ui.ShowDialog(title, desc, options, onSelect);
+        }
         public void ShowDialogMessage(string title, string desc, Action onSelect = null)
         {
             ShowDialog(title, desc, new string[]
@@ -60,10 +64,6 @@ namespace MVZ2.Scenes
             var tcs = new TaskCompletionSource<bool>();
             ShowDialogSelect(title, desc, (result) => tcs.SetResult(result));
             return tcs.Task;
-        }
-        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
-        {
-            ui.ShowDialog(title, desc, options, onSelect);
         }
         public Task<string> ShowInputNameDialogAsync(InputNameType type)
         {
@@ -208,10 +208,10 @@ namespace MVZ2.Scenes
         {
             almanac.OpenEnemyAlmanac(enemyID);
         }
-        public Task DisplayChapterTransitionAsync(NamespaceID id)
+        public Task DisplayChapterTransitionAsync(NamespaceID id, bool end)
         {
             HidePages();
-            return chapterTransition.DisplayAsync(id);
+            return chapterTransition.DisplayAsync(id, end);
         }
         public void HideChapterTransition()
         {
@@ -231,9 +231,9 @@ namespace MVZ2.Scenes
             }
         }
 
-        Coroutine ISceneController.DisplayChapterTransitionCoroutine(NamespaceID chapterID)
+        Coroutine ISceneController.DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end)
         {
-            return main.CoroutineManager.ToCoroutine(DisplayChapterTransitionAsync(chapterID));
+            return main.CoroutineManager.ToCoroutine(DisplayChapterTransitionAsync(chapterID, end));
         }
 
         #region 生命周期

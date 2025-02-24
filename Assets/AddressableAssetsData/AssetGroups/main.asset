@@ -4935,6 +4935,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bed75b6a48257354daa2be871bc3b50c
+    m_Address: mvz2:icon/wither_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf5a097a085986e4fbd7a8fe61808df5
     m_Address: mvz2:entity/skeleton_horse/skeleton_horse1
     m_ReadOnly: 0

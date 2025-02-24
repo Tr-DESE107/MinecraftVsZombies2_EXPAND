@@ -47,6 +47,10 @@ namespace MVZ2.Vanilla
         public const string UI_CONFIRM_TUTORIAL = "是否进行新手教程？";
         [TranslateMsg]
         public const string UI_TUTORIAL = "新手教程";
+        [TranslateMsg]
+        public const string UI_GAME_CLEARED = "通关";
+        [TranslateMsg]
+        public const string UI_COMING_SOON = "恭喜通关！\n接下来的内容还在开发中，敬请期待！";
 
         [TranslateMsg("输入名称对话框的错误信息")]
         public const string ERROR_MESSAGE_NAME_EMPTY = "用户名不能为空";

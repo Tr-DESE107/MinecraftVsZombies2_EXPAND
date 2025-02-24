@@ -36,5 +36,21 @@ namespace MVZ2.Vanilla
             Global.InitLevel(areaID, stageID, 1);
             Global.HideChapterTransition();
         }
+        public static IEnumerator TransitionEndToMap(NamespaceID transition, NamespaceID mapID)
+        {
+            Global.SetBlackScreen(1);
+            yield return new WaitForSeconds(2);
+
+            Global.SetBlackScreen(0);
+            yield return Global.DisplayChapterTransition(transition, true);
+
+            Global.FadeMusic(0, 1);
+            yield return new WaitForSeconds(2);
+            Global.SetMusicVolume(1);
+            Global.SetBlackScreen(1);
+            Global.FadeBlackScreen(0, 1);
+            Global.HideChapterTransition();
+            Global.GotoMap(mapID);
+        }
     }
 }

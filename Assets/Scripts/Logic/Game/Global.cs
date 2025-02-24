@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using MVZ2Logic.Games;
 using MVZ2Logic.Scenes;
 using PVZEngine;
@@ -65,6 +66,10 @@ namespace MVZ2Logic
         {
             Level.InitLevel(areaId, stageId, introDelay);
         }
+        public static void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        {
+            Scene.ShowDialog(title, desc, options, onSelect);
+        }
 
         public static void GotoMainmenuOrMap()
         {
@@ -79,9 +84,13 @@ namespace MVZ2Logic
         {
             Scene.DisplayPage(MainScenePageType.Mainmenu);
         }
-        public static Coroutine DisplayChapterTransition(NamespaceID chapterID)
+        public static void GotoMap(NamespaceID mapID)
         {
-            return Scene.DisplayChapterTransitionCoroutine(chapterID);
+            Scene.DisplayMap(mapID);
+        }
+        public static Coroutine DisplayChapterTransition(NamespaceID chapterID, bool end = false)
+        {
+            return Scene.DisplayChapterTransitionCoroutine(chapterID, end);
         }
         public static void HideChapterTransition()
         {
@@ -141,11 +150,13 @@ namespace MVZ2Logic
     {
         void GotoMapOrMainmenu();
         void DisplayPage(MainScenePageType type);
+        void DisplayMap(NamespaceID mapID);
         void HidePages();
         void FadeBlackScreen(float target, float duration);
         void SetBlackScreen(float value);
         void HideChapterTransition();
-        Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID);
+        void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
+        Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);
     }
     public interface IMusicManager
     {

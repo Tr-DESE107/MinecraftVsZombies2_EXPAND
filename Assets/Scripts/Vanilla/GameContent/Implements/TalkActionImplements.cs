@@ -1,5 +1,7 @@
-﻿using MVZ2.GameContent.Areas;
+﻿using System.Collections;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
@@ -187,6 +189,17 @@ namespace MVZ2.GameContent.Implements
                     case "goto_castle":
                         Global.Game.SetLastMapID(VanillaMapID.castle);
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
+                        break;
+                    case "chapter_3_finish":
+                        IEnumerator coroutineFunc()
+                        {
+                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo);
+                            var title = Global.Game.GetText(VanillaStrings.UI_GAME_CLEARED);
+                            var desc = Global.Game.GetText(VanillaStrings.UI_COMING_SOON);
+                            var options = new string[] { Global.Game.GetText(VanillaStrings.CONFIRM) };
+                            Global.ShowDialog(title, desc, options);
+                        }
+                        Global.StartCoroutine(coroutineFunc());
                         break;
                 }
             }

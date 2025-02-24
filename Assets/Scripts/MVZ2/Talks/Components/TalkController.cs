@@ -500,11 +500,16 @@ namespace MVZ2.Talk
                             case "show":
                                 var sprite = Main.GetFinalSprite(ParseArgumentSpriteReference(args[1]));
                                 ui.ShowTalkItem(sprite);
+                                showingTalkItem = true;
                                 Main.SoundManager.Play2D(VanillaSoundID.dialogItemShow);
                                 break;
                             case "hide":
-                                ui.HideTalkItem();
-                                Main.SoundManager.Play2D(VanillaSoundID.dialogItemHide);
+                                if (showingTalkItem)
+                                {
+                                    showingTalkItem = false;
+                                    ui.HideTalkItem();
+                                    Main.SoundManager.Play2D(VanillaSoundID.dialogItemHide);
+                                }
                                 break;
                         }
                     }
@@ -834,6 +839,7 @@ namespace MVZ2.Talk
         };
         private MainManager Main => MainManager.Instance;
 
+        private bool showingTalkItem = false;
         private bool canClick = false;
         private int sectionIndex = 0;
         private int sentenceIndex = 0;
