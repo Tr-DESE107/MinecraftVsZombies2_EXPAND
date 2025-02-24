@@ -21,8 +21,7 @@
 		[Toggle]
 		_HSVTint("HSVTint", Int) = 0
 
-		[Toggle]
-		_Emission("Emission", Int) = 0
+		_Emission("Emission", Range(0, 1)) = 0
 	}
 
 	SubShader
@@ -38,6 +37,8 @@
 
 		Pass
 		{
+			Name "Main"
+
 			Blend SrcAlpha OneMinusSrcAlpha, One One
 			ZWrite Off
 			Cull Off

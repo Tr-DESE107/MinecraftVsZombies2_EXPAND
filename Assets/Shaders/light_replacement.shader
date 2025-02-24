@@ -47,21 +47,45 @@
 			// 使用multi_compile_local而非shader_feature_local，以使这个标记被打进包
 			#pragma multi_compile_local _ BURN_ON
 			#pragma vertex EntityVert
-			#pragma fragment frag
-
-			int _Emission;
-
-			fixed4 frag(v2f i) : SV_Target
-			{
-				fixed4 c = EntityFrag(i);
-				if (_Emission <= 0)
-				{
-					c.rgb = 0;
-				}
-				return c;
-			}
+			#pragma fragment fragLighting
 			ENDCG
 		}
+	}
+	SubShader
+	{
+		Tags
+		{
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Entity3D"
+			"PreviewType" = "Plane"
+			"CanUseSpriteAtlas" = "True"
+		}
+        Pass {
+		    Name "ZWrite"
+
+            ZWrite On
+            ColorMask 0
+            
+            CGPROGRAM
+            #include "cg/entity_model.cginc"
+            #pragma vertex vert
+            #pragma fragment fragMask
+            ENDCG
+        }
+        Pass {
+		    Name "Lighting"
+
+            ZWrite Off
+		    Blend SrcAlpha OneMinusSrcAlpha
+            Cull Off
+            
+            CGPROGRAM
+            #include "cg/entity_model.cginc"
+            #pragma vertex vert
+            #pragma fragment fragLighting
+            ENDCG
+        }
 	}
 	SubShader
 	{

@@ -39,11 +39,10 @@
 			CGPROGRAM
 			#include "cg/entity.cginc"
 			#pragma shader_feature_local _ BURN_ON
-			#pragma shader_feature_local _ COLORED_ON
 			#pragma vertex EntityVert
 			#pragma fragment frag
 
-			fixed4 frag(v2f i) :SV_Target
+			fixed4 frag(v2fEntity i) :SV_Target
 			{
 				fixed4 col = EntityFrag(i);
 				col.rgb *= col.a;

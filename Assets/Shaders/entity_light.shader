@@ -36,20 +36,7 @@
 			"CanUseSpriteAtlas" = "True"
 		}
 
-		Pass
-		{
-			Blend SrcAlpha OneMinusSrcAlpha, One One
-			ZWrite Off
-			Cull Off
-
-			CGPROGRAM
-			#include "cg/entity.cginc"
-			#pragma shader_feature_local _ BURN_ON
-			#pragma shader_feature_local _ COLORED_ON
-			#pragma vertex EntityVert
-			#pragma fragment EntityFrag
-			ENDCG
-		}
+		UsePass "MinecraftVSZombies2/Entity/Entity/Main"
 	}
 	FallBack "MinecraftVSZombies2/Entity/Entity"
 }

@@ -1,41 +1,10 @@
 #include "UnityCG.cginc"
+#include "entity_common.cginc"
 #pragma target 3.0
 
 
-struct a2v
-{
-    float4 vertex : POSITION;
-    float2 texcoord : TEXCOORD0;
-    fixed4 color : COLOR;
-};
-struct v2f
-{
-    float2 uv : TEXCOORD0;
-    float4 vertex : SV_POSITION;
 #if BURN_ON
-    float2 noise_uv : TEXCOORD1;
-#endif
-    fixed4 color : COLOR;
-};
-
-sampler2D _MainTex;
-float4 _MainTex_ST;
-half4 _MainTex_TexelSize;
-fixed4 _Color;
-fixed4 _ColorOffset;
-int _HSVTint;
-
-
-#if BURN_ON
-sampler2D _BurnNoise;
-float4 _BurnNoise_ST;
-
-fixed _BurnValue;
-fixed4 _BurnEdgeColor;
-fixed4 _BurnFireColor;
-float _BurnEdgeThreshold;
-
-fixed4 Burn(fixed4 col, v2f i)
+fixed4 Burn(fixed4 col, v2fEntity i)
 {
     if (_BurnValue)
     {
@@ -89,9 +58,9 @@ fixed4 Tint(fixed4 color, fixed4 tint)
 }
 
 
-v2f EntityVert(a2v v)
+v2fEntity EntityVert(a2vEntity v)
 {
-    v2f o;
+    v2fEntity o;
 
     o.vertex = UnityObjectToClipPos(v.vertex);
     o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
@@ -111,7 +80,7 @@ fixed4 FragColor(fixed4 col, fixed4 tint) : SV_Target
 
     return col;
 }
-fixed4 EntityFrag(v2f i) :SV_Target
+fixed4 EntityFrag(v2fEntity i) :SV_Target
 {
     fixed4 col = tex2D(_MainTex, i.uv);
     col = FragColor(col, i.color);
@@ -119,4 +88,10 @@ fixed4 EntityFrag(v2f i) :SV_Target
     col = Burn(col, i);
 #endif
     return col;
+}
+fixed4 fragLighting(v2fEntity i) : SV_Target
+{
+    fixed4 c = EntityFrag(i);
+    c.rgb = lerp(0, c.rgb, _Emission);
+    return c;
 }

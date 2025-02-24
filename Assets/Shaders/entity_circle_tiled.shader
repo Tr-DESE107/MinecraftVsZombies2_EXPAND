@@ -47,11 +47,9 @@
 			#include "cg/entity.cginc"
 			#include "cg/circle_tile.cginc"
 			#pragma shader_feature_local _ BURN_ON
-			#pragma shader_feature_local _ COLORED_ON
 			#pragma vertex EntityVert
 			#pragma fragment frag
-
-			fixed4 frag(v2f i) :SV_Target
+			fixed4 frag(v2fEntity i) :SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
 				col = col + _ColorOffset;
