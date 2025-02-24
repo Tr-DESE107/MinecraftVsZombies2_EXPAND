@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Buffs
         public const string whiteFlash = "white_flash";
         public const string charm = "charm";
         public const string faction = "faction";
+        public const string withered = "withered";
 
         // Contraption
         public const string productionColor = "production_color";

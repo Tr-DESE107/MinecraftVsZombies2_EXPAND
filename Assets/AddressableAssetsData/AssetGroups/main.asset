@@ -353,6 +353,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ffb8f5c07b9abc459cc588c2b0efab6
+    m_Address: mvz2:entity/effect/wither_soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 102e865101898c94197e21c6db1c812e
     m_Address: mvz2:frankenstein_laugh
     m_ReadOnly: 0
@@ -479,6 +485,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1572d8be8ee0060479965033d1f67013
+    m_Address: mvz2:entity/boss/wither_crack_light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15ce728e9e2a2b24d8c46704c5c59b8c
     m_Address: mvz2:earthquake
     m_ReadOnly: 0
@@ -604,6 +616,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c22aba89e1241c4986a031d470be726
+    m_Address: mvz2:entity/boss/wither_skull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
     m_Address: mvz2:random/crystal/crystal_place2
@@ -2068,6 +2086,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52224e26acb83e248a1a595c220c3f0d
+    m_Address: mvz2:entity/boss/wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 522e593347dae8448904f02eff69933e
     m_Address: mvz2:models
     m_ReadOnly: 0
@@ -2166,6 +2190,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5676d56fcc308f743a4ba59674e4cea5
     m_Address: mvz2:pickup/dream_key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5725ac1f6146fe946be1b339e0ab7ae0
+    m_Address: mvz2:effect/wither_summoners
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3764,6 +3794,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93e2f9e0bfa5b694baa6f369a01161b8
+    m_Address: mvz2:entity/effect/wither_skeleton_skulls
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9471881cde5f3d841abcd44501e0f922
     m_Address: mvz2:mobile_blueprint/mummy
@@ -5469,6 +5505,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d52e41cedef77e246a62344b51d6c0f2
+    m_Address: mvz2:wither_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d57efe1c2239b6748bd289baef3bab74
     m_Address: mvz2:poison_cast
     m_ReadOnly: 0
@@ -6357,6 +6399,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f57e21459d32585419d277b8883f7426
+    m_Address: mvz2:anubisand
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f595f40e714ca554fbaa630677a07d0c
     m_Address: mvz2:effect/electric_arc
     m_ReadOnly: 0
@@ -6575,6 +6622,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe83ffae5970de14a9a107d4947b87b0
     m_Address: mvz2:ui/level/conveyor_belt_part_mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fea59b92a83db3a448792917749dda4a
+    m_Address: mvz2:entity/boss/wither_armor_white
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

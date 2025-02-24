@@ -1,8 +1,10 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Triggers;
 
@@ -110,6 +112,15 @@ namespace MVZ2.Vanilla.Entities
         {
             var buff = contraption.AddBuff<FrankensteinShockedBuff>();
             buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, time);
+        }
+        public static void InflictWither(this Entity enemy, int time)
+        {
+            Buff buff = enemy.GetFirstBuff<WitheredBuff>();
+            if (buff == null)
+            {
+                buff = enemy.AddBuff<WitheredBuff>();
+            }
+            buff.SetProperty(WitheredBuff.PROP_TIMEOUT, time);
         }
         private const string PROP_REGION = "contraptions";
         [PropertyRegistry(PROP_REGION)]

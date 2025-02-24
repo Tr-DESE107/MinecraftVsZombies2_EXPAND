@@ -226,6 +226,7 @@
     <model name="dream_key_shield" type="icon" path="mvz2:icon/dream_key_shield" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="terror_parasitized" type="icon" path="mvz2:icon/terror_parasitized" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="weakness_particles" type="icon" path="mvz2:icon/weakness_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="wither_particles" type="icon" path="mvz2:icon/wither_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="dream_alarm" type="icon" path="mvz2:icon/dream_alarm" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="parabot_insected" type="icon" path="mvz2:icon/parabot_insected" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="knockback_wave" type="icon" path="mvz2:icon/knockback_wave" shot="false" width="64" height="64" xOffset="0" yOffset="0"/>

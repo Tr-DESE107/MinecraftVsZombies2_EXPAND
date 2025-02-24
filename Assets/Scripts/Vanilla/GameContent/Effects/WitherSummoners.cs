@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -26,7 +27,8 @@ namespace MVZ2.GameContent.Effects
             base.Update(entity);
             if (entity.Timeout <= 0)
             {
-                entity.Spawn(VanillaBossID.wither, entity.Position);
+                var wither = entity.Spawn(VanillaBossID.wither, entity.Position);
+                Wither.Appear(wither);
             }
         }
         #endregion

@@ -35,6 +35,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID dreamKeyShield = Get("dream_key_shield", TYPE_ICON);
         public static readonly NamespaceID terrorParasitized = Get("terror_parasitized", TYPE_ICON);
         public static readonly NamespaceID weaknessParticles = Get("weakness_particles", TYPE_ICON);
+        public static readonly NamespaceID witherParticles = Get("wither_particles", TYPE_ICON);
         public static readonly NamespaceID dreamAlarm = Get("dream_alarm", TYPE_ICON);
         public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
         public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);

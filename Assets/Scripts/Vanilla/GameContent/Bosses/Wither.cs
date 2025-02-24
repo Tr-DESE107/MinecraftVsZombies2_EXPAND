@@ -3,6 +3,7 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -37,8 +38,6 @@ namespace MVZ2.GameContent.Bosses
                 EntityCollisionHelper.MASK_ENEMY |
                 EntityCollisionHelper.MASK_OBSTACLE |
                 EntityCollisionHelper.MASK_BOSS;
-
-            Appear(boss);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -70,7 +69,7 @@ namespace MVZ2.GameContent.Bosses
 
             RotateHeadsUpdate(entity);
 
-            if (!entity.IsDead)
+            if (!entity.IsDead && entity.Level.Difficulty != VanillaDifficulties.easy)
             {
                 entity.Heal(REGENERATION_SPEED, entity);
             }
