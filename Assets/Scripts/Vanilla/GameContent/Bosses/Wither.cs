@@ -71,12 +71,13 @@ namespace MVZ2.GameContent.Bosses
 
             if (!entity.IsDead)
             {
-                entity.Health = Mathf.Min(entity.GetMaxHealth(), entity.Health + REGENERATION_SPEED);
+                entity.Heal(REGENERATION_SPEED, entity);
             }
         }
         public override void PostDeath(Entity boss, DeathInfo damageInfo)
         {
             base.PostDeath(boss, damageInfo);
+            boss.PlaySound(VanillaSoundID.witherDeath);
             stateMachine.StartState(boss, STATE_DEATH);
         }
         public override void PostCollision(EntityCollision collision, int state)
@@ -328,7 +329,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool HasArmor(Entity entity)
         {
-            return GetPhase(entity) == PHASE_2;
+            return GetPhase(entity) == PHASE_2 && !entity.IsDead;
         }
         public static Vector3 GetHeadPosition(Entity entity, int head)
         {

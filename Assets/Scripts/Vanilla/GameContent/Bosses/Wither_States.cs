@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -202,9 +203,9 @@ namespace MVZ2.GameContent.Bosses
                     SetSkullCharges(entity, skullCharges);
                 }
                 var maxCharges = head == 0 ? MAX_SKULL_CHARGE_MAIN : MAX_SKULL_CHARGE;
-                skullCharges[head]++;
+                skullCharges[head] += entity.GetAttackSpeed();
 
-                if (skullCharges[head] >= maxCharges)
+                while (skullCharges[head] >= maxCharges)
                 {
                     var headPosition = GetHeadPosition(entity, head);
                     var param = entity.GetShootParams();
@@ -214,7 +215,7 @@ namespace MVZ2.GameContent.Bosses
                     param.soundID = VanillaSoundID.witherShoot;
                     param.velocity = 9 * (target.GetCenter() - headPosition).normalized;
                     entity.ShootProjectile(param);
-                    skullCharges[head] = 0;
+                    skullCharges[head] -= maxCharges;
                 }
             }
             private void UpdateStateSwitch(EntityStateMachine stateMachine, Entity entity)
@@ -720,10 +721,30 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                entity.SetAnimationBool("Shaking", true);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.ResetTime(150);
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateLogic(stateMachine, entity);
+                var headOpen = GetHeadOpen(entity);
+                headOpen = headOpen * 0.7f + 1 * 0.3f;
+                SetHeadOpen(entity, headOpen);
+
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.Run(stateMachine.GetSpeed(entity));
+
+                if (stateTimer.Expired)
+                {
+                    entity.PlaySound(VanillaSoundID.witherDeath);
+                    entity.PlaySound(VanillaSoundID.explosion);
+                    entity.Level.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
+                    var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
+                    exp.SetSize(Vector3.one * 240);
+                    entity.Level.ShakeScreen(20, 0, 30);
+                    entity.Remove();
+                }
             }
         }
         #endregion

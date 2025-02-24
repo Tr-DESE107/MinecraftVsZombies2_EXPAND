@@ -70,6 +70,7 @@
             <float name="friction" value="0.15"/>
             <float name="gravity" value="1"/>
             <float name="damage" value="100"/>
+            <float name="attackSpeed" value="1"/>
             <id name="shell" value="mvz2:flesh"/>
             <float name="takenCrushDamage" value="900"/>
             <bool name="faceLeftAtDefault" value="true"/>
