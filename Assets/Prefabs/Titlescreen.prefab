@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 8996919601465698958}
-  buttonFillImageTrans: {fileID: 4895077946257471919}
+  buttonFillImage: {fileID: 3981590062228481014}
   buttonText: {fileID: 6860951484572520028}
   versionText: {fileID: 7300844707247305688}
 --- !u!1 &2710664725903551796

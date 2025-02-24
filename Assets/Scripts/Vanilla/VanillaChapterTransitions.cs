@@ -38,7 +38,7 @@ namespace MVZ2.Vanilla
         }
         public static IEnumerator TransitionEndToMap(NamespaceID transition, NamespaceID mapID)
         {
-            Global.SetBlackScreen(1);
+            Global.FadeBlackScreen(1, 0.5f);
             yield return new WaitForSeconds(2);
 
             Global.SetBlackScreen(0);

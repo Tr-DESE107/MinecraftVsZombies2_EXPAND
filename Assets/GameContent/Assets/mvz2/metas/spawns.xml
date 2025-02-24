@@ -87,6 +87,6 @@
     <entry id="mega_mutant_zombie" entity="mvz2:mega_mutant_zombie" >
         <spawn level="10"/>
         <terrain water="true"/>
-        <weight base="6000" />
+        <weight base="1000" />
     </entry>
 </spawns>

@@ -13,9 +13,7 @@ namespace MVZ2.Titlescreen
         }
         public void SetLoadingProgress(float value)
         {
-            var anchorMax = buttonFillImageTrans.anchorMax;
-            anchorMax.x = value;
-            buttonFillImageTrans.anchorMax = anchorMax;
+            buttonFillImage.fillAmount = value;
         }
         public void SetLoadingText(string text)
         {
@@ -38,7 +36,7 @@ namespace MVZ2.Titlescreen
         [SerializeField]
         private Button button;
         [SerializeField]
-        private RectTransform buttonFillImageTrans;
+        private Image buttonFillImage;
         [SerializeField]
         private TextMeshProUGUI buttonText;
         [SerializeField]
