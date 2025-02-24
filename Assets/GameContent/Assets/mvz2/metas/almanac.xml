@@ -1033,7 +1033,7 @@
                     <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
                 </header>
                 <properties>
-                    <p>生命：<![CDATA[<color=red>8000，每秒恢复10</color>]]></p>
+                    <p>生命：<![CDATA[<color=red>8000，每秒恢复30</color>]]></p>
                     <p>阶段1：<![CDATA[<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>]]></p>
                     <p>阶段2：<![CDATA[<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>]]></p>
                 </properties>
