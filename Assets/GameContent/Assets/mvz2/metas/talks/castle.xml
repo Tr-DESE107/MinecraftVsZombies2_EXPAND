@@ -884,7 +884,7 @@
   </group>
   <group id="castle_11_map" tags="mvz2:castle;mvz2:map">
     <archive name="辉针城第11天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
-    <section onSkip="action chapter_3_finish;forecolor fade #000F #0000 1;item hide;end">
+    <section onSkip="action chapter_3_finish;forecolor fade #000F #0000 2;item hide;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
@@ -945,7 +945,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（周围格外的安静，没有臣民，没有其他的小人族见证这一神圣的时刻。）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（在那之后，针妙丸公主送我们离开，一直送到了香霖堂。）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（那时已经是晚上了。她道过别之后，什么都没有说，便走上了回家的路。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="action chapter_3_finish;forecolor fade #000F #0000 1;end"><![CDATA[<color=blue>（只是那背影，无比落寞，逐渐消失在了漆黑的夜空中，化作了一颗小小的星星。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="action chapter_3_finish;forecolor fade #000F #0000 2;end"><![CDATA[<color=blue>（只是那背影，无比落寞，逐渐消失在了漆黑的夜空中，化作了一颗小小的星星。）</color>]]></sentence>
       </sentences>
     </section>
   </group>
