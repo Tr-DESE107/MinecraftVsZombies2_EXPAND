@@ -650,4 +650,11 @@
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
+    <stage id="castle_endless" name="辉针城无尽" type="endless" unlock="mvz2:level.castle_11" >
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+        </spawns>
+    </stage>
 </stages>
