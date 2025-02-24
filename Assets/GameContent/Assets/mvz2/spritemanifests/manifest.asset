@@ -127,6 +127,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7a8db72eb32f2374786990b1c3e9de7a, type: 3}
   - name: misc/steves_house
     sprite: {fileID: 21300000, guid: b54bd6db18c4f8d418444457577bbd31, type: 3}
+  - name: misc/wither
+    sprite: {fileID: 21300000, guid: cb2161762d5c5c54f989ec0a1e6d85e9, type: 3}
   - name: mobile_blueprint/add_pearl
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
   - name: mobile_blueprint/anubisand

@@ -1028,6 +1028,26 @@
                     <p>骑士离开王宫，骑上自己的马，便准备出发了。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:wither" name="凋灵" sprite="mvz2:misc/wither" unlock="mvz2:level.castle_11">
+                <header>
+                    <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red>8000，每秒恢复10</color>]]></p>
+                    <p>阶段1：<![CDATA[<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>]]></p>
+                    <p>阶段2：<![CDATA[<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>单枪匹马对付众多的怪物并不是个好主意，骑士打算去招募一些帮手。</p>
+                    <p>在出发之前，骑士突然被一个人拦住了。他定睛一看，那个人正是国王的占卜师。</p>
+                    <p>占卜师露出诡异的微笑：“勇者先生，我有一物可以助你一臂之力。”他拿出了一个黑色的骷髅护身符。“这是我专门为你所准备的护身符，请收下吧。”</p>
+                    <p>“这个有什么用？”骑士问。</p>
+                    <p>“反转。”</p>
+                    <p>“什么？”骑士有些不解。</p>
+                    <p>“呵呵呵，没什么。它的真正用途，你最后会知道的。”占卜师离开了。</p>
+                    <p>骑士握着手中的护身符。黑色的骷髅头中，闪烁着白色的，诡异的光。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Misc Entities -->
         <group id="mvz2:misc_entities" name="杂项实体" order="200">
