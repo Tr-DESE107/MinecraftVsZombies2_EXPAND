@@ -99,6 +99,7 @@ namespace MVZ2.GameContent.Stages
                 if (!level.IsRerun)
                 {
                     // 隐藏UI，关闭输入
+                    level.ResetHeldItem();
                     level.SetUIAndInputDisabled(true);
                 }
                 else
