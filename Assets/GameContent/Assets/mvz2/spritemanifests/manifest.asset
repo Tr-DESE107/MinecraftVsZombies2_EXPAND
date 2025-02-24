@@ -49,6 +49,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
   - name: artifacts/miracle_mallet_replica
     sprite: {fileID: 21300000, guid: 70875885371f09444af751a1676e6f71, type: 3}
+  - name: artifacts/nether_star
+    sprite: {fileID: 21300000, guid: 58b00e65f2d3cf54e95b866108f55a09, type: 3}
   - name: artifacts/pagoda_branch
     sprite: {fileID: 21300000, guid: 48d03b03b358d9948863f3eb0517933a, type: 3}
   - name: artifacts/smart_phone
@@ -59,6 +61,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 47aa6cbff8c048c40a3da0ad86fa845d, type: 3}
   - name: artifacts/wither_skeleton_skull
     sprite: {fileID: 21300000, guid: c37ae568963b3c141804d263bfe68ffd, type: 3}
+  - name: chapter_transition/chapter_title_end
+    sprite: {fileID: 21300000, guid: 132beb45039de2d47a6cff39a62a56b3, type: 3}
   - name: chapter_transition/chapter_wheel
     sprite: {fileID: 21300000, guid: f022b6ff2c7efb247b94a9b7a2f0d006, type: 3}
   - name: chapter_transition/chapter_wheel_dark

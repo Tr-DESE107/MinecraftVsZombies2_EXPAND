@@ -174,7 +174,16 @@
                 <stage price="8880" unlocks="mvz2:artifact.inverted_mirror"/>
             </stages>
         </product>
-        <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull" required="mvz2:level.castle_11">
+        <product id="nether_star" sprite="mvz2:artifacts/nether_star" required="mvz2:level.castle_11">
+            <talks>
+                <talk character="mvz2:crazy_villager">下界之星！每当你使用4次星之碎片，会再次生成一个星之碎片！</talk>
+                <talk character="mvz2:tokiko">闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成一个神奇的碎片！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.nether_star"/>
+            </stages>
+        </product>
+        <!-- <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull" required="mvz2:level.castle_11">
             <talks>
                 <talk character="mvz2:crazy_villager">凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！</talk>
                 <talk character="mvz2:tokiko">很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们的耐久也会因此变为60%！</talk>
@@ -182,6 +191,6 @@
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.wither_skeleton_skull"/>
             </stages>
-        </product>
+        </product> -->
     </products>
 </store>

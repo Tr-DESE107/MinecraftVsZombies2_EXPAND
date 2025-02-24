@@ -43,6 +43,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PostProjectileHit(ProjectileHitOutput hit, DamageOutput damage);
         public delegate void PostProjectileShot(Entity projectile);
 
+        public delegate void PostUseStarshard(Entity entity);
 
 
         public readonly static CallbackReference<PreEntityTakeDamage> PRE_ENTITY_TAKE_DAMAGE = new();
@@ -76,5 +77,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<PostProjectileShot> POST_PROJECTILE_SHOT = new();
         public readonly static CallbackReference<PreProjectileHit> PRE_PROJECTILE_HIT = new();
         public readonly static CallbackReference<PostProjectileHit> POST_PROJECTILE_HIT = new();
+
+        public readonly static CallbackReference<PostUseStarshard> POST_USE_STARSHARD = new();
     }
 }

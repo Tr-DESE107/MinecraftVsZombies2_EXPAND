@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string smartPhone = "smart_phone";
         public const string invertedMirror = "inverted_mirror";
         public const string miracleMalletReplica = "miracle_mallet_replica";
+        public const string netherStar = "nether_star";
         public const string witherSkeletonSkull = "wither_skeleton_skull";
         public const string brokenLantern = "broken_lantern";
     }
@@ -37,6 +38,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
         public static readonly NamespaceID miracleMalletReplica = Get(VanillaArtifactNames.miracleMalletReplica);
         public static readonly NamespaceID witherSkeletonSkull = Get(VanillaArtifactNames.witherSkeletonSkull);
+        public static readonly NamespaceID netherStar = Get(VanillaArtifactNames.netherStar);
         public static readonly NamespaceID brokenLantern = Get(VanillaArtifactNames.brokenLantern);
         private static NamespaceID Get(string name)
         {

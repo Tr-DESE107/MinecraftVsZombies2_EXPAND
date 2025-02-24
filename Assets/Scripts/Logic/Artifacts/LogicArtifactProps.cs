@@ -21,6 +21,10 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<int>(NUMBER);
         }
+        public static void SetNumber(this Artifact artifact, int number)
+        {
+            artifact.SetProperty(NUMBER, number);
+        }
         public static void SetInactive(this Artifact artifact, bool value)
         {
             artifact.SetProperty(INACTIVE, value);
