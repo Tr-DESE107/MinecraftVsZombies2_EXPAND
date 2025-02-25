@@ -1,9 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace MVZ2.Sprites
 {
     public static class SpriteHelper
     {
+        public static Texture2D LoadTextureFromBytes(byte[] bytes)
+        {
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(bytes);
+            texture.FixTransparency();
+            return texture;
+        }
         /// <summary>
         /// 修复图片导入时白边问题
         /// </summary>

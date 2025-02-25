@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 2802494976120551623}
   debugLanguage: 0
+  externalLangaugePackDir: language_packs
 --- !u!1 &772277593880095380
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,17 +46,17 @@ namespace MVZ2.IO
         }
         public static Texture2D ReadTexture2D(this ZipArchiveEntry entry)
         {
+            var bytes = entry.ReadBytes();
+            return SpriteHelper.LoadTextureFromBytes(bytes);
+        }
+        public static byte[] ReadBytes(this ZipArchiveEntry entry)
+        {
             using (var entryStream = entry.Open())
             {
                 using (var memory = new MemoryStream())
                 {
                     entryStream.CopyTo(memory);
-
-                    Texture2D texture = new Texture2D(2, 2);
-                    texture.LoadImage(memory.ToArray());
-                    texture.FixTransparency();
-
-                    return texture;
+                    return memory.ToArray();
                 }
             }
         }

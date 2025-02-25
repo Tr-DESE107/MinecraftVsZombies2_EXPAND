@@ -8,10 +8,19 @@ namespace MVZ2.Localization
 {
     public class LanguagePack
     {
-        public LanguagePack(LanguagePackMetadata metadata, IEnumerable<LanguageAssets> assets)
+        public LanguagePack(LanguagePackMetadata metadata)
         {
             Metadata = metadata;
-            this.assets.AddRange(assets);
+        }
+        public LanguageAssets GetOrCreateLanguageAsset(string lang)
+        {
+            var asset = assets.FirstOrDefault(a => a.language == lang);
+            if (asset == null)
+            {
+                asset = new LanguageAssets(lang);
+                assets.Add(asset);
+            }
+            return asset;
         }
         public bool TryGetString(string language, string text, out string result, params object[] args)
         {
@@ -73,6 +82,7 @@ namespace MVZ2.Localization
         public string name;
         public string author;
         public string description;
+        public int dataVersion;
         public LanguagePackVersion version;
     }
     public class LanguagePackVersion
