@@ -410,7 +410,7 @@
             <float name="maxHealth" value="4000"/>
             <bool name="defensive" value="true"/>
             <id name="fragmentId" value="mvz2:furnace" />
-            <vector3 name="size" x="80" y="40" z="80"/>
+            <vector3 name="size" x="80" y="40" z="64"/>
             <idArray name="gridLayers" value="mvz2:protector"/>
 
             <int name="cost" value="125" />

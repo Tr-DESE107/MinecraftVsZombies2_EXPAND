@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.thunderDrum,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.ghast,
+                VanillaEnemyID.mutantZombie,
                 VanillaBossID.wither
             });
             level.SetArtifactSlotCount(3);
