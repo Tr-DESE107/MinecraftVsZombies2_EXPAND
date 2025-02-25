@@ -21,6 +21,10 @@ namespace MVZ2.Addons
             descriptionText.text = viewData.description;
             icon.sprite = viewData.icon;
         }
+        public void SetToggled(bool value)
+        {
+            toggle.SetIsOnWithoutNotify(value);
+        }
         private void Awake()
         {
             toggle.onValueChanged.AddListener(v => OnToggled?.Invoke(this, v));

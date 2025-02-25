@@ -71,6 +71,11 @@ namespace MVZ2.Localization
             enabledLanguagePacks.AddRange(enabled.Where(r => languagePackMetadatas.Keys.Contains(r)));
             UnloadLanguagePacks();
             await LoadLanguagePacks();
+
+            if (!allLanguages.Contains(GetCurrentLanguage()))
+            {
+                Main.OptionsManager.SetLanguage(allLanguages.FirstOrDefault());
+            }
         }
 
         #region 语言包引用/元数据
@@ -172,6 +177,7 @@ namespace MVZ2.Localization
             }
 
             allLanguages.Clear();
+            allLanguages.Add(SOURCE_LANGUAGE);
             loadedLanguagePacks.Clear();
         }
         public void UnloadLanguagePack(LanguagePack pack)
@@ -183,14 +189,14 @@ namespace MVZ2.Localization
                     continue;
                 foreach (var pair in assets.Sprites)
                 {
-                    main.ResourceManager.RemoveCreatedSprite(pair.Value, pair.Key.ToString(), "language");
+                    main.ResourceManager.RemoveCreatedSprite(pair.Value, pair.Key.ToString(), GetLanguagePackSpriteCategory(pack.Key));
                 }
                 foreach (var pair in assets.SpriteSheets)
                 {
                     for (int i = 0; i < pair.Value.Length; i++)
                     {
                         var sprite = pair.Value[i];
-                        main.ResourceManager.RemoveCreatedSprite(sprite, $"{pair.Key}[{i}]", "language");
+                        main.ResourceManager.RemoveCreatedSprite(sprite, $"{pair.Key}[{i}]", GetLanguagePackSpriteCategory(pack.Key));
                     }
                 }
             }
@@ -219,6 +225,7 @@ namespace MVZ2.Localization
                     return null;
 
                 var json = metadataEntry.ReadString(Encoding.UTF8);
+                // TODO：图标
                 return JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
             }
             catch (Exception e)

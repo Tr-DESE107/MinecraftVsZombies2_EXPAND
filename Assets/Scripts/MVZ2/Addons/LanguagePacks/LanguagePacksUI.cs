@@ -12,6 +12,19 @@ namespace MVZ2.Addons
         {
             toggleGroup.SetAllTogglesOff();
         }
+        public void SelectItemUI(bool enabled, int index)
+        {
+            LanguagePackItem item;
+            if (enabled)
+            {
+                item = enabledLanguagePacks.getElement<LanguagePackItem>(index);
+            }
+            else
+            {
+                item = disabledLanguagePacks.getElement<LanguagePackItem>(index);
+            }
+            item.SetToggled(true);
+        }
         public void SetDisabledLanguagePacks(LanguagePackViewData[] viewDatas)
         {
             disabledLanguagePacks.updateList(viewDatas.Length, (i, obj) =>
@@ -59,6 +72,8 @@ namespace MVZ2.Addons
         {
             buttonDict.Add(Buttons.Disable, disableButton);
             buttonDict.Add(Buttons.Enable, enableButton);
+            buttonDict.Add(Buttons.MoveUp, moveUpButton);
+            buttonDict.Add(Buttons.MoveDown, moveDownButton);
             buttonDict.Add(Buttons.Import, importButton);
             buttonDict.Add(Buttons.Export, exportButton);
             buttonDict.Add(Buttons.Delete, deleteButton);
@@ -90,6 +105,10 @@ namespace MVZ2.Addons
         [SerializeField]
         private Button enableButton;
         [SerializeField]
+        private Button moveUpButton;
+        [SerializeField]
+        private Button moveDownButton;
+        [SerializeField]
         private Button importButton;
         [SerializeField]
         private Button exportButton;
@@ -103,6 +122,8 @@ namespace MVZ2.Addons
         {
             Disable,
             Enable,
+            MoveUp,
+            MoveDown,
             Import,
             Export,
             Delete,

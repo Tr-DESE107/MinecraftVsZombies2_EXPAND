@@ -12,6 +12,10 @@ namespace MVZ2.Addons
         {
             indexUI.SetActive(visible);
         }
+        public void SetLoadingVisible(bool visible)
+        {
+            loadingScreen.SetActive(visible);
+        }
         private void Awake()
         {
             buttonDict.Add(Buttons.LanguagePack, languagePackButton);
@@ -30,6 +34,8 @@ namespace MVZ2.Addons
         private Button returnButton;
         [SerializeField]
         private GameObject indexUI;
+        [SerializeField]
+        private GameObject loadingScreen;
         private Dictionary<Buttons, Button> buttonDict = new Dictionary<Buttons, Button>();
 
         public enum Buttons

@@ -10,9 +10,19 @@ namespace MVZ2.Addons
 {
     public class AddonsController : MainScenePage
     {
+        public override void Display()
+        {
+            base.Display();
+            DisplayIndex();
+            languagePacks.Hide();
+        }
         public void DisplayIndex()
         {
             ui.SetIndexVisible(true);
+        }
+        public void SetLoadingVisible(bool visible)
+        {
+            ui.SetLoadingVisible(visible);
         }
         private void Awake()
         {
@@ -28,7 +38,9 @@ namespace MVZ2.Addons
                     break;
                 case AddonsUI.Buttons.LanguagePack:
                     ui.SetIndexVisible(false);
+                    SetLoadingVisible(true);
                     await languagePacks.Display();
+                    SetLoadingVisible(false);
                     break;
             }
         }

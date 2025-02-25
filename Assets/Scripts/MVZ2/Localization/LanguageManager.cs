@@ -153,8 +153,9 @@ namespace MVZ2.Localization
         public MainManager Main => main;
         public const string CN = "zh-Hans";
         public const string EN = "en-US";
+        public const string SOURCE_LANGUAGE = CN;
 
-        private List<string> allLanguages = new List<string>() { CN };
+        private List<string> allLanguages = new List<string>() { SOURCE_LANGUAGE };
         [SerializeField]
         private MainManager main;
         [SerializeField]

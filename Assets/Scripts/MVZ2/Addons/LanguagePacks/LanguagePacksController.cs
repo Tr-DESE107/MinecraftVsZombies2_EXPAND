@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using MVZ2.Localization;
@@ -56,10 +57,67 @@ namespace MVZ2.Addons
                 case LanguagePacksUI.Buttons.Return:
                     if (IsDirty())
                     {
+                        addons.SetLoadingVisible(true);
                         await Main.LanguageManager.ReloadLanguagePacks(enabledReferences.ToArray());
+                        addons.SetLoadingVisible(false);
                     }
                     Hide();
                     addons.DisplayIndex();
+                    break;
+                case LanguagePacksUI.Buttons.Import:
+                    // TODO
+                    break;
+                case LanguagePacksUI.Buttons.Export:
+                    // TODO
+                    break;
+                case LanguagePacksUI.Buttons.Delete:
+                    // TODO
+                    break;
+                case LanguagePacksUI.Buttons.Disable:
+                    if (selectedLanguagePack != null)
+                    {
+                        enabledReferences.Remove(selectedLanguagePack);
+                        UpdateLanguagePacks();
+                        UpdateButtonInteractions();
+                        ui.SelectItemUI(false, GetItemUIIndex(false, selectedLanguagePack));
+                    }
+                    break;
+                case LanguagePacksUI.Buttons.Enable:
+                    if (selectedLanguagePack != null && !enabledReferences.Contains(selectedLanguagePack))
+                    {
+                        enabledReferences.Add(selectedLanguagePack);
+                        UpdateLanguagePacks();
+                        UpdateButtonInteractions();
+                        ui.SelectItemUI(true, GetItemUIIndex(true, selectedLanguagePack));
+                    }
+                    break;
+                case LanguagePacksUI.Buttons.MoveUp:
+                    if (selectedLanguagePack != null && enabledReferences.Contains(selectedLanguagePack))
+                    {
+                        var index = enabledReferences.IndexOf(selectedLanguagePack);
+                        if (index > 0)
+                        {
+                            enabledReferences.RemoveAt(index);
+                            enabledReferences.Insert(index - 1, selectedLanguagePack);
+                            UpdateLanguagePacks();
+                            UpdateButtonInteractions();
+                            ui.SelectItemUI(true, GetItemUIIndex(true, selectedLanguagePack));
+                        }
+                    }
+                    break;
+                case LanguagePacksUI.Buttons.MoveDown:
+                    if (selectedLanguagePack != null && enabledReferences.Contains(selectedLanguagePack))
+                    {
+                        var index = enabledReferences.IndexOf(selectedLanguagePack);
+                        if (index < enabledReferences.Count - 1)
+                        {
+                            enabledReferences.RemoveAt(index);
+                            enabledReferences.Insert(index + 1, selectedLanguagePack);
+                            UpdateLanguagePacks();
+                            UpdateButtonInteractions();
+                            ui.SelectItemUI(true, GetItemUIIndex(true, selectedLanguagePack));
+                        }
+                    }
                     break;
             }
         }
@@ -69,13 +127,12 @@ namespace MVZ2.Addons
             if (value)
             {
                 selectedLanguagePack = reference;
+                UpdateButtonInteractions();
             }
-            else
+            else if (selectedLanguagePack == reference)
             {
-                if (selectedLanguagePack == reference)
-                {
-
-                }
+                selectedLanguagePack = null;
+                UpdateButtonInteractions();
             }
         }
         #endregion
@@ -112,10 +169,13 @@ namespace MVZ2.Addons
             bool selected = selectedLanguagePack != null;
             bool isBuiltin = selected && selectedLanguagePack.IsBuiltin;
             bool enabled = selected && enabledReferences.Contains(selectedLanguagePack);
+            int index = selected ? enabledReferences.IndexOf(selectedLanguagePack) : -1;
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Delete, selected && !isBuiltin);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Export, selected && !isBuiltin);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Disable, enabled && selected && !isBuiltin);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Enable, !enabled && selected && !isBuiltin);
+            ui.SetButtonInteractable(LanguagePacksUI.Buttons.MoveUp, enabled && selected && index > 0);
+            ui.SetButtonInteractable(LanguagePacksUI.Buttons.MoveDown, enabled && selected && index < enabledReferences.Count - 1);
         }
         private IEnumerable<LanguagePackReference> GetDisabledReferences()
         {
@@ -135,6 +195,18 @@ namespace MVZ2.Addons
             {
                 var disabled = GetDisabledReferences();
                 return disabled.ElementAtOrDefault(index);
+            }
+        }
+        private int GetItemUIIndex(bool enabled, LanguagePackReference reference)
+        {
+            if (enabled)
+            {
+                return enabledReferences.IndexOf(reference);
+            }
+            else
+            {
+                var disabled = GetDisabledReferences().ToArray();
+                return Array.IndexOf(disabled, reference);
             }
         }
         private LanguagePackViewData GetLanguagePackViewData(LanguagePackReference reference)
