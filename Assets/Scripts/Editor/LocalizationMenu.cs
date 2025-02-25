@@ -23,6 +23,37 @@ namespace MVZ2.Editor
 {
     public class LocalizationMenu
     {
+        [MenuItem("Custom/Assets/Langauge Pack Demo/Update Language Pack Demo")]
+        public static void UpdateLanguagePackDemo()
+        {
+            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
+            UpdateLocalizedSpriteManifest();
+
+            // 将Localization\pack\assets文件夹复制到LanguagePack\example\assets。
+            Debug.Log("更新语言包示例……");
+            CopyDirectory(Path.Combine(Application.dataPath, "Localization", "pack", "assets"), Path.Combine(Application.dataPath, "LanguagePack", "example", "assets"), "*");
+
+            // 将spriteManifest.json复制到LanguagePack\templates中。
+            Debug.Log("更新语言包贴图清单……");
+            var templatesDir = Path.Combine(Application.dataPath, "LanguagePack", "templates");
+            var sourceManifestPath = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2", "en-US", LanguageManager.SPRITE_MANIFEST_FILENAME);
+            if (File.Exists(sourceManifestPath))
+            {
+                var destPath = Path.Combine(templatesDir, LanguageManager.SPRITE_MANIFEST_FILENAME);
+                FileHelper.ValidateDirectory(destPath);
+                File.Copy(sourceManifestPath, destPath, true);
+            }
+
+            // 将*.pot文件复制到LanguagePack\templates\text_templates中。
+            Debug.Log("更新语言包文本模板……");
+            CopyDirectory(GetPoTemplateDirectory(), Path.Combine(templatesDir, "text_templates"), "*.pot");
+
+            // 将英文的*.po文件复制到LanguagePack\templates\text_en中。
+            Debug.Log("更新语言包英文文本翻译……");
+            CopyDirectory(GetPoDirectory("en-US"), Path.Combine(templatesDir, "text_en"), "*.po");
+
+            Debug.Log("语言包示例更新完成。");
+        }
         [MenuItem("Custom/Assets/Localization/Update Localized Sprite Manifest")]
         public static void UpdateLocalizedSpriteManifest()
         {
@@ -105,27 +136,6 @@ namespace MVZ2.Editor
                 }
             }
 
-        }
-        [MenuItem("Custom/Assets/Localization/Update Language Pack Demo")]
-        public static void UpdateLanguagePackDemo()
-        {
-            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
-            UpdateLocalizedSpriteManifest();
-
-            // TODO：将Localization\pack\assets文件夹复制到LanguagePack\example\assets。
-
-            // 将spriteManifest.json复制到LanguagePack\templates中。
-            var sourcePath = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2", "en-US", LanguageManager.SPRITE_MANIFEST_FILENAME);
-            if (File.Exists(sourcePath))
-            {
-                var destPath = Path.Combine(Application.dataPath, "LanguagePack", "templates", LanguageManager.SPRITE_MANIFEST_FILENAME);
-                FileHelper.ValidateDirectory(destPath);
-                File.Copy(sourcePath, destPath, true);
-            }
-
-            // TODO：将*.pot文件复制到LanguagePack\templates\text_templates中。
-
-            // TODO：将英文的*.po文件复制到LanguagePack\templates\text_en中。
         }
         [MenuItem("Custom/Assets/Localization/Update All Translations")]
         public static void UpdateAllTranslations()
@@ -362,6 +372,25 @@ namespace MVZ2.Editor
                 File.Copy(file, destFile, true);
             }
         }
+        private static void CopyDirectory(string source, string dest, string pattern)
+        {
+            if (!Directory.Exists(source))
+                return;
+            if (Directory.Exists(dest))
+            {
+                Directory.Delete(dest, true);
+            }
+            Directory.CreateDirectory(dest);
+            foreach (var sourcePath in Directory.EnumerateFiles(source, pattern, SearchOption.AllDirectories))
+            {
+                if (Path.GetExtension(sourcePath) == ".meta")
+                    continue;
+                var relativePath = Path.GetRelativePath(source, sourcePath);
+                var destPath = Path.Combine(dest, relativePath);
+                FileHelper.ValidateDirectory(destPath);
+                File.Copy(sourcePath, destPath, true);
+            }
+        }
         public static void CompressLanguagePack(string sourceDirectory, string destPath)
         {
             FileHelper.ValidateDirectory(destPath);
@@ -410,9 +439,17 @@ namespace MVZ2.Editor
                 }
             }
         }
+        private static string GetPoTemplateDirectory()
+        {
+            return Path.Combine(Application.dataPath, "Translations");
+        }
+        private static string GetPoDirectory(string language)
+        {
+            return Path.Combine(Application.dataPath, "Translations", language);
+        }
         private static string GetPoTemplatePath(string fileName)
         {
-            return Path.Combine(Application.dataPath, "Translations", fileName);
+            return Path.Combine(GetPoTemplateDirectory(), fileName);
         }
 
         private static string GetMetaDirectory(string nsp)
