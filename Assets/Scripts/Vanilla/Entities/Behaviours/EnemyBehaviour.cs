@@ -1,3 +1,4 @@
+using System;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
@@ -5,6 +6,7 @@ using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -53,6 +55,7 @@ namespace MVZ2.Vanilla.Entities
                 pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
                 entity.Position = pos;
             }
+            ChangeLaneUpdate(entity);
             var scale = entity.GetDisplayScale();
             var scaleX = Mathf.Abs(scale.x);
             var attackSpeed = entity.GetAttackSpeed() / entity.GetAttackSpeed(ignoreBuffs: true) / scaleX;
@@ -102,5 +105,38 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.RNG.Next(1, 1.5f);
         }
+        private void ChangeLaneUpdate(Entity entity)
+        {
+            var level = entity.Level;
+            var minLane = 0;
+            var maxLane = level.GetMaxLaneCount() - 1;
+            var lane = Mathf.Clamp(entity.GetLane(), minLane, maxLane);
+            var targetZ = level.GetEntityLaneZ(lane);
+            var targetZDistance = entity.Position.z - targetZ;
+            if (Mathf.Abs(targetZDistance) >= CHANGE_LANE_THRESOLD && !entity.IsChangingLane())
+            {
+                int targetLane;
+                int adjacentLane = lane - Math.Sign(targetZDistance);
+                if (adjacentLane >= minLane && adjacentLane <= maxLane)
+                {
+                    var adjacentZ = level.GetEntityLaneZ(adjacentLane);
+                    var adjacentZDistance = entity.Position.z - adjacentZ;
+                    if (Mathf.Abs(targetZDistance) < Mathf.Abs(adjacentZDistance))
+                    {
+                        targetLane = lane;
+                    }
+                    else
+                    {
+                        targetLane = adjacentLane;
+                    }
+                }
+                else
+                {
+                    targetLane = lane;
+                }
+                entity.StartChangingLane(targetLane);
+            }
+        }
+        public const float CHANGE_LANE_THRESOLD = 1;
     }
 }

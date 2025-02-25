@@ -1,5 +1,6 @@
 ﻿using MVZ2Logic;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -148,10 +149,8 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 换行
-        public static readonly PropertyMeta CHANGING_LANE = Get("isChangingLane");
         public static readonly PropertyMeta CHANGE_LANE_SPEED = Get("changeLaneSpeed");
-        public static readonly PropertyMeta CHANGE_LANE_TARGET = Get("changeLaneTarget");
-        public static readonly PropertyMeta CHANGE_LANE_SOURCE = Get("changeLaneSource");
+        public static float GetChangeLaneSpeed(this Entity entity) => entity.GetProperty<float>(VanillaEntityProps.CHANGE_LANE_SPEED);
         #endregion
 
         #region 显示

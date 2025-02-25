@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class VanillaEntityBehaviour : EntityBehaviourDefinition, IChangeLaneEntity
+    public abstract class VanillaEntityBehaviour : EntityBehaviourDefinition
     {
         #region 公有方法
         protected VanillaEntityBehaviour(string nsp, string name) : base(nsp, name)
@@ -44,44 +44,6 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 私有方法
-
-        #region 换行
-        public bool IsChangingLane(Entity entity)
-        {
-            return entity.GetProperty<bool>(VanillaEntityProps.CHANGING_LANE);
-        }
-        public void SetChangingLane(Entity entity, bool value)
-        {
-            entity.SetProperty(VanillaEntityProps.CHANGING_LANE, value);
-        }
-        public int GetChangeLaneTarget(Entity entity)
-        {
-            return entity.GetProperty<int>(VanillaEntityProps.CHANGE_LANE_TARGET);
-        }
-        public void SetChangeLaneTarget(Entity entity, int value)
-        {
-            entity.SetProperty(VanillaEntityProps.CHANGE_LANE_TARGET, value);
-        }
-        public int GetChangeLaneSource(Entity entity)
-        {
-            return entity.GetProperty<int>(VanillaEntityProps.CHANGE_LANE_SOURCE);
-        }
-        public void SetChangeLaneSource(Entity entity, int value)
-        {
-            entity.SetProperty(VanillaEntityProps.CHANGE_LANE_SOURCE, value);
-        }
-        public float GetChangeLaneSpeed(Entity entity)
-        {
-            return entity.GetProperty<float>(VanillaEntityProps.CHANGE_LANE_SPEED);
-        }
-        public virtual void PostStartChangingLane(Entity entity, int target)
-        {
-        }
-        public virtual void PostStopChangingLane(Entity entity)
-        {
-        }
-        #endregion
-
         protected virtual Vector3 GetArmorPosition(Entity entity)
         {
             var bounds = entity.GetBounds();

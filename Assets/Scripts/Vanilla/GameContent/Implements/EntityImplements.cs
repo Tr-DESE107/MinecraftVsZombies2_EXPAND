@@ -18,7 +18,6 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PlayHitSoundCallback);
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, ChangeLaneUpdateCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, HealParticlesUpdateCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
@@ -63,61 +62,6 @@ namespace MVZ2.GameContent.Implements
                 }
             }
             result.PlayHitSound();
-        }
-        private void ChangeLaneUpdateCallback(Entity entity)
-        {
-            var changeLane = entity.Definition.GetBehaviour<IChangeLaneEntity>();
-            if (changeLane == null)
-                return;
-            if (!changeLane.IsChangingLane(entity))
-                return;
-            var targetLane = changeLane.GetChangeLaneTarget(entity);
-            if (targetLane < 0 || targetLane > entity.Level.GetMaxLaneCount())
-                return;
-            var sourceLane = changeLane.GetChangeLaneSource(entity);
-
-            float targetZ = entity.Level.GetEntityLaneZ(targetLane);
-            bool passed;
-            // Warp upwards.
-            if (sourceLane > targetLane)
-            {
-                passed = entity.Position.z >= targetZ - 0.03f;
-            }
-            // Warp downwards.
-            else
-            {
-                passed = entity.Position.z <= targetZ + 0.03f;
-            }
-
-            Vector3 velocity = entity.Velocity;
-            if (!passed)
-            {
-                float warpSpeed = changeLane.GetChangeLaneSpeed(entity);
-
-                // Warp upwards.
-                if (sourceLane > targetLane)
-                {
-                    velocity.z = Mathf.Max(warpSpeed, entity.Velocity.z);
-                }
-                // Warp downwards.
-                else
-                {
-                    velocity.z = Mathf.Min(-warpSpeed, entity.Velocity.z);
-                }
-            }
-            else
-            {
-                if (Mathf.Abs(entity.Position.z - targetZ) <= 0.05f)
-                {
-                    var pos = entity.Position;
-                    pos.z = targetZ;
-                    entity.Position = pos;
-                }
-                entity.StopChangingLane();
-
-                velocity.z = 0;
-            }
-            entity.Velocity = velocity;
         }
         private void PostEnemyDeathCallback(Entity entity, DeathInfo damage)
         {

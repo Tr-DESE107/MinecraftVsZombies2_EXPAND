@@ -96,13 +96,6 @@ namespace MVZ2.Vanilla.Entities
                 entity.Die();
             }
         }
-        public override void PostStopChangingLane(Entity entity)
-        {
-            base.PostStopChangingLane(entity);
-            var vel = entity.Velocity;
-            vel.z = 0;
-            entity.Velocity = vel;
-        }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);

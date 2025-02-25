@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -24,6 +25,7 @@ using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -336,29 +338,27 @@ namespace MVZ2.Vanilla.Entities
             var targetLane = lane + laneDir;
             entity.StartChangingLane(targetLane);
         }
+        public static bool IsChangingLane(this Entity entity)
+        {
+            return entity.HasBuff<ChangeLaneBuff>();
+        }
         public static void StartChangingLane(this Entity entity, int target)
         {
-            var changeLane = entity.Definition.GetBehaviour<IChangeLaneEntity>();
-            if (changeLane == null)
-                return;
-            if (target < 0 || target >= entity.Level.GetMaxLaneCount())
-                return;
-            changeLane.SetChangingLane(entity, true);
-            changeLane.SetChangeLaneTarget(entity, target);
-            changeLane.SetChangeLaneSource(entity, entity.GetLane());
-            changeLane.PostStartChangingLane(entity, target);
+            var buff = entity.GetFirstBuff<ChangeLaneBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<ChangeLaneBuff>();
+            }
+            ChangeLaneBuff.Start(buff, target);
         }
         public static void StopChangingLane(this Entity entity)
         {
-            var changeLane = entity.Definition.GetBehaviour<IChangeLaneEntity>();
-            if (changeLane == null)
+            var buff = entity.GetFirstBuff<ChangeLaneBuff>();
+            if (buff == null)
+            {
                 return;
-            if (!changeLane.IsChangingLane(entity))
-                return;
-            changeLane.SetChangingLane(entity, false);
-            changeLane.SetChangeLaneTarget(entity, 0);
-            changeLane.SetChangeLaneSource(entity, 0);
-            changeLane.PostStopChangingLane(entity);
+            }
+            ChangeLaneBuff.Stop(buff);
         }
         #endregion
         public static bool IsVulnerableEntity(this Entity entity)
