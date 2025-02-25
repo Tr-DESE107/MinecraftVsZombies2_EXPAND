@@ -10,6 +10,7 @@
         Almanac,
         Store,
         Archive,
+        Addons,
         MusicRoom
     }
 }

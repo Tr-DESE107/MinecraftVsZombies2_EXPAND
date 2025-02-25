@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.Addons;
 using MVZ2.Almanacs;
 using MVZ2.Archives;
 using MVZ2.ChapterTransition;
@@ -194,6 +195,16 @@ namespace MVZ2.Scenes
                 archive.OnReturnClick -= OnReturn;
             }
         }
+        public void DisplayAddons(Action onReturn)
+        {
+            DisplayPage(MainScenePageType.Addons);
+            addons.OnReturnClick += OnReturn;
+            void OnReturn()
+            {
+                onReturn?.Invoke();
+                addons.OnReturnClick -= OnReturn;
+            }
+        }
         public void DisplayMusicRoom(Action onReturn)
         {
             DisplayPage(MainScenePageType.MusicRoom);
@@ -247,6 +258,7 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Almanac, almanac);
             pages.Add(MainScenePageType.Store, store);
             pages.Add(MainScenePageType.Archive, archive);
+            pages.Add(MainScenePageType.Addons, addons);
             pages.Add(MainScenePageType.MusicRoom, musicRoom);
         }
         #endregion
@@ -276,6 +288,8 @@ namespace MVZ2.Scenes
         private StoreController store;
         [SerializeField]
         private ArchiveController archive;
+        [SerializeField]
+        private AddonsController addons;
         [SerializeField]
         private MusicRoomController musicRoom;
         [SerializeField]

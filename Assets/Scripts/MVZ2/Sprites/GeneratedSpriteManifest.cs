@@ -22,6 +22,17 @@ namespace MVZ2.Sprites
             }
             cat.AddSprite(sprite);
         }
+        public void RemoveSprite(string category, string name)
+        {
+            var cat = categories.FirstOrDefault(c => c.name == category);
+            if (cat == null)
+                return;
+            cat.RemoveSprite(name);
+            if (cat.Count <= 0)
+            {
+                categories.Remove(cat);
+            }
+        }
         [SerializeField]
         private List<GeneratedSpriteCategory> categories = new List<GeneratedSpriteCategory>();
     }
@@ -36,6 +47,11 @@ namespace MVZ2.Sprites
         {
             sprites.Add(new SpritePreview(sprite));
         }
+        public void RemoveSprite(string name)
+        {
+            sprites.RemoveAll(p => p.name == name);
+        }
+        public int Count => sprites.Count;
         public string name;
         [SerializeField]
         private List<SpritePreview> sprites = new List<SpritePreview>();
@@ -49,7 +65,6 @@ namespace MVZ2.Sprites
             this.sprite = sprite;
         }
         public string name;
-        [SerializeField]
-        private Sprite sprite;
+        public Sprite sprite;
     }
 }

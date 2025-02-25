@@ -44,10 +44,17 @@ namespace MVZ2.IO
                 }
             }
         }
-        public static Texture2D ReadTexture2D(this ZipArchiveEntry entry)
+        public static async Task<Catalog> ReadCatalogAsync(this ZipArchiveEntry entry, string language)
         {
-            var bytes = entry.ReadBytes();
-            return SpriteHelper.LoadTextureFromBytes(bytes);
+            using var zipStream = entry.Open();
+            {
+                using var memory = new MemoryStream();
+                {
+                    await zipStream.CopyToAsync(memory);
+                    memory.Seek(0, SeekOrigin.Begin);
+                    return new Catalog(memory, new CultureInfo(language));
+                }
+            }
         }
         public static byte[] ReadBytes(this ZipArchiveEntry entry)
         {
@@ -56,6 +63,17 @@ namespace MVZ2.IO
                 using (var memory = new MemoryStream())
                 {
                     entryStream.CopyTo(memory);
+                    return memory.ToArray();
+                }
+            }
+        }
+        public static async Task<byte[]> ReadBytesAsync(this ZipArchiveEntry entry)
+        {
+            using (var entryStream = entry.Open())
+            {
+                using (var memory = new MemoryStream())
+                {
+                    await entryStream.CopyToAsync(memory);
                     return memory.ToArray();
                 }
             }

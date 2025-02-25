@@ -85,6 +85,7 @@ namespace MVZ2.Mainmenu.UI
             mainmenuButtonDict.Add(MainmenuButtonType.MoreMenu, moreMenuButton);
             mainmenuButtonDict.Add(MainmenuButtonType.BackToMenu, backToMenuButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Archive, archiveButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Addons, addonsButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Stats, statsButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Achievement, achievementButton);
             mainmenuButtonDict.Add(MainmenuButtonType.MusicRoom, musicRoomButton);
@@ -160,6 +161,8 @@ namespace MVZ2.Mainmenu.UI
         [SerializeField]
         private MainmenuButton archiveButton;
         [SerializeField]
+        private MainmenuButton addonsButton;
+        [SerializeField]
         private MainmenuButton statsButton;
         [SerializeField]
         private MainmenuButton achievementButton;
@@ -180,6 +183,7 @@ namespace MVZ2.Mainmenu.UI
         Archive,
         Stats,
         Achievement,
+        Addons,
         MusicRoom
     }
 }

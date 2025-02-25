@@ -74,6 +74,14 @@ namespace MVZ2.Managers
             }
             return sprite;
         }
+        public void RemoveCreatedSprite(Sprite sprite, string name, string category)
+        {
+            if (generatedSpriteManifest && Application.isEditor)
+            {
+                generatedSpriteManifest.RemoveSprite(category, sprite.name);
+            }
+            Destroy(sprite);
+        }
         private async Task LoadSpriteManifests(string modNamespace)
         {
             var modResource = GetModResource(modNamespace);

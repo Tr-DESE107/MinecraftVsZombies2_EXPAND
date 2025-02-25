@@ -8,9 +8,9 @@ namespace MVZ2.Localization
 {
     public class LanguagePack
     {
-        public LanguagePack(LanguagePackMetadata metadata)
+        public LanguagePack(string key)
         {
-            Metadata = metadata;
+            Key = key;
         }
         public LanguageAssets GetOrCreateLanguageAsset(string lang)
         {
@@ -21,6 +21,10 @@ namespace MVZ2.Localization
                 assets.Add(asset);
             }
             return asset;
+        }
+        public LanguageAssets GetLanguageAssets(string lang)
+        {
+            return assets.FirstOrDefault(a => a.language == lang);
         }
         public bool TryGetString(string language, string text, out string result, params object[] args)
         {
@@ -74,8 +78,8 @@ namespace MVZ2.Localization
         {
             return assets.Select(a => a.language).ToArray();
         }
-        public LanguagePackMetadata Metadata { get; }
         private List<LanguageAssets> assets = new List<LanguageAssets>();
+        public string Key { get; private set; }
     }
     public class LanguagePackMetadata
     {

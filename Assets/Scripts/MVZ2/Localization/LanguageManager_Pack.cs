@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MVZ2.IO;
@@ -10,6 +11,7 @@ using MVZ2.Sprites;
 using Newtonsoft.Json;
 using NGettext;
 using PVZEngine;
+using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -18,74 +20,138 @@ namespace MVZ2.Localization
     public delegate bool TryGetTranslation<in TKey, TResult>(LanguagePack pack, TKey key, out TResult result);
     public partial class LanguageManager
     {
-        public async Task LoadAllLanguagePacks()
+        public async Task InitLanguagePacks()
         {
-            var op = Addressables.LoadAssetsAsync<TextAsset>("LanguagePack", textAsset =>
+            // 加载所有语言包引用。
+            var references = EvaluateAllLanguagePackReferences();
+            foreach (var reference in references)
             {
-                var bytes = textAsset.bytes;
-                var loaded = ReadLanguagePackZip(bytes);
-                if (loaded == null)
-                    return;
-                languagePacks.Add(loaded);
-            });
-            await op.Task;
+                await LoadLanguagePackMetadata(reference);
+            }
 
-            // 加载外部语言包。
-            LoadExternalLanguagePacks();
-
-            // TODO：更新启用的语言包列表。
+            // 加载启用的语言包列表。
             LoadEnabledLanguagePackList();
-            EvaluateEnabledLanguagePacks();
+
+            // 加载启用的语言包内容。
+            await LoadLanguagePacks();
         }
-        #region 外部语言包
+        /// <summary>
+        /// 刷新语言包引用列表。
+        /// 获取所有外部语言包引用，去掉不存在的，加入新添加的。
+        /// 然后再次检测
+        /// </summary>
+        /// <returns>语言包列表是否有变动。</returns>
+        public async Task<bool> RefreshLanguagePackReferences()
+        {
+            var references = EvaluateAllLanguagePackReferences();
+            var removed = languagePackMetadatas.Keys.Except(references).ToArray();
+            var added = references.Except(languagePackMetadatas.Keys).ToArray();
+            bool changed = false;
+            if (removed.Count() > 0)
+            {
+                foreach (var remove in removed)
+                {
+                    languagePackMetadatas.Remove(remove);
+                }
+                changed = true;
+            }
+            if (added.Count() > 0)
+            {
+                foreach (var add in added)
+                {
+                    await LoadLanguagePackMetadata(add);
+                }
+                changed = true;
+            }
+            return changed;
+        }
+        public async Task ReloadLanguagePacks(LanguagePackReference[] enabled)
+        {
+            enabledLanguagePacks.Clear();
+            enabledLanguagePacks.AddRange(enabled.Where(r => languagePackMetadatas.Keys.Contains(r)));
+            UnloadLanguagePacks();
+            await LoadLanguagePacks();
+        }
+
+        #region 语言包引用/元数据
+        public LanguagePackMetadata GetLanguagePackMetadata(LanguagePackReference reference)
+        {
+            if (languagePackMetadatas.TryGetValue(reference, out var metadata))
+            {
+                return metadata;
+            }
+            return null;
+        }
+        public LanguagePackReference[] GetAllLanguagePackReferences()
+        {
+            return languagePackMetadatas.Keys.ToArray();
+        }
+        private LanguagePackReference[] EvaluateAllLanguagePackReferences()
+        {
+            List<LanguagePackReference> results = new List<LanguagePackReference>();
+            results.Add(builtinLanguagePackRef);
+
+            // 外部引用。
+            var dir = GetExternalLanguagePackDirectory();
+            if (Directory.Exists(dir))
+            {
+                // lang语言包
+                foreach (var zip in Directory.EnumerateFiles(dir, "*.lang", SearchOption.TopDirectoryOnly))
+                {
+                    results.Add(new ExternalLanguagePackReference(zip, false));
+                }
+                // Zip语言包
+                foreach (var zip in Directory.EnumerateFiles(dir, "*.zip", SearchOption.TopDirectoryOnly))
+                {
+                    results.Add(new ExternalLanguagePackReference(zip, false));
+                }
+                // 文件夹语言包
+                foreach (var langDir in Directory.EnumerateDirectories(dir))
+                {
+                    results.Add(new ExternalLanguagePackReference(langDir, true));
+                }
+            }
+            return results.ToArray();
+        }
         private string GetExternalLanguagePackDirectory()
         {
             return Path.Combine(Application.persistentDataPath, externalLangaugePackDir);
         }
-        private void LoadExternalLanguagePacks()
+        private async Task LoadLanguagePackMetadata(LanguagePackReference reference)
         {
-            var dir = GetExternalLanguagePackDirectory();
-            if (!Directory.Exists(dir))
-                return;
-            // lang语言包
-            foreach (var zip in Directory.EnumerateFiles(dir, "*.lang", SearchOption.TopDirectoryOnly))
+            try
             {
-                var loaded = ReadLanguagePackZip(zip);
-                if (loaded == null)
-                    continue;
-                languagePacks.Add(loaded);
+                var metadata = await reference.LoadMetadata(this);
+                languagePackMetadatas.Add(reference, metadata);
             }
-            // Zip语言包
-            foreach (var zip in Directory.EnumerateFiles(dir, "*.zip", SearchOption.TopDirectoryOnly))
+            catch (Exception e)
             {
-                var loaded = ReadLanguagePackZip(zip);
-                if (loaded == null)
-                    continue;
-                languagePacks.Add(loaded);
-            }
-            // 文件夹语言包
-            foreach (var langDir in Directory.EnumerateDirectories(dir))
-            {
-                var loaded = ReadLanguagePackDirectory(langDir);
-                if (loaded == null)
-                    continue;
-                languagePacks.Add(loaded);
+                Debug.LogError($"加载语言包引用{reference}失败：{e}");
             }
         }
         #endregion
+
+        #region 启用状态
         public void LoadEnabledLanguagePackList()
         {
-            for (int i = languagePacks.Count - 1; i >= 0; i--)
-            {
-                var languagePack = languagePacks[i];
-                enabledLanguagePacks.Add(languagePack);
-            }
+            enabledLanguagePacks.Clear();
+            enabledLanguagePacks.AddRange(languagePackMetadatas.Reverse().Select(p => p.Key));
         }
-        public void EvaluateEnabledLanguagePacks()
+        public LanguagePackReference[] GetEnabledLanguagePackList()
         {
-            allLanguages.Clear();
-            foreach (var languagePack in enabledLanguagePacks)
+            return enabledLanguagePacks.ToArray();
+        }
+        #endregion
+
+        #region 加载语言包
+        public async Task LoadLanguagePacks()
+        {
+            foreach (var reference in enabledLanguagePacks)
             {
+                var languagePack = await reference.LoadLanguagePack(this);
+                if (languagePack == null)
+                    continue;
+                loadedLanguagePacks.Add(languagePack);
                 foreach (var lang in languagePack.GetLanguages())
                 {
                     if (!allLanguages.Contains(lang))
@@ -95,23 +161,54 @@ namespace MVZ2.Localization
                 }
             }
         }
-        public LanguagePack[] GetAllLanguagePacks()
-        {
-            return languagePacks.ToArray();
-        }
+        #endregion
 
-        #region 加载Zip语言包
-        public LanguagePack ReadLanguagePackZip(string path)
+        #region 卸载语言包
+        public void UnloadLanguagePacks()
+        {
+            foreach (var enabledLanguagePack in loadedLanguagePacks)
+            {
+                UnloadLanguagePack(enabledLanguagePack);
+            }
+
+            allLanguages.Clear();
+            loadedLanguagePacks.Clear();
+        }
+        public void UnloadLanguagePack(LanguagePack pack)
+        {
+            foreach (var lang in pack.GetLanguages())
+            {
+                var assets = pack.GetLanguageAssets(lang);
+                if (assets == null)
+                    continue;
+                foreach (var pair in assets.Sprites)
+                {
+                    main.ResourceManager.RemoveCreatedSprite(pair.Value, pair.Key.ToString(), "language");
+                }
+                foreach (var pair in assets.SpriteSheets)
+                {
+                    for (int i = 0; i < pair.Value.Length; i++)
+                    {
+                        var sprite = pair.Value[i];
+                        main.ResourceManager.RemoveCreatedSprite(sprite, $"{pair.Key}[{i}]", "language");
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 加载Zip元数据
+        public LanguagePackMetadata ReadLanguagePackMetadataZip(string path)
         {
             using var stream = File.Open(path, FileMode.Open);
-            return ReadLanguagePackZip(stream);
+            return ReadLanguagePackMetadataZip(stream);
         }
-        public LanguagePack ReadLanguagePackZip(byte[] bytes)
+        public LanguagePackMetadata ReadLanguagePackMetadataZip(byte[] bytes)
         {
             using var memory = new MemoryStream(bytes);
-            return ReadLanguagePackZip(memory);
+            return ReadLanguagePackMetadataZip(memory);
         }
-        public LanguagePack ReadLanguagePackZip(Stream stream)
+        public LanguagePackMetadata ReadLanguagePackMetadataZip(Stream stream)
         {
             try
             {
@@ -122,8 +219,33 @@ namespace MVZ2.Localization
                     return null;
 
                 var json = metadataEntry.ReadString(Encoding.UTF8);
-                LanguagePackMetadata metadata = JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
-                var languagePack = new LanguagePack(metadata);
+                return JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"读取语言包Zip的元数据失败：{e}");
+                return null;
+            }
+        }
+        #endregion
+
+        #region 加载Zip语言包
+        public LanguagePack ReadLanguagePackZip(string path)
+        {
+            using var stream = File.Open(path, FileMode.Open);
+            return ReadLanguagePackZip(Path.GetFileName(path), stream);
+        }
+        public LanguagePack ReadLanguagePackZip(string key, byte[] bytes)
+        {
+            using var memory = new MemoryStream(bytes);
+            return ReadLanguagePackZip(key, memory);
+        }
+        public LanguagePack ReadLanguagePackZip(string key, Stream stream)
+        {
+            try
+            {
+                using var archive = new ZipArchive(stream);
+                var languagePack = new LanguagePack(key);
                 foreach (var entry in archive.Entries)
                 {
                     if (string.IsNullOrEmpty(entry.Name))
@@ -157,7 +279,11 @@ namespace MVZ2.Localization
                                 var resID = new NamespaceID(nsp, localizedSprite.name);
                                 var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture).Replace("/", "\\");
                                 var textureEntry = archive.GetEntry(texturePath);
-                                var sprite = ReadEntryToSprite(resID, textureEntry, localizedSprite);
+
+                                if (textureEntry == null)
+                                    continue;
+                                var bytes = textureEntry.ReadBytes();
+                                var sprite = ReadEntryToSprite(resID, bytes, localizedSprite, key);
                                 asset.Sprites.Add(resID, sprite);
                             }
                             foreach (var localizedSpritesheet in manifest.spritesheets)
@@ -165,7 +291,11 @@ namespace MVZ2.Localization
                                 var resID = new NamespaceID(nsp, localizedSpritesheet.name);
                                 var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
                                 var textureEntry = archive.GetEntry(texturePath);
-                                var spritesheet = ReadEntryToSpriteSheet(resID, textureEntry, localizedSpritesheet);
+
+                                if (textureEntry == null)
+                                    continue;
+                                var bytes = textureEntry.ReadBytes();
+                                var spritesheet = ReadEntryToSpriteSheet(resID, bytes, localizedSpritesheet, key);
                                 asset.SpriteSheets.Add(resID, spritesheet);
                             }
                         }
@@ -181,8 +311,8 @@ namespace MVZ2.Localization
         }
         #endregion
 
-        #region 加载文件夹语言包
-        public LanguagePack ReadLanguagePackDirectory(string path)
+        #region 加载文件夹元数据
+        public LanguagePackMetadata ReadLanguagePackMetadataDirectory(string path)
         {
             var metadataPath = Path.Combine(path, METADATA_FILENAME);
             if (!File.Exists(metadataPath))
@@ -192,9 +322,23 @@ namespace MVZ2.Localization
                 using var metadataStream = File.Open(metadataPath, FileMode.Open);
                 using var metadataReader = new StreamReader(metadataStream);
                 var json = metadataReader.ReadToEnd();
-                LanguagePackMetadata metadata = JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+                return JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"读取语言包{path}的元数据失败：{e}");
+                return null;
+            }
+        }
+        #endregion
 
-                var languagePack = new LanguagePack(metadata);
+        #region 加载文件夹语言包
+        public LanguagePack ReadLanguagePackDirectory(string path)
+        {
+            try
+            {
+                var key = Path.GetFileName(path);
+                var languagePack = new LanguagePack(key);
                 var assetsDir = Path.Combine(path, "assets");
                 foreach (var nspDir in Directory.EnumerateDirectories(assetsDir))
                 {
@@ -202,7 +346,7 @@ namespace MVZ2.Localization
                     foreach (var langDir in Directory.EnumerateDirectories(nspDir))
                     {
                         var lang = Path.GetRelativePath(nspDir, langDir);
-                        LoadPackLanguageDirectroy(nsp, lang, langDir, languagePack);
+                        LoadPackLanguageDirectroy(nsp, lang, langDir, languagePack, key);
                     }
                 }
                 return languagePack;
@@ -213,7 +357,7 @@ namespace MVZ2.Localization
                 return null;
             }
         }
-        private void LoadPackLanguageDirectroy(string nsp, string lang, string dir, LanguagePack pack)
+        private void LoadPackLanguageDirectroy(string nsp, string lang, string dir, LanguagePack pack, string key)
         {
             var asset = pack.GetOrCreateLanguageAsset(lang);
             // 加载文本
@@ -240,7 +384,8 @@ namespace MVZ2.Localization
                     using var spriteStream = File.Open(texturePath, FileMode.Open);
                     using var spriteMemory = new MemoryStream();
                     spriteStream.CopyTo(spriteMemory);
-                    var sprite = ReadEntryToSprite(resID, spriteMemory.ToArray(), localizedSprite);
+
+                    var sprite = ReadEntryToSprite(resID, spriteMemory.ToArray(), localizedSprite, key);
                     asset.Sprites.Add(resID, sprite);
                 }
                 foreach (var localizedSpritesheet in manifest.spritesheets)
@@ -251,7 +396,8 @@ namespace MVZ2.Localization
                     using var spriteStream = File.Open(texturePath, FileMode.Open);
                     using var spriteMemory = new MemoryStream();
                     spriteStream.CopyTo(spriteMemory);
-                    var spritesheet = ReadEntryToSpriteSheet(resID, spriteMemory.ToArray(), localizedSpritesheet);
+
+                    var spritesheet = ReadEntryToSpriteSheet(resID, spriteMemory.ToArray(), localizedSpritesheet, key);
                     asset.SpriteSheets.Add(resID, spritesheet);
                 }
             }
@@ -259,17 +405,7 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载贴图
-        private Sprite ReadEntryToSprite(NamespaceID spriteId, ZipArchiveEntry entry, LocalizedSprite meta)
-        {
-            var bytes = entry?.ReadBytes();
-            return ReadEntryToSprite(spriteId, bytes, meta);
-        }
-        private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, ZipArchiveEntry entry, LocalizedSpriteSheet meta)
-        {
-            var bytes = entry?.ReadBytes();
-            return ReadEntryToSpriteSheet(spriteId, bytes, meta);
-        }
-        private Sprite ReadEntryToSprite(NamespaceID spriteId, byte[] bytes, LocalizedSprite meta)
+        private Sprite ReadEntryToSprite(NamespaceID spriteId, byte[] bytes, LocalizedSprite meta, string key)
         {
             try
             {
@@ -284,7 +420,7 @@ namespace MVZ2.Localization
                 {
                     spritePivot = new Vector2(0.5f * spriteRect.width, 0.5f * spriteRect.height);
                 }
-                var spr = main.ResourceManager.CreateSprite(texture2D, spriteRect, spritePivot, spriteId.ToString(), "language");
+                var spr = main.ResourceManager.CreateSprite(texture2D, spriteRect, spritePivot, spriteId.ToString(), GetLanguagePackSpriteCategory(key));
                 return spr;
             }
             catch (Exception e)
@@ -293,7 +429,7 @@ namespace MVZ2.Localization
                 return Main.ResourceManager.GetDefaultSpriteClone();
             }
         }
-        private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, byte[] bytes, LocalizedSpriteSheet meta)
+        private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, byte[] bytes, LocalizedSpriteSheet meta, string key)
         {
             try
             {
@@ -324,7 +460,7 @@ namespace MVZ2.Localization
                     var rect = info.rect;
                     rect.width = Math.Min(rect.width, texture2D.width);
                     rect.height = Math.Min(rect.height, texture2D.height);
-                    var spr = main.ResourceManager.CreateSprite(texture2D, rect, info.pivot / rect.size, $"{spriteId}[{i}]", "language");
+                    var spr = main.ResourceManager.CreateSprite(texture2D, rect, info.pivot / rect.size, $"{spriteId}[{i}]", GetLanguagePackSpriteCategory(key));
                     sprites[i] = spr;
                 }
                 return sprites;
@@ -341,13 +477,100 @@ namespace MVZ2.Localization
                 return sprites;
             }
         }
+        private string GetLanguagePackSpriteCategory(string key)
+        {
+            return $"language-{key}";
+        }
         #endregion
 
         public const string METADATA_FILENAME = "pack.json";
         public const string SPRITE_MANIFEST_FILENAME = "sprite_manifest.json";
         [SerializeField]
         private string externalLangaugePackDir = "language_packs";
-        private List<LanguagePack> languagePacks = new List<LanguagePack>();
-        private List<LanguagePack> enabledLanguagePacks = new List<LanguagePack>();
+        private Dictionary<LanguagePackReference, LanguagePackMetadata> languagePackMetadatas = new Dictionary<LanguagePackReference, LanguagePackMetadata>();
+        private List<LanguagePackReference> enabledLanguagePacks = new List<LanguagePackReference>();
+        private List<LanguagePack> loadedLanguagePacks = new List<LanguagePack>();
+        private BuiltinLanguagePackReference builtinLanguagePackRef = new BuiltinLanguagePackReference();
+        private class BuiltinLanguagePackReference : LanguagePackReference
+        {
+            public override bool IsBuiltin => true;
+            public override bool Equals(object obj)
+            {
+                return obj is BuiltinLanguagePackReference;
+            }
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
+            }
+            public override string GetKey()
+            {
+                return "builtin";
+            }
+            public override async Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
+            {
+                var op = Addressables.LoadAssetAsync<TextAsset>("LanguagePack");
+                var textAsset = await op.Task;
+                return manager.ReadLanguagePackMetadataZip(textAsset.bytes);
+            }
+            public override async Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
+            {
+                var op = Addressables.LoadAssetAsync<TextAsset>("LanguagePack");
+                var textAsset = await op.Task;
+                return manager.ReadLanguagePackZip(GetKey(), textAsset.bytes);
+            }
+        }
+        private class ExternalLanguagePackReference : LanguagePackReference
+        {
+            public string path;
+            public bool isDirectory;
+
+            public ExternalLanguagePackReference(string path, bool isDirectory)
+            {
+                this.path = path;
+                this.isDirectory = isDirectory;
+            }
+
+            public override bool Equals(object obj)
+            {
+                return obj is ExternalLanguagePackReference other &&
+                    path == other.path &&
+                    isDirectory == other.isDirectory;
+            }
+            public override int GetHashCode()
+            {
+                return HashCode.Combine(path, isDirectory);
+            }
+            public override string GetKey()
+            {
+                return Path.GetFileName(path);
+            }
+            public override Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
+            {
+                if (isDirectory)
+                {
+                    return Task.FromResult(manager.ReadLanguagePackMetadataDirectory(path));
+                }
+                return Task.FromResult(manager.ReadLanguagePackMetadataZip(path));
+            }
+            public override Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
+            {
+                if (isDirectory)
+                {
+                    return Task.FromResult(manager.ReadLanguagePackDirectory(path));
+                }
+                return Task.FromResult(manager.ReadLanguagePackZip(path));
+            }
+        }
+    }
+    public abstract class LanguagePackReference
+    {
+        public virtual bool IsBuiltin => false;
+        public abstract Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager);
+        public abstract Task<LanguagePack> LoadLanguagePack(LanguageManager manager);
+        public abstract string GetKey();
+        public override string ToString()
+        {
+            return GetKey();
+        }
     }
 }

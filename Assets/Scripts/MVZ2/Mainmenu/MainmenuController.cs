@@ -88,6 +88,7 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.MoreMenu, OnMoreMenuButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.BackToMenu, OnBackToMenuButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Archive, OnArchiveButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Addons, OnAddonsButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Stats, OnStatsButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.MusicRoom, OnMusicRoomButtonClickCallback);
@@ -186,6 +187,10 @@ namespace MVZ2.Mainmenu
         private void OnArchiveButtonClickCallback()
         {
             main.Scene.DisplayArchive(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+        }
+        private void OnAddonsButtonClickCallback()
+        {
+            main.Scene.DisplayAddons(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
         }
         private void OnStatsButtonClickCallback()
         {
