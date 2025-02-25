@@ -16,7 +16,7 @@ namespace MVZ2.Localization
     public delegate bool TryGetTranslation<in TKey, TResult>(LanguagePack pack, TKey key, out TResult result);
     public partial class LanguageManager
     {
-        public Task LoadAllLanguagePacks()
+        public async Task LoadAllLanguagePacks()
         {
             var op = Addressables.LoadAssetsAsync<TextAsset>("LanguagePack", textAsset =>
             {
@@ -25,22 +25,41 @@ namespace MVZ2.Localization
                 if (loaded == null)
                     return;
                 languagePacks.Add(loaded);
-                foreach (var lang in loaded.GetLanguages())
+            });
+            await op.Task;
+
+            // TODO：加载外部语言包。
+
+            // TODO：更新启用的语言包列表。
+            LoadEnabledLanguagePackList();
+            EvaluateEnabledLanguagePacks();
+        }
+        public void LoadEnabledLanguagePackList()
+        {
+            foreach (var languagePack in languagePacks)
+            {
+                enabledLanguagePacks.Add(languagePack);
+            }
+        }
+        public void EvaluateEnabledLanguagePacks()
+        {
+            allLanguages.Clear();
+            foreach (var languagePack in enabledLanguagePacks)
+            {
+                foreach (var lang in languagePack.GetLanguages())
                 {
                     if (!allLanguages.Contains(lang))
                     {
                         allLanguages.Add(lang);
                     }
                 }
-            });
-
-            // TODO：加载外部语言包。
-            return op.Task;
+            }
         }
         public LanguagePack[] GetAllLanguagePacks()
         {
             return languagePacks.ToArray();
         }
+
         public LanguagePack ReadLanguagePack(string path)
         {
             using var stream = File.Open(path, FileMode.Open);

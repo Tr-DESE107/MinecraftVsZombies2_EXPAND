@@ -26,8 +26,7 @@ namespace MVZ2.Localization
         }
         public bool TryGetLocalizedString(string text, string language, out string translated, params object[] args)
         {
-            var languagePacks = GetAllLanguagePacks();
-            foreach (var languagePack in languagePacks)
+            foreach (var languagePack in enabledLanguagePacks)
             {
                 if (languagePack == null)
                     continue;
@@ -48,8 +47,7 @@ namespace MVZ2.Localization
         }
         public bool TryGetLocalizedStringParticular(string context, string text, string language, out string translated, params object[] args)
         {
-            var languagePacks = GetAllLanguagePacks();
-            foreach (var languagePack in languagePacks)
+            foreach (var languagePack in enabledLanguagePacks)
             {
                 if (languagePack == null)
                     continue;
@@ -102,8 +100,7 @@ namespace MVZ2.Localization
         }
         public Sprite GetLocalizedSprite(NamespaceID spriteID, string language)
         {
-            var languagePacks = GetAllLanguagePacks();
-            foreach (var languagePack in languagePacks)
+            foreach (var languagePack in enabledLanguagePacks)
             {
                 if (languagePack == null)
                     continue;
@@ -114,8 +111,7 @@ namespace MVZ2.Localization
         }
         public Sprite[] GetLocalizedSpriteSheet(NamespaceID spriteID, string language)
         {
-            var languagePacks = GetAllLanguagePacks();
-            foreach (var languagePack in languagePacks)
+            foreach (var languagePack in enabledLanguagePacks)
             {
                 if (languagePack == null)
                     continue;
