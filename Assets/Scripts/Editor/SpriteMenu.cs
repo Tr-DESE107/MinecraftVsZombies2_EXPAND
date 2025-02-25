@@ -10,6 +10,16 @@ namespace MVZ2.Editor
 {
     public class SpriteMenu : MonoBehaviour
     {
+        public static Sprite[] GetOrderedSpriteSheet(string path, SpriteDataProviderFactories factories)
+        {
+            var textureImporter = AssetImporter.GetAtPath(path) as TextureImporter;
+            var dataProvider = factories.GetSpriteEditorDataProviderFromObject(textureImporter);
+
+            dataProvider.InitSpriteEditorDataProvider();
+            var spriteRects = dataProvider.GetSpriteRects();//if you don't have the initial sprite rects, just create them manually, this example just changes the pivot points
+            var spriteOrders = spriteRects.Select((rect, index) => (rect.name, index)).ToDictionary(p => p.name, p => p.index);
+            return AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().OrderBy(s => spriteOrders[s.name]).ToArray();
+        }
         public static void UpdateSpriteManifest(string manifestPath)
         {
             var manifestAssetPath = AssetsMenu.FileToAssetPath(manifestPath);
@@ -37,15 +47,7 @@ namespace MVZ2.Editor
                 var resourceDirectory = string.Join('/', splitPath.Skip(1).SkipLast(1));
                 var resourceName = Path.Combine(resourceDirectory, Path.GetFileNameWithoutExtension(filePath)).Replace("\\", "/");
                 var assetPath = AssetsMenu.FileToAssetPath(filePath);
-
-                var textureImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
-                var dataProvider = factories.GetSpriteEditorDataProviderFromObject(textureImporter);
-
-                dataProvider.InitSpriteEditorDataProvider();
-                var spriteRects = dataProvider.GetSpriteRects();//if you don't have the initial sprite rects, just create them manually, this example just changes the pivot points
-                var spriteOrders = spriteRects.Select((rect, index) => (rect.name, index)).ToDictionary(p => p.name, p => p.index);
-
-                var sprites = AssetDatabase.LoadAllAssetsAtPath(assetPath).OfType<Sprite>().OrderBy(s => spriteOrders[s.name]).ToArray();
+                var sprites = GetOrderedSpriteSheet(assetPath, factories);
                 if (isSheet)
                 {
                     spriteManifest.spritesheetEntries.Add(new SpriteSheetEntry()

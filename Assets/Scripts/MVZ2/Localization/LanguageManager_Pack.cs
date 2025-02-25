@@ -78,57 +78,53 @@ namespace MVZ2.Localization
                 var lang = splitedPaths[2].Replace('_', '-');
                 if (splitedPaths.Length == 4)
                 {
+                    var asset = GetOrCreateLanguageAsset(assets, lang);
                     string filename = splitedPaths[3];
                     if (Path.GetExtension(filename) == ".mo")
                     {
                         var filenameWithoutExt = Path.GetFileNameWithoutExtension(filename);
-                        var asset = GetOrCreateLanguageAsset(assets, lang);
                         var catalog = entry.ReadCatalog(lang);
                         asset.catalogs.Add(filenameWithoutExt, catalog);
                     }
-                }
-                else if (splitedPaths.Length >= 5)
-                {
-                    // TODO：根据spriteManifest.json加载贴图。
-                    string type = splitedPaths[3];
-                    var asset = GetOrCreateLanguageAsset(assets, lang);
-                    var rootPath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], splitedPaths[3]);
-                    var relativePath = Path.GetRelativePath(rootPath, fullPath);
-                    var entryName = Path.ChangeExtension(relativePath, string.Empty).TrimEnd('.').Replace("\\", "/");
-
-                    var resID = new NamespaceID(nsp, entryName);
-                    switch (type)
+                    else if (filename == SPRITE_MANIFEST_FILENAME)
                     {
-                        case "sprites":
-                            var sprite = ReadEntryToSprite(resID, entry);
+                        var manifestJson = entry.ReadString(Encoding.UTF8);
+                        var manifest = JsonConvert.DeserializeObject<LocalizedSpriteManifest>(manifestJson);
+                        foreach (var localizedSprite in manifest.sprites)
+                        {
+                            var resID = new NamespaceID(nsp, localizedSprite.name);
+                            var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture).Replace("/", "\\");
+                            var textureEntry = archive.GetEntry(texturePath);
+                            var sprite = ReadEntryToSprite(resID, textureEntry, localizedSprite);
                             asset.Sprites.Add(resID, sprite);
-                            break;
-                        case "spritesheets":
-                            var spritesheet = ReadEntryToSpriteSheet(resID, entry);
+                        }
+                        foreach (var localizedSpritesheet in manifest.spritesheets)
+                        {
+                            var resID = new NamespaceID(nsp, localizedSpritesheet.name);
+                            var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
+                            var textureEntry = archive.GetEntry(texturePath);
+                            var spritesheet = ReadEntryToSpriteSheet(resID, textureEntry, localizedSpritesheet);
                             asset.SpriteSheets.Add(resID, spritesheet);
-                            break;
+                        }
                     }
                 }
             }
             return new LanguagePack(metadata, assets);
         }
-        private Sprite ReadEntryToSprite(NamespaceID spriteId, ZipArchiveEntry entry)
+        private Sprite ReadEntryToSprite(NamespaceID spriteId, ZipArchiveEntry entry, LocalizedSprite meta)
         {
             try
             {
-                var originalSprite = Main.ResourceManager.GetSprite(spriteId);
                 var texture2D = entry.ReadTexture2D();
-                Rect spriteRect;
+                Rect spriteRect = new Rect(0, 0, texture2D.width, texture2D.height);
                 Vector2 spritePivot;
-                if (originalSprite)
+                if (meta != null)
                 {
-                    spriteRect = originalSprite.rect;
-                    spritePivot = originalSprite.pivot / spriteRect.size;
+                    spritePivot = new Vector2(meta.pivotX * spriteRect.width, meta.pivotY * spriteRect.height);
                 }
                 else
                 {
-                    spriteRect = new Rect(0, 0, texture2D.width, texture2D.height);
-                    spritePivot = Vector2.one * 0.5f;
+                    spritePivot = new Vector2(0.5f * spriteRect.width, 0.5f * spriteRect.height);
                 }
                 var spr = main.ResourceManager.CreateSprite(texture2D, spriteRect, spritePivot, spriteId.ToString(), "language");
                 return spr;
@@ -139,27 +135,28 @@ namespace MVZ2.Localization
                 return Main.ResourceManager.GetDefaultSpriteClone();
             }
         }
-        private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, ZipArchiveEntry entry)
+        private Sprite[] ReadEntryToSpriteSheet(NamespaceID spriteId, ZipArchiveEntry entry, LocalizedSpriteSheet meta)
         {
-            var originalSpriteSheet = Main.ResourceManager.GetSpriteSheet(spriteId);
             try
             {
                 var texture2D = entry.ReadTexture2D();
                 (Rect rect, Vector2 pivot)[] spriteInfos;
-                if (originalSpriteSheet != null)
+                if (meta != null)
                 {
-                    spriteInfos = new (Rect rect, Vector2 pivot)[originalSpriteSheet.Length];
+                    spriteInfos = new (Rect rect, Vector2 pivot)[meta.slices.Length];
                     for (int i = 0; i < spriteInfos.Length; i++)
                     {
-                        var originalSprite = originalSpriteSheet[i];
-                        spriteInfos[i] = (originalSprite.rect, originalSprite.pivot);
+                        var slice = meta.slices[i];
+                        var rect = new Rect(slice.x, slice.y, slice.width, slice.height);
+                        var pivot = new Vector2(slice.pivotX * slice.width, slice.pivotY * slice.height);
+                        spriteInfos[i] = (rect, pivot);
                     }
                 }
                 else
                 {
                     spriteInfos = new (Rect rect, Vector2 pivot)[1]
                     {
-                        (new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f)
+                        (new Rect(0, 0, texture2D.width, texture2D.height), new Vector2(texture2D.width * 0.5f, texture2D.height * 0.5f))
                     };
                 }
                 var sprites = new Sprite[spriteInfos.Length];
@@ -177,7 +174,7 @@ namespace MVZ2.Localization
             catch (Exception e)
             {
                 Debug.LogError($"An exception thrown when loading spritesheet {spriteId} from a language pack: {e}");
-                var length = originalSpriteSheet?.Length ?? 1;
+                var length = meta.slices?.Length ?? 1;
                 var sprites = new Sprite[length];
                 for (int i = 0; i < sprites.Length; i++)
                 {
@@ -209,6 +206,8 @@ namespace MVZ2.Localization
             lang = str.Substring(dotIndex + 1);
         }
         public const string metadataName = "pack.json";
+        public const string SPRITE_MANIFEST_FILENAME = "sprite_manifest.json";
         private List<LanguagePack> languagePacks = new List<LanguagePack>();
+        private List<LanguagePack> enabledLanguagePacks = new List<LanguagePack>();
     }
 }

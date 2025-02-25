@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Xml;
 using MukioI18n;
 using MVZ2.IO;
+using MVZ2.Localization;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using Newtonsoft.Json;
 using PVZEngine;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.SceneManagement;
+using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +26,85 @@ namespace MVZ2.Editor
         [MenuItem("Custom/Assets/Localization/Update Localized Sprite Manifest")]
         public static void UpdateLocalizedSpriteManifest()
         {
-            // TODO：根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
+            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
+            var path = GetLanguagePackDirectory();
+            var assetsDir = Path.Combine(Application.dataPath, "Localization", "pack", "assets");
+            var databaseDir = Path.Combine("Assets", "GameContent", "Assets");
+            var factories = new SpriteDataProviderFactories();
+            factories.Init();
+            foreach (var nspDir in Directory.EnumerateDirectories(assetsDir))
+            {
+                var nsp = Path.GetRelativePath(assetsDir, nspDir);
+                foreach (var langDir in Directory.EnumerateDirectories(nspDir))
+                {
+                    List<LocalizedSprite> localizedSprites = new List<LocalizedSprite>();
+                    List<LocalizedSpriteSheet> localizedSpritesheets = new List<LocalizedSpriteSheet>();
+
+                    // 单片贴图。
+                    var spritesDir = Path.Combine(langDir, "sprites");
+                    foreach (var spritePath in Directory.EnumerateFiles(spritesDir, "*.png", SearchOption.AllDirectories))
+                    {
+                        var spriteRelativePath = Path.GetRelativePath(spritesDir, spritePath).Replace("\\", "/");
+                        var originSpritePath = Path.Combine(databaseDir, nsp, "sprites", spriteRelativePath);
+
+                        var sprite = AssetDatabase.LoadAllAssetsAtPath(originSpritePath).OfType<Sprite>().FirstOrDefault();
+                        if (!sprite)
+                            continue;
+                        var localizedSprite = new LocalizedSprite()
+                        {
+                            name = Path.ChangeExtension(spriteRelativePath, string.Empty).TrimEnd('.'),
+                            texture = spriteRelativePath,
+                            pivotX = sprite.pivot.x / sprite.rect.width,
+                            pivotY = sprite.pivot.y / sprite.rect.height,
+                        };
+                        localizedSprites.Add(localizedSprite);
+                    }
+
+                    // 多片贴图。
+                    var spritesheetsDir = Path.Combine(langDir, "spritesheets");
+                    foreach (var spritePath in Directory.EnumerateFiles(spritesheetsDir, "*.png", SearchOption.AllDirectories))
+                    {
+                        var spriteRelativePath = Path.GetRelativePath(spritesheetsDir, spritePath).Replace("\\", "/");
+                        var originSpritePath = Path.Combine(databaseDir, nsp, "spritesheets", spriteRelativePath);
+                        var sprites = SpriteMenu.GetOrderedSpriteSheet(originSpritePath, factories);
+                        var slices = new List<LocalizedSpriteSheetSlice>();
+                        foreach (var sprite in sprites)
+                        {
+                            slices.Add(new LocalizedSpriteSheetSlice()
+                            {
+                                x = sprite.rect.x,
+                                y = sprite.rect.y,
+                                width = sprite.rect.width,
+                                height = sprite.rect.height,
+                                pivotX = sprite.pivot.x / sprite.rect.width,
+                                pivotY = sprite.pivot.y / sprite.rect.height,
+                            });
+                        }
+                        var localizedSpritesheet = new LocalizedSpriteSheet()
+                        {
+                            name = Path.ChangeExtension(spriteRelativePath, string.Empty).TrimEnd('.'),
+                            texture = spriteRelativePath,
+                            slices = slices.ToArray()
+                        };
+                        localizedSpritesheets.Add(localizedSpritesheet);
+                    }
+                    LocalizedSpriteManifest manifest = new LocalizedSpriteManifest()
+                    {
+                        sprites = localizedSprites.ToArray(),
+                        spritesheets = localizedSpritesheets.ToArray()
+                    };
+                    var manifestJson = JsonConvert.SerializeObject(manifest, Newtonsoft.Json.Formatting.Indented);
+
+                    var destPath = Path.Combine(langDir, LanguageManager.SPRITE_MANIFEST_FILENAME);
+                    FileHelper.ValidateDirectory(destPath);
+                    using var stream = File.Open(destPath, FileMode.Create);
+                    using var writer = new StreamWriter(stream);
+                    writer.Write(manifestJson);
+
+                    Debug.Log($"语言包贴图清单已更新：{destPath}");
+                }
+            }
+
         }
         [MenuItem("Custom/Assets/Localization/Update Language Pack Demo")]
         public static void UpdateLanguagePackDemo()
@@ -31,7 +114,14 @@ namespace MVZ2.Editor
 
             // TODO：将Localization\pack\assets文件夹复制到LanguagePack\example\assets。
 
-            // TODO：将spriteManifest.json复制到LanguagePack\templates中。
+            // 将spriteManifest.json复制到LanguagePack\templates中。
+            var sourcePath = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2", "en-US", LanguageManager.SPRITE_MANIFEST_FILENAME);
+            if (File.Exists(sourcePath))
+            {
+                var destPath = Path.Combine(Application.dataPath, "LanguagePack", "templates", LanguageManager.SPRITE_MANIFEST_FILENAME);
+                FileHelper.ValidateDirectory(destPath);
+                File.Copy(sourcePath, destPath, true);
+            }
 
             // TODO：将*.pot文件复制到LanguagePack\templates\text_templates中。
 
