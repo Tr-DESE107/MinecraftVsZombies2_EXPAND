@@ -6,6 +6,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MVZ2.Archives;
 using MVZ2.IO;
 using MVZ2.Sprites;
 using Newtonsoft.Json;
@@ -14,6 +15,7 @@ using PVZEngine;
 using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Profiling.Memory.Experimental;
 
 namespace MVZ2.Localization
 {
@@ -51,7 +53,7 @@ namespace MVZ2.Localization
             {
                 foreach (var remove in removed)
                 {
-                    languagePackMetadatas.Remove(remove);
+                    RemoveLanguagePackMetadata(remove);
                 }
                 changed = true;
             }
@@ -134,11 +136,23 @@ namespace MVZ2.Localization
                 Debug.LogError($"加载语言包引用{reference}失败：{e}");
             }
         }
+        private void RemoveLanguagePackMetadata(LanguagePackReference reference)
+        {
+            if (reference == null)
+                return;
+            var metadata = GetLanguagePackMetadata(reference);
+            if (metadata != null && metadata.icon)
+            {
+                main.ResourceManager.RemoveCreatedSprite(metadata.icon, reference.GetKey(), "language_pack_icon");
+            }
+            languagePackMetadatas.Remove(reference);
+        }
         #endregion
 
         #region 启用状态
         public void LoadEnabledLanguagePackList()
         {
+            // TODO
             enabledLanguagePacks.Clear();
             enabledLanguagePacks.AddRange(languagePackMetadatas.Reverse().Select(p => p.Key));
         }
@@ -204,17 +218,17 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载Zip元数据
-        public LanguagePackMetadata ReadLanguagePackMetadataZip(string path)
+        public LanguagePackMetadata ReadLanguagePackMetadataZip(string key, string path)
         {
             using var stream = File.Open(path, FileMode.Open);
-            return ReadLanguagePackMetadataZip(stream);
+            return ReadLanguagePackMetadataZip(key, stream);
         }
-        public LanguagePackMetadata ReadLanguagePackMetadataZip(byte[] bytes)
+        public LanguagePackMetadata ReadLanguagePackMetadataZip(string key, byte[] bytes)
         {
             using var memory = new MemoryStream(bytes);
-            return ReadLanguagePackMetadataZip(memory);
+            return ReadLanguagePackMetadataZip(key, memory);
         }
-        public LanguagePackMetadata ReadLanguagePackMetadataZip(Stream stream)
+        public LanguagePackMetadata ReadLanguagePackMetadataZip(string key, Stream stream)
         {
             try
             {
@@ -225,8 +239,16 @@ namespace MVZ2.Localization
                     return null;
 
                 var json = metadataEntry.ReadString(Encoding.UTF8);
-                // TODO：图标
-                return JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+                var metadata = JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+
+                var iconEntry = archive.GetEntry(ICON_FILENAME);
+                if (iconEntry != null)
+                {
+                    var bytes = iconEntry.ReadBytes();
+                    var texture = SpriteHelper.LoadTextureFromBytes(bytes);
+                    metadata.icon = Main.ResourceManager.CreateSprite(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width * 0.5f, texture.height * 0.5f), key, "language_pack_icon");
+                }
+                return metadata;
             }
             catch (Exception e)
             {
@@ -237,10 +259,10 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载Zip语言包
-        public LanguagePack ReadLanguagePackZip(string path)
+        public LanguagePack ReadLanguagePackZip(string key, string path)
         {
             using var stream = File.Open(path, FileMode.Open);
-            return ReadLanguagePackZip(Path.GetFileName(path), stream);
+            return ReadLanguagePackZip(key, stream);
         }
         public LanguagePack ReadLanguagePackZip(string key, byte[] bytes)
         {
@@ -319,7 +341,7 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载文件夹元数据
-        public LanguagePackMetadata ReadLanguagePackMetadataDirectory(string path)
+        public LanguagePackMetadata ReadLanguagePackMetadataDirectory(string key, string path)
         {
             var metadataPath = Path.Combine(path, METADATA_FILENAME);
             if (!File.Exists(metadataPath))
@@ -329,7 +351,21 @@ namespace MVZ2.Localization
                 using var metadataStream = File.Open(metadataPath, FileMode.Open);
                 using var metadataReader = new StreamReader(metadataStream);
                 var json = metadataReader.ReadToEnd();
-                return JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+                var metadata = JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
+
+                var iconPath = Path.Combine(path, ICON_FILENAME);
+                if (File.Exists(iconPath))
+                {
+                    using var textureStream = File.Open(iconPath, FileMode.Open);
+                    using var textureMemory = new MemoryStream();
+                    textureStream.CopyTo(textureMemory);
+                    var bytes = textureMemory.ToArray();
+
+                    var texture = SpriteHelper.LoadTextureFromBytes(bytes);
+                    metadata.icon = Main.ResourceManager.CreateSprite(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width * 0.5f, texture.height * 0.5f), key, "language_pack_icon");
+                }
+
+                return metadata;
             }
             catch (Exception e)
             {
@@ -340,11 +376,10 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载文件夹语言包
-        public LanguagePack ReadLanguagePackDirectory(string path)
+        public LanguagePack ReadLanguagePackDirectory(string key, string path)
         {
             try
             {
-                var key = Path.GetFileName(path);
                 var languagePack = new LanguagePack(key);
                 var assetsDir = Path.Combine(path, "assets");
                 foreach (var nspDir in Directory.EnumerateDirectories(assetsDir))
@@ -491,6 +526,7 @@ namespace MVZ2.Localization
         #endregion
 
         public const string METADATA_FILENAME = "pack.json";
+        public const string ICON_FILENAME = "pack.png";
         public const string SPRITE_MANIFEST_FILENAME = "sprite_manifest.json";
         [SerializeField]
         private string externalLangaugePackDir = "language_packs";
@@ -517,7 +553,7 @@ namespace MVZ2.Localization
             {
                 var op = Addressables.LoadAssetAsync<TextAsset>("LanguagePack");
                 var textAsset = await op.Task;
-                return manager.ReadLanguagePackMetadataZip(textAsset.bytes);
+                return manager.ReadLanguagePackMetadataZip(GetKey(), textAsset.bytes);
             }
             public override async Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
             {
@@ -555,17 +591,17 @@ namespace MVZ2.Localization
             {
                 if (isDirectory)
                 {
-                    return Task.FromResult(manager.ReadLanguagePackMetadataDirectory(path));
+                    return Task.FromResult(manager.ReadLanguagePackMetadataDirectory(GetKey(), path));
                 }
-                return Task.FromResult(manager.ReadLanguagePackMetadataZip(path));
+                return Task.FromResult(manager.ReadLanguagePackMetadataZip(GetKey(), path));
             }
             public override Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
             {
                 if (isDirectory)
                 {
-                    return Task.FromResult(manager.ReadLanguagePackDirectory(path));
+                    return Task.FromResult(manager.ReadLanguagePackDirectory(GetKey(), path));
                 }
-                return Task.FromResult(manager.ReadLanguagePackZip(path));
+                return Task.FromResult(manager.ReadLanguagePackZip(GetKey(), path));
             }
         }
     }

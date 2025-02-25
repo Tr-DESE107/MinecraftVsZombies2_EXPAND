@@ -216,7 +216,7 @@ namespace MVZ2.Addons
             {
                 name = metadata.name,
                 description = metadata.description,
-                //icon = metadata.Icon,
+                icon = metadata.icon,
             };
         }
         public MainManager Main => MainManager.Instance;

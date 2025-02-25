@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using NGettext;
 using PVZEngine;
 using UnityEngine;
@@ -87,12 +88,8 @@ namespace MVZ2.Localization
         public string author;
         public string description;
         public int dataVersion;
-        public LanguagePackVersion version;
-    }
-    public class LanguagePackVersion
-    {
-        public int major;
-        public int minor;
+        [JsonIgnore]
+        public Sprite icon;
     }
     public class LanguageAssets
     {
