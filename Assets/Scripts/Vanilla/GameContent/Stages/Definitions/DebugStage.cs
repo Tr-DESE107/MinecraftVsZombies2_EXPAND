@@ -45,12 +45,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.glowstone,
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.gravityPad,
-                VanillaContraptionID.forcePad,
+                VanillaContraptionID.pistenser,
                 VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.thunderDrum,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.mutantZombie,
+                VanillaEnemyID.ghast,
                 VanillaBossID.wither
             });
             level.SetArtifactSlotCount(3);

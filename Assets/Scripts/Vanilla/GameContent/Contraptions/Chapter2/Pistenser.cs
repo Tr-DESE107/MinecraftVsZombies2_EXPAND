@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Contraptions
             if (target != null && target.Position.y > pistenser.Position.y + BASE_SHOT_HEIGHT)
             {
                 // 目标延长高度为目标的中心点减去活塞发射器的基础子弹高度。
-                float targetExtend = target.GetCenter().y - BASE_SHOT_HEIGHT;
+                float targetExtend = target.GetCenter().y - (pistenser.Position.y + BASE_SHOT_HEIGHT);
                 var extend = GetExtend(pistenser);
 
                 // 目标延长高度和当前高度的差值必须大于或等于10。
