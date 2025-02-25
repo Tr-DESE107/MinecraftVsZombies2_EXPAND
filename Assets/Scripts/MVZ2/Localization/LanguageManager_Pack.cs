@@ -6,16 +6,13 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MVZ2.Archives;
 using MVZ2.IO;
 using MVZ2.Sprites;
 using Newtonsoft.Json;
 using NGettext;
 using PVZEngine;
-using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Profiling.Memory.Experimental;
 
 namespace MVZ2.Localization
 {
@@ -71,6 +68,7 @@ namespace MVZ2.Localization
         {
             enabledLanguagePacks.Clear();
             enabledLanguagePacks.AddRange(enabled.Where(r => languagePackMetadatas.Keys.Contains(r)));
+            SaveEnabledLanguagePackList();
             UnloadLanguagePacks();
             await LoadLanguagePacks();
 
@@ -152,9 +150,54 @@ namespace MVZ2.Localization
         #region 启用状态
         public void LoadEnabledLanguagePackList()
         {
-            // TODO
             enabledLanguagePacks.Clear();
-            enabledLanguagePacks.AddRange(languagePackMetadatas.Reverse().Select(p => p.Key));
+            var path = Path.Combine(Application.persistentDataPath, enabledPackListFileName);
+            if (File.Exists(path))
+            {
+                try
+                {
+                    using var stream = File.Open(path, FileMode.Open);
+                    using var reader = new StreamReader(stream);
+                    var json = reader.ReadToEnd();
+                    var packList = JsonConvert.DeserializeObject<EnabledLanguagePackList>(json);
+                    foreach (var key in packList.enabled)
+                    {
+                        var reference = languagePackMetadatas.Keys.FirstOrDefault(r => r.GetKey() == key);
+                        if (reference != null)
+                        {
+                            enabledLanguagePacks.Add(reference);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"读取启用的语言包列表失败：{e}");
+                }
+            }
+            if (!enabledLanguagePacks.Contains(builtinLanguagePackRef))
+            {
+                enabledLanguagePacks.Add(builtinLanguagePackRef);
+            }
+        }
+        public void SaveEnabledLanguagePackList()
+        {
+            try
+            {
+                var path = Path.Combine(Application.persistentDataPath, enabledPackListFileName);
+                var list = new EnabledLanguagePackList();
+                foreach (var reference in enabledLanguagePacks)
+                {
+                    list.enabled.Add(reference.GetKey());
+                }
+                var json = JsonConvert.SerializeObject(list);
+                using var stream = File.Open(path, FileMode.Create);
+                using var writer = new StreamWriter(stream);
+                writer.Write(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"保存启用的语言包列表失败：{e}");
+            }
         }
         public LanguagePackReference[] GetEnabledLanguagePackList()
         {
@@ -406,7 +449,16 @@ namespace MVZ2.Localization
             foreach (var moFile in Directory.EnumerateFiles(dir, "*.mo"))
             {
                 var filenameWithoutExt = Path.GetFileNameWithoutExtension(moFile);
-                var catalog = new Catalog(File.Open(moFile, FileMode.Open), new CultureInfo(lang));
+                Catalog catalog;
+                using (var stream = File.Open(moFile, FileMode.Open))
+                {
+                    using (MemoryStream memory = new MemoryStream())
+                    {
+                        stream.CopyTo(memory);
+                        memory.Seek(0, SeekOrigin.Begin);
+                        catalog = new Catalog(memory, new CultureInfo(lang));
+                    }
+                }
                 asset.catalogs.Add(filenameWithoutExt, catalog);
             }
             // 加载贴图
@@ -530,6 +582,8 @@ namespace MVZ2.Localization
         public const string SPRITE_MANIFEST_FILENAME = "sprite_manifest.json";
         [SerializeField]
         private string externalLangaugePackDir = "language_packs";
+        [SerializeField]
+        private string enabledPackListFileName = "language_packs.json";
         private Dictionary<LanguagePackReference, LanguagePackMetadata> languagePackMetadatas = new Dictionary<LanguagePackReference, LanguagePackMetadata>();
         private List<LanguagePackReference> enabledLanguagePacks = new List<LanguagePackReference>();
         private List<LanguagePack> loadedLanguagePacks = new List<LanguagePack>();
@@ -547,7 +601,7 @@ namespace MVZ2.Localization
             }
             public override string GetKey()
             {
-                return "builtin";
+                return "builtin*";
             }
             public override async Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
             {

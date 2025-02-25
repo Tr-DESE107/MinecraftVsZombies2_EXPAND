@@ -85,7 +85,7 @@ namespace MVZ2.Addons
                 case LanguagePacksUI.Buttons.Enable:
                     if (selectedLanguagePack != null && !enabledReferences.Contains(selectedLanguagePack))
                     {
-                        enabledReferences.Add(selectedLanguagePack);
+                        enabledReferences.Insert(0, selectedLanguagePack);
                         UpdateLanguagePacks();
                         UpdateButtonInteractions();
                         ui.SelectItemUI(true, GetItemUIIndex(true, selectedLanguagePack));
