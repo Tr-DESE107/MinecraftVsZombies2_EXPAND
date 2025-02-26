@@ -441,24 +441,24 @@ namespace MVZ2.Localization
                             var manifest = JsonConvert.DeserializeObject<LocalizedSpriteManifest>(manifestJson);
                             foreach (var localizedSprite in manifest.sprites)
                             {
-                                var resID = new NamespaceID(nsp, localizedSprite.name);
                                 var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture).Replace("/", "\\");
                                 var textureEntry = archive.GetEntry(texturePath);
 
                                 if (textureEntry == null)
                                     continue;
+                                var resID = new NamespaceID(nsp, localizedSprite.name);
                                 var bytes = textureEntry.ReadBytes();
                                 var sprite = ReadEntryToSprite(resID, bytes, localizedSprite, key);
                                 asset.Sprites.Add(resID, sprite);
                             }
                             foreach (var localizedSpritesheet in manifest.spritesheets)
                             {
-                                var resID = new NamespaceID(nsp, localizedSpritesheet.name);
                                 var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
                                 var textureEntry = archive.GetEntry(texturePath);
 
                                 if (textureEntry == null)
                                     continue;
+                                var resID = new NamespaceID(nsp, localizedSpritesheet.name);
                                 var bytes = textureEntry.ReadBytes();
                                 var spritesheet = ReadEntryToSpriteSheet(resID, bytes, localizedSpritesheet, key);
                                 asset.SpriteSheets.Add(resID, spritesheet);
@@ -565,9 +565,11 @@ namespace MVZ2.Localization
                 var manifest = JsonConvert.DeserializeObject<LocalizedSpriteManifest>(manifestJson);
                 foreach (var localizedSprite in manifest.sprites)
                 {
-                    var resID = new NamespaceID(nsp, localizedSprite.name);
                     var texturePath = Path.Combine(dir, "sprites", localizedSprite.texture).Replace("/", "\\");
 
+                    if (!File.Exists(texturePath))
+                        continue;
+                    var resID = new NamespaceID(nsp, localizedSprite.name);
                     using var spriteStream = File.Open(texturePath, FileMode.Open);
                     using var spriteMemory = new MemoryStream();
                     spriteStream.CopyTo(spriteMemory);
@@ -577,9 +579,11 @@ namespace MVZ2.Localization
                 }
                 foreach (var localizedSpritesheet in manifest.spritesheets)
                 {
-                    var resID = new NamespaceID(nsp, localizedSpritesheet.name);
                     var texturePath = Path.Combine(dir, "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
 
+                    if (!File.Exists(texturePath))
+                        continue;
+                    var resID = new NamespaceID(nsp, localizedSpritesheet.name);
                     using var spriteStream = File.Open(texturePath, FileMode.Open);
                     using var spriteMemory = new MemoryStream();
                     spriteStream.CopyTo(spriteMemory);
