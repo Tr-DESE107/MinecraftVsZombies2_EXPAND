@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Vanilla;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
@@ -64,12 +66,16 @@ namespace MVZ2.Localization
         {
             try
             {
+                if (TryGetLocalizedStringParticular(VanillaStrings.CONTEXT_LANGUAGE_NAME, CURRENT_LANGUAGE_NAME, language, out var name))
+                {
+                    return name;
+                }
                 var cultureInfo = CultureInfo.GetCultureInfo(language);
-                return cultureInfo.NativeName;
+                return $"{cultureInfo.NativeName}({language})";
             }
             catch (CultureNotFoundException)
             {
-                return _p(Vanilla.VanillaStrings.CONTEXT_LANGUAGE_NAME, language);
+                return language;
             }
         }
         public Sprite GetCurrentLanguageSprite(Sprite sprite)
@@ -154,6 +160,9 @@ namespace MVZ2.Localization
         public const string CN = "zh-Hans";
         public const string EN = "en-US";
         public const string SOURCE_LANGUAGE = CN;
+
+        [TranslateMsg("当前语言名称", VanillaStrings.CONTEXT_LANGUAGE_NAME)]
+        public const string CURRENT_LANGUAGE_NAME = "中文";
 
         private List<string> allLanguages = new List<string>() { SOURCE_LANGUAGE };
         [SerializeField]

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-02-25 10:23+0800\n"
-"PO-Revision-Date: 2025-02-25 22:26+0800\n"
+"POT-Creation-Date: 2025-02-26 04:34+0800\n"
+"PO-Revision-Date: 2025-02-26 16:35+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -761,106 +761,111 @@ msgstr "Back to main menu"
 msgid "警告"
 msgstr "Warning"
 
+# 通用文本
 #: Scripts\Vanilla\VanillaStrings.cs:101
+msgid "提示"
+msgstr ""
+
+#: Scripts\Vanilla\VanillaStrings.cs:103
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:105
+#: Scripts\Vanilla\VanillaStrings.cs:107
 msgid "确认"
 msgstr "Accept"
 
-#: Scripts\Vanilla\VanillaStrings.cs:108
+#: Scripts\Vanilla\VanillaStrings.cs:110
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:110
+#: Scripts\Vanilla\VanillaStrings.cs:112
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:112
+#: Scripts\Vanilla\VanillaStrings.cs:114
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:114
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgid "触发器械"
 msgstr "Trigger a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:118
+#: Scripts\Vanilla\VanillaStrings.cs:120
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:120
+#: Scripts\Vanilla\VanillaStrings.cs:122
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:124
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:124
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:128
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:132
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgstr "{0} - Flag {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:140
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr "<color=red>COME TO US</color>"
 
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\VanillaStrings.cs:143
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:146
 msgctxt "option.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:147
+#: Scripts\Vanilla\VanillaStrings.cs:149
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:150
+#: Scripts\Vanilla\VanillaStrings.cs:152
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:153
+#: Scripts\Vanilla\VanillaStrings.cs:155
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:156
+#: Scripts\Vanilla\VanillaStrings.cs:158
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:160
+#: Scripts\Vanilla\VanillaStrings.cs:162
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
@@ -1076,6 +1081,12 @@ msgstr "There are no other available users to switch."
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
+# 当前语言名称
+#: Scripts\MVZ2\Localization\LanguageManager.cs:160
+msgctxt "language_name"
+msgid "中文"
+msgstr "English (United States)"
+
 #: Scripts\MVZ2\Managers\ResolutionManager.cs:63
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
@@ -1162,6 +1173,31 @@ msgstr "<color=blue>Must be placed in water</color>"
 #: Scripts\MVZ2\Store\StoreManager.cs:114
 msgid "<color=red>售罄</color>"
 msgstr "<color=red>Sold Out</color>"
+
+# 覆盖语言包的警告，{0}为语言包名称
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:318
+msgid "已经存在同名语言包“{0}”，是否覆盖？"
+msgstr ""
+
+# 删除语言包的警告，{0}为语言包名称
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:320
+msgid "是否删除语言包“{0}”？"
+msgstr ""
+
+# 语言包导出失败的警告
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:322
+msgid "导出语言包失败。"
+msgstr ""
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:324
+msgid "导入语言包失败。"
+msgstr ""
+
+# 语言包导出成功的提示，{0}为路径
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:326
+msgid "语言包已导出至{0}。"
+msgstr ""
 
 #. Name for stage mvz2:debug
 #: Stage meta file
