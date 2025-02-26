@@ -99,6 +99,8 @@ namespace MVZ2.Vanilla
         [TranslateMsg("通用文本")]
         public const string WARNING = "警告";
         [TranslateMsg("通用文本")]
+        public const string HINT = "提示";
+        [TranslateMsg("通用文本")]
         public const string QUIT = "退出";
         [TranslateMsg("通用文本")]
         public const string CONTINUE = "继续";

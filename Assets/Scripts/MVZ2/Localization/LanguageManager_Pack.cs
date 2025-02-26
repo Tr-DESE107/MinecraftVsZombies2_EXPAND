@@ -13,6 +13,7 @@ using NGettext;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Localization
 {
@@ -78,6 +79,86 @@ namespace MVZ2.Localization
             }
         }
 
+        #region 导入
+        public string GetImportKey(string sourcePath)
+        {
+            if (!File.Exists(sourcePath))
+                return null;
+            var fileName = Path.GetFileName(sourcePath);
+            fileName = Path.ChangeExtension(fileName, $".zip");
+            return fileName;
+        }
+        public void ImportLanguagePack(string sourcePath)
+        {
+            if (!File.Exists(sourcePath))
+                return;
+            var fileName = Path.GetFileName(sourcePath);
+            fileName = Path.ChangeExtension(fileName, $".zip");
+            var destPath = Path.Combine(GetExternalLanguagePackDirectory(), fileName);
+            FileHelper.ValidateDirectory(destPath);
+            File.Copy(sourcePath, destPath);
+        }
+        public async Task<bool> ValidateLanguagePack(string sourcePath)
+        {
+            if (!File.Exists(sourcePath))
+                return false;
+            try
+            {
+                var reference = new ExternalLanguagePackReference(sourcePath, false);
+                var metadata = await reference.LoadMetadata(this);
+                return metadata != null;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region 导出
+        public bool ExportLanguagePack(LanguagePackReference reference, string destPath)
+        {
+            if (reference is not ExternalLanguagePackReference external)
+                return false;
+            var sourcePath = external.path;
+            if (external.isDirectory)
+            {
+                CompressLanguagePack(sourcePath, destPath);
+            }
+            else
+            {
+                File.Copy(sourcePath, destPath, true);
+            }
+            return true;
+        }
+        #endregion
+
+        #region 删除
+        public bool DeleteLanguagePack(LanguagePackReference reference)
+        {
+            if (reference is not ExternalLanguagePackReference external)
+                return false;
+            var sourcePath = external.path;
+            if (external.isDirectory)
+            {
+                if (Directory.Exists(sourcePath))
+                {
+                    Directory.Delete(sourcePath, true);
+                    return true;
+                }
+            }
+            else
+            {
+                if (File.Exists(sourcePath))
+                {
+                    File.Delete(sourcePath);
+                    return true;
+                }
+            }
+            return false;
+        }
+        #endregion
+
         #region 语言包引用/元数据
         public LanguagePackMetadata GetLanguagePackMetadata(LanguagePackReference reference)
         {
@@ -100,11 +181,6 @@ namespace MVZ2.Localization
             var dir = GetExternalLanguagePackDirectory();
             if (Directory.Exists(dir))
             {
-                // lang语言包
-                foreach (var zip in Directory.EnumerateFiles(dir, "*.lang", SearchOption.TopDirectoryOnly))
-                {
-                    results.Add(new ExternalLanguagePackReference(zip, false));
-                }
                 // Zip语言包
                 foreach (var zip in Directory.EnumerateFiles(dir, "*.zip", SearchOption.TopDirectoryOnly))
                 {
@@ -577,6 +653,25 @@ namespace MVZ2.Localization
         }
         #endregion
 
+        #region 压缩ZIP
+        public static void CompressLanguagePack(string sourceDirectory, string destPath)
+        {
+            FileHelper.ValidateDirectory(destPath);
+            var sourceDirInfo = new DirectoryInfo(sourceDirectory);
+            var files = Directory.GetFiles(sourceDirectory, "*", SearchOption.AllDirectories);
+            using var stream = File.Open(destPath, FileMode.Create);
+            using var archive = new ZipArchive(stream, ZipArchiveMode.Create);
+
+            foreach (var filePath in files)
+            {
+                if (Path.GetExtension(filePath) == ".meta")
+                    continue;
+                var entryName = Path.GetRelativePath(sourceDirectory, filePath);
+                var entry = archive.CreateEntryFromFile(filePath, entryName);
+            }
+        }
+        #endregion
+
         public const string METADATA_FILENAME = "pack.json";
         public const string ICON_FILENAME = "pack.png";
         public const string SPRITE_MANIFEST_FILENAME = "sprite_manifest.json";
@@ -602,6 +697,10 @@ namespace MVZ2.Localization
             public override string GetKey()
             {
                 return "builtin*";
+            }
+            public override string GetFileName()
+            {
+                return "builtin";
             }
             public override async Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
             {
@@ -639,6 +738,17 @@ namespace MVZ2.Localization
             }
             public override string GetKey()
             {
+                if (isDirectory)
+                {
+                    return $"<{Path.GetFileName(path)}>";
+                }
+                else
+                {
+                    return Path.GetFileName(path);
+                }
+            }
+            public override string GetFileName()
+            {
                 return Path.GetFileName(path);
             }
             public override Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
@@ -665,6 +775,7 @@ namespace MVZ2.Localization
         public abstract Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager);
         public abstract Task<LanguagePack> LoadLanguagePack(LanguageManager manager);
         public abstract string GetKey();
+        public abstract string GetFileName();
         public override string ToString()
         {
             return GetKey();

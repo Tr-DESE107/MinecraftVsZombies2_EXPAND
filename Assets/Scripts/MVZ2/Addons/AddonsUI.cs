@@ -26,7 +26,6 @@ namespace MVZ2.Addons
                 pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(pair.Key));
             }
         }
-        public event Action<bool, int, bool> OnPackItemToggled;
         public event Action<Buttons> OnButtonClick;
         [SerializeField]
         private Button languagePackButton;

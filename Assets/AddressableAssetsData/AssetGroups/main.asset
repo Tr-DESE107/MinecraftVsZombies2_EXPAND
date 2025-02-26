@@ -4126,7 +4126,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a02daf75bb803ad4a9a1307f593ad6a1
-    m_Address: mvz2:mainmenu/mods
+    m_Address: mvz2:mainmenu/addons
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet

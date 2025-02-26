@@ -937,6 +937,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 8313590956605005368, guid: d5a796bc539a0c245afcb4ad033aef4f, type: 3}
     - {fileID: -530215568230468014, guid: d5a796bc539a0c245afcb4ad033aef4f, type: 3}
+  - name: mainmenu/addons
+    spritesheet:
+    - {fileID: 781782460, guid: a02daf75bb803ad4a9a1307f593ad6a1, type: 3}
+    - {fileID: 483502102, guid: a02daf75bb803ad4a9a1307f593ad6a1, type: 3}
   - name: mainmenu/adventure
     spritesheet:
     - {fileID: -2128004668, guid: a5fe0dd11f7539a43a66c14d3952b30e, type: 3}
@@ -960,10 +964,6 @@ MonoBehaviour:
     - {fileID: 21300006, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
     - {fileID: 21300008, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
     - {fileID: 21300010, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
-  - name: mainmenu/mods
-    spritesheet:
-    - {fileID: 781782460, guid: a02daf75bb803ad4a9a1307f593ad6a1, type: 3}
-    - {fileID: 483502102, guid: a02daf75bb803ad4a9a1307f593ad6a1, type: 3}
   - name: mainmenu/more_menus
     spritesheet:
     - {fileID: -2987439667328220171, guid: b183abb28c7b13c4995d0fc7bfaa8299, type: 3}

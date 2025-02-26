@@ -357,7 +357,7 @@ namespace MVZ2.Editor
             var path = GetLanguagePackDirectory();
             var dirPath = Path.Combine(Application.dataPath, "Localization", "pack");
             var destPath = Path.Combine(path, "builtin.bytes");
-            CompressLanguagePack(dirPath, destPath);
+            LanguageManager.CompressLanguagePack(dirPath, destPath);
             AssetDatabase.Refresh();
             Debug.Log("Langauge Pack Compressed.");
         }
@@ -389,22 +389,6 @@ namespace MVZ2.Editor
                 var destPath = Path.Combine(dest, relativePath);
                 FileHelper.ValidateDirectory(destPath);
                 File.Copy(sourcePath, destPath, true);
-            }
-        }
-        public static void CompressLanguagePack(string sourceDirectory, string destPath)
-        {
-            FileHelper.ValidateDirectory(destPath);
-            var sourceDirInfo = new DirectoryInfo(sourceDirectory);
-            var files = Directory.GetFiles(sourceDirectory, "*", SearchOption.AllDirectories);
-            using var stream = File.Open(destPath, FileMode.Create);
-            using var archive = new ZipArchive(stream, ZipArchiveMode.Create);
-
-            foreach (var filePath in files)
-            {
-                if (Path.GetExtension(filePath) == ".meta")
-                    continue;
-                var entryName = Path.GetRelativePath(sourceDirectory, filePath);
-                var entry = archive.CreateEntryFromFile(filePath, entryName);
             }
         }
         public static string GetLanguagePackDirectory()
