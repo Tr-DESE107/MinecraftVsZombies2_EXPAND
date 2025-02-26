@@ -127,11 +127,11 @@ namespace MVZ2.Addons
                             var key = selected.GetKey();
                             bool success = false;
                             var fileName = Path.GetFileNameWithoutExtension(selected.GetFileName());
-                            var path = await FileHelper.SaveExternalFile(fileName, new string[] { "zip" }, dest =>
+                            var path = await FileHelper.SaveExternalFile(fileName, new string[] { "zip" }, async dest =>
                             {
                                 if (!references.Contains(selected))
                                     return;
-                                success = Main.LanguageManager.ExportLanguagePack(selected, dest);
+                                success = await Main.LanguageManager.ExportLanguagePack(selected, dest);
                             });
                             if (string.IsNullOrEmpty(path))
                                 break;
@@ -267,7 +267,7 @@ namespace MVZ2.Addons
             bool enabled = selected && enabledReferences.Contains(selectedLanguagePack);
             int index = selected ? enabledReferences.IndexOf(selectedLanguagePack) : -1;
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Delete, selected && !isBuiltin);
-            ui.SetButtonInteractable(LanguagePacksUI.Buttons.Export, selected && !isBuiltin);
+            ui.SetButtonInteractable(LanguagePacksUI.Buttons.Export, selected);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Disable, enabled && selected && !isBuiltin);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Enable, !enabled && selected && !isBuiltin);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.MoveUp, enabled && selected && index > 0);

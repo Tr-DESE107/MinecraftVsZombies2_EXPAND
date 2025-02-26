@@ -116,20 +116,28 @@ namespace MVZ2.Localization
         #endregion
 
         #region 导出
-        public bool ExportLanguagePack(LanguagePackReference reference, string destPath)
+        public async Task<bool> ExportLanguagePack(LanguagePackReference reference, string destPath)
         {
-            if (reference is not ExternalLanguagePackReference external)
-                return false;
-            var sourcePath = external.path;
-            if (external.isDirectory)
+            if (reference is BuiltinLanguagePackReference builtin)
             {
-                CompressLanguagePack(sourcePath, destPath);
+                var bytes = await LoadBuiltinBytes();
+                File.WriteAllBytes(destPath, bytes);
+                return true;
             }
-            else
+            else if (reference is ExternalLanguagePackReference external)
             {
-                File.Copy(sourcePath, destPath, true);
+                var sourcePath = external.path;
+                if (external.isDirectory)
+                {
+                    CompressLanguagePack(sourcePath, destPath);
+                }
+                else
+                {
+                    File.Copy(sourcePath, destPath, true);
+                }
+                return true;
             }
-            return true;
+            return false;
         }
         #endregion
 
@@ -333,6 +341,15 @@ namespace MVZ2.Localization
                     }
                 }
             }
+        }
+        #endregion
+
+        #region 加载内置
+        public async Task<byte[]> LoadBuiltinBytes()
+        {
+            var op = Addressables.LoadAssetAsync<TextAsset>("LanguagePack");
+            var textAsset = await op.Task;
+            return textAsset.bytes;
         }
         #endregion
 
@@ -704,15 +721,13 @@ namespace MVZ2.Localization
             }
             public override async Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
             {
-                var op = Addressables.LoadAssetAsync<TextAsset>("LanguagePack");
-                var textAsset = await op.Task;
-                return manager.ReadLanguagePackMetadataZip(GetKey(), textAsset.bytes);
+                var bytes = await manager.LoadBuiltinBytes();
+                return manager.ReadLanguagePackMetadataZip(GetKey(), bytes);
             }
             public override async Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
             {
-                var op = Addressables.LoadAssetAsync<TextAsset>("LanguagePack");
-                var textAsset = await op.Task;
-                return manager.ReadLanguagePackZip(GetKey(), textAsset.bytes);
+                var bytes = await manager.LoadBuiltinBytes();
+                return manager.ReadLanguagePackZip(GetKey(), bytes);
             }
         }
         private class ExternalLanguagePackReference : LanguagePackReference

@@ -29,10 +29,6 @@ namespace MVZ2.Editor
             // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
             UpdateLocalizedSpriteManifest();
 
-            // 将Localization\pack\assets文件夹复制到LanguagePack\example\assets。
-            Debug.Log("更新语言包示例……");
-            CopyDirectory(Path.Combine(Application.dataPath, "Localization", "pack", "assets"), Path.Combine(Application.dataPath, "LanguagePack", "example", "assets"), "*");
-
             // 将spriteManifest.json复制到LanguagePack\templates中。
             Debug.Log("更新语言包贴图清单……");
             var templatesDir = Path.Combine(Application.dataPath, "LanguagePack", "templates");
@@ -363,7 +359,7 @@ namespace MVZ2.Editor
         }
         private static void MoveMOFiles()
         {
-            var sourceDir = Path.Combine(Application.dataPath, "Translations");
+            var sourceDir = Path.Combine(Application.dataPath, "Localization", "source");
             var targetDir = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2");
             foreach (var file in Directory.GetFiles(sourceDir, "*.mo", SearchOption.AllDirectories))
             {
@@ -425,11 +421,11 @@ namespace MVZ2.Editor
         }
         private static string GetPoTemplateDirectory()
         {
-            return Path.Combine(Application.dataPath, "Translations");
+            return Path.Combine(Application.dataPath, "Localization", "source");
         }
         private static string GetPoDirectory(string language)
         {
-            return Path.Combine(Application.dataPath, "Translations", language);
+            return Path.Combine(Application.dataPath, "Localization", "source", language);
         }
         private static string GetPoTemplatePath(string fileName)
         {
