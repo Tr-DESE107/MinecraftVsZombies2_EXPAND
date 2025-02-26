@@ -13,76 +13,45 @@ namespace MVZ2.GameContent.HeldItems
     {
         public EntityHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
-        }
-        public override bool CheckRaycast(HeldItemTarget target, IHeldItemData data)
-        {
-            var entity = GetEntity(target.GetLevel(), data.ID);
-            var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return false;
-            return behaviour.CheckRaycast(entity, target, data);
-        }
-        public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
-        {
-            var entity = GetEntity(target.GetLevel(), data.ID);
-            var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return HeldHighlight.None;
-            return behaviour.GetHighlight(entity, target, data);
-        }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
-        {
-            var entity = GetEntity(target.GetLevel(), data.ID);
-            var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return;
-            behaviour.Use(entity, target, data, interaction);
-        }
-        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
-        {
-            var entity = GetEntity(level, data.ID);
-            var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return null;
-            return behaviour.GetSeedPack(entity, level, data);
-        }
-        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
-        {
-            var entity = GetEntity(level, data.ID);
-            var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return null;
-            return behaviour.GetModelID(entity, level, data);
-        }
-        public override float GetRadius(LevelEngine level, IHeldItemData data)
-        {
-            var entity = GetEntity(level, data.ID);
-            var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return 0;
-            return behaviour.GetRadius(entity, level, data);
+            AddBehaviour(new EntityHeldItemBehaviour(this));
         }
         public override void Update(LevelEngine level, IHeldItemData data)
         {
             var entity = GetEntity(level, data.ID);
             var behaviour = GetBehaviour(entity);
-            if (behaviour == null)
-                return;
-            behaviour.Update(entity, level, data);
+            behaviour?.Update(entity, level, data);
         }
-        public Entity GetEntity(LevelEngine level, long id)
+        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
+        {
+            var entity = GetEntity(level, data.ID);
+            var behaviour = GetBehaviour(entity);
+            return behaviour?.GetSeedPack(entity, level, data);
+        }
+        public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
+        {
+            var entity = GetEntity(level, data.ID);
+            var behaviour = GetBehaviour(entity);
+            return behaviour?.GetModelID(entity, level, data);
+        }
+        public override float GetRadius(LevelEngine level, IHeldItemData data)
+        {
+            var entity = GetEntity(level, data.ID);
+            var behaviour = GetBehaviour(entity);
+            return behaviour?.GetRadius(entity, level, data) ?? 0;
+        }
+        public static Entity GetEntity(LevelEngine level, long id)
         {
             return level.FindEntityByID(id);
         }
-        public static IEntityHeldItemBehaviour GetBehaviour(Entity entity)
+        public static IHeldEntityBehaviour GetBehaviour(Entity entity)
         {
             if (entity == null)
                 return null;
-            return entity.Definition.GetBehaviour<IEntityHeldItemBehaviour>();
+            return entity.Definition.GetBehaviour<IHeldEntityBehaviour>();
         }
     }
 
-    public interface IEntityHeldItemBehaviour
+    public interface IHeldEntityBehaviour
     {
         bool CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data);
         HeldHighlight GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data);

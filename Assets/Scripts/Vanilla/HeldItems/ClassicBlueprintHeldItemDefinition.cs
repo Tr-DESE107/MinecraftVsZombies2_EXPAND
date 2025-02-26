@@ -1,4 +1,5 @@
-﻿using MVZ2.HeldItems;
+﻿using MVZ2.GameContent.HeldItems;
+using MVZ2.HeldItems;
 using MVZ2Logic;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -11,18 +12,11 @@ namespace MVZ2.Vanilla.HeldItems
     {
         public ClassicBlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
+            AddBehaviour(new ClassicBlueprintHeldItemBehaviour(this));
         }
-        protected override SeedPack GetSeedPackAt(LevelEngine level, int index)
+        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
         {
-            return level.GetSeedPackAt(index);
-        }
-        protected override void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
-        {
-            base.OnUseBlueprint(grid, data, seed);
-            var level = grid.Level;
-            level.AddEnergy(-seed.GetCost());
-            level.SetRechargeTimeToUsed(seed);
-            seed.ResetRecharge();
+            return level.GetSeedPackAt((int)data.ID);
         }
     }
 }

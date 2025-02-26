@@ -1,4 +1,6 @@
-﻿using MVZ2.HeldItems;
+﻿using System;
+using MVZ2.GameContent.HeldItems;
+using MVZ2.HeldItems;
 using MVZ2Logic;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -11,16 +13,12 @@ namespace MVZ2.Vanilla.HeldItems
     {
         public ConveyorBlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
-        }
-        protected override void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
-        {
-            base.OnUseBlueprint(grid, data, seed);
-            seed.Level.RemoveConveyorSeedPackAt((int)data.ID);
+            AddBehaviour(new ConveyorBlueprintHeldItemBehaviour(this));
         }
 
-        protected override SeedPack GetSeedPackAt(LevelEngine level, int index)
+        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
         {
-            return level.GetConveyorSeedPackAt(index);
+            return level.GetConveyorSeedPackAt((int)data.ID);
         }
     }
 }

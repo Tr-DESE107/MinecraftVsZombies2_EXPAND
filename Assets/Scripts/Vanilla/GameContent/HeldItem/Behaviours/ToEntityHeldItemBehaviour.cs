@@ -9,14 +9,14 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.HeldItem
 {
-    public abstract class ToEntityHeldItemDefinition : HeldItemDefinition
+    public abstract class ToEntityHeldItemBehaviour : HeldItemBehaviour
     {
-        public ToEntityHeldItemDefinition(string nsp, string name) : base(nsp, name)
+        public ToEntityHeldItemBehaviour(HeldItemDefinition definition) : base(definition)
         {
         }
 
         #region 实体
-        public override bool CheckRaycast(HeldItemTarget target, IHeldItemData data)
+        public override bool IsValidFor(HeldItemTarget target, IHeldItemData data)
         {
             switch (target)
             {

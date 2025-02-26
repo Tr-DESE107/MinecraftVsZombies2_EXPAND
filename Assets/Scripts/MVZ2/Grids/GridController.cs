@@ -82,7 +82,7 @@ namespace MVZ2.Grids
             if (definition == null)
                 return false;
             var target = new HeldItemTargetGrid(level.GetGrid(Column, Lane), TransformWorld2ColliderPosition(eventData.pointerCurrentRaycast.worldPosition));
-            return definition.CheckRaycast(target, data);
+            return definition.IsValidFor(target, data);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {

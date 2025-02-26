@@ -56,11 +56,6 @@ namespace MVZ2Logic.Level
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
             return heldItemDef.GetHighlight(target, data);
         }
-        public static bool CheckHeldItemRaycast(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data)
-        {
-            var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            return heldItemDef.CheckRaycast(target, data);
-        }
         public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data, PointerInteraction interaction)
         {
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);

@@ -28,7 +28,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
-    public class ForcePad : ContraptionBehaviour, IStackEntity, IEntityHeldItemBehaviour
+    public class ForcePad : ContraptionBehaviour, IStackEntity, IHeldEntityBehaviour
     {
         public ForcePad(string nsp, string name) : base(nsp, name)
         {
@@ -337,17 +337,17 @@ namespace MVZ2.GameContent.Contraptions
         private Detector projectileDetector;
         private List<Entity> detectBuffer = new List<Entity>();
 
-        bool IEntityHeldItemBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
+        bool IHeldEntityBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
             return target is HeldItemTargetGrid targetGrid;
         }
 
-        HeldHighlight IEntityHeldItemBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
+        HeldHighlight IHeldEntityBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
             return HeldHighlight.Green;
         }
 
-        void IEntityHeldItemBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        void IHeldEntityBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
             var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
             if (interaction != targetPhase)
@@ -364,22 +364,22 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.magnetic);
         }
 
-        SeedPack IEntityHeldItemBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
+        SeedPack IHeldEntityBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return null;
         }
 
-        NamespaceID IEntityHeldItemBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
+        NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.targetHeldItem;
         }
 
-        float IEntityHeldItemBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
+        float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return 0;
         }
 
-        void IEntityHeldItemBehaviour.Update(Entity entity, LevelEngine level, IHeldItemData data)
+        void IHeldEntityBehaviour.Update(Entity entity, LevelEngine level, IHeldItemData data)
         {
             if (entity == null || !entity.Exists() || entity.IsAIFrozen())
             {

@@ -21,7 +21,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [EntityBehaviourDefinition(VanillaEffectNames.breakoutBoard)]
-    public class BreakoutBoard : EffectBehaviour, IEntityHeldItemBehaviour
+    public class BreakoutBoard : EffectBehaviour, IHeldEntityBehaviour
     {
 
         #region 公有方法
@@ -290,17 +290,17 @@ namespace MVZ2.GameContent.Effects
 
         }
 
-        bool IEntityHeldItemBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
+        bool IHeldEntityBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
             return target is HeldItemTargetLawn targetLawn && targetLawn.Area == LawnArea.Main;
         }
 
-        HeldHighlight IEntityHeldItemBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
+        HeldHighlight IHeldEntityBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
             return HeldHighlight.None;
         }
 
-        void IEntityHeldItemBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        void IHeldEntityBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
             var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
             if (interaction != targetPhase)
@@ -308,22 +308,22 @@ namespace MVZ2.GameContent.Effects
             FirePearl(entity);
         }
 
-        SeedPack IEntityHeldItemBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
+        SeedPack IHeldEntityBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return null;
         }
 
-        NamespaceID IEntityHeldItemBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
+        NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return null;
         }
 
-        float IEntityHeldItemBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
+        float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return 0;
         }
 
-        void IEntityHeldItemBehaviour.Update(Entity entity, LevelEngine level, IHeldItemData data)
+        void IHeldEntityBehaviour.Update(Entity entity, LevelEngine level, IHeldItemData data)
         {
         }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;

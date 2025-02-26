@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using MVZ2Logic.HeldItems;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -13,29 +14,14 @@ using PVZEngine.Triggers;
 namespace MVZ2.GameContent.HeldItems
 {
     [HeldItemDefinition(VanillaHeldItemNames.starshard)]
-    public class StarshardHeldItemDefinition : ToEntityHeldItemDefinition
+    public class StarshardHeldItemDefinition : HeldItemDefinition
     {
         public StarshardHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
+            AddBehaviour(new PickupHeldItemBehaviour(this));
+            AddBehaviour(new TriggerCartHeldItemBehaviour(this));
+            AddBehaviour(new StarshardHeldItemBehaviour(this));
         }
-
-        protected override bool CanUseOnEntity(Entity entity)
-        {
-            if (entity == null)
-                return false;
-            if (entity.Type != EntityTypes.PLANT)
-                return false;
-            if (entity.NoHeldTarget())
-                return false;
-            return entity.GetFaction() == entity.Level.Option.LeftFaction && entity.CanEvoke();
-        }
-        protected override void UseOnEntity(Entity entity)
-        {
-            entity.Level.AddStarshardCount(-1);
-            entity.Evoke();
-            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_USE_STARSHARD, entity.GetDefinitionID(), c => c(entity));
-        }
-
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             var modelID = VanillaModelID.GetStarshardHeldItem(level.AreaDefinition.GetID());

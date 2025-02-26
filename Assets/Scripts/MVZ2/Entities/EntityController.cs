@@ -390,7 +390,7 @@ namespace MVZ2.Entities
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);
-            return definition.CheckRaycast(target, data);
+            return definition.IsValidFor(target, data);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {

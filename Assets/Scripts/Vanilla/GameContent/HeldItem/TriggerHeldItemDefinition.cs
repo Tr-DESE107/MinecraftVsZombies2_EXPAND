@@ -11,30 +11,18 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.HeldItems
 {
     [HeldItemDefinition(VanillaHeldItemNames.trigger)]
-    public class TriggerHeldItemDefinition : ToEntityHeldItemDefinition
+    public class TriggerHeldItemDefinition : HeldItemDefinition
     {
         public TriggerHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
+            AddBehaviour(new PickupHeldItemBehaviour(this));
+            AddBehaviour(new TriggerCartHeldItemBehaviour(this));
+            AddBehaviour(new TriggerHeldItemBehaviour(this));
         }
 
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.triggerHeldItem;
-        }
-        protected override bool CanUseOnEntity(Entity entity)
-        {
-            if (entity == null)
-                return false;
-            if (entity.Type != EntityTypes.PLANT)
-                return false;
-            if (entity.NoHeldTarget())
-                return false;
-            return entity.GetFaction() == entity.Level.Option.LeftFaction && entity.CanTrigger();
-        }
-
-        protected override void UseOnEntity(Entity entity)
-        {
-            entity.Trigger();
         }
     }
 }

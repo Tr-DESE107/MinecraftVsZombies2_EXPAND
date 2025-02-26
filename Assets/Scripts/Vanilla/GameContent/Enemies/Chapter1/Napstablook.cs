@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Enemies
             if (input.Effects.HasEffect(VanillaDamageEffects.WHACK))
             {
                 Enrage(entity);
-                SwordHeldItemDefinition.Paralyze(entity.Level);
+                SwordHeldItemBehaviour.Paralyze(entity.Level);
             }
             input.Cancel();
         }
