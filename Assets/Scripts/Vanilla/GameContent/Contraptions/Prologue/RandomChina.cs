@@ -18,6 +18,7 @@ using static MVZ2.GameContent.Buffs.VanillaBuffID;
 using MVZ2.Vanilla.Level;
 using UnityEngine;
 using MVZ2.GameContent.Projectiles;
+using MVZ2.GameContent.Pickups;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -64,12 +65,13 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity contraption)
         {
             base.OnEvoke(contraption);
-            var id = EVENT_THE_TOWER;
-            RunEvent(contraption, id);
+            var rng = new RandomGenerator(contraption.RNG.Next());
+            var id = EVENT_REDSTONE_READY;
+            RunEvent(contraption, id, rng);
             var nameKey = eventNames[id];
             contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
         }
-        private void RunEvent(Entity contraption, int id)
+        private void RunEvent(Entity contraption, int id, RandomGenerator rng)
         {
             switch (id)
             {
@@ -80,7 +82,10 @@ namespace MVZ2.GameContent.Contraptions
                     RunEventChinaTown(contraption);
                     break;
                 case EVENT_THE_TOWER:
-                    RunEventTheTower(contraption);
+                    RunEventTheTower(contraption, rng);
+                    break;
+                case EVENT_REDSTONE_READY:
+                    RunEventRedstoneReady(contraption, rng);
                     break;
                 case EVENT_HELL_METAL:
                     RunEventHellMetal(contraption);
@@ -125,20 +130,6 @@ namespace MVZ2.GameContent.Contraptions
                 }
             }
         }
-        private void RunEventTheTower(Entity contraption)
-        {
-            const int tntCount = 16;
-            var level = contraption.Level;
-            var rng = new RandomGenerator(contraption.RNG.Next());
-            for (int i = 0; i < tntCount; i++)
-            {
-                float x = rng.Next(VanillaLevelExt.ATTACK_LEFT_BORDER, VanillaLevelExt.ATTACK_RIGHT_BORDER);
-                float y = rng.Next(600f, 2000f);
-                float z = rng.Next(level.GetGridBottomZ(), level.GetGridTopZ());
-                var spawnParams = contraption.GetSpawnParams();
-                contraption.Spawn(VanillaProjectileID.flyingTNT, new Vector3(x, y, z), spawnParams);
-            }
-        }
         private void RunEventChinaTown(Entity contraption)
         {
             var level = contraption.Level;
@@ -154,6 +145,37 @@ namespace MVZ2.GameContent.Contraptions
                         contraption.Spawn(VanillaContraptionID.randomChina, pos, spawnParams);
                     }
                 }
+            }
+        }
+        private void RunEventTheTower(Entity contraption, RandomGenerator rng)
+        {
+            const int tntCount = 16;
+            var level = contraption.Level;
+            for (int i = 0; i < tntCount; i++)
+            {
+                float x = rng.Next(VanillaLevelExt.ATTACK_LEFT_BORDER, VanillaLevelExt.ATTACK_RIGHT_BORDER);
+                float y = rng.Next(600f, 2000f);
+                float z = rng.Next(level.GetGridBottomZ(), level.GetGridTopZ());
+                var spawnParams = contraption.GetSpawnParams();
+                contraption.Spawn(VanillaProjectileID.flyingTNT, new Vector3(x, y, z), spawnParams);
+            }
+        }
+        private void RunEventRedstoneReady(Entity contraption, RandomGenerator rng)
+        {
+            const int redstoneCount = 20;
+            var level = contraption.Level;
+            for (int i = 0; i < redstoneCount; i++)
+            {
+                float radius = rng.Next(0, 0.2f);
+                float angle = rng.Next(0, 360 * Mathf.Deg2Rad);
+                float horizontal = Mathf.Cos(angle);
+                float vertical = Mathf.Sin(angle);
+                float x = horizontal * radius;
+                float z = vertical * radius;
+
+                float y = level.GetGroundY(x, z);
+                var redstone = contraption.Spawn(VanillaPickupID.redstone, new Vector3(contraption.Position.x + x, y + 10, contraption.Position.z + z));
+                redstone.Velocity = new Vector3(x * 20f, 4f, z * 20f);
             }
         }
         private void RunEventHellMetal(Entity contraption)
