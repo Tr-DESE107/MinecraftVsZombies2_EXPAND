@@ -427,8 +427,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
   - name: entity/contraptions/punchton_arm
     sprite: {fileID: 21300000, guid: d00aabb5514ee4743a361ad46e38de95, type: 3}
-  - name: entity/contraptions/random_china
-    sprite: {fileID: 21300000, guid: 4f777df47e4e3e849839101638a97ed9, type: 3}
   - name: entity/contraptions/soul_furnace
     sprite: {fileID: 21300000, guid: 24543ba35a4b2b248b19964dc8587095, type: 3}
   - name: entity/contraptions/soul_furnace_light
@@ -1249,6 +1247,11 @@ MonoBehaviour:
     - {fileID: 343615464, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
     - {fileID: -2069167506, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
     - {fileID: -171399702, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
+  - name: entity/contraption/random_china
+    spritesheet:
+    - {fileID: -484938836, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
+    - {fileID: 1812289307, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
+    - {fileID: -1125990712, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
   - name: entity/contraption/silvenser
     spritesheet:
     - {fileID: 1795380811, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
