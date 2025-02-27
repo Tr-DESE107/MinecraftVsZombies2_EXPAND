@@ -363,6 +363,7 @@ namespace MVZ2.Level
         }
         private void ReplaceBlueprints(BlueprintSelectionItem[] targetBlueprints)
         {
+            var innateCount = chosenBlueprints.Count(i => i.innate);
             var chosen = chosenBlueprints.Where(i => !i.innate);
             var retainBlueprints = targetBlueprints.Where(i => chosen.Any(item => i.Compare(item))).ToArray();
             var pickBlueprints = targetBlueprints.Except(retainBlueprints).ToArray();
@@ -378,14 +379,14 @@ namespace MVZ2.Level
             foreach (var item in pickBlueprints)
             {
                 var id = item.id;
-                var targetIndex = Array.IndexOf(targetBlueprints, item);
+                var targetIndex = Array.IndexOf(targetBlueprints, item) + innateCount;
                 LoadBlueprint(targetIndex, id);
             }
             // 最后将要保留的蓝图交换位置。
             foreach (var item in retainBlueprints)
             {
                 var id = item.id;
-                var targetIndex = Array.IndexOf(targetBlueprints, item);
+                var targetIndex = Array.IndexOf(targetBlueprints, item) + innateCount;
                 var existingIndex = chosenBlueprints.FindIndex(i => item.Compare(i));
                 SwapChosenBlueprints(existingIndex, targetIndex);
             }
