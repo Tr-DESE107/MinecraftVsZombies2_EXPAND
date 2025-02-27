@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Obstacles
             entity.AddBuff<TemporaryUpdateBeforeGameBuff>();
             entity.TriggerAnimation("Rise");
             entity.PlaySound(VanillaSoundID.dirtRise);
+            entity.UpdateTakenGrids();
 
             entity.InitFragment();
             foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGrid() == entity.GetGrid()))

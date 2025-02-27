@@ -428,7 +428,7 @@ namespace PVZEngine.Entities
                 return false;
             if (hashSet.Remove(layer))
             {
-                grid.RemoveLayerEntity(layer);
+                grid.RemoveLayerEntity(layer, this);
                 return true;
             }
             return false;
@@ -439,7 +439,7 @@ namespace PVZEngine.Entities
             {
                 foreach (var layer in pair.Value)
                 {
-                    pair.Key.RemoveLayerEntity(layer);
+                    pair.Key.RemoveLayerEntity(layer, this);
                 }
             }
             takenGrids.Clear();

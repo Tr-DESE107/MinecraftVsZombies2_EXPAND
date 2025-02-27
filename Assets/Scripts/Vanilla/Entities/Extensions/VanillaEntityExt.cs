@@ -25,7 +25,6 @@ using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -422,21 +421,22 @@ namespace MVZ2.Vanilla.Entities
                     entity.ReleaseGrid(grid, layer);
                 }
             }
-
-
-            var gridBelow = entity.GetGrid();
-            foreach (var layer in entity.GetGridLayersToTake())
+            if (entity.ExistsAndAlive())
             {
-                if (!CanTakeGrid(entity, gridBelow, layer))
-                    continue;
-                entity.TakeGrid(gridBelow, layer);
+                var gridBelow = entity.GetGrid();
+                foreach (var layer in entity.GetGridLayersToTake())
+                {
+                    if (!CanTakeGrid(entity, gridBelow, layer))
+                        continue;
+                    entity.TakeGrid(gridBelow, layer);
+                }
             }
         }
         public static bool CanTakeGrid(this Entity entity, LawnGrid grid, NamespaceID layer)
         {
             if (grid == null)
                 return false;
-            if (!entity.Exists())
+            if (!entity.ExistsAndAlive())
                 return false;
             if (entity.GetRelativeY() > leaveGridHeight)
                 return false;

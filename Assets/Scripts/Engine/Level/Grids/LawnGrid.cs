@@ -41,6 +41,14 @@ namespace PVZEngine.Grids
         {
             return layerEntities.Remove(layer);
         }
+        public bool RemoveLayerEntity(NamespaceID layer, Entity entity)
+        {
+            if (layerEntities.TryGetValue(layer, out var ent) && ent == entity)
+            {
+                return RemoveLayerEntity(layer);
+            }
+            return false;
+        }
         public Entity GetLayerEntity(NamespaceID layer)
         {
             if (layerEntities.TryGetValue(layer, out var entity))
