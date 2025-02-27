@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(contraption);
             var rng = new RandomGenerator(contraption.RNG.Next());
-            var id = EVENT_REDSTONE_READY;
+            var id = EVENT_ACE_OF_DIAMONDS;
             RunEvent(contraption, id, rng);
             var nameKey = eventNames[id];
             contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
@@ -86,6 +86,9 @@ namespace MVZ2.GameContent.Contraptions
                     break;
                 case EVENT_REDSTONE_READY:
                     RunEventRedstoneReady(contraption, rng);
+                    break;
+                case EVENT_ACE_OF_DIAMONDS:
+                    RunEventAceOfDiamonds(contraption, rng);
                     break;
                 case EVENT_HELL_METAL:
                     RunEventHellMetal(contraption);
@@ -176,6 +179,24 @@ namespace MVZ2.GameContent.Contraptions
                 float y = level.GetGroundY(x, z);
                 var redstone = contraption.Spawn(VanillaPickupID.redstone, new Vector3(contraption.Position.x + x, y + 10, contraption.Position.z + z));
                 redstone.Velocity = new Vector3(x * 20f, 4f, z * 20f);
+            }
+        }
+        private void RunEventAceOfDiamonds(Entity contraption, RandomGenerator rng)
+        {
+            var level = contraption.Level;
+            foreach (var pickup in level.GetEntities(EntityTypes.PICKUP))
+            {
+                if (pickup.IsCollected() || pickup.IsImportantPickup())
+                    continue;
+                var emerald = contraption.Spawn(VanillaPickupID.emerald, pickup.Position);
+                emerald.Velocity = Vector3.up * 2f;
+                pickup.Remove();
+            }
+            foreach (var enemy in level.GetEntities(EntityTypes.ENEMY))
+            {
+                var emerald = contraption.Spawn(VanillaPickupID.emerald, enemy.Position);
+                emerald.Velocity = Vector3.up * 2f;
+                enemy.Remove();
             }
         }
         private void RunEventHellMetal(Entity contraption)
