@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity contraption)
         {
             base.OnEvoke(contraption);
-            var id = EVENT_OBSIDIAN_PRISON;
+            var id = EVENT_CHINA_TOWN;
             RunEvent(contraption, id);
             var nameKey = eventNames[id];
             contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
@@ -72,6 +72,9 @@ namespace MVZ2.GameContent.Contraptions
             {
                 case EVENT_OBSIDIAN_PRISON:
                     RunEventObsidianPrisons(contraption);
+                    break;
+                case EVENT_CHINA_TOWN:
+                    RunEventChinaTown(contraption);
                     break;
                 case EVENT_HELL_METAL:
                     RunEventHellMetal(contraption);
@@ -112,6 +115,23 @@ namespace MVZ2.GameContent.Contraptions
                             var pos = grid.GetEntityPosition();
                             contraption.Spawn(VanillaContraptionID.obsidian, pos, spawnParams);
                         }
+                    }
+                }
+            }
+        }
+        private void RunEventChinaTown(Entity contraption)
+        {
+            var level = contraption.Level;
+            for (int column = 0; column < level.GetMaxColumnCount(); column++)
+            {
+                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+                {
+                    var grid = level.GetGrid(column, lane);
+                    if (grid.CanPlaceEntity(VanillaContraptionID.randomChina))
+                    {
+                        var spawnParams = contraption.GetSpawnParams();
+                        var pos = grid.GetEntityPosition();
+                        contraption.Spawn(VanillaContraptionID.randomChina, pos, spawnParams);
                     }
                 }
             }
