@@ -203,5 +203,6 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
         public const string CONTEXT_STORE_TALK = "store_talk";
         public const string CONTEXT_TALK = "talk";
+        public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
     }
 }

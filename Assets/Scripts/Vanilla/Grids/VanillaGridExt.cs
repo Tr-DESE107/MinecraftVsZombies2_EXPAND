@@ -40,7 +40,7 @@ namespace MVZ2.Vanilla.Grids
         {
             return grid.Definition.GetPlaceSound(entity);
         }
-        public static bool CanPlaceEntity(this LawnGrid grid, NamespaceID entityID)
+        public static bool CanPlaceOrStackEntity(this LawnGrid grid, NamespaceID entityID)
         {
             var status = grid.GetEntityPlaceOrStackStatus(entityID);
             return status == null;
@@ -68,6 +68,10 @@ namespace MVZ2.Vanilla.Grids
                 level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, entityID, error, c => c(grid, entityID, error));
             }
             return error.Result;
+        }
+        public static bool CanPlaceEntity(this LawnGrid grid, NamespaceID entityID)
+        {
+            return grid.GetEntityPlaceStatus(entityID) == null;
         }
         public static NamespaceID GetEntityPlaceStatus(this LawnGrid grid, NamespaceID entityID)
         {
