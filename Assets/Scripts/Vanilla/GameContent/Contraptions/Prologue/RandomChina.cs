@@ -15,6 +15,9 @@ using MukioI18n;
 using MVZ2.Vanilla;
 using MVZ2.GameContent.Armors;
 using static MVZ2.GameContent.Buffs.VanillaBuffID;
+using MVZ2.Vanilla.Level;
+using UnityEngine;
+using MVZ2.GameContent.Projectiles;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -61,7 +64,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity contraption)
         {
             base.OnEvoke(contraption);
-            var id = EVENT_CHINA_TOWN;
+            var id = EVENT_THE_TOWER;
             RunEvent(contraption, id);
             var nameKey = eventNames[id];
             contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
@@ -75,6 +78,9 @@ namespace MVZ2.GameContent.Contraptions
                     break;
                 case EVENT_CHINA_TOWN:
                     RunEventChinaTown(contraption);
+                    break;
+                case EVENT_THE_TOWER:
+                    RunEventTheTower(contraption);
                     break;
                 case EVENT_HELL_METAL:
                     RunEventHellMetal(contraption);
@@ -117,6 +123,20 @@ namespace MVZ2.GameContent.Contraptions
                         }
                     }
                 }
+            }
+        }
+        private void RunEventTheTower(Entity contraption)
+        {
+            const int tntCount = 16;
+            var level = contraption.Level;
+            var rng = new RandomGenerator(contraption.RNG.Next());
+            for (int i = 0; i < tntCount; i++)
+            {
+                float x = rng.Next(VanillaLevelExt.ATTACK_LEFT_BORDER, VanillaLevelExt.ATTACK_RIGHT_BORDER);
+                float y = rng.Next(600f, 2000f);
+                float z = rng.Next(level.GetGridBottomZ(), level.GetGridTopZ());
+                var spawnParams = contraption.GetSpawnParams();
+                contraption.Spawn(VanillaProjectileID.flyingTNT, new Vector3(x, y, z), spawnParams);
             }
         }
         private void RunEventChinaTown(Entity contraption)

@@ -1066,6 +1066,7 @@
         </projectile>
         <projectile id="flying_tnt">
             <bool name="noHitEntities" value="true"/>
+            <bool name="noDestroyOutsideLawn" value="true"/>
             <float name="gravity" value="1"/>
             <float name="damage" value="1800"/>
             <float name="range" value="120"/>
