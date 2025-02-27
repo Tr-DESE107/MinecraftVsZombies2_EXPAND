@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-02-25 10:23+0800\n"
+"POT-Creation-Date: 2025-02-27 07:48+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2515,6 +2515,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍敌人的前进"
+msgstr ""
+
+#. Header for entity mvz2:random_china
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机瓷器"
+msgstr ""
+
+#. Properties for entity mvz2:random_china
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "被摧毁后生成随机器械"
 msgstr ""
 
 #. Header for entity mvz2:zombie

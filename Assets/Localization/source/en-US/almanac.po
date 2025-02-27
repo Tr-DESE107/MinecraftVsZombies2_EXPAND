@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-02-25 10:23+0800\n"
-"PO-Revision-Date: 2025-02-26 14:31+0800\n"
+"POT-Creation-Date: 2025-02-27 07:48+0800\n"
+"PO-Revision-Date: 2025-02-27 19:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2992,6 +2992,18 @@ msgstr "Anvil"
 msgctxt "entity.tooltip"
 msgid "阻碍敌人的前进"
 msgstr "Protect your other contraptions"
+
+#. Header for entity mvz2:random_china
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机瓷器"
+msgstr "Random China"
+
+#. Properties for entity mvz2:random_china
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "被摧毁后生成随机器械"
+msgstr "Spawn a random contraption upon destroyed"
 
 #. Header for entity mvz2:zombie
 #: Entity meta file
