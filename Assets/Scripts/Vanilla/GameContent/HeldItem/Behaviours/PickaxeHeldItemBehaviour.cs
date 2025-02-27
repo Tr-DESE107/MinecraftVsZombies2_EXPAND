@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         protected override bool CanUseOnEntity(Entity entity)
         {
-            if (entity == null)
+            if (!entity.ExistsAndAlive())
                 return false;
             if (entity.Type != EntityTypes.PLANT)
                 return false;

@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(contraption);
             var rng = new RandomGenerator(contraption.RNG.Next());
-            var id = EVENT_ACE_OF_DIAMONDS;
+            var id = events.Random(rng);
             RunEvent(contraption, id, rng);
             var nameKey = eventNames[id];
             contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
