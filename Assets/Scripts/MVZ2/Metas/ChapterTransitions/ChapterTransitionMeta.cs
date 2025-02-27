@@ -14,7 +14,7 @@ namespace MVZ2.Metas
         {
             var id = node.GetAttribute("id");
             var angle = node.GetAttributeFloat("angle") ?? 0;
-            var mode = node.GetAttributeInt("noRotate") ?? 0;
+            var mode = node.GetAttributeInt("mode") ?? 0;
             var textSprite = node.GetAttributeSpriteReference("textSprite", defaultNsp);
             return new ChapterTransitionMeta()
             {
