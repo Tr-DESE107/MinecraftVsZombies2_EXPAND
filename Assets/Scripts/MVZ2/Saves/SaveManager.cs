@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;

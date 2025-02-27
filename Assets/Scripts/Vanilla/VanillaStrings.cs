@@ -36,6 +36,8 @@ namespace MVZ2.Vanilla
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
 
+        [TranslateMsg("固有蓝图的提示")]
+        public const string INNATE = "固有";
         [TranslateMsg("不推荐使用的提示")]
         public const string NOT_RECOMMONEDED_IN_LEVEL = "不推荐在这关使用";
 
@@ -57,9 +59,13 @@ namespace MVZ2.Vanilla
         [TranslateMsg("输入名称对话框的错误信息")]
         public const string ERROR_MESSAGE_NAME_DUPLICATE = "已经存在该用户名";
         [TranslateMsg("输入名称对话框的错误信息")]
+        public const string ERROR_MESSAGE_CANNOT_USE_THIS_NAME = "无法重命名为该用户名";
+        [TranslateMsg("输入名称对话框的错误信息")]
         public const string ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT = "第一次游戏必须输入用户名";
         [TranslateMsg("删除用户时的警告，{0}为名称")]
         public const string WARNING_DELETE_USER = "确认删除用户{0}吗？\n该用户所有的数据都将被删除！";
+        [TranslateMsg("重命名特殊用户时的警告")]
+        public const string ERROR_MESSAGE_CANNOT_RENAME_THIS_USER = "你无法重命名该用户";
 
 
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]

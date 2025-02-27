@@ -74,9 +74,9 @@ namespace MVZ2.GameContent.Implements
                 }
             }
         }
-        private void GetBlueprintWarningsCallback(LevelEngine level, NamespaceID[] blueprintsForChoose, NamespaceID[] chosenBlueprints, List<string> results)
+        private void GetBlueprintWarningsCallback(LevelEngine level, NamespaceID[] blueprintsForChoose, BlueprintChooseItem[] chosenBlueprints, List<string> results)
         {
-            var chosenBlueprintDefs = chosenBlueprints.Select(id => level.Content.GetSeedDefinition(id));
+            var chosenBlueprintDefs = chosenBlueprints.Select(item => level.Content.GetSeedDefinition(item.id));
             var chosenBlueprintEntityDefs = chosenBlueprintDefs.Where(def => def.GetSeedType() == SeedTypes.ENTITY)
                 .Select(def => level.Content.GetEntityDefinition(def.GetSeedEntityID()))
                 .Where(def => def != null);
@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Implements
             foreach (var upgradeDef in upgradeBlueprints)
             {
                 var neededBase = upgradeDef.GetUpgradeFromEntity();
-                if (chosenBlueprints.Contains(neededBase))
+                if (chosenBlueprints.Any(b => b.id == neededBase))
                     continue;
                 if (!blueprintsForChoose.Contains(neededBase))
                     continue;

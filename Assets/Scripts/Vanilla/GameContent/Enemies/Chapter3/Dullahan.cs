@@ -24,8 +24,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.ChangeModel(VanillaModelID.dullahanMain);
-            var param = new SpawnParams();
-            param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+            var param = entity.GetSpawnParams();
             if (entity.IsPreviewEnemy())
             {
                 param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);

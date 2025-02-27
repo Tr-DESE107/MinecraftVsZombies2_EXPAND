@@ -22,5 +22,7 @@ namespace MVZ2Logic.Games
         public ISeedOptionMeta[] GetModSeedOptionMetas(string spaceName);
         public ISpawnMeta GetSpawnMeta(NamespaceID id);
         public ISpawnMeta[] GetModSpawnMetas(string spaceName);
+        public bool IsContraptionInAlmanac(NamespaceID id);
+        public bool IsEnemyInAlmanac(NamespaceID id);
     }
 }

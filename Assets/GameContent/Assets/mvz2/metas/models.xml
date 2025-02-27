@@ -39,6 +39,7 @@
     <model name="diamond_spikes" type="entity" path="mvz2:contraption/upgrade/diamond_spikes" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/dream/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="random_china" type="entity" path="mvz2:contraption/prologue/random_china" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/prologue/zombie" width="64" height="96" xOffset="10" yOffset="-44"/>

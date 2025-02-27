@@ -20,6 +20,11 @@ namespace MVZ2.Games
             saveDataProvider.Relock(unlockID);
         }
 
+        public NamespaceID[] GetUnlockedContraptions()
+        {
+            return saveDataProvider.GetUnlockedContraptions();
+        }
+
         public NamespaceID[] GetUnlockedEnemies()
         {
             return saveDataProvider.GetUnlockedEnemies();
@@ -33,6 +38,10 @@ namespace MVZ2.Games
         public ModSaveData GetModSaveData(string spaceName)
         {
             return saveDataProvider.GetModSaveData(spaceName);
+        }
+        public string GetCurrentUserName()
+        {
+            return saveDataProvider.GetCurrentUserName();
         }
 
         private IGameSaveData saveDataProvider;

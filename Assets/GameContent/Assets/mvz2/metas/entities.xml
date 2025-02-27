@@ -547,6 +547,16 @@
             <int name="cost" value="25" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+        <contraption id="random_china" name="随机瓷器" tooltip="被摧毁后生成随机器械" >
+            <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
+            <float name="maxHealth" value="900"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <id name="deathSound" value="mvz2:pot_break"/>
+
+            <int name="cost" value="50" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
 
         <!-- Enemies -->
         <enemy id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">

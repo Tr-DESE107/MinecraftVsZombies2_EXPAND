@@ -13,6 +13,10 @@ namespace MVZ2.Mainmenu.UI
             userNameText.text = name;
             userNameGoldText.text = name;
         }
+        public void SetUserNameColor(Color color)
+        {
+            userNameText.color = color;
+        }
         public void SetUserNameGold(bool gold)
         {
             userNameText.gameObject.SetActive(!gold);
@@ -27,7 +31,7 @@ namespace MVZ2.Mainmenu.UI
         {
             userManageDialog.gameObject.SetActive(visible);
         }
-        public void UpdateUserManageDialog(string[] names, int selectedIndex)
+        public void UpdateUserManageDialog(UserNameItemViewData[] names, int selectedIndex)
         {
             userManageDialog.UpdateUsers(names);
             userManageDialog.ResetPosition();

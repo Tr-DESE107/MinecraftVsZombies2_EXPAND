@@ -52,8 +52,10 @@ namespace MVZ2.Mainmenu
                 main.MusicManager.Play(VanillaMusicID.mainmenu);
             }
             var name = main.SaveManager.GetCurrentUserName();
+            bool isSpecialName = main.Game.IsSpecialUserName(name);
             ui.SetUserName(name);
-            ui.SetUserNameGold(main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
+            ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
+            ui.SetUserNameGold(!isSpecialName && main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
             animatorBlendStart = Vector2.zero;
             animatorBlendEnd = Vector2.zero;
         }
@@ -245,6 +247,14 @@ namespace MVZ2.Mainmenu
                 case UserManageDialog.ButtonType.Rename:
                     {
                         var userIndex = GetSelectedUserIndex();
+                        var currentName = main.SaveManager.GetUserName(userIndex);
+                        if (main.Game.IsSpecialUserName(currentName))
+                        {
+                            var title = main.LanguageManager._(VanillaStrings.HINT);
+                            var desc = main.LanguageManager._(VanillaStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
+                            main.Scene.ShowDialogMessage(title, desc);
+                            break;
+                        }
                         string result = await main.Scene.ShowInputNameDialogRenameAsync(userIndex);
                         if (!string.IsNullOrEmpty(result))
                         {
@@ -448,10 +458,16 @@ namespace MVZ2.Mainmenu
             var reorderedUserPairs = userIndexes.Where(i => i != currentIndex).Prepend(currentIndex);
             managingUserIndexes = reorderedUserPairs.ToArray();
             selectedUserArrayIndex = Array.IndexOf(managingUserIndexes, currentIndex);
-            var names = new string[managingUserIndexes.Length];
+            var names = new UserNameItemViewData[managingUserIndexes.Length];
             for (int i = 0; i < names.Length; i++)
             {
-                names[i] = main.SaveManager.GetUserName(managingUserIndexes[i]);
+                var name = main.SaveManager.GetUserName(managingUserIndexes[i]);
+                var isSpecialName = main.Game.IsSpecialUserName(name);
+                names[i] = new UserNameItemViewData()
+                {
+                    name = name,
+                    color = isSpecialName ? Color.red : Color.black
+                };
             }
             ui.UpdateUserManageDialog(names, selectedUserArrayIndex);
             UpdateUserManageButtons();

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2Logic.SeedPacks;
 using MVZ2Logic.Triggers;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -12,7 +13,7 @@ namespace MVZ2Logic.Callbacks
     public static class LogicLevelCallbacks
     {
         public delegate void GetBlueprintNotRecommonded(LevelEngine level, NamespaceID blueprintID, TriggerResultBoolean result);
-        public delegate void GetBlueprintWarnings(LevelEngine level, NamespaceID[] blueprintsForChoose, NamespaceID[] chosenBlueprints, List<string> warnings);
+        public delegate void GetBlueprintWarnings(LevelEngine level, NamespaceID[] blueprintsForChoose, BlueprintChooseItem[] chosenBlueprints, List<string> warnings);
         public delegate void PostLevelStop(LevelEngine level);
 
         public readonly static CallbackReference<GetBlueprintNotRecommonded> GET_BLUEPRINT_NOT_RECOMMONDED = new();

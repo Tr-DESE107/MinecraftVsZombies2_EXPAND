@@ -15,6 +15,10 @@ namespace MVZ2.Mainmenu.UI
         {
             nameText.text = name;
         }
+        public void SetColor(Color color)
+        {
+            nameText.color = color;
+        }
         private void Awake()
         {
             toggle.onValueChanged.AddListener((value) => OnValueChanged?.Invoke(this, value));

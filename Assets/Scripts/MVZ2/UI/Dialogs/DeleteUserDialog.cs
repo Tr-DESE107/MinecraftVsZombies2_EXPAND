@@ -7,7 +7,7 @@ namespace MVZ2.Mainmenu.UI
 {
     public class DeleteUserDialog : Dialog
     {
-        public void UpdateUsers(string[] names)
+        public void UpdateUsers(UserNameItemViewData[] names)
         {
             userList.UpdateUsers(names);
         }

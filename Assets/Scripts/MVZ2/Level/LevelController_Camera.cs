@@ -7,6 +7,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
@@ -108,10 +109,11 @@ namespace MVZ2.Level
             UpdateEnergy();
             level.UpdatePersistentLevelUnlocks();
 
-            var unlockedContraptions = Saves.GetUnlockedContraptions();
+            var innateBlueprints = Game.GetInnateBlueprints();
+            var unlockedContraptions = Saves.GetUnlockedContraptions().Where(id => Main.ResourceManager.IsContraptionInAlmanac(id));
             var unlockedArtifacts = Saves.GetUnlockedArtifacts();
             var seedSlotCount = level.GetSeedSlotCount();
-            bool willChooseBlueprint = unlockedContraptions.Length > seedSlotCount || unlockedArtifacts.Length > 0; 
+            bool willChooseBlueprint = innateBlueprints.Length + unlockedContraptions.Count() > seedSlotCount || unlockedArtifacts.Length > 0; 
 
             if (willChooseBlueprint && level.NeedBlueprints())
             {
@@ -125,7 +127,7 @@ namespace MVZ2.Level
             }
             else
             {
-                var seedPacks = unlockedContraptions.Take(seedSlotCount).ToArray();
+                var seedPacks = innateBlueprints.Concat(unlockedContraptions.Take(seedSlotCount)).ToArray();
                 level.ReplaceSeedPacks(seedPacks);
                 yield return GameStartToLawnTransition();
             }

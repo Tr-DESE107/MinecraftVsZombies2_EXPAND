@@ -7,12 +7,14 @@ namespace MVZ2.Mainmenu.UI
 {
     public class UserManageList : MonoBehaviour
     {
-        public void UpdateUsers(string[] names)
+        public void UpdateUsers(UserNameItemViewData[] names)
         {
             userList.updateList(names.Length, (i, rect) =>
             {
                 var item = rect.GetComponent<UserManageItem>();
-                item.SetName(names[i]);
+                var viewData = names[i];
+                item.SetName(viewData.name);
+                item.SetColor(viewData.color);
             },
             rect =>
             {
@@ -53,5 +55,10 @@ namespace MVZ2.Mainmenu.UI
         private ElementListUI userList;
         [SerializeField]
         private Button createNewUserButton;
+    }
+    public struct UserNameItemViewData
+    {
+        public string name;
+        public Color color;
     }
 }

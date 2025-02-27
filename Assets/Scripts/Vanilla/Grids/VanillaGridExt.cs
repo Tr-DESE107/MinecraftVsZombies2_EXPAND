@@ -42,10 +42,10 @@ namespace MVZ2.Vanilla.Grids
         }
         public static bool CanPlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
-            var status = grid.GetEntityPlaceStatus(entityID);
+            var status = grid.GetEntityPlaceOrStackStatus(entityID);
             return status == null;
         }
-        public static NamespaceID GetEntityPlaceStatus(this LawnGrid grid, NamespaceID entityID)
+        public static NamespaceID GetEntityPlaceOrStackStatus(this LawnGrid grid, NamespaceID entityID)
         {
             var error = new TriggerResultNamespaceID();
             var level = grid.Level;
@@ -65,7 +65,29 @@ namespace MVZ2.Vanilla.Grids
                 if (placementDef == null)
                     return null;
                 placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
+                level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, entityID, error, c => c(grid, entityID, error));
             }
+            return error.Result;
+        }
+        public static NamespaceID GetEntityPlaceStatus(this LawnGrid grid, NamespaceID entityID)
+        {
+            var level = grid.Level;
+            var entityDef = level.Content.GetEntityDefinition(entityID);
+            return grid.GetEntityPlaceStatus(entityDef);
+        }
+        public static NamespaceID GetEntityPlaceStatus(this LawnGrid grid, EntityDefinition entityDef)
+        {
+            if (entityDef == null)
+                return null;
+            var error = new TriggerResultNamespaceID();
+            var level = grid.Level;
+            // 可放置。
+            var placementID = entityDef.GetPlacementID();
+            var placementDef = level.Content.GetPlacementDefinition(placementID);
+            if (placementDef == null)
+                return null;
+            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
+            var entityID = entityDef.GetID();
             level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, entityID, error, c => c(grid, entityID, error));
             return error.Result;
         }
@@ -81,7 +103,7 @@ namespace MVZ2.Vanilla.Grids
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
-                error = GetEntityPlaceStatus(grid, entityID);
+                error = GetEntityPlaceOrStackStatus(grid, entityID);
                 return error == null;
             }
             return false;

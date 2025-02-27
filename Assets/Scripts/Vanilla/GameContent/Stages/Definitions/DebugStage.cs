@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.glowstone,
+                VanillaContraptionID.randomChina,
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.pistenser,

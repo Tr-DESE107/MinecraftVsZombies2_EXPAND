@@ -62,6 +62,14 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModSpawnMetas(spaceName);
         }
+        public bool IsContraptionInAlmanac(NamespaceID id)
+        {
+            return metaProvider.IsContraptionInAlmanac(id);
+        }
+        public bool IsEnemyInAlmanac(NamespaceID id)
+        {
+            return metaProvider.IsEnemyInAlmanac(id);
+        }
         private IGameMetas metaProvider;
     }
 }

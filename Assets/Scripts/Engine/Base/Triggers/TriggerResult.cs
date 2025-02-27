@@ -1,4 +1,6 @@
-﻿namespace PVZEngine.Triggers
+﻿using System.Collections.Generic;
+
+namespace PVZEngine.Triggers
 {
     public interface IInterruptSource
     {
@@ -23,6 +25,9 @@
     {
     }
     public class TriggerResultNamespaceID : TriggerResult<NamespaceID>
+    {
+    }
+    public class TriggerResultNamespaceIDList : TriggerResult<List<NamespaceID>>
     {
     }
 }

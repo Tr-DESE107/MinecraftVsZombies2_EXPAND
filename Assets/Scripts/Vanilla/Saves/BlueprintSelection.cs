@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 
 namespace MVZ2.Vanilla.Saves
@@ -15,6 +16,10 @@ namespace MVZ2.Vanilla.Saves
         public NamespaceID id;
         public bool isCommandBlock;
 
+        public bool Compare(BlueprintChooseItem item)
+        {
+            return id == item.id && isCommandBlock == item.isCommandBlock;
+        }
         public override bool Equals(object obj)
         {
             if (obj is not BlueprintSelectionItem item)

@@ -2020,12 +2020,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f777df47e4e3e849839101638a97ed9
-    m_Address: mvz2:entity/contraptions/random_china
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ffd669e6a8191a468f39575216ef435
     m_Address: mvz2:ui/level/progress_bar/seija
     m_ReadOnly: 0

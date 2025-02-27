@@ -43,6 +43,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string diamondSpikes = "diamond_spikes";
 
         public const string anvil = "anvil";
+        public const string randomChina = "random_china";
     }
     public static class VanillaContraptionID
     {
@@ -84,6 +85,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID diamondSpikes = Get(VanillaContraptionNames.diamondSpikes);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
+        public static readonly NamespaceID randomChina = Get(VanillaContraptionNames.randomChina);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -378,14 +378,7 @@ namespace MVZ2.Entities
         {
             if (Entity.IsPreviewEnemy())
             {
-                var entityID = Entity.GetDefinitionID();
-                if (Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, entityID) != null)
-                {
-                    if (Main.SaveManager.IsEnemyUnlocked(entityID))
-                    {
-                        return true;
-                    }
-                }
+                return true;
             } 
             if (definition == null)
                 return false;

@@ -561,8 +561,7 @@ namespace MVZ2.GameContent.Bosses
                             var x = entity.Position.x;
                             var z = entity.Level.GetEntityLaneZ(i);
                             var y = entity.Level.GetGroundY(x, z);
-                            var param = new SpawnParams();
-                            param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+                            var param = entity.GetSpawnParams();
                             entity.Spawn(VanillaEnemyID.dullahan, new Vector3(x, y, z), param);
                         }
                     }
@@ -667,8 +666,7 @@ namespace MVZ2.GameContent.Bosses
                                 substateTimer.ResetTime(30);
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
-                                var param = new SpawnParams();
-                                param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+                                var param = entity.GetSpawnParams();
                                 var bedserker = entity.Spawn(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80, param);
 
                                 var exp = entity.Spawn(VanillaEffectID.explosion, bedserker.GetCenter());

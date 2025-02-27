@@ -673,6 +673,14 @@ namespace MVZ2.Vanilla.Entities
             buff.Update();
         }
         #endregion
+
+        public static SpawnParams GetSpawnParams(this Entity entity)
+        {
+            var param = new SpawnParams();
+            param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+            return param;
+        }
+
         private const string PROP_REGION = "entities";
         [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_SHINE_RING = new VanillaEntityPropertyMeta("LightShineRing");

@@ -22,6 +22,7 @@ using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Level
 {
@@ -93,9 +94,13 @@ namespace MVZ2.Level
                 // 打开图鉴
                 if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && CanChooseBlueprints())
                 {
-                    HideTooltip();
-                    OpenEnemyAlmanac(entity.GetDefinitionID());
-                    Main.SoundManager.Play2D(VanillaSoundID.tap);
+                    var entityID = entityCtrl.Entity.GetDefinitionID();
+                    if (Main.ResourceManager.IsEnemyInAlmanac(entityID) && Main.SaveManager.IsEnemyUnlocked(entityID))
+                    {
+                        HideTooltip();
+                        OpenEnemyAlmanac(entity.GetDefinitionID());
+                        Main.SoundManager.Play2D(VanillaSoundID.tap);
+                    }
                 }
             }
         }
@@ -290,7 +295,11 @@ namespace MVZ2.Level
                 var description = string.Empty;
                 if (main.SaveManager.IsAlmanacUnlocked())
                 {
-                    description = main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
+                    var entityID = entityCtrl.Entity.GetDefinitionID();
+                    if (main.ResourceManager.IsEnemyInAlmanac(entityID) && main.SaveManager.IsEnemyUnlocked(entityID))
+                    {
+                        description = main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
+                    }
                 }
                 return new TooltipViewData()
                 {

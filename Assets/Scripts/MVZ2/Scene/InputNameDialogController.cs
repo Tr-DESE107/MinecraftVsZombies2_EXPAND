@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu.UI
@@ -72,6 +73,12 @@ namespace MVZ2.Mainmenu.UI
             if (main.SaveManager.HasDuplicateUserName(name, renamingUserIndex))
             {
                 message = VanillaStrings.ERROR_MESSAGE_NAME_DUPLICATE;
+                return false;
+            }
+
+            if (inputNameType == InputNameType.Rename && main.Game.IsSpecialUserName(name))
+            {
+                message = VanillaStrings.ERROR_MESSAGE_CANNOT_USE_THIS_NAME;
                 return false;
             }
             message = null;

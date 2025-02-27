@@ -159,6 +159,12 @@
             <key hex="#30C6C6" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="random_china">
+        <colorKeys>
+            <key hex="#FFFFFF" time="0.66"/>
+            <key hex="#0000FF" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="hell_chariot">
         <colorKeys>
             <key hex="#24232B" time="0.25"/>

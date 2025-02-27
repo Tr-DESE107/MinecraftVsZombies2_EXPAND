@@ -50,6 +50,8 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (entity.Type != EntityTypes.PLANT)
                 return false;
+            if (!entity.ExistsAndAlive())
+                return false;
             if (entity.IsAIFrozen())
                 return false;
             if (!entity.CanDeactive())

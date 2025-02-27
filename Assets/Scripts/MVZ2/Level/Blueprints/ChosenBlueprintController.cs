@@ -38,7 +38,7 @@ namespace MVZ2.Level
         {
             var tooltip = base.GetTooltipViewData();
             var id = Definition.GetID();
-            tooltip.error = Controller.BlueprintChoosePart.GetBlueprintTooltipError(id);
+            tooltip.error = Controller.BlueprintChoosePart.GetChosenBlueprintTooltipError(Index);
             tooltip.description = Controller.BlueprintChoosePart.GetBlueprintTooltip(id);
             return tooltip;
         }

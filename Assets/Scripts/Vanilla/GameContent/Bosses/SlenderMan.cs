@@ -13,6 +13,7 @@ using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -346,12 +347,7 @@ namespace MVZ2.GameContent.Bosses
                 var placementDef = level.Content.GetPlacementDefinition(placementID);
                 if (placementDef == null)
                     continue;
-                var targetGrids = grids.Where(g =>
-                {
-                    var result = new TriggerResultNamespaceID();
-                    placementDef.CanPlaceEntityOnGrid(g, contraption.Definition, result);
-                    return result.Result == null;
-                });
+                var targetGrids = grids.Where(g => g.GetEntityPlaceStatus(contraption.Definition) != null);
                 if (targetGrids.Count() <= 0)
                     continue;
                 var grid = targetGrids.Random(rng);
