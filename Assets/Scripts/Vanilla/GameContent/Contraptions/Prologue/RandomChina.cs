@@ -1,24 +1,24 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using System.Linq;
+using MukioI18n;
+using MVZ2.GameContent.Armors;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Pickups;
+using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 using Tools;
-using MVZ2Logic;
-using System.Linq;
-using MVZ2.Vanilla.Grids;
-using MukioI18n;
-using MVZ2.Vanilla;
-using MVZ2.GameContent.Armors;
-using static MVZ2.GameContent.Buffs.VanillaBuffID;
-using MVZ2.Vanilla.Level;
 using UnityEngine;
-using MVZ2.GameContent.Projectiles;
-using MVZ2.GameContent.Pickups;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -50,7 +50,15 @@ namespace MVZ2.GameContent.Contraptions
             var rng = entity.RNG;
             entity.ClearTakenGrids();
             var unlockedContraptions = game.GetUnlockedContraptions();
-            var validContraptions = unlockedContraptions.Where(id => game.IsContraptionInAlmanac(id) && grid.CanPlaceEntity(id));
+            var validContraptions = unlockedContraptions.Where(id =>
+            {
+                if (!game.IsContraptionInAlmanac(id))
+                    return false;
+                var def = game.GetEntityDefinition(id);
+                if (def.IsUpgradeBlueprint())
+                    return false;
+                return grid.CanPlaceEntity(id);
+            });
             if (validContraptions.Count() <= 0)
                 return;
             var contraptionID = validContraptions.Random(rng);
