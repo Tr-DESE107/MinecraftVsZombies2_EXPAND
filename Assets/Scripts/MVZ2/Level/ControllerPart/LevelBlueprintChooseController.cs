@@ -145,6 +145,7 @@ namespace MVZ2.Level
             var seedDef = Game.GetSeedDefinition(seedID);
             var blueprint = chooseUI.CreateChosenBlueprint();
             chooseUI.InsertChosenBlueprint(seedPackIndex, blueprint);
+            blueprint.transform.position = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
 
             // 创建已选蓝图控制器。
             CreateChosenBlueprintController(blueprint, seedPackIndex, seedDef);
@@ -363,11 +364,14 @@ namespace MVZ2.Level
         }
         private void ReplaceBlueprints(BlueprintSelectionItem[] targetBlueprints)
         {
+            var slotCount = Level.GetSeedSlotCount();
+
             var innateCount = chosenBlueprints.Count(i => i.innate);
             var chosen = chosenBlueprints.Where(i => !i.innate);
-            var retainBlueprints = targetBlueprints.Where(i => chosen.Any(item => i.Compare(item))).ToArray();
-            var pickBlueprints = targetBlueprints.Except(retainBlueprints).ToArray();
-            var removeBlueprints = chosen.Where(item => !targetBlueprints.Any(i => i.Compare(item))).ToArray();
+            var targets = targetBlueprints.Take(slotCount - innateCount).ToArray();
+            var retainBlueprints = targets.Where(i => chosen.Any(item => i.Compare(item))).ToArray();
+            var pickBlueprints = targets.Except(retainBlueprints).ToArray();
+            var removeBlueprints = chosen.Where(item => !targets.Any(i => i.Compare(item))).ToArray();
 
             // 首先卸下要移除的蓝图。
             foreach (var item in removeBlueprints)
@@ -379,14 +383,14 @@ namespace MVZ2.Level
             foreach (var item in pickBlueprints)
             {
                 var id = item.id;
-                var targetIndex = Array.IndexOf(targetBlueprints, item) + innateCount;
+                var targetIndex = Array.IndexOf(targets, item) + innateCount;
                 LoadBlueprint(targetIndex, id);
             }
             // 最后将要保留的蓝图交换位置。
             foreach (var item in retainBlueprints)
             {
                 var id = item.id;
-                var targetIndex = Array.IndexOf(targetBlueprints, item) + innateCount;
+                var targetIndex = Array.IndexOf(targets, item) + innateCount;
                 var existingIndex = chosenBlueprints.FindIndex(i => item.Compare(i));
                 SwapChosenBlueprints(existingIndex, targetIndex);
             }
@@ -434,7 +438,7 @@ namespace MVZ2.Level
         private void RefreshBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
         {
             // 保存之前的选卡ID。
-            var chosenBlueprintBefore = chosenBlueprints.ToArray();
+            var chosenBlueprintBefore = chosenBlueprints.Where(i => !i.innate).ToArray();
 
             // 更新可选蓝图。
             bool canRepick = Main.SaveManager.GetLastSelection() != null;
