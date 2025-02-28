@@ -637,7 +637,7 @@ namespace MVZ2.Level
         }
         private async void Engine_OnClearCallback()
         {
-            LevelManager.RemoveLevelState(StartStageID);
+            RemoveLevelState();
             Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Saves.SaveModDatas();
@@ -715,6 +715,7 @@ namespace MVZ2.Level
             model.SetDoorVisible(false);
             level.HideAdvice();
             SetUIVisibleState(VisibleState.Nothing);
+            RemoveLevelState();
         }
         #endregion
 
