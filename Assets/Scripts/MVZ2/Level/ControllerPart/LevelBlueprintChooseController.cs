@@ -218,7 +218,7 @@ namespace MVZ2.Level
             placeHolder.UpdateView(BlueprintViewData.Empty);
             chooseUI.InsertChosenBlueprint(seedPackIndex, placeHolder);
 
-            var movingBlueprint = chooseUI.CreateMovingBlueprint();
+            var movingBlueprint = CreateMovingBlueprint();
             movingBlueprint.transform.position = sourcePos;
             movingBlueprint.SetBlueprint(blueprintUI);
             movingBlueprint.SetMotion(sourcePos, targetPos);
@@ -227,7 +227,7 @@ namespace MVZ2.Level
                 // 移除占位符并替换为该蓝图
                 chooseUI.DestroyChosenBlueprint(placeHolder);
                 chooseUI.InsertChosenBlueprint(seedPackIndex, blueprintUI);
-                chooseUI.RemoveMovingBlueprint(movingBlueprint);
+                RemoveMovingBlueprint(movingBlueprint);
             };
         }
         private void UnloadBlueprint(int index)
@@ -243,14 +243,14 @@ namespace MVZ2.Level
 
             if (targetBlueprint)
             {
-                var movingBlueprint = chooseUI.CreateMovingBlueprint();
+                var movingBlueprint = CreateMovingBlueprint();
                 movingBlueprint.transform.position = sourcePos;
                 movingBlueprint.SetBlueprint(blueprintUI);
                 movingBlueprint.SetMotion(sourcePos, targetBlueprint.transform);
                 movingBlueprint.OnMotionFinished += () =>
                 {
                     UpdateBlueprintChooseItem(choosingIndex);
-                    chooseUI.RemoveMovingBlueprint(movingBlueprint);
+                    RemoveMovingBlueprint(movingBlueprint);
                 };
             }
             else
@@ -297,6 +297,25 @@ namespace MVZ2.Level
             {
                 chosenBlueprintControllers[i].Index = i;
             }
+        }
+        private MovingBlueprint CreateMovingBlueprint()
+        {
+            var movingBlueprint = chooseUI.CreateMovingBlueprint();
+            movingBlueprints.Add(movingBlueprint);
+            return movingBlueprint;
+        }
+        private void RemoveMovingBlueprint(MovingBlueprint blueprint)
+        {
+            movingBlueprints.Remove(blueprint);
+            chooseUI.RemoveMovingBlueprint(blueprint);
+        }
+        private void ClearMovingBlueprints()
+        {
+            foreach (var movingBlueprint in movingBlueprints)
+            {
+                chooseUI.RemoveMovingBlueprint(movingBlueprint);
+            }
+            movingBlueprints.Clear();
         }
         #endregion
 
@@ -454,6 +473,7 @@ namespace MVZ2.Level
             choosingBlueprints = orderedBlueprints.ToArray();
 
             var seedSlotCount = Level.GetSeedSlotCount();
+            ClearMovingBlueprints();
             ClearChosenBlueprints();
             var innateBlueprints = Main.Game.GetInnateBlueprints();
             for (int i = 0; i < seedSlotCount; i++)
@@ -915,6 +935,7 @@ namespace MVZ2.Level
         private List<BlueprintChooseItem> chosenBlueprints = new List<BlueprintChooseItem>();
         private NamespaceID[] choosingBlueprints;
         private List<ChosenBlueprintController> chosenBlueprintControllers = new List<ChosenBlueprintController>();
+        private List<MovingBlueprint> movingBlueprints = new List<MovingBlueprint>();
 
         private NamespaceID[] chosenArtifacts;
         private int choosingArtifactSlotIndex;

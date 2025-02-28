@@ -16,6 +16,8 @@ namespace MVZ2.Level.UI
         }
         public void RemoveMovingBlueprint(MovingBlueprint blueprint)
         {
+            if (!blueprint)
+                return;
             Destroy(blueprint.gameObject);
         }
         [SerializeField]
