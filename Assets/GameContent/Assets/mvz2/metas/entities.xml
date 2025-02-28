@@ -1201,6 +1201,7 @@
 
         <!-- Effects -->
         <effect id="miner">
+            <bool name="effective" value="true"/>
             <bool name="shadowHidden" value="false"/>
         </effect>
         <effect id="mine_debris">
@@ -1213,6 +1214,7 @@
             <int name="maxTimeout" value="30"/>
         </effect>
         <effect id="gem_effect">
+            <bool name="effective" value="true"/>
         </effect>
         <effect id="smoke">
             <int name="maxTimeout" value="30"/>
@@ -1254,6 +1256,7 @@
             <int name="maxTimeout" value="15"/>
         </effect>
         <effect id="mummy_gas">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="270"/>
             <float name="damage" value="1" />
             <color name="tint" value="#FF60FF" />
@@ -1261,6 +1264,7 @@
             <id name="modelId" value="mvz2:entity.gas" />
         </effect>
         <effect id="burning_gas">
+            <bool name="effective" value="true"/>
             <bool name="isFire" value="true" />
             <int name="maxTimeout" value="45"/>
             <vector3 name="size" x="240" y="40" z="40" />
@@ -1305,13 +1309,16 @@
             <int name="maxTimeout" value="15"/>
         </effect>
         <effect id="vortex">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="30"/>
         </effect>
         <effect id="giant_spike">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="42"/>
             <vector3 name="size" x="16" y="128" z="16" />
         </effect>
         <effect id="fire_breath">
+            <bool name="effective" value="true"/>
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="240" y="80" z="80"/>
             <color name="lightColor" value="#FF7F00"/>
@@ -1322,6 +1329,7 @@
             <vector3 name="size" x="200" y="40" z="40" />
         </effect>
         <effect id="weakness_gas">
+            <bool name="effective" value="true"/>
             <float name="gravity" value="1"/>
             <int name="maxTimeout" value="270"/>
             <color name="tint" value="#7F7F7F" />
@@ -1330,10 +1338,12 @@
         </effect>
         <effect id="magnetic_line" />
         <effect id="hoe">
+            <bool name="effective" value="true"/>
             <float name="gravity" value="1"/>
             <vector3 name="size" x="20" y="20" z="20" />
         </effect>
         <effect id="breakout_board">
+            <bool name="effective" value="true"/>
             <bool name="shadowHidden" value="false"/>
             <int name="collisionDetection" value="1"/>
             <float name="collisionSampleLength" value="16"/>
@@ -1342,6 +1352,7 @@
         </effect>
         <effect id="nightmare_watching_eye"/>
         <effect id="nightmare_portal">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="30"/>
             <bool name="faceLeftAtDefault" value="true"/>
         </effect>
@@ -1357,8 +1368,12 @@
         <effect id="slice_spark">
             <int name="maxTimeout" value="12"/>
         </effect>
-        <effect id="crushing_walls" name="梦魇碾压墙" />
-        <effect id="nightmareaper_timer"/>
+        <effect id="crushing_walls" name="梦魇碾压墙" >
+            <bool name="effective" value="true"/>
+        </effect>
+        <effect id="nightmareaper_timer">
+            <bool name="effective" value="true"/>
+        </effect>
         <effect id="floating_text" >
             <int name="maxTimeout" value="90"/>
         </effect>
@@ -1388,15 +1403,18 @@
             <int name="maxTimeout" value="20"/>
         </effect>
         <effect id="thunder_cloud">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="150"/>
             <float name="damage" value="100" />
             <color name="tint" value="#101010" />
             <vector3 name="size" x="400" y="40" z="400" />
         </effect>
         <effect id="magic_bomb_explosion">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="60"/>
         </effect>
         <effect id="seija_camera_frame">
+            <bool name="effective" value="true"/>
             <float name="friction" value="0.15"/>
             <int name="maxTimeout" value="45"/>
             <vector3 name="size" x="160" y="800" z="240" />
@@ -1406,6 +1424,7 @@
             <int name="sortingOrder" value="9999"/>
         </effect>
         <effect id="wither_summoners">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="105"/>
         </effect>
         <effect id="castle_twilight">
