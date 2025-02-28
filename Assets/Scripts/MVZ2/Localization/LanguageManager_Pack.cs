@@ -411,7 +411,8 @@ namespace MVZ2.Localization
             {
                 using var archive = new ZipArchive(stream);
                 var languagePack = new LanguagePack(key);
-                foreach (var entry in archive.Entries)
+                var entries = archive.Entries.ToArray();
+                foreach (var entry in entries)
                 {
                     if (string.IsNullOrEmpty(entry.Name))
                         continue;
@@ -441,8 +442,8 @@ namespace MVZ2.Localization
                             var manifest = JsonConvert.DeserializeObject<LocalizedSpriteManifest>(manifestJson);
                             foreach (var localizedSprite in manifest.sprites)
                             {
-                                var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture).Replace("/", "\\");
-                                var textureEntry = archive.GetEntry(texturePath);
+                                var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture);
+                                var textureEntry = entries.FirstOrDefault(e=> e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
 
                                 if (textureEntry == null)
                                     continue;
@@ -453,8 +454,8 @@ namespace MVZ2.Localization
                             }
                             foreach (var localizedSpritesheet in manifest.spritesheets)
                             {
-                                var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
-                                var textureEntry = archive.GetEntry(texturePath);
+                                var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture);
+                                var textureEntry = entries.FirstOrDefault(e => e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
 
                                 if (textureEntry == null)
                                     continue;
@@ -687,8 +688,9 @@ namespace MVZ2.Localization
             {
                 if (Path.GetExtension(filePath) == ".meta")
                     continue;
-                var entryName = Path.GetRelativePath(sourceDirectory, filePath);
-                var entry = archive.CreateEntryFromFile(filePath, entryName);
+                var path = filePath.Replace("\\", "/");
+                var entryName = Path.GetRelativePath(sourceDirectory, path);
+                var entry = archive.CreateEntryFromFile(path, entryName);
             }
         }
         #endregion
