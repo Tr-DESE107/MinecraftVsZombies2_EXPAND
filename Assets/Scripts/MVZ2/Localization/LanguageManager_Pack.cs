@@ -606,11 +606,11 @@ namespace MVZ2.Localization
                 Vector2 spritePivot;
                 if (meta != null)
                 {
-                    spritePivot = new Vector2(meta.pivotX * spriteRect.width, meta.pivotY * spriteRect.height);
+                    spritePivot = new Vector2(meta.pivotX, meta.pivotY);
                 }
                 else
                 {
-                    spritePivot = new Vector2(0.5f * spriteRect.width, 0.5f * spriteRect.height);
+                    spritePivot = new Vector2(0.5f, 0.5f);
                 }
                 var spr = main.ResourceManager.CreateSprite(texture2D, spriteRect, spritePivot, spriteId.ToString(), GetLanguagePackSpriteCategory(key));
                 return spr;
@@ -634,7 +634,7 @@ namespace MVZ2.Localization
                     {
                         var slice = meta.slices[i];
                         var rect = new Rect(slice.x, slice.y, slice.width, slice.height);
-                        var pivot = new Vector2(slice.pivotX * slice.width, slice.pivotY * slice.height);
+                        var pivot = new Vector2(slice.pivotX, slice.pivotY);
                         spriteInfos[i] = (rect, pivot);
                     }
                 }
@@ -642,7 +642,7 @@ namespace MVZ2.Localization
                 {
                     spriteInfos = new (Rect rect, Vector2 pivot)[1]
                     {
-                        (new Rect(0, 0, texture2D.width, texture2D.height), new Vector2(texture2D.width * 0.5f, texture2D.height * 0.5f))
+                        (new Rect(0, 0, texture2D.width, texture2D.height), new Vector2(0.5f, 0.5f))
                     };
                 }
                 var sprites = new Sprite[spriteInfos.Length];
@@ -652,7 +652,7 @@ namespace MVZ2.Localization
                     var rect = info.rect;
                     rect.width = Math.Min(rect.width, texture2D.width);
                     rect.height = Math.Min(rect.height, texture2D.height);
-                    var spr = main.ResourceManager.CreateSprite(texture2D, rect, info.pivot / rect.size, $"{spriteId}[{i}]", GetLanguagePackSpriteCategory(key));
+                    var spr = main.ResourceManager.CreateSprite(texture2D, rect, info.pivot, $"{spriteId}[{i}]", GetLanguagePackSpriteCategory(key));
                     sprites[i] = spr;
                 }
                 return sprites;
