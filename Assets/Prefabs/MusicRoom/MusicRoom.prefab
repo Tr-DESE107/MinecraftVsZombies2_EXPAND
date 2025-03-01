@@ -3188,11 +3188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3416349754535199002, guid: 9845f7cb147bd40448edb0dfdb89ece7, type: 3}
       propertyPath: m_Size
-      value: 0.7870006
+      value: 0.7456141
       objectReference: {fileID: 0}
     - target: {fileID: 3416349754535199002, guid: 9845f7cb147bd40448edb0dfdb89ece7, type: 3}
       propertyPath: m_Value
-      value: 1.0000054
+      value: 1.0000042
       objectReference: {fileID: 0}
     - target: {fileID: 3564444148358241177, guid: 9845f7cb147bd40448edb0dfdb89ece7, type: 3}
       propertyPath: m_IsActive
