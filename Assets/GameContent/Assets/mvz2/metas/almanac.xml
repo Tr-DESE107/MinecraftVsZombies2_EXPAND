@@ -781,7 +781,7 @@
                 <p>马速度：<![CDATA[<color=red>2（跳跃前），1（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>无法跳过高器械、金质品</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过高器械</color>]]></p>
             </properties>
             <flavor>
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>

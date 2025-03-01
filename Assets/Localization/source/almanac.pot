@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-02-27 07:48+0800\n"
+"POT-Creation-Date: 2025-03-01 03:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1072,7 +1072,7 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>无法跳过高器械、金质品</color>"
+"弱点：<color=red>金质物品，无法跳过高器械</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:dullahan
