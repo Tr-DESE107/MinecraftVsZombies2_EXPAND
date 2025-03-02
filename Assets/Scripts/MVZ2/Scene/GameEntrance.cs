@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.GameContent.Effects;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Saves;
@@ -19,12 +20,17 @@ namespace MVZ2.Scenes
         {
             try
             {
+                loadingText.SetActive(true);
                 await main.Initialize();
             }
             catch (Exception e)
             {
                 ShowErrorDialog(e);
                 return;
+            }
+            finally
+            {
+                loadingText.SetActive(false);
             }
             await CheckSaveDataStatus();
             StartGame();
@@ -153,5 +159,7 @@ namespace MVZ2.Scenes
         public const string ERROR_FULL_USERS_CORRUPTED = "所有存档均无法读取，文件可能已损坏。\n必须删除一个存档，并新建存档以继续游戏。";
         [SerializeField]
         private MainManager main;
+        [SerializeField]
+        private GameObject loadingText;
     }
 }

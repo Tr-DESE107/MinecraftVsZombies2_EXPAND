@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.randomChina,
+                VanillaContraptionID.moonlightSensor,
                 VanillaBossID.seija,
                 VanillaEnemyID.bedserker,
                 VanillaEnemyID.mesmerizer,
