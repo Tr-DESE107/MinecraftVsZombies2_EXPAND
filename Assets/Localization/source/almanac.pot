@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-03-02 03:56+0800\n"
+"POT-Creation-Date: 2025-03-02 11:45+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1297,7 +1297,7 @@ msgstr ""
 #. Properties for artifacts mvz2:smart_phone
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>关卡结束时消耗所有能量，每消耗10能量获得10金钱</color>"
+msgid "效果：<color=red>你在最后一波开始前每有10能量，关卡结束时便获得10金钱</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:smart_phone
@@ -3128,7 +3128,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:smart_phone
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "关卡结束后消耗所有能量，每消耗10能量获得10金钱"
+msgid "你在最后一波开始前每有10能量，关卡结束时便获得10金钱"
 msgstr ""
 
 #. Name for artifact mvz2:inverted_mirror

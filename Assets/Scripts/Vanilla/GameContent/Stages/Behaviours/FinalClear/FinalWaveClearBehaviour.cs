@@ -19,22 +19,8 @@ namespace MVZ2.GameContent.Stages
             switch (level.WaveState)
             {
                 case VanillaLevelStates.STATE_FINAL_WAVE:
-                    CheckNoProduction(level);
                     level.CheckClearUpdate();
                     break;
-            }
-        }
-        private void CheckNoProduction(LevelEngine level)
-        {
-            var behaviour = level.GetStageBehaviour<WaveStageBehaviour>();
-            if (behaviour != null)
-            {
-                var waveTimer = behaviour.GetWaveTimer(level);
-                waveTimer.Run();
-                if (waveTimer.Expired)
-                {
-                    level.SetNoEnergy(true);
-                }
             }
         }
     }

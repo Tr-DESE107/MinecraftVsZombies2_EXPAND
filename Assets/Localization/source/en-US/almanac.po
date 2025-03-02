@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-02 03:56+0800\n"
-"PO-Revision-Date: 2025-03-02 15:57+0800\n"
+"POT-Creation-Date: 2025-03-02 11:45+0800\n"
+"PO-Revision-Date: 2025-03-02 23:47+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1600,8 +1600,8 @@ msgstr "An unclaimed smartphone that drifted into Kourindou from the outside wor
 #. Properties for artifacts mvz2:smart_phone
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>关卡结束时消耗所有能量，每消耗10能量获得10金钱</color>"
-msgstr "Effect: <color=red>Consumes all energy after level cleared, +10 money for every 10 energy consumed</color>"
+msgid "效果：<color=red>你在最后一波开始前每有10能量，关卡结束时便获得10金钱</color>"
+msgstr "Effect: <color=red>Gain 10 money at the end of the level for every 10 energy you have before the final wave begins</color>"
 
 #. Flavor for artifacts mvz2:smart_phone
 #: Almanac meta file
@@ -3606,8 +3606,8 @@ msgstr "Smart Phone"
 #. Tooltip for artifact mvz2:smart_phone
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "关卡结束后消耗所有能量，每消耗10能量获得10金钱"
-msgstr "Consumes all energy after level cleared, +10 money for every 10 energy consumed"
+msgid "你在最后一波开始前每有10能量，关卡结束时便获得10金钱"
+msgstr "Gain 10 money at the end of the level for every 10 energy you have before the last wave begins"
 
 #. Name for artifact mvz2:inverted_mirror
 #: Artifact meta file
@@ -3668,6 +3668,10 @@ msgstr "Broken Lantern"
 msgctxt "artifact.tooltip"
 msgid "发光的器械×50%光照范围，+25%生产速度和攻击速度"
 msgstr "x50% light range, +25% produce speed and attack speed for glowing contraptions"
+
+#~ msgctxt "artifact.tooltip"
+#~ msgid "关卡结束后消耗所有能量，每消耗10能量获得10金钱"
+#~ msgstr "Consumes all energy after level cleared, +10 money for every 10 energy consumed"
 
 #~ msgctxt "artifacts.description"
 #~ msgid "凋灵骷髅的头颅。"
