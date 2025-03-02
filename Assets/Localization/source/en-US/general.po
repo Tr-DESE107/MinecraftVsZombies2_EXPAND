@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-02-27 07:48+0800\n"
-"PO-Revision-Date: 2025-02-27 19:52+0800\n"
+"POT-Creation-Date: 2025-03-02 02:19+0800\n"
+"PO-Revision-Date: 2025-03-02 14:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -279,6 +279,65 @@ msgstr "Please input your name"
 msgid "取消"
 msgstr "Cancel"
 
+#: /Level/UI/Presets/UIPresetMobile/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/TitleRegion/Title
+msgid "选择你的蓝图"
+msgstr "Choose your blueprints"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetMobile/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
+msgid "一起摇滚吧！"
+msgstr "Let's rock!"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/Presets/UIPresetMobile/SharedCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
+msgid "选择制品"
+msgstr "Select artifacts"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListStandalone/Bottom/ViewLawnButton/Text
+msgid "查看战场"
+msgstr "View Battlefield"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/ViewAlmanacButton/Text
+msgid "查看图鉴"
+msgstr "View Almanac"
+
+#. 按钮文本
+#: /Level/UI/Presets/UIPresetStandalone/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/ViewStoreButton/Text
+msgid "进入商店"
+msgstr "Enter Store"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Top/Title
+msgid "游戏暂停"
+msgstr "Paused"
+
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/PauseDialog/Dialog/Content/Bottom/TextButton/Text
+msgid "返回游戏"
+msgstr "Resume"
+
+#. 暂停游戏对话框的标题
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Top/Title
+msgid "游戏结束"
+msgstr "Game Over"
+
+#. 读取游戏对话框的标题
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
+msgid "继续"
+msgstr "Continue"
+
+#. 读取游戏对话框的描述
+#: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Center/Desc
+msgid "是否继续上一次的进度？"
+msgstr "Do you want to continue with the latest progress?"
+
+#. 读取游戏失败对话框的标题
+#: /Level/UI/DialogCanvas/LevelErrorLoadingDialog/Dialog/Content/Top/Title
+msgid "错误"
+msgstr "Error"
+
 #: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:199
 msgctxt "advice.starshard_tutorial.0"
 msgid "点击星之碎片槽选中星之碎片！"
@@ -485,37 +544,37 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:212
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:220
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
 msgstr "Obsidian Prisons"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:214
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:222
 msgctxt "random_china.event_name"
 msgid "陶瓷镇"
 msgstr "China Town"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:216
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:224
 msgctxt "random_china.event_name"
 msgid "塔-XVI"
 msgstr "The Tower - XVI"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:218
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:226
 msgctxt "random_china.event_name"
 msgid "红石俱备"
 msgstr "Redstone Ready"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:220
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:228
 msgctxt "random_china.event_name"
 msgid "方片A"
 msgstr "Ace of Diamonds"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:222
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:230
 msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr "Hell Metal"
@@ -749,10 +808,6 @@ msgstr "Back to map"
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:103
-msgid "错误"
-msgstr "Error"
-
 #: Scripts\Vanilla\VanillaStrings.cs:105
 msgid "警告"
 msgstr "Warning"
@@ -765,10 +820,6 @@ msgstr "Hint"
 #: Scripts\Vanilla\VanillaStrings.cs:109
 msgid "退出"
 msgstr "Quit"
-
-#: Scripts\Vanilla\VanillaStrings.cs:111
-msgid "继续"
-msgstr "Continue"
 
 #: Scripts\Vanilla\VanillaStrings.cs:113
 msgid "确认"
@@ -1091,29 +1142,25 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:895
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:920
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:897
-msgid "选择制品"
-msgstr "Select artifacts"
-
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:899
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:924
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr "The blueprint selected last time contained multiple same contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:901
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:926
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprint selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:903
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:928
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr "The blueprint selected last time contained multiple same artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:905
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:930
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "
@@ -2423,33 +2470,6 @@ msgid "闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成
 msgstr ""
 "A shiny star! It spawns a magical shard for every 4 magical shards you have "
 "used!"
-
-#~ msgid "选择你的蓝图"
-#~ msgstr "Choose your blueprints"
-
-#~ msgid "一起摇滚吧！"
-#~ msgstr "Let's rock!"
-
-#~ msgid "查看战场"
-#~ msgstr "View Battlefield"
-
-#~ msgid "查看图鉴"
-#~ msgstr "View Almanac"
-
-#~ msgid "进入商店"
-#~ msgstr "Enter Store"
-
-#~ msgid "游戏暂停"
-#~ msgstr "Paused"
-
-#~ msgid "返回游戏"
-#~ msgstr "Resume"
-
-#~ msgid "游戏结束"
-#~ msgstr "Game Over"
-
-#~ msgid "是否继续上一次的进度？"
-#~ msgstr "Do you want to continue with the latest progress?"
 
 #~ msgctxt "store_talk"
 #~ msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！"
