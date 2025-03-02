@@ -2,6 +2,7 @@
 using System.Linq;
 using MVZ2.Cameras;
 using MVZ2.UI;
+using MVZ2Logic;
 using UnityEngine;
 
 namespace MVZ2.Options
@@ -31,6 +32,7 @@ namespace MVZ2.Options
             dialog.SetPage(Page.Main);
             dialog.SetButtonActive(ButtonType.BloodAndGore, false);
             dialog.SetDropdownActive(DropdownType.Language, false);
+            dialog.SetDropdownActive(DropdownType.Resolution, !Global.IsMobile());
         }
         public override void Dispose()
         {
