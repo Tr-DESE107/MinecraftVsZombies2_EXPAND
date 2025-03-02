@@ -43,6 +43,12 @@
       "pivotY": 0.5
     },
     {
+      "name": "mainmenu/logo",
+      "texture": "mainmenu/logo.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
       "name": "misc/letter_for_help",
       "texture": "misc/letter_for_help.png",
       "pivotX": 0.5,
@@ -79,8 +85,38 @@
       "pivotY": 0.5
     },
     {
+      "name": "entity/effects/boom",
+      "texture": "entity/effects/boom.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
       "name": "entity/effects/pow",
       "texture": "entity/effects/pow.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "ui/level/final_wave",
+      "texture": "ui/level/final_wave.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "ui/level/huge_wave",
+      "texture": "ui/level/huge_wave.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "ui/level/level_progress_back",
+      "texture": "ui/level/level_progress_back.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "ui/level/lose",
+      "texture": "ui/level/lose.png",
       "pivotX": 0.5,
       "pivotY": 0.5
     }

@@ -72,9 +72,9 @@ namespace MVZ2.Editor
                     foreach (var spritePath in Directory.EnumerateFiles(spritesDir, "*.png", SearchOption.AllDirectories))
                     {
                         var spriteRelativePath = Path.GetRelativePath(spritesDir, spritePath).Replace("\\", "/");
-                        var originSpritePath = Path.Combine(databaseDir, nsp, "sprites", spriteRelativePath);
+                        var originSpritePath = Path.Combine(databaseDir, nsp, "sprites", spriteRelativePath).Replace("\\", "/");
 
-                        var sprite = AssetDatabase.LoadAllAssetsAtPath(originSpritePath).OfType<Sprite>().FirstOrDefault();
+                        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(originSpritePath);
                         if (!sprite)
                             continue;
                         var localizedSprite = new LocalizedSprite()
@@ -92,7 +92,7 @@ namespace MVZ2.Editor
                     foreach (var spritePath in Directory.EnumerateFiles(spritesheetsDir, "*.png", SearchOption.AllDirectories))
                     {
                         var spriteRelativePath = Path.GetRelativePath(spritesheetsDir, spritePath).Replace("\\", "/");
-                        var originSpritePath = Path.Combine(databaseDir, nsp, "spritesheets", spriteRelativePath);
+                        var originSpritePath = Path.Combine(databaseDir, nsp, "spritesheets", spriteRelativePath).Replace("\\", "/");
                         var sprites = SpriteMenu.GetOrderedSpriteSheet(originSpritePath, factories);
                         var slices = new List<LocalizedSpriteSheetSlice>();
                         foreach (var sprite in sprites)
