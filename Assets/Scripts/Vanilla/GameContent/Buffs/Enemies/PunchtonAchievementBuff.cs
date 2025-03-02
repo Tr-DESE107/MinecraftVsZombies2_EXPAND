@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_TIMEOUT, 10);
+            buff.SetProperty(PROP_TIMEOUT, 15);
         }
         public override void PostUpdate(Buff buff)
         {
