@@ -449,7 +449,7 @@ namespace MVZ2.GameContent.Stages
         public const string CONTEXT_STATE = CONTEXT_STATE_PREFIX + "{0}";
 
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "0")]
-        public const string STRING_STATE_0 = "左键点击器械卡牌选中器械！";
+        public const string STRING_STATE_0 = "点击器械卡牌选中器械！";
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "1")]
         public const string STRING_STATE_1 = "点击草坪放置器械！";
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "2")]

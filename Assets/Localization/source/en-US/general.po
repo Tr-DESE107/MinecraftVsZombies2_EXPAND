@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-02 02:19+0800\n"
-"PO-Revision-Date: 2025-03-02 16:44+0800\n"
+"POT-Creation-Date: 2025-03-03 11:37+0800\n"
+"PO-Revision-Date: 2025-03-03 11:37+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -425,7 +425,7 @@ msgstr "Good luck!"
 
 #: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:451
 msgctxt "advice.tutorial.0"
-msgid "左键点击器械卡牌选中器械！"
+msgid "点击器械卡牌选中器械！"
 msgstr "Click a blueprint to choose a contraption!"
 
 #: Scripts\Vanilla\GameContent\Stages\Definitions\TutorialStage.cs:453
@@ -533,12 +533,12 @@ msgstr ""
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr "Are you sure want to play this level without any aquatic contraptions?"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:88
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr "Click to collect the gem!"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:92
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
@@ -958,7 +958,7 @@ msgstr ""
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:136
+#: Scripts\MVZ2\Scene\GameEntrance.cs:142
 msgid ""
 "游戏加载失败：\n"
 "{0}"
@@ -966,27 +966,27 @@ msgstr ""
 "Failed to initialize:\n"
 "{0}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:138
+#: Scripts\MVZ2\Scene\GameEntrance.cs:144
 msgid "文件目录丢失"
 msgstr "Directory not found"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:140
+#: Scripts\MVZ2\Scene\GameEntrance.cs:146
 msgid "文件丢失"
 msgstr "File not found"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:142
+#: Scripts\MVZ2\Scene\GameEntrance.cs:148
 msgid "文件被占用"
 msgstr "A file is occupied by other program"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:144
+#: Scripts\MVZ2\Scene\GameEntrance.cs:150
 msgid "文件读取失败"
 msgstr "Failed to load a file"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:146
+#: Scripts\MVZ2\Scene\GameEntrance.cs:152
 msgid "文件格式错误"
 msgstr "Wrong file format"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:148
+#: Scripts\MVZ2\Scene\GameEntrance.cs:154
 msgid ""
 "部分存档无法读取，将使用存档{0}开始游戏。\n"
 "无法读取的存档：\n"
@@ -996,7 +996,7 @@ msgstr ""
 "Users that cannot be loaded:\n"
 "{1}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:150
+#: Scripts\MVZ2\Scene\GameEntrance.cs:156
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须新建存档以继续游戏。"
@@ -1004,7 +1004,7 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to create a new user to continue."
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:152
+#: Scripts\MVZ2\Scene\GameEntrance.cs:158
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须删除一个存档，并新建存档以继续游戏。"
