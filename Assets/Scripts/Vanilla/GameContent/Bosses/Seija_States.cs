@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(30);
+                stateTimer.ResetTime(90);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
