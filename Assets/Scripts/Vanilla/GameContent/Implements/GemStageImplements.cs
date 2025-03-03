@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
@@ -23,8 +24,8 @@ namespace MVZ2.GameContent.Implements
         public override void Implement(Mod mod)
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostEnemyInitCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_UPDATE, Gem_PostUpdateCallback);
-            mod.AddTrigger(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, Gem_PostEnemyDropRewardCallback);
         }
         private void Gem_PostUpdateCallback(LevelEngine level)
         {
@@ -59,7 +60,7 @@ namespace MVZ2.GameContent.Implements
                 level.ShowAdvice(adviceContext, adviceText, 1000, -1);
             }
         }
-        private void Gem_PostEnemyDropRewardCallback(Entity enemy)
+        private void Gem_PostEnemyInitCallback(Entity enemy)
         {
             var level = enemy.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
@@ -80,10 +81,7 @@ namespace MVZ2.GameContent.Implements
             }
             if (spawnGem)
             {
-                var weights = gemWeights.Select(g => g.weight).ToArray();
-                var index = enemy.DropRNG.WeightedRandom(weights);
-                var gemID = gemWeights[index].id;
-                enemy.Produce(gemID);
+                enemy.AddBuff<GemCarrierBuff>();
             }
         }
         public const string CONTEXT_ADVICE_COLLECT_MONEY = "advice.collect_money";
@@ -91,11 +89,5 @@ namespace MVZ2.GameContent.Implements
         public const string ADVICE_COLLECT_MONEY_0 = "点击收集宝石！";
         [TranslateMsg("拾取宝石的帮助提示", CONTEXT_ADVICE_COLLECT_MONEY)]
         public const string ADVICE_COLLECT_MONEY_1 = "收集宝石来获得更酷的道具吧！";
-        private static readonly List<(NamespaceID id, float weight)> gemWeights = new List<(NamespaceID, float)>()
-        {
-            ( VanillaPickupID.emerald, 100 ),
-            ( VanillaPickupID.ruby, 20 ),
-            ( VanillaPickupID.diamond, 1 ),
-        };
     }
 }

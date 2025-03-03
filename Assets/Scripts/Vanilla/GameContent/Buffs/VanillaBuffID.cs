@@ -46,6 +46,7 @@ namespace MVZ2.GameContent.Buffs
         public const string witherSkeletonSkullReduceHealth = "wither_skeleton_skull_reduce_health";
         public const string brokenLantern = "broken_lantern";
         // Enemy
+        public const string gemCarrier = "gem_carrier";
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";

@@ -45,6 +45,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 if (IsOutsideView(entity))
                 {
+                    entity.Neutralize();
                     entity.Remove();
                     return;
                 }

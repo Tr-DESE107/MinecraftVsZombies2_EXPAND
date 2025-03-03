@@ -11,6 +11,7 @@ namespace MVZ2.Vanilla.Entities
     {
         public static void Neutralize(this Entity enemy)
         {
+            enemy.DropRewards();
             if (enemy.IsNeutralized())
                 return;
 
@@ -20,7 +21,6 @@ namespace MVZ2.Vanilla.Entities
             if (result.Result == false)
                 return;
             enemy.SetNeutralized(true);
-            enemy.DropRewards();
             enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, c => c(enemy));
         }
         public static void DropRewards(this Entity enemy)
