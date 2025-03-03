@@ -477,6 +477,7 @@ namespace MVZ2.Vanilla.Level
             else
             {
                 level.PostWaveFinished(level.CurrentWave);
+                level.SetNoEnergy(true);
                 if (!level.IsAllEnemiesCleared())
                 {
                     level.SetAllEnemiesCleared(true);
