@@ -62,6 +62,14 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModSpawnMetas(spaceName);
         }
+        public IGridLayerMeta GetGridLayerMeta(NamespaceID id)
+        {
+            return metaProvider.GetGridLayerMeta(id);
+        }
+        public IGridErrorMeta GetGridErrorMeta(NamespaceID id)
+        {
+            return metaProvider.GetGridErrorMeta(id);
+        }
         public bool IsContraptionInAlmanac(NamespaceID id)
         {
             return metaProvider.IsContraptionInAlmanac(id);

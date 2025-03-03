@@ -10,20 +10,6 @@ namespace MVZ2.Vanilla
         [TranslateMsg("教程无法使用提示")]
         public const string TOOLTIP_DECREPIFY = "受到衰老诅咒！";
 
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_CANNOT_PLACE_ON_STATUES = "你不能在雕像上放置器械";
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_PLACE_LILYPAD_FIRST = "请先放睡莲";
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_CANNOT_PLACE_ON_WATER = "你不能在水上放置该器械";
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_CANNOT_PLACE_ON_PLANE = "你不能在薄面上放置该器械";
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_CANNOT_PLACE_ON_LAND = "你不能在陆地上放置该器械";
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_ONLY_PLACE_ON_CAN_SLEEP = "只能放置在可以睡觉的器械上";
-        [TranslateMsg("不能放置器械提示", CONTEXT_ADVICE)]
-        public const string ADVICE_ONLY_UPGRADE = "只能放置在目标器械上";
         [TranslateMsg("梦魇战斗提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS = "点击屏幕阻止碾压墙！";
         [TranslateMsg("获得新制品提示", CONTEXT_ADVICE)]

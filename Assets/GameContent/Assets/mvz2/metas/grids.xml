@@ -1,0 +1,17 @@
+<grids>
+    <layers>
+        <layer id="protector" priority="100" />
+        <layer id="main" priority="0" />
+        <layer id="carrier" priority="-100" />
+    </layers>
+    <errors>
+        <error id="already_taken"/>
+        <error id="not_on_statues" message="你不能在雕像上放置器械"/>
+        <error id="need_lilypad" message="请先放睡莲"/>
+        <error id="not_on_water" message="你不能在水上放置该器械"/>
+        <error id="not_on_plane" message="你不能在薄面上放置该器械"/>
+        <error id="not_on_land" message="你不能在陆地上放置该器械"/>
+        <error id="only_can_sleep" message="只能放置在可以睡觉的器械上"/>
+        <error id="only_upgrade" message="只能放置在目标器械上"/>
+    </errors>
+</grids>

@@ -272,6 +272,10 @@ namespace MVZ2.Managers
         ISpawnMeta IGameMetas.GetSpawnMeta(NamespaceID id) => GetSpawnMeta(id);
 
         ISpawnMeta[] IGameMetas.GetModSpawnMetas(string spaceName) => GetModSpawnMetas(spaceName);
+
+
+        IGridLayerMeta IGameMetas.GetGridLayerMeta(NamespaceID id) => GetGridLayerMeta(id);
+        IGridErrorMeta IGameMetas.GetGridErrorMeta(NamespaceID id) => GetGridErrorMeta(id);
         #endregion
 
         #endregion

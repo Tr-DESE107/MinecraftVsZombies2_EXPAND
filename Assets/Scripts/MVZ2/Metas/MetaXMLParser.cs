@@ -75,6 +75,9 @@ namespace MVZ2.Metas
                 case "chaptertransitions":
                     resource.ChapterTransitionMetaList = ChapterTransitionMetaList.FromXmlNode(document["transitions"], defaultNsp);
                     break;
+                case "grids":
+                    resource.GridMetaList = GridMetaList.FromXmlNode(document["grids"], defaultNsp);
+                    break;
             }
         }
     }

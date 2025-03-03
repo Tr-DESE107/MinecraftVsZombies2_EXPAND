@@ -23,28 +23,17 @@ namespace MVZ2.Games
         }
         public int GetGridLayerPriority(NamespaceID layer)
         {
-            if (layer == VanillaGridLayers.protector)
-            {
-                return 100;
-            }
-            else if (layer == VanillaGridLayers.carrier)
-            {
-                return -100;
-            }
-            else
-            {
+            var meta = GetGridLayerMeta(layer);
+            if (meta == null)
                 return 0;
-            }
+            return meta.Priority;
         }
         public string GetGridErrorMessage(NamespaceID error)
         {
-            if (error == null)
+            var meta = GetGridErrorMeta(error);
+            if (meta == null)
                 return null;
-            if (gridErrorMessages.TryGetValue(error, out var message))
-            {
-                return message;
-            }
-            return null;
+            return meta.Message;
         }
         public void AddMod(IModLogic mod)
         {
@@ -54,15 +43,5 @@ namespace MVZ2.Games
             }
         }
         private DefinitionGroup definitionGroup = new DefinitionGroup();
-        private static readonly Dictionary<NamespaceID, string> gridErrorMessages = new Dictionary<NamespaceID, string>()
-        {
-            { VanillaGridStatus.needLilypad, VanillaStrings.ADVICE_PLACE_LILYPAD_FIRST },
-            { VanillaGridStatus.notOnWater, VanillaStrings.ADVICE_CANNOT_PLACE_ON_WATER },
-            { VanillaGridStatus.notOnLand, VanillaStrings.ADVICE_CANNOT_PLACE_ON_LAND },
-            { VanillaGridStatus.notOnPlane, VanillaStrings.ADVICE_CANNOT_PLACE_ON_PLANE },
-            { VanillaGridStatus.notOnStatues, VanillaStrings.ADVICE_CANNOT_PLACE_ON_STATUES },
-            { VanillaGridStatus.onlyCanSleep, VanillaStrings.ADVICE_ONLY_PLACE_ON_CAN_SLEEP },
-            { VanillaGridStatus.onlyUpgrade, VanillaStrings.ADVICE_ONLY_UPGRADE },
-        };
     }
 }

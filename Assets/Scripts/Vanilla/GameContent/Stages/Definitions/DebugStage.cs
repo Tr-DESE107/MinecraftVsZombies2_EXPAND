@@ -43,15 +43,15 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.moonlightSensor,
+                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.stoneShield,
                 VanillaBossID.seija,
                 VanillaEnemyID.bedserker,
                 VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.berserker,
                 VanillaEnemyID.dullahan,
                 VanillaEnemyID.hellChariot,
-                VanillaEnemyID.anubisand,
-                VanillaEnemyID.dullahanHead,
-                VanillaEnemyID.soulsand,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

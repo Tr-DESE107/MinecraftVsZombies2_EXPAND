@@ -1121,6 +1121,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f670f36ed5e0bd4bb012d6f6f423f1a
+    m_Address: mvz2:grids
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2fbe1c7aa4dcf0043a334f7c17c99c24
     m_Address: mvz2:effect/castle_twilight
     m_ReadOnly: 0

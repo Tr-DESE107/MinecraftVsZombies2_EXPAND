@@ -222,6 +222,17 @@ namespace MVZ2.Editor
                 var id = new NamespaceID(spaceName, tag.ID);
                 AddTranslation(potGenerator, tag.Name, archiveReference, $"Name for archive tag {id}", VanillaStrings.CONTEXT_ARCHIVE_TAG_NAME);
             }
+            // 网格
+            {
+                var gridDocument = LoadMetaXmlDocument(spaceName, "grids.xml");
+                var gridList = GridMetaList.FromXmlNode(gridDocument["grids"], spaceName);
+                var gridReference = "Grid meta file";
+                foreach (var error in gridList.errors)
+                {
+                    var id = new NamespaceID(spaceName, error.ID);
+                    AddTranslation(potGenerator, error.Message, gridReference, $"Message for grid error {id}", VanillaStrings.CONTEXT_ADVICE);
+                }
+            }
             // 商店
             var storeDocument = LoadMetaXmlDocument(spaceName, "store.xml");
             var storeList = StoreMetaList.FromXmlNode(storeDocument["store"], spaceName);
