@@ -1,4 +1,34 @@
 # Changelog
+## 0.3.2
+
+**Modified**
+* Reworked Smart Phone artifact:
+  * Before: Consumes all energy after level cleared, +10 money for every 10 energy consumed.
+  * After: Gain 10 money at the end of the level for every 10 energy you have before the final wave begins.
+* Removed the mechanism which contraptions stop producing after the final wave.
+* Added Loading text at the starting screen.
+  
+**Fixed**
+* Fixed an issue where enemies controlled by Mesmerizers won't drop starshards when left.
+* Fixed an issue where Slenderman's Pandora's Box option behaves incorrectly.
+* Fixed some incorrect texts.
+  
+-----
+
+## 0.3.1
+
+**Modified**
+* Nightmareaper's HP: 2500 -> 4000
+* Wither's HP: 8000 -> 12000
+* HP restorage of Wither's eat: 600 per contraption -> 300 per contraption
+* Increased the detection window for achievement "Double Trouble". 
+
+**Fixed**
+* Fixed an issue where you can still modify screen resolutions at map in Android.
+* Fixed an issue where Seija's Cursed Doll will trigger carts.
+* Fixed an issue where some texts and images are not translated.
+  
+-----
 
 ## 0.3.0
 
