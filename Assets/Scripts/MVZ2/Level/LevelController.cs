@@ -73,6 +73,7 @@ namespace MVZ2.Level
         #region 游戏流程
         public void InitLevel(Game game, NamespaceID areaID, NamespaceID stageID, int seed = 0)
         {
+            SetActive(true);
             rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
 
             var quadTreeParams = GetQuadTreeParams();
@@ -223,19 +224,17 @@ namespace MVZ2.Level
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
-            await ExitScene();
             var buttonText = Localization._(Vanilla.VanillaStrings.CONTINUE);
             Sounds.Play2D(VanillaSoundID.paper);
             Scene.DisplayNote(id, buttonText);
+            SetActive(false);
+            await ExitScene();
         }
         public async Task ExitLevel()
         {
-            await ExitScene();
-            BackToMapOrMainmenu();
-        }
-        public void BackToMapOrMainmenu()
-        {
             Scene.GotoMapOrMainmenu();
+            SetActive(false);
+            await ExitScene();
         }
         public bool IsGameRunning()
         {
@@ -506,6 +505,10 @@ namespace MVZ2.Level
             ui.SetLevelLoadedDialogVisible(false);
             levelLoaded = false;
             return true;
+        }
+        public void SetActive(bool active)
+        {
+            gameObject.SetActive(active);
         }
         #region 关卡模型
         public void SetModelPreset(string name)

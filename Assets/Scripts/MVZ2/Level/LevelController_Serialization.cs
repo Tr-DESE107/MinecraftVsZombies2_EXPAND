@@ -60,6 +60,7 @@ namespace MVZ2.Level
         }
         public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
         {
+            SetActive(true);
             if (!LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers))
             {
                 ShowLevelErrorLoadingDialog();
@@ -129,6 +130,7 @@ namespace MVZ2.Level
                 Debug.LogException(e);
                 return;
             }
+
             // 设置UI可见状态
             SetUIVisibleState(VisibleState.InLevel);
             // 相机位置

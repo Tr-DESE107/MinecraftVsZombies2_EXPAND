@@ -10,11 +10,12 @@ namespace MVZ2.Scenes
 {
     public class SceneLoadingManager : MonoBehaviour
     {
-        public async Task LoadSceneAsync(string name, LoadSceneMode mode)
+        public async Task<SceneInstance> LoadSceneAsync(string name, LoadSceneMode mode)
         {
             var op = Addressables.LoadSceneAsync(name, mode);
-            await op.Task;
-            sceneCaches.Add(op.Result);
+            var scene = await op.Task;
+            sceneCaches.Add(scene);
+            return scene;
         }
         public Task UnloadSceneAsync(string name)
         {

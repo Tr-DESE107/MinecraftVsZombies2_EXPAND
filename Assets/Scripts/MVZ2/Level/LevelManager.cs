@@ -155,13 +155,9 @@ namespace MVZ2.Level
         {
             var sceneName = "Level";
             var oldScene = Scene.GetSceneInstance(sceneName);
-            await Scene.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            if (oldScene.Scene.IsValid())
-            {
-                await Scene.UnloadSceneAsync(oldScene);
-            }
+            var oldController = controller;
 
-            var newScene = Scene.GetSceneInstance(sceneName);
+            var newScene = (await Scene.LoadSceneAsync(sceneName, LoadSceneMode.Additive));
             foreach (var go in newScene.Scene.GetRootGameObjects())
             {
                 var ctrl = go.GetComponent<LevelController>();
@@ -170,6 +166,14 @@ namespace MVZ2.Level
                     controller = ctrl;
                     break;
                 }
+            }
+            if (controller)
+            {
+                controller.SetActive(false);
+            }
+            if (oldScene.Scene.IsValid())
+            {
+                await Scene.UnloadSceneAsync(oldScene);
             }
         }
 

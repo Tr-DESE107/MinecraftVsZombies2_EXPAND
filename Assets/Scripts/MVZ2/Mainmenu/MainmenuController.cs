@@ -349,8 +349,8 @@ namespace MVZ2.Mainmenu
             var task = main.LevelManager.GotoLevelSceneAsync();
             while (!task.IsCompleted)
                 yield return null;
-            Hide();
             main.LevelManager.InitLevel(VanillaAreaID.castle, VanillaStageID.debug);
+            Hide();
         }
 
         #region 用户管理
