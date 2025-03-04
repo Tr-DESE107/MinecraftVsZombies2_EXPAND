@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Enemies
                 {
                     AddGallopTime(entity, -1);
                     var vel = entity.Velocity;
-                    vel.x = entity.GetFacingX() * 7;
+                    vel.x = entity.GetFacingX() * 5;
                     vel.y = 12;
                     entity.Velocity = vel;
                     SetJumpState(entity, JUMP_STATE_JUMP);
