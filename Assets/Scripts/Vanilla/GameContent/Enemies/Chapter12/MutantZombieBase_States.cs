@@ -81,7 +81,7 @@ namespace MVZ2.Vanilla.Enemies
         #region ¹¥»÷
         private static bool CheckAttackTarget(Entity zombie)
         {
-            return detector.DetectExists(zombie);
+            return attackDetector.DetectExists(zombie);
         }
         public class AttackState : EntityStateMachineState
         {
@@ -134,7 +134,7 @@ namespace MVZ2.Vanilla.Enemies
                 }
 
                 detectBuffer.Clear();
-                detector.DetectMultiple(self, detectBuffer);
+                hammerDetector.DetectMultiple(self, detectBuffer);
 
                 foreach (var collider in detectBuffer)
                 {

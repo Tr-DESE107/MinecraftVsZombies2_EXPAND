@@ -7,12 +7,13 @@ namespace MVZ2.GameContent.Detections
 {
     public class MutantZombieDetector : Detector
     {
-        public MutantZombieDetector()
+        public MutantZombieDetector(float rangeAddition)
         {
+            this.rangeAddition = rangeAddition;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var sizeX = self.GetRange();
+            var sizeX = self.GetRange() + rangeAddition;
             var sizeY = self.GetMaxAttackHeight();
             var sizeZ = 80;
             var pos = self.Position;
@@ -21,5 +22,6 @@ namespace MVZ2.GameContent.Detections
             var centerZ = pos.z;
             return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
         }
+        private float rangeAddition;
     }
 }

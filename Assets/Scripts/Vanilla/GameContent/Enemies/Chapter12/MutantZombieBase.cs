@@ -53,7 +53,8 @@ namespace MVZ2.Vanilla.Enemies
 
         private const string PROP_REGION = "mutant_zombie_base";
         private static EntityStateMachine stateMachine = new MutantZombieStateMachine();
-        private static Detector detector = new MutantZombieDetector();
+        private static Detector attackDetector = new MutantZombieDetector(0);
+        private static Detector hammerDetector = new MutantZombieDetector(40);
     }
 
 }
