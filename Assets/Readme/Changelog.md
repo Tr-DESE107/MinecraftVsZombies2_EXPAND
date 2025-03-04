@@ -1,4 +1,17 @@
 # Changelog
+
+## 0.3.3
+
+**Modified**
+* Seija's action interval has been increased from 1 second to 3 seconds.
+* Contraptions no longer produce energy after the clear pickup is appeared.
+* The conveyor belt no longer works after the level is cleared.
+
+**Fixed**
+* Fixed an issue where enemies won't drop gems nor redstones.
+
+-----
+
 ## 0.3.2
 
 **Modified**
