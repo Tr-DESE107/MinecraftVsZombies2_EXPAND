@@ -33,10 +33,10 @@ namespace MVZ2.Models
             switch (collider)
             {
                 case CircleCollider2D circle:
-                    circle.radius *= 2;
+                    circle.radius *= scale;
                     break;
                 case BoxCollider2D box:
-                    box.size *= 2;
+                    box.size *= scale;
                     break;
             }
         }
@@ -49,13 +49,14 @@ namespace MVZ2.Models
             switch (collider)
             {
                 case CircleCollider2D circle:
-                    circle.radius *= 0.5f;
+                    circle.radius /= scale;
                     break;
                 case BoxCollider2D box:
-                    box.size *= 0.5f;
+                    box.size /= scale;
                     break;
             }
         }
         private bool active;
+        private const float scale = 2.5f;
     }
 }
