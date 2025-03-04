@@ -1019,7 +1019,17 @@ namespace MVZ2.Level
         public NamespaceID CurrentMusic
         {
             get => Music.GetCurrentMusicID();
-            set => Music.Play(value);
+            set
+            {
+                if (NamespaceID.IsValid(value))
+                {
+                    Music.Play(value);
+                }
+                else
+                {
+                    Music.Stop();
+                }
+            }
         }
         public float MusicTime
         {

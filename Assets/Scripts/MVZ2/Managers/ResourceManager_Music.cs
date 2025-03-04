@@ -23,6 +23,8 @@ namespace MVZ2.Managers
         #region 元数据
         public MusicMeta GetMusicMeta(NamespaceID music)
         {
+            if (music == null)
+                return null;
             var modResource = GetModResource(music.SpaceName);
             if (modResource == null)
                 return null;
