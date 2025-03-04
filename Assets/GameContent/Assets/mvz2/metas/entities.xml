@@ -939,6 +939,7 @@
             <float name="maxHealth" value="1800"/>
             <vector3 name="size" x="48" y="96" z="48"/>
             <id name="fragmentId" value="mvz2:furnace"/>
+            <idArray name="gridLayers" value="mvz2:main mvz2:carrier"/>
         </obstacle>
 
         <!-- Bosses -->
