@@ -538,7 +538,7 @@ namespace MVZ2.Entities
         public static readonly Dictionary<int, float> zOffsetDict = new Dictionary<int, float>()
         {
             { EntityTypes.PLANT, 0 },
-            { EntityTypes.OBSTACLE, 1 },
+            { EntityTypes.OBSTACLE, 0 },
             { EntityTypes.BOSS, 2 },
             { EntityTypes.ENEMY, 3 },
             { EntityTypes.PROJECTILE, 4 },
