@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         private void PostEnemyDropRewardsCallback(Entity enemy)
         {
-            var buffs = enemy.GetBuffs<RedstoneCarrierBuff>();
+            var buffs = enemy.GetBuffs<GemCarrierBuff>();
             foreach (var buff in buffs)
             {
                 var weights = gemWeights.Select(g => g.weight).ToArray();
