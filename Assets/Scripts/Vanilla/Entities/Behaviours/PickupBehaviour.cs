@@ -12,6 +12,7 @@ namespace MVZ2.Vanilla.Entities
         public override void Init(Entity entity)
         {
             base.Init(entity);
+            entity.SetSortingLayer(SortingLayers.pickups);
             entity.Timeout = entity.GetMaxTimeout();
         }
         public override void Update(Entity pickup)

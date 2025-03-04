@@ -74,6 +74,9 @@ TagManager:
   - name: Darkness
     uniqueID: 1572647217
     locked: 0
+  - name: Pickups
+    uniqueID: 4057018865
+    locked: 0
   - name: FrontUI
     uniqueID: 4110715849
     locked: 0
