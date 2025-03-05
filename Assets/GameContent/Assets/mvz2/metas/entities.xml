@@ -767,6 +767,7 @@
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>
             <id name="deathSound" value="mvz2:large_explosion"/>
             <int name="vehicleInteraction" value="2"/>
+            <bool name="canDeactive" value="false"/>
             <bool name="undead" value="false"/>
             <vector3 name="size" x="130" y="70" z="40"/>
             <vector3 name="shadowScale" x="3" y="1" z="1"/>
