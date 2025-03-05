@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace MVZ2.Models
 {
@@ -9,16 +10,7 @@ namespace MVZ2.Models
             this.scale = scale;
             var lightScale = scale + randomOffset;
             var aspect = lightScale.x / lightScale.y;
-            if (lightScale.x > lightScale.y)
-            {
-                lightRenderer.transform.localScale = new Vector3(lightScale.y, lightScale.y);
-                lightRenderer.size = new Vector2(aspect, 1);
-            }
-            else
-            {
-                lightRenderer.transform.localScale = new Vector3(lightScale.x, lightScale.x);
-                lightRenderer.size = new Vector2(1, 1 / aspect);
-            }
+            lightRenderer.transform.localScale = new Vector3(lightScale.x, lightScale.y);
         }
         public void SetColor(Color color)
         {
@@ -41,7 +33,7 @@ namespace MVZ2.Models
             SetColor(serializable.color);
         }
         [SerializeField]
-        private SpriteRenderer lightRenderer;
+        private Light2D lightRenderer;
         private Vector2 scale;
         private Color color;
     }

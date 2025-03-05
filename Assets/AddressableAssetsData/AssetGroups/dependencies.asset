@@ -22,18 +22,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3c3e7349212bcbe408ffbcb3665a58a3
-    m_Address: Assets/Textures/ShadowRenderTexture.renderTexture
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d2dc5bfb75b97244916539ecf3e4ded
     m_Address: Assets/Fonts
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7cd6125a6ed6e684f9828314315b1d8e
-    m_Address: Assets/Textures/LightRenderTexture.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

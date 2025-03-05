@@ -447,14 +447,13 @@ namespace MVZ2.Level
             if (level != null)
             {
                 // 设置光照。
-                ui.SetNightValue(level.GetNightValue());
                 float darknessSpeed = 2;
                 if (!IsGameStarted() || IsGameOver())
                 {
                     darknessSpeed = -2;
                 }
                 darknessFactor = Mathf.Clamp01(darknessFactor + darknessSpeed * uiDeltaTime);
-                SetDarknessValue(level.GetDarknessValue() * darknessFactor);
+                SetDarknessValue(level.GetNightValue(), level.GetDarknessValue() * darknessFactor);
                 ui.SetScreenCover(level.GetScreenCover());
                 UpdateCamera();
                 UpdateMoney();
@@ -975,10 +974,10 @@ namespace MVZ2.Level
         {
             isGameStarted = value;
         }
-        private void SetDarknessValue(float value)
+        private void SetDarknessValue(float night, float darkness)
         {
-            ui.SetDarknessValue(value);
-            model.SetDarknessValue(value);
+            ui.SetDarknessValue(night, darkness);
+            model.SetDarknessValue(darkness);
         }
         #endregion
 

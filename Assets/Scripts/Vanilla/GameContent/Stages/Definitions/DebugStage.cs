@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.glowstone,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.teslaCoil,
-                VanillaContraptionID.dispenser,
+                VanillaContraptionID.totenser,
                 VanillaEnemyID.mutantZombie,
             });
             level.SetArtifactSlotCount(3);

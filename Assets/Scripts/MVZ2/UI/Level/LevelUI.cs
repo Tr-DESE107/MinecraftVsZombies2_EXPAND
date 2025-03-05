@@ -3,6 +3,7 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace MVZ2.UI
@@ -13,17 +14,10 @@ namespace MVZ2.UI
         {
             GetUIPreset().SetReceiveRaycasts(value);
         }
-        public void SetNightValue(float value)
+        public void SetDarknessValue(float night, float darkness)
         {
-            var color = nightImage.color;
-            color.a = value;
-            nightImage.color = color;
-        }
-        public void SetDarknessValue(float value)
-        {
-            var color = darknessImage.color;
-            color.a = value;
-            darknessImage.color = color;
+            backgroundLight.intensity = 1 - night - darkness;
+            entityLight.intensity = 1 - darkness;
         }
         public void SetScreenCover(Color value)
         {
@@ -205,11 +199,11 @@ namespace MVZ2.UI
 
         [Header("Shading")]
         [SerializeField]
-        private Image nightImage;
-        [SerializeField]
-        private Image darknessImage;
-        [SerializeField]
         private Image blackscreenImage;
+        [SerializeField]
+        private Light2D backgroundLight;
+        [SerializeField]
+        private Light2D entityLight;
 
         [Header("HeldItem")]
         [SerializeField]
