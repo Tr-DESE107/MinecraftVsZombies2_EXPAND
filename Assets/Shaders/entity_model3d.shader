@@ -19,7 +19,8 @@ Shader "MinecraftVSZombies2/Entity/Model3D"
         Tags 
         { 
 			"Queue" = "Transparent"
-            "RenderType"="Entity3D" 
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Solid3D"
         }
         Pass {
 		    Name "ZWrite"

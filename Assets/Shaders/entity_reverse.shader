@@ -25,7 +25,8 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "EntityPassLight"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Pass"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}

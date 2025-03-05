@@ -32,7 +32,8 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "Entity"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Solid"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "False"
 		}

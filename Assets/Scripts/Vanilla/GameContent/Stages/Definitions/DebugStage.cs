@@ -47,9 +47,9 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.furnace,
-                VanillaContraptionID.forcePad,
-                VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.diamondSpikes,
+                VanillaContraptionID.glowstone,
+                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.dispenser,
                 VanillaEnemyID.mutantZombie,
             });

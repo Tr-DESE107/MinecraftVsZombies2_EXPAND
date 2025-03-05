@@ -19,7 +19,8 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "Light"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Light"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
@@ -31,7 +32,8 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "Entity"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Solid"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
@@ -57,7 +59,8 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "Entity3D"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Solid3D"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
@@ -93,7 +96,8 @@
         {
             "Queue"="Transparent"
             "IgnoreProjector"="True"
-            "RenderType"="EntityMask"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Mask"
             "PreviewType"="Plane"
             "CanUseSpriteAtlas"="True"
         }

@@ -16,7 +16,8 @@ Shader "MinecraftVSZombies2/Entity/Mask"
         {
             "Queue"="Transparent"
             "IgnoreProjector"="True"
-            "RenderType"="EntityMask"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Mask"
             "PreviewType"="Plane"
             "CanUseSpriteAtlas"="True"
         }

@@ -6,7 +6,7 @@ namespace MVZ2.Cameras
     {
         private void OnEnable()
         {
-            lightCamera.SetReplacementShader(entityBlackShader, "RenderType");
+            lightCamera.SetReplacementShader(entityBlackShader, "Lighting2D");
         }
         private void OnDisable()
         {

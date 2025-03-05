@@ -12,7 +12,8 @@
 		{
 			"Queue" = "Transparent"
 			"IgnoreProjector" = "True"
-			"RenderType" = "LightDisplay"
+			"RenderType" = "Transparent"
+			"Lighting2D" = "Display"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
