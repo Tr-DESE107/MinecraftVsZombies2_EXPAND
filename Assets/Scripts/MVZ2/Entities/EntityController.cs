@@ -592,8 +592,7 @@ namespace MVZ2.Entities
                     sprModel.SetLightColor(entity.GetLightColor());
                     var lightScaleLawn = entity.GetLightRange();
                     var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
-                    var randomLightScale = entityCtrl.rng.Next(-0.05f, 0.05f);
-                    sprModel.SetLightRange(lightScale, Vector2.one * randomLightScale);
+                    sprModel.SetLightRange(lightScale);
                 }
 
                 ShadowHidden = entity.IsShadowHidden();
@@ -663,8 +662,7 @@ namespace MVZ2.Entities
                                 {
                                     var lightScaleLawn = entity.GetLightRange();
                                     var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
-                                    var randomLightScale = entityCtrl.rng.Next(-0.05f, 0.05f);
-                                    sprModel.SetLightRange(lightScale, Vector2.one * randomLightScale);
+                                    sprModel.SetLightRange(lightScale);
                                 }
                             }
                             break;

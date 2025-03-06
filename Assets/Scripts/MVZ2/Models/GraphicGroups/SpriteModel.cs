@@ -13,9 +13,9 @@ namespace MVZ2.Models
         {
             lightController.SetColor(color);
         }
-        public void SetLightRange(Vector2 range, Vector2 randomOffset)
+        public void SetLightRange(Vector2 range)
         {
-            lightController.SetRange(range, randomOffset);
+            lightController.SetRange(range);
         }
         public void CancelSortAtRoot()
         {

@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266001874757756783, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: shakeRange
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -470,6 +474,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266001874757756783, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: shakeRange
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
@@ -598,6 +606,14 @@ PrefabInstance:
       value: PumpkinLight
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -637,14 +653,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -668,6 +676,18 @@ PrefabInstance:
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_SortingLayerID
       value: -40259281
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

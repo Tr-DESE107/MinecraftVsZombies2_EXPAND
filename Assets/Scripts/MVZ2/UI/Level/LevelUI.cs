@@ -16,7 +16,7 @@ namespace MVZ2.UI
         }
         public void SetDarknessValue(float night, float darkness)
         {
-            backgroundLight.intensity = 1 - night - darkness;
+            backgroundLight.intensity = (1 - night) * (1 - darkness);
             entityLight.intensity = 1 - darkness;
         }
         public void SetScreenCover(Color value)

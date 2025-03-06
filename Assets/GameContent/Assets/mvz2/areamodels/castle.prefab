@@ -230,14 +230,6 @@ PrefabInstance:
       value: Candle2
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.05
       objectReference: {fileID: 0}
@@ -277,14 +269,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -308,6 +292,18 @@ PrefabInstance:
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_SortingLayerID
       value: -40259281
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -413,14 +409,6 @@ PrefabInstance:
       value: Candle3
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.4
       objectReference: {fileID: 0}
@@ -460,14 +448,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -492,6 +472,18 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -40259281
       objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -513,14 +505,6 @@ PrefabInstance:
     - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Name
       value: Candle1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.x
@@ -562,14 +546,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886555114499679842, guid: 347357ce4a815104398661b780f99147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -593,6 +569,18 @@ PrefabInstance:
     - target: {fileID: 6384421823812638041, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_SortingLayerID
       value: -40259281
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603663529093330618, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
