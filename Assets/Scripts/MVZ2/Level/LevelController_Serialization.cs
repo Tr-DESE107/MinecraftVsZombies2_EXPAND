@@ -60,7 +60,6 @@ namespace MVZ2.Level
         }
         public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
         {
-            SetActive(true);
             if (!LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers))
             {
                 ShowLevelErrorLoadingDialog();

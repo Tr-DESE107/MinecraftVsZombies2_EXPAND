@@ -61,6 +61,7 @@ namespace MVZ2.Level
                 return;
             try
             {
+                controller.SetActive(true);
                 var seri = LoadLevelStateData(stageID);
                 controller.LoadGame(seri, Main.Game, areaID, stageID);
                 UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
