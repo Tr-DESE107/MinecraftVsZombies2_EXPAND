@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
@@ -343,12 +344,18 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void StartChangingLane(this Entity entity, int target)
         {
+            var level = entity.Level;
+            target = Math.Clamp(target, 0, level.GetMaxLaneCount() - 1);
+            var source = entity.GetLane();
+            if (target == source)
+                return;
+
             var buff = entity.GetFirstBuff<ChangeLaneBuff>();
             if (buff == null)
             {
                 buff = entity.AddBuff<ChangeLaneBuff>();
             }
-            ChangeLaneBuff.Start(buff, target);
+            ChangeLaneBuff.Start(buff, target, source);
         }
         public static void StopChangingLane(this Entity entity)
         {

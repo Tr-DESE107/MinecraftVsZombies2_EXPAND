@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.goldenDropper,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.stoneShield,
-                VanillaContraptionID.furnace,
+                VanillaContraptionID.forcePad,
                 VanillaContraptionID.glowstone,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.teslaCoil,
@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Stages
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.darkMatter,
+                VanillaArtifactID.almanac,
                 VanillaArtifactID.dreamKey,
                 VanillaArtifactID.theCreaturesHeart,
             });

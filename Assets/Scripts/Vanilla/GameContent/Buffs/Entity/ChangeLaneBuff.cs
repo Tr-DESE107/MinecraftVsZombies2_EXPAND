@@ -60,16 +60,11 @@ namespace MVZ2.GameContent.Buffs.Carts
             entity.Position = pos;
             entity.Velocity = velocity;
         }
-        public static void Start(Buff buff, int target)
+        public static void Start(Buff buff, int target, int source)
         {
-            var entity = buff.GetEntity();
-            if (entity == null)
-                return;
             var level = buff.Level;
-            if (target < 0 || target >= level.GetMaxLaneCount())
-                return;
             SetTarget(buff, target);
-            SetSource(buff, entity.GetLane());
+            SetSource(buff, source);
         }
         public static void Stop(Buff buff)
         {
