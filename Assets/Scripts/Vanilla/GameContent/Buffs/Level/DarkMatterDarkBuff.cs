@@ -23,6 +23,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public static readonly VanillaBuffPropertyMeta PROP_DARKNESS_ADDITION = new VanillaBuffPropertyMeta("DarknessAddition");
         public const float DARKNESS_SPEED = 0.03f;
-        public const float MAX_DARKNESS = 0.99f;
+        public const float MAX_DARKNESS = 0.98f;
     }
 }
