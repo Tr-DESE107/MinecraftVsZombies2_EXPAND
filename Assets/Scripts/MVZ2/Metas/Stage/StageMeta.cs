@@ -150,16 +150,19 @@ namespace MVZ2.Metas
     {
         public NamespaceID ID { get; }
         public int Count { get; }
-        public ConveyorPoolEntry(NamespaceID id, int count = 1)
+        public int MinCount { get; }
+        public ConveyorPoolEntry(NamespaceID id, int count = 1, int minCount = 1)
         {
             ID = id;
             Count = count;
+            MinCount = minCount;
         }
         public static ConveyorPoolEntry FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var count = node.GetAttributeInt("count") ?? 1;
-            return new ConveyorPoolEntry(id, count);
+            var minCount = node.GetAttributeInt("minCount") ?? 1;
+            return new ConveyorPoolEntry(id, count, minCount);
         }
     }
 }

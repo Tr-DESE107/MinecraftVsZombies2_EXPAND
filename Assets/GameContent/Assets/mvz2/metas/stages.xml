@@ -235,7 +235,7 @@
             <entry id="mvz2:tnt" count="3"/>
             <entry id="mvz2:soul_furnace" count="10"/>
             <entry id="mvz2:silvenser" count="8"/>
-            <entry id="mvz2:magichest" count="4"/>
+            <entry id="mvz2:magichest" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.dream_key"/>
         <spawns flags="2" firstWaveTime="30" >
@@ -432,7 +432,7 @@
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:totenser" count="12"/>
             <entry id="mvz2:dream_crystal" count="6"/>
-            <entry id="mvz2:dream_silk" count="2"/>
+            <entry id="mvz2:dream_silk" count="1"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" firstWaveTime="30" >
@@ -626,7 +626,7 @@
             <talk type="map" value="mvz2:castle_11_map"/>
         </talks>
         <conveyor>
-            <entry id="mvz2:glowstone" count="4"/>
+            <entry id="mvz2:glowstone" count="4" minCount="0"/>
             <entry id="mvz2:wooden_dropper" count="5"/>
             <entry id="mvz2:spike_block" count="5"/>
             <entry id="mvz2:stone_dropper" count="8"/>
@@ -634,7 +634,7 @@
             <entry id="mvz2:golden_apple" count="3"/>
             <entry id="mvz2:thunder_drum" count="3"/>
             <entry id="mvz2:tesla_coil" count="8"/>
-            <entry id="mvz2:giant_bowl" count="2"/>
+            <entry id="mvz2:giant_bowl" count="1"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" firstWaveTime="30" >

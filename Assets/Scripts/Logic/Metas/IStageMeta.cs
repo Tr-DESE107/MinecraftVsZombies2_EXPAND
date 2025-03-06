@@ -48,5 +48,6 @@ namespace MVZ2Logic.Level
     {
         NamespaceID ID { get; }
         int Count { get; }
+        int MinCount { get; }
     }
 }

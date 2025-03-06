@@ -15,7 +15,7 @@ namespace Tools
             for (int i = 0; i < count; i++)
             {
                 value -= weights.ElementAt(i);
-                if (value <= 0)
+                if (value < 0)
                 {
                     return i;
                 }
@@ -32,7 +32,7 @@ namespace Tools
             for (int i = 0; i < count; i++)
             {
                 value -= weights.ElementAt(i);
-                if (value <= 0)
+                if (value < 0)
                 {
                     return i;
                 }

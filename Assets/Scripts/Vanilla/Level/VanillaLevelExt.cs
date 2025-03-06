@@ -528,7 +528,7 @@ namespace MVZ2.Vanilla.Level
             var entries = level.GetConveyorPool();
             if (entries.Count() <= 0)
                 return null;
-            var index = level.GetConveyorRNG().WeightedRandom(entries.Select(e => Mathf.Max(1, e.Count - level.GetSpentSeedFromConveyorPool(e.ID))).ToArray());
+            var index = level.GetConveyorRNG().WeightedRandom(entries.Select(e => Mathf.Max(e.MinCount, e.Count - level.GetSpentSeedFromConveyorPool(e.ID))).ToArray());
             var entry = entries[index];
             level.SpendSeedFromConveyorPool(entry.ID);
             return entry.ID;
