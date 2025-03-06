@@ -9,7 +9,6 @@ namespace MVZ2.GameContent.Detections
     {
         public SpikeBlockDetector(bool evoked = false)
         {
-            mask = EntityCollisionHelper.MASK_ENEMY;
             this.evoked = evoked;
         }
         protected override Bounds GetDetectionBounds(Entity self)
