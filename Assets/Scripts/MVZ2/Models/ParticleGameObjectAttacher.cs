@@ -22,7 +22,8 @@ namespace MVZ2.Models
             }
             int count = system.GetParticles(particles);
 
-            while (instances.Count < count)
+            int popCount = count - instances.Count;
+            for (int i = 0; i < popCount; i++)
             {
                 Pop();
             }
@@ -31,6 +32,8 @@ namespace MVZ2.Models
             for (int i = 0; i < instances.Count; i++)
             {
                 var instance = instances[i];
+                if (!instance)
+                    continue;
                 if (i < count)
                 {
                     var particle = particles[i];
@@ -64,11 +67,12 @@ namespace MVZ2.Models
                 }
             }
         }
-        private LightController Pop()
+        private void Pop()
         {
             LightController instance = ParticleManager.PopLight();
+            if (!instance)
+                return;
             instances.Add(instance);
-            return instance;
         }
         private void Push(LightController instance)
         {

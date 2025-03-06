@@ -15,7 +15,12 @@ namespace MVZ2.Managers
             LightController light;
             if (lightPool.Count <= 0)
             {
+                if (lights.Count > maxCount)
+                {
+                    return null;
+                }
                 light = Instantiate(template.gameObject, lightRoot).GetComponent<LightController>();
+                lights.Add(light);
             }
             else
             {
@@ -27,14 +32,16 @@ namespace MVZ2.Managers
         public void PushLight(LightController light)
         {
             lightPool.Push(light);
-            light.transform.SetParent(lightRoot);
             light.gameObject.SetActive(false);
         }
 
+        private List<LightController> lights = new List<LightController>();
         private Stack<LightController> lightPool = new Stack<LightController>();
         [SerializeField]
         private Transform lightRoot;
         [SerializeField]
         private LightController template;
+        [SerializeField]
+        private int maxCount = 32;
     }
 }

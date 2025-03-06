@@ -2579,6 +2579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightRoot: {fileID: 5206747667480327101}
   template: {fileID: 6465940004223567662}
+  maxCount: 32
 --- !u!1 &9086509936104846599
 GameObject:
   m_ObjectHideFlags: 0
