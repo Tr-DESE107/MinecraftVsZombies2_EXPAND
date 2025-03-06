@@ -9,7 +9,6 @@ namespace MVZ2.Models
         {
             this.scale = scale;
             var lightScale = scale + randomOffset;
-            var aspect = lightScale.x / lightScale.y;
             lightRenderer.transform.localScale = new Vector3(lightScale.x, lightScale.y);
         }
         public void SetColor(Color color)
