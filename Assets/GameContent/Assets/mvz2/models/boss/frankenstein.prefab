@@ -1510,7 +1510,6 @@ GameObject:
   - component: {fileID: 3523274823063630264}
   - component: {fileID: 5496832213751576817}
   - component: {fileID: 5810779549437319933}
-  - component: {fileID: 8720655308988196023}
   m_Layer: 0
   m_Name: Sparks
   m_TagString: Untagged
@@ -6368,21 +6367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minAmount: 0
---- !u!114 &8720655308988196023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144110445652009467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60a017fd926ec84daa192036537f158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleMethod: 0
-  scale: 0.2
-  color: {r: 1, g: 0.6666667, b: 0, a: 1}
 --- !u!1 &7277117293477246574
 GameObject:
   m_ObjectHideFlags: 0
