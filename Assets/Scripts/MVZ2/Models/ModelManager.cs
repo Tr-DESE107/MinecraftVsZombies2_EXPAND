@@ -17,6 +17,7 @@ namespace MVZ2.Models
             var modelInstance = Model.Create(model, modelShotPositionTransform, modelShotCamera).gameObject;
             modelInstance.transform.localPosition = Vector3.zero;
 
+
             //创建一个用于渲染图片的RenderTexture
             var colorFormat = GetSupportedColorFormat();
             var depthFormat = GetSupportedDepthFormat();
@@ -26,7 +27,8 @@ namespace MVZ2.Models
             modelShotCamera.enabled = false;
 
             // 相机渲染。
-            modelShotCamera.orthographicSize = height * 0.005f;
+            var scale = SystemInfo.graphicsUVStartsAtTop ? 1 : -1;
+            modelShotCamera.orthographicSize = height * 0.005f * scale;
 
             var localPos = modelShotPositionTransform.localPosition;
             localPos.x = modelOffset.x * 0.01f;
