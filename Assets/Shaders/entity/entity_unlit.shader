@@ -221,7 +221,7 @@ Shader "MinecraftVSZombies2/Entity/Entity Unlit"
                 #endif
 
                 #if BURN_ON
-                o.noiseUV = TRANSFORM_TEX(v.uv, _BurnNoise);
+                o.noiseUV = TRANSFORM_TEX(attributes.uv, _BurnNoise);
                 #endif
 
                 o.uv = TRANSFORM_TEX(attributes.uv, _MainTex);
@@ -238,7 +238,7 @@ Shader "MinecraftVSZombies2/Entity/Entity Unlit"
                 mainTex.rgb = _ColorOffset.rgb + mainTex.rgb;
                 
                 #if CIRCLE_TILED
-                CircleTile(col, i.uv);
+                CircleTile(mainTex, i.uv);
                 #endif
 
                 #if BURN_ON
