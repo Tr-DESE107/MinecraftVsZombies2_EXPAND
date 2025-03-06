@@ -256,6 +256,7 @@ namespace MVZ2.Managers
         public StoreManager StoreManager => storeManager;
         public InputManager InputManager => inputManager;
         public SponsorManager SponsorManager => sponsorManager;
+        public ParticleManager ParticleManager => particleManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -306,6 +307,8 @@ namespace MVZ2.Managers
         private InputManager inputManager;
         [SerializeField]
         private SponsorManager sponsorManager;
+        [SerializeField]
+        private ParticleManager particleManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

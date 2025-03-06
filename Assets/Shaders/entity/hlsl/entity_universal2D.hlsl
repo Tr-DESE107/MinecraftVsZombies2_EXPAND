@@ -83,7 +83,7 @@ half4 CombinedShapeLightFragment(Varyings i) : SV_Target
 
     main = Tint(main, i.color);
     
-    main.rgb = _ColorOffset.rgb + main.rgb;
+    main.rgb = main.rgb + _ColorOffset.rgb;
                 
 #if CIRCLE_TILED
     CircleTile(main, i.uv);
@@ -96,9 +96,8 @@ half4 CombinedShapeLightFragment(Varyings i) : SV_Target
     const half4 mask = SAMPLE_TEXTURE2D(_MaskTex, sampler_MaskTex, i.uv);
     SurfaceData2D surfaceData;
     InputData2D inputData;
-
+    
     InitializeSurfaceData(main.rgb, main.a, mask, surfaceData);
     InitializeInputData(i.uv, i.lightingUV, inputData);
-
     return CombinedShapeLightShared(surfaceData, inputData);
 }

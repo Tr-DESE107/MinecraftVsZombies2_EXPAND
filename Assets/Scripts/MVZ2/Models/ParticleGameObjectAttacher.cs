@@ -1,69 +1,106 @@
 ﻿using System.Collections.Generic;
+using MVZ2.Managers;
 using UnityEngine;
 
-[RequireComponent(typeof(ParticleSystem))]
-public class ParticleGameObjectAttacher : MonoBehaviour
+namespace MVZ2.Models
 {
-    // Start is called before the first frame update
-    void Awake()
+    [RequireComponent(typeof(ParticleSystem))]
+    public class ParticleGameObjectAttacher : MonoBehaviour
     {
-        m_ParticleSystem = GetComponent<ParticleSystem>();
-        m_Particles = new ParticleSystem.Particle[m_ParticleSystem.main.maxParticles];
-    }
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        int count = m_ParticleSystem.GetParticles(m_Particles);
-
-        while (m_Instances.Count < count)
-            m_Instances.Add(Instantiate(m_Prefab, transform));
-
-        bool worldSpace = (m_ParticleSystem.main.simulationSpace == ParticleSystemSimulationSpace.World);
-        for (int i = 0; i < m_Instances.Count; i++)
+        private void OnDisable()
         {
-            var instance = m_Instances[i];
-            if (i < count)
+            Clear();
+        }
+        void LateUpdate()
+        {
+            if (!Main)
+                return;
+            if (system == null)
             {
-                var particle = m_Particles[i];
-                if (worldSpace)
-                    instance.transform.position = particle.position;
-                else
-                    instance.transform.localPosition = particle.position;
-                instance.SetActive(true);
-                if (scaleMethod == ScaleMethod.Lifetime)
-                {
-                    instance.transform.localScale = Vector3.one * (particle.remainingLifetime / particle.startLifetime * scale);
-                }
-                else
-                {
-                    var current = particle.GetCurrentSize3D(m_ParticleSystem);
-                    var start = particle.startSize3D;
-                    var x = current.x / start.x * scale;
-                    var y = current.y / start.y * scale;
-                    var z = current.z / start.z * scale;
-                    instance.transform.localScale = new Vector3(x, y, z);
-                }
+                system = GetComponent<ParticleSystem>();
+                particles = new ParticleSystem.Particle[system.main.maxParticles];
             }
-            else
+            int count = system.GetParticles(particles);
+
+            while (instances.Count < count)
             {
-                instance.SetActive(false);
+                Pop();
+            }
+
+            bool worldSpace = (system.main.simulationSpace == ParticleSystemSimulationSpace.World);
+            for (int i = 0; i < instances.Count; i++)
+            {
+                var instance = instances[i];
+                if (i < count)
+                {
+                    var particle = particles[i];
+                    if (worldSpace)
+                    {
+                        instance.transform.position = particle.position;
+                    }
+                    else
+                    {
+                        instance.transform.position = transform.position + particle.position;
+                    }
+                    instance.SetColor(color);
+                    if (scaleMethod == ScaleMethod.Lifetime)
+                    {
+                        instance.transform.localScale = transform.lossyScale * (particle.remainingLifetime / particle.startLifetime * scale);
+                    }
+                    else
+                    {
+                        var current = particle.GetCurrentSize3D(system);
+                        var start = particle.startSize3D;
+                        var lossy = transform.lossyScale;
+                        var x = current.x / start.x * scale * lossy.x;
+                        var y = current.y / start.y * scale * lossy.y;
+                        var z = current.z / start.z * scale * lossy.y;
+                        instance.transform.localScale = new Vector3(x, y, z);
+                    }
+                }
+                else
+                {
+                    Push(instance);
+                }
             }
         }
+        private LightController Pop()
+        {
+            LightController instance = ParticleManager.PopLight();
+            instances.Add(instance);
+            return instance;
+        }
+        private void Push(LightController instance)
+        {
+            ParticleManager.PushLight(instance);
+            instances.Remove(instance);
+        }
+        private void Clear()
+        {
+            foreach (var instance in instances)
+            {
+                ParticleManager.PushLight(instance);
+            }
+            instances.Clear();
+        }
+
+        public MainManager Main => MainManager.Instance;
+        public ParticleManager ParticleManager => Main.ParticleManager;
+        [SerializeField]
+        public ScaleMethod scaleMethod;
+        [SerializeField]
+        public float scale = 1;
+        [SerializeField]
+        public Color color = Color.white;
+
+        private ParticleSystem system;
+        private List<LightController> instances = new List<LightController>();
+        private ParticleSystem.Particle[] particles;
     }
-    [SerializeField]
-    public ScaleMethod scaleMethod;
-    [SerializeField]
-    public float scale = 1;
-    [SerializeField]
-    public Color color = Color.white;
 
-    private ParticleSystem m_ParticleSystem;
-    private ParticleSystem.Particle[] m_Particles;
-}
-
-public enum ScaleMethod
-{
-    Lifetime,
-    Size
+    public enum ScaleMethod
+    {
+        Lifetime,
+        Size
+    }
 }
