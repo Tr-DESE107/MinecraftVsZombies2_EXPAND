@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.5
+
+**Modified**
+* Expanded the range to select starshard UI for mobile devices.
+
+**Fixed**
+* Removed the glowing effects for particles to prevent light source spam which may make memory crash.
+
+-----
+
 ## 0.3.4
 
 **Modified**
