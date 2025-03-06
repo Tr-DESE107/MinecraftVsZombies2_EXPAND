@@ -232,6 +232,7 @@ namespace MVZ2.GameContent.Contraptions
                     }
                     pos.y = pad.Level.GetGroundY(pos.x, pos.z) + 10;
                     target.Position = target.Position * 0.5f + pos * 0.5f;
+                    target.StopChangingLane();
                 }
             }
             // 拖动倒计时。

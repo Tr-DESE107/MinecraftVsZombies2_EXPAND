@@ -108,6 +108,8 @@ namespace MVZ2.Vanilla.Entities
         }
         private void ChangeLaneUpdate(Entity entity)
         {
+            if (!entity.IsOnGround)
+                return;
             var level = entity.Level;
             var minLane = 0;
             var maxLane = level.GetMaxLaneCount() - 1;

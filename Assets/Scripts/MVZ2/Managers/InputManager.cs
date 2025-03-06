@@ -82,17 +82,23 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
         }
         public IEnumerable<Vector2> GetLeftPointerUps()
         {
-            if (Input.GetMouseButtonUp(MouseButton.LEFT))
-            {
-                yield return Input.mousePosition;
-            }
             var touches = Input.touches;
-            for (int i = 0; i < touches.Length; i++)
+            if (touches.Length > 0)
             {
-                var touch = touches[i];
-                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                for (int i = 0; i < touches.Length; i++)
                 {
-                    yield return touch.position;
+                    var touch = touches[i];
+                    if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                    {
+                        yield return touch.position;
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetMouseButtonUp(MouseButton.LEFT))
+                {
+                    yield return Input.mousePosition;
                 }
             }
         }
