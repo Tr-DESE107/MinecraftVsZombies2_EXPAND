@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.3.4
+
+**Modified**
+* Reworked lighting rendering effects.
+* Gargoyle statues no longer destroy Stone Shields when spawning.
+* Increased pickup range for pickups on mobile devices from 200% to 250% of the PC version's range.
+* Mutant Zombies' actual attack range has been increased by half a grid.
+* Skeleton Horses' horizontal movement speed during jumps has been reduced by 28.57%.
+* Hell Chariots are now immune to stun effects.
+* Stage 3-11 will no longer spawn Glowstones after 4 Glowstones have appeared.
+
+**Fixes**
+* Fixed an issue where mobile players could not properly use the Force Pad evocation.
+* Fixed the bottommost Force Pad teleporting enemies to the first lane.
+* Fixed Spiked Blocks not attacking bosses.
+* Fixed corrupted stage save files when exiting and saving the game without background music playing.
+* Fixed layer display issues for Gargoyles protected by Stone Shields.
+* Fixed the "Archive" button on the mainmenu being prioritized over the "Addons" button.
+* Fixed rare spawns of certain contraptions in conveyor belt stages due to inaccurate weight randomization.
+
+-----
+
 ## 0.3.3
 
 **Modified**
