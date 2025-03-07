@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace MVZ2.Models
 {
@@ -27,8 +28,7 @@ namespace MVZ2.Models
             modelShotCamera.enabled = false;
 
             // 相机渲染。
-            var scale = SystemInfo.graphicsUVStartsAtTop ? 1 : -1;
-            modelShotCamera.orthographicSize = height * 0.005f * scale;
+            modelShotCamera.orthographicSize = height * 0.005f;
 
             var localPos = modelShotPositionTransform.localPosition;
             localPos.x = modelOffset.x * 0.01f;
@@ -36,7 +36,22 @@ namespace MVZ2.Models
             modelShotPositionTransform.localPosition = localPos;
 
             SortingGroup.UpdateAllSortingGroups();
-            modelShotCamera.Render();
+
+            // Create a standard request
+            RenderPipeline.StandardRequest request = new RenderPipeline.StandardRequest();
+
+            // Check if the request is supported by the active render pipeline
+            if (RenderPipeline.SupportsRenderRequest(modelShotCamera, request))
+            {
+                // 2D Texture
+                request.destination = renderTexture;
+                // Render camera and fill texture2D with its view
+                RenderPipeline.SubmitRenderRequest(modelShotCamera, request);
+            }
+            else
+            {
+                modelShotCamera.Render();
+            }
 
             // 从Render Texture读取像素并保存为图片
             Texture2D texture = new Texture2D(width, height);
@@ -61,8 +76,8 @@ namespace MVZ2.Models
                 return supportedColorFormat;
             }
             Debug.Log("Checking supported color formats...");
-            var format = SystemInfo.GetCompatibleFormat(GraphicsFormat.R8G8B8A8_SRGB, FormatUsage.Render);
-            if (format == GraphicsFormat.None)
+            var format = SystemInfo.GetGraphicsFormat(DefaultFormat.LDR);
+            if (!SystemInfo.IsFormatSupported(format, FormatUsage.Render))
             {
                 Debug.LogWarning("Cannot find a supported color format for device, using default color format.");
                 return GraphicsFormat.R8G8B8A8_SRGB;
@@ -82,11 +97,11 @@ namespace MVZ2.Models
                 return supportedDepthFormat;
             }
             Debug.Log("Checking supported depth formats...");
-            var format = SystemInfo.GetCompatibleFormat(GraphicsFormat.D32_SFloat_S8_UInt, FormatUsage.Render);
-            if (format == GraphicsFormat.None)
+            var format = SystemInfo.GetGraphicsFormat(DefaultFormat.DepthStencil);
+            if (!SystemInfo.IsFormatSupported(format, FormatUsage.Render))
             {
                 Debug.LogWarning("Cannot find a supported depth format for device, using default depth format.");
-                return GraphicsFormat.D32_SFloat_S8_UInt;
+                return GraphicsFormat.None;
             }
             else
             {

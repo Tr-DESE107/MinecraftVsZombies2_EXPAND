@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Almanacs;
@@ -35,6 +36,8 @@ namespace MVZ2.Managers
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
+
+            LogGraphics();
 
             InitSerializable();
 
@@ -229,6 +232,24 @@ namespace MVZ2.Managers
                 return;
             }
             Debug.LogError(e.Exception);
+        }
+        private void LogGraphics()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("显示器信息：");
+            sb.AppendLine($"graphicsDeviceID: {SystemInfo.graphicsDeviceID}");
+            sb.AppendLine($"graphicsDeviceName: {SystemInfo.graphicsDeviceName}");
+            sb.AppendLine($"graphicsDeviceType: {SystemInfo.graphicsDeviceType}");
+            sb.AppendLine($"graphicsDeviceVendor: {SystemInfo.graphicsDeviceVendor}");
+            sb.AppendLine($"graphicsDeviceVendorID: {SystemInfo.graphicsDeviceVendorID}");
+            sb.AppendLine($"graphicsDeviceVersion: {SystemInfo.graphicsDeviceVersion}");
+            sb.AppendLine($"graphicsMemorySize: {SystemInfo.graphicsMemorySize}");
+            sb.AppendLine($"graphicsMultiThreaded: {SystemInfo.graphicsMultiThreaded}");
+            sb.AppendLine($"graphicsShaderLevel: {SystemInfo.graphicsShaderLevel}");
+            sb.AppendLine($"graphicsUVStartsAtTop: {SystemInfo.graphicsUVStartsAtTop}");
+            sb.AppendLine($"maxGraphicsBufferSize: {SystemInfo.maxGraphicsBufferSize}");
+            sb.AppendLine($"supportsGraphicsFence: {SystemInfo.supportsGraphicsFence}");
+            Debug.Log(sb.ToString());
         }
         IGame IMainManager.Game => Game;
 
