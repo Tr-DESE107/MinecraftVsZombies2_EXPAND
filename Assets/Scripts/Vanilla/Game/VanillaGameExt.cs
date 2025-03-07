@@ -18,6 +18,8 @@ namespace MVZ2.Vanilla.Game
         }
         public static bool IsRandomChinaUserName(this IGame game, string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return false;
             return randomChinaNames.Any(n => n.ToLower() == name.ToLower());
         }
         public static readonly string[] randomChinaNames = new string[]
