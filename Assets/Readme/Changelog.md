@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.6
+
+**Modified**
+* Nightmareaper no longer revive skeletons in the air.
+
+**Fixed**
+* Fixed the issue where global light does not avaliable on some devices.
+* Fixed the issue where entity textures are inverted on some devices.
+
+-----
+
 ## 0.3.5
 
 **Modified**
