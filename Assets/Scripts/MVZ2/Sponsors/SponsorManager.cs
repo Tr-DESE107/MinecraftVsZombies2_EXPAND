@@ -126,7 +126,7 @@ namespace MVZ2.Supporters
             wwwForm.AddField("sign", hashStr);
             var request = UnityWebRequest.Post(url, wwwForm);
 
-            request.timeout = 5;
+            request.timeout = responseTimeout;
 
             var tcs = new TaskCompletionSource<AsyncOperation>();
 
@@ -190,5 +190,7 @@ namespace MVZ2.Supporters
         private string baseUrl = "https://afdian.com/api";
         [SerializeField]
         private string sponsorQueryPath = "/open/query-sponsor";
+        [SerializeField]
+        private int responseTimeout = 10;
     }
 }

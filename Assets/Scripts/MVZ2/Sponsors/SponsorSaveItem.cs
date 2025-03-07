@@ -14,7 +14,7 @@ namespace MVZ2.Supporters
                 var planSaveItems = new List<SponsorPlanSaveItem>();
                 foreach (var plan in sponsor.Plans)
                 {
-                    if (SponsorPlans.TryGetPlanIDByName(plan.Name, out var id))
+                    if (SponsorPlans.TryGetPlanByID(plan.PlanID, out var id))
                     {
                         planSaveItems.Add(new SponsorPlanSaveItem()
                         {
@@ -64,17 +64,17 @@ namespace MVZ2.Supporters
             public const int MOONLIGHT_SENSOR = 10;
         }
 
-        public static bool TryGetPlanIDByName(string name, out (int type, int rank) id)
+        public static bool TryGetPlanByID(string id, out (int type, int rank) plan)
         {
-            return planMap.TryGetValue(name, out id);
+            return planMap.TryGetValue(id, out plan);
         }
 
         private static readonly Dictionary<string, (int type, int rank)> planMap = new Dictionary<string, (int type, int rank)>()
         {
-            { "月光传感器", (SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR) },
-            { "熔炉", (SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.FURNACE) },
-            { "火药桶", (SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.GUNPOWDER_BARREL) },
-            { "高炉",(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE) },
+            { "25afa204d56311ef9a3552540025c377", (SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR) },
+            { "3d36f9e0d56311efa99a52540025c377", (SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.FURNACE) },
+            { "6f26d290d56311efa5aa52540025c377", (SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.GUNPOWDER_BARREL) },
+            { "b3a2d76cd56211efb2f852540025c377", (SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE) },
         };
     }
 }
