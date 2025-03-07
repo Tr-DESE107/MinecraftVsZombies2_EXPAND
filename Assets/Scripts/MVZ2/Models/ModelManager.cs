@@ -23,7 +23,8 @@ namespace MVZ2.Models
             var colorFormat = GetSupportedColorFormat();
             var depthFormat = GetSupportedDepthFormat();
             RenderTexture renderTexture = new RenderTexture(width, height, colorFormat, depthFormat);
-            renderTexture.antiAliasing = 2;
+            renderTexture.antiAliasing = 1;
+            renderTexture.filterMode = FilterMode.Trilinear;
             modelShotCamera.targetTexture = renderTexture;
             modelShotCamera.enabled = false;
 
@@ -55,6 +56,7 @@ namespace MVZ2.Models
 
             // 从Render Texture读取像素并保存为图片
             Texture2D texture = new Texture2D(width, height);
+            texture.filterMode = FilterMode.Trilinear;
             RenderTexture.active = renderTexture;
             texture.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
             texture.Apply();
