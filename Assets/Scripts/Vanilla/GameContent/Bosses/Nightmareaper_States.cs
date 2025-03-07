@@ -522,8 +522,10 @@ namespace MVZ2.GameContent.Bosses
                 var corpsePositions = GetCorpsePositions(entity);
                 if (corpsePositions != null)
                 {
-                    foreach (Vector3 pos in corpsePositions)
+                    foreach (Vector3 position in corpsePositions)
                     {
+                        var pos = position;
+                        pos.y = entity.Level.GetGroundY(pos.x, pos.z);
                         var skeleton = entity.Spawn(VanillaEnemyID.skeleton, pos);
                         skeleton.SetFactionAndDirection(entity.GetFaction());
                         var boneParticle = entity.Spawn(VanillaEffectID.boneParticles, skeleton.GetCenter());
