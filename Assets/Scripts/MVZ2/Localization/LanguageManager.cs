@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
@@ -146,6 +147,12 @@ namespace MVZ2.Localization
         public string[] GetAllLanguages()
         {
             return allLanguages.ToArray();
+        }
+        public void ValidateCurrentLanguage()
+        {
+            if (allLanguages.Contains(GetCurrentLanguage()))
+                return;
+            Main.OptionsManager.SetLanguage(allLanguages.FirstOrDefault());
         }
         string IGameLocalization.GetText(string textKey, params string[] args)
         {

@@ -28,7 +28,15 @@ namespace MVZ2.Options
             options.particleAmount = GetPlayerPrefsFloat(PREFS_PARTICLE_AMOUNT, 1);
             options.shakeAmount = GetPlayerPrefsFloat(PREFS_SHAKE_AMOUNT, 1);
 
-            options.language = GetPlayerPrefsString(PREFS_LANGUAGE, GetEnvironmentLanguage());
+            if (PlayerPrefs.HasKey(PREFS_LANGUAGE))
+            {
+                options.language = PlayerPrefs.GetString(PREFS_LANGUAGE);
+                languageInitialized = true;
+            }
+            else
+            {
+                options.language = GetEnvironmentLanguage();
+            }
             options.showSponsorNames = GetPlayerPrefsBool(PREFS_SHOW_SPONSOR_NAMES, false);
 
             UpdateMusicVolume();
@@ -44,7 +52,12 @@ namespace MVZ2.Options
         {
             options.language = language;
             PlayerPrefs.SetString(PREFS_LANGUAGE, language);
+            languageInitialized = true;
             Main.LanguageManager.CallLanguageChanged(language);
+        }
+        public bool IsLanguageInitialized()
+        {
+            return languageInitialized;
         }
         #endregion
 
@@ -311,6 +324,7 @@ namespace MVZ2.Options
         public const string PREFS_SHAKE_AMOUNT = "ShakeAmount";
 
         private Options options;
+        private bool languageInitialized;
     }
     public class Options
     {

@@ -31,9 +31,12 @@ namespace MVZ2.Localization
 
             // 加载启用的语言包列表。
             LoadEnabledLanguagePackList();
+            SaveEnabledLanguagePackList();
 
             // 加载启用的语言包内容。
             await LoadLanguagePacks();
+
+            ValidateCurrentLanguage();
         }
         /// <summary>
         /// 刷新语言包引用列表。
@@ -72,11 +75,7 @@ namespace MVZ2.Localization
             SaveEnabledLanguagePackList();
             UnloadLanguagePacks();
             await LoadLanguagePacks();
-
-            if (!allLanguages.Contains(GetCurrentLanguage()))
-            {
-                Main.OptionsManager.SetLanguage(allLanguages.FirstOrDefault());
-            }
+            ValidateCurrentLanguage();
         }
 
         #region 导入

@@ -1,4 +1,6 @@
-﻿using MukioI18n;
+﻿using System;
+using System.Linq;
+using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
@@ -27,6 +29,7 @@ namespace MVZ2.Titlescreen
         private void Awake()
         {
             ui.OnButtonClick += OnButtonClickCallback;
+            ui.OnLanguageDialogConfirmed += OnLanguageDialogConfirmedCallback;
         }
         private void Update()
         {
@@ -54,8 +57,22 @@ namespace MVZ2.Titlescreen
         #region 事件回调
         private void OnButtonClickCallback()
         {
-            var scene = main.Scene;
-            scene.DisplayPage(MainScenePageType.Mainmenu);
+            if (!main.OptionsManager.IsLanguageInitialized())
+            {
+                var languages = main.LanguageManager.GetAllLanguages();
+                ui.ShowLanguageDialog(languages.Select(l => main.LanguageManager.GetLanguageName(l)).ToArray());
+            }
+            else
+            {
+                main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+            }
+        }
+        private void OnLanguageDialogConfirmedCallback(int index)
+        {
+            ui.HideLanguageDialog();
+            var languages = main.LanguageManager.GetAllLanguages();
+            main.OptionsManager.SetLanguage(languages[index]);
+            main.Scene.DisplayPage(MainScenePageType.Mainmenu);
         }
         #endregion
 
