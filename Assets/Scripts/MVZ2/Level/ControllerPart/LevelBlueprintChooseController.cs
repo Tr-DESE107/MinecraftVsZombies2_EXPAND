@@ -440,7 +440,7 @@ namespace MVZ2.Level
             UI.SetBlueprintsSortingToChoosing(true);
             chooseUI.SetChosenBlueprintsVisible(true);
             // 制品。
-            InheritChosenArtifacts();
+            InheritArtifacts();
 
             Refresh(blueprints);
 
@@ -693,6 +693,17 @@ namespace MVZ2.Level
             CloseArtifactChoosePanel();
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
+        private void InheritArtifacts()
+        {
+            if (Level.CurrentFlag > 0)
+            {
+                InheritChosenArtifacts();
+            }
+            else
+            {
+                InheritLastChosenArtifacts();
+            }
+        }
         private void InheritChosenArtifacts()
         {
             int artifactCount = Level.GetArtifactSlotCount();
@@ -700,8 +711,35 @@ namespace MVZ2.Level
             for (int i = 0; i < chosenArtifacts.Length; i++)
             {
                 var artifact = Level.GetArtifactAt(i);
-                var def = artifact?.Definition;
-                chosenArtifacts[i] = def?.GetID();
+                if (artifact == null)
+                    continue;
+                var sourceID = artifact.GetTransformSource();
+                if (NamespaceID.IsValid(sourceID))
+                {
+                    chosenArtifacts[i] = sourceID;
+                }
+                else
+                {
+                    var def = artifact.Definition;
+                    chosenArtifacts[i] = def?.GetID();
+                }
+            }
+        }
+        private void InheritLastChosenArtifacts()
+        {
+            var lastSelection = Main.SaveManager.GetLastSelection();
+            if (lastSelection == null || lastSelection.artifacts == null)
+                return; 
+            int artifactCount = Level.GetArtifactSlotCount();
+            chosenArtifacts = new NamespaceID[artifactCount];
+            for (int i = 0; i < chosenArtifacts.Length; i++)
+            {
+                if (i >= lastSelection.artifacts.Length)
+                    continue;
+                var artifact = lastSelection.artifacts[i];
+                if (artifact == null)
+                    continue;
+                chosenArtifacts[i] = artifact.id;
             }
         }
         private void RemapChosenArtifacts(int count)

@@ -41,6 +41,15 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<bool>(GLOWING);
         }
+        public static readonly PropertyMeta TRANSFORM_SOURCE = new PropertyMeta("transformSource");
+        public static void SetTransformSource(this Artifact artifact, NamespaceID id)
+        {
+            artifact.SetProperty(TRANSFORM_SOURCE, id);
+        }
+        public static NamespaceID GetTransformSource(this Artifact artifact)
+        {
+            return artifact.GetProperty<NamespaceID>(TRANSFORM_SOURCE);
+        }
         public static readonly PropertyMeta UNLOCK_ID = new PropertyMeta("unlockID");
         public static void SetUnlockID(this ArtifactDefinition artifact, NamespaceID id)
         {

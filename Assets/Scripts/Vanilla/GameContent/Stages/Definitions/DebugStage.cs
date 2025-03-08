@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.darkMatter,
-                VanillaArtifactID.dreamKey,
+                VanillaArtifactID.darkMatter,
                 VanillaArtifactID.theCreaturesHeart,
             });
             level.RechargeSpeed = 9999999;
