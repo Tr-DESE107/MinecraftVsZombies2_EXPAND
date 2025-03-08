@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class Blueprint : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, ITooltipTarget
+    public class Blueprint : MonoBehaviour, IPointerDownHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, ITooltipTarget
     {
         public void UpdateView(BlueprintViewData viewData)
         {
@@ -73,6 +73,10 @@ namespace MVZ2.UI
         {
             OnPointerDown?.Invoke(this, eventData);
         }
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+        {
+            OnPointerClick?.Invoke(this, eventData);
+        }
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
             OnPointerEnter?.Invoke(this, eventData);
@@ -82,6 +86,7 @@ namespace MVZ2.UI
             OnPointerExit?.Invoke(this, eventData);
         }
         public event Action<Blueprint, PointerEventData> OnPointerDown;
+        public event Action<Blueprint, PointerEventData> OnPointerClick;
         public event Action<Blueprint, PointerEventData> OnPointerEnter;
         public event Action<Blueprint, PointerEventData> OnPointerExit;
         public event Action<Blueprint> OnPointerRelease;

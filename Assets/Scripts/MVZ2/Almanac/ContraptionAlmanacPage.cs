@@ -27,7 +27,7 @@ namespace MVZ2.Almanacs
         protected override void Awake()
         {
             base.Awake();
-            blueprintDisplayer.OnBlueprintPointerDown += OnEntryClickCallback;
+            blueprintDisplayer.OnBlueprintSelect += OnEntryClickCallback;
         }
         private void OnEntryClickCallback(int index, PointerEventData eventData)
         {

@@ -19,14 +19,14 @@ namespace MVZ2.UI
                 var page = rect.GetComponent<Blueprint>();
                 page.OnPointerEnter += OnBlueprintPointerEnterCallback;
                 page.OnPointerExit += OnBlueprintPointerExitCallback;
-                page.OnPointerDown += OnBlueprintPointerDownCallback;
+                page.OnPointerClick += OnBlueprintPointerClickCallback;
             },
             rect =>
             {
                 var page = rect.GetComponent<Blueprint>();
                 page.OnPointerEnter -= OnBlueprintPointerEnterCallback;
                 page.OnPointerExit -= OnBlueprintPointerExitCallback;
-                page.OnPointerDown -= OnBlueprintPointerDownCallback;
+                page.OnPointerClick -= OnBlueprintPointerClickCallback;
             });
         }
         public override Blueprint GetItem(int index)
@@ -41,7 +41,7 @@ namespace MVZ2.UI
         {
             CallBlueprintPointerExit(blueprintList.indexOf(blueprint), eventData);
         }
-        private void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData eventData)
+        private void OnBlueprintPointerClickCallback(Blueprint blueprint, PointerEventData eventData)
         {
             CallBlueprintPointerDown(blueprintList.indexOf(blueprint), eventData);
         }

@@ -26,12 +26,12 @@ namespace MVZ2.UI
         }
         protected void CallBlueprintPointerDown(int index, PointerEventData eventData)
         {
-            OnBlueprintPointerDown?.Invoke(index, eventData);
+            OnBlueprintSelect?.Invoke(index, eventData);
         }
         public event Action OnCommandBlockBlueprintClick;
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<int, PointerEventData> OnBlueprintSelect;
         [SerializeField]
         GameObject commandBlockRoot;
         [SerializeField]

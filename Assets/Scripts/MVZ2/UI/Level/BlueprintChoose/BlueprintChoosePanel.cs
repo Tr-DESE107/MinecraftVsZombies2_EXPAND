@@ -29,7 +29,7 @@ namespace MVZ2.Level.UI
             repickButton.onClick.AddListener(() => OnRepickButtonClick?.Invoke());
             displayer.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
             displayer.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
-            displayer.OnBlueprintPointerDown += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
+            displayer.OnBlueprintSelect += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
             displayer.OnCommandBlockBlueprintClick += () => OnCommandBlockBlueprintClick?.Invoke();
         }
         protected void CallBlueprintPointerEnter(int index, PointerEventData eventData)
