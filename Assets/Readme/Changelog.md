@@ -1,29 +1,45 @@
-# Changelog
+# 0.3.7
 
-## 0.3.6
+## Added
+* Added a language selection dialog when first entering the game.
 
-**Modified**
+## Modified
+* Entering a level now retains the previously selected artifacts.
+* Reduced unnecessary graphical settings to optimize game performance.  
+* Decreased the detection hitbox of Tesla Coil for items like pickaxe and starshards.
+* Improved card selection interactions on mobile devices to prevent accidental taps during view scrolling.  
+
+## Fixed
+* Fixed username displaying as "RandmChina" during initial name input.  
+* Fixed inverted entity textures on specific devices.  
+* Fixed an issue where enemies between two lanes occasionally failed to properly reposition themselves.  
+  
+-----
+
+# 0.3.6
+
+## Modified
 * Nightmareaper no longer revive skeletons in the air.
 
-**Fixed**
+## Fixed
 * Fixed the issue where global light does not avaliable on some devices.
 * Fixed the issue where entity textures are inverted on some devices.
 
 -----
 
-## 0.3.5
+# 0.3.5
 
-**Modified**
+## Modified
 * Expanded the range to select starshard UI for mobile devices.
 
-**Fixed**
+## Fixed
 * Removed the glowing effects for particles to prevent light source spam which may make memory crash.
 
 -----
 
-## 0.3.4
+# 0.3.4
 
-**Modified**
+## Modified
 * Reworked lighting rendering effects.
 * Gargoyle statues no longer destroy Stone Shields when spawning.
 * Increased pickup range for pickups on mobile devices from 200% to 250% of the PC version's range.
@@ -32,7 +48,7 @@
 * Hell Chariots are now immune to stun effects.
 * Stage 3-11 will no longer spawn Glowstones after 4 Glowstones have appeared.
 
-**Fixes**
+## Fixes
 * Fixed an issue where mobile players could not properly use the Force Pad evocation.
 * Fixed the bottommost Force Pad teleporting enemies to the first lane.
 * Fixed Spiked Blocks not attacking bosses.
@@ -43,59 +59,59 @@
 
 -----
 
-## 0.3.3
+# 0.3.3
 
-**Modified**
+## Modified
 * Seija's action interval has been increased from 1 second to 3 seconds.
 * Contraptions no longer produce energy after the clear pickup is appeared.
 * The conveyor belt no longer works after the level is cleared.
 
-**Fixed**
+## Fixed
 * Fixed an issue where enemies won't drop gems nor redstones.
 
 -----
 
-## 0.3.2
+# 0.3.2
 
-**Modified**
+## Modified
 * Reworked Smart Phone artifact:
   * Before: Consumes all energy after level cleared, +10 money for every 10 energy consumed.
   * After: Gain 10 money at the end of the level for every 10 energy you have before the final wave begins.
 * Removed the mechanism which contraptions stop producing after the final wave.
 * Added Loading text at the starting screen.
   
-**Fixed**
+## Fixed
 * Fixed an issue where enemies controlled by Mesmerizers won't drop starshards when left.
 * Fixed an issue where Slenderman's Pandora's Box option behaves incorrectly.
 * Fixed some incorrect texts.
   
 -----
 
-## 0.3.1
+# 0.3.1
 
-**Modified**
+## Modified
 * Nightmareaper's HP: 2500 -> 4000
 * Wither's HP: 8000 -> 12000
 * HP restorage of Wither's eat: 600 per contraption -> 300 per contraption
 * Increased the detection window for achievement "Double Trouble". 
 
-**Fixed**
+## Fixed
 * Fixed an issue where you can still modify screen resolutions at map in Android.
 * Fixed an issue where Seija's Cursed Doll will trigger carts.
 * Fixed an issue where some texts and images are not translated.
   
 -----
 
-## 0.3.0
+# 0.3.0
 
-**Added**
+## Added
 * Added Chapter 3-Shinning Needle Castle.
 * Added artifact system.
 * Added Fast-forward function.
 * Added repick function.
 * Added language pack support.
 
-**Modified**
+## Modified
 * Carts now can be manually triggered by holding pointer on them.
 * Update sprites for almost all contraptions and enemies.
 * Redstone count spawned by Furnace's evocation: 12 -> 6
@@ -109,17 +125,17 @@
 
 -----
   
-## 0.2.5
+# 0.2.5
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue where particles still exist after some entities were destroyed.
 
 -----
 
-## 0.2.4
+# 0.2.4
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that the effect of "Pandora's Box" of Slenderman changed into "clear all contraptions".
 * Fixed an issue that would occur an error if a contraption was destroyed when a spider is climbing the contraption.
@@ -129,15 +145,15 @@
 
 -----
 
-## 0.2.3
+# 0.2.3
 
-**Modified**
+## Modified
 
 * Projectiles go vertically up or down now knockback enemies to the right by default.
 * Bone Walls now will not be stunned.
 * Now, after other fingers touch the screen, they will also trigger the swing of the sword, but the position of the sword will keep at the first finger.
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that instantly kill Mother Terrors as soon as they was spawned will spawn Parasite Terrors on the leftest.
 * Fixed an issue that Frankenstein will restore from faint immediately after being hurt by high-pressure TNT during punching.
@@ -147,13 +163,13 @@
 
 -----
 
-## 0.2.2
+# 0.2.2
 
-**Modified**
+## Modified
 
 * Force Pad will now change the direction of projectiles, instead of warp their lanes.
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that particles created by crushing contraption by statues will continue playing without stop.
 * Fixed an issue that when an enemy stops at a Mine TNT, the Mine TNT will not be triggered.
@@ -166,13 +182,13 @@
 
 -----
 
-## 0.2.1
+# 0.2.1
 
-**Modified**
+## Modified
 
 * Modified the path shape of entities warping lanes by Force Pad.
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that Doremy will be ordered before Orant in Almanac.
 * Fixed an issue that contraptions damage by explosions will take damage again when another explosion created.
@@ -182,9 +198,9 @@
 
 -----
 
-## 0.2.0
+# 0.2.0
 
-**Added**
+## Added
 * The whole dream world! Including 10 new contraptions, 5 new enemies and 1 boss!
 * A new way to instantly trigger contraptions.
   * If you place a triggerable contraption normally, it will not be triggered and needs to be triggered manually.
@@ -193,7 +209,7 @@
   * These has been added into the triggering tutorial of 1-7.
 * The external location of language files. This means that players can modify the language texts, textures and even add a language.
 
-**Modified**
+## Modified
 * Soul Furnaces are modified a lot:
   * Capacity: 
   		Burning for 60 seconds, does not consume fuel upon shoots
@@ -208,41 +224,41 @@
 * Enemies with same team will no longer generate useless collisions, greatly increased the performance when lots of enemies appears.
 * Leather Hat Zombie now is called Leather Cap Zombie.
 
-**Bug Fixed**
+## Bug Fixed
 * Fixed an issue that if you clear 1-1 to 1-5 without reloading your save file, Orant will not appear in Almanac.
 * Fixed an issue that the Vibration setting will be reset to on after you restart the game.
 * Fixed an issue that contraption entry buttons in Almanac fills in the first line.
 * Fixed an issue that Frankenstein will sometimes stop shooting after destorying his target.
 
-## 0.1.2
+# 0.1.2
 
-**Bug Fixed**
+## Bug Fixed
 
 * **Fixed an issue that saving the level in Endless Mode after each 2 flags is completed will cause this saving fails.**
 * Fixed an issue that the data of moonlight sensors' particles and soulfire trails will not be saved.
 * Fixed an issue that skeleton entry button in Almanac fills in the first line.
 * Fixed an issue that you can still open Menu Dialog using Escape or Back button while the characters appear after you cleared a level.
 
-## 0.1.1
+# 0.1.1
 
-**Added**
+## Added
 
 * You can intialize your prefered language after entering the game!
 * Game version now will be shown in the mainmenu.
 * Changelog in Readme, and the upcoming features! Yeah you are reading one of them!
 * The game version will now be displayed at the right-top of mainmenu.
 
-**Modified**
+## Modified
 
 * Modified the lighting effects, and it can display a faint light even during the daytime.
 * Modified the effect of evoked moonlight sensors, now it will emit stars instead of a blue halo.
 
-**Known Issues**
+## Known Issues
 
 * * Level saving sometimes will be failed, causing save files empty and will occur an issue after entering this level.
     * A detector of this issue has been added into the game, and will display an error message box for the player. If you see that, please send the log files to the creator.(See [FAQ](#FAQ))
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that if a bone wall is destroyed by a Mine TNT, its bone particles will not be stopped.
 * Fixed an issue that you can still pick the pickaxe or starshard up even while they are invisible.
@@ -253,9 +269,9 @@
 * Fixed an issue that you can no longer purchase the 7th contraption slot aftered you cleared 1-7.
 * Fixed an issue that resource loading fails if the number format of operation system's culture is different from english (like Russian).
 
-## 0.1.0
+# 0.1.0
 
-**Added**
+## Added
 
 * The whole Chapter 1!
 * Ghosts, mummies and necromancers!
@@ -267,13 +283,13 @@
 * Different texts after different enemies entered your house...?
 * Tooltips for contraptions!
 
-**Modified**
+## Modified
 
 * The screen will be lit after gargoyles are revived now.
 * Moved the resource loading to the titlescreen.
 * Reduced the frequency of enemy crying.
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that UI images like "A huge wave of...", "final wave", or the pointing arrow still work while the game is paused.
 * Fixed an issue that if you traveled into a scene which will play the traveling sound such as the map, the sound will be played twice. 
@@ -283,38 +299,38 @@
 * Fixed an issue that the resolution does not fit the window size.
 
 
-## 0.0.4
+# 0.0.4
 
-**Added**
+## Added
 
 * Halloween Day 2.
 * Skeletons! Statues! Gargoyles!
 * All evocations of contraptions!
 
-**Modified**
+## Modified
 
 * Moved the pickaxe to the right-bottom of the screen in Android Edition.
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that you can place contraptions while the game is paused.
 
 
-## 0.0.3
+# 0.0.3
 
-**Added**
+## Added
 
 * Halloween Map and Day 1. (Though Day 1 cannot be finished.)
 * Menu Button.
 * Custom Cursors.
 * Expandable resolutions.
 
-**Modified**
+## Modified
 
 * Flag Zombies now always walk in the frontest.
 * Modified the textures of houses.
 * A buzzer sound will be played after clicking a disabled blueprint.
 
-**Bug Fixed**
+## Bug Fixed
 
 * Fixed an issue that particles will not be stopped after contraptions are destroyed and pause then resume the game.
