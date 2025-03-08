@@ -347,9 +347,6 @@ namespace MVZ2.Vanilla.Entities
             var level = entity.Level;
             target = Math.Clamp(target, 0, level.GetMaxLaneCount() - 1);
             var source = entity.GetLane();
-            if (target == source)
-                return;
-
             var buff = entity.GetFirstBuff<ChangeLaneBuff>();
             if (buff == null)
             {
