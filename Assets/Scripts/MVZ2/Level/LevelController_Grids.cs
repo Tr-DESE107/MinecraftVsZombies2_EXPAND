@@ -29,8 +29,7 @@ namespace MVZ2.Level
         {
             if (!IsGameRunning())
                 return;
-            pointingGridLane = lane;
-            pointingGridColumn = column;
+            pointingGrid = level.GetGridIndex(column, lane);
             pointingPointerId = data.pointerId;
             UpdateGridHighlight();
         }
@@ -38,8 +37,7 @@ namespace MVZ2.Level
         {
             if (!IsGameRunning())
                 return;
-            pointingGridLane = -1;
-            pointingGridColumn = -1;
+            pointingGrid = -1;
             pointingPointerId = -1;
             UpdateGridHighlight();
         }
@@ -75,32 +73,38 @@ namespace MVZ2.Level
         }
         private void UpdateGridHighlight()
         {
-            bool pointingGrid = IsGameRunning() && pointingGridLane >= 0 && pointingGridColumn >= 0 && level.IsHoldingItem();
-            if (pointingGrid != lastPointingGrid)
+            int pointing = pointingGrid;
+            if (!IsGameRunning() || !level.IsHoldingItem())
+            {
+                pointing = -1;
+            }
+            if (pointing != lastPointingGrid)
             {
                 ClearGridHighlight();
-                HighlightAxisGrids(pointingGridLane, pointingGridColumn);
-                lastPointingGrid = pointingGrid;
-            }
-            if (pointingGrid)
-            {
-                var grid = level.GetGrid(pointingGridColumn, pointingGridLane);
-                var gridUI = gridLayout.GetGrid(pointingGridLane, pointingGridColumn);
+                lastPointingGrid = pointing;
+                if (pointing >= 0)
+                {
+                    var lane = level.GetGridLaneByIndex(pointing);
+                    var column = level.GetGridColumnByIndex(pointing);
+                    var grid = level.GetGrid(column, lane);
+                    var gridUI = gridLayout.GetGrid(lane, column);
 
-                Vector2 position;
-                if (gridUI)
-                {
-                    var screenPos = Main.InputManager.GetPointerPosition(pointingPointerId);
-                    var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
-                    position = gridUI.TransformWorld2ColliderPosition(worldPos);
+                    Vector2 position;
+                    if (gridUI)
+                    {
+                        var screenPos = Main.InputManager.GetPointerPosition(pointingPointerId);
+                        var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
+                        position = gridUI.TransformWorld2ColliderPosition(worldPos);
+                    }
+                    else
+                    {
+                        position = Vector2.zero;
+                    }
+                    var target = new HeldItemTargetGrid(grid, position);
+                    var highlight = level.GetHeldHighlight(target);
+                    HighlightGrid(lane, column, highlight);
+                    HighlightAxisGrids(lane, column);
                 }
-                else
-                {
-                    position = Vector2.zero;
-                }
-                var target = new HeldItemTargetGrid(grid, position);
-                var highlight = level.GetHeldHighlight(target);
-                HighlightGrid(pointingGridLane, pointingGridColumn, highlight);
             }
         }
         private void HighlightGrid(int lane, int column, HeldHighlight highlight)
@@ -194,9 +198,8 @@ namespace MVZ2.Level
 
         #region 属性字段
         private int pointingPointerId = -1;
-        private int pointingGridLane = -1;
-        private int pointingGridColumn = -1;
-        private bool lastPointingGrid;
+        private int pointingGrid = -1;
+        private int lastPointingGrid;
 
         [Header("Grids")]
         [SerializeField]

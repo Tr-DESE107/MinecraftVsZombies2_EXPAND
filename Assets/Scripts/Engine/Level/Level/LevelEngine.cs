@@ -205,6 +205,14 @@ namespace PVZEngine.Level
         {
             return column + lane * GetMaxColumnCount();
         }
+        public int GetGridLaneByIndex(int index)
+        {
+            return index / GetMaxColumnCount();
+        }
+        public int GetGridColumnByIndex(int index)
+        {
+            return index % GetMaxColumnCount();
+        }
         public float GetGridWidth()
         {
             return gridWidth;

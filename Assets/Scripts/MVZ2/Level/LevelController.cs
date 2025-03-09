@@ -201,8 +201,7 @@ namespace MVZ2.Level
             level.ResetHeldItem();
             level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, c => c(level));
             SetUIVisibleState(VisibleState.Nothing);
-            pointingGridLane = -1;
-            pointingGridColumn = -1;
+            pointingGrid = -1;
             pointingPointerId = -1;
             level.ClearEnergyDelayedEntities();
             level.ClearDelayedMoney();

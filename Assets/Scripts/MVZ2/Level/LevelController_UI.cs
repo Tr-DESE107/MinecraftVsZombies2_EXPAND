@@ -111,6 +111,9 @@ namespace MVZ2.Level
                     Main.CursorManager.AddCursorSource(heldItemCursorSource);
                 }
             }
+
+            // 更新网格。
+            UpdateGridHighlight();
         }
         public IModelInterface GetHeldItemModelInterface()
         {
