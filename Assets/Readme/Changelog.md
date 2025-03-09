@@ -4,6 +4,7 @@
 * Added a language selection dialog when first entering the game.
 
 ## Modified
+* Tesla Coils are now glowing contraptions.
 * Entering a level now retains the previously selected artifacts.
 * Reduced unnecessary graphical settings to optimize game performance.  
 * Decreased the detection hitbox of Tesla Coil for items like pickaxe and starshards.
@@ -13,6 +14,9 @@
 * Fixed username displaying as "RandmChina" during initial name input.  
 * Fixed inverted entity textures on specific devices.  
 * Fixed an issue where enemies between two lanes occasionally failed to properly reposition themselves.  
+* Fixed an issue where selecting blueprints too quickly before a level could result in incorrect blueprint selection.
+* Fixed an issue where when holding a blueprint while The Creature's Heart is present, if a contraption is destroyed causing the blueprint cost to become unaffordable, the held blueprint wouldn't be canceled properly.
+* Fixed an issue where white grid markers on the battlefield wouldn't disappear after canceling blueprint selection on mobile devices.
   
 -----
 
