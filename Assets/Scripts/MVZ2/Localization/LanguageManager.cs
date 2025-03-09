@@ -25,6 +25,8 @@ namespace MVZ2.Localization
         {
             if (TryGetLocalizedString(text, language, out var str, args))
                 return str;
+            if (string.IsNullOrEmpty(text))
+                return string.Empty;
             return string.Format(text, args);
         }
         public bool TryGetLocalizedString(string text, string language, out string translated, params object[] args)
@@ -46,6 +48,8 @@ namespace MVZ2.Localization
         {
             if (TryGetLocalizedStringParticular(context, text, language, out var str, args))
                 return str;
+            if (string.IsNullOrEmpty(text))
+                return string.Empty;
             return string.Format(text, args);
         }
         public bool TryGetLocalizedStringParticular(string context, string text, string language, out string translated, params object[] args)
