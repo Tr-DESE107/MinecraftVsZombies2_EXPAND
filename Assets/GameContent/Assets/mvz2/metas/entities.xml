@@ -450,6 +450,10 @@
             <idArray name="attackerFor" value="mvz2:low_enemy mvz2:flying_enemy"/>
             <vector3 name="size" x="36" y="100" z="36"/>
 
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="80" y="120" z="80"/>
+            <color name="lightColor" value="#7F7FFF"/>
+
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
