@@ -1,3 +1,7 @@
+Language: English | [简体中文](Readme-ZH.md)
+
+[toc]
+
 # Readme
 
 ## Overview
@@ -8,7 +12,7 @@ The game features mechanics from Plants vs Zombies, elements from Minecraft and 
 
 There are two versions of this game. The previous version made with Gamemaker Studio 2 was developed until chapter 4 and has been discontinued, whereas the current version made with Unity is still under development. Currently, it is expected to have around 112 contraptions, 64 enemies and 132 levels.
 
-For news and updates about the game, please follow Cuerzor’s online activity, as well as the game’s changelog.
+For news and updates about the game, please follow Cuerzor’s online activity, as well as the game’s [changelog](Changelog.md).
 
 
 [TOC]
@@ -82,11 +86,11 @@ After using a starshard on a contraption, the contraption is **evoked**, eruptin
 
 Different contraptions have different **evocation abilities**. Using starshards wisely can reduce the game’s difficulty.
 
-### Almanac
+### Artifact
 
-The **almanac** is an in-game item that contains additional information.
+**Artifacts** are a series of in-game items with passive effects. After unlocking Artifacts, you can equip them during battles to gain enhancements or special effects.
 
-The almanac includes evocation abilities, as well as specific data on enemies and contraptions. You can also view characters from the story here, as well as some miscellaneous entries. 
+Different Artifacts provide distinct effects. As you progress through the game, you'll unlock more Artifacts, and the number of Artifacts you can equip per level will increase.
 
 ### Bosses
 
@@ -104,50 +108,59 @@ There are three difficulties:
 * **Normal**
 * **Hard**
 
-For the differences between difficulties, see the [**Difficulty Differences**](#DifficultyDifferences) section.
+For the differences between difficulties, see the [Difficulty Differences](#DifficultyDifferences) section.
 
 ------
-
 ## <span id="FAQ">FAQ</span>
 
-**Q: Why don't you answer me when I ask you a question?**
+### Is This a Bug?
+Some scenarios are intentional game mechanics rather than bugs. Examples include: 
+- Infectenser under mind-control infecting contraptions.
+- Reduced glowstone light range caused by the Broken Lantern artifact cant prevent mind-control.
 
-A：The creator will only answer questions that do not exist on this page.
+If you're unsure whether a phenomenon is a bug, **search existing Issues** first as similar reports might exist.
 
-Questions that are already on this page will not be answered.
+If you encounter **game-breaking issues** (crashes/progression blocks), please follow the next section's instructions.
 
-***
+### How to Report Bugs?
+Create a new Issue in this repository's Issues page **with the following required information** (missing details will hinder investigation):
+- **Game version number**
+- **Game logs**
+- Detailed description of the issue
+- Game state/environment when triggered (e.g. ongoing actions)
+- Reproduction steps
 
-**Q: How do I change the language?**
+Alternatively, email `mvz2feedback@qq.com` with all above details.
 
-A: 
+### Where Are Game Logs?
+Log locations differ between Windows and Android:
 
-1. After entering the mainmenu, enter your user name and click the button on the left to confirm (确认).
-2. Click the wooden sign on the left to open the menu of **Options** (选项).
-3. Click the button on the bottom left to open **More options** (更多选项...).
-4. Click on the **Language** (语言) drop-down box at the top, and then select the language you want.
-5. Click the bottom button "**Back**" (返回) to close more options.
-6. click the bottom right button "**Back**" (返回) to close the options menu.
-7. Now you successfully changed the language.
+#### Windows
+Path: `%HOMEPATH%\AppData\LocalLow\Cuerzor\MinecraftVSZombies2`  
+*Copy-paste this path directly into File Explorer's address bar*  
+- `Player.log` (latest session logs)
+- `Player-prev.log` (previous session logs)
 
-* * *
+#### Android
+Path: `Android/data/com.cuerzor.MinecraftVSZombies2/files/`  
+- `mvz2_log.log` (latest session logs)
+- `mvz2_log-prev.log` (previous session logs)
 
-**Q: What if there is a BUG?**
+**Note:** Some Android devices restrict access to this directory. Use methods like USB connection to access via PC if needed.
 
-A: You can send an email to the creator's mailbox: mvz2feedback@qq.com. 
+### Where Are Save Files?
+For v0.3.0+ versions, save structures are cross-platform compatible (Windows/Android interchangeable):
 
-Please explain the problem you encountered in detail.
+#### File Structure
+- `users.dat`: User profile names
+- `userX.dat`: Save data for slot X
+- `xxx.lvl`: Level progress saves
 
-If necessary, you can include the game’s log file, located in %HOMEPATH%/AppData/LocalLow/Cuerzor/MinecraftVSZombies2, the files are named Player.log and Player-prev.log(A log of the last time the game was started).
+#### Windows Path
+`%HOMEPATH%\AppData\LocalLow\Cuerzor\MinecraftVSZombies2\userdata`
 
-* * *
-
-**Q: Where are my save files located?**
-
-A: "%HOMEPATH%/AppData/LocalLow/Cuerzor/MinecraftVSZombies2/userdata" for Windows,
-
-"/storage/emulated/0/Android/data/com.cuerzor.minecraftVSZombies2/files/userdata" for Android.
-
+#### Android Path
+`Android/data/com.cuerzor.MinecraftVSZombies2/files/userdata`
 ------
 
 ## <span id="DifficultyDifferences">Difficulty Differences</span>
