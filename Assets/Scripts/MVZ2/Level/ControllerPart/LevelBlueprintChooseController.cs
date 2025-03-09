@@ -223,12 +223,13 @@ namespace MVZ2.Level
             var movingBlueprint = CreateMovingBlueprint();
             movingBlueprint.transform.position = sourcePos;
             movingBlueprint.SetBlueprint(blueprintUI);
-            movingBlueprint.SetMotion(sourcePos, targetPos);
-            movingBlueprint.OnMotionFinished += () =>
+            movingBlueprint.SetMotion(sourcePos, placeHolder.transform);
+            movingBlueprint.OnMotionFinished += (movingBlueprint) =>
             {
                 // 移除占位符并替换为该蓝图
+                var index = chooseUI.GetChosenBlueprintIndex(placeHolder);
                 chooseUI.DestroyChosenBlueprint(placeHolder);
-                chooseUI.InsertChosenBlueprint(seedPackIndex, blueprintUI);
+                chooseUI.InsertChosenBlueprint(index, blueprintUI);
                 RemoveMovingBlueprint(movingBlueprint);
             };
         }
@@ -249,7 +250,7 @@ namespace MVZ2.Level
                 movingBlueprint.transform.position = sourcePos;
                 movingBlueprint.SetBlueprint(blueprintUI);
                 movingBlueprint.SetMotion(sourcePos, targetBlueprint.transform);
-                movingBlueprint.OnMotionFinished += () =>
+                movingBlueprint.OnMotionFinished += (movingBlueprint) =>
                 {
                     UpdateBlueprintChooseItem(choosingIndex);
                     RemoveMovingBlueprint(movingBlueprint);
@@ -313,7 +314,7 @@ namespace MVZ2.Level
         }
         private void ClearMovingBlueprints()
         {
-            foreach (var movingBlueprint in movingBlueprints)
+            foreach (var movingBlueprint in movingBlueprints.ToArray())
             {
                 chooseUI.RemoveMovingBlueprint(movingBlueprint);
             }
@@ -385,6 +386,9 @@ namespace MVZ2.Level
         }
         private void ReplaceBlueprints(BlueprintSelectionItem[] targetBlueprints)
         {
+            // 移除所有正在移动的蓝图。
+            ClearMovingBlueprints();
+
             var slotCount = Level.GetSeedSlotCount();
 
             var innateCount = chosenBlueprints.Count(i => i.innate);

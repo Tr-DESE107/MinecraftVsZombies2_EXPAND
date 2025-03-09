@@ -7,6 +7,10 @@ namespace MVZ2.Level.UI
 {
     public class MovingBlueprint : MonoBehaviour
     {
+        private void OnDisable()
+        {
+            Finish();
+        }
         public void SetMotion(Vector3 startPosition, Transform targetTransform)
         {
             transition.setStartPosition(startPosition);
@@ -27,6 +31,15 @@ namespace MVZ2.Level.UI
             blueprint.transform.SetParent(transform, false);
             blueprint.transform.localPosition = Vector3.zero;
         }
+        public void Finish()
+        {
+            if (moving)
+            {
+                moving = false;
+                transition.time = 1;
+                OnMotionFinished?.Invoke(this);
+            }
+        }
         private void Update()
         {
             if (moving)
@@ -34,12 +47,11 @@ namespace MVZ2.Level.UI
                 transition.time += Time.deltaTime * moveSpeed;
                 if (transition.time >= 1)
                 {
-                    OnMotionFinished?.Invoke();
-                    moving = false;
+                    Finish();
                 }
             }
         }
-        public event Action OnMotionFinished;
+        public event Action<MovingBlueprint> OnMotionFinished;
         [SerializeField]
         private bool moving;
         [SerializeField]
