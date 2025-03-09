@@ -31,32 +31,6 @@ namespace MVZ2.Level
             ui.SetTwinkling(SeedPack.IsTwinkling() || (Level.IsHoldingTrigger() && SeedPack.CanInstantTrigger()));
             ui.SetSelected(Level.IsHoldingClassicBlueprint(Index));
         }
-        public override bool CanPick(out string errorMessage)
-        {
-            var seed = SeedPack;
-            if (seed == null)
-            {
-                errorMessage = null;
-                return false;
-            }
-            if (!seed.IsCharged())
-            {
-                errorMessage = Vanilla.VanillaStrings.TOOLTIP_RECHARGING;
-                return false;
-            }
-            if (seed.Level.Energy < seed.GetCost())
-            {
-                errorMessage = Vanilla.VanillaStrings.TOOLTIP_NOT_ENOUGH_ENERGY;
-                return false;
-            }
-            if (seed.IsDisabled())
-            {
-                errorMessage = seed.GetDisableMessage();
-                return false;
-            }
-            errorMessage = null;
-            return true;
-        }
         protected override void OnPickup(bool instantTrigger)
         {
             var blueprint = SeedPack;

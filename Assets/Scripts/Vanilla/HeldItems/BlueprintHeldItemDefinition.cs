@@ -23,6 +23,14 @@ namespace MVZ2.Vanilla.HeldItems
             AddBehaviour(new PickupHeldItemBehaviour(this));
             AddBehaviour(new TriggerCartHeldItemBehaviour(this));
         }
+        public override void Update(LevelEngine level, IHeldItemData data)
+        {
+            base.Update(level, data);
+            if (!IsValid(level, data))
+            {
+                level.ResetHeldItem();
+            }
+        }
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             var seed = GetSeedPack(level, data);
@@ -36,6 +44,13 @@ namespace MVZ2.Vanilla.HeldItems
                 return entityDef.GetModelID();
             }
             return null;
+        }
+        public bool IsValid(LevelEngine level, IHeldItemData data)
+        {
+            var seedPack = GetSeedPack(level, data);
+            if (seedPack == null)
+                return false;
+            return seedPack.CanPick();
         }
     }
 }

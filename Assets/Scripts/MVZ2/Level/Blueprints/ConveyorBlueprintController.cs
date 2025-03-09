@@ -52,11 +52,6 @@ namespace MVZ2.Level
 
             Controller.BlueprintController.SetConveyorBlueprintUIPosition(Index, Position);
         }
-        public override bool CanPick(out string errorMessage)
-        {
-            errorMessage = null;
-            return true;
-        }
         protected override void OnPickup(bool instantTrigger)
         {
             var blueprint = SeedPack;

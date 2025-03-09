@@ -74,7 +74,10 @@ namespace MVZ2.Level
             bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
             Pickup(instantTrigger, usingTrigger);
         }
-        public abstract bool CanPick(out string errorMessage);
+        public bool CanPick(out string errorMessage)
+        {
+            return SeedPack.CanPick(out errorMessage);
+        }
         public override TooltipViewData GetTooltipViewData()
         {
             var viewData = base.GetTooltipViewData();
@@ -137,7 +140,7 @@ namespace MVZ2.Level
         {
             if (!CanPick(out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
             {
-                return Main.LanguageManager._(errorMessage);
+                return errorMessage;
             }
             return string.Empty;
         }
