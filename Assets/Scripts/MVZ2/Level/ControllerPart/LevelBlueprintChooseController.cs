@@ -83,6 +83,10 @@ namespace MVZ2.Level
             // 如果根本没有进行选卡，那就不进行替换。
             if (choosingBlueprints == null)
                 return;
+            // 替换制品。
+            Level.ReplaceArtifacts(chosenArtifacts);
+
+            // 替换蓝图。
             for (int i = 0; i < Level.GetSeedSlotCount(); i++)
             {
                 NamespaceID blueprintID = null;
@@ -94,8 +98,6 @@ namespace MVZ2.Level
             }
             chosenBlueprints.Clear();
             choosingBlueprints = null;
-            // 设置制品。
-            Level.ReplaceArtifacts(chosenArtifacts);
             chosenArtifacts = null;
         }
         public bool IsInteractable()

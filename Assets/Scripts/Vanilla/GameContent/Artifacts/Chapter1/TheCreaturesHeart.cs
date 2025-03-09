@@ -11,6 +11,7 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Artifacts
@@ -20,6 +21,7 @@ namespace MVZ2.GameContent.Artifacts
     {
         public TheCreaturesHeart(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
             AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
             AddTrigger(LevelCallbacks.POST_ENTITY_REMOVE, PostEntityRemoveCallback, filter: EntityTypes.PLANT);
             AddAura(new ReduceCostAura());
@@ -29,27 +31,43 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
+        private void PostLevelStartCallback(LevelEngine level)
+        {
+            foreach (var artifact in level.GetArtifacts())
+            {
+                if (artifact == null || artifact.Definition != this)
+                    continue;
+                AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
+                if (aura == null)
+                    continue;
+                aura.UpdateAura();
+            }
+        }
         private void PostEntityInitCallback(Entity contraption)
         {
             var level = contraption.Level;
-            var artifact = level.GetArtifact(ID);
-            if (artifact == null)
-                return;
-            AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
-            if (aura == null)
-                return;
-            aura.UpdateAura();
+            foreach (var artifact in level.GetArtifacts())
+            {
+                if (artifact == null || artifact.Definition != this)
+                    continue;
+                AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
+                if (aura == null)
+                    continue;
+                aura.UpdateAura();
+            }
         }
         private void PostEntityRemoveCallback(Entity contraption)
         {
             var level = contraption.Level;
-            var artifact = level.GetArtifact(ID);
-            if (artifact == null)
-                return;
-            AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
-            if (aura == null)
-                return;
-            aura.UpdateAura();
+            foreach (var artifact in level.GetArtifacts())
+            {
+                if (artifact == null || artifact.Definition != this)
+                    continue;
+                AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
+                if (aura == null)
+                    continue;
+                aura.UpdateAura();
+            }
         }
         public static readonly NamespaceID ID = VanillaArtifactID.theCreaturesHeart;
 
