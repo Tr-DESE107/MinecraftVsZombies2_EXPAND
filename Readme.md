@@ -22,7 +22,6 @@ Language: English | [简体中文](Readme-ZH.md)
       - [File Structure](#file-structure)
       - [Windows Path](#windows-path)
       - [Android Path](#android-path)
-  - [`Android/data/com.cuerzor.MinecraftVSZombies2/files/userdata`](#androiddatacomcuerzorminecraftvszombies2filesuserdata)
   - [Difficulty Differences](#difficulty-differences)
     - [Easy](#easy)
     - [Hard](#hard)
@@ -131,7 +130,7 @@ There are three difficulties:
 * **Normal**
 * **Hard**
 
-For the differences between difficulties, see the [Difficulty Differences](#DifficultyDifferences) section.
+For the differences between difficulties, see the [Difficulty Differences](#difficulty-differences) section.
 
 ------
 ## <span id="FAQ">FAQ</span>
@@ -184,9 +183,10 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 
 #### Android Path
 `Android/data/com.cuerzor.MinecraftVSZombies2/files/userdata`
+
 ------
 
-## <span id="DifficultyDifferences">Difficulty Differences</span>
+## Difficulty Differences
 
 ### Easy
 

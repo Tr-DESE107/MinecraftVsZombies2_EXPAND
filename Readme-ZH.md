@@ -143,7 +143,7 @@
 * **普通**
 * **困难**
 
-关于不同难度之间的区别，请见[难度区别](#DifficultyDifferences)条目。
+关于不同难度之间的区别，请见[难度区别](#难度区别)条目。
 
 
 
@@ -203,7 +203,7 @@ Windows和安卓手机的日志位置不同。
 #### 安卓手机
 `Android\data\com.cuerzor.MinecraftVSZombies2\files\userdata`
 
-## <span id="DifficultyDifferences">难度区别</span>
+## 难度区别
 
 ### 简单模式
 
