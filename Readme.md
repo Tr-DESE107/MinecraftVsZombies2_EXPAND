@@ -1,6 +1,32 @@
 Language: English | [简体中文](Readme-ZH.md)
 
-[toc]
+- [Readme](#readme)
+  - [Overview](#overview)
+  - [Features](#features)
+    - [Energy](#energy)
+    - [Contraptions](#contraptions)
+    - [Enemies](#enemies)
+    - [Gems](#gems)
+    - [Battlefields](#battlefields)
+    - [Starshards](#starshards)
+    - [Artifact](#artifact)
+    - [Bosses](#bosses)
+    - [Difficulties](#difficulties)
+  - [FAQ](#faq)
+    - [Is This a Bug?](#is-this-a-bug)
+    - [How to Report Bugs?](#how-to-report-bugs)
+    - [Where Are Game Logs?](#where-are-game-logs)
+      - [Windows](#windows)
+      - [Android](#android)
+    - [Where Are Save Files?](#where-are-save-files)
+      - [File Structure](#file-structure)
+      - [Windows Path](#windows-path)
+      - [Android Path](#android-path)
+  - [`Android/data/com.cuerzor.MinecraftVSZombies2/files/userdata`](#androiddatacomcuerzorminecraftvszombies2filesuserdata)
+  - [Difficulty Differences](#difficulty-differences)
+    - [Easy](#easy)
+    - [Hard](#hard)
+
 
 # Readme
 
@@ -13,9 +39,6 @@ The game features mechanics from Plants vs Zombies, elements from Minecraft and 
 There are two versions of this game. The previous version made with Gamemaker Studio 2 was developed until chapter 4 and has been discontinued, whereas the current version made with Unity is still under development. Currently, it is expected to have around 112 contraptions, 64 enemies and 132 levels.
 
 For news and updates about the game, please follow Cuerzor’s online activity, as well as the game’s [changelog](Changelog.md).
-
-
-[TOC]
 
 ------
 
