@@ -1,3 +1,11 @@
+# 0.3.8
+
+## Fixed
+* Fixed an issue where 2-6 sometimes cannot be saved and loaded correctly.
+* Disabled Vulkan graphic compatiblility, to fix the issue where the game will crash or cause render issues on some devices.
+
+---
+
 # 0.3.7
 
 ## Added
