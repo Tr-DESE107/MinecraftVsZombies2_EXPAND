@@ -24,9 +24,9 @@
         sampler2D _MainTex;
         half4 _MainTex_TexelSize;
         // Material Color.
-        fixed4 _Color;
-        fixed _Blur;
-        fixed _BlurSize;
+        half4 _Color;
+        half _Blur;
+        half _BlurSize;
 
         struct appdata_t
         {
@@ -38,7 +38,7 @@
         struct v2f
         {
             float4 vertex   : SV_POSITION;
-            fixed4 color    : COLOR;
+            half4 color    : COLOR;
             float2 uv : TEXCOORD0;
         };
 
@@ -50,19 +50,19 @@
             OUT.uv = IN.texcoord;
             return OUT;
         }
-        fixed4 grabColor(half2 uv, half weight, half alphaWeight)
+        half4 grabColor(half2 uv, half weight, half alphaWeight)
         {
-            fixed4 color = tex2D(_MainTex, uv);
+            half4 color = tex2D(_MainTex, uv);
             color.rgb *= weight;
             color.a *= alphaWeight;
             return color;
         }
-        fixed4 frag(v2f IN) : SV_Target
+        half4 frag(v2f IN) : SV_Target
         {
             half2 texelSize = _MainTex_TexelSize;
             float blur = _Blur * _BlurSize;
 
-            fixed4 color = fixed4(0.0, 0.0, 0.0, 0.0);
+            half4 color = half4(0.0, 0.0, 0.0, 0.0);
             const int xExtent = 2.0;
             const int yExtent = 2.0;
             const int width = xExtent * 2.0 + 1;

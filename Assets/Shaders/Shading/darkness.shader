@@ -38,13 +38,13 @@
 				sampler2D _NoiseTex;
 				float4 _NoiseTex_ST;
 				int _BlurRadius;
-				fixed _BlurSize;
+				half _BlurSize;
 
 				struct a2v_darkness
 				{
 					float4 vertex : POSITION0;
 					float2 texcoord : TEXCOORD0;
-					fixed4 color : COLOR;
+					half4 color : COLOR;
 				};
 
 				struct v2f_darkness
@@ -52,7 +52,7 @@
 					float4 vertex : SV_POSITION;
 					float2 texcoord : TEXCOORD0;
 					float2 noise_uv : TEXCOORD1;
-					fixed4 color : COLOR;
+					half4 color : COLOR;
 				};
 
 
@@ -68,28 +68,28 @@
 					return OUT;
 				}
 
-				fixed4 blur(sampler2D tex, half4 texelSize, fixed2 uv)
+				half4 blur(sampler2D tex, half4 texelSize, half2 uv)
 				{
 					int blurSize = _BlurSize;
 					int radius = _BlurRadius;
 					int grids = (radius * 2 + 1) * (radius * 2 + 1);
-					fixed4 col = 0;
+					half4 col = 0;
 					for (int x = -radius; x <= radius; x++)
 					{
 						for (int y = -radius; y <= radius; y++)
 						{
 							float weight = 1.0 / grids;
-							fixed2 offset = fixed2(x * texelSize.x * blurSize, y * texelSize.y * blurSize);
+							half2 offset = half2(x * texelSize.x * blurSize, y * texelSize.y * blurSize);
 							col += tex2D(tex, uv + offset) * weight;
 						}
 					}
 					return col;
 				}
 
-				fixed4 frag(v2f_darkness IN) : SV_Target
+				half4 frag(v2f_darkness IN) : SV_Target
 				{
-					fixed4 dark = tex2D(_MainTex, IN.texcoord) * IN.color;
-					fixed4 light = blur(_LightTex, _LightTex_TexelSize, IN.texcoord);
+					half4 dark = tex2D(_MainTex, IN.texcoord) * IN.color;
+					half4 light = blur(_LightTex, _LightTex_TexelSize, IN.texcoord);
 
 
 

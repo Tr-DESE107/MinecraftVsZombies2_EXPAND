@@ -18,18 +18,18 @@
 	sampler2D _MainTex;
 	float _FireTime;
 	float4 _MainTex_ST;
-	fixed4 _EdgeColor;
+	half4 _EdgeColor;
 	sampler2D _NoiseTex;
 	float4 _NoiseTex_ST;
 	float4 _LocalRect;
-	fixed _LifeTime;
-	fixed _ClipThresold;
+	half _LifeTime;
+	half _ClipThresold;
 
 	struct a2v
 	{
 		float4 vertex : POSITION;
 		float3 texcoord : TEXCOORD0;
-		fixed4 color : COLOR;
+		half4 color : COLOR;
 	};
 
 	struct v2f
@@ -37,8 +37,8 @@
 		float2 uv : TEXCOORD0;
 		float2 noise_uv : TEXCOORD1;
 		float4 vertex : SV_POSITION;
-		fixed4 color : COLOR;
-		fixed lifetime : TEXCOORD2;
+		half4 color : COLOR;
+		half lifetime : TEXCOORD2;
 	};
 
 	v2f vert(a2v v)
@@ -53,19 +53,19 @@
 	}
 
 
-	fixed4 frag(v2f i) :SV_Target
+	half4 frag(v2f i) :SV_Target
 	{
 		// 获取原本贴图颜色
-		fixed4 col = tex2D(_MainTex, i.uv);
+		half4 col = tex2D(_MainTex, i.uv);
 		col.rgba *= i.color.rgba;
 		clip(col.a - 0.1);
 		
 		// 获取对应位置的噪声颜色。
 		float2 noise_uv = i.noise_uv - _FireTime * _NoiseTex_ST.xy;
-		fixed noise = tex2D(_NoiseTex, noise_uv).r;
+		half noise = tex2D(_NoiseTex, noise_uv).r;
 		
 		// 根据噪声的明度决定是否裁去像素。
-		fixed2 localUV = (i.uv - _LocalRect.xy) / (_LocalRect.zw - _LocalRect.xy);
+		half2 localUV = (i.uv - _LocalRect.xy) / (_LocalRect.zw - _LocalRect.xy);
 		float clipValue = noise + _ClipThresold - localUV.x - i.lifetime;
 		clip(clipValue);
 

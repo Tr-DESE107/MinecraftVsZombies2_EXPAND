@@ -71,18 +71,18 @@ Shader "MinecraftVSZombies2/UI/Grayscale"
             struct v2f
             {
                 float4 vertex   : SV_POSITION;
-                fixed4 color    : COLOR;
+                half4 color    : COLOR;
                 float2 texcoord  : TEXCOORD0;
                 float4 worldPosition : TEXCOORD1;
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
             sampler2D _MainTex;
-            fixed4 _Color;
-            fixed4 _TextureSampleAdd;
+            half4 _Color;
+            half4 _TextureSampleAdd;
             float4 _ClipRect;
             float4 _MainTex_ST;
-            fixed3 _Grayscale;
+            half3 _Grayscale;
 
             v2f vert(appdata_t v)
             {
@@ -98,7 +98,7 @@ Shader "MinecraftVSZombies2/UI/Grayscale"
                 return OUT;
             }
 
-            fixed4 frag(v2f IN) : SV_Target
+            half4 frag(v2f IN) : SV_Target
             {
                 half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 
@@ -110,7 +110,7 @@ Shader "MinecraftVSZombies2/UI/Grayscale"
                 clip (color.a - 0.001);
                 #endif
 
-                fixed gray = dot(color.rgb, _Grayscale);
+                half gray = dot(color.rgb, _Grayscale);
                 color.rgb = gray;
 
                 return color;

@@ -39,7 +39,7 @@ Shader "MinecraftVSZombies2/Entity/Mask"
                 #include "UnitySprites.cginc"
 
                 // alpha below which a mask should discard a pixel, thereby preventing the stencil buffer from being marked with the Mask's presence
-                fixed _Cutoff;
+                half _Cutoff;
 
                 struct appdata_masking
                 {
@@ -73,9 +73,9 @@ Shader "MinecraftVSZombies2/Entity/Mask"
                 }
 
 
-                fixed4 frag(v2f_masking IN) : SV_Target
+                half4 frag(v2f_masking IN) : SV_Target
                 {
-                    fixed4 c = SampleSpriteTexture(IN.uv);
+                    half4 c = SampleSpriteTexture(IN.uv);
                     // for masks: discard pixel if alpha falls below MaskingCutoff
                     clip (c.a - _Cutoff);
                     return _Color;

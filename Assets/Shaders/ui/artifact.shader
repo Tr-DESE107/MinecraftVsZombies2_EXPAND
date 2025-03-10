@@ -73,20 +73,20 @@ Shader "MinecraftVSZombies2/UI/Artifact"
             struct v2f
             {
                 float4 vertex   : SV_POSITION;
-                fixed4 color    : COLOR;
+                half4 color    : COLOR;
                 float2 texcoord  : TEXCOORD0;
                 float4 worldPosition : TEXCOORD1;
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
             sampler2D _MainTex;
-            fixed4 _Color;
-            fixed4 _TextureSampleAdd;
+            half4 _Color;
+            half4 _TextureSampleAdd;
             float4 _ClipRect;
             float4 _MainTex_ST;
-            fixed _Grayscale;
-            fixed3 _GrayscaleFactors;
-            fixed _Brighten;
+            half _Grayscale;
+            half3 _GrayscaleFactors;
+            half _Brighten;
 
             v2f vert(appdata_t v)
             {
@@ -102,7 +102,7 @@ Shader "MinecraftVSZombies2/UI/Artifact"
                 return OUT;
             }
 
-            fixed4 frag(v2f IN) : SV_Target
+            half4 frag(v2f IN) : SV_Target
             {
                 half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 
@@ -115,11 +115,11 @@ Shader "MinecraftVSZombies2/UI/Artifact"
                 #endif
 
                 // 灰度
-                fixed gray = dot(color.rgb, _GrayscaleFactors);
+                half gray = dot(color.rgb, _GrayscaleFactors);
                 color.rgb = lerp(color.rgb, gray, _Grayscale);
 
                 // 明亮
-                color.rgb = lerp(color.rgb, fixed3(1,1,1), _Brighten);
+                color.rgb = lerp(color.rgb, half3(1,1,1), _Brighten);
 
                 return color;
             }
