@@ -26,6 +26,7 @@ using MVZ2Logic;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 namespace MVZ2.Managers
 {
@@ -236,7 +237,26 @@ namespace MVZ2.Managers
         private void LogGraphics()
         {
             var sb = new StringBuilder();
-            sb.AppendLine("显示器信息：");
+
+            sb.AppendLine($"Quality: {QualitySettings.names[QualitySettings.GetQualityLevel()]}");
+
+            sb.AppendLine("系统信息：");
+            sb.AppendLine($"deviceModel: {SystemInfo.deviceModel}");
+            sb.AppendLine($"deviceType: {SystemInfo.deviceType}");
+            sb.AppendLine($"operatingSystem: {SystemInfo.operatingSystem}");
+            sb.AppendLine($"operatingSystemFamily: {SystemInfo.operatingSystemFamily}");
+            sb.AppendLine($"processorCount: {SystemInfo.processorCount}");
+            sb.AppendLine($"processorFrequency: {SystemInfo.processorFrequency}");
+            sb.AppendLine($"processorType: {SystemInfo.processorType}");
+            sb.AppendLine($"supportsAccelerometer: {SystemInfo.supportsAccelerometer}");
+            sb.AppendLine($"supportsAudio: {SystemInfo.supportsAudio}");
+            sb.AppendLine($"supportsGyroscope: {SystemInfo.supportsGyroscope}");
+            sb.AppendLine($"supportsLocationService: {SystemInfo.supportsLocationService}");
+            sb.AppendLine($"supportsVibration: {SystemInfo.supportsVibration}");
+            sb.AppendLine($"systemMemorySize: {SystemInfo.systemMemorySize}");
+
+            sb.AppendLine();
+            sb.AppendLine("显示设备信息：");
             sb.AppendLine($"graphicsDeviceID: {SystemInfo.graphicsDeviceID}");
             sb.AppendLine($"graphicsDeviceName: {SystemInfo.graphicsDeviceName}");
             sb.AppendLine($"graphicsDeviceType: {SystemInfo.graphicsDeviceType}");
@@ -249,6 +269,89 @@ namespace MVZ2.Managers
             sb.AppendLine($"graphicsUVStartsAtTop: {SystemInfo.graphicsUVStartsAtTop}");
             sb.AppendLine($"maxGraphicsBufferSize: {SystemInfo.maxGraphicsBufferSize}");
             sb.AppendLine($"supportsGraphicsFence: {SystemInfo.supportsGraphicsFence}");
+            sb.AppendLine($"renderingThreadingMode: {SystemInfo.renderingThreadingMode}");
+            sb.AppendLine($"hasHiddenSurfaceRemovalOnGPU: {SystemInfo.hasHiddenSurfaceRemovalOnGPU}");
+            sb.AppendLine($"hasDynamicUniformArrayIndexingInFragmentShaders: {SystemInfo.hasDynamicUniformArrayIndexingInFragmentShaders}");
+            sb.AppendLine($"supportsShadows: {SystemInfo.supportsShadows}");
+            sb.AppendLine($"supportsRawShadowDepthSampling: {SystemInfo.supportsRawShadowDepthSampling}");
+            sb.AppendLine($"supportsMotionVectors: {SystemInfo.supportsMotionVectors}");
+            sb.AppendLine($"supports3DTextures: {SystemInfo.supports3DTextures}");
+            sb.AppendLine($"supports2DArrayTextures: {SystemInfo.supports2DArrayTextures}");
+            sb.AppendLine($"supports3DRenderTextures: {SystemInfo.supports3DRenderTextures}");
+            sb.AppendLine($"supportsCubemapArrayTextures: {SystemInfo.supportsCubemapArrayTextures}");
+            sb.AppendLine($"copyTextureSupport: {SystemInfo.copyTextureSupport}");
+            sb.AppendLine($"supportsComputeShaders: {SystemInfo.supportsComputeShaders}");
+            sb.AppendLine($"renderingThreadingMode: {SystemInfo.renderingThreadingMode}");
+            sb.AppendLine($"supportsGeometryShaders: {SystemInfo.supportsGeometryShaders}");
+            sb.AppendLine($"supportsTessellationShaders: {SystemInfo.supportsTessellationShaders}");
+            sb.AppendLine($"supportsInstancing: {SystemInfo.supportsInstancing}");
+            sb.AppendLine($"supportsHardwareQuadTopology: {SystemInfo.supportsHardwareQuadTopology}");
+            sb.AppendLine($"supports32bitsIndexBuffer: {SystemInfo.supports32bitsIndexBuffer}");
+            sb.AppendLine($"supportsSparseTextures: {SystemInfo.supportsSparseTextures}");
+            sb.AppendLine($"supportedRenderTargetCount: {SystemInfo.supportedRenderTargetCount}");
+            sb.AppendLine($"supportsSeparatedRenderTargetsBlend: {SystemInfo.supportsSeparatedRenderTargetsBlend}");
+            sb.AppendLine($"supportedRandomWriteTargetCount: {SystemInfo.supportedRandomWriteTargetCount}");
+            sb.AppendLine($"supportsMultisampledTextures: {SystemInfo.supportsMultisampledTextures}");
+            sb.AppendLine($"supportsMultisampleAutoResolve: {SystemInfo.supportsMultisampleAutoResolve}");
+            sb.AppendLine($"supportsTextureWrapMirrorOnce: {SystemInfo.supportsTextureWrapMirrorOnce}");
+            sb.AppendLine($"usesReversedZBuffer: {SystemInfo.usesReversedZBuffer}");
+            sb.AppendLine($"npotSupport: {SystemInfo.npotSupport}");
+            sb.AppendLine($"maxTextureSize: {SystemInfo.maxTextureSize}");
+            sb.AppendLine($"maxCubemapSize: {SystemInfo.maxCubemapSize}");
+            sb.AppendLine($"maxComputeBufferInputsVertex: {SystemInfo.maxComputeBufferInputsVertex}");
+            sb.AppendLine($"maxComputeBufferInputsFragment: {SystemInfo.maxComputeBufferInputsFragment}");
+            sb.AppendLine($"maxComputeBufferInputsGeometry: {SystemInfo.maxComputeBufferInputsGeometry}");
+            sb.AppendLine($"maxComputeBufferInputsDomain: {SystemInfo.maxComputeBufferInputsDomain}");
+            sb.AppendLine($"maxComputeBufferInputsHull: {SystemInfo.maxComputeBufferInputsHull}");
+            sb.AppendLine($"maxComputeBufferInputsCompute: {SystemInfo.maxComputeBufferInputsCompute}");
+            sb.AppendLine($"maxComputeWorkGroupSize: {SystemInfo.maxComputeWorkGroupSize}");
+            sb.AppendLine($"maxComputeWorkGroupSizeX: {SystemInfo.maxComputeWorkGroupSizeX}");
+            sb.AppendLine($"maxComputeWorkGroupSizeY: {SystemInfo.maxComputeWorkGroupSizeY}");
+            sb.AppendLine($"maxComputeWorkGroupSizeZ: {SystemInfo.maxComputeWorkGroupSizeZ}");
+            sb.AppendLine($"supportsAsyncCompute: {SystemInfo.supportsAsyncCompute}");
+            sb.AppendLine($"supportsGraphicsFence: {SystemInfo.supportsGraphicsFence}");
+            sb.AppendLine($"supportsAsyncGPUReadback: {SystemInfo.supportsAsyncGPUReadback}");
+            sb.AppendLine($"supportsRayTracing: {SystemInfo.supportsRayTracing}");
+            sb.AppendLine($"supportsSetConstantBuffer: {SystemInfo.supportsSetConstantBuffer}");
+            sb.AppendLine($"minConstantBufferOffsetAlignment: {SystemInfo.constantBufferOffsetAlignment}");
+            sb.AppendLine($"hasMipMaxLevel: {SystemInfo.hasMipMaxLevel}");
+            sb.AppendLine($"supportsMipStreaming: {SystemInfo.supportsMipStreaming}");
+            sb.AppendLine($"usesLoadStoreActions: {SystemInfo.usesLoadStoreActions}");
+
+            sb.Append($"supportedTextureFormats: ");
+            foreach (var v in Enum.GetValues(typeof(TextureFormat)))
+            {
+                try
+                {
+                    var format = (TextureFormat)v;
+                    if (SystemInfo.SupportsTextureFormat(format))
+                    {
+                        sb.Append($"{format},");
+                    }
+                }
+                catch (ArgumentException)
+                {
+                    continue;
+                }
+            }
+            sb.AppendLine();
+            sb.Append($"supportedRenderTextureFormats: ");
+            foreach (var v in Enum.GetValues(typeof(RenderTextureFormat)))
+            {
+                try
+                {
+                    var format = (RenderTextureFormat)v;
+                    if (SystemInfo.SupportsRenderTextureFormat(format))
+                    {
+                        sb.Append($"{format},");
+                    }
+                }
+                catch (ArgumentException)
+                {
+                    continue;
+                }
+            }
+            sb.AppendLine();
             Debug.Log(sb.ToString());
         }
         IGame IMainManager.Game => Game;
