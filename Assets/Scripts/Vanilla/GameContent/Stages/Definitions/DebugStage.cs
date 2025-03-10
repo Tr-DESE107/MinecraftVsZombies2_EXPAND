@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.glowstone,
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.dreamSilk,
-                VanillaBossID.wither,
+                VanillaBossID.seija,
                 VanillaEnemyID.mutantZombie,
             });
             level.SetArtifactSlotCount(3);
