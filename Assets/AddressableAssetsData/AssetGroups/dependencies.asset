@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2abc22949261d4c4ca8f38103973eec5
   m_SerializeEntries:
-  - m_GUID: 3b4a3cfd1bcac854b9b445f3e9e1cd6b
-    m_Address: Assets/Shaders/Shading/light.shader
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d2dc5bfb75b97244916539ecf3e4ded
     m_Address: Assets/Fonts
     m_ReadOnly: 0

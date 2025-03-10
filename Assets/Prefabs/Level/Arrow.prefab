@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24f506998c375468b7d055cda2a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updatesPosition: 1
   targetTransform: {fileID: 0}
   targetOffset: {x: 0, y: 0}
 --- !u!95 &218412099695945767
