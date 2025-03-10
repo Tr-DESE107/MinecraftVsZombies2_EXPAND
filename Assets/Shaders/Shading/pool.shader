@@ -132,19 +132,19 @@
             SAMPLER(sampler_CausticTex);
 
             CBUFFER_START(UnityPerMaterial)
-            float2 _WarpTile;
-            float _CausticTime;
-            float _CausticAlpha;
-            half _WarpTime;
-            float _Warp;
+            half4 _MainTex_ST;
             float4 _CausticTex1_ST;
             float4 _CausticTex2_ST;
+            float _CausticAlpha;
             int _Caustic1_Speed;
             int _Caustic2_Speed;
-            half4 _MainTex_ST;
+            float2 _WarpTile;
+            float _Warp;
+            CBUFFER_END
+            float _CausticTime;
+            half _WarpTime;
             float4 _Color;
             half4 _RendererColor;
-            CBUFFER_END
 
             #if USE_SHAPE_LIGHT_TYPE_0
             SHAPE_LIGHT(0)

@@ -23,14 +23,14 @@ struct Varyings
     UNITY_VERTEX_OUTPUT_STEREO
 };
            
-CBUFFER_START(UnityPerMaterial)
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex);
+CBUFFER_START(UnityPerMaterial)
 float4 _MainTex_ST;
+CBUFFER_END
 half4 _ColorOffset;
 float4 _Color;
 half4 _RendererColor;
-CBUFFER_END
             
             
 Varyings UnlitVertex(Attributes v)

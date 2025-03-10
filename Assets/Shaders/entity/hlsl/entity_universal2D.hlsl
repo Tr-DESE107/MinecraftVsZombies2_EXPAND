@@ -33,10 +33,10 @@ TEXTURE2D(_MaskTex);
 SAMPLER(sampler_MaskTex);
 CBUFFER_START(UnityPerMaterial)
 half4 _MainTex_ST;
+CBUFFER_END
 float4 _Color;
 half4 _ColorOffset;
 half4 _RendererColor;
-CBUFFER_END
 
 #if USE_SHAPE_LIGHT_TYPE_0
             SHAPE_LIGHT(0)
