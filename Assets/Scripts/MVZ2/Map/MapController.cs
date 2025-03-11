@@ -180,7 +180,7 @@ namespace MVZ2.Map
             switch (button)
             {
                 case MapUI.ButtonType.Back:
-                    Main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+                    Main.Scene.DisplayMainmenu();
                     Main.SaveManager.SaveModDatas();
                     break;
                 case MapUI.ButtonType.Almanac:

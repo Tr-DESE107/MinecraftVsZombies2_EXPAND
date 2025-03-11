@@ -145,6 +145,15 @@ namespace MVZ2.Scenes
                 pair.Value.Hide();
             }
         }
+        public void DisplayMainmenu()
+        {
+            DisplayPage(MainScenePageType.Mainmenu);
+        }
+        public void DisplayMainmenuToBasement()
+        {
+            DisplayPage(MainScenePageType.Mainmenu);
+            mainmenu.SetViewToBasement();
+        }
         public void DisplayTitlescreen()
         {
             DisplayPage(MainScenePageType.Titlescreen);
@@ -238,7 +247,7 @@ namespace MVZ2.Scenes
             }
             else
             {
-                DisplayPage(MainScenePageType.Mainmenu);
+                DisplayMainmenu();
             }
         }
 

@@ -56,8 +56,18 @@ namespace MVZ2.Mainmenu
             ui.SetUserName(name);
             ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
             ui.SetUserNameGold(!isSpecialName && main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
-            animatorBlendStart = Vector2.zero;
-            animatorBlendEnd = Vector2.zero;
+            animatorBlendStart = mainmenuBlend;
+            animatorBlendEnd = mainmenuBlend;
+        }
+        public void SetViewToBasement()
+        {
+            animator.SetTrigger("Instant");
+            animatorBlendStart = basementBlend;
+            animatorBlendEnd = basementBlend;
+            var blend = GetCurrentAnimatorBlend();
+            animator.SetFloat("BlendX", blend.x);
+            animator.SetFloat("BlendY", blend.y);
+            ui.SetRayblockerActive(false);
         }
         public void Reload()
         {
@@ -171,42 +181,42 @@ namespace MVZ2.Mainmenu
 
         private void OnAlmanacButtonClickCallback()
         {
-            main.Scene.DisplayAlmanac(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+            main.Scene.DisplayAlmanac(() => main.Scene.DisplayMainmenu());
         }
         private void OnStoreButtonClickCallback()
         {
-            main.Scene.DisplayStore(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu), true);
+            main.Scene.DisplayStore(() => main.Scene.DisplayMainmenu(), true);
         }
         private void OnMoreMenuButtonClickCallback()
         {
-            StartAnimatorTransition(new Vector2(0, -1));
+            StartAnimatorTransition(basementBlend);
         }
 
         private void OnBackToMenuButtonClickCallback()
         {
-            StartAnimatorTransition(new Vector2(0, 0));
+            StartAnimatorTransition(mainmenuBlend);
         }
         private void OnArchiveButtonClickCallback()
         {
-            main.Scene.DisplayArchive(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+            main.Scene.DisplayArchive(() => main.Scene.DisplayMainmenuToBasement());
         }
         private void OnAddonsButtonClickCallback()
         {
-            main.Scene.DisplayAddons(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+            main.Scene.DisplayAddons(() => main.Scene.DisplayMainmenuToBasement());
         }
         private void OnStatsButtonClickCallback()
         {
             ReloadStats();
-            StartAnimatorTransition(new Vector2(-1, -1));
+            StartAnimatorTransition(statsBlend);
         }
         private void OnAchievementButtonClickCallback()
         {
             ReloadAchievements();
-            StartAnimatorTransition(new Vector2(1, -1));
+            StartAnimatorTransition(achievementsBlend);
         }
         private void OnMusicRoomButtonClickCallback()
         {
-            main.Scene.DisplayMusicRoom(() => main.Scene.DisplayPage(MainScenePageType.Mainmenu));
+            main.Scene.DisplayMusicRoom(() => main.Scene.DisplayMainmenu());
         }
 
         private void OnOptionsCloseClickCallback()
@@ -294,11 +304,11 @@ namespace MVZ2.Mainmenu
         #region 统计
         private void OnStatsReturnClickCallback()
         {
-            StartAnimatorTransition(new Vector2(0, -1));
+            StartAnimatorTransition(basementBlend);
         }
         private void OnAchievementsReturnClickCallback()
         {
-            StartAnimatorTransition(new Vector2(0, -1));
+            StartAnimatorTransition(basementBlend);
         }
         #endregion
 
@@ -622,6 +632,14 @@ namespace MVZ2.Mainmenu
         private Animator animator;
         [SerializeField]
         private float transitionTime = 1;
+        [SerializeField]
+        private Vector2 mainmenuBlend = new Vector2(0, 0);
+        [SerializeField]
+        private Vector2 basementBlend = new Vector2(0, -1);
+        [SerializeField]
+        private Vector2 statsBlend = new Vector2(-1, -1);
+        [SerializeField]
+        private Vector2 achievementsBlend = new Vector2(1, -1);
 
         private OptionsLogicMainmenu optionsLogic;
         private int[] managingUserIndexes;

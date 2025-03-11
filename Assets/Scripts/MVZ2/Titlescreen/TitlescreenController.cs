@@ -64,7 +64,7 @@ namespace MVZ2.Titlescreen
             }
             else
             {
-                main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+                main.Scene.DisplayMainmenu();
             }
         }
         private void OnLanguageDialogConfirmedCallback(int index)
@@ -72,7 +72,7 @@ namespace MVZ2.Titlescreen
             ui.HideLanguageDialog();
             var languages = main.LanguageManager.GetAllLanguages();
             main.OptionsManager.SetLanguage(languages[index]);
-            main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+            main.Scene.DisplayMainmenu();
         }
         #endregion
 

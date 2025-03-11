@@ -125,7 +125,7 @@ namespace MVZ2.Scenes
             main.MusicManager.Play(VanillaMusicID.mainmenu);
             if (main.IsFastMode())
             {
-                main.Scene.DisplayPage(MainScenePageType.Mainmenu);
+                main.Scene.DisplayMainmenu();
             }
             else
             {
