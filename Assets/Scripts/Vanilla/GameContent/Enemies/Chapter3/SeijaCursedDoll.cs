@@ -40,7 +40,8 @@ namespace MVZ2.GameContent.Enemies
 
             var orbitOffset = Vector2.right.RotateClockwise(angle) * ORBIT_DISTANCE;
             var targetPosition = entity.Parent.Position + new Vector3(orbitOffset.x, 0, orbitOffset.y);
-            entity.Velocity = targetPosition - entity.Position;
+            targetPosition.y = Mathf.Max(targetPosition.y, entity.Level.GetGroundY(targetPosition));
+            entity.Position = targetPosition;
 
             // Absorb.
             detectBuffer.Clear();
