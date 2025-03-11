@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightRenderer: {fileID: 6603663529093330618}
-  shakeRange: 0.05
+  shakeRange: 0.02
 --- !u!1 &4330566560682359567
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 0.05
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: c1065985df20b09adb6ac22847b01cea6d2b388975c91b8749db17a621e74a8369db24f0000000002fb199fd31b1bc5df131d1f1c98b04f505f7fe62399042eb717b09531376dc674d06c093dfb8ec47
+  m_ApplyToSortingLayers: c1065985df20b09adb6ac22847b01cea6d2b388975c91b8749db17a621e74a8369db24f0000000002fb199fd31b1bc5df131d1f1
   m_LightCookieSprite: {fileID: 21300000, guid: 4b231be250a3cbf49a9bb3175eeca43c, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
