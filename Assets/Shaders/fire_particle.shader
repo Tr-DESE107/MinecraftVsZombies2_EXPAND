@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_NoiseTex("Noise Texture", 2D) = "" {}
+		_NoiseTex("Noise Texture", 2D) = "white" {}
 		_EdgeColor("Edge Color", Color) = (1,1,1,1)
 		_LocalRect("Local Rect", Vector) = (0, 0, 1, 1)
 		_FireTime("Fire Time", Float) = 0

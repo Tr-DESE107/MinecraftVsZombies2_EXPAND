@@ -11,7 +11,6 @@
 		Tags
 		{
 			"Queue" = "Transparent"
-			"IgnoreProjector" = "True"
 			"RenderType" = "Transparent"
 			"PreviewType" = "Plane"
             "RenderPipeline" = "UniversalPipeline" 
@@ -23,7 +22,6 @@
 
 			Blend OneMinusDstColor OneMinusSrcAlpha
 			ZWrite Off
-			Cull Off
 
 			HLSLPROGRAM
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"

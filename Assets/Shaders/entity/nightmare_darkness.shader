@@ -3,79 +3,19 @@
     Properties
     {
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_NoiseTex("Noise Texture", 2D) = "" {}
+		_NoiseTex("Noise Texture", 2D) = "white" {}
 		_Radius("Radius", Range(0, 1)) = 0
 		_Edge("Edge", Float) = 3
     }
-
-	CGINCLUDE
-	#include "UnityCG.cginc"
-	#pragma target 3.0
-
-	sampler2D _MainTex;
-	float4 _MainTex_ST;
-	sampler2D _NoiseTex;
-	float4 _NoiseTex_ST;
-	half _Radius;
-	float _Edge;
-
-	struct a2v
-	{
-		float4 vertex : POSITION;
-		float3 texcoord : TEXCOORD0;
-		half4 color : COLOR;
-	};
-
-	struct v2f
-	{
-		float2 uv : TEXCOORD0;
-		float2 noise_uv : TEXCOORD1;
-		float4 vertex : SV_POSITION;
-		half4 color : COLOR;
-	};
-
-	v2f vert(a2v v)
-	{
-		v2f o;
-		o.vertex = UnityObjectToClipPos(v.vertex);
-		o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-		o.noise_uv = TRANSFORM_TEX(v.texcoord, _NoiseTex);
-		o.color = v.color;
-		
-		return o;
-	}
-
-
-	half4 frag(v2f i) :SV_Target
-	{
-		half4 col = tex2D(_MainTex, i.uv);
-		col.rgba *= i.color.rgba;
-		
-		float dis = distance(float2(0.5,0.5), i.uv) * 2;
-		float diff = (_Radius + _Edge - dis) /_Edge;
-
-		float2 noise1_uv = i.noise_uv;
-		float2 noise2_uv = i.noise_uv * 0.4 + 0.1;
-		half noise1 = tex2D(_NoiseTex, noise1_uv).r;
-		half noise2 = tex2D(_NoiseTex, noise2_uv).r;
-		half noise = noise1 + noise2;
-
-		col.a -= max(1-_Radius, noise) * (1 - diff);
-		
-		return col;
-	}
-
-	ENDCG
 
 	SubShader
 	{
 		Tags
 		{
 			"Queue" = "Transparent"
-			"IgnoreProjector" = "True"
-			"RenderType" = "Opaque"
+			"RenderType" = "Transparent"
 			"PreviewType" = "Plane"
-			"CanUseSpriteAtlas" = "True"
+			"RenderPipeline"="UniversalPipeline"
 		}
 
 		Pass
@@ -85,10 +25,69 @@
 			ZWrite Off
 			Cull Off
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			ENDCG
+			
+			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+			TEXTURE2D(_MainTex);
+			SAMPLER(sampler_MainTex);
+			TEXTURE2D(_NoiseTex);
+			SAMPLER(sampler_NoiseTex);
+			CBUFFER_START(UnityPerMaterial)
+			float4 _MainTex_ST;
+			float4 _NoiseTex_ST;
+			float _Edge;
+			CBUFFER_END
+			float _Radius;
+
+			struct Attributes
+			{
+				float4 vertex : POSITION;
+				float2 texcoord : TEXCOORD0;
+				half4 color : COLOR;
+			};
+
+			struct Varyings
+			{
+				float2 uv : TEXCOORD0;
+				float2 noise_uv : TEXCOORD1;
+				float4 vertex : SV_POSITION;
+				half4 color : COLOR;
+			};
+
+			Varyings vert(Attributes v)
+			{
+				Varyings o = (Varyings)0;
+				o.vertex = TransformObjectToHClip(v.vertex);
+				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+				o.noise_uv = TRANSFORM_TEX(v.texcoord, _NoiseTex);
+				o.color = v.color;
+		
+				return o;
+			}
+
+
+			half4 frag(Varyings i) :SV_Target
+			{
+    			half4 col = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+				col.rgba *= i.color.rgba;
+		
+				float dis = distance(float2(0.5,0.5), i.uv) * 2;
+				float diff = (_Radius + _Edge - dis) /_Edge;
+
+				float2 noise1_uv = i.noise_uv;
+				float2 noise2_uv = i.noise_uv * 0.4 + 0.1;
+				half noise1 = SAMPLE_TEXTURE2D(_NoiseTex, sampler_NoiseTex, noise1_uv).r;
+				half noise2 = SAMPLE_TEXTURE2D(_NoiseTex, sampler_NoiseTex, noise2_uv).r;
+				half noise = noise1 + noise2;
+
+				col.a = saturate(col.a - max(1-_Radius, noise) * (1 - diff));
+		
+				return col;
+			}
+			ENDHLSL
 
 		}
 

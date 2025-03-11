@@ -51,7 +51,7 @@ Shader "MinecraftVSZombies2/UI/Artifact"
         Pass
         {
             Name "Default"
-        CGPROGRAM
+            CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             #pragma target 2.0
