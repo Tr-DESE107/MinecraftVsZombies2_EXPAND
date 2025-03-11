@@ -10,13 +10,11 @@ namespace MVZ2.GameContent.Detections
     {
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var shootOffset = self.GetShotOffset();
+            var source = self.GetShootPoint();
             var projectileID = self.GetProjectileID();
             var projectileDef = GetEntityDefinition(self.Level, projectileID);
             var range = self.GetRange();
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
-
-            var source = self.Position + shootOffset;
 
             var sizeX = range < 0 ? 800 : range;
             var centerX = source.x + sizeX * 0.5f * self.GetFacingX();

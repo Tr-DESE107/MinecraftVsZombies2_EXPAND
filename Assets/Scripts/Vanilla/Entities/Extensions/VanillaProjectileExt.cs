@@ -11,25 +11,14 @@ namespace MVZ2.Vanilla.Entities
     {
         public static Entity ShootProjectile(this Entity entity)
         {
-            return entity.ShootProjectile(entity.GetProjectileID());
+            var shootParams = entity.GetShootParams();
+            return entity.ShootProjectile(shootParams);
         }
         public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID)
         {
-            var velocity = entity.GetShotVelocity();
-            if (entity.IsFacingLeft())
-            {
-                velocity.x *= -1;
-            }
-            return entity.ShootProjectile(projectileID, velocity);
-        }
-        public static Vector3 GetShootPoint(this Entity entity)
-        {
-            Vector3 offset = entity.GetShotOffset();
-            if (entity.IsFacingLeft())
-            {
-                offset.x *= -1;
-            }
-            return entity.Position + offset;
+            var shootParams = entity.GetShootParams();
+            shootParams.projectileID = projectileID;
+            return entity.ShootProjectile(shootParams);
         }
         public static Entity ShootProjectile(this Entity entity, NamespaceID projectileID, Vector3 velocity)
         {
@@ -56,6 +45,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static ShootParams GetShootParams(this Entity entity)
         {
+            var velocity = entity.GetShotVelocity();
+            if (entity.IsFacingLeft())
+            {
+                velocity.x *= -1;
+            }
             return new ShootParams()
             {
                 projectileID = entity.GetProjectileID(),
@@ -63,8 +57,17 @@ namespace MVZ2.Vanilla.Entities
                 faction = entity.GetFaction(),
                 damage = entity.GetDamage(),
                 soundID = entity.GetShootSound(),
-                velocity = entity.GetShotVelocity()
+                velocity = velocity
             };
+        }
+        public static Vector3 GetShootPoint(this Entity entity)
+        {
+            Vector3 offset = entity.GetShotOffset();
+            if (entity.IsFacingLeft())
+            {
+                offset.x *= -1;
+            }
+            return entity.Position + offset;
         }
         public static void UpdatePointTowardsDirection(this Entity entity)
         {
