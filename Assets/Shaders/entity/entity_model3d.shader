@@ -10,14 +10,17 @@ Shader "MinecraftVSZombies2/Entity/Model"
 
     SubShader
     {
+        Tags 
+        { 
+            "Queue"="Transparent"
+            "RenderPipeline"="UniversalPipeline"
+        }
         Pass 
         {
 		    Name "ZWrite"
             Tags 
             { 
-                "Queue"="AlphaTest"        // 修复部分机型上不兼容的问题
-                "RenderType"="TransparentCutout"    // 修复部分机型上不兼容的问题
-                "RenderPipeline"="UniversalPipeline"
+                "RenderType"="TransparentCutout"
             }
 
             ZWrite On
@@ -64,9 +67,7 @@ Shader "MinecraftVSZombies2/Entity/Model"
             Name "Universal2D"
             Tags 
             { 
-                "Queue"="Transparent"
                 "RenderType"="Transparent" 
-                "RenderPipeline"="UniversalPipeline"
                 "LightMode" = "Universal2D"
             }
 
