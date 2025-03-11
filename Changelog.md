@@ -1,3 +1,26 @@
+# 0.3.9
+
+## Changes
+* When exiting from "Addons" or "Archives" menus, it will return to the basement (instead of upper area).
+* Reduced the frequency of error SFX when collecting Starshards.
+
+## Fixes
+* Fixed light sources penetrating through UI elements.
+* Fixed the issue where sometimes pickaxe and starshard slot won't hide the x mark after Decrepify curse expires.
+* Fixed the issue where enemy Drivensers still firing large arrows to the right.
+* Fixed shader compilation errors causing crashes on certain devices.
+* Fixed the issue where contraption on maps missing shadows.
+* Fixed the issue where the Tesla Coil on Shining Needle Castle map is transparent.
+* Fixed the issue where contraptions on Shining Needle Castle map blocking view drag.
+* Fixed the issue where dead enemies can trigger Mine TNT.
+* Fixed the issue where Seija's Cursed Doll move weirdly.
+* Fixed the issue where Seija's projectiles are colored incorrectly.
+* Fixed the issue where Seija's defeat visual effect is missing.
+* Fixed the issue where there's a white square in Almanac.
+* Fixed the issue where mobile cursor not instantly updating dual-layer target markers from Stone Shield when moving within the same grid cell.
+
+---
+
 # 0.3.8
 
 ## Fixed
