@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex("Diffuse", 2D) = "white" {}
+        _LightFactor("Light Factor", Range(0, 1)) = 0
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color("Tint", Color) = (1,1,1,1)
@@ -40,9 +41,6 @@
             #pragma multi_compile USE_SHAPE_LIGHT_TYPE_2 __
             #pragma multi_compile USE_SHAPE_LIGHT_TYPE_3 __
             #pragma multi_compile _ DEBUG_DISPLAY
-            #pragma multi_compile _ BURN_ON
-            #pragma multi_compile _ HSV_TINT
-            #pragma multi_compile _ CIRCLE_TILED
 
             #include "hlsl/entity_shadow.hlsl" 
             ENDHLSL

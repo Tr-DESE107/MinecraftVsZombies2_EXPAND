@@ -25,8 +25,11 @@ struct Varyings
             
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex);
+CBUFFER_START(UnityPerMaterial)
 half4 _MainTex_ST;
 float4 _Color;
+half _LightFactor;
+CBUFFER_END
 half4 _RendererColor;
 
 #if USE_SHAPE_LIGHT_TYPE_0
@@ -76,8 +79,8 @@ half4 ShadowFragment(Varyings i) : SV_Target
     
     half4 lightValue = CombinedShapeLightShared(surfaceData, inputData);
     half alpha = main.a;
-    half r = lerp(1, lerp(main.r, 1, lightValue.r), alpha);
-    half g = lerp(1, lerp(main.g, 1, lightValue.g), alpha);
-    half b = lerp(1, lerp(main.b, 1, lightValue.b), alpha);
+    half r = lerp(1, lerp(main.r, 1, lightValue.r * _LightFactor), alpha);
+    half g = lerp(1, lerp(main.g, 1, lightValue.g * _LightFactor), alpha);
+    half b = lerp(1, lerp(main.b, 1, lightValue.b * _LightFactor), alpha);
     return half4(r, g, b, alpha);
 }
