@@ -82,29 +82,29 @@ namespace MVZ2.Level
             {
                 ClearGridHighlight();
                 lastPointingGrid = pointing;
-                if (pointing >= 0)
-                {
-                    var lane = level.GetGridLaneByIndex(pointing);
-                    var column = level.GetGridColumnByIndex(pointing);
-                    var grid = level.GetGrid(column, lane);
-                    var gridUI = gridLayout.GetGrid(lane, column);
+            }
+            if (pointing >= 0)
+            {
+                var lane = level.GetGridLaneByIndex(pointing);
+                var column = level.GetGridColumnByIndex(pointing);
+                var grid = level.GetGrid(column, lane);
+                var gridUI = gridLayout.GetGrid(lane, column);
 
-                    Vector2 position;
-                    if (gridUI)
-                    {
-                        var screenPos = Main.InputManager.GetPointerPosition(pointingPointerId);
-                        var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
-                        position = gridUI.TransformWorld2ColliderPosition(worldPos);
-                    }
-                    else
-                    {
-                        position = Vector2.zero;
-                    }
-                    var target = new HeldItemTargetGrid(grid, position);
-                    var highlight = level.GetHeldHighlight(target);
-                    HighlightGrid(lane, column, highlight);
-                    HighlightAxisGrids(lane, column);
+                Vector2 position;
+                if (gridUI)
+                {
+                    var screenPos = Main.InputManager.GetPointerPosition(pointingPointerId);
+                    var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
+                    position = gridUI.TransformWorld2ColliderPosition(worldPos);
                 }
+                else
+                {
+                    position = Vector2.zero;
+                }
+                var target = new HeldItemTargetGrid(grid, position);
+                var highlight = level.GetHeldHighlight(target);
+                HighlightGrid(lane, column, highlight);
+                HighlightAxisGrids(lane, column);
             }
         }
         private void HighlightGrid(int lane, int column, HeldHighlight highlight)
