@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Contraptions
             if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
             var other = collision.Other;
-            if (!other.IsVulnerableEntity())
+            if (!other.IsVulnerableEntity() || !other.ExistsAndAlive())
                 return;
             var self = collision.Entity;
             if (!self.IsHostile(other))
