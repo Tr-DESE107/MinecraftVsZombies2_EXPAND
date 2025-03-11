@@ -71,7 +71,7 @@ Varyings CombinedShapeLightVertex(Attributes v)
 
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
     o.lightingUV = half2(ComputeScreenPos(o.positionCS / o.positionCS.w).xy);
-    o.color = v.color * _Color * _RendererColor;
+    o.color = v.color;
     return o;
 }
 
@@ -80,7 +80,8 @@ Varyings CombinedShapeLightVertex(Attributes v)
 half4 CombinedShapeLightFragment(Varyings i) : SV_Target
 {
     half4 main = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-
+    
+    main = Tint(main, _Color);
     main = Tint(main, i.color);
     
     main.rgb = main.rgb + _ColorOffset.rgb;

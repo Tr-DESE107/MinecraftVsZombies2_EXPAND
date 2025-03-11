@@ -225,7 +225,7 @@ Shader "MinecraftVSZombies2/Entity/Entity Unlit"
                 #endif
 
                 o.uv = TRANSFORM_TEX(attributes.uv, _MainTex);
-                o.color = attributes.color * _Color * _RendererColor;
+                o.color = attributes.color;
                 return o;
             }
 
@@ -234,6 +234,8 @@ Shader "MinecraftVSZombies2/Entity/Entity Unlit"
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
 
                 mainTex = Tint(mainTex, i.color);
+                mainTex = Tint(mainTex, _Color);
+                mainTex = Tint(mainTex, _RendererColor);
     
                 mainTex.rgb = _ColorOffset.rgb + mainTex.rgb;
                 
