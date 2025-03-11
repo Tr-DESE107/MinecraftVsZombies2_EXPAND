@@ -12,23 +12,23 @@ namespace MVZ2.Vanilla.Entities
     {
         public static void Collect(this Entity pickup)
         {
-            if (!PreCollect(pickup))
+            if (!CanCollect(pickup))
                 return;
             pickup.State = VanillaEntityStates.PICKUP_COLLECTED;
             var collectible = pickup.Definition.GetBehaviour<ICollectiblePickup>();
             if (collectible != null)
                 collectible.PostCollect(pickup);
         }
-        private static bool PreCollect(Entity entity)
+        public static bool CanCollect(this Entity entity)
         {
             var collectible = entity.Definition.GetBehaviour<ICollectiblePickup>();
             if (collectible == null)
                 return false;
-            if (collectible.PreCollect(entity) == false)
+            if (!collectible.CanCollect(entity))
                 return false;
             var result = new TriggerResultBoolean();
             result.Result = true;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_PICKUP_COLLECT, result, c => c(entity, result));
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.CAN_PICKUP_COLLECT, result, c => c(entity, result));
             return result.Result;
         }
         public static bool IsCollected(this Entity entity)

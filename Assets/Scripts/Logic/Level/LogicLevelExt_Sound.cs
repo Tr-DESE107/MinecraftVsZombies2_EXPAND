@@ -60,6 +60,13 @@ namespace MVZ2Logic.Level
                 return;
             component.StopAllLoopSounds();
         }
+        public static bool IsPlayingSound(this LevelEngine level, NamespaceID id)
+        {
+            var component = level.GetSoundComponent();
+            if (component == null)
+                return false;
+            return component.IsPlayingSound(id);
+        }
         public static bool IsPlayingLoopSound(this LevelEngine level, NamespaceID id)
         {
             var component = level.GetSoundComponent();

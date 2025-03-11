@@ -9,6 +9,8 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic;
 using PVZEngine.Entities;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -41,7 +43,19 @@ namespace MVZ2.GameContent.HeldItems
                     if (interaction != PointerInteraction.Release)
                     {
                         if (!entity.IsCollected())
-                            entity.Collect();
+                        {
+                            if (entity.CanCollect())
+                            {
+                                entity.Collect();
+                            }
+                            else
+                            {
+                                if (!entity.Level.IsPlayingSound(VanillaSoundID.buzzer))
+                                {
+                                    entity.PlaySound(VanillaSoundID.buzzer);
+                                }
+                            }
+                        }
                     }
                     break;
             }

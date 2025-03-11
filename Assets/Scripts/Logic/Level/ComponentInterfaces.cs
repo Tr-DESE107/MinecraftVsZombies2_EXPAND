@@ -48,6 +48,7 @@ namespace MVZ2Logic.Level.Components
         void PlaySound(NamespaceID id, Vector3 position, float pitch = 1, float volume = 1);
         void PlaySound(NamespaceID id, float pitch = 1, float volume = 1);
         void StopAllLoopSounds();
+        bool IsPlayingSound(NamespaceID id);
         bool IsPlayingLoopSound(NamespaceID id);
         bool HasLoopSoundEntity(NamespaceID id, long entityId);
         bool AddLoopSoundEntity(NamespaceID id, long entityId);

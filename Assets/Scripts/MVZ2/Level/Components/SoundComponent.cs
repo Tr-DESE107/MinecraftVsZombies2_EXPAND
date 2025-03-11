@@ -40,6 +40,10 @@ namespace MVZ2.Level.Components
                 return;
             source.volume = volume;
         }
+        public bool IsPlayingSound(NamespaceID id)
+        {
+            return Main.SoundManager.IsPlaying(id);
+        }
         #region —≠ª∑“Ù–ß
         public bool IsPlayingLoopSound(NamespaceID id)
         {

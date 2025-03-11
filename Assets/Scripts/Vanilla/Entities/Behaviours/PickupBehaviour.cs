@@ -21,7 +21,7 @@ namespace MVZ2.Vanilla.Entities
             if (!pickup.IsCollected())
             {
                 LimitPosition(pickup);
-                if (pickup.Level.IsAutoCollect() && !pickup.NoAutoCollect() && CanAutoCollect(pickup))
+                if (pickup.Level.IsAutoCollect() && !pickup.NoAutoCollect() && CanAutoCollect(pickup) && CanCollect(pickup))
                 {
                     pickup.Collect();
                 }
@@ -45,10 +45,6 @@ namespace MVZ2.Vanilla.Entities
             pos.x = Mathf.Clamp(pos.x, VanillaLevelExt.GetPickupBorderX(false), VanillaLevelExt.GetPickupBorderX(true));
             entity.Position = pos;
         }
-        public virtual bool? PreCollect(Entity pickup)
-        {
-            return null;
-        }
         public virtual void PostCollect(Entity pickup)
         {
             if (pickup.RemoveOnCollect())
@@ -57,6 +53,10 @@ namespace MVZ2.Vanilla.Entities
             }
             pickup.SetSortingLayer(SortingLayers.frontUI);
             pickup.SetSortingOrder(9999);
+        }
+        public virtual bool CanCollect(Entity pickup)
+        {
+            return true;
         }
         public virtual bool CanAutoCollect(Entity pickup)
         {

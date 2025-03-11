@@ -37,7 +37,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void EnemyDropRewards(Entity entity);
         public delegate void PostEnemyMeleeAttack(Entity enemy, Entity target);
 
-        public delegate void PrePickupCollect(Entity entity, TriggerResultBoolean result);
+        public delegate void CanPickupCollect(Entity entity, TriggerResultBoolean result);
 
         public delegate void PreProjectileHit(ProjectileHitInput hit, DamageInput damage);
         public delegate void PostProjectileHit(ProjectileHitOutput hit, DamageOutput damage);
@@ -72,7 +72,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackReference<EnemyDropRewards> ENEMY_DROP_REWARDS = new();
         public readonly static CallbackReference<PostEnemyMeleeAttack> POST_ENEMY_MELEE_ATTACK = new();
 
-        public readonly static CallbackReference<PrePickupCollect> PRE_PICKUP_COLLECT = new();
+        public readonly static CallbackReference<CanPickupCollect> CAN_PICKUP_COLLECT = new();
 
         public readonly static CallbackReference<PostProjectileShot> POST_PROJECTILE_SHOT = new();
         public readonly static CallbackReference<PreProjectileHit> PRE_PROJECTILE_HIT = new();
