@@ -14,10 +14,6 @@ namespace MVZ2.Level.UI
         {
             animator.SetBool("Disabled", selected);
         }
-        private void Awake()
-        {
-
-        }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
             OnPointerDown?.Invoke(eventData);

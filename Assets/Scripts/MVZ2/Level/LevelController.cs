@@ -819,6 +819,13 @@ namespace MVZ2.Level
                     level.SpawnEnemyAtRandomLane(spawnDef);
                 }
             }
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                foreach (var boss in level.FindEntities(e => e.Type == EntityTypes.BOSS && !e.IsDead))
+                {
+                    boss.Die();
+                }
+            }
 #endif
             if (!isGameOver)
             {

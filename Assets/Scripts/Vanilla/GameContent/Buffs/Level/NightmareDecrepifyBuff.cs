@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new BooleanModifier(VanillaLevelProps.PICKAXE_DISABLED, true));
             AddModifier(new StringModifier(VanillaLevelProps.PICKAXE_DISABLE_MESSAGE, VanillaStrings.TOOLTIP_DECREPIFY));
             AddModifier(new BooleanModifier(VanillaLevelProps.PICKAXE_DISABLE_ICON, true));
+
             AddModifier(new BooleanModifier(VanillaLevelProps.STARSHARD_DISABLED, true));
             AddModifier(new StringModifier(VanillaLevelProps.STARSHARD_DISABLE_MESSAGE, VanillaStrings.TOOLTIP_DECREPIFY));
             AddModifier(new BooleanModifier(VanillaLevelProps.STARSHARD_DISABLE_ICON, true));
