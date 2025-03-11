@@ -111,6 +111,7 @@
             #pragma vertex UnlitVertex
             #pragma fragment UnlitFragment
             #pragma multi_compile _ BURN_ON
+            #pragma multi_compile _ HSV_TINT
             #pragma multi_compile _ CIRCLE_TILED
 
             #include "hlsl/entity_universal_forward.hlsl"

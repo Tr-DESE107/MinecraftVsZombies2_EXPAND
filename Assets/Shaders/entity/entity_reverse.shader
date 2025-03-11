@@ -14,11 +14,13 @@
 			"IgnoreProjector" = "True"
 			"RenderType" = "Transparent"
 			"PreviewType" = "Plane"
-			"CanUseSpriteAtlas" = "True"
+            "RenderPipeline" = "UniversalPipeline" 
 		}
 
 		Pass
 		{
+            Tags { "LightMode" = "Universal2D" }
+
 			Blend OneMinusDstColor OneMinusSrcAlpha
 			ZWrite Off
 			Cull Off
@@ -39,6 +41,7 @@
 
             struct Varyings
             {
+                float4  positionCS      : SV_POSITION;
                 half4   color       : COLOR;
                 float2  uv          : TEXCOORD0;
                 UNITY_VERTEX_OUTPUT_STEREO
@@ -46,15 +49,18 @@
 
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
+            CBUFFER_START(UnityPerMaterial)
             half4 _MainTex_ST;
             float4 _Color;
+            CBUFFER_END
 
             Varyings vert(Attributes v)
             {
                 Varyings o = (Varyings)0;
                 UNITY_SETUP_INSTANCE_ID(v);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-
+                
+                o.positionCS = TransformObjectToHClip(v.positionOS);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
                 o.color = v.color * _Color;
