@@ -49,6 +49,7 @@ namespace MVZ2.MusicRoom
         private void OnIndexReturnClickCallback()
         {
             Hide();
+            Main.MusicManager.Stop();
             OnReturnClick?.Invoke();
         }
         private void OnMusicItemClickCallback(int index)
