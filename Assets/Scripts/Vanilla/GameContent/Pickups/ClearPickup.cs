@@ -100,6 +100,7 @@ namespace MVZ2.GameContent.Pickups
                 p.Collect();
             }
             level.Clear();
+            level.ResetHeldItem();
             level.StopMusic();
             level.PlaySound(pickup.GetCollectSound());
             level.PlaySound(pickup.Level.GetClearSound());
