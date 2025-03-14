@@ -1,3 +1,12 @@
+# 0.3.10
+
+## Modified
+* Picking up the clear level pickup now will cancel the holding item.
+
+## Fixed
+* Fixed the issue where play Crazy Dave in music room and pause it, then return to main menu, the music will also be paused.
+* Fixed the issue where sometimes the game will attempt to set mouse cursor in mobile devices, which may cause the game to crash.
+
 # 0.3.9
 
 ## Changes
