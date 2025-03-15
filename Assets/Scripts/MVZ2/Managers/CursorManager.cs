@@ -75,24 +75,22 @@ namespace MVZ2.Cursors
         }
         private void UpdateCursor()
         {
-            var cursorType = CursorType.Arrow;
             var main = MainManager.Instance;
-            if (main == null)
+            // 移动端不要调用Cursor相关内容，可能会崩溃
+            if (main == null || main.IsMobile())
+                return;
+
+            var cursorType = CursorType.Arrow;
+            var enabledSources = cursorSources.Where(s => s.Enabled);
+            if (enabledSources.Count() > 0)
             {
-                var enabledSources = cursorSources.Where(s => s.Enabled);
-                if (enabledSources.Count() > 0)
-                {
-                    cursorType = enabledSources.LastOrDefault().CursorType;
-                }
+                cursorType = enabledSources.LastOrDefault().CursorType;
             }
 
             if (targetCursorType == cursorType)
                 return;
             targetCursorType = cursorType;
 
-            // 移动端不要调用Cursor相关内容，可能会崩溃
-            if (main == null || main.IsMobile())
-                return;
             if (targetCursorType == CursorType.Empty)
             {
                 Cursor.visible = outOfScreen;
