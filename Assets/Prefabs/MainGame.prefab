@@ -170,12 +170,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &851195532773048538
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,12 +737,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &2090265737244313979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,8 +3770,60 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3871183180979033227, guid: 9cb59ad6c574a064aba0e6f123cfdf1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3065780448458306652}
   m_SourcePrefab: {fileID: 100100000, guid: 9cb59ad6c574a064aba0e6f123cfdf1f, type: 3}
+--- !u!1 &3192617177640124839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3871183180979033227, guid: 9cb59ad6c574a064aba0e6f123cfdf1f, type: 3}
+  m_PrefabInstance: {fileID: 1871035637708363052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3065780448458306652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192617177640124839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!4 &4278351242249478141 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2497388063665523409, guid: 9cb59ad6c574a064aba0e6f123cfdf1f, type: 3}
@@ -5927,12 +5979,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!20 &1519143245969430927 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8695281478793315978, guid: 245b362ab3141dc45a6f2feffc181638, type: 3}
@@ -6192,6 +6244,10 @@ PrefabInstance:
     - target: {fileID: 946009057468855188, guid: c2bee865fa604a744b40d9ad7c7a5123, type: 3}
       propertyPath: m_Name
       value: Landing
+      objectReference: {fileID: 0}
+    - target: {fileID: 946009057468855188, guid: c2bee865fa604a744b40d9ad7c7a5123, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5012742312879478206, guid: c2bee865fa604a744b40d9ad7c7a5123, type: 3}
       propertyPath: m_LocalPosition.x
