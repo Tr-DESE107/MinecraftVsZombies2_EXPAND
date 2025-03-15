@@ -230,6 +230,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **Enemies**
 
 - x150% attack speed for enemies.
+- Ghast's fire charge deals 300 damage.
 - +1 spawned Parasite Terrors from enemies.
 - Skeleton Horses jump twice.
 
