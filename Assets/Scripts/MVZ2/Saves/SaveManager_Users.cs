@@ -170,6 +170,10 @@ namespace MVZ2.Saves
                     newUserDataList.CurrentUserIndex = i;
                 }
             }
+            if (newUserDataList.CurrentUserIndex < 0)
+            {
+                newUserDataList.CurrentUserIndex = 0;
+            }
             return newUserDataList;
         }
         private VanillaSaveData[] ImportOldUserData(UserDataList userList, OldSaveData[] userDatas)
