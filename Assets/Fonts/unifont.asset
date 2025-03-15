@@ -86,8 +86,8 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _TextureHeight: 1024
-    - _TextureWidth: 1024
+    - _TextureHeight: 4096
+    - _TextureWidth: 4096
     - _UnderlayDilate: 0
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_SubscriptSize: 0.5
     m_UnderlineOffset: -8
     m_UnderlineThickness: 4
-    m_StrikethroughOffset: 14
+    m_StrikethroughOffset: 16
     m_StrikethroughThickness: 2.5
     m_TabWidth: 16
   m_GlyphTable: []
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_FreeGlyphRects:
   - m_X: 0
     m_Y: 0
-    m_Width: 1023
-    m_Height: 1023
+    m_Width: 4095
+    m_Height: 4095
   m_fontInfo:
     Name: 
     PointSize: 0
@@ -234,8 +234,8 @@ MonoBehaviour:
     AtlasWidth: 0
     AtlasHeight: 0
   atlas: {fileID: 0}
-  m_AtlasWidth: 1024
-  m_AtlasHeight: 1024
+  m_AtlasWidth: 4096
+  m_AtlasHeight: 4096
   m_AtlasPadding: 10
   m_AtlasRenderMode: 4134
   m_glyphInfoList: []
@@ -252,10 +252,10 @@ MonoBehaviour:
     pointSize: 64
     padding: 10
     packingMode: 0
-    atlasWidth: 1024
-    atlasHeight: 1024
+    atlasWidth: 4096
+    atlasHeight: 4096
     characterSetSelectionMode: 6
-    characterSequence: 00
+    characterSequence: 5F,2026,3002,4E00,4E0D,4E2A,4E2D,4E3A,4E45,4E48,4E50,4E86,4E8C,4EBA,4EC0,4EE5,4EEC,4EF6,4F1A,4F24,4F4F,4F5C,4F60,4FDD,505C,50F5,5165,5168,5173,5185,5192,51B2,51B7,51FB,5220,5236,52A8,5355,5361,536B,5374,53D1,53F0,53F3,540D-540E,5426-5427,547D,548C,54C1,5546,5565,5668,56DE,56F0,56FE,5728,5730,573A,591A,597D,59CB,5B50,5B57,5B83,5B8C,5B9A,5BB3,5BF9,5C04,5C31,5C38,5C4F,5E3D,5E97,5EA6,5EFA,5F00,5F0F,5F13,5FEB,602A,60AC,6210-6211,6218,6237,623F,6280,62D6,62E9,6309,63D2,6447,652F,653E,6548,6570,6587,65B0,65E0,65F6,662F,6682,66F4,6709,672C,6742,6765,67E5,6805,680F,6848,6863,68B0,6A21,6B63,6C38,6D6E,6EDA,70B9,7248,7269,72F1,7528,7684,76AE,770B,7740,77E2,77ED,77F3,786E,79D2,79FB,7B2C,7BAD,7EA2,7EBF,7EDF,7F29,8010,80FD,8109,82B1,83DC,84DD,8981,89C6,8BA1,8BA9,8BDD,8BF4,8C01,8D39,8D77,8F6E,8FD4,8FD8,8FDB-8FDC,8FDE,9009,901F,9053,90E8,91CD,91CF,9274,952E,95EE,95F4,9632,9644,9650,9664,9669,96BE,9700,97F3,9879,987F,FF01,FF08-FF09,FF0C,FF1A,FF1F
     referencedFontAssetGUID: 5b56f2710b087e74190f0ad539f71138
     referencedTextAssetGUID: 
     fontStyle: 0
