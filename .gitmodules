@@ -3,7 +3,7 @@
 	url = https://code.lotlab.org/cuerzor/MukioI18n
 [submodule "Assets/Plugins/CustomBuilder"]
 	path = Assets/Plugins/CustomBuilder
-	url = https://code.lotlab.org/IGensokyo/CustomBuilder.git
+	url = https://code.lotlab.org/cuerzor/CustomBuilder.git
 [submodule "Assets/Plugins/tidalwav"]
 	path = Assets/Plugins/tidalwav
 	url = https://github.com/Cuerzor/tidalwav.git
