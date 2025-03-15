@@ -290,6 +290,7 @@
 
             <bool name="shadowHidden" value="true"/>
             <bool name="isFloor" value="true"/>
+            <bool name="loyal" value="true"/>
             <id name="shell" value="mvz2:metal"/>
             <id name="placement" value="mvz2:pad"/>
             <vector3 name="size" x="64" y="2" z="64"/>
