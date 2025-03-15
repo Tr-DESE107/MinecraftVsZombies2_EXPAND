@@ -8,6 +8,7 @@ using MVZ2.Managers;
 using MVZ2.OldSave;
 using MVZ2.OldSaves;
 using MVZ2.Save;
+using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
@@ -73,6 +74,7 @@ namespace MVZ2.Saves
                 LoadModData(index, mod.Namespace);
             }
             EvaluateUnlocks(true);
+            CheckUserDataFix();
         }
         public SaveDataStatus GetSaveDataStatus()
         {
@@ -406,6 +408,14 @@ namespace MVZ2.Saves
             }
             unlockedAchievementsCache.Clear();
             unlockedAchievementsCache.AddRange(newAchievements);
+        }
+        private void CheckUserDataFix()
+        {
+            // 通过梦境世界第7关，并且没有通过第11关。
+            if (IsUnlocked(VanillaUnlockID.dream7) && !IsUnlocked(VanillaUnlockID.dream11))
+            {
+                Unlock(VanillaUnlockID.dreamIsNightmare);
+            }
         }
         #endregion
 

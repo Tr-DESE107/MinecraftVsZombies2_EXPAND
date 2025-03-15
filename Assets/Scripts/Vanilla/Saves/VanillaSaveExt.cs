@@ -130,6 +130,16 @@ namespace MVZ2.Vanilla.Saves
         {
             return save.IsUnlocked(VanillaUnlockID.starshard);
         }
+        /// <summary>
+        /// 梦境世界是否是梦魇状态。
+        /// </summary>
+        /// <param name="save"></param>
+        /// <returns></returns>
+        public static bool DreamIsNightmare(this IGameSaveData save)
+        {
+            // 玩家设置。
+            return save.IsUnlocked(VanillaUnlockID.dreamIsNightmare);
+        }
         public static NamespaceID GetLevelClearUnlockID(NamespaceID stageID)
         {
             return new NamespaceID(stageID.SpaceName, GetLevelClearUnlockID(stageID.Path));
