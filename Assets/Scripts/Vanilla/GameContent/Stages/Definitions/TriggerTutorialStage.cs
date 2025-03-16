@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.HeldItems;
+using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
@@ -254,7 +255,7 @@ namespace MVZ2.GameContent.Stages
                     level.SetStarshardActive(true);
                     level.SetTriggerActive(true);
                     Global.Game.Unlock(VanillaUnlockID.trigger);
-                    level.BeginLevel();
+                    level.SimpleStartTalk(VanillaTalkID.halloween7, 0, 2, onEnd: () => level.BeginLevel());
                     break;
             }
         }

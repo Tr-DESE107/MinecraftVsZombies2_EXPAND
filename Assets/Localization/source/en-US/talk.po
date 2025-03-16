@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-11 09:30+0800\n"
-"PO-Revision-Date: 2025-03-11 21:31+0800\n"
+"POT-Creation-Date: 2025-03-16 08:29+0800\n"
+"PO-Revision-Date: 2025-03-16 21:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -6150,6 +6150,39 @@ msgstr "Well, to start off, lemme teach you how to trigger contraptions!"
 msgctxt "talk-mvz2:trigger_tutorial"
 msgid "那么，现在来开始吧！"
 msgstr "Alright, try it out!"
+
+#. Archive name for talk group halloween_7
+#: Talk meta file
+msgctxt "archive"
+msgid "万圣夜第7天入场"
+msgstr "Halloween Day 7 Intro"
+
+#. Text for talk sentence 0 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "另外，朋友！我们之前拿到了欧兰特的图鉴！"
+msgstr "Also, neighbor, we have obtained Orant's Almanac before!"
+
+#. Text for talk sentence 1 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "图鉴的作用不止是记录见到的东西，它同时还是一个制品！"
+msgstr ""
+"The Almanac's usage is not only to record what we have seen, but it is also "
+"an artifact!"
+
+#. Text for talk sentence 2 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "携带的制品可以为你在一整局对战中提供额外的效果！"
+msgstr ""
+"The artifacts you carry can provide additional effects throughout the battle!"
+
+#. Text for talk sentence 3 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "好好利用制品吧！"
+msgstr "Be sure to make good use of them!"
 
 #. Archive name for talk group halloween_7_over
 #: Talk meta file

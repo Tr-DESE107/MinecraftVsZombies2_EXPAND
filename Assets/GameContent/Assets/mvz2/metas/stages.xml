@@ -140,6 +140,7 @@
                     <condition requiredNot="mvz2:trigger"/>
                 </repeat>
             </talk>
+            <talk type="start" value="mvz2:halloween_7"/>
             <talk type="end" value="mvz2:halloween_7_over"/>
             <talk type="map" value="mvz2:halloween_7_map"/>
         </talks>

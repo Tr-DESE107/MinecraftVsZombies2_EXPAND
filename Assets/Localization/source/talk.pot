@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-03-11 09:30+0800\n"
+"POT-Creation-Date: 2025-03-16 08:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5739,6 +5739,36 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:trigger_tutorial"
 msgid "那么，现在来开始吧！"
+msgstr ""
+
+#. Archive name for talk group halloween_7
+#: Talk meta file
+msgctxt "archive"
+msgid "万圣夜第7天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "另外，朋友！我们之前拿到了欧兰特的图鉴！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "图鉴的作用不止是记录见到的东西，它同时还是一个制品！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "携带的制品可以为你在一整局对战中提供额外的效果！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "好好利用制品吧！"
 msgstr ""
 
 #. Archive name for talk group halloween_7_over

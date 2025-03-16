@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.Vanilla.Audios;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -95,12 +96,12 @@ namespace MVZ2.Vanilla.Level
         {
             return game.GetProperty<IStageTalkMeta[]>(TALKS);
         }
-        public static IStageTalkMeta GetTalk(this LevelEngine game, string type)
+        public static IStageTalkMeta[] GetTalksOfType(this LevelEngine game, string type)
         {
             var talks = game.GetTalks();
             if (talks == null)
                 return null;
-            return talks.FirstOrDefault(t => t.Type == type);
+            return talks.Where(t => t.Type == type).ToArray();
         }
         public static NamespaceID GetEndNoteID(this LevelEngine game)
         {

@@ -92,28 +92,11 @@ namespace MVZ2.Talk
         }
         public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
         {
-            var group = Main.ResourceManager.GetTalkGroup(groupId);
-            if (group == null)
-                return false;
-            if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
-                return false;
-            if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
-                return false;
-            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-            if (section == null)
-                return false;
-            return true;
+            return Main.ResourceManager.CanStartTalk(groupId, sectionIndex);
         }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
         {
-            if (!Main.OptionsManager.SkipAllTalks())
-                return false;
-            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-            if (section == null)
-                return false;
-            if (!section.canAutoSkip)
-                return false;
-            return true;
+            return Main.ResourceManager.WillSkipTalk(groupId, sectionIndex);
         }
         #endregion
 

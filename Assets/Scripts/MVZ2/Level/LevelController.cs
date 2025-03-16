@@ -16,6 +16,7 @@ using MVZ2.Metas;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+using MVZ2.Talk;
 using MVZ2.Talks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
@@ -611,22 +612,37 @@ namespace MVZ2.Level
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Saves.SaveModDatas();
 
-            var mapTalk = level.GetTalk(StageMetaTalk.TYPE_MAP);
-            if (mapTalk != null)
+            var mapTalks = level.GetTalksOfType(StageMetaTalk.TYPE_MAP);
+            if (mapTalks != null)
             {
-                if (!level.IsRerun || mapTalk.ShouldRepeat(Main.SaveManager))
+                foreach (var mapTalk in mapTalks)
                 {
+                    if (level.IsRerun && !mapTalk.ShouldRepeat(Main.SaveManager))
+                        continue;
+                    if (!Main.ResourceManager.CanStartTalk(mapTalk.Value, mapTalk.StartSection))
+                        continue;
                     Saves.SetMapTalk(mapTalk.Value);
+                    break;
                 }
             }
 
-            var endTalk = level.GetTalk(StageMetaTalk.TYPE_END);
+            var endTalks = level.GetTalksOfType(StageMetaTalk.TYPE_END);
             float transitionDelay = 3;
-            if (endTalk != null)
+            if (endTalks != null)
             {
-                if (!level.IsRerun || endTalk.ShouldRepeat(Main.SaveManager))
+                NamespaceID talkID = null;
+                foreach (var endTalk in endTalks)
                 {
-                    await talkController.SimpleStartTalkAsync(endTalk.Value, 0, 5, () => transitionDelay = 0);
+                    if (level.IsRerun && !endTalk.ShouldRepeat(Main.SaveManager))
+                        continue;
+                    if (!Main.ResourceManager.CanStartTalk(endTalk.Value, endTalk.StartSection))
+                        continue;
+                    talkID = endTalk.Value;
+                    break;
+                }
+                if (NamespaceID.IsValid(talkID))
+                {
+                    await talkController.SimpleStartTalkAsync(talkID, 0, 5, () => transitionDelay = 0);
                 }
             }
             StartExitLevelTransition(transitionDelay);
@@ -913,12 +929,22 @@ namespace MVZ2.Level
             }
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
-            var startTalk = level.GetTalk(StageMetaTalk.TYPE_START);
-            if (startTalk != null)
+            var startTalks = level.GetTalksOfType(StageMetaTalk.TYPE_START);
+            if (startTalks != null)
             {
-                if (!level.IsRerun || startTalk.ShouldRepeat(Main.SaveManager))
+                NamespaceID talkID = null;
+                foreach (var startTalk in startTalks)
                 {
-                    await talkController.SimpleStartTalkAsync(startTalk.Value, 0, 2, () => 
+                    if (level.IsRerun && !startTalk.ShouldRepeat(Main.SaveManager))
+                        continue;
+                    if (!Main.ResourceManager.CanStartTalk(startTalk.Value, startTalk.StartSection))
+                        continue;
+                    talkID = startTalk.Value;
+                    break;
+                }
+                if (NamespaceID.IsValid(talkID))
+                {
+                    await talkController.SimpleStartTalkAsync(talkID, 0, 2, () =>
                     {
                         if (!level.NoStartTalkMusic())
                         {

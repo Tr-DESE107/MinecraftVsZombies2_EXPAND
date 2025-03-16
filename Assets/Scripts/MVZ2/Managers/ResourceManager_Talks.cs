@@ -3,7 +3,10 @@ using System.Linq;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using MVZ2Logic.Level;
+using MVZ2Logic;
 using PVZEngine;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -24,6 +27,31 @@ namespace MVZ2.Managers
         public NamespaceID[] GetAllTalkGroupsID()
         {
             return talksCacheDict.Keys.ToArray();
+        }
+        public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
+        {
+            var group = GetTalkGroup(groupId);
+            if (group == null)
+                return false;
+            if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
+                return false;
+            if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
+                return false;
+            var section = GetTalkSection(groupId, sectionIndex);
+            if (section == null)
+                return false;
+            return true;
+        }
+        public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
+        {
+            if (!Main.OptionsManager.SkipAllTalks())
+                return false;
+            var section = GetTalkSection(groupId, sectionIndex);
+            if (section == null)
+                return false;
+            if (!section.canAutoSkip)
+                return false;
+            return true;
         }
         #endregion
 

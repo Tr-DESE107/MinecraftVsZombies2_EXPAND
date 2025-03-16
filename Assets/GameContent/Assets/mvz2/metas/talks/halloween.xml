@@ -311,6 +311,20 @@
       </sentences>
     </section>
   </group>
+  <group id="halloween_7" requires="mvz2:trigger" tags="mvz2:halloween;mvz2:intro">
+    <archive name="万圣夜第7天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">另外，朋友！我们之前拿到了欧兰特的图鉴！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">图鉴的作用不止是记录见到的东西，它同时还是一个制品！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">携带的制品可以为你在一整局对战中提供额外的效果！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">好好利用制品吧！</sentence>
+      </sentences>
+    </section>
+  </group>
   <group id="halloween_7_over" tags="mvz2:halloween;mvz2:over">
     <archive name="万圣夜第7天结束" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
     <section>

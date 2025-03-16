@@ -42,6 +42,7 @@ namespace MVZ2Logic.Level
     {
         string Type { get; }
         NamespaceID Value { get; }
+        int StartSection { get; }
         bool ShouldRepeat(IGameSaveData save);
     }
     public interface IConveyorPoolEntry
