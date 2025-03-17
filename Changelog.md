@@ -1,3 +1,22 @@
+# 0.3.11
+
+## Changes
+* Reduced Ghast's attack interval from 6s to 5s.
+* Increased Ghast fire charge damage from 100 to 150 (300 in Hard Mode).
+* Gravity Pads are now immune to mind control.
+* Seija's magic bomb visual effect now displays half particles (instead of complete disappearance) with particle effects disabled.
+
+## Fixes
+* Fixed the issue where skipping 2-6 dialogue by force-quitting causing subsequent levels to remain in normal world instead of Nightmare World.
+* Fixed the issue where Dullahans have not damage-state sprites.
+* Fixed the issue where the creator credit during startup overlaps with the error dialog when encountering savefile issues.
+* Fixed the issue where game is softlocked when destroying specific contraptions by gargoyle statues in Halloween Endless mode.
+* Fixed the issue where Gravity Pads slow enemies during sleep status.
+* Fixed the issue where sometimes game is softlocked after entering the username.
+* Fixed the issue where mouse cursor states are missing on PC version.
+
+---
+
 # 0.3.10
 
 ## Modified
