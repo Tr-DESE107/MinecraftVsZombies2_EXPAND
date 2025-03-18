@@ -637,9 +637,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1321357375}
     m_Modifications:
+    - target: {fileID: 2262977336424619595, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2729991795129230364, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279696659596057352, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632324471953406149, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679731347919885582, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -681,11 +693,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6761098410669273651, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7392049178646737322, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
       propertyPath: m_Name
       value: wither
       objectReference: {fileID: 0}
     - target: {fileID: 7392049178646737322, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772909962898576329, guid: ff83737ccd004a84b8c1149cb98e7ffb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
