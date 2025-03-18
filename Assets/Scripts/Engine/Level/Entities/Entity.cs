@@ -692,7 +692,6 @@ namespace PVZEngine.Entities
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 
-            Definition = Level.Content.GetEntityDefinition(seri.definitionID);
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
@@ -711,11 +710,6 @@ namespace PVZEngine.Entities
             IsOnGround = seri.isOnGround;
             currentBuffID = seri.currentBuffID;
             properties = PropertyBlock.FromSerializable(seri.properties, this);
-
-            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
-            buffs.OnPropertyChanged += UpdateModifiedProperty;
-            buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
-            buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             if (seri.takenGrids != null)
@@ -739,7 +733,15 @@ namespace PVZEngine.Entities
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
-            return new Entity(level, seri.type, seri.id, seri.spawnerReference);
+            var entity = new Entity(level, seri.type, seri.id, seri.spawnerReference);
+            entity.Definition = level.Content.GetEntityDefinition(seri.definitionID);
+
+            // 先于光环加载，不然找不到Buff
+            entity.buffs = BuffList.FromSerializable(seri.buffs, level, entity);
+            entity.buffs.OnPropertyChanged += entity.UpdateModifiedProperty;
+            entity.buffs.OnModelInsertionAdded += entity.OnBuffModelAddCallback;
+            entity.buffs.OnModelInsertionRemoved += entity.OnBuffModelRemoveCallback;
+            return entity;
         }
         #endregion
 

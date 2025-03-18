@@ -90,6 +90,7 @@ namespace MVZ2.Models
                 var data = serializable.animators[i];
                 data.Deserialize(animator);
             }
+            LoadSerializable(serializable);
         }
         #endregion
 

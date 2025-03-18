@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Collision;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -65,9 +66,9 @@ namespace MVZ2.Collisions
                     collision.Checked = true;
                 }
             }
-            int collisionCount = collisionList.Count;
-            collisionList.CopyTo(exitedCollisionBuffer);
-            for (int i = 0; i < collisionCount; i++)
+            exitedCollisionBuffer.Clear();
+            exitedCollisionBuffer.CopyFrom(collisionList);
+            for (int i = 0; i < exitedCollisionBuffer.Count; i++)
             {
                 var collision = exitedCollisionBuffer[i];
                 if (!collision.Checked)
@@ -154,7 +155,7 @@ namespace MVZ2.Collisions
         private BoxCollider boxCollider;
         private HashSet<Collider> touchingColliders = new HashSet<Collider>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
-        private EntityCollision[] exitedCollisionBuffer = new EntityCollision[1024];
+        private ArrayBuffer<EntityCollision> exitedCollisionBuffer = new ArrayBuffer<EntityCollision>(1024);
     }
     public class SerializableUnityEntityCollider
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using Tools.Mathematics;
@@ -16,8 +17,9 @@ namespace PVZEngine.Level
         }
         internal void RemoveEntity(Entity entity)
         {
-            entities.Remove(entity);
-            entityTrash.Add(entity);
+            var id = entity.ID;
+            entities.Remove(id);
+            entityTrash.Add(id, entity);
             collisionSystem.DestroyEntity(entity);
             OnEntityRemove?.Invoke(entity);
         }
@@ -42,7 +44,7 @@ namespace PVZEngine.Level
             {
                 param.Apply(spawned);
             }
-            entities.Add(spawned);
+            entities.Add(id, spawned);
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init(spawner);
             return spawned;
@@ -59,7 +61,7 @@ namespace PVZEngine.Level
         public Entity[] GetEntities(params int[] filterTypes)
         {
             if (filterTypes == null || filterTypes.Length <= 0)
-                return entities.ToArray();
+                return entities.Values.ToArray();
             return FindEntities(predicate);
 
             bool predicate(Entity e)
@@ -91,7 +93,7 @@ namespace PVZEngine.Level
         }
         public Entity[] FindEntities(Func<Entity, bool> predicate)
         {
-            return entities.Where(predicate).ToArray();
+            return entities.Values.Where(predicate).ToArray();
         }
         public int GetEntityCount(EntityDefinition def)
         {
@@ -118,9 +120,9 @@ namespace PVZEngine.Level
         public int GetEntityCount(Func<Entity, bool> predicate)
         {
             int count = 0;
-            foreach (var entity in entities)
+            foreach (var pair in entities)
             {
-                if (predicate(entity))
+                if (predicate(pair.Value))
                 {
                     count++;
                 }
@@ -129,21 +131,18 @@ namespace PVZEngine.Level
         }
         public void FindEntitiesNonAlloc(Func<Entity, bool> predicate, List<Entity> results)
         {
-            foreach (var entity in entities)
+            foreach (var pair in entities)
             {
-                if (predicate(entity))
+                if (predicate(pair.Value))
                 {
-                    results.Add(entity);
+                    results.Add(pair.Value);
                 }
             }
         }
         public Entity FindEntityByID(long id)
         {
-            foreach (var entity in entities)
-            {
-                if (entity.ID == id)
-                    return entity;
-            }
+            if (entities.TryGetValue(id, out var entity))
+                return entity;
             return FindEntityInTrash(id);
         }
         public Entity FindFirstEntity(EntityDefinition def)
@@ -170,8 +169,9 @@ namespace PVZEngine.Level
         }
         public Entity FindFirstEntity(Func<Entity, bool> predicate)
         {
-            foreach (var entity in entities)
+            foreach (var pair in entities)
             {
+                var entity = pair.Value;
                 if (predicate(entity))
                     return entity;
             }
@@ -182,8 +182,9 @@ namespace PVZEngine.Level
             Entity targetEntity = null;
             TKey targetKey = default;
             var comparer = Comparer<TKey>.Default;
-            foreach (var entity in entities)
+            foreach (var pair in entities)
             {
+                var entity = pair.Value;
                 if (!predicate(entity))
                     continue;
                 var key = keySelector(entity);
@@ -199,8 +200,9 @@ namespace PVZEngine.Level
             Entity targetEntity = null;
             TKey targetKey = default;
             var comparer = Comparer<TKey>.Default;
-            foreach (var entity in entities)
+            foreach (var pair in entities)
             {
+                var entity = pair.Value;
                 if (!predicate(entity))
                     continue;
                 var key = keySelector(entity);
@@ -213,7 +215,7 @@ namespace PVZEngine.Level
         }
         public bool EntityExists(long id)
         {
-            return entities.Exists(predicate);
+            return EntityExists(predicate);
 
             bool predicate(Entity e)
             {
@@ -222,7 +224,7 @@ namespace PVZEngine.Level
         }
         public bool EntityExists(EntityDefinition def)
         {
-            return entities.Exists(predicate);
+            return EntityExists(predicate);
 
             bool predicate(Entity e)
             {
@@ -231,7 +233,7 @@ namespace PVZEngine.Level
         }
         public bool EntityExists(NamespaceID id)
         {
-            return entities.Exists(predicate);
+            return EntityExists(predicate);
 
             bool predicate(Entity e)
             {
@@ -240,7 +242,13 @@ namespace PVZEngine.Level
         }
         public bool EntityExists(Predicate<Entity> predicate)
         {
-            return entities.Exists(predicate);
+            foreach (var pair in entities)
+            {
+                var entity = pair.Value;
+                if (predicate(entity))
+                    return true;
+            }
+            return false;
         }
         #endregion
 
@@ -287,11 +295,8 @@ namespace PVZEngine.Level
         }
         private Entity FindEntityInTrash(long id)
         {
-            foreach (var entity in entityTrash)
-            {
-                if (entity.ID == id)
-                    return entity;
-            }
+            if (entityTrash.TryGetValue(id, out var entity))
+                return entity;
             return null;
         }
         private void ClearEntityTrash()
@@ -302,9 +307,10 @@ namespace PVZEngine.Level
         private void UpdateEntities()
         {
             entityUpdateBuffer.Clear();
-            entityUpdateBuffer.AddRange(entities);
-            foreach (var entity in entityUpdateBuffer)
+            entityUpdateBuffer.CopyFrom(entities.Values);
+            for (int i = 0; i < entityUpdateBuffer.Count; i++)
             {
+                var entity = entityUpdateBuffer[i];
                 entity.Update();
             }
         }
@@ -320,9 +326,9 @@ namespace PVZEngine.Level
         public Action<Entity> OnEntityRemove;
         #endregion
         private long currentEntityID = 1;
-        private List<Entity> entities = new List<Entity>();
-        private List<Entity> entityTrash = new List<Entity>();
-        private List<Entity> entityUpdateBuffer = new List<Entity>();
+        private Dictionary<long, Entity> entities = new Dictionary<long, Entity>();
+        private Dictionary<long, Entity> entityTrash = new Dictionary<long, Entity>();
+        private ArrayBuffer<Entity> entityUpdateBuffer = new ArrayBuffer<Entity>(2048);
         private ICollisionSystem collisionSystem;
     }
 }

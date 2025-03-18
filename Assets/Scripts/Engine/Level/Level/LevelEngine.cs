@@ -408,8 +408,8 @@ namespace PVZEngine.Level
                 currentEntityID = currentEntityID,
                 currentBuffID = currentBuffID,
                 currentSeedPackID = currentSeedPackID,
-                entities = entities.ConvertAll(e => e.Serialize()),
-                entityTrash = entityTrash.ConvertAll(e => e.Serialize()),
+                entities = entities.Values.Select(e => e.Serialize()).ToList(),
+                entityTrash = entityTrash.Values.Select(e => e.Serialize()).ToList(),
 
                 energy = Energy,
                 delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
@@ -470,19 +470,27 @@ namespace PVZEngine.Level
 
             // 在网格加载后面
             // 加载所有实体。
-            level.entities = seri.entities.ConvertAll(e => 
+            foreach (var ent in seri.entities)
             {
-                var entity = Entity.CreateDeserializingEntity(e, level);
-                return entity;
-            });
-            level.entityTrash = seri.entityTrash.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
+                var entity = Entity.CreateDeserializingEntity(ent, level);
+                level.entities.Add(ent.id, entity);
+            }
+            foreach (var ent in seri.entityTrash)
+            {
+                var entity = Entity.CreateDeserializingEntity(ent, level);
+                level.entityTrash.Add(ent.id, entity);
+            }
             for (int i = 0; i < level.entities.Count; i++)
             {
-                level.entities[i].ApplyDeserialize(seri.entities[i]);
+                var seriEnt = seri.entities[i];
+                var id = seriEnt.id;
+                level.entities[id].ApplyDeserialize(seriEnt);
             }
             for (int i = 0; i < level.entityTrash.Count; i++)
             {
-                level.entityTrash[i].ApplyDeserialize(seri.entityTrash[i]);
+                var seriEnt = seri.entityTrash[i];
+                var id = seriEnt.id;
+                level.entityTrash[id].ApplyDeserialize(seriEnt);
             }
             // 在实体加载后面
             level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);

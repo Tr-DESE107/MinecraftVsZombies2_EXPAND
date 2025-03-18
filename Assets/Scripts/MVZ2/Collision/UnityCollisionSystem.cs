@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using MVZ2.Collision;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
@@ -13,14 +14,11 @@ namespace MVZ2.Collisions
 {
     public class UnityCollisionSystem : MonoBehaviour, ICollisionSystem
     {
-        public UnityCollisionSystem()
-        {
-        }
         void ICollisionSystem.Update()
         {
-            int count = entities.Count;
-            entities.CopyTo(simulateBuffer);
-            for (int i = 0; i < count; i++)
+            simulateBuffer.Clear();
+            simulateBuffer.CopyFrom(entities);
+            for (int i = 0; i < simulateBuffer.Count; i++)
             {
                 var entity = simulateBuffer[i];
                 entity.Simulate();
@@ -241,8 +239,8 @@ namespace MVZ2.Collisions
         private GameObject collisionEntityTemplate;
         [SerializeField]
         private Transform entityRoot;
-        private Collider[] overlapBuffer = new Collider[1024];
-        private UnityCollisionEntity[] simulateBuffer = new UnityCollisionEntity[1024];
+        private Collider[] overlapBuffer = new Collider[2048];
+        private ArrayBuffer<UnityCollisionEntity> simulateBuffer = new ArrayBuffer<UnityCollisionEntity>(2048);
         private List<UnityCollisionEntity> entities = new List<UnityCollisionEntity>();
     }
     public class SerializableUnityCollisionSystem : ISerializableCollisionSystem
