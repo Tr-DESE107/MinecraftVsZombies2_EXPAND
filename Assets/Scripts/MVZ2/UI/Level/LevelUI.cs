@@ -3,7 +3,6 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace MVZ2.UI
@@ -16,8 +15,8 @@ namespace MVZ2.UI
         }
         public void SetLighting(Color background, Color global)
         {
-            backgroundLight.color = background * global;
-            entityLight.color = global;
+            backgroundLightCamera.backgroundColor = background * global;
+            entityLightCamera.backgroundColor = global;
         }
         public void SetScreenCover(Color value)
         {
@@ -201,9 +200,9 @@ namespace MVZ2.UI
         [SerializeField]
         private Image blackscreenImage;
         [SerializeField]
-        private Light2D backgroundLight;
+        private Camera backgroundLightCamera;
         [SerializeField]
-        private Light2D entityLight;
+        private Camera entityLightCamera;
 
         [Header("HeldItem")]
         [SerializeField]

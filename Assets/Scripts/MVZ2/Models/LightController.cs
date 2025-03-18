@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 namespace MVZ2.Models
 {
@@ -40,7 +39,7 @@ namespace MVZ2.Models
             SetColor(serializable.color);
         }
         [SerializeField]
-        private Light2D lightRenderer;
+        private SpriteRenderer lightRenderer;
         [SerializeField]
         private float shakeRange = 0.05f;
         private Vector2 scale;

@@ -3,6 +3,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Tint", Color) = (1,1,1,1)
 
 		[Header(Lighting)]
 		[Toggle(LIT)]
@@ -46,6 +47,8 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
             };
 
             sampler2D _MainTex;
+            half4 _Color;
+
             v2f vert (appdata v)
             {
                 v2f o;
@@ -60,7 +63,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv) * i.color;
+                fixed4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
                 #if LIT
                 col = ApplyLight(col, i.lightUV);
                 #endif

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2872901922863352548}
   - component: {fileID: 3349927831005241951}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 7726987811559464092}
   - component: {fileID: 2343584082378804533}
   - component: {fileID: 2459582538196613976}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: RightTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3433006450890957660}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 4306567935227585695}
   - component: {fileID: 4217574144208595496}
   - component: {fileID: 7060444354972721332}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: LeftTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

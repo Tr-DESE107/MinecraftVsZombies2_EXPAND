@@ -1,9 +1,8 @@
-﻿Shader "MinecraftVSZombies2/Legacy/Light"
+﻿Shader "MinecraftVSZombies2/Legacy/VolumeLight"
 {
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
-        _Color("Tint", Color) = (1,1,1,1)
 
         [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip("Flip", Vector) = (1,1,1,1)
@@ -50,7 +49,6 @@
             };
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _Color;
 
             v2f vert(appdata v)
             {
@@ -67,7 +65,7 @@
 
             half4 frag(v2f i) : SV_Target
             {
-                half4 col = tex2D(_MainTex, i.uv) * _Color * i.color;
+                half4 col = tex2D(_MainTex, i.uv) * i.color;
                 return col;
             }
             ENDHLSL
