@@ -1,9 +1,12 @@
-﻿Shader "MinecraftVSZombies2/Entity/Shadow"
+﻿Shader "MinecraftVSZombies2/Legacy/Shadow"
 {
     Properties
     {
         _MainTex("Diffuse", 2D) = "white" {}
         _LightFactor("Light Factor", Range(0, 1)) = 0
+        _LightMapSpot("Light Map Spot", 2D) = "black" {}
+        _LightMapGlobal("Light Map Global", 2D) = "black" {}
+        _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color("Tint", Color) = (1,1,1,1)
@@ -16,22 +19,16 @@
         {
             "Queue" = "Transparent" 
             "RenderType" = "Transparent" 
-            "RenderPipeline" = "UniversalPipeline" 
 			"PreviewType" = "Plane"
         }
 
         Blend DstColor Zero, One OneMinusSrcAlpha
         Cull Off
         ZWrite Off
-        
-        HLSLINCLUDE
-        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        ENDHLSL
 
         Pass
         {
-            Name "Universal2D"
-            Tags { "LightMode" = "Universal2D" }
+            Name "Main"
 
             HLSLPROGRAM
             #pragma vertex ShadowVertex

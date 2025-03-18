@@ -1,4 +1,4 @@
-﻿Shader "MinecraftVSZombies2/Entity/Reverse"
+﻿Shader "MinecraftVSZombies2/Legacy/Reverse"
 {
     Properties
     {
@@ -13,18 +13,15 @@
 			"Queue" = "Transparent"
 			"RenderType" = "Transparent"
 			"PreviewType" = "Plane"
-            "RenderPipeline" = "UniversalPipeline" 
 		}
 
 		Pass
 		{
-            Tags { "LightMode" = "Universal2D" }
-
 			Blend OneMinusDstColor OneMinusSrcAlpha
 			ZWrite Off
 
 			HLSLPROGRAM
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "UnityCG.cginc"
 
             #pragma vertex vert
             #pragma fragment frag
@@ -45,12 +42,9 @@
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
-            TEXTURE2D(_MainTex);
-            SAMPLER(sampler_MainTex);
-            CBUFFER_START(UnityPerMaterial)
+            sampler2D _MainTex;
             half4 _MainTex_ST;
             float4 _Color;
-            CBUFFER_END
 
             Varyings vert(Attributes v)
             {
@@ -58,7 +52,7 @@
                 UNITY_SETUP_INSTANCE_ID(v);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 
-                o.positionCS = TransformObjectToHClip(v.positionOS);
+                o.positionCS = UnityObjectToClipPos(v.positionOS);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
                 o.color = v.color * _Color;
@@ -67,7 +61,7 @@
 
             half4 frag(Varyings i) : SV_Target
             {
-                half4 main = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                half4 main = i.color * tex2D(_MainTex, i.uv);
                 main.rgb *= main.a;
                 return main;
             }
