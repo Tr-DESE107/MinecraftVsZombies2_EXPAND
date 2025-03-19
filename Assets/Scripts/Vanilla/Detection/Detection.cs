@@ -98,9 +98,9 @@ namespace MVZ2.Vanilla.Detections
         {
             var minX = level.GetColumnX(column);
             var minZ = level.GetLaneZ(lane);
-            var sizeX = minX + level.GetGridWidth();
+            var sizeX = level.GetGridWidth();
             var sizeY = 200;
-            var sizeZ = minZ + level.GetGridHeight();
+            var sizeZ = level.GetGridHeight();
             var centerX = minX + sizeX * 0.5f;
             var centerZ = minZ + sizeZ * 0.5f;
             var centerY = level.GetGroundY(centerX, centerZ) - sizeY * 0.5f;
