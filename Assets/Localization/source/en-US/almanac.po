@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-02 11:45+0800\n"
-"PO-Revision-Date: 2025-03-02 23:47+0800\n"
+"POT-Creation-Date: 2025-03-19 02:49+0800\n"
+"PO-Revision-Date: 2025-03-19 14:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2367,8 +2367,11 @@ msgstr "Starshard: Magic Candy"
 
 #. Header for misc mvz2:starshard.lucid_dream
 #: Almanac meta file
+#, fuzzy
+#| msgctxt "misc.description"
+#| msgid "星之碎片会唤醒你的器械，爆发出真正的潜力。"
 msgctxt "misc.description"
-msgid "星之碎片会唤醒你的器械，爆发出真正的潜力。"
+msgid "星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。"
 msgstr "Starshards can evoke your contraptions, and make your contraptions burst with superpower."
 
 #. Flavor for misc mvz2:starshard.lucid_dream

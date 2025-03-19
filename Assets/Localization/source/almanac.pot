@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-03-02 11:45+0800\n"
+"POT-Creation-Date: 2025-03-19 02:49+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1937,7 +1937,7 @@ msgstr ""
 #. Header for misc mvz2:starshard.lucid_dream
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "星之碎片会唤醒你的器械，爆发出真正的潜力。"
+msgid "星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。"
 msgstr ""
 
 #. Flavor for misc mvz2:starshard.lucid_dream

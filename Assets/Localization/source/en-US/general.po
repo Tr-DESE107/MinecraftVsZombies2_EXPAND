@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-03 11:37+0800\n"
-"PO-Revision-Date: 2025-03-03 11:37+0800\n"
+"POT-Creation-Date: 2025-03-19 02:49+0800\n"
+"PO-Revision-Date: 2025-03-19 14:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -21,6 +21,16 @@ msgstr ""
 #: /MainGame/MainScene/Landing/Canvas/Creator
 msgid "Cuerzor制作"
 msgstr "Made by Cuerzor"
+
+#. 菜单对话框的标题
+#: /MainGame/MainScene/Titlescreen/Canvas/LanguageDialog/Dialog/TitleArea/Title
+msgid "语言"
+msgstr "Language"
+
+#. 语言对话框界面按钮
+#: /MainGame/MainScene/Titlescreen/Canvas/LanguageDialog/Dialog/MainElements/Buttons/ConfirmButton/Text
+msgid "确定"
+msgstr "Accept"
 
 #. 主界面文字
 #: /MainGame/MainScene/Mainmenu/Elements/Labels/YourName/Label
@@ -81,11 +91,6 @@ msgstr "Rename"
 msgid "删除"
 msgstr "Delete"
 
-#. 用户管理界面按钮
-#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/SwitchButton/Text
-msgid "确定"
-msgstr "Accept"
-
 #. 菜单对话框的标题
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
 msgid "菜单"
@@ -99,11 +104,6 @@ msgstr "Restart"
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
 msgid "更多选项"
 msgstr "More Options"
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
-#: View/Viewport/Content/Dropdowns/Dropdown1/LanguageDropdown/Label
-msgid "语言"
-msgstr "Language"
 
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
 #: View/Viewport/Content/Dropdowns/Dropdown2/ResolutionDropdown/Label
@@ -368,57 +368,57 @@ msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr "Now defeat the Iron Helmet Zombie!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:296
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:297
 msgctxt "advice.trigger_tutorial.0"
 msgid "放置TNT！"
 msgstr "Click and place TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:298
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:299
 msgctxt "advice.trigger_tutorial.1"
 msgid "点击选中触发器！"
 msgstr "Select the Trigger!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:300
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:301
 msgctxt "advice.trigger_tutorial.2"
 msgid "点击以触发TNT！"
 msgstr "Click to trigger the TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:302
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:303
 msgctxt "advice.trigger_tutorial.3"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:304
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:305
 msgctxt "advice.trigger_tutorial.4"
 msgid "选中触发器！"
 msgstr "Select the Trigger!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:306
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:307
 msgctxt "advice.trigger_tutorial.5"
 msgid "点击TNT蓝图！"
 msgstr "Click the TNT blueprint!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:308
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:309
 msgctxt "advice.trigger_tutorial.6"
 msgid "放置TNT，它会立即被触发！"
 msgstr "Place TNT, then it will be instantly triggered!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:311
 msgctxt "advice.trigger_tutorial.7"
 msgid "干得好！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:313
 msgctxt "advice.trigger_tutorial.8"
 msgid "立即触发只限于一次性消耗类型的器械。"
 msgstr "Instant triggering can only be used on single-use contraptions."
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:315
 msgctxt "advice.trigger_tutorial.9"
 msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
 msgstr "You can swap these two actions in Settings."
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:317
 msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr "Good luck!"
@@ -625,96 +625,61 @@ msgstr "Decrepified!"
 
 #: Scripts\Vanilla\VanillaStrings.cs:13
 msgctxt "advice"
-msgid "你不能在雕像上放置器械"
-msgstr "You cannot place contraptions on statues"
-
-#: Scripts\Vanilla\VanillaStrings.cs:15
-msgctxt "advice"
-msgid "请先放睡莲"
-msgstr "Place Lily Pad first"
-
-#: Scripts\Vanilla\VanillaStrings.cs:17
-msgctxt "advice"
-msgid "你不能在水上放置该器械"
-msgstr "You cannot place this contraption on water"
-
-#: Scripts\Vanilla\VanillaStrings.cs:19
-msgctxt "advice"
-msgid "你不能在薄面上放置该器械"
-msgstr "You cannot place this contraption on planes"
-
-#: Scripts\Vanilla\VanillaStrings.cs:21
-msgctxt "advice"
-msgid "你不能在陆地上放置该器械"
-msgstr "You cannot place this contraption on land"
-
-#: Scripts\Vanilla\VanillaStrings.cs:23
-msgctxt "advice"
-msgid "只能放置在可以睡觉的器械上"
-msgstr "Can only be placed on contraptions that can sleep"
-
-#: Scripts\Vanilla\VanillaStrings.cs:25
-msgctxt "advice"
-msgid "只能放置在目标器械上"
-msgstr "Can only be placed on the specific contraption"
-
-#: Scripts\Vanilla\VanillaStrings.cs:27
-msgctxt "advice"
 msgid "点击屏幕阻止碾压墙！"
 msgstr "Click to stop the crushing walls!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:29
+#: Scripts\Vanilla\VanillaStrings.cs:15
 msgctxt "advice"
 msgid "你找到了新制品！"
 msgstr "You found a new artifact!"
 
 # 获得新制品提示
-#: Scripts\Vanilla\VanillaStrings.cs:31
+#: Scripts\Vanilla\VanillaStrings.cs:17
 msgctxt "advice"
 msgid "剩余内容正在开发中，敬请期待！"
 msgstr "The following content is under development!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:20
 msgctxt "advice"
 msgid "更多的敌人要来了！"
 msgstr "More enemies approaching!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:36
+#: Scripts\Vanilla\VanillaStrings.cs:22
 msgctxt "advice"
 msgid "点击以继续"
 msgstr "Click to continue"
 
 # 固有蓝图的提示
-#: Scripts\Vanilla\VanillaStrings.cs:39
+#: Scripts\Vanilla\VanillaStrings.cs:25
 msgid "固有"
 msgstr "Innate"
 
-#: Scripts\Vanilla\VanillaStrings.cs:41
+#: Scripts\Vanilla\VanillaStrings.cs:27
 msgid "不推荐在这关使用"
 msgstr "Not recommended for level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:44
+#: Scripts\Vanilla\VanillaStrings.cs:30
 msgid "购买"
 msgstr "Purchase"
 
-#: Scripts\Vanilla\VanillaStrings.cs:46
+#: Scripts\Vanilla\VanillaStrings.cs:32
 msgid "购买第七个器械槽位？"
 msgstr "Buy the 7th contraption slot?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:48
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgid "是否进行新手教程？"
 msgstr "Do you want to have a tutorial?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:50
+#: Scripts\Vanilla\VanillaStrings.cs:36
 msgid "新手教程"
 msgstr "Tutorial"
 
-#: Scripts\Vanilla\VanillaStrings.cs:52
+#: Scripts\Vanilla\VanillaStrings.cs:38
 msgid "通关"
 msgstr "Game Completed"
 
 # 获得新制品提示
-#: Scripts\Vanilla\VanillaStrings.cs:54
+#: Scripts\Vanilla\VanillaStrings.cs:40
 msgid ""
 "恭喜通关！\n"
 "接下来的内容还在开发中，敬请期待！"
@@ -722,24 +687,24 @@ msgstr ""
 "Congratulations! You have completed the game...for now!\n"
 "The following content is under development and coming soon!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:43
 msgid "用户名不能为空"
 msgstr "Username cannot be empty"
 
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:45
 msgid "已经存在该用户名"
 msgstr "This username already exists"
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:47
 msgid "无法重命名为该用户名"
 msgstr "Cannot rename to this name"
 
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "第一次游戏必须输入用户名"
 msgstr "Username must be set when starting the game for the first time"
 
-#: Scripts\Vanilla\VanillaStrings.cs:65
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
@@ -748,188 +713,188 @@ msgstr ""
 "This user's data will be all deleted!"
 
 # 重命名特殊用户时的警告
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:53
 msgid "你无法重命名该用户"
 msgstr "Cannot rename this user"
 
-#: Scripts\Vanilla\VanillaStrings.cs:71
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgctxt "recharge_time"
 msgid "无"
 msgstr "None"
 
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgctxt "recharge_time"
 msgid "短"
 msgstr "Short"
 
-#: Scripts\Vanilla\VanillaStrings.cs:75
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgctxt "recharge_time"
 msgid "长"
 msgstr "Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "recharge_time"
 msgid "很长"
 msgstr "Very Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:81
+#: Scripts\Vanilla\VanillaStrings.cs:67
 msgctxt "archive"
 msgid "剧情分支"
 msgstr "Plot Branch"
 
-#: Scripts\Vanilla\VanillaStrings.cs:83
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr "Do you have enough money to buy this?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "archive"
 msgid "对话结束"
 msgstr "Replay Ended"
 
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr "Play again?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:77
 msgid "是"
 msgstr "Yes"
 
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:79
 msgid "否"
 msgstr "No"
 
-#: Scripts\Vanilla\VanillaStrings.cs:99
+#: Scripts\Vanilla\VanillaStrings.cs:85
 msgid "返回地图"
 msgstr "Back to map"
 
-#: Scripts\Vanilla\VanillaStrings.cs:101
+#: Scripts\Vanilla\VanillaStrings.cs:87
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:105
+#: Scripts\Vanilla\VanillaStrings.cs:91
 msgid "警告"
 msgstr "Warning"
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:107
+#: Scripts\Vanilla\VanillaStrings.cs:93
 msgid "提示"
 msgstr "Hint"
 
-#: Scripts\Vanilla\VanillaStrings.cs:109
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:113
+#: Scripts\Vanilla\VanillaStrings.cs:99
 msgid "确认"
 msgstr "Accept"
 
-#: Scripts\Vanilla\VanillaStrings.cs:116
+#: Scripts\Vanilla\VanillaStrings.cs:102
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:118
+#: Scripts\Vanilla\VanillaStrings.cs:104
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:120
+#: Scripts\Vanilla\VanillaStrings.cs:106
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:108
 msgid "触发器械"
 msgstr "Trigger a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:126
+#: Scripts\Vanilla\VanillaStrings.cs:112
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:128
+#: Scripts\Vanilla\VanillaStrings.cs:114
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:118
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:122
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:124
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:140
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgstr "{0} - Flag {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:146
+#: Scripts\Vanilla\VanillaStrings.cs:132
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr "<color=red>COME TO US</color>"
 
-#: Scripts\Vanilla\VanillaStrings.cs:149
+#: Scripts\Vanilla\VanillaStrings.cs:135
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:152
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "option.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:155
+#: Scripts\Vanilla\VanillaStrings.cs:141
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:158
+#: Scripts\Vanilla\VanillaStrings.cs:144
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:161
+#: Scripts\Vanilla\VanillaStrings.cs:147
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:164
+#: Scripts\Vanilla\VanillaStrings.cs:150
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:168
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
 
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:68
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:85
 msgid "版本{0}"
 msgstr "Version {0}"
 
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:70
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:87
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:818
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:801
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1072,15 +1037,15 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:161
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:162
 msgid "来源：{0}"
 msgstr "Source: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:163
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:164
 msgid "原曲：{0}"
 msgstr "Origin: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:165
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:166
 msgid "作者：{0}"
 msgstr "Author: {0}"
 
@@ -1112,28 +1077,28 @@ msgstr ""
 "Flags\n"
 "{0}/{1}"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:235
+#: Scripts\MVZ2\Managers\MainManager.cs:365
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:608
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:618
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:610
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:620
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:612
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:622
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:614
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:624
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
 # 当前语言名称
-#: Scripts\MVZ2\Localization\LanguageManager.cs:164
+#: Scripts\MVZ2\Localization\LanguageManager.cs:175
 msgctxt "language_name"
 msgid "中文"
 msgstr "English (United States)"
@@ -1142,36 +1107,36 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:920
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:964
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:924
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:968
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr "The blueprint selected last time contained multiple same contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:926
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:970
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprint selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:928
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:972
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr "The blueprint selected last time contained multiple same artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:930
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:974
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:255
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:251
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:866
+#: Scripts\MVZ2\Level\LevelController_UI.cs:869
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -1179,11 +1144,11 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:868
+#: Scripts\MVZ2\Level\LevelController_UI.cs:871
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:870
+#: Scripts\MVZ2\Level\LevelController_UI.cs:873
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
@@ -1319,7 +1284,7 @@ msgstr "Destroyed contraptions"
 #. Name for stat category mvz2:contraption_evoke
 #: Stats meta file
 msgctxt "stat_category"
-msgid "使用星之碎片"
+msgid "激发器械"
 msgstr "Evoked contraptions"
 
 #. Name for stat category mvz2:enemy_spawn
@@ -2134,6 +2099,48 @@ msgctxt "archive.tagname"
 msgid "商店对话"
 msgstr "Store"
 
+#. Message for grid error mvz2:not_on_statues
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在雕像上放置器械"
+msgstr "You cannot place contraptions on statues"
+
+#. Message for grid error mvz2:need_lilypad
+#: Grid meta file
+msgctxt "advice"
+msgid "请先放睡莲"
+msgstr "Place Lily Pad first"
+
+#. Message for grid error mvz2:not_on_water
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在水上放置该器械"
+msgstr "You cannot place this contraption on water"
+
+#. Message for grid error mvz2:not_on_plane
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在薄面上放置该器械"
+msgstr "You cannot place this contraption on planes"
+
+#. Message for grid error mvz2:not_on_land
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在陆地上放置该器械"
+msgstr "You cannot place this contraption on land"
+
+#. Message for grid error mvz2:only_can_sleep
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在可以睡觉的器械上"
+msgstr "Can only be placed on contraptions that can sleep"
+
+#. Message for grid error mvz2:only_upgrade
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在目标器械上"
+msgstr "Can only be placed on the specific contraption"
+
 #. Store chat from character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -2470,6 +2477,10 @@ msgid "闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成
 msgstr ""
 "A shiny star! It spawns a magical shard for every 4 magical shards you have "
 "used!"
+
+#~ msgctxt "stat_category"
+#~ msgid "使用星之碎片"
+#~ msgstr "Evoked contraptions"
 
 #~ msgctxt "store_talk"
 #~ msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！"
