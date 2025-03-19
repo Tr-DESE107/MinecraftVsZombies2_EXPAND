@@ -122,7 +122,7 @@ namespace MVZ2.Managers
             PostLoadMod_Store(modNamespace, modResource);
             foreach (var meta in modResource.DifficultyMetaList.metas)
             {
-                difficultyCache.Add(new NamespaceID(modNamespace, meta.id));
+                difficultyCache.Add(new NamespaceID(modNamespace, meta.ID));
             }
             foreach (var meta in modResource.NoteMetaList.metas)
             {
@@ -253,6 +253,7 @@ namespace MVZ2.Managers
         IStageMeta IGameMetas.GetStageMeta(NamespaceID id) => GetStageMeta(id);
 
         IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
+        IDifficultyMeta IGameMetas.GetDifficultyMeta(NamespaceID id) => GetDifficultyMeta(id);
         IAreaMeta IGameMetas.GetAreaMeta(NamespaceID id) => GetAreaMeta(id);
 
         IAreaMeta[] IGameMetas.GetModAreaMetas(string spaceName) => GetModAreaMetas(spaceName);

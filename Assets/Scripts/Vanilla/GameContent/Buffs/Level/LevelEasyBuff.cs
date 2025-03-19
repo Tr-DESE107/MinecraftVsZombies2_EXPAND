@@ -17,7 +17,12 @@ namespace MVZ2.GameContent.Buffs.Level
             AddAura(new BlueprintAura());
             AddAura(new ContraptionAura());
             AddAura(new ArmorAura());
+            AddModifier(new IntModifier(VanillaLevelProps.ENEMY_AI_LEVEL, NumberOperator.Add, -1));
+            AddModifier(new IntModifier(VanillaLevelProps.BOSS_AI_LEVEL, NumberOperator.Add, -1));
             AddModifier(new FloatModifier(VanillaLevelProps.CONVEY_SPEED, NumberOperator.Multiply, 1.5f));
+            AddModifier(new FloatModifier(VanillaLevelProps.STARSHARD_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2));
+            AddModifier(new FloatModifier(VanillaLevelProps.REDSTONE_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2));
+            AddModifier(new FloatModifier(VanillaLevelProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Multiply, 0.5f));
         }
 
         public class BlueprintAura : AuraEffectDefinition

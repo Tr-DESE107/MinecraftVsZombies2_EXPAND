@@ -1,5 +1,16 @@
 <difficulties>
-    <difficulty id="easy" name="简单" value="-1"/>
-    <difficulty id="normal" name="普通" value="0"/>
-    <difficulty id="hard" name="困难" value="1"/>
+    <difficulty id="easy" name="简单" value="-100">
+        <button back="mvz2:map_button[1]" bottom="mvz2:map_button[4]" overlay="mvz2:map_button[7]"/>
+        <clear cartMoney="10" rerunMoney="100"/>
+        <buff id="mvz2:level_easy" />
+    </difficulty>
+    <difficulty id="normal" name="普通" value="0">
+        <button back="mvz2:map_button[2]" bottom="mvz2:map_button[5]" overlay="mvz2:map_button[8]"/>
+        <clear cartMoney="50" rerunMoney="250"/>
+    </difficulty>
+    <difficulty id="hard" name="困难" value="100">
+        <button back="mvz2:map_button[3]" bottom="mvz2:map_button[6]" overlay="mvz2:map_button[9]"/>
+        <clear cartMoney="50" clearMoney="250" rerunMoney="1000"/>
+        <buff id="level_hard" />
+    </difficulty>
 </difficulties>

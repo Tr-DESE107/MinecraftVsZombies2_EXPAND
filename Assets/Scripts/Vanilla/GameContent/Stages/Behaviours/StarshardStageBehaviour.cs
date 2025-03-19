@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
@@ -22,15 +23,12 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             SetStarshardRNG(level, level.CreateRNG());
             SetStarshardChance(level, MIN_STARSHARD_CHANCE);
+            level.SetStarshardCarrierChanceIncreament(STARSHARD_INCREAMENT);
         }
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            var increament = STARSHARD_INCREAMENT;
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                increament *= 2;
-            }
+            var increament = level.GetStarshardCarrierChanceIncreament();
             AddStarshardChance(level, increament);
         }
         public override void PostEnemySpawned(Entity entity)
@@ -67,15 +65,15 @@ namespace MVZ2.GameContent.Stages
         {
             level.SetProperty(PROP_STARSHARD_RNG, value);
         }
-        public static int GetStarshardChance(LevelEngine level)
+        public static float GetStarshardChance(LevelEngine level)
         {
-            return level.GetProperty<int>(PROP_STARSHARD_CHANCE);
+            return level.GetProperty<float>(PROP_STARSHARD_CHANCE);
         }
-        public static void SetStarshardChance(LevelEngine level, int value)
+        public static void SetStarshardChance(LevelEngine level, float value)
         {
             level.SetProperty(PROP_STARSHARD_CHANCE, value);
         }
-        public static void AddStarshardChance(LevelEngine level, int value)
+        public static void AddStarshardChance(LevelEngine level, float value)
         {
             SetStarshardChance(level, GetStarshardChance(level) + value);
         }

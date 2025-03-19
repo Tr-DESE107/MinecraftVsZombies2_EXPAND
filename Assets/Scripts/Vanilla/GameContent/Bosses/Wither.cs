@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -69,7 +70,7 @@ namespace MVZ2.GameContent.Bosses
 
             RotateHeadsUpdate(entity);
 
-            if (!entity.IsDead && entity.Level.Difficulty != VanillaDifficulties.easy)
+            if (!entity.IsDead && entity.Level.GetBossAILevel() >= 0)
             {
                 entity.Heal(REGENERATION_SPEED, entity);
             }

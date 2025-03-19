@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -29,15 +30,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetLandTimer(entity, new FrameTimer(15));
-            int jumpTimes = 1;
-            if (entity.Level.Difficulty == VanillaDifficulties.hard)
-            {
-                jumpTimes = 2;
-            }
-            else if (entity.Level.Difficulty == VanillaDifficulties.easy)
-            {
-                jumpTimes = 0;
-            }
+            int jumpTimes = 1 + entity.Level.GetEnemyAILevel();
             SetGallopTime(entity, jumpTimes);
         }
         public override void PostContactGround(Entity entity, Vector3 velocity)

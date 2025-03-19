@@ -37,6 +37,7 @@ namespace MVZ2.GameContent.Stages
             level.SetPickaxeActive(false);
             level.SetStarshardActive(false);
             level.SetTriggerActive(false);
+            level.SetNapstablookParalysisTime(45);
             SetThunderTimer(level, new FrameTimer(150));
         }
         public override void OnUpdate(LevelEngine level)

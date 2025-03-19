@@ -4,6 +4,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
@@ -53,15 +54,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             var level = host.Level;
             host.TakeDamage(DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.MUTE), host);
-            int count = 3;
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                count = 2;
-            }
-            else if (level.Difficulty == VanillaDifficulties.hard)
-            {
-                count = 4;
-            }
+            int count = 3 + level.GetEnemyAILevel();
             for (int i = 0; i < count; i++)
             {
                 var parasite = level.Spawn(VanillaEnemyID.parasiteTerror, host.GetCenter(), host);

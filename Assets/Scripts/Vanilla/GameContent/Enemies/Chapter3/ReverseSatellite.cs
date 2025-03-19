@@ -70,17 +70,8 @@ namespace MVZ2.GameContent.Enemies
             base.PostContactGround(entity, velocity);
             if ((entity.IsDead || entity.IsAIFrozen()) && !entity.IsOnWater())
             {
-                float damageMutliplier = 1;
+                float damageMutliplier = 1 + entity.Level.GetEnemyAILevel();
                 float radius = entity.GetRange();
-                var difficulty = entity.Level.Difficulty;
-                if (difficulty == VanillaDifficulties.normal)
-                {
-                    damageMutliplier = 0;
-                }
-                else if (difficulty == VanillaDifficulties.hard)
-                {
-                    damageMutliplier = 2;
-                }
                 var damage = entity.GetDamage() * damageMutliplier;
                 if (damage >= 0)
                 {

@@ -24,13 +24,13 @@ namespace MVZ2.Managers
             var modResource = main.ResourceManager.GetModResource(difficulty.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.id == difficulty.Path);
+            return modResource.DifficultyMetaList.metas.FirstOrDefault(m => m.ID == difficulty.Path);
         }
         #endregion
         public string GetDifficultyName(NamespaceID difficulty)
         {
             var diffMeta = main.ResourceManager.GetDifficultyMeta(difficulty);
-            string name = diffMeta != null ? diffMeta.name : Vanilla.VanillaStrings.DIFFICULTY_UNKNOWN;
+            string name = diffMeta != null ? diffMeta.Name : Vanilla.VanillaStrings.DIFFICULTY_UNKNOWN;
             return main.LanguageManager._p(Vanilla.VanillaStrings.CONTEXT_DIFFICULTY, name);
         }
         public NamespaceID[] GetAllDifficulties()

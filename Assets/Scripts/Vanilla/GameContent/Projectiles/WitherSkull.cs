@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Projectiles
             var entity = output.Entity;
             if (entity == null)
                 return;
-            if (entity.Level.Difficulty != VanillaDifficulties.hard)
+            if (entity.Level.GetBossAILevel() <= 0)
                 return;
             if (entity.IsUndead())
                 return;

@@ -872,6 +872,7 @@ namespace MVZ2.Level
                 artifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e)).Select(id => new ArtifactSelectionItem() { id = id }).ToArray()
             };
             Main.SaveManager.SetLastSelection(selection);
+            Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, c => c(Level, chosen));
 
             StartCoroutine(BlueprintChosenTransition());
         }

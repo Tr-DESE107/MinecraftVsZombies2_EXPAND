@@ -29,10 +29,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public override void PostRemove(Buff buff)
-        {
-            base.PostRemove(buff);
-        }
         public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public const int MAX_TIMEOUT = 45;
     }

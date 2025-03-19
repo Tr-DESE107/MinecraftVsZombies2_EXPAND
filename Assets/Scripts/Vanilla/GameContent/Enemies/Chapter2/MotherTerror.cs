@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -66,11 +67,7 @@ namespace MVZ2.GameContent.Enemies
             if (!HasEggs(entity))
                 return;
             var level = entity.Level;
-            int count = 1;
-            if (level.Difficulty == VanillaDifficulties.hard)
-            {
-                count = 2;
-            }
+            int count = 1 + level.GetEnemyAILevel();
             for (int i = 0; i < count; i++)
             {
                 var parasite = level.Spawn(VanillaEnemyID.parasiteTerror, entity.GetCenter(), entity);

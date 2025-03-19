@@ -15,9 +15,13 @@ namespace MVZ2Logic.Callbacks
         public delegate void GetBlueprintNotRecommonded(LevelEngine level, NamespaceID blueprintID, TriggerResultBoolean result);
         public delegate void GetBlueprintWarnings(LevelEngine level, NamespaceID[] blueprintsForChoose, BlueprintChooseItem[] chosenBlueprints, List<string> warnings);
         public delegate void PostLevelStop(LevelEngine level);
+        public delegate void PostBlueprintSelection(LevelEngine level, BlueprintChooseItem[] selectedBlueprints);
+        public delegate void PreBattle(LevelEngine level);
 
         public readonly static CallbackReference<GetBlueprintNotRecommonded> GET_BLUEPRINT_NOT_RECOMMONDED = new();
         public readonly static CallbackReference<GetBlueprintWarnings> GET_BLUEPRINT_WARNINGS = new();
         public readonly static CallbackReference<PostLevelStop> POST_LEVEL_STOP = new();
+        public readonly static CallbackReference<PostBlueprintSelection> POST_BLUEPRINT_SELECTION = new();
+        public readonly static CallbackReference<PreBattle> PRE_BATTLE = new();
     }
 }

@@ -22,7 +22,7 @@ namespace MVZ2.Metas
                     resource.FragmentMetaList = FragmentMetaList.FromXmlNode(document["fragments"]);
                     break;
                 case "difficulties":
-                    resource.DifficultyMetaList = DifficultyMetaList.FromXmlNode(document["difficulties"]);
+                    resource.DifficultyMetaList = DifficultyMetaList.FromXmlNode(document["difficulties"], defaultNsp);
                     break;
                 case "entities":
                     resource.EntityMetaList = EntityMetaList.FromXmlNode(document["entities"], defaultNsp);

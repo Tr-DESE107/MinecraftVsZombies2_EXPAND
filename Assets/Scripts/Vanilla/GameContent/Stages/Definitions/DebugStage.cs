@@ -42,21 +42,21 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.glowstone,
+                VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.dreamCrystal,
                 VanillaContraptionID.gravityPad,
-                VanillaContraptionID.stoneShield,
-                VanillaContraptionID.totenser,
-                VanillaContraptionID.teslaCoil,
-                VanillaBossID.nightmareaper,
+                VanillaBossID.frankenstein,
+                VanillaBossID.slenderman,
+                VanillaBossID.wither,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.mesmerizer,
-                VanillaEnemyID.dullahanHead,
+                VanillaEnemyID.motherTerror,
+                VanillaEnemyID.ghast,
+                VanillaEnemyID.skeletonHorse,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.darkMatter,
+                VanillaArtifactID.netherStar,
                 VanillaArtifactID.dreamKey,
                 VanillaArtifactID.theCreaturesHeart,
             });

@@ -174,5 +174,78 @@ namespace MVZ2.Vanilla.Level
             level.SetProperty(IGNORE_HUGE_WAVE_EVENT, value);
         }
 
+        #region 无推车
+        public static readonly PropertyMeta NO_CARTS = Get("noCarts");
+        public static bool HasNoCarts(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(NO_CARTS);
+        }
+        public static void SetNoCarts(this LevelEngine level, bool value)
+        {
+            level.SetProperty(NO_CARTS, value);
+        }
+        #endregion
+
+        #region 头目AI
+        public static readonly PropertyMeta BOSS_AI_LEVEL = Get("bossAILevel");
+        public static int GetBossAILevel(this LevelEngine level)
+        {
+            return level.GetProperty<int>(BOSS_AI_LEVEL);
+        }
+        public static void SetBossAILevel(this LevelEngine level, int value)
+        {
+            level.SetProperty(BOSS_AI_LEVEL, value);
+        }
+        #endregion
+
+
+        #region 敌人AI
+        public static readonly PropertyMeta ENEMY_AI_LEVEL = Get("enemyAILevel");
+        public static int GetEnemyAILevel(this LevelEngine level)
+        {
+            return level.GetProperty<int>(ENEMY_AI_LEVEL);
+        }
+        public static void SetEnemyAILevel(this LevelEngine level, int value)
+        {
+            level.SetProperty(ENEMY_AI_LEVEL, value);
+        }
+        #endregion
+
+
+        #region 星之碎片概率
+        public static readonly PropertyMeta STARSHARD_CARRIER_CHANCE_INCREAMENT = Get("starshardCarrierChanceIncreament");
+        public static float GetStarshardCarrierChanceIncreament(this LevelEngine level)
+        {
+            return level.GetProperty<float>(STARSHARD_CARRIER_CHANCE_INCREAMENT);
+        }
+        public static void SetStarshardCarrierChanceIncreament(this LevelEngine level, float value)
+        {
+            level.SetProperty(STARSHARD_CARRIER_CHANCE_INCREAMENT, value);
+        }
+        #endregion
+
+        #region 红石概率
+        public static readonly PropertyMeta REDSTONE_CARRIER_CHANCE_INCREAMENT = Get("redstoneCarrierChanceIncreament");
+        public static float GetRedstoneCarrierChanceIncreament(this LevelEngine level)
+        {
+            return level.GetProperty<float>(REDSTONE_CARRIER_CHANCE_INCREAMENT);
+        }
+        public static void SetRedstoneCarrierChanceIncreament(this LevelEngine level, float value)
+        {
+            level.SetProperty(REDSTONE_CARRIER_CHANCE_INCREAMENT, value);
+        }
+        #endregion
+
+        #region 小幽灵麻痹时间
+        public static readonly PropertyMeta NAPSTABLOOK_PARALYSIS_TIME = Get("napstablookParalysisTime");
+        public static float GetNapstablookParalysisTime(this LevelEngine level)
+        {
+            return level.GetProperty<float>(NAPSTABLOOK_PARALYSIS_TIME);
+        }
+        public static void SetNapstablookParalysisTime(this LevelEngine level, float value)
+        {
+            level.SetProperty(NAPSTABLOOK_PARALYSIS_TIME, value);
+        }
+        #endregion
     }
 }

@@ -6,6 +6,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -98,13 +99,17 @@ namespace MVZ2.Vanilla.Entities
             if (timer.Expired)
             {
                 var level = entity.Level;
-                var gemType = GemEffect.GemType.Ruby;
-                if (level.Difficulty == VanillaDifficulties.easy)
+                var difficultyMeta = Global.Game.GetDifficultyMeta(level.Difficulty);
+                var money = 50;
+                if (difficultyMeta != null)
                 {
-                    gemType = GemEffect.GemType.Emerald;
+                    money = difficultyMeta.CartConvertMoney;
                 }
-                var gemEffect = GemEffect.SpawnGemEffect(level, gemType, entity.Position, entity, true);
-                gemEffect.PlaySound(VanillaSoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
+                var gemEffects = GemEffect.SpawnGemEffects(level, money, entity.Position, entity, true, 0);
+                foreach (var effect in gemEffects)
+                {
+                    effect.PlaySound(VanillaSoundID.points, 1 + (level.GetMaxLaneCount() - entity.GetLane() - 1) * 0.1f);
+                }
                 level.ShowMoney();
                 entity.Remove();
             }

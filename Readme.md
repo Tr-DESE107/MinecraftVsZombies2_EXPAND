@@ -191,6 +191,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **General**
 
 - The recharge time of blueprints have been reduced to 80%.
+- The blueprint convey speed in converyor belt stages have been increased to 200%.
 - Starshard zombies have increased spawn rate. 
 - Clearing a level that has already been cleared only gives 2 rubies, the remaining carts are settled as emeralds.
 
@@ -246,4 +247,4 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 
 **Misc**
 
-- Paralysis time for the sword in Whack-A-Ghost level is 2 seconds.
+- Paralysis time for the sword in Whack-A-Ghost level is 3 seconds.

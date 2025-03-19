@@ -1,7 +1,10 @@
-﻿using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Difficulties;
+﻿using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
 
@@ -11,29 +14,55 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
+            mod.AddTrigger(LogicLevelCallbacks.PRE_BATTLE, PreBattleCallback);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
+        }
+        public void PreBattleCallback(LevelEngine level)
+        {
+            EvaluateDifficultyBuff(level);
         }
         public void PostLevelStartCallback(LevelEngine level)
         {
+            EvaluateDifficultyBuff(level);
+        }
+        private void EvaluateDifficultyBuff(LevelEngine level)
+        {
             var difficulty = level.Difficulty;
-            bool easy = difficulty == VanillaDifficulties.easy;
-            var easyDef = level.Content.GetBuffDefinition(VanillaBuffID.Level.levelEasy);
-            if (easy != level.HasBuff(easyDef))
+            var difficultyMeta = Global.Game.GetDifficultyMeta(difficulty);
+            BuffDefinition buffDef = null;
+            if (difficultyMeta != null)
             {
-                if (easy)
-                    level.AddBuff(easyDef);
-                else
-                    level.RemoveBuffs(easyDef);
+                var buffId = difficultyMeta.BuffID;
+                buffDef = level.Content.GetBuffDefinition(buffId);
             }
-            bool hard = difficulty == VanillaDifficulties.hard;
-            var hardDef = level.Content.GetBuffDefinition(VanillaBuffID.Level.levelHard);
-            if (hard != level.HasBuff(hardDef))
+
+
+            var buffRef = GetDifficultyBuff(level);
+            if (buffRef != null)
             {
-                if (hard)
-                    level.AddBuff(hardDef);
-                else
-                    level.RemoveBuffs(hardDef);
+                var buff = buffRef.GetBuff(level);
+                if (buff.Definition == buffDef)
+                {
+                    return;
+                }
+                level.RemoveBuff(buff);
+            }
+            if (buffDef != null)
+            {
+                var buff = level.AddBuff(buffDef);
+                SetDifficultyBuff(level, level.GetBuffReference(buff));
             }
         }
+        public static BuffReference GetDifficultyBuff(LevelEngine level)
+        {
+            return level.GetProperty<BuffReference>(PROP_DIFFICULTY_BUFF);
+        }
+        public static void SetDifficultyBuff(LevelEngine level, BuffReference value)
+        {
+            level.SetProperty(PROP_DIFFICULTY_BUFF, value);
+        }
+        private const string PROP_REGION = "difficulty";
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta PROP_DIFFICULTY_BUFF = new VanillaLevelPropertyMeta("DifficultyBuff");
     }
 }

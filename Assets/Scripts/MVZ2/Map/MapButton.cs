@@ -18,23 +18,18 @@ namespace MVZ2.Map
         {
             buttonText.text = text;
         }
-        public void SetDifficulty(NamespaceID difficulty)
+        public void SetBorderSprite(Sprite back, Sprite bottom, Sprite overlay)
         {
-            var border = borders.Where(b => b.difficulty.Get() == difficulty).FirstOrDefault();
-            bool hasActive = false;
-            foreach (var b in borders)
-            {
-                bool active = b == border;
-                b.SetActive(active);
-                if (active)
-                {
-                    hasActive = true;
-                }
-            }
-            if (!hasActive)
-            {
-                defaultBorder.SetActive(true);
-            }
+            defaultBorder.SetActive(false);
+            customBorder.SetActive(true);
+            borderBack.sprite = back;
+            borderBottom.sprite = bottom;
+            borderOverlay.sprite = overlay;
+        }
+        public void SetBorderSpriteToDefault()
+        {
+            defaultBorder.SetActive(true);
+            customBorder.SetActive(false);
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
@@ -91,8 +86,14 @@ namespace MVZ2.Map
         [SerializeField]
         private TextMeshPro buttonText;
         [SerializeField]
-        private MapButtonBorder defaultBorder;
+        private GameObject defaultBorder;
         [SerializeField]
-        private MapButtonBorder[] borders;
+        private GameObject customBorder;
+        [SerializeField]
+        private SpriteRenderer borderBack;
+        [SerializeField]
+        private SpriteRenderer borderBottom;
+        [SerializeField]
+        private SpriteRenderer borderOverlay;
     }
 }

@@ -14,6 +14,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -251,7 +252,7 @@ namespace MVZ2.GameContent.Bosses
                 return;
 
             var rng = GetMindSwapRNG(entity);
-            NamespaceID[] pool = level.Difficulty == VanillaDifficulties.hard ? hardMindSwapPool : mindSwapPool;
+            NamespaceID[] pool = level.GetBossAILevel() > 0 ? hardMindSwapPool : mindSwapPool;
             for (int i = 0; i < level.GetConveyorSeedPackCount(); i++)
             {
                 var blueprint = level.GetConveyorSeedPackAt(i);
@@ -281,15 +282,7 @@ namespace MVZ2.GameContent.Bosses
             var title = Global.Game.GetText(CHOOSE_FATE_TITLE);
             var desc = Global.Game.GetText(CHOOSE_FATE_DESCRIPTION);
 
-            int count = 3;
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                count = 4;
-            }
-            else if (level.Difficulty == VanillaDifficulties.hard)
-            {
-                count = 2;
-            }
+            int count = 3 - level.GetBossAILevel();
             var rng = GetFateOptionRNG(entity);
             var selected = fateOptions.RandomTake(count, rng).ToArray();
             var options = selected.Select(i => GetFateOptionText(i)).ToArray();
@@ -447,15 +440,7 @@ namespace MVZ2.GameContent.Bosses
 
         private int GetMaxFateTimes(LevelEngine level)
         {
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                return 3;
-            }
-            else if (level.Difficulty == VanillaDifficulties.hard)
-            {
-                return 5;
-            }
-            return 4;
+            return 4 + level.GetBossAILevel();
         }
 
         #region 属性

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Cameras;
 using MVZ2.Level.UI;
@@ -8,8 +9,11 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -74,6 +78,7 @@ namespace MVZ2.Level
         {
             SetCameraPosition(LevelCameraPosition.Lawn);
             UpdateDifficulty();
+            Game.RunCallback(LogicLevelCallbacks.PRE_BATTLE, c => c(level));
             level.PrepareForBattle();
             StartGame();
         }
@@ -89,6 +94,7 @@ namespace MVZ2.Level
         {
             yield return MoveCameraToLawn();
             UpdateDifficulty();
+            Game.RunCallback(LogicLevelCallbacks.PRE_BATTLE, c => c(level));
             level.PrepareForBattle();
             yield return new WaitForSeconds(0.5f);
             PlayReadySetBuild();
@@ -127,8 +133,25 @@ namespace MVZ2.Level
             }
             else
             {
-                var seedPacks = innateBlueprints.Concat(unlockedContraptions.Take(seedSlotCount)).ToArray();
+                var chooseItems = new List<BlueprintChooseItem>();
+                foreach (var innate in innateBlueprints)
+                {
+                    chooseItems.Add(new BlueprintChooseItem()
+                    {
+                        innate = true,
+                        id = innate
+                    });
+                }
+                foreach (var contraption in unlockedContraptions.Take(seedSlotCount))
+                {
+                    chooseItems.Add(new BlueprintChooseItem()
+                    {
+                        id = contraption
+                    });
+                }
+                var seedPacks = chooseItems.Select(i => i.id).ToArray();
                 level.ReplaceSeedPacks(seedPacks);
+                Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, c => c(level, chooseItems.ToArray()));
                 yield return GameStartToLawnTransition();
             }
         }

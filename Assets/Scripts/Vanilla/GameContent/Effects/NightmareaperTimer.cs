@@ -2,6 +2,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
@@ -21,15 +22,7 @@ namespace MVZ2.GameContent.Effects
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var timeout = 2700;
-            if (entity.Level.Difficulty == VanillaDifficulties.easy)
-            {
-                timeout = 3600;
-            }
-            else if (entity.Level.Difficulty == VanillaDifficulties.hard)
-            {
-                timeout = 1800;
-            }
+            var timeout = 2700 + entity.Level.GetBossAILevel() * 900;
             SetTimeout(entity, timeout);
             entity.SetSortingLayer(SortingLayers.frontUI);
             entity.SetSortingOrder(-9000);

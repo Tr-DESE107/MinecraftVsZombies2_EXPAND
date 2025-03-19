@@ -6,12 +6,14 @@ using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -78,15 +80,7 @@ namespace MVZ2.GameContent.HeldItems
         public static void Paralyze(LevelEngine level)
         {
             var buff = level.AddBuff<SwordParalyzedBuff>();
-            var timeout = 45;
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                timeout = 22;
-            }
-            else if (level.Difficulty == VanillaDifficulties.hard)
-            {
-                timeout = 90;
-            }
+            var timeout = Mathf.FloorToInt(level.GetNapstablookParalysisTime());
             buff.SetProperty(SwordParalyzedBuff.PROP_TIMEOUT, timeout);
             level.PlaySound(VanillaSoundID.shock);
         }

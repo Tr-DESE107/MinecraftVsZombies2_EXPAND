@@ -4,6 +4,7 @@ using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -73,26 +74,27 @@ namespace MVZ2.GameContent.Pickups
             base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
+
+            var difficultyMeta = Global.Game.GetDifficultyMeta(level.Difficulty);
+            int money = 0;
             if (level.IsRerun)
             {
-                int money = 250;
-                if (level.Difficulty == VanillaDifficulties.easy)
+                money = 250;
+                if (difficultyMeta != null)
                 {
-                    money = 50;
+                    money = difficultyMeta.RerunClearMoney;
                 }
-                else if (level.Difficulty == VanillaDifficulties.hard)
-                {
-                    money = 1000;
-                }
-                GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
             }
             else
             {
-                if (level.Difficulty == VanillaDifficulties.hard)
+                if (difficultyMeta != null)
                 {
-                    GemEffect.SpawnGemEffects(level, 250, pickup.Position, pickup, false);
+                    money = difficultyMeta.ClearMoney;
                 }
             }
+            GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
+
+
             foreach (var p in level.GetEntities(EntityTypes.PICKUP))
             {
                 if (p == pickup || p.IsCollected())

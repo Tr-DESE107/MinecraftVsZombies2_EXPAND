@@ -1,23 +1,76 @@
 ﻿using System.Xml;
 using MVZ2.IO;
+using MVZ2Logic;
+using MVZ2Logic.Level;
+using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class DifficultyMeta
+    public class DifficultyMeta : IDifficultyMeta
     {
-        public string id;
-        public string name;
-        public int value;
-        public static DifficultyMeta FromXmlNode(XmlNode node)
+        public string ID { get; private set; }
+        public string Name { get; private set; }
+        public int Value { get; private set; }
+        public NamespaceID BuffID { get; private set; }
+
+        public int CartConvertMoney { get; private set; }
+        public int ClearMoney { get; private set; }
+        public int RerunClearMoney { get; private set; }
+
+        public SpriteReference MapButtonBorderBack { get; private set; }
+        public SpriteReference MapButtonBorderBottom { get; private set; }
+        public SpriteReference MapButtonBorderOverlay { get; private set; }
+
+
+        public static DifficultyMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var value = node.GetAttributeInt("value") ?? 0;
+
+            NamespaceID buffID = null;
+            var buffNode = node["buff"];
+            if (buffNode != null)
+            {
+                buffID = buffNode.GetAttributeNamespaceID("id", defaultNsp);
+            }
+
+            int cartMoney = 50;
+            int clearMoney = 0;
+            int rerunMoney = 250;
+            var clearNode = node["clear"];
+            if (clearNode != null)
+            {
+                cartMoney = clearNode.GetAttributeInt("cartMoney") ?? 50;
+                clearMoney = clearNode.GetAttributeInt("clearMoney") ?? 0;
+                rerunMoney = clearNode.GetAttributeInt("rerunMoney") ?? 250;
+            }
+
+            SpriteReference backSprite = null;
+            SpriteReference bottomSprite = null;
+            SpriteReference overlaySprite = null;
+            var buttonNode = node["button"];
+            if (buttonNode != null)
+            {
+                backSprite = buttonNode.GetAttributeSpriteReference("back", defaultNsp);
+                bottomSprite = buttonNode.GetAttributeSpriteReference("bottom", defaultNsp);
+                overlaySprite = buttonNode.GetAttributeSpriteReference("overlay", defaultNsp);
+            }
+
             return new DifficultyMeta()
             {
-                id = id,
-                name = name,
-                value = value
+                ID = id,
+                Name = name,
+                Value = value,
+                BuffID = buffID,
+
+                CartConvertMoney = cartMoney,
+                ClearMoney = clearMoney,
+                RerunClearMoney = rerunMoney,
+
+                MapButtonBorderBack = backSprite,
+                MapButtonBorderBottom = bottomSprite,
+                MapButtonBorderOverlay = overlaySprite
             };
         }
     }

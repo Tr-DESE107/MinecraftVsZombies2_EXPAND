@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
@@ -116,7 +117,7 @@ namespace MVZ2.GameContent.Enemies
             var direciton = (target.GetCenter() - shootPoint).normalized;
             param.velocity = speed * direciton;
             var damageMultiplier = 1.5f;
-            if (self.Level.Difficulty == VanillaDifficulties.hard)
+            if (self.Level.GetEnemyAILevel() > 0)
             {
                 damageMultiplier = 3;
             }

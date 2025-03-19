@@ -355,8 +355,25 @@ namespace MVZ2.Map
                 var meta = Main.ResourceManager.GetDifficultyMeta(r);
                 if (meta == null)
                     return int.MinValue;
-                return meta.value;
+                return meta.Value;
             }).FirstOrDefault();
+        }
+        private void SetMapButtonDifficulty(int index)
+        {
+            var difficulty = GetLevelDifficulty(index);
+            if (NamespaceID.IsValid(difficulty))
+            {
+                var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);
+                if (difficultyMeta != null)
+                {
+                    var back = Main.GetFinalSprite(difficultyMeta.MapButtonBorderBack);
+                    var bottom = Main.GetFinalSprite(difficultyMeta.MapButtonBorderBottom);
+                    var overlay = Main.GetFinalSprite(difficultyMeta.MapButtonBorderOverlay);
+                    model.SetMapButtonBorder(index, back, bottom, overlay);
+                    return;
+                }
+            }
+            model.SetMapButtonBorderToDefault(index);
         }
         private bool IsEndlessUnlocked()
         {
@@ -564,7 +581,7 @@ namespace MVZ2.Map
                 model.SetMapButtonInteractable(i, unlocked);
                 model.SetMapButtonColor(i, color);
                 model.SetMapButtonText(i, (i + 1).ToString());
-                model.SetMapButtonDifficulty(i, GetLevelDifficulty(i));
+                SetMapButtonDifficulty(i);
             }
             var endlessColor = buttonColorEndless;
             var endlessUnlocked = IsEndlessUnlocked();

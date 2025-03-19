@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Models;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Effects
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.Timeout = VANISH_TICKS + MOVE_TICKS;
+            entity.Timeout = MIN_TIMEOUT;
             entity.SetSortingLayer(SortingLayers.money);
             entity.SetSortingOrder(9999);
         }
@@ -61,7 +62,7 @@ namespace MVZ2.GameContent.Effects
             color.a = alpha;
             entity.SetTint(color);
         }
-        public static Entity[] SpawnGemEffects(LevelEngine level, int money, Vector3 position, Entity spawner, bool mute = false)
+        public static Entity[] SpawnGemEffects(LevelEngine level, int money, Vector3 position, Entity spawner, bool mute = false, int timeout = 20)
         {
             var moneyPairs = gemMoneyDict.OrderByDescending(p => p.Value);
             var currentMoney = money;
@@ -82,9 +83,8 @@ namespace MVZ2.GameContent.Effects
             {
                 for (int i = 0; i < pair.Value; i++)
                 {
-                    var gem = SpawnGemEffect(level, pair.Key, position, spawner, mute);
+                    var gem = SpawnGemEffect(level, pair.Key, position, spawner, mute, timeout);
                     spawnedGems.Add(gem);
-                    gem.Timeout = MOVE_TICKS + VANISH_TICKS + 20;
 
                     var angle = startAngle + anglePerGem * currentIndex;
                     gem.Velocity = (Quaternion.Euler(0, 0, angle) * Vector3.up) * 10;
@@ -98,12 +98,13 @@ namespace MVZ2.GameContent.Effects
             }
             return spawnedGems.ToArray();
         }
-        public static Entity SpawnGemEffect(LevelEngine level, GemType type, Vector3 position, Entity spawner, bool mute = false)
+        public static Entity SpawnGemEffect(LevelEngine level, GemType type, Vector3 position, Entity spawner, bool mute = false, int timeout = 0)
         {
             var effect = level.Spawn(VanillaEffectID.gemEffect, position, spawner);
             level.ShowMoney();
             level.AddDelayedMoney(effect, gemMoneyDict[type]);
             effect.ChangeModel(gemModelDict[type]);
+            effect.Timeout = timeout + MIN_TIMEOUT;
             if (!mute)
             {
                 effect.PlaySound(gemSoundDict[type]);
@@ -121,6 +122,7 @@ namespace MVZ2.GameContent.Effects
         public const int MOVE_TICKS = 20;
         public const int VANISH_TICKS = 10;
         public const float COLLECTED_Z = -100;
+        public const int MIN_TIMEOUT = VANISH_TICKS + MOVE_TICKS;
         private static readonly Dictionary<GemType, int> gemMoneyDict = new Dictionary<GemType, int>()
         {
             { GemType.Emerald, 10 },
