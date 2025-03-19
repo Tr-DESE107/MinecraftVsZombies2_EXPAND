@@ -15,8 +15,8 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using Tools.Mathematics;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -34,30 +34,16 @@ namespace MVZ2.GameContent.Effects
             base.Init(entity);
             entity.CollisionMaskFriendly = EntityCollisionHelper.MASK_PROJECTILE;
         }
-        public override void PostCollision(EntityCollision collision, int state)
-        {
-            base.PostCollision(collision, state);
-            if (!collision.Collider.IsMain() || !collision.OtherCollider.IsMain())
-                return;
-            if (state == EntityCollisionHelper.STATE_EXIT)
-                return;
-            var bullet = collision.Other;
-            if (!bullet.IsEntityOf(VanillaProjectileID.breakoutPearl))
-                return;
-            var board = collision.Entity;
-            if (bullet == board.Target)
-                return;
-            if (!board.IsFriendly(bullet))
-                return;
-            PushBullet(board, bullet);
-
-            board.PlaySound(VanillaSoundID.reflection);
-
-        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
             var level = entity.Level;
+
+            var nextPosition = GetBoardNextPosition(entity);
+            if (nextPosition.sqrMagnitude > 0)
+            {
+                entity.Position = nextPosition;
+            }
 
             bool pearlExists = true;
             var target = entity.Target;
@@ -81,6 +67,15 @@ namespace MVZ2.GameContent.Effects
                     pearlExists = false;
                 }
             }
+
+            bulletBuffer.Clear();
+            level.FindEntitiesNonAlloc(e => e != entity.Target && entity.IsFriendly(e) && e.IsEntityOf(VanillaProjectileID.breakoutPearl), bulletBuffer);
+            foreach (var pearl in bulletBuffer)
+            {
+                ResolveCollision(entity, pearl, entity.Position - entity.PreviousPosition);
+            }
+
+
             if (!pearlExists)
             {
                 var countdown = GetRespawnCountdown(entity);
@@ -134,7 +129,7 @@ namespace MVZ2.GameContent.Effects
                 }
                 position.x = Mathf.Clamp(position.x, MIN_X, MAX_X);
                 position.z = Mathf.Clamp(position.z, level.GetGridBottomZ(), level.GetGridTopZ());
-                board.Position = position;
+                SetBoardNextPosition(board, position);
             }
         }
         #endregion
@@ -182,100 +177,36 @@ namespace MVZ2.GameContent.Effects
         {
             board.SetBehaviourField(ID, PROP_RESPAWN_COUNTDOWN, value);
         }
-        private void PushBullet(Entity board, Entity bullet)
+        public static Vector3 GetBoardNextPosition(Entity board)
         {
-            // 挤开子弹。
-            // 获取板子和子弹的碰撞箱。
-            var boardBounds = board.GetBounds();
-            var bulletBounds = bullet.GetBounds();
+            return board.GetBehaviourField<Vector3>(ID, PROP_NEXT_POSITION);
+        }
+        public static void SetBoardNextPosition(Entity board, Vector3 value)
+        {
+            board.SetBehaviourField(ID, PROP_NEXT_POSITION, value);
+        }
+        /// <summary>
+        /// 计算碰撞后移动矩形B的位置，防止穿过静止矩形A
+        /// </summary>
+        public static void ResolveCollision(Entity board, Entity bullet, Vector3 boardDisplacement)
+        {
+            var currentA = board.GetBounds();
+            var currentB = bullet.GetBounds();
+            var prevA = currentA;
+            prevA.center -= boardDisplacement;
 
-            var bulletPos = bulletBounds.center;
-            var boardPos = boardBounds.center;
-            // 获取子弹和板子体积相加的值。
-            var extentsX = boardBounds.extents.x + bulletBounds.extents.x;
-            var extentsZ = boardBounds.extents.z + bulletBounds.extents.z;
+            Vector3 velocity = bullet.Velocity - boardDisplacement;
 
-            // 从子弹的上一处位置相对于板子上一处的位置，向当前位置相对于板子的位置画一条线段。
-            var bulletLineStart = bullet.PreviousPosition - board.PreviousPosition;
-            var bulletLineEnd = bullet.Position - board.Position;
+            float collisionTime = SweptAABB(prevA, currentB, velocity, out var normal);
 
-            // X方向不相交。
-            if (!MathTool.DoRangesIntersect(bulletLineStart.x, bulletLineEnd.x, -extentsX, extentsX))
-                return;
-            // Z方向不相交。
-            if (!MathTool.DoRangesIntersect(bulletLineStart.z, bulletLineEnd.z, -extentsZ, extentsZ))
-                return;
-
-            var bulletLine = bulletLineEnd - bulletLineStart;
-            // 获取相交前，X轴和Z轴的有效移动距离。
-            float hitLineLengthX;
-            if (bulletLineStart.x < 0)
+            if (collisionTime >= 1.0f)
             {
-                hitLineLengthX = Mathf.Min(bulletLineEnd.x, -extentsX) - bulletLineStart.x;
-            }
-            else
-            {
-                hitLineLengthX = bulletLineStart.x - Mathf.Max(bulletLineEnd.x, extentsX);
-            }
-            float hitLineLengthZ;
-            if (bulletLineStart.z < 0)
-            {
-                hitLineLengthZ = Mathf.Min(bulletLineEnd.z, -extentsZ) - bulletLineStart.z;
-            }
-            else
-            {
-                hitLineLengthZ = bulletLineStart.z - Mathf.Max(bulletLineEnd.z, extentsZ);
-            }
-
-            // 获取在X轴和Z轴上的有效移动距离的有效百分比。
-            float bulletHitPercent = 0;
-            if (bulletLine.x != 0 && bulletLine.z != 0)
-            {
-                if (hitLineLengthX >= 0 && hitLineLengthZ >= 0)
-                {
-                    // 两个轴全部接触，取距离最近的
-                    float linePercentX = hitLineLengthX / Mathf.Abs(bulletLine.x);
-                    float linePercentZ = hitLineLengthZ / Mathf.Abs(bulletLine.z);
-                    bulletHitPercent = Mathf.Min(linePercentX, linePercentZ);
-                }
-                else if (hitLineLengthZ >= 0)
-                {
-                    // Z轴接触
-                    bulletHitPercent = hitLineLengthZ / Mathf.Abs(bulletLine.z);
-                }
-                else if (hitLineLengthX >= 0)
-                {
-                    // X轴接触
-                    bulletHitPercent = hitLineLengthX / Mathf.Abs(bulletLine.x);
-                }
-                else
-                {
-                    // 两个轴全在内部，穿模了
-                    return;
-                }
-            }
-            else if (bulletLine.x != 0)
-            {
-                bulletHitPercent = hitLineLengthX / Mathf.Abs(bulletLine.x);
-            }
-            else if (bulletLine.z != 0)
-            {
-                bulletHitPercent = hitLineLengthZ / Mathf.Abs(bulletLine.z);
-            }
-            else
-            {
-                // 根本没有在移动
                 return;
             }
-
-            var bulletHitOffset = bulletLine * bulletHitPercent + bulletLineStart;
-            var finalPosition = boardPos + bulletHitOffset;
-            finalPosition.y = bulletPos.y;
+            var finalPosition = currentB.center + velocity * collisionTime + boardDisplacement;
             bullet.SetCenter(finalPosition);
 
-
-
-            var boardDisplacement = board.Position - board.PreviousPosition;
+            // 设置子弹移速
             var targetVelocity = bullet.Position - board.Position;
             if (targetVelocity.x * boardDisplacement.x > 0)
             {
@@ -288,6 +219,80 @@ namespace MVZ2.GameContent.Effects
             targetVelocity.y = 0;
             bullet.Velocity = targetVelocity.normalized * PEARL_SPEED;
 
+            board.PlaySound(VanillaSoundID.reflection);
+        }
+        /// <summary>
+        /// 执行扫掠式AABB碰撞检测
+        /// 参数：
+        ///   b：移动矩形
+        ///   velocity：B在本帧的移动量（速度向量，假设时间步长为1）
+        ///   a：静止矩形
+        ///   normal：碰撞法向量（输出）
+        /// 返回值：碰撞发生时的时间因子 t（0~1之间），若返回1表示本帧无碰撞
+        /// </summary>
+        public static float SweptAABB(Bounds a, Bounds b, Vector3 velocity, out Vector3 normal)
+        {
+            normal = Vector3.zero;
+
+            Vector3 invEntry = Vector3.zero;
+            Vector3 invExit = Vector3.zero;
+            Vector3 entry = Vector3.zero;
+            Vector3 exit = Vector3.zero;
+
+            for (int i = 0; i < 3; i++)
+            {
+                // 计算沿X和Y方向的反向进入距离与离开距离
+                if (velocity[i] > 0.0f)
+                {
+                    invEntry[i] = a.min[i] - b.max[i];
+                    invExit[i] = a.max[i] - b.min[i];
+                }
+                else
+                {
+                    invEntry[i] = a.max[i] - b.min[i];
+                    invExit[i] = a.min[i] - b.max[i];
+                }
+                // 计算进入时间与离开时间
+                if (velocity[i] == 0.0f)
+                {
+                    entry[i] = float.NegativeInfinity;
+                    exit[i] = float.PositiveInfinity;
+                }
+                else
+                {
+                    entry[i] = invEntry[i] / velocity[i];
+                    exit[i] = invExit[i] / velocity[i];
+                }
+            }
+
+            // 找到整体的进入时间与离开时间
+            float entryTime = Mathf.Max(entry.x, entry.y, entry.z);
+            float exitTime = Mathf.Min(exit.x, exit.y, exit.z);
+
+            // 如果无碰撞，条件如下：
+            // 1. 进入时间大于离开时间，说明两个矩形间存在分离
+            // 2. 进入时间均为负，说明碰撞发生在上一帧
+            // 3. 进入时间大于1，表示本帧内不会发生碰撞
+            if (entryTime > exitTime || entryTime < 0 || entryTime > 1.0f)
+            {
+                return 1.0f;
+            }
+
+            // 根据哪个轴先碰撞确定碰撞法向量
+            if (entryTime == entry.x)
+            {
+                normal = (invEntry.x < 0.0f) ? new Vector3(1, 0, 0) : new Vector3(-1, 0, 0);
+            }
+            else if (entryTime == entry.y)
+            {
+                normal = (invEntry.y < 0.0f) ? new Vector3(0, 1, 0) : new Vector3(0, -1, 0);
+            }
+            else
+            {
+                normal = (invEntry.z < 0.0f) ? new Vector3(0, 0, 1) : new Vector3(0, 0, -1);
+            }
+
+            return entryTime;
         }
 
         bool IHeldEntityBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
@@ -328,10 +333,12 @@ namespace MVZ2.GameContent.Effects
         }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
         public static readonly VanillaEntityPropertyMeta PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta("RespawnCountdown");
+        public static readonly VanillaEntityPropertyMeta PROP_NEXT_POSITION = new VanillaEntityPropertyMeta("NextPosition");
         public const int MAX_RESPAWN_COUNTDOWN = 90;
         public const float PEARL_SPEED = 15;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
         public const float MIN_X = VanillaLevelExt.LEFT_BORDER + 40;
         private List<Entity> boardsBuffer = new List<Entity>();
+        private List<Entity> bulletBuffer = new List<Entity>();
     }
 }

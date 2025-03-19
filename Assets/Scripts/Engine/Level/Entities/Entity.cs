@@ -360,10 +360,9 @@ namespace PVZEngine.Entities
                 nextVelocity.y = Mathf.Max(nextVelocity.y, 0);
             }
 
-            PreviousPosition = prevUpdatePosition;
+            PreviousPosition = Position;
             Position = nextPos;
             Velocity = nextVelocity;
-            prevUpdatePosition = Position;
 
             if (contactingGround)
             {
@@ -696,7 +695,6 @@ namespace PVZEngine.Entities
             Parent = Level.FindEntityByID(seri.parent);
             EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
             PreviousPosition = seri.previousPosition;
-            prevUpdatePosition = seri.position;
             Position = seri.position;
             Velocity = seri.velocity;
             CollisionMaskHostile = seri.collisionMaskHostile;
@@ -755,7 +753,6 @@ namespace PVZEngine.Entities
         private void OnInit(Entity spawner)
         {
             PreviousPosition = Position;
-            prevUpdatePosition = Position;
             Health = this.GetMaxHealth();
             UpdateAllBuffedProperties();
             Cache.UpdateAll(this);
@@ -841,7 +838,6 @@ namespace PVZEngine.Entities
         public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
         public bool FlipX => this.GetScale().x < 0;
-        private Vector3 prevUpdatePosition;
         #region Collision
         public int CollisionMaskHostile { get; set; }
         public int CollisionMaskFriendly { get; set; }
