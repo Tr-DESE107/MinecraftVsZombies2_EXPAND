@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Drawing;
 using System.Linq;
 using PVZEngine.Base;
@@ -307,7 +308,7 @@ namespace PVZEngine.Level
         private void UpdateEntities()
         {
             entityUpdateBuffer.Clear();
-            entityUpdateBuffer.CopyFrom(entities.Values);
+            entityUpdateBuffer.CopyFrom(entities.OrderBy(e => e.Key).Select(e => e.Value));
             for (int i = 0; i < entityUpdateBuffer.Count; i++)
             {
                 var entity = entityUpdateBuffer[i];
@@ -326,7 +327,7 @@ namespace PVZEngine.Level
         public Action<Entity> OnEntityRemove;
         #endregion
         private long currentEntityID = 1;
-        private Dictionary<long, Entity> entities = new Dictionary<long, Entity>();
+        private SortedDictionary<long, Entity> entities = new SortedDictionary<long, Entity>();
         private Dictionary<long, Entity> entityTrash = new Dictionary<long, Entity>();
         private ArrayBuffer<Entity> entityUpdateBuffer = new ArrayBuffer<Entity>(2048);
         private ICollisionSystem collisionSystem;
