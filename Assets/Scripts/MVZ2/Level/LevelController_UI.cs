@@ -76,6 +76,7 @@ namespace MVZ2.Level
                 triggerVisible = true;
             }
             ui.SetHeldItemTrigger(triggerVisible, instantTrigger);
+            ui.SetHeldItemImbued(data.Imbued);
 
             // 设置射线检测图层。
             List<int> layers = new List<int>();

@@ -88,13 +88,14 @@ namespace MVZ2.Vanilla
                 }
                 AddDefinition(entityDefinition);
 
-                var seedDef = new EntitySeed(Namespace,
-                                             name,
-                                             entityDefinition.GetCost(),
-                                             entityDefinition.GetRechargeID(),
-                                             entityDefinition.IsTriggerActive(),
-                                             entityDefinition.CanInstantTrigger(),
-                                             entityDefinition.IsUpgradeBlueprint());
+                var info = new EntitySeedInfo()
+                {
+                    triggerActive = entityDefinition.IsTriggerActive(),
+                    canInstantTrigger = entityDefinition.CanInstantTrigger(),
+                    upgrade = entityDefinition.IsUpgradeBlueprint(),
+                    canImbue = entityDefinition.CanImbue()
+                };
+                var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), info);
                 AddDefinition(seedDef);
             }
         }

@@ -16,6 +16,7 @@ namespace MVZ2.Vanilla.SeedPacks
         public static readonly PropertyMeta SEED_TYPE = Get("seedType");
         public static readonly PropertyMeta TWINKLING = Get("twinkling");
         public static readonly PropertyMeta TRIGGER_ACTIVE = Get("triggerActive");
+        public static readonly PropertyMeta CAN_IMBUE = Get("canImbue");
         public static readonly PropertyMeta CAN_INSTANT_TRIGGER = Get("canInstantTrigger");
         public static readonly PropertyMeta DRAWN_CONVEYOR_SEED = Get("drawnConveyorSeed");
         public static readonly PropertyMeta UPGRADE_BLUEPRINT = Get("upgradeBlueprint");
@@ -51,6 +52,10 @@ namespace MVZ2.Vanilla.SeedPacks
         {
             return definition.GetProperty<bool>(CAN_INSTANT_TRIGGER);
         }
+        public static bool CanImbue(this SeedDefinition definition)
+        {
+            return definition.GetProperty<bool>(CAN_IMBUE);
+        }
         public static bool IsTwinkling(this SeedPack seed)
         {
             return seed.GetProperty<bool>(TWINKLING);
@@ -66,6 +71,16 @@ namespace MVZ2.Vanilla.SeedPacks
         public static void SetDrawnConveyorSeed(this SeedPack seed, NamespaceID value)
         {
             seed.SetProperty(DRAWN_CONVEYOR_SEED, value);
+        }
+
+        public static readonly PropertyMeta IMBUED = Get("imbued");
+        public static bool IsImbued(this SeedPack seed)
+        {
+            return seed.GetProperty<bool>(IMBUED);
+        }
+        public static void SetImbued(this SeedPack seed, bool value)
+        {
+            seed.SetProperty(IMBUED, value);
         }
     }
 }

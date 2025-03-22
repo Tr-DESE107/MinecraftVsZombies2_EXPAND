@@ -47,12 +47,18 @@ namespace MVZ2.Level.UI
             triggerObj.SetActive(visible && trigger);
             notTriggerObj.SetActive(visible && !trigger);
         }
+        public void SetImbued(bool value)
+        {
+            imbuedObj.SetActive(value);
+        }
         [SerializeField]
         private Transform modelRoot;
         [SerializeField]
         private GameObject triggerObj;
         [SerializeField]
         private GameObject notTriggerObj;
+        [SerializeField]
+        private GameObject imbuedObj;
         private Model model;
     }
 }

@@ -29,6 +29,7 @@ namespace MVZ2.Level
             ui.SetRecharge(0);
             ui.SetSelected(false);
             ui.SetTwinkling(false);
+            ui.SetImbued(false);
         }
         protected override void OnDestroy()
         {

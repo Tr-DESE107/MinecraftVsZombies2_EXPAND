@@ -15,16 +15,17 @@ namespace MVZ2.GameContent.Seeds
 {
     public class EntitySeed : SeedDefinition
     {
-        public EntitySeed(string nsp, string name, int cost, NamespaceID rechargeID, bool triggerActive = false, bool canInstantTrigger = false, bool upgrade = false) : base(nsp, name)
+        public EntitySeed(string nsp, string name, int cost, NamespaceID rechargeID, EntitySeedInfo info) : base(nsp, name)
         {
             SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.ENTITY);
             SetProperty(VanillaSeedProps.SEED_ENTITY_ID, new NamespaceID(nsp, name));
             SetProperty(EngineSeedProps.COST, cost);
             SetProperty(EngineSeedProps.RECHARGE_ID, rechargeID);
-            SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, triggerActive);
-            SetProperty(VanillaSeedProps.CAN_INSTANT_TRIGGER, canInstantTrigger);
-            SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, upgrade);
-            if (upgrade)
+            SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, info.triggerActive);
+            SetProperty(VanillaSeedProps.CAN_IMBUE, info.canImbue);
+            SetProperty(VanillaSeedProps.CAN_INSTANT_TRIGGER, info.canInstantTrigger);
+            SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, info.upgrade);
+            if (info.upgrade)
             {
                 AddAura(new UpgradeEndlessCostAura());
             }
@@ -62,5 +63,12 @@ namespace MVZ2.GameContent.Seeds
             }
             public const float ADDITION = 50;
         }
+    }
+    public struct EntitySeedInfo
+    {
+        public bool triggerActive;
+        public bool canInstantTrigger;
+        public bool upgrade;
+        public bool canImbue;
     }
 }

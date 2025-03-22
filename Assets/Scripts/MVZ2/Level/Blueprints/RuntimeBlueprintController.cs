@@ -65,6 +65,18 @@ namespace MVZ2.Level
         }
         public override void Click()
         {
+            bool holdingStarshard = Level.IsHoldingStarshard();
+            bool canImbue = SeedPack?.CanImbue() ?? false;
+            bool imbue = canImbue && holdingStarshard;
+            if (imbue)
+            {
+                SeedPack.SetImbued(true);
+                Level.PlaySound(VanillaSoundID.evocation);
+                Level.PlaySound(VanillaSoundID.wakeup);
+                Level.AddStarshardCount(-1);
+                Level.ResetHeldItem();
+                return;
+            }
             // 进行立即触发检测。
             bool holdingTrigger = Level.IsHoldingTrigger();
             bool canInstantTrigger = SeedPack?.CanInstantTrigger() ?? false;
@@ -72,7 +84,9 @@ namespace MVZ2.Level
 
             bool swapped = Controller.IsTriggerSwapped();
             bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
-            Pickup(instantTrigger, usingTrigger);
+
+            bool skipCancelHeld = holdingTrigger && canInstantTrigger;
+            Pickup(instantTrigger, skipCancelHeld);
         }
         public bool CanPick(out string errorMessage)
         {
@@ -114,6 +128,22 @@ namespace MVZ2.Level
         #endregion
 
         protected abstract void OnPickup(bool instantTrigger);
+        protected virtual bool ShouldBlueprintTwinkle(SeedPack seedPack)
+        {
+            if (SeedPack.IsTwinkling())
+            {
+                return true;
+            }
+            else if (Level.IsHoldingTrigger() && SeedPack.CanInstantTrigger())
+            {
+                return true;
+            }
+            else if (Level.IsHoldingStarshard() && SeedPack.CanImbue())
+            {
+                return true;
+            }
+            return false;
+        }
         private void Pickup(bool instantTrigger, bool skipCancelHeld = false)
         {
             // 先取消已经手持的物品。

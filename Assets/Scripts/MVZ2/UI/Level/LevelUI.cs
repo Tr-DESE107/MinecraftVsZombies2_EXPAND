@@ -76,6 +76,10 @@ namespace MVZ2.UI
         {
             heldItem.SetTrigger(visible, trigger);
         }
+        public void SetHeldItemImbued(bool value)
+        {
+            heldItem.SetImbued(value);
+        }
         public Model GetHeldItemModel()
         {
             return heldItem.GetModel();

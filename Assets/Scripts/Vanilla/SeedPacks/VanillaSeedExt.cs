@@ -54,6 +54,15 @@ namespace MVZ2.Vanilla.SeedPacks
             var blueprintDef = seedPack?.Definition;
             return blueprintDef.IsTriggerActive() && blueprintDef.CanInstantTrigger();
         }
+        public static bool CanImbue(this SeedPack seedPack)
+        {
+            if (seedPack.IsImbued())
+            {
+                return false;
+            }
+            var blueprintDef = seedPack?.Definition;
+            return blueprintDef.CanImbue();
+        }
         public static void UseOnGrid(this SeedPack seed, LawnGrid grid, IHeldItemData heldItemData)
         {
             var seedDef = seed.Definition;
@@ -97,6 +106,11 @@ namespace MVZ2.Vanilla.SeedPacks
             if (heldItemData.InstantTrigger && entity.CanTrigger())
             {
                 entity.Trigger();
+            }
+            if (heldItemData.Imbued && entity.CanEvoke())
+            {
+                seed.SetImbued(false);
+                entity.Evoke();
             }
             var drawnFromPool = seed.GetDrawnConveyorSeed();
             if (NamespaceID.IsValid(drawnFromPool))

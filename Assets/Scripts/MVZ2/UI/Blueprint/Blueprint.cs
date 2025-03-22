@@ -61,6 +61,12 @@ namespace MVZ2.UI
                 return;
             animator.SetBool("Twinkling", twinkling);
         }
+        public void SetImbued(bool imbued)
+        {
+            if (!animator.gameObject.activeInHierarchy)
+                return;
+            animator.SetBool("Imbued", imbued);
+        }
         public void PointerRelease()
         {
             OnPointerRelease?.Invoke(this);

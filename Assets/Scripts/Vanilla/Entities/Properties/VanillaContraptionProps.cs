@@ -96,6 +96,13 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return entity.GetProperty<bool>(CAN_DEACTIVE);
         }
+
+
+        public static readonly PropertyMeta CAN_IMBUE = Get("canImbue");
+        public static bool CanImbue(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(CAN_IMBUE);
+        }
         public static NamespaceID GetFragmentID(this Entity entity) => entity.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID);
     }
 }
