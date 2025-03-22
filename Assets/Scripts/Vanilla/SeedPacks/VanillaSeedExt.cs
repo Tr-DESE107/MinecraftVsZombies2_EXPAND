@@ -4,6 +4,7 @@ using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
@@ -54,14 +55,10 @@ namespace MVZ2.Vanilla.SeedPacks
             var blueprintDef = seedPack?.Definition;
             return blueprintDef.IsTriggerActive() && blueprintDef.CanInstantTrigger();
         }
-        public static bool CanImbue(this SeedPack seedPack)
+        public static bool CanInstantEvoke(this SeedPack seedPack)
         {
-            if (seedPack.IsImbued())
-            {
-                return false;
-            }
             var blueprintDef = seedPack?.Definition;
-            return blueprintDef.CanImbue();
+            return blueprintDef.CanInstantEvoke();
         }
         public static void UseOnGrid(this SeedPack seed, LawnGrid grid, IHeldItemData heldItemData)
         {
@@ -107,9 +104,9 @@ namespace MVZ2.Vanilla.SeedPacks
             {
                 entity.Trigger();
             }
-            if (heldItemData.Imbued && entity.CanEvoke())
+            if (heldItemData.InstantEvoke && entity.CanEvoke() && entity.Level.GetStarshardCount() > 0 && !entity.Level.IsStarshardDisabled())
             {
-                seed.SetImbued(false);
+                entity.Level.AddStarshardCount(-1);
                 entity.Evoke();
             }
             var drawnFromPool = seed.GetDrawnConveyorSeed();

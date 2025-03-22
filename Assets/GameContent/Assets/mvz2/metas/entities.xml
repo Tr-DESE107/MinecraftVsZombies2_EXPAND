@@ -20,7 +20,7 @@
             <int name="waterInteraction" value="1"/>
 
             <bool name="canDeactive" value="true"/>
-            <bool name="canImbue" value="true"/>
+            <bool name="instantEvoke" value="true"/>
             <float name="maxHealth" value="300"/>
             <float name="friction" value="0.2"/>
             <float name="gravity" value="1"/>
@@ -352,7 +352,7 @@
             <bool name="shadowHidden" value="true"/>
             <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
-            <bool name="canImbue" value="false"/>
+            <bool name="instantEvoke" value="false"/>
             <int name="maxTimeout" value="30"/>
             <int name="waterInteraction" value="0"/>
             <float name="gravity" value="-0.25"/>

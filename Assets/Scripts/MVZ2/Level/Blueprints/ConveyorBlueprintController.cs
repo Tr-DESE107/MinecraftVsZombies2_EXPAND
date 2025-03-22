@@ -48,12 +48,11 @@ namespace MVZ2.Level
             ui.SetRecharge(0);
             ui.SetDisabled(false);
             ui.SetTwinkling(ShouldBlueprintTwinkle(SeedPack));
-            ui.SetImbued(SeedPack.IsImbued());
             ui.SetSelected(Level.IsHoldingConveyorBlueprint(Index));
 
             Controller.BlueprintController.SetConveyorBlueprintUIPosition(Index, Position);
         }
-        protected override void OnPickup(bool instantTrigger)
+        protected override void OnPickup(BlueprintPickupInfo info)
         {
             var blueprint = SeedPack;
             var blueprintDef = blueprint.Definition;
@@ -65,8 +64,8 @@ namespace MVZ2.Level
                 {
                     Type = BuiltinHeldTypes.conveyor,
                     ID = Index,
-                    InstantTrigger = instantTrigger,
-                    Imbued = blueprint.IsImbued(),
+                    InstantTrigger = info.instantTrigger,
+                    InstantEvoke = info.instantEvoke,
                     Priority = 0,
                 });
                 Level.PlaySound(VanillaSoundID.pick);

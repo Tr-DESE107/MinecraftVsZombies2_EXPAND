@@ -48,7 +48,7 @@ namespace MVZ2.Level.Components
             info.Priority = value.Priority;
             info.NoCancel = value.NoCancel;
             info.InstantTrigger = value.InstantTrigger;
-            info.Imbued = value.Imbued;
+            info.InstantEvoke = value.InstantEvoke;
             Controller.SetHeldItemUI(info);
         }
         public IModelInterface GetHeldItemModelInterface()
@@ -62,7 +62,7 @@ namespace MVZ2.Level.Components
             info.Priority = 0;
             info.NoCancel = false;
             info.InstantTrigger = false;
-            info.Imbued = false;
+            info.InstantEvoke = false;
             Controller.SetHeldItemUI(info);
         }
         public bool CancelHeldItem()
@@ -90,6 +90,6 @@ namespace MVZ2.Level.Components
         public int Priority { get; set; }
         public bool NoCancel { get; set; }
         public bool InstantTrigger { get; set; }
-        public bool Imbued { get; set; }
+        public bool InstantEvoke { get; set; }
     }
 }

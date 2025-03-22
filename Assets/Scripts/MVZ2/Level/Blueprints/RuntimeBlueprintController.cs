@@ -66,17 +66,9 @@ namespace MVZ2.Level
         public override void Click()
         {
             bool holdingStarshard = Level.IsHoldingStarshard();
-            bool canImbue = SeedPack?.CanImbue() ?? false;
-            bool imbue = canImbue && holdingStarshard;
-            if (imbue)
-            {
-                SeedPack.SetImbued(true);
-                Level.PlaySound(VanillaSoundID.evocation);
-                Level.PlaySound(VanillaSoundID.wakeup);
-                Level.AddStarshardCount(-1);
-                Level.ResetHeldItem();
-                return;
-            }
+            bool canInstantEvoke = SeedPack?.CanInstantEvoke() ?? false;
+            bool instantEvoke = canInstantEvoke && holdingStarshard;
+
             // 进行立即触发检测。
             bool holdingTrigger = Level.IsHoldingTrigger();
             bool canInstantTrigger = SeedPack?.CanInstantTrigger() ?? false;
@@ -85,8 +77,13 @@ namespace MVZ2.Level
             bool swapped = Controller.IsTriggerSwapped();
             bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
 
-            bool skipCancelHeld = holdingTrigger && canInstantTrigger;
-            Pickup(instantTrigger, skipCancelHeld);
+            bool skipCancelHeld = usingTrigger || instantEvoke;
+            BlueprintPickupInfo info = new BlueprintPickupInfo()
+            {
+                instantTrigger = instantTrigger,
+                instantEvoke = instantEvoke,
+            };
+            Pickup(info, skipCancelHeld);
         }
         public bool CanPick(out string errorMessage)
         {
@@ -116,18 +113,29 @@ namespace MVZ2.Level
             // 移动端会额外在手指放开在蓝图上时进行一次立即触发检测。
             if (!Global.IsMobile())
                 return;
+
+            bool holdingStarshard = Level.IsHoldingStarshard();
+            bool canInstantEvoke = SeedPack?.CanInstantEvoke() ?? false;
+            bool instantEvoke = canInstantEvoke && holdingStarshard;
+
             bool holdingTrigger = Level.IsHoldingTrigger();
             bool canInstantTrigger = SeedPack?.CanInstantTrigger() ?? false;
             bool usingTrigger = holdingTrigger && canInstantTrigger;
-            if (!usingTrigger)
-                return;
-            bool swapped = Controller.IsTriggerSwapped();
-            bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
-            Pickup(instantTrigger, true);
+            if (instantEvoke || usingTrigger)
+            {
+                bool swapped = Controller.IsTriggerSwapped();
+                bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
+                BlueprintPickupInfo info = new BlueprintPickupInfo()
+                {
+                    instantTrigger = instantTrigger,
+                    instantEvoke = instantEvoke,
+                };
+                Pickup(info, true);
+            }
         }
         #endregion
 
-        protected abstract void OnPickup(bool instantTrigger);
+        protected abstract void OnPickup(BlueprintPickupInfo info);
         protected virtual bool ShouldBlueprintTwinkle(SeedPack seedPack)
         {
             if (SeedPack.IsTwinkling())
@@ -138,13 +146,13 @@ namespace MVZ2.Level
             {
                 return true;
             }
-            else if (Level.IsHoldingStarshard() && SeedPack.CanImbue())
+            else if (Level.IsHoldingStarshard() && SeedPack.CanInstantEvoke())
             {
                 return true;
             }
             return false;
         }
-        private void Pickup(bool instantTrigger, bool skipCancelHeld = false)
+        private void Pickup(BlueprintPickupInfo info, bool skipCancelHeld = false)
         {
             // 先取消已经手持的物品。
             if (!skipCancelHeld)
@@ -164,7 +172,7 @@ namespace MVZ2.Level
                 Level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            OnPickup(instantTrigger);
+            OnPickup(info);
         }
         private string GetTooltipErrorMessage()
         {
@@ -204,5 +212,10 @@ namespace MVZ2.Level
         #region 属性字段
         public SeedPack SeedPack { get; private set; }
         #endregion
+    }
+    public struct BlueprintPickupInfo
+    {
+        public bool instantTrigger;
+        public bool instantEvoke;
     }
 }

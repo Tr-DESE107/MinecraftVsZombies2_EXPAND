@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Seeds
             SetProperty(EngineSeedProps.COST, cost);
             SetProperty(EngineSeedProps.RECHARGE_ID, rechargeID);
             SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, info.triggerActive);
-            SetProperty(VanillaSeedProps.CAN_IMBUE, info.canImbue);
+            SetProperty(VanillaSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);
             SetProperty(VanillaSeedProps.CAN_INSTANT_TRIGGER, info.canInstantTrigger);
             SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, info.upgrade);
             if (info.upgrade)
@@ -69,6 +69,6 @@ namespace MVZ2.GameContent.Seeds
         public bool triggerActive;
         public bool canInstantTrigger;
         public bool upgrade;
-        public bool canImbue;
+        public bool canInstantEvoke;
     }
 }

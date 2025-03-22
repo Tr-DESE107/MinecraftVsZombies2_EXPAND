@@ -541,7 +541,6 @@ namespace MVZ2.Level
                     blueprintUI.SetRecharge(0);
                     blueprintUI.SetSelected(false);
                     blueprintUI.SetTwinkling(false);
-                    blueprintUI.SetImbued(false);
                 }
             }
         }

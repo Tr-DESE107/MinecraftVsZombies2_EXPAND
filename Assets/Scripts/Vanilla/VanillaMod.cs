@@ -93,7 +93,7 @@ namespace MVZ2.Vanilla
                     triggerActive = entityDefinition.IsTriggerActive(),
                     canInstantTrigger = entityDefinition.CanInstantTrigger(),
                     upgrade = entityDefinition.IsUpgradeBlueprint(),
-                    canImbue = entityDefinition.CanImbue()
+                    canInstantEvoke = entityDefinition.CanInstantEvoke()
                 };
                 var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), info);
                 AddDefinition(seedDef);

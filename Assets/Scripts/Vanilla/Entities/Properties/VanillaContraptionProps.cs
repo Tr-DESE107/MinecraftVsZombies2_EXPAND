@@ -98,10 +98,10 @@ namespace MVZ2.Vanilla.Contraptions
         }
 
 
-        public static readonly PropertyMeta CAN_IMBUE = Get("canImbue");
-        public static bool CanImbue(this EntityDefinition definition)
+        public static readonly PropertyMeta INSTANT_EVOKE = Get("instantEvoke");
+        public static bool CanInstantEvoke(this EntityDefinition definition)
         {
-            return definition.GetProperty<bool>(CAN_IMBUE);
+            return definition.GetProperty<bool>(INSTANT_EVOKE);
         }
         public static NamespaceID GetFragmentID(this Entity entity) => entity.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID);
     }
