@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public TNT(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, PostSacrificeCallback, filter: VanillaContraptionID.tnt);
+            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.PLANT);
         }
         public override void Init(Entity entity)
         {
@@ -53,6 +54,19 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             entity.SetEvoked(true);
             Ignite(entity);
+        }
+        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        {
+            if (!entity.IsEntityOf(VanillaContraptionID.tnt))
+                return;
+            if (!info.HasEffect(VanillaDamageEffects.SACRIFICE) &&
+                !info.HasEffect(VanillaDamageEffects.FIRE) &&
+                !info.HasEffect(VanillaDamageEffects.EXPLOSION))
+                return;
+            var range = entity.GetRange();
+            var damage = entity.GetDamage();
+            Explode(entity, range, damage);
+            entity.Remove();
         }
         public static void Ignite(Entity entity)
         {
@@ -130,13 +144,6 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 entity.Remove();
             }
-        }
-        private void PostSacrificeCallback(Entity entity, Entity soulFurnace, int fuel)
-        {
-            var range = entity.GetRange();
-            var damage = entity.GetDamage();
-            Explode(entity, range, damage);
-            entity.Remove();
         }
         private static void ChargedExplode(Entity entity)
         {
