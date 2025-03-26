@@ -206,6 +206,7 @@ namespace MVZ2.Vanilla
                 area.SetProperty(EngineAreaProps.GRID_HEIGHT, meta.GridHeight);
                 area.SetProperty(EngineAreaProps.GRID_LEFT_X, meta.GridLeftX);
                 area.SetProperty(EngineAreaProps.GRID_BOTTOM_Z, meta.GridBottomZ);
+                area.SetProperty(EngineAreaProps.ENTITY_LANE_Z_OFFSET, meta.EntityLaneZOffset);
                 area.SetProperty(EngineAreaProps.MAX_LANE_COUNT, meta.Lanes);
                 area.SetProperty(EngineAreaProps.MAX_COLUMN_COUNT, meta.Columns);
 

@@ -14,6 +14,7 @@ namespace PVZEngine.Definitions
         public static readonly PropertyMeta GRID_LEFT_X = Get("GridLeftX");
         public static readonly PropertyMeta GRID_BOTTOM_Z = Get("GridBottomZ");
         public static readonly PropertyMeta ENEMY_SPAWN_X = Get("enemySpawnX");
+        public static readonly PropertyMeta ENTITY_LANE_Z_OFFSET = Get("EntityLawnZOffset");
         public static readonly PropertyMeta MAX_LANE_COUNT = Get("MaxLaneCount");
         public static readonly PropertyMeta MAX_COLUMN_COUNT = Get("MaxColumnCount");
         public static readonly PropertyMeta CART_REFERENCE = Get("cartReference");

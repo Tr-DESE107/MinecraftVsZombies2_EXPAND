@@ -22,15 +22,16 @@ namespace MVZ2.GameContent.Projectiles
         public override void PostContactGround(Entity entity, Vector3 velocity)
         {
             base.PostContactGround(entity, velocity);
+            var level = entity.Level;
             var column = entity.GetColumn();
-            var lane = entity.GetLane();
-            var grid = entity.Level.GetGrid(column, lane);
+            var lane = level.GetNearestEntityLane(entity.Position.z);
+            var grid = level.GetGrid(column, lane);
             if (grid != null && grid.CanPlaceOrStackEntity(VanillaContraptionID.mineTNT))
             {
-                var x = entity.Level.GetEntityColumnX(column);
-                var z = entity.Level.GetEntityLaneZ(lane);
-                var y = entity.Level.GetGroundY(x, z);
-                var mine = entity.Level.Spawn(VanillaContraptionID.mineTNT, new Vector3(x, y, z), entity);
+                var x = level.GetEntityColumnX(column);
+                var z = level.GetEntityLaneZ(lane);
+                var y = level.GetGroundY(x, z);
+                var mine = level.Spawn(VanillaContraptionID.mineTNT, new Vector3(x, y, z), entity);
                 var riseTimer = MineTNT.GetRiseTimer(mine);
                 riseTimer.Frame = 31;
             }

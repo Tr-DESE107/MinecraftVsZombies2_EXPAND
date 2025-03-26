@@ -22,6 +22,7 @@ namespace MVZ2Logic.Level
         public float GridHeight { get; }
         public float GridLeftX { get; }
         public float GridBottomZ { get; }
+        public float EntityLaneZOffset { get; }
         public int Lanes { get; }
         public int Columns { get; }
 

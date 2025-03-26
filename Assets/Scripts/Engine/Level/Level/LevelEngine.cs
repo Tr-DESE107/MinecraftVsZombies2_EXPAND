@@ -253,9 +253,13 @@ namespace PVZEngine.Level
         {
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
+        public int GetNearestEntityLane(float z)
+        {
+            return GetLane(z - entityLaneZOffset + GetGridHeight() * 0.5f);
+        }
         public float GetEntityLaneZ(int row)
         {
-            return GetLaneZ(row) + 16;
+            return GetLaneZ(row) + entityLaneZOffset;
         }
         public float GetEntityColumnX(int column)
         {
@@ -552,6 +556,7 @@ namespace PVZEngine.Level
             gridLeftX = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_LEFT_X);
             gridBottomZ = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_BOTTOM_Z);
             maxLaneCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_LANE_COUNT);
+            entityLaneZOffset = AreaDefinition.GetProperty<float>(EngineAreaProps.ENTITY_LANE_Z_OFFSET);
             maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
@@ -603,6 +608,7 @@ namespace PVZEngine.Level
         private float gridHeight;
         private float gridLeftX;
         private float gridBottomZ;
+        private float entityLaneZOffset;
         private int maxLaneCount;
         private int maxColumnCount;
 

@@ -27,6 +27,7 @@ namespace MVZ2.Metas
         public float GridHeight { get; private set; }
         public float GridLeftX { get; private set; }
         public float GridBottomZ { get; private set; }
+        public float EntityLaneZOffset { get; private set; }
         public int Lanes { get; private set; }
         public int Columns { get; private set; }
 
@@ -63,6 +64,7 @@ namespace MVZ2.Metas
             float gridHeight = 80;
             float leftX = 260;
             float bottomZ = 80;
+            float entityLaneZOffset = 16;
             int lanes = 5;
             int columns = 9;
             List<AreaGrid> grids = new List<AreaGrid>();
@@ -75,6 +77,7 @@ namespace MVZ2.Metas
                 bottomZ = gridsNode.GetAttributeFloat("bottomZ") ?? bottomZ;
                 lanes = gridsNode.GetAttributeInt("lanes") ?? lanes;
                 columns = gridsNode.GetAttributeInt("columns") ?? columns;
+                entityLaneZOffset = gridsNode.GetAttributeInt("entityZOffset") ?? entityLaneZOffset;
 
                 var childNodes = gridsNode.ChildNodes;
                 for (int i = 0; i < childNodes.Count; i++)
@@ -105,6 +108,7 @@ namespace MVZ2.Metas
                 GridHeight = gridHeight,
                 GridLeftX = leftX,
                 GridBottomZ = bottomZ,
+                EntityLaneZOffset = entityLaneZOffset,
                 Lanes = lanes,
                 Columns = columns,
                 Grids = grids.ToArray()
