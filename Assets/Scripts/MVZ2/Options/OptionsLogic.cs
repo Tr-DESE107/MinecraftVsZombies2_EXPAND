@@ -24,6 +24,7 @@ namespace MVZ2.Options
         {
             UpdateMusicSlider();
             UpdateSoundSlider();
+            UpdateFastforwardSlider();
             UpdateSwapTriggerButton();
             UpdateFullscreenButton(Main.OptionsManager.IsFullscreen());
             UpdateVibrationButton();
@@ -95,6 +96,13 @@ namespace MVZ2.Options
                         UpdateSoundSlider();
                     }
                     break;
+                case SliderType.FastForward:
+                    {
+                        var multi = ValueToFastForwardMultiplier(value);
+                        Main.OptionsManager.SetFastForwardMultiplier(multi);
+                        UpdateFastforwardSlider();
+                    }
+                    break;
             }
         }
         protected virtual void OnDropdownValueChangedCallback(DropdownType type, int index)
@@ -136,6 +144,17 @@ namespace MVZ2.Options
             var value = Main.OptionsManager.GetSoundVolume();
             UpdateSliderValue(value, OPTION_SOUND, SliderType.Sound);
         }
+        protected void UpdateFastforwardSlider()
+        {
+            var multi = Main.OptionsManager.GetFastForwardMultiplier();
+            var value = FastForwardMultiplierToValue(multi);
+
+            var valueText = GetFloatText(multi);
+            var text = Main.LanguageManager._(OPTION_FASTFORWARD_MULTIPLIER, valueText);
+            dialog.SetSliderRange(SliderType.FastForward, FASTFORWARD_SLIDER_START, FASTFORWARD_SLIDER_END, true);
+            dialog.SetSliderValue(SliderType.FastForward, value);
+            dialog.SetSliderText(SliderType.FastForward, text);
+        }
         protected void UpdateSwapTriggerButton()
         {
             var value = Main.OptionsManager.IsTriggerSwapped();
@@ -172,9 +191,27 @@ namespace MVZ2.Options
             var value = Main.OptionsManager.ShowSponsorNames();
             UpdateButtonText(value, OPTION_SHOW_SPONSOR_NAMES, TextButtonType.ShowSponsorNames);
         }
+        protected float ValueToFastForwardMultiplier(float value)
+        {
+            return FASTFORWARD_MULTIPLIER_START + FASTFORWARD_STEP * value;
+        }
+        protected float FastForwardMultiplierToValue(float multi)
+        {
+            return Mathf.RoundToInt((multi - FASTFORWARD_MULTIPLIER_START) / FASTFORWARD_STEP);
+        }
         #endregion
 
         public event Action OnClose;
+
+        public const int FASTFORWARD_STEP_COUNT = 20;
+        public const float FASTFORWARD_SLIDER_START = 1;
+        public const float FASTFORWARD_SLIDER_END = FASTFORWARD_STEP_COUNT;
+        public const float FASTFORWARD_MULTIPLIER_START = 1;
+        public const float FASTFORWARD_MULTIPLIER_END = 3;
+        public const float FASTFORWARD_MULTIPLIER_RANGE = FASTFORWARD_MULTIPLIER_END - FASTFORWARD_MULTIPLIER_START;
+        public const float FASTFORWARD_STEP = FASTFORWARD_MULTIPLIER_RANGE / FASTFORWARD_STEP_COUNT;
+
+
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_SWAP_TRIGGER = "交换触发：{0}";
         [TranslateMsg("选项，{0}为是否开启")]
@@ -191,6 +228,8 @@ namespace MVZ2.Options
         public const string OPTION_MUSIC = "音乐音量：{0}";
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_SOUND = "音效音量：{0}";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
         [TranslateMsg("值，{0}为百分数")]
         public const string OPTION_VALUE_PERCENT = "{0}%";
 

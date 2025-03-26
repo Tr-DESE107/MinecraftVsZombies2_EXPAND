@@ -25,6 +25,7 @@ namespace MVZ2.Options
 
             options.musicVolume = GetPlayerPrefsFloat(PREFS_MUSIC_VOLUME, 1);
             options.soundVolume = GetPlayerPrefsFloat(PREFS_SOUND_VOLUME, 1);
+            options.fastForwardMultiplier = GetPlayerPrefsFloat(PREFS_FASTFORWARD_MULTIPLIER, 2);
             options.particleAmount = GetPlayerPrefsFloat(PREFS_PARTICLE_AMOUNT, 1);
             options.shakeAmount = GetPlayerPrefsFloat(PREFS_SHAKE_AMOUNT, 1);
 
@@ -227,6 +228,18 @@ namespace MVZ2.Options
         }
         #endregion
 
+        #region 快进倍率
+        public float GetFastForwardMultiplier()
+        {
+            return options.fastForwardMultiplier;
+        }
+        public void SetFastForwardMultiplier(float value)
+        {
+            options.fastForwardMultiplier = value;
+            PlayerPrefs.SetFloat(PREFS_FASTFORWARD_MULTIPLIER, value);
+        }
+        #endregion
+
         #region 粒子数量
         public float GetParticleAmount()
         {
@@ -320,6 +333,7 @@ namespace MVZ2.Options
 
         public const string PREFS_MUSIC_VOLUME = "MusicVolume";
         public const string PREFS_SOUND_VOLUME = "SoundVolume";
+        public const string PREFS_FASTFORWARD_MULTIPLIER = "FastForwardMultiplier";
         public const string PREFS_PARTICLE_AMOUNT = "ParticleAmount";
         public const string PREFS_SHAKE_AMOUNT = "ShakeAmount";
 
@@ -337,6 +351,7 @@ namespace MVZ2.Options
 
         public float musicVolume;
         public float soundVolume;
+        public float fastForwardMultiplier;
         public float particleAmount;
         public float shakeAmount;
 

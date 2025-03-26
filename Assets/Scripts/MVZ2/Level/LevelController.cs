@@ -278,7 +278,7 @@ namespace MVZ2.Level
         }
         public float GetGameSpeed()
         {
-            return speedUp ? 2 : 1;
+            return speedUp ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
         }
         public void RemoveLevelState()
         {

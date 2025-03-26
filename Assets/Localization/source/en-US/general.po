@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-26 08:33+0800\n"
-"PO-Revision-Date: 2025-03-26 20:38+0800\n"
+"POT-Creation-Date: 2025-03-26 10:29+0800\n"
+"PO-Revision-Date: 2025-03-26 22:32+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -977,55 +977,59 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:178
+#: Scripts\MVZ2\Options\OptionsLogic.cs:212
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:180
+#: Scripts\MVZ2\Options\OptionsLogic.cs:214
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:182
+#: Scripts\MVZ2\Options\OptionsLogic.cs:216
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:184
+#: Scripts\MVZ2\Options\OptionsLogic.cs:218
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:186
+#: Scripts\MVZ2\Options\OptionsLogic.cs:220
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:190
+#: Scripts\MVZ2\Options\OptionsLogic.cs:224
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:192
+#: Scripts\MVZ2\Options\OptionsLogic.cs:226
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:194
+#: Scripts\MVZ2\Options\OptionsLogic.cs:228
+msgid "加速倍率：{0}"
+msgstr "Fast-forward: {0}"
+
+#: Scripts\MVZ2\Options\OptionsLogic.cs:230
 msgid "{0}%"
 msgstr "{0}%"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:197
+#: Scripts\MVZ2\Options\OptionsLogic.cs:233
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:200
+#: Scripts\MVZ2\Options\OptionsLogic.cs:236
 msgid "跳过对话：{0}"
 msgstr "Skip talks: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:202
+#: Scripts\MVZ2\Options\OptionsLogic.cs:238
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:205
+#: Scripts\MVZ2\Options\OptionsLogic.cs:241
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:207
+#: Scripts\MVZ2\Options\OptionsLogic.cs:243
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
