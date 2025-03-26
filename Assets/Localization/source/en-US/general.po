@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-19 02:49+0800\n"
-"PO-Revision-Date: 2025-03-19 14:50+0800\n"
+"POT-Creation-Date: 2025-03-26 08:33+0800\n"
+"PO-Revision-Date: 2025-03-26 20:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -579,39 +579,39 @@ msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr "Hell Metal"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:504
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:510
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:512
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:514
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:516
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:518
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:520
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -1049,7 +1049,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Author: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:637
+#: Scripts\MVZ2\Map\MapController.cs:654
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1057,7 +1057,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:639
+#: Scripts\MVZ2\Map\MapController.cs:656
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1065,11 +1065,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:641
+#: Scripts\MVZ2\Map\MapController.cs:658
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:643
+#: Scripts\MVZ2\Map\MapController.cs:660
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1107,25 +1107,25 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:964
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:965
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue while the chosen blueprints are not full?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:968
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:969
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr "The blueprint selected last time contained multiple same contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:970
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:971
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprint selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:972
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:973
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr "The blueprint selected last time contained multiple same artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:974
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:975
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "
@@ -1136,7 +1136,7 @@ msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:869
+#: Scripts\MVZ2\Level\LevelController_UI.cs:870
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -1144,11 +1144,11 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:871
+#: Scripts\MVZ2\Level\LevelController_UI.cs:872
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:873
+#: Scripts\MVZ2\Level\LevelController_UI.cs:874
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "

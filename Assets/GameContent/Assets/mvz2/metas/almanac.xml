@@ -5,6 +5,7 @@
                 <p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
             </header>
             <properties>
+                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
@@ -18,6 +19,7 @@
                 <p>熔炉能为你提供额外的红石。</p>
             </header>
             <properties>
+                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
                 <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
                 <p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
@@ -70,6 +72,7 @@
                 <p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
             </header>
             <properties>
+                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
                 <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>

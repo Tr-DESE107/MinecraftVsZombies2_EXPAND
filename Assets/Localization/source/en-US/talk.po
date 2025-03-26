@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-19 02:49+0800\n"
-"PO-Revision-Date: 2025-03-19 14:50+0800\n"
+"POT-Creation-Date: 2025-03-26 08:33+0800\n"
+"PO-Revision-Date: 2025-03-26 20:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2261,16 +2261,30 @@ msgstr ""
 #. Text for talk sentence 5 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
+msgid "并且，金苹果对凋灵这种亡灵生物来说可能会产生奇效！"
+msgstr ""
+"Also, Golden Apple may be super effective against undead creatures like "
+"Wither!"
+
+#. Text for talk sentence 6 in talk group castle_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_11"
+msgid "试着骗它吃掉一些金苹果！"
+msgstr "Try to trick it into eating some Golden Apples!"
+
+#. Text for talk sentence 7 in talk group castle_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_11"
 msgid "我们小人族就靠你了，史蒂夫……"
 msgstr "We inchlings are counting on you, Steve..."
 
-#. Text for talk sentence 6 in talk group castle_11's section 0
+#. Text for talk sentence 8 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
 msgid "遵命。"
 msgstr "Understood."
 
-#. Text for talk sentence 7 in talk group castle_11's section 0
+#. Text for talk sentence 9 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
 msgid ""
@@ -2279,7 +2293,7 @@ msgstr ""
 "<color=blue>(Dark clouds are enveloping this castle. Their shadow had "
 "smothered it for far too long.)</color>"
 
-#. Text for talk sentence 8 in talk group castle_11's section 0
+#. Text for talk sentence 10 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
 msgid "<color=blue>（是时候该让它们散去了。）</color>"
