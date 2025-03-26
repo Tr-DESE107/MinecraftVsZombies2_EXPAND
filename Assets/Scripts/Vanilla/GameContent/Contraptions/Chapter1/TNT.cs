@@ -40,6 +40,16 @@ namespace MVZ2.GameContent.Contraptions
                 IgnitedUpdate(entity);
             }
         }
+        public override void PostTakeDamage(DamageOutput result)
+        {
+            base.PostTakeDamage(result);
+            if (result.BodyResult == null)
+                return;
+            if (result.BodyResult.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                Charge(result.Entity);
+            }
+        }
         public override bool CanTrigger(Entity entity)
         {
             return base.CanTrigger(entity) && !IsIgnited(entity);
@@ -78,6 +88,16 @@ namespace MVZ2.GameContent.Contraptions
         {
             return entity.GetBehaviourField<bool>(ID, PROP_IGNITED);
         }
+        public static void Charge(Entity tnt)
+        {
+            if (tnt.HasBuff<TNTChargedBuff>())
+                return;
+            tnt.AddBuff<TNTChargedBuff>();
+        }
+        public static bool IsCharged(Entity tnt)
+        {
+            return tnt.HasBuff<TNTChargedBuff>();
+        }
         public static FrameTimer GetExplosionTimer(Entity entity)
         {
             return entity.GetBehaviourField<FrameTimer>(ID, PROP_EXPLOSION_TIMER);
@@ -106,7 +126,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
 
-            if (entity.HasBuff<TNTChargedBuff>())
+            if (IsCharged(entity))
             {
                 ChargedExplode(entity);
             }
@@ -136,9 +156,9 @@ namespace MVZ2.GameContent.Contraptions
                         var projectile = entity.ShootProjectile(VanillaProjectileID.flyingTNT, velocity);
                         projectile.SetDamage(damage);
                         projectile.SetRange(range);
-                        if (entity.HasBuff<TNTChargedBuff>())
+                        if (IsCharged(entity))
                         {
-                            projectile.AddBuff<TNTChargedBuff>();
+                            Charge(projectile);
                         }
                     }
                 }

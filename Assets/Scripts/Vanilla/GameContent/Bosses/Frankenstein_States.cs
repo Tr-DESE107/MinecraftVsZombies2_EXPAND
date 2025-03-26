@@ -650,7 +650,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (contraption.IsEntityOf(VanillaContraptionID.tnt))
                     {
-                        contraption.AddBuff<TNTChargedBuff>();
+                        TNT.Charge(contraption);
                         var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
                         ElectricArc.Connect(arc, contraption.Position);
                         ElectricArc.UpdateArc(arc);
