@@ -20,10 +20,11 @@
             <talk type="start" value="mvz2:tutorial" />
         </talks>
         <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:prologue"/>
-        <spawns flags="1">
+        <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:mutant_zombie"/>
         </spawns>
     </stage>
 
@@ -433,16 +434,28 @@
             <entry id="mvz2:totenser" count="12"/>
             <entry id="mvz2:dream_crystal" count="6"/>
             <entry id="mvz2:dream_silk" count="1"/>
+			<entry id="mvz2:glowstone" count="4"/>
+			<entry id="mvz2:tesla_coil" count="8"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" firstWaveTime="30" >
-            <spawn id="mvz2:zombie"/>
-            <spawn id="mvz2:leather_capped_zombie"/>
-            <spawn id="mvz2:iron_helmetted_zombie"/>
-            <spawn id="mvz2:spider"/>
-            <spawn id="mvz2:cave_spider"/>
-            <spawn id="mvz2:ghast"/>
-            <spawn id="mvz2:mother_terror"/>
+        <spawns flags="1" firstWaveTime="10" >
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:spider"/>
+			<spawn id="mvz2:cave_spider"/>
+			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:mother_terror"/>
+			<spawn id="mvz2:ghost"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:hell_chariot"/>
+			<spawn id="mvz2:mutant_zombie"/>
+			<spawn id="mvz2:mega_mutant_zombie"/>
         </spawns>
         <properties>
             <bool name="noEnergy" value="true"/>

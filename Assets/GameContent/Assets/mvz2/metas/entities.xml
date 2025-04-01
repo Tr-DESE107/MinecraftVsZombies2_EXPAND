@@ -148,7 +148,7 @@
             <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
             <float name="damage" value="1800"/>
-            <float name="range" value="40"/>
+            <float name="range" value="120"/>
             <id name="placeSound" value="mvz2:grass"/>
             <id name="shell" value="mvz2:grass"/>
             <id name="placement" value="mvz2:buried"/>
@@ -156,7 +156,7 @@
             <vector3 name="size" x="48" y="24" z="48"/>
             <idArray name="gridLayers" value="mvz2:main mvz2:carrier"/>
 
-            <int name="cost" value="25" />
+            <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
 

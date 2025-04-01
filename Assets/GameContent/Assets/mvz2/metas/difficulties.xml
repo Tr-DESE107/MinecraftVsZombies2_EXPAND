@@ -1,5 +1,6 @@
 <difficulties>
-    <difficulty id="easy" name="简单" value="-1"/>
-    <difficulty id="normal" name="普通" value="0"/>
-    <difficulty id="hard" name="困难" value="1"/>
+    <difficulty id="easy" name="EXP|简单" value="-1"/>
+    <difficulty id="normal" name="EXP|普通" value="0"/>
+    <difficulty id="hard" name="EXP|困难" value="1"/>
+	<difficulty id="lunatic" name="EXPAND" value="2"/>
 </difficulties>
