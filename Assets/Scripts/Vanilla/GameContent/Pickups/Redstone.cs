@@ -91,6 +91,6 @@ namespace MVZ2.GameContent.Pickups
             pickup.Timeout = 15;
         }
         private const float COLLECTED_Z = 480;
-        private const float ENERGY_VALUE = 25;
+        private const float ENERGY_VALUE = 50;
     }
 }

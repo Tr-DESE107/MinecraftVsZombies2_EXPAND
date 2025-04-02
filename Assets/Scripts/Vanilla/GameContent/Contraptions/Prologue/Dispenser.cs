@@ -10,9 +10,7 @@ namespace MVZ2.GameContent.Contraptions
     [EntityBehaviourDefinition(VanillaContraptionNames.dispenser)]
     public class Dispenser : DispenserFamily
     {
-        public Dispenser(string nsp, string name) : base(nsp, name)
-        {
-        }
+        public Dispenser(string nsp, string name) : base(nsp, name) { }
 
         public override void Init(Entity entity)
         {
@@ -21,6 +19,7 @@ namespace MVZ2.GameContent.Contraptions
             var evocationTimer = new FrameTimer(120);
             SetEvocationTimer(entity, evocationTimer);
         }
+
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
@@ -29,26 +28,32 @@ namespace MVZ2.GameContent.Contraptions
                 ShootTick(entity);
                 return;
             }
-
             EvokedUpdate(entity);
         }
 
-        protected override void OnEvoke(Entity entity)
+        // 核心修改：添加随机发射逻辑
+        public override Entity Shoot(Entity entity)
         {
-            base.OnEvoke(entity);
-            var evocationTimer = GetEvocationTimer(entity);
-            evocationTimer.Reset();
-            entity.SetEvoked(true);
+            if (entity.RNG.Next(4) == 0)
+            {
+                var param = entity.GetShootParams();
+                // 将 "mvz2:purple_arrow" 拆分为命名空间和名称
+                param.projectileID = new NamespaceID("mvz2", "boulder");
+                param.damage *= 5;
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
         }
-        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
-        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
+
+
         private void EvokedUpdate(Entity entity)
         {
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Run();
             if (evocationTimer.PassedInterval(2))
             {
-                var projectile = Shoot(entity);
+                // 直接调用基类方法
+                var projectile = base.Shoot(entity);
                 projectile.Velocity *= 2;
             }
             if (evocationTimer.Expired)
@@ -58,7 +63,23 @@ namespace MVZ2.GameContent.Contraptions
                 shootTimer.Reset();
             }
         }
+
+        protected override void OnEvoke(Entity entity)
+        {
+            base.OnEvoke(entity);
+            var evocationTimer = GetEvocationTimer(entity);
+            evocationTimer.Reset();
+            entity.SetEvoked(true);
+        }
+
+        public static FrameTimer GetEvocationTimer(Entity entity) =>
+            entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
+
+        public static void SetEvocationTimer(Entity entity, FrameTimer timer) =>
+            entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
+
         private static readonly NamespaceID ID = VanillaContraptionID.dispenser;
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER =
+            new VanillaEntityPropertyMeta("EvocationTimer");
     }
 }
