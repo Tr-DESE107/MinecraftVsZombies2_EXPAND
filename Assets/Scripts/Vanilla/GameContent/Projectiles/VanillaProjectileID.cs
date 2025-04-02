@@ -6,6 +6,7 @@ namespace MVZ2.GameContent.Projectiles
     public static class VanillaProjectileNames
     {
         public const string arrow = "arrow";
+        public const string purpleArrow = "purpleArrow";
         public const string mineTNTSeed = "mine_tnt_seed";
         public const string snowball = "snowball";
         public const string largeSnowball = "large_snowball";
@@ -39,6 +40,7 @@ namespace MVZ2.GameContent.Projectiles
     public static class VanillaProjectileID
     {
         public static readonly NamespaceID arrow = Get(VanillaProjectileNames.arrow);
+        public static readonly NamespaceID purpleArrow = Get(VanillaProjectileNames.purpleArrow);
         public static readonly NamespaceID mineTNTSeed = Get(VanillaProjectileNames.mineTNTSeed);
         public static readonly NamespaceID snowball = Get(VanillaProjectileNames.snowball);
         public static readonly NamespaceID largeSnowball = Get(VanillaProjectileNames.largeSnowball);

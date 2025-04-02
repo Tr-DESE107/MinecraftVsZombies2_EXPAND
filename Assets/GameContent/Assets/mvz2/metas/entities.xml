@@ -1055,6 +1055,10 @@
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="32" y="2" z="2" />
         </projectile>
+		<projectile id="purpleArrow">
+			<bool name="pointToDirection" value="true" />
+			<vector3 name="size" x="32" y="2" z="2" />
+		</projectile>
         <projectile id="mine_tnt_seed">
             <bool name="noHitEntities" value="true"/>
             <float name="gravity" value="1"/>
