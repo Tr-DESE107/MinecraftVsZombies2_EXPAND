@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-03-26 08:33+0800\n"
+"POT-Creation-Date: 2025-04-17 04:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1291,6 +1291,28 @@ msgctxt "artifacts.description"
 msgid "<color=white>你看不见我</color>"
 msgstr ""
 
+#. Header for artifacts mvz2:bottled_blackhole
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "被装入瓶子中的一个小型黑洞。"
+msgstr ""
+
+#. Properties for artifacts mvz2:bottled_blackhole
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每有一个蓝图空位，器械+15%伤害</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:bottled_blackhole
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"瓶中的火焰，强化你的攻击；\n"
+"瓶中的闪电，精炼你的技能；\n"
+"瓶中的旋风，释放你的能力；\n"
+"瓶中的黑洞……绑定你的诅咒？"
+msgstr ""
+
 #. Header for artifacts mvz2:smart_phone
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -1377,19 +1399,81 @@ msgstr ""
 #. Header for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "辉针城内装饰用的灯笼，被扯坏了。"
+msgid "辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。"
 msgstr ""
 
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>发光的器械×50%光照范围，+25%生产速度和攻击速度</color>"
+msgid "效果：<color=red>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "呃，还是别告诉针妙丸了吧，她可能会生气的。"
+msgstr ""
+
+#. Header for artifacts mvz2:manipulative_talismans
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "青娥赠送的一叠符箓，据说可以控制僵尸。"
+msgstr ""
+
+#. Properties for artifacts mvz2:manipulative_talismans
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>敌人死亡并倒下时，有3%的概率复活并变为友方</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:manipulative_talismans
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "还没想好写什么"
+msgstr ""
+
+#. Header for artifacts mvz2:greedy_vacuum
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "一种会自动吸取能量粉末，以及星之碎片的装置。"
+msgstr ""
+
+#. Properties for artifacts mvz2:greedy_vacuum
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>自动收集能量掉落物以及星之碎片</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:greedy_vacuum
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"为什么它没有自动吸取宝石的功能？\n"
+"你知道的，做人不能太贪。"
+msgstr ""
+
+#. Header for artifacts mvz2:lightbomb
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "神子赠送的一种武器，在爆炸时会产生炫目的光芒。"
+msgstr ""
+
+#. Properties for artifacts mvz2:lightbomb
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>器械自爆时对所有敌人造成100点额外伤害</color>"
+msgstr ""
+
+#. Header for artifacts mvz2:eye_of_the_giant
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "巨人的眼睛。"
+msgstr ""
+
+#. Properties for artifacts mvz2:eye_of_the_giant
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>器械x250%伤害，但x50%攻击速度</color>"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -3191,6 +3275,66 @@ msgstr ""
 #. Tooltip for artifact mvz2:broken_lantern
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "发光的器械×50%光照范围，+25%生产速度和攻击速度"
+msgid "发光的器械+25%生产速度和攻击速度，但×50%光照范围"
+msgstr ""
+
+#. Name for artifact mvz2:manipulative_talismans
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "控制灵符"
+msgstr ""
+
+#. Tooltip for artifact mvz2:manipulative_talismans
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "怪物死亡并倒下时有3%的概率复活，并变为友方"
+msgstr ""
+
+#. Name for artifact mvz2:greedy_vacuum
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "贪婪吸尘器"
+msgstr ""
+
+#. Tooltip for artifact mvz2:greedy_vacuum
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "自动收集能量掉落物和星之碎片"
+msgstr ""
+
+#. Name for artifact mvz2:lightbomb
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "圣光炸弹"
+msgstr ""
+
+#. Tooltip for artifact mvz2:lightbomb
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "器械自爆时还会额外对所有敌人造成100点伤害"
+msgstr ""
+
+#. Name for artifact mvz2:eye_of_the_giant
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "巨人之眼"
+msgstr ""
+
+#. Tooltip for artifact mvz2:eye_of_the_giant
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "器械x250%伤害，但x50%攻击速度"
+msgstr ""
+
+#. Name for artifact mvz2:bottled_blackhole
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "瓶装黑洞"
+msgstr ""
+
+#. Tooltip for artifact mvz2:bottled_blackhole
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每有一个蓝图空位，+15%器械伤害"
 msgstr ""
 

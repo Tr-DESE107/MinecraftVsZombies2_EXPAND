@@ -215,6 +215,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b687cc971691aa4786964a361a0d14c
+    m_Address: mvz2:artifacts/greedy_vacuum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b6aa6449e74e064eb7a4dc5dd9cc283
     m_Address: mvz2:entity/projectiles/snowball
     m_ReadOnly: 0
@@ -1348,6 +1354,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36eda47ce4c8f0e40ab52622c040d37d
+    m_Address: mvz2:artifacts/lightbomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37066da4adbd0ff4d9bc87bae8deb150
     m_Address: mvz2:entity/terror/parasitize
     m_ReadOnly: 0
@@ -2244,6 +2256,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58b00e65f2d3cf54e95b866108f55a09
     m_Address: mvz2:artifacts/nether_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58b4152dc1f89a4449e6487a09e19d47
+    m_Address: mvz2:artifacts/bottled_blackhole
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3357,6 +3375,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85fea51de096f7d48b2e6c902cc7cd20
+    m_Address: mvz2:artifacts/manipulative_talismans
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 861bfcbe28c1a214c8577fcdc3cc4d09
     m_Address: mvz2:random/explosion4
     m_ReadOnly: 0
@@ -3596,6 +3620,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e09eb5034d8901409cccb88e3f86633
+    m_Address: mvz2:artifacts/eye_of_the_giant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e0d71e6c2e48c849bcc74bc255e073e
     m_Address: mvz2:small_explosion
@@ -5948,6 +5978,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4338c72026e47949a5e8edc50e80692
+    m_Address: mvz2:ui/level/imbued_icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e43bf2e6bd3ab0540812539bf867050b
     m_Address: mvz2:projectile/cobble

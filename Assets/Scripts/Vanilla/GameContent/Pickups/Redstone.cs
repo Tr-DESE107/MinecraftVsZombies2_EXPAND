@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Pickups
         {
             base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
-            float value = ENERGY_VALUE;
+            float value = pickup.GetEnergyValue();
 
             pickup.Level.AddEnergyDelayed(pickup, value);
             pickup.SetGravity(0);
@@ -91,6 +91,5 @@ namespace MVZ2.GameContent.Pickups
             pickup.Timeout = 15;
         }
         private const float COLLECTED_Z = 480;
-        private const float ENERGY_VALUE = 25;
     }
 }

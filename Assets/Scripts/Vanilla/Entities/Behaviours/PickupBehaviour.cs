@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Level;
+﻿using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -21,10 +22,31 @@ namespace MVZ2.Vanilla.Entities
             if (!pickup.IsCollected())
             {
                 LimitPosition(pickup);
-                if (pickup.Level.IsAutoCollect() && !pickup.NoAutoCollect() && CanAutoCollect(pickup) && CanCollect(pickup))
+
+                var level = pickup.Level;
+                var willAutoCollect = false;
+                if (level.IsAutoCollectAll())
+                {
+                    willAutoCollect = true;
+                }
+                else if (pickup.GetEnergyValue() > 0 && level.IsAutoCollectEnergy())
+                {
+                    willAutoCollect = true;
+                }
+                else if (pickup.GetMoneyValue() > 0 && level.IsAutoCollectMoney())
+                {
+                    willAutoCollect = true;
+                }
+                else if (pickup.IsEntityOf(VanillaPickupID.starshard) && level.IsAutoCollectStarshard())
+                {
+                    willAutoCollect = true;
+                }
+                if (willAutoCollect && !pickup.NoAutoCollect() && CanAutoCollect(pickup) && CanCollect(pickup))
                 {
                     pickup.Collect();
                 }
+
+
                 if (!pickup.IsImportantPickup() && pickup.Timeout >= 0)
                 {
                     pickup.Timeout--;

@@ -35,6 +35,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 41531d8ef0693fa41a5341fcbd896474, type: 3}
   - name: artifacts/almanac
     sprite: {fileID: 21300000, guid: 8a7f5424a199e2544939f0b98e1afc83, type: 3}
+  - name: artifacts/bottled_blackhole
+    sprite: {fileID: 21300000, guid: 58b4152dc1f89a4449e6487a09e19d47, type: 3}
   - name: artifacts/broken_lantern
     sprite: {fileID: 21300000, guid: 2e2acf8f4e91cab468eae2cf860e025a, type: 3}
   - name: artifacts/dark_matter
@@ -43,10 +45,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 5d23376e7a066774ab671e71271015fc, type: 3}
   - name: artifacts/dream_key
     sprite: {fileID: 21300000, guid: 34e619cc0502d6c499f470950cf5acec, type: 3}
+  - name: artifacts/eye_of_the_giant
+    sprite: {fileID: 21300000, guid: 8e09eb5034d8901409cccb88e3f86633, type: 3}
+  - name: artifacts/greedy_vacuum
+    sprite: {fileID: 21300000, guid: 0b687cc971691aa4786964a361a0d14c, type: 3}
   - name: artifacts/hoe
     sprite: {fileID: 21300000, guid: 3099084e873c11d4084a10707cd96120, type: 3}
   - name: artifacts/inverted_mirror
     sprite: {fileID: 21300000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
+  - name: artifacts/lightbomb
+    sprite: {fileID: 21300000, guid: 36eda47ce4c8f0e40ab52622c040d37d, type: 3}
+  - name: artifacts/manipulative_talismans
+    sprite: {fileID: 21300000, guid: 85fea51de096f7d48b2e6c902cc7cd20, type: 3}
   - name: artifacts/miracle_mallet_replica
     sprite: {fileID: 21300000, guid: 70875885371f09444af751a1676e6f71, type: 3}
   - name: artifacts/nether_star

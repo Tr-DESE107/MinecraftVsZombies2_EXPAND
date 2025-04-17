@@ -15,6 +15,7 @@ namespace MVZ2.Vanilla.Entities
         public static readonly PropertyMeta NO_AUTO_COLLECT = Get("noAutoCollect");
         public static readonly PropertyMeta DROP_SOUND = Get("dropSound");
         public static readonly PropertyMeta COLLECT_SOUND = Get("collectSound");
+        public static readonly PropertyMeta ENERGY_VALUE = Get("energyValue");
         public static readonly PropertyMeta MONEY_VALUE = Get("moneyValue");
         public static readonly PropertyMeta REMOVE_ON_COLLECT = Get("removeOnCollect");
         public static bool IsImportantPickup(this Entity entity)
@@ -52,6 +53,10 @@ namespace MVZ2.Vanilla.Entities
         public static int GetMoneyValue(this Entity entity)
         {
             return entity.GetProperty<int>(MONEY_VALUE);
+        }
+        public static int GetEnergyValue(this Entity entity)
+        {
+            return entity.GetProperty<int>(ENERGY_VALUE);
         }
         public static bool RemoveOnCollect(this Entity entity)
         {

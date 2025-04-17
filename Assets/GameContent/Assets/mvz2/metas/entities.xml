@@ -1015,6 +1015,7 @@
 
         <!-- Pickups -->
         <pickup id="redstone" name="红石">
+            <int name="energyValue" value="25"/>
             <id name="collectSound" value="mvz2:points"/>
         </pickup>
         <gem id="emerald" name="绿宝石">

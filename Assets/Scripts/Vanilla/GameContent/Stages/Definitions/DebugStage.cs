@@ -28,12 +28,12 @@ namespace MVZ2.GameContent.Stages
             level.LevelProgressVisible = true;
             level.SetProgressBarToBoss(VanillaProgressBarID.wither);
             level.SetTriggerActive(true);
+            level.SetStarshardCount(5);
         }
         public override void OnUpdate(LevelEngine level)
         {
             base.OnUpdate(level);
             level.SetStarshardSlotCount(5);
-            level.SetStarshardCount(5);
             level.CheckGameOver();
         }
         private void ClassicStart(LevelEngine level) 
@@ -48,16 +48,16 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.spikeBlock,
                 VanillaContraptionID.stoneDropper,
                 VanillaContraptionID.stoneShield,
-                VanillaContraptionID.goldenApple,
-                VanillaContraptionID.thunderDrum,
-                VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.giantBowl,
+                VanillaContraptionID.teslaCoil,
+                VanillaEnemyID.zombie,
+                VanillaEnemyID.mutantZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.netherStar,
-                VanillaArtifactID.dreamKey,
+                VanillaArtifactID.greedyVacuum,
                 VanillaArtifactID.theCreaturesHeart,
             });
             level.RechargeSpeed = 9999999;

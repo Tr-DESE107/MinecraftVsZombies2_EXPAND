@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             AddModifier(new ColorModifier(LogicLevelProps.SCREEN_COVER, PROP_SCREEN_COVER));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
-            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT, true));
+            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT_ALL, true));
         }
         public override void PostAdd(Buff buff)
         {

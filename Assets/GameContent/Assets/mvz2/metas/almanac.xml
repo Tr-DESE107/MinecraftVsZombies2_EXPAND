@@ -922,7 +922,20 @@
                 <p><![CDATA[<color=white>你看不见我</color>]]></p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:bottled_blackhole">
+            <header>
+                <p>被装入瓶子中的一个小型黑洞。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>每有一个蓝图空位，器械+15%伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p>瓶中的火焰，强化你的攻击；</p>
+                <p>瓶中的闪电，精炼你的技能；</p>
+                <p>瓶中的旋风，释放你的能力；</p>
+                <p>瓶中的黑洞……绑定你的诅咒？</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:smart_phone">
             <header>
                 <p>从外界流落到香霖堂的无主智能手机，必要时可以和朱鹭子通话。</p>
@@ -988,13 +1001,58 @@
         </entry> -->
         <entry id="mvz2:broken_lantern">
             <header>
-                <p>辉针城内装饰用的灯笼，被扯坏了。</p>
+                <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>发光的器械×50%光照范围，+25%生产速度和攻击速度</color>]]></p>
+                <p>效果：<![CDATA[<color=red>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
             </properties>
             <flavor>
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:manipulative_talismans">
+            <header>
+                <p>青娥赠送的一叠符箓，据说可以控制僵尸。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>敌人死亡并倒下时，有3%的概率复活并变为友方</color>]]></p>
+            </properties>
+            <flavor>
+                <p>还没想好写什么</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:greedy_vacuum">
+            <header>
+                <p>一种会自动吸取能量粉末，以及星之碎片的装置。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>自动收集能量掉落物以及星之碎片</color>]]></p>
+            </properties>
+            <flavor>
+                <p>为什么它没有自动吸取宝石的功能？</p>
+                <p>你知道的，做人不能太贪。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:lightbomb">
+            <header>
+                <p>神子赠送的一种武器，在爆炸时会产生炫目的光芒。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>器械自爆时对所有敌人造成100点额外伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p>还没想好写什么</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:eye_of_the_giant">
+            <header>
+                <p>巨人的眼睛。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>器械x250%伤害，但x50%攻击速度</color>]]></p>
+            </properties>
+            <flavor>
+                <p>还没想好写什么</p>
             </flavor>
         </entry>
     </artifacts>

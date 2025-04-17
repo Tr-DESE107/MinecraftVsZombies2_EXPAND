@@ -130,7 +130,7 @@
         <properties>
             <color name="globalLight" value="#7F7F7F"/>
             <bool name="noEnergy" value="true"/>
-            <bool name="autoCollect" value="true"/>
+            <bool name="autoCollectAll" value="true"/>
         </properties>
     </stage>
     <stage id="halloween_7" name="万圣夜" dayNumber="7" unlock="mvz2:level.halloween_6" >
@@ -350,7 +350,7 @@
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
-            <bool name="autoCollect" value="true"/>
+            <bool name="autoCollectAll" value="true"/>
         </properties>
     </stage>
     <stage id="dream_7" name="梦境世界" dayNumber="7" unlock="mvz2:level.dream_6" >

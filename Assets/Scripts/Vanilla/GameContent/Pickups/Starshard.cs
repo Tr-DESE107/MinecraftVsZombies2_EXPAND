@@ -87,6 +87,10 @@ namespace MVZ2.GameContent.Pickups
             }
             return base.CanCollect(pickup);
         }
+        public override bool CanAutoCollect(Entity pickup)
+        {
+            return true;
+        }
         public override void PostCollect(Entity pickup)
         {
             base.PostCollect(pickup);

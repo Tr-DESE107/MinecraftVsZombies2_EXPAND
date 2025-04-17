@@ -23,7 +23,10 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta WAVE_ADVANCE_HEALTH_PERCENT = Get("waveAdvanceHealthPercent");
 
         public static readonly PropertyMeta NO_ENERGY = Get("noEnergy");
-        public static readonly PropertyMeta AUTO_COLLECT = Get("autoCollect");
+        public static readonly PropertyMeta AUTO_COLLECT_ALL = Get("autoCollectAll");
+        public static readonly PropertyMeta AUTO_COLLECT_ENERGY = Get("autoCollectEnergy");
+        public static readonly PropertyMeta AUTO_COLLECT_MONEY = Get("autoCollectMoney");
+        public static readonly PropertyMeta AUTO_COLLECT_STARSHARD = Get("autoCollectStarshard");
 
         public static readonly PropertyMeta NO_START_TALK_MUSIC = Get("noStartTalkMusic");
         public static readonly PropertyMeta TALKS = Get("talks");
@@ -76,9 +79,21 @@ namespace MVZ2.Vanilla.Level
         {
             stage.SetProperty(DAY_NUMBER, number);
         }
-        public static bool IsAutoCollect(this LevelEngine game)
+        public static bool IsAutoCollectAll(this LevelEngine game)
         {
-            return game.GetProperty<bool>(AUTO_COLLECT);
+            return game.GetProperty<bool>(AUTO_COLLECT_ALL);
+        }
+        public static bool IsAutoCollectEnergy(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_ENERGY);
+        }
+        public static bool IsAutoCollectMoney(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_MONEY);
+        }
+        public static bool IsAutoCollectStarshard(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_STARSHARD);
         }
         public static bool IsNoEnergy(this LevelEngine game)
         {
