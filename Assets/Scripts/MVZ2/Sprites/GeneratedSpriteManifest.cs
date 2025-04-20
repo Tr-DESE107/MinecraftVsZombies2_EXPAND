@@ -12,7 +12,7 @@ namespace MVZ2.Sprites
         {
             categories.Clear();
         }
-        public void AddSprite(string category, Sprite sprite)
+        public void AddSprite(string category, Sprite sprite, Sprite background)
         {
             var cat = categories.FirstOrDefault(c => c.name == category);
             if (cat == null)
@@ -20,7 +20,7 @@ namespace MVZ2.Sprites
                 cat = new GeneratedSpriteCategory(category);
                 categories.Add(cat);
             }
-            cat.AddSprite(sprite);
+            cat.AddSprite(sprite, background);
         }
         public void RemoveSprite(string category, string name)
         {
@@ -43,9 +43,9 @@ namespace MVZ2.Sprites
         {
             this.name = name;
         }
-        public void AddSprite(Sprite sprite)
+        public void AddSprite(Sprite sprite, Sprite preview)
         {
-            sprites.Add(new SpritePreview(sprite));
+            sprites.Add(new SpritePreview(sprite, preview));
         }
         public void RemoveSprite(string name)
         {
@@ -59,12 +59,14 @@ namespace MVZ2.Sprites
     [Serializable]
     public class SpritePreview
     {
-        public SpritePreview(Sprite sprite)
+        public SpritePreview(Sprite sprite, Sprite background)
         {
             this.name = sprite.name;
             this.sprite = sprite;
+            this.background = background;
         }
         public string name;
+        public Sprite background;
         public Sprite sprite;
     }
 }

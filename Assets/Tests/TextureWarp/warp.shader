@@ -33,7 +33,7 @@
 
             Pass
             {
-            CGPROGRAM
+                CGPROGRAM
                 #pragma vertex vert
                 #pragma fragment frag
                 #pragma target 2.0
@@ -98,7 +98,7 @@
                     clip(1- uv.x);
 
                     fixed4 c = SampleSpriteTexture(uv) * IN.color;
-                    c.a = 1;
+                    clip(c.a - 0.01);
                     return c;
                 }
             ENDCG

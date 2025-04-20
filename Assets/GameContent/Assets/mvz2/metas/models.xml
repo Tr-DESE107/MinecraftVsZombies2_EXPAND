@@ -86,7 +86,7 @@
     <!-- Bosses -->
     <model name="frankenstein" type="entity" path="mvz2:boss/frankenstein" width="100" height="200" xOffset="24" yOffset="-96"/>
     <model name="slenderman" type="entity" path="mvz2:boss/slenderman" width="200" height="150" xOffset="0" yOffset="-60"/>
-    <model name="nightmareaper" type="entity" path="mvz2:boss/nightmareaper" width="240" height="200" xOffset="0" yOffset="-20"/>
+    <model name="nightmareaper" type="entity" path="mvz2:boss/nightmareaper" width="240" height="200" xOffset="0" yOffset="-15"/>
     <model name="seija" type="entity" path="mvz2:boss/seija" width="30" height="88" xOffset="0" yOffset="-44"/>
     <model name="wither" type="entity" path="mvz2:boss/wither" width="112" height="168" xOffset="6" yOffset="-84"/>
 

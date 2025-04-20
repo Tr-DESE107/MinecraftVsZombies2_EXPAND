@@ -72,7 +72,7 @@ namespace MVZ2.Editor
 
             EditorUtility.ClearProgressBar();
         }
-        [MenuItem("Custom/Assets/Sprites/Update Sprite At File")]
+        [MenuItem("Custom/Assets/Sprites/Update Sprite Manifest At File")]
         public static void UpdateSpriteManifestAtFile()
         {
             var manifestPath = EditorUtility.OpenFilePanelWithFilters("Open sprite manifest", "Assets/GameContent/Assets", new string[] { "Sprite Manifest", "asset" });
@@ -101,8 +101,6 @@ namespace MVZ2.Editor
             for (int i = 0; i < filePaths.Length; i++)
             {
                 var filePath = filePaths[i];
-                var relativePath = Path.GetRelativePath(directory, filePath);
-                var splitPath = relativePath.Split('/', '\\');
 
                 var assetPath = AssetsMenu.FileToAssetPath(filePath);
                 var texture2D = AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);

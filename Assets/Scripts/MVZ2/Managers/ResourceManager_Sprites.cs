@@ -67,10 +67,10 @@ namespace MVZ2.Managers
             sprite.name = name;
             if (generatedSpriteManifest && Application.isEditor)
             {
-                var textureClone = GetGeneratedSpriteTexture(texture);
-                var spriteClone = Sprite.Create(textureClone, rect, pivot);
-                spriteClone.name = name;
-                generatedSpriteManifest.AddSprite(category, spriteClone);
+                var backgroundTex = GenerateSpriteBackgroundTexture(texture);
+                var background = Sprite.Create(backgroundTex, rect, pivot);
+                background.name = name;
+                generatedSpriteManifest.AddSprite(category, sprite, background);
             }
             return sprite;
         }
@@ -142,29 +142,20 @@ namespace MVZ2.Managers
         {
             spriteReferenceCacheDict.Add(sprite, sprRef);
         }
-        private Texture2D GetGeneratedSpriteTexture(Texture2D texture)
+        private Texture2D GenerateSpriteBackgroundTexture(Texture2D texture)
         {
-            if (!generatedSpriteTextureDict.TryGetValue(texture, out var tex))
+            var tex = new Texture2D(texture.width, texture.height);
+            var width = tex.width;
+            var pixels = tex.GetPixels();
+            for (int i = 0; i < pixels.Length; i++)
             {
-                tex = Instantiate(texture);
-                var width = tex.width;
-                var pixels = tex.GetPixels();
-                for (int i = 0; i < pixels.Length; i++)
-                {
-                    var x = i % width;
-                    var y = i / width;
-                    var col = ((x / 16) + (y / 16)) % 2 == 0 ? Color.gray : new Color(0.25f, 0.25f, 0.25f, 1);
-                    var pixel = pixels[i];
-                    pixel.r = pixel.r * pixel.a + col.r * (1 - pixel.a);
-                    pixel.g = pixel.g * pixel.a + col.g * (1 - pixel.a);
-                    pixel.b = pixel.b * pixel.a + col.b * (1 - pixel.a);
-                    pixel.a = pixel.a * pixel.a + col.a * (1 - pixel.a);
-                    pixels[i] = pixel;
-                }
-                tex.SetPixels(pixels);
-                tex.Apply();
-                generatedSpriteTextureDict.Add(texture, tex);
+                var x = i % width;
+                var y = i / width;
+                var col = ((x / 16) + (y / 16)) % 2 == 0 ? Color.gray : new Color(0.25f, 0.25f, 0.25f, 1);
+                pixels[i] = col;
             }
+            tex.SetPixels(pixels);
+            tex.Apply();
             return tex;
         }
         private Dictionary<Sprite, SpriteReference> spriteReferenceCacheDict = new Dictionary<Sprite, SpriteReference>();
