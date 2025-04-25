@@ -6,7 +6,8 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭80</color>]]></p>
                 <p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
             </properties>
             <flavor>
@@ -19,7 +20,7 @@
             </header>
             <properties>
                 <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
-                <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
+                <p>提供能量：<![CDATA[<color=red>红石50</color>]]></p>
                 <p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
             </properties>
             <flavor>
@@ -28,10 +29,11 @@
         </entry>
         <entry id="mvz2:obsidian">
             <header>
-                <p>黑曜石的强力装甲能够抵御敌人的攻击。</p>
+                <p>黑曜石的强力装甲能够抵御敌人的攻击，受损时发射弹幕</p>
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>每受到100伤害发射一枚50伤害的弹幕</color>]]></p>
                 <p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
             </properties>
             <flavor>
@@ -72,6 +74,7 @@
             <properties>
                 <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>
             </properties>
             <flavor>
@@ -147,7 +150,7 @@
         </entry>
         <entry id="mvz2:soul_furnace">
             <header>
-                <p>灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。</p>
+                <p>灵魂熔炉发射恐怖的灵魂火，但需要提供燃料。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>60</color>]]></p>
@@ -177,7 +180,7 @@
                 <p>魔术箱在吞掉前面的僵尸后会变成一个星之碎片。</p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤一个恶魂，用以纪念@厨师海绵宝宝 之前做过的一个游戏</color>]]></p>
             </properties>
             <flavor>
                 <p>它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。</p>
