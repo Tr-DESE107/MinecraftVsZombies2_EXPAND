@@ -8,6 +8,7 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly NamespaceID easy = Get("easy");
         public static readonly NamespaceID normal = Get("normal");
         public static readonly NamespaceID hard = Get("hard");
+        public static readonly NamespaceID EXPAND = Get("EXPAND");
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -140,7 +140,7 @@
             <float name="maxHealth" value="4000"/>
 			<float name="damage" value="50"/>
 			<vector3 name="shotVelocity" x="10" y="0" z="0"/>
-			<vector3 name="shotOffset" x="0" y="30" z="0"/>
+			<vector3 name="shotOffset" x="15" y="30" z="0"/>
             <vector3 name="size" x="48" y="48" z="48"/>
 
             <int name="cost" value="50" />
@@ -184,7 +184,7 @@
             <vector3 name="size" x="48" y="24" z="48"/>
             <color name="lightColor" value="#0000FF"/>
 
-            <int name="cost" value="25" />
+            <int name="cost" value="-25" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
@@ -582,7 +582,10 @@
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <int name="cost" value="300" />
             <int name="waterInteraction" value="2"/>
-        </enemy>
+			<float name="damage" value="200"/>
+			<float name="speed" value="2"/>
+
+		</enemy>
 
         <!-- Halloween Enemies -->
         <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
@@ -898,6 +901,18 @@
 
             <int name="cost" value="50" />
         </enemy>
+		
+		<enemy id="SkeletonHead" name="骷髅头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+			<float name="speed" value="2"/>
+			<id name="shell" value="mvz2:bone"/>
+			<id name="crySound" value="mvz2:skeleton_cry"/>
+			<id name="hitSound" value="mvz2:bone_hit"/>
+			<id name="deathSound" value="mvz2:skeleton_death"/>
+			<vector3 name="size" x="32" y="22" z="32"/>
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+		</enemy>
+		
         <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.castle_9">
             <bool name="harmless" value="true" />
             <bool name="notActiveEnemy" value="true"/>

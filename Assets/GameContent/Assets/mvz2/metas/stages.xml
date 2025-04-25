@@ -25,6 +25,7 @@
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
 			<spawn id="mvz2:mutant_zombie"/>
+			<spawn id="mvz2:SkeletonHead"/>
         </spawns>
     </stage>
 

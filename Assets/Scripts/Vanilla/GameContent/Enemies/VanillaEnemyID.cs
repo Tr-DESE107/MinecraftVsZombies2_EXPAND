@@ -10,6 +10,8 @@ namespace MVZ2.GameContent.Enemies
         public const string ironHelmettedZombie = "iron_helmetted_zombie";
         public const string flagZombie = "flag_zombie";
 
+        public const string SkeletonHead = "SkeletonHead";
+
         public const string skeleton = "skeleton";
         public const string gargoyle = "gargoyle";
         public const string ghost = "ghost";
@@ -47,6 +49,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID leatherCappedZombie = Get(VanillaEnemyNames.leatherCappedZombie);
         public static readonly NamespaceID ironHelmettedZombie = Get(VanillaEnemyNames.ironHelmettedZombie);
         public static readonly NamespaceID flagZombie = Get(VanillaEnemyNames.flagZombie);
+
+        public static readonly NamespaceID SkeletonHead = Get(VanillaEnemyNames.SkeletonHead);
+        
 
         public static readonly NamespaceID skeleton = Get(VanillaEnemyNames.skeleton);
         public static readonly NamespaceID gargoyle = Get(VanillaEnemyNames.gargoyle);

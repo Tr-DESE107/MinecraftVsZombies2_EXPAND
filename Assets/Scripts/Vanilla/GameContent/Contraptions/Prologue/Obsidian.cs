@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(contraption);
 
-            // 🌟 添加核心：检测血量下降是否超过100，并发射紫箭
+            // 检测血量下降是否超过100，并发射紫箭
             CheckPurpleArrowShoot(contraption);
 
             // 生命状态动画控制逻辑
@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         /// <summary>
-        /// 每当血量降低超过100，发射紫色箭矢，并播放音效。
+        /// 每当血量降低超过200，发射紫色箭矢，并播放音效。
         /// </summary>
         private void CheckPurpleArrowShoot(Entity entity)
         {
@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.Contraptions
             float currHP = entity.Health;
 
             // 比较生命下降值是否超过100
-            int arrowsToShoot = (int)((lastHP - currHP) / 100f);
+            int arrowsToShoot = (int)((lastHP - currHP) / 200f);
             if (arrowsToShoot > 0)
             {
                 for (int i = 0; i < arrowsToShoot; i++)
@@ -68,8 +68,6 @@ namespace MVZ2.GameContent.Contraptions
                     var param = entity.GetShootParams();
                     param.projectileID = new NamespaceID("mvz2", "purpleArrow");
 
-                    // 可选：微调发射位置偏移（提高发射起点）
-                    //param.offset = new UnityEngine.Vector3(0f, 0.5f, 0f);
 
                     // 发射紫箭
                     var proj = entity.ShootProjectile(param);
@@ -78,7 +76,7 @@ namespace MVZ2.GameContent.Contraptions
                     proj.Velocity = new UnityEngine.Vector2(2.5f, 0f);
 
                     // 播放音效
-                    //entity.Level.PlaySound(VanillaSoundID.projectileThrow);
+                    //entity.Level.PlaySound(VanillaSoundID.mvz2:bonk);
                 }
 
                 // 更新记录的生命值

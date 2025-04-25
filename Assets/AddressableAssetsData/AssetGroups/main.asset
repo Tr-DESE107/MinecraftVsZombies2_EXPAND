@@ -2973,6 +2973,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 778627e9e9910c4459fb857ded496da7
+    m_Address: mvz2:entity/enemies/SkeletonHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77a624db6fcfb1240a49f8d8130aedbe
     m_Address: mvz2:piston_out
     m_ReadOnly: 0
@@ -3548,6 +3554,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c5ca34c05e942546b33c8461e020be1
+    m_Address: mvz2:entity/enemy/SkeletonHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c5cc48f60d7d3e4f81a1b121d8fdde2
     m_Address: mvz2:enemy/halloween/skeleton
@@ -6619,6 +6631,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa6bccefe1f2c06439bcc849d6463c90
+    m_Address: mvz2:enemy/halloween/SkeletonHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa76cf42a679f124aa9398ad07610f68
     m_Address: mvz2:missile

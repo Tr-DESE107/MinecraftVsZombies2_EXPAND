@@ -1,5 +1,6 @@
 ﻿using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.GameContent.Armors;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -14,6 +15,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.SetAnimationBool("HasFlag", true);
+            entity.EquipArmor<IronHelmet>();
         }
         protected override float GetRandomSpeedMultiplier(Entity entity)
         {
