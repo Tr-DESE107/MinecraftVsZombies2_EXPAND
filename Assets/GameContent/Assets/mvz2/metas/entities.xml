@@ -935,6 +935,17 @@
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
 		</enemy>
+
+		<enemy id="HostHead" name="宿主僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+			<float name="speed" value="0.8"/>
+			<float name="maxHealth" value="260"/>
+			<id name="shell" value="mvz2:flesh"/>
+			<id name="crySound" value="mvz2:zombie_cry"/>
+			<id name="deathSound" value="mvz2:zombie_death"/>
+			<vector3 name="size" x="32" y="22" z="32"/>
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+		</enemy>
 		
         <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.castle_9">
             <bool name="harmless" value="true" />

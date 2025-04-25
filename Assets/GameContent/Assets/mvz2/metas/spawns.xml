@@ -39,6 +39,10 @@
 		<spawn level="2" />
 		<weight base="3500" />
 	</entry>
+	<entry id="HostHead" entity="mvz2:HostHead" >
+		<spawn level="2" />
+		<weight base="3500" />
+	</entry>
     <entry id="ghost" entity="mvz2:ghost" >
         <spawn level="2" />
         <terrain excludedTags="mvz2:day" water="true"/>

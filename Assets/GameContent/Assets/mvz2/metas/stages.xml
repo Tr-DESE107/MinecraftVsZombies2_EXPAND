@@ -28,6 +28,7 @@
 			<spawn id="mvz2:SkeletonHead"/>
 			<spawn id="mvz2:ZombieHead"/>
 			<spawn id="mvz2:RedEyeZombieHead"/>
+			<spawn id="mvz2:HostHead"/>
         </spawns>
     </stage>
 
@@ -63,6 +64,10 @@
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:SkeletonHead"/>
+			<spawn id="mvz2:ZombieHead"/>
+			<spawn id="mvz2:RedEyeZombieHead"/>
+			<spawn id="mvz2:HostHead"/>
         </spawns>
         <properties>
             <integer name="statueCount" value="3" />
