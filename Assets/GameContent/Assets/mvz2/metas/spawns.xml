@@ -31,6 +31,14 @@
 		<spawn level="2" />
 		<weight base="3500" />
 	</entry>
+	<entry id="RedEyeZombieHead" entity="mvz2:RedEyeZombieHead" >
+		<spawn level="2" />
+		<weight base="3500" />
+	</entry>
+	<entry id="ZombieHead" entity="mvz2:ZombieHead" >
+		<spawn level="2" />
+		<weight base="3500" />
+	</entry>
     <entry id="ghost" entity="mvz2:ghost" >
         <spawn level="2" />
         <terrain excludedTags="mvz2:day" water="true"/>

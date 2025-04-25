@@ -1480,6 +1480,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c7a2dce92dbdfb49b1162d3a0a8e913
+    m_Address: mvz2:entity/enemies/ZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c7cacc742c9f154e80d19b1b5b133c2
     m_Address: mvz2:mobile_blueprint/silvenser
     m_ReadOnly: 0
@@ -2218,6 +2223,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56b705a0934c27a4f95bb0c28fa3b607
+    m_Address: mvz2:enemy/halloween/ZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5725ac1f6146fe946be1b339e0ab7ae0
     m_Address: mvz2:effect/wither_summoners
     m_ReadOnly: 0
@@ -2619,6 +2629,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 645fcd6dca551b74081afa84999b7736
+    m_Address: mvz2:entity/enemies/RedEyeZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64951a0026f5ef54bbb28092c064d4ea
     m_Address: mvz2:level/dream/dream_house_cover

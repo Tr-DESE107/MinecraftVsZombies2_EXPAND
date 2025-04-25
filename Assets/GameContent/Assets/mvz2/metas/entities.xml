@@ -903,11 +903,34 @@
         </enemy>
 		
 		<enemy id="SkeletonHead" name="骷髅头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
-			<float name="speed" value="2"/>
+			<float name="speed" value="1.8"/>
+			<float name="maxHealth" value="240"/>
 			<id name="shell" value="mvz2:bone"/>
 			<id name="crySound" value="mvz2:skeleton_cry"/>
 			<id name="hitSound" value="mvz2:bone_hit"/>
 			<id name="deathSound" value="mvz2:skeleton_death"/>
+			<vector3 name="size" x="32" y="22" z="32"/>
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+		</enemy>
+		
+		<enemy id="ZombieHead" name="僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+			<float name="speed" value="0.9"/>
+			<float name="maxHealth" value="300"/>
+			<id name="shell" value="mvz2:flesh"/>
+            <id name="crySound" value="mvz2:zombie_cry"/>
+            <id name="deathSound" value="mvz2:zombie_death"/>
+			<vector3 name="size" x="32" y="22" z="32"/>
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+		</enemy>
+		
+		<enemy id="RedEyeZombieHead" name="红眼僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+			<float name="speed" value="0.5"/>
+			<float name="maxHealth" value="2000"/>
+			<id name="shell" value="mvz2:flesh"/>
+            <id name="crySound" value="mvz2:zombie_cry"/>
+            <id name="deathSound" value="mvz2:zombie_death"/>
 			<vector3 name="size" x="32" y="22" z="32"/>
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
