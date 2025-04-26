@@ -539,12 +539,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8b9310b7e61da30448b5d9b66c4cf9f3, type: 3}
   - name: entity/enemies/golden_axe
     sprite: {fileID: 21300000, guid: ffc82409076aa3e4481bb54a1438d1db, type: 3}
+  - name: entity/enemies/HostHead
+    sprite: {fileID: 21300000, guid: 3cb2218300b7b934ba70ba48ef892efc, type: 3}
   - name: entity/enemies/mesmerizer_head
     sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
   - name: entity/enemies/mesmerizer_rod
     sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
+  - name: entity/enemies/RedEyeZombieHead
+    sprite: {fileID: 21300000, guid: 645fcd6dca551b74081afa84999b7736, type: 3}
+  - name: entity/enemies/SkeletonHead
+    sprite: {fileID: 21300000, guid: 778627e9e9910c4459fb857ded496da7, type: 3}
   - name: entity/enemies/stone_sword
     sprite: {fileID: 21300000, guid: 53ae426afe3ebb8438ab6c1165ed0448, type: 3}
+  - name: entity/enemies/ZombieHead
+    sprite: {fileID: 21300000, guid: 3c7a2dce92dbdfb49b1162d3a0a8e913, type: 3}
   - name: entity/pickups/almanac_book
     sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: entity/pickups/diamond
@@ -1573,6 +1581,9 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - {fileID: 21300006, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - {fileID: 21300008, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+  - name: entity/enemy/SkeletonHead
+    spritesheet:
+    - {fileID: 21300000, guid: 8c5ca34c05e942546b33c8461e020be1, type: 3}
   - name: entity/enemy/skeleton_horse
     spritesheet:
     - {fileID: 1514677016, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}

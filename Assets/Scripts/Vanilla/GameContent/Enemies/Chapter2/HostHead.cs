@@ -22,9 +22,22 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var fly = entity.AddBuff<FlyBuff>();
-            fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1);
-        }
 
+            // 添加飞行Buff
+            var fly = entity.AddBuff<FlyBuff>();
+            if (fly != null)
+            {
+                fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1);
+            }
+
+            // 添加回血Buff
+            var regen = entity.Level.CreateBuff<RegenerationBuff>(60000L); // 显式指定泛型类型
+            if (regen != null)
+            {
+                entity.AddBuff(regen);
+                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f); // 每次回血2点
+                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);  // 持续60000帧
+            }
+        }
     }
 }
