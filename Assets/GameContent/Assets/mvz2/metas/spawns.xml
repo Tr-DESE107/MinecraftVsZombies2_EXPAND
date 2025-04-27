@@ -65,6 +65,7 @@
 		<weight base="1500" />
 	</entry>
 
+	<!-- Dream -->
     <!-- Dream -->
     <entry id="spider" entity="mvz2:spider" >
         <spawn level="2" />
