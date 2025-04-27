@@ -31,15 +31,15 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 // 恢复一定量生命
                 float heal = 1f;
-                try { heal = buff.GetProperty<float>(VanillaBuffPropertyMeta.REGEN_HEAL_AMOUNT); } catch { }
+                try { heal = buff.GetProperty<float>(REGEN_HEAL_AMOUNT); } catch { }
 
                 entity.Health = Mathf.Min(entity.Health + heal, entity.GetMaxHealth());
             }
 
             // Buff倒计时逻辑
-            var timeout = buff.GetProperty<int>(VanillaBuffPropertyMeta.REGEN_TIMEOUT);
+            var timeout = buff.GetProperty<int>(REGEN_TIMEOUT);
             timeout--;
-            buff.SetProperty(VanillaBuffPropertyMeta.REGEN_TIMEOUT, timeout);
+            buff.SetProperty(REGEN_TIMEOUT, timeout);
 
             if (timeout <= 0)
             {

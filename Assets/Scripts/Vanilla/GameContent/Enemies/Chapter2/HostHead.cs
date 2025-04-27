@@ -23,20 +23,18 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
 
-            // Ìí¼Ó·ÉÐÐBuff
             var fly = entity.AddBuff<FlyBuff>();
             if (fly != null)
             {
                 fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1);
             }
 
-            // Ìí¼Ó»ØÑªBuff
-            var regen = entity.Level.CreateBuff<RegenerationBuff>(60000L); // ÏÔÊ½Ö¸¶¨·ºÐÍÀàÐÍ
+            // ï¿½ï¿½ï¿½Ó»ï¿½ÑªBuff
+            var regen = entity.AddBuff<RegenerationBuff>(); // ï¿½ï¿½Ê½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (regen != null)
             {
-                entity.AddBuff(regen);
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f); // Ã¿´Î»ØÑª2µã
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);  // ³ÖÐø60000Ö¡
+                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f); // Ã¿ï¿½Î»ï¿½Ñª2ï¿½ï¿½
+                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);  // ï¿½ï¿½ï¿½ï¿½60000Ö¡
             }
         }
     }

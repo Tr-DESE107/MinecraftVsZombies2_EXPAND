@@ -31,6 +31,10 @@
 		<spawn level="2" />
 		<weight base="3500" />
 	</entry>
+	<entry id="skeleton_horse" entity="mvz2:skeleton_horse" >
+		<spawn level="2" />
+		<weight base="3500" />
+	</entry>
 	<entry id="RedEyeZombieHead" entity="mvz2:RedEyeZombieHead" >
 		<spawn level="2" />
 		<weight base="3500" />
