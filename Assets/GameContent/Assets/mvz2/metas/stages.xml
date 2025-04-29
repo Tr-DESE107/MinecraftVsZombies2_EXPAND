@@ -25,8 +25,9 @@
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
 			<spawn id="mvz2:mutant_zombie"/>
+			<spawn id="mvz2:MeleeSkeleton"/>
 			
-        </spawns>
+		</spawns>
     </stage>
 
     <!-- Halloween -->
@@ -309,7 +310,7 @@
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:SkeletonHead"/>
-			<!-- <spawn id="mvz2:宿主僵尸"/> -->
+			<spawn id="mvz2:HostZombie"/> 
 			<spawn id="mvz2:HostHead"/>
         </spawns>
     </stage>
@@ -327,8 +328,8 @@
             <spawn id="mvz2:spider"/>
 			<spawn id="mvz2:skeleton"/>
 			<spawn id="mvz2:SkeletonHead"/>
-			<!-- <spawn id="mvz2:宿主僵尸"/> -->
-        </spawns>
+			<spawn id="mvz2:HostZombie"/>
+		</spawns>
     </stage>
 	
     <stage id="dream_3" name="梦境世界" dayNumber="3" unlock="mvz2:level.dream_2">
@@ -344,7 +345,7 @@
 			<spawn id="mvz2:spider"/>
 			<spawn id="mvz2:gargoyle"/>
 			<!-- <spawn id="mvz2:骷髅战士"/> -->
-			<!-- <spawn id="mvz2:宿主僵尸"/> -->
+			<spawn id="mvz2:HostZombie"/> 
 			<!-- <spawn id="mvz2:石棺僵尸"/> -->
 			<!-- <spawn id="mvz2:溺尸"/> -->
 		</spawns>
@@ -376,7 +377,7 @@
         </talks>
         <clear pickupModel="mvz2:entity.ender_chest"/>
         <spawns flags="2">
-			<!-- <spawn id="mvz2:宿主僵尸"/> -->
+			<spawn id="mvz2:HostZombie"/> 
 			<spawn id="mvz2:SkeletonHead"/>
 			<spawn id="mvz2:iron_helmetted_zombie"/>
 			<spawn id="mvz2:spider"/>
@@ -424,7 +425,7 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:totenser"/>
         <spawns flags="2" >
-			<!-- <spawn id="mvz2:宿主僵尸"/> -->
+			<spawn id="mvz2:HostZombie"/> 
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:skeleton"/>
 			<spawn id="mvz2:spider"/>
@@ -487,7 +488,7 @@
 			<!-- <spawn id="mvz2:水生蜘蛛"/> -->
 			<!-- <spawn id="mvz2:灵魂沙王"/> -->
 			<spawn id="mvz2:ghost"/>
-			<!-- <spawn id="mvz2:渴血宿主僵尸"/> -->
+			<spawn id="mvz2:BloodlustHostZombie"/>
 		</spawns>
     </stage>
 	

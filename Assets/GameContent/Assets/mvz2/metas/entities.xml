@@ -187,6 +187,7 @@
             <int name="cost" value="-25" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
+		
         <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
             <bool name="canDeactive" value="false"/>
             <bool name="loyal" value="true"/>
@@ -600,6 +601,38 @@
             <int name="cost" value="75" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+		<enemy id="FlagSkeleton" name="旗帜骷髅" deathMessage="不要停下来啊">
+			<int name="cost" value="300" />
+			<int name="waterInteraction" value="2"/>
+			<float name="damage" value="200"/>
+			<float name="speed" value="2"/>
+			<id name="shell" value="mvz2:bone"/>
+			<id name="projectileId" value="mvz2:arrow"/>
+			<id name="crySound" value="mvz2:skeleton_cry"/>
+			<id name="deathSound" value="mvz2:skeleton_death"/>
+
+		</enemy>
+		<enemy id="HostZombie" name="宿主僵尸" deathMessage="生化危机">
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+			<float name="speed" value="0.85"/>
+		</enemy>
+		<enemy id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="生化危机">
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+			<float name="speed" value="0.6"/>
+		</enemy>
+		<enemy id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!">
+			<int name="cost" value="300" />
+			<int name="waterInteraction" value="2"/>
+			<float name="damage" value="200"/>
+			<float name="speed" value="2"/>
+			<id name="shell" value="mvz2:bone"/>
+			<id name="projectileId" value="mvz2:arrow"/>
+			<id name="crySound" value="mvz2:skeleton_cry"/>
+			<id name="deathSound" value="mvz2:skeleton_death"/>
+
+		</enemy>
         <enemy id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
             <bool name="undead" value="false"/>
             <float name="maxHealth" value="900"/>

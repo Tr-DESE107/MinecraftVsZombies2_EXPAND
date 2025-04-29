@@ -49,16 +49,25 @@
 
     <model name="skeleton" type="entity" path="mvz2:enemy/halloween/skeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
 
+
+	
 	<model name="SkeletonHead" type="entity" path="mvz2:enemy/halloween/SkeletonHead" width="32" height="22" xOffset="0" yOffset="-11"/>
 	<model name="ZombieHead" type="entity" path="mvz2:enemy/halloween/ZombieHead" width="32" height="22" xOffset="0" yOffset="-21"/>
 	<model name="RedEyeZombieHead" type="entity" path="mvz2:enemy/halloween/RedEyeZombieHead" width="32" height="22" xOffset="0" yOffset="-21"/>
 	<model name="HostHead" type="entity" path="mvz2:enemy/dream/HostHead" width="32" height="22" xOffset="0" yOffset="-21"/>
+
+	<model name="FlagSkeleton" type="entity" path="mvz2:enemy/halloween/FlagSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="MeleeSkeleton" type="entity" path="mvz2:enemy/halloween/MeleeSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	
 	
     <model name="gargoyle" type="entity" path="mvz2:enemy/halloween/gargoyle" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="ghost" type="entity" path="mvz2:enemy/halloween/ghost" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="mummy" type="entity" path="mvz2:enemy/halloween/mummy" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="necromancer" type="entity" path="mvz2:enemy/halloween/necromancer" width="64" height="96" xOffset="10" yOffset="-44"/>
 
+	<model name="HostZombie" type="entity" path="mvz2:enemy/dream/HostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="BloodlustHostZombie" type="entity" path="mvz2:enemy/dream/BloodlustHostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	
     <model name="spider" type="entity" path="mvz2:enemy/dream/spider" width="108" height="108" xOffset="0" yOffset="-48"/>
     <model name="cave_spider" type="entity" path="mvz2:enemy/dream/cave_spider" width="54" height="54" xOffset="0" yOffset="-24"/>
     <model name="ghast" type="entity" path="mvz2:enemy/dream/ghast" width="64" height="64" xOffset="0" yOffset="-28"/>

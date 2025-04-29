@@ -21,8 +21,20 @@
         <terrain water="true"/>
         <weight base="0" />
     </entry>
+	<entry id="FlagSkeleton" entity="mvz2:FlagSkeleton" >
+		<spawn level="0" />
+		<terrain water="true"/>
+		<weight base="0" />
+	</entry>
+	<entry id="MeleeSkeleton" entity="mvz2:MeleeSkeleton" >
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true"/>
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
 
-    <!-- Halloween -->
+	
+	<!-- Halloween -->
     <entry id="skeleton" entity="mvz2:skeleton" >
         <spawn level="2" />
         <weight base="3500" />
@@ -65,8 +77,20 @@
 		<weight base="1500" />
 	</entry>
 
-	<!-- Dream -->
+	
     <!-- Dream -->
+	<entry id="HostZombie" entity="mvz2:HostZombie" >
+		<spawn level="2" />
+		<preview count="2" />
+		<terrain water="true"/>
+		<weight base="4000" />
+	</entry>
+	<entry id="BloodlustHostZombie" entity="mvz2:BloodlustHostZombie" >
+		<spawn level="2" />
+		<preview count="2" />
+		<terrain water="true"/>
+		<weight base="4000"/>
+	</entry>
     <entry id="spider" entity="mvz2:spider" >
         <spawn level="2" />
         <weight base="2000" />

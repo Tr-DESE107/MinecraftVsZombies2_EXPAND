@@ -3615,6 +3615,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cd84fb772f5e0f45bec6c9d144b4c3d
+    m_Address: mvz2:enemy/dream/BloodlustHostZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cf98dd491e96bf47ad3a5767c1578b2
     m_Address: mvz2:ui/level/card_upgrade
     m_ReadOnly: 0
@@ -3987,6 +3993,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9923418bdfd09e44c990d34270733fe9
+    m_Address: mvz2:enemy/halloween/FlagSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 994dcad1586f82f45bf48985a9e06321
     m_Address: mvz2:ui/banished_mark
     m_ReadOnly: 0
@@ -4010,6 +4022,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ab350e7be8cf65408e4d793837969bc
+    m_Address: mvz2:enemy/halloween/MeleeSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b11711b1da870544827beb40076b98b
     m_Address: mvz2:entity/contraptions/glowstone
@@ -4220,6 +4238,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a17f2b52036d43b4eac5ab548784b392
+    m_Address: mvz2:enemy/dream/HostZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2044f7fe14b6814d8a3c3cde1ff9c74
     m_Address: mvz2:effect/soulfire_blast
@@ -4610,6 +4634,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b044499bf4b7e46459730b86132ba474
+    m_Address: mvz2:entity/enemies/BloodlustHostZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b05d578e666fa614c871c4984041189f
     m_Address: mvz2:entity/enemy/spider

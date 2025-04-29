@@ -14,12 +14,17 @@ namespace MVZ2.GameContent.Enemies
         public const string ZombieHead = "ZombieHead";
         public const string RedEyeZombieHead = "RedEyeZombieHead";
         public const string HostHead = "HostHead";
+        public const string FlagSkeleton = "FlagSkeleton";
+        public const string MeleeSkeleton = "MeleeSkeleton";
 
         public const string skeleton = "skeleton";
         public const string gargoyle = "gargoyle";
         public const string ghost = "ghost";
         public const string mummy = "mummy";
         public const string necromancer = "necromancer";
+
+        public const string HostZombie = "HostZombie";
+        public const string BloodlustHostZombie = "BloodlustHostZombie";
 
         public const string spider = "spider";
         public const string caveSpider = "cave_spider";
@@ -57,12 +62,18 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ZombieHead = Get(VanillaEnemyNames.ZombieHead);
         public static readonly NamespaceID RedEyeZombieHead = Get(VanillaEnemyNames.RedEyeZombieHead);
         public static readonly NamespaceID HostHead = Get(VanillaEnemyNames.HostHead);
+        public static readonly NamespaceID FlagSkeleton = Get(VanillaEnemyNames.FlagSkeleton);
+        public static readonly NamespaceID MeleeSkeleton = Get(VanillaEnemyNames.MeleeSkeleton);
 
         public static readonly NamespaceID skeleton = Get(VanillaEnemyNames.skeleton);
         public static readonly NamespaceID gargoyle = Get(VanillaEnemyNames.gargoyle);
         public static readonly NamespaceID ghost = Get(VanillaEnemyNames.ghost);
         public static readonly NamespaceID mummy = Get(VanillaEnemyNames.mummy);
         public static readonly NamespaceID necromancer = Get(VanillaEnemyNames.necromancer);
+
+
+        public static readonly NamespaceID HostZombie = Get(VanillaEnemyNames.HostZombie);
+        public static readonly NamespaceID BloodlustHostZombie = Get(VanillaEnemyNames.BloodlustHostZombie);
 
         public static readonly NamespaceID spider = Get(VanillaEnemyNames.spider);
         public static readonly NamespaceID caveSpider = Get(VanillaEnemyNames.caveSpider);
