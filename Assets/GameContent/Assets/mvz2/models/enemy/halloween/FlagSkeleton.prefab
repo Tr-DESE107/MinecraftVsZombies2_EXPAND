@@ -32,10 +32,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300002, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+    - target: {fileID: 4931431865215459418, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: m_RayTracingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5946576697207797393, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
       propertyPath: m_Name
       value: FlagSkeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 6858110120356495761, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300002, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+    - target: {fileID: 6858110120356495761, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300004, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - target: {fileID: 8422312609840960053, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -76,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8935635333207825899, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 63851131d9727694e8ecf6e57fcacf21, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

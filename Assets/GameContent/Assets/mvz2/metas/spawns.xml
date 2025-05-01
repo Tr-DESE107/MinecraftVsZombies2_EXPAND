@@ -32,6 +32,12 @@
 		<terrain water="true"/>
 		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
 	</entry>
+	<entry id="MonkZombie" entity="mvz2:MonkZombie" >
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true"/>
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
 
 	
 	<!-- Halloween -->

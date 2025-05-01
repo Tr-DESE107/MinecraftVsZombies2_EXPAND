@@ -2212,6 +2212,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55925a3ff0509a247a624bae6ab0abeb
+    m_Address: mvz2:enemy/temple/MurasameZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55c4fb06ca097e24eaa9171673390143
     m_Address: mvz2:mobile_blueprint/golden_dropper
     m_ReadOnly: 0
@@ -2847,6 +2853,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f001492ba9cbb04ba86c462ba404049
+    m_Address: mvz2:entity/enemy/Murasame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f22bfed212241144ada2b8c00f2bea2
     m_Address: mvz2:blueprints
@@ -3663,6 +3675,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8deb6d021f7311043b1c2b7acc630099
+    m_Address: mvz2:enemy/halloween/MeleeSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e0d71e6c2e48c849bcc74bc255e073e
     m_Address: mvz2:small_explosion
     m_ReadOnly: 0
@@ -4022,12 +4040,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ab350e7be8cf65408e4d793837969bc
-    m_Address: mvz2:enemy/halloween/MeleeSkeleton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b11711b1da870544827beb40076b98b
     m_Address: mvz2:entity/contraptions/glowstone
@@ -5066,6 +5078,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf8db332a97e6ce48a05901b9474216a
+    m_Address: mvz2:enemy/temple/MonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle
@@ -6230,6 +6248,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eba2a3250ff79f4448b3a578b5c6819d
+    m_Address: mvz2:enemy/RandomTest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eba6568c11b0b664d96dddfe63601f32
     m_Address: mvz2:random/glass_break1

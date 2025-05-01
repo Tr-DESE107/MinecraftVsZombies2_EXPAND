@@ -38,6 +38,8 @@ namespace MVZ2.GameContent.Enemies
         public const string hellChariot = "hell_chariot";
         public const string anubisand = "anubisand";
 
+        public const string MonkZombie = "MonkZombie";
+
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
         public const string imp = "imp";
@@ -86,6 +88,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);
         public static readonly NamespaceID hellChariot = Get(VanillaEnemyNames.hellChariot);
         public static readonly NamespaceID anubisand = Get(VanillaEnemyNames.anubisand);
+
+        public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

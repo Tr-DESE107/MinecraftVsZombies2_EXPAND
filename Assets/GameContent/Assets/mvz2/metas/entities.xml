@@ -588,6 +588,11 @@
 
 		</enemy>
 
+		<enemy id="MonkZombie" name="武僧僵尸" deathMessage="脑子是好的，但不是每个人都有">
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+		</enemy>
+
         <!-- Halloween Enemies -->
         <enemy id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
             <float name="range" value="800"/>

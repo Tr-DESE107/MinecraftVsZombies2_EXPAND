@@ -26,6 +26,7 @@
             <spawn id="mvz2:iron_helmetted_zombie"/>
 			<spawn id="mvz2:mutant_zombie"/>
 			<spawn id="mvz2:MeleeSkeleton"/>
+			<spawn id="mvz2:MonkZombie"/>
 			
 		</spawns>
     </stage>
