@@ -43,6 +43,12 @@
       "pivotY": 0.5
     },
     {
+      "name": "chapter_transition/title_mausoleum",
+      "texture": "chapter_transition/title_mausoleum.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
       "name": "mainmenu/logo",
       "texture": "mainmenu/logo.png",
       "pivotX": 0.5,

@@ -137,6 +137,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07439dae4c9a57f46940ad9c4fb79aa1
+    m_Address: mvz2:mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0784b30367a6d9641ada63bda6ec2336
     m_Address: mvz2:ui/level/mobile/selected
     m_ReadOnly: 0
@@ -160,6 +166,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08aa6367ea055db4f9821346c863494d
+    m_Address: mvz2:mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09351709b15db8e4ba5f671be2d087d7
     m_Address: mvz2:horse_angry
@@ -1277,6 +1289,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34e7bae3989decc4da109eb01520ccb6
+    m_Address: mvz2:mausoleum_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34ea81d5c696f1a4d8ae72c0da539742
     m_Address: mvz2:halloween_map
     m_ReadOnly: 0
@@ -2025,6 +2043,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e2bd1aa689c4dc45974c96c672b49f5
+    m_Address: mvz2:pickup/starshards/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e3cd9bca2bf19f41a4dabfa8af2d5ae
     m_Address: mvz2:spider_cry2
@@ -2920,6 +2944,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7490e9324285caa4194143af3411c4df
+    m_Address: mvz2:level/mausoleum/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74da7e893d261a549a659cfaef15b372
     m_Address: mvz2:entity/boss/frankenstein
     m_ReadOnly: 0
@@ -2928,6 +2958,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75127238d9b7c934395ce66830a82cf1
     m_Address: mvz2:entity/contraptions/giant_bowl_point
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7513cd2470186434dac756e22275249b
+    m_Address: mvz2:level/mausoleum/pillbox
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4059,6 +4095,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cdfa6621b3d6e24983d5ed7d08fc489
+    m_Address: mvz2:held/starshards/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d154f9c691d05c42917f982f9de86ca
     m_Address: mvz2:entity/mutant_zombie/mutant_cry2
     m_ReadOnly: 0
@@ -4670,6 +4712,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b405364c48af1734683363a805c66044
+    m_Address: mvz2:starshards/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b412e38a906dfb1429079b79047f12d3
     m_Address: mvz2:entity/effects/boat_item
@@ -5643,6 +5691,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6e56aff1f4b5864ab81b594175a95f1
+    m_Address: mvz2:mausoleum_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6f6e44ab2a3c4b4e82764fd5c5a2cdc
     m_Address: mvz2:armor/leather_cap
     m_ReadOnly: 0
@@ -6524,6 +6578,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f74aabbf5c6403f4b908c053d7ecc630
+    m_Address: mvz2:starshard_rings/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74ea0e5623da9347962fc99538ad869
     m_Address: mvz2:mainmenu/archive
     m_ReadOnly: 0
@@ -6655,6 +6715,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faa2211777e02a84b8a7e50170afab89
+    m_Address: mvz2:map/mausoleum/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbd4f223bde2b0548986faf783bc0f17
     m_Address: mvz2:effect/magnetic_line

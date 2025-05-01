@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Maps;
+using MVZ2.GameContent.Stages;
 using MVZ2.GameContent.Talk;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -166,7 +168,13 @@ namespace MVZ2.Map
             {
                 UpdateMouse();
             }
-            var maxCameraSize = mapMeta.size.y / 100 * 0.5f;
+            var aspect = mapCamera.aspect;
+
+            var maxWidth = mapMeta.size.x * 0.01f;
+            var maxHeight = mapMeta.size.y * 0.01f;
+            var maxScaleX = maxWidth / aspect * 0.5f;
+            var maxScaleY = maxHeight * 0.5f;
+            var maxCameraSize = Mathf.Min(maxScaleX, maxScaleY);
             mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraSize);
             LimitCameraPosition();
             cameraScaleSpeed *= 0.8f;
@@ -268,6 +276,10 @@ namespace MVZ2.Map
             {
                 Main.Scene.DisplayMap(VanillaMapID.castle);
             }
+            else if (id == MapPinID.mausoleum)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.mausoleum);
+            }
             else if (id == MapPinID.kourindou)
             {
                 Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID), true);
@@ -295,7 +307,7 @@ namespace MVZ2.Map
             var position = mapCamera.transform.position;
             var aspect = mapCamera.aspect;
             var fullHeight = mapCamera.orthographicSize * 2;
-            var cameraHeight = mapCamera.rect.height * fullHeight;
+            var cameraHeight = fullHeight;
             var cameraWidth = cameraHeight * aspect;
 
             var mapSize = mapMeta.size * 0.01f;

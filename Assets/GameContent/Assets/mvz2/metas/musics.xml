@@ -227,4 +227,9 @@
             <p>因为老大哥在看着我。</p>
         </description>
     </music>
+
+    <music id="mausoleum_map" path="mvz2:mausoleum_map" name="欲望加速">
+    </music>
+    <music id="mausoleum_level" path="mvz2:mausoleum_level" name="梦殿大祀庙">
+    </music>
 </musics>

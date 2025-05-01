@@ -231,4 +231,50 @@
             <grid id="mvz2:wood" />
         </grids>
     </area>
+    <area id="mausoleum" model="mvz2:mausoleum" music="mvz2:mausoleum_level" cart="mvz2:ballista" starshard="mvz2:starshards/mausoleum" tags="mvz2:night;mvz2:no_water">
+        <positions enemySpawnX="1080" doorZ="240" />
+        <lighting background="#7F7F7F" />
+        <grids width="80" height="80" leftX="260" bottomZ="120" lanes="4" columns="9">
+            <!-- Lane 1 -->
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 2 -->
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 3 -->
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 4 -->
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+            <grid id="mvz2:stone" />
+        </grids>
+    </area>
 </areas>

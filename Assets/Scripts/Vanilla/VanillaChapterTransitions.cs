@@ -10,6 +10,7 @@ namespace MVZ2.Vanilla
         public readonly static NamespaceID halloween = Get("halloween");
         public readonly static NamespaceID dream = Get("dream");
         public readonly static NamespaceID castle = Get("castle");
+        public readonly static NamespaceID mausoleum = Get("mausoleum");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -50,6 +50,19 @@ namespace MVZ2.GameContent.Stages
         public const string castle10 = "castle_10";
         public const string castle11 = "castle_11";
         public const string castleEndless = "castle_endless";
+
+        public const string mausoleum1 = "mausoleum_1";
+        public const string mausoleum2 = "mausoleum_2";
+        public const string mausoleum3 = "mausoleum_3";
+        public const string mausoleum4 = "mausoleum_4";
+        public const string mausoleum5 = "mausoleum_5";
+        public const string mausoleum6 = "mausoleum_6";
+        public const string mausoleum7 = "mausoleum_7";
+        public const string mausoleum8 = "mausoleum_8";
+        public const string mausoleum9 = "mausoleum_9";
+        public const string mausoleum10 = "mausoleum_10";
+        public const string mausoleum11 = "mausoleum_11";
+        public const string mausoleumEndless = "mausoleum_endless";
     }
     public static class VanillaStageID
     {
@@ -66,6 +79,7 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID dream1 = Get(VanillaStageNames.dream1);
         public static readonly NamespaceID dream11 = Get(VanillaStageNames.dream11);
         public static readonly NamespaceID castle1 = Get(VanillaStageNames.castle1);
+        public static readonly NamespaceID mausoleum1 = Get(VanillaStageNames.mausoleum1);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
