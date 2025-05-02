@@ -96,6 +96,7 @@
     <model name="nyan_cat" type="entity" path="mvz2:cart/nyan_cat" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="nyaightmare" type="entity" path="mvz2:cart/nyaightmare" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="bowl_chariot" type="entity" path="mvz2:cart/bowl_chariot" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="ballista" type="entity" path="mvz2:cart/ballista" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="-16"/>
@@ -203,6 +204,7 @@
     <model name="seija_magic_bomb" type="entity" path="mvz2:projectile/seija_magic_bomb" width="24" height="24" xOffset="0" yOffset="-12"/>
     <model name="seija_bullet" type="entity" path="mvz2:projectile/seija_bullet" width="32" height="16" xOffset="0" yOffset="0"/>
     <model name="wither_skull" type="entity" path="mvz2:projectile/wither_skull" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="crossbow_bolt" type="entity" path="mvz2:projectile/crossbow_bolt" width="32" height="5" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>

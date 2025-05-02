@@ -29,6 +29,8 @@ namespace MVZ2.GameContent.Stages
             level.SetProgressBarToBoss(VanillaProgressBarID.wither);
             level.SetTriggerActive(true);
             level.SetStarshardCount(5);
+            var cartRef = level.GetProperty<NamespaceID>(EngineAreaProps.CART_REFERENCE);
+            level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
         }
         public override void OnUpdate(LevelEngine level)
         {

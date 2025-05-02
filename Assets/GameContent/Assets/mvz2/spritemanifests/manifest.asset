@@ -401,6 +401,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1572d8be8ee0060479965033d1f67013, type: 3}
   - name: entity/boss/wither_skull
     sprite: {fileID: 21300000, guid: 1c22aba89e1241c4986a031d470be726, type: 3}
+  - name: entity/carts/ballista_body
+    sprite: {fileID: 21300000, guid: 9b0ae17858b30854380a3a68f83e2a5f, type: 3}
+  - name: entity/carts/ballista_reel
+    sprite: {fileID: 21300000, guid: 461ae90987867834c88f68d9efb6b836, type: 3}
   - name: entity/carts/minecart
     sprite: {fileID: 21300000, guid: 3d9178829e9e3e340b9f8df54bfcbbb5, type: 3}
   - name: entity/carts/pumpkin_carriage
@@ -587,6 +591,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b619b60be7108ed4fafb8ba9257d68ce, type: 3}
   - name: entity/projectiles/compelling_orb
     sprite: {fileID: 21300000, guid: f1e4625420d356e4eb58b79513629607, type: 3}
+  - name: entity/projectiles/crossbow_bolt
+    sprite: {fileID: 21300000, guid: 838820327528a4d439a51f03582183f9, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
   - name: entity/projectiles/fire_charge

@@ -1205,6 +1205,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 326687a08a773104988f864769b5ad18
+    m_Address: mvz2:cart/ballista
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 329b9a3401e28284e914a54eee51e840
     m_Address: mvz2:entity/pickups/ender_chest
     m_ReadOnly: 0
@@ -1821,6 +1827,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 461ae90987867834c88f68d9efb6b836
+    m_Address: mvz2:entity/carts/ballista_reel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46439a16cb17e7a44bdc1fe397877f2b
     m_Address: mvz2:spider_death
@@ -3351,6 +3363,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 838820327528a4d439a51f03582183f9
+    m_Address: mvz2:entity/projectiles/crossbow_bolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83ec2275e6001c34d99dc8ab93aa2907
     m_Address: mvz2:contraption/dream/totenser
     m_ReadOnly: 0
@@ -4017,6 +4035,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b0ae17858b30854380a3a68f83e2a5f
+    m_Address: mvz2:entity/carts/ballista_body
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b11711b1da870544827beb40076b98b
     m_Address: mvz2:entity/contraptions/glowstone
     m_ReadOnly: 0
@@ -4064,6 +4088,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c2ffe9b1f0c11c4e8e821a591f6f10a
+    m_Address: mvz2:map/gensokyo/pins/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c37df297dc5c5a47a8448c48eba0204
     m_Address: mvz2:mobile_blueprint/slenderman
@@ -5613,6 +5643,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3a87c3e470695547904801be20ee66e
+    m_Address: mvz2:projectile/crossbow_bolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3abb2eb473d06b4dab0a2d3da4c76d0
     m_Address: mvz2:talk/dialog_weird
     m_ReadOnly: 0
@@ -6071,6 +6107,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e65c8602a6db8284fa1069847600d372
     m_Address: mvz2:level/dream/nightmare_ground_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e67606b0e90b7e940844495857add1f7
+    m_Address: mvz2:chapter_transition/title_mausoleum
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

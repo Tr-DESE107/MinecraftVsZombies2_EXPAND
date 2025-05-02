@@ -35,6 +35,8 @@ namespace MVZ2.GameContent.Projectiles
         public const string seijaMagicBomb = "seija_magic_bomb";
         public const string seijaBullet = "seija_bullet";
         public const string witherSkull = "wither_skull";
+
+        public const string crossbowBolt = "crossbow_bolt";
     }
     public static class VanillaProjectileID
     {
@@ -68,6 +70,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID seijaMagicBomb = Get(VanillaProjectileNames.seijaMagicBomb);
         public static readonly NamespaceID seijaBullet = Get(VanillaProjectileNames.seijaBullet);
         public static readonly NamespaceID witherSkull = Get(VanillaProjectileNames.witherSkull);
+
+        public static readonly NamespaceID crossbowBolt = Get(VanillaProjectileNames.crossbowBolt);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

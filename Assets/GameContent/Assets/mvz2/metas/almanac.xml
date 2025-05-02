@@ -1194,6 +1194,17 @@
                     <p>……甚至还可以影响人们的认知？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:ballista" name="小型弩车" model="mvz2:entity.ballista" unlock="mvz2:level.mausoleum_1">
+                <header>
+                    <p>小型弩车在碰到敌人后会发射致命弩箭，并向前冲锋碾压敌人。</p>
+                </header>
+                <properties>
+                    <p>伤害：<![CDATA[<color=red>58115310</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>你别问为什么能直接压死还要发射弩箭，不然这就不叫“画蛇添足”了。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
