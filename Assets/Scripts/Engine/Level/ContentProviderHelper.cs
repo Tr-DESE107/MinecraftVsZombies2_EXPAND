@@ -64,6 +64,10 @@ namespace PVZEngine
         {
             return provider.GetDefinition<ArmorDefinition>(EngineDefinitionTypes.ARMOR, defRef);
         }
+        public static ArmorBehaviourDefinition GetArmorBehaviourDefinition(this IGameContent provider, NamespaceID defRef)
+        {
+            return provider.GetDefinition<ArmorBehaviourDefinition>(EngineDefinitionTypes.ARMOR_BEHAVIOUR, defRef);
+        }
         public static SpawnDefinition GetSpawnDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<SpawnDefinition>(EngineDefinitionTypes.SPAWN, defRef);

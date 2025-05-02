@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Reflection;
+using System.Threading.Tasks;
 using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Modding;
@@ -24,6 +25,8 @@ namespace MVZ2.Tests
         private static void RegisterMod(IModManager manager, Game game)
         {
             var mod = new VanillaMod();
+            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
+            mod.Init(game, assemblies);
             manager.RegisterModLogic(mod.Namespace, mod);
         }
         [SerializeField]

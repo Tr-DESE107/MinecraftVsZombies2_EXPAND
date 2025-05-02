@@ -6,7 +6,6 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
-using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -14,7 +13,6 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -39,16 +37,15 @@ namespace MVZ2.Entities
             entity.OnChangeModel += OnChangeModelCallback;
 
             entity.OnEquipArmor += OnArmorEquipCallback;
-            entity.OnDestroyArmor += OnArmorDestroyCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
+
             bodyModelInterface = new BodyModelInterface(this);
-            armorModelInterface = new ArmorModelInterface(this);
-            entity.SetModelInterface(bodyModelInterface, armorModelInterface);
+            entity.SetModelInterface(bodyModelInterface);
             SetModel(Entity.ModelID);
             if (Model)
             {
-                Model.ClearArmorModel();
+                ClearAllArmorModels();
             }
 
             transform.position = Level.LawnToTrans(Entity.Position);
@@ -69,7 +66,7 @@ namespace MVZ2.Entities
                 return;
             UpdateEntityModel();
             modelPropertyCache.UpdateAll(this);
-            UpdateArmorModel();
+            UpdateArmorModels();
             Model.UpdateFrame(0);
         }
         public void SetSimulationSpeed(float simulationSpeed)
@@ -78,13 +75,6 @@ namespace MVZ2.Entities
             {
                 Model.SetSimulationSpeed(simulationSpeed);
             }
-        }
-        public void ChangeArmorModel(NamespaceID modelID)
-        {
-            if (!Model)
-                return;
-            Model.RemoveArmor();
-            Model.CreateArmor(modelID);
         }
         #endregion
 
@@ -114,7 +104,7 @@ namespace MVZ2.Entities
             if (Model)
             {
                 UpdateEntityModel();
-                UpdateArmorModel();
+                UpdateArmorModels();
                 Model.UpdateFrame(deltaTime);
             }
         }
@@ -258,16 +248,13 @@ namespace MVZ2.Entities
         {
             SetModel(modelID);
         }
-        private void OnArmorEquipCallback(Armor armor)
+        private void OnArmorEquipCallback(NamespaceID slot, Armor armor)
         {
-            CreateArmorModel(armor);
+            CreateArmorModel(slot, armor);
         }
-        private void OnArmorDestroyCallback(Armor armor, ArmorDamageResult result)
+        private void OnArmorRemoveCallback(NamespaceID slot, Armor armor)
         {
-        }
-        private void OnArmorRemoveCallback(Armor armor)
-        {
-            RemoveArmorModel();
+            RemoveArmorModel(slot);
         }
         #endregion
 
@@ -297,7 +284,7 @@ namespace MVZ2.Entities
             if (Entity.IsPreviewEnemy())
             {
                 return true;
-            } 
+            }
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);
@@ -348,39 +335,64 @@ namespace MVZ2.Entities
         #endregion
 
         #region 护甲
-        private void CreateArmorModel(Armor armor)
+        private void CreateArmorModel(NamespaceID slot, Armor armor)
         {
             if (armor?.Definition == null)
                 return;
             var modelID = armor.Definition.GetModelID();
-            CreateArmorModel(modelID);
+            CreateArmorModel(slot, modelID);
         }
-        private void CreateArmorModel(NamespaceID modelID)
+        private void CreateArmorModel(NamespaceID slot, NamespaceID modelID)
         {
             if (!Model)
                 return;
             if (!NamespaceID.IsValid(modelID))
                 return;
-            Model.CreateArmor(modelID);
+            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slot);
+            if (slotMeta == null)
+                return;
+            var anchor = slotMeta.Anchor;
+            Model.CreateArmor(anchor, slot, modelID);
         }
-        private void RemoveArmorModel()
+        private void RemoveArmorModel(NamespaceID slot)
         {
             if (!Model)
                 return;
-            Model.RemoveArmor();
+            Model.RemoveArmor(slot);
         }
-        private void UpdateArmorModel()
+        private void UpdateArmorModel(NamespaceID slot)
         {
             if (!Model)
                 return;
-            var armor = Entity.EquipedArmor;
+            var armor = Entity.GetArmorAtSlot(slot);
             if (armor == null)
                 return;
-            var armorModel = Model.GetArmorModel();
+            var armorModel = Model.GetArmorModel(slot);
             if (!armorModel)
                 return;
             armorModel.GraphicGroup.SetTint(armor.GetTint());
             armorModel.GraphicGroup.SetColorOffset(armor.GetColorOffset());
+        }
+        private void UpdateArmorModels()
+        {
+            if (!Model)
+                return;
+            foreach (var slotSlot in Entity.GetActiveArmorSlots())
+            {
+                UpdateArmorModel(slotSlot);
+            }
+        }
+        public void ClearAllArmorModels()
+        {
+            var slotsID = Main.ResourceManager.GetAllArmorSlots();
+            foreach (var slotID in slotsID)
+            {
+                var meta = Main.ResourceManager.GetArmorSlotMeta(slotID);
+                if (meta == null)
+                    continue;
+                var anchorName = meta.Anchor;
+                Model.ClearModelAnchor(anchorName);
+            }
         }
         #endregion
 
@@ -476,7 +488,6 @@ namespace MVZ2.Entities
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface;
-        private IModelInterface armorModelInterface;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         [SerializeField]
         private ShadowController shadow;

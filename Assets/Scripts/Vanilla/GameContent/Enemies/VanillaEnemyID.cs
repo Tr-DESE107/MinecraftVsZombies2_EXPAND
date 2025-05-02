@@ -28,6 +28,8 @@ namespace MVZ2.GameContent.Enemies
         public const string hellChariot = "hell_chariot";
         public const string anubisand = "anubisand";
 
+        public const string reflectiveBarrierZombie = "reflective_barrier_zombie";
+
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
         public const string imp = "imp";
@@ -40,6 +42,7 @@ namespace MVZ2.GameContent.Enemies
         public const string soulsand = "soulsand";
         public const string seijaCursedDoll = "seija_cursed_doll";
         public const string bedserker = "bedserker";
+
     }
     public static class VanillaEnemyID
     {
@@ -65,6 +68,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);
         public static readonly NamespaceID hellChariot = Get(VanillaEnemyNames.hellChariot);
         public static readonly NamespaceID anubisand = Get(VanillaEnemyNames.anubisand);
+
+        public static readonly NamespaceID reflectiveBarrierZombie = Get(VanillaEnemyNames.reflectiveBarrierZombie);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

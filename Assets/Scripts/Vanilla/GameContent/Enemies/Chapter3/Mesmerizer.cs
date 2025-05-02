@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.EquipArmor<MesmerizerCrown>();
+            entity.EquipMainArmor(VanillaArmorID.mesmerizerCrown);
             SetStateTimer(entity, new FrameTimer(CAST_COOLDOWN));
         }
         protected override int GetActionState(Entity enemy)
@@ -102,7 +102,7 @@ namespace MVZ2.GameContent.Enemies
         }
         private bool ColliderFilter(Entity self, IEntityCollider collider)
         {
-            if (!collider.IsMain())
+            if (!collider.IsForMain())
                 return false;
             var target = collider.Entity;
             if (!CompellingOrb.CanControl(target))

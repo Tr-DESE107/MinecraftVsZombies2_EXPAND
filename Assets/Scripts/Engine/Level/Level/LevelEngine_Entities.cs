@@ -278,6 +278,14 @@ namespace PVZEngine.Level
         {
             collisionSystem.OverlapCapsuleNonAlloc(point0, point1, radius, faction, hostileMask, friendlyMask, results);
         }
+        public IEntityCollider AddEntityCollider(Entity entity, ColliderConstructor info)
+        {
+            return collisionSystem.AddCollider(entity, info);
+        }
+        public bool RemoveEntityCollider(Entity entity, string name)
+        {
+            return collisionSystem.RemoveCollider(entity, name);
+        }
         public IEntityCollider GetEntityCollider(Entity entity, string name)
         {
             return collisionSystem.GetCollider(entity, name);

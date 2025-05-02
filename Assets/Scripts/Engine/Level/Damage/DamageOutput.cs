@@ -8,6 +8,7 @@ namespace PVZEngine.Damages
         public BodyDamageResult BodyResult { get; set; }
         public ArmorDamageResult ArmorResult { get; set; }
         public ArmorDamageResult ShieldResult { get; set; }
+        public NamespaceID ShieldTarget { get; set; }
         public bool HasAnyNotFatal()
         {
             if (ArmorResult != null && ArmorResult.Fatal)
@@ -27,6 +28,15 @@ namespace PVZEngine.Damages
             if (ShieldResult != null && ShieldResult.Fatal)
                 return true;
             return false;
+        }
+        public DamageResult[] GetAllResults()
+        {
+            return new DamageResult[]
+            {
+                BodyResult,
+                ArmorResult,
+                ShieldResult
+            };
         }
     }
 }

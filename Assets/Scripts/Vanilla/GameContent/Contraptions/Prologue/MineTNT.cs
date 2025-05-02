@@ -110,7 +110,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!self.IsHostile(other))
                 return;
             var otherCollider = collision.OtherCollider;
-            if (!otherCollider.IsMain())
+            if (!otherCollider.IsForMain())
                 return;
             var riseTimer = GetRiseTimer(self);
             if (riseTimer == null || !riseTimer.Expired)

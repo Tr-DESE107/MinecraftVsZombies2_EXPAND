@@ -653,6 +653,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c5ef86d50d239a47a36537b14f214d0
+    m_Address: mvz2:projectile/reflection_bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
     m_Address: mvz2:random/crystal/crystal_place2
     m_ReadOnly: 0
@@ -1452,6 +1458,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 397b6bb85fb44e64991eac4dd82cd72a
     m_Address: mvz2:effect/slice_spark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39e2d5c4e7a1e8346ae9a7605ce6e2a9
+    m_Address: mvz2:armor/reflective_barrier
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2278,6 +2290,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57fe36dbd26e41c43a5daff6005e09cb
+    m_Address: mvz2:enemy/mausoleum/reflective_barrier_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 580a757d547930b41a026df31631b7c9
     m_Address: mvz2:entity/enemies/mesmerizer_head
     m_ReadOnly: 0
@@ -2518,6 +2536,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e410d297dd6abe4995aee049367ea81
+    m_Address: mvz2:armors
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ec207595d8c8c7468bb08c2fe7381b7
     m_Address: mvz2:seija
     m_ReadOnly: 0
@@ -2535,6 +2559,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fd5dd6553755524490a5b49f96a2b43
+    m_Address: mvz2:entity/armor/reflective_barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fe877b614795e144996e5d0ede65e81
     m_Address: mvz2:starshards/default
@@ -2607,6 +2637,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61e062545e6a32f479757806ec86d744
+    m_Address: mvz2:mobile_blueprint/reflective_barrier_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6253230b052dd4849b79835c143f0a61
     m_Address: mvz2:pickup/emerald
@@ -3032,6 +3068,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 779caaadbdd68fb40b71d160c2305c1c
+    m_Address: mvz2:entity/projectiles/reflection_bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77a624db6fcfb1240a49f8d8130aedbe
     m_Address: mvz2:piston_out

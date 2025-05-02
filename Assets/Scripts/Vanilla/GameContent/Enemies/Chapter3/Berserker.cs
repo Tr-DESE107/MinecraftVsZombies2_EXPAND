@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.EquipArmor<BerserkerHelmet>();
+            entity.EquipMainArmor(VanillaArmorID.bersekerHelmet);
         }
         protected override void UpdateLogic(Entity entity)
         {

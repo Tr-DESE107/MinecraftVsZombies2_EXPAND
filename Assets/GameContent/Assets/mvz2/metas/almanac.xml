@@ -820,6 +820,25 @@
                 <p>不过他自己不知道，也没有多少人知道——知道的也没人敢告诉他就是了。</p>
             </flavor>
         </entry>
+
+        
+        <entry id="mvz2:reflective_barrier_zombie">
+            <header>
+                <p>反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+600</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>特点：<![CDATA[<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>]]></p>
+            </properties>
+            <flavor>
+                <p>“我诅咒你永世不得超生！”</p>
+                <p>“反弹！”</p>
+                <p>“再反弹！”</p>
+                <p>“反弹回去！”</p>
+                <p>“再弹！”</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using MVZ2.Collision;
+using Newtonsoft.Json.Linq;
+using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -19,6 +23,18 @@ namespace MVZ2.Collisions
             Name = name;
             gameObject.name = Name;
         }
+        public void SetMain()
+        {
+            updateMode = EntityColliderUpdateMode.Main;
+        }
+        public void SetCustom(ColliderConstructor constructor)
+        {
+            updateMode = EntityColliderUpdateMode.Custom;
+            ArmorSlot = constructor.armorSlot;
+            customSize = constructor.size;
+            customOffset = constructor.offset;
+            customPivot = constructor.pivot;
+        }
         public void SetEnabled(bool enabled)
         {
             if (Enabled == enabled)
@@ -26,10 +42,32 @@ namespace MVZ2.Collisions
             Enabled = enabled;
             boxCollider.enabled = enabled;
         }
-        public void UpdateBounds(Vector3 offset, Vector3 size)
+        public void UpdateFromEntity()
         {
-            boxCollider.center = offset;
-            boxCollider.size = size;
+            var scale = Entity.GetScale();
+            switch (updateMode)
+            {
+                case EntityColliderUpdateMode.Main:
+                    {
+                        var size = Entity.GetSize();
+                        var offset = Vector3.Scale(Vector3.one * 0.5f - Entity.GetBoundsPivot(), size);
+                        offset = Vector3.Scale(offset, scale);
+                        boxCollider.center = offset;
+                        boxCollider.size = size;
+                    }
+                    break;
+                case EntityColliderUpdateMode.Custom:
+                    {
+                        var size = customSize;
+                        var offset = Vector3.Scale(Vector3.one * 0.5f - customPivot, size);
+                        offset += customOffset;
+                        offset = Vector3.Scale(offset, scale);
+                        boxCollider.center = offset;
+                        boxCollider.size = size;
+                    }
+                    break;
+            }
+
         }
         public void Simulate()
         {
@@ -73,8 +111,8 @@ namespace MVZ2.Collisions
                 var collision = exitedCollisionBuffer[i];
                 if (!collision.Checked)
                 {
-                    CallPostCollision(collision, EntityCollisionHelper.STATE_EXIT);
                     collisionList.Remove(collision);
+                    CallPostCollision(collision, EntityCollisionHelper.STATE_EXIT);
                 }
                 collision.Checked = false;
             }
@@ -132,13 +170,23 @@ namespace MVZ2.Collisions
             {
                 name = Name,
                 enabled = Enabled,
+                armorSlot = ArmorSlot,
                 collisionList = collisionList.Select(c => c.ToSerializable()).ToArray(),
+                updateMode = (int)updateMode,
+                customSize = customSize,
+                customOffset = customOffset,
+                customPivot = customPivot,
             };
         }
         public void LoadFromSerializable(SerializableUnityEntityCollider seri, Entity entity)
         {
             Entity = entity;
             Name = seri.name;
+            ArmorSlot = seri.armorSlot;
+            updateMode = (EntityColliderUpdateMode)seri.updateMode;
+            customSize = seri.customSize;
+            customOffset = seri.customOffset;
+            customPivot = seri.customPivot;
             gameObject.name = Name;
             SetEnabled(seri.enabled);
         }
@@ -151,6 +199,12 @@ namespace MVZ2.Collisions
         public bool Enabled { get; private set; } = true;
         public string Name { get; private set; }
         public Entity Entity { get; private set; }
+        public NamespaceID ArmorSlot { get; private set; }
+        private EntityColliderUpdateMode updateMode;
+        private Vector3 customSize = Vector3.zero;
+        private Vector3 customOffset = Vector3.zero;
+        private Vector3 customPivot = Vector3.one * 0.5f;
+
         [SerializeField]
         private BoxCollider boxCollider;
         private HashSet<Collider> touchingColliders = new HashSet<Collider>();
@@ -161,6 +215,16 @@ namespace MVZ2.Collisions
     {
         public string name;
         public bool enabled;
+        public NamespaceID armorSlot;
         public SerializableEntityCollision[] collisionList;
+        public int updateMode;
+        public Vector3 customSize;
+        public Vector3 customOffset;
+        public Vector3 customPivot;
+    }
+    public enum EntityColliderUpdateMode
+    {
+        Main = 0,
+        Custom = 1
     }
 }

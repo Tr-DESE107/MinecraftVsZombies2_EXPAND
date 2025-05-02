@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetExplosionTimer(entity, new FrameTimer(EXPLOSION_TIMEOUT));
-            entity.EquipArmor<BedserkerHelmet>();
+            entity.EquipMainArmor(VanillaArmorID.bedserkerHelmet);
         }
         protected override void UpdateLogic(Entity entity)
         {

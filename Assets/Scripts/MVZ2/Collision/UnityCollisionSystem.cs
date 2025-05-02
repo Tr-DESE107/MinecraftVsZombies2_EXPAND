@@ -28,7 +28,7 @@ namespace MVZ2.Collisions
         public void InitEntity(Entity entity)
         {
             var col = CreateCollisionEntity(entity);
-            col.CreateCollider(EntityCollisionHelper.NAME_MAIN);
+            col.CreateMainCollider(EntityCollisionHelper.NAME_MAIN);
         }
         public void DestroyEntity(Entity entity)
         {
@@ -66,21 +66,19 @@ namespace MVZ2.Collisions
         }
 
         #region 碰撞体
-        public void AddCollider(Entity entity, IEntityCollider collider)
+        public IEntityCollider AddCollider(Entity entity, ColliderConstructor cons)
         {
-            if (collider is not UnityEntityCollider entCol)
-                return;
             var collisionEnt = GetCollisionEntity(entity);
             if (!collisionEnt)
-                return;
-            collisionEnt.AddCollider(entCol);
+                return null;
+            return collisionEnt.CreateCustomCollider(cons);
         }
         public bool RemoveCollider(Entity entity, string name)
         {
             var collisionEnt = GetCollisionEntity(entity);
             if (!collisionEnt)
                 return false;
-            return collisionEnt.RemoveCollider(name);
+            return collisionEnt.DestroyCollider(name);
         }
         public UnityEntityCollider GetCollider(Entity entity, string name)
         {

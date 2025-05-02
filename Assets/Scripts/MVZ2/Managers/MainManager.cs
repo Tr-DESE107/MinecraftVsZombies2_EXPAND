@@ -57,7 +57,9 @@ namespace MVZ2.Managers
             await LanguageManager.InitLanguagePacks();
 
             // 在MOD资源加载之后
+            ModManager.InitModLogics(Game);
             ModManager.LoadModLogics(Game);
+            ModManager.PostReloadMods(Game);
 
             // 在MOD逻辑加载之后
             SaveManager.Load();

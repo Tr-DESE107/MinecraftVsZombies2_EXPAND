@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Games;
 using MVZ2.Level;
 using MVZ2.Managers;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
+using PVZEngine;
+using PVZEngine.Armors;
+using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -26,14 +36,28 @@ namespace MVZ2.Modding
                 ResourceLocator = locator,
             });
         }
-        public void LoadModLogics(Game game)
+        public void InitModLogics(Game game)
         {
             OnRegisterMod?.Invoke(this, game);
 
             foreach (var modInfo in modInfos)
             {
+                modInfo.Logic.LateInit(game);
+            }
+        }
+        public void LoadModLogics(Game game)
+        {
+            foreach (var modInfo in modInfos)
+            {
                 modInfo.Logic.Load();
                 game.AddMod(modInfo.Logic);
+            }
+        }
+        public void PostReloadMods(Game game)
+        {
+            foreach (var modInfo in GetAllModInfos())
+            {
+                modInfo.Logic.PostReloadMods(game);
             }
         }
         public void PostGameInit()

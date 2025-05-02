@@ -8,6 +8,5 @@ namespace MVZ2Logic.Models
         public const string ANCHOR_ARMOR = "armor";
         public const string ANCHOR_CENTER = "center";
         public const string ANCHOR_SADDLE = "saddle";
-        public static readonly NamespaceID KEY_ARMOR = new NamespaceID("mvz2", "armor");
     }
 }

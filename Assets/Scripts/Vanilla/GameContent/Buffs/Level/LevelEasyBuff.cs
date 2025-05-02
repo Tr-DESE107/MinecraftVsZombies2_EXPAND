@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -63,7 +64,7 @@ namespace MVZ2.GameContent.Buffs.Level
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                results.AddRange(level.GetEntities(EntityTypes.ENEMY).Select(e => e.EquipedArmor).Where(e => e != null));
+                results.AddRange(level.GetEntities(EntityTypes.ENEMY).Select(e => e.GetMainArmor()).Where(e => e != null));
             }
         }
     }

@@ -318,6 +318,10 @@ namespace MVZ2.Models
             }
             return null;
         }
+        public ModelAnchor[] GetAllAnchors()
+        {
+            return modelAnchors;
+        }
         public RandomGenerator GetRNG()
         {
             return rng;

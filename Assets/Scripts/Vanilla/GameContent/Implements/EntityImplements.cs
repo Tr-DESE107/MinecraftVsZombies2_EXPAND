@@ -4,6 +4,8 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic.Modding;
+using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -20,6 +22,7 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PlayHitSoundCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, HealParticlesUpdateCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            mod.AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
         }
         private void PostEntityInitCallback(Entity entity)
         {
@@ -72,6 +75,13 @@ namespace MVZ2.GameContent.Implements
         private void HealParticlesUpdateCallback(Entity entity)
         {
             entity.UpdateHealParticles();
+        }
+        private void PostArmorDestroyCallback(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo damageResult)
+        {
+            var deathSound = armor.GetDeathSound();
+            if (!NamespaceID.IsValid(deathSound))
+                return;
+            entity.PlaySound(deathSound);
         }
     }
 }

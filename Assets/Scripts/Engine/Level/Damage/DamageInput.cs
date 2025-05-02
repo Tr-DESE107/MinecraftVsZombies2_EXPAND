@@ -9,20 +9,18 @@ namespace PVZEngine.Damages
         public float Amount { get; private set; }
         public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; private set; }
-        public bool ToBody { get; private set; }
-        public bool ToShield { get; private set; }
+        public NamespaceID ShieldTarget { get; private set; }
         public EntityReferenceChain Source { get; set; }
         public bool IsInterrupted { get; private set; }
 
-        public DamageInput(float amount, DamageEffectList effects, Entity entity, EntityReferenceChain source, bool toBody = true, bool toShield = false)
+        public DamageInput(float amount, DamageEffectList effects, Entity entity, EntityReferenceChain source, NamespaceID shieldTarget = null)
         {
             OriginalAmount = amount;
             Amount = amount;
             Effects = effects;
             Entity = entity;
             Source = source;
-            ToBody = toBody;
-            ToShield = toShield;
+            ShieldTarget = shieldTarget;
         }
         public void Add(float value)
         {

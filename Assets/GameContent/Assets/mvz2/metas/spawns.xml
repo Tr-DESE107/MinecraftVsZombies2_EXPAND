@@ -78,6 +78,13 @@
         <spawn level="6" />
         <weight base="2000" />
     </entry>
+
+    <!-- Mausoleum -->
+    <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >
+        <spawn level="3" />
+        <terrain water="true"/>
+        <weight base="3000" />
+    </entry>
     
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
         <spawn level="10"/>

@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Effects
         public override void PostCollision(EntityCollision collision, int state)
         {
             base.PostCollision(collision, state);
-            if (!collision.Collider.IsMain() || !collision.OtherCollider.IsMain())
+            if (!collision.Collider.IsForMain() || !collision.OtherCollider.IsForMain())
                 return;
             if (state == EntityCollisionHelper.STATE_EXIT)
                 return;

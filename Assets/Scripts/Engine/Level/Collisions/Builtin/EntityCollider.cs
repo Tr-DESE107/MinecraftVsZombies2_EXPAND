@@ -199,6 +199,7 @@ namespace PVZEngine.Entities
             {
                 name = Name,
                 enabled = Enabled,
+                armorSlot = ArmorSlot,
                 hitboxes = hitboxes.Select(h => h.ToSerializable()).ToArray(),
                 collisionList = collisionList.Select(c => c.ToSerializable()).ToArray(),
             };
@@ -209,6 +210,7 @@ namespace PVZEngine.Entities
             collider.Entity = entity;
             collider.Name = seri.name;
             collider.Enabled = seri.enabled;
+            collider.ArmorSlot = seri.armorSlot;
             collider.hitboxes = seri.hitboxes.Select(h => h.ToDeserialized(entity)).ToList();
             collider.EvaluateBoundingBox();
             return collider;
@@ -231,6 +233,7 @@ namespace PVZEngine.Entities
         public bool Enabled { get; private set; } = true;
         public string Name { get; set; }
         public Entity Entity { get; set; }
+        public NamespaceID ArmorSlot { get; set; }
         private Bounds boundingBox;
         private Rect bottomRect;
         private List<Hitbox> hitboxes = new List<Hitbox>();

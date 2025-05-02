@@ -179,7 +179,7 @@ namespace MVZ2.GameContent.Stages
                             lane = dispensers[0].GetLane();
                         }
                         var enemy = level.SpawnEnemy(spawnDef, lane);
-                        var armor = enemy.EquipedArmor;
+                        var armor = enemy.GetMainArmor();
                         if (armor != null)
                         {
                             armor.Health = armor.GetMaxHealth() * 0.5f;

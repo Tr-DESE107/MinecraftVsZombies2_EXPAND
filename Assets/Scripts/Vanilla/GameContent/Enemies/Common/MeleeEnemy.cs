@@ -23,9 +23,9 @@ namespace MVZ2.Vanilla.Enemies
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
-            if (!collision.Collider.IsMain())
+            if (!collision.Collider.IsForMain())
                 return;
-            if (!collision.OtherCollider.IsMain())
+            if (!collision.OtherCollider.IsForMain())
                 return;
             if (state != EntityCollisionHelper.STATE_EXIT)
             {

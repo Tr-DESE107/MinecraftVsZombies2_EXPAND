@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using System.Linq;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
 using PVZEngine.Level;
@@ -16,13 +17,7 @@ namespace MVZ2.GameContent.Projectiles
             base.PostHitEntity(hitResult, damageOutput);
             if (damageOutput == null)
                 return;
-            var bodyResult = damageOutput.BodyResult;
-            var armorResult = damageOutput.ArmorResult;
-            var bodyShell = bodyResult?.ShellDefinition;
-            var armorShell = armorResult?.ShellDefinition;
-            var bodyBlocksSlice = bodyShell != null ? bodyShell.BlocksSlice() : false;
-            var armorBlocksSlice = armorShell != null ? armorShell.BlocksSlice() : false;
-            var blocksSlice = bodyBlocksSlice || armorBlocksSlice;
+            var blocksSlice = damageOutput.GetAllResults().Any(e => e?.ShellDefinition?.BlocksSlice() ?? false);
             if (!blocksSlice)
             {
                 hitResult.Pierce = true;

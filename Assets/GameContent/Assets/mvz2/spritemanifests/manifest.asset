@@ -223,6 +223,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
   - name: mobile_blueprint/random_china
     sprite: {fileID: 21300000, guid: 739dc404e782a0c4dae8390f142f0cc5, type: 3}
+  - name: mobile_blueprint/reflective_barrier_zombie
+    sprite: {fileID: 21300000, guid: 61e062545e6a32f479757806ec86d744, type: 3}
   - name: mobile_blueprint/return_pearl
     sprite: {fileID: 21300000, guid: 90b1efed9d95d3b43a897fa9d566324a, type: 3}
   - name: mobile_blueprint/reverse_satellite
@@ -1041,6 +1043,11 @@ MonoBehaviour:
     - {fileID: -528585260921630623, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 658849057890657363, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 5196036857812072691, guid: 03832b8b573fa884993ba7232246622f, type: 3}
+  - name: entity/armor/reflective_barrier
+    spritesheet:
+    - {fileID: 2038617381, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
+    - {fileID: 41696649, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
+    - {fileID: -1495750782, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
   - name: entity/boss/frankenstein
     spritesheet:
     - {fileID: -8387447821006724102, guid: 74da7e893d261a549a659cfaef15b372, type: 3}

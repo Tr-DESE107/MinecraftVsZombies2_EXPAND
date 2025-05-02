@@ -1,29 +1,22 @@
-﻿using PVZEngine.Damages;
+﻿using PVZEngine;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaColliderExt
     {
-        public static bool IsShield(this IEntityCollider collider)
+        public static bool IsForMain(this IEntityCollider collider)
         {
-            return collider.Name == EntityCollisionHelper.NAME_SHIELD;
+            return !NamespaceID.IsValid(collider.ArmorSlot);
         }
-        public static bool IsMain(this IEntityCollider collider)
+        public static bool IsMainCollider(this IEntityCollider collider)
         {
             return collider.Name == EntityCollisionHelper.NAME_MAIN;
         }
         public static DamageInput GetDamageInput(this IEntityCollider collider, float amount, DamageEffectList effects, Entity source)
         {
-            if (collider.IsShield())
-            {
-                return new DamageInput(amount, effects, collider.Entity, new EntityReferenceChain(source), toBody: false, toShield: true);
-            }
-            else if (collider.IsMain())
-            {
-                return new DamageInput(amount, effects, collider.Entity, new EntityReferenceChain(source));
-            }
-            return null;
+            return new DamageInput(amount, effects, collider.Entity, new EntityReferenceChain(source), collider.ArmorSlot);
         }
         public static DamageOutput TakeDamage(this IEntityCollider collider, float amount, DamageEffectList effects, Entity source)
         {
@@ -31,15 +24,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamage(this IEntityCollider collider, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
-            if (collider.IsShield())
-            {
-                return collider.Entity.TakeDamage(amount, effects, source, toBody: false, toShield: true);
-            }
-            else if (collider.IsMain())
-            {
-                return collider.Entity.TakeDamage(amount, effects, source);
-            }
-            return null;
+            return collider.Entity.TakeDamage(amount, effects, source, collider.ArmorSlot);
         }
     }
 }

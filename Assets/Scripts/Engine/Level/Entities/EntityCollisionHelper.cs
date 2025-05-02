@@ -9,7 +9,6 @@ namespace PVZEngine.Entities
         public const int DETECTION_IGNORE = 2;
 
         public const string NAME_MAIN = "main";
-        public const string NAME_SHIELD = "shield";
 
         public const int MASK_PLANT = 1 << 0;
         public const int MASK_ENEMY = 1 << 1;

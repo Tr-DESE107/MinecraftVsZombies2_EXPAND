@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Xml.Linq;
 using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
+using MVZ2.GameContent.Shells;
 using MVZ2.GameContent.Spawns;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Contraptions;
@@ -20,10 +22,12 @@ using MVZ2Logic.Saves;
 using MVZ2Logic.SeedPacks;
 using MVZ2Logic.Spawns;
 using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Vanilla
@@ -32,19 +36,36 @@ namespace MVZ2.Vanilla
     {
         public VanillaMod() : base(spaceName)
         {
-            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
-            RegisterEntityProperties(assemblies);
-            LoadEntityMetas();
-            LoadSpawnMetas();
-            LoadStageMetas();
+        }
+        public override void Init(IGame game, Assembly[] assemblies)
+        {
+            base.Init(game, assemblies);
+            // 映射所有的属性值。
+            MapProperties(assemblies);
+            // 加载所有代码生成定义。
             LoadDefinitionsFromAssemblies(assemblies);
-            LoadAreaProperties();
-            LoadStageProperties();
-            LoadArtifactProperties();
-            LoadSeedOptionProperties();
-            AddEntityBehaviours();
-            AddOptionSeeds();
 
+            // 以下这这些没有相关联的定义类型，必须要手动创建。
+            // 加载所有实体。
+            LoadEntityMetas(game);
+            // 加载所有护甲。
+            LoadArmorMetas(game);
+            // 加载所有敌人生成信息。
+            LoadSpawnMetas(game);
+
+            // 加载所有关卡信息。先加载全，再加载关卡属性。
+            LoadStages(game);
+            LoadStageProperties(game);
+
+            // 以下会通过LoadDefinitionsFromAssemblies自动创建，因此只需要读取额外信息。
+            // 加载所有地形信息。
+            LoadAreaProperties(game);
+            // 加载所有制品信息。
+            LoadArtifactProperties(game);
+            // 加载选项蓝图信息。
+            LoadSeedOptionProperties(game);
+
+            // 回调。
             ImplementCallbacks(new GemStageImplements());
             ImplementCallbacks(new StatsImplements());
             ImplementCallbacks(new EntityImplements());
@@ -56,11 +77,25 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new AchievementsImplements());
             ImplementCallbacks(new RandomChinaImplements());
         }
+        public override void LateInit(IGame game)
+        {
+            base.LateInit(game);
+            // 为护甲添加对应的护甲行为。
+            LoadArmorBehaviours(game);
+            // 为实体添加对应的实体行为。
+            LoadEntityBehaviours(game);
+            // 加载所有实体蓝图。
+            LoadEntityBlueprints(game);
+            // 加载所有选项蓝图。
+            LoadOptionSeedBlueprints(game);
+        }
         public override void PostGameInit()
         {
             base.PostGameInit();
             SerializeHelper.RegisterClass<SerializableVanillaSaveData>();
         }
+
+        #region 存档
         public override ModSaveData CreateSaveData()
         {
             return new VanillaSaveData(spaceName);
@@ -70,89 +105,16 @@ namespace MVZ2.Vanilla
             var serializable = SerializeHelper.FromBson<SerializableVanillaSaveData>(json);
             return serializable.Deserialize();
         }
+        #endregion
+
+        #region 回调
         private void ImplementCallbacks(VanillaImplements implements)
         {
             implements.Implement(this);
         }
-        private void LoadEntityMetas()
-        {
-            foreach (IEntityMeta meta in Global.Game.GetModEntityMetas(spaceName))
-            {
-                if (meta == null)
-                    continue;
-                var name = meta.ID;
-                var entityDefinition = new MetaEntityDefinition(meta.Type, spaceName, name);
-                foreach (var pair in meta.Properties)
-                {
-                    entityDefinition.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
-                }
-                AddDefinition(entityDefinition);
+        #endregion
 
-                var info = new EntitySeedInfo()
-                {
-                    triggerActive = entityDefinition.IsTriggerActive(),
-                    canInstantTrigger = entityDefinition.CanInstantTrigger(),
-                    upgrade = entityDefinition.IsUpgradeBlueprint(),
-                    canInstantEvoke = entityDefinition.CanInstantEvoke()
-                };
-                var seedDef = new EntitySeed(Namespace, name, entityDefinition.GetCost(), entityDefinition.GetRechargeID(), info);
-                AddDefinition(seedDef);
-            }
-        }
-        private void LoadSpawnMetas()
-        {
-            foreach (ISpawnMeta meta in Global.Game.GetModSpawnMetas(spaceName))
-            {
-                if (meta == null)
-                    continue;
-                var name = meta.ID;
-                var spawnLevel = meta.SpawnLevel;
-                var terrain = meta.Terrain;
-                var weight = meta.Weight;
-                var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
-                var water = meta.Terrain?.Water ?? false;
-
-                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, new NamespaceID(Namespace, name), excludedTags);
-                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
-                if (weight != null)
-                {
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
-                }
-                spawnDef.CanSpawnAtWaterLane = water;
-                AddDefinition(spawnDef);
-            }
-        }
-        private void LoadStageMetas()
-        {
-            foreach (var meta in Global.Game.GetModStageMetas(spaceName))
-            {
-                if (meta == null)
-                    continue;
-                switch (meta.Type)
-                {
-                    case StageTypes.TYPE_NORMAL:
-                        {
-                            var stage = new ClassicStage(spaceName, meta.ID);
-                            AddDefinition(stage);
-                        }
-                        break;
-                    case StageTypes.TYPE_ENDLESS:
-                        {
-                            var stage = new EndlessStage(spaceName, meta.ID);
-                            AddDefinition(stage);
-                        }
-                        break;
-                }
-            }
-            AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.halloween6));
-            AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.dream6));
-            AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.castle6));
-            AddDefinition(new SeijaStage(spaceName, VanillaStageNames.castle7));
-        }
-        protected void RegisterEntityProperties(Assembly[] assemblies)
+        protected void MapProperties(Assembly[] assemblies)
         {
             foreach (var assembly in assemblies)
             {
@@ -181,9 +143,101 @@ namespace MVZ2.Vanilla
                 }
             }
         }
-        private void LoadAreaProperties()
+
+        #region 加载定义
+        private void LoadEntityMetas(IGame game)
         {
-            foreach (IAreaMeta meta in Global.Game.GetModAreaMetas(spaceName))
+            foreach (IEntityMeta meta in game.GetModEntityMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new MetaEntityDefinition(meta.Type, spaceName, name);
+
+                // 加载实体的属性。
+                foreach (var pair in meta.Properties)
+                {
+                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
+                }
+                AddDefinition(def);
+            }
+        }
+        private void LoadArmorMetas(IGame game)
+        {
+            foreach (IArmorMeta meta in game.GetModArmorMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new MetaArmorDefinition(spaceName, name, meta.ColliderConstructors);
+
+                // 加载护甲的属性。
+                foreach (var pair in meta.Properties)
+                {
+                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
+                }
+                AddDefinition(def);
+            }
+        }
+        private void LoadSpawnMetas(IGame game)
+        {
+            foreach (ISpawnMeta meta in game.GetModSpawnMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var spawnLevel = meta.SpawnLevel;
+                var terrain = meta.Terrain;
+                var weight = meta.Weight;
+                var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
+                var water = meta.Terrain?.Water ?? false;
+
+                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, new NamespaceID(Namespace, name), excludedTags);
+                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
+                if (weight != null)
+                {
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
+                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
+                }
+                spawnDef.CanSpawnAtWaterLane = water;
+                AddDefinition(spawnDef);
+            }
+        }
+        private void LoadStages(IGame game)
+        {
+            AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.halloween6));
+            AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.dream6));
+            AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.castle6));
+            AddDefinition(new SeijaStage(spaceName, VanillaStageNames.castle7));
+            foreach (var meta in game.GetModStageMetas(spaceName))
+            {
+                if (meta == null)
+                    continue;
+                switch (meta.Type)
+                {
+                    case StageTypes.TYPE_NORMAL:
+                        {
+                            var stage = new ClassicStage(spaceName, meta.ID);
+                            AddDefinition(stage);
+                        }
+                        break;
+                    case StageTypes.TYPE_ENDLESS:
+                        {
+                            var stage = new EndlessStage(spaceName, meta.ID);
+                            AddDefinition(stage);
+                        }
+                        break;
+                }
+            }
+        }
+        #endregion
+
+        #region 加载属性
+        private void LoadAreaProperties(IGame game)
+        {
+            foreach (IAreaMeta meta in game.GetModAreaMetas(spaceName))
             {
                 if (meta == null)
                     continue;
@@ -213,9 +267,9 @@ namespace MVZ2.Vanilla
                 area.SetGridLayout(meta.Grids.Select(m => m.ID).ToArray());
             }
         }
-        private void LoadStageProperties()
+        private void LoadStageProperties(IGame game)
         {
-            foreach (var meta in Global.Game.GetModStageMetas(spaceName))
+            foreach (var meta in game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
                     continue;
@@ -254,9 +308,9 @@ namespace MVZ2.Vanilla
                 }
             }
         }
-        private void LoadSeedOptionProperties()
+        private void LoadSeedOptionProperties(IGame game)
         {
-            foreach (var meta in Global.Game.GetModSeedOptionMetas(spaceName))
+            foreach (var meta in game.GetModSeedOptionMetas(spaceName))
             {
                 if (meta == null)
                     continue;
@@ -267,9 +321,9 @@ namespace MVZ2.Vanilla
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.ICON, meta.Icon);
             }
         }
-        private void LoadArtifactProperties()
+        private void LoadArtifactProperties(IGame game)
         {
-            foreach (IArtifactMeta meta in Global.Game.GetModArtifactMetas(spaceName))
+            foreach (IArtifactMeta meta in game.GetModArtifactMetas(spaceName))
             {
                 if (meta == null)
                     continue;
@@ -281,7 +335,25 @@ namespace MVZ2.Vanilla
                 artifact.SetSpriteReference(meta.Sprite);
             }
         }
-        private void AddEntityBehaviours()
+        #endregion
+
+        #region 后处理
+        private void LoadArmorBehaviours(IGame game)
+        {
+            foreach (ArmorDefinition def in GetDefinitions<ArmorDefinition>(EngineDefinitionTypes.ARMOR))
+            {
+                if (def == null)
+                    continue;
+                var meta = game.GetArmorMeta(def.GetID());
+                if (meta == null)
+                    continue;
+                foreach (var behaviourID in meta.Behaviours)
+                {
+                    def.AddBehaviour(behaviourID);
+                }
+            }
+        }
+        private void LoadEntityBehaviours(IGame game)
         {
             foreach (var behaviour in GetDefinitions<EntityBehaviourDefinition>(EngineDefinitionTypes.ENTITY_BEHAVIOUR))
             {
@@ -298,7 +370,27 @@ namespace MVZ2.Vanilla
                 }
             }
         }
-        private void AddOptionSeeds()
+        private void LoadEntityBlueprints(IGame game)
+        {
+            foreach (EntityDefinition def in GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
+            {
+                if (def == null)
+                    continue;
+                var id = def.GetID();
+
+                // 将实体作为蓝图添加到游戏中。
+                var info = new EntitySeedInfo()
+                {
+                    triggerActive = def.IsTriggerActive(),
+                    canInstantTrigger = def.CanInstantTrigger(),
+                    upgrade = def.IsUpgradeBlueprint(),
+                    canInstantEvoke = def.CanInstantEvoke()
+                };
+                var seedDef = new EntitySeed(id.SpaceName, id.Path, def.GetCost(), def.GetRechargeID(), info);
+                AddDefinition(seedDef);
+            }
+        }
+        private void LoadOptionSeedBlueprints(IGame game)
         {
             foreach (var option in GetDefinitions<SeedOptionDefinition>(LogicDefinitionTypes.SEED_OPTION))
             {
@@ -306,6 +398,7 @@ namespace MVZ2.Vanilla
                 AddDefinition(seedDef);
             }
         }
+        #endregion
 
         public const string spaceName = "mvz2";
     }

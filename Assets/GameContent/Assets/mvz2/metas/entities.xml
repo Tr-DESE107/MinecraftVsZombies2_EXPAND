@@ -793,6 +793,12 @@
             <int name="cost" value="100" />
         </enemy>
 
+        
+        <enemy id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹" unlock="mvz2:level.mausoleum_1">
+            <int name="cost" value="100" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
+
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <float name="maxHealth" value="3000"/>
             <float name="maxAttackHeight" value="100"/>
@@ -1226,6 +1232,9 @@
             <bool name="piercing" value="true" />
             <vector3 name="size" x="32" y="5" z="5" />
             <idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
+        </projectile>
+        <projectile id="reflection_bullet">
+            <vector3 name="size" x="32" y="32" z="32" />
         </projectile>
 
         <!-- Effects -->

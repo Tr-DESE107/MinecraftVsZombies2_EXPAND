@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Contraptions
             base.PostCollision(collision, state);
             if (state != EntityCollisionHelper.STATE_ENTER)
                 return;
-            if (!collision.Collider.IsMain())
+            if (!collision.Collider.IsForMain())
                 return;
             var anvil = collision.Entity;
             if (anvil.Velocity == Vector3.zero)

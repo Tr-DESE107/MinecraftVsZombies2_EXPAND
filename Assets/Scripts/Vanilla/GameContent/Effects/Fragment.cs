@@ -40,9 +40,13 @@ namespace MVZ2.GameContent.Effects
         {
             SetEmitSpeed(entity, GetEmitSpeed(entity) + value);
         }
+        public static void SetFragmentID(Entity entity, NamespaceID value)
+        {
+            entity.SetModelProperty("FragmentID", value);
+        }
         public static void UpdateFragmentID(Entity entity)
         {
-            entity.SetModelProperty("FragmentID", entity.Parent?.GetFragmentID());
+            SetFragmentID(entity, entity.Parent?.GetFragmentID());
         }
         #endregion
         private static readonly NamespaceID ID = VanillaEffectID.fragment;

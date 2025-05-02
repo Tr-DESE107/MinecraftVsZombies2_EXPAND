@@ -27,12 +27,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            if (entity.EquipedArmor == null)
+            var armor = entity.GetMainArmor();
+            if (armor == null)
                 return;
-            if (entity.EquipedArmor.HasBuff<BigTroubleArmorBuff>())
+            if (armor.HasBuff<BigTroubleArmorBuff>())
                 return;
-            entity.EquipedArmor.AddBuff<BigTroubleArmorBuff>();
-            entity.EquipedArmor.Health = entity.EquipedArmor.GetMaxHealth();
+            armor.AddBuff<BigTroubleArmorBuff>();
+            armor.Health = armor.GetMaxHealth();
         }
     }
 }

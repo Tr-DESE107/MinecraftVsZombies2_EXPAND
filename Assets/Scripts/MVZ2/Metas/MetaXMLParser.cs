@@ -1,5 +1,8 @@
 ﻿using System.Xml;
+using MVZ2.IO;
 using MVZ2.Modding;
+using PVZEngine.Level.Collisions;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
@@ -23,6 +26,9 @@ namespace MVZ2.Metas
                     break;
                 case "difficulties":
                     resource.DifficultyMetaList = DifficultyMetaList.FromXmlNode(document["difficulties"], defaultNsp);
+                    break;
+                case "armors":
+                    resource.ArmorMetaList = ArmorMetaList.FromXmlNode(document["armors"], defaultNsp);
                     break;
                 case "entities":
                     resource.EntityMetaList = EntityMetaList.FromXmlNode(document["entities"], defaultNsp);
@@ -79,6 +85,44 @@ namespace MVZ2.Metas
                     resource.GridMetaList = GridMetaList.FromXmlNode(document["grids"], defaultNsp);
                     break;
             }
+        }
+        public static ColliderConstructor LoadColliderConstructor(this XmlNode node)
+        {
+            var name = node.GetAttribute("name");
+            var sizeNode = node["size"];
+            var size = Vector3.zero;
+            if (sizeNode != null)
+            {
+                size = new Vector3(
+                    sizeNode.GetAttributeFloat("x") ?? 0,
+                    sizeNode.GetAttributeFloat("y") ?? 0,
+                    sizeNode.GetAttributeFloat("z") ?? 0);
+            }
+            var offsetNode = node["offset"];
+            var offset = Vector3.zero;
+            if (offsetNode != null)
+            {
+                offset = new Vector3(
+                    offsetNode.GetAttributeFloat("x") ?? 0,
+                    offsetNode.GetAttributeFloat("y") ?? 0,
+                    offsetNode.GetAttributeFloat("z") ?? 0);
+            }
+            var pivotNode = node["pivot"];
+            var pivot = Vector3.one * 0.5f;
+            if (pivotNode != null)
+            {
+                pivot = new Vector3(
+                    pivotNode.GetAttributeFloat("x") ?? 0.5f,
+                    pivotNode.GetAttributeFloat("y") ?? 0.5f,
+                    pivotNode.GetAttributeFloat("z") ?? 0.5f);
+            }
+            return new ColliderConstructor()
+            {
+                name = name,
+                size = size,
+                offset = offset,
+                pivot = pivot,
+            };
         }
     }
 }

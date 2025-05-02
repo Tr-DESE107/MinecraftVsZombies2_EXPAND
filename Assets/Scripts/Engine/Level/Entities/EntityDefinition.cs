@@ -132,25 +132,25 @@ namespace PVZEngine.Entities
                 behaviour.PostRemove(entity);
             }
         }
-        public void PostEquipArmor(Entity entity, Armor armor)
+        public void PostEquipArmor(Entity entity, NamespaceID slot, Armor armor)
         {
             foreach (var behaviour in behaviours)
             {
-                behaviour.PostEquipArmor(entity, armor);
+                behaviour.PostEquipArmor(entity, slot, armor);
             }
         }
-        public void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damage)
+        public void PostDestroyArmor(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo damage)
         {
             foreach (var behaviour in behaviours)
             {
-                behaviour.PostDestroyArmor(entity, armor, damage);
+                behaviour.PostDestroyArmor(entity, slot, armor, damage);
             }
         }
-        public void PostRemoveArmor(Entity entity, Armor armor)
+        public void PostRemoveArmor(Entity entity, NamespaceID slot, Armor armor)
         {
             foreach (var behaviour in behaviours)
             {
-                behaviour.PostRemoveArmor(entity, armor);
+                behaviour.PostRemoveArmor(entity, slot, armor);
             }
         }
         public NamespaceID GetModelID()

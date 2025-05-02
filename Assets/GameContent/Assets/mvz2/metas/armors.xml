@@ -1,0 +1,64 @@
+<armors>
+    <slots>
+        <slot name="main" anchor="armor" />
+        <slot name="shield" anchor="shield" />
+    </slots>
+    <entries>
+        <entry id="leather_cap">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+            </behaviours>
+            <props>
+                <id name="shell" value="mvz2:leather" />
+                <float name="maxHealth" value="370" />
+            </props>
+        </entry>
+        <entry id="iron_helmet">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+            </behaviours>
+            <props>
+                <id name="shell" value="mvz2:metal" />
+                <float name="maxHealth" value="1110" />
+            </props>
+        </entry>
+        <entry id="mesmerizer_crown">
+            <props>
+                <id name="shell" value="mvz2:metal" />
+                <float name="maxHealth" value="100" />
+            </props>
+        </entry>
+        <entry id="berserker_helmet">
+            <props>
+                <id name="shell" value="mvz2:stone" />
+                <float name="maxHealth" value="100" />
+            </props>
+        </entry>
+        <entry id="bedserker_helmet">
+            <props>
+                <id name="shell" value="mvz2:stone" />
+                <float name="maxHealth" value="10000" />
+            </props>
+        </entry>
+        <entry id="reflective_barrier">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+                <behaviour id="mvz2:reflective_barrier"/>
+            </behaviours>
+            <colliders>
+                <collider name="main" >
+                    <offset x="-40" y="0" z="0"/>
+                    <size x="5" y="100" z="40"/>
+                    <pivot x="0.5" y="0" z="0.5"/>
+                </collider>
+            </colliders>
+            <props>
+                <bool name="noDiscard" value="true" />
+                <id name="shell" value="mvz2:stone" />
+                <float name="maxHealth" value="600" />
+                <id name="hitSound" value="mvz2:glass" />
+                <id name="deathSound" value="mvz2:glass_break" />
+            </props>
+        </entry>
+    </entries>
+</armors>

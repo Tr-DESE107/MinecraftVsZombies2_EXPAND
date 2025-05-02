@@ -59,6 +59,12 @@ namespace PVZEngine.Level
         {
         }
     }
+    public class ArmorBehaviourDefinitionAttribute : DefinitionAttribute
+    {
+        public ArmorBehaviourDefinitionAttribute(string name) : base(name, EngineDefinitionTypes.ARMOR_BEHAVIOUR)
+        {
+        }
+    }
     public class EntityBehaviourDefinitionAttribute : DefinitionAttribute
     {
         public EntityBehaviourDefinitionAttribute(string name) : base(name, EngineDefinitionTypes.ENTITY_BEHAVIOUR)

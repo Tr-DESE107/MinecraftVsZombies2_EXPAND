@@ -1208,6 +1208,64 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
   - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
   index: 0
+--- !u!1 &8834720448488837285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8624139529043288785}
+  - component: {fileID: 2442157552387849851}
+  - component: {fileID: 6698175961350444009}
+  m_Layer: 0
+  m_Name: HandShieldRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8624139529043288785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834720448488837285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.34, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1267357401874530198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &2442157552387849851
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834720448488837285}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1000
+  m_SortAtRoot: 0
+--- !u!114 &6698175961350444009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834720448488837285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: shield
 --- !u!1 &9153913067216388693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1297,7 @@ Transform:
   m_Children:
   - {fileID: 7654075668692556825}
   - {fileID: 6961483437050785856}
+  - {fileID: 8624139529043288785}
   m_Father: {fileID: 6114132798279822428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &21500200205723279
@@ -1384,15 +1443,27 @@ PrefabInstance:
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.data[7]
       value: 
-      objectReference: {fileID: 748743997232130321}
+      objectReference: {fileID: 9011576335142196383}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.data[8]
       value: 
-      objectReference: {fileID: 9011576335142196383}
+      objectReference: {fileID: 748743997232130321}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: transforms.Array.data[0]
       value: 
       objectReference: {fileID: 182688417446982005}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.data[0]
+      value: 
+      objectReference: {fileID: 2442157552387849851}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.data[1]
+      value: 
+      objectReference: {fileID: 7172769817493710939}
     - target: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Controller
       value: 
@@ -1411,12 +1482,16 @@ PrefabInstance:
       objectReference: {fileID: 5795746347716959356}
     - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: modelAnchors.Array.data[3]
       value: 
       objectReference: {fileID: 2310118289990033872}
+    - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: modelAnchors.Array.data[4]
+      value: 
+      objectReference: {fileID: 6698175961350444009}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

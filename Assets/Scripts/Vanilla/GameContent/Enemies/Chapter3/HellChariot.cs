@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Enemies
             base.PostCollision(collision, state);
             if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
-            if (!collision.Collider.IsMain())
+            if (!collision.Collider.IsForMain())
                 return;
             var other = collision.Other;
             if (other.IsDead || !other.IsVulnerableEntity())

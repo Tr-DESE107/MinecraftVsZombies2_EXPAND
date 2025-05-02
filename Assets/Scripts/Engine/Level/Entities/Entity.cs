@@ -14,6 +14,8 @@ using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.Triggers;
 using Tools;
+using UnityEditor.Graphs;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace PVZEngine.Entities
@@ -60,8 +62,11 @@ namespace PVZEngine.Entities
             {
                 OnUpdate();
                 Definition.Update(this);
-                if (EquipedArmor != null)
-                    EquipedArmor.Update();
+                var armors = armorDict.Values.ToArray();
+                foreach (var armor in armors)
+                {
+                    armor.Update();
+                }
                 auras.Update();
                 buffs.Update();
                 Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, c => c(this));
@@ -469,6 +474,14 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 碰撞
+        public IEntityCollider CreateCollider(ColliderConstructor info)
+        {
+            return Level.AddEntityCollider(this, info);
+        }
+        public bool RemoveCollider(string name)
+        {
+            return Level.RemoveEntityCollider(this, name);
+        }
         public IEntityCollider GetCollider(string name)
         {
             return Level.GetEntityCollider(this, name);
@@ -493,56 +506,107 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 护甲
-        public void EquipArmor<T>() where T : ArmorDefinition
+        public bool IsEquippingArmor(Armor armor)
         {
-            EquipArmor(new Armor(this, Level.Content.GetArmorDefinition<T>()));
+            foreach (var pair in armorDict)
+            {
+                if (pair.Value == armor)
+                    return true;
+            }
+            return false;
         }
-        public void EquipArmor(ArmorDefinition definition)
+        public void EquipArmorTo<T>(NamespaceID slot) where T : ArmorDefinition
+        {
+            EquipArmorTo(slot, new Armor(this, slot, Level.Content.GetArmorDefinition<T>()));
+        }
+        public void EquipArmorTo(NamespaceID slot, NamespaceID id)
+        {
+            EquipArmorTo(slot, new Armor(this, slot, Level.Content.GetArmorDefinition(id)));
+        }
+        public void EquipArmorTo(NamespaceID slot, ArmorDefinition definition)
         {
             if (definition == null)
                 return;
-            EquipArmor(new Armor(this, definition));
+            EquipArmorTo(slot, new Armor(this, slot, definition));
         }
-        public void EquipArmor(Armor armor)
+        public void EquipArmorTo(NamespaceID slot, Armor armor)
         {
             if (armor == null)
                 return;
-            if (EquipedArmor != null)
-                EquipedArmor.Destroy(null);
-            EquipedArmor = armor;
+            if (armorDict.TryGetValue(slot, out var oldShield))
+            {
+                if (oldShield != null)
+                    oldShield.Destroy(null);
+            }
+            armorDict[slot] = armor;
 
-            Definition.PostEquipArmor(this, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, c => c(this, armor));
-            OnEquipArmor?.Invoke(armor);
+            // 创建碰撞体
+            CreateCollidersForArmor(slot, armor);
+
+            Definition.PostEquipArmor(this, slot, armor);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, c => c(this, slot, armor));
+            OnEquipArmor?.Invoke(slot, armor);
         }
-        public void DestroyArmor(Armor armor, ArmorDamageResult result)
+        public void RemoveArmor(NamespaceID slot)
         {
-            Definition.PostDestroyArmor(this, armor, result);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, c => c(this, armor, result));
-            OnDestroyArmor?.Invoke(armor, result);
-        }
-        public void RemoveArmor()
-        {
-            var armor = EquipedArmor;
+            if (!armorDict.TryGetValue(slot, out var armor))
+                return;
             if (armor == null)
                 return;
-            EquipedArmor = null;
-            Definition.PostRemoveArmor(this, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, c => c(this, armor));
-            OnRemoveArmor?.Invoke(armor);
+            armorDict.Remove(slot);
+
+            // 移除碰撞体
+            RemoveCollidersFromArmor(slot, armor);
+
+            Definition.PostRemoveArmor(this, slot, armor);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, c => c(this, slot, armor));
+            OnRemoveArmor?.Invoke(slot, armor);
         }
-        public Armor GetShield()
+        public void DestroyArmor(NamespaceID slot, ArmorDestroyInfo result)
         {
-            return null;
+            if (!armorDict.TryGetValue(slot, out var armor))
+                return;
+            if (armor == null)
+                return;
+            Definition.PostDestroyArmor(this, slot, armor, result);
+            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, c => c(this, slot, armor, result));
+        }
+        public Armor GetArmorAtSlot(NamespaceID slot)
+        {
+            return armorDict.TryGetValue(slot, out var armor) ? armor : null;
+        }
+        public NamespaceID[] GetActiveArmorSlots()
+        {
+            return armorDict.Keys.ToArray();
+        }
+        private void CreateCollidersForArmor(NamespaceID slot, Armor armor)
+        {
+            foreach (var cons in armor.GetColliderConstructors())
+            {
+                var info = cons;
+                info.name = $"{slot}/{cons.name}";
+                info.armorSlot = slot;
+                CreateCollider(info);
+            }
+        }
+        private void RemoveCollidersFromArmor(NamespaceID slot, Armor armor)
+        {
+            foreach (var cons in armor.GetColliderConstructors())
+            {
+                RemoveCollider($"{slot}/{cons.name}");
+            }
         }
         #endregion
         public bool IsFacingLeft() => this.FaceLeftAtDefault() != FlipX;
 
         #region 模型
-        public void SetModelInterface(IModelInterface model, IModelInterface armorModel)
+        public void SetModelInterface(IModelInterface model)
         {
             modelInterface = model;
-            armorModelInterface = armorModel;
+        }
+        public IModelInterface GetModelInterface()
+        {
+            return modelInterface;
         }
         public void ChangeModel(NamespaceID id)
         {
@@ -581,25 +645,21 @@ namespace PVZEngine.Entities
         {
             return modelInterface.GetChildModel(key);
         }
-        public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void TriggerAnimation(string name)
         {
-            GetModelTarget(target).TriggerAnimation(name);
+            modelInterface.TriggerAnimation(name);
         }
-        public void SetAnimationBool(string name, bool value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void SetAnimationBool(string name, bool value)
         {
-            GetModelTarget(target).SetAnimationBool(name, value);
+            modelInterface.SetAnimationBool(name, value);
         }
-        public void SetAnimationInt(string name, int value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void SetAnimationInt(string name, int value)
         {
-            GetModelTarget(target).SetAnimationInt(name, value);
+            modelInterface.SetAnimationInt(name, value);
         }
-        public void SetAnimationFloat(string name, float value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void SetAnimationFloat(string name, float value)
         {
-            GetModelTarget(target).SetAnimationFloat(name, value);
-        }
-        private IModelInterface GetModelTarget(EntityAnimationTarget target)
-        {
-            return target == EntityAnimationTarget.Armor ? armorModelInterface : modelInterface;
+            modelInterface.SetAnimationFloat(name, value);
         }
         #endregion
 
@@ -646,7 +706,6 @@ namespace PVZEngine.Entities
             seri.definitionID = Definition.GetID();
             seri.modelID = ModelID;
             seri.parent = Parent?.ID ?? 0;
-            seri.EquipedArmor = EquipedArmor?.Serialize();
             seri.previousPosition = PreviousPosition;
             seri.position = Position;
             seri.velocity = Velocity;
@@ -655,6 +714,15 @@ namespace PVZEngine.Entities
             seri.renderRotation = RenderRotation;
             seri.takenConveyorSeeds = takenConveyorSeeds.ToDictionary(p => p.ToString(), p => p.Value);
             seri.timeout = Timeout;
+
+            // 护盾
+            seri.armors = new Dictionary<string, SerializableArmor>();
+            foreach (var pair in armorDict)
+            {
+                if (pair.Value == null)
+                    continue;
+                seri.armors.Add(pair.Key.ToString(), pair.Value.Serialize());
+            }
 
             seri.isDead = IsDead;
             seri.health = Health;
@@ -693,7 +761,6 @@ namespace PVZEngine.Entities
 
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
-            EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
             PreviousPosition = seri.previousPosition;
             Position = seri.position;
             Velocity = seri.velocity;
@@ -702,6 +769,17 @@ namespace PVZEngine.Entities
             RenderRotation = seri.renderRotation;
             takenConveyorSeeds = seri.takenConveyorSeeds.ToDictionary(p => NamespaceID.ParseStrict(p.Key), p => p.Value);
             Timeout = seri.timeout;
+
+            // 护甲
+            armorDict.Clear();
+            foreach (var pair in seri.armors)
+            {
+                if (pair.Value == null)
+                    continue;
+                var slot = NamespaceID.ParseStrict(pair.Key);
+                var armor = Armor.Deserialize(pair.Value, this);
+                armorDict.Add(slot, armor);
+            }
 
             IsDead = seri.isDead;
             Health = seri.health;
@@ -816,9 +894,8 @@ namespace PVZEngine.Entities
         public event Action PostInit;
         public event Action<PropertyKey> PostPropertyChanged;
         public event Action<NamespaceID> OnChangeModel;
-        public event Action<Armor> OnEquipArmor;
-        public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
-        public event Action<Armor> OnRemoveArmor;
+        public event Action<NamespaceID, Armor> OnEquipArmor;
+        public event Action<NamespaceID, Armor> OnRemoveArmor;
         #endregion
 
         #region 属性字段
@@ -832,7 +909,6 @@ namespace PVZEngine.Entities
         public EntityReferenceChain SpawnerReference { get; private set; }
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
-        public Armor EquipedArmor { get; private set; }
         public Vector3 PreviousPosition { get; private set; }
         public Vector3 Position { get; set; }
         public Vector3 Velocity { get; set; }
@@ -842,8 +918,8 @@ namespace PVZEngine.Entities
         public int CollisionMaskHostile { get; set; }
         public int CollisionMaskFriendly { get; set; }
         private IModelInterface modelInterface;
-        private IModelInterface armorModelInterface;
         #endregion
+
         public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
         public float Health { get; set; }
@@ -855,6 +931,11 @@ namespace PVZEngine.Entities
         internal EntityCache Cache { get; }
 
         private PropertyBlock properties;
+
+        #region 护盾
+        private Dictionary<NamespaceID, Armor> armorDict = new Dictionary<NamespaceID, Armor>();
+        #endregion
+
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
@@ -863,14 +944,5 @@ namespace PVZEngine.Entities
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
         private Dictionary<PropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<PropertyKey, List<ModifierContainerItem>>();
         #endregion
-    }
-}
-
-namespace PVZEngine.Level
-{
-    public enum EntityAnimationTarget
-    {
-        Entity,
-        Armor
     }
 }

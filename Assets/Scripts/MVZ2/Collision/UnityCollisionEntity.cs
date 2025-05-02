@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using MVZ2.Collision;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -22,22 +25,29 @@ namespace MVZ2.Collisions
 
             foreach (var collider in colliders)
             {
-                if (collider.Name == EntityCollisionHelper.NAME_MAIN)
-                {
-                    var size = Entity.GetScaledSize();
-                    var offset = Vector3.Scale(Vector3.one * 0.5f - Entity.GetBoundsPivot(), size);
-                    collider.UpdateBounds(offset, size);
-                }
+                collider.UpdateFromEntity();
                 collider.Simulate();
             }
         }
-        public UnityEntityCollider CreateCollider(string name)
+        private UnityEntityCollider CreateCollider(string name)
         {
             var collider = Instantiate(colliderTemplate, colliderRoot).GetComponent<UnityEntityCollider>();
             collider.gameObject.SetActive(true);
             collider.gameObject.layer = gameObject.layer;
             collider.Init(Entity, name);
             colliders.Add(collider);
+            return collider;
+        }
+        public UnityEntityCollider CreateMainCollider(string name)
+        {
+            var collider = CreateCollider(name);
+            collider.SetMain();
+            return collider;
+        }
+        public UnityEntityCollider CreateCustomCollider(ColliderConstructor cons)
+        {
+            var collider = CreateCollider(cons.name);
+            collider.SetCustom(cons);
             return collider;
         }
         public bool DestroyCollider(string name)

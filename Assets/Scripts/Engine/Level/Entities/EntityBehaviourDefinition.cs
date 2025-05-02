@@ -24,9 +24,9 @@ namespace PVZEngine.Entities
         public virtual void PostCollision(EntityCollision collision, int state) { }
         public virtual void PostDeath(Entity entity, DeathInfo deathInfo) { }
         public virtual void PostRemove(Entity entity) { }
-        public virtual void PostEquipArmor(Entity entity, Armor slot) { }
-        public virtual void PostDestroyArmor(Entity entity, Armor slot, ArmorDamageResult result) { }
-        public virtual void PostRemoveArmor(Entity entity, Armor slot) { }
+        public virtual void PostEquipArmor(Entity entity, NamespaceID slot, Armor armor) { }
+        public virtual void PostDestroyArmor(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo result) { }
+        public virtual void PostRemoveArmor(Entity entity, NamespaceID slot, Armor armor) { }
         public virtual NamespaceID GetModelID(NamespaceID origin)
         {
             return origin;

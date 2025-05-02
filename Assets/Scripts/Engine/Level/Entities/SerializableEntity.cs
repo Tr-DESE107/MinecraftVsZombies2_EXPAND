@@ -23,7 +23,6 @@ namespace PVZEngine.Entities
         public NamespaceID definitionID;
         public NamespaceID modelID;
         public EntityReferenceChain spawnerReference;
-        public SerializableArmor EquipedArmor;
         public Vector3 previousPosition;
         public Vector3 position;
         public Vector3 velocity;
@@ -41,6 +40,8 @@ namespace PVZEngine.Entities
         public Vector3 shadowScale;
         public Vector3 shadowOffset;
         #endregion
+
+        public Dictionary<string, SerializableArmor> armors;
 
         public bool isDead;
         public float health;

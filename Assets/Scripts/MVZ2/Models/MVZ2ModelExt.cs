@@ -1,25 +1,41 @@
-﻿using MVZ2Logic.Models;
+﻿using MVZ2.Managers;
+using MVZ2Logic;
+using MVZ2Logic.Models;
 using PVZEngine;
+using PVZEngine.Armors;
+using UnityEditor.Graphs;
 
 namespace MVZ2.Models
 {
     public static class MVZ2ModelExt
     {
-        public static void CreateArmor(this Model model, NamespaceID id)
+        public static string GetAnchorOfArmorSlot(NamespaceID slot)
         {
-            model.CreateChildModel(LogicModelHelper.ANCHOR_ARMOR, LogicModelHelper.KEY_ARMOR, id);
+            var game = Global.Game;
+            var slotMeta = game.GetArmorSlotMeta(slot);
+            if (slotMeta == null)
+                return null;
+            return slotMeta.Anchor;
         }
-        public static bool RemoveArmor(this Model model)
+        public static void CreateArmor(this Model model, string anchor, NamespaceID slot, NamespaceID id)
         {
-            return model.RemoveChildModel(LogicModelHelper.KEY_ARMOR);
+            var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
+            model.CreateChildModel(anchor, key, id);
         }
-        public static Model GetArmorModel(this Model model)
+        public static bool RemoveArmor(this Model model, NamespaceID slot)
         {
-            return model.GetChildModel(LogicModelHelper.KEY_ARMOR);
+            var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
+            return model.RemoveChildModel(key);
         }
-        public static void ClearArmorModel(this Model model)
+        public static Model GetArmorModel(this Model model, NamespaceID slot)
         {
-            model.ClearModelAnchor(LogicModelHelper.ANCHOR_ARMOR);
+            var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
+            return model.GetChildModel(key);
+        }
+        public static void ClearArmorModel(this Model model, NamespaceID slot)
+        {
+            var anchor = GetAnchorOfArmorSlot(slot);
+            model.ClearModelAnchor(anchor);
         }
     }
 }

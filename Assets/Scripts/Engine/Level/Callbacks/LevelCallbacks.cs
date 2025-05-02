@@ -18,9 +18,9 @@ namespace PVZEngine.Callbacks
         public delegate void PostEntityCollision(EntityCollision collision, int state);
         public delegate void PostEntityDeath(Entity entity, DeathInfo deathInfo);
         public delegate void PostEntityRemove(Entity entity);
-        public delegate void PostEquipArmor(Entity entity, Armor armor);
-        public delegate void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult damageResult);
-        public delegate void PostRemoveArmor(Entity entity, Armor armor);
+        public delegate void PostEquipArmor(Entity entity, NamespaceID slot, Armor armor);
+        public delegate void PostDestroyArmor(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo damageResult);
+        public delegate void PostRemoveArmor(Entity entity, NamespaceID slot, Armor armor);
 
         public delegate void PostLevelSetup(LevelEngine level);
         public delegate void PostLevelStart(LevelEngine level);

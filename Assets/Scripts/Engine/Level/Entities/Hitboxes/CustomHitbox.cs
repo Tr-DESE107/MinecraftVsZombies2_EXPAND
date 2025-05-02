@@ -9,17 +9,21 @@ namespace PVZEngine.Entities
         }
         public void SetSize(Vector3 value) => size = value;
         public void SetPivot(Vector3 value) => pivot = value;
+        public void SetOffset(Vector3 value) => offset = value;
         public override SerializableHitbox ToSerializable()
         {
             var seri = new SerializableCustomHitbox(this);
             seri.size = size;
             seri.pivot = pivot;
+            seri.offset = offset;
             return seri;
         }
         public override Vector3 GetSize() => size;
         public override Vector3 GetPivot() => pivot;
+        public override Vector3 GetOffset() => offset;
 
         private Vector3 size;
         private Vector3 pivot;
+        private Vector3 offset;
     }
 }

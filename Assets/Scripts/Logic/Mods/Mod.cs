@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Base;
@@ -13,6 +15,26 @@ namespace MVZ2Logic.Modding
             Namespace = nsp;
             triggers = new CallbackRegistry(Global.Game);
         }
+        public virtual void Init(IGame game, Assembly[] assemblies)
+        {
+
+        }
+        public virtual void LateInit(IGame game)
+        {
+
+        }
+        public virtual void PostGameInit() { }
+        public virtual void PostReloadMods(IGame game)
+        {
+            foreach (var definition in definitionGroup.GetDefinitions())
+            {
+                if (definition is ICachedDefinition cached)
+                {
+                    cached.ClearCaches();
+                    cached.CacheContents(game);
+                }
+            }
+        }
         public void Load()
         {
             ApplyCallbacks();
@@ -21,7 +43,6 @@ namespace MVZ2Logic.Modding
         {
             RevertCallbacks();
         }
-        public virtual void PostGameInit() { }
         public abstract ModSaveData CreateSaveData();
         public abstract ModSaveData LoadSaveData(string json);
         protected void AddDefinition(Definition def)

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
@@ -62,11 +64,12 @@ namespace MVZ2.Vanilla.Entities
             if (entity.GetProperty<bool>(VanillaProjectileProps.NO_HIT_ENTITIES))
                 return;
             var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
+            var otherCollider = collision.OtherCollider;
             if (state == EntityCollisionHelper.STATE_EXIT)
             {
-                if (collision.Other == spawner && HasHitSpawnerProtect(entity))
+                if (collision.Other == spawner)
                 {
-                    SetHitSpawnerProtect(entity, false);
+                    DismissSpawnerCollider(entity, otherCollider);
                 }
                 UnitExit(collision);
             }
@@ -74,13 +77,13 @@ namespace MVZ2.Vanilla.Entities
             {
                 if (collision.Other == spawner)
                 {
+                    if (IsSpawnerColliderIgnored(entity, otherCollider))
+                    {
+                        return;
+                    }
                     if (GetStartHitSpawnerProtectTimeout(entity) > 0)
                     {
-                        SetHitSpawnerProtect(entity, true);
-                        SetStartHitSpawnerProtectTimeout(entity, 0);
-                    }
-                    if (HasHitSpawnerProtect(entity))
-                    {
+                        IgnoreSpawnerCollider(entity, otherCollider);
                         return;
                     }
                 }
@@ -243,13 +246,44 @@ namespace MVZ2.Vanilla.Entities
         #region 创建者保护
         private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
         private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
-        private void SetHitSpawnerProtect(Entity entity, bool value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT, value);
-        private bool HasHitSpawnerProtect(Entity entity) => entity.GetBehaviourField<bool>(FIELD_HIT_SPAWNER_PROTECT);
+        private void IgnoreSpawnerCollider(Entity entity, IEntityCollider other) 
+        {
+            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_SPAWNER_COLLIDERS);
+            if (colliders == null)
+            {
+                colliders = new List<EntityColliderReference>();
+                entity.SetBehaviourField(IGNORED_SPAWNER_COLLIDERS, colliders);
+            }
+            var reference = other.ToReference();
+            if (colliders.Contains(reference))
+                return;
+            colliders.Add(reference);
+        }
+        private void DismissSpawnerCollider(Entity entity, IEntityCollider other)
+        {
+            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_SPAWNER_COLLIDERS);
+            if (colliders == null)
+            {
+                return;
+            }
+            var reference = other.ToReference();
+            colliders.Remove(reference);
+        }
+        private bool IsSpawnerColliderIgnored(Entity entity, IEntityCollider other)
+        {
+            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_SPAWNER_COLLIDERS);
+            if (colliders == null)
+            {
+                return false;
+            }
+            var reference = other.ToReference();
+            return colliders.Contains(reference);
+        }
         #endregion
         private const string PROP_REGION = "projectile_behaviour";
         [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = new VanillaEntityPropertyMeta("HitSpawnerProtectTimeout");
         [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta FIELD_HIT_SPAWNER_PROTECT = new VanillaEntityPropertyMeta("HitSpawnerProtect");
+        public static readonly VanillaEntityPropertyMeta IGNORED_SPAWNER_COLLIDERS = new VanillaEntityPropertyMeta("IgnoredSpawnerColliders");
     }
 }

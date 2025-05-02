@@ -44,22 +44,22 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.dispenser,
-                VanillaContraptionID.furnace,
+                VanillaContraptionID.silvenser,
                 VanillaContraptionID.woodenDropper,
                 VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.stoneDropper,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.giantBowl,
-                VanillaContraptionID.teslaCoil,
-                VanillaEnemyID.zombie,
+                VanillaContraptionID.goldenApple,
+                VanillaEnemyID.skeleton,
+                VanillaEnemyID.hellChariot,
+                VanillaEnemyID.reflectiveBarrierZombie,
                 VanillaEnemyID.mutantZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.netherStar,
-                VanillaArtifactID.greedyVacuum,
+                VanillaArtifactID.invertedMirror,
                 VanillaArtifactID.theCreaturesHeart,
             });
             level.RechargeSpeed = 9999999;

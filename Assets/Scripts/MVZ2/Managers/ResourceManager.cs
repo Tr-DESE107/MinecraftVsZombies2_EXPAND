@@ -103,6 +103,14 @@ namespace MVZ2.Managers
 
             ShotModelIcons(modNamespace, modNamespace, modResource.ModelMetaList);
 
+            foreach (var meta in modResource.ArmorMetaList.slots)
+            {
+                armorSlotsCacheDict.Add(new NamespaceID(modNamespace, meta.Name), meta);
+            }
+            foreach (var meta in modResource.ArmorMetaList.metas)
+            {
+                armorsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+            }
             foreach (var meta in modResource.EntityMetaList.metas)
             {
                 entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
@@ -261,6 +269,10 @@ namespace MVZ2.Managers
         IEntityMeta IGameMetas.GetEntityMeta(NamespaceID id) => GetEntityMeta(id);
 
         IEntityMeta[] IGameMetas.GetModEntityMetas(string spaceName) => GetModEntityMetas(spaceName);
+        IArmorSlotMeta IGameMetas.GetArmorSlotMeta(NamespaceID id) => GetArmorSlotMeta(id);
+        IArmorMeta IGameMetas.GetArmorMeta(NamespaceID id) => GetArmorMeta(id);
+
+        IArmorMeta[] IGameMetas.GetModArmorMetas(string spaceName) => GetModArmorMetas(spaceName);
 
         IArtifactMeta[] IGameMetas.GetModArtifactMetas(string spaceName) => GetModArtifactMetas(spaceName);
 

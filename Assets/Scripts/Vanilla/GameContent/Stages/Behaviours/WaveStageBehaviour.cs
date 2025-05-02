@@ -97,7 +97,7 @@ namespace MVZ2.GameContent.Stages
         }
         public override void PostEnemySpawned(Entity entity)
         {
-            AddWaveMaxHealth(entity.Level, entity.GetMaxHealth() + (entity.EquipedArmor?.GetMaxHealth() ?? 0));
+            AddWaveMaxHealth(entity.Level, entity.GetMaxHealth() + (entity.GetMainArmor()?.GetMaxHealth() ?? 0));
         }
         #endregion
 
@@ -223,7 +223,7 @@ namespace MVZ2.GameContent.Stages
         public bool CheckEnemiesRemainedHealth(LevelEngine level)
         {
             var enemies = level.FindEntities(e => e.IsAliveEnemy());
-            var health = enemies.Sum(e => e.Health + (e.EquipedArmor?.Health ?? 0));
+            var health = enemies.Sum(e => e.Health + (e.GetMainArmor()?.Health ?? 0));
             return health <= level.GetWaveAdvanceHealthPercent() * GetWaveMaxHealth(level);
         }
         #endregion

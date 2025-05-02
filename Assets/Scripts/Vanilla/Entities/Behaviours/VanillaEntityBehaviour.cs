@@ -1,9 +1,11 @@
 ﻿using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Effects;
 using MVZ2Logic.Models;
+using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using UnityEditor.Graphs;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -25,21 +27,33 @@ namespace MVZ2.Vanilla.Entities
                 if (armor != null && !armor.HasBuff<ArmorDamageColorBuff>())
                     armor.AddBuff<ArmorDamageColorBuff>();
             }
-        }
-        public override void PostDestroyArmor(Entity entity, Armor armor, ArmorDamageResult result)
-        {
-            base.PostDestroyArmor(entity, armor, result);
-            entity.RemoveArmor();
-            var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, GetArmorPosition(entity), entity);
-            var sourcePosition = result?.Source?.GetEntity(entity.Level)?.Position;
-            var moveDirection = entity.GetFacingDirection();
-            if (sourcePosition.HasValue)
+
+            var shieldResult = result.ShieldResult;
+            if (shieldResult != null && shieldResult.Amount > 0)
             {
-                moveDirection = (entity.Position - sourcePosition.Value).normalized;
+                var shield = shieldResult.Armor;
+                if (shield != null && !shield.HasBuff<ArmorDamageColorBuff>())
+                    shield.AddBuff<ArmorDamageColorBuff>();
             }
-            effect.Velocity = moveDirection * 10;
-            effect.SetDisplayScale(entity.GetDisplayScale());
-            effect.ChangeModel(armor.Definition.GetModelID());
+        }
+        public override void PostDestroyArmor(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo result)
+        {
+            base.PostDestroyArmor(entity, slot, armor, result);
+            entity.RemoveArmor(slot);
+
+            if (!armor.HasNoDiscard())
+            {
+                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, GetArmorPosition(entity), entity);
+                var sourcePosition = result?.Source?.GetEntity(entity.Level)?.Position;
+                var moveDirection = entity.GetFacingDirection();
+                if (sourcePosition.HasValue)
+                {
+                    moveDirection = (entity.Position - sourcePosition.Value).normalized;
+                }
+                effect.Velocity = moveDirection * 10;
+                effect.SetDisplayScale(entity.GetDisplayScale());
+                effect.ChangeModel(armor.Definition.GetModelID());
+            }
         }
         #endregion
 

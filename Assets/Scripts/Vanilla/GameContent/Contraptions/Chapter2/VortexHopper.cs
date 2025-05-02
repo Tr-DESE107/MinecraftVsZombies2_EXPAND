@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Contraptions
             base.PostCollision(collision, state);
             if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
-            if (!collision.Collider.IsMain())
+            if (!collision.Collider.IsForMain())
                 return;
             var hopper = collision.Entity;
             if (hopper.State == VanillaEntityStates.VORTEX_HOPPER_SPIN)

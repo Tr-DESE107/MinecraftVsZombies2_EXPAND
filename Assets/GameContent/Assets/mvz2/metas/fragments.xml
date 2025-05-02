@@ -178,4 +178,13 @@
             <key hex="#463529" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="reflective_barrier">
+        <colorKeys>
+            <key hex="#869C2E" time="1"/>
+        </colorKeys>
+        <alphaKeys>
+            <key alpha="0.75" time="0"/>
+            <key alpha="0.75" time="1"/>
+        </alphaKeys>
+    </fragment>
 </fragments>

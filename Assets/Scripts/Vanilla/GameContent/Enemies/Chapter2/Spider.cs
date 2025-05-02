@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
-            if (collision.Collider.IsMain() && collision.OtherCollider.IsMain())
+            if (collision.Collider.IsForMain() && collision.OtherCollider.IsForMain())
             {
                 var enemy = collision.Entity;
                 var other = collision.Other;

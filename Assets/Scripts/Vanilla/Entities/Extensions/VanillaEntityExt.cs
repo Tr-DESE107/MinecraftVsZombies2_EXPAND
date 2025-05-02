@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -26,6 +27,7 @@ using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -52,17 +54,17 @@ namespace MVZ2.Vanilla.Entities
             float stateHP = maxHealth / stateCount;
             return Mathf.CeilToInt(health / stateHP) - 1;
         }
-        public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, NamespaceID armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), toBody, toShield);
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), armorSlot);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, NamespaceID armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source), toBody, toShield);
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source), armorSlot);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, NamespaceID armorSlot = null)
         {
-            return TakeDamage(new DamageInput(amount, effects, entity, source, toBody, toShield));
+            return TakeDamage(new DamageInput(amount, effects, entity, source, armorSlot));
         }
         public static DamageOutput TakeDamage(DamageInput input)
         {
@@ -78,23 +80,24 @@ namespace MVZ2.Vanilla.Entities
             {
                 Entity = input.Entity
             };
-            if (input.ToShield)
+            if (!NamespaceID.IsValid(input.ShieldTarget))
             {
-                var shield = input.Entity.GetShield();
-                if (Armor.Exists(shield))
-                {
-                    result.ShieldResult = Armor.TakeDamage(input);
-                }
-            }
-            if (input.ToBody)
-            {
-                if (Armor.Exists(input.Entity.EquipedArmor) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
+                if (Armor.Exists(input.Entity.GetMainArmor()) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
                 {
                     ArmoredTakeDamage(input, result);
                 }
                 else
                 {
                     result.BodyResult = BodyTakeDamage(input);
+                }
+            }
+            else
+            {
+                var armor = input.Entity.GetArmorAtSlot(input.ShieldTarget);
+                if (Armor.Exists(armor))
+                {
+                    result.ShieldResult = armor.TakeDamage(input);
+                    result.ShieldTarget = input.ShieldTarget;
                 }
             }
 
@@ -123,13 +126,14 @@ namespace MVZ2.Vanilla.Entities
         private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
         {
             var entity = info.Entity;
-            var armorResult = Armor.TakeDamage(info);
+            var armor = entity.GetMainArmor();
+            var armorResult = armor.TakeDamage(info);
             result.ArmorResult = armorResult;
             if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY))
             {
                 result.BodyResult = BodyTakeDamage(info);
             }
-            else if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
+            else if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.GetMainArmor()))
             {
                 var armorSpendAmount = armorResult?.SpendAmount ?? 0;
                 float overkillDamage = info.Amount - armorSpendAmount;
@@ -238,24 +242,12 @@ namespace MVZ2.Vanilla.Entities
                 return;
             var entity = damage.Entity;
 
+            var shieldResult = damage.ShieldResult;
+            PlayArmorHitSound(entity, shieldResult);
+
             var armorResult = damage.ArmorResult;
-            if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
-            {
-                var shell = armorResult.ShellDefinition;
-                NamespaceID hitSound = null;
-                if (shell != null && shell.GetSpecialShellHitSound(armorResult, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
-                {
-                    hitSound = specialSound;
-                }
-                else if (shell != null && shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
-                {
-                    hitSound = shellSound;
-                }
-                if (NamespaceID.IsValid(hitSound))
-                {
-                    entity.PlaySound(hitSound);
-                }
-            }
+            PlayArmorHitSound(entity, armorResult);
+
             var bodyResult = damage.BodyResult;
             if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
@@ -266,6 +258,31 @@ namespace MVZ2.Vanilla.Entities
                     hitSound = specialSound;
                 }
                 else if (entity.GetHitSound() is NamespaceID specificSound && NamespaceID.IsValid(specificSound))
+                {
+                    hitSound = specificSound;
+                }
+                else if (shell != null && shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
+                {
+                    hitSound = shellSound;
+                }
+                if (NamespaceID.IsValid(hitSound))
+                {
+                    entity.PlaySound(hitSound);
+                }
+            }
+        }
+        public static void PlayArmorHitSound(this Entity entity, ArmorDamageResult result)
+        {
+            if (result != null && !result.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            {
+                var armor = result.Armor;
+                var shell = result.ShellDefinition;
+                NamespaceID hitSound = null;
+                if (shell != null && shell.GetSpecialShellHitSound(result, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
+                {
+                    hitSound = specialSound;
+                }
+                else if (armor.GetHitSound() is NamespaceID specificSound && NamespaceID.IsValid(specificSound))
                 {
                     hitSound = specificSound;
                 }
@@ -477,17 +494,6 @@ namespace MVZ2.Vanilla.Entities
         {
             return Heal(new HealInput(amount, entity, source));
         }
-        public static HealOutput HealArmor(this Entity entity, float amount, Entity source)
-        {
-            return entity.HealArmor(amount, new EntityReferenceChain(source));
-        }
-        public static HealOutput HealArmor(this Entity entity, float amount, EntityReferenceChain source)
-        {
-            var armor = entity.EquipedArmor;
-            if (armor == null)
-                return null;
-            return Heal(new HealInput(amount, entity, armor, source));
-        }
         public static HealOutput Heal(HealInput info)
         {
             if (info.Entity.IsDead)
@@ -678,6 +684,16 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 护甲
+        public static Armor GetMainArmor(this Entity entity)
+        {
+            return entity.GetArmorAtSlot(VanillaArmorSlots.main);
+        }
+        public static void EquipMainArmor(this Entity entity, NamespaceID id)
+        {
+            entity.EquipArmorTo(VanillaArmorSlots.main, id);
+        }
+        #endregion
         public static SpawnParams GetSpawnParams(this Entity entity)
         {
             var param = new SpawnParams();

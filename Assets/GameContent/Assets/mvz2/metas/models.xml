@@ -65,6 +65,8 @@
     <model name="hell_chariot" type="entity" path="mvz2:enemy/castle/hell_chariot" width="152" height="120" xOffset="9" yOffset="-60"/>
     <model name="anubisand" type="entity" path="mvz2:enemy/castle/anubisand" width="52" height="88" xOffset="12" yOffset="-41"/>
 
+    <model name="reflective_barrier_zombie" type="entity" path="mvz2:enemy/mausoleum/reflective_barrier_zombie" width="80" height="116" xOffset="16" yOffset="-50"/>
+
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="imp" type="entity" path="mvz2:enemy/shrine/imp" width="48" height="56" xOffset="0" yOffset="-28"/>
@@ -205,6 +207,7 @@
     <model name="seija_bullet" type="entity" path="mvz2:projectile/seija_bullet" width="32" height="16" xOffset="0" yOffset="0"/>
     <model name="wither_skull" type="entity" path="mvz2:projectile/wither_skull" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="crossbow_bolt" type="entity" path="mvz2:projectile/crossbow_bolt" width="32" height="5" xOffset="0" yOffset="0"/>
+    <model name="reflection_bullet" type="entity" path="mvz2:projectile/reflection_bullet" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
@@ -213,6 +216,7 @@
     <model name="mesmerizer_crown" type="armor" path="mvz2:armor/mesmerizer_crown" width="34" height="40" xOffset="0" yOffset="-21"/>
     <model name="berserker_helmet" type="armor" path="mvz2:armor/berserker_helmet" width="32" height="14" xOffset="0" yOffset="-9"/>
     <model name="bedserker_helmet" type="armor" path="mvz2:armor/bedserker_helmet" width="32" height="14" xOffset="0" yOffset="-9"/>
+    <model name="reflective_barrier" type="armor" path="mvz2:armor/reflective_barrier" width="56" height="113" xOffset="0" yOffset="-10"/>
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28"/>

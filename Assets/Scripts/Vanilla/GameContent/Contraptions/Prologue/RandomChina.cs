@@ -19,6 +19,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -213,7 +214,7 @@ namespace MVZ2.GameContent.Contraptions
             contraption.PlaySound(VanillaSoundID.armorUp);
             foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.ExistsAndAlive()))
             {
-                enemy.EquipArmor<IronHelmet>();
+                enemy.EquipMainArmor(VanillaArmorID.ironHelmet);
             }
         }
 

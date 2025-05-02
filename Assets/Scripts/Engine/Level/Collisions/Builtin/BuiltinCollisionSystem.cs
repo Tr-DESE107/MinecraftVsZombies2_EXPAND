@@ -126,6 +126,16 @@ namespace PVZEngine.Level.Collisions
 
 
         #region 碰撞体
+        public IEntityCollider AddCollider(Entity entity, ColliderConstructor cons)
+        {
+            var hitbox = new CustomHitbox(entity);
+            hitbox.SetSize(cons.size);
+            hitbox.SetPivot(cons.pivot);
+            hitbox.SetOffset(cons.offset);
+            var collider = new EntityCollider(entity, cons.name, hitbox);
+            AddCollider(entity, collider);
+            return collider;
+        }
         public void AddCollider(Entity entity, IEntityCollider collider)
         {
             if (collider is not EntityCollider entCol)
