@@ -17,6 +17,9 @@ namespace MVZ2.GameContent.Projectiles
         public const string bullet = "bullet";
         public const string missile = "missile";
 
+        public const string Poisonball = "Poisonball";
+        public const string largePoisonball = "largePoisonball";
+
         public const string largeArrow = "large_arrow";
         public const string breakoutPearl = "breakout_pearl";
         public const string spike = "spike";
@@ -50,6 +53,9 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID knife = Get(VanillaProjectileNames.knife);
         public static readonly NamespaceID bullet = Get(VanillaProjectileNames.bullet);
         public static readonly NamespaceID missile = Get(VanillaProjectileNames.missile);
+
+        public static readonly NamespaceID Poisonball = Get(VanillaProjectileNames.Poisonball);
+        public static readonly NamespaceID largePoisonball = Get(VanillaProjectileNames.largePoisonball);
 
         public static readonly NamespaceID largeArrow = Get(VanillaProjectileNames.largeArrow);
         public static readonly NamespaceID breakoutPearl = Get(VanillaProjectileNames.breakoutPearl);

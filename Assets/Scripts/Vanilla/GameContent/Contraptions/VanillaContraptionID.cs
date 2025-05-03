@@ -19,6 +19,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string silvenser = "silvenser";
         public const string magichest = "magichest";
 
+        public const string Poisonser = "Poisonser";
+
         public const string lilyPad = "lily_pad";
         public const string drivenser = "drivenser";
         public const string gravityPad = "gravity_pad";
@@ -60,6 +62,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID soulFurnace = Get(VanillaContraptionNames.soulFurnace);
         public static readonly NamespaceID silvenser = Get(VanillaContraptionNames.silvenser);
         public static readonly NamespaceID magichest = Get(VanillaContraptionNames.magichest);
+
+        public static readonly NamespaceID Poisonser = Get(VanillaContraptionNames.Poisonser);
 
         public static readonly NamespaceID lilyPad = Get(VanillaContraptionNames.lilyPad);
         public static readonly NamespaceID drivenser = Get(VanillaContraptionNames.drivenser);

@@ -593,6 +593,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1987417ea27d79f4fa2ddfa1bf586c53
+    m_Address: mvz2:projectile/largePoisonball
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a62ec6260923674096be59047f89949
     m_Address: mvz2:artifacts/dark_matter
     m_ReadOnly: 0
@@ -676,6 +681,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1db111bae309876428aa5045504dc0dc
+    m_Address: mvz2:projectile/Poisonball
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e040a7ca0ea87148a69fcf7c9a900a3
     m_Address: mvz2:mechanism
@@ -3441,6 +3451,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8704afd3cd249c24cbccf308e1212371
+    m_Address: mvz2:entity/contraption/Poisonser
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 870eee8567c7c8948aa1357afdc15d62
     m_Address: mvz2:starshards/dream
     m_ReadOnly: 0
@@ -5714,6 +5729,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6b1b75abee2c694e9df829b165b558a
+    m_Address: mvz2:entity/projectiles/Poisonball
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6bc73c94a1f99a4783bbd0bb5714d72
     m_Address: mvz2:mainmenu/store

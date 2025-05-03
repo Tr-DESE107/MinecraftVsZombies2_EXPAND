@@ -177,6 +177,22 @@
             <int name="cost" value="0" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
+
+		<dispenser id="Poisonser" name="蚀毒发射器" tooltip="发射短距离毒球" unlock="mvz2:level.halloween_1">
+			<bool name="nocturnal" value="true"/>
+
+			<float name="range" value="255"/>
+			<id name="projectileId" value="mvz2:snowball"/>
+			<id name="shootSound" value="mvz2:bow"/>
+			<id name="fragmentId" value="mvz2:furnace"/>
+			<vector3 name="shotOffset" x="25" y="15" z="0"/>
+			<vector3 name="size" x="32" y="32" z="32"/>
+
+			<int name="cost" value="50" />
+			<id name="rechargeId" value="mvz2:short" />
+		</dispenser>
+		
+		
         <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量" unlock="mvz2:level.halloween_2">
             <bool name="producer" value="true" />
             

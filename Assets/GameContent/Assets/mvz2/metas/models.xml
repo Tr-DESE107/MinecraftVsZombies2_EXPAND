@@ -15,6 +15,8 @@
     <model name="silvenser" type="entity" path="mvz2:contraption/halloween/silvenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="magichest" type="entity" path="mvz2:contraption/halloween/magichest" width="64" height="64" xOffset="0" yOffset="-28"/>
 
+	<model name="Poisonser" type="entity" path="mvz2:contraption/halloween/Poisonser" width="64" height="64" xOffset="0" yOffset="-28"/>
+
     <model name="lily_pad" type="entity" path="mvz2:contraption/dream/lily_pad" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="drivenser" type="entity" path="mvz2:contraption/dream/drivenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="gravity_pad" type="entity" path="mvz2:contraption/dream/gravity_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -199,6 +201,10 @@
     <model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="-12"/>
+
+	<model name="Poisonball" type="entity" path="mvz2:projectile/Poisonball" width="32" height="32" xOffset="0" yOffset="0"/>
+	<model name="largePoisonball" type="entity" path="mvz2:projectile/largePoisonball" width="32" height="32" xOffset="0" yOffset="-12"/>
+	
     <model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="knife" type="entity" path="mvz2:projectile/knife" width="32" height="10" xOffset="0" yOffset="0"/>
     <model name="fire_charge" type="entity" path="mvz2:projectile/fire_charge" width="32" height="32" xOffset="0" yOffset="0"/>
