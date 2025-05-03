@@ -16,6 +16,7 @@ namespace MVZ2.Vanilla.Entities
         public static readonly PropertyMeta DAMAGE_EFFECTS = new PropertyMeta("damageEffects");
         public static readonly PropertyMeta NO_DESTROY_OUTSIDE_LAWN = new PropertyMeta("noDestroyOutsideLawn");
         public static readonly PropertyMeta NO_HIT_ENTITIES = new PropertyMeta("noHitEntities");
+        public static readonly PropertyMeta IGNORED_COLLIDERS = new PropertyMeta("ignoredColliders");
 
         public static bool PointsTowardDirection(this Entity entity)
         {
@@ -36,6 +37,39 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID[] GetDamageEffects(this Entity projectile)
         {
             return projectile.GetProperty<NamespaceID[]>(DAMAGE_EFFECTS);
+        }
+        public static void IgnoreProjectileCollider(this Entity entity, IEntityCollider other)
+        {
+            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            if (colliders == null)
+            {
+                colliders = new List<EntityColliderReference>();
+                entity.SetBehaviourField(IGNORED_COLLIDERS, colliders);
+            }
+            var reference = other.ToReference();
+            if (colliders.Contains(reference))
+                return;
+            colliders.Add(reference);
+        }
+        public static void DismissProjectileCollider(this Entity entity, IEntityCollider other)
+        {
+            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            if (colliders == null)
+            {
+                return;
+            }
+            var reference = other.ToReference();
+            colliders.Remove(reference);
+        }
+        public static bool IsProjectileColliderIgnored(this Entity entity, IEntityCollider other)
+        {
+            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            if (colliders == null)
+            {
+                return false;
+            }
+            var reference = other.ToReference();
+            return colliders.Contains(reference);
         }
     }
 }

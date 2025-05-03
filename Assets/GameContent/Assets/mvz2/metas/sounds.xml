@@ -292,6 +292,9 @@
     <sound name="gun_shot" maxCount="3">
         <sample path="mvz2:gun_shot" weight="1" />
     </sound>
+    <sound name="harp">
+        <sample path="mvz2:harp" weight="1" />
+    </sound>
     <sound name="hit">
         <sample path="mvz2:damage/hit1" weight="1" />
         <sample path="mvz2:damage/hit2" weight="1" />
@@ -672,6 +675,9 @@
     </sound>
     <sound name="travel" priority="64">
         <sample path="mvz2:travel" weight="1" />
+    </sound>
+    <sound name="ufo">
+        <sample path="mvz2:ufo" weight="1" />
     </sound>
     <sound name="villager_crazy" priority="64">
         <sample path="mvz2:talk/villager/villager_crazy" weight="1" />

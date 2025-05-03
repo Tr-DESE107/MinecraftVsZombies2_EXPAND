@@ -905,6 +905,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25a4420fd4681d943a556df9d9a939d2
+    m_Address: mvz2:mobile_blueprint/note_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
     m_ReadOnly: 0
@@ -2728,6 +2734,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6547c6ff033b6bb4ab184eb67c67183f
+    m_Address: mvz2:harp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65b141497a801624881cf387625a6801
     m_Address: mvz2:entity/carts/pumpkin_carriage
     m_ReadOnly: 0
@@ -2979,6 +2991,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 739b69defb1cf4b4c9159ee08b7f42b2
+    m_Address: mvz2:contraption/mausoleum/note_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 739dc404e782a0c4dae8390f142f0cc5
     m_Address: mvz2:mobile_blueprint/random_china
@@ -6363,6 +6381,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed06ff75dd7c7fc4a841871da4536f6e
+    m_Address: mvz2:projectile/note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed29c06e3f488bc40908374e95542758
     m_Address: mvz2:entity/wither_skeleton/wither_skeleton3
     m_ReadOnly: 0
@@ -6482,6 +6506,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0868a1c34ff49d46967deee9863b838
+    m_Address: mvz2:entity/projectiles/note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f09ba06086cfa354b8cfda77f33d71aa
     m_Address: mvz2:entity/effects/spike_particles

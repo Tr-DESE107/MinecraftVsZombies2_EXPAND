@@ -134,6 +134,14 @@
             <key hex="#FFFF00" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="note_block">
+        <colorKeys>
+            <key hex="#764A34" time="0.4"/>
+            <key hex="#62402E" time="0.6"/>
+            <key hex="#483021" time="0.8"/>
+            <key hex="#342013" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

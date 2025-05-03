@@ -66,13 +66,13 @@ namespace MVZ2.Vanilla.Entities
             var otherCollider = collision.OtherCollider;
             if (state == EntityCollisionHelper.STATE_EXIT)
             {
-                DismissCollider(entity, otherCollider);
+                entity.DismissProjectileCollider(otherCollider);
             }
             else
             {
                 if (collision.Other == spawner && GetStartHitSpawnerProtectTimeout(entity) > 0)
                 {
-                    IgnoreCollider(entity, otherCollider);
+                    entity.IgnoreProjectileCollider(otherCollider);
                 }
                 UnitCollide(collision);
             }
@@ -126,7 +126,7 @@ namespace MVZ2.Vanilla.Entities
 
             var otherCollider = collision.OtherCollider;
             // 已经击中过对方
-            if (IsColliderIgnored(projectile, otherCollider))
+            if (projectile.IsProjectileColliderIgnored(otherCollider))
                 return;
 
             // 不是敌方
@@ -179,7 +179,7 @@ namespace MVZ2.Vanilla.Entities
                 }
             }
             // 将碰撞箱加入到已被碰撞的的列表。
-            IgnoreCollider(projectile, otherCollider);
+            projectile.IgnoreProjectileCollider(otherCollider);
 
             // 触发击中后回调。
             PostHitEntity(hitOutput, damageOutput);
@@ -226,39 +226,6 @@ namespace MVZ2.Vanilla.Entities
         #region 创建者保护
         private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
         private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
-        private void IgnoreCollider(Entity entity, IEntityCollider other)
-        {
-            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(FIELD_IGNORED_COLLIDERS);
-            if (colliders == null)
-            {
-                colliders = new List<EntityColliderReference>();
-                entity.SetBehaviourField(FIELD_IGNORED_COLLIDERS, colliders);
-            }
-            var reference = other.ToReference();
-            if (colliders.Contains(reference))
-                return;
-            colliders.Add(reference);
-        }
-        private void DismissCollider(Entity entity, IEntityCollider other)
-        {
-            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(FIELD_IGNORED_COLLIDERS);
-            if (colliders == null)
-            {
-                return;
-            }
-            var reference = other.ToReference();
-            colliders.Remove(reference);
-        }
-        private bool IsColliderIgnored(Entity entity, IEntityCollider other)
-        {
-            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(FIELD_IGNORED_COLLIDERS);
-            if (colliders == null)
-            {
-                return false;
-            }
-            var reference = other.ToReference();
-            return colliders.Contains(reference);
-        }
         #endregion
         private const string PROP_REGION = "projectile_behaviour";
         [PropertyRegistry(PROP_REGION)]

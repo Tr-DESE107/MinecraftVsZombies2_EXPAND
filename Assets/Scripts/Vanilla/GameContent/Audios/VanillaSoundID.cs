@@ -66,6 +66,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID growBig = Get("grow_big");
         public readonly static NamespaceID gunReload = Get("gun_reload");
         public readonly static NamespaceID gunShot = Get("gun_shot");
+        public readonly static NamespaceID harp = Get("harp");
         public readonly static NamespaceID hit = Get("hit");
         public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID horseGallop = Get("horse_gallop");
@@ -154,6 +155,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID trainTravel = Get("train_travel");
         public readonly static NamespaceID trainWhistle = Get("train_whistle");
         public readonly static NamespaceID travel = Get("travel");
+        public readonly static NamespaceID ufo = Get("ufo");
         public readonly static NamespaceID vortex = Get("vortex");
         public readonly static NamespaceID wakeup = Get("wakeup");
         public readonly static NamespaceID water = Get("water");

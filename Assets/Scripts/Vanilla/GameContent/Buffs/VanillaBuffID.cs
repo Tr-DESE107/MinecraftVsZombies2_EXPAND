@@ -46,7 +46,8 @@ namespace MVZ2.GameContent.Buffs
         public const string witherSkeletonSkullReduceHealth = "wither_skeleton_skull_reduce_health";
         public const string brokenLantern = "broken_lantern";
         public const string eyeOfTheGiant = "eye_of_the_giant";
-        public const string bottledBlackholeDamage = "bottled_blackhole_damage"; 
+        public const string bottledBlackholeDamage = "bottled_blackhole_damage";
+        public const string noteBlockLoud = "note_block_loud";
 
         // Enemy
         public const string gemCarrier = "gem_carrier";

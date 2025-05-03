@@ -38,6 +38,7 @@ namespace MVZ2.GameContent.Projectiles
 
         public const string crossbowBolt = "crossbow_bolt";
         public const string reflectionBullet = "reflection_bullet";
+        public const string note = "note";
     }
     public static class VanillaProjectileID
     {
@@ -74,6 +75,7 @@ namespace MVZ2.GameContent.Projectiles
 
         public static readonly NamespaceID crossbowBolt = Get(VanillaProjectileNames.crossbowBolt);
         public static readonly NamespaceID reflectionBullet = Get(VanillaProjectileNames.reflectionBullet);
+        public static readonly NamespaceID note = Get(VanillaProjectileNames.note);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

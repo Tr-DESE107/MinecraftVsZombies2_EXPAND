@@ -471,6 +471,24 @@
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
 
+        <!-- Mausoleum Contraptions -->
+        <contraption id="note_block" name="音符盒" tooltip="发射反弹的音符" unlock="mvz2:level.mausoleum_1">
+            <id name="projectileId" value="mvz2:note" />
+            <id name="shootSound" null="true"/>
+            <float name="damage" value="5"/>
+            <float name="range" value="800"/>
+            <vector3 name="shotOffset" x="25" y="30" z="0"/>
+            <vector3 name="shotVelocity" x="10" y="0" z="0"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <id name="shell" value="mvz2:wood"/>
+            <id name="hitSound" value="mvz2:wood"/>
+            <id name="placeSound" value="mvz2:wood"/>
+            <id name="deathSound" value="mvz2:wood"/>
+
+            <int name="cost" value="150" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
+
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
             <bool name="nocturnal" value="true"/>
@@ -1235,6 +1253,11 @@
         </projectile>
         <projectile id="reflection_bullet">
             <vector3 name="size" x="32" y="32" z="32" />
+        </projectile>
+        <projectile id="note">
+            <vector3 name="size" x="32" y="32" z="32" />
+            <bool name="piercing" value="true" />
+            <vector3 name="shadowScale" x="0.25" y="0.25" z="0.25" />
         </projectile>
 
         <!-- Effects -->
