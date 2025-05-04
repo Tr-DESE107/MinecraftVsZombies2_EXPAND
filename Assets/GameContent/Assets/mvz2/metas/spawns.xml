@@ -28,7 +28,7 @@
         <weight base="3500" />
     </entry>
     <entry id="ghost" entity="mvz2:ghost" >
-        <spawn level="2" />
+        <spawn level="2" minWave="5" />
         <terrain excludedTags="mvz2:day" water="true"/>
         <weight base="2000" />
     </entry>
@@ -37,7 +37,7 @@
         <weight base="2000" />
     </entry>
     <entry id="necromancer" entity="mvz2:necromancer" >
-        <spawn level="3" />
+        <spawn level="3" minWave="5" />
         <weight base="1500" />
     </entry>
 
@@ -47,23 +47,23 @@
         <weight base="2000" />
     </entry>
     <entry id="cave_spider" entity="mvz2:cave_spider" >
-        <spawn level="3" />
+        <spawn level="3" minWave="5" />
         <terrain water="true"/>
         <weight base="2000" />
     </entry>
     <entry id="ghast" entity="mvz2:ghast" >
-        <spawn level="3" />
+        <spawn level="3" minWave="10" />
         <terrain water="true" air="true"/>
         <weight base="2000" />
     </entry>
     <entry id="mother_terror" entity="mvz2:mother_terror" >
-        <spawn level="3"/>
+        <spawn level="3" minWave="5"/>
         <weight base="2000" />
     </entry>
 
     <!-- Castle -->
     <entry id="mesmerizer" entity="mvz2:mesmerizer" >
-        <spawn level="3" />
+        <spawn level="3" minWave="5" />
         <weight base="2500" />
     </entry>
     <entry id="berserker" entity="mvz2:berserker" >
@@ -71,11 +71,11 @@
         <weight base="2000" />
     </entry>
     <entry id="dullahan" entity="mvz2:dullahan" >
-        <spawn level="4" />
+        <spawn level="4" minWave="5" />
         <weight base="2000" />
     </entry>
     <entry id="hell_chariot" entity="mvz2:hell_chariot" >
-        <spawn level="6" />
+        <spawn level="6" minWave="10" />
         <weight base="2000" />
     </entry>
 
@@ -87,12 +87,12 @@
     </entry>
     
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
-        <spawn level="10"/>
+        <spawn level="10" minWave="15"/>
         <terrain water="true"/>
         <weight base="1500" />
     </entry>
     <entry id="mega_mutant_zombie" entity="mvz2:mega_mutant_zombie" >
-        <spawn level="10"/>
+        <spawn level="10" minWave="15"/>
         <terrain water="true"/>
         <weight base="1000" />
     </entry>

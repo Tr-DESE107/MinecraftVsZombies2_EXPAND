@@ -7,6 +7,7 @@ namespace MVZ2Logic.Spawns
         string ID { get; }
         NamespaceID Entity { get; }
         int SpawnLevel { get; }
+        int MinSpawnWave { get; }
         int PreviewCount { get; }
         ISpawnTerrainMeta Terrain { get; }
         ISpawnWeightMeta Weight { get; }

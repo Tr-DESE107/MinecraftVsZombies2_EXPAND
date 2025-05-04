@@ -239,29 +239,25 @@ namespace MVZ2.Vanilla.Level
             return level.CalculateSpawnPoints(level.CurrentWave, level.CurrentFlag);
         }
         /// <summary>
-        /// 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
+        /// 本波用于限制生成怪物的数值，防止前期生成无法处理的怪物。
         /// </summary>
         /// <param name="level"></param>
         /// <param name="wave"></param>
         /// <param name="flags"></param>
         /// <returns></returns>
-        public static float GetWaveSpawnLevelLimit(this LevelEngine level, int wave, int flags)
+        public static float GetCurrentSpawnLimitWave(this LevelEngine level, int wave, int flags)
         {
-            var totalWave = level.GetLevelTotalWaves(wave, flags);
-            var limit = totalWave * 0.4f + 1;
-            if (level.IsHugeWave(wave))
-            {
-                limit *= 2.5f;
-            }
-            return Mathf.Floor(limit);
+            var rounds = flags / level.GetWavesPerFlag();
+            // 每经过一轮，当前波数视为+1。
+            return wave + rounds;
         }
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {
             // 获取本波的生成点数。
             var totalPoints = level.CalculateSpawnPoints();
 
-            // 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
-            var currentWaveLevelLimit = level.GetWaveSpawnLevelLimit(wave, level.CurrentFlag);
+            // 波数限制，防止前期生成无法处理的怪物。
+            var currentWaveLevelLimit = level.GetCurrentSpawnLimitWave(wave, level.CurrentFlag);
 
             // 当前的有效敌人池。
             var pool = level.GetEnemyPool();
@@ -282,8 +278,8 @@ namespace MVZ2.Vanilla.Level
                     break;
 
                 IEnumerable<SpawnDefinition> finalSpawnPool = possibleSpawnDefs;
-                // 根据当前波次的等级限制获取有效的敌人。
-                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.SpawnLevel <= currentWaveLevelLimit);
+                // 根据当前波次限制获取有效的敌人。
+                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.GetMinSpawnWave() <= currentWaveLevelLimit);
 
                 // 如果根据当前波次限制之后，没有可以生成的敌人，则不进行限制。
                 if (limitedSpawnDefs.Count() > 0)

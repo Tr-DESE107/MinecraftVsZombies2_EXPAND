@@ -193,6 +193,7 @@ namespace MVZ2.Vanilla
                 var water = meta.Terrain?.Water ?? false;
 
                 var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, new NamespaceID(Namespace, name), excludedTags);
+                spawnDef.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
                 if (weight != null)
                 {

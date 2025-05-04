@@ -24,14 +24,6 @@ namespace MVZ2.GameContent.Stages
 
             AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
         }
-        public override void OnStart(LevelEngine level)
-        {
-            base.OnStart(level);
-            if (!level.HasBuff<LittleZombieLevelBuff>())
-            {
-                level.AddBuff<LittleZombieLevelBuff>();
-            }
-        }
         public override void OnPostWave(LevelEngine level, int wave)
         {
             base.OnPostWave(level, wave);

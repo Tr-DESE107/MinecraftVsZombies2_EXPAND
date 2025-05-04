@@ -10,6 +10,11 @@ namespace MVZ2.Vanilla.Level
         {
             return new PropertyMeta(name);
         }
+        public static readonly PropertyMeta MIN_SPAWN_WAVE = Get("minSpawnWave");
+        public static int GetMinSpawnWave(this SpawnDefinition def)
+        {
+            return def.GetProperty<int>(MIN_SPAWN_WAVE);
+        }
         public static readonly PropertyMeta PREVIEW_COUNT = Get("previewCount");
         public static int GetPreviewCount(this SpawnDefinition def)
         {

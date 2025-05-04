@@ -239,7 +239,7 @@
             <entry id="mvz2:magichest" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.dream_key"/>
-        <spawns flags="2" firstWaveTime="30" >
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -436,7 +436,7 @@
             <entry id="mvz2:dream_silk" count="1"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" firstWaveTime="30" >
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -542,7 +542,7 @@
             <entry id="mvz2:tnt" count="5"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:golden_apple"/>
-        <spawns flags="2" firstWaveTime="30">
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -638,7 +638,7 @@
             <entry id="mvz2:giant_bowl" count="1"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" firstWaveTime="30" >
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
