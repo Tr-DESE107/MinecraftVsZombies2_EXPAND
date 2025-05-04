@@ -47,9 +47,9 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateLogic(entity);
             UpdateFireBreath(entity);
         }
-        public override void Evoke(Entity entity)
+        protected override void OnEvoke(Entity entity)
         {
-            base.Evoke(entity);
+            base.OnEvoke(entity);
             entity.SetEvoked(true);
             entity.TriggerAnimation("Throw");
             SetEvocationTime(entity, 0);

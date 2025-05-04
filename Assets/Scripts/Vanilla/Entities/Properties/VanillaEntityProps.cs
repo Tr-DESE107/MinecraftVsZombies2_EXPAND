@@ -256,6 +256,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<Vector3>(LIGHT_RANGE);
         }
+        public static void SetLightColor(this Entity entity, Color value)
+        {
+            entity.SetProperty(LIGHT_COLOR, value);
+        }
         public static Color GetLightColor(this Entity entity)
         {
             return entity.GetProperty<Color>(LIGHT_COLOR);

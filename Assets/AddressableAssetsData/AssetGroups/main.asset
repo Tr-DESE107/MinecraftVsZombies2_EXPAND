@@ -407,6 +407,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11174ea26786a1e48ae51b07178b33da
+    m_Address: mvz2:contraption/mausoleum/lightning_orb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 111b8a1b7b5a2be4c9f3830f3523485b
     m_Address: mvz2:effect/stun_stars
     m_ReadOnly: 0
@@ -521,6 +527,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1576f36e83dbbea41986e0b0be63c6d6
+    m_Address: mvz2:energy_shield_hit4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15ce728e9e2a2b24d8c46704c5c59b8c
     m_Address: mvz2:earthquake
     m_ReadOnly: 0
@@ -550,6 +562,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16d57d3a0e4ea894fa24ebb0c305c8e3
+    m_Address: mvz2:entity/contraption/lightning_orb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16ff246ec2a095242a62262d2ac32272
     m_Address: mvz2:ui/level/pause_image_6
@@ -922,6 +940,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25cd0f472d47b144baf311558cb8751e
+    m_Address: mvz2:energy_shield_hit3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 260130923ac844f49944f60222d0780e
     m_Address: mvz2:entity/nightmareaper/nightmareaper_rage
@@ -1467,6 +1491,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39dba51e774ee3145a53fe76c529faa8
+    m_Address: mvz2:energy_shield_hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39e2d5c4e7a1e8346ae9a7605ce6e2a9
     m_Address: mvz2:armor/reflective_barrier
@@ -2218,6 +2248,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53b703f384b93544cbcaaced2018759d
+    m_Address: mvz2:trident_thunder1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53bc7c4fb282ec44bb3535d6e51e8234
     m_Address: mvz2:talk/dialog_judge
     m_ReadOnly: 0
@@ -2754,6 +2790,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6618ae857fea74d49ade19f614dcf3d0
     m_Address: mvz2:tesla_destroy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6681443b3fb27c349a8924c62f3fbc43
+    m_Address: mvz2:ufo
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -3801,6 +3843,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fa9640ba0f023448b7908b72907bfc0
+    m_Address: mvz2:energy_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9000fae04f3098546b6e8a44331c4077
     m_Address: mvz2:entities
     m_ReadOnly: 0
@@ -4389,6 +4437,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a53f70388487dae4eb3d8ef53db323a3
+    m_Address: mvz2:entity/contraption/note_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a56647610464c8445b41721cad686444
     m_Address: mvz2:effect/evocation_star
     m_ReadOnly: 0
@@ -4418,6 +4472,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5efa495de93d644a90de2fa44e1cf16
+    m_Address: mvz2:mobile_blueprint/lightning_orb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5fe0dd11f7539a43a66c14d3952b30e
     m_Address: mvz2:mainmenu/adventure
@@ -4460,6 +4520,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6fa0748f8f811e4180938f10f7d7923
+    m_Address: mvz2:energy_shield_hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a70f4f9f4fc407b4d973ede9ec07aa19
     m_Address: mvz2:random/thunder2
@@ -4623,6 +4689,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acfe49e4096d3e242bf14e1ee6fc70eb
+    m_Address: mvz2:trident_thunder2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad459762f7203424488a8ef163260d48
     m_Address: mvz2:sand_dig5
     m_ReadOnly: 0
@@ -4721,6 +4793,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0a9828998f854a41ab899af5c9cc3d7
     m_Address: mvz2:enemy/castle/hell_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0cbb31d2a700d44c8d6af6f63942063
+    m_Address: mvz2:effect/thunder_bolt_horizontal
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

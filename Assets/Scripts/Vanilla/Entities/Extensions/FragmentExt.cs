@@ -30,6 +30,25 @@ namespace MVZ2.Vanilla.Entities
             var fragment = entity.GetOrCreateFragment();
             Fragment.AddEmitSpeed(fragment, 500);
         }
+        public static Entity CreateFragment(this Entity entity)
+        {
+            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
+            fragment.SetParent(entity);
+            Fragment.UpdateFragmentID(fragment);
+            return fragment;
+        }
+        public static Entity GetOrCreateFragment(this Entity entity)
+        {
+            var fragmentRef = entity.GetFragment();
+            var fragment = fragmentRef?.GetEntity(entity.Level);
+            if (fragment == null || !fragment.Exists())
+            {
+                fragment = entity.CreateFragment();
+                fragmentRef = new EntityID(fragment);
+                entity.SetFragment(fragmentRef);
+            }
+            return fragment;
+        }
         public static EntityID GetFragment(this Entity entity)
         {
             return entity.GetProperty<EntityID>(PROP_FRAGMENT);
@@ -50,29 +69,16 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetFragmentTickDamage(entity.GetFragmentTickDamage() + value);
         }
-        public static Entity CreateFragment(this Entity entity)
+        public static bool NoDamageFragments(this Entity entity)
         {
-            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
-            fragment.SetParent(entity);
-            Fragment.UpdateFragmentID(fragment);
-            return fragment;
-        }
-        public static Entity GetOrCreateFragment(this Entity entity)
-        {
-            var fragmentRef = entity.GetFragment();
-            var fragment = fragmentRef?.GetEntity(entity.Level);
-            if (fragment == null || !fragment.Exists())
-            {
-                fragment = entity.CreateFragment();
-                fragmentRef = new EntityID(fragment);
-                entity.SetFragment(fragmentRef);
-            }
-            return fragment;
+            return entity.GetProperty<bool>(PROP_NO_DAMAGE_FRAGMENTS);
         }
         [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_FRAGMENT = new VanillaEntityPropertyMeta("Fragment");
         [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_TICK_DAMAGE = new VanillaEntityPropertyMeta("TickDamage");
+        [PropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta PROP_NO_DAMAGE_FRAGMENTS = new VanillaEntityPropertyMeta("noDamageFragments");
         #endregion
 
         #region 治疗粒子

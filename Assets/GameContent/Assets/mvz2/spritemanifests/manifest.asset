@@ -195,6 +195,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 682a1f5ec6af4b54d81d95c0fcf56384, type: 3}
   - name: mobile_blueprint/lengthen_board
     sprite: {fileID: 21300000, guid: 2c0f3cc55c6401d458ad5611a9d70c0e, type: 3}
+  - name: mobile_blueprint/lightning_orb
+    sprite: {fileID: 21300000, guid: a5efa495de93d644a90de2fa44e1cf16, type: 3}
   - name: mobile_blueprint/lily_pad
     sprite: {fileID: 21300000, guid: d502efd9e6fce1543ae6919e926b244c, type: 3}
   - name: mobile_blueprint/magichest
@@ -445,8 +447,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e81ac283d392c4f40badaaf0d30184b2, type: 3}
   - name: entity/contraptions/magichest_flash
     sprite: {fileID: 21300000, guid: ab1cac139d76a6f478c12842a619042d, type: 3}
-  - name: entity/contraptions/note_block
-    sprite: {fileID: 21300000, guid: ab0e67bb4d30e5d40bb38fb5cb3f5f50, type: 3}
   - name: entity/contraptions/pistenser_arm
     sprite: {fileID: 21300000, guid: 3c47f11cc215a5b4cad099f4d1d6158e, type: 3}
   - name: entity/contraptions/pressure_plate
@@ -1233,6 +1233,12 @@ MonoBehaviour:
   - name: entity/contraption/infectenser
     spritesheet:
     - {fileID: 21300000, guid: d8130bf7140daa14a9605dddcd5bd851, type: 3}
+  - name: entity/contraption/lightning_orb
+    spritesheet:
+    - {fileID: 1215340357, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
+    - {fileID: 2008690076, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
+    - {fileID: -1699391314, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
+    - {fileID: 2132736026, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
   - name: entity/contraption/loms
     spritesheet:
     - {fileID: -650657220, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
@@ -1270,6 +1276,10 @@ MonoBehaviour:
     - {fileID: -1376072912, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
     - {fileID: 662959243, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
     - {fileID: 2073939680, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  - name: entity/contraption/note_block
+    spritesheet:
+    - {fileID: 2040027257, guid: a53f70388487dae4eb3d8ef53db323a3, type: 3}
+    - {fileID: 307625336, guid: a53f70388487dae4eb3d8ef53db323a3, type: 3}
   - name: entity/contraption/obsidian
     spritesheet:
     - {fileID: -242657119, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}

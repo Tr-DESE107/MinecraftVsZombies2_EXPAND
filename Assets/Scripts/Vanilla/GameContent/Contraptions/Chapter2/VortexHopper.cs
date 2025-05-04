@@ -72,9 +72,9 @@ namespace MVZ2.GameContent.Contraptions
             }
             return base.CanEvoke(entity);
         }
-        public override void Evoke(Entity entity)
+        protected override void OnEvoke(Entity entity)
         {
-            base.Evoke(entity);
+            base.OnEvoke(entity);
             entity.SetEvoked(true);
             entity.AddBuff<VortexHopperEvokedBuff>();
             StartSpin(entity);

@@ -64,6 +64,8 @@ namespace MVZ2.GameContent.Effects
         public const string seijaFaintEffect = "seija_faint_effect";
         public const string witherSummoners = "wither_summoners";
         public const string castleTwilight = "castle_twilight";
+
+        public const string thunderBoltHorizontal = "thunder_bolt_horizontal";
     }
     public static class VanillaEffectID
     {
@@ -126,6 +128,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID seijaFaintEffect = Get(VanillaEffectNames.seijaFaintEffect);
         public static readonly NamespaceID witherSummoners = Get(VanillaEffectNames.witherSummoners);
         public static readonly NamespaceID castleTwilight = Get(VanillaEffectNames.castleTwilight);
+
+        public static readonly NamespaceID thunderBoltHorizontal = Get(VanillaEffectNames.thunderBoltHorizontal);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

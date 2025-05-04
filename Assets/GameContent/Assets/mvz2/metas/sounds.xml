@@ -163,6 +163,15 @@
     <sound name="electric_spark">
         <sample path="mvz2:electric_spark" weight="1" />
     </sound>
+    <sound name="energy_shield">
+        <sample path="mvz2:energy_shield" weight="1" />
+    </sound>
+    <sound name="energy_shield_hit">
+        <sample path="mvz2:energy_shield_hit1" weight="1" />
+        <sample path="mvz2:energy_shield_hit2" weight="1" />
+        <sample path="mvz2:energy_shield_hit3" weight="1" />
+        <sample path="mvz2:energy_shield_hit4" weight="1" />
+    </sound>
     <sound name="evocation" priority="64">
         <sample path="mvz2:evocation" weight="1" />
     </sound>
@@ -675,6 +684,10 @@
     </sound>
     <sound name="travel" priority="64">
         <sample path="mvz2:travel" weight="1" />
+    </sound>
+    <sound name="trident_thunder">
+        <sample path="mvz2:trident_thunder1" weight="1" />
+        <sample path="mvz2:trident_thunder2" weight="1" />
     </sound>
     <sound name="ufo">
         <sample path="mvz2:ufo" weight="1" />

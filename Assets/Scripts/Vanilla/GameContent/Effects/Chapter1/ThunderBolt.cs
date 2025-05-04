@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {

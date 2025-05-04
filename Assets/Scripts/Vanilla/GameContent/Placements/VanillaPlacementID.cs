@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Placements
         public const string aquatic = "aquatic";
         public const string pad = "pad";
         public const string dreamSilk = "dream_silk";
+        public const string suspension = "suspension";
         public const string upgrade = "upgrade";
     }
     public static class VanillaPlacementID
@@ -21,6 +22,7 @@ namespace MVZ2.GameContent.Placements
         public static readonly NamespaceID aquatic = Get(VanillaPlacementNames.aquatic);
         public static readonly NamespaceID pad = Get(VanillaPlacementNames.pad);
         public static readonly NamespaceID dreamSilk = Get(VanillaPlacementNames.dreamSilk);
+        public static readonly NamespaceID suspension = Get(VanillaPlacementNames.suspension);
         public static readonly NamespaceID upgrade = Get(VanillaPlacementNames.upgrade);
         private static NamespaceID Get(string name)
         {

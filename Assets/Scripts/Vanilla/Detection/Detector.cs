@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Mathematics;
@@ -64,6 +65,15 @@ namespace MVZ2.Vanilla.Detections
             return most;
         }
         public void DetectMultiple(DetectionParams self, List<IEntityCollider> results)
+        {
+            foreach (var collider in DetectColliders(self))
+            {
+                if (!ValidateCollider(self, collider))
+                    continue;
+                results.Add(collider);
+            }
+        }
+        public void DetectMultiple(DetectionParams self, ArrayBuffer<IEntityCollider> results)
         {
             foreach (var collider in DetectColliders(self))
             {

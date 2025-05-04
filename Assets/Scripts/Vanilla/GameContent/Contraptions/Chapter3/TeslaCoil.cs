@@ -29,9 +29,9 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             SetAttackTimer(entity, new FrameTimer(ATTACK_COOLDOWN));
         }
-        public override void Evoke(Entity entity)
+        protected override void OnEvoke(Entity entity)
         {
-            base.Evoke(entity);
+            base.OnEvoke(entity);
             entity.PlaySound(VanillaSoundID.lightningAttack);
             var pos = entity.Position;
             pos.y += 240;

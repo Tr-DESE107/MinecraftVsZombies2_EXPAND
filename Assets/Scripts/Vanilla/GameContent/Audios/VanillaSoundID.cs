@@ -39,6 +39,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID dreamAlarm = Get("dream_alarm");
         public readonly static NamespaceID earthquake = Get("earthquake");
         public readonly static NamespaceID electricSpark = Get("electric_spark");
+        public readonly static NamespaceID energyShield = Get("energy_shield");
+        public readonly static NamespaceID energyShieldHit = Get("energy_shield_hit"); 
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID gapWarp = Get("gap_warp");
@@ -155,6 +157,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID trainTravel = Get("train_travel");
         public readonly static NamespaceID trainWhistle = Get("train_whistle");
         public readonly static NamespaceID travel = Get("travel");
+        public readonly static NamespaceID tridentThunder = Get("trident_thunder");
         public readonly static NamespaceID ufo = Get("ufo");
         public readonly static NamespaceID vortex = Get("vortex");
         public readonly static NamespaceID wakeup = Get("wakeup");

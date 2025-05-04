@@ -142,6 +142,14 @@
             <key hex="#342013" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="lightning_orb" blend="true">
+        <colorKeys>
+            <key hex="#ECD03C" time="0"/>
+            <key hex="#D49819" time="0.333"/>
+            <key hex="#AE6F00" time="0.667"/>
+            <key hex="#000000" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

@@ -45,11 +45,11 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.noteBlock,
-                VanillaContraptionID.totenser,
-                VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.stoneShield,
-                VanillaContraptionID.giantBowl,
+                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.dispenser,
+                VanillaContraptionID.lilyPad,
                 VanillaContraptionID.goldenApple,
+                VanillaEnemyID.spider,
                 VanillaEnemyID.skeleton,
                 VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.reflectiveBarrierZombie,

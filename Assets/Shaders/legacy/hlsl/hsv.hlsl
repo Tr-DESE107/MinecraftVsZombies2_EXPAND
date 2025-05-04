@@ -20,5 +20,5 @@ half4 HSVTint(half4 color, half4 tint)
     float3 tintHsv = RGB2HSV(tint.rgb);
     float t = hsv.y * hsv.z;
     float3 tintedHsv = float3(hsv.x + tintHsv.x, hsv.y * tintHsv.y, hsv.z * tintHsv.z);
-    return half4(HSV2RGB(tintedHsv), color.a);
+    return half4(HSV2RGB(tintedHsv), color.a * tint.a);
 }

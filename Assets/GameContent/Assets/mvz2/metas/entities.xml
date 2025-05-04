@@ -488,6 +488,28 @@
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
+        <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍敌人前进，并吸收子弹来治疗自己" unlock="mvz2:level.mausoleum_2">
+            <bool name="canDeactive" value="false"/>
+            <bool name="defensive" value="true"/>
+            <bool name="fragments/noDamageFragments" value="true"/>
+            <float name="maxHealth" value="3000"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <id name="placement" value="mvz2:suspension"/>
+            <id name="shell" value="mvz2:metal"/>
+            <id name="hitSound" value="mvz2:energy_shield_hit"/>
+            <id name="placeSound" value="mvz2:energy_shield"/>
+            <id name="deathSound" value="mvz2:tesla_destroy"/>
+
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="80" y="80" z="80"/>
+            <color name="lightColor" value="#00BBFF"/>
+            <int name="waterInteraction" value="0"/>
+
+            <vector3 name="shadowScale" x="0.5" y="0.5" z="0.5"/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:long" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
@@ -1287,10 +1309,12 @@
             <float name="gravity" value="1"/>
         </effect>
         <effect id="thunder_bolt">
+            <bool name="effective" value="true"/>
             <int name="maxTimeout" value="30"/>
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="3000" y="3000" z="3000"/>
             <color name="lightColor" value="#FF00FF"/>
+            <color name="tint" value="#FF00FF" />
         </effect>
         <effect id="evocation_star" >
             <int name="maxTimeout" value="45"/>
@@ -1493,6 +1517,13 @@
         </effect>
         <effect id="castle_twilight">
             <int name="sortingOrder" value="-9999"/>
+        </effect>
+        <effect id="thunder_bolt_horizontal">
+            <bool name="effective" value="true"/>
+            <int name="maxTimeout" value="30"/>
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="3000" y="3000" z="3000"/>
+            <color name="lightColor" value="#FFFFFF"/>
         </effect>
     </entries>
 </entities>

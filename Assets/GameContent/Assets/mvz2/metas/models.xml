@@ -34,6 +34,7 @@
     <model name="giant_bowl" type="entity" path="mvz2:contraption/castle/giant_bowl" width="64" height="64" xOffset="0" yOffset="-28"/>
     
     <model name="note_block" type="entity" path="mvz2:contraption/mausoleum/note_block" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="lightning_orb" type="entity" path="mvz2:contraption/mausoleum/lightning_orb" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -129,7 +130,7 @@
     <model name="fragment" type="entity" path="mvz2:effect/fragment" shot="false" width="160" height="160" xOffset="0" yOffset="0"/>
     <model name="star_particles" type="entity" path="mvz2:effect/star_particles" shot="false" width="160" height="160" xOffset="0" yOffset="0"/>
     <model name="smoke" type="entity" path="mvz2:effect/smoke" width="160" shot="false" height="160" xOffset="0" yOffset="0"/>
-    <model name="thunder_bolt" type="entity" path="mvz2:effect/thunder_bolt" width="120" height="550" xOffset="0" yOffset="-275"/>
+    <model name="thunder_bolt" type="entity" path="mvz2:effect/thunder_bolt" width="120" height="920" xOffset="0" yOffset="-460"/>
     <model name="evocation_star" type="entity" path="mvz2:effect/evocation_star" width="240" height="240" xOffset="0" yOffset="0"/>
     <model name="shine_ring" type="entity" path="mvz2:effect/shine_ring" shot="false" width="100" height="100" xOffset="0" yOffset="0"/>
     <model name="stun_stars" type="entity" path="mvz2:effect/stun_stars" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
@@ -181,6 +182,7 @@
     <model name="seija_faint_effect" type="entity" path="mvz2:effect/seija_faint_effect" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="wither_summoners" type="entity" path="mvz2:effect/wither_summoners" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="castle_twilight" type="entity" path="mvz2:effect/castle_twilight" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="thunder_bolt_horizontal" type="entity" path="mvz2:effect/thunder_bolt_horizontal" width="920" height="120" xOffset="437" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
