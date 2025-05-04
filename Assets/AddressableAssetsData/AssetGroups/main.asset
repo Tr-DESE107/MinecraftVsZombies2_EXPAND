@@ -185,6 +185,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09cd73eb06956af489668f59a62cfe84
+    m_Address: mvz2:obstacle/monster_spawner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09e33d4b66b1efa4eb15944bf80b140f
     m_Address: mvz2:entity/contraption/dream_alarm
     m_ReadOnly: 0
@@ -3105,6 +3111,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 766c84d177a47c14694b77f0db00d7a0
+    m_Address: mvz2:effect/ember_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7688971d75bbf484e9d029945a5b0a38
     m_Address: mvz2:entity/gargoyle/gargoyle_death
     m_ReadOnly: 0
@@ -4269,6 +4281,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d7d8c34fc25cfc48886195628af3adf
+    m_Address: mvz2:entity/obstacle/monster_spawner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9db1c252e2a4b0944a7655f2fb93b494
     m_Address: mvz2:random/crystal/crystal_break3
     m_ReadOnly: 0
@@ -5043,6 +5061,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b757bff462de5454c97df5bc746a6c23
+    m_Address: mvz2:mobile_blueprint/monster_spawner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7c80b168e4da364f97d8787bc49699a
     m_Address: mvz2:effect/breakout_board
     m_ReadOnly: 0
@@ -5732,6 +5756,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d135750d2a9f15040ba57b8b867fe2c1
+    m_Address: mvz2:entity/effect/ember
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1792fc8e74e78044ba9bd1d4212f8f7
     m_Address: mvz2:entity/contraption/random_china
@@ -6958,6 +6988,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdd0e6446538d484b9e6fb81268f0a8a
     m_Address: mvz2:effect/fragment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe5d04aaa08bed44ebfe57fab79549a4
+    m_Address: mvz2:effect/spawner_appear_embers
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

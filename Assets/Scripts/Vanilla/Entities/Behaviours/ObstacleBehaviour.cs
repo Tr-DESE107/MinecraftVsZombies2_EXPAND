@@ -1,6 +1,9 @@
-﻿using MVZ2.GameContent.Buffs;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Contraptions;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 
@@ -10,7 +13,6 @@ namespace MVZ2.Vanilla.Entities
     {
         protected ObstacleBehaviour(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaContraptionProps.FRAGMENT_ID, GetID());
         }
         public override void Init(Entity entity)
         {
@@ -38,14 +40,20 @@ namespace MVZ2.Vanilla.Entities
             }
             entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
         }
-        public override void Update(Entity entity)
+        protected void KillConflictContraptions(Entity entity)
         {
-            base.Update(entity);
-        }
-        public override void PostRemove(Entity entity)
-        {
-            base.PostRemove(entity);
-            entity.ClearTakenGrids();
+            var grid = entity.GetGrid();
+            var statueTakenLayers = new List<NamespaceID>();
+            entity.GetTakingGridLayers(grid, statueTakenLayers);
+            var entityTakenLayers = new List<NamespaceID>();
+            foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGrid() == grid))
+            {
+                entityTakenLayers.Clear();
+                contraption.GetTakingGridLayers(grid, entityTakenLayers);
+                if (!entityTakenLayers.Any(l => statueTakenLayers.Contains(l)))
+                    continue;
+                contraption.Die();
+            }
         }
     }
 }

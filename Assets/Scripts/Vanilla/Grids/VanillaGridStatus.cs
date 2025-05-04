@@ -6,6 +6,7 @@ namespace MVZ2.Vanilla.Grids
     {
         public static readonly NamespaceID alreadyTaken = Get("already_taken");
         public static readonly NamespaceID notOnStatues = Get("not_on_statues");
+        public static readonly NamespaceID notOnSpawners = Get("not_on_spawners");
         public static readonly NamespaceID needLilypad = Get("need_lilypad");
         public static readonly NamespaceID notOnWater = Get("not_on_water");
         public static readonly NamespaceID notOnPlane = Get("not_on_plane");

@@ -26,7 +26,7 @@ namespace MVZ2.Vanilla.Entities
             entity.State = VanillaEntityStates.CART_TRIGGERED;
             entity.Velocity = Vector3.right * 10;
             entity.PlaySound(entity.GetCartTriggerSound());
-            entity.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, false);
+            entity.SetCanUpdateBeforeGameStart(false);
             foreach (var behaviour in entity.Definition.GetBehaviours<CartBehaviour>())
             {
                 behaviour.PostTrigger(entity);

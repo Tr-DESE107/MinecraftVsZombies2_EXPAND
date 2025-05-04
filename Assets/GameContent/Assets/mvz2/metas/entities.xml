@@ -1000,6 +1000,14 @@
             <id name="fragmentId" value="mvz2:furnace"/>
             <idArray name="gridLayers" value="mvz2:main mvz2:carrier"/>
         </obstacle>
+        <obstacle id="monster_spawner" name="刷怪笼">
+            <float name="maxHealth" value="1800"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <idArray name="gridLayers" value="mvz2:main mvz2:carrier"/>
+            <id name="shell" value="mvz2:metal"/>
+            <bool name="invincible" value="true"/>
+            <bool name="invisible" value="true"/>
+        </obstacle>
 
         <!-- Bosses -->
         <boss id="frankenstein" name="科学怪人的怪物">
@@ -1373,7 +1381,10 @@
         <effect id="smoke_cluster">
             <int name="maxTimeout" value="30"/>
         </effect>
-        <effect id="rain" />
+        <effect id="rain" >
+            <bool name="updateBeforeGame" value="true"/>
+            <bool name="updateAfterGameOver" value="true"/>
+        </effect>
         <effect id="electric_arc">
             <int name="maxTimeout" value="60"/>
         </effect>
@@ -1528,6 +1539,12 @@
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="3000" y="3000" z="3000"/>
             <color name="lightColor" value="#FFFFFF"/>
+        </effect>
+        <effect id="spawner_appear_embers">
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="ember_particles">
+            <int name="maxTimeout" value="30"/>
         </effect>
     </entries>
 </entities>

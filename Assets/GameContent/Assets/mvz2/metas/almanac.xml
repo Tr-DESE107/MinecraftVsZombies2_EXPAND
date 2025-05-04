@@ -1250,6 +1250,14 @@
                     <p>你别问为什么能直接压死还要发射弩箭，不然这就不叫“画蛇添足”了。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:monster_spawner" name="刷怪笼" model="mvz2:entity.monster_spawner" unlock="mvz2:level.mausoleum_2">
+                <header>
+                    <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。</p>
+                </header>
+                <flavor>
+                    <p>我的水桶、告示牌和灵魂沙呢？</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">

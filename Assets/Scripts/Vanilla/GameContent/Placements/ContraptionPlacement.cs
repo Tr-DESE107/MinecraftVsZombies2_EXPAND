@@ -26,6 +26,11 @@ namespace MVZ2.GameContent.Placements
                     error.Result = VanillaGridStatus.notOnStatues;
                     return;
                 }
+                if (conflictEntities.Any(e => e.IsEntityOf(VanillaObstacleID.monsterSpawner)))
+                {
+                    error.Result = VanillaGridStatus.notOnSpawners;
+                    return;
+                }
                 error.Result = VanillaGridStatus.alreadyTaken;
                 return;
             }

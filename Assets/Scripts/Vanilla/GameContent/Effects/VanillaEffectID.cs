@@ -66,6 +66,8 @@ namespace MVZ2.GameContent.Effects
         public const string castleTwilight = "castle_twilight";
 
         public const string thunderBoltHorizontal = "thunder_bolt_horizontal";
+        public const string emberParticles = "ember_particles";
+        public const string spawnerAppearEmbers = "spawner_appear_embers";
     }
     public static class VanillaEffectID
     {
@@ -130,6 +132,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID castleTwilight = Get(VanillaEffectNames.castleTwilight);
 
         public static readonly NamespaceID thunderBoltHorizontal = Get(VanillaEffectNames.thunderBoltHorizontal);
+        public static readonly NamespaceID emberParticles = Get(VanillaEffectNames.emberParticles);
+        public static readonly NamespaceID spawnerAppearEmbers = Get(VanillaEffectNames.spawnerAppearEmbers);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

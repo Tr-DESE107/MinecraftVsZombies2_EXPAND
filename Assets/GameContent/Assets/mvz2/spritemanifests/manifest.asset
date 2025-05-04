@@ -207,6 +207,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 56017a37b9eab0d489db5ba250433934, type: 3}
   - name: mobile_blueprint/mine_tnt
     sprite: {fileID: 21300000, guid: 3eeaaee3b5925f349bc67370a4813884, type: 3}
+  - name: mobile_blueprint/monster_spawner
+    sprite: {fileID: 21300000, guid: b757bff462de5454c97df5bc746a6c23, type: 3}
   - name: mobile_blueprint/moonlight_sensor
     sprite: {fileID: 21300000, guid: 579cf24a5de6c3449ba61159e5649187, type: 3}
   - name: mobile_blueprint/mummy
@@ -1348,6 +1350,10 @@ MonoBehaviour:
     - {fileID: 1173679832, guid: 58158142a20bad54bb1d4d18b73f88aa, type: 3}
     - {fileID: 287798520, guid: 58158142a20bad54bb1d4d18b73f88aa, type: 3}
     - {fileID: -1565348314, guid: 58158142a20bad54bb1d4d18b73f88aa, type: 3}
+  - name: entity/effect/ember
+    spritesheet:
+    - {fileID: -1235474060, guid: d135750d2a9f15040ba57b8b867fe2c1, type: 3}
+    - {fileID: 2111042568, guid: d135750d2a9f15040ba57b8b867fe2c1, type: 3}
   - name: entity/effect/explosion
     spritesheet:
     - {fileID: 21300000, guid: 615b479630858fa49a2d7717e8adf4ec, type: 3}
@@ -1675,6 +1681,10 @@ MonoBehaviour:
     - {fileID: 1066313923, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
     - {fileID: 639807706, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
     - {fileID: 26981402, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}
+  - name: entity/obstacle/monster_spawner
+    spritesheet:
+    - {fileID: 1118952533, guid: 9d7d8c34fc25cfc48886195628af3adf, type: 3}
+    - {fileID: -1411100427, guid: 9d7d8c34fc25cfc48886195628af3adf, type: 3}
   - name: entity/pickup/emerald
     spritesheet:
     - {fileID: 21300000, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}

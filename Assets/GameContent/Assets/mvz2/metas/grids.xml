@@ -7,6 +7,7 @@
     <errors>
         <error id="already_taken"/>
         <error id="not_on_statues" message="你不能在雕像上放置器械"/>
+        <error id="not_on_spawners" message="你不能在刷怪笼上放置器械"/>
         <error id="need_lilypad" message="请先放睡莲"/>
         <error id="not_on_water" message="你不能在水上放置该器械"/>
         <error id="not_on_plane" message="你不能在薄面上放置该器械"/>

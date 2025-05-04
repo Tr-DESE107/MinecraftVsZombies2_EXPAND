@@ -117,28 +117,35 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Level
         {
-            public const string levelEasy = "level_easy";
-            public const string levelHard = "level_hard";
             public const string taintedSun = "tainted_sun";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
             public const string thunder = "thunder";
             public const string swordParalyzed = "sword_paralyzed";
-            public const string frankensteinStage = "frankenstein_stage";
             public const string nightmareLevel = "nightmare_level";
-            public const string darkMatterDark = "dark_matter_dark";
-            public const string pagodaBranchLevel = "pagoda_branch_level";
             public const string nightmareDecrepify = "nightmare_decrepify";
             public const string nightmareaperDarkness = "nightmareaper_darkness";
+            public const string reverseSatellite = "reverse_satellite";
+            public const string littleZombieLevel = "little_zombie_level";
+            public const string delayedSpawnerTrigger = "delayed_spawner_trigger";
+
+            // 难度
+            public const string levelEasy = "level_easy";
+            public const string levelHard = "level_hard";
+
+            // 制品
+            public const string pagodaBranchLevel = "pagoda_branch_level";
+            public const string darkMatterDark = "dark_matter_dark";
+            public const string greedyVacuum = "greedy_vacuum";
+
+            // 过场
+            public const string frankensteinStage = "frankenstein_stage";
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
-            public const string reverseSatellite = "reverse_satellite";
-            public const string littleZombieLevel = "little_zombie_level";
             public const string seijaAutoCollect = "seija_auto_collect";
             public const string witherTransition = "wither_transition";
             public const string witherCleared = "wither_cleared";
-            public const string greedyVacuum = "greedy_vacuum";
         }
         public static class Boss
         {

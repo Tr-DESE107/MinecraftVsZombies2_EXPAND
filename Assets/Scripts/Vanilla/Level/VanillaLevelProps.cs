@@ -127,6 +127,11 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<int>(STATUE_COUNT);
         }
+        public static readonly PropertyMeta SPAWNER_COUNT = Get("spawnerCount");
+        public static int GetSpawnerCount(this LevelEngine level)
+        {
+            return level.GetProperty<int>(SPAWNER_COUNT);
+        }
         public static bool IsAllEnemiesCleared(this LevelEngine level)
         {
             return level.GetProperty<bool>(VanillaLevelProps.ALL_ENEMIES_CLEARED);

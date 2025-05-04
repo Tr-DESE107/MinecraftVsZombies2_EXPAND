@@ -24,7 +24,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.Init(entity);
             entity.SetFaction(entity.Level.Option.LeftFaction);
-            entity.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, true);
+            entity.SetCanUpdateBeforeGameStart(true);
             entity.AddBuff<CartFadeInBuff>();
         }
 

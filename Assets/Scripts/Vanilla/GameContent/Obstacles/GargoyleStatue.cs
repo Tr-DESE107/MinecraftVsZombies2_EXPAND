@@ -2,6 +2,7 @@
 using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent.Obstacles
     {
         public GargoyleStatue(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(VanillaContraptionProps.FRAGMENT_ID, GetID());
         }
         public override void Init(Entity entity)
         {
@@ -27,18 +29,7 @@ namespace MVZ2.GameContent.Obstacles
 
             entity.InitFragment();
 
-            var grid = entity.GetGrid();
-            var statueTakenLayers = new List<NamespaceID>();
-            entity.GetTakingGridLayers(grid, statueTakenLayers);
-            var entityTakenLayers = new List<NamespaceID>();
-            foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGrid() == grid))
-            {
-                entityTakenLayers.Clear();
-                contraption.GetTakingGridLayers(grid, entityTakenLayers);
-                if (!entityTakenLayers.Any(l => statueTakenLayers.Contains(l)))
-                    continue;
-                contraption.Die();
-            }
+            KillConflictContraptions(entity);
         }
         public override void PostTakeDamage(DamageOutput result)
         {
