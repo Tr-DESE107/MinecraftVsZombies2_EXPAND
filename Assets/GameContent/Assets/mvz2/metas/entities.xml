@@ -19,6 +19,7 @@
 
             <int name="waterInteraction" value="1"/>
 
+            <bool name="receivesLight" value="true"/>
             <bool name="canDeactive" value="true"/>
             <bool name="instantEvoke" value="true"/>
             <float name="maxHealth" value="300"/>
@@ -46,6 +47,7 @@
             <id name="shell" value="mvz2:flesh"/>
             <id name="crySound" value="mvz2:zombie_cry"/>
             <id name="deathSound" value="mvz2:zombie_death"/>
+            <bool name="receivesLight" value="true"/>
             <bool name="faceLeftAtDefault" value="true"/>
             <bool name="undead" value="true"/>
             <bool name="canDeactive" value="true"/>
@@ -62,11 +64,13 @@
             <float name="fallResistance" value="9"/>
             <id name="shell" value="mvz2:stone"/>
             <id name="deathSound" value="mvz2:stone"/>
+            <bool name="receivesLight" value="true"/>
             <bool name="faceLeftAtDefault" value="true"/>
             <idArray name="gridLayers" value="mvz2:main"/>
             <int name="waterInteraction" value="1"/>
         </obstacle>
         <boss id="4" parent="entity">
+            <bool name="receivesLight" value="true"/>
             <float name="fallResistance" value="10000"/>
             <float name="maxHealth" value="1000"/>
             <float name="friction" value="0.15"/>
