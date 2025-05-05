@@ -14,6 +14,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -130,6 +131,8 @@ namespace MVZ2.GameContent.Contraptions
             {
                 ChargedExplode(entity);
             }
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, entity.GetDefinitionID(), c => c(entity));
+
             return damageOutputs;
         }
         private void IgnitedUpdate(Entity entity)

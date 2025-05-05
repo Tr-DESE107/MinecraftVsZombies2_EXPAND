@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-04-17 04:29+0800\n"
-"PO-Revision-Date: 2025-04-17 16:57+0800\n"
+"POT-Creation-Date: 2025-05-05 07:21+0800\n"
+"PO-Revision-Date: 2025-05-05 19:53+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -791,6 +791,61 @@ msgctxt "contraptions.description"
 msgid "话说这该叫盆了吧？"
 msgstr "Shouldn't this be called a basin?"
 
+#. Header for contraptions mvz2:note_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "音符盒发射在自身和敌人间不停反弹的音符，持续造成伤害。"
+msgstr "Note Block shoots notes that bounces between itself and enemies, dealing damage over time."
+
+#. Properties for contraptions mvz2:note_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>5</color>\n"
+"发射速度：<color=red>1.5秒</color>\n"
+"音符上限：<color=red>10</color>\n"
+"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>"
+msgstr ""
+"Damage: <color=red>5</color>\n"
+"Fire rate: <color=red>1.5 seconds</color>\n"
+"Notes limit: <color=red>10</color>\n"
+"Evocation: <color=red>In 30 seconds, deal x500% damage, x500% fire rate and x200% note flying speed</color>"
+
+#. Flavor for contraptions mvz2:note_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "永远不要试图做音符盒的邻居，别问为什么。"
+msgstr "Never ever try to be Note Block's neighbour. No questions asked."
+
+#. Header for contraptions mvz2:lightning_orb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹来治疗自己。"
+msgstr "Lightning Orb can block enemy attacks and absorb projectiles to heal itself."
+
+#. Properties for contraptions mvz2:lightning_orb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>3000</color>\n"
+"特点：<color=red>吸收敌弹，并恢复100耐久</color>\n"
+"技能：<color=red>在3秒内吸收所有伤害，之后将这些伤害返还给本行内所有敌人（最高1800）</color>"
+msgstr ""
+"Toughness: <color=red>3000</color>\n"
+"Special: <color=red>Absorbs projectiles, heals 100 toughness for each projectile</color>\n"
+"Evocation: <color=red>In 3 seconds, absorbs all damage and returns the damage back to all enemies in its row. (up to 1800 damage)</"
+"color>"
+
+#. Flavor for contraptions mvz2:lightning_orb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它就是音符盒的邻居。\n"
+"天哪！还好它能吸收掉那些噪音……"
+msgstr ""
+"He IS the neighbor of Note Block.\n"
+"MY GOD! Good thing that he can absorb all that noise..."
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -1418,6 +1473,40 @@ msgstr ""
 "are often placed.\n"
 "But he doesn't know this, nor many others—and those who do wouldn't dare tell him anyways."
 
+#. Header for enemies mvz2:reflective_barrier_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。"
+msgstr "Reflective Barrier Zombies use reflective barriers to protect themselves and counterattack incoming bullets."
+
+#. Properties for enemies mvz2:reflective_barrier_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+600</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>"
+msgstr ""
+"Toughness: <color=red>200+600</color>\n"
+"Speed: <color=red>1</color>\n"
+"Special: <color=red>When a projectile hits the reflective barrier and disappears, fire a bullet with the same damage back</color>"
+
+#. Flavor for enemies mvz2:reflective_barrier_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"“我诅咒你永世不得超生！”\n"
+"“反弹！”\n"
+"“再反弹！”\n"
+"“反弹回去！”\n"
+"“再弹！”"
+msgstr ""
+"\"I curse you to never find peace in the afterlife!\"\n"
+"\"Deflect!\"\n"
+"\"Double deflect!\"\n"
+"\"Deflect it back!\"\n"
+"\"Deflect again!\""
+
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -1756,8 +1845,18 @@ msgstr "Effect: <color=red>Enemies have 3% chance to be revived as friendly ones
 #. Flavor for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "还没想好写什么"
-msgstr "NO TEXT"
+msgid ""
+"“这是我们之间的秘密哦……”\n"
+"她这么告诉你。\n"
+"\n"
+"但是，可不止你们两个人之间可以有秘密。\n"
+"<b>一个人也是可以有秘密的。</b>"
+msgstr ""
+"\"This is our little secret, you know...\"\n"
+"She tells you.\n"
+"\n"
+"But secrets aren't limited to just between two people.\n"
+"<b>Even a single person can hold secrets.</b>"
 
 #. Header for artifacts mvz2:greedy_vacuum
 #: Almanac meta file
@@ -1790,8 +1889,38 @@ msgstr "A special weapon gifted by Miko, that produces dazzling light when it ex
 #. Properties for artifacts mvz2:lightbomb
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械自爆时对所有敌人造成100点额外伤害</color>"
-msgstr "Effect: <color=red>Deals an additional 100 damage to ALL enemies when a contraption is detonated</color>"
+msgid "效果：<color=red>器械自爆时对所有敌人造成170点额外伤害</color>"
+msgstr "Effect: <color=red>Deals an additional 170 damage to ALL enemies when a contraption is detonated</color>"
+
+#. Flavor for artifacts mvz2:lightbomb
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"神子说，\n"
+"首先拔出神圣保险栓。\n"
+"接下来数到十七，不能多，也不能少。\n"
+"数到十七，你应当数到十七，\n"
+"你数到的数字是十七。\n"
+"你既不可数十六，也不可数十八，\n"
+"除非你接下来数到十七。\n"
+"十九已经是数多了。\n"
+"一旦数到十七，成为第十七个被数到的数。\n"
+"把你的圣光炸弹高高地扔向敌人，\n"
+"让这些在我眼前作乱的敌人，\n"
+"付出代价。"
+msgstr ""
+"And Miko spake, saying, \n"
+"First shalt thou take out the Holy Pin. \n"
+"Then, shalt thou count to seventeen. No more. No less.\n"
+"Seventeen shalt be the number thou shalt count,\n"
+"and the number of the counting shall be seventeen.\n"
+"Eighteen shalt thou not count, neither count thou sixteen, excepting that thou then proceed to seventeen.\n"
+"Nineteen is right out.\n"
+"Once at the number seventeen,\n"
+"being the seventeenth number be reached,\n"
+"then, lobbest thou thy Lightbomb towards thy foe,\n"
+"who, being naughty in My sight,\n"
+"shall snuff it."
 
 #. Header for artifacts mvz2:eye_of_the_giant
 #: Almanac meta file
@@ -1804,6 +1933,29 @@ msgstr "Eyeball of the giant."
 msgctxt "artifacts.description"
 msgid "效果：<color=red>器械x250%伤害，但x50%攻击速度</color>"
 msgstr "Effect: <color=red>x250% damage, but x50% attack speed for contraptions</color>"
+
+#. Flavor for artifacts mvz2:eye_of_the_giant
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"巨人的眼睛盯着你看——它似乎有话想对你说。\n"
+"\n"
+"“朋友啊，你觉得，像青娥那样的家伙，在经历了这种事情过后，会悔过自新，选择当一个好人吗？”\n"
+"“会？呵呵，那你就错了。”\n"
+"“只要利益足够诱人，这种人就只会继续贪婪下去——”\n"
+"<color=red>“然后，变得愈发、愈发的<b>贪婪</b>！！！”</color>\n"
+"\n"
+"眼睛愤怒地缩紧了瞳孔。"
+msgstr ""
+"The eye of the giant stares at you - as if it has something to say to you.\n"
+"\n"
+"\"My friend, do you think someone like Seiga would repent and turn over a new leaf after such an ordeal, choosing to become a good "
+"person?\"\n"
+"\"Will they? Then you're mistaken.\"\n"
+"\"As long as the benefits are enticing enough, such people will only continue to act out of greed—\"\n"
+"<color=red>\"Then, become even more, more <b>GREEDY</b>!!!\"</color>\n"
+"\n"
+"The eye angrily narrows its pupil."
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -2146,6 +2298,50 @@ msgstr ""
 "\n"
 "Yet one cannot help but marvel: since when have these withered fiends possessed such cunning? Such mastery of technology, warping the "
 "very fabric of perception?"
+
+#. Name for misc mvz2:ballista
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "小型弩车"
+msgstr "Mini Ballista"
+
+#. Header for misc mvz2:ballista
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "小型弩车在碰到敌人后会发射致命弩箭，并向前冲锋碾压敌人。"
+msgstr "Mini ballista launches deadly bolts upon collision with enemies, then charges forward to crush them."
+
+#. Properties for misc mvz2:ballista
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "伤害：<color=red>58115310</color>"
+msgstr "Damage: <color=red>58115310</color>"
+
+#. Flavor for misc mvz2:ballista
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "你别问为什么能直接压死还要发射弩箭，不然这就不叫“画蛇添足”了。"
+msgstr ""
+"Don't ask why it needs to shoot bolts when it could just crush them outright - that's what makes it a perfect example of \"<b>adding "
+"legs to a snake</b>\" — unnecessary but hilariously extra!"
+
+#. Name for misc mvz2:monster_spawner
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "刷怪笼"
+msgstr "Monster Spawner"
+
+#. Header for misc mvz2:monster_spawner
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。"
+msgstr "Spawner will summon an enemy inside it when a huge wave of monsters is approaching."
+
+#. Flavor for misc mvz2:monster_spawner
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "我的水桶、告示牌和灵魂沙呢？"
+msgstr "Where're my water buckets, signs and soul sands?"
 
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
@@ -3015,6 +3211,30 @@ msgctxt "entity.tooltip"
 msgid "生产并储存星之碎片"
 msgstr "Produces and stores starshards"
 
+#. Header for entity mvz2:note_block
+#: Entity meta file
+msgctxt "entity.name"
+msgid "音符盒"
+msgstr "Note Block"
+
+#. Properties for entity mvz2:note_block
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射反弹的音符"
+msgstr "Fire bouncing notes"
+
+#. Header for entity mvz2:lightning_orb
+#: Entity meta file
+msgctxt "entity.name"
+msgid "闪电之珠"
+msgstr "Lightning Orb"
+
+#. Properties for entity mvz2:lightning_orb
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "阻碍敌人前进，并吸收子弹来治疗自己"
+msgstr "Blocks enemies and absorb projectiles"
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -3317,6 +3537,18 @@ msgctxt "death_message"
 msgid "别把头埋在沙子里！"
 msgstr "Don't bury your head in the sand!"
 
+#. Header for entity mvz2:reflective_barrier_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "反射壁僵尸"
+msgstr "Reflective Barrier Zombie"
+
+#. Death message for entity mvz2:reflective_barrier_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "我反弹你的反弹"
+msgstr "I reflects your reflection"
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -3443,6 +3675,12 @@ msgctxt "entity.name"
 msgid "石像鬼雕像"
 msgstr "Gargoyle Statue"
 
+#. Header for entity mvz2:monster_spawner
+#: Entity meta file
+msgctxt "entity.name"
+msgid "刷怪笼"
+msgstr "Monster Spawner"
+
 #. Header for entity mvz2:frankenstein
 #: Entity meta file
 msgctxt "entity.name"
@@ -3502,6 +3740,12 @@ msgstr "Nyaightmare"
 msgctxt "entity.name"
 msgid "碗车"
 msgstr "Bowl Cart"
+
+#. Header for entity mvz2:ballista
+#: Entity meta file
+msgctxt "entity.name"
+msgid "小型弩车"
+msgstr "Mini Ballista"
 
 #. Header for entity mvz2:redstone
 #: Entity meta file
@@ -3800,8 +4044,8 @@ msgstr "Lightbomb"
 #. Tooltip for artifact mvz2:lightbomb
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械自爆时还会额外对所有敌人造成100点伤害"
-msgstr "Deal an additional 100 damage to ALL enemies when a contraption is detonated"
+msgid "器械自爆时还会额外对所有敌人造成170点伤害"
+msgstr "Deal an additional 170 damage to ALL enemies when a contraption is detonated"
 
 #. Name for artifact mvz2:eye_of_the_giant
 #: Artifact meta file
@@ -3826,6 +4070,10 @@ msgstr "Bottled Blackhole"
 msgctxt "artifact.tooltip"
 msgid "每有一个蓝图空位，+15%器械伤害"
 msgstr "+15% contraption damage for each empty blueprint slot"
+
+#~ msgctxt "artifacts.description"
+#~ msgid "还没想好写什么"
+#~ msgstr "NO TEXT"
 
 #~ msgctxt "artifacts.description"
 #~ msgid "辉针城内装饰用的灯笼，被扯坏了。"

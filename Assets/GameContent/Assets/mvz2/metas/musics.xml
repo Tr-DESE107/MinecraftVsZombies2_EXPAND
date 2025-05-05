@@ -228,7 +228,7 @@
         </description>
     </music>
 
-    <music id="mausoleum_map" path="mvz2:mausoleum_map" name="游魂的夜樱">
+    <music id="mausoleum_map" path="mvz2:mausoleum_map" name="游魂的夜樱" unlock="mvz2:level.mausoleum_1">
         <source>东方神灵庙</source>
         <origin>死灵的夜樱</origin>
         <author>幻梦忧</author>

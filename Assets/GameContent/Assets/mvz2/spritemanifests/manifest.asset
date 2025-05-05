@@ -149,6 +149,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker
     sprite: {fileID: 21300000, guid: 02d02d3206dc8484c8e80a0aa53c8725, type: 3}
+  - name: mobile_blueprint/cave_spider
+    sprite: {fileID: 21300000, guid: 2be33464724166c4fa3a121643edceb8, type: 3}
   - name: mobile_blueprint/diamond_spikes
     sprite: {fileID: 21300000, guid: a91f725ba10a5c545a6a951003948a10, type: 3}
   - name: mobile_blueprint/dispenser
@@ -211,6 +213,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b757bff462de5454c97df5bc746a6c23, type: 3}
   - name: mobile_blueprint/moonlight_sensor
     sprite: {fileID: 21300000, guid: 579cf24a5de6c3449ba61159e5649187, type: 3}
+  - name: mobile_blueprint/mother_terror
+    sprite: {fileID: 21300000, guid: 3a4d775ca16aed8489fddf37bc1ced64, type: 3}
   - name: mobile_blueprint/mummy
     sprite: {fileID: 21300000, guid: 9471881cde5f3d841abcd44501e0f922, type: 3}
   - name: mobile_blueprint/mutant_zombie
@@ -223,6 +227,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 25a4420fd4681d943a556df9d9a939d2, type: 3}
   - name: mobile_blueprint/obsidian
     sprite: {fileID: 21300000, guid: 4d49d253e83fc104d9eb629a8a238ee3, type: 3}
+  - name: mobile_blueprint/parasite_terror
+    sprite: {fileID: 21300000, guid: 333296bf7a142dd43a413222f3881bcb, type: 3}
   - name: mobile_blueprint/pistenser
     sprite: {fileID: 21300000, guid: cdec7faf255eabe4195b58d4652126e3, type: 3}
   - name: mobile_blueprint/punchton
@@ -253,6 +259,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ee236b9bf29256844b94ea76798c4239, type: 3}
   - name: mobile_blueprint/soul_furnace
     sprite: {fileID: 21300000, guid: 11ac6f32e59e29e4aa1067a79c215185, type: 3}
+  - name: mobile_blueprint/spider
+    sprite: {fileID: 21300000, guid: a11a5b163ead6624ea57a93be24665a2, type: 3}
   - name: mobile_blueprint/spike_block
     sprite: {fileID: 21300000, guid: d0f973bcd4babdc40b8ee0cfc233300c, type: 3}
   - name: mobile_blueprint/stone_dropper

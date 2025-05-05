@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-03-26 10:29+0800\n"
+"POT-Creation-Date: 2025-05-05 07:21+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -568,37 +568,37 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:220
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:221
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:222
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:223
 msgctxt "random_china.event_name"
 msgid "陶瓷镇"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:224
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:225
 msgctxt "random_china.event_name"
 msgid "塔-XVI"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:226
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:227
 msgctxt "random_china.event_name"
 msgid "红石俱备"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:228
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:229
 msgctxt "random_china.event_name"
 msgid "方片A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:230
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:231
 msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr ""
@@ -1057,72 +1057,72 @@ msgid ""
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:212
+#: Scripts\MVZ2\Options\OptionsLogic.cs:215
 msgid "交换触发：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:214
+#: Scripts\MVZ2\Options\OptionsLogic.cs:217
 msgid "全屏：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:216
+#: Scripts\MVZ2\Options\OptionsLogic.cs:219
 msgid "设备震动：{0}"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:218
+#: Scripts\MVZ2\Options\OptionsLogic.cs:221
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:220
+#: Scripts\MVZ2\Options\OptionsLogic.cs:223
 msgid "后台暂停：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:224
+#: Scripts\MVZ2\Options\OptionsLogic.cs:227
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:226
+#: Scripts\MVZ2\Options\OptionsLogic.cs:229
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:228
+#: Scripts\MVZ2\Options\OptionsLogic.cs:231
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Options\OptionsLogic.cs:230
+#: Scripts\MVZ2\Options\OptionsLogic.cs:233
 msgid "{0}%"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:233
+#: Scripts\MVZ2\Options\OptionsLogic.cs:236
 msgid "血与碎块：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:236
+#: Scripts\MVZ2\Options\OptionsLogic.cs:239
 msgid "跳过对话：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:238
+#: Scripts\MVZ2\Options\OptionsLogic.cs:241
 msgid "赞助者名称：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:241
+#: Scripts\MVZ2\Options\OptionsLogic.cs:244
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:243
+#: Scripts\MVZ2\Options\OptionsLogic.cs:246
 msgid "屏幕震动：{0}"
 msgstr ""
 
@@ -1149,33 +1149,33 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:654
+#: Scripts\MVZ2\Map\MapController.cs:666
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:656
+#: Scripts\MVZ2\Map\MapController.cs:668
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:658
+#: Scripts\MVZ2\Map\MapController.cs:670
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:660
+#: Scripts\MVZ2\Map\MapController.cs:672
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:365
+#: Scripts\MVZ2\Managers\MainManager.cs:367
 msgid "获取赞助者列表……"
 msgstr ""
 
@@ -1376,6 +1376,12 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "辉针城无尽"
+msgstr ""
+
+#. Name for stage mvz2:mausoleum_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦殿大祀庙"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place
@@ -1972,6 +1978,42 @@ msgid ""
 "因为老大哥在看着我。"
 msgstr ""
 
+#. Name for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.name"
+msgid "游魂的夜樱"
+msgstr ""
+
+#. Source for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.source"
+msgid "东方神灵庙"
+msgstr ""
+
+#. Origin for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.origin"
+msgid "死灵的夜樱"
+msgstr ""
+
+#. Description for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙地图的音乐。\n"
+"原曲是《东方神灵庙》第一关的音乐《死灵的夜樱》。\n"
+"人死，人埋，人有欲望尚存。\n"
+"人遂化为僵尸，如游魂般在这世上游荡，心中只剩下一个巨大的空洞。\n"
+"唯一能证明自己还存在的，便是那无限的，对于进食的渴求。\n"
+"可是，人明明已经死去，这般欲望又有什么意义呢？"
+msgstr ""
+
+#. Name for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.name"
+msgid "梦殿大祀庙"
+msgstr ""
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -2048,6 +2090,12 @@ msgstr ""
 #: Grid meta file
 msgctxt "advice"
 msgid "你不能在雕像上放置器械"
+msgstr ""
+
+#. Message for grid error mvz2:not_on_spawners
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在刷怪笼上放置器械"
 msgstr ""
 
 #. Message for grid error mvz2:need_lilypad

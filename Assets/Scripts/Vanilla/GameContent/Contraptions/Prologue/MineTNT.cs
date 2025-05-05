@@ -5,6 +5,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
@@ -15,8 +16,10 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -121,6 +124,7 @@ namespace MVZ2.GameContent.Contraptions
             self.Remove();
             self.PlaySound(VanillaSoundID.mineExplode);
             self.Level.ShakeScreen(10, 0, 15);
+            self.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, self.GetDefinitionID(), c => c(self));
         }
         private static Entity FireSeed(Entity contraption, LawnGrid grid)
         {

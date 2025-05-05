@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-26 10:29+0800\n"
-"PO-Revision-Date: 2025-03-26 22:32+0800\n"
+"POT-Creation-Date: 2025-05-05 07:21+0800\n"
+"PO-Revision-Date: 2025-05-05 19:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -544,37 +544,37 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:220
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:221
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
 msgstr "Obsidian Prisons"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:222
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:223
 msgctxt "random_china.event_name"
 msgid "陶瓷镇"
 msgstr "China Town"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:224
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:225
 msgctxt "random_china.event_name"
 msgid "塔-XVI"
 msgstr "The Tower - XVI"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:226
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:227
 msgctxt "random_china.event_name"
 msgid "红石俱备"
 msgstr "Redstone Ready"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:228
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:229
 msgctxt "random_china.event_name"
 msgid "方片A"
 msgstr "Ace of Diamonds"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:230
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:231
 msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr "Hell Metal"
@@ -977,59 +977,59 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:212
+#: Scripts\MVZ2\Options\OptionsLogic.cs:215
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:214
+#: Scripts\MVZ2\Options\OptionsLogic.cs:217
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:216
+#: Scripts\MVZ2\Options\OptionsLogic.cs:219
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:218
+#: Scripts\MVZ2\Options\OptionsLogic.cs:221
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:220
+#: Scripts\MVZ2\Options\OptionsLogic.cs:223
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:224
+#: Scripts\MVZ2\Options\OptionsLogic.cs:227
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:226
+#: Scripts\MVZ2\Options\OptionsLogic.cs:229
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:228
+#: Scripts\MVZ2\Options\OptionsLogic.cs:231
 msgid "加速倍率：{0}"
 msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:230
+#: Scripts\MVZ2\Options\OptionsLogic.cs:233
 msgid "{0}%"
 msgstr "{0}%"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:233
+#: Scripts\MVZ2\Options\OptionsLogic.cs:236
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:236
+#: Scripts\MVZ2\Options\OptionsLogic.cs:239
 msgid "跳过对话：{0}"
 msgstr "Skip talks: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:238
+#: Scripts\MVZ2\Options\OptionsLogic.cs:241
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:241
+#: Scripts\MVZ2\Options\OptionsLogic.cs:244
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:243
+#: Scripts\MVZ2\Options\OptionsLogic.cs:246
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -1053,7 +1053,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Author: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:654
+#: Scripts\MVZ2\Map\MapController.cs:666
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1061,7 +1061,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:656
+#: Scripts\MVZ2\Map\MapController.cs:668
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1069,11 +1069,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:658
+#: Scripts\MVZ2\Map\MapController.cs:670
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:660
+#: Scripts\MVZ2\Map\MapController.cs:672
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1081,7 +1081,7 @@ msgstr ""
 "Flags\n"
 "{0}/{1}"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:365
+#: Scripts\MVZ2\Managers\MainManager.cs:367
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
@@ -1272,6 +1272,12 @@ msgstr "Castle"
 msgctxt "levelname"
 msgid "辉针城无尽"
 msgstr "Castle Endless"
+
+#. Name for stage mvz2:mausoleum_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦殿大祀庙"
+msgstr "Mausoleum"
 
 #. Name for stat category mvz2:contraption_place
 #: Stats meta file
@@ -2031,6 +2037,56 @@ msgstr ""
 "more.\n"
 "Because <I>Big Brother</i> is watching me."
 
+#. Name for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.name"
+msgid "游魂的夜樱"
+msgstr "Night Sakura of the Hollowed"
+
+#. Source for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.source"
+msgid "东方神灵庙"
+msgstr "Ten Desires"
+
+#. Origin for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.origin"
+msgid "死灵的夜樱"
+msgstr "Night Sakura of Dead Spirits"
+
+#. Description for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙地图的音乐。\n"
+"原曲是《东方神灵庙》第一关的音乐《死灵的夜樱》。\n"
+"人死，人埋，人有欲望尚存。\n"
+"人遂化为僵尸，如游魂般在这世上游荡，心中只剩下一个巨大的空洞。\n"
+"唯一能证明自己还存在的，便是那无限的，对于进食的渴求。\n"
+"可是，人明明已经死去，这般欲望又有什么意义呢？"
+msgstr ""
+"The music for the map of Hall of Dreams' Great Mausoleum.\n"
+"The original music is the 1th stage music <i>Night Sakura of Dead Spirits</"
+"i> in <i>Ten Desires</i>.\n"
+"Men die. Men are buried. Yet their desires linger.\n"
+"Transformed into zombies, they wander the mortal plane like spectral "
+"drifters,\n"
+"their hollowed chests cradling cavernous voids.\n"
+"\n"
+"The only proof of their lingering existence?\n"
+"A ceaseless hunger for sustenance—\n"
+"though their rotting jaws taste neither blood nor rice.\n"
+"\n"
+"But when the flesh has long decayed,\n"
+"what meaning remains in these earthly hungers?"
+
+#. Name for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.name"
+msgid "梦殿大祀庙"
+msgstr "The Hall of Dreams' Great Mausoleum"
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -2108,6 +2164,12 @@ msgstr "Store"
 msgctxt "advice"
 msgid "你不能在雕像上放置器械"
 msgstr "You cannot place contraptions on statues"
+
+#. Message for grid error mvz2:not_on_spawners
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在刷怪笼上放置器械"
+msgstr "You cannot place contraptions on spawners"
 
 #. Message for grid error mvz2:need_lilypad
 #: Grid meta file
