@@ -78,6 +78,11 @@
     <model name="mother_terror" type="entity" path="mvz2:enemy/dream/mother_terror" width="108" height="108" xOffset="0" yOffset="-48"/>
     <model name="parasite_terror" type="entity" path="mvz2:enemy/dream/parasite_terror" width="54" height="54" xOffset="0" yOffset="-24"/>
 
+	<model name="WitherSkeleton" type="entity" path="mvz2:enemy/castle/WitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="LeatherWitherSkeleton" type="entity" path="mvz2:enemy/castle/LeatherWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="IronWitherSkeleton" type="entity" path="mvz2:enemy/castle/IronWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="FlagWitherSkeleton" type="entity" path="mvz2:enemy/castle/FlagWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	
     <model name="mesmerizer" type="entity" path="mvz2:enemy/castle/mesmerizer" width="64" height="116" xOffset="10" yOffset="-64"/>
     <model name="berserker" type="entity" path="mvz2:enemy/castle/berserker" width="64" height="100" xOffset="10" yOffset="-46"/>
     <model name="dullahan" type="entity" path="mvz2:enemy/castle/dullahan" width="94" height="120" xOffset="9" yOffset="-53"/>

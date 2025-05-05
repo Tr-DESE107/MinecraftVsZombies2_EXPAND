@@ -827,7 +827,40 @@
         </enemy>
 
         <!-- Castle Enemies -->
-        <enemy id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
+		<enemy id="WitherSkeleton" name="凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
+			<id name="hitSound" value="mvz2:bone_hit"/>
+			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
+		</enemy>
+		<enemy id="LeatherWitherSkeleton" name="皮帽凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+			<int name="cost" value="75" />
+			<int name="waterInteraction" value="2"/>
+			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
+			<id name="hitSound" value="mvz2:bone_hit"/>
+			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
+		</enemy>
+		<enemy id="IronWitherSkeleton" name="铁盔凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+			<int name="cost" value="125" />
+			<int name="waterInteraction" value="2"/>
+			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
+			<id name="hitSound" value="mvz2:bone_hit"/>
+			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
+		</enemy>
+		<enemy id="FlagWitherSkeleton" name="旗帜凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+			<int name="cost" value="300" />
+			<int name="waterInteraction" value="2"/>
+			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
+			<id name="hitSound" value="mvz2:bone_hit"/>
+			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
+			<float name="damage" value="200"/>
+			<float name="speed" value="2"/>
+
+		</enemy>
+
+
+		<enemy id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
             <float name="range" value="800"/>
             <vector3 name="shotOffset" x="30" y="96" z="0"/>
             <vector3 name="shotVelocity" x="0" y="0" z="0"/>

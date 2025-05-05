@@ -126,6 +126,30 @@
 	</entry>
 	
     <!-- Castle -->
+	<entry id="WitherSkeleton" entity="mvz2:WitherSkeleton" >
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true"/>
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
+	<entry id="LeatherWitherSkeleton" entity="mvz2:LeatherWitherSkeleton" >
+		<spawn level="2" />
+		<preview count="2" />
+		<terrain water="true"/>
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
+	</entry>
+	<entry id="IronWitherSkeleton" entity="mvz2:IronWitherSkeleton" >
+		<spawn level="4" />
+		<terrain water="true"/>
+		<weight base="3000" />
+	</entry>
+	<entry id="FlagWitherSkeleton" entity="mvz2:FlagWitherSkeleton" >
+		<spawn level="0" />
+		<terrain water="true"/>
+		<weight base="0" />
+	</entry>
+	
+	
     <entry id="mesmerizer" entity="mvz2:mesmerizer" >
         <spawn level="3" />
         <weight base="2500" />
@@ -143,6 +167,8 @@
         <weight base="2000" />
     </entry>
 
+
+	<!-- Ship -->
 	<entry id="HeavyGutant" entity="mvz2:HeavyGutant" >
 		<spawn level="10"/>
 		<terrain water="true"/>

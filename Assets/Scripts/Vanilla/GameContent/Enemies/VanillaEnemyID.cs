@@ -34,6 +34,11 @@ namespace MVZ2.GameContent.Enemies
         public const string motherTerror = "mother_terror";
         public const string parasiteTerror = "parasite_terror";
 
+        public const string WitherSkeleton = "WitherSkeleton";
+        public const string LeatherWitherSkeleton = "LeatherWitherSkeleton";
+        public const string IronWitherSkeleton = "IronWitherSkeleton";
+        public const string FlagWitherSkeleton = "FlagWitherSkeleton";
+
         public const string mesmerizer = "mesmerizer";
         public const string berserker = "berserker";
         public const string dullahan = "dullahan";
@@ -88,6 +93,12 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ghast = Get(VanillaEnemyNames.ghast);
         public static readonly NamespaceID motherTerror = Get(VanillaEnemyNames.motherTerror);
         public static readonly NamespaceID parasiteTerror = Get(VanillaEnemyNames.parasiteTerror);
+
+        public static readonly NamespaceID WitherSkeleton = Get(VanillaEnemyNames.WitherSkeleton);
+        public static readonly NamespaceID LeatherWitherSkeleton = Get(VanillaEnemyNames.LeatherWitherSkeleton);
+        public static readonly NamespaceID IronWitherSkeleton = Get(VanillaEnemyNames.IronWitherSkeleton);
+        public static readonly NamespaceID FlagWitherSkeleton = Get(VanillaEnemyNames.FlagWitherSkeleton);
+
         public static readonly NamespaceID mesmerizer = Get(VanillaEnemyNames.mesmerizer);
         public static readonly NamespaceID berserker = Get(VanillaEnemyNames.berserker);
         public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);

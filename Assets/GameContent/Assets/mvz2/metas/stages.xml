@@ -556,9 +556,9 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_dropper"/>
         <spawns flags="1">
-            <spawn id="mvz2:zombie"/>
-            <spawn id="mvz2:leather_capped_zombie"/>
-            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:WitherSkeleton"/>
+            <spawn id="mvz2:LeatherWitherSkeleton"/>
+            <spawn id="mvz2:IronWitherSkeleton"/>
         </spawns>
     </stage>
     <stage id="castle_2" name="辉针城" dayNumber="2" unlock="mvz2:level.castle_1">
