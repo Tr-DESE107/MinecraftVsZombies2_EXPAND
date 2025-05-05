@@ -228,7 +228,18 @@
         </description>
     </music>
 
-    <music id="mausoleum_map" path="mvz2:mausoleum_map" name="欲望加速">
+    <music id="mausoleum_map" path="mvz2:mausoleum_map" name="游魂的夜樱">
+        <source>东方神灵庙</source>
+        <origin>死灵的夜樱</origin>
+        <author>幻梦忧</author>
+        <description>
+            <p>梦殿大祀庙地图的音乐。</p>
+            <p>原曲是《东方神灵庙》第一关的音乐《死灵的夜樱》。</p>
+            <p>人死，人埋，人有欲望尚存。</p>
+            <p>人遂化为僵尸，如游魂般在这世上游荡，心中只剩下一个巨大的空洞。</p>
+            <p>唯一能证明自己还存在的，便是那无限的，对于进食的渴求。</p>
+            <p>可是，人明明已经死去，这般欲望又有什么意义呢？</p>
+        </description>
     </music>
     <music id="mausoleum_level" path="mvz2:mausoleum_level" name="梦殿大祀庙">
     </music>
